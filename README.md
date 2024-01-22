@@ -15,7 +15,7 @@ Cooper is a tool for Northeastern students to both submit reviews of their co-op
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
 
-## Running Locally
+## Running Locally For Development
 
 Before you start you will need the following:
 
@@ -30,7 +30,7 @@ git clone git@github.com:sandboxnu/cooper.git
 cd cooper
 ```
 
-2. Install the necessary dependencies
+2. Install the necessary dependencies. The `postinstall` script also runs `prisma generate`.
 
 ```bash
 pnpm install
@@ -46,16 +46,15 @@ docker compose up -d
 
 > **Note:** The `docker-compose.yml` file sets the `POSTGRES_USER` as "admin", `POSTGRES_PASSWORD` as "admin", and `POSTGRES_DB` as "cooper" by default.
 
-5. Generate the Prisma Client
-
+5. Sync the `prisma` schema with the database schema. Do **not** run this in a production environment.
 ```bash
-pnpm dlx prisma generate
+pnpm dlx prisma db push
 ```
 
 6. Run the application
 
 ```bash
-pnpm run
+pnpm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the results.
@@ -68,14 +67,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 cp .env.example .env
 ```
 
-2. Complete the file to add your environment variables.
+2. Complete the file to add your environment variables. These are the defaults for local development. Make sure that the `docker` container is running.
 
 ```env
 DATABASE_URL="postgresql://admin:admin@localhost:5432/cooper?schema=public"
-NEXTAUTH_URL="http://localhost:3000/"
-
-GOOGLE_CLIENT_ID=
-GOOGLE_CLIENT_SECRET=
+NEXTAUTH_URL="localhost:3000"
 ```
-
-To generate `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`, see [Setting up OAuth 2.0](https://support.google.com/cloud/answer/6158849?hl=en).
