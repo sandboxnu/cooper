@@ -9,6 +9,7 @@ on:
 env:
   NODE_VERSION: 20
   PNPM_VERSION: 8
+  DATABASE_URL: "postgresql://admin:admin@localhost:5432/cooper?schema=public"
 
 jobs:
   lint:
