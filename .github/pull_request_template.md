@@ -6,7 +6,7 @@ Only add the task number to the above statement if you have finished all of the 
 
 ## Things to be reviewed
 
-## Screenshots if applicable
+## Screenshots (if applicable)
 
 ## Checklist
 
