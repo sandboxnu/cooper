@@ -10,6 +10,8 @@
     "dev": "next dev",
     "postinstall": "prisma generate",
     "lint": "next lint",
+    "format:check": "prettier --check --ignore-path .gitignore .",
+    "format": "prettier --write --ignore-path .gitignore .",
     "start": "next start"
   },
   "dependencies": {
