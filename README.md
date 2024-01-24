@@ -10,7 +10,7 @@ Cooper is a tool for Northeastern students to both submit reviews of their co-op
 - [Prisma](https://www.prisma.io/) - ORM
 - [PostgreSQL](https://www.postgresql.org/) - Relational database
 - [Docker](https://www.docker.com/) - Containerization
-- [tRPC](https://trpc.io/) - Client-server safety
+- [tRPC](https://trpc.io/) - End-to-end typesafe API
 - [Zod](https://zod.dev/) - Validation
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
