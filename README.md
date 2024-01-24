@@ -47,6 +47,7 @@ docker compose up -d
 > **Note:** The `docker-compose.yml` file sets the `POSTGRES_USER` as "admin", `POSTGRES_PASSWORD` as "admin", and `POSTGRES_DB` as "cooper" by default.
 
 5. Sync the `prisma` schema with the database schema. Do **not** run this in a production environment.
+
 ```bash
 pnpm dlx prisma db push
 ```
