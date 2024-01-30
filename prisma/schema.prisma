@@ -14,19 +14,19 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-// Necessary for Next auth
+// Necessary for NextAuth
 model Account {
     id                String  @id @default(cuid())
     userId            String
     type              String
     provider          String
     providerAccountId String
-    refresh_token     String? // @db.Text
-    access_token      String? // @db.Text
+    refresh_token     String?
+    access_token      String?
     expires_at        Int?
     token_type        String?
     scope             String?
-    id_token          String? // @db.Text
+    id_token          String?
     session_state     String?
     user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -42,13 +42,15 @@ model Session {
 }
 
 model User {
-    id            String    @id @default(cuid())
+    id            String    @id @unique @default(cuid())
     name          String?
     email         String?   @unique
     emailVerified DateTime?
     image         String?
     accounts      Account[]
     sessions      Session[]
+
+    profile Profile?
 }
 
 model VerificationToken {
@@ -57,4 +59,120 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+// End of NextAuth specific schemas
+
+model Profile {
+    id              String   @id @default(cuid())
+    firstName       String
+    lastName        String
+    major           String
+    minor           String?
+    graduationYear  Int
+    graduationMonth Int
+    createdAt       DateTime @default(now())
+
+    reviews Review[]
+
+    user   User   @relation(fields: [id], references: [id])
+    userId String @unique
+}
+
+model Company {
+    id          String   @id @default(cuid())
+    name        String
+    description String?
+    industry    Industry
+    location    String
+    createdAt   DateTime @default(now())
+    roles       Role[]
+}
+
+model Role {
+    id          String @id @default(cuid())
+    title       String
+    description String
+
+    reviews Review[]
+
+    Company   Company? @relation(fields: [companyId], references: [id])
+    companyId String?
+}
+
+model Review {
+    id                  String          @id @default(cuid())
+    workTerm            WorkTerm
+    workYear            Int
+    startDate           DateTime?
+    endDate             DateTime?
+    hourlyPay           Decimal
+    interviewDifficulty Int?
+    interviewExperience Int?
+    supervisorRating    Int?
+    cultureRating       Int?
+    overallRating       Int
+    textReview          String
+    workEnvironment     WorkEnvironment
+    freeLunch           Boolean
+    drugTest            Boolean
+    federalHolidays     Boolean
+    overtimeNormal      Boolean
+    createdAt           DateTime        @default(now())
+
+    Role   Role?   @relation(fields: [roleId], references: [id])
+    roleId String?
+
+    Profile   Profile? @relation(fields: [profileId], references: [id])
+    profileId String?
+}
+
+enum Industry {
+    TECHNOLOGY
+    HEALTHCARE
+    FINANCE
+    EDUCATION
+    MANUFACTURING
+    HOSPITALITY
+    RETAIL
+    TRANSPORTATION
+    ENERGY
+    MEDIA
+    AEROSPACE
+    TELECOMMUNICATIONS
+    BIOTECHNOLOGY
+    PHARMACEUTICAL
+    CONSTRUCTION
+    REALESTATE
+    FASHIONANDBEAUTY
+    ENTERTAINMENT
+    GOVERNMENT
+    NONPROFIT
+    FOODANDBEVERAGE
+    GAMING
+    SPORTS
+    MARKETING
+    CONSULTING
+    FITNESS
+    ECOMMERCE
+    ENVIRONMENTAL
+    ROBOTICS
+    MUSIC
+    INSURANCE
+    DESIGN
+    PUBLISHING
+    ARCHITECTURE
+    VETERINARY
+}
+
+enum WorkEnvironment {
+    IN_PERSON
+    HYBRID
+    REMOTE
+}
+
+enum WorkTerm {
+    FALL
+    SPRING
+    SUMMER
 }
