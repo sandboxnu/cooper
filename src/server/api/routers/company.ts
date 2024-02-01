@@ -1,5 +1,9 @@
 import { z } from "zod";
-import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
+import {
+  createTRPCRouter,
+  protectedProcedure,
+  publicProcedure,
+} from "~/server/api/trpc";
 import { Industry } from "@prisma/client";
 
 export const companyRouter = createTRPCRouter({
@@ -19,21 +23,20 @@ export const companyRouter = createTRPCRouter({
         },
       });
     }),
-  deleteByID: publicProcedure
+  deleteByID: protectedProcedure
     .input(
       z.object({
         id: z.string(),
       }),
     )
     .mutation(({ ctx, input }) => {
-      // TODO : should we delete all of the roles + reviews associated with a company?
       return ctx.db.company.delete({
         where: {
           id: input.id,
         },
       });
     }),
-  postCompany: publicProcedure
+  postCompany: protectedProcedure
     .input(
       z.object({
         name: z.string(),
@@ -52,15 +55,15 @@ export const companyRouter = createTRPCRouter({
         },
       });
     }),
-  updateCompanyById: publicProcedure
+  updateCompanyById: protectedProcedure
     .input(
       z.object({
         id: z.string(),
         data: z.object({
-          name: z.string(),
-          description: z.string(),
-          industry: z.nativeEnum(Industry),
-          location: z.string(),
+          name: z.string().optional(),
+          description: z.string().optional(),
+          industry: z.nativeEnum(Industry).optional(),
+          location: z.string().optional(),
         }),
       }),
     )
