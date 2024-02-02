@@ -1,3 +1,4 @@
+import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import {
   createTRPCRouter,
@@ -22,6 +23,31 @@ export const companyRouter = createTRPCRouter({
         },
       });
     }),
+  getByCompanyName: publicProcedure
+    .input(
+      z.object({
+        companyId: z.string(),
+      }),
+    )
+    .query(async ({ ctx, input }) => {
+      const company = await ctx.db.company.findUnique({
+        where: {
+          id: input.companyId,
+        },
+        include: {
+          roles: true,
+        },
+      });
+
+      if (!company) {
+        throw new TRPCError({
+          code: "BAD_REQUEST",
+          message: `Company with ID ${input.companyId} not found`,
+        });
+      }
+
+      return company.roles;
+    }),
   create: protectedProcedure
     .input(
       z.object({
@@ -35,6 +61,39 @@ export const companyRouter = createTRPCRouter({
         data: {
           title: input.title,
           description: input.description,
+        },
+      });
+    }),
+  update: protectedProcedure
+    .input(
+      z.object({
+        id: z.string(),
+        data: z.object({
+          title: z.string().optional(),
+          description: z.string().optional(),
+        }),
+      }),
+    )
+    .mutation(({ ctx, input }) => {
+      return ctx.db.role.update({
+        where: {
+          id: input.id,
+        },
+        data: {
+          ...input.data,
+        },
+      });
+    }),
+  data: protectedProcedure
+    .input(
+      z.object({
+        id: z.string(),
+      }),
+    )
+    .mutation(({ ctx, input }) => {
+      return ctx.db.role.delete({
+        where: {
+          id: input.id,
         },
       });
     }),
