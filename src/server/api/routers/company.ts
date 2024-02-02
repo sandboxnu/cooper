@@ -7,7 +7,7 @@ import {
 import { Industry } from "@prisma/client";
 
 export const companyRouter = createTRPCRouter({
-  getAll: publicProcedure.query(({ ctx }) => {
+  list: publicProcedure.query(({ ctx }) => {
     return ctx.db.company.findMany();
   }),
   getByName: publicProcedure
@@ -23,7 +23,7 @@ export const companyRouter = createTRPCRouter({
         },
       });
     }),
-  deleteByID: protectedProcedure
+  delete: protectedProcedure
     .input(
       z.object({
         id: z.string(),
@@ -36,7 +36,7 @@ export const companyRouter = createTRPCRouter({
         },
       });
     }),
-  postCompany: protectedProcedure
+  create: protectedProcedure
     .input(
       z.object({
         name: z.string(),
@@ -55,7 +55,7 @@ export const companyRouter = createTRPCRouter({
         },
       });
     }),
-  updateCompanyById: protectedProcedure
+  update: protectedProcedure
     .input(
       z.object({
         id: z.string(),
