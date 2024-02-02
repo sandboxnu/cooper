@@ -84,7 +84,7 @@ export const companyRouter = createTRPCRouter({
         },
       });
     }),
-  data: protectedProcedure
+  delete: protectedProcedure
     .input(
       z.object({
         id: z.string(),
