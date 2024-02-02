@@ -33,6 +33,8 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.6.0",
+    "@commitlint/config-conventional": "^18.6.0",
     "@types/eslint": "^8.44.7",
     "@types/node": "^18.17.0",
     "@types/react": "^18.2.37",
@@ -40,6 +42,8 @@
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
     "autoprefixer": "^10.4.14",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.54.0",
     "eslint-config-next": "^14.0.4",
     "husky": "^9.0.10",
@@ -60,5 +64,10 @@
   "ct3aMetadata": {
     "initVersion": "7.25.2"
   },
-  "packageManager": "pnpm@8.10.5"
+  "packageManager": "pnpm@8.10.5",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
