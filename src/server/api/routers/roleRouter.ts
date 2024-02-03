@@ -53,6 +53,7 @@ export const roleRouter = createTRPCRouter({
       z.object({
         title: z.string(),
         description: z.string(),
+        companyId: z.string(),
       }),
     )
     .mutation(async ({ ctx, input }) => {
@@ -60,6 +61,7 @@ export const roleRouter = createTRPCRouter({
         data: {
           title: input.title,
           description: input.description,
+          companyId: input.companyId,
         },
       });
     }),
@@ -70,6 +72,7 @@ export const roleRouter = createTRPCRouter({
         data: z.object({
           title: z.string().optional(),
           description: z.string().optional(),
+          companyId: z.string().optional(),
         }),
       }),
     )
