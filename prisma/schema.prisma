@@ -87,6 +87,7 @@ model Company {
     location    String
     createdAt   DateTime @default(now())
     roles       Role[]
+    reviews     Review[]
 }
 
 model Role {
@@ -125,6 +126,9 @@ model Review {
 
     Profile   Profile? @relation(fields: [profileId], references: [id])
     profileId String?
+
+    Company   Company? @relation(fields: [companyId], references: [id])
+    companyId String?
 }
 
 enum Industry {
