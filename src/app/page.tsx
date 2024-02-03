@@ -1,4 +1,4 @@
-import { authOptions, getServerAuthSession } from "~/server/auth";
+import { getServerAuthSession } from "~/server/auth";
 
 export default async function Home() {
   const session = await getServerAuthSession();
