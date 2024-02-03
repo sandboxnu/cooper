@@ -72,5 +72,16 @@ cp .env.example .env
 
 ```env
 DATABASE_URL="postgresql://admin:admin@localhost:5432/cooper?schema=public"
-NEXTAUTH_URL="localhost:3000"
+
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET=
+
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+```
+
+To generate `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`, see [Setting up OAuth 2.0](https://support.google.com/cloud/answer/6158849?hl=en). To generate a new `NEXTAUTH_SECRET`, run the following command in your terminal and add it to the `.env` file.
+
+```bash
+openssl rand -base64 32
 ```
