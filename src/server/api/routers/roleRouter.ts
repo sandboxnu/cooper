@@ -6,9 +6,9 @@ import {
   publicProcedure,
 } from "~/server/api/trpc";
 
-export const companyRouter = createTRPCRouter({
-  list: publicProcedure.query(({ ctx }) => {
-    return ctx.db.role.findMany();
+export const roleRouter = createTRPCRouter({
+  list: publicProcedure.query(async ({ ctx }) => {
+    return await ctx.db.role.findMany();
   }),
   getByTitle: publicProcedure
     .input(
@@ -16,14 +16,14 @@ export const companyRouter = createTRPCRouter({
         title: z.string(),
       }),
     )
-    .query(({ ctx, input }) => {
-      return ctx.db.role.findMany({
+    .query(async ({ ctx, input }) => {
+      return await ctx.db.role.findMany({
         where: {
           title: input.title,
         },
       });
     }),
-  getByCompanyName: publicProcedure
+  getByCompany: publicProcedure
     .input(
       z.object({
         companyId: z.string(),
@@ -53,11 +53,10 @@ export const companyRouter = createTRPCRouter({
       z.object({
         title: z.string(),
         description: z.string(),
-        // TODO: Link the role to a Company
       }),
     )
-    .mutation(({ ctx, input }) => {
-      return ctx.db.role.create({
+    .mutation(async ({ ctx, input }) => {
+      return await ctx.db.role.create({
         data: {
           title: input.title,
           description: input.description,
@@ -74,8 +73,8 @@ export const companyRouter = createTRPCRouter({
         }),
       }),
     )
-    .mutation(({ ctx, input }) => {
-      return ctx.db.role.update({
+    .mutation(async ({ ctx, input }) => {
+      return await ctx.db.role.update({
         where: {
           id: input.id,
         },
@@ -90,8 +89,8 @@ export const companyRouter = createTRPCRouter({
         id: z.string(),
       }),
     )
-    .mutation(({ ctx, input }) => {
-      return ctx.db.role.delete({
+    .mutation(async ({ ctx, input }) => {
+      return await ctx.db.role.delete({
         where: {
           id: input.id,
         },
