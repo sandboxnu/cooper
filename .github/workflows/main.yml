@@ -10,9 +10,12 @@ env:
   NODE_VERSION: 20
   PNPM_VERSION: 8
 
-  # Find a workaround to this.
+  # Find a workaround for this.
   DATABASE_URL: "postgresql://admin:admin@localhost:5432/cooper?schema=public"
   NEXTAUTH_URL: "localhost:3000"
+  NEXTAUTH_SECRET: "sec"
+  GOOGLE_CLIENT_ID: "cooper"
+  GOOGLE_CLIENT_SECRET: "cooper"
 
 jobs:
   lint:
