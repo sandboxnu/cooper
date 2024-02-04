@@ -97,7 +97,7 @@ model Role {
 
     reviews Review[]
 
-    company   Company? @relation(fields: [companyId], references: [id])
+    company   Company? @relation(fields: [companyId], references: [id], onDelete: Cascade)
     companyId String?
 }
 
@@ -121,13 +121,13 @@ model Review {
     overtimeNormal      Boolean
     createdAt           DateTime        @default(now())
 
-    role   Role?   @relation(fields: [roleId], references: [id])
+    role   Role?   @relation(fields: [roleId], references: [id], onDelete: Cascade)
     roleId String?
 
     profile   Profile? @relation(fields: [profileId], references: [id])
     profileId String?
 
-    company   Company? @relation(fields: [companyId], references: [id])
+    company   Company? @relation(fields: [companyId], references: [id], onDelete: Cascade)
     companyId String?
 }
 
