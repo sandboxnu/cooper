@@ -1,10 +1,43 @@
+import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc";
+import {
+  createTRPCRouter,
+  protectedProcedure,
+  publicProcedure,
+} from "~/server/api/trpc";
+
+const MAX_GRADUATION_LENGTH = 6;
+const MONTH_LB = 1;
+const MONTH_UB = 12;
+const YEAR_LB = new Date().getFullYear();
+const YEAR_UB = YEAR_LB + MAX_GRADUATION_LENGTH;
 
 export const profileRouter = createTRPCRouter({
-  list: protectedProcedure.query(async ({ ctx }) => {
+  list: publicProcedure.query(async ({ ctx }) => {
     return await ctx.db.profile.findMany();
   }),
+  getById: publicProcedure
+    .input(
+      z.object({
+        id: z.string(),
+      }),
+    )
+    .query(async ({ ctx, input }) => {
+      const profile = await ctx.db.profile.findUnique({
+        where: {
+          id: input.id,
+        },
+      });
+
+      if (!profile) {
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: `Profile with ID ${input.id} not found.`,
+        });
+      }
+
+      return profile;
+    }),
   getCurrentUser: protectedProcedure.query(async ({ ctx }) => {
     return await ctx.db.profile.findMany({
       where: {
@@ -19,9 +52,8 @@ export const profileRouter = createTRPCRouter({
         lastName: z.string(),
         major: z.string(),
         minor: z.string().optional(),
-        // TODO: Update this to something more robust
-        graduationYear: z.number().min(2024).max(2030),
-        graduationMonth: z.number().min(1).max(12),
+        graduationYear: z.number().min(YEAR_LB).max(YEAR_UB),
+        graduationMonth: z.number().min(MONTH_LB).max(MONTH_UB),
       }),
     )
     .mutation(async ({ ctx, input }) => {
@@ -46,13 +78,25 @@ export const profileRouter = createTRPCRouter({
           lastName: z.string().optional(),
           major: z.string().optional(),
           minor: z.string().optional(),
-          // TODO: Update this to something more robust
-          graduationYear: z.number().min(2024).max(2030).optional(),
-          graduationMonth: z.number().min(1).max(12).optional(),
+          graduationYear: z.number().min(YEAR_LB).max(YEAR_UB).optional(),
+          graduationMonth: z.number().min(MONTH_LB).max(MONTH_UB).optional(),
         }),
       }),
     )
     .mutation(async ({ ctx, input }) => {
+      const profile = await ctx.db.profile.findUnique({
+        where: {
+          id: input.id,
+        },
+      });
+
+      if (!profile) {
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: `Profile with ID ${input.id} not found.`,
+        });
+      }
+
       return await ctx.db.profile.update({
         where: {
           id: input.id,
@@ -69,6 +113,19 @@ export const profileRouter = createTRPCRouter({
       }),
     )
     .mutation(async ({ ctx, input }) => {
+      const profile = await ctx.db.profile.findUnique({
+        where: {
+          id: input.id,
+        },
+      });
+
+      if (!profile) {
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: `Profile with ID ${input.id} not found.`,
+        });
+      }
+
       return await ctx.db.profile.delete({
         where: {
           id: input.id,
