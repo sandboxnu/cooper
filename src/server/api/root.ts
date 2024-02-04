@@ -1,5 +1,5 @@
 import { createTRPCRouter } from "~/server/api/trpc";
-import { reviewRouter } from "~/server/api/routers/reviewRouter";
+import { reviewRouter } from "~/server/api/routers/review";
 
 /**
  * This is the primary router for your server.
