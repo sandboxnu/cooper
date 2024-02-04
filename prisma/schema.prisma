@@ -87,6 +87,7 @@ model Company {
     location    String
     createdAt   DateTime @default(now())
     roles       Role[]
+    reviews     Review[]
 }
 
 model Role {
@@ -96,7 +97,7 @@ model Role {
 
     reviews Review[]
 
-    Company   Company? @relation(fields: [companyId], references: [id], onDelete: Cascade)
+    company   Company? @relation(fields: [companyId], references: [id], onDelete: Cascade)
     companyId String?
 }
 
@@ -120,11 +121,14 @@ model Review {
     overtimeNormal      Boolean
     createdAt           DateTime        @default(now())
 
-    Role   Role?   @relation(fields: [roleId], references: [id], onDelete: Cascade)
+    role   Role?   @relation(fields: [roleId], references: [id], onDelete: Cascade)
     roleId String?
 
-    Profile   Profile? @relation(fields: [profileId], references: [id])
+    profile   Profile? @relation(fields: [profileId], references: [id])
     profileId String?
+
+    company   Company? @relation(fields: [companyId], references: [id], onDelete: Cascade)
+    companyId String?
 }
 
 enum Industry {
