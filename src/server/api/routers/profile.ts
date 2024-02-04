@@ -59,12 +59,7 @@ export const profileRouter = createTRPCRouter({
     .mutation(async ({ ctx, input }) => {
       return await ctx.db.profile.create({
         data: {
-          firstName: input.firstName,
-          lastName: input.lastName,
-          major: input.major,
-          minor: input.minor,
-          graduationYear: input.graduationYear,
-          graduationMonth: input.graduationMonth,
+          ...input,
           userId: ctx.session.user.id,
         },
       });
