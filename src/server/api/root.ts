@@ -1,5 +1,6 @@
 import { createTRPCRouter } from "~/server/api/trpc";
 import { roleRouter } from "~/server/api/routers/role";
+import { companyRouter } from "~/server/api/routers/company";
 
 /**
  * This is the primary router for your server.
@@ -8,6 +9,7 @@ import { roleRouter } from "~/server/api/routers/role";
  */
 export const appRouter = createTRPCRouter({
   role: roleRouter,
+  company: companyRouter,
 });
 
 // export type definition of API
