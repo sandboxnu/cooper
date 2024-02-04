@@ -81,9 +81,7 @@ export const roleRouter = createTRPCRouter({
     .mutation(async ({ ctx, input }) => {
       return await ctx.db.role.create({
         data: {
-          title: input.title,
-          description: input.description,
-          companyId: input.companyId,
+          ...input,
         },
       });
     }),
