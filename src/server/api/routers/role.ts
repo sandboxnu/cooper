@@ -10,6 +10,28 @@ export const roleRouter = createTRPCRouter({
   list: publicProcedure.query(async ({ ctx }) => {
     return await ctx.db.role.findMany();
   }),
+  getById: publicProcedure
+    .input(
+      z.object({
+        id: z.string(),
+      }),
+    )
+    .query(async ({ ctx, input }) => {
+      const role = await ctx.db.role.findUnique({
+        where: {
+          id: input.id,
+        },
+      });
+
+      if (!role) {
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: `Role with ID ${input.id} not found.`,
+        });
+      }
+
+      return role;
+    }),
   getByTitle: publicProcedure
     .input(
       z.object({
@@ -42,7 +64,7 @@ export const roleRouter = createTRPCRouter({
       if (!company) {
         throw new TRPCError({
           code: "BAD_REQUEST",
-          message: `Company with ID ${input.companyId} not found`,
+          message: `Company with ID ${input.companyId} not found.`,
         });
       }
 
@@ -77,6 +99,19 @@ export const roleRouter = createTRPCRouter({
       }),
     )
     .mutation(async ({ ctx, input }) => {
+      const role = await ctx.db.role.findUnique({
+        where: {
+          id: input.id,
+        },
+      });
+
+      if (!role) {
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: `Role with ID ${input.id} not found.`,
+        });
+      }
+
       return await ctx.db.role.update({
         where: {
           id: input.id,
@@ -93,6 +128,19 @@ export const roleRouter = createTRPCRouter({
       }),
     )
     .mutation(async ({ ctx, input }) => {
+      const role = await ctx.db.role.findUnique({
+        where: {
+          id: input.id,
+        },
+      });
+
+      if (!role) {
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: `Role with ID ${input.id} not found.`,
+        });
+      }
+
       return await ctx.db.role.delete({
         where: {
           id: input.id,
