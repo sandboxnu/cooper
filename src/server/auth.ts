@@ -29,7 +29,6 @@ declare module "next-auth" {
   //   // role: UserRole;
   // }
 }
-
 /**
  * Options for NextAuth.js used to configure adapters, providers, callbacks, etc.
  *
