@@ -1,6 +1,12 @@
-import { WorkEnvironment, WorkTerm } from "@prisma/client";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
+import { getByCompanySchema, getByIdSchema } from "~/schema/misc";
+import {
+  createReviewSchema,
+  getByProfileSchema,
+  getByRoleSchema,
+  updateReviewSchema,
+} from "~/schema/review";
 import {
   createTRPCRouter,
   protectedProcedure,
@@ -12,11 +18,7 @@ export const reviewRouter = createTRPCRouter({
     return await ctx.db.review.findMany();
   }),
   getByRole: publicProcedure
-    .input(
-      z.object({
-        roleId: z.string(),
-      }),
-    )
+    .input(getByRoleSchema)
     .query(async ({ ctx, input }) => {
       const role = await ctx.db.role.findUnique({
         where: {
@@ -38,11 +40,7 @@ export const reviewRouter = createTRPCRouter({
       });
     }),
   getByCompany: publicProcedure
-    .input(
-      z.object({
-        companyId: z.string(),
-      }),
-    )
+    .input(getByCompanySchema)
     .query(async ({ ctx, input }) => {
       const company = await ctx.db.company.findUnique({
         where: {
@@ -64,11 +62,7 @@ export const reviewRouter = createTRPCRouter({
       });
     }),
   getByProfile: publicProcedure
-    .input(
-      z.object({
-        profileId: z.string(),
-      }),
-    )
+    .input(getByProfileSchema)
     .query(async ({ ctx, input }) => {
       const profile = await ctx.db.profile.findUnique({
         where: {
@@ -90,28 +84,7 @@ export const reviewRouter = createTRPCRouter({
       });
     }),
   create: protectedProcedure
-    .input(
-      z.object({
-        workTerm: z.nativeEnum(WorkTerm),
-        workYear: z.number(),
-        startDate: z.coerce.date().optional(),
-        endDate: z.coerce.date().optional(),
-        hourlyPay: z.number().min(0),
-        interviewDifficulty: z.number().min(1).max(5).optional(),
-        interviewExperience: z.number().min(1).max(5).optional(),
-        supervisorRating: z.number().min(1).max(5).optional(),
-        cultureRating: z.number().min(1).max(5).optional(),
-        overallRating: z.number().min(1).max(5),
-        textReview: z.string(),
-        workEnvironment: z.nativeEnum(WorkEnvironment),
-        freeLunch: z.boolean(),
-        drugTest: z.boolean(),
-        federalHolidays: z.boolean(),
-        overtimeNormal: z.boolean(),
-        roleId: z.string(),
-        profileId: z.string(),
-      }),
-    )
+    .input(createReviewSchema)
     .mutation(async ({ ctx, input }) => {
       const role = await ctx.db.role.findUnique({
         where: {
@@ -131,7 +104,7 @@ export const reviewRouter = createTRPCRouter({
         },
       });
 
-      if (!role)
+      if (!profile)
         throw new TRPCError({
           code: "NOT_FOUND",
           message: `Profile with ID ${input.profileId} not found.`,
@@ -144,35 +117,7 @@ export const reviewRouter = createTRPCRouter({
       });
     }),
   update: protectedProcedure
-    .input(
-      z.object({
-        id: z.string(),
-        data: z.object({
-          /**
-           * TODO: Move schemas to a seperate file and set update schema as a
-           * partial of the create schema
-           */
-          workTerm: z.nativeEnum(WorkTerm).optional(),
-          workYear: z.number().optional(),
-          startDate: z.coerce.date().optional(),
-          endDate: z.coerce.date().optional(),
-          hourlyPay: z.number().min(0).optional(),
-          interviewDifficulty: z.number().min(1).max(5).optional(),
-          interviewExperience: z.number().min(1).max(5).optional(),
-          supervisorRating: z.number().min(1).max(5).optional(),
-          cultureRating: z.number().min(1).max(5).optional(),
-          overallRating: z.number().min(1).max(5).optional(),
-          textReview: z.string().optional(),
-          workEnvironment: z.nativeEnum(WorkEnvironment).optional(),
-          freeLunch: z.boolean().optional(),
-          drugTest: z.boolean().optional(),
-          federalHolidays: z.boolean().optional(),
-          overtimeNormal: z.boolean().optional(),
-          roleId: z.string().optional(),
-          profileId: z.string().optional(),
-        }),
-      }),
-    )
+    .input(updateReviewSchema)
     .mutation(async ({ ctx, input }) => {
       const review = await ctx.db.review.findUnique({
         where: {
@@ -196,11 +141,7 @@ export const reviewRouter = createTRPCRouter({
       });
     }),
   delete: protectedProcedure
-    .input(
-      z.object({
-        id: z.string(),
-      }),
-    )
+    .input(getByIdSchema)
     .mutation(async ({ ctx, input }) => {
       const review = await ctx.db.review.findUnique({
         where: {

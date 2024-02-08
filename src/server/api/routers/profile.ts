@@ -1,27 +1,19 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
+import { getByIdSchema } from "~/schema/misc";
+import { createProfileSchema, updateProfileSchema } from "~/schema/profile";
 import {
   createTRPCRouter,
   protectedProcedure,
   publicProcedure,
 } from "~/server/api/trpc";
 
-const MAX_GRADUATION_LENGTH = 6;
-const MONTH_LB = 1;
-const MONTH_UB = 12;
-const YEAR_LB = new Date().getFullYear();
-const YEAR_UB = YEAR_LB + MAX_GRADUATION_LENGTH;
-
 export const profileRouter = createTRPCRouter({
   list: publicProcedure.query(async ({ ctx }) => {
     return await ctx.db.profile.findMany();
   }),
   getById: publicProcedure
-    .input(
-      z.object({
-        id: z.string(),
-      }),
-    )
+    .input(getByIdSchema)
     .query(async ({ ctx, input }) => {
       const profile = await ctx.db.profile.findUnique({
         where: {
@@ -46,16 +38,7 @@ export const profileRouter = createTRPCRouter({
     });
   }),
   create: protectedProcedure
-    .input(
-      z.object({
-        firstName: z.string(),
-        lastName: z.string(),
-        major: z.string(),
-        minor: z.string().optional(),
-        graduationYear: z.number().min(YEAR_LB).max(YEAR_UB),
-        graduationMonth: z.number().min(MONTH_LB).max(MONTH_UB),
-      }),
-    )
+    .input(createProfileSchema)
     .mutation(async ({ ctx, input }) => {
       return await ctx.db.profile.create({
         data: {
@@ -65,19 +48,7 @@ export const profileRouter = createTRPCRouter({
       });
     }),
   update: protectedProcedure
-    .input(
-      z.object({
-        id: z.string(),
-        data: z.object({
-          firstName: z.string().optional(),
-          lastName: z.string().optional(),
-          major: z.string().optional(),
-          minor: z.string().optional(),
-          graduationYear: z.number().min(YEAR_LB).max(YEAR_UB).optional(),
-          graduationMonth: z.number().min(MONTH_LB).max(MONTH_UB).optional(),
-        }),
-      }),
-    )
+    .input(updateProfileSchema)
     .mutation(async ({ ctx, input }) => {
       const profile = await ctx.db.profile.findUnique({
         where: {
@@ -102,11 +73,7 @@ export const profileRouter = createTRPCRouter({
       });
     }),
   delete: protectedProcedure
-    .input(
-      z.object({
-        id: z.string(),
-      }),
-    )
+    .input(getByIdSchema)
     .mutation(async ({ ctx, input }) => {
       const profile = await ctx.db.profile.findUnique({
         where: {

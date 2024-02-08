@@ -1,5 +1,11 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
+import { getByCompanySchema, getByIdSchema } from "~/schema/misc";
+import {
+  createRoleSchema,
+  getByTitleSchema,
+  updateRoleSchema,
+} from "~/schema/role";
 import {
   createTRPCRouter,
   protectedProcedure,
@@ -11,11 +17,7 @@ export const roleRouter = createTRPCRouter({
     return await ctx.db.role.findMany();
   }),
   getById: publicProcedure
-    .input(
-      z.object({
-        id: z.string(),
-      }),
-    )
+    .input(getByIdSchema)
     .query(async ({ ctx, input }) => {
       const role = await ctx.db.role.findUnique({
         where: {
@@ -33,11 +35,7 @@ export const roleRouter = createTRPCRouter({
       return role;
     }),
   getByTitle: publicProcedure
-    .input(
-      z.object({
-        title: z.string(),
-      }),
-    )
+    .input(getByTitleSchema)
     .query(async ({ ctx, input }) => {
       return await ctx.db.role.findMany({
         where: {
@@ -46,11 +44,7 @@ export const roleRouter = createTRPCRouter({
       });
     }),
   getByCompany: publicProcedure
-    .input(
-      z.object({
-        companyId: z.string(),
-      }),
-    )
+    .input(getByCompanySchema)
     .query(async ({ ctx, input }) => {
       const company = await ctx.db.company.findUnique({
         where: {
@@ -71,13 +65,7 @@ export const roleRouter = createTRPCRouter({
       return company.roles;
     }),
   create: protectedProcedure
-    .input(
-      z.object({
-        title: z.string(),
-        description: z.string(),
-        companyId: z.string(),
-      }),
-    )
+    .input(createRoleSchema)
     .mutation(async ({ ctx, input }) => {
       return await ctx.db.role.create({
         data: {
@@ -86,16 +74,7 @@ export const roleRouter = createTRPCRouter({
       });
     }),
   update: protectedProcedure
-    .input(
-      z.object({
-        id: z.string(),
-        data: z.object({
-          title: z.string().optional(),
-          description: z.string().optional(),
-          companyId: z.string().optional(),
-        }),
-      }),
-    )
+    .input(updateRoleSchema)
     .mutation(async ({ ctx, input }) => {
       const role = await ctx.db.role.findUnique({
         where: {
@@ -120,11 +99,7 @@ export const roleRouter = createTRPCRouter({
       });
     }),
   delete: protectedProcedure
-    .input(
-      z.object({
-        id: z.string(),
-      }),
-    )
+    .input(getByIdSchema)
     .mutation(async ({ ctx, input }) => {
       const role = await ctx.db.role.findUnique({
         where: {
