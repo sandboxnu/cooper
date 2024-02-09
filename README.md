@@ -50,7 +50,7 @@ docker compose up -d
 5. Sync the `prisma` schema with the database schema. Do **not** run this in a production environment.
 
 ```bash
-pnpm dlx prisma db push
+pnpm prisma db push
 ```
 
 6. Run the application
