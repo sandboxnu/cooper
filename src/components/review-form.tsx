@@ -48,63 +48,16 @@ export function ProfileForm() {
     console.log(values);
   }
   return (
-    <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="w-[540px] space-y-4"
-      >
-        <FormField
-          control={form.control}
-          name="reviewHeadline"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Review Headline*</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="pros"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Pros*</FormLabel>
-              <FormControl>
-                <Textarea
-                  placeholder="Talk about some pros of working at [company]."
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="cons"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Cons*</FormLabel>
-              <FormControl>
-                <Textarea
-                  placeholder="Talk about some pros of working at [company]."
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <div className="flex justify-between space-x-4">
+    <div className="flex flex-col space-y-4 rounded-xl bg-white p-8">
+      <h2 className="text-2xl font-semibold">Review</h2>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField
             control={form.control}
-            name="location"
+            name="reviewHeadline"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Location</FormLabel>
+                <FormLabel>Review Headline*</FormLabel>
                 <FormControl>
                   <Input {...field} />
                 </FormControl>
@@ -114,20 +67,69 @@ export function ProfileForm() {
           />
           <FormField
             control={form.control}
-            name="hourlyPay"
+            name="pros"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Hourly Pay (USD)</FormLabel>
+                <FormLabel>Pros*</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Textarea
+                    placeholder="Talk about some pros of working at [company]."
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-        </div>
-        <Button type="submit">Submit</Button>
-      </form>
-    </Form>
+          <FormField
+            control={form.control}
+            name="cons"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Cons*</FormLabel>
+                <FormControl>
+                  <Textarea
+                    placeholder="Talk about some pros of working at [company]."
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <div className="flex justify-between space-x-2">
+            <FormField
+              control={form.control}
+              name="location"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Location</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="hourlyPay"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Hourly Pay (USD)</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          <Button type="submit" variant="outline">
+            Submit
+          </Button>
+        </form>
+      </Form>
+    </div>
   );
 }
