@@ -14,11 +14,22 @@ import {
   FormMessage,
 } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
+import { Textarea } from "~/components/ui/textarea";
 
 const formSchema = z.object({
   reviewHeadline: z.string().min(8, {
     message: "The review headline must be at least 8 characters.",
   }),
+  pros: z.string().min(8, {
+    message: "Pros must be at least 8 characters.",
+  }),
+  cons: z.string().min(8, {
+    message: "Cons must be at least 8 characters.",
+  }),
+  location: z.string().min(2, {
+    message: "Location must be at least 2 characters.",
+  }),
+  hourlyPay: z.coerce.number(),
 });
 
 export function ProfileForm() {
@@ -26,6 +37,10 @@ export function ProfileForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       reviewHeadline: "",
+      pros: "",
+      cons: "",
+      location: "",
+      hourlyPay: 0,
     },
   });
 
@@ -34,13 +49,16 @@ export function ProfileForm() {
   }
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="w-[540px] space-y-4"
+      >
         <FormField
           control={form.control}
           name="reviewHeadline"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Review Headline</FormLabel>
+              <FormLabel>Review Headline*</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
@@ -48,6 +66,66 @@ export function ProfileForm() {
             </FormItem>
           )}
         />
+        <FormField
+          control={form.control}
+          name="pros"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Pros*</FormLabel>
+              <FormControl>
+                <Textarea
+                  placeholder="Talk about some pros of working at [company]."
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="cons"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Cons*</FormLabel>
+              <FormControl>
+                <Textarea
+                  placeholder="Talk about some pros of working at [company]."
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <div className="flex justify-between space-x-4">
+          <FormField
+            control={form.control}
+            name="location"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Location</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="hourlyPay"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Hourly Pay (USD)</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
         <Button type="submit">Submit</Button>
       </form>
     </Form>
