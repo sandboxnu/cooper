@@ -1,6 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -32,7 +33,7 @@ const formSchema = z.object({
   hourlyPay: z.coerce.number(),
 });
 
-export function ProfileForm() {
+export function ReviewForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -47,6 +48,7 @@ export function ProfileForm() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
   }
+
   return (
     <div className="flex flex-col space-y-4 rounded-xl bg-white p-8">
       <h2 className="text-2xl font-semibold">Review</h2>
