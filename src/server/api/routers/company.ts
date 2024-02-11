@@ -4,47 +4,22 @@ import {
   protectedProcedure,
   publicProcedure,
 } from "~/server/api/trpc";
-import { Industry } from "@prisma/client";
+import { createCompanySchema, updateCompanySchema } from "~/schema/company";
+import { getByIdSchema, getByNameSchema } from "~/schema/misc";
 
 export const companyRouter = createTRPCRouter({
   list: publicProcedure.query(({ ctx }) => {
     return ctx.db.company.findMany();
   }),
-  getByName: publicProcedure
-    .input(
-      z.object({
-        name: z.string(),
-      }),
-    )
-    .query(({ ctx, input }) => {
-      return ctx.db.company.findFirst({
-        where: {
-          name: input.name,
-        },
-      });
-    }),
-  delete: protectedProcedure
-    .input(
-      z.object({
-        id: z.string(),
-      }),
-    )
-    .mutation(({ ctx, input }) => {
-      return ctx.db.company.delete({
-        where: {
-          id: input.id,
-        },
-      });
-    }),
+  getByName: publicProcedure.input(getByNameSchema).query(({ ctx, input }) => {
+    return ctx.db.company.findFirst({
+      where: {
+        name: input.name,
+      },
+    });
+  }),
   create: protectedProcedure
-    .input(
-      z.object({
-        name: z.string(),
-        description: z.string().optional(),
-        industry: z.nativeEnum(Industry),
-        location: z.string(),
-      }),
-    )
+    .input(createCompanySchema)
     .mutation(({ ctx, input }) => {
       return ctx.db.company.create({
         data: {
@@ -56,17 +31,7 @@ export const companyRouter = createTRPCRouter({
       });
     }),
   update: protectedProcedure
-    .input(
-      z.object({
-        id: z.string(),
-        data: z.object({
-          name: z.string().optional(),
-          description: z.string().optional(),
-          industry: z.nativeEnum(Industry).optional(),
-          location: z.string().optional(),
-        }),
-      }),
-    )
+    .input(updateCompanySchema)
     .mutation(({ ctx, input }) => {
       return ctx.db.company.update({
         where: {
@@ -77,4 +42,11 @@ export const companyRouter = createTRPCRouter({
         },
       });
     }),
+  delete: protectedProcedure.input(getByIdSchema).mutation(({ ctx, input }) => {
+    return ctx.db.company.delete({
+      where: {
+        id: input.id,
+      },
+    });
+  }),
 });
