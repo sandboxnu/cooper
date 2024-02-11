@@ -5,17 +5,8 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { Button } from "~/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "~/components/ui/form";
-import { Input } from "~/components/ui/input";
-import { Textarea } from "~/components/ui/textarea";
-import { FormSection } from "~/components/form-section";
+import { Form } from "~/components/ui/form";
+import { ReviewSection } from "~/components/review-section";
 
 const formSchema = z.object({
   reviewHeadline: z.string().min(8, {
@@ -50,87 +41,11 @@ export function ReviewForm() {
   }
 
   return (
-    <FormSection title="Review">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          <FormField
-            control={form.control}
-            name="reviewHeadline"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Review Headline*</FormLabel>
-                <FormControl>
-                  <Input {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="pros"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Pros*</FormLabel>
-                <FormControl>
-                  <Textarea
-                    placeholder="Talk about some pros of working at [company]."
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="cons"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Cons*</FormLabel>
-                <FormControl>
-                  <Textarea
-                    placeholder="Talk about some cons of working at [company]."
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <div className="flex justify-between space-x-2">
-            <FormField
-              control={form.control}
-              name="location"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Location</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="hourlyPay"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Hourly Pay (USD)</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-          <Button type="submit" variant="outline">
-            Submit
-          </Button>
-        </form>
-      </Form>
-    </FormSection>
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <ReviewSection />
+        <Button type="submit">Submit</Button>
+      </form>
+    </Form>
   );
 }
