@@ -1,7 +1,6 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -16,6 +15,7 @@ import {
 } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
 import { Textarea } from "~/components/ui/textarea";
+import { FormCard } from "./form-card";
 
 const formSchema = z.object({
   reviewHeadline: z.string().min(8, {
@@ -50,7 +50,7 @@ export function ReviewForm() {
   }
 
   return (
-    <div className="flex flex-col space-y-4 rounded-xl bg-white p-8">
+    <FormCard>
       <h2 className="text-2xl font-semibold">Review</h2>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -132,6 +132,6 @@ export function ReviewForm() {
           </Button>
         </form>
       </Form>
-    </div>
+    </FormCard>
   );
 }
