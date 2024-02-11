@@ -6,6 +6,7 @@ Cooper is a tool for Northeastern students to both submit reviews of their co-op
 
 - [Next.js](https://nextjs.org) - Web development framework
 - [Tailwind CSS](https://tailwindcss.com) - CSS framework
+- [shadcn/ui](https://ui.shadcn.com/) - Pre-built components
 - [NextAuth.js](https://next-auth.js.org/) - Authentication
 - [Prisma](https://www.prisma.io/) - ORM
 - [PostgreSQL](https://www.postgresql.org/) - Relational database
@@ -49,7 +50,7 @@ docker compose up -d
 5. Sync the `prisma` schema with the database schema. Do **not** run this in a production environment.
 
 ```bash
-pnpm dlx prisma db push
+pnpm prisma db push
 ```
 
 6. Run the application
