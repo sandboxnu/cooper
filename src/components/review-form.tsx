@@ -15,7 +15,7 @@ import {
 } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
 import { Textarea } from "~/components/ui/textarea";
-import { FormCard } from "./form-card";
+import { FormSection } from "~/components/form-section";
 
 const formSchema = z.object({
   reviewHeadline: z.string().min(8, {
@@ -50,8 +50,7 @@ export function ReviewForm() {
   }
 
   return (
-    <FormCard>
-      <h2 className="text-2xl font-semibold">Review</h2>
+    <FormSection title="Review">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField
@@ -132,6 +131,6 @@ export function ReviewForm() {
           </Button>
         </form>
       </Form>
-    </FormCard>
+    </FormSection>
   );
 }
