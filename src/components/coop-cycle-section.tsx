@@ -1,5 +1,6 @@
 import { useFormContext } from "react-hook-form";
 import { FormSection } from "~/components/form-section";
+import { TriangleDownIcon } from "@radix-ui/react-icons";
 import {
   FormControl,
   FormField,
@@ -8,6 +9,8 @@ import {
   FormMessage,
 } from "~/components/ui/form";
 import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
+import { cn } from "~/lib/utils";
+import { buttonVariants } from "~/components/ui/button";
 
 export function CoopCycleSection() {
   const form = useFormContext();
@@ -46,6 +49,33 @@ export function CoopCycleSection() {
                 </FormItem>
               </RadioGroup>
             </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+      <FormField
+        control={form.control}
+        name="coopYear"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Co-op Year*</FormLabel>
+            <div className="relative w-max">
+              <FormControl>
+                <select
+                  className={cn(
+                    buttonVariants({ variant: "outline" }),
+                    "appearance-none pr-8 font-normal",
+                  )}
+                  {...field}
+                >
+                  <option value={undefined}>Select the year you co-oped</option>
+                  <option value={2024}>2024</option>
+                  <option value={2023}>2023</option>
+                  <option value={2022}>2022</option>
+                </select>
+              </FormControl>
+              <TriangleDownIcon className="absolute right-2.5 top-2.5 h-5 w-5" />
+            </div>
             <FormMessage />
           </FormItem>
         )}

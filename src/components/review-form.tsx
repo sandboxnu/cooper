@@ -13,15 +13,37 @@ const formSchema = z.object({
   coopCycle: z.enum(["Fall", "Spring", "Other..."], {
     required_error: "You need to select a co-op cycle.",
   }),
-  reviewHeadline: z.string().min(8, {
-    message: "The review headline must be at least 8 characters.",
-  }),
-  pros: z.string().min(8, {
-    message: "Pros must be at least 8 characters.",
-  }),
-  cons: z.string().min(8, {
-    message: "Cons must be at least 8 characters.",
-  }),
+  coopYear: z.coerce
+    .number({
+      required_error: "You need to select a co-op year.",
+    })
+    .min(2022, {
+      message: "The co-op year should be greater than or equal to 2022",
+    })
+    .max(2024, {
+      message: "The co-op year should be less than or equal to 2024",
+    }),
+  reviewHeadline: z
+    .string({
+      required_error: "You need to enter a Review Headline.",
+    })
+    .min(8, {
+      message: "The review headline must be at least 8 characters.",
+    }),
+  pros: z
+    .string({
+      required_error: "You need to enter Pros for working for your company.",
+    })
+    .min(8, {
+      message: "Pros must be at least 8 characters.",
+    }),
+  cons: z
+    .string({
+      required_error: "You need to enter Cons for working for your company.",
+    })
+    .min(8, {
+      message: "Cons must be at least 8 characters.",
+    }),
   location: z.string().min(2, {
     message: "Location must be at least 2 characters.",
   }),
@@ -33,11 +55,12 @@ export function ReviewForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       coopCycle: "Fall",
+      coopYear: undefined,
       reviewHeadline: "",
       pros: "",
       cons: "",
       location: "",
-      hourlyPay: 0,
+      hourlyPay: undefined,
     },
   });
 
