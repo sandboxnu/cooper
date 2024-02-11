@@ -89,7 +89,7 @@ export function ProfileForm() {
                 <FormLabel>Cons*</FormLabel>
                 <FormControl>
                   <Textarea
-                    placeholder="Talk about some pros of working at [company]."
+                    placeholder="Talk about some cons of working at [company]."
                     {...field}
                   />
                 </FormControl>
