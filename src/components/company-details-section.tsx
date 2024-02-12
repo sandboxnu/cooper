@@ -13,7 +13,7 @@ export function CompanyDetailsSection() {
   const form = useFormContext();
 
   return (
-    <FormSection title="Company Details">
+    <FormSection title="4. Company Details">
       <FormField
         control={form.control}
         name="workModel"

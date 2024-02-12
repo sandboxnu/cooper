@@ -16,7 +16,7 @@ export function CoopCycleSection() {
   const form = useFormContext();
 
   return (
-    <FormSection title="Co-op Cycle">
+    <FormSection title="1. Co-op Cycle">
       <FormField
         control={form.control}
         name="coopCycle"
