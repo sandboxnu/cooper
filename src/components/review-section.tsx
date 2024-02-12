@@ -30,31 +30,12 @@ export function ReviewSection() {
       />
       <FormField
         control={form.control}
-        name="pros"
+        name="textReview"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Pros*</FormLabel>
+            <FormLabel>Tell us about your co-op experience*</FormLabel>
             <FormControl>
-              <Textarea
-                placeholder="Talk about some pros of working at [company]."
-                {...field}
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-      <FormField
-        control={form.control}
-        name="cons"
-        render={({ field }) => (
-          <FormItem>
-            <FormLabel>Cons*</FormLabel>
-            <FormControl>
-              <Textarea
-                placeholder="Talk about some cons of working at [company]."
-                {...field}
-              />
+              <Textarea {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>

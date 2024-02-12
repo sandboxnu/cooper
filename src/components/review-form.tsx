@@ -31,20 +31,9 @@ const formSchema = z.object({
     .min(8, {
       message: "The review headline must be at least 8 characters.",
     }),
-  pros: z
-    .string({
-      required_error: "You need to enter Pros for working for your company.",
-    })
-    .min(8, {
-      message: "Pros must be at least 8 characters.",
-    }),
-  cons: z
-    .string({
-      required_error: "You need to enter Cons for working for your company.",
-    })
-    .min(8, {
-      message: "Cons must be at least 8 characters.",
-    }),
+  textReview: z.string({
+    required_error: "You need to enter a review for your co-op.",
+  }),
   location: z.string().min(2, {
     message: "Location must be at least 2 characters.",
   }),
@@ -73,8 +62,7 @@ export function ReviewForm() {
       coopCycle: undefined,
       coopYear: undefined,
       reviewHeadline: "",
-      pros: "",
-      cons: "",
+      textReview: "",
       location: "",
       hourlyPay: undefined,
       workModel: undefined,
