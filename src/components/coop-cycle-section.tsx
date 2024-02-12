@@ -59,12 +59,12 @@ export function CoopCycleSection() {
         render={({ field }) => (
           <FormItem>
             <FormLabel>Co-op Year*</FormLabel>
-            <div className="relative w-max">
+            <div className="relative w-full">
               <FormControl>
                 <select
                   className={cn(
                     buttonVariants({ variant: "outline" }),
-                    "appearance-none pr-8 font-normal",
+                    "w-full appearance-none pr-8",
                   )}
                   {...field}
                 >

@@ -11,7 +11,7 @@ export default async function Page() {
   }
 
   return (
-    <div className="container flex h-screen items-center justify-center">
+    <div className="container flex items-center justify-center py-10">
       <ReviewForm />
     </div>
   );
