@@ -105,13 +105,11 @@ model Review {
     id                  String          @id @default(cuid())
     workTerm            WorkTerm
     workYear            Int
-    startDate           DateTime?
-    endDate             DateTime?
     hourlyPay           Decimal
-    interviewDifficulty Int?
-    interviewExperience Int?
-    supervisorRating    Int?
-    cultureRating       Int?
+    interviewDifficulty Int
+    interviewExperience Int
+    supervisorRating    Int
+    cultureRating       Int
     overallRating       Int
     textReview          String
     workEnvironment     WorkEnvironment
