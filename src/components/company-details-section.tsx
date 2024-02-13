@@ -114,7 +114,7 @@ export function CompanyDetailsSection() {
           </FormItem>
         )}
       />
-      <FormLabel>Select which benefit(s) [company] offered*</FormLabel>
+      <FormLabel>Select which benefit(s) [company] offered</FormLabel>
       {benefits.map((benefit) => (
         <FormField
           key={benefit.field}

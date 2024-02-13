@@ -27,7 +27,7 @@ export const Rating = forwardRef<HTMLInputElement, RatingProps>(
               className={cn(
                 "size-14",
                 i < hoveredIndex || i < +getValues(name)
-                  ? "fill-primary"
+                  ? "fill-[#B9B9B9]"
                   : "fill-primary-foreground",
                 "pr-2 hover:cursor-pointer",
               )}

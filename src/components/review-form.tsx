@@ -17,54 +17,52 @@ const formSchema = z.object({
   }),
   coopYear: z.coerce
     .number({
-      required_error: "You need to select a co-op year.",
+      errorMap: () => ({
+        message: "Please select a valid co-op year.",
+      }),
     })
-    .min(2022, {
-      message: "The co-op year should be greater than or equal to 2022",
-    })
-    .max(2024, {
-      message: "The co-op year should be less than or equal to 2024",
-    }),
+    .min(2022)
+    .max(2024),
   coopExperience: z.coerce
-    .number()
-    .min(1, {
-      message: "Please select a valid co-op experience rating.",
+    .number({
+      errorMap: () => ({
+        message: "Please select a valid co-op experience rating.",
+      }),
     })
-    .max(5, {
-      message: "Please select a valid co-op experience rating.",
-    }),
+    .min(1)
+    .max(5),
   companyCulture: z.coerce
-    .number()
-    .min(1, {
-      message: "Please select a valid company culture rating.",
+    .number({
+      errorMap: () => ({
+        message: "Please select a valid company culture rating.",
+      }),
     })
-    .max(5, {
-      message: "Please select a valid company culture rating.",
-    }),
+    .min(1)
+    .max(5),
   supervisorRating: z.coerce
-    .number()
-    .min(1, {
-      message: "Please select a valid supervisor rating.",
+    .number({
+      errorMap: () => ({
+        message: "Please select a valid supervisor rating.",
+      }),
     })
-    .max(5, {
-      message: "Please select a valid supervisor rating.",
-    }),
+    .min(1)
+    .max(5),
   interviewExperienceRating: z.coerce
-    .number()
-    .min(1, {
-      message: "Please select a interview experience rating.",
+    .number({
+      errorMap: () => ({
+        message: "Please select a valid interview experience rating.",
+      }),
     })
-    .max(5, {
-      message: "Please select a interview experience rating.",
-    }),
+    .min(1)
+    .max(5),
   interviewDifficulty: z.coerce
-    .number()
-    .min(1, {
-      message: "Please select a valid interview difficulty rating.",
+    .number({
+      errorMap: () => ({
+        message: "Please select a valid interview difficulty rating.",
+      }),
     })
-    .max(5, {
-      message: "Please select a valid interview difficulty rating.",
-    }),
+    .min(1)
+    .max(5),
   interviewExperience: z.string().optional(),
   reviewHeadline: z
     .string({
@@ -73,15 +71,15 @@ const formSchema = z.object({
     .min(8, {
       message: "The review headline must be at least 8 characters.",
     }),
-  textReview: z.string({
-    required_error: "You need to enter a review for your co-op.",
-  }),
-  location: z.string().min(2, {
-    message: "Location must be at least 2 characters.",
-  }),
-  hourlyPay: z.coerce.number().min(1, {
-    message: "Hourly pay must be valid.",
-  }),
+  textReview: z
+    .string({
+      required_error: "You need to enter a review for your co-op.",
+    })
+    .min(8, {
+      message: "The review must be at least 8 characters.",
+    }),
+  location: z.string().optional(),
+  hourlyPay: z.coerce.number().optional(),
   workModel: z.enum(["In-person", "Hybrid", "Remote"], {
     required_error: "You need to select a work model.",
   }),
