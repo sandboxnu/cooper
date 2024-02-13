@@ -19,7 +19,7 @@ export function RatingsSection() {
     <FormSection title="2. Ratings">
       <FormField
         control={form.control}
-        name="coopExperience"
+        name="overallRating"
         render={({ field }) => (
           <FormItem>
             <FormLabel>
@@ -34,7 +34,7 @@ export function RatingsSection() {
       />
       <FormField
         control={form.control}
-        name="companyCulture"
+        name="cultureRating"
         render={({ field }) => (
           <FormItem>
             <FormLabel>
@@ -62,7 +62,7 @@ export function RatingsSection() {
       />
       <FormField
         control={form.control}
-        name="interviewExperienceRating"
+        name="interviewRating"
         render={({ field }) => (
           <FormItem>
             <FormLabel>
@@ -125,7 +125,7 @@ export function RatingsSection() {
       />
       <FormField
         control={form.control}
-        name="interviewExperience"
+        name="interviewReview"
         render={({ field }) => (
           <FormItem>
             <FormLabel>Tell us about your interview experience</FormLabel>

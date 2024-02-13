@@ -10,12 +10,13 @@ import { ReviewSection } from "~/components/review-section";
 import { CoopCycleSection } from "~/components/coop-cycle-section";
 import { CompanyDetailsSection } from "~/components/company-details-section";
 import { RatingsSection } from "~/components/ratings-section";
+import { WorkEnvironment, WorkTerm } from "@prisma/client";
 
 const formSchema = z.object({
-  coopCycle: z.enum(["Fall", "Spring", "Other..."], {
+  workTerm: z.nativeEnum(WorkTerm, {
     required_error: "You need to select a co-op cycle.",
   }),
-  coopYear: z.coerce
+  workYear: z.coerce
     .number({
       errorMap: () => ({
         message: "Please select a valid co-op year.",
@@ -23,7 +24,7 @@ const formSchema = z.object({
     })
     .min(2022)
     .max(2024),
-  coopExperience: z.coerce
+  overallRating: z.coerce
     .number({
       errorMap: () => ({
         message: "Please select a valid co-op experience rating.",
@@ -31,7 +32,7 @@ const formSchema = z.object({
     })
     .min(1)
     .max(5),
-  companyCulture: z.coerce
+  cultureRating: z.coerce
     .number({
       errorMap: () => ({
         message: "Please select a valid company culture rating.",
@@ -47,7 +48,7 @@ const formSchema = z.object({
     })
     .min(1)
     .max(5),
-  interviewExperienceRating: z.coerce
+  interviewRating: z.coerce
     .number({
       errorMap: () => ({
         message: "Please select a valid interview experience rating.",
@@ -63,7 +64,7 @@ const formSchema = z.object({
     })
     .min(1)
     .max(5),
-  interviewExperience: z.string().optional(),
+  interviewReview: z.string().optional(),
   reviewHeadline: z
     .string({
       required_error: "You need to enter a Review Headline.",
@@ -80,7 +81,7 @@ const formSchema = z.object({
     }),
   location: z.string().optional(),
   hourlyPay: z.coerce.number().optional(),
-  workModel: z.enum(["In-person", "Hybrid", "Remote"], {
+  workEnvironment: z.nativeEnum(WorkEnvironment, {
     required_error: "You need to select a work model.",
   }),
   drugTest: z
@@ -89,17 +90,17 @@ const formSchema = z.object({
     })
     .transform((x) => x === "true")
     .pipe(z.boolean()),
-  overtimeCommon: z
+  overtimeNormal: z
     .string({
       required_error: "You need to select whether working overtime was common.",
     })
     .transform((x) => x === "true")
     .pipe(z.boolean()),
-  pto: z.boolean().default(false).optional(),
-  federalHolidaysOff: z.boolean().default(false).optional(),
-  freeLunch: z.boolean().default(false).optional(),
-  freeTransport: z.boolean().default(false).optional(),
-  freeMerch: z.boolean().default(false).optional(),
+  pto: z.boolean().default(false),
+  federalHolidays: z.boolean().default(false),
+  freeLunch: z.boolean().default(false),
+  freeTransport: z.boolean().default(false),
+  freeMerch: z.boolean().default(false),
   otherBenefits: z.string().nullable(),
 });
 
@@ -108,7 +109,7 @@ export type ReviewFormType = typeof formSchema;
 // There's probably a more elegant way of linking this to the Zod schema
 export const benefits = [
   { field: "pto", label: "PTO" },
-  { field: "federalHolidaysOff", label: "Federal holidays off" },
+  { field: "federalHolidays", label: "Federal holidays off" },
   { field: "freeLunch", label: "Free lunch" },
   { field: "freeTransport", label: "Free transportation" },
   { field: "freeMerch", label: "Free merchandise" },
@@ -118,23 +119,23 @@ export function ReviewForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      coopCycle: undefined,
-      coopYear: undefined,
-      coopExperience: 0,
-      companyCulture: 0,
+      workTerm: undefined,
+      workYear: undefined,
+      overallRating: 0,
+      cultureRating: 0,
       supervisorRating: 0,
-      interviewExperienceRating: 0,
+      interviewRating: 0,
       interviewDifficulty: 0,
-      interviewExperience: "",
+      interviewReview: "",
       reviewHeadline: "",
       textReview: "",
       location: "",
       hourlyPay: 0,
-      workModel: undefined,
+      workEnvironment: undefined,
       drugTest: undefined,
-      overtimeCommon: undefined,
+      overtimeNormal: undefined,
       pto: false,
-      federalHolidaysOff: false,
+      federalHolidays: false,
       freeLunch: false,
       freeTransport: false,
       freeMerch: false,

@@ -20,7 +20,7 @@ export function CompanyDetailsSection() {
     <FormSection title="4. Company Details">
       <FormField
         control={form.control}
-        name="workModel"
+        name="workEnvironment"
         render={({ field }) => (
           <FormItem className="space-y-3">
             <FormLabel>What kind of work model?*</FormLabel>
@@ -32,19 +32,19 @@ export function CompanyDetailsSection() {
               >
                 <FormItem className="flex items-center space-x-3 space-y-0">
                   <FormControl>
-                    <RadioGroupItem value="In-person" />
+                    <RadioGroupItem value="INPERSON" />
                   </FormControl>
                   <FormLabel>In-person</FormLabel>
                 </FormItem>
                 <FormItem className="flex items-center space-x-3 space-y-0">
                   <FormControl>
-                    <RadioGroupItem value="Hybrid" />
+                    <RadioGroupItem value="HYBRID" />
                   </FormControl>
                   <FormLabel>Hybrid</FormLabel>
                 </FormItem>
                 <FormItem className="flex items-center space-x-3 space-y-0">
                   <FormControl>
-                    <RadioGroupItem value="Remote" />
+                    <RadioGroupItem value="REMOTE" />
                   </FormControl>
                   <FormLabel>Remote</FormLabel>
                 </FormItem>
@@ -86,7 +86,7 @@ export function CompanyDetailsSection() {
       />
       <FormField
         control={form.control}
-        name="overtimeCommon"
+        name="overtimeNormal"
         render={({ field }) => (
           <FormItem className="space-y-3">
             <FormLabel>Was working overtime common?*</FormLabel>

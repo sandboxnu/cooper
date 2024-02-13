@@ -19,7 +19,7 @@ export function CoopCycleSection() {
     <FormSection title="1. Co-op Cycle">
       <FormField
         control={form.control}
-        name="coopCycle"
+        name="workTerm"
         render={({ field }) => (
           <FormItem className="space-y-3">
             <FormLabel>Co-op Cycle*</FormLabel>
@@ -31,21 +31,21 @@ export function CoopCycleSection() {
               >
                 <FormItem className="flex items-center space-x-3 space-y-0">
                   <FormControl>
-                    <RadioGroupItem value="Spring" />
+                    <RadioGroupItem value="SPRING" />
                   </FormControl>
                   <FormLabel>Spring</FormLabel>
                 </FormItem>
                 <FormItem className="flex items-center space-x-3 space-y-0">
                   <FormControl>
-                    <RadioGroupItem value="Fall" />
+                    <RadioGroupItem value="FALL" />
                   </FormControl>
                   <FormLabel>Fall</FormLabel>
                 </FormItem>
                 <FormItem className="flex items-center space-x-3 space-y-0">
                   <FormControl>
-                    <RadioGroupItem value="Other..." />
+                    <RadioGroupItem value="SUMMER" />
                   </FormControl>
-                  <FormLabel>Other...</FormLabel>
+                  <FormLabel>Summer</FormLabel>
                 </FormItem>
               </RadioGroup>
             </FormControl>
@@ -55,7 +55,7 @@ export function CoopCycleSection() {
       />
       <FormField
         control={form.control}
-        name="coopYear"
+        name="workYear"
         render={({ field }) => (
           <FormItem>
             <FormLabel>Co-op Year*</FormLabel>
