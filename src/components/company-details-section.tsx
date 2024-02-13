@@ -8,6 +8,7 @@ import {
   FormMessage,
 } from "~/components/ui/form";
 import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
+import { Input } from "~/components/ui/input";
 import { Checkbox } from "~/components/ui/checkbox";
 
 import { benefits } from "~/components/review-form";
@@ -132,6 +133,23 @@ export function CompanyDetailsSection() {
           )}
         />
       ))}
+      <FormField
+        control={form.control}
+        name="otherBenefits"
+        render={({ field }) => (
+          <FormItem className="flex flex-row items-start space-x-2 space-y-0">
+            <Checkbox checked={!!field.value} className="pointer-events-none" />
+            <FormControl>
+              <Input
+                {...field}
+                placeholder="Other..."
+                className="highlight h-4 border-none bg-white pl-1 font-medium focus:ring-0"
+              />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
     </FormSection>
   );
 }

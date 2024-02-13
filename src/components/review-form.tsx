@@ -102,7 +102,7 @@ const formSchema = z.object({
   freeLunch: z.boolean().default(false).optional(),
   freeTransport: z.boolean().default(false).optional(),
   freeMerch: z.boolean().default(false).optional(),
-  otherBenefits: z.string().optional(),
+  otherBenefits: z.string().nullable(),
 });
 
 export type ReviewFormType = typeof formSchema;
