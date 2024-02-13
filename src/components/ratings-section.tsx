@@ -9,7 +9,8 @@ import {
 } from "~/components/ui/form";
 import { RadioGroup } from "@radix-ui/react-radio-group";
 import { RadioGroupItem } from "~/components/ui/radio-group";
-import { Textarea } from "./ui/textarea";
+import { Textarea } from "~/components/ui/textarea";
+import { Rating } from "~/components/ui/rating";
 
 export function RatingsSection() {
   const form = useFormContext();
@@ -72,6 +73,21 @@ export function RatingsSection() {
             <FormLabel>Tell us about your interview experience</FormLabel>
             <FormControl>
               <Textarea {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+      <FormField
+        control={form.control}
+        name="coopExperience"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>
+              How would you rate your overall co-op experience?*
+            </FormLabel>
+            <FormControl>
+              <Rating {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>

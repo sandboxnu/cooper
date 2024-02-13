@@ -25,6 +25,14 @@ const formSchema = z.object({
     .max(2024, {
       message: "The co-op year should be less than or equal to 2024",
     }),
+  coopExperience: z.coerce
+    .number()
+    .min(1, {
+      message: "Please select a valid co-op experience rating.",
+    })
+    .max(5, {
+      message: "Please select a valid co-op experience rating.",
+    }),
   interviewDifficulty: z.coerce
     .number()
     .min(1, {
@@ -73,6 +81,8 @@ const formSchema = z.object({
   otherBenefits: z.string().optional(),
 });
 
+export type ReviewFormType = typeof formSchema;
+
 // There's probably a more elegant way of linking this to the Zod schema
 export const benefits = [
   { field: "pto", label: "PTO" },
@@ -88,6 +98,7 @@ export function ReviewForm() {
     defaultValues: {
       coopCycle: undefined,
       coopYear: undefined,
+      coopExperience: 0,
       interviewDifficulty: 0,
       interviewExperience: "",
       reviewHeadline: "",
