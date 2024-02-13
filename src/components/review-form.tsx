@@ -37,7 +37,9 @@ const formSchema = z.object({
   location: z.string().min(2, {
     message: "Location must be at least 2 characters.",
   }),
-  hourlyPay: z.coerce.number(),
+  hourlyPay: z.coerce.number().min(1, {
+    message: "Hourly pay must be valid.",
+  }),
   workModel: z.enum(["In-person", "Hybrid", "Remote"], {
     required_error: "You need to select a work model.",
   }),
@@ -53,6 +55,12 @@ const formSchema = z.object({
     })
     .transform((x) => x === "true")
     .pipe(z.boolean()),
+  pto: z.boolean().default(false).optional(),
+  federalHolidaysOff: z.boolean().default(false).optional(),
+  freeLunch: z.boolean().default(false).optional(),
+  freeMerch: z.boolean().default(false).optional(),
+  noBenefits: z.boolean().default(false).optional(),
+  freeTransport: z.boolean().default(false).optional(),
 });
 
 export function ReviewForm() {
@@ -64,10 +72,16 @@ export function ReviewForm() {
       reviewHeadline: "",
       textReview: "",
       location: "",
-      hourlyPay: undefined,
+      hourlyPay: 0,
       workModel: undefined,
       drugTest: undefined,
       overtimeCommon: undefined,
+      pto: false,
+      federalHolidaysOff: false,
+      freeLunch: false,
+      freeTransport: false,
+      freeMerch: false,
+      noBenefits: false,
     },
   });
 

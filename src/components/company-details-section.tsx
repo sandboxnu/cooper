@@ -8,6 +8,7 @@ import {
   FormMessage,
 } from "~/components/ui/form";
 import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
+import { Checkbox } from "./ui/checkbox";
 
 export function CompanyDetailsSection() {
   const form = useFormContext();
@@ -107,6 +108,98 @@ export function CompanyDetailsSection() {
               </RadioGroup>
             </FormControl>
             <FormMessage />
+          </FormItem>
+        )}
+      />
+      <FormLabel>Select which benefit(s) [company] offered*</FormLabel>
+      <FormField
+        control={form.control}
+        name="pto"
+        render={({ field }) => (
+          <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+            <FormControl>
+              <Checkbox
+                checked={field.value}
+                onCheckedChange={field.onChange}
+              />
+            </FormControl>
+            <FormLabel>PTO</FormLabel>
+          </FormItem>
+        )}
+      />
+      <FormField
+        control={form.control}
+        name="federalHolidaysOff"
+        render={({ field }) => (
+          <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+            <FormControl>
+              <Checkbox
+                checked={field.value}
+                onCheckedChange={field.onChange}
+              />
+            </FormControl>
+            <FormLabel>Federal holidays off</FormLabel>
+          </FormItem>
+        )}
+      />
+      <FormField
+        control={form.control}
+        name="freeLunch"
+        render={({ field }) => (
+          <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+            <FormControl>
+              <Checkbox
+                checked={field.value}
+                onCheckedChange={field.onChange}
+              />
+            </FormControl>
+            <FormLabel>Free lunch</FormLabel>
+          </FormItem>
+        )}
+      />
+      <FormField
+        control={form.control}
+        name="freeTransport"
+        render={({ field }) => (
+          <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+            <FormControl>
+              <Checkbox
+                checked={field.value}
+                onCheckedChange={field.onChange}
+              />
+            </FormControl>
+            <FormLabel>Free transportation</FormLabel>
+          </FormItem>
+        )}
+      />
+      <FormField
+        control={form.control}
+        name="freeMerch"
+        render={({ field }) => (
+          <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+            <FormControl>
+              <Checkbox
+                checked={field.value}
+                onCheckedChange={field.onChange}
+              />
+            </FormControl>
+            <FormLabel>Free merchandise</FormLabel>
+          </FormItem>
+        )}
+      />
+      <FormField
+        control={form.control}
+        name="noBenefits"
+        render={({ field }) => (
+          <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+            <FormControl>
+              <Checkbox
+                checked={field.value}
+                onCheckedChange={field.onChange}
+                disabled={true}
+              />
+            </FormControl>
+            <FormLabel>There were no benefits</FormLabel>
           </FormItem>
         )}
       />
