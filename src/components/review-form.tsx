@@ -110,7 +110,7 @@ export const benefits = [
   { field: "pto", label: "PTO" },
   { field: "federalHolidaysOff", label: "Federal holidays off" },
   { field: "freeLunch", label: "Free lunch" },
-  { field: "freeTransportation", label: "Free transportation" },
+  { field: "freeTransport", label: "Free transportation" },
   { field: "freeMerch", label: "Free merchandise" },
 ];
 
@@ -146,14 +146,27 @@ export function ReviewForm() {
     console.log(values);
   }
 
+  function onReset() {
+    form.reset();
+  }
+
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        onReset={onReset}
+        className="space-y-6"
+      >
         <CoopCycleSection />
         <RatingsSection />
         <ReviewSection />
         <CompanyDetailsSection />
-        <Button type="submit">Submit</Button>
+        <div className="flex justify-end space-x-2">
+          <Button variant="secondary" type="reset">
+            Clear form
+          </Button>
+          <Button type="submit">Submit</Button>
+        </div>
       </form>
     </Form>
   );
