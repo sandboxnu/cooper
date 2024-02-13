@@ -19,6 +19,64 @@ export function RatingsSection() {
     <FormSection title="2. Ratings">
       <FormField
         control={form.control}
+        name="coopExperience"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>
+              How would you rate your overall co-op experience?*
+            </FormLabel>
+            <FormControl>
+              <Rating {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+      <FormField
+        control={form.control}
+        name="companyCulture"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>
+              How would you rate your company&apos;s culture?*
+            </FormLabel>
+            <FormControl>
+              <Rating {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+      <FormField
+        control={form.control}
+        name="supervisorRating"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>How would you rate your supervisor?*</FormLabel>
+            <FormControl>
+              <Rating {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+      <FormField
+        control={form.control}
+        name="interviewExperienceRating"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>
+              How would you rate your interview experience?*
+            </FormLabel>
+            <FormControl>
+              <Rating {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+      <FormField
+        control={form.control}
         name="interviewDifficulty"
         render={({ field }) => (
           <FormItem className="space-y-3">
@@ -73,21 +131,6 @@ export function RatingsSection() {
             <FormLabel>Tell us about your interview experience</FormLabel>
             <FormControl>
               <Textarea {...field} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-      <FormField
-        control={form.control}
-        name="coopExperience"
-        render={({ field }) => (
-          <FormItem>
-            <FormLabel>
-              How would you rate your overall co-op experience?*
-            </FormLabel>
-            <FormControl>
-              <Rating {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>

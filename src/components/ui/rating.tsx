@@ -28,6 +28,7 @@ export const Rating = forwardRef<HTMLInputElement, RatingProps>(
                 i < +getValues(name)
                   ? "fill-primary"
                   : "fill-primary-foreground",
+                "hover:cursor-pointer",
               )}
               onClick={() =>
                 setValue(name, i === +getValues(name) - 1 ? 0 : i + 1)

@@ -33,6 +33,30 @@ const formSchema = z.object({
     .max(5, {
       message: "Please select a valid co-op experience rating.",
     }),
+  companyCulture: z.coerce
+    .number()
+    .min(1, {
+      message: "Please select a valid company culture rating.",
+    })
+    .max(5, {
+      message: "Please select a valid company culture rating.",
+    }),
+  supervisorRating: z.coerce
+    .number()
+    .min(1, {
+      message: "Please select a valid supervisor rating.",
+    })
+    .max(5, {
+      message: "Please select a valid supervisor rating.",
+    }),
+  interviewExperienceRating: z.coerce
+    .number()
+    .min(1, {
+      message: "Please select a interview experience rating.",
+    })
+    .max(5, {
+      message: "Please select a interview experience rating.",
+    }),
   interviewDifficulty: z.coerce
     .number()
     .min(1, {
@@ -99,6 +123,9 @@ export function ReviewForm() {
       coopCycle: undefined,
       coopYear: undefined,
       coopExperience: 0,
+      companyCulture: 0,
+      supervisorRating: 0,
+      interviewExperienceRating: 0,
       interviewDifficulty: 0,
       interviewExperience: "",
       reviewHeadline: "",
