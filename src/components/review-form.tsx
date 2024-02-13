@@ -58,9 +58,8 @@ const formSchema = z.object({
   pto: z.boolean().default(false).optional(),
   federalHolidaysOff: z.boolean().default(false).optional(),
   freeLunch: z.boolean().default(false).optional(),
-  freeMerch: z.boolean().default(false).optional(),
-  noBenefits: z.boolean().default(false).optional(),
   freeTransport: z.boolean().default(false).optional(),
+  freeMerch: z.boolean().default(false).optional(),
 });
 
 export function ReviewForm() {
@@ -81,7 +80,6 @@ export function ReviewForm() {
       freeLunch: false,
       freeTransport: false,
       freeMerch: false,
-      noBenefits: false,
     },
   });
 

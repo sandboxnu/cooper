@@ -187,22 +187,6 @@ export function CompanyDetailsSection() {
           </FormItem>
         )}
       />
-      <FormField
-        control={form.control}
-        name="noBenefits"
-        render={({ field }) => (
-          <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-            <FormControl>
-              <Checkbox
-                checked={field.value}
-                onCheckedChange={field.onChange}
-                disabled={true}
-              />
-            </FormControl>
-            <FormLabel>There were no benefits</FormLabel>
-          </FormItem>
-        )}
-      />
     </FormSection>
   );
 }
