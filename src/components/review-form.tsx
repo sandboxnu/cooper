@@ -60,7 +60,17 @@ const formSchema = z.object({
   freeLunch: z.boolean().default(false).optional(),
   freeTransport: z.boolean().default(false).optional(),
   freeMerch: z.boolean().default(false).optional(),
+  otherBenefits: z.string().optional(),
 });
+
+// There's probably a more elegant way of linking this to the Zod schema
+export const benefits = [
+  { field: "pto", label: "PTO" },
+  { field: "federalHolidaysOff", label: "Federal holidays off" },
+  { field: "freeLunch", label: "Free lunch" },
+  { field: "freeTransportation", label: "Free transportation" },
+  { field: "freeMerch", label: "Free merchandise" },
+];
 
 export function ReviewForm() {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -80,6 +90,7 @@ export function ReviewForm() {
       freeLunch: false,
       freeTransport: false,
       freeMerch: false,
+      otherBenefits: "",
     },
   });
 
