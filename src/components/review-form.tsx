@@ -9,6 +9,7 @@ import { Form } from "~/components/ui/form";
 import { ReviewSection } from "~/components/review-section";
 import { CoopCycleSection } from "~/components/coop-cycle-section";
 import { CompanyDetailsSection } from "~/components/company-details-section";
+import { RatingsSection } from "~/components/ratings-section";
 
 const formSchema = z.object({
   coopCycle: z.enum(["Fall", "Spring", "Other..."], {
@@ -24,6 +25,15 @@ const formSchema = z.object({
     .max(2024, {
       message: "The co-op year should be less than or equal to 2024",
     }),
+  interviewDifficulty: z.coerce
+    .number()
+    .min(1, {
+      message: "Please select a valid interview difficulty rating.",
+    })
+    .max(5, {
+      message: "Please select a valid interview difficulty rating.",
+    }),
+  interviewExperience: z.string().optional(),
   reviewHeadline: z
     .string({
       required_error: "You need to enter a Review Headline.",
@@ -78,6 +88,8 @@ export function ReviewForm() {
     defaultValues: {
       coopCycle: undefined,
       coopYear: undefined,
+      interviewDifficulty: 0,
+      interviewExperience: "",
       reviewHeadline: "",
       textReview: "",
       location: "",
@@ -102,6 +114,7 @@ export function ReviewForm() {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <CoopCycleSection />
+        <RatingsSection />
         <ReviewSection />
         <CompanyDetailsSection />
         <Button type="submit">Submit</Button>
