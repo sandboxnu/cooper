@@ -5,7 +5,11 @@ import { cn } from "~/lib/utils";
 
 type RatingProps = React.InputHTMLAttributes<HTMLInputElement>;
 
-// See: https://github.com/shadcn-ui/ui/issues/1107#issuecomment-1918229523
+/**
+ * Rating component provides a star-based rating input.
+ *
+ * See: {@link https://github.com/shadcn-ui/ui/issues/1107#issuecomment-1918229523}
+ */
 export const Rating = forwardRef<HTMLInputElement, RatingProps>(
   (props, ref) => {
     const name = props.name as FieldPath<ReviewFormType>;

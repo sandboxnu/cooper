@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import dayjs from "dayjs";
 
 import { Button } from "~/components/ui/button";
 import { Form } from "~/components/ui/form";
@@ -22,8 +23,8 @@ const formSchema = z.object({
         message: "Please select a valid co-op year.",
       }),
     })
-    .min(2022)
-    .max(2024),
+    .min(2000)
+    .max(dayjs().year()),
   overallRating: z.coerce
     .number({
       errorMap: () => ({
@@ -115,6 +116,10 @@ export const benefits = [
   { field: "freeMerch", label: "Free merchandise" },
 ];
 
+/**
+ * ReviewForm component manages a form for submitting a review. This component
+ * integrates React Hook Form with Zod validation for form management and validation.
+ */
 export function ReviewForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

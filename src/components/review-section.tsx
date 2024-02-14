@@ -10,6 +10,9 @@ import { Textarea } from "~/components/ui/textarea";
 import { FormSection } from "~/components/form-section";
 import { useFormContext } from "react-hook-form";
 
+/**
+ * ReviewSection component renders form fields for writing a co-op review.
+ */
 export function ReviewSection() {
   const form = useFormContext();
 

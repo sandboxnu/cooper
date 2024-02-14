@@ -13,6 +13,10 @@ import { Checkbox } from "~/components/ui/checkbox";
 
 import { benefits } from "~/components/review-form";
 
+/**
+ * CompanyDetailsSection component renders form fields for capturing
+ * company details related to the co-op experience.
+ */
 export function CompanyDetailsSection() {
   const form = useFormContext();
 

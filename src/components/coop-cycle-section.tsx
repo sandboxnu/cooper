@@ -11,9 +11,20 @@ import {
 import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
 import { cn } from "~/lib/utils";
 import { buttonVariants } from "~/components/ui/button";
+import dayjs from "dayjs";
 
+/**
+ * CoopCycleSection component renders form fields for selecting co-op cycle and year.
+ */
 export function CoopCycleSection() {
   const form = useFormContext();
+
+  // Need to evaluate whether this is a bad idea
+  const currentYear = dayjs().year();
+  const years = Array.from(
+    { length: currentYear - 1999 },
+    (_, index) => currentYear - index,
+  );
 
   return (
     <FormSection title="1. Co-op Cycle">
@@ -78,9 +89,11 @@ export function CoopCycleSection() {
                   {...field}
                 >
                   <option value={undefined}>Select the year you co-oped</option>
-                  <option value={2024}>2024</option>
-                  <option value={2023}>2023</option>
-                  <option value={2022}>2022</option>
+                  {years.map((year) => (
+                    <option key={year} value={year}>
+                      {year}
+                    </option>
+                  ))}
                 </select>
               </FormControl>
               <TriangleDownIcon className="absolute right-2.5 top-2.5 h-5 w-5" />

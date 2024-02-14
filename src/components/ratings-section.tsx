@@ -12,6 +12,10 @@ import { RadioGroupItem } from "~/components/ui/radio-group";
 import { Textarea } from "~/components/ui/textarea";
 import { Rating } from "~/components/ui/rating";
 
+/**
+ * RatingsSection component renders form fields for rating various
+ * aspects of a co-op experience.
+ */
 export function RatingsSection() {
   const form = useFormContext();
 
@@ -79,13 +83,13 @@ export function RatingsSection() {
         control={form.control}
         name="interviewDifficulty"
         render={({ field }) => (
-          <FormItem className="space-y-3">
+          <FormItem className="space-y-2">
             <FormLabel>Interview Difficulty*</FormLabel>
             <FormControl>
               <RadioGroup
                 onValueChange={field.onChange}
                 defaultValue={field.value}
-                className="flex space-x-4"
+                className="flex flex-col space-y-3 sm:flex-row sm:space-x-4 sm:space-y-0"
               >
                 <FormItem className="flex items-center space-x-2 space-y-0">
                   <FormControl>
