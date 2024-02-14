@@ -11,8 +11,10 @@ export default async function Page() {
   }
 
   return (
-    <div className="container flex items-center justify-center py-10">
-      <ReviewForm />
+    <div className="container mx-auto px-4 py-10 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-lg">
+        <ReviewForm />
+      </div>
     </div>
   );
 }
