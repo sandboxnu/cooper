@@ -89,31 +89,31 @@ export function RatingsSection() {
               >
                 <FormItem className="flex items-center space-x-2 space-y-0">
                   <FormControl>
-                    <RadioGroupItem value="1" />
+                    <RadioGroupItem value="1" checked={field.value === "1"} />
                   </FormControl>
                   <FormLabel>Very easy</FormLabel>
                 </FormItem>
                 <FormItem className="flex items-center space-x-2 space-y-0">
                   <FormControl>
-                    <RadioGroupItem value="2" />
+                    <RadioGroupItem value="2" checked={field.value === "2"} />
                   </FormControl>
                   <FormLabel>Easy</FormLabel>
                 </FormItem>
                 <FormItem className="flex items-center space-x-2 space-y-0">
                   <FormControl>
-                    <RadioGroupItem value="3" />
+                    <RadioGroupItem value="3" checked={field.value === "3"} />
                   </FormControl>
                   <FormLabel>Neither easy nor difficult</FormLabel>
                 </FormItem>
                 <FormItem className="flex items-center space-x-2 space-y-0">
                   <FormControl>
-                    <RadioGroupItem value="4" />
+                    <RadioGroupItem value="4" checked={field.value === "4"} />
                   </FormControl>
                   <FormLabel>Difficult</FormLabel>
                 </FormItem>
                 <FormItem className="flex items-center space-x-2 space-y-0">
                   <FormControl>
-                    <RadioGroupItem value="5" />
+                    <RadioGroupItem value="5" checked={field.value === "5"} />
                   </FormControl>
                   <FormLabel>Very difficult</FormLabel>
                 </FormItem>

@@ -31,19 +31,28 @@ export function CoopCycleSection() {
               >
                 <FormItem className="flex items-center space-x-3 space-y-0">
                   <FormControl>
-                    <RadioGroupItem value="SPRING" />
+                    <RadioGroupItem
+                      value="SPRING"
+                      checked={field.value === "SPRING"}
+                    />
                   </FormControl>
                   <FormLabel>Spring</FormLabel>
                 </FormItem>
                 <FormItem className="flex items-center space-x-3 space-y-0">
                   <FormControl>
-                    <RadioGroupItem value="FALL" />
+                    <RadioGroupItem
+                      value="FALL"
+                      checked={field.value === "FALL"}
+                    />
                   </FormControl>
                   <FormLabel>Fall</FormLabel>
                 </FormItem>
                 <FormItem className="flex items-center space-x-3 space-y-0">
                   <FormControl>
-                    <RadioGroupItem value="SUMMER" />
+                    <RadioGroupItem
+                      value="SUMMER"
+                      checked={field.value === "SUMMER"}
+                    />
                   </FormControl>
                   <FormLabel>Summer</FormLabel>
                 </FormItem>

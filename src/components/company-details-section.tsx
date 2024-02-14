@@ -32,19 +32,28 @@ export function CompanyDetailsSection() {
               >
                 <FormItem className="flex items-center space-x-3 space-y-0">
                   <FormControl>
-                    <RadioGroupItem value="INPERSON" />
+                    <RadioGroupItem
+                      value="INPERSON"
+                      checked={field.value === "INPERSON"}
+                    />
                   </FormControl>
                   <FormLabel>In-person</FormLabel>
                 </FormItem>
                 <FormItem className="flex items-center space-x-3 space-y-0">
                   <FormControl>
-                    <RadioGroupItem value="HYBRID" />
+                    <RadioGroupItem
+                      value="HYBRID"
+                      checked={field.value === "HYBRID"}
+                    />
                   </FormControl>
                   <FormLabel>Hybrid</FormLabel>
                 </FormItem>
                 <FormItem className="flex items-center space-x-3 space-y-0">
                   <FormControl>
-                    <RadioGroupItem value="REMOTE" />
+                    <RadioGroupItem
+                      value="REMOTE"
+                      checked={field.value === "REMOTE"}
+                    />
                   </FormControl>
                   <FormLabel>Remote</FormLabel>
                 </FormItem>
@@ -68,13 +77,19 @@ export function CompanyDetailsSection() {
               >
                 <FormItem className="flex items-center space-x-3 space-y-0">
                   <FormControl>
-                    <RadioGroupItem value="true" />
+                    <RadioGroupItem
+                      value="true"
+                      checked={field.value === "true"}
+                    />
                   </FormControl>
                   <FormLabel>Yes</FormLabel>
                 </FormItem>
                 <FormItem className="flex items-center space-x-3 space-y-0">
                   <FormControl>
-                    <RadioGroupItem value="false" />
+                    <RadioGroupItem
+                      value="false"
+                      checked={field.value === "false"}
+                    />
                   </FormControl>
                   <FormLabel>No</FormLabel>
                 </FormItem>
@@ -98,13 +113,19 @@ export function CompanyDetailsSection() {
               >
                 <FormItem className="flex items-center space-x-3 space-y-0">
                   <FormControl>
-                    <RadioGroupItem value="true" />
+                    <RadioGroupItem
+                      value="true"
+                      checked={field.value === "true"}
+                    />
                   </FormControl>
                   <FormLabel>Yes</FormLabel>
                 </FormItem>
                 <FormItem className="flex items-center space-x-3 space-y-0">
                   <FormControl>
-                    <RadioGroupItem value="false" />
+                    <RadioGroupItem
+                      value="false"
+                      checked={field.value === "false"}
+                    />
                   </FormControl>
                   <FormLabel>No</FormLabel>
                 </FormItem>
