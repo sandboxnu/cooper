@@ -105,20 +105,25 @@ model Review {
     id                  String          @id @default(cuid())
     workTerm            WorkTerm
     workYear            Int
-    startDate           DateTime?
-    endDate             DateTime?
-    hourlyPay           Decimal
-    interviewDifficulty Int?
-    interviewExperience Int?
-    supervisorRating    Int?
-    cultureRating       Int?
     overallRating       Int
+    cultureRating       Int
+    supervisorRating    Int
+    interviewRating     Int
+    interviewDifficulty Int
+    interviewReview     String?
+    reviewHeadline      String
     textReview          String
+    location            String?
+    hourlyPay           Decimal?
     workEnvironment     WorkEnvironment
-    freeLunch           Boolean
     drugTest            Boolean
-    federalHolidays     Boolean
     overtimeNormal      Boolean
+    pto                 Boolean
+    federalHolidays     Boolean
+    freeLunch           Boolean
+    freeTransport       Boolean
+    freeMerch           Boolean
+    otherBenefits       String?
     createdAt           DateTime        @default(now())
 
     role   Role?   @relation(fields: [roleId], references: [id], onDelete: Cascade)
@@ -170,7 +175,7 @@ enum Industry {
 }
 
 enum WorkEnvironment {
-    IN_PERSON
+    INPERSON
     HYBRID
     REMOTE
 }
