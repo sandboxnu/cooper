@@ -199,7 +199,7 @@ export function ReviewForm() {
   return (
     <>
       <header
-        className={`relative z-10 mt-8 flex justify-center ${isSticky ? "sticky top-[-5rem]" : ""}`}
+        className={`relative z-10 mt-8 flex justify-center ${isSticky ? "sticky top-[-2rem] sm:top-[-5rem]" : ""}`}
       >
         <div
           className={`space-4 relative flex min-w-[95vw] flex-col rounded-xl bg-white p-8 sm:min-w-[66vw] ${isSticky ? "outline" : ""}`}
@@ -218,19 +218,19 @@ export function ReviewForm() {
             <h1 className="text-3xl font-semibold">Submit a Co-op Review</h1>
             <p className="my-4">description about this form here.</p>
           </div>
-          <div className={`mt-2 flex justify-around px-16`}>
+          <div className={`mt-2 flex justify-around`}>
             {headerSections.map((section, idx) => {
               return (
                 <div
                   className={
-                    "flex flex-col items-center px-4 " +
+                    "flex flex-col items-center " +
                     `w-[${1 / headerSections.length}%]`
                   }
                   key={section.title + idx}
                 >
                   {/* THE CIRCLES */}
                   <div
-                    className={`flex h-6 w-6 flex-col items-center justify-center rounded-full border border-black px-2 text-base md:h-8 md:w-8 md:border-2 md:font-semibold lg:h-11 lg:w-11 ${higlightedSectionIdx === idx ? "bg-blue-200" : ""}`}
+                    className={`flex h-6 w-6 flex-col items-center justify-center rounded-full border border-black text-base md:h-8 md:w-8 md:border-2 md:font-semibold lg:h-11 lg:w-11 ${higlightedSectionIdx === idx ? "bg-blue-200" : ""}`}
                   >
                     {idx + 1}
                   </div>
