@@ -13,7 +13,6 @@ import { CoopCycleSection } from "~/components/coop-cycle-section";
 import { CompanyDetailsSection } from "~/components/company-details-section";
 import { RatingsSection } from "~/components/ratings-section";
 import { WorkEnvironment, WorkTerm } from "@prisma/client";
-import { FormSection } from "./form-section";
 
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
@@ -153,7 +152,7 @@ export function ReviewForm() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
   }
-
+  
   // Header Data
   // going to fix the below TODO useMemo
   // eslint-disable-next-line react-hooks/exhaustive-deps
