@@ -1,7 +1,6 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import dayjs from "dayjs";
@@ -164,105 +163,32 @@ export function ReviewForm() {
     { title: "Submit", bound: 10000000 },
   ];
 
-  // Header Sticky State
-  const [headerPercentage, setHeaderPercentage] = useState<number>(40);
-  const [isSticky, setIsSticky] = useState<boolean>(false);
-  const [higlightedSectionIdx, setHighlightedSectionIdx] = useState<number>(0);
-  useEffect(() => {
-    // Helper Function
-    const indexOfRange = (num: number): number => {
-      let item = headerSections.find(({ title, bound }) => num < bound);
-      return item ? headerSections.indexOf(item) : 0;
-    };
-
-    // Scroll Handler
-    const handleScroll = () => {
-      // Set the header percentage to be either 100% width or some linear interpolation that has a minimum of 50%
-      setHeaderPercentage(
-        window.scrollY >= 20 ? 100 : Math.round(window.scrollY * 2.5) + 40,
-      );
-      setIsSticky(window.scrollY > 20);
-      setHighlightedSectionIdx(indexOfRange(window.scrollY));
-      console.log(window.scrollY, indexOfRange(window.scrollY));
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [headerSections]);
-
   function onReset() {
     form.reset();
   }
 
   return (
-    <>
-      <header
-        className={`relative z-10 mt-8 flex justify-center ${isSticky ? "sticky top-[-2rem] sm:top-[-5rem]" : ""}`}
-      >
-        <div
-          className={`space-4 relative flex min-w-[95vw] flex-col rounded-xl bg-white p-8 sm:min-w-[66vw] ${isSticky ? "outline" : ""}`}
-          style={{
-            width: `${headerPercentage}vw`,
-            transition: "width 0.3s; outline 0.7s",
-          }}
-        >
-          <div
-            className={`min-w-full ${headerPercentage == 100 && "opacity-0"}`}
-            style={{
-              width: `${headerPercentage}vw`,
-              transition: "opacity 0.3s",
-            }}
+    <div className="mx-auto px-4 pt-10 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-lg">
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            onReset={onReset}
+            className="space-y-6"
           >
-            <h1 className="text-3xl font-semibold">Submit a Co-op Review</h1>
-            <p className="my-4">description about this form here.</p>
-          </div>
-          <div className={`mt-2 flex justify-around`}>
-            {headerSections.map((section, idx) => {
-              return (
-                <div
-                  className={
-                    "flex flex-col items-center " +
-                    `w-[${1 / headerSections.length}%]`
-                  }
-                  key={section.title + idx}
-                >
-                  {/* THE CIRCLES */}
-                  <div
-                    className={`flex h-6 w-6 flex-col items-center justify-center rounded-full border border-black text-base md:h-8 md:w-8 md:border-2 md:font-semibold lg:h-11 lg:w-11 ${higlightedSectionIdx === idx ? "bg-blue-200" : ""}`}
-                  >
-                    {idx + 1}
-                  </div>
-                  <p className="text-center">{section.title}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </header>
-      <div className="mx-auto px-4 pt-10 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-lg">
-          <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              onReset={onReset}
-              className="space-y-6"
-            >
-              <CoopCycleSection />
-              <RatingsSection />
-              <ReviewSection />
-              <CompanyDetailsSection />
-              <div className="flex justify-end space-x-2">
-                <Button variant="secondary" type="reset">
-                  Clear form
-                </Button>
-                <Button type="submit">Submit</Button>
-              </div>
-            </form>
-          </Form>
-        </div>
+            <CoopCycleSection />
+            <RatingsSection />
+            <ReviewSection />
+            <CompanyDetailsSection />
+            <div className="flex justify-end space-x-2">
+              <Button variant="secondary" type="reset">
+                Clear form
+              </Button>
+              <Button type="submit">Submit</Button>
+            </div>
+          </form>
+        </Form>
       </div>
-    </>
+    </div>
   );
 }
