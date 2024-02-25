@@ -10,6 +10,7 @@ import { Input } from "./ui/input";
 import { cn } from "~/lib/utils";
 import { buttonVariants } from "./ui/button";
 import { TriangleDownIcon } from "@radix-ui/react-icons";
+import { SearchBar } from "./search-bar";
 
 const formSchema = z.object({
   searchText: z.string(),
@@ -61,30 +62,13 @@ export default function SearchFilter() {
   }
 
   return (
-    <div className="flex h-24 min-w-[80vw] items-center justify-center rounded-2xl bg-accent p-4">
+    <div className="flex h-24 min-w-[80vw] items-center justify-center rounded-2xl bg-cooper-blue-400 p-4">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="space-between flex w-full items-center justify-between"
+          className="space-between mx-4 flex w-full flex-wrap items-center justify-between"
         >
-          <FormField
-            control={form.control}
-            name="searchText"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <div className="flex items-center justify-between">
-                    {/* SEARCH TEXT INPUT */}
-                    <Input
-                      {...field}
-                      className="min-w-96 rounded-3xl border-none bg-secondary"
-                      placeholder="🔎 Search"
-                    />
-                  </div>
-                </FormControl>
-              </FormItem>
-            )}
-          />
+          <SearchBar />
           <div className="flex items-center justify-around space-x-3">
             {searchDropdown.map(({ name, title, enumObj }) => {
               return (
