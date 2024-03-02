@@ -91,9 +91,9 @@ model Company {
 }
 
 model Role {
-    id          String @id @default(cuid())
+    id          String  @id @default(cuid())
     title       String
-    description String
+    description String?
 
     reviews Review[]
 
