@@ -97,8 +97,8 @@ model Role {
 
     reviews Review[]
 
-    company   Company? @relation(fields: [companyId], references: [id], onDelete: Cascade)
-    companyId String?
+    company   Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+    companyId String
 }
 
 model Review {
