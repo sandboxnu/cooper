@@ -4,9 +4,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import dayjs from "dayjs";
-
 import { Button } from "~/components/ui/button";
 import { Form } from "~/components/ui/form";
+import { toast } from "sonner";
 import { ReviewSection } from "~/components/review-section";
 import { CoopCycleSection } from "~/components/coop-cycle-section";
 import { CompanyDetailsSection } from "~/components/company-details-section";
@@ -128,7 +128,7 @@ type ReviewFormProps = {
  * integrates React Hook Form with Zod validation for form management and validation.
  */
 export function ReviewForm(props: ReviewFormProps) {
-  const form = useForm<z.infer<typeof formSchema>>({
+  const form = useForm<z.infer<ReviewFormType>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       workTerm: undefined,
@@ -157,12 +157,14 @@ export function ReviewForm(props: ReviewFormProps) {
 
   const mutation = api.review.create.useMutation();
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: z.infer<ReviewFormType>) {
     mutation.mutate({
       roleId: props.roleId,
       profileId: props.profileId,
       ...values,
     });
+
+    toast(`Your review for ${props.company.name} has been submitted!`);
   }
 
   function onReset() {
