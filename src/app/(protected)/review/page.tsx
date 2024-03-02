@@ -22,23 +22,21 @@ export default async function Page({
     notFound();
   }
 
-  let company;
-
   try {
-    company = await api.company.getById.query({
+    const company = await api.company.getById.query({
       id: searchParams.id,
     });
+
+    return (
+      <div className="container mx-auto px-4 py-10 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-lg">
+          <ReviewForm />
+        </div>
+      </div>
+    );
   } catch (error) {
     if (error instanceof TRPCClientError) {
-      return notFound();
+      notFound();
     }
   }
-
-  return (
-    <div className="container mx-auto px-4 py-10 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-lg">
-        <ReviewForm />
-      </div>
-    </div>
-  );
 }
