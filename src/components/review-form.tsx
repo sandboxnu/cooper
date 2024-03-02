@@ -11,7 +11,7 @@ import { ReviewSection } from "~/components/review-section";
 import { CoopCycleSection } from "~/components/coop-cycle-section";
 import { CompanyDetailsSection } from "~/components/company-details-section";
 import { RatingsSection } from "~/components/ratings-section";
-import { WorkEnvironment, WorkTerm } from "@prisma/client";
+import { Company, WorkEnvironment, WorkTerm } from "@prisma/client";
 
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
@@ -116,11 +116,16 @@ export const benefits = [
   { field: "freeMerch", label: "Free merchandise" },
 ];
 
+type ReviewFormProps = {
+  company: Company;
+  sessionId: string;
+};
+
 /**
  * ReviewForm component manages a form for submitting a review. This component
  * integrates React Hook Form with Zod validation for form management and validation.
  */
-export function ReviewForm() {
+export function ReviewForm(props: ReviewFormProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -166,7 +171,7 @@ export function ReviewForm() {
         <CoopCycleSection />
         <RatingsSection />
         <ReviewSection />
-        <CompanyDetailsSection />
+        <CompanyDetailsSection companyName={props.company.name} />
         <div className="flex justify-end space-x-2">
           <Button variant="secondary" type="reset">
             Clear form
