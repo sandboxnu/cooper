@@ -30,7 +30,7 @@ export const createReviewSchema = z.object({
   freeLunch: z.boolean(),
   freeTransport: z.boolean(),
   freeMerch: z.boolean(),
-  otherBenefits: z.string(),
+  otherBenefits: z.string().nullish(),
   roleId: z.string(),
   profileId: z.string(),
 });

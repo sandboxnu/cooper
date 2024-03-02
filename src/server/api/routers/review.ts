@@ -98,7 +98,7 @@ export const reviewRouter = createTRPCRouter({
           message: `Role with ID ${input.roleId} not found.`,
         });
 
-      const profile = await ctx.db.role.findUnique({
+      const profile = await ctx.db.profile.findUnique({
         where: {
           id: input.profileId,
         },
@@ -113,6 +113,7 @@ export const reviewRouter = createTRPCRouter({
       return await ctx.db.review.create({
         data: {
           ...input,
+          companyId: role.companyId,
         },
       });
     }),

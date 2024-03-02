@@ -12,6 +12,7 @@ import { CoopCycleSection } from "~/components/coop-cycle-section";
 import { CompanyDetailsSection } from "~/components/company-details-section";
 import { RatingsSection } from "~/components/ratings-section";
 import { Company, WorkEnvironment, WorkTerm } from "@prisma/client";
+import { api } from "~/trpc/react";
 
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
@@ -118,7 +119,8 @@ export const benefits = [
 
 type ReviewFormProps = {
   company: Company;
-  sessionId: string;
+  roleId: string;
+  profileId: string;
 };
 
 /**
@@ -153,8 +155,14 @@ export function ReviewForm(props: ReviewFormProps) {
     },
   });
 
+  const mutation = api.review.create.useMutation();
+
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    mutation.mutate({
+      roleId: props.roleId,
+      profileId: props.profileId,
+      ...values,
+    });
   }
 
   function onReset() {

@@ -75,7 +75,7 @@ model Profile {
 
     reviews Review[]
 
-    user   User   @relation(fields: [id], references: [id])
+    user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
     userId String @unique
 }
 
