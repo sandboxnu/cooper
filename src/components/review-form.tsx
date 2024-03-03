@@ -236,12 +236,12 @@ export function ReviewForm() {
             </Button>
           </div>
         )}
-        {currentStep == steps.length && (
-          <h1 className="text-center text-3xl font-semibold">
-            Thank you for submitting your review!
-          </h1>
-        )}
       </form>
+      {currentStep == steps.length && (
+        <h1 className="text-center text-3xl font-semibold">
+          Thank you for submitting your review!
+        </h1>
+      )}
     </Form>
   );
 }
