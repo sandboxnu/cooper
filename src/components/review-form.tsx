@@ -12,6 +12,7 @@ import { CoopCycleSection } from "~/components/coop-cycle-section";
 import { CompanyDetailsSection } from "~/components/company-details-section";
 import { RatingsSection } from "~/components/ratings-section";
 import { WorkEnvironment, WorkTerm } from "@prisma/client";
+import { useState } from "react";
 
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
@@ -107,13 +108,44 @@ const formSchema = z.object({
 
 export type ReviewFormType = typeof formSchema;
 
-// There's probably a more elegant way of linking this to the Zod schema
 export const benefits = [
   { field: "pto", label: "PTO" },
   { field: "federalHolidays", label: "Federal holidays off" },
   { field: "freeLunch", label: "Free lunch" },
   { field: "freeTransport", label: "Free transportation" },
   { field: "freeMerch", label: "Free merchandise" },
+];
+
+const steps = [
+  {
+    fields: ["workTerm", "workYear"],
+  },
+  {
+    fields: [
+      "overallRating",
+      "cultureRating",
+      "supervisorRating",
+      "interviewRating",
+      "interviewDifficulty",
+      "interviewReview",
+    ],
+  },
+  {
+    fields: ["reviewHeadline", "textReview", "location", "hourlyPay"],
+  },
+  {
+    fields: [
+      "workEnvironment",
+      "drugTest",
+      "overtimeNormal",
+      "pto",
+      "federalHolidays",
+      "freeLunch",
+      "freeTransport",
+      "freeMerch",
+      "otherBenefits",
+    ],
+  },
 ];
 
 /**
@@ -148,30 +180,66 @@ export function ReviewForm() {
     },
   });
 
+  const [currentStep, setCurrentStep] = useState(0);
+
+  type FieldName = keyof z.infer<typeof formSchema>;
+
+  const next = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    const fields = steps[currentStep]?.fields;
+    const output = await form.trigger(fields as FieldName[], {
+      shouldFocus: true,
+    });
+
+    if (!output) {
+      return;
+    }
+
+    if (currentStep < steps.length - 1) {
+      if (currentStep === steps.length - 2) {
+        await form.handleSubmit(onSubmit)();
+      }
+      setCurrentStep((step) => step + 1);
+    }
+  };
+
+  const prev = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    if (currentStep > 0) {
+      setCurrentStep((prev) => prev - 1);
+    }
+  };
+
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
   }
 
-  function onReset() {
-    form.reset();
-  }
-
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        onReset={onReset}
-        className="space-y-6"
-      >
-        <CoopCycleSection />
-        <RatingsSection />
-        <ReviewSection />
-        <CompanyDetailsSection />
-        <div className="flex justify-end space-x-2">
-          <Button variant="secondary" type="reset">
-            Clear form
+      <form className="space-y-6">
+        {currentStep == 0 && <CoopCycleSection />}
+        {currentStep == 1 && <RatingsSection />}
+        {currentStep == 2 && <ReviewSection />}
+        {currentStep == 3 && <CompanyDetailsSection />}
+        {currentStep == 4 && (
+          <div className="flex justify-end space-x-2">
+            <Button variant="secondary" type="reset">
+              Clear form
+            </Button>
+            <Button type="submit">Submit</Button>
+          </div>
+        )}
+        <div className="flex justify-between">
+          <Button
+            variant="secondary"
+            onClick={prev}
+            disabled={currentStep === 0}
+          >
+            Previous
           </Button>
-          <Button type="submit">Submit</Button>
+          <Button onClick={next}>
+            {currentStep == steps.length - 1 ? "Submit" : "Next"}
+          </Button>
         </div>
       </form>
     </Form>
