@@ -195,8 +195,8 @@ export function ReviewForm() {
       return;
     }
 
-    if (currentStep < steps.length - 1) {
-      if (currentStep === steps.length - 2) {
+    if (currentStep < steps.length) {
+      if (currentStep === steps.length - 1) {
         await form.handleSubmit(onSubmit)();
       }
       setCurrentStep((step) => step + 1);
@@ -212,6 +212,7 @@ export function ReviewForm() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
+    form.reset();
   }
 
   return (
@@ -221,26 +222,25 @@ export function ReviewForm() {
         {currentStep == 1 && <RatingsSection />}
         {currentStep == 2 && <ReviewSection />}
         {currentStep == 3 && <CompanyDetailsSection />}
-        {currentStep == 4 && (
-          <div className="flex justify-end space-x-2">
-            <Button variant="secondary" type="reset">
-              Clear form
+        {currentStep >= 0 && currentStep <= steps.length - 1 && (
+          <div className="flex justify-between">
+            <Button
+              variant="secondary"
+              onClick={prev}
+              disabled={currentStep === 0}
+            >
+              Previous
             </Button>
-            <Button type="submit">Submit</Button>
+            <Button onClick={next}>
+              {currentStep == steps.length - 1 ? "Submit" : "Next"}
+            </Button>
           </div>
         )}
-        <div className="flex justify-between">
-          <Button
-            variant="secondary"
-            onClick={prev}
-            disabled={currentStep === 0}
-          >
-            Previous
-          </Button>
-          <Button onClick={next}>
-            {currentStep == steps.length - 1 ? "Submit" : "Next"}
-          </Button>
-        </div>
+        {currentStep == steps.length && (
+          <h1 className="text-center text-3xl font-semibold">
+            Thank you for submitting your review!
+          </h1>
+        )}
       </form>
     </Form>
   );
