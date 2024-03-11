@@ -62,7 +62,7 @@ export default function SearchFilter() {
   }
 
   return (
-    <div className="flex h-24 min-w-[80vw] items-center justify-center rounded-2xl bg-cooper-blue-400 p-4">
+    <div className="m-4 mt-0 flex h-24 min-w-[80vw] items-center justify-center rounded-2xl bg-cooper-blue-400 p-4">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}

@@ -1,10 +1,7 @@
 import Header from "~/components/header";
 import SearchFilter from "~/components/search-filter";
-import { getServerAuthSession } from "~/server/auth";
 
 export default async function Home() {
-  const session = await getServerAuthSession();
-
   return (
     <div className="flex h-[85vh] flex-col">
       <Header />

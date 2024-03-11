@@ -152,17 +152,6 @@ export function ReviewForm() {
     console.log(values);
   }
 
-  // Header Data
-  // going to fix the below TODO useMemo
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const headerSections: { title: string; bound: number }[] = [
-    { title: "Co-op Cycle", bound: 400 },
-    { title: "Ratings", bound: 800 },
-    { title: "Review", bound: 1200 },
-    { title: "Company Details", bound: 1600 },
-    { title: "Submit", bound: 10000000 },
-  ];
-
   function onReset() {
     form.reset();
   }
