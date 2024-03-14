@@ -13,11 +13,15 @@ import { Checkbox } from "~/components/ui/checkbox";
 
 import { benefits } from "~/components/review-form";
 
+type CompanyDetailsSectionProps = {
+  companyName: string;
+};
+
 /**
  * CompanyDetailsSection component renders form fields for capturing
  * company details related to the co-op experience.
  */
-export function CompanyDetailsSection() {
+export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
   const form = useFormContext();
 
   return (
@@ -72,7 +76,7 @@ export function CompanyDetailsSection() {
         name="drugTest"
         render={({ field }) => (
           <FormItem className="space-y-3">
-            <FormLabel>Did [company] drug test?*</FormLabel>
+            <FormLabel>Did {props.companyName} drug test?*</FormLabel>
             <FormControl>
               <RadioGroup
                 onValueChange={field.onChange}
@@ -139,7 +143,9 @@ export function CompanyDetailsSection() {
           </FormItem>
         )}
       />
-      <FormLabel>Select which benefit(s) [company] offered</FormLabel>
+      <FormLabel>
+        Select the benefit(s) that {props.companyName} offered
+      </FormLabel>
       {benefits.map((benefit) => (
         <FormField
           key={benefit.field}

@@ -75,7 +75,7 @@ model Profile {
 
     reviews Review[]
 
-    user   User   @relation(fields: [id], references: [id])
+    user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
     userId String @unique
 }
 
@@ -91,14 +91,14 @@ model Company {
 }
 
 model Role {
-    id          String @id @default(cuid())
+    id          String  @id @default(cuid())
     title       String
-    description String
+    description String?
 
     reviews Review[]
 
-    company   Company? @relation(fields: [companyId], references: [id], onDelete: Cascade)
-    companyId String?
+    company   Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+    companyId String
 }
 
 model Review {

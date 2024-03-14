@@ -4,15 +4,16 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import dayjs from "dayjs";
-
 import { Button } from "~/components/ui/button";
 import { Form } from "~/components/ui/form";
+import { toast } from "sonner";
 import { ReviewSection } from "~/components/review-section";
 import { CoopCycleSection } from "~/components/coop-cycle-section";
 import { CompanyDetailsSection } from "~/components/company-details-section";
 import { RatingsSection } from "~/components/ratings-section";
-import { WorkEnvironment, WorkTerm } from "@prisma/client";
 import { useState } from "react";
+import { Company, WorkEnvironment, WorkTerm } from "@prisma/client";
+import { api } from "~/trpc/react";
 
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
@@ -148,12 +149,18 @@ const steps = [
   },
 ];
 
+type ReviewFormProps = {
+  company: Company;
+  roleId: string;
+  profileId: string;
+};
+
 /**
  * ReviewForm component manages a form for submitting a review. This component
  * integrates React Hook Form with Zod validation for form management and validation.
  */
-export function ReviewForm() {
-  const form = useForm<z.infer<typeof formSchema>>({
+export function ReviewForm(props: ReviewFormProps) {
+  const form = useForm<z.infer<ReviewFormType>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       workTerm: undefined,
@@ -210,8 +217,17 @@ export function ReviewForm() {
     }
   };
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  const mutation = api.review.create.useMutation();
+
+  function onSubmit(values: z.infer<ReviewFormType>) {
+    mutation.mutate({
+      roleId: props.roleId,
+      profileId: props.profileId,
+      ...values,
+    });
+  }
+
+  function onReset() {
     form.reset();
   }
 
@@ -221,7 +237,7 @@ export function ReviewForm() {
         {currentStep == 0 && <CoopCycleSection />}
         {currentStep == 1 && <RatingsSection />}
         {currentStep == 2 && <ReviewSection />}
-        {currentStep == 3 && <CompanyDetailsSection />}
+        {currentStep == 3 && <CompanyDetailsSection companyName={props.company.name} />}
         {currentStep >= 0 && currentStep <= steps.length - 1 && (
           <div className="flex justify-between">
             <Button
