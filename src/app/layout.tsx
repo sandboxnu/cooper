@@ -3,6 +3,7 @@ import "~/styles/globals.css";
 import { Inter as FontSans } from "next/font/google";
 
 import { TRPCReactProvider } from "~/trpc/react";
+import { Toaster } from "~/components/ui/sonner";
 import { cn } from "~/lib/utils";
 
 const fontSans = FontSans({
@@ -30,6 +31,7 @@ export default function RootLayout({
         )}
       >
         <TRPCReactProvider>{children}</TRPCReactProvider>
+        <Toaster />
       </body>
     </html>
   );

@@ -4,14 +4,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import dayjs from "dayjs";
-
 import { Button } from "~/components/ui/button";
 import { Form } from "~/components/ui/form";
+import { toast } from "sonner";
 import { ReviewSection } from "~/components/review-section";
 import { CoopCycleSection } from "~/components/coop-cycle-section";
 import { CompanyDetailsSection } from "~/components/company-details-section";
 import { RatingsSection } from "~/components/ratings-section";
-import { WorkEnvironment, WorkTerm } from "@prisma/client";
+import { Company, WorkEnvironment, WorkTerm } from "@prisma/client";
+import { api } from "~/trpc/react";
 
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
@@ -116,12 +117,18 @@ export const benefits = [
   { field: "freeMerch", label: "Free merchandise" },
 ];
 
+type ReviewFormProps = {
+  company: Company;
+  roleId: string;
+  profileId: string;
+};
+
 /**
  * ReviewForm component manages a form for submitting a review. This component
  * integrates React Hook Form with Zod validation for form management and validation.
  */
-export function ReviewForm() {
-  const form = useForm<z.infer<typeof formSchema>>({
+export function ReviewForm(props: ReviewFormProps) {
+  const form = useForm<z.infer<ReviewFormType>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       workTerm: undefined,
@@ -148,8 +155,16 @@ export function ReviewForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  const mutation = api.review.create.useMutation();
+
+  function onSubmit(values: z.infer<ReviewFormType>) {
+    mutation.mutate({
+      roleId: props.roleId,
+      profileId: props.profileId,
+      ...values,
+    });
+
+    toast(`Your review for ${props.company.name} has been submitted!`);
   }
 
   function onReset() {
@@ -166,7 +181,7 @@ export function ReviewForm() {
         <CoopCycleSection />
         <RatingsSection />
         <ReviewSection />
-        <CompanyDetailsSection />
+        <CompanyDetailsSection companyName={props.company.name} />
         <div className="flex justify-end space-x-2">
           <Button variant="secondary" type="reset">
             Clear form
