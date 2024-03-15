@@ -1,13 +1,33 @@
 import "~/styles/globals.css";
-
-import { Inter as FontSans } from "next/font/google";
-
 import { TRPCReactProvider } from "~/trpc/react";
 import { cn } from "~/lib/utils";
 
-const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
+import localFont from "next/font/local";
+
+// Font files can be colocated inside of `pages`
+const myFont = localFont({
+  src: [
+    {
+      path: "./fonts/BentonSansBook.otf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "./fonts/BentonSansRegular.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/BentonSansMedium.otf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "./fonts/BentonSansBold.otf",
+      weight: "900",
+      style: "normal",
+    },
+  ],
 });
 
 export const metadata = {
@@ -26,7 +46,7 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable,
+          myFont.className,
         )}
       >
         <TRPCReactProvider>{children}</TRPCReactProvider>
