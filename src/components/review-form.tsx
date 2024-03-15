@@ -237,7 +237,9 @@ export function ReviewForm(props: ReviewFormProps) {
         {currentStep == 0 && <CoopCycleSection />}
         {currentStep == 1 && <RatingsSection />}
         {currentStep == 2 && <ReviewSection />}
-        {currentStep == 3 && <CompanyDetailsSection companyName={props.company.name} />}
+        {currentStep == 3 && (
+          <CompanyDetailsSection companyName={props.company.name} />
+        )}
         {currentStep >= 0 && currentStep <= steps.length - 1 && (
           <div className="flex justify-between">
             <Button
