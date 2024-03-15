@@ -1,5 +1,4 @@
 import { TRPCError } from "@trpc/server";
-import { z } from "zod";
 import { getByIdSchema } from "~/schema/misc";
 import { createProfileSchema, updateProfileSchema } from "~/schema/profile";
 import {
@@ -31,11 +30,20 @@ export const profileRouter = createTRPCRouter({
       return profile;
     }),
   getCurrentUser: protectedProcedure.query(async ({ ctx }) => {
-    return await ctx.db.profile.findMany({
+    const profile = await ctx.db.profile.findFirst({
       where: {
         userId: ctx.session.user.id,
       },
     });
+
+    if (!profile) {
+      throw new TRPCError({
+        code: "NOT_FOUND",
+        message: `Profile for user ${ctx.session.user.id} not found.`,
+      });
+    }
+
+    return profile;
   }),
   create: protectedProcedure
     .input(createProfileSchema)

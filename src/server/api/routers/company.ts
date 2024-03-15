@@ -30,6 +30,24 @@ export const companyRouter = createTRPCRouter({
 
       return existingCompany;
     }),
+  getById: publicProcedure
+    .input(getByIdSchema)
+    .query(async ({ ctx, input }) => {
+      const existingCompany = await ctx.db.company.findFirst({
+        where: {
+          id: input.id,
+        },
+      });
+
+      if (!existingCompany) {
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: "Company not found",
+        });
+      }
+
+      return existingCompany;
+    }),
   create: protectedProcedure
     .input(createCompanySchema)
     .mutation(({ ctx, input }) => {

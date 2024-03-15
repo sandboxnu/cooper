@@ -1,5 +1,6 @@
 import "~/styles/globals.css";
 import { TRPCReactProvider } from "~/trpc/react";
+import { Toaster } from "~/components/ui/sonner";
 import { cn } from "~/lib/utils";
 
 import localFont from "next/font/local";
@@ -50,6 +51,7 @@ export default function RootLayout({
         )}
       >
         <TRPCReactProvider>{children}</TRPCReactProvider>
+        <Toaster />
       </body>
     </html>
   );

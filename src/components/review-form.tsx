@@ -4,14 +4,16 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import dayjs from "dayjs";
-
 import { Button } from "~/components/ui/button";
 import { Form } from "~/components/ui/form";
+import { toast } from "sonner";
 import { ReviewSection } from "~/components/review-section";
 import { CoopCycleSection } from "~/components/coop-cycle-section";
 import { CompanyDetailsSection } from "~/components/company-details-section";
 import { RatingsSection } from "~/components/ratings-section";
-import { WorkEnvironment, WorkTerm } from "@prisma/client";
+import { useState } from "react";
+import { Company, WorkEnvironment, WorkTerm } from "@prisma/client";
+import { api } from "~/trpc/react";
 
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
@@ -107,7 +109,6 @@ const formSchema = z.object({
 
 export type ReviewFormType = typeof formSchema;
 
-// There's probably a more elegant way of linking this to the Zod schema
 export const benefits = [
   { field: "pto", label: "PTO" },
   { field: "federalHolidays", label: "Federal holidays off" },
@@ -116,12 +117,50 @@ export const benefits = [
   { field: "freeMerch", label: "Free merchandise" },
 ];
 
+const steps = [
+  {
+    fields: ["workTerm", "workYear"],
+  },
+  {
+    fields: [
+      "overallRating",
+      "cultureRating",
+      "supervisorRating",
+      "interviewRating",
+      "interviewDifficulty",
+      "interviewReview",
+    ],
+  },
+  {
+    fields: ["reviewHeadline", "textReview", "location", "hourlyPay"],
+  },
+  {
+    fields: [
+      "workEnvironment",
+      "drugTest",
+      "overtimeNormal",
+      "pto",
+      "federalHolidays",
+      "freeLunch",
+      "freeTransport",
+      "freeMerch",
+      "otherBenefits",
+    ],
+  },
+];
+
+type ReviewFormProps = {
+  company: Company;
+  roleId: string;
+  profileId: string;
+};
+
 /**
  * ReviewForm component manages a form for submitting a review. This component
  * integrates React Hook Form with Zod validation for form management and validation.
  */
-export function ReviewForm() {
-  const form = useForm<z.infer<typeof formSchema>>({
+export function ReviewForm(props: ReviewFormProps) {
+  const form = useForm<z.infer<ReviewFormType>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       workTerm: undefined,
@@ -148,8 +187,44 @@ export function ReviewForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  const [currentStep, setCurrentStep] = useState(0);
+
+  type FieldName = keyof z.infer<typeof formSchema>;
+
+  const next = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    const fields = steps[currentStep]?.fields;
+    const output = await form.trigger(fields as FieldName[], {
+      shouldFocus: true,
+    });
+
+    if (!output) {
+      return;
+    }
+
+    if (currentStep < steps.length) {
+      if (currentStep === steps.length - 1) {
+        await form.handleSubmit(onSubmit)();
+      }
+      setCurrentStep((step) => step + 1);
+    }
+  };
+
+  const prev = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    if (currentStep > 0) {
+      setCurrentStep((prev) => prev - 1);
+    }
+  };
+
+  const mutation = api.review.create.useMutation();
+
+  function onSubmit(values: z.infer<ReviewFormType>) {
+    mutation.mutate({
+      roleId: props.roleId,
+      profileId: props.profileId,
+      ...values,
+    });
   }
 
   function onReset() {
@@ -157,27 +232,32 @@ export function ReviewForm() {
   }
 
   return (
-    <div className="mx-auto px-4 pt-10 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-lg">
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            onReset={onReset}
-            className="space-y-6"
-          >
-            <CoopCycleSection />
-            <RatingsSection />
-            <ReviewSection />
-            <CompanyDetailsSection />
-            <div className="flex justify-end space-x-2">
-              <Button variant="secondary" type="reset">
-                Clear form
-              </Button>
-              <Button type="submit">Submit</Button>
-            </div>
-          </form>
-        </Form>
-      </div>
-    </div>
+    <Form {...form}>
+      <form className="space-y-6">
+        {currentStep == 0 && <CoopCycleSection />}
+        {currentStep == 1 && <RatingsSection />}
+        {currentStep == 2 && <ReviewSection />}
+        {currentStep == 3 && <CompanyDetailsSection companyName={props.company.name} />}
+        {currentStep >= 0 && currentStep <= steps.length - 1 && (
+          <div className="flex justify-between">
+            <Button
+              variant="secondary"
+              onClick={prev}
+              disabled={currentStep === 0}
+            >
+              Previous
+            </Button>
+            <Button onClick={next}>
+              {currentStep == steps.length - 1 ? "Submit" : "Next"}
+            </Button>
+          </div>
+        )}
+      </form>
+      {currentStep == steps.length && (
+        <h1 className="text-center text-3xl font-semibold">
+          Thank you for submitting your review!
+        </h1>
+      )}
+    </Form>
   );
 }
