@@ -5,31 +5,7 @@ import { cn } from "~/lib/utils";
 
 import localFont from "next/font/local";
 
-// Font files can be colocated inside of `pages`
-const myFont = localFont({
-  src: [
-    {
-      path: "./fonts/BentonSansBook.otf",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "./fonts/BentonSansRegular.otf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "./fonts/BentonSansMedium.otf",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "./fonts/BentonSansBold.otf",
-      weight: "900",
-      style: "normal",
-    },
-  ],
-});
+const bentonSans = localFont({ src: "./fonts/BentonSansRegular.otf" });
 
 export const metadata = {
   title: "Cooper",
@@ -46,8 +22,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          myFont.className,
+          "min-h-screen bg-background antialiased",
+          bentonSans.className,
         )}
       >
         <TRPCReactProvider>{children}</TRPCReactProvider>
