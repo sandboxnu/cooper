@@ -25,7 +25,9 @@ const config = {
       colors: {
         "cooper-blue-400": "#5E8BAB",
         "cooper-blue-200": "#DEEAF8",
+        "cooper-blue-600": "#1D679C",
         "cooper-yellow-500": "#FFA400",
+        "cooper-pink-500": "#EA8FBA",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

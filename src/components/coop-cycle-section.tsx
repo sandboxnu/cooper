@@ -5,9 +5,9 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "~/components/ui/form";
+import FormLabel from "./cooper/form-label";
 import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
 import { cn } from "~/lib/utils";
 import { buttonVariants } from "~/components/ui/button";
@@ -27,7 +27,7 @@ export function CoopCycleSection() {
   );
 
   return (
-    <FormSection title="1. Co-op Cycle">
+    <FormSection title="Co-op Cycle" className="text-cooper-pink-500">
       <FormField
         control={form.control}
         name="workTerm"
@@ -38,7 +38,7 @@ export function CoopCycleSection() {
               <RadioGroup
                 onValueChange={field.onChange}
                 defaultValue={field.value}
-                className="flex flex-col space-y-1"
+                className="flex flex-col"
               >
                 <FormItem className="flex items-center space-x-3 space-y-0">
                   <FormControl>
@@ -83,8 +83,7 @@ export function CoopCycleSection() {
               <FormControl>
                 <select
                   className={cn(
-                    buttonVariants({ variant: "outline" }),
-                    "w-full appearance-none pr-8",
+                    "z-10 w-full appearance-none rounded-md border border-2 border-cooper-blue-600 bg-transparent px-6 py-3 pr-8 text-2xl font-semibold text-cooper-blue-600",
                   )}
                   {...field}
                 >
@@ -96,7 +95,7 @@ export function CoopCycleSection() {
                   ))}
                 </select>
               </FormControl>
-              <TriangleDownIcon className="absolute right-2.5 top-2.5 h-5 w-5" />
+              <TriangleDownIcon className="absolute right-5 top-5 h-6 w-6 text-cooper-blue-600" />
             </div>
             <FormMessage />
           </FormItem>

@@ -9,26 +9,27 @@ import localFont from "next/font/local";
 const myFont = localFont({
   src: [
     {
-      path: "./fonts/BentonSansBook.otf",
-      weight: "300",
+      path: "./../app/fonts/BentonSansBook.otf",
+      weight: "200",
       style: "normal",
     },
     {
-      path: "./fonts/BentonSansRegular.otf",
-      weight: "500",
+      path: "./../app/fonts/BentonSansRegular.otf",
+      weight: "400",
       style: "normal",
     },
     {
-      path: "./fonts/BentonSansMedium.otf",
-      weight: "700",
+      path: "./../app/fonts/BentonSansMedium.otf",
+      weight: "600",
       style: "normal",
     },
     {
-      path: "./fonts/BentonSansBold.otf",
-      weight: "900",
+      path: "./../app/fonts/BentonSansBold.otf",
+      weight: "800",
       style: "normal",
     },
   ],
+  variable: "--font-sans",
 });
 
 export const metadata = {
@@ -47,7 +48,7 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          myFont.className,
+          myFont.variable,
         )}
       >
         <TRPCReactProvider>{children}</TRPCReactProvider>
