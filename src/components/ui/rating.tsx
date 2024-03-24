@@ -26,13 +26,13 @@ export const Rating = forwardRef<HTMLInputElement, RatingProps>(
               key={i}
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
-              strokeWidth={0.75}
-              stroke="currentColor"
+              strokeWidth={0}
+              stroke="white"
               className={cn(
-                "size-14",
+                "size-20",
                 i < hoveredIndex || i < +getValues(name)
-                  ? "fill-[#B9B9B9]"
-                  : "fill-primary-foreground",
+                  ? "fill-cooper-yellow-500"
+                  : "fill-cooper-gray-100",
                 "pr-2 hover:cursor-pointer",
               )}
               onMouseEnter={() => setHoveredIndex(i + 1)}

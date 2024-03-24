@@ -4,9 +4,9 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "~/components/ui/form";
+import FormLabel from "./cooper/form-label";
 import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
 import { Input } from "~/components/ui/input";
 import { Checkbox } from "~/components/ui/checkbox";
@@ -25,7 +25,7 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
   const form = useFormContext();
 
   return (
-    <FormSection title="4. Company Details">
+    <FormSection title="Company Details" className="text-cooper-red-500">
       <FormField
         control={form.control}
         name="workEnvironment"
