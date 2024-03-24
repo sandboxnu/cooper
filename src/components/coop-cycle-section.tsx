@@ -32,15 +32,15 @@ export function CoopCycleSection() {
         control={form.control}
         name="workTerm"
         render={({ field }) => (
-          <FormItem className="space-y-3">
+          <FormItem className="space-y-6">
             <FormLabel>Co-op Cycle*</FormLabel>
             <FormControl>
               <RadioGroup
                 onValueChange={field.onChange}
                 defaultValue={field.value}
-                className="flex flex-col"
+                className="flex flex-col space-y-3"
               >
-                <FormItem className="flex items-center space-x-3 space-y-0">
+                <FormItem className="flex items-center space-x-4 space-y-0">
                   <FormControl>
                     <RadioGroupItem
                       value="SPRING"
@@ -49,7 +49,7 @@ export function CoopCycleSection() {
                   </FormControl>
                   <FormLabel>Spring</FormLabel>
                 </FormItem>
-                <FormItem className="flex items-center space-x-3 space-y-0">
+                <FormItem className="flex items-center  space-x-4 space-y-0">
                   <FormControl>
                     <RadioGroupItem
                       value="FALL"
@@ -58,7 +58,7 @@ export function CoopCycleSection() {
                   </FormControl>
                   <FormLabel>Fall</FormLabel>
                 </FormItem>
-                <FormItem className="flex items-center space-x-3 space-y-0">
+                <FormItem className="flex items-center space-x-4 space-y-0">
                   <FormControl>
                     <RadioGroupItem
                       value="SUMMER"
@@ -83,7 +83,7 @@ export function CoopCycleSection() {
               <FormControl>
                 <select
                   className={cn(
-                    "z-10 w-full appearance-none rounded-md border border-2 border-cooper-blue-600 bg-transparent px-6 py-3 pr-8 text-2xl font-semibold text-cooper-blue-600",
+                    "w-full appearance-none rounded-md border-2 border-cooper-blue-600 bg-transparent px-6 py-3 pr-8 text-2xl font-semibold text-cooper-blue-600",
                   )}
                   {...field}
                 >

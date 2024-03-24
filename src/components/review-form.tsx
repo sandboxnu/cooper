@@ -14,6 +14,7 @@ import { RatingsSection } from "~/components/ratings-section";
 import { useState } from "react";
 import { Company, WorkEnvironment, WorkTerm } from "@prisma/client";
 import { api } from "~/trpc/react";
+import { cn } from "~/lib/utils";
 
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
@@ -120,6 +121,7 @@ export const benefits = [
 const steps = [
   {
     fields: ["workTerm", "workYear"],
+    color: "cooper-pink-500",
   },
   {
     fields: [
@@ -130,9 +132,11 @@ const steps = [
       "interviewDifficulty",
       "interviewReview",
     ],
+    color: "cooper-green-500",
   },
   {
     fields: ["reviewHeadline", "textReview", "location", "hourlyPay"],
+    color: "cooper-pink-500",
   },
   {
     fields: [
@@ -146,6 +150,7 @@ const steps = [
       "freeMerch",
       "otherBenefits",
     ],
+    color: "cooper-pink-500",
   },
 ];
 
@@ -227,13 +232,16 @@ export function ReviewForm(props: ReviewFormProps) {
     });
   }
 
-  function onReset() {
-    form.reset();
-  }
-
   return (
     <Form {...form}>
-      <form className="space-y-6">
+      <form
+        className={cn(
+          "space-y-12 rounded-2xl border-t-[16px] bg-white px-32 py-16",
+          steps[currentStep]?.color
+            ? "border-" + steps[currentStep]?.color
+            : "",
+        )}
+      >
         {currentStep == 0 && <CoopCycleSection />}
         {currentStep == 1 && <RatingsSection />}
         {currentStep == 2 && <ReviewSection />}
@@ -241,16 +249,16 @@ export function ReviewForm(props: ReviewFormProps) {
           <CompanyDetailsSection companyName={props.company.name} />
         )}
         {currentStep >= 0 && currentStep <= steps.length - 1 && (
-          <div className="flex justify-between">
+          <div className="flex justify-end space-x-4">
             <Button
-              variant="secondary"
+              variant="outline"
               onClick={prev}
               disabled={currentStep === 0}
             >
               Previous
             </Button>
             <Button onClick={next}>
-              {currentStep == steps.length - 1 ? "Submit" : "Next"}
+              {currentStep == steps.length - 1 ? "Submit" : "Save and continue"}
             </Button>
           </div>
         )}

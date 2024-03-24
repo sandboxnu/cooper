@@ -20,7 +20,7 @@ export function RatingsSection() {
   const form = useFormContext();
 
   return (
-    <FormSection title="2. Ratings">
+    <FormSection title="Ratings" className="text-cooper-green-500">
       <FormField
         control={form.control}
         name="overallRating"

@@ -45,8 +45,8 @@ export default async function Page({
     }
 
     return (
-      <div className="container mx-auto px-4 py-10 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-lg">
+      <div className="container mx-auto px-4 py-16">
+        <div className="mx-auto max-w-6xl">
           <ReviewForm
             company={company}
             roleId={role.id}
