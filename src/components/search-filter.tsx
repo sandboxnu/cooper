@@ -74,12 +74,12 @@ export default function SearchFilter() {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="mx-4 grid w-full grid-cols-1 lg:grid-cols-2"
+            className="mx-4 grid w-full grid-cols-1 gap-2 lg:grid-cols-2"
           >
             <div className="flex justify-center">
               <SearchBar />
             </div>
-            <div className="flex items-center justify-around space-x-3">
+            <div className="ml-[-1.75rem] mr-4 flex items-center justify-around gap-3 lg:ml-0 lg:mr-0 lg:justify-end">
               {searchDropdown.map(({ name, title, enumObj }) => {
                 return (
                   <FormField
