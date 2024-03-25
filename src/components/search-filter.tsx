@@ -1,12 +1,13 @@
 "use client";
 
+import Image from "next/image";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { Form, FormControl, FormField, FormItem } from "~/components/ui/form";
 import { Industry, WorkEnvironment, WorkTerm } from "@prisma/client";
-import { Input } from "./ui/input";
 import { cn } from "~/lib/utils";
 import { buttonVariants } from "./ui/button";
 import { TriangleDownIcon } from "@radix-ui/react-icons";
@@ -62,56 +63,86 @@ export default function SearchFilter() {
   }
 
   return (
-    <div className="m-4 mt-0 flex h-24 min-w-[80vw] items-center justify-center rounded-2xl bg-cooper-blue-400 p-4">
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="space-between mx-4 flex w-full flex-wrap items-center justify-between"
-        >
-          <SearchBar />
-          <div className="flex items-center justify-around space-x-3">
-            {searchDropdown.map(({ name, title, enumObj }) => {
-              return (
-                <FormField
-                  key={`${name}-dropdown`}
-                  control={form.control}
-                  name={name}
-                  render={({ field }) => (
-                    <FormItem>
-                      <div className="relative">
-                        <FormControl>
-                          <select
-                            className={cn(
-                              buttonVariants({ variant: "outline" }),
-                              "w-36 appearance-none border-none bg-transparent pr-8 text-right text-white",
-                              "hover:bg-transparent hover:text-secondary",
-                            )}
-                            {...field}
+    <div>
+      <Image
+        src="/svg/hidingLogo.svg"
+        width={150}
+        height={150}
+        alt="Picture of Hidden Dog"
+        className="ml-10"
+      />
+      <div className="m-4 mt-0 flex h-32 min-w-[80vw] items-center justify-center rounded-2xl bg-cooper-blue-400 p-4">
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="mx-4 grid w-full grid-cols-1 lg:grid-cols-2"
+          >
+            <div className="flex justify-center">
+              <SearchBar />
+            </div>
+            <div className="flex items-center justify-around space-x-3">
+              {searchDropdown.map(({ name, title, enumObj }) => {
+                return (
+                  <FormField
+                    key={`${name}-dropdown`}
+                    control={form.control}
+                    name={name}
+                    render={({ field }) => (
+                      <FormItem>
+                        <div className="relative">
+                          <FormControl>
+                            <select
+                              className={cn(
+                                buttonVariants({
+                                  variant: "outline",
+                                  size: "lg",
+                                }),
+                                "w-36 appearance-none border border-none border-blue-500 bg-transparent pr-8 text-right text-white",
+                                "hover:bg-transparent hover:text-secondary",
+                                "focus:ring-0",
+                              )}
+                              {...field}
+                            >
+                              <option value={undefined}>{title}</option>
+                              {(
+                                Object.keys(enumObj) as Array<
+                                  keyof typeof Industry
+                                >
+                              ).map((elem) => {
+                                return (
+                                  <option key={elem} value={elem}>
+                                    {elem}
+                                  </option>
+                                );
+                              })}
+                            </select>
+                          </FormControl>
+                          {/* Triangle Down Icon */}
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="14"
+                            height="7"
+                            viewBox="0 0 14 7"
+                            fill="none"
+                            className="absolute right-2 top-3.5 h-3 w-3"
                           >
-                            <option value={undefined}>{title}</option>
-                            {(
-                              Object.keys(enumObj) as Array<
-                                keyof typeof Industry
-                              >
-                            ).map((elem) => {
-                              return (
-                                <option key={elem} value={elem}>
-                                  {elem}
-                                </option>
-                              );
-                            })}
-                          </select>
-                        </FormControl>
-                        <TriangleDownIcon className="absolute right-2.5 top-2.5 h-5 w-5" />
-                      </div>
-                    </FormItem>
-                  )}
-                />
-              );
-            })}
-          </div>
-        </form>
-      </Form>
+                            <path
+                              d="M1 1L6.17459 5.4559C6.54056 5.77104 7.07947 5.77959 7.45526 5.47622L13 1"
+                              stroke="white"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                            />
+                          </svg>
+                        </div>
+                      </FormItem>
+                    )}
+                  />
+                );
+              })}
+            </div>
+          </form>
+        </Form>
+      </div>
     </div>
   );
 }
