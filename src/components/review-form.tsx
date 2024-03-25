@@ -232,8 +232,6 @@ export function ReviewForm(props: ReviewFormProps) {
     });
   }
 
-  console.log("border-" + steps[currentStep]?.color);
-
   return (
     <Form {...form}>
       <form
