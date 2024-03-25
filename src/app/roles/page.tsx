@@ -2,14 +2,16 @@ import HeaderLayout from "~/components/header-layout";
 import { RoleReviewCard } from "~/components/role-review-card";
 import SearchFilter from "~/components/search-filter";
 import { api } from "~/trpc/server";
+import { unstable_noStore as noStore } from "next/cache";
 
 export default async function Roles() {
-  const roles: {
-    id: string;
-    title: string;
-    description: string | null;
-    companyId: string;
-  }[] = await api.role.list.query();
+  async function getRoles() {
+    noStore();
+    const roles = await api.role.list.query();
+    return roles;
+  }
+
+  const roles = await getRoles();
 
   return (
     <HeaderLayout>

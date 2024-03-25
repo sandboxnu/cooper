@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "~/components/ui/card";
 import { api } from "~/trpc/server";
-import { ReviewCardStars } from "./ui/review-card-stars";
+import { ReviewCardStars } from "./review-card-stars";
 
 // TODO: move this somewehre else?
 function formatDate(date: Date) {

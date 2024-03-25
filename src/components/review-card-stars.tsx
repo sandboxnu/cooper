@@ -1,5 +1,5 @@
 export function ReviewCardStars({ numStars }: { numStars: number }) {
-  numStars = Math.min(5, numStars);
+  numStars = Math.min(5, Math.round(numStars));
 
   const yellowStar = (
     <svg
