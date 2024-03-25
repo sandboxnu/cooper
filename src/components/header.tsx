@@ -9,6 +9,10 @@ import { cn } from "~/lib/utils";
 
 const myFont = localFont({ src: "./../app/fonts/AltivoMedium.otf" });
 
+/**
+ * This is the header component. (Probably) should use header-layout instead
+ * @returns The header component for the website
+ */
 export default async function Header() {
   const session = await getServerSession();
 

@@ -45,7 +45,9 @@ export default function RootLayout({
 }) {
   return (
     <html className={myFont.variable} lang="en" suppressHydrationWarning>
-      <body className={cn("min-h-screen bg-background font-sans antialiased")}>
+      <body
+        className={cn("min-h-screen bg-cooper-blue-200 font-sans antialiased")}
+      >
         <TRPCReactProvider>{children}</TRPCReactProvider>
         <Toaster />
       </body>

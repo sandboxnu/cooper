@@ -10,7 +10,6 @@ import { Form, FormControl, FormField, FormItem } from "~/components/ui/form";
 import { Industry, WorkEnvironment, WorkTerm } from "@prisma/client";
 import { cn } from "~/lib/utils";
 import { buttonVariants } from "./ui/button";
-import { TriangleDownIcon } from "@radix-ui/react-icons";
 import { SearchBar } from "./search-bar";
 
 const formSchema = z.object({
@@ -66,8 +65,8 @@ export default function SearchFilter() {
     <div>
       <Image
         src="/svg/hidingLogo.svg"
-        width={150}
-        height={150}
+        width={164}
+        height={72}
         alt="Picture of Hidden Dog"
         className="ml-10"
       />
@@ -129,8 +128,8 @@ export default function SearchFilter() {
                             <path
                               d="M1 1L6.17459 5.4559C6.54056 5.77104 7.07947 5.77959 7.45526 5.47622L13 1"
                               stroke="white"
-                              stroke-width="2"
-                              stroke-linecap="round"
+                              strokeWidth="2"
+                              strokeLinecap="round"
                             />
                           </svg>
                         </div>
