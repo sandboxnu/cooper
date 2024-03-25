@@ -168,13 +168,13 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
         control={form.control}
         name="otherBenefits"
         render={({ field }) => (
-          <FormItem className="flex flex-row items-start space-x-2 space-y-0">
+          <FormItem className="flex flex-row items-start space-x-4 space-y-0">
             <Checkbox checked={!!field.value} className="pointer-events-none" />
             <FormControl>
               <Input
                 {...field}
                 placeholder="Other..."
-                className="highlight h-4 border-none bg-white pl-1 font-medium focus:ring-0"
+                className="highlight f h-8 border-none bg-white pl-1 text-xl font-semibold focus:ring-0"
               />
             </FormControl>
             <FormMessage />
