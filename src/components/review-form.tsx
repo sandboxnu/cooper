@@ -121,7 +121,7 @@ export const benefits = [
 const steps = [
   {
     fields: ["workTerm", "workYear"],
-    color: "cooper-pink-500",
+    color: "border-cooper-pink-500",
   },
   {
     fields: [
@@ -132,11 +132,11 @@ const steps = [
       "interviewDifficulty",
       "interviewReview",
     ],
-    color: "cooper-green-500",
+    color: "border-cooper-green-500",
   },
   {
     fields: ["reviewHeadline", "textReview", "location", "hourlyPay"],
-    color: "cooper-pink-500",
+    color: "border-cooper-yellow-500",
   },
   {
     fields: [
@@ -150,7 +150,7 @@ const steps = [
       "freeMerch",
       "otherBenefits",
     ],
-    color: "cooper-pink-500",
+    color: "border-cooper-red-500",
   },
 ];
 
@@ -192,7 +192,7 @@ export function ReviewForm(props: ReviewFormProps) {
     },
   });
 
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState<number>(0);
 
   type FieldName = keyof z.infer<typeof formSchema>;
 
@@ -232,12 +232,14 @@ export function ReviewForm(props: ReviewFormProps) {
     });
   }
 
+  console.log("border-" + steps[currentStep]?.color);
+
   return (
     <Form {...form}>
       <form
         className={cn(
           "space-y-12 rounded-2xl border-t-[16px] bg-white px-32 py-16",
-          "border-cooper-blue-600", // Somebody fix this
+          steps[currentStep]?.color,
         )}
       >
         {currentStep == 0 && <CoopCycleSection />}
