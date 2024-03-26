@@ -1,14 +1,12 @@
-import Header from "~/components/header";
+import HeaderLayout from "~/components/header-layout";
 import SearchFilter from "~/components/search-filter";
 
 export default async function Companies() {
   return (
     <div className="flex h-full flex-col">
-      <Header />
-
-      <div className="mx-12 mt-16 flex flex-col">
+      <HeaderLayout>
         <SearchFilter />
-      </div>
+      </HeaderLayout>
     </div>
   );
 }
