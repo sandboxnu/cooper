@@ -57,7 +57,7 @@ export async function RoleReviewCard({
   roleObj,
   ...props
 }: RoleReviewCardProps) {
-  // Get all of the information needed from the corresponding company
+  // ===== COMPANY DATA ===== //
   const company = await api.company.getById.query({ id: roleObj.companyId });
   const roleDescription =
     roleObj.description && roleObj.description.length >= 210
@@ -65,7 +65,7 @@ export async function RoleReviewCard({
       : roleObj.description;
   const positionDate: string = formatDate(company.createdAt);
 
-  // Get all of the information needed from the corresponding reviews
+  // ===== REVIEW DATA ===== //
   const reviews = await api.review.getByRole.query({ roleId: roleObj.id });
   const reviewCount = reviews.length;
   let workEnvironment = "In Person";
@@ -77,8 +77,9 @@ export async function RoleReviewCard({
       workEnvironment = "Remote";
     }
   }
-  // Calculate average total review
-  // TODO: abstract?
+
+  // ===== AVERAGE RATING ===== //
+  // TODO: Abstract?
   const totalStars = reviews.reduce((accum, curr) => {
     return accum + curr.overallRating;
   }, 0);

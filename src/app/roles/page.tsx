@@ -5,6 +5,10 @@ import { api } from "~/trpc/server";
 import { unstable_noStore as noStore } from "next/cache";
 
 export default async function Roles() {
+  /**
+   * FIXME: This is a temporary fix, figure out how to get build command working without noStore();
+   * @returns A promise containing the roles from the database
+   */
   async function getRoles() {
     noStore();
     const roles = await api.role.list.query();
