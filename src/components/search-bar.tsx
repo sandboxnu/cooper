@@ -31,7 +31,7 @@ export function SearchBar() {
 
               <Input
                 {...field}
-                className="h-14 rounded-3xl border-none bg-white pl-12 active:ring-0"
+                className="h-14 rounded-full border-none bg-white pl-12 text-lg active:ring-0 "
                 placeholder="Search"
               />
             </div>

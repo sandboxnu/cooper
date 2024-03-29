@@ -8,7 +8,7 @@ import Header from "~/components/header";
  */
 export default function HeaderLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="flex min-h-screen flex-col bg-cooper-blue-200">
+    <div className="flex min-h-screen flex-col">
       <Header />
       <article className="mt-16 flex flex-col items-center justify-center">
         {children}

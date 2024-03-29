@@ -9,47 +9,19 @@ import {
 } from "~/components/ui/card";
 import { api } from "~/trpc/server";
 import { ReviewCardStars } from "./review-card-stars";
-
-// TODO: move this somewehre else?
-function formatDate(date: Date) {
-  const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-
-  // Extract the year, month, and day components
-  const year = date.getFullYear();
-  const monthIndex = date.getMonth();
-  const month = months[monthIndex];
-  const day = String(date.getDate()).padStart(2, "0"); // Ensure two digits for the day
-
-  // Construct the formatted date string
-  const formattedDate = `${day} ${month} ${year}`;
-
-  return formattedDate;
-}
+import { formatDate } from "~/utils/dateHelpers";
+import { Role } from "@prisma/client";
+import {
+  averageStarRating,
+  mostCommonWorkEnviornment,
+} from "~/utils/reviewsAggregationHelpers";
 
 // todo: add this attribution in a footer somewhere
 //  <a href="https://clearbit.com">Logos provided by Clearbit</a>
 
 type RoleReviewCardProps = {
   className?: string;
-  roleObj: {
-    id: string;
-    title: string;
-    description: string | null;
-    companyId: string;
-  };
+  roleObj: Role;
 };
 
 export async function RoleReviewCard({
@@ -68,22 +40,10 @@ export async function RoleReviewCard({
   // ===== REVIEW DATA ===== //
   const reviews = await api.review.getByRole.query({ roleId: roleObj.id });
   const reviewCount = reviews.length;
-  let workEnvironment = "In Person";
-  // TODO: we are setting the work enviornment to the first role since its not stored per company. Change?
-  if (reviews.length > 0 && reviews[0]) {
-    if (reviews[0].workEnvironment == "HYBRID") {
-      workEnvironment = "Hybrid";
-    } else if (reviews[0].workEnvironment == "REMOTE") {
-      workEnvironment = "Remote";
-    }
-  }
+  const workEnvironment = mostCommonWorkEnviornment(reviews);
 
   // ===== AVERAGE RATING ===== //
-  // TODO: Abstract?
-  const totalStars = reviews.reduce((accum, curr) => {
-    return accum + curr.overallRating;
-  }, 0);
-  const averageStars = totalStars / reviewCount;
+  const averageStars = averageStarRating(reviews);
 
   return (
     <Card
@@ -101,9 +61,9 @@ export async function RoleReviewCard({
           <div className="flex items-center justify-start space-x-4">
             <img
               src={`https://logo.clearbit.com/${company.name.replace(/\s/g, "")}.com`}
-              alt="Description of the image"
               width={75}
               height={75}
+              alt={`Logo of ${company}`}
               className="rounded-2xl border"
             />
             <div>
