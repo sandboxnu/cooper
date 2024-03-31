@@ -1,15 +1,15 @@
 "use client";
 
+import Image from "next/image";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { Form, FormControl, FormField, FormItem } from "~/components/ui/form";
 import { Industry, WorkEnvironment, WorkTerm } from "@prisma/client";
-import { Input } from "./ui/input";
 import { cn } from "~/lib/utils";
 import { buttonVariants } from "./ui/button";
-import { TriangleDownIcon } from "@radix-ui/react-icons";
 import { SearchBar } from "./search-bar";
 
 const formSchema = z.object({
@@ -62,14 +62,16 @@ export default function SearchFilter() {
   }
 
   return (
-    <div className="m-4 mt-0 flex h-24 min-w-[80vw] items-center justify-center rounded-2xl bg-cooper-blue-400 p-4">
+    <div className="m-4 mt-0 flex h-32 min-w-[80vw] items-center justify-center rounded-2xl bg-cooper-blue-400 p-4">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="space-between mx-4 flex w-full flex-wrap items-center justify-between"
+          className="mx-4 grid w-full grid-cols-1 gap-2 lg:grid-cols-2"
         >
-          <SearchBar />
-          <div className="flex items-center justify-around space-x-3">
+          <div className="flex justify-center">
+            <SearchBar />
+          </div>
+          <div className="ml-[-1.75rem] mr-4 flex items-center justify-around gap-3 lg:ml-0 lg:mr-0 lg:justify-end">
             {searchDropdown.map(({ name, title, enumObj }) => {
               return (
                 <FormField
@@ -82,9 +84,13 @@ export default function SearchFilter() {
                         <FormControl>
                           <select
                             className={cn(
-                              buttonVariants({ variant: "outline" }),
-                              "w-36 appearance-none border-none bg-transparent pr-8 text-right text-white",
+                              buttonVariants({
+                                variant: "outline",
+                                size: "lg",
+                              }),
+                              "w-36 appearance-none border border-none border-blue-500 bg-transparent pr-8 text-right text-white",
                               "hover:bg-transparent hover:text-secondary",
+                              "focus:ring-0",
                             )}
                             {...field}
                           >
@@ -102,7 +108,22 @@ export default function SearchFilter() {
                             })}
                           </select>
                         </FormControl>
-                        <TriangleDownIcon className="absolute right-2.5 top-2.5 h-5 w-5" />
+                        {/* Triangle Down Icon */}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="14"
+                          height="7"
+                          viewBox="0 0 14 7"
+                          fill="none"
+                          className="absolute right-2 top-3.5 h-3 w-3"
+                        >
+                          <path
+                            d="M1 1L6.17459 5.4559C6.54056 5.77104 7.07947 5.77959 7.45526 5.47622L13 1"
+                            stroke="white"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                          />
+                        </svg>
                       </div>
                     </FormItem>
                   )}

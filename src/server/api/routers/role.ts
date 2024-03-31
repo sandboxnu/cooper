@@ -1,5 +1,4 @@
 import { TRPCError } from "@trpc/server";
-import { z } from "zod";
 import { getByCompanySchema, getByIdSchema } from "~/schema/misc";
 import {
   createRoleSchema,

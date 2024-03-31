@@ -12,7 +12,7 @@ export function SearchBar() {
       render={({ field }) => (
         <FormItem>
           <FormControl>
-            <div className="relative w-96">
+            <div className="lg:w-[30rem relative h-14 w-[26rem] xl:w-[34rem]">
               {/* SEARCH TEXT INPUT */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@ export function SearchBar() {
 
               <Input
                 {...field}
-                className="min-w-96 rounded-3xl border-none bg-cooper-blue-200 pl-12"
+                className="h-14 rounded-full border-none bg-white pl-12 text-lg active:ring-0 "
                 placeholder="Search"
               />
             </div>
