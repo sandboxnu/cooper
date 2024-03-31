@@ -6,7 +6,7 @@ export function SubmissionConfirmation() {
   return (
     <div className="flex flex-col border-2">
       <div className="z-10 -mb-4 h-4 w-full rounded-t-xl bg-gradient-to-r from-blue-400 via-lime-600 to-rose-300" />
-      <div className="flex h-full w-full flex-col items-center justify-center space-y-6 rounded-xl bg-white px-8 py-32 text-cooper-blue-600">
+      <div className="flex h-[80vh] w-full flex-col items-center justify-center space-y-6 rounded-xl bg-white px-8 py-32 text-cooper-blue-600">
         <Image
           src="./svg/verified.svg"
           width={125}
@@ -24,7 +24,10 @@ export function SubmissionConfirmation() {
           <Link href="/">
             <Button>Return to home </Button>
           </Link>
-          <Button variant="outline">Submit another review</Button>
+          <Button variant="outline">
+            {/* Redirect to the correct page to submit another review (for a different company perhaps) */}
+            <Link href="/">Submit another review</Link>
+          </Button>
         </div>
       </div>
     </div>

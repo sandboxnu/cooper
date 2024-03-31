@@ -121,6 +121,9 @@ devDependencies:
   "@types/react-dom":
     specifier: ^18.2.19
     version: 18.2.19
+  "@types/react-scroll":
+    specifier: ^1.8.10
+    version: 1.8.10
   "@typescript-eslint/eslint-plugin":
     specifier: ^6.21.0
     version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.56.0)(typescript@5.3.3)
@@ -1543,6 +1546,15 @@ packages:
       }
     dependencies:
       "@types/react": 18.2.55
+
+  /@types/react-scroll@1.8.10:
+    resolution:
+      {
+        integrity: sha512-RD4Z7grbdNGOKwKnUBKar6zNxqaW3n8m9QSrfvljW+gmkj1GArb8AFBomVr6xMOgHPD3v1uV3BrIf01py57daQ==,
+      }
+    dependencies:
+      "@types/react": 18.2.55
+    dev: true
 
   /@types/react@18.2.55:
     resolution:

@@ -213,7 +213,7 @@ export function ReviewForm(props: ReviewFormProps) {
         await form.handleSubmit(onSubmit)();
       }
       setCurrentStep((step) => step + 1);
-      scroll.scrollToTop();
+      scroll.scrollToTop({ duration: 250, smooth: true });
     }
   };
 
@@ -222,6 +222,7 @@ export function ReviewForm(props: ReviewFormProps) {
     if (currentStep > 0) {
       setCurrentStep((prev) => prev - 1);
     }
+    scroll.scrollToTop({ duration: 250, smooth: true });
   };
 
   const mutation = api.review.create.useMutation();
