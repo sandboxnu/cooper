@@ -174,7 +174,7 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
               <Input
                 {...field}
                 placeholder="Other..."
-                className="highlight f h-8 border-none bg-white pl-1 text-xl font-semibold focus:ring-0"
+                className="highlight h-8 border-none bg-white pl-1 text-xl font-normal focus:ring-0"
               />
             </FormControl>
             <FormMessage />

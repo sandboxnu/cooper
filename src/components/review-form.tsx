@@ -6,15 +6,16 @@ import { z } from "zod";
 import dayjs from "dayjs";
 import { Button } from "~/components/ui/button";
 import { Form } from "~/components/ui/form";
-import { toast } from "sonner";
 import { ReviewSection } from "~/components/review-section";
 import { CoopCycleSection } from "~/components/coop-cycle-section";
 import { CompanyDetailsSection } from "~/components/company-details-section";
 import { RatingsSection } from "~/components/ratings-section";
+import { SubmissionConfirmation } from "~/components/submission-confirmation";
 import { useState } from "react";
 import { Company, WorkEnvironment, WorkTerm } from "@prisma/client";
 import { api } from "~/trpc/react";
 import { cn } from "~/lib/utils";
+import { animateScroll as scroll } from "react-scroll";
 
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
@@ -118,7 +119,7 @@ export const benefits = [
   { field: "freeMerch", label: "Free merchandise" },
 ];
 
-const steps = [
+const steps: string | any[] = [
   {
     fields: ["workTerm", "workYear"],
     color: "border-cooper-pink-500",
@@ -212,6 +213,7 @@ export function ReviewForm(props: ReviewFormProps) {
         await form.handleSubmit(onSubmit)();
       }
       setCurrentStep((step) => step + 1);
+      scroll.scrollToTop();
     }
   };
 
@@ -230,6 +232,10 @@ export function ReviewForm(props: ReviewFormProps) {
       profileId: props.profileId,
       ...values,
     });
+  }
+
+  if (currentStep === steps.length) {
+    return <SubmissionConfirmation />;
   }
 
   return (
@@ -261,11 +267,6 @@ export function ReviewForm(props: ReviewFormProps) {
           </div>
         )}
       </form>
-      {currentStep == steps.length && (
-        <h1 className="text-center text-3xl font-semibold">
-          Thank you for submitting your review!
-        </h1>
-      )}
     </Form>
   );
 }
