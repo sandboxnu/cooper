@@ -2,35 +2,7 @@ import "~/styles/globals.css";
 import { TRPCReactProvider } from "~/trpc/react";
 import { Toaster } from "~/components/ui/sonner";
 import { cn } from "~/lib/utils";
-
-import localFont from "next/font/local";
-
-// Font files can be colocated inside of `pages`
-const myFont = localFont({
-  src: [
-    {
-      path: "./../app/fonts/BentonSansBook.otf",
-      weight: "200",
-      style: "normal",
-    },
-    {
-      path: "./../app/fonts/BentonSansRegular.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "./../app/fonts/BentonSansMedium.otf",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "./../app/fonts/BentonSansBold.otf",
-      weight: "800",
-      style: "normal",
-    },
-  ],
-  variable: "--font-sans",
-});
+import { bentonSansFont } from "~/styles/font";
 
 export const metadata = {
   title: "Cooper",
@@ -44,13 +16,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          myFont.variable,
-        )}
-      >
+    <html
+      className={bentonSansFont.variable}
+      lang="en"
+      suppressHydrationWarning
+    >
+      <body className={cn("min-h-screen bg-white font-sans antialiased")}>
         <TRPCReactProvider>{children}</TRPCReactProvider>
         <Toaster />
       </body>

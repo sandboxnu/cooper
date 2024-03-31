@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-const { fontFamily } = require("tailwindcss/defaultTheme");
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config = {
   darkMode: ["class"],
@@ -24,9 +24,9 @@ const config = {
       },
       colors: {
         "cooper-gray-100": "#DDE8F0",
+        "cooper-blue-600": "#436F8E",
         "cooper-blue-400": "#5E8BAB",
         "cooper-blue-200": "#DEEAF8",
-        "cooper-blue-600": "#1D679C",
         "cooper-yellow-500": "#FFA400",
         "cooper-pink-500": "#EA8FBA",
         "cooper-green-500": "#619518",
