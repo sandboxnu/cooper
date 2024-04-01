@@ -1,26 +1,29 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
 import LoginButton from "~/components/login-button";
 import LogoutButton from "./logout-button";
 import { cn } from "~/lib/utils";
-import { getServerSession } from "next-auth";
-import { Button } from "./ui/button";
 import { altivoFont } from "~/styles/font";
+import { useSession } from "next-auth/react";
+import { usePathname } from "next/navigation";
 
 /**
  * This is the header component. (Probably) should use header-layout instead
  * @returns The header component for the website
  */
-export default async function Header() {
-  const session = await getServerSession();
+export default function Header() {
+  const session = useSession();
+  const pathname = usePathname();
 
   const outerWidth = "w-40";
 
   return (
     <header className="flex h-20 w-full grid-cols-3 items-center justify-between border-b border-b-[#9A9A9A] bg-white pr-2 drop-shadow-sm">
       {/* Logo + cooper */}
-      <div className={cn("flex flex-grow items-end", outerWidth)}>
+      <Link href="/" className={cn("flex flex-grow items-end", outerWidth)}>
         <div className="mx-4 flex min-h-20 items-end">
           <Image
             src="/svg/hidingLogo.svg"
@@ -29,24 +32,39 @@ export default async function Header() {
             alt="Logo Picture"
           />
         </div>
-        <Link href="/">
-          <h1
+        <h1
+          className={cn(
+            "mb-2 hidden text-5xl font-semibold text-cooper-blue-600 lg:block",
+            altivoFont.className,
+          )}
+        >
+          cooper
+        </h1>
+      </Link>
+      {/* Centered Links */}
+      <div className="lg: mb-8 flex min-h-20 flex-shrink grid-cols-2 items-end justify-start gap-4 lg:gap-12">
+        <Link href="/roles">
+          <h2
             className={cn(
-              "mb-2 text-5xl font-semibold text-cooper-blue-600",
-              altivoFont.className,
+              "font-semibold",
+              pathname.includes("roles") &&
+                "underline decoration-cooper-pink-500 decoration-[3px] underline-offset-[6px]",
             )}
           >
-            cooper
-          </h1>
-        </Link>
-      </div>
-      {/* Centered Links */}
-      <div className="mb-8 flex min-h-20 flex-shrink grid-cols-2 items-end justify-start gap-4">
-        <Link href="/roles">
-          <h2 className={"font-semibold"}>Jobs</h2>
+            {" "}
+            Jobs{" "}
+          </h2>
         </Link>
         <Link href="/companies">
-          <h2 className="font-semibold">Companies</h2>
+          <h2
+            className={cn(
+              "font-semibold",
+              pathname.includes("companies") &&
+                "underline decoration-cooper-green-500 decoration-[3px] underline-offset-[6px]",
+            )}
+          >
+            Companies
+          </h2>
         </Link>
       </div>
       {/* New Review + Profile */}
@@ -56,8 +74,7 @@ export default async function Header() {
           outerWidth,
         )}
       >
-        <Button className="bg-cooper-yellow-500">+ Write A Review</Button>
-        {session ? <LogoutButton /> : <LoginButton />}
+        {session.data ? <LogoutButton /> : <LoginButton />}
       </div>
     </header>
   );

@@ -8,8 +8,8 @@ import { getByIdSchema, getByNameSchema } from "~/schema/misc";
 import { TRPCError } from "@trpc/server";
 
 export const companyRouter = createTRPCRouter({
-  list: publicProcedure.query(({ ctx }) => {
-    return ctx.db.company.findMany();
+  list: publicProcedure.query(async ({ ctx }) => {
+    return await ctx.db.company.findMany();
   }),
   getByName: publicProcedure
     .input(getByNameSchema)

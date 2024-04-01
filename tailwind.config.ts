@@ -27,6 +27,8 @@ const config = {
         "cooper-blue-400": "#5E8BAB",
         "cooper-blue-200": "#DEEAF8",
         "cooper-yellow-500": "#FFA400",
+        "cooper-pink-500": "#EA8FBA",
+        "cooper-green-500": "#619518",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
