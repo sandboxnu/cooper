@@ -5,11 +5,10 @@ import {
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
 } from "~/components/ui/form";
-import FormLabel from "./cooper/form-label";
 import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
-import { Input } from "~/components/ui/input";
 import { Checkbox } from "~/components/ui/checkbox";
 
 import { benefits } from "~/components/review-form";

@@ -45,7 +45,7 @@ export default async function Page({
     }
 
     return (
-      <div className="container mx-auto px-4 py-16">
+      <div className="mx-auto w-full bg-cooper-blue-200 px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <ReviewForm
             company={company}

@@ -2,9 +2,9 @@ import {
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
 } from "~/components/ui/form";
-import FormLabel from "./cooper/form-label";
 import { Input } from "~/components/ui/input";
 import { Textarea } from "~/components/ui/textarea";
 import { FormSection } from "~/components/form-section";
