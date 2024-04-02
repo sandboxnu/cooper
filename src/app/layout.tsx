@@ -23,7 +23,6 @@ export default function RootLayout({
     >
       <body className={cn("min-h-screen bg-white font-sans antialiased")}>
         <TRPCReactProvider>{children}</TRPCReactProvider>
-        <Toaster />
       </body>
     </html>
   );

@@ -7,7 +7,7 @@ import {
 } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
 import { Textarea } from "~/components/ui/textarea";
-import { FormSection } from "~/components/form-section";
+import { FormSection } from "~/components/form/form-section";
 import { useFormContext } from "react-hook-form";
 
 /**

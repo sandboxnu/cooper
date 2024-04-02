@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useFormContext } from "react-hook-form";
-import { FormSection } from "~/components/form-section";
+import { FormSection } from "~/components/form/form-section";
 import {
   FormControl,
   FormField,
@@ -11,8 +11,8 @@ import {
 import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
 import { Checkbox } from "~/components/ui/checkbox";
 
-import { benefits } from "~/components/review-form";
-import { Textarea } from "./ui/textarea";
+import { benefits } from "~/components/form/review-form";
+import { Textarea } from "~/components/ui/textarea";
 
 type CompanyDetailsSectionProps = {
   companyName: string;

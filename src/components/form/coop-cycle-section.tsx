@@ -1,5 +1,5 @@
 import { useFormContext } from "react-hook-form";
-import { FormSection } from "~/components/form-section";
+import { FormSection } from "~/components/form/form-section";
 import { TriangleDownIcon } from "@radix-ui/react-icons";
 import {
   FormControl,

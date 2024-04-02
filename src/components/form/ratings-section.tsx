@@ -1,4 +1,4 @@
-import { FormSection } from "~/components/form-section";
+import { FormSection } from "~/components/form/form-section";
 import { useFormContext } from "react-hook-form";
 import {
   FormControl,

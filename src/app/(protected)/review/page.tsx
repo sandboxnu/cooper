@@ -1,4 +1,4 @@
-import { ReviewForm } from "~/components/review-form";
+import { ReviewForm } from "~/components/form/review-form";
 import { getServerSession } from "next-auth";
 import { authOptions } from "~/server/auth";
 import { redirect, notFound } from "next/navigation";
@@ -45,7 +45,7 @@ export default async function Page({
     }
 
     return (
-      <div className="mx-auto w-full bg-cooper-blue-200 px-4 py-16">
+      <div className="mx-auto w-full px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <ReviewForm
             company={company}
