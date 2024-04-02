@@ -1,6 +1,5 @@
 import "~/styles/globals.css";
 import { TRPCReactProvider } from "~/trpc/react";
-import { Toaster } from "~/components/ui/sonner";
 import { cn } from "~/lib/utils";
 import { bentonSansFont } from "~/styles/font";
 

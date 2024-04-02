@@ -1,5 +1,6 @@
 import { FieldPath, useFormContext } from "react-hook-form";
-import { ReviewFormType } from "~/components/review-form";
+// Probably fix this import at some point (form context)
+import { ReviewFormType } from "~/components/form/review-form";
 import { forwardRef, useState } from "react";
 import { cn } from "~/lib/utils";
 
