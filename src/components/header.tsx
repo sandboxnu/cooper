@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import LoginButton from "~/components/login-button";
-import LogoutButton from "./logout-button";
+import LogoutButton from "~/components/logout-button";
 import { cn } from "~/lib/utils";
 import { altivoFont } from "~/styles/font";
 import { useSession } from "next-auth/react";
