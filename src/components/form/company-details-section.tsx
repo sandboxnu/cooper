@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { useFormContext } from "react-hook-form";
-import { FormSection } from "~/components/form-section";
+import { FormSection } from "~/components/form/form-section";
 import {
   FormControl,
   FormField,
@@ -8,10 +9,10 @@ import {
   FormMessage,
 } from "~/components/ui/form";
 import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
-import { Input } from "~/components/ui/input";
 import { Checkbox } from "~/components/ui/checkbox";
 
-import { benefits } from "~/components/review-form";
+import { benefits } from "~/components/form/review-form";
+import { Textarea } from "~/components/ui/textarea";
 
 type CompanyDetailsSectionProps = {
   companyName: string;
@@ -23,22 +24,23 @@ type CompanyDetailsSectionProps = {
  */
 export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
   const form = useFormContext();
+  const [otherBenefits, setOtherBenefits] = useState(false);
 
   return (
-    <FormSection title="4. Company Details">
+    <FormSection title="Company Details" className="text-cooper-red-500">
       <FormField
         control={form.control}
         name="workEnvironment"
         render={({ field }) => (
-          <FormItem className="space-y-3">
+          <FormItem className="space-y-6">
             <FormLabel>What kind of work model?*</FormLabel>
             <FormControl>
               <RadioGroup
                 onValueChange={field.onChange}
                 defaultValue={field.value}
-                className="flex flex-col space-y-1"
+                className="flex flex-col space-y-3"
               >
-                <FormItem className="flex items-center space-x-3 space-y-0">
+                <FormItem className="flex items-center space-x-4 space-y-0">
                   <FormControl>
                     <RadioGroupItem
                       value="INPERSON"
@@ -47,7 +49,7 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
                   </FormControl>
                   <FormLabel>In-person</FormLabel>
                 </FormItem>
-                <FormItem className="flex items-center space-x-3 space-y-0">
+                <FormItem className="flex items-center space-x-4 space-y-0">
                   <FormControl>
                     <RadioGroupItem
                       value="HYBRID"
@@ -56,7 +58,7 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
                   </FormControl>
                   <FormLabel>Hybrid</FormLabel>
                 </FormItem>
-                <FormItem className="flex items-center space-x-3 space-y-0">
+                <FormItem className="flex items-center space-x-4 space-y-0">
                   <FormControl>
                     <RadioGroupItem
                       value="REMOTE"
@@ -75,15 +77,15 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
         control={form.control}
         name="drugTest"
         render={({ field }) => (
-          <FormItem className="space-y-3">
+          <FormItem className="space-y-6">
             <FormLabel>Did {props.companyName} drug test?*</FormLabel>
             <FormControl>
               <RadioGroup
                 onValueChange={field.onChange}
                 defaultValue={field.value}
-                className="flex flex-col space-y-1"
+                className="flex flex-col space-y-3"
               >
-                <FormItem className="flex items-center space-x-3 space-y-0">
+                <FormItem className="flex items-center space-x-4 space-y-0">
                   <FormControl>
                     <RadioGroupItem
                       value="true"
@@ -92,7 +94,7 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
                   </FormControl>
                   <FormLabel>Yes</FormLabel>
                 </FormItem>
-                <FormItem className="flex items-center space-x-3 space-y-0">
+                <FormItem className="flex items-center space-x-4 space-y-0">
                   <FormControl>
                     <RadioGroupItem
                       value="false"
@@ -111,15 +113,15 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
         control={form.control}
         name="overtimeNormal"
         render={({ field }) => (
-          <FormItem className="space-y-3">
+          <FormItem className="space-y-6">
             <FormLabel>Was working overtime common?*</FormLabel>
             <FormControl>
               <RadioGroup
                 onValueChange={field.onChange}
                 defaultValue={field.value}
-                className="flex flex-col space-y-1"
+                className="flex flex-col space-y-3"
               >
-                <FormItem className="flex items-center space-x-3 space-y-0">
+                <FormItem className="flex items-center space-x-4 space-y-0">
                   <FormControl>
                     <RadioGroupItem
                       value="true"
@@ -128,7 +130,7 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
                   </FormControl>
                   <FormLabel>Yes</FormLabel>
                 </FormItem>
-                <FormItem className="flex items-center space-x-3 space-y-0">
+                <FormItem className="flex items-center space-x-4 space-y-0">
                   <FormControl>
                     <RadioGroupItem
                       value="false"
@@ -152,7 +154,7 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
           control={form.control}
           name={benefit.field}
           render={({ field }) => (
-            <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+            <FormItem className="flex flex-row items-start space-x-4 space-y-0">
               <FormControl>
                 <Checkbox
                   checked={field.value}
@@ -164,23 +166,31 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
           )}
         />
       ))}
-      <FormField
-        control={form.control}
-        name="otherBenefits"
-        render={({ field }) => (
-          <FormItem className="flex flex-row items-start space-x-2 space-y-0">
-            <Checkbox checked={!!field.value} className="pointer-events-none" />
-            <FormControl>
-              <Input
-                {...field}
-                placeholder="Other..."
-                className="highlight h-4 border-none bg-white pl-1 font-medium focus:ring-0"
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
+      <FormItem className="flex flex-row items-start space-x-4 space-y-0">
+        <Checkbox
+          checked={otherBenefits}
+          onCheckedChange={(c) => setOtherBenefits(!!c)}
+        />
+        <FormLabel>Other</FormLabel>
+        <FormMessage />
+      </FormItem>
+      {otherBenefits && (
+        <FormField
+          control={form.control}
+          name="otherBenefits"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <Textarea
+                  placeholder="Please type the other benefits here."
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+      )}
     </FormSection>
   );
 }
