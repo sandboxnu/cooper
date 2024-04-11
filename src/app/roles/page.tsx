@@ -1,30 +1,45 @@
-import HeaderLayout from "~/components/header-layout";
-import { RoleReviewCard } from "~/components/role-review-card";
+"use client";
+
+import { Review } from "@prisma/client";
+import { useState } from "react";
+import { ReviewCard } from "~/components/review-card";
+import { ReviewCardPreview } from "~/components/review-card-preview";
 import SearchFilter from "~/components/search-filter";
-import { api } from "~/trpc/server";
-import { unstable_noStore as noStore } from "next/cache";
+import { cn } from "~/lib/utils";
+import { api } from "~/trpc/react";
 
-export default async function Roles() {
-  /**
-   * FIXME: This is a temporary fix, figure out how to get build command working without noStore();
-   * @returns A promise containing the roles from the database
-   */
-  async function getRoles() {
-    noStore();
-    const roles = await api.role.list.query();
-    return roles;
-  }
+export default function Roles() {
+  const reviews = api.review.list.useQuery();
 
-  const roles = await getRoles();
+  const [selectedReview, setSelectedReview] = useState<Review | undefined>(
+    reviews.data ? reviews.data[0] : undefined,
+  );
 
   return (
-    <HeaderLayout>
+    <>
       <SearchFilter />
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {roles.map((role) => {
-          return <RoleReviewCard key={role.id} roleObj={role} />;
-        })}
-      </div>
-    </HeaderLayout>
+      {/* TODO: Loading animations */}
+      {reviews.data && (
+        <div className="mb-8 grid w-4/5 grid-cols-5 gap-4 lg:w-3/4">
+          <div className="col-span-2 gap-3">
+            {reviews.data.map((review) => {
+              return (
+                <div key={review.id} onClick={() => setSelectedReview(review)}>
+                  <ReviewCardPreview
+                    reviewObj={review}
+                    className={cn("mb-4 hover:border-2")}
+                  />
+                </div>
+              );
+            })}
+          </div>
+          <div className="col-span-3">
+            {reviews.data.length > 0 && reviews.data[0] && (
+              <ReviewCard reviewObj={selectedReview || reviews.data[0]} />
+            )}
+          </div>
+        </div>
+      )}
+    </>
   );
 }

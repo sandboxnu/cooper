@@ -1,3 +1,4 @@
+"use client";
 import { ReactNode } from "react";
 import Header from "~/components/header";
 
@@ -10,7 +11,7 @@ export default function HeaderLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-      <article className="mt-16 flex flex-col items-center justify-center">
+      <article className="mt-16 flex w-[100vw] flex-col items-center justify-center gap-16">
         {children}
       </article>
     </div>

@@ -15,6 +15,7 @@ import {
   averageStarRating,
   mostCommonWorkEnviornment,
 } from "~/utils/reviewsAggregationHelpers";
+import { truncateText } from "~/utils/stringHelpers";
 
 // todo: add this attribution in a footer somewhere
 //  <a href="https://clearbit.com">Logos provided by Clearbit</a>
@@ -31,10 +32,7 @@ export async function RoleReviewCard({
 }: RoleReviewCardProps) {
   // ===== COMPANY DATA ===== //
   const company = await api.company.getById.query({ id: roleObj.companyId });
-  const roleDescription =
-    roleObj.description && roleObj.description.length >= 210
-      ? cn(roleObj.description.slice(0, 210), "...")
-      : roleObj.description;
+  const roleDescription = truncateText(roleObj.description || "", 150);
   const positionDate: string = formatDate(company.createdAt);
 
   // ===== REVIEW DATA ===== //
@@ -48,7 +46,7 @@ export async function RoleReviewCard({
   return (
     <Card
       className={cn(
-        "flex h-[26rem] w-96 flex-col justify-between overflow-hidden rounded-3xl",
+        "flex h-[26rem] w-[100%] flex-col justify-between overflow-hidden rounded-3xl",
         className,
       )}
       {...props}
