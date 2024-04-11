@@ -6,14 +6,16 @@ import { z } from "zod";
 import dayjs from "dayjs";
 import { Button } from "~/components/ui/button";
 import { Form } from "~/components/ui/form";
-import { toast } from "sonner";
-import { ReviewSection } from "~/components/review-section";
-import { CoopCycleSection } from "~/components/coop-cycle-section";
-import { CompanyDetailsSection } from "~/components/company-details-section";
-import { RatingsSection } from "~/components/ratings-section";
+import { ReviewSection } from "~/components/form/review-section";
+import { CoopCycleSection } from "~/components/form/coop-cycle-section";
+import { CompanyDetailsSection } from "~/components/form/company-details-section";
+import { RatingsSection } from "~/components/form/ratings-section";
+import { SubmissionConfirmation } from "~/components/form/submission-confirmation";
 import { useState } from "react";
 import { Company, WorkEnvironment, WorkTerm } from "@prisma/client";
 import { api } from "~/trpc/react";
+import { cn } from "~/lib/utils";
+import { animateScroll as scroll } from "react-scroll";
 
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
@@ -117,9 +119,10 @@ export const benefits = [
   { field: "freeMerch", label: "Free merchandise" },
 ];
 
-const steps = [
+const steps: { fields: string[]; color: string }[] = [
   {
     fields: ["workTerm", "workYear"],
+    color: "border-cooper-pink-500",
   },
   {
     fields: [
@@ -130,9 +133,11 @@ const steps = [
       "interviewDifficulty",
       "interviewReview",
     ],
+    color: "border-cooper-green-500",
   },
   {
     fields: ["reviewHeadline", "textReview", "location", "hourlyPay"],
+    color: "border-cooper-yellow-500",
   },
   {
     fields: [
@@ -146,6 +151,7 @@ const steps = [
       "freeMerch",
       "otherBenefits",
     ],
+    color: "border-cooper-red-500",
   },
 ];
 
@@ -187,7 +193,7 @@ export function ReviewForm(props: ReviewFormProps) {
     },
   });
 
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState<number>(0);
 
   type FieldName = keyof z.infer<typeof formSchema>;
 
@@ -207,6 +213,7 @@ export function ReviewForm(props: ReviewFormProps) {
         await form.handleSubmit(onSubmit)();
       }
       setCurrentStep((step) => step + 1);
+      scroll.scrollToTop({ duration: 250, smooth: true });
     }
   };
 
@@ -215,6 +222,7 @@ export function ReviewForm(props: ReviewFormProps) {
     if (currentStep > 0) {
       setCurrentStep((prev) => prev - 1);
     }
+    scroll.scrollToTop({ duration: 250, smooth: true });
   };
 
   const mutation = api.review.create.useMutation();
@@ -227,13 +235,18 @@ export function ReviewForm(props: ReviewFormProps) {
     });
   }
 
-  function onReset() {
-    form.reset();
+  if (currentStep === steps.length) {
+    return <SubmissionConfirmation />;
   }
 
   return (
     <Form {...form}>
-      <form className="space-y-6">
+      <form
+        className={cn(
+          "space-y-12 rounded-2xl border-t-[16px] bg-white px-32 py-16",
+          steps[currentStep]?.color,
+        )}
+      >
         {currentStep == 0 && <CoopCycleSection />}
         {currentStep == 1 && <RatingsSection />}
         {currentStep == 2 && <ReviewSection />}
@@ -241,25 +254,20 @@ export function ReviewForm(props: ReviewFormProps) {
           <CompanyDetailsSection companyName={props.company.name} />
         )}
         {currentStep >= 0 && currentStep <= steps.length - 1 && (
-          <div className="flex justify-between">
+          <div className="flex justify-end space-x-4">
             <Button
-              variant="secondary"
+              variant="outline"
               onClick={prev}
               disabled={currentStep === 0}
             >
               Previous
             </Button>
             <Button onClick={next}>
-              {currentStep == steps.length - 1 ? "Submit" : "Next"}
+              {currentStep == steps.length - 1 ? "Submit" : "Save and continue"}
             </Button>
           </div>
         )}
       </form>
-      {currentStep == steps.length && (
-        <h1 className="text-center text-3xl font-semibold">
-          Thank you for submitting your review!
-        </h1>
-      )}
     </Form>
   );
 }

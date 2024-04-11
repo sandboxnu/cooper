@@ -56,7 +56,9 @@ export default async function Header() {
           outerWidth,
         )}
       >
-        <Button className="bg-cooper-yellow-500">+ Write A Review</Button>
+        <Button className="text-md bg-cooper-yellow-500 px-5 py-4 hover:bg-gray-900">
+          + Write A Review
+        </Button>
         {session ? <LogoutButton /> : <LoginButton />}
       </div>
     </header>

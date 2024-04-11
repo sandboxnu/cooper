@@ -1,4 +1,4 @@
-import { FormSection } from "~/components/form-section";
+import { FormSection } from "~/components/form/form-section";
 import { useFormContext } from "react-hook-form";
 import {
   FormControl,
@@ -20,7 +20,7 @@ export function RatingsSection() {
   const form = useFormContext();
 
   return (
-    <FormSection title="2. Ratings">
+    <FormSection title="Ratings" className="text-cooper-green-500">
       <FormField
         control={form.control}
         name="overallRating"
@@ -83,39 +83,39 @@ export function RatingsSection() {
         control={form.control}
         name="interviewDifficulty"
         render={({ field }) => (
-          <FormItem className="space-y-2">
+          <FormItem className="space-y-8">
             <FormLabel>Interview Difficulty*</FormLabel>
             <FormControl>
               <RadioGroup
                 onValueChange={field.onChange}
                 defaultValue={field.value}
-                className="flex flex-col space-y-3 sm:flex-row sm:space-x-4 sm:space-y-0"
+                className="flex w-full flex-col justify-between space-y-3 text-center sm:flex-row sm:space-y-0"
               >
-                <FormItem className="flex items-center space-x-2 space-y-0">
+                <FormItem className="flex flex-col items-center space-x-2 space-y-2">
                   <FormControl>
                     <RadioGroupItem value="1" checked={field.value === "1"} />
                   </FormControl>
                   <FormLabel>Very easy</FormLabel>
                 </FormItem>
-                <FormItem className="flex items-center space-x-2 space-y-0">
+                <FormItem className="flex flex-col items-center space-x-2 space-y-2">
                   <FormControl>
                     <RadioGroupItem value="2" checked={field.value === "2"} />
                   </FormControl>
                   <FormLabel>Easy</FormLabel>
                 </FormItem>
-                <FormItem className="flex items-center space-x-2 space-y-0">
+                <FormItem className="flex flex-col items-center space-x-2 space-y-2">
                   <FormControl>
                     <RadioGroupItem value="3" checked={field.value === "3"} />
                   </FormControl>
                   <FormLabel>Neither easy nor difficult</FormLabel>
                 </FormItem>
-                <FormItem className="flex items-center space-x-2 space-y-0">
+                <FormItem className="flex flex-col items-center space-x-2 space-y-2">
                   <FormControl>
                     <RadioGroupItem value="4" checked={field.value === "4"} />
                   </FormControl>
                   <FormLabel>Difficult</FormLabel>
                 </FormItem>
-                <FormItem className="flex items-center space-x-2 space-y-0">
+                <FormItem className="flex flex-col items-center space-x-2 space-y-2">
                   <FormControl>
                     <RadioGroupItem value="5" checked={field.value === "5"} />
                   </FormControl>
