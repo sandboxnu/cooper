@@ -119,7 +119,7 @@ export const benefits = [
   { field: "freeMerch", label: "Free merchandise" },
 ];
 
-const steps: string | any[] = [
+const steps: { fields: string[]; color: string }[] = [
   {
     fields: ["workTerm", "workYear"],
     color: "border-cooper-pink-500",
