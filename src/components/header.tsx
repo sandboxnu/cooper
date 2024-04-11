@@ -9,6 +9,7 @@ import { cn } from "~/lib/utils";
 import { altivoFont } from "~/styles/font";
 import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
+import { Button } from "~/components/ui/button";
 
 /**
  * This is the header component. (Probably) should use header-layout instead
