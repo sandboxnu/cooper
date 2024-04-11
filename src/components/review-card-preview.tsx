@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from "~/components/ui/card";
 import { ReviewCardStars } from "./review-card-stars";
+import Image from "next/image";
 
 import { Review } from "@prisma/client";
 import { truncateText } from "~/utils/stringHelpers";
@@ -48,7 +49,7 @@ export function ReviewCardPreview({
         <CardHeader className="pb-3">
           <div className="flex items-center justify-start space-x-4">
             {company.data ? (
-              <img
+              <Image
                 src={`https://logo.clearbit.com/${company.data.name.replace(/\s/g, "")}.com`}
                 width={50}
                 height={50}

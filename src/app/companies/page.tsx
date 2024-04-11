@@ -1,4 +1,3 @@
-import HeaderLayout from "~/components/header-layout";
 import { RoleReviewCard } from "~/components/role-review-card";
 import SearchFilter from "~/components/search-filter";
 import { api } from "~/trpc/server";
@@ -18,7 +17,7 @@ export default async function Companies() {
   const roles = await getRoles();
 
   return (
-    <HeaderLayout>
+    <>
       <SearchFilter />
       <div className="grid w-3/4 grid-cols-3 gap-4">
         {roles.map((role) => {
@@ -27,6 +26,6 @@ export default async function Companies() {
           );
         })}
       </div>
-    </HeaderLayout>
+    </>
   );
 }

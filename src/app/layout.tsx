@@ -1,8 +1,8 @@
 import "~/styles/globals.css";
 import { TRPCReactProvider } from "~/trpc/react";
-import { Toaster } from "~/components/ui/sonner";
 import { cn } from "~/lib/utils";
 import { bentonSansFont } from "~/styles/font";
+import HeaderLayout from "~/components/header-layout";
 
 export const metadata = {
   title: "Cooper",
@@ -22,8 +22,9 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className={cn("min-h-screen bg-white font-sans antialiased")}>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
-        <Toaster />
+        <TRPCReactProvider>
+          <HeaderLayout>{children}</HeaderLayout>
+        </TRPCReactProvider>
       </body>
     </html>
   );

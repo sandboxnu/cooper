@@ -13,6 +13,7 @@ import { ReviewCardStars } from "./review-card-stars";
 import { Review } from "@prisma/client";
 import { api } from "~/trpc/react";
 import { prettyWorkEnviornment, truncateText } from "~/utils/stringHelpers";
+import { listBenefits } from "~/utils/reviewsAggregationHelpers";
 
 // todo: add this attribution in a footer somewhere
 //  <a href="https://clearbit.com">Logos provided by Clearbit</a>
@@ -41,12 +42,7 @@ export function ReviewCard({ className, reviewObj }: ReviewCardProps) {
   const reviewText = truncateText(reviewObj.textReview, 80);
 
   // Benefits
-  const benefits: string[] = [];
-  if (reviewObj.pto) benefits.push("Paid Time Off");
-  if (reviewObj.federalHolidays) benefits.push("Federal Holidays Off");
-  if (reviewObj.freeLunch) benefits.push("Free Lunch");
-  if (reviewObj.freeTransport) benefits.push("Free Transporation");
-  if (reviewObj.freeMerch) benefits.push("Free Merch");
+  const benefits = listBenefits(reviewObj);
 
   return (
     <Card
