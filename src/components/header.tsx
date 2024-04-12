@@ -84,6 +84,3 @@ export default function Header() {
     </header>
   );
 }
-function useServerSession() {
-  throw new Error("Function not implemented.");
-}
