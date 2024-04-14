@@ -14,7 +14,7 @@ export default function Roles() {
   const [selectedReviewIdx, setSelectedReviewIdx] = useState<number>(0);
 
   return (
-    <HeaderLayout>
+    <>
       <SearchFilter />
       {/* TODO: Loading animations */}
       {reviews.data && (
@@ -40,6 +40,6 @@ export default function Roles() {
           </div>
         </div>
       )}
-    </HeaderLayout>
+    </>
   );
 }
