@@ -121,6 +121,7 @@ export const benefits = [
   { field: "freeMerch", label: "Free merchandise" },
 ];
 
+// This object is CURSED. It's a mess to maintain and update.
 // Find a better way of linking the colors to the steps.
 // Tailwind needs complete utility classes so we can't do "border-" + steps[currentStep - 1]?.borderColor
 const steps: {
@@ -133,9 +134,9 @@ const steps: {
   {
     label: "Co-op Cycle",
     fields: ["workTerm", "workYear"],
-    borderColor: "border-cooper-pink-500",
-    textColor: "text-cooper-pink-500",
-    bgColor: "bg-cooper-pink-500",
+    borderColor: "border-cooper-yellow-500",
+    textColor: "text-cooper-yellow-500",
+    bgColor: "bg-cooper-yellow-500",
   },
   {
     label: "Ratings",
@@ -147,16 +148,16 @@ const steps: {
       "interviewDifficulty",
       "interviewReview",
     ],
-    borderColor: "border-cooper-green-500",
-    textColor: "text-cooper-green-500",
-    bgColor: "bg-cooper-green-500",
+    borderColor: "border-cooper-yellow-600",
+    textColor: "text-cooper-yellow-600",
+    bgColor: "bg-cooper-yellow-600",
   },
   {
     label: "Review",
     fields: ["reviewHeadline", "textReview", "location", "hourlyPay"],
-    borderColor: "border-cooper-yellow-500",
-    textColor: "text-cooper-yellow-500",
-    bgColor: "bg-cooper-yellow-500",
+    borderColor: "border-cooper-green-500",
+    textColor: "text-cooper-green-500",
+    bgColor: "bg-cooper-green-500",
   },
   {
     label: "Company Details",
@@ -171,9 +172,9 @@ const steps: {
       "freeMerch",
       "otherBenefits",
     ],
-    borderColor: "border-cooper-red-500",
-    textColor: "text-cooper-red-500",
-    bgColor: "bg-cooper-red-500",
+    borderColor: "border-cooper-blue-800",
+    textColor: "text-cooper-blue-800",
+    bgColor: "bg-cooper-blue-800",
   },
 ];
 
@@ -352,11 +353,22 @@ export function ReviewForm(props: ReviewFormProps) {
         )}
       >
         <ProgressBar />
-        {currentStep == 1 && <CoopCycleSection />}
-        {currentStep == 2 && <RatingsSection />}
-        {currentStep == 3 && <ReviewSection />}
+        {currentStep === 1 && (
+          <CoopCycleSection
+            textColor={steps[currentStep - 1]?.textColor || ""}
+          />
+        )}
+        {currentStep == 2 && (
+          <RatingsSection textColor={steps[currentStep - 1]?.textColor || ""} />
+        )}
+        {currentStep == 3 && (
+          <ReviewSection textColor={steps[currentStep - 1]?.textColor || ""} />
+        )}
         {currentStep == 4 && (
-          <CompanyDetailsSection companyName={props.company.name} />
+          <CompanyDetailsSection
+            companyName={props.company.name}
+            textColor={steps[currentStep - 1]?.textColor || ""}
+          />
         )}
         {currentStep >= 1 && currentStep <= steps.length && (
           <div className="flex justify-end space-x-4">
