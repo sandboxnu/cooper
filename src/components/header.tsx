@@ -10,7 +10,7 @@ import { NewReviewDialog } from "./new-review-dialog";
 import { cn } from "~/lib/utils";
 import { altivoFont } from "~/styles/font";
 import { useSession } from "next-auth/react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 /**
  * This is the header component. (Probably) should use header-layout instead
@@ -77,7 +77,7 @@ export default function Header() {
         )}
       >
         {/* TODO: only show this if the user is below the max number of reviews allowed */}
-        <NewReviewDialog />
+        {session.data && <NewReviewDialog />}
         {session.data ? <LogoutButton /> : <LoginButton />}
       </div>
     </header>
