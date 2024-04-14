@@ -23,7 +23,6 @@ import ComboBox, { ComboBoxOption } from "./combo-box";
 export function NewReviewDialog() {
   const router = useRouter();
   // State for the company combo box
-  const [companyOpen, setCompanyOpen] = useState<boolean>(false);
   const [companyLabel, setCompanyLabel] = useState<string>("");
 
   const companies = api.company.list.useQuery();
@@ -37,7 +36,6 @@ export function NewReviewDialog() {
     : [];
 
   // State for the role combo box
-  const [roleOpen, setRoleOpen] = useState<boolean>(false);
   const [roleLabel, setRoleLabel] = useState<string>("");
 
   const roles = api.role.list.useQuery();
@@ -99,8 +97,6 @@ export function NewReviewDialog() {
               searchPlaceholder="Search company..."
               searchEmpty="No company found."
               valuesAndLabels={companyValuesAndLabels}
-              isOpen={companyOpen}
-              setIsOpen={setCompanyOpen}
               currLabel={companyLabel}
               onSelect={(currentValue) => {
                 setCompanyLabel(
@@ -110,7 +106,6 @@ export function NewReviewDialog() {
                   currentValue === companyLabel ? "" : currentValue,
                 );
                 setRoleLabel("");
-                setCompanyOpen(false);
               }}
             />
             {/* ROLES COMBOBOX */}
@@ -119,13 +114,9 @@ export function NewReviewDialog() {
               searchPlaceholder="Search role..."
               searchEmpty="No role found."
               valuesAndLabels={roleValuesAndLabels}
-              isOpen={roleOpen}
-              setIsOpen={setRoleOpen}
               currLabel={roleLabel}
               onSelect={(currentValue) => {
                 setRoleLabel(currentValue === roleLabel ? "" : currentValue);
-                // Close the combobox
-                setRoleOpen(false);
               }}
             />
           </div>

@@ -9,7 +9,7 @@ import {
   CommandList,
 } from "./ui/command";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
-import { SetStateAction } from "react";
+import { useState } from "react";
 import { cn } from "~/lib/utils";
 
 export type ComboBoxOption<T> = {
@@ -22,8 +22,6 @@ type ComboBoxProps = {
   searchPlaceholder: string;
   searchEmpty: string;
   valuesAndLabels: ComboBoxOption<string>[];
-  isOpen: boolean;
-  setIsOpen: React.Dispatch<SetStateAction<boolean>>;
   currLabel: string;
   onSelect: (option: string) => void;
 };
@@ -38,11 +36,11 @@ export default function ComboBox({
   searchPlaceholder,
   searchEmpty,
   valuesAndLabels,
-  isOpen,
-  setIsOpen,
   currLabel,
   onSelect,
 }: ComboBoxProps) {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
   return (
     <Popover open={isOpen} onOpenChange={setIsOpen}>
       <PopoverTrigger asChild className="min-w-[400px]">
@@ -66,7 +64,10 @@ export default function ComboBox({
                 <CommandItem
                   key={option.value}
                   value={option.label}
-                  onSelect={onSelect}
+                  onSelect={(option) => {
+                    onSelect(option);
+                    setIsOpen(false);
+                  }}
                 >
                   <Check
                     className={cn(
