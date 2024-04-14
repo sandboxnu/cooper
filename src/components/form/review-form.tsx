@@ -349,7 +349,7 @@ export function ReviewForm(props: ReviewFormProps) {
     <Form {...form}>
       <form
         className={cn(
-          "space-y-12 rounded-2xl border-t-[16px] bg-white px-32 py-16",
+          "space-y-8 rounded-2xl border-t-[16px] bg-white px-32 py-16",
           steps[currentStep - 1]?.borderColor,
         )}
       >
