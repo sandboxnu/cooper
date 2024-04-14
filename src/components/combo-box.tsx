@@ -9,7 +9,7 @@ import {
   CommandList,
 } from "./ui/command";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 import { cn } from "~/lib/utils";
 
 export type ComboBoxOption<T> = {
