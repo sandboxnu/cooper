@@ -16,6 +16,7 @@ import { Textarea } from "~/components/ui/textarea";
 
 type CompanyDetailsSectionProps = {
   companyName: string;
+  textColor: string;
 };
 
 /**
@@ -27,7 +28,7 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
   const [otherBenefits, setOtherBenefits] = useState(false);
 
   return (
-    <FormSection title="Company Details" className="text-cooper-red-500">
+    <FormSection title="Company Details" className={props.textColor}>
       <FormField
         control={form.control}
         name="workEnvironment"
