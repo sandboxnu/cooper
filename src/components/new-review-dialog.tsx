@@ -12,18 +12,11 @@ import {
   DialogTrigger,
 } from "./ui/dialog";
 import { useRouter } from "next/navigation";
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
-import { Check, ChevronsUpDown } from "lucide-react";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "./ui/command";
+import { Check } from "lucide-react";
+import { CommandItem } from "./ui/command";
 import { cn } from "~/lib/utils";
 import { api } from "~/trpc/react";
+import ComboBox, { ComboBoxOption } from "./combo-box";
 
 // God forgive me for whatever this component turned out to be
 
@@ -49,10 +42,7 @@ export function NewReviewDialog() {
 
   const roles = api.role.list.useQuery();
   const [roleValuesAndLabels, setRoleValuesAndLabels] = useState<
-    {
-      value: string;
-      label: string;
-    }[]
+    ComboBoxOption<string>[]
   >([]);
 
   function updateAvailableRoles(newCompanyLabel: string) {
@@ -99,103 +89,70 @@ export function NewReviewDialog() {
         >
           <div className="flex flex-col items-center gap-4 py-4">
             {/* COMPANY COMBOBOX */}
-            <Popover open={companyOpen} onOpenChange={setCompanyOpen}>
-              <PopoverTrigger asChild className="min-w-[400px]">
-                <Button
-                  variant="outline"
-                  role="combobox"
-                  aria-expanded={companyOpen}
-                  className="w-[180px] justify-between"
+            <ComboBox
+              defaultLabel={companyLabel || "Select company..."}
+              searchPlaceholder="Search company..."
+              searchEmpty="No company found."
+              valuesAndLabels={companyValuesAndLabels}
+              optionToNode={(company: ComboBoxOption<string>) => (
+                <CommandItem
+                  key={company.value}
+                  value={company.label}
+                  onSelect={(currentValue) => {
+                    setCompanyLabel(
+                      currentValue === companyLabel ? "" : currentValue,
+                    );
+                    updateAvailableRoles(
+                      currentValue === companyLabel ? "" : currentValue,
+                    );
+                    setRoleLabel("");
+                    setCompanyOpen(false);
+                  }}
                 >
-                  {companyLabel || "Select company..."}
-                  <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-[400px] p-0">
-                <Command>
-                  <CommandInput placeholder="Search company..." />
-                  <CommandEmpty>No company found.</CommandEmpty>
-                  <CommandGroup>
-                    <CommandList>
-                      {companyValuesAndLabels.map((company) => (
-                        <CommandItem
-                          key={company.value}
-                          value={company.label}
-                          onSelect={(currentValue) => {
-                            setCompanyLabel(
-                              currentValue === companyLabel ? "" : currentValue,
-                            );
-                            updateAvailableRoles(
-                              currentValue === companyLabel ? "" : currentValue,
-                            );
-                            setRoleLabel("");
-                            console.log(roles);
-                            setCompanyOpen(false);
-                          }}
-                        >
-                          <Check
-                            className={cn(
-                              "mr-2 h-4 w-4",
-                              companyLabel === company.label
-                                ? "opacity-100"
-                                : "opacity-0",
-                            )}
-                          />
-                          {company.label}
-                        </CommandItem>
-                      ))}
-                    </CommandList>
-                  </CommandGroup>
-                </Command>
-              </PopoverContent>
-            </Popover>
+                  <Check
+                    className={cn(
+                      "mr-2 h-4 w-4",
+                      companyLabel === company.label
+                        ? "opacity-100"
+                        : "opacity-0",
+                    )}
+                  />
+                  {company.label}
+                </CommandItem>
+              )}
+              isOpen={companyOpen}
+              setIsOpen={setCompanyOpen}
+            />
             {/* ROLES COMBOBOX */}
-            <Popover open={roleOpen} onOpenChange={setRoleOpen}>
-              <PopoverTrigger asChild className="min-w-[400px]">
-                <Button
-                  variant="outline"
-                  role="combobox"
-                  aria-expanded={roleOpen}
-                  className="w-[180px] justify-between"
+            <ComboBox
+              defaultLabel={roleLabel || "Select role..."}
+              searchPlaceholder="Search role..."
+              searchEmpty="No role found."
+              valuesAndLabels={roleValuesAndLabels}
+              optionToNode={(role: ComboBoxOption<string>) => (
+                <CommandItem
+                  key={role.value}
+                  value={role.label}
+                  onSelect={(currentValue) => {
+                    setRoleLabel(
+                      currentValue === roleLabel ? "" : currentValue,
+                    );
+                    // Close the combobox
+                    setRoleOpen(false);
+                  }}
                 >
-                  {roleLabel || "Select role..."}
-                  <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-[400px] p-0">
-                <Command>
-                  <CommandInput placeholder="Search role..." />
-                  <CommandEmpty>No role found.</CommandEmpty>
-                  <CommandGroup>
-                    <CommandList>
-                      {roleValuesAndLabels.map((role) => (
-                        <CommandItem
-                          key={role.value}
-                          value={role.label}
-                          onSelect={(currentValue) => {
-                            setRoleLabel(
-                              currentValue === roleLabel ? "" : currentValue,
-                            );
-                            // Close the combobox
-                            setRoleOpen(false);
-                          }}
-                        >
-                          <Check
-                            className={cn(
-                              "mr-2 h-4 w-4",
-                              roleLabel === role.label
-                                ? "opacity-100"
-                                : "opacity-0",
-                            )}
-                          />
-                          {role.label}
-                        </CommandItem>
-                      ))}
-                    </CommandList>
-                  </CommandGroup>
-                </Command>
-              </PopoverContent>
-            </Popover>
+                  <Check
+                    className={cn(
+                      "mr-2 h-4 w-4",
+                      roleLabel === role.label ? "opacity-100" : "opacity-0",
+                    )}
+                  />
+                  {role.label}
+                </CommandItem>
+              )}
+              isOpen={roleOpen}
+              setIsOpen={setRoleOpen}
+            />
           </div>
           <DialogFooter>
             <Button
