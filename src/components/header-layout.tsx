@@ -1,7 +1,6 @@
 "use client";
 import { ReactNode } from "react";
 import Header from "~/components/header";
-import { useRouter } from "next/navigation";
 
 /**
  * This should be used when placing content under the header, standardizes how children are placed under a header.
