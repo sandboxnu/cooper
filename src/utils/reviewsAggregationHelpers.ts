@@ -26,3 +26,13 @@ export function averageStarRating(reviews: Review[]): number {
   }, 0);
   return totalStars / reviews.length;
 }
+
+export function listBenefits(reviewObj: Review): string[] {
+  const benefits: string[] = [];
+  if (reviewObj.pto) benefits.push("Paid Time Off");
+  if (reviewObj.federalHolidays) benefits.push("Federal Holidays Off");
+  if (reviewObj.freeLunch) benefits.push("Free Lunch");
+  if (reviewObj.freeTransport) benefits.push("Free Transporation");
+  if (reviewObj.freeMerch) benefits.push("Free Merch");
+  return benefits;
+}

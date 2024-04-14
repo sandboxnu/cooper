@@ -5,7 +5,6 @@ import Link from "next/link";
 
 import LoginButton from "~/components/login-button";
 import LogoutButton from "./logout-button";
-import { Button } from "./ui/button";
 import { NewReviewDialog } from "./new-review-dialog";
 
 import { cn } from "~/lib/utils";

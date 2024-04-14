@@ -89,6 +89,9 @@ dependencies:
   react-hook-form:
     specifier: ^7.50.1
     version: 7.50.1(react@18.2.0)
+  react-scroll:
+    specifier: ^1.9.0
+    version: 1.9.0(react-dom@18.2.0)(react@18.2.0)
   server-only:
     specifier: ^0.0.1
     version: 0.0.1
@@ -127,6 +130,9 @@ devDependencies:
   "@types/react-dom":
     specifier: ^18.2.19
     version: 18.2.19
+  "@types/react-scroll":
+    specifier: ^1.8.10
+    version: 1.8.10
   "@typescript-eslint/eslint-plugin":
     specifier: ^6.21.0
     version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.56.0)(typescript@5.3.3)
@@ -1791,6 +1797,15 @@ packages:
       }
     dependencies:
       "@types/react": 18.2.55
+
+  /@types/react-scroll@1.8.10:
+    resolution:
+      {
+        integrity: sha512-RD4Z7grbdNGOKwKnUBKar6zNxqaW3n8m9QSrfvljW+gmkj1GArb8AFBomVr6xMOgHPD3v1uV3BrIf01py57daQ==,
+      }
+    dependencies:
+      "@types/react": 18.2.55
+    dev: true
 
   /@types/react@18.2.55:
     resolution:
@@ -5078,6 +5093,13 @@ packages:
       }
     dev: true
 
+  /lodash.throttle@4.1.1:
+    resolution:
+      {
+        integrity: sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==,
+      }
+    dev: false
+
   /lodash.uniq@4.5.0:
     resolution:
       {
@@ -6106,7 +6128,6 @@ packages:
       loose-envify: 1.4.0
       object-assign: 4.1.1
       react-is: 16.13.1
-    dev: true
 
   /punycode@2.3.1:
     resolution:
@@ -6160,7 +6181,21 @@ packages:
       {
         integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==,
       }
-    dev: true
+
+  /react-scroll@1.9.0(react-dom@18.2.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-mamNcaX9Ng+JeSbBu97nWwRhYvL2oba+xR2GxvyXsbDeGP+gkYIKZ+aDMMj/n20TbV9SCWm/H7nyuNTSiXA6yA==,
+      }
+    peerDependencies:
+      react: ^15.5.4 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^15.5.4 || ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      lodash.throttle: 4.1.1
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /react-remove-scroll-bar@2.3.6(@types/react@18.2.55)(react@18.2.0):
     resolution:
