@@ -24,11 +24,13 @@ const config = {
       },
       colors: {
         "cooper-gray-100": "#DDE8F0",
+        "cooper-blue-800": "#5A9478",
         "cooper-blue-700": "#1D679C",
         "cooper-blue-600": "#436F8E",
         "cooper-blue-400": "#5E8BAB",
         "cooper-blue-200": "#DEEAF8",
         "cooper-yellow-500": "#FFA400",
+        "cooper-yellow-600": "#AFA800",
         "cooper-pink-500": "#EA8FBA",
         "cooper-green-500": "#619518",
         "cooper-red-500": "#F05833",

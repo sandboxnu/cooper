@@ -15,7 +15,7 @@ import dayjs from "dayjs";
 /**
  * CoopCycleSection component renders form fields for selecting co-op cycle and year.
  */
-export function CoopCycleSection() {
+export function CoopCycleSection({ textColor }: { textColor: string }) {
   const form = useFormContext();
 
   // Need to evaluate whether this is a bad idea
@@ -26,7 +26,7 @@ export function CoopCycleSection() {
   );
 
   return (
-    <FormSection title="Co-op Cycle" className="text-cooper-pink-500">
+    <FormSection title="Co-op Cycle" className={textColor}>
       <FormField
         control={form.control}
         name="workTerm"

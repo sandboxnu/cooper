@@ -16,11 +16,11 @@ import { Rating } from "~/components/ui/rating";
  * RatingsSection component renders form fields for rating various
  * aspects of a co-op experience.
  */
-export function RatingsSection() {
+export function RatingsSection({ textColor }: { textColor: string }) {
   const form = useFormContext();
 
   return (
-    <FormSection title="Ratings" className="text-cooper-green-500">
+    <FormSection title="Ratings" className={textColor}>
       <FormField
         control={form.control}
         name="overallRating"

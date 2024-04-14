@@ -22,9 +22,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className={cn("min-h-screen bg-white font-sans antialiased")}>
-        <TRPCReactProvider>
-          <HeaderLayout>{children}</HeaderLayout>
-        </TRPCReactProvider>
+        <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>
     </html>
   );

@@ -13,11 +13,11 @@ import { useFormContext } from "react-hook-form";
 /**
  * ReviewSection component renders form fields for writing a co-op review.
  */
-export function ReviewSection() {
+export function ReviewSection({ textColor }: { textColor: string }) {
   const form = useFormContext();
 
   return (
-    <FormSection title="Review" className="text-cooper-yellow-500">
+    <FormSection title="Review" className={textColor}>
       <FormField
         control={form.control}
         name="reviewHeadline"

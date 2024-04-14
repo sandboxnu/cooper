@@ -16,6 +16,8 @@ import { Company, WorkEnvironment, WorkTerm } from "@prisma/client";
 import { api } from "~/trpc/react";
 import { cn } from "~/lib/utils";
 import { animateScroll as scroll } from "react-scroll";
+import Image from "next/image";
+import { CheckIcon } from "@radix-ui/react-icons";
 
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
@@ -119,12 +121,25 @@ export const benefits = [
   { field: "freeMerch", label: "Free merchandise" },
 ];
 
-const steps: { fields: string[]; color: string }[] = [
+// This object is CURSED. It's a mess to maintain and update.
+// Find a better way of linking the colors to the steps.
+// Tailwind needs complete utility classes so we can't do "border-" + steps[currentStep - 1]?.borderColor
+const steps: {
+  label: string;
+  fields: string[];
+  borderColor: string;
+  textColor: string;
+  bgColor: string;
+}[] = [
   {
+    label: "Co-op Cycle",
     fields: ["workTerm", "workYear"],
-    color: "border-cooper-pink-500",
+    borderColor: "border-cooper-yellow-500",
+    textColor: "text-cooper-yellow-500",
+    bgColor: "bg-cooper-yellow-500",
   },
   {
+    label: "Ratings",
     fields: [
       "overallRating",
       "cultureRating",
@@ -133,13 +148,19 @@ const steps: { fields: string[]; color: string }[] = [
       "interviewDifficulty",
       "interviewReview",
     ],
-    color: "border-cooper-green-500",
+    borderColor: "border-cooper-yellow-600",
+    textColor: "text-cooper-yellow-600",
+    bgColor: "bg-cooper-yellow-600",
   },
   {
+    label: "Review",
     fields: ["reviewHeadline", "textReview", "location", "hourlyPay"],
-    color: "border-cooper-yellow-500",
+    borderColor: "border-cooper-green-500",
+    textColor: "text-cooper-green-500",
+    bgColor: "bg-cooper-green-500",
   },
   {
+    label: "Company Details",
     fields: [
       "workEnvironment",
       "drugTest",
@@ -151,7 +172,9 @@ const steps: { fields: string[]; color: string }[] = [
       "freeMerch",
       "otherBenefits",
     ],
-    color: "border-cooper-red-500",
+    borderColor: "border-cooper-blue-800",
+    textColor: "text-cooper-blue-800",
+    bgColor: "bg-cooper-blue-800",
   },
 ];
 
@@ -199,7 +222,7 @@ export function ReviewForm(props: ReviewFormProps) {
 
   const next = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    const fields = steps[currentStep]?.fields;
+    const fields = steps[currentStep - 1]?.fields;
     const output = await form.trigger(fields as FieldName[], {
       shouldFocus: true,
     });
@@ -208,8 +231,8 @@ export function ReviewForm(props: ReviewFormProps) {
       return;
     }
 
-    if (currentStep < steps.length) {
-      if (currentStep === steps.length - 1) {
+    if (currentStep <= steps.length) {
+      if (currentStep === steps.length) {
         await form.handleSubmit(onSubmit)();
       }
       setCurrentStep((step) => step + 1);
@@ -235,35 +258,131 @@ export function ReviewForm(props: ReviewFormProps) {
     });
   }
 
-  if (currentStep === steps.length) {
+  if (currentStep === steps.length + 1) {
+    // Also check if the mutation is successful before displaying this. Otherwise, show a loading spinner.
     return <SubmissionConfirmation />;
+  }
+
+  if (currentStep === 0) {
+    return (
+      <div className="flex flex-col border-2">
+        <div className="z-10 -mb-4 h-4 w-full rounded-t-xl bg-cooper-blue-700" />
+        <div className="flex h-[80vh] w-full items-center justify-center rounded-xl bg-white pl-24 pr-4 text-cooper-blue-600">
+          <div className="flex w-1/2 flex-col space-y-6">
+            <h1 className="text-4xl font-semibold text-cooper-blue-700">
+              Submit a Co-op Review!
+            </h1>
+            <p className="text-2xl text-cooper-blue-700">
+              Thank you for taking the time to leave a review of your co-op
+              experience! Join others in the Northeastern community and help
+              people like yourself make the right career decision.
+            </p>
+            <Button
+              className="w-1/2"
+              onClick={() => {
+                setCurrentStep((step) => step + 1);
+              }}
+            >
+              Start a review
+            </Button>
+          </div>
+          <Image
+            src="/svg/logo.svg"
+            alt="Co-op Review Logo"
+            width={650}
+            height={650}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  function ProgressBar() {
+    const grayBorder = "border-gray-400";
+    const grayText = "text-gray-400";
+
+    return (
+      <div className="flex justify-between">
+        {steps.map((progress, index) => (
+          <div className="flex flex-col items-center space-y-4" key={index}>
+            {currentStep > index + 1 ? (
+              <div
+                className={cn(
+                  "flex h-12 w-12 items-center justify-center rounded-full",
+                  progress.bgColor,
+                )}
+              >
+                <CheckIcon className="h-12 w-12 font-bold text-white" />
+              </div>
+            ) : (
+              <div
+                className={cn(
+                  "flex h-12 w-12 items-center justify-center rounded-full border-[3px]",
+                  currentStep > index ? progress.borderColor : grayBorder,
+                )}
+              >
+                <h1
+                  className={cn(
+                    "text-xl font-semibold",
+                    currentStep > index ? progress.textColor : grayText,
+                  )}
+                >
+                  {index + 1}
+                </h1>
+              </div>
+            )}
+            <p
+              className={cn(
+                "text-lg font-semibold",
+                currentStep > index ? progress.textColor : grayText,
+              )}
+            >
+              {progress.label}
+            </p>
+          </div>
+        ))}
+      </div>
+    );
   }
 
   return (
     <Form {...form}>
       <form
         className={cn(
-          "space-y-12 rounded-2xl border-t-[16px] bg-white px-32 py-16",
-          steps[currentStep]?.color,
+          "space-y-8 rounded-2xl border-t-[16px] bg-white px-32 py-16",
+          steps[currentStep - 1]?.borderColor,
         )}
       >
-        {currentStep == 0 && <CoopCycleSection />}
-        {currentStep == 1 && <RatingsSection />}
-        {currentStep == 2 && <ReviewSection />}
-        {currentStep == 3 && (
-          <CompanyDetailsSection companyName={props.company.name} />
+        <ProgressBar />
+        <div className="w-full border border-blue-100"></div>
+        {currentStep === 1 && (
+          <CoopCycleSection
+            textColor={steps[currentStep - 1]?.textColor || ""}
+          />
         )}
-        {currentStep >= 0 && currentStep <= steps.length - 1 && (
+        {currentStep == 2 && (
+          <RatingsSection textColor={steps[currentStep - 1]?.textColor || ""} />
+        )}
+        {currentStep == 3 && (
+          <ReviewSection textColor={steps[currentStep - 1]?.textColor || ""} />
+        )}
+        {currentStep == 4 && (
+          <CompanyDetailsSection
+            companyName={props.company.name}
+            textColor={steps[currentStep - 1]?.textColor || ""}
+          />
+        )}
+        {currentStep >= 1 && currentStep <= steps.length && (
           <div className="flex justify-end space-x-4">
             <Button
               variant="outline"
               onClick={prev}
-              disabled={currentStep === 0}
+              disabled={currentStep === 1}
             >
               Previous
             </Button>
             <Button onClick={next}>
-              {currentStep == steps.length - 1 ? "Submit" : "Save and continue"}
+              {currentStep == steps.length ? "Submit" : "Save and continue"}
             </Button>
           </div>
         )}
