@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import HeaderLayout from "~/components/header-layout";
 import { ReviewCard } from "~/components/review-card";
 import { ReviewCardPreview } from "~/components/review-card-preview";
 import SearchFilter from "~/components/search-filter";
