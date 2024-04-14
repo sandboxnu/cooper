@@ -71,7 +71,7 @@ export function NewReviewDialog() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="h-9 border-none bg-cooper-yellow-500 px-4 py-3 text-sm font-normal">
+        <Button className="h-9 border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-4 py-3  text-sm font-normal hover:border-cooper-yellow-600 hover:bg-cooper-yellow-600">
           + New Review
         </Button>
       </DialogTrigger>
