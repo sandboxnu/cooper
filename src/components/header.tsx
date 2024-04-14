@@ -4,12 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 import LoginButton from "~/components/login-button";
-import LogoutButton from "~/components/logout-button";
+import LogoutButton from "./logout-button";
+import { NewReviewDialog } from "./new-review-dialog";
+
 import { cn } from "~/lib/utils";
 import { altivoFont } from "~/styles/font";
 import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
-import { Button } from "~/components/ui/button";
 
 /**
  * This is the header component. (Probably) should use header-layout instead
@@ -75,9 +76,8 @@ export default function Header() {
           outerWidth,
         )}
       >
-        <Button className="text-md border-cooper-yellow-500 bg-cooper-yellow-500 px-5 py-4 hover:border-gray-900 hover:bg-cooper-yellow-600">
-          + Write A Review
-        </Button>
+        {/* TODO: only show this if the user is below the max number of reviews allowed */}
+        {session.data && <NewReviewDialog />}
         {session.data ? <LogoutButton /> : <LoginButton />}
       </div>
     </header>

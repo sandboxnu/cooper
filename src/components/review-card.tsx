@@ -1,13 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 import { cn } from "~/lib/utils";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "~/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { ReviewCardStars } from "./review-card-stars";
 
 import { Review } from "@prisma/client";
