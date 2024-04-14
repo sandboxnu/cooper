@@ -76,7 +76,9 @@ export function NewReviewDialog() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="bg-cooper-yellow-500">+ New Review</Button>
+        <Button className="h-9 border-none bg-cooper-yellow-500 px-4 py-3 text-sm font-normal">
+          + New Review
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
