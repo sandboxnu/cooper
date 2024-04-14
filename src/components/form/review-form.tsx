@@ -259,6 +259,7 @@ export function ReviewForm(props: ReviewFormProps) {
   }
 
   if (currentStep === steps.length + 1) {
+    // Also check if the mutation is successful before displaying this. Otherwise, show a loading spinner.
     return <SubmissionConfirmation />;
   }
 
@@ -353,6 +354,7 @@ export function ReviewForm(props: ReviewFormProps) {
         )}
       >
         <ProgressBar />
+        <div className="w-full border border-blue-100"></div>
         {currentStep === 1 && (
           <CoopCycleSection
             textColor={steps[currentStep - 1]?.textColor || ""}
