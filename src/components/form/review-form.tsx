@@ -87,7 +87,7 @@ const formSchema = z.object({
       message: "The review must be at least 8 characters.",
     }),
   location: z.string().optional(),
-  hourlyPay: z.coerce.number().optional(),
+  hourlyPay: z.coerce.number().positive().optional(),
   workEnvironment: z.nativeEnum(WorkEnvironment, {
     required_error: "You need to select a work model.",
   }),
