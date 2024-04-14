@@ -12,14 +12,14 @@ import {
   DialogTrigger,
 } from "./ui/dialog";
 import { useRouter } from "next/navigation";
-import { Check } from "lucide-react";
-import { CommandItem } from "./ui/command";
-import { cn } from "~/lib/utils";
 import { api } from "~/trpc/react";
 import ComboBox, { ComboBoxOption } from "./combo-box";
 
-// God forgive me for whatever this component turned out to be
-
+/**
+ * General "+ New Review"
+ *
+ * @returns A "+ New Review" button that prompts users for a company + role before redirecting to the review form.
+ */
 export function NewReviewDialog() {
   const router = useRouter();
   // State for the company combo box
@@ -45,6 +45,11 @@ export function NewReviewDialog() {
     ComboBoxOption<string>[]
   >([]);
 
+  /**
+   * Filters the available roles based on the currently selected company
+   *
+   * @param newCompanyLabel The company to filter the roles by
+   */
   function updateAvailableRoles(newCompanyLabel: string) {
     const companyId =
       companyValuesAndLabels.find(
@@ -70,7 +75,7 @@ export function NewReviewDialog() {
           + New Review
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[500px]">
+      <DialogContent className="bg-white sm:max-w-[500px]">
         <DialogHeader>
           <DialogTitle>Create New Review</DialogTitle>
           <DialogDescription>
@@ -94,34 +99,19 @@ export function NewReviewDialog() {
               searchPlaceholder="Search company..."
               searchEmpty="No company found."
               valuesAndLabels={companyValuesAndLabels}
-              optionToNode={(company: ComboBoxOption<string>) => (
-                <CommandItem
-                  key={company.value}
-                  value={company.label}
-                  onSelect={(currentValue) => {
-                    setCompanyLabel(
-                      currentValue === companyLabel ? "" : currentValue,
-                    );
-                    updateAvailableRoles(
-                      currentValue === companyLabel ? "" : currentValue,
-                    );
-                    setRoleLabel("");
-                    setCompanyOpen(false);
-                  }}
-                >
-                  <Check
-                    className={cn(
-                      "mr-2 h-4 w-4",
-                      companyLabel === company.label
-                        ? "opacity-100"
-                        : "opacity-0",
-                    )}
-                  />
-                  {company.label}
-                </CommandItem>
-              )}
               isOpen={companyOpen}
               setIsOpen={setCompanyOpen}
+              currLabel={companyLabel}
+              onSelect={(currentValue) => {
+                setCompanyLabel(
+                  currentValue === companyLabel ? "" : currentValue,
+                );
+                updateAvailableRoles(
+                  currentValue === companyLabel ? "" : currentValue,
+                );
+                setRoleLabel("");
+                setCompanyOpen(false);
+              }}
             />
             {/* ROLES COMBOBOX */}
             <ComboBox
@@ -129,29 +119,14 @@ export function NewReviewDialog() {
               searchPlaceholder="Search role..."
               searchEmpty="No role found."
               valuesAndLabels={roleValuesAndLabels}
-              optionToNode={(role: ComboBoxOption<string>) => (
-                <CommandItem
-                  key={role.value}
-                  value={role.label}
-                  onSelect={(currentValue) => {
-                    setRoleLabel(
-                      currentValue === roleLabel ? "" : currentValue,
-                    );
-                    // Close the combobox
-                    setRoleOpen(false);
-                  }}
-                >
-                  <Check
-                    className={cn(
-                      "mr-2 h-4 w-4",
-                      roleLabel === role.label ? "opacity-100" : "opacity-0",
-                    )}
-                  />
-                  {role.label}
-                </CommandItem>
-              )}
               isOpen={roleOpen}
               setIsOpen={setRoleOpen}
+              currLabel={roleLabel}
+              onSelect={(currentValue) => {
+                setRoleLabel(currentValue === roleLabel ? "" : currentValue);
+                // Close the combobox
+                setRoleOpen(false);
+              }}
             />
           </div>
           <DialogFooter>
