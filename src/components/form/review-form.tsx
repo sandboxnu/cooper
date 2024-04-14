@@ -11,11 +11,13 @@ import { CoopCycleSection } from "~/components/form/coop-cycle-section";
 import { CompanyDetailsSection } from "~/components/form/company-details-section";
 import { RatingsSection } from "~/components/form/ratings-section";
 import { SubmissionConfirmation } from "~/components/form/submission-confirmation";
+import { WelcomePage } from "~/components/form/welcome-page";
 import { useState } from "react";
 import { Company, WorkEnvironment, WorkTerm } from "@prisma/client";
 import { api } from "~/trpc/react";
 import { cn } from "~/lib/utils";
 import { animateScroll as scroll } from "react-scroll";
+import Image from "next/image";
 
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
@@ -199,6 +201,7 @@ export function ReviewForm(props: ReviewFormProps) {
 
   const next = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
+    console.log("next");
     const fields = steps[currentStep]?.fields;
     const output = await form.trigger(fields as FieldName[], {
       shouldFocus: true,
@@ -239,31 +242,65 @@ export function ReviewForm(props: ReviewFormProps) {
     return <SubmissionConfirmation />;
   }
 
+  if (currentStep === 0) {
+    return (
+      <div className="flex flex-col border-2">
+        <div className="z-10 -mb-4 h-4 w-full rounded-t-xl bg-cooper-blue-700" />
+        <div className="flex h-[80vh] w-full items-center justify-center rounded-xl bg-white pl-24 pr-4 text-cooper-blue-600">
+          <div className="flex w-1/2 flex-col space-y-6">
+            <h1 className="text-4xl font-semibold text-cooper-blue-700">
+              Submit a Co-op Review!
+            </h1>
+            <p className="text-2xl text-cooper-blue-700">
+              Thank you for taking the time to leave a review of your co-op
+              experience! Join others in the Northeastern community and help
+              people like yourself make the right career decision.
+            </p>
+            <Button
+              className="w-1/2"
+              onClick={() => {
+                setCurrentStep((step) => step + 1);
+              }}
+            >
+              Start a review
+            </Button>
+          </div>
+          <Image
+            src="/svg/logo.svg"
+            alt="Co-op Review Logo"
+            width={650}
+            height={650}
+          />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <Form {...form}>
       <form
         className={cn(
           "space-y-12 rounded-2xl border-t-[16px] bg-white px-32 py-16",
-          steps[currentStep]?.color,
+          steps[currentStep - 1]?.color,
         )}
       >
-        {currentStep == 0 && <CoopCycleSection />}
-        {currentStep == 1 && <RatingsSection />}
-        {currentStep == 2 && <ReviewSection />}
-        {currentStep == 3 && (
+        {currentStep == 1 && <CoopCycleSection />}
+        {currentStep == 2 && <RatingsSection />}
+        {currentStep == 3 && <ReviewSection />}
+        {currentStep == 4 && (
           <CompanyDetailsSection companyName={props.company.name} />
         )}
-        {currentStep >= 0 && currentStep <= steps.length - 1 && (
+        {currentStep >= 1 && currentStep <= steps.length && (
           <div className="flex justify-end space-x-4">
             <Button
               variant="outline"
               onClick={prev}
-              disabled={currentStep === 0}
+              disabled={currentStep === 1}
             >
               Previous
             </Button>
             <Button onClick={next}>
-              {currentStep == steps.length - 1 ? "Submit" : "Save and continue"}
+              {currentStep == steps.length ? "Submit" : "Save and continue"}
             </Button>
           </div>
         )}

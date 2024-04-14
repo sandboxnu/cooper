@@ -75,10 +75,10 @@ export default function Header() {
           outerWidth,
         )}
       >
-        <Button className="text-md bg-cooper-yellow-500 px-5 py-4 hover:bg-gray-900">
+        <Button className="text-md border-cooper-yellow-500 bg-cooper-yellow-500 px-5 py-4 hover:border-gray-900 hover:bg-gray-900">
           + Write A Review
         </Button>
-        {session ? <LogoutButton /> : <LoginButton />}
+        {session.data ? <LogoutButton /> : <LoginButton />}
       </div>
     </header>
   );
