@@ -29,6 +29,7 @@ const config = {
         "cooper-blue-600": "#436F8E",
         "cooper-blue-400": "#5E8BAB",
         "cooper-blue-200": "#DEEAF8",
+        "cooper-yellow-300": "#FFBF47",
         "cooper-yellow-500": "#FFA400",
         "cooper-yellow-600": "#AFA800",
         "cooper-pink-500": "#EA8FBA",
