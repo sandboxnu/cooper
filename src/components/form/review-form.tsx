@@ -376,27 +376,3 @@ export function ReviewForm(props: ReviewFormProps) {
     </Form>
   );
 }
-
-function ProgressBar() {
-  const steps = [
-    "Co-op Cycle",
-    "Ratings",
-    "Review",
-    "Company Details",
-    "Submit",
-  ];
-  return (
-    <div className="flex justify-between">
-      {steps.map((step, index) => (
-        <div className="flex flex-col items-center space-y-4" key={index}>
-          <div className="flex h-12 w-12 items-center justify-center rounded-full border-[3px] border-cooper-pink-500">
-            <h1 className="text-xl font-semibold text-cooper-pink-500">
-              {index + 1}
-            </h1>
-          </div>
-          <p className="text-lg font-semibold text-cooper-pink-500">{step}</p>
-        </div>
-      ))}
-    </div>
-  );
-}
