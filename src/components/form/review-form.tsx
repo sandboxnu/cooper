@@ -201,8 +201,7 @@ export function ReviewForm(props: ReviewFormProps) {
 
   const next = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    console.log("next");
-    const fields = steps[currentStep]?.fields;
+    const fields = steps[currentStep - 1]?.fields;
     const output = await form.trigger(fields as FieldName[], {
       shouldFocus: true,
     });
@@ -211,8 +210,8 @@ export function ReviewForm(props: ReviewFormProps) {
       return;
     }
 
-    if (currentStep < steps.length) {
-      if (currentStep === steps.length - 1) {
+    if (currentStep <= steps.length) {
+      if (currentStep === steps.length) {
         await form.handleSubmit(onSubmit)();
       }
       setCurrentStep((step) => step + 1);
@@ -238,7 +237,7 @@ export function ReviewForm(props: ReviewFormProps) {
     });
   }
 
-  if (currentStep === steps.length) {
+  if (currentStep === steps.length + 1) {
     return <SubmissionConfirmation />;
   }
 
