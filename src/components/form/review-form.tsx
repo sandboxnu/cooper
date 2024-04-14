@@ -11,13 +11,13 @@ import { CoopCycleSection } from "~/components/form/coop-cycle-section";
 import { CompanyDetailsSection } from "~/components/form/company-details-section";
 import { RatingsSection } from "~/components/form/ratings-section";
 import { SubmissionConfirmation } from "~/components/form/submission-confirmation";
-import { WelcomePage } from "~/components/form/welcome-page";
 import { useState } from "react";
 import { Company, WorkEnvironment, WorkTerm } from "@prisma/client";
 import { api } from "~/trpc/react";
 import { cn } from "~/lib/utils";
 import { animateScroll as scroll } from "react-scroll";
 import Image from "next/image";
+import { CheckIcon } from "@radix-ui/react-icons";
 
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
@@ -121,12 +121,24 @@ export const benefits = [
   { field: "freeMerch", label: "Free merchandise" },
 ];
 
-const steps: { fields: string[]; color: string }[] = [
+// Find a better way of linking the colors to the steps.
+// Tailwind needs complete utility classes so we can't do "border-" + steps[currentStep - 1]?.borderColor
+const steps: {
+  label: string;
+  fields: string[];
+  borderColor: string;
+  textColor: string;
+  bgColor: string;
+}[] = [
   {
+    label: "Co-op Cycle",
     fields: ["workTerm", "workYear"],
-    color: "border-cooper-pink-500",
+    borderColor: "border-cooper-pink-500",
+    textColor: "text-cooper-pink-500",
+    bgColor: "bg-cooper-pink-500",
   },
   {
+    label: "Ratings",
     fields: [
       "overallRating",
       "cultureRating",
@@ -135,13 +147,19 @@ const steps: { fields: string[]; color: string }[] = [
       "interviewDifficulty",
       "interviewReview",
     ],
-    color: "border-cooper-green-500",
+    borderColor: "border-cooper-green-500",
+    textColor: "text-cooper-green-500",
+    bgColor: "bg-cooper-green-500",
   },
   {
+    label: "Review",
     fields: ["reviewHeadline", "textReview", "location", "hourlyPay"],
-    color: "border-cooper-yellow-500",
+    borderColor: "border-cooper-yellow-500",
+    textColor: "text-cooper-yellow-500",
+    bgColor: "bg-cooper-yellow-500",
   },
   {
+    label: "Company Details",
     fields: [
       "workEnvironment",
       "drugTest",
@@ -153,7 +171,9 @@ const steps: { fields: string[]; color: string }[] = [
       "freeMerch",
       "otherBenefits",
     ],
-    color: "border-cooper-red-500",
+    borderColor: "border-cooper-red-500",
+    textColor: "text-cooper-red-500",
+    bgColor: "bg-cooper-red-500",
   },
 ];
 
@@ -275,14 +295,63 @@ export function ReviewForm(props: ReviewFormProps) {
     );
   }
 
+  function ProgressBar() {
+    const grayBorder = "border-gray-400";
+    const grayText = "text-gray-400";
+
+    return (
+      <div className="flex justify-between">
+        {steps.map((progress, index) => (
+          <div className="flex flex-col items-center space-y-4" key={index}>
+            {currentStep > index + 1 ? (
+              <div
+                className={cn(
+                  "flex h-12 w-12 items-center justify-center rounded-full",
+                  progress.bgColor,
+                )}
+              >
+                <CheckIcon className="h-12 w-12 font-bold text-white" />
+              </div>
+            ) : (
+              <div
+                className={cn(
+                  "flex h-12 w-12 items-center justify-center rounded-full border-[3px]",
+                  currentStep > index ? progress.borderColor : grayBorder,
+                )}
+              >
+                <h1
+                  className={cn(
+                    "text-xl font-semibold",
+                    currentStep > index ? progress.textColor : grayText,
+                  )}
+                >
+                  {index + 1}
+                </h1>
+              </div>
+            )}
+            <p
+              className={cn(
+                "text-lg font-semibold",
+                currentStep > index ? progress.textColor : grayText,
+              )}
+            >
+              {progress.label}
+            </p>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <Form {...form}>
       <form
         className={cn(
           "space-y-12 rounded-2xl border-t-[16px] bg-white px-32 py-16",
-          steps[currentStep - 1]?.color,
+          steps[currentStep - 1]?.borderColor,
         )}
       >
+        <ProgressBar />
         {currentStep == 1 && <CoopCycleSection />}
         {currentStep == 2 && <RatingsSection />}
         {currentStep == 3 && <ReviewSection />}
@@ -305,5 +374,29 @@ export function ReviewForm(props: ReviewFormProps) {
         )}
       </form>
     </Form>
+  );
+}
+
+function ProgressBar() {
+  const steps = [
+    "Co-op Cycle",
+    "Ratings",
+    "Review",
+    "Company Details",
+    "Submit",
+  ];
+  return (
+    <div className="flex justify-between">
+      {steps.map((step, index) => (
+        <div className="flex flex-col items-center space-y-4" key={index}>
+          <div className="flex h-12 w-12 items-center justify-center rounded-full border-[3px] border-cooper-pink-500">
+            <h1 className="text-xl font-semibold text-cooper-pink-500">
+              {index + 1}
+            </h1>
+          </div>
+          <p className="text-lg font-semibold text-cooper-pink-500">{step}</p>
+        </div>
+      ))}
+    </div>
   );
 }
