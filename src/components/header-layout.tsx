@@ -1,6 +1,7 @@
 "use client";
 import { ReactNode } from "react";
 import Header from "~/components/header";
+import Footer from "./footer";
 
 /**
  * This should be used when placing content under the header, standardizes how children are placed under a header.
@@ -14,6 +15,7 @@ export default function HeaderLayout({ children }: { children: ReactNode }) {
       <article className="mt-16 flex w-[100vw] flex-col items-center justify-center gap-16">
         {children}
       </article>
+      <Footer />
     </div>
   );
 }
