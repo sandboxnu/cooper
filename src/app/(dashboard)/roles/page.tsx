@@ -20,7 +20,7 @@ export default function Roles() {
       <SearchFilter />
       {/* TODO: Loading animations */}
       {reviews.data && (
-        <div className="mb-8 grid h-[70dvh] w-4/5 grid-cols-5 gap-4 lg:w-3/4">
+        <div className="mb-8 grid h-[60dvh] w-4/5 grid-cols-5 gap-4 lg:w-3/4">
           <div className="col-span-2 gap-3 overflow-scroll pr-4">
             {reviews.data.map((review, i) => {
               return (
@@ -39,7 +39,7 @@ export default function Roles() {
               );
             })}
           </div>
-          <div className="col-span-3">
+          <div className="col-span-3 overflow-scroll">
             {reviews.data.length > 0 && reviews.data[0] && (
               <ReviewCard reviewObj={selectedReview || reviews.data[0]} />
             )}
