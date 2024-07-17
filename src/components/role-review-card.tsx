@@ -17,9 +17,6 @@ import {
 } from "~/utils/reviewsAggregationHelpers";
 import { truncateText } from "~/utils/stringHelpers";
 
-// todo: add this attribution in a footer somewhere
-//  <a href="https://clearbit.com">Logos provided by Clearbit</a>
-
 type RoleReviewCardProps = {
   className?: string;
   roleObj: Role;
