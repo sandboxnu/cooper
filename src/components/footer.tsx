@@ -18,7 +18,7 @@ export default function Footer() {
         />
         <h2 className="text-xl font-semibold">Checkout cooper on GitHub</h2>
       </Link>
-      <a href="https://clearbit.com" className="italic">
+      <a href="https://clearbit.com" target="_blank" className="italic">
         Logos provided by Clearbit
       </a>
     </footer>
