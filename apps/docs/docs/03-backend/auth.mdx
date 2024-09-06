@@ -75,6 +75,6 @@ The `Session` type has two properties:
 
 `auth-proxy` is a simple proxy server that enables OAuth authentication for preview environments. Since the Vercel preview environment results in changing URLs, the OAuth flow is broken since we can't whitelist all the URLs (as redirect URLs) on GCP. Google also does _not_ permit the use of wildcard characters in the redirect URLs.
 
-The `auth-proxy` server is a [Nitro](https://nitro.unjs.io/)-based route handler that acts as an intermediate authentication server. Since we use Vercel Egde function to host this, the production URL for the authentication server never changes. The server is used only in the preview environment.
+The `auth-proxy` server is a [Nitro](https://nitro.unjs.io/)-based route handler that acts as an intermediate authentication server. Since we use Vercel Egde function to host this, the production URL for the authentication server never changes.
 
 In the past, we have used the `CredentialProvider` to handle the authentication flow. This proxy server ensures that we truly authenticate the user in the preview environment using OAuth, allowing the preview to be as close to the production environment as possible.
