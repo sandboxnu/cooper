@@ -1,0 +1,43 @@
+{
+  "name": "cooper",
+  "private": true,
+  "engines": {
+    "node": ">=20.12.0"
+  },
+  "packageManager": "pnpm@9.9.0",
+  "scripts": {
+    "__BUILD_____________": "",
+    "build": "turbo run build",
+    "__CLEAN_____________": "",
+    "clean": "git clean -xdf node_modules",
+    "clean:workspaces": "turbo run clean",
+    "__DATABASE__________": "",
+    "db:push": "turbo run -F @cooper/db push",
+    "db:generate": "turbo run -F @cooper/db generate",
+    "db:migrate": "turbo run -F @cooper/db migrate",
+    "db:studio": "turbo run -F @cooper/db studio",
+    "__DEVELOPMENT_______": "",
+    "dev": "turbo watch dev",
+    "dev:web": "turbo watch dev -F @cooper/web...",
+    "dev:docs": "turbo run -F @cooper/docs start",
+    "__FORMAT____________": "",
+    "format": "turbo run format --continue -- --cache --cache-location node_modules/.cache/.prettiercache",
+    "format:fix": "turbo run format --continue -- --write --cache --cache-location node_modules/.cache/.prettiercache",
+    "__LINT______________": "",
+    "lint": "turbo run lint --continue -- --cache --cache-location node_modules/.cache/.eslintcache",
+    "lint:fix": "turbo run lint --continue -- --fix --cache --cache-location node_modules/.cache/.eslintcache",
+    "lint:ws": "pnpm dlx sherif@latest",
+    "__MISC______________": "",
+    "postinstall": "pnpm lint:ws",
+    "typecheck": "turbo run typecheck",
+    "ui-add": "turbo run ui-add"
+  },
+  "devDependencies": {
+    "@cooper/prettier-config": "workspace:*",
+    "@turbo/gen": "^2.1.1",
+    "prettier": "catalog:",
+    "turbo": "^2.1.1",
+    "typescript": "catalog:"
+  },
+  "prettier": "@cooper/prettier-config"
+}

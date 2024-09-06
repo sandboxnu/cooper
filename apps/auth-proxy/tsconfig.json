@@ -1,0 +1,4 @@
+{
+  "extends": "@cooper/tsconfig/base.json",
+  "include": ["routes"]
+}
