@@ -104,7 +104,7 @@ const config: Config = {
             },
             {
               label: "SandboxNU",
-              href: "https://github.com/sandboxnu/cooper/",
+              href: "https://www.sandboxnu.com/",
             },
           ],
         },
