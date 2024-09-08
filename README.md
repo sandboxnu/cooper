@@ -9,10 +9,11 @@ Cooper is a tool for Northeastern students to both submit reviews of their co-op
 - [Tailwind CSS](https://tailwindcss.com/) - CSS framework
 - [shadcn/ui](https://ui.shadcn.com/) - Pre-built components
 - [NextAuth.js](https://next-auth.js.org/) - Authentication
-- [Prisma](https://www.prisma.io/) - ORM
+- [Drizzle](https://orm.drizzle.team/) - ORM
 - [PostgreSQL](https://www.postgresql.org/) - Relational database
 - [Docker](https://www.docker.com/) - Database containerization for local development
 - [Zod](https://zod.dev/) - Validation
+  **Future:**
 - [Jest](https://jestjs.io/) - Unit tests
 - [Playwright](https://playwright.dev/) - E2E tests
 
