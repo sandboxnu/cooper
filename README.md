@@ -13,6 +13,7 @@ Cooper is a tool for Northeastern students to both submit reviews of their co-op
 - [PostgreSQL](https://www.postgresql.org/) - Relational database
 - [Docker](https://www.docker.com/) - Database containerization for local development
 - [Zod](https://zod.dev/) - Validation
+  
   **Future:**
 - [Jest](https://jestjs.io/) - Unit tests
 - [Playwright](https://playwright.dev/) - E2E tests
