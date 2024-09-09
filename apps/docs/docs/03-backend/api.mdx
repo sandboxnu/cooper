@@ -1,0 +1,50 @@
+---
+sidebar_position: 2
+---
+
+# API
+
+The API for Cooper is built using [tRPC](https://trpc.io/).
+
+All of the API code is in the `api` package. This package is responsible for handling all the requests that come into the API. The API is split into multiple routers, each responsible for a specific set of endpoints.
+
+## Routers
+
+### Types of Requests
+
+- `list` - Fetch _all_ the objects for a particular resource in the database
+- `get` - Fetch a single object by its ID, name, or other unique identifier
+- `create` - Create a new object in the database
+- `delete` - Delete an object from the database
+
+### tRPC Operations
+
+tRPC provides a set of operations that can be used to interact with the API. These operations are:
+
+- **Query** - Fetch data from the API
+- **Mutation** - Modify data in the API
+
+tRPC also has other operations like `Subscription`, but they are not used in Cooper at the moment.
+
+### Authentication
+
+tRPC allows for authentication to be handled at the endpoint level. This means that each endpoint can specify whether it is a `public` endpoint (`publicProcedure`) or a `protected` endpoint (`protectedProcedure`). If an endpoint is `protected`, the user must be authenticated to access it.
+
+In general, most of the read operations are `public`, while the write operations are `protected`.
+
+## New Router
+
+### Adding a New Router
+
+To add a new router to the API, follow these steps:
+
+1. Create a new router in the `router/` folder
+2. Export it from the `index.ts` file
+3. Add the route in the `root.ts` file
+
+### Defining Endpoints
+
+An endpoint has two parts:
+
+- The `input` type, which defines the shape of the request. This makes uses of [Zod](https://zod.dev/) to validate the input.
+- The operation (query or mutation) that the endpoint performs

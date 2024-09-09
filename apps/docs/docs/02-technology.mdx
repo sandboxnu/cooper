@@ -1,0 +1,34 @@
+# Technology
+
+> The great thing about standards is that there's so many to choose from.
+>
+> — Andrew S. Tanenbaum
+
+We started building Cooper in January 2024 as a new project on the Sandbox project slate. Given that the project was very new, we had significant flexibility in choosing the technology stack. To create a Minimum Viable Product (MVP) quickly, we decided to use the [T3 Stack](https://create.t3.gg/).
+
+At the core, the stack is built on [Next.js](https://nextjs.org/) along with [tRPC](https://trpc.io/) for the type-safe API layer. The database is managed by [Prisma](https://www.prisma.io/) and the frontend is styled with [Tailwind CSS](https://tailwindcss.com/). In Summer 2024, the project was migrated to use [Turborepo](https://turbo.build/) and [Drizzle](https://orm.drizzle.team/) to improve developer experience and performance. This migration was based on the template in [Create T3 Turbo](https://github.com/t3-oss/create-t3-turbo). The template was stripped down to only have `web` and `auth-proxy` apps along with standalone monorepo packages for managing the API, database, authentication, and UI components (based on [shadcn/ui](https://ui.shadcn.com/)).
+
+This documentation is written almost entirely in MDX through [Docusaurus](https://docusaurus.io/). This was to support the onboarding of multiple new developers in Fall 2024.
+
+## Technology Stack
+
+:::info[Testing]
+Adding unit and end-to-end tests is a work in progress so we do not have any testing framework set up as of now.
+
+> "dw testing is 4 chumps"
+>
+> — Mr. Jarmale and the Big Steppers
+
+:::
+
+- [Next.js](https://nextjs.org) - Web development framework
+- [Tailwind CSS](https://tailwindcss.com) - CSS framework
+- [shadcn/ui](https://ui.shadcn.com/) - Pre-built components
+- [NextAuth.js](https://next-auth.js.org/) - Authentication
+- [Drizzle](https://orm.drizzle.team/) - ORM
+- [PostgreSQL](https://www.postgresql.org/) - Relational database
+- [Docker](https://www.docker.com/) - Containerization
+- [tRPC](https://trpc.io/) - End-to-end typesafe API
+- [Zod](https://zod.dev/) - Validation
+- [Jest](https://jestjs.io/) - Unit tests
+- [Playwright](https://playwright.dev/) - E2E tests

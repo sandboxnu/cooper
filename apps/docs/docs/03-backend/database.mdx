@@ -1,0 +1,125 @@
+---
+sidebar_position: 2
+---
+
+# Database
+
+The database for Cooper is managed by [Drizzle](https://orm.drizzle.team/).
+
+Drizzle is a performant database toolkit that makes it easy to access databases with type safety and auto-completion. It is used to define the data model and generate the database schema. All of the database-related code is within the `db` package. All of the database schemas are defined in the `/schema` folder.
+
+## Example Schema
+
+```jsx title="src/schema/roles.ts"
+export const Role = pgTable("role", {
+  id: uuid("id").notNull().primaryKey().defaultRandom(),
+  title: varchar("title").notNull(),
+  description: text("description"),
+  companyId: varchar("companyId").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt", {
+    mode: "date",
+    withTimezone: true,
+  }).$onUpdateFn(() => sql`now()`),
+});
+```
+
+In the above example, the `Role` table is defined with the following columns:
+
+- `id` - a UUID primary key
+- `title` - a string that is not nullable
+- `description` - a nullable text field
+- `companyId` - a string that is not nullable (foreign key to the `Company` table)
+- `createdAt` - a timestamp that defaults to the current time
+- `updatedAt` - a timestamp that defaults to the current time and is updated on every update
+
+```jsx title="src/schema/roles.ts"
+export const RoleRelations = relations(Role, ({ one, many }) => ({
+  company: one(Company, {
+    fields: [Role.companyId],
+    references: [Company.id],
+  }),
+  reviews: many(Review),
+}));
+```
+
+We also define a **one-to-many** relationship with the `Review` table and a **one-to-one** relationship with the `Company` table.
+
+```jsx title="src/schema/roles.ts"
+export const CreateRoleSchema = createInsertSchema(Role, {
+  title: z.string(),
+  description: z.string(),
+  companyId: z.string(),
+}).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+```
+
+Finally, we also define an insert schema using [drizzle-zod](https://orm.drizzle.team/docs/zod) for creating a new role. This schema is used to validate the input data before inserting it into the database and is used by the tRPC API for creating a new role.
+
+## Authentication-Related Tables
+
+The following tables are used for authentication and are entirely managed by [NextAuth](https://next-auth.js.org/):
+
+- `Account`
+- `Session`
+- `User`
+
+> See [NextAuth Drizzle](https://authjs.dev/getting-started/adapters/drizzle) documentation for more information.
+
+## Database Management
+
+### Generate
+
+From the root of the project, you can run the following command to generate the database schema:
+
+```bash
+pnpm db:generate
+```
+
+The usual workflow is to modify the database is the following:
+
+1. Modify the schema in the `/schema` folder.
+
+2. Update `schema.ts` to include any new schema files (if necessary).
+
+3. Run `pnpm db:generate` to generate the database schema.
+
+:::info[Result]
+
+Once you run the generate command, the migration will be added `drizzle` folder. A new SQL file will be generated with the changes to the database schema. In certain cases, running the command will prompt the user to select one of the alternatives for the migration before generating the SQL file.
+:::
+
+### Migrate
+
+To apply the generated migration to the database, you can run the following command:
+
+```bash
+pnpm db:migrate
+```
+
+This command will apply the migration to the database and update the schema in the database in order of the SQL files in the `drizzle` folder.
+
+### Push
+
+To directly push the schema to the database, you can run the following command:
+
+```bash
+pnpm db:push
+```
+
+:::warning[Warning]
+It is not recommended to use this command in production as it will directly push the schema to the database without sequentially applying the migrations. This command is useful for development purposes when you want to quickly update the database.
+:::
+
+### Studio
+
+To open the Drizzle Studio, you can run the following command:
+
+```bash
+pnpm db:studio
+```
+
+This will open the Drizzle Studio in your browser where you can view the database schema and run queries. This is **very** useful when it comes to creating new companies or roles since we currently don't have a way of doing that through the UI.

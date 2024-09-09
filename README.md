@@ -4,25 +4,35 @@ Cooper is a tool for Northeastern students to both submit reviews of their co-op
 
 ## Features
 
-- [Next.js](https://nextjs.org) - Web development framework
-- [Tailwind CSS](https://tailwindcss.com) - CSS framework
+- [Next.js](https://nextjs.org/) - Web development framework
+- [tRPC](https://trpc.io/) - End-to-end typesafe API
+- [Tailwind CSS](https://tailwindcss.com/) - CSS framework
 - [shadcn/ui](https://ui.shadcn.com/) - Pre-built components
 - [NextAuth.js](https://next-auth.js.org/) - Authentication
-- [Prisma](https://www.prisma.io/) - ORM
+- [Drizzle](https://orm.drizzle.team/) - ORM
 - [PostgreSQL](https://www.postgresql.org/) - Relational database
-- [Docker](https://www.docker.com/) - Containerization
-- [tRPC](https://trpc.io/) - End-to-end typesafe API
+- [Docker](https://www.docker.com/) - Database containerization for local development
 - [Zod](https://zod.dev/) - Validation
+  **Future:**
+- [Jest](https://jestjs.io/) - Unit tests
+- [Playwright](https://playwright.dev/) - E2E tests
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-turbo`. See [create-t3-turbo](https://github.com/t3-oss/create-t3-turbo)!
 
-## Running Locally For Development
+## Dependencies
 
 Before you start you will need the following:
 
 - [Node.js](https://nodejs.org/en)
-- [Docker](https://www.docker.com/)
-- Recommended: [pnpm](https://pnpm.io/)
+- [Docker](https://www.docker.com/)\*
+- [pnpm](https://pnpm.io/)
+
+> [!NOTE]
+> Setting up the database for local development is currently a work in progress given that the Drizzle connector only supports connections to Vercel / Neon. The documentation will be updated with new instructions for using the Postgres Docker container.
+>
+> You do _not_ need Docker as of now.
+
+## Setup Instructions
 
 1. Clone the repo
 
@@ -31,37 +41,15 @@ git clone git@github.com:sandboxnu/cooper.git
 cd cooper
 ```
 
-2. Install the necessary dependencies. The `postinstall` script also runs `prisma generate`.
+2. Install the necessary dependencies.
 
 ```bash
 pnpm install
 ```
 
-3. Configure the `.env` file by following the template in `.env.example`. See [Setting up the environment](#setting-up-the-environment).
+3. Configure the `.env` file by following the template in `.env.example`. See [Environment File](#environment-file).
 
-4. Run the docker container
-
-```bash
-docker compose up -d
-```
-
-> **Note:** The `docker-compose.yml` file sets the `POSTGRES_USER` as "admin", `POSTGRES_PASSWORD` as "admin", and `POSTGRES_DB` as "cooper" by default.
-
-5. Sync the `prisma` schema with the database schema. Do **not** run this in a production environment.
-
-```bash
-pnpm prisma db push
-```
-
-6. Run the application
-
-```bash
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the results.
-
-### Setting up the environment
+## Environment File
 
 1. Create a new file called `.env` or copy the `.env.example` and rename it to `.env`.
 
@@ -72,16 +60,25 @@ cp .env.example .env
 2. Complete the file to add your environment variables. These are the defaults for local development. Make sure that the `docker` container is running.
 
 ```env
-DATABASE_URL="postgresql://admin:admin@localhost:5432/cooper?schema=public"
+POSTGRES_URL='<url>'
 
-NEXTAUTH_URL="http://localhost:3000"
-NEXTAUTH_SECRET=
+AUTH_SECRET='supersecret'
 
-GOOGLE_CLIENT_ID=
-GOOGLE_CLIENT_SECRET=
+AUTH_GOOGLE_ID=''
+AUTH_GOOGLE_SECRET=''
 ```
 
-To generate `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`, see [Setting up OAuth 2.0](https://support.google.com/cloud/answer/6158849?hl=en). To generate a new `NEXTAUTH_SECRET`, run the following command in your terminal and add it to the `.env` file.
+### Database
+
+While the Node Postgres work is in progress, the best way to get a Postgres database up and running that supports the existing database connection code would be through [Neon](https://console.neon.tech/).
+
+1. Sign in using your GitHub account
+2. Create a new **Project**
+3. Copy the **Connection String**. Make sure that **Pooled connection** is checked.
+
+### Authentication
+
+To generate `AUTH_GOOGLE_ID` and `AUTH_GOOGLE_SECRET`, see [Setting up OAuth 2.0](https://support.google.com/cloud/answer/6158849?hl=en). Ensure that you set the value of Authorized JavaScript origins and Authorized redirect URIs to the appropriate URLs. To generate a new `AUTH_SECRET`, run the following command in your terminal and add it to the `.env` file.
 
 ```bash
 openssl rand -base64 32

@@ -1,0 +1,10 @@
+{
+  "extends": "@cooper/tsconfig/internal-package.json",
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "outDir": "dist",
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
