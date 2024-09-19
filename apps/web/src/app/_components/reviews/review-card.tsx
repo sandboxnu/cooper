@@ -34,8 +34,8 @@ export function ReviewCard({ className, reviewObj }: ReviewCardProps) {
   // ===== ROLE DATA ===== //
   const role = api.role.getById.useQuery({ id: reviewObj.roleId });
 
-  // Truncate Review Text
-  const reviewText = truncateText(reviewObj.textReview, 80);
+  // ===== REVIEW TEXT ===== //
+  const reviewText = reviewObj.textReview;
 
   // Benefits
   const benefits = listBenefits(reviewObj);
