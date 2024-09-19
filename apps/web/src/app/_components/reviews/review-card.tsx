@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
 import { api } from "~/trpc/react";
 import { listBenefits } from "~/utils/reviewsAggregationHelpers";
-import { prettyWorkEnviornment, truncateText } from "~/utils/stringHelpers";
+import { prettyWorkEnviornment } from "~/utils/stringHelpers";
 import { ReviewCardStars } from "./review-card-stars";
 
 // todo: add this attribution in a footer somewhere
@@ -34,8 +34,8 @@ export function ReviewCard({ className, reviewObj }: ReviewCardProps) {
   // ===== ROLE DATA ===== //
   const role = api.role.getById.useQuery({ id: reviewObj.roleId });
 
-  // Truncate Review Text
-  const reviewText = truncateText(reviewObj.textReview, 80);
+  // ===== REVIEW TEXT ===== //
+  const reviewText = reviewObj.textReview;
 
   // Benefits
   const benefits = listBenefits(reviewObj);
