@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
 import { api } from "~/trpc/react";
 import { listBenefits } from "~/utils/reviewsAggregationHelpers";
-import { prettyWorkEnviornment, truncateText } from "~/utils/stringHelpers";
+import { prettyWorkEnviornment } from "~/utils/stringHelpers";
 import { ReviewCardStars } from "./review-card-stars";
 
 // todo: add this attribution in a footer somewhere
