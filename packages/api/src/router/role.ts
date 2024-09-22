@@ -29,6 +29,7 @@ export const roleRouter = {
       });
     }),
 
+    // modify to add an optional object called objects
   getByCompany: publicProcedure
     .input(z.object({ companyId: z.string() }))
     .query(({ ctx, input }) => {
