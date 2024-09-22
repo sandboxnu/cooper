@@ -24,6 +24,7 @@ export default function SearchFilter() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     //value is user's search info
+
     console.log(values);
   }
 
