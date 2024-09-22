@@ -13,6 +13,8 @@ import { api } from "~/trpc/react";
 export default function Roles() {
   const reviews = api.review.list.useQuery();
 
+  //implement fuse.js here
+
   const [selectedReview, setSelectedReview] = useState<ReviewType | undefined>(
     reviews.data ? reviews.data[0] : undefined,
   );
