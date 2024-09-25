@@ -29,9 +29,16 @@ export const roleRouter = {
       });
     }),
 
-    // modify to add an optional object called objects
   getByCompany: publicProcedure
-    .input(z.object({ companyId: z.string() }))
+  // is the optional part written correctly here?
+    .input(z.object({ companyId: z.string(),
+      objects: z.object({
+        workModel: z.enum(['In-person', 'Hybrid', 'Remote']).optional(),
+        cycle: z.enum(['Spring', 'Fall', 'Summer']).optional()
+      }).optional()
+    }))
+    // how to add equality for workModel and cycle here because they're optional parameters
+    // are workModel and cycle part of a database somewhere?
     .query(({ ctx, input }) => {
       return ctx.db.query.Role.findMany({
         where: eq(Role.companyId, input.companyId),
