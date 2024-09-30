@@ -10,8 +10,32 @@ import { ReviewCardPreview } from "~/app/_components/reviews/review-card-preview
 import SearchFilter from "~/app/_components/search/search-filter";
 import { api } from "~/trpc/react";
 
-export default function Roles() {
-  const reviews = api.review.list.useQuery();
+
+enum WorkTerm {
+  SPRING = 'SPRING',
+  FALL = 'FALL',
+  SUMMER = 'SUMMER',
+}
+
+enum WorkEnvironment {
+  REMOTE = 'REMOTE',
+  INPERSON = 'INPERSON',
+  HYBRID = 'HYBRID',
+}
+
+export default function Roles({
+  searchParams,
+}: {
+  
+  searchParams?: {
+    workTerm?: WorkTerm;
+    workEnvironment?: WorkEnvironment;
+  };
+}) {
+  const reviews = api.review.list.useQuery({ options: {
+    cycle: searchParams?.workTerm,
+    term: searchParams?.workEnvironment,
+  }});
 
   const [selectedReview, setSelectedReview] = useState<ReviewType | undefined>(
     reviews.data ? reviews.data[0] : undefined,
