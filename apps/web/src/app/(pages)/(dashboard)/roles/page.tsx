@@ -2,8 +2,11 @@
 
 import { useState } from "react";
 
-import type { ReviewType } from "@cooper/db/schema";
-import type { WorkEnvironmentType, WorkTermType } from "@cooper/db/schema";
+import type {
+  ReviewType,
+  WorkEnvironmentType,
+  WorkTermType,
+} from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 
 import { ReviewCard } from "~/app/_components/reviews/review-card";
