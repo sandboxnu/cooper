@@ -29,7 +29,7 @@ export const roleRouter = {
       });
     }),
 
-    getByCompany: publicProcedure
+  getByCompany: publicProcedure
     .input(z.object({ companyId: z.string() }))
     .query(({ ctx, input }) => {
       return ctx.db.query.Role.findMany({

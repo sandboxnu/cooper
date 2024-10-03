@@ -3,29 +3,28 @@
 import { useState } from "react";
 
 import type { ReviewType } from "@cooper/db/schema";
+import type { WorkEnvironmentType, WorkTermType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 
 import { ReviewCard } from "~/app/_components/reviews/review-card";
 import { ReviewCardPreview } from "~/app/_components/reviews/review-card-preview";
 import SearchFilter from "~/app/_components/search/search-filter";
 import { api } from "~/trpc/react";
-import { WorkEnvironmentType, WorkTermType } from "@cooper/db/schema";
-
-
 
 export default function Roles({
   searchParams,
 }: {
-  
   searchParams?: {
     workTerm?: WorkTermType;
     workEnvironment?: WorkEnvironmentType;
   };
 }) {
-  const reviews = api.review.list.useQuery({ options: {
-    cycle: searchParams?.workTerm,
-    term: searchParams?.workEnvironment,
-  }});
+  const reviews = api.review.list.useQuery({
+    options: {
+      cycle: searchParams?.workTerm,
+      term: searchParams?.workEnvironment,
+    },
+  });
 
   const [selectedReview, setSelectedReview] = useState<ReviewType | undefined>(
     reviews.data ? reviews.data[0] : undefined,
