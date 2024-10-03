@@ -11,6 +11,10 @@
     "__CLEAN_____________": "",
     "clean": "git clean -xdf node_modules",
     "clean:workspaces": "turbo run clean",
+    "__TEST______________": "",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
     "__DATABASE__________": "",
     "db:push": "turbo run -F @cooper/db push",
     "db:generate": "turbo run -F @cooper/db generate",
@@ -37,7 +41,8 @@
     "@turbo/gen": "^2.1.1",
     "prettier": "catalog:",
     "turbo": "^2.1.1",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "vitest": "catalog:"
   },
   "prettier": "@cooper/prettier-config"
 }
