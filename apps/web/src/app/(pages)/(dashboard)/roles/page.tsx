@@ -9,27 +9,17 @@ import { ReviewCard } from "~/app/_components/reviews/review-card";
 import { ReviewCardPreview } from "~/app/_components/reviews/review-card-preview";
 import SearchFilter from "~/app/_components/search/search-filter";
 import { api } from "~/trpc/react";
+import { WorkEnvironmentType, WorkTermType } from "@cooper/db/schema";
 
 
-enum WorkTerm {
-  SPRING = 'SPRING',
-  FALL = 'FALL',
-  SUMMER = 'SUMMER',
-}
-
-enum WorkEnvironment {
-  REMOTE = 'REMOTE',
-  INPERSON = 'INPERSON',
-  HYBRID = 'HYBRID',
-}
 
 export default function Roles({
   searchParams,
 }: {
   
   searchParams?: {
-    workTerm?: WorkTerm;
-    workEnvironment?: WorkEnvironment;
+    workTerm?: WorkTermType;
+    workEnvironment?: WorkEnvironmentType;
   };
 }) {
   const reviews = api.review.list.useQuery({ options: {
