@@ -1,7 +1,7 @@
 import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
-import { desc, eq } from "@cooper/db";
+import { desc, eq, and } from "@cooper/db";
 import { CreateReviewSchema, Review } from "@cooper/db/schema";
 
 import { protectedProcedure, publicProcedure } from "../trpc";
@@ -22,7 +22,7 @@ export const reviewRouter = {
         orderBy: desc(Review.id),
         where: input.options?.term ? // if there's a term
         (input.options?.cycle? // if there's a cycle and term
-        eq(Review.workTerm, input.options.cycle) && eq(Review.workEnvironment, input.options.term)
+        and(eq(Review.workTerm, input.options.cycle), eq(Review.workEnvironment, input.options.term))
         : eq(Review.workEnvironment, input.options.term) ) // if there's just a term
         : input.options?.cycle? eq(Review.workTerm, input.options.cycle) : undefined // just a cycle or none of the above
       });
