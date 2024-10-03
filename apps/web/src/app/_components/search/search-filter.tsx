@@ -24,7 +24,7 @@ export default function SearchFilter() {
     },
   });
 
-  const searchParams = useSearchParams()!;
+  const searchParams = useSearchParams();
   const router = useRouter();
   const pathName = usePathname();
 

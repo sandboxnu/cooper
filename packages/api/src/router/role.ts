@@ -1,5 +1,4 @@
 import type { TRPCRouterRecord } from "@trpc/server";
-import Fuse from "fuse.js";
 import { z } from "zod";
 
 import { desc, eq } from "@cooper/db";
