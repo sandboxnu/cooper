@@ -19,18 +19,16 @@ export const reviewRouter = {
       }),
     )
     .query(({ ctx, input }) => {
+      const { options } = input;
+
+      const conditions = [
+        options?.cycle && eq(Review.workTerm, options.cycle),
+        options?.term && eq(Review.workEnvironment, options.term),
+      ].filter(Boolean);
+
       return ctx.db.query.Review.findMany({
         orderBy: desc(Review.id),
-        where: input.options?.term // if there's a term
-          ? input.options.cycle // if there's a cycle and term
-            ? and(
-                eq(Review.workTerm, input.options.cycle),
-                eq(Review.workEnvironment, input.options.term),
-              )
-            : eq(Review.workEnvironment, input.options.term) // if there's just a term
-          : input.options?.cycle
-            ? eq(Review.workTerm, input.options.cycle)
-            : undefined, // just a cycle or none of the above
+        where: conditions.length > 0 ? and(...conditions) : undefined,
       });
     }),
 
