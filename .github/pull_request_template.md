@@ -1,18 +1,38 @@
-Closes #(Task Number)
-
-Only add the task number to the above statement if you have finished all of the subtasks.
+<!--- Provide a general summary of your changes in the Title above -->
 
 ## Description
 
-## Things to be reviewed
+<!--- Describe your changes in detail -->
 
-## Screenshots (if applicable)
+## Motivation and Context
 
-## Checklist
+<!--- Why is this change required? What problem does it solve? -->
 
-- [ ] Add task name to the PR title
-- [ ] Add ticket number to ("Closes #")
-- [ ] Update `app/docs` (if applicable)
-- [ ] Move task to "In Review" on the Cooper Project Board
-- [ ] Add atleast one person to review your PR
-- [ ] Ask for review on Slack
+Closes #[ticket<!--replace this with the GitHub Issue number-->]
+
+## How has this been tested?
+
+<!--- Please describe in detail how you tested your changes. -->
+<!--- Include details of your testing environment, tests ran to see how -->
+<!--- your change affects other areas of the code, etc. -->
+
+## Screenshots (if appropriate):
+
+## Types of changes
+
+<!--- What types of changes does your code introduce? Put an `x` in all the boxes that apply: -->
+
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change which adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+
+## Checklist:
+
+<!--- Go over all the following points, and put an `x` in all the boxes that apply. -->
+<!--- If you're unsure about any of these, don't hesitate to ask. We're here to help! -->
+
+- [ ] My code follows the code style of this project.
+- [ ] My change requires a change to the documentation.
+- [ ] I have updated the documentation accordingly.
+- [ ] I have added tests to cover my changes.
+- [ ] All new and existing tests passed.
