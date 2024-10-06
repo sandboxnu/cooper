@@ -20,7 +20,7 @@ export default async function Companies() {
   return (
     <>
       <SearchFilter />
-      <div className="grid w-3/4 grid-cols-3 gap-4">
+      <div className="grid h-[75dvh] w-3/4 grid-cols-3 gap-4">
         {roles.map((role) => {
           return (
             <RoleReviewCard key={role.id} roleObj={role} className="mb-4" />

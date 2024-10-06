@@ -1,17 +1,36 @@
 import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
-import { desc, eq } from "@cooper/db";
+import { and, desc, eq } from "@cooper/db";
 import { CreateReviewSchema, Review } from "@cooper/db/schema";
 
 import { protectedProcedure, publicProcedure } from "../trpc";
 
 export const reviewRouter = {
-  list: publicProcedure.query(({ ctx }) => {
-    return ctx.db.query.Review.findMany({
-      orderBy: desc(Review.id),
-    });
-  }),
+  list: publicProcedure
+    .input(
+      z.object({
+        options: z
+          .object({
+            cycle: z.enum(["SPRING", "FALL", "SUMMER"]).optional(),
+            term: z.enum(["INPERSON", "HYBRID", "REMOTE"]).optional(),
+          })
+          .optional(),
+      }),
+    )
+    .query(({ ctx, input }) => {
+      const { options } = input;
+
+      const conditions = [
+        options?.cycle && eq(Review.workTerm, options.cycle),
+        options?.term && eq(Review.workEnvironment, options.term),
+      ].filter(Boolean);
+
+      return ctx.db.query.Review.findMany({
+        orderBy: desc(Review.id),
+        where: conditions.length > 0 ? and(...conditions) : undefined,
+      });
+    }),
 
   getByRole: publicProcedure
     .input(z.object({ id: z.string() }))

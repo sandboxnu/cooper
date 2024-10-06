@@ -15,7 +15,8 @@ Cooper is a tool for Northeastern students to both submit reviews of their co-op
 - [Zod](https://zod.dev/) - Validation
 
 ### Future
-- [Jest](https://jestjs.io/) - Unit tests
+
+- [Vitest](https://vitest.dev/) - Unit tests
 - [Playwright](https://playwright.dev/) - E2E tests
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-turbo`. See [create-t3-turbo](https://github.com/t3-oss/create-t3-turbo)!
