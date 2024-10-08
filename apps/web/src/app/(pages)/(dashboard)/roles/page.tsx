@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import type {
+import {
   ReviewType,
   WorkEnvironmentType,
   WorkTermType,
+  WorkTerm,
+  WorkEnvironment
 } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 
@@ -22,6 +24,26 @@ export default function Roles({
     workEnvironment?: WorkEnvironmentType;
   };
 }) {
+  const [error, setError] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    const isValidTerm = searchParams?.workTerm
+      ? Object.values(WorkTerm).includes(searchParams.workTerm)
+      : true; 
+
+    const isValidEnvironment = searchParams?.workEnvironment
+      ? Object.values(WorkEnvironment).includes(searchParams.workEnvironment)
+      : true; 
+
+    if (!isValidTerm) {
+      setError("Invalid work term.");
+    } else if (!isValidEnvironment) {
+      setError("Invalid work environment.");
+    } 
+  }, [searchParams]);
+
+
+
   const reviews = api.review.list.useQuery({
     options: {
       cycle: searchParams?.workTerm,
@@ -37,6 +59,7 @@ export default function Roles({
     <>
       <SearchFilter />
       {/* TODO: Loading animations */}
+      {error && <div className="error-message text-red-500 text-xl p-20">{error}</div>}
       {reviews.data && (
         <div className="mb-8 grid h-[75dvh] w-4/5 grid-cols-5 gap-4 lg:w-3/4">
           <div className="col-span-2 gap-3 overflow-scroll pr-4">
