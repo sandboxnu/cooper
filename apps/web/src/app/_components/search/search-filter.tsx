@@ -38,10 +38,13 @@ export default function SearchFilter() {
   );
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // console.log(searchParams.get("search")); query the user search info
-    router.push(
-      pathName + `/?${createQueryString("search", values.searchText)}`,
-    );
+    if (values.searchText != "") {
+      router.push(
+        pathName + `/?${createQueryString("search", values.searchText)}`,
+      );
+    } else {
+      router.push(pathName);
+    }
   }
 
   return (
