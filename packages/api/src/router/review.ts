@@ -43,7 +43,7 @@ export const reviewRouter = {
 
       const fuse = new Fuse(reviews, fuseOptions);
 
-      return fuse.search(input.search ?? "").map((result) => result.item);
+      return fuse.search(input.search).map((result) => result.item);
     }),
 
   getByRole: publicProcedure
