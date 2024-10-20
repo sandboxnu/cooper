@@ -34,19 +34,12 @@ export const reviewRouter = {
       });
 
       const fuseOptions = {
-        keys: [
-          "id",
-          "description",
-          "createdAt",
-          "updatedAt",
-          "companyId",
-          "title",
-        ],
+        keys: ["reviewHeadline", "textReview"],
       };
 
       const fuse = new Fuse(reviews, fuseOptions);
 
-      return fuse.search(input.search ?? "");
+      return fuse.search(input.search ?? "").map((result) => result.item);
     }),
 
   getByRole: publicProcedure

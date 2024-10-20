@@ -20,6 +20,7 @@ export default function Roles({
   searchParams?: {
     workTerm?: WorkTermType;
     workEnvironment?: WorkEnvironmentType;
+    search?: string;
   };
 }) {
   const reviews = api.review.list.useQuery({
@@ -27,10 +28,8 @@ export default function Roles({
       cycle: searchParams?.workTerm,
       term: searchParams?.workEnvironment,
     },
+    search: searchParams?.search,
   });
-
-  //implement fuse.js here
-
   const [selectedReview, setSelectedReview] = useState<ReviewType | undefined>(
     reviews.data ? reviews.data[0] : undefined,
   );
