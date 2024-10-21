@@ -21,11 +21,13 @@ export default async function HeaderLayout({
   const button = session ? <LogoutButton /> : <LoginButton />;
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <Header session={session} auth={button} />
-      <article className="mt-16 flex w-[100vw] flex-col items-center justify-center gap-16">
-        {children}
-      </article>
+    <div className="flex min-h-screen flex-col justify-between">
+      <div>
+        <Header session={session} auth={button} />
+        <article className="mt-16 flex w-[100vw] flex-col items-center justify-center gap-16">
+          {children}
+        </article>
+      </div>
       <Footer />
     </div>
   );
