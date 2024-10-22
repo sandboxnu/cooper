@@ -16,11 +16,15 @@ const formSchema = z.object({
 
 export type SearchFilterFormType = typeof formSchema;
 
-export default function SearchFilter() {
+interface SearchFilterProps {
+  search?: string;
+}
+
+export default function SearchFilter({ search }: SearchFilterProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      searchText: "",
+      searchText: search ?? "",
     },
   });
 
