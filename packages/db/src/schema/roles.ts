@@ -6,6 +6,8 @@ import { z } from "zod";
 import { Company } from "./companies";
 import { Review } from "./reviews";
 
+import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
+
 export const Role = pgTable("role", {
   id: uuid("id").notNull().primaryKey().defaultRandom(),
   title: varchar("title").notNull(),
