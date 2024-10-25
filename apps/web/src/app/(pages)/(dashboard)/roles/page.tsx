@@ -43,16 +43,23 @@ export default function Roles({
   });
 
   const validationResult = RolesSearchParam.safeParse(searchParams);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+  }, [])
+  useEffect(() => {
+    if (!mounted) {
+      return;
+    }
     if (!validationResult.success) {
       toast({
-        title: "JHFJHFJFJ",
-        description: "FFFF"
-        
+        title: "Invalid search params",
+        description: validationResult.error.issues.map(issue => issue.message).join(', '),
+        variant: "destructive"
       })
     }
-  }, [])
+  }, [toast, mounted])
 
   const reviews = api.review.list.useQuery({
     options: validationResult.success ? validationResult.data : {},
@@ -66,7 +73,6 @@ export default function Roles({
   return (
     <>
       <SearchFilter />
-      {!validationResult.success && <ErrorBanner error={validationResult.error.issues.map(issue => issue.message).join(', ')} />}
       {reviews.data && (
         <div className="mb-8 grid h-[75dvh] w-4/5 grid-cols-5 gap-4 lg:w-3/4">
           <div className="col-span-2 gap-3 overflow-scroll pr-4">
