@@ -1,5 +1,7 @@
 "use client";
 
+import { useCallback } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -22,8 +24,27 @@ export default function SearchFilter() {
     },
   });
 
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathName = usePathname();
+
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams);
+      params.set(name, value);
+      return params.toString();
+    },
+    [searchParams],
+  );
+
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    if (values.searchText != "") {
+      router.push(
+        pathName + `/?${createQueryString("search", values.searchText)}`,
+      );
+    } else {
+      router.push(pathName);
+    }
   }
 
   return (

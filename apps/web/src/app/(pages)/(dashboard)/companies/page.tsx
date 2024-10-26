@@ -20,7 +20,7 @@ export default async function Companies() {
   return (
     <>
       <SearchFilter />
-      <div className="grid h-[75dvh] w-3/4 grid-cols-3 gap-4">
+      <div className="mb-8 grid h-[70dvh] w-3/4 grid-cols-1 gap-4 overflow-y-scroll md:grid-cols-2 xl:grid-cols-3">
         {roles.map((role) => {
           return (
             <RoleReviewCard key={role.id} roleObj={role} className="mb-4" />

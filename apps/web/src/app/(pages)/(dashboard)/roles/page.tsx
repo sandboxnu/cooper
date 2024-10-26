@@ -74,7 +74,7 @@ export default function Roles({
     <>
       <SearchFilter />
       {reviews.data && (
-        <div className="mb-8 grid h-[75dvh] w-4/5 grid-cols-5 gap-4 lg:w-3/4">
+        <div className="mb-8 grid h-[70dvh] w-4/5 grid-cols-5 gap-4 lg:w-3/4">
           <div className="col-span-2 gap-3 overflow-scroll pr-4">
             {reviews.data.map((review, i) => {
               return (
