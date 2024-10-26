@@ -1,22 +1,23 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { z } from "zod";
 
 import {
   ReviewType,
-  WorkTermType,
+  WorkEnvironment,
   WorkEnvironmentType,
+  WorkTerm,
+  WorkTermType,
 } from "@cooper/db/schema";
-import { WorkEnvironment, WorkTerm} from "@cooper/db/schema";
+import { cn } from "@cooper/ui";
+import { useToast } from "@cooper/ui/hooks/use-toast";
 
+import ErrorBanner from "~/app/_components/error-banner";
 import { ReviewCard } from "~/app/_components/reviews/review-card";
 import { ReviewCardPreview } from "~/app/_components/reviews/review-card-preview";
 import SearchFilter from "~/app/_components/search/search-filter";
 import { api } from "~/trpc/react";
-import { z } from "zod";
-import { useToast } from "@cooper/ui/hooks/use-toast"
-import { cn } from "@cooper/ui";
-import ErrorBanner from "~/app/_components/error-banner";
 
 export default function Roles({
   searchParams,
@@ -25,9 +26,8 @@ export default function Roles({
     cycle?: WorkTermType;
     term?: WorkEnvironmentType;
   };
-
 }) {
-  const { toast } = useToast()
+  const { toast } = useToast();
 
   const RolesSearchParam = z.object({
     cycle: z
@@ -47,7 +47,7 @@ export default function Roles({
 
   useEffect(() => {
     setMounted(true);
-  }, [])
+  }, []);
   useEffect(() => {
     if (!mounted) {
       return;
@@ -55,20 +55,21 @@ export default function Roles({
     if (!validationResult.success) {
       toast({
         title: "Invalid search params",
-        description: validationResult.error.issues.map(issue => issue.message).join(', '),
-        variant: "destructive"
-      })
+        description: validationResult.error.issues
+          .map((issue) => issue.message)
+          .join(", "),
+        variant: "destructive",
+      });
     }
-  }, [toast, mounted])
+  }, [toast, mounted]);
 
   const reviews = api.review.list.useQuery({
     options: validationResult.success ? validationResult.data : {},
-});
+  });
 
   const [selectedReview, setSelectedReview] = useState<ReviewType | undefined>(
     reviews.data ? reviews.data[0] : undefined,
   );
-
 
   return (
     <>
