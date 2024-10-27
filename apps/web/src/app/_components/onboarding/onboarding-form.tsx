@@ -53,7 +53,7 @@ export function OnboardingForm({ userId }: OnboardingFormProps) {
       lastName: "",
       email: "",
       major: "",
-      minor: "",
+      minor: undefined,
       graduationYear: undefined,
       graduationMonth: 0,
       cooped: false,
@@ -178,9 +178,11 @@ export function OnboardingForm({ userId }: OnboardingFormProps) {
             )}
           />
         </div>
-        <Button type="submit" className="mt-4">
-          Submit
-        </Button>
+        <div className="mt-4 flex justify-end">
+          <Button type="submit" className="w-24">
+            Next
+          </Button>
+        </div>
       </form>
     </Form>
   );

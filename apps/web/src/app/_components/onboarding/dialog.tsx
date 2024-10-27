@@ -25,6 +25,13 @@ export function OnboardingDialog({ isOpen, session }: OnboardingDialogProps) {
 
   const profile = api.profile.getCurrentUser.useQuery();
 
+  const shouldShowSignIn = !session;
+  const shouldShowOnboarding = session && !profile.data;
+
+  if (!shouldShowOnboarding && !shouldShowSignIn) {
+    return null;
+  }
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="p-12 sm:max-w-[720px]">
@@ -33,10 +40,8 @@ export function OnboardingDialog({ isOpen, session }: OnboardingDialogProps) {
             {session ? "Create a Cooper Account" : "Login"}
           </DialogTitle>
         </DialogHeader>
-        {!session && <SignInWithGoogleButton />}
-        {!profile.data && session && (
-          <OnboardingForm userId={session.user.id} />
-        )}
+        {shouldShowSignIn && <SignInWithGoogleButton />}
+        {shouldShowOnboarding && <OnboardingForm userId={session.user.id} />}
       </DialogContent>
     </Dialog>
   );
