@@ -3,8 +3,6 @@ import { pgTable, text, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
-
 import { Company } from "./companies";
 import { Review } from "./reviews";
 
