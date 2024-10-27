@@ -13,6 +13,7 @@ import {
 } from "@cooper/ui/dialog";
 
 import { api } from "~/trpc/react";
+import { OnboardingForm } from "./onboarding-form";
 
 interface OnboardingDialogProps {
   isOpen: boolean;
@@ -26,14 +27,16 @@ export function OnboardingDialog({ isOpen, session }: OnboardingDialogProps) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="p-12 sm:max-w-[720px]">
         <DialogHeader>
-          <DialogTitle className="text-center text-xl font-bold text-cooper-blue-600">
+          <DialogTitle className="pb-4 text-center text-2xl font-bold text-cooper-blue-600">
             {session ? "Create a Cooper Account" : "Login"}
           </DialogTitle>
         </DialogHeader>
         {!session && <SignInWithGoogleButton />}
-        {!profile.data && <p className="text-center">User Onboarding Flow</p>}
+        {!profile.data && session && (
+          <OnboardingForm userId={session.user.id} />
+        )}
       </DialogContent>
     </Dialog>
   );
