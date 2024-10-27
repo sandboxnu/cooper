@@ -28,7 +28,7 @@ export function OnboardingDialog({ isOpen, session }: OnboardingDialogProps) {
   const shouldShowSignIn = !session;
   const shouldShowOnboarding = session && !profile.data;
 
-  if (!shouldShowOnboarding && !shouldShowSignIn) {
+  if ((!shouldShowOnboarding && !shouldShowSignIn) || profile.isLoading) {
     return null;
   }
 
