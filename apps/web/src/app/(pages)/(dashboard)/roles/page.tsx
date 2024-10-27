@@ -5,10 +5,11 @@ import { z } from "zod";
 
 import {
   ReviewType,
+  WorkEnvironment,
   WorkEnvironmentType,
+  WorkTerm,
   WorkTermType,
 } from "@cooper/db/schema";
-import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { useToast } from "@cooper/ui/hooks/use-toast";
 
