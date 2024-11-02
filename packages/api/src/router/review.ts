@@ -38,7 +38,7 @@ export const reviewRouter = {
       }
 
       const fuseOptions = {
-        keys: ["reviewHeadline", "textReview"],
+        keys: ["reviewHeadline", "textReview", "location"],
       };
 
       const fuse = new Fuse(reviews, fuseOptions);

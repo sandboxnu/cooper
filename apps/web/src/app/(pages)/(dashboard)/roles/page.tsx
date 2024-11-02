@@ -22,6 +22,9 @@ export default function Roles({
   searchParams,
 }: {
   searchParams?: {
+    workTerm?: WorkTermType;
+    workEnvironment?: WorkEnvironmentType;
+    search?: string;
     cycle?: WorkTermType;
     term?: WorkEnvironmentType;
   };
@@ -63,6 +66,7 @@ export default function Roles({
   }, [toast, mounted]);
 
   const reviews = api.review.list.useQuery({
+    search: searchParams?.search,
     options: validationResult.success ? validationResult.data : {},
   });
 
@@ -78,7 +82,7 @@ export default function Roles({
 
   return (
     <>
-      <SearchFilter />
+      <SearchFilter search={searchParams?.search} />
       {reviews.data && (
         <div className="mb-8 grid h-[70dvh] w-4/5 grid-cols-5 gap-4 lg:w-3/4">
           <div className="col-span-2 gap-3 overflow-scroll pr-4">
