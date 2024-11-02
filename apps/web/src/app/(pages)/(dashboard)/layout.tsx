@@ -1,3 +1,5 @@
+import { Toaster } from "@cooper/ui/toaster";
+
 import HeaderLayout from "~/app/_components/header-layout";
 
 export default function RootLayout({
@@ -5,5 +7,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <HeaderLayout>{children}</HeaderLayout>;
+  return (
+    <HeaderLayout>
+      {children}
+      <Toaster />
+    </HeaderLayout>
+  );
 }

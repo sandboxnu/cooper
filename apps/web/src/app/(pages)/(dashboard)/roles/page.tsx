@@ -1,13 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { z } from "zod";
 
-import type {
+import {
   ReviewType,
+  WorkEnvironment,
   WorkEnvironmentType,
+  WorkTerm,
   WorkTermType,
 } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
+import { useToast } from "@cooper/ui/hooks/use-toast";
 
 import { ReviewCard } from "~/app/_components/reviews/review-card";
 import { ReviewCardPreview } from "~/app/_components/reviews/review-card-preview";
@@ -18,17 +22,48 @@ export default function Roles({
   searchParams,
 }: {
   searchParams?: {
-    workTerm?: WorkTermType;
-    workEnvironment?: WorkEnvironmentType;
-    search?: string;
+    cycle?: WorkTermType;
+    term?: WorkEnvironmentType;
   };
 }) {
+  const { toast } = useToast();
+
+  const RolesSearchParam = z.object({
+    cycle: z
+      .nativeEnum(WorkTerm, {
+        message: "Invalid cycle type",
+      })
+      .optional(),
+    term: z
+      .nativeEnum(WorkEnvironment, {
+        message: "Invalid term type",
+      })
+      .optional(),
+  });
+
+  const validationResult = RolesSearchParam.safeParse(searchParams);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  useEffect(() => {
+    if (!mounted) {
+      return;
+    }
+    if (!validationResult.success) {
+      toast({
+        title: "Invalid search params",
+        description: validationResult.error.issues
+          .map((issue) => issue.message)
+          .join(", "),
+        variant: "destructive",
+      });
+    }
+  }, [toast, mounted]);
+
   const reviews = api.review.list.useQuery({
-    options: {
-      cycle: searchParams?.workTerm,
-      term: searchParams?.workEnvironment,
-    },
-    search: searchParams?.search,
+    options: validationResult.success ? validationResult.data : {},
   });
 
   const [selectedReview, setSelectedReview] = useState<ReviewType | undefined>(
@@ -43,8 +78,7 @@ export default function Roles({
 
   return (
     <>
-      <SearchFilter search={searchParams?.search} />
-      {/* TODO: Loading animations */}
+      <SearchFilter />
       {reviews.data && (
         <div className="mb-8 grid h-[70dvh] w-4/5 grid-cols-5 gap-4 lg:w-3/4">
           <div className="col-span-2 gap-3 overflow-scroll pr-4">
