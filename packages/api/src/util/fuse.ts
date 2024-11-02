@@ -1,9 +1,7 @@
 import Fuse from "fuse.js";
 
-import type { ReviewType } from "@cooper/db/schema";
-
 export const createFuse = (
-  data: ReviewType[],
+  data: object[],
   keywords: string[],
   search: string,
 ) => {
