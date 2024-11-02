@@ -1,11 +1,11 @@
 import type { TRPCRouterRecord } from "@trpc/server";
-import Fuse from "fuse.js";
 import { z } from "zod";
 
 import { and, desc, eq } from "@cooper/db";
 import { CreateReviewSchema, Review } from "@cooper/db/schema";
 
 import { protectedProcedure, publicProcedure } from "../trpc";
+import { createFuse } from "../util/fuse";
 
 export const reviewRouter = {
   list: publicProcedure
@@ -37,13 +37,11 @@ export const reviewRouter = {
         return reviews;
       }
 
-      const fuseOptions = {
-        keys: ["reviewHeadline", "textReview", "location"],
-      };
-
-      const fuse = new Fuse(reviews, fuseOptions);
-
-      return fuse.search(input.search).map((result) => result.item);
+      return createFuse(
+        reviews,
+        ["reviewHeadline", "textReview", "location"],
+        input.search,
+      );
     }),
 
   getByRole: publicProcedure
