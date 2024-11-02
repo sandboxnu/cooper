@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import type {
   ReviewType,
@@ -30,9 +30,16 @@ export default function Roles({
     },
     search: searchParams?.search,
   });
+
   const [selectedReview, setSelectedReview] = useState<ReviewType | undefined>(
     reviews.data ? reviews.data[0] : undefined,
   );
+
+  useEffect(() => {
+    if (reviews.data) {
+      setSelectedReview(reviews.data[0]);
+    }
+  }, [reviews.data]);
 
   return (
     <>
