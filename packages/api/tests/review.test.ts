@@ -42,8 +42,4 @@ describe("Review Router", async () => {
     const reviews = await caller.review.list({});
     expect(reviews).toEqual([]);
   });
-
-  afterAll(() => {
-    vi.unstubAllEnvs();
-  });
 });
