@@ -19,7 +19,7 @@ vi.mock("@cooper/auth", () => ({
   auth: () => ({}),
 }));
 
-describe("Review", async () => {
+describe("Review Router", async () => {
   beforeEach(() => {
     vi.restoreAllMocks();
   });
@@ -38,7 +38,7 @@ describe("Review", async () => {
 
   const caller = createCallerFactory(appRouter)(ctx);
 
-  test("list reviews", async () => {
+  test("list endpoint returns empty list", async () => {
     const reviews = await caller.review.list({});
     expect(reviews).toEqual([]);
   });
