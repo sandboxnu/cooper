@@ -4,12 +4,13 @@ import { Session } from "@cooper/auth";
 
 import { appRouter } from "../src/root";
 import { createCallerFactory, createTRPCContext } from "../src/trpc";
+import { data } from "./mocks/reviews";
 
 vi.mock("@cooper/db/client", () => ({
   db: {
     query: {
       Review: {
-        findMany: async () => [],
+        findMany: async () => data,
       },
     },
   },
@@ -38,8 +39,8 @@ describe("Review Router", async () => {
 
   const caller = createCallerFactory(appRouter)(ctx);
 
-  test("list endpoint returns empty list", async () => {
+  test("list endpoint returns all reviews", async () => {
     const reviews = await caller.review.list({});
-    expect(reviews).toEqual([]);
+    expect(reviews).toEqual(data);
   });
 });
