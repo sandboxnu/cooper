@@ -21,8 +21,6 @@ export const reviewRouter = {
     .query(({ ctx, input }) => {
       const { options } = input;
 
-      console.log(">>> options", options);
-
       const conditions = [
         options?.cycle && eq(Review.workTerm, options.cycle),
         options?.term && eq(Review.workEnvironment, options.term),

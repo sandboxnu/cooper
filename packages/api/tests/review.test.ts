@@ -1,6 +1,9 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
 
 import { Session } from "@cooper/auth";
+import { and, eq } from "@cooper/db";
+import { db } from "@cooper/db/client";
+import { Review, ReviewType } from "@cooper/db/schema";
 
 import { appRouter } from "../src/root";
 import { createCallerFactory, createTRPCContext } from "../src/trpc";
@@ -10,7 +13,7 @@ vi.mock("@cooper/db/client", () => ({
   db: {
     query: {
       Review: {
-        findMany: async () => data,
+        findMany: vi.fn(),
       },
     },
   },
@@ -23,6 +26,8 @@ vi.mock("@cooper/auth", () => ({
 describe("Review Router", async () => {
   beforeEach(() => {
     vi.restoreAllMocks();
+
+    vi.mocked(db.query.Review.findMany).mockResolvedValue(data as ReviewType[]);
   });
 
   const session: Session = {
@@ -41,6 +46,55 @@ describe("Review Router", async () => {
 
   test("list endpoint returns all reviews", async () => {
     const reviews = await caller.review.list({});
+
     expect(reviews).toEqual(data);
+
+    expect(db.query.Review.findMany).toHaveBeenCalledWith({
+      orderBy: expect.anything(),
+      where: undefined,
+    });
+  });
+
+  test("list endpoint with cycle filter", async () => {
+    await caller.review.list({
+      options: {
+        cycle: "SPRING",
+      },
+    });
+
+    expect(db.query.Review.findMany).toHaveBeenCalledWith({
+      orderBy: expect.anything(),
+      where: and(eq(Review.workTerm, "SPRING")),
+    });
+  });
+
+  test("list endpoint with term filter", async () => {
+    await caller.review.list({
+      options: {
+        term: "REMOTE",
+      },
+    });
+
+    expect(db.query.Review.findMany).toHaveBeenCalledWith({
+      orderBy: expect.anything(),
+      where: and(eq(Review.workEnvironment, "REMOTE")),
+    });
+  });
+
+  test("list endpoint with cycle and term filter", async () => {
+    await caller.review.list({
+      options: {
+        cycle: "SPRING",
+        term: "REMOTE",
+      },
+    });
+
+    expect(db.query.Review.findMany).toHaveBeenCalledWith({
+      orderBy: expect.anything(),
+      where: and(
+        eq(Review.workTerm, "SPRING"),
+        eq(Review.workEnvironment, "REMOTE"),
+      ),
+    });
   });
 });
