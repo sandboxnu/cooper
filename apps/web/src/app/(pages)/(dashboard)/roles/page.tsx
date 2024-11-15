@@ -3,11 +3,12 @@
 import { useEffect, useState } from "react";
 import { z } from "zod";
 
-import {
-  WorkEnvironment,
-  WorkTerm,
+import type {
+  ReviewType,
+  WorkEnvironmentType,
+  WorkTermType,
 } from "@cooper/db/schema";
-import { WorkEnvironmentType, ReviewType, WorkTermType } from "@cooper/db/schema";
+import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { useToast } from "@cooper/ui/hooks/use-toast";
 
