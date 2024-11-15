@@ -64,7 +64,7 @@ export default function Roles({
     toast,
     mounted,
     validationResult.success,
-    validationResult?.error?.issues,
+    validationResult.error?.issues,
   ]);
 
   const reviews = api.review.list.useQuery({
