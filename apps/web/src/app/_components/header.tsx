@@ -46,25 +46,24 @@ export default function Header({ session, auth }: HeaderProps) {
         </h1>
       </Link>
       {/* Centered Links */}
-      <div className="lg: mb-8 flex min-h-20 flex-shrink grid-cols-2 items-end justify-start gap-4 lg:gap-12">
+      <div className="flex min-h-20 flex-shrink grid-cols-2 items-end justify-start gap-4 lg:gap-12">
         <Link href="/roles">
           <h2
             className={cn(
-              "font-semibold",
+              "mb-[1.375rem] font-semibold",
               pathname.includes("roles") &&
-                "underline decoration-cooper-pink-500 decoration-[3px] underline-offset-[6px]",
+                "mb-0 after:mt-4 after:block after:h-1.5 after:w-full after:rounded-t-full after:bg-cooper-pink-500",
             )}
           >
-            {" "}
-            Jobs{" "}
+            Jobs
           </h2>
         </Link>
         <Link href="/companies">
           <h2
             className={cn(
-              "font-semibold",
+              "mb-[1.375rem] font-semibold",
               pathname.includes("companies") &&
-                "underline decoration-cooper-green-500 decoration-[3px] underline-offset-[6px]",
+                "mb-0 after:mt-4 after:block after:h-1.5 after:w-full after:rounded-t-full after:bg-cooper-green-500",
             )}
           >
             Companies
