@@ -1,4 +1,5 @@
 import { useFormContext } from "react-hook-form";
+import { z } from "zod";
 
 import { Button } from "@cooper/ui/button";
 import { FormControl, FormField, FormItem } from "@cooper/ui/form";
@@ -44,7 +45,7 @@ export function SearchBar() {
                   field.onChange(value);
                   console.log(form.getValues());
                 }}
-                defaultValue={field.value}
+                defaultValue={field.value as string}
               >
                 <SelectTrigger className="h-14 rounded-none rounded-bl border border-t-0 border-[#e2e8f0] text-lg ring-0 focus:border-2 focus:ring-0 active:ring-0 lg:rounded-none lg:border-b lg:border-l-0 lg:border-r-0 lg:border-t">
                   <SelectValue placeholder="Cycle" />
@@ -68,7 +69,10 @@ export function SearchBar() {
         render={({ field }) => (
           <FormItem className="col-span-5 lg:col-span-2">
             <FormControl>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
+              <Select
+                onValueChange={field.onChange}
+                defaultValue={field.value as string}
+              >
                 <SelectTrigger className="h-14 rounded-none border border-l-0 border-t-0 border-[#e2e8f0] text-lg placeholder:opacity-50 focus:border-2 focus:ring-0 active:ring-0 lg:rounded-l-none lg:rounded-r-none lg:border-l lg:border-r-0 lg:border-t">
                   <SelectValue placeholder="Work Term" />
                 </SelectTrigger>
