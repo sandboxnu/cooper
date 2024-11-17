@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 import { beforeEach, describe, expect, test, vi } from "vitest";
 
 import type { Session } from "@cooper/auth";
@@ -51,6 +52,7 @@ describe("Review Router", async () => {
     expect(reviews).toEqual(data);
 
     expect(db.query.Review.findMany).toHaveBeenCalledWith({
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       orderBy: expect.anything(),
       where: undefined,
     });
@@ -64,6 +66,7 @@ describe("Review Router", async () => {
     });
 
     expect(db.query.Review.findMany).toHaveBeenCalledWith({
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       orderBy: expect.anything(),
       where: and(eq(Review.workTerm, "SPRING")),
     });
@@ -77,6 +80,7 @@ describe("Review Router", async () => {
     });
 
     expect(db.query.Review.findMany).toHaveBeenCalledWith({
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       orderBy: expect.anything(),
       where: and(eq(Review.workEnvironment, "REMOTE")),
     });
@@ -91,6 +95,7 @@ describe("Review Router", async () => {
     });
 
     expect(db.query.Review.findMany).toHaveBeenCalledWith({
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       orderBy: expect.anything(),
       where: and(
         eq(Review.workTerm, "SPRING"),
