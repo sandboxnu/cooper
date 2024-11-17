@@ -28,7 +28,7 @@ export default function Header({ session, auth }: HeaderProps) {
     <header className="flex h-20 w-full grid-cols-3 items-center justify-between border-b border-b-[#9A9A9A] bg-white pr-2 drop-shadow-sm">
       {/* Logo + Cooper */}
       <Link href="/" className={cn("flex flex-grow items-end", outerWidth)}>
-        <div className="mx-4 flex min-h-20 items-end">
+        <div className="mx-4 flex h-20 items-end">
           <Image
             src="/svg/hidingLogo.svg"
             height={150}
