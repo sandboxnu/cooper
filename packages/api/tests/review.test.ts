@@ -1,9 +1,10 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
 
-import { Session } from "@cooper/auth";
+import type { Session } from "@cooper/auth";
+import type { ReviewType } from "@cooper/db/schema";
 import { and, eq } from "@cooper/db";
 import { db } from "@cooper/db/client";
-import { Review, ReviewType } from "@cooper/db/schema";
+import { Review } from "@cooper/db/schema";
 
 import { appRouter } from "../src/root";
 import { createCallerFactory, createTRPCContext } from "../src/trpc";
