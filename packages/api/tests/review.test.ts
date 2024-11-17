@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
 
-import type { Session } from "@cooper/auth";
+import type { Session } from "@cooper/auth/src";
 import type { ReviewType } from "@cooper/db/schema";
 import { and, eq } from "@cooper/db";
 import { db } from "@cooper/db/client";
