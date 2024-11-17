@@ -1,7 +1,17 @@
 import { useFormContext } from "react-hook-form";
 
+import { Button } from "@cooper/ui/button";
 import { FormControl, FormField, FormItem } from "@cooper/ui/form";
 import { Input } from "@cooper/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@cooper/ui/select";
 
 export function SearchBar() {
   const form = useFormContext();
@@ -12,31 +22,13 @@ export function SearchBar() {
         control={form.control}
         name="searchText"
         render={({ field }) => (
-          <FormItem className="relative col-span-full lg:col-span-8">
+          <FormItem className="col-span-full lg:col-span-7">
             <FormControl>
-              <div className="h-14">
-                {/* SEARCH TEXT INPUT */}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute bottom-0 left-3 top-0 my-auto h-6 w-6 text-gray-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-
-                <Input
-                  {...field}
-                  className="h-14 rounded-b-none rounded-t-lg border border-[#e2e8f0] pl-12 text-lg active:ring-0 lg:rounded-l-lg lg:rounded-r-none"
-                  placeholder="Search"
-                />
-              </div>
+              <Input
+                {...field}
+                className="h-14 rounded-b-none rounded-t-lg border border-[#e2e8f0] pl-4 text-lg focus:bg-cooper-blue-200 active:ring-0 lg:rounded-l-lg lg:rounded-r-none"
+                placeholder="Search"
+              />
             </FormControl>
           </FormItem>
         )}
@@ -47,11 +39,25 @@ export function SearchBar() {
         render={({ field }) => (
           <FormItem className="col-span-6 lg:col-span-2">
             <FormControl>
-              <Input
-                {...field}
-                className="h-14 rounded-none rounded-bl border border-t-0 border-[#e2e8f0] text-lg ring-0 active:ring-0 lg:border-b lg:border-l-0 lg:border-r-0 lg:border-t"
-                placeholder="Cycle"
-              />
+              <Select
+                onValueChange={(value) => {
+                  field.onChange(value);
+                  console.log(form.getValues());
+                }}
+                defaultValue={field.value}
+              >
+                <SelectTrigger className="h-14 rounded-none rounded-bl border border-t-0 border-[#e2e8f0] text-lg ring-0 placeholder:text-muted-foreground focus:bg-cooper-blue-200 focus:ring-0 active:ring-0 lg:rounded-none lg:border-b lg:border-l-0 lg:border-r-0 lg:border-t">
+                  <SelectValue placeholder="Cycle" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectLabel>Cycle</SelectLabel>
+                    <SelectItem value="FALL">Fall</SelectItem>
+                    <SelectItem value="SPRING">Spring</SelectItem>
+                    <SelectItem value="SUMMER">Summer</SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
             </FormControl>
           </FormItem>
         )}
@@ -62,15 +68,42 @@ export function SearchBar() {
         render={({ field }) => (
           <FormItem className="col-span-6 lg:col-span-2">
             <FormControl>
-              <Input
-                {...field}
-                className="h-14 rounded-none rounded-br border border-l-0 border-t-0 border-[#e2e8f0] text-lg active:ring-0 lg:rounded-l-none lg:rounded-r-lg lg:border-l lg:border-t"
-                placeholder="Environment"
-              />
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <SelectTrigger className="h-14 rounded-none rounded-br border border-l-0 border-t-0 border-[#e2e8f0] text-lg placeholder:text-muted-foreground focus:bg-cooper-blue-200 focus:ring-0 active:ring-0 lg:rounded-l-none lg:rounded-r-none lg:border-l lg:border-r-0 lg:border-t">
+                  <SelectValue placeholder="Work Term" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectLabel>Work Model</SelectLabel>
+                    <SelectItem value="HYBRID">Hybrid</SelectItem>
+                    <SelectItem value="REMOTE">Remote</SelectItem>
+                    <SelectItem value="INPERSON">In Person</SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
             </FormControl>
           </FormItem>
         )}
       />
+      <Button
+        className="col-span-1 h-14 rounded-none rounded-br border border-l-0 border-t-0 border-[#e2e8f0] bg-white p-0 text-lg hover:bg-cooper-blue-200 focus:border-2 focus:ring-0 active:ring-0 lg:rounded-l-none lg:rounded-r-lg lg:border-l lg:border-t"
+        type="submit"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="my-auto h-8 w-8 text-gray-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          />
+        </svg>
+      </Button>
     </div>
   );
 }

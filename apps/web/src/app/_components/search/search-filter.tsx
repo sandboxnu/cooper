@@ -1,7 +1,7 @@
 "use client";
 
-import { useCallback, useEffect } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useCallback } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -35,44 +35,34 @@ export default function SearchFilter() {
     },
   });
 
-  const searchParams = useSearchParams();
   const router = useRouter();
   const pathName = usePathname();
 
   const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams);
-      params.set(name, value);
-      return params.toString();
+    ({ searchText, searchCycle, searchTerm }: z.infer<typeof formSchema>) => {
+      // Initialize URLSearchParams with the required searchText
+      const params = new URLSearchParams({ search: searchText });
+
+      // Conditionally add searchCycle and searchTerm if they have values
+      if (searchCycle) {
+        params.set("cycle", searchCycle);
+      }
+      if (searchTerm) {
+        params.set("term", searchTerm);
+      }
+
+      return params.toString(); // Returns a query string, e.g., "search=yo&cycle=SPRING"
     },
-    [searchParams],
+    [],
   );
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    let searchString = "";
-
-    if (values.searchText != "") {
-      searchString = `/?${createQueryString("search", values.searchText)}`;
-    } else if (values.searchCycle) {
-      searchString += `/?${createQueryString("cycle", values.searchCycle)}`;
-    } else if (values.searchTerm) {
-      searchString += `/?${createQueryString("term", values.searchTerm)}`;
-    }
-
-    router.push(pathName + searchString);
+    router.push(pathName + "?" + createQueryString(values));
   }
-
-  useEffect(() => console.log("errors", form.formState.errors), [form]);
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={() => {
-          console.log("submit");
-          form.handleSubmit(onSubmit);
-        }}
-        className="w-[100vw]"
-      >
+      <form onSubmit={form.handleSubmit(onSubmit)} className="w-[100vw]">
         <div className="flex justify-center">
           <SearchBar />
         </div>
