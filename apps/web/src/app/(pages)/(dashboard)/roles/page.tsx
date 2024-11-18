@@ -12,6 +12,7 @@ import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { useToast } from "@cooper/ui/hooks/use-toast";
 
+import NoResults from "~/app/_components/no-results";
 import { ReviewCard } from "~/app/_components/reviews/review-card";
 import { ReviewCardPreview } from "~/app/_components/reviews/review-card-preview";
 import SearchFilter from "~/app/_components/search/search-filter";
@@ -66,13 +67,13 @@ export default function Roles({
   });
 
   const [selectedReview, setSelectedReview] = useState<ReviewType | undefined>(
-    reviews.data ? reviews.data[0] : undefined,
+    reviews.data?.length ? reviews.data[0] : undefined,
   );
 
   return (
     <>
       <SearchFilter />
-      {reviews.data && (
+      {reviews.data?.length > 0 && (
         <div className="mb-8 grid h-[70dvh] w-4/5 grid-cols-5 gap-4 lg:w-3/4">
           <div className="col-span-2 gap-3 overflow-scroll pr-4">
             {reviews.data.map((review, i) => {
@@ -93,12 +94,13 @@ export default function Roles({
             })}
           </div>
           <div className="col-span-3 overflow-scroll">
-            {reviews.data.length > 0 && reviews.data[0] && (
+            {reviews.data?.length > 0 && reviews.data[0] && (
               <ReviewCard reviewObj={selectedReview ?? reviews.data[0]} />
             )}
           </div>
         </div>
       )}
+      {reviews.data?.length === 0 && <NoResults />}
     </>
   );
 }

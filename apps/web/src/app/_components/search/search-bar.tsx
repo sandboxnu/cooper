@@ -1,3 +1,4 @@
+import { useSearchParams } from "next/navigation";
 import { useFormContext } from "react-hook-form";
 
 import { Button } from "@cooper/ui/button";
@@ -15,6 +16,7 @@ import {
 
 export function SearchBar() {
   const form = useFormContext();
+  const searchParams = useSearchParams();
 
   return (
     <div className="grid w-4/5 grid-cols-12 rounded-lg lg:w-3/4">
@@ -40,11 +42,10 @@ export function SearchBar() {
           <FormItem className="col-span-5 lg:col-span-2">
             <FormControl>
               <Select
-                onValueChange={(value) => {
-                  field.onChange(value);
-                  console.log(form.getValues());
-                }}
-                defaultValue={field.value as string}
+                onValueChange={field.onChange}
+                defaultValue={
+                  searchParams.get("cycle") ?? (field.value as string)
+                }
               >
                 <SelectTrigger className="h-14 rounded-none rounded-bl border border-t-0 border-[#e2e8f0] text-lg ring-0 focus:border-2 focus:ring-0 active:ring-0 lg:rounded-none lg:border-b lg:border-l-0 lg:border-r-0 lg:border-t">
                   <SelectValue placeholder="Cycle" />
@@ -70,7 +71,9 @@ export function SearchBar() {
             <FormControl>
               <Select
                 onValueChange={field.onChange}
-                defaultValue={field.value as string}
+                defaultValue={
+                  searchParams.get("term") ?? (field.value as string)
+                }
               >
                 <SelectTrigger className="h-14 rounded-none border border-l-0 border-t-0 border-[#e2e8f0] text-lg placeholder:opacity-50 focus:border-2 focus:ring-0 active:ring-0 lg:rounded-l-none lg:rounded-r-none lg:border-l lg:border-r-0 lg:border-t">
                   <SelectValue placeholder="Work Term" />
