@@ -3,13 +3,13 @@
 import { useEffect, useState } from "react";
 import { z } from "zod";
 
-import {
+import type {
   ReviewType,
-  WorkEnvironment,
   WorkEnvironmentType,
-  WorkTerm,
   WorkTermType,
 } from "@cooper/db/schema";
+
+import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { useToast } from "@cooper/ui/hooks/use-toast";
 
@@ -18,12 +18,12 @@ import { ReviewCardPreview } from "~/app/_components/reviews/review-card-preview
 import SearchFilter from "~/app/_components/search/search-filter";
 import { api } from "~/trpc/react";
 
+
+
 export default function Roles({
   searchParams,
 }: {
   searchParams?: {
-    workTerm?: WorkTermType;
-    workEnvironment?: WorkEnvironmentType;
     search?: string;
     cycle?: WorkTermType;
     term?: WorkEnvironmentType;
@@ -63,7 +63,12 @@ export default function Roles({
         variant: "destructive",
       });
     }
-  }, [toast, mounted]);
+  }, [
+    toast,
+    mounted,
+    validationResult.success,
+    validationResult.error?.issues,
+  ]);
 
   const reviews = api.review.list.useQuery({
     search: searchParams?.search,
