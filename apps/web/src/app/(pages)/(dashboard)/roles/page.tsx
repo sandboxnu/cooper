@@ -8,7 +8,6 @@ import type {
   WorkEnvironmentType,
   WorkTermType,
 } from "@cooper/db/schema";
-
 import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { useToast } from "@cooper/ui/hooks/use-toast";
@@ -17,8 +16,6 @@ import { ReviewCard } from "~/app/_components/reviews/review-card";
 import { ReviewCardPreview } from "~/app/_components/reviews/review-card-preview";
 import SearchFilter from "~/app/_components/search/search-filter";
 import { api } from "~/trpc/react";
-
-
 
 export default function Roles({
   searchParams,
