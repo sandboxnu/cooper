@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/unbound-method */
 import { beforeEach, describe, expect, test, vi } from "vitest";
 
 import type { Session } from "@cooper/auth";
 import type { ReviewType } from "@cooper/db/schema";
-import { desc } from "@cooper/db";
+import { and, desc, eq } from "@cooper/db";
 import { db } from "@cooper/db/client";
 import { Review } from "@cooper/db/schema";
 
@@ -53,6 +54,19 @@ describe("Review Router", async () => {
     expect(db.query.Review.findMany).toHaveBeenCalledWith({
       orderBy: desc(Review.id),
       where: undefined,
+    });
+  });
+
+  test("list endpoint with cycle filter", async () => {
+    await caller.review.list({
+      options: {
+        cycle: "SPRING",
+      },
+    });
+
+    expect(db.query.Review.findMany).toHaveBeenCalledWith({
+      orderBy: expect.anything(),
+      where: and(eq(Review.workTerm, "SPRING")),
     });
   });
 });
