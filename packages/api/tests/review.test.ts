@@ -27,6 +27,7 @@ vi.mock("@cooper/auth", () => ({
 describe("Review Router", async () => {
   beforeEach(() => {
     vi.restoreAllMocks();
+    // eslint-disable-next-line @typescript-eslint/unbound-method
     vi.mocked(db.query.Review.findMany).mockResolvedValue(data as ReviewType[]);
   });
 
