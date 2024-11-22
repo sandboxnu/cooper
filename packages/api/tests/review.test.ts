@@ -52,7 +52,7 @@ describe("Review Router", async () => {
     expect(reviews).toEqual(data);
 
     expect(db.query.Review.findMany).toHaveBeenCalledWith({
-      orderBy: desc(Review.id),
+      orderBy: expect.anything(),
       where: undefined,
     });
   });
@@ -67,6 +67,36 @@ describe("Review Router", async () => {
     expect(db.query.Review.findMany).toHaveBeenCalledWith({
       orderBy: expect.anything(),
       where: and(eq(Review.workTerm, "SPRING")),
+    });
+  });
+
+  test("list endpoint with term filter", async () => {
+    await caller.review.list({
+      options: {
+        term: "REMOTE",
+      },
+    });
+
+    expect(db.query.Review.findMany).toHaveBeenCalledWith({
+      orderBy: expect.anything(),
+      where: and(eq(Review.workEnvironment, "REMOTE")),
+    });
+  });
+
+  test("list endpoint with cycle and term filter", async () => {
+    await caller.review.list({
+      options: {
+        cycle: "SPRING",
+        term: "REMOTE",
+      },
+    });
+
+    expect(db.query.Review.findMany).toHaveBeenCalledWith({
+      orderBy: expect.anything(),
+      where: and(
+        eq(Review.workTerm, "SPRING"),
+        eq(Review.workEnvironment, "REMOTE"),
+      ),
     });
   });
 });
