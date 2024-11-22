@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, test, vi } from "vitest";
 
 import type { Session } from "@cooper/auth";
 import type { ReviewType } from "@cooper/db/schema";
-import { and, eq } from "@cooper/db";
+import { and, desc, eq } from "@cooper/db";
 import { db } from "@cooper/db/client";
 import { Review } from "@cooper/db/schema";
 
@@ -52,8 +52,7 @@ describe("Review Router", async () => {
     expect(reviews).toEqual(data);
 
     expect(db.query.Review.findMany).toHaveBeenCalledWith({
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      orderBy: expect.anything(),
+      orderBy: desc(Review.id),
       where: undefined,
     });
   });
