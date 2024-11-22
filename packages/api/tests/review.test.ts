@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 import { beforeEach, describe, expect, test, vi } from "vitest";
 
 import type { Session } from "@cooper/auth";
@@ -27,7 +28,6 @@ vi.mock("@cooper/auth", () => ({
 describe("Review Router", async () => {
   beforeEach(() => {
     vi.restoreAllMocks();
-    // eslint-disable-next-line @typescript-eslint/unbound-method
     vi.mocked(db.query.Review.findMany).mockResolvedValue(data as ReviewType[]);
   });
 
