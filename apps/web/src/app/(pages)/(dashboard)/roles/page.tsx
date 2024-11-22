@@ -3,13 +3,12 @@
 import { useEffect, useState } from "react";
 import { z } from "zod";
 
-import {
+import type {
   ReviewType,
-  WorkEnvironment,
   WorkEnvironmentType,
-  WorkTerm,
   WorkTermType,
 } from "@cooper/db/schema";
+import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { useToast } from "@cooper/ui/hooks/use-toast";
 
@@ -60,7 +59,12 @@ export default function Roles({
         variant: "destructive",
       });
     }
-  }, [toast, mounted]);
+  }, [
+    toast,
+    mounted,
+    validationResult.success,
+    validationResult.error?.issues,
+  ]);
 
   const reviews = api.review.list.useQuery({
     options: validationResult.success ? validationResult.data : {},
