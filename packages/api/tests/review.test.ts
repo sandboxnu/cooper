@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, test, vi } from "vitest";
 
 import type { Session } from "@cooper/auth";
 import type { ReviewType } from "@cooper/db/schema";
-import { and, desc, eq } from "@cooper/db";
+import { and, eq } from "@cooper/db";
 import { db } from "@cooper/db/client";
 import { Review } from "@cooper/db/schema";
 
