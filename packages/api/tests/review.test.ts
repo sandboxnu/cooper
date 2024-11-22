@@ -22,14 +22,7 @@ vi.mock("@cooper/db/client", () => ({
 }));
 
 vi.mock("@cooper/auth", () => ({
-  auth: () => ({
-    session: {
-      user: {
-        id: "1",
-      },
-      expires: "1",
-    },
-  }),
+  auth: vi.fn(),
 }));
 
 describe("Review Router", async () => {
