@@ -60,6 +60,10 @@
     "start": {
       "cache": false,
       "interactive": true
+    },
+    "test": {
+      "cache": true,
+      "interactive": true
     }
   },
   "globalEnv": [
