@@ -77,7 +77,6 @@ export default function SearchFilter({
   );
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(alternatePathname);
     if (alternatePathname) {
       router.push(alternatePathname + "?" + createQueryString(values));
     } else {
