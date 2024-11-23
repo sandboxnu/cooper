@@ -31,9 +31,9 @@ export default function Header({ session, auth }: HeaderProps) {
         <div className="mx-4 flex h-20 items-end">
           <Image
             src="/svg/hidingLogo.svg"
-            height={150}
-            width={150}
             alt="Logo Picture"
+            width={137}
+            height={60}
           />
         </div>
         <h1
