@@ -14,6 +14,7 @@ import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 import { Form } from "@cooper/ui/form";
 import { CheckIcon } from "@cooper/ui/icons";
+import { useToast } from "@cooper/ui/hooks/use-toast";
 
 import {
   CompanyDetailsSection,
@@ -227,6 +228,7 @@ export function ReviewForm(props: ReviewFormProps) {
   });
 
   const [currentStep, setCurrentStep] = useState<number>(0);
+  const { toast } = useToast();
 
   type FieldName = keyof z.infer<typeof formSchema>;
 
@@ -246,6 +248,7 @@ export function ReviewForm(props: ReviewFormProps) {
     if (currentStep <= steps.length) {
       if (currentStep === steps.length) {
         await form.handleSubmit(onSubmit)();
+        return;
       }
       setCurrentStep((step) => step + 1);
 
@@ -262,7 +265,19 @@ export function ReviewForm(props: ReviewFormProps) {
     scroll.scrollToTop({ duration: 250, smooth: true });
   };
 
-  const mutation = api.review.create.useMutation();
+  const mutation = api.review.create.useMutation({
+    onError: (error) => {
+      toast({
+        title: "Invalid search params",
+        description: error.message,
+        variant: "destructive",
+      });
+    }, 
+    onSuccess: () => {
+      setCurrentStep((step) => step + 1);
+      scroll.scrollToTop({ duration: 250, smooth: true });
+    },
+});
 
   function onSubmit(values: z.infer<ReviewFormType>) {
     mutation.mutate({

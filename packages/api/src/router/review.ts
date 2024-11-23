@@ -27,7 +27,7 @@ export const reviewRouter = {
       ].filter(Boolean);
 
       return ctx.db.query.Review.findMany({
-        orderBy: desc(Review.id),
+        orderBy: desc(Review.createdAt),
         where: conditions.length > 0 ? and(...conditions) : undefined,
       });
     }),
