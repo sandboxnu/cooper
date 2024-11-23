@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -9,6 +8,7 @@ import { cn } from "@cooper/ui";
 
 import { NewReviewDialog } from "~/app/_components/reviews/new-review-dialogue";
 import { altivoFont } from "~/app/styles/font";
+import CooperLogo from "./cooper-logo";
 
 interface HeaderProps {
   session: Session | null;
@@ -29,12 +29,7 @@ export default function Header({ session, auth }: HeaderProps) {
       {/* Logo + Cooper */}
       <Link href="/" className={cn("flex flex-grow items-end", outerWidth)}>
         <div className="mx-4 flex h-20 items-end">
-          <Image
-            src="/svg/hidingLogo.svg"
-            alt="Logo Picture"
-            width={137}
-            height={60}
-          />
+          <CooperLogo />
         </div>
         <h1
           className={cn(

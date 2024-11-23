@@ -1,4 +1,3 @@
-import { useSearchParams } from "next/navigation";
 import { useFormContext } from "react-hook-form";
 
 import { Button } from "@cooper/ui/button";
@@ -29,7 +28,6 @@ interface SearchBarProps {
  */
 export function SearchBar({ cycle, term }: SearchBarProps) {
   const form = useFormContext();
-  const searchParams = useSearchParams();
 
   return (
     <div className="grid w-4/5 grid-cols-12 rounded-lg lg:w-3/4">
