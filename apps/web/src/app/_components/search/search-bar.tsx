@@ -14,7 +14,20 @@ import {
   SelectValue,
 } from "@cooper/ui/select";
 
-export function SearchBar() {
+interface SearchBarProps {
+  cycle?: "FALL" | "SPRING" | "SUMMER";
+  term?: "INPERSON" | "HYBRID" | "REMOTE";
+}
+
+/**
+ * This Search Bar employs filtering and fuzzy searching.
+ *
+ * NOTE: Cycle and Term only make sense for Roles
+ *
+ * @param param0 Cycle and Term to be set as default values for their respective dropdowns
+ * @returns A search bar which is connected to a parent 'useForm'
+ */
+export function SearchBar({ cycle, term }: SearchBarProps) {
   const form = useFormContext();
   const searchParams = useSearchParams();
 
@@ -41,12 +54,7 @@ export function SearchBar() {
         render={({ field }) => (
           <FormItem className="col-span-5 lg:col-span-2">
             <FormControl>
-              <Select
-                onValueChange={field.onChange}
-                defaultValue={
-                  searchParams.get("cycle") ?? (field.value as string)
-                }
-              >
+              <Select onValueChange={field.onChange} defaultValue={cycle}>
                 <SelectTrigger className="h-14 rounded-none rounded-bl border border-t-0 border-[#e2e8f0] text-lg ring-0 focus:border-2 focus:ring-0 active:ring-0 lg:rounded-none lg:border-b lg:border-l-0 lg:border-r-0 lg:border-t">
                   <SelectValue placeholder="Cycle" />
                 </SelectTrigger>
@@ -69,12 +77,7 @@ export function SearchBar() {
         render={({ field }) => (
           <FormItem className="col-span-5 lg:col-span-2">
             <FormControl>
-              <Select
-                onValueChange={field.onChange}
-                defaultValue={
-                  searchParams.get("term") ?? (field.value as string)
-                }
-              >
+              <Select onValueChange={field.onChange} defaultValue={term}>
                 <SelectTrigger className="h-14 rounded-none border border-l-0 border-t-0 border-[#e2e8f0] text-lg placeholder:opacity-50 focus:border-2 focus:ring-0 active:ring-0 lg:rounded-l-none lg:rounded-r-none lg:border-l lg:border-r-0 lg:border-t">
                   <SelectValue placeholder="Work Term" />
                 </SelectTrigger>

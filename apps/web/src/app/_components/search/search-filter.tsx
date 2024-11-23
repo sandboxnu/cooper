@@ -29,18 +29,29 @@ export type SearchFilterFormType = typeof formSchema;
 
 interface SearchFilterProps {
   search?: string;
+  cycle?: "FALL" | "SPRING" | "SUMMER";
+  term?: "INPERSON" | "HYBRID" | "REMOTE";
+  alternatePathname?: string;
 }
 
 /**
  * Handles searching logic, updates the search param base on user search and passes the text to backend with fuzzy searching.
- * @param param0 user input text that's passed to the fuzzy search
+ * @param param0 user input text that's passed to the fuzzy search, cycle filter, and term filter.
+ * - alternatePathname example: "/roles" or "/companies"
  * @returns the search bar with the user inputted text
  */
-export default function SearchFilter({ search }: SearchFilterProps) {
+export default function SearchFilter({
+  search,
+  cycle,
+  term,
+  alternatePathname,
+}: SearchFilterProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       searchText: search ?? "",
+      searchCycle: cycle,
+      searchTerm: term,
     },
   });
 
@@ -66,14 +77,19 @@ export default function SearchFilter({ search }: SearchFilterProps) {
   );
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    router.push(pathName + "?" + createQueryString(values));
+    console.log(alternatePathname);
+    if (alternatePathname) {
+      router.push(alternatePathname + "?" + createQueryString(values));
+    } else {
+      router.push(pathName + "?" + createQueryString(values));
+    }
   }
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-[100vw]">
         <div className="flex justify-center">
-          <SearchBar />
+          <SearchBar cycle={cycle} term={term} />
         </div>
       </form>
     </Form>
