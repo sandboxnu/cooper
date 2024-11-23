@@ -27,11 +27,20 @@ const formSchema = z.object({
 
 export type SearchFilterFormType = typeof formSchema;
 
-export default function SearchFilter() {
+interface SearchFilterProps {
+  search?: string;
+}
+
+/**
+ * Handles searching logic, updates the search param base on user search and passes the text to backend with fuzzy searching.
+ * @param param0 user input text that's passed to the fuzzy search
+ * @returns the search bar with the user inputted text
+ */
+export default function SearchFilter({ search }: SearchFilterProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      searchText: "",
+      searchText: search ?? "",
     },
   });
 
