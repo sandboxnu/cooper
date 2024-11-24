@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { zodResolver } from "@hookform/resolvers/zod";
 import dayjs from "dayjs";
@@ -267,11 +267,11 @@ export function ReviewForm(props: ReviewFormProps) {
 
   const mutation = api.review.create.useMutation({
     onError: (error) => {
-      toast({
-        title: "Invalid search params",
+      useEffect(() => {toast({
+        title: "Review not submitted correctly",
         description: error.message,
         variant: "destructive",
-      });
+      })});
     }, 
     onSuccess: () => {
       setCurrentStep((step) => step + 1);
