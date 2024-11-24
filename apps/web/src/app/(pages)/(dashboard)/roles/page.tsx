@@ -47,25 +47,19 @@ export default function Roles({
   useEffect(() => {
     setMounted(true);
   }, []);
+
   useEffect(() => {
-    if (!mounted) {
-      return;
-    }
-    if (!validationResult.success) {
+    if (mounted && !validationResult.success) {
       toast({
-        title: "Invalid search params",
+        title: "Invalid Search Parameters",
         description: validationResult.error.issues
           .map((issue) => issue.message)
           .join(", "),
         variant: "destructive",
       });
+      setMounted(false);
     }
-  }, [
-    toast,
-    mounted,
-    validationResult.success,
-    validationResult.error?.issues,
-  ]);
+  }, [toast, mounted, validationResult]);
 
   const reviews = api.review.list.useQuery({
     search: searchParams?.search,
@@ -73,19 +67,19 @@ export default function Roles({
   });
 
   const [selectedReview, setSelectedReview] = useState<ReviewType | undefined>(
-    reviews.data ? reviews.data[0] : undefined,
+    reviews.isSuccess ? reviews.data[0] : undefined,
   );
 
   useEffect(() => {
-    if (reviews.data) {
+    if (reviews.isSuccess) {
       setSelectedReview(reviews.data[0]);
     }
-  }, [reviews.data]);
+  }, [reviews.isSuccess, reviews.data]);
 
   return (
     <>
-      <SearchFilter search={searchParams?.search} />
-      {reviews.data && (
+      <SearchFilter search={searchParams?.search} {...validationResult.data} />
+      {reviews.isSuccess && (
         <div className="mb-8 grid h-[70dvh] w-4/5 grid-cols-5 gap-4 lg:w-3/4">
           <div className="col-span-2 gap-3 overflow-scroll pr-4">
             {reviews.data.map((review, i) => {
