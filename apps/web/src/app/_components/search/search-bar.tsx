@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 
 import { Button } from "@cooper/ui/button";
@@ -8,7 +9,7 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
+  SelectSeparator,
   SelectTrigger,
   SelectValue,
 } from "@cooper/ui/select";
@@ -28,6 +29,9 @@ interface SearchBarProps {
  */
 export function SearchBar({ cycle, term }: SearchBarProps) {
   const form = useFormContext();
+
+  const [selectedCycle, setSelectedCycle] = useState<string | undefined>(cycle);
+  const [selectedTerm, setSelectedTerm] = useState<string | undefined>(term);
 
   return (
     <div className="grid w-4/5 grid-cols-12 rounded-lg lg:w-3/4">
@@ -52,13 +56,25 @@ export function SearchBar({ cycle, term }: SearchBarProps) {
         render={({ field }) => (
           <FormItem className="col-span-5 lg:col-span-2">
             <FormControl>
-              <Select onValueChange={field.onChange} defaultValue={cycle}>
+              <Select
+                onValueChange={(value) => {
+                  setSelectedCycle(value);
+                  form.setValue(
+                    field.name,
+                    value === "CYCLE" ? undefined : value,
+                  );
+                }}
+                value={selectedCycle}
+              >
                 <SelectTrigger className="h-14 rounded-none rounded-bl border border-t-0 border-[#e2e8f0] text-lg ring-0 focus:border-2 focus:ring-0 active:ring-0 lg:rounded-none lg:border-b lg:border-l-0 lg:border-r-0 lg:border-t">
                   <SelectValue placeholder="Cycle" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectLabel>Cycle</SelectLabel>
+                    <SelectItem className="font-bold" value="CYCLE">
+                      Cycle
+                    </SelectItem>
+                    <SelectSeparator />
                     <SelectItem value="FALL">Fall</SelectItem>
                     <SelectItem value="SPRING">Spring</SelectItem>
                     <SelectItem value="SUMMER">Summer</SelectItem>
@@ -75,13 +91,25 @@ export function SearchBar({ cycle, term }: SearchBarProps) {
         render={({ field }) => (
           <FormItem className="col-span-5 lg:col-span-2">
             <FormControl>
-              <Select onValueChange={field.onChange} defaultValue={term}>
+              <Select
+                onValueChange={(value) => {
+                  setSelectedTerm(value);
+                  form.setValue(
+                    field.name,
+                    value === "WORKTERM" ? undefined : value,
+                  );
+                }}
+                value={selectedTerm}
+              >
                 <SelectTrigger className="h-14 rounded-none border border-l-0 border-t-0 border-[#e2e8f0] text-lg placeholder:opacity-50 focus:border-2 focus:ring-0 active:ring-0 lg:rounded-l-none lg:rounded-r-none lg:border-l lg:border-r-0 lg:border-t">
                   <SelectValue placeholder="Work Term" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectLabel>Work Model</SelectLabel>
+                    <SelectItem className="font-bold" value="WORKTERM">
+                      Work Term
+                    </SelectItem>
+                    <SelectSeparator />
                     <SelectItem value="HYBRID">Hybrid</SelectItem>
                     <SelectItem value="REMOTE">Remote</SelectItem>
                     <SelectItem value="INPERSON">In Person</SelectItem>

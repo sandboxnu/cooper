@@ -12,7 +12,6 @@ import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { useToast } from "@cooper/ui/hooks/use-toast";
 
-import Loading from "~/app/_components/loading-results";
 import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
 import { ReviewCard } from "~/app/_components/reviews/review-card";
@@ -50,25 +49,19 @@ export default function Roles({
   useEffect(() => {
     setMounted(true);
   }, []);
+
   useEffect(() => {
-    if (!mounted) {
-      return;
-    }
-    if (!validationResult.success) {
+    if (mounted && !validationResult.success) {
       toast({
-        title: "Invalid search params",
+        title: "Invalid Search Parameters",
         description: validationResult.error.issues
           .map((issue) => issue.message)
           .join(", "),
         variant: "destructive",
       });
+      setMounted(false);
     }
-  }, [
-    toast,
-    mounted,
-    validationResult.success,
-    validationResult.error?.issues,
-  ]);
+  }, [toast, mounted, validationResult]);
 
   const reviews = api.review.list.useQuery({
     search: searchParams?.search,
@@ -76,19 +69,19 @@ export default function Roles({
   });
 
   const [selectedReview, setSelectedReview] = useState<ReviewType | undefined>(
-    reviews.data?.length ? reviews.data[0] : undefined,
+    reviews.isSuccess ? reviews.data[0] : undefined,
   );
 
   useEffect(() => {
-    if (reviews.data) {
+    if (reviews.isSuccess) {
       setSelectedReview(reviews.data[0]);
     }
-  }, [reviews.data]);
+  }, [reviews.isSuccess, reviews.data]);
 
   return (
     <>
       <SearchFilter search={searchParams?.search} {...validationResult.data} />
-      {reviews.data?.length > 0 && (
+      {reviews.isSuccess && reviews.data.length > 0 && (
         <div className="mb-8 grid h-[70dvh] w-4/5 grid-cols-5 gap-4 lg:w-3/4">
           <div className="col-span-2 gap-3 overflow-scroll pr-4">
             {reviews.data.map((review, i) => {
@@ -115,8 +108,8 @@ export default function Roles({
           </div>
         </div>
       )}
-      {reviews.data?.length === 0 && <NoResults />}
-      {!reviews.data && <LoadingResults />}
+      {reviews.isSuccess && reviews.data.length === 0 && <NoResults />}
+      {reviews.isPending && <LoadingResults />}
     </>
   );
 }
