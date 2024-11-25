@@ -102,7 +102,7 @@ export default function Roles({
             })}
           </div>
           <div className="col-span-3 overflow-scroll">
-            {reviews.data?.length > 0 && reviews.data[0] && (
+            {reviews.data.length > 0 && reviews.data[0] && (
               <ReviewCard reviewObj={selectedReview ?? reviews.data[0]} />
             )}
           </div>
