@@ -13,8 +13,8 @@ import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 import { Form } from "@cooper/ui/form";
-import { CheckIcon } from "@cooper/ui/icons";
 import { useToast } from "@cooper/ui/hooks/use-toast";
+import { CheckIcon } from "@cooper/ui/icons";
 
 import {
   CompanyDetailsSection,
@@ -228,6 +228,7 @@ export function ReviewForm(props: ReviewFormProps) {
   });
 
   const [currentStep, setCurrentStep] = useState<number>(0);
+  const [submissionFailed, setSubmissionFailed] = useState<boolean>(false);
   const { toast } = useToast();
 
   type FieldName = keyof z.infer<typeof formSchema>;
@@ -266,24 +267,30 @@ export function ReviewForm(props: ReviewFormProps) {
   };
 
   const mutation = api.review.create.useMutation({
-    onError: (error) => {
-      toast({
-        title: "Review not submitted correctly",
-        description: error.message,
-        variant: "destructive",
-      });
-    }, 
+    onError: () => {
+      setSubmissionFailed(true);
+    },
     onSuccess: () => {
       toast({
-        title: "Review submitted successfully!",
-        description: "Thank you for your feedback. Your review has been recorded.",
+        title: "Invalid search params",
+        description: "hi",
         variant: "destructive",
       });
-      console.log("Toast called");
-      setCurrentStep(step => step + 1);
+      setCurrentStep((step) => step + 1);
       scroll.scrollToTop({ duration: 250, smooth: true });
     },
-});
+  });
+  useEffect(() => {
+    if (submissionFailed) {
+      toast({
+        title: "Failed to submit review",
+        description:
+          "An error occurred while submitting your review. Please try again!",
+        variant: "destructive",
+      });
+      setSubmissionFailed(false);
+    }
+  }, [submissionFailed, toast]);
 
   function onSubmit(values: z.infer<ReviewFormType>) {
     mutation.mutate({
