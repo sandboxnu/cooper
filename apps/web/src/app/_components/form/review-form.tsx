@@ -267,14 +267,20 @@ export function ReviewForm(props: ReviewFormProps) {
 
   const mutation = api.review.create.useMutation({
     onError: (error) => {
-      useEffect(() => {toast({
+      toast({
         title: "Review not submitted correctly",
         description: error.message,
         variant: "destructive",
-      })});
+      });
     }, 
     onSuccess: () => {
-      setCurrentStep((step) => step + 1);
+      toast({
+        title: "Review submitted successfully!",
+        description: "Thank you for your feedback. Your review has been recorded.",
+        variant: "destructive",
+      });
+      console.log("Toast called");
+      setCurrentStep(step => step + 1);
       scroll.scrollToTop({ duration: 250, smooth: true });
     },
 });
@@ -377,7 +383,7 @@ export function ReviewForm(props: ReviewFormProps) {
 
   return (
     <Form {...form}>
-      <form
+      <form 
         className={cn(
           "space-y-8 rounded-2xl border-t-[16px] bg-white px-32 py-16",
           steps[currentStep - 1]?.borderColor,
