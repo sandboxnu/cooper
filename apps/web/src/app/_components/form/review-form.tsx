@@ -16,6 +16,7 @@ import { Form } from "@cooper/ui/form";
 import { useToast } from "@cooper/ui/hooks/use-toast";
 import { CheckIcon } from "@cooper/ui/icons";
 
+
 import {
   CompanyDetailsSection,
   CoopCycleSection,
