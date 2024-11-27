@@ -1,4 +1,5 @@
 import type { TRPCRouterRecord } from "@trpc/server";
+import Fuse from "fuse.js";
 import { z } from "zod";
 
 import { and, desc, eq } from "@cooper/db";
@@ -10,6 +11,7 @@ export const reviewRouter = {
   list: publicProcedure
     .input(
       z.object({
+        search: z.string().optional(),
         options: z
           .object({
             cycle: z.enum(["SPRING", "FALL", "SUMMER"]).optional(),
@@ -18,7 +20,7 @@ export const reviewRouter = {
           .optional(),
       }),
     )
-    .query(({ ctx, input }) => {
+    .query(async ({ ctx, input }) => {
       const { options } = input;
 
       const conditions = [
@@ -26,10 +28,22 @@ export const reviewRouter = {
         options?.term && eq(Review.workEnvironment, options.term),
       ].filter(Boolean);
 
-      return ctx.db.query.Review.findMany({
-        orderBy: desc(Review.createdAt),
+      const reviews = await ctx.db.query.Review.findMany({
+        orderBy: desc(Review.id),
         where: conditions.length > 0 ? and(...conditions) : undefined,
       });
+
+      if (!input.search) {
+        return reviews;
+      }
+
+      const fuseOptions = {
+        keys: ["reviewHeadline", "textReview", "location"],
+      };
+
+      const fuse = new Fuse(reviews, fuseOptions);
+
+      return fuse.search(input.search).map((result) => result.item);
     }),
 
   getByRole: publicProcedure

@@ -1,13 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { z } from "zod";
 
 import type {
   ReviewType,
   WorkEnvironmentType,
   WorkTermType,
 } from "@cooper/db/schema";
+import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
+import { useToast } from "@cooper/ui/hooks/use-toast";
 
 import { ReviewCard } from "~/app/_components/reviews/review-card";
 import { ReviewCardPreview } from "~/app/_components/reviews/review-card-preview";
@@ -18,26 +21,65 @@ export default function Roles({
   searchParams,
 }: {
   searchParams?: {
-    workTerm?: WorkTermType;
-    workEnvironment?: WorkEnvironmentType;
+    search?: string;
+    cycle?: WorkTermType;
+    term?: WorkEnvironmentType;
   };
 }) {
+  const { toast } = useToast();
+
+  const RolesSearchParam = z.object({
+    cycle: z
+      .nativeEnum(WorkTerm, {
+        message: "Invalid cycle type",
+      })
+      .optional(),
+    term: z
+      .nativeEnum(WorkEnvironment, {
+        message: "Invalid term type",
+      })
+      .optional(),
+  });
+
+  const validationResult = RolesSearchParam.safeParse(searchParams);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (mounted && !validationResult.success) {
+      toast({
+        title: "Invalid Search Parameters",
+        description: validationResult.error.issues
+          .map((issue) => issue.message)
+          .join(", "),
+        variant: "destructive",
+      });
+      setMounted(false);
+    }
+  }, [toast, mounted, validationResult]);
+
   const reviews = api.review.list.useQuery({
-    options: {
-      cycle: searchParams?.workTerm,
-      term: searchParams?.workEnvironment,
-    },
+    search: searchParams?.search,
+    options: validationResult.success ? validationResult.data : {},
   });
 
   const [selectedReview, setSelectedReview] = useState<ReviewType | undefined>(
-    reviews.data ? reviews.data[0] : undefined,
+    reviews.isSuccess ? reviews.data[0] : undefined,
   );
+
+  useEffect(() => {
+    if (reviews.isSuccess) {
+      setSelectedReview(reviews.data[0]);
+    }
+  }, [reviews.isSuccess, reviews.data]);
 
   return (
     <>
-      <SearchFilter />
-      {/* TODO: Loading animations */}
-      {reviews.data && (
+      <SearchFilter search={searchParams?.search} {...validationResult.data} />
+      {reviews.isSuccess && (
         <div className="mb-8 grid h-[70dvh] w-4/5 grid-cols-5 gap-4 lg:w-3/4">
           <div className="col-span-2 gap-3 overflow-scroll pr-4">
             {reviews.data.map((review, i) => {

@@ -1,3 +1,5 @@
+import { Toaster } from "@cooper/ui/toaster";
+
 import HeaderLayout from "~/app/_components/header-layout";
 import { OnboardingWrapper } from "~/app/_components/onboarding/onboarding-wrapper";
 
@@ -8,7 +10,10 @@ export default function RootLayout({
 }) {
   return (
     <HeaderLayout>
-      <OnboardingWrapper>{children}</OnboardingWrapper>
+      <OnboardingWrapper>
+        {children}
+        <Toaster />
+      </OnboardingWrapper>
     </HeaderLayout>
   );
 }
