@@ -16,11 +16,14 @@ import { api } from "~/trpc/react";
 import { OnboardingForm } from "./onboarding-form";
 
 interface OnboardingDialogProps {
-  isOpen: boolean;
+  isOpen?: boolean;
   session: Session | null;
 }
 
-export function OnboardingDialog({ isOpen, session }: OnboardingDialogProps) {
+export function OnboardingDialog({
+  isOpen = true,
+  session,
+}: OnboardingDialogProps) {
   const [open, setOpen] = useState<boolean>(isOpen);
 
   const profile = api.profile.getCurrentUser.useQuery();
@@ -28,7 +31,11 @@ export function OnboardingDialog({ isOpen, session }: OnboardingDialogProps) {
   const shouldShowSignIn = !session;
   const shouldShowOnboarding = session && !profile.data;
 
-  if ((!shouldShowOnboarding && !shouldShowSignIn) || profile.isLoading) {
+  if (profile.isPending) {
+    return null;
+  }
+
+  if (!shouldShowOnboarding && !shouldShowSignIn) {
     return null;
   }
 
