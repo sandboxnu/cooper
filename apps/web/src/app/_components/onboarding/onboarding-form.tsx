@@ -71,6 +71,9 @@ export function OnboardingForm({ userId }: OnboardingFormProps) {
 
   return (
     <Form {...form}>
+      <p className="text-gray-500">
+        <span className="text-red-500">* </span>Required
+      </p>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col space-y-6"

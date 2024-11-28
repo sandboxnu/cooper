@@ -1,19 +1,16 @@
 import { WelcomeDialog } from "~/app/_components/onboarding/post-onboarding/welcome-dialog";
 
-interface BrowseAroundPromptProps {
+interface CoopPromptProps {
   firstName: string;
   onClick: () => void;
 }
 
-export function BrowseAroundPrompt({
-  firstName,
-  onClick,
-}: BrowseAroundPromptProps) {
+export function CoopPrompt({ firstName, onClick }: CoopPromptProps) {
   return (
     <WelcomeDialog
       heading={`Welcome to Cooper, ${firstName}!`}
-      subheading="Feel free to browse job reviews and search for companies you may be interested in."
-      buttonText="Got it"
+      subheading="To get started, please leave a co-op review."
+      buttonText="Take me there!"
       onClick={onClick}
     />
   );

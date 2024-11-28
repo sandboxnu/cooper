@@ -12,8 +12,8 @@ import {
   DialogTitle,
 } from "@cooper/ui/dialog";
 
+import { OnboardingForm } from "~/app/_components/onboarding/onboarding-form";
 import { api } from "~/trpc/react";
-import { OnboardingForm } from "./onboarding-form";
 
 interface OnboardingDialogProps {
   isOpen?: boolean;
@@ -47,9 +47,6 @@ export function OnboardingDialog({
             {session ? "Create a Cooper Account" : "Login"}
           </DialogTitle>
         </DialogHeader>
-        <p className="text-gray-500">
-          <span className="text-red-500">* </span>Required
-        </p>
         {shouldShowSignIn && <SignInWithGoogleButton />}
         {shouldShowOnboarding && <OnboardingForm userId={session.user.id} />}
       </DialogContent>
