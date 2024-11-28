@@ -5,12 +5,7 @@ import { signIn } from "next-auth/react";
 
 import type { Session } from "@cooper/auth";
 import { Button } from "@cooper/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@cooper/ui/dialog";
+import { Dialog, DialogContent } from "@cooper/ui/dialog";
 
 import { OnboardingForm } from "~/app/_components/onboarding/onboarding-form";
 import { api } from "~/trpc/react";
@@ -31,6 +26,10 @@ export function OnboardingDialog({
   const shouldShowSignIn = !session;
   const shouldShowOnboarding = session && !profile.data;
 
+  const closeDialog = () => {
+    setOpen(false);
+  };
+
   if (profile.isPending) {
     return null;
   }
@@ -42,13 +41,10 @@ export function OnboardingDialog({
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="p-12 sm:max-w-[720px]">
-        <DialogHeader>
-          <DialogTitle className="pb-4 text-center text-2xl font-bold text-cooper-blue-600">
-            {session ? "Create a Cooper Account" : "Login"}
-          </DialogTitle>
-        </DialogHeader>
         {shouldShowSignIn && <SignInWithGoogleButton />}
-        {shouldShowOnboarding && <OnboardingForm userId={session.user.id} />}
+        {shouldShowOnboarding && (
+          <OnboardingForm userId={session.user.id} closeDialog={closeDialog} />
+        )}
       </DialogContent>
     </Dialog>
   );

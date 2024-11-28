@@ -1,4 +1,7 @@
-import { FormLabel as FormLabelPrimitive } from "@cooper/ui/form";
+import {
+  FormLabel as FormLabelPrimitive,
+  FormMessage as FormMessagePrimitive,
+} from "@cooper/ui/form";
 
 export function FormLabel({
   children,
@@ -11,4 +14,10 @@ export function FormLabel({
       {required && <span className="ml-1 text-red-500">*</span>}
     </FormLabelPrimitive>
   );
+}
+
+export function FormMessage(
+  props: React.ComponentProps<typeof FormMessagePrimitive>,
+) {
+  return <FormMessagePrimitive className="text-base" {...props} />;
 }
