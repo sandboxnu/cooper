@@ -48,6 +48,12 @@ interface OnboardingFormProps {
   closeDialog: () => void;
 }
 
+/**
+ * OnboardingForm component that handles user onboarding.
+ * @param userId - The user ID
+ * @param closeDialog - The function to close the dialog
+ * @returns The OnboardingForm component
+ */
 export function OnboardingForm({ userId, closeDialog }: OnboardingFormProps) {
   const [cooped, setCooped] = useState<boolean | undefined>(undefined);
   const profile = api.profile.create.useMutation();

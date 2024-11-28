@@ -15,6 +15,13 @@ interface OnboardingDialogProps {
   session: Session | null;
 }
 
+/**
+ * OnboardingDialog component that handles user onboarding.
+ * Implementation note: Use OnboardingWrapper to wrap the component and initiate the dialog.
+ * @param isOpen - Whether the dialog is open
+ * @param session - The current user session
+ * @returns The OnboardingDialog component or null
+ */
 export function OnboardingDialog({
   isOpen = true,
   session,

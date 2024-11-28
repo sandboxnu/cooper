@@ -8,6 +8,11 @@ interface OnboardingWrapperProps {
   children: ReactNode;
 }
 
+/**
+ * OnboardingWrapper component that wraps the app and initiates the onboarding dialog.
+ * @param children - The children components
+ * @returns The OnboardingWrapper component
+ */
 export default async function OnboardingWrapper({
   children,
 }: OnboardingWrapperProps) {
