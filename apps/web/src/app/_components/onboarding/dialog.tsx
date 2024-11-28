@@ -47,6 +47,9 @@ export function OnboardingDialog({
             {session ? "Create a Cooper Account" : "Login"}
           </DialogTitle>
         </DialogHeader>
+        <p className="text-gray-500">
+          <span className="text-red-500">* </span>Required
+        </p>
         {shouldShowSignIn && <SignInWithGoogleButton />}
         {shouldShowOnboarding && <OnboardingForm userId={session.user.id} />}
       </DialogContent>

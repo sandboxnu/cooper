@@ -8,7 +8,9 @@ interface OnboardingWrapperProps {
   children: ReactNode;
 }
 
-export async function OnboardingWrapper({ children }: OnboardingWrapperProps) {
+export default async function OnboardingWrapper({
+  children,
+}: OnboardingWrapperProps) {
   const session = await auth();
 
   return (

@@ -10,6 +10,7 @@ import {
   FormItem,
   FormMessage,
 } from "@cooper/ui/form";
+import { RadioGroup, RadioGroupItem } from "@cooper/ui/radio-group";
 
 import { FormLabel } from "~/app/_components/themed/onboarding/form";
 import { Input } from "~/app/_components/themed/onboarding/input";
@@ -34,7 +35,11 @@ const formSchema = z.object({
     .number()
     .min(1, "Graduation month is required")
     .max(12, "Invalid month"),
-  cooped: z.boolean(),
+  cooped: z
+    .string()
+    .toLowerCase()
+    .transform((x) => x === "true")
+    .pipe(z.boolean()),
 });
 
 export type OnboardingFormType = typeof formSchema;
@@ -56,7 +61,7 @@ export function OnboardingForm({ userId }: OnboardingFormProps) {
       minor: undefined,
       graduationYear: undefined,
       graduationMonth: 0,
-      cooped: false,
+      cooped: undefined,
     },
   });
 
@@ -178,6 +183,42 @@ export function OnboardingForm({ userId }: OnboardingFormProps) {
             )}
           />
         </div>
+        <FormField
+          control={form.control}
+          name="cooped"
+          render={({ field }) => (
+            <FormItem className="space-y-6">
+              <FormLabel required>Have you completed a co-op before?</FormLabel>
+              <FormControl>
+                <RadioGroup
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                  className="flex flex-col space-y-3"
+                >
+                  <FormItem className="flex items-center space-x-4 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem
+                        value="true"
+                        checked={field.value === "true"}
+                      />
+                    </FormControl>
+                    <FormLabel>Yes</FormLabel>
+                  </FormItem>
+                  <FormItem className="flex items-center space-x-4 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem
+                        value="false"
+                        checked={field.value === "false"}
+                      />
+                    </FormControl>
+                    <FormLabel>No</FormLabel>
+                  </FormItem>
+                </RadioGroup>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <div className="mt-4 flex justify-end">
           <Button type="submit" className="w-24">
             Next
