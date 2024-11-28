@@ -17,7 +17,7 @@ export function WelcomeDialog({
 }: WelcomeDialogProps) {
   return (
     <div className="flex flex-col items-center space-y-4 text-center">
-      <Image src="/logo-tight.png" width={150} height={150} alt="Cooper Logo" />
+      <Image src="/logo.png" width={150} height={150} alt="Cooper Logo" />
       <h1 className="pb-2 text-4xl font-semibold text-cooper-blue-700">
         {heading}
       </h1>
