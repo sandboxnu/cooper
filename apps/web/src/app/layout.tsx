@@ -7,6 +7,7 @@ import { TRPCReactProvider } from "~/trpc/react";
 
 import "~/app/styles/globals.css";
 
+import OnboardingWrapper from "~/app/_components/onboarding/onboarding-wrapper";
 import { env } from "~/env";
 
 export const metadata: Metadata = {
@@ -37,7 +38,9 @@ export default function RootLayout(props: { children: React.ReactNode }) {
           "min-h-screen bg-background font-sans text-foreground antialiased",
         )}
       >
-        <TRPCReactProvider>{props.children}</TRPCReactProvider>
+        <TRPCReactProvider>
+          <OnboardingWrapper>{props.children}</OnboardingWrapper>
+        </TRPCReactProvider>
       </body>
     </html>
   );
