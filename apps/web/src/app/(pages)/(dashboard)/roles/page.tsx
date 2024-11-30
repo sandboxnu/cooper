@@ -12,6 +12,8 @@ import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { useToast } from "@cooper/ui/hooks/use-toast";
 
+import LoadingResults from "~/app/_components/loading-results";
+import NoResults from "~/app/_components/no-results";
 import { ReviewCard } from "~/app/_components/reviews/review-card";
 import { ReviewCardPreview } from "~/app/_components/reviews/review-card-preview";
 import SearchFilter from "~/app/_components/search/search-filter";
@@ -79,7 +81,7 @@ export default function Roles({
   return (
     <>
       <SearchFilter search={searchParams?.search} {...validationResult.data} />
-      {reviews.isSuccess && (
+      {reviews.isSuccess && reviews.data.length > 0 && (
         <div className="mb-8 grid h-[70dvh] w-4/5 grid-cols-5 gap-4 lg:w-3/4">
           <div className="col-span-2 gap-3 overflow-scroll pr-4">
             {reviews.data.map((review, i) => {
@@ -106,6 +108,8 @@ export default function Roles({
           </div>
         </div>
       )}
+      {reviews.isSuccess && reviews.data.length === 0 && <NoResults />}
+      {reviews.isPending && <LoadingResults />}
     </>
   );
 }
