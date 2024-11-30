@@ -19,6 +19,8 @@ import { majors, monthOptions } from "./constants";
 import { BrowseAroundPrompt } from "./post-onboarding/browse-around-prompt";
 import { CoopPrompt } from "./post-onboarding/coop-prompt";
 
+const currentYear = new Date().getFullYear();
+
 const formSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
@@ -31,7 +33,7 @@ const formSchema = z.object({
   graduationYear: z.coerce
     .number()
     .min(2010, "Graduation year must be 2010 or later")
-    .max(2030, "Graduation year must be 2030 or earlier"),
+    .max(currentYear + 6, "Graduation year must be within the next 5 years"),
   graduationMonth: z.coerce
     .number()
     .min(1, "Graduation month is required")
