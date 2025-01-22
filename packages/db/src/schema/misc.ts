@@ -54,3 +54,12 @@ export const WorkTerm = {
 } as const;
 
 export type WorkTermType = (typeof WorkTerm)[keyof typeof WorkTerm];
+
+export const RequestStatus = {
+  PENDING: "PENDING",
+  APPROVED: "APPROVED",
+  REJECTED: "REJECTED",
+} as const;
+
+export type RequestStatusType =
+  (typeof RequestStatus)[keyof typeof RequestStatus];
