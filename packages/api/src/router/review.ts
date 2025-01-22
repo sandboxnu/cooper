@@ -74,7 +74,7 @@ export const reviewRouter = {
   create: protectedProcedure
     .input(CreateReviewSchema)
     .mutation(async ({ ctx, input }) => {
-      console.log("hey");
+      console.log("new review");
       if (!input.profileId) {
         console.log("no profile id");
         throw new TRPCError({
@@ -90,6 +90,18 @@ export const reviewRouter = {
         throw new TRPCError({
           code: "FORBIDDEN",
           message: "You can only leave 5 reviews",
+        });
+      }
+      const reviewsInSameCycle = reviews.filter(
+        (review) =>
+          review.workTerm === input.workTerm &&
+          review.workYear === input.workYear,
+      );
+      if (reviewsInSameCycle.length >= 2) {
+        console.log("already 2 in same cycle");
+        throw new TRPCError({
+          code: "FORBIDDEN",
+          message: "You can only leave 2 reviews per cycle",
         });
       }
       console.log("success");
