@@ -1,4 +1,5 @@
 import type { TRPCRouterRecord } from "@trpc/server";
+import { TRPCError } from "@trpc/server";
 import Fuse from "fuse.js";
 import { z } from "zod";
 
@@ -72,7 +73,26 @@ export const reviewRouter = {
 
   create: protectedProcedure
     .input(CreateReviewSchema)
-    .mutation(({ ctx, input }) => {
+    .mutation(async ({ ctx, input }) => {
+      console.log("hey");
+      if (!input.profileId) {
+        console.log("no profile id");
+        throw new TRPCError({
+          code: "FORBIDDEN",
+          message: "You must be logged in to leave a review",
+        });
+      }
+      const reviews = await ctx.db.query.Review.findMany({
+        where: eq(Review.profileId, input.profileId),
+      });
+      if (reviews.length >= 5) {
+        console.log("already 5");
+        throw new TRPCError({
+          code: "FORBIDDEN",
+          message: "You can only leave 5 reviews",
+        });
+      }
+      console.log("success");
       return ctx.db.insert(Review).values(input);
     }),
 
