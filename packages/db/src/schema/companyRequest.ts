@@ -15,10 +15,6 @@ export const CompanyRequest = pgTable("company_request", {
   roleTitle: varchar("title").notNull(),
   roleDescription: text("description"),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
-  updatedAt: timestamp("updatedAt", {
-    mode: "date",
-    withTimezone: true,
-  }).$onUpdateFn(() => sql`now()`),
   status: varchar("status", {
     enum: ["PENDING", "APPROVED", "REJECTED"], // Explicitly list the enum values
   })
@@ -47,6 +43,5 @@ export const CreateCompanyRequestSchema = createInsertSchema(CompanyRequest, {
 }).omit({
   id: true,
   createdAt: true,
-  updatedAt: true,
 });
 // Example TypeScript type for the Company Request

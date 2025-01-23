@@ -5,6 +5,7 @@ import { z } from "zod";
 
 import { Company } from "./companies";
 import { RequestStatus } from "./misc";
+import { Profile } from "./profiles";
 
 export const RoleRequest = pgTable("role_request", {
   id: uuid("id").notNull().primaryKey().defaultRandom(),
@@ -12,10 +13,6 @@ export const RoleRequest = pgTable("role_request", {
   roleDescription: text("description"),
   companyId: varchar("companyId").notNull(),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
-  updatedAt: timestamp("updatedAt", {
-    mode: "date",
-    withTimezone: true,
-  }).$onUpdateFn(() => sql`now()`),
   status: varchar("status", {
     enum: ["PENDING", "APPROVED", "REJECTED"], // Explicitly list the enum values (?)
   })
@@ -29,6 +26,10 @@ export const RoleRequestRelations = relations(RoleRequest, ({ one }) => ({
   company: one(Company, {
     fields: [RoleRequest.companyId],
     references: [Company.id],
+  }),
+  profile: one(Profile, {
+    fields: [RoleRequest.id],
+    references: [Profile.userId],
   }),
 }));
 
@@ -44,5 +45,4 @@ export const CreateCompanyRequestSchema = createInsertSchema(RoleRequest, {
 }).omit({
   id: true,
   createdAt: true,
-  updatedAt: true,
 });
