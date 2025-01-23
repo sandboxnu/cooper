@@ -4,6 +4,7 @@ import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
 import { Industry, RequestStatus } from "./misc";
+import { Profile } from "./profiles";
 
 export const CompanyRequest = pgTable("company_request", {
   id: uuid("id").notNull().primaryKey().defaultRandom(),
@@ -27,13 +28,12 @@ export const CompanyRequest = pgTable("company_request", {
 
 export type CompanyRequestType = typeof CompanyRequest.$inferSelect;
 
-// export const RequestRelations = relations(Role, ({ one }) => ({
-//   company: one(Company, {
-//     fields: [Role.companyId],
-//     references: [Company.id],
-//   }),
-//   roles: one(Role),
-// }));
+export const RequestRelations = relations(CompanyRequest, ({ one }) => ({
+  profile: one(Profile, {
+    fields: [CompanyRequest.id],
+    references: [Profile.userId],
+  }),
+}));
 
 // Zod validation schema for creating a company request
 export const CreateCompanyRequestSchema = createInsertSchema(CompanyRequest, {
