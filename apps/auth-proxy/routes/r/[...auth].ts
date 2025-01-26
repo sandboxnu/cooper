@@ -14,5 +14,17 @@ export default eventHandler(async (event) =>
         clientSecret: process.env.AUTH_GOOGLE_SECRET,
       }),
     ],
+    callbacks: {
+      async signIn({ user }) {
+    
+        const email = user?.email;
+        console.log("email account: ", email)
+    
+        if (!email?.endsWith("@husky.neu.edu")) {
+          return false;
+        }
+        return true;
+      },
+    },
   }),
 );
