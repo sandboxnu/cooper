@@ -13,16 +13,6 @@ export default eventHandler(async (event) =>
         clientId: process.env.AUTH_GOOGLE_ID,
         clientSecret: process.env.AUTH_GOOGLE_SECRET,
       }),
-    ],
-    callbacks: {
-      signIn({ user }) {
-        const email = user.email;
-
-        if (!email?.endsWith("@husky.neu.edu")) {
-          return false;
-        }
-        return true;
-      },
-    },
+    ]
   }),
 );
