@@ -60,11 +60,10 @@ export const authConfig = {
         },
       };
     },
-    async signIn({ user }) {
+    signIn({ user }) {
       const email = user.email;
-      const isValid = await email?.endsWith("@husky.neu.edu");
 
-      if (!isValid) {
+      if (!email?.endsWith("@husky.neu.edu")) {
         return "/redirection";
       }
       return true;
