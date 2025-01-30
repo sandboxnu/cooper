@@ -16,12 +16,10 @@ export default eventHandler(async (event) =>
     ],
     callbacks: {
       async signIn({ user }) {
-    
         const email = user?.email;
-        console.log("email account: ", email)
     
         if (!email?.endsWith("@husky.neu.edu")) {
-          return false;
+          return false
         }
         return true;
       },

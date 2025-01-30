@@ -1,8 +1,9 @@
 {
   "extends": "@cooper/tsconfig/base.json",
   "compilerOptions": {
+    "jsx": "react",
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
   },
-  "include": ["src", "*.ts"],
+  "include": ["src", "*.ts", "../../apps/web/error-page.tsx"],
   "exclude": ["node_modules"]
 }
