@@ -1,4 +1,6 @@
 import type { TRPCRouterRecord } from "@trpc/server";
+import { TRPCError } from "@trpc/server";
+import Fuse from "fuse.js";
 import { z } from "zod";
 
 import { and, desc, eq } from "@cooper/db";
@@ -10,6 +12,7 @@ export const reviewRouter = {
   list: publicProcedure
     .input(
       z.object({
+        search: z.string().optional(),
         options: z
           .object({
             cycle: z.enum(["SPRING", "FALL", "SUMMER"]).optional(),
@@ -18,7 +21,7 @@ export const reviewRouter = {
           .optional(),
       }),
     )
-    .query(({ ctx, input }) => {
+    .query(async ({ ctx, input }) => {
       const { options } = input;
 
       const conditions = [
@@ -26,10 +29,22 @@ export const reviewRouter = {
         options?.term && eq(Review.workEnvironment, options.term),
       ].filter(Boolean);
 
-      return ctx.db.query.Review.findMany({
+      const reviews = await ctx.db.query.Review.findMany({
         orderBy: desc(Review.id),
         where: conditions.length > 0 ? and(...conditions) : undefined,
       });
+
+      if (!input.search) {
+        return reviews;
+      }
+
+      const fuseOptions = {
+        keys: ["reviewHeadline", "textReview", "location"],
+      };
+
+      const fuse = new Fuse(reviews, fuseOptions);
+
+      return fuse.search(input.search).map((result) => result.item);
     }),
 
   getByRole: publicProcedure
@@ -58,7 +73,33 @@ export const reviewRouter = {
 
   create: protectedProcedure
     .input(CreateReviewSchema)
-    .mutation(({ ctx, input }) => {
+    .mutation(async ({ ctx, input }) => {
+      if (!input.profileId) {
+        throw new TRPCError({
+          code: "FORBIDDEN",
+          message: "You must be logged in to leave a review",
+        });
+      }
+      const reviews = await ctx.db.query.Review.findMany({
+        where: eq(Review.profileId, input.profileId),
+      });
+      if (reviews.length >= 5) {
+        throw new TRPCError({
+          code: "PRECONDITION_FAILED",
+          message: "You can only leave 5 reviews",
+        });
+      }
+      const reviewsInSameCycle = reviews.filter(
+        (review) =>
+          review.workTerm === input.workTerm &&
+          review.workYear === input.workYear,
+      );
+      if (reviewsInSameCycle.length >= 2) {
+        throw new TRPCError({
+          code: "PRECONDITION_FAILED",
+          message: "You can only leave 2 reviews per cycle",
+        });
+      }
       return ctx.db.insert(Review).values(input);
     }),
 

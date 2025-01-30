@@ -62,9 +62,9 @@ export const authConfig = {
     },
     async signIn({ user }) {
       const email = user?.email;
-  
+
       if (!email?.endsWith("@husky.neu.edu")) {
-        return '/redirection'
+        return "/redirection";
       }
       return true;
     },

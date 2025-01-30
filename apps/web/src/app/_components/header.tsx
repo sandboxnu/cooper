@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -9,6 +8,7 @@ import { cn } from "@cooper/ui";
 
 import { NewReviewDialog } from "~/app/_components/reviews/new-review-dialogue";
 import { altivoFont } from "~/app/styles/font";
+import CooperLogo from "./cooper-logo";
 
 interface HeaderProps {
   session: Session | null;
@@ -28,13 +28,8 @@ export default function Header({ session, auth }: HeaderProps) {
     <header className="flex h-20 w-full grid-cols-3 items-center justify-between border-b border-b-[#9A9A9A] bg-white pr-2 drop-shadow-sm">
       {/* Logo + Cooper */}
       <Link href="/" className={cn("flex flex-grow items-end", outerWidth)}>
-        <div className="mx-4 flex min-h-20 items-end">
-          <Image
-            src="/svg/hidingLogo.svg"
-            height={150}
-            width={150}
-            alt="Logo Picture"
-          />
+        <div className="mx-4 flex h-20 items-end">
+          <CooperLogo />
         </div>
         <h1
           className={cn(
@@ -46,25 +41,24 @@ export default function Header({ session, auth }: HeaderProps) {
         </h1>
       </Link>
       {/* Centered Links */}
-      <div className="lg: mb-8 flex min-h-20 flex-shrink grid-cols-2 items-end justify-start gap-4 lg:gap-12">
+      <div className="flex min-h-20 flex-shrink grid-cols-2 items-end justify-start gap-4 lg:gap-12">
         <Link href="/roles">
           <h2
             className={cn(
-              "font-semibold",
+              "mb-[1.375rem] font-semibold",
               pathname.includes("roles") &&
-                "underline decoration-cooper-pink-500 decoration-[3px] underline-offset-[6px]",
+                "mb-0 after:mt-4 after:block after:h-1.5 after:w-full after:rounded-t-full after:bg-cooper-pink-500",
             )}
           >
-            {" "}
-            Jobs{" "}
+            Jobs
           </h2>
         </Link>
         <Link href="/companies">
           <h2
             className={cn(
-              "font-semibold",
+              "mb-[1.375rem] font-semibold",
               pathname.includes("companies") &&
-                "underline decoration-cooper-green-500 decoration-[3px] underline-offset-[6px]",
+                "mb-0 after:mt-4 after:block after:h-1.5 after:w-full after:rounded-t-full after:bg-cooper-green-500",
             )}
           >
             Companies
