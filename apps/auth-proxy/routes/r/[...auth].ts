@@ -15,8 +15,8 @@ export default eventHandler(async (event) =>
       }),
     ],
     callbacks: {
-      async signIn({ user }) {
-        const email = user?.email;
+      signIn({ user }) {
+        const email = user.email;
 
         if (!email?.endsWith("@husky.neu.edu")) {
           return false;
