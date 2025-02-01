@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { Session } from "@cooper/auth";
+import type { Session } from "@cooper/auth";
 import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 import { DialogTitle } from "@cooper/ui/dialog";
@@ -67,14 +67,14 @@ export function OnboardingForm({
   const [cooped, setCooped] = useState<boolean | undefined>(undefined);
   const profile = api.profile.create.useMutation();
 
-  const names = (session.user.name || " ").split(" ");
+  const names = (session.user.name ?? " ").split(" ");
 
   const form = useForm<OnboardingFormType>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       firstName: names.length > 0 ? names[0] : "",
       lastName: names.length > 1 ? names[1] : "",
-      email: session.user.email || "",
+      email: session.user.email ?? "",
       major: "",
       minor: undefined,
       graduationYear: undefined,

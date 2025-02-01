@@ -47,7 +47,6 @@ export function OnboardingDialog({
         <OnboardingForm
           userId={session.user.id}
           closeDialog={closeDialog}
-          profile={profile}
           session={session}
         />
       </DialogContent>
