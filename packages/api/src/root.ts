@@ -14,7 +14,7 @@ export const appRouter = createTRPCRouter({
   role: roleRouter,
   profile: profileRouter,
   review: reviewRouter,
-  users: userRouter,
+  user: userRouter,
 });
 
 // export type definition of API

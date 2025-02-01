@@ -3,10 +3,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { auth, Session } from "@cooper/auth";
+import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 import { DialogTitle } from "@cooper/ui/dialog";
 import { Form, FormControl, FormField, FormItem } from "@cooper/ui/form";
-import { RadioGroup, RadioGroupItem } from "@cooper/ui/radio-group";
 
 import {
   FormLabel,
@@ -60,8 +61,6 @@ export function OnboardingForm({ userId, closeDialog }: OnboardingFormProps) {
   const [cooped, setCooped] = useState<boolean | undefined>(undefined);
   const profile = api.profile.create.useMutation();
 
-  const user = api.user.getById.useQuery({ id: userId });
-
   const form = useForm<OnboardingFormType>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -92,10 +91,9 @@ export function OnboardingForm({ userId, closeDialog }: OnboardingFormProps) {
 
   return (
     <>
-      <DialogTitle className="pb-2 text-center text-2xl font-bold text-cooper-blue-600">
+      <DialogTitle className="pb-2 text-center text-2xl font-bold">
         Create a Cooper Account
       </DialogTitle>
-      <div className="w-full border border-gray-500" />
       <Form {...form}>
         <p className="text-gray-500">
           <span className="text-red-500">* </span>Required
@@ -104,7 +102,7 @@ export function OnboardingForm({ userId, closeDialog }: OnboardingFormProps) {
           onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-col space-y-6"
         >
-          <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
             <FormField
               control={form.control}
               name="firstName"
@@ -145,7 +143,7 @@ export function OnboardingForm({ userId, closeDialog }: OnboardingFormProps) {
               </FormItem>
             )}
           />
-          <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
             <FormField
               control={form.control}
               name="major"
@@ -181,12 +179,12 @@ export function OnboardingForm({ userId, closeDialog }: OnboardingFormProps) {
               )}
             />
           </div>
-          <div className="flex space-x-20">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
             <FormField
               control={form.control}
               name="graduationYear"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="max-w-72">
                   <FormLabel required>Graduation Year</FormLabel>
                   <FormControl>
                     <Input placeholder="Year" {...field} />
@@ -199,14 +197,15 @@ export function OnboardingForm({ userId, closeDialog }: OnboardingFormProps) {
               control={form.control}
               name="graduationMonth"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="max-w-72">
                   <FormLabel required>Graduation Month</FormLabel>
                   <FormControl>
-                    {/* <Select
+                    <Select
                       placeholder="Month"
                       options={monthOptions}
+                      className="min-w-full"
                       {...field}
-                    /> */}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -217,34 +216,45 @@ export function OnboardingForm({ userId, closeDialog }: OnboardingFormProps) {
             control={form.control}
             name="cooped"
             render={({ field }) => (
-              <FormItem className="space-y-6">
+              <FormItem>
                 <FormLabel required>
                   Have you completed a co-op before?
                 </FormLabel>
                 <FormControl>
-                  <RadioGroup
-                    onValueChange={(value) => {
-                      // FIXME: There has to be a cleaner way of doing this but I have other things to fix atm.
-                      const hasCooped = value === "true";
-                      setCooped(hasCooped);
-                      field.onChange(hasCooped);
-                    }}
-                    value={cooped?.toString()}
-                    className="flex flex-col space-y-3"
-                  >
-                    <FormItem className="flex items-center space-x-4 space-y-0">
-                      <FormControl>
-                        <RadioGroupItem value="true" />
-                      </FormControl>
-                      <FormLabel>Yes</FormLabel>
-                    </FormItem>
-                    <FormItem className="flex items-center space-x-4 space-y-0">
-                      <FormControl>
-                        <RadioGroupItem value="false" />
-                      </FormControl>
-                      <FormLabel>No</FormLabel>
-                    </FormItem>
-                  </RadioGroup>
+                  <FormItem className="flex items-center space-x-4">
+                    <FormControl>
+                      <div>
+                        <Button
+                          type="button"
+                          variant={cooped === true ? "default" : "outline"}
+                          className={cn(
+                            "mr-0 h-12 rounded-r-none border-2 border-cooper-gray-300 text-lg text-cooper-gray-400 shadow-none ring-offset-background hover:bg-accent hover:text-black focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2",
+                            cooped === true && "bg-cooper-blue-200 text-black",
+                          )}
+                          onClick={() => {
+                            setCooped(true);
+                            field.onChange(true);
+                          }}
+                        >
+                          Yes
+                        </Button>
+                        <Button
+                          type="button"
+                          variant={cooped === false ? "default" : "outline"}
+                          className={cn(
+                            "ml-0 h-12 rounded-l-none border-2 border-l-0 border-cooper-gray-300 text-lg text-cooper-gray-400 shadow-none ring-offset-background hover:bg-accent hover:text-black focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2",
+                            cooped === false && "bg-cooper-blue-200 text-black",
+                          )}
+                          onClick={() => {
+                            setCooped(false);
+                            field.onChange(false);
+                          }}
+                        >
+                          No
+                        </Button>
+                      </div>
+                    </FormControl>
+                  </FormItem>
                 </FormControl>
                 <FormMessage />
               </FormItem>

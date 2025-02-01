@@ -40,7 +40,7 @@ export function OnboardingDialog({
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="max-w-fit rounded-lg p-12 lg:max-w-[50dvw]">
+      <DialogContent className="max-h-[90dvh] max-w-[85dvw] overflow-y-scroll rounded-lg p-8 lg:max-w-[70dvw] lg:p-12 xl:max-w-[60dvw]">
         <OnboardingForm userId={session.user.id} closeDialog={closeDialog} />
       </DialogContent>
     </Dialog>

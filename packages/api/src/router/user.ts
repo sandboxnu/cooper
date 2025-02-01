@@ -8,7 +8,7 @@ import { publicProcedure } from "../trpc";
 
 export const userRouter = {
   getById: publicProcedure
-    .input(z.object({ id: z.string() }))
+    .input(z.object({ id: z.string().min(1) }))
     .query(({ ctx, input }) => {
       return ctx.db.query.User.findFirst({
         where: eq(User.id, input.id),
