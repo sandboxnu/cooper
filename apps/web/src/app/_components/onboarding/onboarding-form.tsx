@@ -60,6 +60,8 @@ export function OnboardingForm({ userId, closeDialog }: OnboardingFormProps) {
   const [cooped, setCooped] = useState<boolean | undefined>(undefined);
   const profile = api.profile.create.useMutation();
 
+  const user = api.user.getById.useQuery({ id: userId });
+
   const form = useForm<OnboardingFormType>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -90,9 +92,10 @@ export function OnboardingForm({ userId, closeDialog }: OnboardingFormProps) {
 
   return (
     <>
-      <DialogTitle className="pb-4 text-center text-2xl font-bold text-cooper-blue-600">
+      <DialogTitle className="pb-2 text-center text-2xl font-bold text-cooper-blue-600">
         Create a Cooper Account
       </DialogTitle>
+      <div className="w-full border border-gray-500" />
       <Form {...form}>
         <p className="text-gray-500">
           <span className="text-red-500">* </span>Required
@@ -101,12 +104,12 @@ export function OnboardingForm({ userId, closeDialog }: OnboardingFormProps) {
           onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-col space-y-6"
         >
-          <div className="flex space-x-20">
+          <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
             <FormField
               control={form.control}
               name="firstName"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="max-w-72">
                   <FormLabel required>First Name</FormLabel>
                   <FormControl>
                     <Input placeholder="First" {...field} />
@@ -119,7 +122,7 @@ export function OnboardingForm({ userId, closeDialog }: OnboardingFormProps) {
               control={form.control}
               name="lastName"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="max-w-72">
                   <FormLabel required>Last Name</FormLabel>
                   <FormControl>
                     <Input placeholder="Last" {...field} />
@@ -133,7 +136,7 @@ export function OnboardingForm({ userId, closeDialog }: OnboardingFormProps) {
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem className="w-[275px]">
+              <FormItem className="max-w-72">
                 <FormLabel required>Email</FormLabel>
                 <FormControl>
                   <Input placeholder="example@example.com" {...field} />
@@ -142,12 +145,12 @@ export function OnboardingForm({ userId, closeDialog }: OnboardingFormProps) {
               </FormItem>
             )}
           />
-          <div className="flex space-x-20">
+          <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
             <FormField
               control={form.control}
               name="major"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="max-w-72">
                   <FormLabel required>Major</FormLabel>
                   <FormControl>
                     <Select
@@ -156,6 +159,7 @@ export function OnboardingForm({ userId, closeDialog }: OnboardingFormProps) {
                         value: major,
                         label: major,
                       }))}
+                      className="min-w-full"
                       {...field}
                     />
                   </FormControl>
@@ -167,7 +171,7 @@ export function OnboardingForm({ userId, closeDialog }: OnboardingFormProps) {
               control={form.control}
               name="minor"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="max-w-72">
                   <FormLabel>Minor</FormLabel>
                   <FormControl>
                     <Input placeholder="Minor" {...field} />
@@ -198,11 +202,11 @@ export function OnboardingForm({ userId, closeDialog }: OnboardingFormProps) {
                 <FormItem>
                   <FormLabel required>Graduation Month</FormLabel>
                   <FormControl>
-                    <Select
+                    {/* <Select
                       placeholder="Month"
                       options={monthOptions}
                       {...field}
-                    />
+                    /> */}
                   </FormControl>
                   <FormMessage />
                 </FormItem>
