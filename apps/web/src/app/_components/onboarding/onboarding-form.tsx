@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { auth, Session } from "@cooper/auth";
+import { Session } from "@cooper/auth";
 import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 import { DialogTitle } from "@cooper/ui/dialog";
@@ -49,24 +49,32 @@ export type OnboardingFormType = z.infer<typeof formSchema>;
 interface OnboardingFormProps {
   userId: string;
   closeDialog: () => void;
+  session: Session;
 }
 
 /**
  * OnboardingForm component that handles user onboarding.
  * @param userId - The user ID
  * @param closeDialog - The function to close the dialog
+ * @param session - The current user session
  * @returns The OnboardingForm component
  */
-export function OnboardingForm({ userId, closeDialog }: OnboardingFormProps) {
+export function OnboardingForm({
+  userId,
+  closeDialog,
+  session,
+}: OnboardingFormProps) {
   const [cooped, setCooped] = useState<boolean | undefined>(undefined);
   const profile = api.profile.create.useMutation();
+
+  const names = (session.user.name || " ").split(" ");
 
   const form = useForm<OnboardingFormType>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
+      firstName: names.length > 0 ? names[0] : "",
+      lastName: names.length > 1 ? names[1] : "",
+      email: session.user.email || "",
       major: "",
       minor: undefined,
       graduationYear: undefined,
