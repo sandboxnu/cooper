@@ -62,7 +62,9 @@ export async function AuthShowcase() {
 The `auth()` function can only be run on the server side so we currently fetch the session information on the server side and pass it to the client side. In the above example, we make use of form actions to trigger the sign-in and sign-out functions.
 :::
 
-One thing that we can hope for is that noone will ever have to work on this code since authentication is always a pain.
+:::note
+We require users to sign in with their @husky.neu.edu email addresses, and if they try to sign in with something else, they are prompted to sign in again.
+:::
 
 ### `Session` Type
 
