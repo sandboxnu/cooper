@@ -26,7 +26,9 @@ export function OnboardingDialog({
 }: OnboardingDialogProps) {
   const [open, setOpen] = useState<boolean>(isOpen);
 
-  const profile = api.profile.getCurrentUser.useQuery();
+  const profile = api.profile.getCurrentUser.useQuery(undefined, {
+    refetchOnWindowFocus: false,
+  });
 
   const shouldShowOnboarding = session && !profile.data;
 
