@@ -1,4 +1,4 @@
-import { relations, sql } from "drizzle-orm";
+import { relations } from "drizzle-orm";
 import { pgTable, text, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
@@ -32,10 +32,6 @@ export const RoleRequestRelations = relations(RoleRequest, ({ one }) => ({
     references: [Profile.userId],
   }),
 }));
-
-/*
-What is the relationship between companyRequest/roleRequest/company/role
-*/
 
 // Zod validation schema for creating a role request
 export const CreateCompanyRequestSchema = createInsertSchema(RoleRequest, {
