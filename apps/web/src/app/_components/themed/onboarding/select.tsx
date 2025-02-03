@@ -18,7 +18,7 @@ export const Select: React.FC<SelectProps> = ({
     <div className="relative w-full">
       <select
         className={cn(
-          "h-12 w-[275px] appearance-none rounded-full border-2 border-cooper-gray-300 bg-transparent px-4 pr-10 text-lg text-cooper-gray-400 shadow-none",
+          "h-12 w-[275px] appearance-none rounded-lg border-2 border-cooper-gray-300 bg-transparent px-4 pr-10 text-lg text-cooper-gray-400 shadow-none",
           className,
         )}
         {...props}
