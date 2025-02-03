@@ -16,7 +16,7 @@ export const CompanyRequest = pgTable("company_request", {
   roleDescription: text("description"),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   status: varchar("status", {
-    enum: ["PENDING", "APPROVED", "REJECTED"], // Explicitly list the enum values
+    enum: ["PENDING", "APPROVED", "REJECTED"],
   })
     .notNull()
     .default("PENDING"),
@@ -31,7 +31,6 @@ export const RequestRelations = relations(CompanyRequest, ({ one }) => ({
   }),
 }));
 
-// Zod validation schema for creating a company request
 export const CreateCompanyRequestSchema = createInsertSchema(CompanyRequest, {
   companyName: z.string(),
   companyDescription: z.string().optional(),
