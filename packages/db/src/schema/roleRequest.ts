@@ -14,7 +14,7 @@ export const RoleRequest = pgTable("role_request", {
   companyId: varchar("companyId").notNull(),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   status: varchar("status", {
-    enum: ["PENDING", "APPROVED", "REJECTED"], // Explicitly list the enum values (?)
+    enum: ["PENDING", "APPROVED", "REJECTED"], // Explicitly list the enum values
   })
     .notNull()
     .default("PENDING"),
