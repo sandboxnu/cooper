@@ -37,45 +37,55 @@ export function ReviewCardPreview({
   // Truncate Review Text
   const reviewText = truncateText(reviewObj.textReview, 80);
 
+  const yellowStar = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="19"
+      height="17"
+      viewBox="0 0 19 17"
+      fill="none"
+    >
+      <path
+        d="M8.57668 1.21993C8.91827 0.398637 10.0817 0.398636 10.4233 1.21993L12.0427 5.11343C12.1867 5.45967 12.5123 5.69624 12.8861 5.72621L17.0895 6.06319C17.9761 6.13427 18.3357 7.24078 17.6601 7.81945L14.4576 10.5627C14.1728 10.8067 14.0485 11.1895 14.1355 11.5542L15.1139 15.656C15.3203 16.5212 14.379 17.2051 13.6199 16.7414L10.0213 14.5434C9.70124 14.3479 9.29876 14.3479 8.97875 14.5434L5.38008 16.7414C4.62098 17.2051 3.67973 16.5212 3.88611 15.656L4.86454 11.5542C4.95154 11.1895 4.82717 10.8067 4.54238 10.5627L1.33986 7.81945C0.664326 7.24078 1.02385 6.13427 1.91051 6.06319L6.11387 5.72621C6.48766 5.69624 6.81327 5.45967 6.95728 5.11343L8.57668 1.21993Z"
+        fill="#FFA400"
+      />
+    </svg>
+  );
+
   return (
     <Card
       className={cn(
-        "flex h-64 w-[100%] flex-col justify-between overflow-hidden rounded-3xl",
+        "flex h-34 w-[100%] flex-col justify-between overflow-hidden rounded-3xl",
         className,
       )}
     >
       <div>
         <CardHeader className="pb-3">
           <div className="flex items-center justify-start space-x-4">
-            {/* {company.data ? (
-              <Image
-                src={`https://logo.clearbit.com/${company.data.name.replace(/\s/g, "")}.com`}
-                width={50}
-                height={50}
-                alt={`Logo of ${company.data.name}`}
-                className="rounded-xl border"
-              />
-            ) : (
-              <div className="h-[50px] w-[50px] rounded-xl border bg-cooper-blue-200"></div>
-            )} */}
             <div>
-              <CardTitle className="text-md md:text-xl">
-                {role.data?.title}
+              <CardTitle>
+                <div className="flex items-center gap-3 text-md md:text-xl">
+                  <div>
+                  {role.data?.title}
+                  </div>
+                  <div className="font-normal text-sm">
+                  Co-op
+                  </div>
+                </div>
+
               </CardTitle>
-              <p className="text-xs font-semibold md:text-sm">
-                {company.data?.name}
-              </p>
+              <div className="flex align-center gap-2">
+              <span>{company.data?.name}</span>
+              <span className={`${reviewObj.location ? "visibility: visible" : "visibility: hidden"}`}>•</span>
+              <span>{reviewObj.location}</span>
+              </div>
             </div>
           </div>
         </CardHeader>
         <CardContent className="grid gap-2">
-          <div>
-            <h2 className="text-md font-semibold md:text-xl">
-              {reviewObj.reviewHeadline}
-            </h2>
-            <ReviewCardStars numStars={reviewObj.overallRating} />
+          <div className="flex align-center gap-2">
+            {yellowStar}   {(reviewObj.overallRating).toFixed(1)}
           </div>
-          <p className="text-xs lg:text-sm">{reviewText}</p>
         </CardContent>
       </div>
     </Card>
