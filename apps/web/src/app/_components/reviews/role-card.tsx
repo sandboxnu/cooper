@@ -27,7 +27,7 @@ interface ReviewCardProps {
   reviewObj: ReviewType;
 }
 
-export function ReviewCard({ className, reviewObj }: ReviewCardProps) {
+export function RoleCard({ className, reviewObj }: ReviewCardProps) {
   // ===== COMPANY DATA ===== //
   const company = api.company.getById.useQuery({ id: reviewObj.companyId });
 
@@ -61,11 +61,26 @@ export function ReviewCard({ className, reviewObj }: ReviewCardProps) {
               <div className="h-20 w-20 rounded-xl border bg-cooper-blue-200"></div>
             )}
             <div className="h-20">
-              <CardTitle className="text-2xl">{role.data?.title}</CardTitle>
-              <p className="text-md font-semibold">{company.data?.name}</p>
-              {company.data && role.data && (
+            
+              <CardTitle className="text-2xl">
+                <div className="flex items-center gap-3 text-md md:text-xl">
+                  <div>
+                  {role.data?.title}
+                  </div>
+                  <div className="font-normal text-sm">
+                  Co-op
+                  </div>
+                </div>
+              </CardTitle>
+              <div className="flex align-center gap-2">
+                <span>{company.data?.name}</span>
+                <span className={`${reviewObj.location ? "visibility: visible" : "visibility: hidden"}`}>•</span>
+                <span>{reviewObj.location}</span>
+              </div>
+              {/* <p className="text-md font-semibold">{company.data?.name}</p> */}
+              {/* {company.data && role.data && (
                 <ReviewCardStars numStars={reviewObj.overallRating} />
-              )}
+              )} */}
             </div>
           </div>
         </CardHeader>

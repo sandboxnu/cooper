@@ -17,15 +17,15 @@ import { api } from "~/trpc/react";
 import { truncateText } from "~/utils/stringHelpers";
 
 
-interface ReviewCardPreviewProps {
+interface RoleCardPreviewProps {
   className?: string;
   reviewObj: ReviewType;
 }
 
-export function ReviewCardPreview({
+export function RoleCardPreview({
   className,
   reviewObj,
-}: ReviewCardPreviewProps) {
+}: RoleCardPreviewProps) {
   // ===== COMPANY DATA ===== //
   const company = api.company.getById.useQuery({
     id: reviewObj.companyId,
@@ -75,9 +75,9 @@ export function ReviewCardPreview({
 
               </CardTitle>
               <div className="flex align-center gap-2">
-              <span>{company.data?.name}</span>
-              <span className={`${reviewObj.location ? "visibility: visible" : "visibility: hidden"}`}>•</span>
-              <span>{reviewObj.location}</span>
+                <span>{company.data?.name}</span>
+                <span className={`${reviewObj.location ? "visibility: visible" : "visibility: hidden"}`}>•</span>
+                <span>{reviewObj.location}</span>
               </div>
             </div>
           </div>

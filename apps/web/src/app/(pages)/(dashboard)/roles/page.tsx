@@ -14,8 +14,8 @@ import { useToast } from "@cooper/ui/hooks/use-toast";
 
 import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
-import { ReviewCard } from "~/app/_components/reviews/review-card";
-import { ReviewCardPreview } from "~/app/_components/reviews/review-card-preview";
+import { RoleCard } from "~/app/_components/reviews/role-card";
+import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
 import SearchFilter from "~/app/_components/search/search-filter";
 import { api } from "~/trpc/react";
 
@@ -87,7 +87,7 @@ export default function Roles({
             {reviews.data.map((review, i) => {
               return (
                 <div key={review.id} onClick={() => setSelectedReview(review)}>
-                  <ReviewCardPreview
+                  <RoleCardPreview
                     reviewObj={review}
                     className={cn(
                       "mb-4 hover:border-2",
@@ -103,7 +103,7 @@ export default function Roles({
           </div>
           <div className="col-span-3 overflow-scroll">
             {reviews.data.length > 0 && reviews.data[0] && (
-              <ReviewCard reviewObj={selectedReview ?? reviews.data[0]} />
+              <RoleCard reviewObj={selectedReview ?? reviews.data[0]} />
             )}
           </div>
         </div>
