@@ -23,20 +23,6 @@ interface HeaderProps {
  */
 export default function Header({ session, auth }: HeaderProps) {
   const pathname = usePathname();
-
-  // let reviews;
-  // if (profileId) {
-  //   reviews = api.review.getByProfile.useQuery({ id: profileId });
-  // }
-  // const [showButton, setShowButton] = useState(
-  //   reviews?.isSuccess && reviews.data.length < 5 ? true : false,
-  // );
-
-  // useEffect(() => {
-  //   if (reviews?.isSuccess) {
-  //     setShowButton(reviews.data.length < 5);
-  //   }
-  // }, [reviews]);
   const [showButton, setShowButton] = useState(true);
 
   const profile = api.profile.getCurrentUser.useQuery();
