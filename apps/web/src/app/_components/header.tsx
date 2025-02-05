@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -8,6 +9,7 @@ import { cn } from "@cooper/ui";
 
 import { NewReviewDialog } from "~/app/_components/reviews/new-review-dialogue";
 import { altivoFont } from "~/app/styles/font";
+import { api } from "~/trpc/react";
 import CooperLogo from "./cooper-logo";
 
 interface HeaderProps {
@@ -21,6 +23,45 @@ interface HeaderProps {
  */
 export default function Header({ session, auth }: HeaderProps) {
   const pathname = usePathname();
+
+  // let reviews;
+  // if (profileId) {
+  //   reviews = api.review.getByProfile.useQuery({ id: profileId });
+  // }
+  // const [showButton, setShowButton] = useState(
+  //   reviews?.isSuccess && reviews.data.length < 5 ? true : false,
+  // );
+
+  // useEffect(() => {
+  //   if (reviews?.isSuccess) {
+  //     setShowButton(reviews.data.length < 5);
+  //   }
+  // }, [reviews]);
+  const [showButton, setShowButton] = useState(true);
+
+  const profile = api.profile.getCurrentUser.useQuery();
+  const [profileId, setProfileId] = useState<string | undefined>(
+    profile.isSuccess ? profile.data?.id : undefined,
+  );
+
+  const reviews = api.review.getByProfile.useQuery(
+    { id: profileId! },
+    {
+      enabled: !!profileId,
+    },
+  );
+
+  useEffect(() => {
+    if (profile.isSuccess && profile.data) {
+      setProfileId(profile.data.id);
+    }
+  }, [profile]);
+
+  useEffect(() => {
+    if (reviews.isSuccess) {
+      setShowButton(reviews.data.length < 5);
+    }
+  }, [reviews]);
 
   const outerWidth = "w-40";
 
@@ -73,7 +114,7 @@ export default function Header({ session, auth }: HeaderProps) {
         )}
       >
         {/* TODO: only show this if the user is below the max number of reviews allowed */}
-        {session && <NewReviewDialog />}
+        {session && showButton && <NewReviewDialog />}
         {auth}
       </div>
     </header>
