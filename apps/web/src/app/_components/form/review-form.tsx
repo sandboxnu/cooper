@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { zodResolver } from "@hookform/resolvers/zod";
 import dayjs from "dayjs";
@@ -13,8 +13,8 @@ import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 import { Form } from "@cooper/ui/form";
-import { CheckIcon } from "@cooper/ui/icons";
 import { useToast } from "@cooper/ui/hooks/use-toast";
+import { CheckIcon } from "@cooper/ui/icons";
 
 import {
   CompanyDetailsSection,
@@ -24,6 +24,7 @@ import {
 } from "~/app/_components/form/sections";
 import { SubmissionConfirmation } from "~/app/_components/form/submission-confirmation";
 import { api } from "~/trpc/react";
+import { SubmissionFailure } from "./submission-failure";
 
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
@@ -263,17 +264,24 @@ export function ReviewForm(props: ReviewFormProps) {
     scroll.scrollToTop({ duration: 250, smooth: true });
   };
 
+  const [validForm, setValidForm] = useState(true);
   const { toast } = useToast();
 
   const mutation = api.review.create.useMutation({
     onError: (error) => {
       console.error("Mutation Error:", error); // Logs the full error details
+      setValidForm(false);
+      alert(error.message || "Something went wrong. Please try again.");
+    },
+  });
+
+  useEffect(() => {
+    if (!validForm) {
       toast({
-        title: "TESTESTEST",
-        description: error.message,
+        title: "Error",
+        description: "error exist",
+        variant: "destructive",
       });
-      // alert(error.message || "Something went wrong. Please try again.");
-      
     }
   });
 
@@ -287,8 +295,12 @@ export function ReviewForm(props: ReviewFormProps) {
   }
 
   if (currentStep === steps.length + 1) {
+    if (validForm) {
+      return <SubmissionConfirmation />;
+    } else {
+      return <SubmissionFailure />;
+    }
     // Also check if the mutation is successful before displaying this. Otherwise, show a loading spinner.
-    return <SubmissionConfirmation />;
   }
 
   if (currentStep === 0) {
