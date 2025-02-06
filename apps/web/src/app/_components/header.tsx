@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -23,31 +22,20 @@ interface HeaderProps {
  */
 export default function Header({ session, auth }: HeaderProps) {
   const pathname = usePathname();
-  const [showButton, setShowButton] = useState(true);
 
-  const profile = api.profile.getCurrentUser.useQuery();
-  const [profileId, setProfileId] = useState<string | undefined>(
-    profile.isSuccess ? profile.data?.id : undefined,
-  );
+  const profile = api.profile.getCurrentUser.useQuery(undefined, {
+    refetchOnWindowFocus: false,
+  });
+  const profileId = profile.data?.id;
 
   const reviews = api.review.getByProfile.useQuery(
-    { id: profileId! },
+    { id: profileId ?? "" },
     {
       enabled: !!profileId,
     },
   );
 
-  useEffect(() => {
-    if (profile.isSuccess && profile.data) {
-      setProfileId(profile.data.id);
-    }
-  }, [profile]);
-
-  useEffect(() => {
-    if (reviews.isSuccess) {
-      setShowButton(reviews.data.length < 5);
-    }
-  }, [reviews]);
+  const showButton = !!profileId && (reviews.data?.length ?? 0) < 5;
 
   const outerWidth = "w-40";
 
@@ -99,7 +87,6 @@ export default function Header({ session, auth }: HeaderProps) {
           outerWidth,
         )}
       >
-        {/* TODO: only show this if the user is below the max number of reviews allowed */}
         {session && showButton && <NewReviewDialog />}
         {auth}
       </div>
