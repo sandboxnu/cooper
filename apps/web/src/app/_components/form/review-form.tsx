@@ -14,6 +14,7 @@ import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 import { Form } from "@cooper/ui/form";
 import { CheckIcon } from "@cooper/ui/icons";
+import { useToast } from "@cooper/ui/hooks/use-toast";
 
 import {
   CompanyDetailsSection,
@@ -262,7 +263,19 @@ export function ReviewForm(props: ReviewFormProps) {
     scroll.scrollToTop({ duration: 250, smooth: true });
   };
 
-  const mutation = api.review.create.useMutation();
+  const { toast } = useToast();
+
+  const mutation = api.review.create.useMutation({
+    onError: (error) => {
+      console.error("Mutation Error:", error); // Logs the full error details
+      toast({
+        title: "TESTESTEST",
+        description: error.message,
+      });
+      // alert(error.message || "Something went wrong. Please try again.");
+      
+    }
+  });
 
   function onSubmit(values: z.infer<ReviewFormType>) {
     mutation.mutate({
