@@ -18,12 +18,12 @@ export const Select: React.FC<SelectProps> = ({
     <div className="relative w-full">
       <select
         className={cn(
-          "h-12 w-[275px] appearance-none rounded-lg border-2 border-cooper-gray-300 bg-transparent px-4 pr-10 text-lg text-cooper-gray-400 shadow-none",
+          "h-12 w-[275px] appearance-none rounded-lg border-2 border-cooper-gray-300 bg-transparent px-4 pr-10 text-lg shadow-none placeholder:text-cooper-gray-400",
           className,
         )}
         {...props}
       >
-        {placeholder && <option value="">{placeholder}</option>}
+        {placeholder && <option className="place">{placeholder}</option>}
         {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
