@@ -14,10 +14,11 @@ import { useToast } from "@cooper/ui/hooks/use-toast";
 
 import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
-import { RoleCard } from "~/app/_components/reviews/role-card";
+import { RoleInfo } from "~/app/_components/reviews/role-info";
 import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
 import SearchFilter from "~/app/_components/search/search-filter";
 import { api } from "~/trpc/react";
+import { ReviewCard } from "~/app/_components/reviews/review-card";
 
 export default function Roles({
   searchParams,
@@ -68,6 +69,16 @@ export default function Roles({
     options: validationResult.success ? validationResult.data : {},
   });
 
+  let myMap = new Map<string, number>();
+
+  // for (review : reviews) {
+  //   if (myMap.has({review.}))
+  // }
+
+  // myMap.set("Alice", 30);
+  // myMap.set("Bob", 25);
+  // myMap.has("Bob")
+
   const [selectedReview, setSelectedReview] = useState<ReviewType | undefined>(
     reviews.isSuccess ? reviews.data[0] : undefined,
   );
@@ -103,8 +114,12 @@ export default function Roles({
           </div>
           <div className="col-span-3 overflow-scroll">
             {reviews.data.length > 0 && reviews.data[0] && (
-              <RoleCard reviewObj={selectedReview ?? reviews.data[0]} />
-            )}
+              <RoleInfo reviewObj={selectedReview ?? reviews.data[0]} />
+            ) }
+            {reviews.data.length > 0 && reviews.data[0] && (
+              <ReviewCard reviewObj={selectedReview ?? reviews.data[0]} />
+            ) }
+            
           </div>
         </div>
       )}
