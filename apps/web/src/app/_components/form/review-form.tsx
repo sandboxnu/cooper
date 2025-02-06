@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { zodResolver } from "@hookform/resolvers/zod";
 import dayjs from "dayjs";
@@ -271,27 +271,27 @@ export function ReviewForm(props: ReviewFormProps) {
     onError: (error) => {
       console.error("Mutation Error:", error); // Logs the full error details
       setValidForm(false);
-      alert(error.message || "Something went wrong. Please try again.");
+      toast({
+        title: "Submission Error",
+        description:
+          error?.message || "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+      setValidForm(false);
     },
   });
 
-  useEffect(() => {
-    if (!validForm) {
-      toast({
-        title: "Error",
-        description: "error exist",
-        variant: "destructive",
+  async function onSubmit(values: z.infer<ReviewFormType>) {
+    try {
+      await mutation.mutateAsync({
+        roleId: props.roleId,
+        profileId: props.profileId,
+        companyId: props.company?.id ?? "",
+        ...values,
       });
+    } catch (error) {
+      console.error("Mutation failed:", error);
     }
-  });
-
-  function onSubmit(values: z.infer<ReviewFormType>) {
-    mutation.mutate({
-      roleId: props.roleId,
-      profileId: props.profileId,
-      companyId: props.company.id,
-      ...values,
-    });
   }
 
   if (currentStep === steps.length + 1) {
