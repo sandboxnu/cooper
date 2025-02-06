@@ -1,19 +1,9 @@
-import { useState } from "react";
 import Image from "next/image";
 import { useFormContext } from "react-hook-form";
 
 import { Button } from "@cooper/ui/button";
 import { FormControl, FormField, FormItem } from "@cooper/ui/form";
 import { Input } from "@cooper/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectSeparator,
-  SelectTrigger,
-  SelectValue,
-} from "@cooper/ui/select";
 
 /**
  * This Search Bar employs filtering and fuzzy searching.

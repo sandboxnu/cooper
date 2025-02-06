@@ -28,14 +28,12 @@ const formSchema = z.object({
 
 export type SearchFilterFormType = typeof formSchema;
 
-
-
 interface SearchFilterProps {
   search?: string;
   cycle?: "FALL" | "SPRING" | "SUMMER";
   term?: "INPERSON" | "HYBRID" | "REMOTE";
-  alternatePathname?: string; 
-  searchType?: "REVIEWS" | "SIMPLE"; 
+  alternatePathname?: string;
+  searchType?: "REVIEWS" | "SIMPLE";
 }
 
 /**
@@ -93,8 +91,10 @@ export default function SearchFilter({
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-[100vw]">
         <div className="flex justify-center">
-          {searchType === "SIMPLE" && <SimpleSearchBar/>} 
-          {searchType === "REVIEWS" && <ReviewSearchBar cycle={cycle} term={term} />} 
+          {searchType === "SIMPLE" && <SimpleSearchBar />}
+          {searchType === "REVIEWS" && (
+            <ReviewSearchBar cycle={cycle} term={term} />
+          )}
         </div>
       </form>
     </Form>
