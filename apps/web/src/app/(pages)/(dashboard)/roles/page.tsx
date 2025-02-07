@@ -5,6 +5,7 @@ import { z } from "zod";
 
 import type {
   ReviewType,
+  RoleType,
   WorkEnvironmentType,
   WorkTermType,
 } from "@cooper/db/schema";
@@ -64,46 +65,35 @@ export default function Roles({
     }
   }, [toast, mounted, validationResult]);
 
-  const reviews = api.review.list.useQuery({
-    search: searchParams?.search,
-    options: validationResult.success ? validationResult.data : {},
-  });
+  const roles = api.role.list.useQuery();
 
-  let myMap = new Map<string, number>();
 
-  // for (review : reviews) {
-  //   if (myMap.has({review.}))
-  // }
-
-  // myMap.set("Alice", 30);
-  // myMap.set("Bob", 25);
-  // myMap.has("Bob")
-
-  const [selectedReview, setSelectedReview] = useState<ReviewType | undefined>(
-    reviews.isSuccess ? reviews.data[0] : undefined,
+  const [selectedRole, setSelectedRole] = useState<RoleType | undefined>(
+    roles.isSuccess ? roles.data[0] : undefined,
   );
 
+
   useEffect(() => {
-    if (reviews.isSuccess) {
-      setSelectedReview(reviews.data[0]);
+    if (roles.isSuccess) {
+      setSelectedRole(roles.data[0]);
     }
-  }, [reviews.isSuccess, reviews.data]);
+  }, [roles.isSuccess, roles.data]);
 
   return (
     <>
       <SearchFilter search={searchParams?.search} {...validationResult.data} />
-      {reviews.isSuccess && reviews.data.length > 0 && (
-        <div className="mb-8 grid h-[70dvh] w-4/5 grid-cols-5 gap-4 lg:w-3/4">
+      {roles.isSuccess && roles.data.length > 0 && (
+        <div className=" grid h-[70dvh] pl-4 pr-4 w-full grid-cols-5 gap-4 lg:w-full">
           <div className="col-span-2 gap-3 overflow-scroll pr-4">
-            {reviews.data.map((review, i) => {
+            {roles.data.map((role, i) => {
               return (
-                <div key={review.id} onClick={() => setSelectedReview(review)}>
+                <div key={role.id} onClick={() => setSelectedRole(role)}>
                   <RoleCardPreview
-                    reviewObj={review}
+                    reviewObj={role}
                     className={cn(
                       "mb-4 hover:border-2",
-                      selectedReview
-                        ? selectedReview.id === review.id &&
+                      selectedRole
+                        ? selectedRole.id === role.id &&
                             "border-2 bg-cooper-gray-100"
                         : !i && "border-2 bg-cooper-gray-100",
                     )}
@@ -113,18 +103,15 @@ export default function Roles({
             })}
           </div>
           <div className="col-span-3 overflow-scroll">
-            {reviews.data.length > 0 && reviews.data[0] && (
-              <RoleInfo reviewObj={selectedReview ?? reviews.data[0]} />
-            ) }
-            {reviews.data.length > 0 && reviews.data[0] && (
-              <ReviewCard reviewObj={selectedReview ?? reviews.data[0]} />
+            {roles.data.length > 0 && roles.data[0] && (
+              <RoleInfo roleObj={selectedRole ?? roles.data[0]} />
             ) }
             
           </div>
         </div>
       )}
-      {reviews.isSuccess && reviews.data.length === 0 && <NoResults />}
-      {reviews.isPending && <LoadingResults />}
+      {roles.isSuccess && roles.data.length === 0 && <NoResults />}
+      {roles.isPending && <LoadingResults />}
     </>
   );
 }

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import type { ReviewType, WorkEnvironmentType } from "@cooper/db/schema";
+import type { ReviewType, RoleType, WorkEnvironmentType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
@@ -10,6 +10,7 @@ import { api } from "~/trpc/react";
 import { listBenefits } from "~/utils/reviewsAggregationHelpers";
 import { prettyWorkEnviornment } from "~/utils/stringHelpers";
 import { ReviewCardStars } from "./review-card-stars";
+import { ReviewCard } from "./review-card";
 
 
 const InterviewDifficulty = [
@@ -35,23 +36,29 @@ const yellowStar = (
   </svg>
 );
 
-interface ReviewCardProps {
+interface RoleCardProps {
   className?: string;
-  reviewObj: ReviewType;
+  roleObj: RoleType;
 }
 
-export function RoleInfo({ className, reviewObj }: ReviewCardProps) {
+export function RoleInfo({ className, roleObj }: RoleCardProps) {
+  const reviews = api.review.getByRole.useQuery({id: roleObj.id})
+  let company = null;
+  console.log(reviews.data)
+  
   // ===== COMPANY DATA ===== //
-  const company = api.company.getById.useQuery({ id: reviewObj.companyId });
+  if (reviews.isSuccess && reviews.data.length > 0 && reviews.data[0]) {
+    company = api.company.getById.useQuery({ id: reviews.data[0].companyId });
+  }
+  if (!company) {
+    throw new Error("no company")
+  }
+  
 
   // ===== ROLE DATA ===== //
-  const role = api.role.getById.useQuery({ id: reviewObj.roleId });
+  const role = api.role.getById.useQuery({ id: roleObj.id });
 
-  // ===== REVIEW TEXT ===== //
-  const reviewText = reviewObj.textReview;
 
-  // Benefits
-  const benefits = listBenefits(reviewObj);
   return (
     <Card
       className={cn(
@@ -88,17 +95,24 @@ export function RoleInfo({ className, reviewObj }: ReviewCardProps) {
               </CardTitle>
               <div className="flex align-center gap-2">
                 <span>{company.data?.name}</span>
-                <span className={`${reviewObj.location ? "visibility: visible" : "visibility: hidden"}`}>•</span>
-                <span>{reviewObj.location}</span>
+                {reviews.isSuccess && reviews.data.length > 0 && <span className={`${reviews.data[0]?.location ? "visibility: visible" : "visibility: hidden"}`}>•</span>}
+                {reviews.isSuccess && reviews.data.length > 0 && <span>{reviews.data[0]?.location}</span>}
               </div>
             </div>
           </div>
         </CardHeader>
         <CardContent className="grid gap-2 justify-end">
-                <div className="flex align-center gap-2">
-                  {yellowStar}   {(reviewObj.overallRating).toFixed(1)}
-                </div>
-              </CardContent>
+          {reviews.isSuccess && reviews.data.length > 0 && (() => {
+            const totalRating = reviews.data.reduce((sum, review) => sum + review.overallRating, 0);
+            const averageRating = (totalRating / reviews.data.length).toFixed(1);
+
+            return (
+              <div className="flex align-center gap-2">
+                {yellowStar} {averageRating}
+              </div>
+            );
+          })()}
+        </CardContent>
         </div>
 
         <div className="space-y-4">
@@ -106,35 +120,61 @@ export function RoleInfo({ className, reviewObj }: ReviewCardProps) {
           <CardHeader>About the Job</CardHeader>
           <div className="flex align-center">
             <CardContent className="grid gap-2 justify-end">
-              <div className="flex align-center gap-2">
+            {reviews.isSuccess && reviews.data.length > 0 && (() => {
+            const totalPay = reviews.data.reduce((sum, review) => sum + parseFloat(review.hourlyPay || "0"), 0.0);
+            const averagePay = (totalPay / reviews.data.length);
+
+            return (
+              <>
+                <div className="flex align-center gap-2">
                 Pay Range
-              </div>
-              <div className="flex align-center gap-2">
-                ${reviewObj.hourlyPay}/hr
-              </div>
+                </div>
+                <div className="flex align-center gap-2">
+                  ${averagePay}/hr
+                </div>
+            </>
+            );
+          })()}
+
             </CardContent>
             <CardContent className="grid gap-2 justify-end">
-              <div className="flex align-center gap-2">
-                Interview Difficulty
-              </div>
-              <div className="flex align-center gap-2">
-                {(reviewObj.interviewDifficulty).toFixed(1)}
-              </div>
+              {reviews.isSuccess && reviews.data.length > 0 && (() => {
+              const totalInterviewDifficulty = reviews.data.reduce((sum, review) => sum + review.interviewDifficulty, 0);
+              const averageInterviewDifficulty = (totalInterviewDifficulty / reviews.data.length);
+              return (
+                <>
+                  <div className="flex align-center gap-2">
+                  Interview Difficulty
+                </div>
+                <div className="flex align-center gap-2">
+                  {averageInterviewDifficulty}
+                </div>
+              </>
+              );
+            })()}
             </CardContent>
             <CardContent className="grid gap-2 justify-end">
-              <div className="flex align-center gap-2">
-                Interview Difficulty
-              </div>
-              <div className="flex align-center gap-2">
-                {(reviewObj.interviewDifficulty).toFixed(1)}
-              </div>
+              {reviews.isSuccess && reviews.data.length > 0 && (() => {
+              const totalInterviewDifficulty = reviews.data.reduce((sum, review) => sum + review.interviewDifficulty, 0);
+              const averageInterviewDifficulty = (totalInterviewDifficulty / reviews.data.length);
+              return (
+                <>
+                  <div className="flex align-center gap-2">
+                  Interview Difficulty
+                </div>
+                <div className="flex align-center gap-2">
+                  {averageInterviewDifficulty}
+                </div>
+              </>
+              );
+            })()}
             </CardContent>
           </div>
         </Card>
 
         <Card className="w-[94%] bg-cooper-gray-100 rounded-3xl mx-auto">
           <div className="flex align-center">
-            <CardContent className="pt-2 grid grid-cols-3 mx-auto h-full w-full">
+            {/* <CardContent className="pt-2 grid grid-cols-3 mx-auto h-full w-full">
               <div>
                 Drug Test {reviewObj.drugTest}
               </div>
@@ -159,7 +199,7 @@ export function RoleInfo({ className, reviewObj }: ReviewCardProps) {
               <div>
                 Transportation {reviewObj.freeTransport}
               </div>
-            </CardContent>
+            </CardContent> */}
           </div>
         </Card>
 
@@ -167,21 +207,53 @@ export function RoleInfo({ className, reviewObj }: ReviewCardProps) {
           <CardContent>
             <h2 className="mb-1 mt-3 text-xl font-semibold">Ratings</h2>
             <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
-              <div>
+              {reviews.isSuccess && reviews.data.length > 0 && (() => {
+              const totalCultureRating = reviews.data.reduce((sum, review) => sum + review.cultureRating, 0);
+              const averageCultureRating = (totalCultureRating / reviews.data.length);
+              return (
+                <>
+                <div>
                 <h3>Company Culture</h3>
-                <ReviewCardStars numStars={reviewObj.cultureRating} />
+                <ReviewCardStars numStars={averageCultureRating} />
               </div>
-              <div>
+              </>
+              );
+            })()}
+            {reviews.isSuccess && reviews.data.length > 0 && (() => {
+              const totalSupervisorRating = reviews.data.reduce((sum, review) => sum + review.supervisorRating, 0);
+              const averageSupervisorRating = (totalSupervisorRating / reviews.data.length);
+              return (
+                <>
+                <div>
                 <h3>Supervisor</h3>
-                <ReviewCardStars numStars={reviewObj.supervisorRating} />
+                <ReviewCardStars numStars={averageSupervisorRating} />
               </div>
-              <div>
+              </>
+              );
+            })()}
+            {reviews.isSuccess && reviews.data.length > 0 && (() => {
+              const totalInterviewRating = reviews.data.reduce((sum, review) => sum + review.interviewRating, 0);
+              const averageInterviewRating = (totalInterviewRating / reviews.data.length);
+              return (
+                <>
+                <div>
                 <h3>Interview Rating</h3>
-                <ReviewCardStars numStars={reviewObj.interviewRating} />
+                <ReviewCardStars numStars={averageInterviewRating} />
               </div>
+              </>
+              );
+            })()}
             </div>
           </CardContent>
         </Card>
+        {reviews.isSuccess && reviews.data.length > 0 &&  (
+          <div className="flex align-center gap-2">
+
+          {reviews.data.map((review) => {
+            return <ReviewCard reviewObj={review} /> 
+          })}
+          </div>   
+            ) }
         </div>
       </div>
     </Card>

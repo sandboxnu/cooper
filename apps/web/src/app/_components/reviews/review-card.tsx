@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import type { ReviewType, WorkEnvironmentType } from "@cooper/db/schema";
+import type { ReviewType, RoleType, WorkEnvironmentType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
@@ -41,6 +41,8 @@ interface ReviewCardProps {
 }
 
 export function ReviewCard({ className, reviewObj }: ReviewCardProps) {
+
+
   // ===== COMPANY DATA ===== //
   const company = api.company.getById.useQuery({ id: reviewObj.companyId });
 

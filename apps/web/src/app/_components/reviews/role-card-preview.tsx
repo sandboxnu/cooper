@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import type { ReviewType } from "@cooper/db/schema";
+import type { ReviewType, RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import {
   Card,
@@ -19,7 +19,7 @@ import { truncateText } from "~/utils/stringHelpers";
 
 interface RoleCardPreviewProps {
   className?: string;
-  reviewObj: ReviewType;
+  reviewObj: RoleType;
 }
 
 export function RoleCardPreview({
@@ -32,10 +32,8 @@ export function RoleCardPreview({
   });
 
   // ===== ROLE DATA ===== //
-  const role = api.role.getById.useQuery({ id: reviewObj.roleId });
-
-  // Truncate Review Text
-  const reviewText = truncateText(reviewObj.textReview, 80);
+  const role = api.role.getById.useQuery({ id: reviewObj.id });
+  const reviews = api.review.getByRole.useQuery({id: reviewObj.id})
 
   const yellowStar = (
     <svg
@@ -76,16 +74,24 @@ export function RoleCardPreview({
               </CardTitle>
               <div className="flex align-center gap-2">
                 <span>{company.data?.name}</span>
-                <span className={`${reviewObj.location ? "visibility: visible" : "visibility: hidden"}`}>•</span>
-                <span>{reviewObj.location}</span>
+                {reviews.isSuccess && reviews.data.length > 0 && <span className={`${reviews.data[0]?.location ? "visibility: visible" : "visibility: hidden"}`}>•</span>}
+                {reviews.isSuccess && reviews.data.length > 0 && <span>{reviews.data[0]?.location}</span> }
               </div>
             </div>
           </div>
         </CardHeader>
         <CardContent className="grid gap-2">
-          <div className="flex align-center gap-2">
-            {yellowStar}   {(reviewObj.overallRating).toFixed(1)}
-          </div>
+        {reviews.isSuccess && reviews.data.length > 0 && (() => {
+          const totalRating = reviews.data.reduce((sum, review) => sum + review.overallRating, 0);
+          const averageRating = (totalRating / reviews.data.length).toFixed(1);
+
+          return (
+            <div className="flex align-center gap-2">
+              {yellowStar} {averageRating}
+            </div>
+          );
+        })()}
+          
         </CardContent>
       </div>
     </Card>
