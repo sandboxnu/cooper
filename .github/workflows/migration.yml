@@ -10,17 +10,11 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
-# You can leverage Vercel Remote Caching with Turbo to speed up your builds
-# @link https://turborepo.org/docs/core-concepts/remote-caching#remote-caching-on-vercel-builds
-env:
-  FORCE_COLOR: 3
-  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
-  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-  POSTGRES_URL: ${{ secrets.POSTGRES_URL || 'postgres://default_url' }}
-
 jobs:
   migrate:
     runs-on: ubuntu-latest
+    env:
+      POSTGRES_URL: ${{ secrets.POSTGRES_URL }}
     steps:
       - uses: actions/checkout@v4
 
