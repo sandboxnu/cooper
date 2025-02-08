@@ -1,7 +1,6 @@
 {
   "$schema": "https://turborepo.org/schema.json",
   "ui": "tui",
-  "experimentalUI": true,
   "tasks": {
     "topo": {
       "dependsOn": ["^topo"]
@@ -52,7 +51,7 @@
     },
     "migrate": {
       "cache": false,
-      "interactive": true
+      "interactive": false
     },
     "studio": {
       "cache": false,
