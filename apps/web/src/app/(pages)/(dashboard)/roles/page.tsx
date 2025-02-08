@@ -83,7 +83,7 @@ export default function Roles({
     <>
       <SearchFilter search={searchParams?.search} {...validationResult.data} />
       {roles.isSuccess && roles.data.length > 0 && (
-        <div className=" grid h-[70dvh] pl-4 pr-4 w-full grid-cols-5 gap-4 lg:w-full">
+        <div className=" grid h-[70dvh] pl-4 pr-4 w-[95%] grid-cols-5 gap-4 lg:w-[95%]">
           <div className="col-span-2 gap-3 overflow-scroll pr-4">
             {roles.data.map((role, i) => {
               return (

@@ -5,6 +5,8 @@ import Image from "next/image";
 import type { ReviewType, RoleType, WorkEnvironmentType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
+import type { inferRouterOutputs } from "@trpc/server";
+import type { AppRouter } from "@cooper/api";
 
 import { api } from "~/trpc/react";
 import { listBenefits } from "~/utils/reviewsAggregationHelpers";
@@ -42,22 +44,17 @@ interface RoleCardProps {
 }
 
 export function RoleInfo({ className, roleObj }: RoleCardProps) {
-  const reviews = api.review.getByRole.useQuery({id: roleObj.id})
-  let company = null;
-  console.log(reviews.data)
+  const reviews = api.review.getByRole.useQuery({id: roleObj.id});
   
-  // ===== COMPANY DATA ===== //
-  if (reviews.isSuccess && reviews.data.length > 0 && reviews.data[0]) {
-    company = api.company.getById.useQuery({ id: reviews.data[0].companyId });
-  }
-  if (!company) {
-    throw new Error("no company")
-  }
-  
+  const companyQuery = api.company.getById.useQuery(
+    { id: reviews.data?.[0]?.companyId ?? "" },
+    { enabled: !!reviews.data?.[0]?.companyId }
+  );
 
   // ===== ROLE DATA ===== //
   const role = api.role.getById.useQuery({ id: roleObj.id });
 
+  const companyData = companyQuery.data;
 
   return (
     <Card
@@ -70,12 +67,12 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
         <div className="flex items-center justify-between w-full">
         <CardHeader className="pb-3">
           <div className="flex items-center justify-start space-x-4">
-            {company.data ? (
+            {companyData ? (
               <Image
-                src={`https://logo.clearbit.com/${company.data.name.replace(/\s/g, "")}.com`}
+                src={`https://logo.clearbit.com/${companyData.name.replace(/\s/g, "")}.com`}
                 width={80}
                 height={80}
-                alt={`Logo of ${company.data.name}`}
+                alt={`Logo of ${companyData.name}`}
                 className="rounded-xl border"
               />
             ) : (
@@ -94,7 +91,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                 </div>
               </CardTitle>
               <div className="flex align-center gap-2">
-                <span>{company.data?.name}</span>
+                <span>{companyData?.name}</span>
                 {reviews.isSuccess && reviews.data.length > 0 && <span className={`${reviews.data[0]?.location ? "visibility: visible" : "visibility: hidden"}`}>•</span>}
                 {reviews.isSuccess && reviews.data.length > 0 && <span>{reviews.data[0]?.location}</span>}
               </div>
@@ -108,7 +105,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
 
             return (
               <div className="flex align-center gap-2">
-                {yellowStar} {averageRating}
+                {yellowStar} {averageRating} ({reviews.data.length} reviews)
               </div>
             );
           })()}
@@ -130,7 +127,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                 Pay Range
                 </div>
                 <div className="flex align-center gap-2">
-                  ${averagePay}/hr
+                  ${Math.round(averagePay * 100) / 100.00}/hr
                 </div>
             </>
             );
@@ -147,13 +144,13 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                   Interview Difficulty
                 </div>
                 <div className="flex align-center gap-2">
-                  {averageInterviewDifficulty}
+                  {Math.round(averageInterviewDifficulty * 100) / 100.00}
                 </div>
               </>
               );
             })()}
             </CardContent>
-            <CardContent className="grid gap-2 justify-end">
+            {/* <CardContent className="grid gap-2 justify-end">
               {reviews.isSuccess && reviews.data.length > 0 && (() => {
               const totalInterviewDifficulty = reviews.data.reduce((sum, review) => sum + review.interviewDifficulty, 0);
               const averageInterviewDifficulty = (totalInterviewDifficulty / reviews.data.length);
@@ -168,7 +165,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
               </>
               );
             })()}
-            </CardContent>
+            </CardContent> */}
           </div>
         </Card>
 
@@ -247,7 +244,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
           </CardContent>
         </Card>
         {reviews.isSuccess && reviews.data.length > 0 &&  (
-          <div className="flex align-center gap-2">
+          <div>
 
           {reviews.data.map((review) => {
             return <ReviewCard reviewObj={review} /> 

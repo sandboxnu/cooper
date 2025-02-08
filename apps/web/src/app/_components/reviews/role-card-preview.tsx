@@ -87,7 +87,7 @@ export function RoleCardPreview({
 
           return (
             <div className="flex align-center gap-2">
-              {yellowStar} {averageRating}
+              {yellowStar} {averageRating} ({reviews.data.length} reviews)
             </div>
           );
         })()}

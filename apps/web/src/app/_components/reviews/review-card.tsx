@@ -56,8 +56,7 @@ export function ReviewCard({ className, reviewObj }: ReviewCardProps) {
   const benefits = listBenefits(reviewObj);
   return (
     <Card>
-        <CardHeader>Search goes here</CardHeader>
-    <div className="flex">
+    <div className="flex pt-5">
     <Card className="w-25% border-none shadow-none">
 
           <CardContent>
