@@ -16,6 +16,7 @@ env:
   FORCE_COLOR: 3
   TURBO_TEAM: ${{ vars.TURBO_TEAM }}
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  POSTGRES_URL: ${{ secrets.POSTGRES_URL }}
 
 jobs:
   migrate:
@@ -28,5 +29,3 @@ jobs:
 
       - name: Migrate
         run: pnpm db:migrate
-        env:
-          POSTGRES_URL: ${{ secrets.POSTGRES_URL }}
