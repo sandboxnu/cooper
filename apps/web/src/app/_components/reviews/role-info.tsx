@@ -59,7 +59,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
   return (
     <Card
       className={cn(
-        "flex h-fit w-[100%] flex-col justify-between overflow-hidden rounded-3xl",
+        "flex h-fit w-[100%] flex-col justify-between overflow-hidden rounded-2xl outline outline-[0.75px] outline-[#474747]",
         className,
       )}
     >
