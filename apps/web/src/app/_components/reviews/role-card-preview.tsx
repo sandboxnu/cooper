@@ -53,7 +53,7 @@ export function RoleCardPreview({
   return (
     <Card
       className={cn(
-        "flex h-34 w-[100%] flex-col justify-between overflow-hidden rounded-3xl",
+        "flex h-34 w-[100%] flex-col justify-between overflow-hidden rounded-2xl outline outline-[0.75px] outline-[#474747]",
         className,
       )}
     >

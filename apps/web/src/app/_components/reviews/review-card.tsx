@@ -55,7 +55,7 @@ export function ReviewCard({ className, reviewObj }: ReviewCardProps) {
   // Benefits
   const benefits = listBenefits(reviewObj);
   return (
-    <Card>
+    <Card className="w-[94%] mx-auto">
     <div className="flex pt-5">
     <Card className="w-25% border-none shadow-none">
 

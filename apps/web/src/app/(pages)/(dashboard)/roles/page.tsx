@@ -81,28 +81,28 @@ export default function Roles({
 
   return (
     <>
-      <SearchFilter search={searchParams?.search} {...validationResult.data} />
+      {/* <SearchFilter search={searchParams?.search} {...validationResult.data} /> */}
       {roles.isSuccess && roles.data.length > 0 && (
-        <div className=" grid h-[70dvh] pl-4 pr-4 w-[95%] grid-cols-5 gap-4 lg:w-[95%]">
-          <div className="col-span-2 gap-3 overflow-scroll pr-4">
+        <div className="h-[70dvh] pl-4 pr-4 w-[95%] flex gap-4 lg:w-[95%]">
+          <div className="w-[28%] pl-1 pt-1 col-span-2 gap-3 overflow-scroll pr-4">
             {roles.data.map((role, i) => {
               return (
                 <div key={role.id} onClick={() => setSelectedRole(role)}>
                   <RoleCardPreview
                     reviewObj={role}
                     className={cn(
-                      "mb-4 hover:border-2",
+                      "mb-4 hover:bg-cooper-gray-100",
                       selectedRole
                         ? selectedRole.id === role.id &&
-                            "border-2 bg-cooper-gray-100"
-                        : !i && "border-2 bg-cooper-gray-100",
+                            "border-2 bg-cooper-gray-200"
+                        : !i && "border-2 bg-cooper-gray-200",
                     )}
                   />
                 </div>
               );
             })}
           </div>
-          <div className="col-span-3 overflow-scroll">
+          <div className="w-[72%] col-span-3 overflow-scroll">
             {roles.data.length > 0 && roles.data[0] && (
               <RoleInfo roleObj={selectedRole ?? roles.data[0]} />
             ) }

@@ -113,7 +113,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
         </div>
 
         <div className="space-y-4">
-        <Card className="w-[94%] bg-cooper-gray-100 rounded-3xl mx-auto">
+        <Card className="w-[94%] bg-cooper-gray-200 rounded-3xl mx-auto">
           <CardHeader>About the Job</CardHeader>
           <div className="flex align-center">
             <CardContent className="grid gap-2 justify-end">
@@ -169,7 +169,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
           </div>
         </Card>
 
-        <Card className="w-[94%] bg-cooper-gray-100 rounded-3xl mx-auto">
+        <Card className="w-[94%] bg-cooper-gray-200 rounded-3xl mx-auto">
           <div className="flex align-center">
             {/* <CardContent className="pt-2 grid grid-cols-3 mx-auto h-full w-full">
               <div>
@@ -245,6 +245,9 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
         </Card>
         {reviews.isSuccess && reviews.data.length > 0 &&  (
           <div>
+            <div className="pl-6">
+              Reviews:
+            </div>
 
           {reviews.data.map((review) => {
             return <ReviewCard reviewObj={review} /> 
