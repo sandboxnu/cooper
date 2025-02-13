@@ -264,22 +264,26 @@ export function ReviewForm(props: ReviewFormProps) {
     scroll.scrollToTop({ duration: 250, smooth: true });
   };
 
-  const [validForm, setValidForm] = useState(true);
-  const { toast } = useToast();
+  const [validForm, setValidForm] = useState(true); //wait where do i put these
+  const { toast } = useToast();                     //like at the tipity top?
+
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const mutation = api.review.create.useMutation({
     onError: (error) => {
-      console.error("Mutation Error:", error); // Logs the full error details
       setValidForm(false);
+      setErrorMessage(error.message || "An unknown error occurred.");
+  
       toast({
         title: "Submission Error",
-        description:
-          error?.message || "Something went wrong. Please try again.",
+        description: (error && error.message) ? error.message : "Something went wrong. Please try again.",
         variant: "destructive",
       });
-      setValidForm(false);
     },
   });
+
+
+  
 
   async function onSubmit(values: z.infer<ReviewFormType>) {
     try {
@@ -298,9 +302,8 @@ export function ReviewForm(props: ReviewFormProps) {
     if (validForm) {
       return <SubmissionConfirmation />;
     } else {
-      return <SubmissionFailure />;
+      return <SubmissionFailure message={errorMessage || undefined} />;
     }
-    // Also check if the mutation is successful before displaying this. Otherwise, show a loading spinner.
   }
 
   if (currentStep === 0) {
