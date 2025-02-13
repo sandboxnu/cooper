@@ -13,6 +13,7 @@ export const monthOptions = [
   { value: "12", label: "December" },
 ];
 
+// use this api to update majors: https://api.graduatenu.com/api/majors/supportedMajors
 export const majors = [
   "Africana Studies and English, BA",
   "Africana Studies and Human Services, BA",

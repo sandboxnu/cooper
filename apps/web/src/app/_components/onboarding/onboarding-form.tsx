@@ -157,7 +157,7 @@ export function OnboardingForm({
             <FormField
               control={form.control}
               name="major"
-              render={({ field }) => (
+              render={() => (
                 <FormItem className="max-w-72">
                   <FormLabel>Major</FormLabel>
                   <ComboBox
