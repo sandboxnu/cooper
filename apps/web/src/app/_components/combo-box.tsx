@@ -11,6 +11,7 @@ import {
   CommandItem,
   CommandList,
 } from "@cooper/ui/command";
+import { FormLabel } from "@cooper/ui/form";
 import { Popover, PopoverContent, PopoverTrigger } from "@cooper/ui/popover";
 
 export interface ComboBoxOption<T> {
@@ -25,6 +26,8 @@ interface ComboBoxProps {
   valuesAndLabels: ComboBoxOption<string>[];
   currLabel: string;
   onSelect: (option: string) => void;
+  onChange?: (value: string) => void;
+  variant?: "default" | "form";
 }
 
 /**
@@ -39,8 +42,15 @@ export default function ComboBox({
   valuesAndLabels,
   currLabel,
   onSelect,
+  onChange,
+  variant,
 }: ComboBoxProps) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const styleVariant =
+    variant === "form"
+      ? "flex h-16 w-full rounded-md border-[3px] border-cooper-blue-600 bg-white px-3 py-2 text-xl font-normal ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+      : "";
 
   return (
     <Popover open={isOpen} onOpenChange={setIsOpen}>
@@ -49,15 +59,25 @@ export default function ComboBox({
           variant="outline"
           role="combobox"
           aria-expanded={isOpen}
-          className="w-[180px] justify-between"
+          className={cn(
+            styleVariant,
+            "w-[180px] justify-between overflow-hidden text-ellipsis text-nowrap",
+          )}
         >
-          {defaultLabel}
+          <span className="overflow-hidden text-ellipsis whitespace-nowrap">
+            {defaultLabel}
+          </span>
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[400px] p-0">
         <Command>
-          <CommandInput placeholder={searchPlaceholder} />
+          <CommandInput
+            placeholder={searchPlaceholder}
+            onChangeCapture={(e) =>
+              onChange && onChange((e.target as HTMLInputElement).value)
+            }
+          />
           <CommandEmpty>{searchEmpty}</CommandEmpty>
           <CommandGroup>
             <CommandList>

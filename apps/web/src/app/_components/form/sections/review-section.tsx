@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 
 import {
@@ -10,6 +11,8 @@ import {
 import { Input } from "@cooper/ui/input";
 import { Textarea } from "@cooper/ui/textarea";
 
+import type { ComboBoxOption } from "~/app/_components/combo-box";
+import ComboBox from "~/app/_components/combo-box";
 import { FormSection } from "~/app/_components/form/form-section";
 
 /**
@@ -17,6 +20,32 @@ import { FormSection } from "~/app/_components/form/form-section";
  */
 export function ReviewSection({ textColor }: { textColor: string }) {
   const form = useFormContext();
+
+  const [locations, setLocations] = useState<ComboBoxOption<string>[]>([]);
+  const [locationLabel, setLocationLabel] = useState<string>("");
+  const [searchTerm, setSearchTerm] = useState<string>("");
+
+  useEffect(() => {
+    if (searchTerm.length === 2) {
+      const prefix = searchTerm.toLowerCase();
+      const moduleName = `${prefix}Cities`;
+
+      import(`../constants/cities/${prefix}`)
+        .then((module) => {
+          const cities = module[moduleName];
+          const flattenedNames = cities.map(
+            (location: { city: string; state: string; country: string }) => ({
+              value: location.city,
+              label: `${location.city}, ${location.state}, ${location.country}`,
+            }),
+          );
+          setLocations(flattenedNames);
+        })
+        .catch((error) => {
+          console.error(`Error loading module for prefix ${prefix}:`, error);
+        });
+    }
+  }, [searchTerm]);
 
   return (
     <FormSection title="Review" className={textColor}>
@@ -53,13 +82,27 @@ export function ReviewSection({ textColor }: { textColor: string }) {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Location</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
+              <ComboBox
+                variant="form"
+                defaultLabel={locationLabel || "Select location..."}
+                searchPlaceholder="Search location..."
+                searchEmpty="No location found."
+                valuesAndLabels={locations}
+                currLabel={locationLabel}
+                onChange={(value) => {
+                  setSearchTerm(value);
+                  field.onChange(value);
+                }}
+                onSelect={(currentValue) => {
+                  setLocationLabel(
+                    currentValue === locationLabel ? "" : currentValue,
+                  );
+                  field.onChange(currentValue);
+                }}
+              />
             </FormItem>
           )}
-        />
+        ></FormField>
         <FormField
           control={form.control}
           name="hourlyPay"
