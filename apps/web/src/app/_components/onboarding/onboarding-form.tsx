@@ -15,6 +15,7 @@ import {
 } from "~/app/_components/themed/onboarding/form";
 import { Input } from "~/app/_components/themed/onboarding/input";
 import { api } from "~/trpc/react";
+import ComboBox from "../combo-box";
 import { Select } from "../themed/onboarding/select";
 import { majors, monthOptions } from "./constants";
 import { BrowseAroundPrompt } from "./post-onboarding/browse-around-prompt";
@@ -66,6 +67,7 @@ export function OnboardingForm({
 }: OnboardingFormProps) {
   const [cooped, setCooped] = useState<boolean | undefined>(undefined);
   const profile = api.profile.create.useMutation();
+  const [majorLabel, setMajorLabel] = useState<string>("");
 
   const names = (session.user.name ?? " ").split(" ");
 
@@ -157,22 +159,27 @@ export function OnboardingForm({
               name="major"
               render={({ field }) => (
                 <FormItem className="max-w-72">
-                  <FormLabel required>Major</FormLabel>
-                  <FormControl>
-                    <Select
-                      placeholder="Major"
-                      options={majors.map((major) => ({
-                        value: major,
-                        label: major,
-                      }))}
-                      className="min-w-full"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
+                  <FormLabel>Major</FormLabel>
+                  <ComboBox
+                    defaultLabel={majorLabel || "Select major..."}
+                    searchPlaceholder="Search major..."
+                    searchEmpty="No major found."
+                    valuesAndLabels={majors.map((major) => ({
+                      value: major,
+                      label: major,
+                    }))}
+                    currLabel={majorLabel}
+                    onSelect={(currentValue) => {
+                      setMajorLabel(
+                        currentValue === majorLabel ? "" : currentValue,
+                      );
+                      form.setValue("major", currentValue);
+                    }}
+                  />
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
               name="minor"
