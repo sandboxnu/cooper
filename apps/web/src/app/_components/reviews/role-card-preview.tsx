@@ -16,7 +16,6 @@ import { ReviewCardStars } from "~/app/_components/reviews/review-card-stars";
 import { api } from "~/trpc/react";
 import { truncateText } from "~/utils/stringHelpers";
 
-
 interface RoleCardPreviewProps {
   className?: string;
   reviewObj: RoleType;
@@ -33,7 +32,7 @@ export function RoleCardPreview({
 
   // ===== ROLE DATA ===== //
   const role = api.role.getById.useQuery({ id: reviewObj.id });
-  const reviews = api.review.getByRole.useQuery({id: reviewObj.id})
+  const reviews = api.review.getByRole.useQuery({ id: reviewObj.id });
 
   const yellowStar = (
     <svg
@@ -53,7 +52,7 @@ export function RoleCardPreview({
   return (
     <Card
       className={cn(
-        "flex h-34 w-[100%] flex-col justify-between overflow-hidden rounded-2xl outline outline-[0.75px] outline-[#474747]",
+        "h-34 flex w-[100%] flex-col justify-between overflow-hidden rounded-2xl outline outline-[0.75px] outline-[#474747]",
         className,
       )}
     >
@@ -62,36 +61,45 @@ export function RoleCardPreview({
           <div className="flex items-center justify-start space-x-4">
             <div>
               <CardTitle>
-                <div className="flex items-center gap-3 text-md md:text-xl">
-                  <div>
-                  {role.data?.title}
-                  </div>
-                  <div className="font-normal text-sm">
-                  Co-op
-                  </div>
+                <div className="text-md flex items-center gap-3 md:text-xl">
+                  <div>{role.data?.title}</div>
+                  <div className="text-sm font-normal">Co-op</div>
                 </div>
-
               </CardTitle>
-              <div className="flex align-center gap-2">
+              <div className="align-center flex gap-2">
                 <span>{company.data?.name}</span>
-                {reviews.isSuccess && reviews.data.length > 0 && <span className={`${reviews.data[0]?.location ? "visibility: visible" : "visibility: hidden"}`}>•</span>}
-                {reviews.isSuccess && reviews.data.length > 0 && <span>{reviews.data[0]?.location}</span> }
+                {reviews.isSuccess && reviews.data.length > 0 && (
+                  <span
+                    className={`${reviews.data[0]?.location ? "visibility: visible" : "visibility: hidden"}`}
+                  >
+                    •
+                  </span>
+                )}
+                {reviews.isSuccess && reviews.data.length > 0 && (
+                  <span>{reviews.data[0]?.location}</span>
+                )}
               </div>
             </div>
           </div>
         </CardHeader>
         <CardContent className="grid gap-2">
-        {reviews.isSuccess && reviews.data.length > 0 && (() => {
-          const totalRating = reviews.data.reduce((sum, review) => sum + review.overallRating, 0);
-          const averageRating = (totalRating / reviews.data.length).toFixed(1);
+          {reviews.isSuccess &&
+            reviews.data.length > 0 &&
+            (() => {
+              const totalRating = reviews.data.reduce(
+                (sum, review) => sum + review.overallRating,
+                0,
+              );
+              const averageRating = (totalRating / reviews.data.length).toFixed(
+                1,
+              );
 
-          return (
-            <div className="flex align-center gap-2">
-              {yellowStar} {averageRating} ({reviews.data.length} reviews)
-            </div>
-          );
-        })()}
-          
+              return (
+                <div className="align-center flex gap-2">
+                  {yellowStar} {averageRating} ({reviews.data.length} reviews)
+                </div>
+              );
+            })()}
         </CardContent>
       </div>
     </Card>

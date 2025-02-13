@@ -2,7 +2,11 @@
 
 import Image from "next/image";
 
-import type { ReviewType, RoleType, WorkEnvironmentType } from "@cooper/db/schema";
+import type {
+  ReviewType,
+  RoleType,
+  WorkEnvironmentType,
+} from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
@@ -10,7 +14,6 @@ import { api } from "~/trpc/react";
 import { listBenefits } from "~/utils/reviewsAggregationHelpers";
 import { prettyWorkEnviornment } from "~/utils/stringHelpers";
 import { ReviewCardStars } from "./review-card-stars";
-
 
 const InterviewDifficulty = [
   { des: "Very Easy", color: "text-[#4bc92e]" },
@@ -41,8 +44,6 @@ interface ReviewCardProps {
 }
 
 export function ReviewCard({ className, reviewObj }: ReviewCardProps) {
-
-
   // ===== COMPANY DATA ===== //
   const company = api.company.getById.useQuery({ id: reviewObj.companyId });
 
@@ -55,55 +56,55 @@ export function ReviewCard({ className, reviewObj }: ReviewCardProps) {
   // Benefits
   const benefits = listBenefits(reviewObj);
   return (
-    <Card className="w-[94%] mx-auto">
-    <div className="flex pt-5">
-    <Card className="w-25% border-none shadow-none">
-
+    <Card className="mx-auto w-[94%]">
+      <div className="flex pt-5">
+        <Card className="w-25% border-none shadow-none">
           <CardContent>
             <div className="pt-2">
-            <ReviewCardStars numStars={reviewObj.overallRating} />
-              </div>
-              <div className="pt-2 flex align-center gap-2">
-                <span className={`${reviewObj.location ? "visibility: visible" : "visibility: hidden"}`}> {reviewObj.location} •</span>
-                <span>{reviewObj.workTerm}</span>
-              </div>
-              <div>
-            date posted
-              </div>
-              <div>
-            posted by: 
-              </div>
-                <div>
-                <h3>Position type: Co-op</h3>
-              </div>
-              <div>
-                <h3>Work model: {reviewObj.workEnvironment}</h3>
-              </div>
-              <div>
-                <h3>Pay: ${reviewObj.hourlyPay}/hr</h3>
-              </div>
+              <ReviewCardStars numStars={reviewObj.overallRating} />
+            </div>
+            <div className="align-center flex gap-2 pt-2">
+              <span
+                className={`${reviewObj.location ? "visibility: visible" : "visibility: hidden"}`}
+              >
+                {" "}
+                {reviewObj.location} •
+              </span>
+              <span>{reviewObj.workTerm}</span>
+            </div>
+            <div>date posted</div>
+            <div>posted by:</div>
+            <div>
+              <h3>Position type: Co-op</h3>
+            </div>
+            <div>
+              <h3>Work model: {reviewObj.workEnvironment}</h3>
+            </div>
+            <div>
+              <h3>Pay: ${reviewObj.hourlyPay}/hr</h3>
+            </div>
           </CardContent>
         </Card>
-    <Card className="w-75% border-none shadow-none">
-    <CardContent>
-      <div className="pt-2 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
-        <div>
-          <h3>Company Culture</h3>
-          <ReviewCardStars numStars={reviewObj.cultureRating} />
-        </div>
-        <div>
-          <h3>Supervisor</h3>
-          <ReviewCardStars numStars={reviewObj.supervisorRating} />
-        </div>
-        <div>
-          <h3>Interview Rating</h3>
-          <ReviewCardStars numStars={reviewObj.interviewRating} />
-        </div>
+        <Card className="w-75% border-none shadow-none">
+          <CardContent>
+            <div className="grid grid-cols-1 gap-3 pt-2 md:grid-cols-2 lg:grid-cols-3">
+              <div>
+                <h3>Company Culture</h3>
+                <ReviewCardStars numStars={reviewObj.cultureRating} />
+              </div>
+              <div>
+                <h3>Supervisor</h3>
+                <ReviewCardStars numStars={reviewObj.supervisorRating} />
+              </div>
+              <div>
+                <h3>Interview Rating</h3>
+                <ReviewCardStars numStars={reviewObj.interviewRating} />
+              </div>
+            </div>
+            <div className="pt-5">{reviewObj.textReview}</div>
+          </CardContent>
+        </Card>
       </div>
-      <div className="pt-5">{reviewObj.textReview}</div>
-    </CardContent>
-  </Card>
-  </div>
-  </Card>
+    </Card>
   );
 }
