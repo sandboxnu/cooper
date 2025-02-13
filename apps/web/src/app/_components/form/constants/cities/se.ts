@@ -40,7 +40,7 @@ export const seCities = [
     "country": "Turkey"
   },
   {
-    "city": "Sel\u00e7uklu",
+    "city": "Selcuklu",
     "state": "Konya",
     "country": "Turkey"
   },
@@ -75,6 +75,11 @@ export const seCities = [
     "country": "Gambia, The"
   },
   {
+    "city": "Setif",
+    "state": "S\u00e9tif",
+    "country": "Algeria"
+  },
+  {
     "city": "Sekondi",
     "state": "Western",
     "country": "Ghana"
@@ -85,7 +90,7 @@ export const seCities = [
     "country": "Brazil"
   },
   {
-    "city": "Secunder\u0101b\u0101d",
+    "city": "Secunderabad",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -100,7 +105,7 @@ export const seCities = [
     "country": "Malaysia"
   },
   {
-    "city": "Semn\u0101n",
+    "city": "Semnan",
     "state": "Semn\u0101n",
     "country": "Iran"
   },
@@ -125,12 +130,17 @@ export const seCities = [
     "country": "Morocco"
   },
   {
+    "city": "Segou",
+    "state": "S\u00e9gou",
+    "country": "Mali"
+  },
+  {
     "city": "Seto",
     "state": "Aichi",
     "country": "Japan"
   },
   {
-    "city": "Sert\u00e3ozinho",
+    "city": "Sertaozinho",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -165,7 +175,7 @@ export const seCities = [
     "country": "Russia"
   },
   {
-    "city": "Sem\u0101ri",
+    "city": "Semari",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -180,7 +190,7 @@ export const seCities = [
     "country": "India"
   },
   {
-    "city": "Senah\u00fa",
+    "city": "Senahu",
     "state": "Alta Verapaz",
     "country": "Guatemala"
   },
@@ -205,7 +215,12 @@ export const seCities = [
     "country": "Turkmenistan"
   },
   {
-    "city": "Seoni M\u0101lwa",
+    "city": "Segbana",
+    "state": "Alibori",
+    "country": "Benin"
+  },
+  {
+    "city": "Seoni Malwa",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -225,7 +240,7 @@ export const seCities = [
     "country": "Brazil"
   },
   {
-    "city": "Serop\u00e9dica",
+    "city": "Seropedica",
     "state": "Rio de Janeiro",
     "country": "Brazil"
   },
@@ -255,7 +270,12 @@ export const seCities = [
     "country": "Croatia"
   },
   {
-    "city": "Seydi\u015fehir",
+    "city": "Seguela",
+    "state": "Woroba",
+    "country": "C\u00f4te d\u2019Ivoire"
+  },
+  {
+    "city": "Seydisehir",
     "state": "Konya",
     "country": "Turkey"
   },
@@ -265,7 +285,7 @@ export const seCities = [
     "country": "Belgium"
   },
   {
-    "city": "Sein\u00e4joki",
+    "city": "Seinajoki",
     "state": "Etel\u00e4-Pohjanmaa",
     "country": "Finland"
   },
@@ -273,6 +293,11 @@ export const seCities = [
     "city": "Sennan",
     "state": "\u014csaka",
     "country": "Japan"
+  },
+  {
+    "city": "Serres",
+    "state": "Kentrik\u00ed Makedon\u00eda",
+    "country": "Greece"
   },
   {
     "city": "Semara",
@@ -365,6 +390,11 @@ export const seCities = [
     "country": "Italy"
   },
   {
+    "city": "Sete",
+    "state": "Occitanie",
+    "country": "France"
+  },
+  {
     "city": "Seferhisar",
     "state": "\u0130zmir",
     "country": "Turkey"
@@ -375,7 +405,7 @@ export const seCities = [
     "country": "Italy"
   },
   {
-    "city": "Seoh\u0101ra",
+    "city": "Seohara",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -445,7 +475,12 @@ export const seCities = [
     "country": "United States"
   },
   {
-    "city": "Sel\u00e7uk",
+    "city": "Sebekoro",
+    "state": "Kayes",
+    "country": "Mali"
+  },
+  {
+    "city": "Selcuk",
     "state": "\u0130zmir",
     "country": "Turkey"
   },
@@ -475,14 +510,24 @@ export const seCities = [
     "country": "Germany"
   },
   {
+    "city": "Sereflikochisar",
+    "state": "Ankara",
+    "country": "Turkey"
+  },
+  {
     "city": "Selmane",
     "state": "M\u2019sila",
     "country": "Algeria"
   },
   {
-    "city": "Sert\u00e2nia",
+    "city": "Sertania",
     "state": "Pernambuco",
     "country": "Brazil"
+  },
+  {
+    "city": "Sebaco",
+    "state": "Matagalpa",
+    "country": "Nicaragua"
   },
   {
     "city": "Serdobsk",
@@ -490,12 +535,12 @@ export const seCities = [
     "country": "Russia"
   },
   {
-    "city": "Sergio Osme\u00f1a Sr",
+    "city": "Sergio Osmena Sr",
     "state": "Zamboanga del Sur",
     "country": "Philippines"
   },
   {
-    "city": "Sejiy\u014fn",
+    "city": "Sejiyon",
     "state": "Ryanggang",
     "country": "Korea, North"
   },
@@ -513,6 +558,11 @@ export const seCities = [
     "city": "Seguin",
     "state": "Texas",
     "country": "United States"
+  },
+  {
+    "city": "Segala Mba",
+    "state": "Kayes",
+    "country": "Mali"
   },
   {
     "city": "Serra Negra",
@@ -545,7 +595,7 @@ export const seCities = [
     "country": "Italy"
   },
   {
-    "city": "Sese\u00f1a",
+    "city": "Sesena",
     "state": "Castille-La Mancha",
     "country": "Spain"
   },
@@ -553,6 +603,11 @@ export const seCities = [
     "city": "Sestao",
     "state": "Basque Country",
     "country": "Spain"
+  },
+  {
+    "city": "Sebikhotane",
+    "state": "Dakar",
+    "country": "Senegal"
   },
   {
     "city": "Sens",
@@ -580,12 +635,17 @@ export const seCities = [
     "country": "Russia"
   },
   {
-    "city": "Sebe\u015f",
+    "city": "Sebes",
     "state": "Alba",
     "country": "Romania"
   },
   {
-    "city": "Sem\u012brom",
+    "city": "Selibaby",
+    "state": "Guidimaka",
+    "country": "Mauritania"
+  },
+  {
+    "city": "Semirom",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
@@ -620,7 +680,7 @@ export const seCities = [
     "country": "United States"
   },
   {
-    "city": "Sept-\u00celes",
+    "city": "Sept-Iles",
     "state": "Quebec",
     "country": "Canada"
   },
@@ -640,7 +700,7 @@ export const seCities = [
     "country": "Morocco"
   },
   {
-    "city": "Sem\u00ebnov",
+    "city": "Semenov",
     "state": "Nizhegorodskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -715,7 +775,12 @@ export const seCities = [
     "country": "Ghana"
   },
   {
-    "city": "Senador Jos\u00e9 Porf\u00edrio",
+    "city": "Sevres",
+    "state": "\u00cele-de-France",
+    "country": "France"
+  },
+  {
+    "city": "Senador Jose Porfirio",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -725,7 +790,7 @@ export const seCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Sek\u2019ot\u2019a",
+    "city": "Sek'ot'a",
     "state": "\u0100mara",
     "country": "Ethiopia"
   },
@@ -738,6 +803,11 @@ export const seCities = [
     "city": "Semikarakorsk",
     "state": "Rostovskaya Oblast\u2019",
     "country": "Russia"
+  },
+  {
+    "city": "Serro",
+    "state": "Minas Gerais",
+    "country": "Brazil"
   },
   {
     "city": "Sedalia",
@@ -780,7 +850,7 @@ export const seCities = [
     "country": "Germany"
   },
   {
-    "city": "Serm\u0101devi",
+    "city": "Sermadevi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -890,6 +960,11 @@ export const seCities = [
     "country": "United States"
   },
   {
+    "city": "Selestat",
+    "state": "Grand Est",
+    "country": "France"
+  },
+  {
     "city": "Seminole",
     "state": "Florida",
     "country": "United States"
@@ -935,9 +1010,14 @@ export const seCities = [
     "country": "Morocco"
   },
   {
-    "city": "Send\u0101rappatti",
+    "city": "Sendarappatti",
     "state": "Tamil N\u0101du",
     "country": "India"
+  },
+  {
+    "city": "Senkaya",
+    "state": "Erzurum",
+    "country": "Turkey"
   },
   {
     "city": "Serrita",
@@ -960,7 +1040,7 @@ export const seCities = [
     "country": "United States"
   },
   {
-    "city": "Segu\u00e9",
+    "city": "Segue",
     "state": "Mopti",
     "country": "Mali"
   },
@@ -970,7 +1050,7 @@ export const seCities = [
     "country": "Iran"
   },
   {
-    "city": "Seoni Chhap\u0101ra",
+    "city": "Seoni Chhapara",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -980,17 +1060,17 @@ export const seCities = [
     "country": "Italy"
   },
   {
-    "city": "Sedeh Lanj\u0101n",
+    "city": "Sedeh Lanjan",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Seng\u00e9s",
+    "city": "Senges",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Settiy\u0101rpatti",
+    "city": "Settiyarpatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1000,7 +1080,7 @@ export const seCities = [
     "country": "Brazil"
   },
   {
-    "city": "Serafina Cor\u00eaa",
+    "city": "Serafina Corea",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -1030,9 +1110,19 @@ export const seCities = [
     "country": "Sierra Leone"
   },
   {
-    "city": "Sebt A\u00eft Saghiouchen",
+    "city": "Sebt Ait Saghiouchen",
     "state": "F\u00e8s-Mekn\u00e8s",
     "country": "Morocco"
+  },
+  {
+    "city": "Segoubougou",
+    "state": "S\u00e9gou",
+    "country": "Mali"
+  },
+  {
+    "city": "Segou",
+    "state": "Atlantique",
+    "country": "Benin"
   },
   {
     "city": "Seymour",
@@ -1040,12 +1130,22 @@ export const seCities = [
     "country": "United States"
   },
   {
-    "city": "Sertan\u00f3polis",
+    "city": "Semdinli",
+    "state": "Hakk\u00e2ri",
+    "country": "Turkey"
+  },
+  {
+    "city": "Serarou",
+    "state": "Borgou",
+    "country": "Benin"
+  },
+  {
+    "city": "Sertanopolis",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Sert\u00e3",
+    "city": "Serta",
     "state": "Castelo Branco",
     "country": "Portugal"
   },
@@ -1065,7 +1165,7 @@ export const seCities = [
     "country": "Turkey"
   },
   {
-    "city": "Sered\u2019",
+    "city": "Sered'",
     "state": "Trnava",
     "country": "Slovakia"
   },
@@ -1110,6 +1210,11 @@ export const seCities = [
     "country": "India"
   },
   {
+    "city": "Sefaatli",
+    "state": "Yozgat",
+    "country": "Turkey"
+  },
+  {
     "city": "Serhetabat",
     "state": "Mary",
     "country": "Turkmenistan"
@@ -1130,12 +1235,12 @@ export const seCities = [
     "country": "Germany"
   },
   {
-    "city": "Sep\u012bd\u0101n",
+    "city": "Sepidan",
     "state": "F\u0101rs",
     "country": "Iran"
   },
   {
-    "city": "Sever\u00ednia",
+    "city": "Severinia",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -1155,12 +1260,12 @@ export const seCities = [
     "country": "Algeria"
   },
   {
-    "city": "Sesquil\u00e9",
+    "city": "Sesquile",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
   {
-    "city": "Seir\u014d",
+    "city": "Seiro",
     "state": "Niigata",
     "country": "Japan"
   },
@@ -1195,17 +1300,22 @@ export const seCities = [
     "country": "Canada"
   },
   {
+    "city": "Sebekoro",
+    "state": "Koulikoro",
+    "country": "Mali"
+  },
+  {
     "city": "Seyitgazi",
     "state": "Eski\u015fehir",
     "country": "Turkey"
   },
   {
-    "city": "Serrol\u00e2ndia",
+    "city": "Serrolandia",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Se\u010danj",
+    "city": "Secanj",
     "state": "Se\u010danj",
     "country": "Serbia"
   },
@@ -1220,7 +1330,7 @@ export const seCities = [
     "country": "Morocco"
   },
   {
-    "city": "Senmayach\u014d-senmaya",
+    "city": "Senmayacho-senmaya",
     "state": "Iwate",
     "country": "Japan"
   },
@@ -1250,7 +1360,7 @@ export const seCities = [
     "country": "Brazil"
   },
   {
-    "city": "Se\u00efada",
+    "city": "Seiada",
     "state": "Monastir",
     "country": "Tunisia"
   },
@@ -1275,17 +1385,22 @@ export const seCities = [
     "country": "Portugal"
   },
   {
+    "city": "Sedziszow Malopolski",
+    "state": "Podkarpackie",
+    "country": "Poland"
+  },
+  {
     "city": "Sendafa",
     "state": "Orom\u012bya",
     "country": "Ethiopia"
   },
   {
-    "city": "Sev\u016br",
+    "city": "Sevur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Senj\u0101n",
+    "city": "Senjan",
     "state": "Markaz\u012b",
     "country": "Iran"
   },
@@ -1310,7 +1425,7 @@ export const seCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Selimpa\u015fa",
+    "city": "Selimpasa",
     "state": "\u0130stanbul",
     "country": "Turkey"
   },
@@ -1335,7 +1450,7 @@ export const seCities = [
     "country": "Italy"
   },
   {
-    "city": "Sept\u00e8mes-les-Vallons",
+    "city": "Septemes-les-Vallons",
     "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
     "country": "France"
   },
@@ -1355,7 +1470,7 @@ export const seCities = [
     "country": "United States"
   },
   {
-    "city": "Sew\u0101i",
+    "city": "Sewai",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -1365,7 +1480,7 @@ export const seCities = [
     "country": "Russia"
   },
   {
-    "city": "Senduri\u0101",
+    "city": "Senduria",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1420,7 +1535,12 @@ export const seCities = [
     "country": "San Marino"
   },
   {
-    "city": "Seon\u0101r",
+    "city": "Serekali",
+    "state": "Borgou",
+    "country": "Benin"
+  },
+  {
+    "city": "Seonar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1435,22 +1555,27 @@ export const seCities = [
     "country": "El Salvador"
   },
   {
+    "city": "Sebin Karahisar",
+    "state": "Giresun",
+    "country": "Turkey"
+  },
+  {
     "city": "Sebt Ait Ikkou",
     "state": "Rabat-Sal\u00e9-K\u00e9nitra",
     "country": "Morocco"
   },
   {
-    "city": "Sedav\u00ed",
+    "city": "Sedavi",
     "state": "Valencia",
     "country": "Spain"
   },
   {
-    "city": "Senhora dos Rem\u00e9dios",
+    "city": "Senhora dos Remedios",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
   {
-    "city": "Serid\u00f3",
+    "city": "Serido",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -1490,7 +1615,7 @@ export const seCities = [
     "country": "Zambia"
   },
   {
-    "city": "Set\u00fabal",
+    "city": "Setubal",
     "state": "Set\u00fabal",
     "country": "Portugal"
   },
@@ -1580,7 +1705,7 @@ export const seCities = [
     "country": "Spain"
   },
   {
-    "city": "Sebasti\u00e3o Laranjeiras",
+    "city": "Sebastiao Laranjeiras",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -1605,12 +1730,12 @@ export const seCities = [
     "country": "United States"
   },
   {
-    "city": "Settiv\u0101ripalle",
+    "city": "Settivaripalle",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Seydunganall\u016br",
+    "city": "Seydunganallur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1620,9 +1745,19 @@ export const seCities = [
     "country": "Italy"
   },
   {
+    "city": "Sene",
+    "state": "Bretagne",
+    "country": "France"
+  },
+  {
     "city": "Seddouk Oufella",
     "state": "Beja\u00efa",
     "country": "Algeria"
+  },
+  {
+    "city": "Sepolno Krajenskie",
+    "state": "Kujawsko-Pomorskie",
+    "country": "Poland"
   },
   {
     "city": "Serafimovich",
@@ -1635,7 +1770,7 @@ export const seCities = [
     "country": "India"
   },
   {
-    "city": "Sew\u0101ri",
+    "city": "Sewari",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -1675,12 +1810,17 @@ export const seCities = [
     "country": "Italy"
   },
   {
-    "city": "Seyyed\u0101n",
+    "city": "Seyyedan",
     "state": "F\u0101rs",
     "country": "Iran"
   },
   {
-    "city": "Se\u010dovce",
+    "city": "Semere",
+    "state": "Donga",
+    "country": "Benin"
+  },
+  {
+    "city": "Secovce",
     "state": "Ko\u0161ice",
     "country": "Slovakia"
   },
@@ -1710,8 +1850,18 @@ export const seCities = [
     "country": "Australia"
   },
   {
-    "city": "Se\u017eana",
+    "city": "Sezana",
     "state": "Se\u017eana",
+    "country": "Slovenia"
+  },
+  {
+    "city": "Sembe",
+    "state": "Sangha",
+    "country": "Congo (Brazzaville)"
+  },
+  {
+    "city": "Sentjur",
+    "state": "\u0160entjur",
     "country": "Slovenia"
   },
   {
@@ -1720,24 +1870,54 @@ export const seCities = [
     "country": "Slovenia"
   },
   {
+    "city": "Sempeter pri Gorici",
+    "state": "\u0160empeter-Vrtojba",
+    "country": "Slovenia"
+  },
+  {
+    "city": "Sencur",
+    "state": "\u0160en\u010dur",
+    "country": "Slovenia"
+  },
+  {
     "city": "Senglea",
     "state": "Isla",
     "country": "Malta"
   },
   {
-    "city": "Severo-Kuril\u2019sk",
+    "city": "Severo-Kuril'sk",
     "state": "Sakhalinskaya Oblast\u2019",
     "country": "Russia"
   },
   {
-    "city": "Semi\u010d",
+    "city": "Semic",
     "state": "Semi\u010d",
+    "country": "Slovenia"
+  },
+  {
+    "city": "Sentjernej",
+    "state": "\u0160entjernej",
     "country": "Slovenia"
   },
   {
     "city": "Selnica ob Dravi",
     "state": "Selnica ob Dravi",
     "country": "Slovenia"
+  },
+  {
+    "city": "Sentrupert",
+    "state": "\u0160entrupert",
+    "country": "Slovenia"
+  },
+  {
+    "city": "Sentilj",
+    "state": "\u0160entilj",
+    "country": "Slovenia"
+  },
+  {
+    "city": "Sedhiou",
+    "state": "S\u00e9dhiou",
+    "country": "Senegal"
   },
   {
     "city": "Sefwi Wiawso",

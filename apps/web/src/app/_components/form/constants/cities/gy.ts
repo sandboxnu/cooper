@@ -5,7 +5,7 @@ export const gyCities = [
     "country": "Korea, South"
   },
   {
-    "city": "Gy\u0151r",
+    "city": "Gyor",
     "state": "Gy\u0151r-Moson-Sopron",
     "country": "Hungary"
   },
@@ -15,7 +15,7 @@ export const gyCities = [
     "country": "Armenia"
   },
   {
-    "city": "Gy\u014dda",
+    "city": "Gyoda",
     "state": "Saitama",
     "country": "Japan"
   },
@@ -35,27 +35,27 @@ export const gyCities = [
     "country": "Hungary"
   },
   {
-    "city": "Gy\u00f6ngy\u00f6s",
+    "city": "Gyongyos",
     "state": "Heves",
     "country": "Hungary"
   },
   {
-    "city": "Gy\u00e1l",
+    "city": "Gyal",
     "state": "Pest",
     "country": "Hungary"
   },
   {
-    "city": "Gy\u00eagu",
+    "city": "Gyegu",
     "state": "Qinghai",
     "country": "China"
   },
   {
-    "city": "Gy\u00f6mr\u0151",
+    "city": "Gyomro",
     "state": "Pest",
     "country": "Hungary"
   },
   {
-    "city": "Gyomaendr\u0151d",
+    "city": "Gyomaendrod",
     "state": "B\u00e9k\u00e9s",
     "country": "Hungary"
   },
@@ -65,12 +65,12 @@ export const gyCities = [
     "country": "Australia"
   },
   {
-    "city": "Gy\u00fcmai",
+    "city": "Gyumai",
     "state": "Qinghai",
     "country": "China"
   },
   {
-    "city": "Gyangz\u00ea",
+    "city": "Gyangze",
     "state": "Tibet",
     "country": "China"
   },

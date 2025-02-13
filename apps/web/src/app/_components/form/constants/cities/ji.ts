@@ -15,7 +15,7 @@ export const jiCities = [
     "country": "China"
   },
   {
-    "city": "Ji\u2019an",
+    "city": "Ji'an",
     "state": "Jiangxi",
     "country": "China"
   },
@@ -125,7 +125,7 @@ export const jiCities = [
     "country": "China"
   },
   {
-    "city": "Jin\u2019e",
+    "city": "Jin'e",
     "state": "Sichuan",
     "country": "China"
   },
@@ -150,7 +150,7 @@ export const jiCities = [
     "country": "China"
   },
   {
-    "city": "Jian\u2019ou",
+    "city": "Jian'ou",
     "state": "Fujian",
     "country": "China"
   },
@@ -195,7 +195,7 @@ export const jiCities = [
     "country": "China"
   },
   {
-    "city": "Ji\u2019an Shi",
+    "city": "Ji'an Shi",
     "state": "Jilin",
     "country": "China"
   },
@@ -208,6 +208,11 @@ export const jiCities = [
     "city": "Jiutai",
     "state": "Jilin",
     "country": "China"
+  },
+  {
+    "city": "Jind",
+    "state": "Hary\u0101na",
+    "country": "India"
   },
   {
     "city": "Jizzax",
@@ -240,7 +245,7 @@ export const jiCities = [
     "country": "Korea, South"
   },
   {
-    "city": "Ji-Paran\u00e1",
+    "city": "Ji-Parana",
     "state": "Rond\u00f4nia",
     "country": "Brazil"
   },
@@ -248,6 +253,11 @@ export const jiCities = [
     "city": "Jijel",
     "state": "Jijel",
     "country": "Algeria"
+  },
+  {
+    "city": "Jiroft",
+    "state": "Kerm\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Jilib",
@@ -260,6 +270,11 @@ export const jiCities = [
     "country": "China"
   },
   {
+    "city": "Jima",
+    "state": "Orom\u012bya",
+    "country": "Ethiopia"
+  },
+  {
     "city": "Jiangna",
     "state": "Yunnan",
     "country": "China"
@@ -270,7 +285,7 @@ export const jiCities = [
     "country": "China"
   },
   {
-    "city": "Jirj\u0101",
+    "city": "Jirja",
     "state": "S\u016bh\u0101j",
     "country": "Egypt"
   },
@@ -305,7 +320,7 @@ export const jiCities = [
     "country": "China"
   },
   {
-    "city": "Ji\u2019an",
+    "city": "Ji'an",
     "state": "Hualien",
     "country": "Taiwan"
   },
@@ -325,7 +340,7 @@ export const jiCities = [
     "country": "China"
   },
   {
-    "city": "Jiqu\u00edlpan de Ju\u00e1rez",
+    "city": "Jiquilpan de Juarez",
     "state": "Michoac\u00e1n",
     "country": "Mexico"
   },
@@ -340,7 +355,7 @@ export const jiCities = [
     "country": "China"
   },
   {
-    "city": "Jiguan\u00ed",
+    "city": "Jiguani",
     "state": "Granma",
     "country": "Cuba"
   },
@@ -370,7 +385,7 @@ export const jiCities = [
     "country": "China"
   },
   {
-    "city": "Jim\u00e9nez",
+    "city": "Jimenez",
     "state": "Chihuahua",
     "country": "Mexico"
   },
@@ -385,7 +400,7 @@ export const jiCities = [
     "country": "El Salvador"
   },
   {
-    "city": "Ji\u0101ganj",
+    "city": "Jiaganj",
     "state": "West Bengal",
     "country": "India"
   },
@@ -400,12 +415,12 @@ export const jiCities = [
     "country": "Ecuador"
   },
   {
-    "city": "Jidd \u1e28af\u015f",
+    "city": "Jidd Hafs",
     "state": "Al \u2018\u0100\u015fimah",
     "country": "Bahrain"
   },
   {
-    "city": "Jisr ash Shugh\u016br",
+    "city": "Jisr ash Shughur",
     "state": "Idlib",
     "country": "Syria"
   },
@@ -485,7 +500,7 @@ export const jiCities = [
     "country": "India"
   },
   {
-    "city": "Jilik\u016dl",
+    "city": "Jilikul",
     "state": "Khatlon",
     "country": "Tajikistan"
   },
@@ -515,12 +530,12 @@ export const jiCities = [
     "country": "China"
   },
   {
-    "city": "Jind\u0159ich\u016dv Hradec",
+    "city": "Jindrichuv Hradec",
     "state": "Jiho\u010desk\u00fd Kraj",
     "country": "Czechia"
   },
   {
-    "city": "Jicom\u00e9",
+    "city": "Jicome",
     "state": "Cibao Noroeste",
     "country": "Dominican Republic"
   },
@@ -530,7 +545,7 @@ export const jiCities = [
     "country": "China"
   },
   {
-    "city": "Jimaguay\u00fa",
+    "city": "Jimaguayu",
     "state": "Camag\u00fcey",
     "country": "Cuba"
   },
@@ -565,7 +580,7 @@ export const jiCities = [
     "country": "China"
   },
   {
-    "city": "Ji\u010d\u00edn",
+    "city": "Jicin",
     "state": "Kr\u00e1lov\u00e9hradeck\u00fd Kraj",
     "country": "Czechia"
   },
@@ -580,7 +595,7 @@ export const jiCities = [
     "country": "Yemen"
   },
   {
-    "city": "Jisr ez Zarq\u0101",
+    "city": "Jisr ez Zarqa",
     "state": "Haifa",
     "country": "Israel"
   },
@@ -590,12 +605,12 @@ export const jiCities = [
     "country": "China"
   },
   {
-    "city": "Jitw\u0101rpur Niz\u0101mat",
+    "city": "Jitwarpur Nizamat",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Jita\u00fana",
+    "city": "Jitauna",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -605,8 +620,13 @@ export const jiCities = [
     "country": "China"
   },
   {
-    "city": "Jitw\u0101rpur Kumhra",
+    "city": "Jitwarpur Kumhra",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Jiran",
+    "state": "Madhya Pradesh",
     "country": "India"
   },
   {
@@ -620,12 +640,12 @@ export const jiCities = [
     "country": "Syria"
   },
   {
-    "city": "Jiquiri\u00e7\u00e1",
+    "city": "Jiquirica",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Ji\u0101nganj",
+    "city": "Jianganj",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -645,12 +665,17 @@ export const jiCities = [
     "country": "Mexico"
   },
   {
-    "city": "Jiman\u00ed",
+    "city": "Jidigunta",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Jimani",
     "state": "Enriquillo",
     "country": "Dominican Republic"
   },
   {
-    "city": "Jitw\u0101rpur Chauth",
+    "city": "Jitwarpur Chauth",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -665,13 +690,18 @@ export const jiCities = [
     "country": "Romania"
   },
   {
-    "city": "Jim\u00e9nez",
+    "city": "Jimenez",
     "state": "Lim\u00f3n",
     "country": "Costa Rica"
   },
   {
     "city": "Jigani",
     "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Jitpur",
+    "state": "Bih\u0101r",
     "country": "India"
   },
   {
@@ -685,7 +715,7 @@ export const jiCities = [
     "country": "Taiwan"
   },
   {
-    "city": "Jilotl\u00e1n de los Dolores",
+    "city": "Jilotlan de los Dolores",
     "state": "Jalisco",
     "country": "Mexico"
   },

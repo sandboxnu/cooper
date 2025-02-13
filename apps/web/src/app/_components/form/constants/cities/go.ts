@@ -1,6 +1,6 @@
 export const goCities = [
   {
-    "city": "Goi\u00e2nia",
+    "city": "Goiania",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -30,17 +30,22 @@ export const goCities = [
     "country": "Australia"
   },
   {
-    "city": "Gona\u00efves",
+    "city": "Gomez Palacio",
+    "state": "Durango",
+    "country": "Mexico"
+  },
+  {
+    "city": "Gonaives",
     "state": "Artibonite",
     "country": "Haiti"
   },
   {
-    "city": "God\u0113",
+    "city": "Gode",
     "state": "Sumal\u0113",
     "country": "Ethiopia"
   },
   {
-    "city": "Gorg\u0101n",
+    "city": "Gorgan",
     "state": "Golest\u0101n",
     "country": "Iran"
   },
@@ -55,7 +60,7 @@ export const goCities = [
     "country": "Brazil"
   },
   {
-    "city": "Godom\u00e8",
+    "city": "Godome",
     "state": "Atlantique",
     "country": "Benin"
   },
@@ -65,7 +70,7 @@ export const goCities = [
     "country": "Congo (Kinshasa)"
   },
   {
-    "city": "Gonz\u00e1lez Cat\u00e1n",
+    "city": "Gonzalez Catan",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -95,6 +100,11 @@ export const goCities = [
     "country": "Portugal"
   },
   {
+    "city": "Golcuk",
+    "state": "Kocaeli",
+    "country": "Turkey"
+  },
+  {
     "city": "Godhra",
     "state": "Gujar\u0101t",
     "country": "India"
@@ -105,19 +115,34 @@ export const goCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Gonbad-e K\u0101v\u016bs",
+    "city": "Go Cong",
+    "state": "Ti\u1ec1n Giang",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Gonbad-e Kavus",
     "state": "Golest\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Gondi\u0101",
+    "city": "Golbasi",
+    "state": "Ankara",
+    "country": "Turkey"
+  },
+  {
+    "city": "Gondia",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
   {
-    "city": "Gorz\u00f3w Wielkopolski",
+    "city": "Gorzow Wielkopolski",
     "state": "Lubuskie",
     "country": "Poland"
+  },
+  {
+    "city": "Gottingen",
+    "state": "Lower Saxony",
+    "country": "Germany"
   },
   {
     "city": "Gogounou",
@@ -130,12 +155,17 @@ export const goCities = [
     "country": "Pakistan"
   },
   {
+    "city": "Godollo",
+    "state": "Pest",
+    "country": "Hungary"
+  },
+  {
     "city": "Goodyear",
     "state": "Arizona",
     "country": "United States"
   },
   {
-    "city": "Goalundo Gh\u0101t",
+    "city": "Goalundo Ghat",
     "state": "Dhaka",
     "country": "Bangladesh"
   },
@@ -155,7 +185,7 @@ export const goCities = [
     "country": "Ethiopia"
   },
   {
-    "city": "Gobernador G\u00e1lvez",
+    "city": "Gobernador Galvez",
     "state": "Santa Fe",
     "country": "Argentina"
   },
@@ -165,14 +195,19 @@ export const goCities = [
     "country": "Brazil"
   },
   {
-    "city": "Gok\u0101k",
+    "city": "Gokak",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "God\u0101wari\u0307\u0304",
+    "city": "Godawari",
     "state": "Sud\u016brpashchim",
     "country": "Nepal"
+  },
+  {
+    "city": "Gonen",
+    "state": "Bal\u0131kesir",
+    "country": "Turkey"
   },
   {
     "city": "Gouda",
@@ -205,12 +240,12 @@ export const goCities = [
     "country": "Philippines"
   },
   {
-    "city": "Goian\u00e9sia",
+    "city": "Goianesia",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
   {
-    "city": "Gop\u0101lganj",
+    "city": "Gopalganj",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -240,22 +275,32 @@ export const goCities = [
     "country": "India"
   },
   {
-    "city": "Gopichettip\u0101laiyam",
+    "city": "Gopichettipalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Go\u0101lp\u0101ra",
+    "city": "Goppingen",
+    "state": "Baden-W\u00fcrttemberg",
+    "country": "Germany"
+  },
+  {
+    "city": "Gorlitz",
+    "state": "Saxony",
+    "country": "Germany"
+  },
+  {
+    "city": "Goalpara",
     "state": "Assam",
     "country": "India"
   },
   {
-    "city": "Gorkh\u0101",
+    "city": "Gorkha",
     "state": "Kar\u1e47\u0101l\u012b",
     "country": "Nepal"
   },
   {
-    "city": "Gop\u0101lganj",
+    "city": "Gopalganj",
     "state": "Dhaka",
     "country": "Bangladesh"
   },
@@ -263,6 +308,11 @@ export const goCities = [
     "city": "Goshogawara",
     "state": "Aomori",
     "country": "Japan"
+  },
+  {
+    "city": "Goksun",
+    "state": "Kahramanmara\u015f",
+    "country": "Turkey"
   },
   {
     "city": "Goslar",
@@ -275,7 +325,7 @@ export const goCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Gop\u0101lpur",
+    "city": "Gopalpur",
     "state": "Dhaka",
     "country": "Bangladesh"
   },
@@ -300,7 +350,7 @@ export const goCities = [
     "country": "India"
   },
   {
-    "city": "Golp\u0101yeg\u0101n",
+    "city": "Golpayegan",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
@@ -325,7 +375,7 @@ export const goCities = [
     "country": "India"
   },
   {
-    "city": "Gob\u0101rd\u0101nga",
+    "city": "Gobardanga",
     "state": "West Bengal",
     "country": "India"
   },
@@ -340,7 +390,7 @@ export const goCities = [
     "country": "Georgia"
   },
   {
-    "city": "Goshikich\u014d-aihara-minamidani",
+    "city": "Goshikicho-aihara-minamidani",
     "state": "Hy\u014dgo",
     "country": "Japan"
   },
@@ -350,12 +400,12 @@ export const goCities = [
     "country": "Philippines"
   },
   {
-    "city": "Gol\u0101gh\u0101t",
+    "city": "Golaghat",
     "state": "Assam",
     "country": "India"
   },
   {
-    "city": "Gon\u0101b\u0101d",
+    "city": "Gonabad",
     "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
     "country": "Iran"
   },
@@ -375,7 +425,7 @@ export const goCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Goribidn\u016br",
+    "city": "Goribidnur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -393,6 +443,21 @@ export const goCities = [
     "city": "Gorinchem",
     "state": "Zuid-Holland",
     "country": "Netherlands"
+  },
+  {
+    "city": "Goygol",
+    "state": "G\u00f6yg\u00f6l",
+    "country": "Azerbaijan"
+  },
+  {
+    "city": "Goycay",
+    "state": "G\u00f6y\u00e7ay",
+    "country": "Azerbaijan"
+  },
+  {
+    "city": "Gorukle",
+    "state": "Bursa",
+    "country": "Turkey"
   },
   {
     "city": "Goiatuba",
@@ -415,7 +480,7 @@ export const goCities = [
     "country": "United States"
   },
   {
-    "city": "Got\u014d",
+    "city": "Goto",
     "state": "Nagasaki",
     "country": "Japan"
   },
@@ -435,7 +500,12 @@ export const goCities = [
     "country": "Italy"
   },
   {
-    "city": "Goj\u014d",
+    "city": "Golbasi",
+    "state": "Ad\u0131yaman",
+    "country": "Turkey"
+  },
+  {
+    "city": "Gojo",
     "state": "Nara",
     "country": "Japan"
   },
@@ -490,12 +560,12 @@ export const goCities = [
     "country": "United States"
   },
   {
-    "city": "Goio-Er\u00ea",
+    "city": "Goio-Ere",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Golo-Djigb\u00e9",
+    "city": "Golo-Djigbe",
     "state": "Atlantique",
     "country": "Benin"
   },
@@ -508,6 +578,11 @@ export const goCities = [
     "city": "Goianinha",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
+  },
+  {
+    "city": "Gordes",
+    "state": "Manisa",
+    "country": "Turkey"
   },
   {
     "city": "Gorlice",
@@ -530,9 +605,19 @@ export const goCities = [
     "country": "France"
   },
   {
+    "city": "Golkoy",
+    "state": "Ordu",
+    "country": "Turkey"
+  },
+  {
     "city": "Gokarn",
     "state": "Karn\u0101taka",
     "country": "India"
+  },
+  {
+    "city": "Gole",
+    "state": "Ardahan",
+    "country": "Turkey"
   },
   {
     "city": "Gorleston-on-Sea",
@@ -565,7 +650,7 @@ export const goCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Goi\u00e1s",
+    "city": "Goias",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -580,7 +665,7 @@ export const goCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Gollap\u016bdi",
+    "city": "Gollapudi",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -595,7 +680,7 @@ export const goCities = [
     "country": "India"
   },
   {
-    "city": "Gob\u014d",
+    "city": "Gobo",
     "state": "Wakayama",
     "country": "Japan"
   },
@@ -603,6 +688,11 @@ export const goCities = [
     "city": "Goldasht",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
+  },
+  {
+    "city": "Golhisar",
+    "state": "Burdur",
+    "country": "Turkey"
   },
   {
     "city": "Goulburn",
@@ -620,7 +710,7 @@ export const goCities = [
     "country": "Bosnia and Herzegovina"
   },
   {
-    "city": "Goleni\u00f3w",
+    "city": "Goleniow",
     "state": "Zachodniopomorskie",
     "country": "Poland"
   },
@@ -630,9 +720,29 @@ export const goCities = [
     "country": "United States"
   },
   {
+    "city": "God",
+    "state": "Pest",
+    "country": "Hungary"
+  },
+  {
+    "city": "Gotsucho",
+    "state": "Shimane",
+    "country": "Japan"
+  },
+  {
+    "city": "Gokcebey",
+    "state": "Zonguldak",
+    "country": "Turkey"
+  },
+  {
     "city": "Goroka",
     "state": "Eastern Highlands",
     "country": "Papua New Guinea"
+  },
+  {
+    "city": "Gokdepe",
+    "state": "Ahal",
+    "country": "Turkmenistan"
   },
   {
     "city": "Gorgonzola",
@@ -660,12 +770,12 @@ export const goCities = [
     "country": "India"
   },
   {
-    "city": "Gosty\u0144",
+    "city": "Gostyn",
     "state": "Wielkopolskie",
     "country": "Poland"
   },
   {
-    "city": "Gor\u0101ya",
+    "city": "Goraya",
     "state": "Punjab",
     "country": "India"
   },
@@ -680,7 +790,12 @@ export const goCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Gom\u012bsh\u0101n",
+    "city": "Godo",
+    "state": "Gifu",
+    "country": "Japan"
+  },
+  {
+    "city": "Gomishan",
     "state": "Golest\u0101n",
     "country": "Iran"
   },
@@ -688,6 +803,11 @@ export const goCities = [
     "city": "Gobabis",
     "state": "Omaheke",
     "country": "Namibia"
+  },
+  {
+    "city": "Gorele",
+    "state": "Giresun",
+    "country": "Turkey"
   },
   {
     "city": "Goyty",
@@ -733,6 +853,11 @@ export const goCities = [
     "city": "Gostynin",
     "state": "Mazowieckie",
     "country": "Poland"
+  },
+  {
+    "city": "Gomec",
+    "state": "Bal\u0131kesir",
+    "country": "Turkey"
   },
   {
     "city": "Goodlettsville",
@@ -785,7 +910,7 @@ export const goCities = [
     "country": "Japan"
   },
   {
-    "city": "Gop\u0101lnagar",
+    "city": "Gopalnagar",
     "state": "West Bengal",
     "country": "India"
   },
@@ -800,12 +925,17 @@ export const goCities = [
     "country": "Uganda"
   },
   {
+    "city": "Golmarmara",
+    "state": "Manisa",
+    "country": "Turkey"
+  },
+  {
     "city": "Gondomar",
     "state": "Galicia",
     "country": "Spain"
   },
   {
-    "city": "Goluw\u0101li",
+    "city": "Goluwali",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -815,7 +945,7 @@ export const goCities = [
     "country": "Morocco"
   },
   {
-    "city": "Gour\u00e9",
+    "city": "Goure",
     "state": "Zinder",
     "country": "Niger"
   },
@@ -835,7 +965,7 @@ export const goCities = [
     "country": "Portugal"
   },
   {
-    "city": "Goian\u00e1polis",
+    "city": "Goianapolis",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -845,7 +975,7 @@ export const goCities = [
     "country": "Benin"
   },
   {
-    "city": "Gop\u0101lpur",
+    "city": "Gopalpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -870,7 +1000,7 @@ export const goCities = [
     "country": "Senegal"
   },
   {
-    "city": "Go\u0142dap",
+    "city": "Goldap",
     "state": "Warmi\u0144sko-Mazurskie",
     "country": "Poland"
   },
@@ -880,7 +1010,7 @@ export const goCities = [
     "country": "India"
   },
   {
-    "city": "Gop\u0101lasamudram",
+    "city": "Gopalasamudram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -890,7 +1020,7 @@ export const goCities = [
     "country": "India"
   },
   {
-    "city": "Gouand\u00e9",
+    "city": "Gouande",
     "state": "Atacora",
     "country": "Benin"
   },
@@ -935,7 +1065,7 @@ export const goCities = [
     "country": "Russia"
   },
   {
-    "city": "Gora\u017ede",
+    "city": "Gorazde",
     "state": "Bosnia and Herzegovina, Federation of",
     "country": "Bosnia and Herzegovina"
   },
@@ -975,7 +1105,7 @@ export const goCities = [
     "country": "Benin"
   },
   {
-    "city": "Gop\u0101lnagar",
+    "city": "Gopalnagar",
     "state": "West Bengal",
     "country": "India"
   },
@@ -1000,12 +1130,17 @@ export const goCities = [
     "country": "Brazil"
   },
   {
-    "city": "Golub-Dobrzy\u0144",
+    "city": "Gora Kalwaria",
+    "state": "Mazowieckie",
+    "country": "Poland"
+  },
+  {
+    "city": "Golub-Dobrzyn",
     "state": "Kujawsko-Pomorskie",
     "country": "Poland"
   },
   {
-    "city": "Gop\u0101lapuram",
+    "city": "Gopalapuram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1025,9 +1160,14 @@ export const goCities = [
     "country": "Ireland"
   },
   {
-    "city": "Gospi\u0107",
+    "city": "Gospic",
     "state": "Li\u010dko-Senjska \u017dupanija",
     "country": "Croatia"
+  },
+  {
+    "city": "Gotzis",
+    "state": "Vorarlberg",
+    "country": "Austria"
   },
   {
     "city": "Gonubie",
@@ -1040,7 +1180,7 @@ export const goCities = [
     "country": "Russia"
   },
   {
-    "city": "Gouv\u00eaa",
+    "city": "Gouvea",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1050,9 +1190,14 @@ export const goCities = [
     "country": "Costa Rica"
   },
   {
-    "city": "Gonz\u00e1lez",
+    "city": "Gonzalez",
     "state": "Tamaulipas",
     "country": "Mexico"
+  },
+  {
+    "city": "Gora",
+    "state": "Dolno\u015bl\u0105skie",
+    "country": "Poland"
   },
   {
     "city": "Gottmadingen",
@@ -1085,14 +1230,34 @@ export const goCities = [
     "country": "India"
   },
   {
-    "city": "Gobardhanpur Kan\u0101p",
+    "city": "Goynucek",
+    "state": "Amasya",
+    "country": "Turkey"
+  },
+  {
+    "city": "Gobardhanpur Kanap",
     "state": "Bih\u0101r",
     "country": "India"
+  },
+  {
+    "city": "Golpazari",
+    "state": "Bilecik",
+    "country": "Turkey"
+  },
+  {
+    "city": "Golyaka",
+    "state": "D\u00fczce",
+    "country": "Turkey"
   },
   {
     "city": "Gommern",
     "state": "Saxony-Anhalt",
     "country": "Germany"
+  },
+  {
+    "city": "Gokce",
+    "state": "Mardin",
+    "country": "Turkey"
   },
   {
     "city": "Gokinepalle",
@@ -1125,6 +1290,11 @@ export const goCities = [
     "country": "Brazil"
   },
   {
+    "city": "Goytapa",
+    "state": "C\u0259lilabad",
+    "country": "Azerbaijan"
+  },
+  {
     "city": "Goito",
     "state": "Lombardy",
     "country": "Italy"
@@ -1145,17 +1315,22 @@ export const goCities = [
     "country": "India"
   },
   {
+    "city": "Gokceada",
+    "state": "\u00c7anakkale",
+    "country": "Turkey"
+  },
+  {
     "city": "Gorom-Gorom",
     "state": "Sahel",
     "country": "Burkina Faso"
   },
   {
-    "city": "Go\u0142uch\u00f3w",
+    "city": "Goluchow",
     "state": "Wielkopolskie",
     "country": "Poland"
   },
   {
-    "city": "Gorg\u0101b",
+    "city": "Gorgab",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
@@ -1185,7 +1360,7 @@ export const goCities = [
     "country": "India"
   },
   {
-    "city": "Gor\u0113",
+    "city": "Gore",
     "state": "Orom\u012bya",
     "country": "Ethiopia"
   },
@@ -1205,7 +1380,7 @@ export const goCities = [
     "country": "Belgium"
   },
   {
-    "city": "Golb\u0101f",
+    "city": "Golbaf",
     "state": "Kerm\u0101n",
     "country": "Iran"
   },
@@ -1225,7 +1400,7 @@ export const goCities = [
     "country": "India"
   },
   {
-    "city": "Govind\u0101puram",
+    "city": "Govindapuram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1240,7 +1415,7 @@ export const goCities = [
     "country": "India"
   },
   {
-    "city": "Gonfreville-l\u2019Orcher",
+    "city": "Gonfreville-l'Orcher",
     "state": "Normandie",
     "country": "France"
   },
@@ -1260,7 +1435,7 @@ export const goCities = [
     "country": "India"
   },
   {
-    "city": "Gonz\u00e1lez",
+    "city": "Gonzalez",
     "state": "Cesar",
     "country": "Colombia"
   },
@@ -1270,7 +1445,7 @@ export const goCities = [
     "country": "France"
   },
   {
-    "city": "Gop\u0101lpur",
+    "city": "Gopalpur",
     "state": "Odisha",
     "country": "India"
   },
@@ -1295,7 +1470,7 @@ export const goCities = [
     "country": "India"
   },
   {
-    "city": "Gokhul\u0101pur",
+    "city": "Gokhulapur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1345,7 +1520,7 @@ export const goCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Gori\u0161nica",
+    "city": "Gorisnica",
     "state": "Gori\u0161nica",
     "country": "Slovenia"
   },

@@ -30,7 +30,7 @@ export const riCities = [
     "country": "Latvia"
   },
   {
-    "city": "Ribeir\u00e3o Pr\u00eato",
+    "city": "Ribeirao Preto",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -40,12 +40,12 @@ export const riCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ribeir\u00e3o das Neves",
+    "city": "Ribeirao das Neves",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
   {
-    "city": "Rishon Le\u1e94iyyon",
+    "city": "Rishon LeZiyyon",
     "state": "Central",
     "country": "Israel"
   },
@@ -75,6 +75,11 @@ export const riCities = [
     "country": "Brazil"
   },
   {
+    "city": "Rio Cuarto",
+    "state": "C\u00f3rdoba",
+    "country": "Argentina"
+  },
+  {
     "city": "Rio Grande",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
@@ -83,6 +88,11 @@ export const riCities = [
     "city": "Riobamba",
     "state": "Chimborazo",
     "country": "Ecuador"
+  },
+  {
+    "city": "Riohacha",
+    "state": "La Guajira",
+    "country": "Colombia"
   },
   {
     "city": "Rio das Ostras",
@@ -120,7 +130,7 @@ export const riCities = [
     "country": "United States"
   },
   {
-    "city": "Ribeir\u00e3o Pires",
+    "city": "Ribeirao Pires",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -145,7 +155,7 @@ export const riCities = [
     "country": "United States"
   },
   {
-    "city": "Rish\u012bkesh",
+    "city": "Rishikesh",
     "state": "Uttar\u0101khand",
     "country": "India"
   },
@@ -155,7 +165,17 @@ export const riCities = [
     "country": "Bolivia"
   },
   {
-    "city": "Rinc\u00f3n de Romos",
+    "city": "Rio Grande",
+    "state": "Tierra del Fuego, Ant\u00e1rtida e Islas del Atl\u00e1ntico Sur",
+    "country": "Argentina"
+  },
+  {
+    "city": "Rio Gallegos",
+    "state": "Santa Cruz",
+    "country": "Argentina"
+  },
+  {
+    "city": "Rincon de Romos",
     "state": "Aguascalientes",
     "country": "Mexico"
   },
@@ -195,7 +215,7 @@ export const riCities = [
     "country": "Mexico"
   },
   {
-    "city": "Ritt\u014d",
+    "city": "Ritto",
     "state": "Shiga",
     "country": "Japan"
   },
@@ -230,6 +250,11 @@ export const riCities = [
     "country": "Colombia"
   },
   {
+    "city": "Ribnita",
+    "state": "St\u00eenga Nistrului",
+    "country": "Moldova"
+  },
+  {
     "city": "Rijswijk",
     "state": "Zuid-Holland",
     "country": "Netherlands"
@@ -240,7 +265,7 @@ export const riCities = [
     "country": "Brazil"
   },
   {
-    "city": "Rinc\u00f3n de la Victoria",
+    "city": "Rincon de la Victoria",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -273,6 +298,16 @@ export const riCities = [
     "city": "Ridderkerk",
     "state": "Zuid-Holland",
     "country": "Netherlands"
+  },
+  {
+    "city": "Rio Tercero",
+    "state": "C\u00f3rdoba",
+    "country": "Argentina"
+  },
+  {
+    "city": "Rio Cauto",
+    "state": "Granma",
+    "country": "Cuba"
   },
   {
     "city": "Rieti",
@@ -365,6 +400,11 @@ export const riCities = [
     "country": "Brazil"
   },
   {
+    "city": "Rio Grande",
+    "state": "Zacatecas",
+    "country": "Mexico"
+  },
+  {
     "city": "Richmond",
     "state": "Kentucky",
     "country": "United States"
@@ -385,12 +425,17 @@ export const riCities = [
     "country": "India"
   },
   {
-    "city": "Ribeir\u00e3o",
+    "city": "Rio Verde Arriba",
+    "state": "Cibao Sur",
+    "country": "Dominican Republic"
+  },
+  {
+    "city": "Ribeirao",
     "state": "Pernambuco",
     "country": "Brazil"
   },
   {
-    "city": "Riach\u00e3o do Jacu\u00edpe",
+    "city": "Riachao do Jacuipe",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -405,6 +450,11 @@ export const riCities = [
     "country": "Brazil"
   },
   {
+    "city": "Rio Bravo",
+    "state": "Suchitep\u00e9quez",
+    "country": "Guatemala"
+  },
+  {
     "city": "Rillieux-la-Pape",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
@@ -413,6 +463,11 @@ export const riCities = [
     "city": "Ridley",
     "state": "Pennsylvania",
     "country": "United States"
+  },
+  {
+    "city": "Rio Blanco",
+    "state": "Matagalpa",
+    "country": "Nicaragua"
   },
   {
     "city": "Riacho de Santana",
@@ -435,7 +490,7 @@ export const riCities = [
     "country": "France"
   },
   {
-    "city": "Riihim\u00e4ki",
+    "city": "Riihimaki",
     "state": "Kanta-H\u00e4me",
     "country": "Finland"
   },
@@ -453,6 +508,11 @@ export const riCities = [
     "city": "Ridgecrest",
     "state": "California",
     "country": "United States"
+  },
+  {
+    "city": "Ringas",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
   },
   {
     "city": "Ridgewood",
@@ -540,12 +600,12 @@ export const riCities = [
     "country": "Peru"
   },
   {
-    "city": "Rimavsk\u00e1 Sobota",
+    "city": "Rimavska Sobota",
     "state": "Bansk\u00e1 Bystrica",
     "country": "Slovakia"
   },
   {
-    "city": "Riach\u00e3o das Neves",
+    "city": "Riachao das Neves",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -590,7 +650,12 @@ export const riCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Rivi\u00e8re-du-Loup",
+    "city": "Rio Grande",
+    "state": "Cibao Norte",
+    "country": "Dominican Republic"
+  },
+  {
+    "city": "Riviere-du-Loup",
     "state": "Quebec",
     "country": "Canada"
   },
@@ -605,12 +670,17 @@ export const riCities = [
     "country": "Brazil"
   },
   {
+    "city": "Rio Segundo",
+    "state": "C\u00f3rdoba",
+    "country": "Argentina"
+  },
+  {
     "city": "Rizal",
     "state": "Kalinga",
     "country": "Philippines"
   },
   {
-    "city": "Rif\u0101dpur",
+    "city": "Rifadpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -635,7 +705,7 @@ export const riCities = [
     "country": "India"
   },
   {
-    "city": "Ribeir\u00e3o Branco",
+    "city": "Ribeirao Branco",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -650,7 +720,7 @@ export const riCities = [
     "country": "Philippines"
   },
   {
-    "city": "Riach\u00e3o do Dantas",
+    "city": "Riachao do Dantas",
     "state": "Sergipe",
     "country": "Brazil"
   },
@@ -690,14 +760,24 @@ export const riCities = [
     "country": "Italy"
   },
   {
-    "city": "Ribeir\u00f3polis",
+    "city": "Ribeiropolis",
     "state": "Sergipe",
     "country": "Brazil"
+  },
+  {
+    "city": "Rio Bueno",
+    "state": "Los R\u00edos",
+    "country": "Chile"
   },
   {
     "city": "Rijen",
     "state": "Noord-Brabant",
     "country": "Netherlands"
+  },
+  {
+    "city": "Ricany",
+    "state": "St\u0159edo\u010desk\u00fd Kraj",
+    "country": "Czechia"
   },
   {
     "city": "Ribat Al Khayr",
@@ -755,6 +835,11 @@ export const riCities = [
     "country": "France"
   },
   {
+    "city": "Rio San Juan",
+    "state": "Cibao Nordeste",
+    "country": "Dominican Republic"
+  },
+  {
     "city": "Rizal",
     "state": "Zamboanga del Norte",
     "country": "Philippines"
@@ -775,7 +860,12 @@ export const riCities = [
     "country": "United States"
   },
   {
-    "city": "Riofr\u00edo",
+    "city": "Rio Negro",
+    "state": "Los Lagos",
+    "country": "Chile"
+  },
+  {
+    "city": "Riofrio",
     "state": "Valle del Cauca",
     "country": "Colombia"
   },
@@ -785,7 +875,12 @@ export const riCities = [
     "country": "Brazil"
   },
   {
-    "city": "Rio Parana\u00edba",
+    "city": "Rio Branco",
+    "state": "Cerro Largo",
+    "country": "Uruguay"
+  },
+  {
+    "city": "Rio Paranaiba",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -793,6 +888,11 @@ export const riCities = [
     "city": "Riegelsberg",
     "state": "Saarland",
     "country": "Germany"
+  },
+  {
+    "city": "Rio de Oro",
+    "state": "Cesar",
+    "country": "Colombia"
   },
   {
     "city": "Rio Azul",
@@ -825,6 +925,11 @@ export const riCities = [
     "country": "France"
   },
   {
+    "city": "Rio Caribe",
+    "state": "Sucre",
+    "country": "Venezuela"
+  },
+  {
     "city": "Richterswil",
     "state": "Z\u00fcrich",
     "country": "Switzerland"
@@ -850,12 +955,12 @@ export const riCities = [
     "country": "United States"
   },
   {
-    "city": "Rio do Ant\u00f4nio",
+    "city": "Rio do Antonio",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Ribeir\u00e3o do Pinhal",
+    "city": "Ribeirao do Pinhal",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -900,7 +1005,7 @@ export const riCities = [
     "country": "United States"
   },
   {
-    "city": "Ribeir\u00e3o Claro",
+    "city": "Ribeirao Claro",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -908,6 +1013,11 @@ export const riCities = [
     "city": "Rinconada de Malloa",
     "state": "Libertador General Bernardo O\u2019Higgins",
     "country": "Chile"
+  },
+  {
+    "city": "Rio Grande",
+    "state": "Puerto Rico",
+    "country": "Puerto Rico"
   },
   {
     "city": "Rivarolo Canavese",
@@ -965,6 +1075,11 @@ export const riCities = [
     "country": "United States"
   },
   {
+    "city": "Rio Colorado",
+    "state": "La Pampa",
+    "country": "Argentina"
+  },
+  {
     "city": "Risca",
     "state": "Caerphilly",
     "country": "United Kingdom"
@@ -1000,6 +1115,11 @@ export const riCities = [
     "country": "South Africa"
   },
   {
+    "city": "Rio Cuarto",
+    "state": "Alajuela",
+    "country": "Costa Rica"
+  },
+  {
     "city": "Riorges",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
@@ -1010,7 +1130,7 @@ export const riCities = [
     "country": "Germany"
   },
   {
-    "city": "Ribeir\u00e3o Bonito",
+    "city": "Ribeirao Bonito",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -1038,6 +1158,11 @@ export const riCities = [
     "city": "Rianxo",
     "state": "Galicia",
     "country": "Spain"
+  },
+  {
+    "city": "Rio Segundo",
+    "state": "Alajuela",
+    "country": "Costa Rica"
   },
   {
     "city": "Riverton",
@@ -1090,7 +1215,7 @@ export const riCities = [
     "country": "Italy"
   },
   {
-    "city": "Riol\u00e2ndia",
+    "city": "Riolandia",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -1115,7 +1240,7 @@ export const riCities = [
     "country": "United States"
   },
   {
-    "city": "Ringk\u00f8bing",
+    "city": "Ringkobing",
     "state": "Midtjylland",
     "country": "Denmark"
   },
@@ -1135,7 +1260,7 @@ export const riCities = [
     "country": "Spain"
   },
   {
-    "city": "Ribeir\u00e3o do Largo",
+    "city": "Ribeirao do Largo",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -1145,7 +1270,12 @@ export const riCities = [
     "country": "United States"
   },
   {
-    "city": "Rin\u00f3polis",
+    "city": "Riscani",
+    "state": "R\u00ee\u015fcani",
+    "country": "Moldova"
+  },
+  {
+    "city": "Rinopolis",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -1170,7 +1300,7 @@ export const riCities = [
     "country": "France"
   },
   {
-    "city": "Rinc\u00e3o",
+    "city": "Rincao",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -1205,6 +1335,11 @@ export const riCities = [
     "country": "Brazil"
   },
   {
+    "city": "Rio Jimenez",
+    "state": "Lim\u00f3n",
+    "country": "Costa Rica"
+  },
+  {
     "city": "Richterich",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
@@ -1220,7 +1355,7 @@ export const riCities = [
     "country": "United States"
   },
   {
-    "city": "Rignano sull\u2019Arno",
+    "city": "Rignano sull'Arno",
     "state": "Tuscany",
     "country": "Italy"
   },
@@ -1238,6 +1373,11 @@ export const riCities = [
     "city": "Rietavas",
     "state": "Rietavas",
     "country": "Lithuania"
+  },
+  {
+    "city": "Rio Mayo",
+    "state": "Chubut",
+    "country": "Argentina"
   },
   {
     "city": "Richmond",

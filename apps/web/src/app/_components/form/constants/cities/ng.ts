@@ -1,6 +1,6 @@
 export const ngCities = [
   {
-    "city": "Nghi S\u01a1n",
+    "city": "Nghi Son",
     "state": "Thanh H\u00f3a",
     "country": "Vietnam"
   },
@@ -10,7 +10,7 @@ export const ngCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Ngaound\u00e9r\u00e9",
+    "city": "Ngaoundere",
     "state": "Adamaoua",
     "country": "Cameroon"
   },
@@ -20,12 +20,12 @@ export const ngCities = [
     "country": "Kenya"
   },
   {
-    "city": "Ng\u00e3 B\u1ea3y",
+    "city": "Nga Bay",
     "state": "H\u1eadu Giang",
     "country": "Vietnam"
   },
   {
-    "city": "Ngh\u0129a L\u1ed9",
+    "city": "Nghia Lo",
     "state": "Y\u00ean B\u00e1i",
     "country": "Vietnam"
   },
@@ -60,7 +60,7 @@ export const ngCities = [
     "country": "Mali"
   },
   {
-    "city": "Ngu\u00e9khokh",
+    "city": "Nguekhokh",
     "state": "Thi\u00e8s",
     "country": "Senegal"
   },
@@ -125,7 +125,7 @@ export const ngCities = [
     "country": "Senegal"
   },
   {
-    "city": "Ng\u1ecdc S\u01a1n",
+    "city": "Ngoc Son",
     "state": "B\u1eafc Giang",
     "country": "Vietnam"
   },

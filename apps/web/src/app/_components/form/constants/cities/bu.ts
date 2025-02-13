@@ -90,7 +90,7 @@ export const buCities = [
     "country": "Somalia"
   },
   {
-    "city": "Bu\u00f4n Ma Thu\u1ed9t",
+    "city": "Buon Ma Thuot",
     "state": "\u0110\u1eafk L\u1eafk",
     "country": "Vietnam"
   },
@@ -105,7 +105,12 @@ export const buCities = [
     "country": "Canada"
   },
   {
-    "city": "Bunky\u014d-ku",
+    "city": "Buyukcekmece",
+    "state": "\u0130stanbul",
+    "country": "Turkey"
+  },
+  {
+    "city": "Bunkyo-ku",
     "state": "T\u014dky\u014d",
     "country": "Japan"
   },
@@ -120,7 +125,7 @@ export const buCities = [
     "country": "Congo (Kinshasa)"
   },
   {
-    "city": "Burh\u0101npur",
+    "city": "Burhanpur",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -140,12 +145,17 @@ export const buCities = [
     "country": "Nigeria"
   },
   {
+    "city": "Bukan",
+    "state": "\u0100z\u0304arb\u0101yj\u0101n-e Gharb\u012b",
+    "country": "Iran"
+  },
+  {
     "city": "Burlington",
     "state": "Ontario",
     "country": "Canada"
   },
   {
-    "city": "Bu\u1e0dh\u0101nilkan\u1e6dha",
+    "city": "Budhanilkantha",
     "state": NaN,
     "country": "Nepal"
   },
@@ -160,7 +170,12 @@ export const buCities = [
     "country": "India"
   },
   {
-    "city": "Bu\u011fdayl\u0131",
+    "city": "Buyuk Cakirman",
+    "state": "Erzincan",
+    "country": "Turkey"
+  },
+  {
+    "city": "Bugdayli",
     "state": "Erzincan",
     "country": "Turkey"
   },
@@ -180,7 +195,7 @@ export const buCities = [
     "country": "Cameroon"
   },
   {
-    "city": "Bu\u00f4n H\u1ed3",
+    "city": "Buon Ho",
     "state": "\u0110\u1eafk L\u1eafk",
     "country": "Vietnam"
   },
@@ -190,12 +205,12 @@ export const buCities = [
     "country": "United States"
   },
   {
-    "city": "Butw\u0101l",
+    "city": "Butwal",
     "state": "Lumbin\u012b",
     "country": "Nepal"
   },
   {
-    "city": "Bu\u2019aale",
+    "city": "Bu'aale",
     "state": "Jubbada Dhexe",
     "country": "Somalia"
   },
@@ -215,7 +230,7 @@ export const buCities = [
     "country": "Philippines"
   },
   {
-    "city": "Buz\u0103u",
+    "city": "Buzau",
     "state": "Buz\u0103u",
     "country": "Romania"
   },
@@ -223,6 +238,11 @@ export const buCities = [
     "city": "Bumba",
     "state": "Mongala",
     "country": "Congo (Kinshasa)"
+  },
+  {
+    "city": "Bundi",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
   },
   {
     "city": "Buxar",
@@ -285,7 +305,7 @@ export const buCities = [
     "country": "Philippines"
   },
   {
-    "city": "Bulan\u0131k",
+    "city": "Bulanik",
     "state": "Mu\u015f",
     "country": "Turkey"
   },
@@ -293,6 +313,11 @@ export const buCities = [
     "city": "Butterworth",
     "state": "Pulau Pinang",
     "country": "Malaysia"
+  },
+  {
+    "city": "Bumahen",
+    "state": "Tehr\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Bury",
@@ -330,6 +355,11 @@ export const buCities = [
     "country": "Australia"
   },
   {
+    "city": "Bur Fu'ad",
+    "state": "B\u016br Sa\u2018\u012bd",
+    "country": "Egypt"
+  },
+  {
     "city": "Buenavista",
     "state": "Agusan del Norte",
     "country": "Philippines"
@@ -360,7 +390,7 @@ export const buCities = [
     "country": "United States"
   },
   {
-    "city": "Bud\u00ebnnovsk",
+    "city": "Budennovsk",
     "state": "Stavropol\u2019skiy Kray",
     "country": "Russia"
   },
@@ -420,7 +450,7 @@ export const buCities = [
     "country": "Philippines"
   },
   {
-    "city": "Bu\u00edque",
+    "city": "Buique",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -455,9 +485,14 @@ export const buCities = [
     "country": "Philippines"
   },
   {
-    "city": "Buena Vista Tomatl\u00e1n",
+    "city": "Buena Vista Tomatlan",
     "state": "Michoac\u00e1n",
     "country": "Mexico"
+  },
+  {
+    "city": "Bunde",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
   },
   {
     "city": "Busaar",
@@ -545,7 +580,7 @@ export const buCities = [
     "country": "Philippines"
   },
   {
-    "city": "Buchireddip\u0101lem",
+    "city": "Buchireddipalem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -605,7 +640,7 @@ export const buCities = [
     "country": "Taiwan"
   },
   {
-    "city": "Butaj\u012bra",
+    "city": "Butajira",
     "state": "YeDebub Bih\u0113roch Bih\u0113reseboch na Hizboch",
     "country": "Ethiopia"
   },
@@ -620,7 +655,7 @@ export const buCities = [
     "country": "Uganda"
   },
   {
-    "city": "Bungo\u014dno",
+    "city": "Bungoono",
     "state": "\u014cita",
     "country": "Japan"
   },
@@ -650,9 +685,19 @@ export const buCities = [
     "country": "Philippines"
   },
   {
+    "city": "Buu Long",
+    "state": "\u0110\u1ed3ng Nai",
+    "country": "Vietnam"
+  },
+  {
     "city": "Buzovna",
     "state": "Bak\u0131",
     "country": "Azerbaijan"
+  },
+  {
+    "city": "Bunyan",
+    "state": "Kayseri",
+    "country": "Turkey"
   },
   {
     "city": "Buyan",
@@ -720,14 +765,19 @@ export const buCities = [
     "country": "Brazil"
   },
   {
-    "city": "Buda\u00f6rs",
+    "city": "Budaors",
     "state": "Pest",
     "country": "Hungary"
   },
   {
-    "city": "Bulung\u2019ur Shahri",
+    "city": "Bulung'ur Shahri",
     "state": "Samarqand",
     "country": "Uzbekistan"
+  },
+  {
+    "city": "Buhl",
+    "state": "Baden-W\u00fcrttemberg",
+    "country": "Germany"
   },
   {
     "city": "Burbank",
@@ -790,7 +840,7 @@ export const buCities = [
     "country": "India"
   },
   {
-    "city": "Budhl\u0101da",
+    "city": "Budhlada",
     "state": "Punjab",
     "country": "India"
   },
@@ -835,7 +885,7 @@ export const buCities = [
     "country": "Taiwan"
   },
   {
-    "city": "Bur\u0113",
+    "city": "Bure",
     "state": "\u0100mara",
     "country": "Ethiopia"
   },
@@ -843,6 +893,11 @@ export const buCities = [
     "city": "Burdeos",
     "state": "Quezon",
     "country": "Philippines"
+  },
+  {
+    "city": "Bundu",
+    "state": "Jh\u0101rkhand",
+    "country": "India"
   },
   {
     "city": "Buzen",
@@ -890,7 +945,7 @@ export const buCities = [
     "country": "United States"
   },
   {
-    "city": "Bu\u00f4n Tr\u1ea5p",
+    "city": "Buon Trap",
     "state": "\u0110\u1eafk L\u1eafk",
     "country": "Vietnam"
   },
@@ -940,6 +995,11 @@ export const buCities = [
     "country": "Germany"
   },
   {
+    "city": "Budingen",
+    "state": "Hesse",
+    "country": "Germany"
+  },
+  {
     "city": "Buriti Bravo",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
@@ -950,7 +1010,7 @@ export const buCities = [
     "country": "Uganda"
   },
   {
-    "city": "Bukkar\u0101yasamudram",
+    "city": "Bukkarayasamudram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1000,6 +1060,11 @@ export const buCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Bulach",
+    "state": "Z\u00fcrich",
+    "country": "Switzerland"
+  },
+  {
     "city": "Bubanza",
     "state": "Bubanza",
     "country": "Burundi"
@@ -1020,9 +1085,19 @@ export const buCities = [
     "country": "Australia"
   },
   {
-    "city": "Bu\u015fr\u00e1 ash Sh\u0101m",
+    "city": "Buckeburg",
+    "state": "Lower Saxony",
+    "country": "Germany"
+  },
+  {
+    "city": "Busra ash Sham",
     "state": "Dar\u2018\u0101",
     "country": "Syria"
+  },
+  {
+    "city": "Budipuram",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Buriti dos Lopes",
@@ -1050,7 +1125,7 @@ export const buCities = [
     "country": "Philippines"
   },
   {
-    "city": "Buti\u00e1",
+    "city": "Butia",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -1070,7 +1145,7 @@ export const buCities = [
     "country": "Uganda"
   },
   {
-    "city": "Busova\u010da",
+    "city": "Busovaca",
     "state": "Bosnia and Herzegovina, Federation of",
     "country": "Bosnia and Herzegovina"
   },
@@ -1135,6 +1210,11 @@ export const buCities = [
     "country": "United States"
   },
   {
+    "city": "Bulbula",
+    "state": "Bak\u0131",
+    "country": "Azerbaijan"
+  },
+  {
     "city": "Busolwe",
     "state": "Butaleja",
     "country": "Uganda"
@@ -1143,6 +1223,11 @@ export const buCities = [
     "city": "Buntok",
     "state": "Kalimantan Tengah",
     "country": "Indonesia"
+  },
+  {
+    "city": "Burstadt",
+    "state": "Hesse",
+    "country": "Germany"
   },
   {
     "city": "Bull Run",
@@ -1190,7 +1275,7 @@ export const buCities = [
     "country": "Uganda"
   },
   {
-    "city": "Bu\u00e7imas",
+    "city": "Bucimas",
     "state": "Kor\u00e7\u00eb",
     "country": "Albania"
   },
@@ -1200,12 +1285,17 @@ export const buCities = [
     "country": "Tanzania"
   },
   {
+    "city": "Buston",
+    "state": "Sughd",
+    "country": "Tajikistan"
+  },
+  {
     "city": "Budakeszi",
     "state": "Pest",
     "country": "Hungary"
   },
   {
-    "city": "Bugg\u0101nipalle",
+    "city": "Bugganipalle",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1235,7 +1325,7 @@ export const buCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Busko-Zdr\u00f3j",
+    "city": "Busko-Zdroj",
     "state": "\u015awi\u0119tokrzyskie",
     "country": "Poland"
   },
@@ -1243,6 +1333,11 @@ export const buCities = [
     "city": "Buda",
     "state": "Texas",
     "country": "United States"
+  },
+  {
+    "city": "Buttelborn",
+    "state": "Hesse",
+    "country": "Germany"
   },
   {
     "city": "Buerarema",
@@ -1275,7 +1370,7 @@ export const buCities = [
     "country": "Thailand"
   },
   {
-    "city": "Buhu\u015fi",
+    "city": "Buhusi",
     "state": "Bac\u0103u",
     "country": "Romania"
   },
@@ -1310,7 +1405,7 @@ export const buCities = [
     "country": "Philippines"
   },
   {
-    "city": "Bu\u015fr\u00e1 al \u1e28ar\u012br",
+    "city": "Busra al Harir",
     "state": "Dar\u2018\u0101",
     "country": "Syria"
   },
@@ -1325,7 +1420,7 @@ export const buCities = [
     "country": "China"
   },
   {
-    "city": "Bund\u0101la",
+    "city": "Bundala",
     "state": "Punjab",
     "country": "India"
   },
@@ -1365,7 +1460,7 @@ export const buCities = [
     "country": "Turkey"
   },
   {
-    "city": "Burj al \u2018Arab",
+    "city": "Burj al `Arab",
     "state": "Al Iskandar\u012byah",
     "country": "Egypt"
   },
@@ -1385,7 +1480,7 @@ export const buCities = [
     "country": "Rwanda"
   },
   {
-    "city": "Butt\u0101yag\u016bdem",
+    "city": "Buttayagudem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1410,7 +1505,7 @@ export const buCities = [
     "country": "India"
   },
   {
-    "city": "Budakal\u00e1sz",
+    "city": "Budakalasz",
     "state": "Pest",
     "country": "Hungary"
   },
@@ -1450,7 +1545,7 @@ export const buCities = [
     "country": "Uganda"
   },
   {
-    "city": "Budha Th\u0113h",
+    "city": "Budha Theh",
     "state": "Punjab",
     "country": "India"
   },
@@ -1460,7 +1555,7 @@ export const buCities = [
     "country": "United States"
   },
   {
-    "city": "Bur\u0101m",
+    "city": "Buram",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1488,6 +1583,11 @@ export const buCities = [
     "city": "Burtonwood",
     "state": "Warrington",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Budili",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Busumbala",
@@ -1520,7 +1620,7 @@ export const buCities = [
     "country": "Germany"
   },
   {
-    "city": "Bueno Brand\u00e3o",
+    "city": "Bueno Brandao",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1540,9 +1640,14 @@ export const buCities = [
     "country": "Philippines"
   },
   {
-    "city": "Bu\u015fayr\u0101",
+    "city": "Busayra",
     "state": "A\u0163 \u0162af\u012blah",
     "country": "Jordan"
+  },
+  {
+    "city": "Budelsdorf",
+    "state": "Schleswig-Holstein",
+    "country": "Germany"
   },
   {
     "city": "Buttar Khurd",
@@ -1565,7 +1670,7 @@ export const buCities = [
     "country": "Somalia"
   },
   {
-    "city": "Burgst\u00e4dt",
+    "city": "Burgstadt",
     "state": "Saxony",
     "country": "Germany"
   },
@@ -1608,6 +1713,11 @@ export const buCities = [
     "city": "Burgum",
     "state": "Frysl\u00e2n",
     "country": "Netherlands"
+  },
+  {
+    "city": "Buyukorhan",
+    "state": "Bursa",
+    "country": "Turkey"
   },
   {
     "city": "Butha-Buthe",
@@ -1660,7 +1770,7 @@ export const buCities = [
     "country": "United States"
   },
   {
-    "city": "Bu\u00f1ol",
+    "city": "Bunol",
     "state": "Valencia",
     "country": "Spain"
   },
@@ -1678,6 +1788,11 @@ export const buCities = [
     "city": "Burela de Cabo",
     "state": "Galicia",
     "country": "Spain"
+  },
+  {
+    "city": "Budalur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Burlington",
@@ -1705,7 +1820,7 @@ export const buCities = [
     "country": "India"
   },
   {
-    "city": "Buen\u00f3polis",
+    "city": "Buenopolis",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1717,6 +1832,11 @@ export const buCities = [
   {
     "city": "Bundehra",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Budamangalam",
+    "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
@@ -1760,7 +1880,7 @@ export const buCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Bund\u0101la",
+    "city": "Bundala",
     "state": "Punjab",
     "country": "India"
   },
@@ -1778,6 +1898,11 @@ export const buCities = [
     "city": "Bushkill",
     "state": "Pennsylvania",
     "country": "United States"
+  },
+  {
+    "city": "Bulaevo",
+    "state": "North Kazakhstan",
+    "country": "Kazakhstan"
   },
   {
     "city": "Bueng Kan",

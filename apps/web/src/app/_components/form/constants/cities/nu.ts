@@ -20,6 +20,11 @@ export const nuCities = [
     "country": "Japan"
   },
   {
+    "city": "Nuzvid",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Numan",
     "state": "Adamawa",
     "country": "Nigeria"
@@ -35,7 +40,7 @@ export const nuCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Nueva Concepci\u00f3n",
+    "city": "Nueva Concepcion",
     "state": "Escuintla",
     "country": "Guatemala"
   },
@@ -75,7 +80,12 @@ export const nuCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Nurda\u011f\u0131",
+    "city": "Nurtingen",
+    "state": "Baden-W\u00fcrttemberg",
+    "country": "Germany"
+  },
+  {
+    "city": "Nurdagi",
     "state": "Gaziantep",
     "country": "Turkey"
   },
@@ -93,6 +103,11 @@ export const nuCities = [
     "city": "Nuevitas",
     "state": "Camag\u00fcey",
     "country": "Cuba"
+  },
+  {
+    "city": "Nurpur",
+    "state": "Uttar Pradesh",
+    "country": "India"
   },
   {
     "city": "Nueve de Julio",
@@ -130,12 +145,12 @@ export const nuCities = [
     "country": "United States"
   },
   {
-    "city": "Nu\u2018ayjah",
+    "city": "Nu`ayjah",
     "state": "Ad Daw\u1e29ah",
     "country": "Qatar"
   },
   {
-    "city": "Nueva Concepci\u00f3n",
+    "city": "Nueva Concepcion",
     "state": "Chalatenango",
     "country": "El Salvador"
   },
@@ -150,7 +165,7 @@ export const nuCities = [
     "country": "Sri Lanka"
   },
   {
-    "city": "Nuevo Arraij\u00e1n",
+    "city": "Nuevo Arraijan",
     "state": "Panam\u00e1 Oeste",
     "country": "Panama"
   },
@@ -160,7 +175,7 @@ export const nuCities = [
     "country": "Cuba"
   },
   {
-    "city": "Nuku\u2018alofa",
+    "city": "Nuku`alofa",
     "state": "Tongatapu",
     "country": "Tonga"
   },
@@ -185,7 +200,7 @@ export const nuCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Nunu\u00f1gan",
+    "city": "Nunungan",
     "state": "Lanao del Norte",
     "country": "Philippines"
   },
@@ -193,6 +208,11 @@ export const nuCities = [
     "city": "Nuuk",
     "state": "Sermersooq",
     "country": "Greenland"
+  },
+  {
+    "city": "Numbrecht",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
   },
   {
     "city": "Nuevo San Juan Parangaricutiro",
@@ -235,7 +255,7 @@ export const nuCities = [
     "country": "Philippines"
   },
   {
-    "city": "Nu\u00dfloch",
+    "city": "Nussloch",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
@@ -260,12 +280,22 @@ export const nuCities = [
     "country": "Uzbekistan"
   },
   {
+    "city": "Nukan",
+    "state": "Kerm\u0101nsh\u0101h",
+    "country": "Iran"
+  },
+  {
     "city": "Nueva Palmira",
     "state": "Colonia",
     "country": "Uruguay"
   },
   {
-    "city": "Nueva Tolt\u00e9n",
+    "city": "Nurpur",
+    "state": "Him\u0101chal Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Nueva Tolten",
     "state": "Araucan\u00eda",
     "country": "Chile"
   },
@@ -280,12 +310,22 @@ export const nuCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Nuqu\u00ed",
+    "city": "Nulivedu",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Nutakki",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Nuqui",
     "state": "Choc\u00f3",
     "country": "Colombia"
   },
   {
-    "city": "Nunch\u00eda",
+    "city": "Nunchia",
     "state": "Casanare",
     "country": "Colombia"
   },
@@ -300,13 +340,18 @@ export const nuCities = [
     "country": "Honduras"
   },
   {
-    "city": "Nuevo Paysand\u00fa",
+    "city": "Nuevo Paysandu",
     "state": "Paysand\u00fa",
     "country": "Uruguay"
   },
   {
-    "city": "Nunih\u0101t",
+    "city": "Nunihat",
     "state": "Jh\u0101rkhand",
+    "country": "India"
+  },
+  {
+    "city": "Nulvi",
+    "state": "Karn\u0101taka",
     "country": "India"
   },
   {

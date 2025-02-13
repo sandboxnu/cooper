@@ -25,6 +25,11 @@ export const vaCities = [
     "country": "India"
   },
   {
+    "city": "Varanasi",
+    "state": "Uttar Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Valenzuela",
     "state": "Valenzuela",
     "country": "Philippines"
@@ -60,12 +65,17 @@ export const vaCities = [
     "country": "Spain"
   },
   {
-    "city": "Valpara\u00edso",
+    "city": "Valparaiso",
     "state": "Valpara\u00edso",
     "country": "Chile"
   },
   {
-    "city": "Var\u0101m\u012bn",
+    "city": "Varzea Grande",
+    "state": "Mato Grosso",
+    "country": "Brazil"
+  },
+  {
+    "city": "Varamin",
     "state": "Tehr\u0101n",
     "country": "Iran"
   },
@@ -90,7 +100,7 @@ export const vaCities = [
     "country": "United States"
   },
   {
-    "city": "Vals\u0101d",
+    "city": "Valsad",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -115,6 +125,11 @@ export const vaCities = [
     "country": "Brazil"
   },
   {
+    "city": "Vasteras",
+    "state": "V\u00e4stmanland",
+    "country": "Sweden"
+  },
+  {
     "city": "Valinhos",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
@@ -123,6 +138,11 @@ export const vaCities = [
     "city": "Valle de La Pascua",
     "state": "Gu\u00e1rico",
     "country": "Venezuela"
+  },
+  {
+    "city": "Varzea Paulista",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
   },
   {
     "city": "Vacaville",
@@ -135,7 +155,12 @@ export const vaCities = [
     "country": "Spain"
   },
   {
-    "city": "Valen\u00e7a",
+    "city": "Vasco Da Gama",
+    "state": "Goa",
+    "country": "India"
+  },
+  {
+    "city": "Valenca",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -143,6 +168,11 @@ export const vaCities = [
     "city": "Vanderbijlpark",
     "state": "Gauteng",
     "country": "South Africa"
+  },
+  {
+    "city": "Vaniyambadi",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Valongo",
@@ -170,7 +200,7 @@ export const vaCities = [
     "country": "Italy"
   },
   {
-    "city": "Valen\u00e7a",
+    "city": "Valenca",
     "state": "Rio de Janeiro",
     "country": "Brazil"
   },
@@ -178,6 +208,11 @@ export const vaCities = [
     "city": "Valdosta",
     "state": "Georgia",
     "country": "United States"
+  },
+  {
+    "city": "Valparai",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Varisshiyakuni",
@@ -195,7 +230,12 @@ export const vaCities = [
     "country": "Finland"
   },
   {
-    "city": "Vaij\u0101pur",
+    "city": "Vaxjo",
+    "state": "Kronoberg",
+    "country": "Sweden"
+  },
+  {
+    "city": "Vaijapur",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -235,7 +275,7 @@ export const vaCities = [
     "country": "France"
   },
   {
-    "city": "Vaisamp\u0101kkal",
+    "city": "Vaisampakkal",
     "state": "Kerala",
     "country": "India"
   },
@@ -265,7 +305,7 @@ export const vaCities = [
     "country": "Chile"
   },
   {
-    "city": "Vara\u017edin",
+    "city": "Varazdin",
     "state": "Vara\u017edinska \u017dupanija",
     "country": "Croatia"
   },
@@ -335,6 +375,16 @@ export const vaCities = [
     "country": "Philippines"
   },
   {
+    "city": "Vadasinor",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
+    "city": "Varzea Alegre",
+    "state": "Cear\u00e1",
+    "country": "Brazil"
+  },
+  {
     "city": "Valencia",
     "state": "Negros Oriental",
     "country": "Philippines"
@@ -365,6 +415,11 @@ export const vaCities = [
     "country": "India"
   },
   {
+    "city": "Vastervik",
+    "state": "Kalmar",
+    "country": "Sweden"
+  },
+  {
     "city": "Varberg",
     "state": "Halland",
     "country": "Sweden"
@@ -385,6 +440,11 @@ export const vaCities = [
     "country": "Russia"
   },
   {
+    "city": "Vac",
+    "state": "Pest",
+    "country": "Hungary"
+  },
+  {
     "city": "Valparaiso",
     "state": "Indiana",
     "country": "United States"
@@ -395,7 +455,12 @@ export const vaCities = [
     "country": "Brazil"
   },
   {
-    "city": "Val-d\u2019Or",
+    "city": "Varzea da Palma",
+    "state": "Minas Gerais",
+    "country": "Brazil"
+  },
+  {
+    "city": "Val-d'Or",
     "state": "Quebec",
     "country": "Canada"
   },
@@ -420,12 +485,12 @@ export const vaCities = [
     "country": "Turkey"
   },
   {
-    "city": "Valdepe\u00f1as",
+    "city": "Valdepenas",
     "state": "Castille-La Mancha",
     "country": "Spain"
   },
   {
-    "city": "Vand\u0153uvre-l\u00e8s-Nancy",
+    "city": "Vandoeuvre-les-Nancy",
     "state": "Grand Est",
     "country": "France"
   },
@@ -435,7 +500,7 @@ export const vaCities = [
     "country": "Sweden"
   },
   {
-    "city": "Vadakku Valliy\u016br",
+    "city": "Vadakku Valliyur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -455,7 +520,7 @@ export const vaCities = [
     "country": "India"
   },
   {
-    "city": "Vandiy\u016br",
+    "city": "Vandiyur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -465,7 +530,7 @@ export const vaCities = [
     "country": "Philippines"
   },
   {
-    "city": "Vakf\u0131kebir",
+    "city": "Vakfikebir",
     "state": "Trabzon",
     "country": "Turkey"
   },
@@ -495,6 +560,11 @@ export const vaCities = [
     "country": "India"
   },
   {
+    "city": "Vadippatti",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Vadakkanandal",
     "state": "Tamil N\u0101du",
     "country": "India"
@@ -518,6 +588,11 @@ export const vaCities = [
     "city": "Vaterstetten",
     "state": "Bavaria",
     "country": "Germany"
+  },
+  {
+    "city": "Vasudevanallur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Valls",
@@ -550,9 +625,14 @@ export const vaCities = [
     "country": "Brazil"
   },
   {
-    "city": "Valpara\u00edso",
+    "city": "Valparaiso",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
+  },
+  {
+    "city": "Vanersborg",
+    "state": "V\u00e4stra G\u00f6taland",
+    "country": "Sweden"
   },
   {
     "city": "Vallabh Vidyanagar",
@@ -565,7 +645,7 @@ export const vaCities = [
     "country": "United States"
   },
   {
-    "city": "Vanim\u0113l",
+    "city": "Vanimel",
     "state": "Kerala",
     "country": "India"
   },
@@ -580,12 +660,12 @@ export const vaCities = [
     "country": "Ecuador"
   },
   {
-    "city": "Vandiperiy\u0101r",
+    "city": "Vandiperiyar",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Vadakarai K\u012bl Pid\u0101gai",
+    "city": "Vadakarai Kil Pidagai",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -600,12 +680,12 @@ export const vaCities = [
     "country": "Portugal"
   },
   {
-    "city": "Vayan\u016br",
+    "city": "Vayanur",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Vala\u0161sk\u00e9 Mezi\u0159\u00ed\u010d\u00ed",
+    "city": "Valasske Mezirici",
     "state": "Zl\u00ednsk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -615,12 +695,12 @@ export const vaCities = [
     "country": "Latvia"
   },
   {
-    "city": "Valen\u00e7a do Piau\u00ed",
+    "city": "Valenca do Piaui",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
   {
-    "city": "Vayal\u0101r",
+    "city": "Vayalar",
     "state": "Kerala",
     "country": "India"
   },
@@ -632,6 +712,11 @@ export const vaCities = [
   {
     "city": "Vanthli",
     "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
+    "city": "Vamanapuram",
+    "state": "Kerala",
     "country": "India"
   },
   {
@@ -700,9 +785,14 @@ export const vaCities = [
     "country": "Philippines"
   },
   {
-    "city": "Valiyakum\u0101ramangalam",
+    "city": "Valiyakumaramangalam",
     "state": "Kerala",
     "country": "India"
+  },
+  {
+    "city": "Varpalota",
+    "state": "Veszpr\u00e9m",
+    "country": "Hungary"
   },
   {
     "city": "Vallam",
@@ -725,7 +815,12 @@ export const vaCities = [
     "country": "India"
   },
   {
-    "city": "Varzel\u00e2ndia",
+    "city": "Varapatti",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Varzelandia",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -745,7 +840,7 @@ export const vaCities = [
     "country": "Russia"
   },
   {
-    "city": "Valavan\u016br",
+    "city": "Valavanur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -765,7 +860,7 @@ export const vaCities = [
     "country": "Serbia"
   },
   {
-    "city": "Vandal\u016br",
+    "city": "Vandalur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -775,7 +870,12 @@ export const vaCities = [
     "country": "India"
   },
   {
-    "city": "Valli\u00e8res",
+    "city": "Vayalpad",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Vallieres",
     "state": "Nord-Est",
     "country": "Haiti"
   },
@@ -810,12 +910,12 @@ export const vaCities = [
     "country": "India"
   },
   {
-    "city": "Vaur\u00e9al",
+    "city": "Vaureal",
     "state": "\u00cele-de-France",
     "country": "France"
   },
   {
-    "city": "Valavak\u0101ttum\u016bla",
+    "city": "Valavakattumula",
     "state": "Kerala",
     "country": "India"
   },
@@ -825,7 +925,12 @@ export const vaCities = [
     "country": "Italy"
   },
   {
-    "city": "Valabh\u012bpur",
+    "city": "Vari",
+    "state": "Attik\u00ed",
+    "country": "Greece"
+  },
+  {
+    "city": "Valabhipur",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -840,7 +945,7 @@ export const vaCities = [
     "country": "Spain"
   },
   {
-    "city": "Vardann\u0101pet",
+    "city": "Vardannapet",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -850,7 +955,7 @@ export const vaCities = [
     "country": "Italy"
   },
   {
-    "city": "Vatl\u016bru",
+    "city": "Vatluru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -870,7 +975,12 @@ export const vaCities = [
     "country": "United States"
   },
   {
-    "city": "Valatt\u016br",
+    "city": "Vasterhaninge",
+    "state": "Stockholm",
+    "country": "Sweden"
+  },
+  {
+    "city": "Valattur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -880,7 +990,7 @@ export const vaCities = [
     "country": "India"
   },
   {
-    "city": "Vall\u016br",
+    "city": "Vallur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -890,7 +1000,7 @@ export const vaCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Valangim\u0101n",
+    "city": "Valangiman",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -900,7 +1010,7 @@ export const vaCities = [
     "country": "Czechia"
   },
   {
-    "city": "Vadd\u0101palli",
+    "city": "Vaddapalli",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -925,6 +1035,11 @@ export const vaCities = [
     "country": "Portugal"
   },
   {
+    "city": "Vasad",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
     "city": "Valday",
     "state": "Novgorodskaya Oblast\u2019",
     "country": "Russia"
@@ -935,7 +1050,7 @@ export const vaCities = [
     "country": "United States"
   },
   {
-    "city": "Valen\u00e7a",
+    "city": "Valenca",
     "state": "Viana do Castelo",
     "country": "Portugal"
   },
@@ -970,7 +1085,7 @@ export const vaCities = [
     "country": "India"
   },
   {
-    "city": "Vargem da Ro\u00e7a",
+    "city": "Vargem da Roca",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -985,9 +1100,19 @@ export const vaCities = [
     "country": "United States"
   },
   {
+    "city": "Vazquez",
+    "state": "Las Tunas",
+    "country": "Cuba"
+  },
+  {
     "city": "Vaires-sur-Marne",
     "state": "\u00cele-de-France",
     "country": "France"
+  },
+  {
+    "city": "Vaghodia",
+    "state": "Gujar\u0101t",
+    "country": "India"
   },
   {
     "city": "Valdemorillo",
@@ -995,12 +1120,22 @@ export const vaCities = [
     "country": "Spain"
   },
   {
+    "city": "Varzea Nova",
+    "state": "Bahia",
+    "country": "Brazil"
+  },
+  {
     "city": "Val-des-Monts",
     "state": "Quebec",
     "country": "Canada"
   },
   {
-    "city": "Valpara\u00edso",
+    "city": "Vaerlose",
+    "state": "Hovedstaden",
+    "country": "Denmark"
+  },
+  {
+    "city": "Valparaiso",
     "state": "Zacatecas",
     "country": "Mexico"
   },
@@ -1070,7 +1205,7 @@ export const vaCities = [
     "country": "India"
   },
   {
-    "city": "Vandith\u0101valam",
+    "city": "Vandithavalam",
     "state": "Kerala",
     "country": "India"
   },
@@ -1078,6 +1213,11 @@ export const vaCities = [
     "city": "Valley Falls",
     "state": "Rhode Island",
     "country": "United States"
+  },
+  {
+    "city": "Valenii de Munte",
+    "state": "Prahova",
+    "country": "Romania"
   },
   {
     "city": "Vanimo",
@@ -1095,7 +1235,7 @@ export const vaCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Vadakkumb\u0101gam",
+    "city": "Vadakkumbagam",
     "state": "Kerala",
     "country": "India"
   },
@@ -1105,7 +1245,7 @@ export const vaCities = [
     "country": "Colombia"
   },
   {
-    "city": "Valea Ad\u00e2nc\u0103",
+    "city": "Valea Adanca",
     "state": "Ia\u015fi",
     "country": "Romania"
   },
@@ -1125,12 +1265,12 @@ export const vaCities = [
     "country": "South Africa"
   },
   {
-    "city": "Varadar\u0101jampettai",
+    "city": "Varadarajampettai",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Va\u1e29datt\u012byeh",
+    "city": "Vahdattiyeh",
     "state": "B\u016bshehr",
     "country": "Iran"
   },
@@ -1145,7 +1285,7 @@ export const vaCities = [
     "country": "Finland"
   },
   {
-    "city": "Vaux-le-P\u00e9nil",
+    "city": "Vaux-le-Penil",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -1170,7 +1310,7 @@ export const vaCities = [
     "country": "United States"
   },
   {
-    "city": "Varga\u016br",
+    "city": "Vargaur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1220,7 +1360,7 @@ export const vaCities = [
     "country": "India"
   },
   {
-    "city": "Vadakku Ariyan\u0101yakipuram",
+    "city": "Vadakku Ariyanayakipuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1235,7 +1375,7 @@ export const vaCities = [
     "country": "India"
   },
   {
-    "city": "Vadd\u0101di",
+    "city": "Vaddadi",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1295,6 +1435,11 @@ export const vaCities = [
     "country": "Croatia"
   },
   {
+    "city": "Valantaravai",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Vanipenta",
     "state": "Andhra Pradesh",
     "country": "India"
@@ -1310,17 +1455,17 @@ export const vaCities = [
     "country": "Russia"
   },
   {
-    "city": "Vasilik\u00e1",
+    "city": "Vasilika",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
   {
-    "city": "Vare\u0161",
+    "city": "Vares",
     "state": "Bosnia and Herzegovina, Federation of",
     "country": "Bosnia and Herzegovina"
   },
   {
-    "city": "Vardham\u0101nkota",
+    "city": "Vardhamankota",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1330,12 +1475,17 @@ export const vaCities = [
     "country": "India"
   },
   {
-    "city": "Valaiy\u0101mpattu",
+    "city": "Valaiyampattu",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Vaprio d\u2019Adda",
+    "city": "Vandam",
+    "state": "Q\u0259b\u0259l\u0259",
+    "country": "Azerbaijan"
+  },
+  {
+    "city": "Vaprio d'Adda",
     "state": "Lombardy",
     "country": "Italy"
   },
@@ -1350,12 +1500,12 @@ export const vaCities = [
     "country": "France"
   },
   {
-    "city": "Vadak\u0113thara",
+    "city": "Vadakethara",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Valr\u00e9as",
+    "city": "Valreas",
     "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
     "country": "France"
   },
@@ -1375,12 +1525,12 @@ export const vaCities = [
     "country": "India"
   },
   {
-    "city": "Vallahbh\u0101puram",
+    "city": "Vallahbhapuram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Vadav\u0101lam",
+    "city": "Vadavalam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1410,12 +1560,12 @@ export const vaCities = [
     "country": "Romania"
   },
   {
-    "city": "Vanav\u0101si",
+    "city": "Vanavasi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Vadas\u012bkarambattu",
+    "city": "Vadasikarambattu",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1435,7 +1585,7 @@ export const vaCities = [
     "country": "India"
   },
   {
-    "city": "Vanduv\u0101ncheri",
+    "city": "Vanduvancheri",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1445,7 +1595,7 @@ export const vaCities = [
     "country": "India"
   },
   {
-    "city": "Vadak\u0101du",
+    "city": "Vadakadu",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1455,7 +1605,7 @@ export const vaCities = [
     "country": "India"
   },
   {
-    "city": "Vanuk\u016bru",
+    "city": "Vanukuru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1465,12 +1615,12 @@ export const vaCities = [
     "country": "France"
   },
   {
-    "city": "Vairichettip\u0101laiyam",
+    "city": "Vairichettipalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Var\u0117na",
+    "city": "Varena",
     "state": "Var\u0117na",
     "country": "Lithuania"
   },
@@ -1490,7 +1640,7 @@ export const vaCities = [
     "country": "Ecuador"
   },
   {
-    "city": "Vads\u00f8",
+    "city": "Vadso",
     "state": "Troms og Finnmark",
     "country": "Norway"
   },
@@ -1505,7 +1655,7 @@ export const vaCities = [
     "country": "North Macedonia"
   },
   {
-    "city": "Varak\u013c\u0101ni",
+    "city": "Varaklani",
     "state": "Varak\u013c\u0101ni",
     "country": "Latvia"
   },
@@ -1528,5 +1678,10 @@ export const vaCities = [
     "city": "Varnek",
     "state": "Nenetskiy Avtonomnyy Okrug",
     "country": "Russia"
+  },
+  {
+    "city": "Vagur",
+    "state": "V\u00e1gur",
+    "country": "Faroe Islands"
   }
 ]

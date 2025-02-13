@@ -70,7 +70,7 @@ export const frCities = [
     "country": "Botswana"
   },
   {
-    "city": "Francisco Beltr\u00e3o",
+    "city": "Francisco Beltrao",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -80,7 +80,7 @@ export const frCities = [
     "country": "United States"
   },
   {
-    "city": "Fray Bartolom\u00e9 de Las Casas",
+    "city": "Fray Bartolome de Las Casas",
     "state": "Alta Verapaz",
     "country": "Guatemala"
   },
@@ -135,12 +135,12 @@ export const frCities = [
     "country": "Germany"
   },
   {
-    "city": "Fr\u00e9jus",
+    "city": "Frejus",
     "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
     "country": "France"
   },
   {
-    "city": "Fr\u00fddek-M\u00edstek",
+    "city": "Frydek-Mistek",
     "state": "Moravskoslezsk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -320,7 +320,7 @@ export const frCities = [
     "country": "United States"
   },
   {
-    "city": "Fr\u00edas",
+    "city": "Frias",
     "state": "Santiago del Estero",
     "country": "Argentina"
   },
@@ -385,7 +385,7 @@ export const frCities = [
     "country": "United States"
   },
   {
-    "city": "Francisco S\u00e1",
+    "city": "Francisco Sa",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -430,12 +430,12 @@ export const frCities = [
     "country": "Colombia"
   },
   {
-    "city": "Fr\u00f6ndenberg",
+    "city": "Frondenberg",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
   },
   {
-    "city": "Fr\u00f8yland",
+    "city": "Froyland",
     "state": "Rogaland",
     "country": "Norway"
   },
@@ -570,7 +570,7 @@ export const frCities = [
     "country": "France"
   },
   {
-    "city": "Fray Luis A. Beltr\u00e1n",
+    "city": "Fray Luis A. Beltran",
     "state": "Santa Fe",
     "country": "Argentina"
   },
@@ -645,7 +645,7 @@ export const frCities = [
     "country": "Chile"
   },
   {
-    "city": "Frederiksv\u00e6rk",
+    "city": "Frederiksvaerk",
     "state": "Hovedstaden",
     "country": "Denmark"
   },
@@ -695,7 +695,7 @@ export const frCities = [
     "country": "United States"
   },
   {
-    "city": "Fren\u0161t\u00e1t pod Radho\u0161t\u011bm",
+    "city": "Frenstat pod Radhostem",
     "state": "Moravskoslezsk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -735,7 +735,7 @@ export const frCities = [
     "country": "Germany"
   },
   {
-    "city": "Fr\u00fddlant nad Ostravic\u00ed",
+    "city": "Frydlant nad Ostravici",
     "state": "Moravskoslezsk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -745,7 +745,7 @@ export const frCities = [
     "country": "United States"
   },
   {
-    "city": "Fr\u00f8n",
+    "city": "Fron",
     "state": "Oslo",
     "country": "Norway"
   },
@@ -785,7 +785,7 @@ export const frCities = [
     "country": "Denmark"
   },
   {
-    "city": "Francisco Caballero \u00c1lvarez",
+    "city": "Francisco Caballero Alvarez",
     "state": "Canindey\u00fa",
     "country": "Paraguay"
   },

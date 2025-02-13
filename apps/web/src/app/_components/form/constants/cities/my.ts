@@ -15,6 +15,11 @@ export const myCities = [
     "country": "United States"
   },
   {
+    "city": "My Tho",
+    "state": "Ti\u1ec1n Giang",
+    "country": "Vietnam"
+  },
+  {
     "city": "Myitkyina",
     "state": "Kachin State",
     "country": "Burma"
@@ -50,7 +55,7 @@ export const myCities = [
     "country": "Burma"
   },
   {
-    "city": "Mys\u0142owice",
+    "city": "Myslowice",
     "state": "\u015al\u0105skie",
     "country": "Poland"
   },
@@ -90,22 +95,27 @@ export const myCities = [
     "country": "Ukraine"
   },
   {
-    "city": "My\u014dk\u014d",
+    "city": "My Hoa",
+    "state": "An Giang",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Myoko",
     "state": "Niigata",
     "country": "Japan"
   },
   {
-    "city": "Myszk\u00f3w",
+    "city": "Myszkow",
     "state": "\u015al\u0105skie",
     "country": "Poland"
   },
   {
-    "city": "Mytil\u00edni",
+    "city": "Mytilini",
     "state": "V\u00f3reio Aiga\u00edo",
     "country": "Greece"
   },
   {
-    "city": "My\u015blenice",
+    "city": "Myslenice",
     "state": "Ma\u0142opolskie",
     "country": "Poland"
   },
@@ -118,6 +128,11 @@ export const myCities = [
     "city": "Myrza-Ake",
     "state": "Osh",
     "country": "Kyrgyzstan"
+  },
+  {
+    "city": "My Luong",
+    "state": "H\u00e0 N\u1ed9i",
+    "country": "Vietnam"
   },
   {
     "city": "Mykolaiv",
@@ -160,7 +175,7 @@ export const myCities = [
     "country": "United States"
   },
   {
-    "city": "My\u015blib\u00f3rz",
+    "city": "Mysliborz",
     "state": "Zachodniopomorskie",
     "country": "Poland"
   }

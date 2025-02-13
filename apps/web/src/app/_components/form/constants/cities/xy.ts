@@ -1,6 +1,6 @@
 export const xyCities = [
   {
-    "city": "Xyl\u00f3kastro",
+    "city": "Xylokastro",
     "state": "Pelop\u00f3nnisos",
     "country": "Greece"
   }

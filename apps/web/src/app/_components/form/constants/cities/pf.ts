@@ -35,7 +35,7 @@ export const pfCities = [
     "country": "Germany"
   },
   {
-    "city": "Pf\u00e4ffikon",
+    "city": "Pfaffikon",
     "state": "Z\u00fcrich",
     "country": "Switzerland"
   },

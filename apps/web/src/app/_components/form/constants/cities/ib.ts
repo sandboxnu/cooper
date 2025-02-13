@@ -5,7 +5,7 @@ export const ibCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Ibagu\u00e9",
+    "city": "Ibague",
     "state": "Tolima",
     "country": "Colombia"
   },
@@ -25,7 +25,7 @@ export const ibCities = [
     "country": "Yemen"
   },
   {
-    "city": "Ibirit\u00e9",
+    "city": "Ibirite",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -35,12 +35,12 @@ export const ibCities = [
     "country": "Ecuador"
   },
   {
-    "city": "Ibshaw\u0101y",
+    "city": "Ibshaway",
     "state": "Al Fayy\u016bm",
     "country": "Egypt"
   },
   {
-    "city": "Ibi\u00fana",
+    "city": "Ibiuna",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -60,12 +60,12 @@ export const ibCities = [
     "country": "Philippines"
   },
   {
-    "city": "Ibipor\u00e3",
+    "city": "Ibipora",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Ibbenb\u00fcren",
+    "city": "Ibbenburen",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
   },
@@ -90,12 +90,12 @@ export const ibCities = [
     "country": "Japan"
   },
   {
-    "city": "Ibr\u0101\u2019",
+    "city": "Ibra'",
     "state": "Sham\u0101l ash Sharq\u012byah",
     "country": "Oman"
   },
   {
-    "city": "Ibat\u00e9",
+    "city": "Ibate",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -110,7 +110,7 @@ export const ibCities = [
     "country": "Japan"
   },
   {
-    "city": "Ibr\u0101h\u012bmpatnam",
+    "city": "Ibrahimpatnam",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -155,17 +155,17 @@ export const ibCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ibi\u00e1",
+    "city": "Ibia",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
   {
-    "city": "Ibicara\u00ed",
+    "city": "Ibicarai",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Ibirub\u00e1",
+    "city": "Ibiruba",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -190,12 +190,12 @@ export const ibCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ibr\u0101h\u012bmpatan",
+    "city": "Ibrahimpatan",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Ibitit\u00e1",
+    "city": "Ibitita",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -210,7 +210,7 @@ export const ibCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ibicu\u00ed",
+    "city": "Ibicui",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -225,7 +225,7 @@ export const ibCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ibira\u00e7u",
+    "city": "Ibiracu",
     "state": "Esp\u00edrito Santo",
     "country": "Brazil"
   },
@@ -235,7 +235,7 @@ export const ibCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ibir\u00e1",
+    "city": "Ibira",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -250,12 +250,12 @@ export const ibCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ibiassuc\u00ea",
+    "city": "Ibiassuce",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Ibirapu\u00e3",
+    "city": "Ibirapua",
     "state": "Bahia",
     "country": "Brazil"
   }

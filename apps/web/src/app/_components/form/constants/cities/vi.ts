@@ -5,7 +5,7 @@ export const viCities = [
     "country": "Austria"
   },
   {
-    "city": "Vish\u0101khapatnam",
+    "city": "Vishakhapatnam",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -15,7 +15,7 @@ export const viCities = [
     "country": "United States"
   },
   {
-    "city": "Vijayav\u0101da",
+    "city": "Vijayawada",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -75,17 +75,17 @@ export const viCities = [
     "country": "Mexico"
   },
   {
-    "city": "Vit\u00f3ria da Conquista",
+    "city": "Vitoria da Conquista",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Vi\u00f1a del Mar",
+    "city": "Vina del Mar",
     "state": "Valpara\u00edso",
     "country": "Chile"
   },
   {
-    "city": "Vit\u00f3ria",
+    "city": "Vitoria",
     "state": "Esp\u00edrito Santo",
     "country": "Brazil"
   },
@@ -105,7 +105,7 @@ export const viCities = [
     "country": "Spain"
   },
   {
-    "city": "Vi\u1ec7t Tr\u00ec",
+    "city": "Viet Tri",
     "state": "Ph\u00fa Th\u1ecd",
     "country": "Vietnam"
   },
@@ -120,14 +120,24 @@ export const viCities = [
     "country": "India"
   },
   {
-    "city": "Viam\u00e3o",
+    "city": "Viamao",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
   {
-    "city": "Viran\u015fehir",
+    "city": "Vinh Long",
+    "state": "V\u0129nh Long",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Viransehir",
     "state": "\u015eanl\u0131urfa",
     "country": "Turkey"
+  },
+  {
+    "city": "Vinh Chau",
+    "state": "S\u00f3c Tr\u0103ng",
+    "country": "Vietnam"
   },
   {
     "city": "Villa Canales",
@@ -155,7 +165,12 @@ export const viCities = [
     "country": "India"
   },
   {
-    "city": "Villa de \u00c1lvarez",
+    "city": "Vinh Yen",
+    "state": "V\u0129nh Ph\u00fac",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Villa de Alvarez",
     "state": "Colima",
     "country": "Mexico"
   },
@@ -180,7 +195,7 @@ export const viCities = [
     "country": "Portugal"
   },
   {
-    "city": "Vit\u00f3ria de Santo Ant\u00e3o",
+    "city": "Vitoria de Santo Antao",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -225,6 +240,11 @@ export const viCities = [
     "country": "United States"
   },
   {
+    "city": "Vi Thanh",
+    "state": "H\u1eadu Giang",
+    "country": "Vietnam"
+  },
+  {
     "city": "Vitry-sur-Seine",
     "state": "\u00cele-de-France",
     "country": "France"
@@ -250,7 +270,7 @@ export const viCities = [
     "country": "Portugal"
   },
   {
-    "city": "Villa Mar\u00eda",
+    "city": "Villa Maria",
     "state": "C\u00f3rdoba",
     "country": "Argentina"
   },
@@ -263,6 +283,11 @@ export const viCities = [
     "city": "Vineland",
     "state": "New Jersey",
     "country": "United States"
+  },
+  {
+    "city": "Virappanchathiram",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Villa Altagracia",
@@ -335,12 +360,17 @@ export const viCities = [
     "country": "Philippines"
   },
   {
-    "city": "Villanueva y Geltr\u00fa",
+    "city": "Victor Larco Herrera",
+    "state": "La Libertad",
+    "country": "Peru"
+  },
+  {
+    "city": "Villanueva y Geltru",
     "state": "Catalonia",
     "country": "Spain"
   },
   {
-    "city": "Viladec\u00e1ns",
+    "city": "Viladecans",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -390,7 +420,7 @@ export const viCities = [
     "country": "India"
   },
   {
-    "city": "Villa Dom\u00ednico",
+    "city": "Villa Dominico",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -405,7 +435,7 @@ export const viCities = [
     "country": "Argentina"
   },
   {
-    "city": "Villamar\u00eda",
+    "city": "Villamaria",
     "state": "Caldas",
     "country": "Colombia"
   },
@@ -420,7 +450,7 @@ export const viCities = [
     "country": "India"
   },
   {
-    "city": "Vi\u00e7osa do Cear\u00e1",
+    "city": "Vicosa do Ceara",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -445,7 +475,7 @@ export const viCities = [
     "country": "Paraguay"
   },
   {
-    "city": "Viramg\u0101m",
+    "city": "Viramgam",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -465,7 +495,7 @@ export const viCities = [
     "country": "Philippines"
   },
   {
-    "city": "Vik\u0101r\u0101b\u0101d",
+    "city": "Vikarabad",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -530,7 +560,7 @@ export const viCities = [
     "country": "Spain"
   },
   {
-    "city": "Villa Constituci\u00f3n",
+    "city": "Villa Constitucion",
     "state": "Santa Fe",
     "country": "Argentina"
   },
@@ -585,12 +615,12 @@ export const viCities = [
     "country": "Denmark"
   },
   {
-    "city": "Villa Bison\u00f3",
+    "city": "Villa Bisono",
     "state": "Cibao Norte",
     "country": "Dominican Republic"
   },
   {
-    "city": "Villa \u00c1ngela",
+    "city": "Villa Angela",
     "state": "Chaco",
     "country": "Argentina"
   },
@@ -600,12 +630,12 @@ export const viCities = [
     "country": "Argentina"
   },
   {
-    "city": "Villafranca del Panad\u00e9s",
+    "city": "Villafranca del Panades",
     "state": "Catalonia",
     "country": "Spain"
   },
   {
-    "city": "Villenave-d\u2019Ornon",
+    "city": "Villenave-d'Ornon",
     "state": "Nouvelle-Aquitaine",
     "country": "France"
   },
@@ -625,12 +655,12 @@ export const viCities = [
     "country": "Bolivia"
   },
   {
-    "city": "Villa del Carb\u00f3n",
+    "city": "Villa del Carbon",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
   {
-    "city": "Villa de San Diego de Ubat\u00e9",
+    "city": "Villa de San Diego de Ubate",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
@@ -650,7 +680,7 @@ export const viCities = [
     "country": "France"
   },
   {
-    "city": "Villagarc\u00eda de Arosa",
+    "city": "Villagarcia de Arosa",
     "state": "Galicia",
     "country": "Spain"
   },
@@ -660,7 +690,7 @@ export const viCities = [
     "country": "Mexico"
   },
   {
-    "city": "Villa Gonz\u00e1lez",
+    "city": "Villa Gonzalez",
     "state": "Cibao Norte",
     "country": "Dominican Republic"
   },
@@ -670,12 +700,12 @@ export const viCities = [
     "country": "Paraguay"
   },
   {
-    "city": "Vir\u00fa",
+    "city": "Viru",
     "state": "La Libertad",
     "country": "Peru"
   },
   {
-    "city": "Villefranche-sur-Sa\u00f4ne",
+    "city": "Villefranche-sur-Saone",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
@@ -790,7 +820,7 @@ export const viCities = [
     "country": "France"
   },
   {
-    "city": "Viry-Ch\u00e2tillon",
+    "city": "Viry-Chatillon",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -800,7 +830,7 @@ export const viCities = [
     "country": "Croatia"
   },
   {
-    "city": "Vit\u00f3ria do Mearim",
+    "city": "Vitoria do Mearim",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
@@ -850,6 +880,11 @@ export const viCities = [
     "country": "Bolivia"
   },
   {
+    "city": "Virapandi",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Villiers-le-Bel",
     "state": "\u00cele-de-France",
     "country": "France"
@@ -860,17 +895,22 @@ export const viCities = [
     "country": "Colombia"
   },
   {
-    "city": "Villaviciosa de Od\u00f3n",
+    "city": "Vicar",
+    "state": "Andalusia",
+    "country": "Spain"
+  },
+  {
+    "city": "Villaviciosa de Odon",
     "state": "Madrid",
     "country": "Spain"
   },
   {
-    "city": "Villaz\u00f3n",
+    "city": "Villazon",
     "state": "Potos\u00ed",
     "country": "Bolivia"
   },
   {
-    "city": "Vil\u0101ngudi",
+    "city": "Vilangudi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -880,7 +920,7 @@ export const viCities = [
     "country": "Mexico"
   },
   {
-    "city": "Vi\u00f1ales",
+    "city": "Vinales",
     "state": "Pinar del R\u00edo",
     "country": "Cuba"
   },
@@ -900,7 +940,7 @@ export const viCities = [
     "country": "Philippines"
   },
   {
-    "city": "Villagr\u00e1n",
+    "city": "Villagran",
     "state": "Guanajuato",
     "country": "Mexico"
   },
@@ -920,7 +960,12 @@ export const viCities = [
     "country": "Belarus"
   },
   {
-    "city": "Vic\u00eancia",
+    "city": "Virakeralam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Vicencia",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -955,7 +1000,7 @@ export const viCities = [
     "country": "Nicaragua"
   },
   {
-    "city": "Vij\u0101pur",
+    "city": "Vijapur",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -980,7 +1025,7 @@ export const viCities = [
     "country": "Spain"
   },
   {
-    "city": "Vicu\u00f1a",
+    "city": "Vicuna",
     "state": "Coquimbo",
     "country": "Chile"
   },
@@ -1005,7 +1050,7 @@ export const viCities = [
     "country": "Seychelles"
   },
   {
-    "city": "Vinnam\u0101la",
+    "city": "Vinnamala",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1015,7 +1060,7 @@ export const viCities = [
     "country": "Mozambique"
   },
   {
-    "city": "Vicente L\u00f3pez",
+    "city": "Vicente Lopez",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -1035,7 +1080,7 @@ export const viCities = [
     "country": "Spain"
   },
   {
-    "city": "Vil\u0101chcheri",
+    "city": "Vilachcheri",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1050,7 +1095,7 @@ export const viCities = [
     "country": "Philippines"
   },
   {
-    "city": "Villanueva de la Ca\u00f1ada",
+    "city": "Villanueva de la Canada",
     "state": "Madrid",
     "country": "Spain"
   },
@@ -1060,7 +1105,7 @@ export const viCities = [
     "country": "United States"
   },
   {
-    "city": "Vilc\u00fan",
+    "city": "Vilcun",
     "state": "Araucan\u00eda",
     "country": "Chile"
   },
@@ -1090,7 +1135,7 @@ export const viCities = [
     "country": "Dominican Republic"
   },
   {
-    "city": "Villagarz\u00f3n",
+    "city": "Villagarzon",
     "state": "Putumayo",
     "country": "Colombia"
   },
@@ -1115,7 +1160,7 @@ export const viCities = [
     "country": "Russia"
   },
   {
-    "city": "Villapinz\u00f3n",
+    "city": "Villapinzon",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
@@ -1130,7 +1175,7 @@ export const viCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Vinjam\u016br",
+    "city": "Vinjamur",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1148,6 +1193,11 @@ export const viCities = [
     "city": "Villa Hidalgo",
     "state": "Jalisco",
     "country": "Mexico"
+  },
+  {
+    "city": "Virarajendrapet",
+    "state": "Karn\u0101taka",
+    "country": "India"
   },
   {
     "city": "Vianen",
@@ -1190,7 +1240,7 @@ export const viCities = [
     "country": "Italy"
   },
   {
-    "city": "Vila Real de Santo Ant\u00f3nio",
+    "city": "Vila Real de Santo Antonio",
     "state": "Faro",
     "country": "Portugal"
   },
@@ -1200,7 +1250,7 @@ export const viCities = [
     "country": "France"
   },
   {
-    "city": "Vitr\u00e9",
+    "city": "Vitre",
     "state": "Bretagne",
     "country": "France"
   },
@@ -1208,6 +1258,11 @@ export const viCities = [
     "city": "Vista Hermosa de Negrete",
     "state": "Michoac\u00e1n",
     "country": "Mexico"
+  },
+  {
+    "city": "Virapandi",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Villa Nueva",
@@ -1225,12 +1280,12 @@ export const viCities = [
     "country": "Colombia"
   },
   {
-    "city": "Vilav\u016br",
+    "city": "Vilavur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Vil\u0101ttikulam",
+    "city": "Vilattikulam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1245,7 +1300,7 @@ export const viCities = [
     "country": "Mexico"
   },
   {
-    "city": "Vis\u00e9",
+    "city": "Vise",
     "state": "Wallonia",
     "country": "Belgium"
   },
@@ -1300,12 +1355,17 @@ export const viCities = [
     "country": "France"
   },
   {
+    "city": "Virapandi",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Villeneuve-Loubet",
     "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
     "country": "France"
   },
   {
-    "city": "Vila Bela da Sant\u00edssima Trindade",
+    "city": "Vila Bela da Santissima Trindade",
     "state": "Mato Grosso",
     "country": "Brazil"
   },
@@ -1325,17 +1385,17 @@ export const viCities = [
     "country": "United States"
   },
   {
-    "city": "Villa San Jos\u00e9",
+    "city": "Villa San Jose",
     "state": "Entre R\u00edos",
     "country": "Argentina"
   },
   {
-    "city": "Vitthal\u0101puram",
+    "city": "Vitthalapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Vi\u0161kovo",
+    "city": "Viskovo",
     "state": "Primorsko-Goranska \u017dupanija",
     "country": "Croatia"
   },
@@ -1385,7 +1445,7 @@ export const viCities = [
     "country": "Philippines"
   },
   {
-    "city": "Vi\u015feu de Sus",
+    "city": "Viseu de Sus",
     "state": "Maramure\u015f",
     "country": "Romania"
   },
@@ -1430,7 +1490,7 @@ export const viCities = [
     "country": "Spain"
   },
   {
-    "city": "Vian\u00f3polis",
+    "city": "Vianopolis",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -1440,7 +1500,7 @@ export const viCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Villers-l\u00e8s-Nancy",
+    "city": "Villers-les-Nancy",
     "state": "Grand Est",
     "country": "France"
   },
@@ -1450,12 +1510,12 @@ export const viCities = [
     "country": "Chile"
   },
   {
-    "city": "Villa Yapacan\u00ed",
+    "city": "Villa Yapacani",
     "state": "Santa Cruz",
     "country": "Bolivia"
   },
   {
-    "city": "Vitomiric\u00eb",
+    "city": "Vitomirice",
     "state": "Pej\u00eb",
     "country": "Kosovo"
   },
@@ -1465,7 +1525,7 @@ export const viCities = [
     "country": "Italy"
   },
   {
-    "city": "Villa V\u00e1squez",
+    "city": "Villa Vasquez",
     "state": "Cibao Noroeste",
     "country": "Dominican Republic"
   },
@@ -1475,9 +1535,14 @@ export const viCities = [
     "country": "Colombia"
   },
   {
-    "city": "Vil\u2019nyans\u2019k",
+    "city": "Vil'nyans'k",
     "state": "Zaporizka Oblast",
     "country": "Ukraine"
+  },
+  {
+    "city": "Viraghattam",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Vinto",
@@ -1488,6 +1553,11 @@ export const viCities = [
     "city": "Villasanta",
     "state": "Lombardy",
     "country": "Italy"
+  },
+  {
+    "city": "Viraganur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Villalba",
@@ -1510,12 +1580,12 @@ export const viCities = [
     "country": "Italy"
   },
   {
-    "city": "Villa Uni\u00f3n",
+    "city": "Villa Union",
     "state": "Sinaloa",
     "country": "Mexico"
   },
   {
-    "city": "Vikrav\u0101ndi",
+    "city": "Vikravandi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1530,7 +1600,7 @@ export const viCities = [
     "country": "Italy"
   },
   {
-    "city": "Villa Ju\u00e1rez",
+    "city": "Villa Juarez",
     "state": "Sonora",
     "country": "Mexico"
   },
@@ -1565,7 +1635,7 @@ export const viCities = [
     "country": "Italy"
   },
   {
-    "city": "Vilanova del Cam\u00ed",
+    "city": "Vilanova del Cami",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -1580,12 +1650,12 @@ export const viCities = [
     "country": "El Salvador"
   },
   {
-    "city": "Villeneuve-l\u00e8s-Avignon",
+    "city": "Villeneuve-les-Avignon",
     "state": "Occitanie",
     "country": "France"
   },
   {
-    "city": "Viot\u00e1",
+    "city": "Viota",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
@@ -1610,7 +1680,7 @@ export const viCities = [
     "country": "Mexico"
   },
   {
-    "city": "Vik\u0101snagar",
+    "city": "Vikasnagar",
     "state": "Uttar\u0101khand",
     "country": "India"
   },
@@ -1630,27 +1700,27 @@ export const viCities = [
     "country": "Spain"
   },
   {
-    "city": "Villa Uni\u00f3n",
+    "city": "Villa Union",
     "state": "La Rioja",
     "country": "Argentina"
   },
   {
-    "city": "Villamart\u00edn",
+    "city": "Villamartin",
     "state": "Andalusia",
     "country": "Spain"
   },
   {
-    "city": "Villars-sur-Gl\u00e2ne",
+    "city": "Villars-sur-Glane",
     "state": "Fribourg",
     "country": "Switzerland"
   },
   {
-    "city": "Viswan\u0101thaperi",
+    "city": "Viswanathaperi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Vil\u0101ngurichchi",
+    "city": "Vilangurichchi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1670,12 +1740,12 @@ export const viCities = [
     "country": "United States"
   },
   {
-    "city": "Vir\u0101lippatti",
+    "city": "Viralippatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Vijay\u0101pati",
+    "city": "Vijayapati",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1705,7 +1775,7 @@ export const viCities = [
     "country": "Canada"
   },
   {
-    "city": "Vitry-le-Fran\u00e7ois",
+    "city": "Vitry-le-Francois",
     "state": "Grand Est",
     "country": "France"
   },
@@ -1715,7 +1785,7 @@ export const viCities = [
     "country": "Belgium"
   },
   {
-    "city": "Villa Purificaci\u00f3n",
+    "city": "Villa Purificacion",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -1775,7 +1845,7 @@ export const viCities = [
     "country": "France"
   },
   {
-    "city": "Villa Uni\u00f3n",
+    "city": "Villa Union",
     "state": "Durango",
     "country": "Mexico"
   },
@@ -1795,7 +1865,7 @@ export const viCities = [
     "country": "Colombia"
   },
   {
-    "city": "Ville-d\u2019Avray",
+    "city": "Ville-d'Avray",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -1815,22 +1885,22 @@ export const viCities = [
     "country": "Dominican Republic"
   },
   {
-    "city": "Vikrutam\u0101la",
+    "city": "Vikrutamala",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Villers-Cotter\u00eats",
+    "city": "Villers-Cotterets",
     "state": "Hauts-de-France",
     "country": "France"
   },
   {
-    "city": "Vieux-Cond\u00e9",
+    "city": "Vieux-Conde",
     "state": "Hauts-de-France",
     "country": "France"
   },
   {
-    "city": "Villeneuve-l\u00e8s-Maguelone",
+    "city": "Villeneuve-les-Maguelone",
     "state": "Occitanie",
     "country": "France"
   },
@@ -1855,12 +1925,12 @@ export const viCities = [
     "country": "France"
   },
   {
-    "city": "Virgin\u00f3polis",
+    "city": "Virginopolis",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
   {
-    "city": "Vilkavi\u0161kis",
+    "city": "Vilkaviskis",
     "state": "Vilkavi\u0161kis",
     "country": "Lithuania"
   },
@@ -1890,7 +1960,7 @@ export const viCities = [
     "country": "Germany"
   },
   {
-    "city": "Villas\u0101gar",
+    "city": "Villasagar",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1940,7 +2010,7 @@ export const viCities = [
     "country": "United States"
   },
   {
-    "city": "Visselh\u00f6vede",
+    "city": "Visselhovede",
     "state": "Lower Saxony",
     "country": "Germany"
   },
@@ -1960,17 +2030,22 @@ export const viCities = [
     "country": "Mexico"
   },
   {
-    "city": "Vir\u0101limalai",
+    "city": "Virapandiyanpattanam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Villaca\u00f1as",
+    "city": "Viralimalai",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Villacanas",
     "state": "Castille-La Mancha",
     "country": "Spain"
   },
   {
-    "city": "Villa Ca\u00f1\u00e1s",
+    "city": "Villa Canas",
     "state": "Santa Fe",
     "country": "Argentina"
   },
@@ -1995,7 +2070,7 @@ export const viCities = [
     "country": "Russia"
   },
   {
-    "city": "Virav\u0101da",
+    "city": "Viravada",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2035,7 +2110,7 @@ export const viCities = [
     "country": "United States"
   },
   {
-    "city": "Virg\u00ednia",
+    "city": "Virginia",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -2050,12 +2125,17 @@ export const viCities = [
     "country": "India"
   },
   {
-    "city": "Vicentin\u00f3polis",
+    "city": "Vicentinopolis",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
   {
     "city": "Vidapanakallu",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Virapalle",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2078,6 +2158,16 @@ export const viCities = [
     "city": "Vif",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
+  },
+  {
+    "city": "Vicam Pueblo",
+    "state": "Sonora",
+    "country": "Mexico"
+  },
+  {
+    "city": "Virapperumanallur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Vicopisano",
@@ -2115,7 +2205,7 @@ export const viCities = [
     "country": "Russia"
   },
   {
-    "city": "Villa Ygatim\u00ed",
+    "city": "Villa Ygatimi",
     "state": "Canindey\u00fa",
     "country": "Paraguay"
   },
@@ -2155,7 +2245,7 @@ export const viCities = [
     "country": "Argentina"
   },
   {
-    "city": "Villa Mart\u00edn Colchak",
+    "city": "Villa Martin Colchak",
     "state": "Potos\u00ed",
     "country": "Bolivia"
   },
@@ -2165,7 +2255,7 @@ export const viCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Villa O\u2019Higgins",
+    "city": "Villa O'Higgins",
     "state": "Ays\u00e9n",
     "country": "Chile"
   },
@@ -2185,7 +2275,7 @@ export const viCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Vi\u00f0arei\u00f0i",
+    "city": "Vidhareidhi",
     "state": "Vi\u00f0arei\u00f0i",
     "country": "Faroe Islands"
   }

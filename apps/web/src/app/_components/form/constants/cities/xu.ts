@@ -30,7 +30,7 @@ export const xuCities = [
     "country": "China"
   },
   {
-    "city": "Xu\u00e2n Tr\u00f9ng",
+    "city": "Xuan Trung",
     "state": "Ph\u00fa Th\u1ecd",
     "country": "Vietnam"
   },

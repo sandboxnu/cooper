@@ -25,12 +25,12 @@ export const niCities = [
     "country": "Japan"
   },
   {
-    "city": "Nil\u00fcfer",
+    "city": "Nilufer",
     "state": "Bursa",
     "country": "Turkey"
   },
   {
-    "city": "Niter\u00f3i",
+    "city": "Niteroi",
     "state": "Rio de Janeiro",
     "country": "Brazil"
   },
@@ -40,12 +40,12 @@ export const niCities = [
     "country": "Japan"
   },
   {
-    "city": "Ning\u2019an",
+    "city": "Ning'an",
     "state": "Heilongjiang",
     "country": "China"
   },
   {
-    "city": "Nicol\u00e1s Romero",
+    "city": "Nicolas Romero",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
@@ -65,7 +65,7 @@ export const niCities = [
     "country": "Cyprus"
   },
   {
-    "city": "Niz\u0101m\u0101b\u0101d",
+    "city": "Nizamabad",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -80,12 +80,12 @@ export const niCities = [
     "country": "Russia"
   },
   {
-    "city": "Nishit\u014dky\u014d",
+    "city": "Nishitokyo",
     "state": "T\u014dky\u014d",
     "country": "Japan"
   },
   {
-    "city": "Ni\u0161",
+    "city": "Nis",
     "state": "Ni\u0161",
     "country": "Serbia"
   },
@@ -105,9 +105,14 @@ export const niCities = [
     "country": "Japan"
   },
   {
-    "city": "Ninh B\u00ecnh",
+    "city": "Ninh Binh",
     "state": "Ninh B\u00ecnh",
     "country": "Vietnam"
+  },
+  {
+    "city": "Nimes",
+    "state": "Occitanie",
+    "country": "France"
   },
   {
     "city": "Nizip",
@@ -115,7 +120,7 @@ export const niCities = [
     "country": "Turkey"
   },
   {
-    "city": "Ni\u011fde",
+    "city": "Nigde",
     "state": "Ni\u011fde",
     "country": "Turkey"
   },
@@ -145,17 +150,27 @@ export const niCities = [
     "country": "Mali"
   },
   {
+    "city": "Nikaia",
+    "state": "Attik\u00ed",
+    "country": "Greece"
+  },
+  {
     "city": "Nirmal",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Nir\u0101la",
+    "city": "Nirala",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
   {
-    "city": "Nizw\u00e1",
+    "city": "Nimbahera",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
+    "city": "Nizwa",
     "state": "Ad D\u0101khil\u012byah",
     "country": "Oman"
   },
@@ -165,17 +180,17 @@ export const niCities = [
     "country": "Slovakia"
   },
   {
-    "city": "Nikk\u014d",
+    "city": "Nikko",
     "state": "Tochigi",
     "country": "Japan"
   },
   {
-    "city": "Nip\u0101ni",
+    "city": "Nipani",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Ninh H\u00f2a",
+    "city": "Ninh Hoa",
     "state": "Kh\u00e1nh H\u00f2a",
     "country": "Vietnam"
   },
@@ -240,7 +255,7 @@ export const niCities = [
     "country": "Japan"
   },
   {
-    "city": "Niz\u0101mpur",
+    "city": "Nizampur",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -255,7 +270,7 @@ export const niCities = [
     "country": "United States"
   },
   {
-    "city": "Nilamb\u016br",
+    "city": "Nilambur",
     "state": "Kerala",
     "country": "India"
   },
@@ -310,7 +325,7 @@ export const niCities = [
     "country": "Japan"
   },
   {
-    "city": "Nindir\u00ed",
+    "city": "Nindiri",
     "state": "Masaya",
     "country": "Nicaragua"
   },
@@ -320,12 +335,17 @@ export const niCities = [
     "country": "South Africa"
   },
   {
+    "city": "Nim ka Thana",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
     "city": "Niamina",
     "state": "Koulikoro",
     "country": "Mali"
   },
   {
-    "city": "Niquel\u00e2ndia",
+    "city": "Niquelandia",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -345,14 +365,24 @@ export const niCities = [
     "country": "Burkina Faso"
   },
   {
-    "city": "Nik\u0161i\u0107",
+    "city": "Nijar",
+    "state": "Andalusia",
+    "country": "Spain"
+  },
+  {
+    "city": "Niksic",
     "state": "Nik\u0161i\u0107",
     "country": "Montenegro"
   },
   {
-    "city": "Ni\u00e9na",
+    "city": "Niena",
     "state": "Sikasso",
     "country": "Mali"
+  },
+  {
+    "city": "Nisia Floresta",
+    "state": "Rio Grande do Norte",
+    "country": "Brazil"
   },
   {
     "city": "Nilka",
@@ -415,7 +445,7 @@ export const niCities = [
     "country": "Dominican Republic"
   },
   {
-    "city": "Niramaruth\u016br",
+    "city": "Niramaruthur",
     "state": "Kerala",
     "country": "India"
   },
@@ -470,12 +500,12 @@ export const niCities = [
     "country": "Russia"
   },
   {
-    "city": "Nirm\u0101li",
+    "city": "Nirmali",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Niz\u0101mpatam",
+    "city": "Nizampatam",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -495,7 +525,7 @@ export const niCities = [
     "country": "Russia"
   },
   {
-    "city": "Nishig\u014d",
+    "city": "Nishigo",
     "state": "Fukushima",
     "country": "Japan"
   },
@@ -520,9 +550,19 @@ export const niCities = [
     "country": "Japan"
   },
   {
+    "city": "Nilgiri",
+    "state": "Odisha",
+    "country": "India"
+  },
+  {
     "city": "Nikolayevsk-na-Amure",
     "state": "Khabarovskiy Kray",
     "country": "Russia"
+  },
+  {
+    "city": "Nilambur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Niagara-on-the-Lake",
@@ -530,12 +570,17 @@ export const niCities = [
     "country": "Canada"
   },
   {
+    "city": "Niar",
+    "state": "Ardab\u012bl",
+    "country": "Iran"
+  },
+  {
     "city": "Niles",
     "state": "Ohio",
     "country": "United States"
   },
   {
-    "city": "Nigr\u00e1n",
+    "city": "Nigran",
     "state": "Galicia",
     "country": "Spain"
   },
@@ -545,9 +590,19 @@ export const niCities = [
     "country": "United States"
   },
   {
+    "city": "Nikshahr",
+    "state": "S\u012bst\u0101n va Bal\u016bchest\u0101n",
+    "country": "Iran"
+  },
+  {
     "city": "Nidda",
     "state": "Hesse",
     "country": "Germany"
+  },
+  {
+    "city": "Nisang",
+    "state": "Hary\u0101na",
+    "country": "India"
   },
   {
     "city": "Nizhnyaya Salda",
@@ -560,7 +615,7 @@ export const niCities = [
     "country": "India"
   },
   {
-    "city": "Nilaiy\u016br",
+    "city": "Nilaiyur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -575,7 +630,7 @@ export const niCities = [
     "country": "United States"
   },
   {
-    "city": "Niepo\u0142omice",
+    "city": "Niepolomice",
     "state": "Ma\u0142opolskie",
     "country": "Poland"
   },
@@ -585,7 +640,7 @@ export const niCities = [
     "country": "Senegal"
   },
   {
-    "city": "Niederkr\u00fcchten",
+    "city": "Niederkruchten",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
   },
@@ -615,7 +670,7 @@ export const niCities = [
     "country": "Germany"
   },
   {
-    "city": "Ni\u0161ka Banja",
+    "city": "Niska Banja",
     "state": "Ni\u0161",
     "country": "Serbia"
   },
@@ -665,7 +720,7 @@ export const niCities = [
     "country": "Suriname"
   },
   {
-    "city": "Nirakpurp\u0101li",
+    "city": "Nirakpurpali",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -675,7 +730,7 @@ export const niCities = [
     "country": "Italy"
   },
   {
-    "city": "Niefern-\u00d6schelbronn",
+    "city": "Niefern-Oschelbronn",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
@@ -685,12 +740,12 @@ export const niCities = [
     "country": "India"
   },
   {
-    "city": "Nih\u0101l Singhw\u0101la",
+    "city": "Nihal Singhwala",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Nilo Pe\u00e7anha",
+    "city": "Nilo Pecanha",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -710,6 +765,11 @@ export const niCities = [
     "country": "Belgium"
   },
   {
+    "city": "Nidamangalam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Ninga",
     "state": "Bih\u0101r",
     "country": "India"
@@ -725,7 +785,7 @@ export const niCities = [
     "country": "Mali"
   },
   {
-    "city": "Ni\u00e9masson",
+    "city": "Niemasson",
     "state": "Atacora",
     "country": "Benin"
   },
@@ -745,9 +805,19 @@ export const niCities = [
     "country": "India"
   },
   {
-    "city": "Nilav\u0101rappatti",
+    "city": "Nilavarappatti",
     "state": "Tamil N\u0101du",
     "country": "India"
+  },
+  {
+    "city": "Nirkunnam",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Niquen",
+    "state": "\u00d1uble",
+    "country": "Chile"
   },
   {
     "city": "Ninheira",
@@ -765,7 +835,7 @@ export const niCities = [
     "country": "Germany"
   },
   {
-    "city": "Nidam\u0101n\u016bru",
+    "city": "Nidamanuru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -775,12 +845,12 @@ export const niCities = [
     "country": "Germany"
   },
   {
-    "city": "Nijon\u00ed",
+    "city": "Nijoni",
     "state": "Sughd",
     "country": "Tajikistan"
   },
   {
-    "city": "Nieb\u00fcll",
+    "city": "Niebull",
     "state": "Schleswig-Holstein",
     "country": "Germany"
   },
@@ -790,12 +860,12 @@ export const niCities = [
     "country": "Italy"
   },
   {
-    "city": "Nikaid\u014d-kaminosh\u014dch\u014d",
+    "city": "Nikaido-kaminoshocho",
     "state": "Nara",
     "country": "Japan"
   },
   {
-    "city": "Nidamal\u016bru",
+    "city": "Nidamaluru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -860,7 +930,7 @@ export const niCities = [
     "country": "Germany"
   },
   {
-    "city": "Nijgaon Par\u0101npur",
+    "city": "Nijgaon Paranpur",
     "state": "West Bengal",
     "country": "India"
   },
@@ -893,5 +963,10 @@ export const niCities = [
     "city": "Nilandhoo",
     "state": "Nilandheatholhu Uthuruburi",
     "country": "Maldives"
+  },
+  {
+    "city": "Nili",
+    "state": "D\u0101ykund\u012b",
+    "country": "Afghanistan"
   }
 ]

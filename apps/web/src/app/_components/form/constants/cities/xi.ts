@@ -1,6 +1,6 @@
 export const xiCities = [
   {
-    "city": "Xi\u2019an",
+    "city": "Xi'an",
     "state": "Shaanxi",
     "country": "China"
   },
@@ -125,7 +125,7 @@ export const xiCities = [
     "country": "China"
   },
   {
-    "city": "Xin\u2019an",
+    "city": "Xin'an",
     "state": "Jiangsu",
     "country": "China"
   },
@@ -135,7 +135,7 @@ export const xiCities = [
     "country": "China"
   },
   {
-    "city": "Xigaz\u00ea",
+    "city": "Xigaze",
     "state": "Tibet",
     "country": "China"
   },
@@ -260,6 +260,11 @@ export const xiCities = [
     "country": "Uzbekistan"
   },
   {
+    "city": "Xirdalan",
+    "state": "Ab\u015feron",
+    "country": "Azerbaijan"
+  },
+  {
     "city": "Xinhua",
     "state": "Yunnan",
     "country": "China"
@@ -285,7 +290,7 @@ export const xiCities = [
     "country": "China"
   },
   {
-    "city": "Xicotepec de Ju\u00e1rez",
+    "city": "Xicotepec de Juarez",
     "state": "Puebla",
     "country": "Mexico"
   },
@@ -720,7 +725,7 @@ export const xiCities = [
     "country": "China"
   },
   {
-    "city": "Xicot\u00e9ncatl",
+    "city": "Xicotencatl",
     "state": "Tamaulipas",
     "country": "Mexico"
   },
@@ -738,5 +743,10 @@ export const xiCities = [
     "city": "Xiangping",
     "state": "Guangdong",
     "country": "China"
+  },
+  {
+    "city": "Xizi",
+    "state": "X\u0131z\u0131",
+    "country": "Azerbaijan"
   }
 ]

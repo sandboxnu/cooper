@@ -20,12 +20,12 @@ export const plCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Plze\u0148",
+    "city": "Plzen",
     "state": "Plze\u0148sk\u00fd Kraj",
     "country": "Czechia"
   },
   {
-    "city": "Ploie\u015fti",
+    "city": "Ploiesti",
     "state": "Prahova",
     "country": "Romania"
   },
@@ -38,6 +38,11 @@ export const plCities = [
     "city": "Pleven",
     "state": "Pleven",
     "country": "Bulgaria"
+  },
+  {
+    "city": "Plock",
+    "state": "Mazowieckie",
+    "country": "Poland"
   },
   {
     "city": "Plaridel",
@@ -140,7 +145,7 @@ export const plCities = [
     "country": "Spain"
   },
   {
-    "city": "Placilla de Pe\u00f1uelas",
+    "city": "Placilla de Penuelas",
     "state": "Valpara\u00edso",
     "country": "Chile"
   },
@@ -195,7 +200,7 @@ export const plCities = [
     "country": "Philippines"
   },
   {
-    "city": "Plach\u0113ri",
+    "city": "Placheri",
     "state": "Kerala",
     "country": "India"
   },
@@ -238,6 +243,11 @@ export const plCities = [
     "city": "Planalto",
     "state": "Bahia",
     "country": "Brazil"
+  },
+  {
+    "city": "Plonsk",
+    "state": "Mazowieckie",
+    "country": "Poland"
   },
   {
     "city": "Pleasant Prairie",
@@ -285,7 +295,7 @@ export const plCities = [
     "country": "Russia"
   },
   {
-    "city": "Plung\u0117",
+    "city": "Plunge",
     "state": "Plung\u0117",
     "country": "Lithuania"
   },
@@ -300,7 +310,7 @@ export const plCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Pl\u00e1cido de Castro",
+    "city": "Placido de Castro",
     "state": "Acre",
     "country": "Brazil"
   },
@@ -310,7 +320,7 @@ export const plCities = [
     "country": "Russia"
   },
   {
-    "city": "Pl\u00e9rin",
+    "city": "Plerin",
     "state": "Bretagne",
     "country": "France"
   },
@@ -345,7 +355,7 @@ export const plCities = [
     "country": "United States"
   },
   {
-    "city": "Plouzan\u00e9",
+    "city": "Plouzane",
     "state": "Bretagne",
     "country": "France"
   },
@@ -445,7 +455,7 @@ export const plCities = [
     "country": "Brazil"
   },
   {
-    "city": "Plombi\u00e8res",
+    "city": "Plombieres",
     "state": "Wallonia",
     "country": "Belgium"
   },
@@ -460,7 +470,7 @@ export const plCities = [
     "country": "Philippines"
   },
   {
-    "city": "Plat\u00f3n S\u00e1nchez",
+    "city": "Platon Sanchez",
     "state": "Veracruz",
     "country": "Mexico"
   },
@@ -470,7 +480,7 @@ export const plCities = [
     "country": "Germany"
   },
   {
-    "city": "Plo\u00ebrmel",
+    "city": "Ploermel",
     "state": "Bretagne",
     "country": "France"
   },
@@ -490,7 +500,7 @@ export const plCities = [
     "country": "United States"
   },
   {
-    "city": "Pl\u00fcderhausen",
+    "city": "Pluderhausen",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
@@ -515,7 +525,7 @@ export const plCities = [
     "country": "United States"
   },
   {
-    "city": "Pl\u00f6n",
+    "city": "Plon",
     "state": "Schleswig-Holstein",
     "country": "Germany"
   },
@@ -535,7 +545,7 @@ export const plCities = [
     "country": "France"
   },
   {
-    "city": "Plandi\u0161te",
+    "city": "Plandiste",
     "state": "Plandi\u0161te",
     "country": "Serbia"
   },
@@ -545,7 +555,7 @@ export const plCities = [
     "country": "North Macedonia"
   },
   {
-    "city": "Plu\u017eine",
+    "city": "Pluzine",
     "state": "Plu\u017eine",
     "country": "Montenegro"
   },

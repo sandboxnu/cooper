@@ -1,16 +1,16 @@
 export const keCities = [
   {
-    "city": "Kerm\u0101nsh\u0101h",
+    "city": "Kermanshah",
     "state": "Kerm\u0101nsh\u0101h",
     "country": "Iran"
   },
   {
-    "city": "Ke\u00e7i\u00f6ren",
+    "city": "Kecioren",
     "state": "Ankara",
     "country": "Turkey"
   },
   {
-    "city": "Kerm\u0101n",
+    "city": "Kerman",
     "state": "Kerm\u0101n",
     "country": "Iran"
   },
@@ -55,7 +55,7 @@ export const keCities = [
     "country": "Sierra Leone"
   },
   {
-    "city": "Kecskem\u00e9t",
+    "city": "Kecskemet",
     "state": "B\u00e1cs-Kiskun",
     "country": "Hungary"
   },
@@ -80,6 +80,11 @@ export const keCities = [
     "country": "Tunisia"
   },
   {
+    "city": "Ketou",
+    "state": "Plateau",
+    "country": "Benin"
+  },
+  {
     "city": "Kerch",
     "state": "Krym, Avtonomna Respublika",
     "country": "Ukraine"
@@ -100,7 +105,7 @@ export const keCities = [
     "country": "United States"
   },
   {
-    "city": "Kemalpa\u015fa",
+    "city": "Kemalpasa",
     "state": "\u0130zmir",
     "country": "Turkey"
   },
@@ -120,12 +125,12 @@ export const keCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Ke\u015fan",
+    "city": "Kesan",
     "state": "Edirne",
     "country": "Turkey"
   },
   {
-    "city": "Kenta\u016b",
+    "city": "Kentau",
     "state": "T\u00fcrkistan",
     "country": "Kazakhstan"
   },
@@ -135,7 +140,7 @@ export const keCities = [
     "country": "United States"
   },
   {
-    "city": "Kerats\u00edni",
+    "city": "Keratsini",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -190,6 +195,11 @@ export const keCities = [
     "country": "Japan"
   },
   {
+    "city": "Kelibia",
+    "state": "Nabeul",
+    "country": "Tunisia"
+  },
+  {
     "city": "Kettering",
     "state": "Ohio",
     "country": "United States"
@@ -198,6 +208,11 @@ export const keCities = [
     "city": "Keonjhargarh",
     "state": "Odisha",
     "country": "India"
+  },
+  {
+    "city": "Kedzierzyn-Kozle",
+    "state": "Opolskie",
+    "country": "Poland"
   },
   {
     "city": "Kettering",
@@ -265,7 +280,7 @@ export const keCities = [
     "country": "Congo (Kinshasa)"
   },
   {
-    "city": "Kendr\u0101parha",
+    "city": "Kendraparha",
     "state": "Odisha",
     "country": "India"
   },
@@ -283,6 +298,16 @@ export const keCities = [
     "city": "Kehl",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
+  },
+  {
+    "city": "Kenieran",
+    "state": "Kankan",
+    "country": "Guinea"
+  },
+  {
+    "city": "Kerou",
+    "state": "Atacora",
+    "country": "Benin"
   },
   {
     "city": "Kearns",
@@ -390,6 +415,11 @@ export const keCities = [
     "country": "Canada"
   },
   {
+    "city": "Ketrzyn",
+    "state": "Warmi\u0144sko-Mazurskie",
+    "country": "Poland"
+  },
+  {
     "city": "Key West",
     "state": "Florida",
     "country": "United States"
@@ -400,12 +430,17 @@ export const keCities = [
     "country": "United States"
   },
   {
-    "city": "Ke\u015fl\u0259",
+    "city": "Kesla",
     "state": "Bak\u0131",
     "country": "Azerbaijan"
   },
   {
-    "city": "Kenndi\u00e9",
+    "city": "Kerkyra",
+    "state": "Ion\u00eda N\u00edsia",
+    "country": "Greece"
+  },
+  {
+    "city": "Kenndie",
     "state": "Mopti",
     "country": "Mali"
   },
@@ -420,7 +455,17 @@ export const keCities = [
     "country": "United States"
   },
   {
-    "city": "Kedav\u016br",
+    "city": "Kebila",
+    "state": "Sikasso",
+    "country": "Mali"
+  },
+  {
+    "city": "Kedainiai",
+    "state": "K\u0117dainiai",
+    "country": "Lithuania"
+  },
+  {
+    "city": "Kedavur",
     "state": "Kerala",
     "country": "India"
   },
@@ -430,7 +475,7 @@ export const keCities = [
     "country": "India"
   },
   {
-    "city": "Kel\u012bsh\u0101d va S\u016bdarj\u0101n",
+    "city": "Kelishad va Sudarjan",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
@@ -445,7 +490,7 @@ export const keCities = [
     "country": "Ghana"
   },
   {
-    "city": "Ker\u016br",
+    "city": "Kerur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -475,6 +520,11 @@ export const keCities = [
     "country": "India"
   },
   {
+    "city": "Kebemer",
+    "state": "Louga",
+    "country": "Senegal"
+  },
+  {
     "city": "Kempston",
     "state": "Bedford",
     "country": "United Kingdom"
@@ -485,7 +535,7 @@ export const keCities = [
     "country": "Finland"
   },
   {
-    "city": "Kemis\u0113",
+    "city": "Kemise",
     "state": "\u0100mara",
     "country": "Ethiopia"
   },
@@ -493,6 +543,11 @@ export const keCities = [
     "city": "Keskin",
     "state": "K\u0131r\u0131kkale",
     "country": "Turkey"
+  },
+  {
+    "city": "Kety",
+    "state": "Ma\u0142opolskie",
+    "country": "Poland"
   },
   {
     "city": "Keszthely",
@@ -520,7 +575,7 @@ export const keCities = [
     "country": "Morocco"
   },
   {
-    "city": "Kembh\u0101vi",
+    "city": "Kembhavi",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -555,7 +610,7 @@ export const keCities = [
     "country": "United States"
   },
   {
-    "city": "Ke\u017emarok",
+    "city": "Kezmarok",
     "state": "Pre\u0161ov",
     "country": "Slovakia"
   },
@@ -563,6 +618,11 @@ export const keCities = [
     "city": "Kestel",
     "state": "Antalya",
     "country": "Turkey"
+  },
+  {
+    "city": "Kerouane",
+    "state": "Kankan",
+    "country": "Guinea"
   },
   {
     "city": "Kenmore",
@@ -635,12 +695,17 @@ export const keCities = [
     "country": "Kenya"
   },
   {
-    "city": "Ke\u0101l",
+    "city": "Keal",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Kelang\u0101h",
+    "city": "Kepno",
+    "state": "Wielkopolskie",
+    "country": "Poland"
+  },
+  {
+    "city": "Kelangah",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -660,7 +725,7 @@ export const keCities = [
     "country": "Algeria"
   },
   {
-    "city": "Kesariy\u0101",
+    "city": "Kesariya",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -690,7 +755,7 @@ export const keCities = [
     "country": "United States"
   },
   {
-    "city": "Kewatg\u0101w\u0101n",
+    "city": "Kewatgawan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -725,6 +790,11 @@ export const keCities = [
     "country": "South Africa"
   },
   {
+    "city": "Keve",
+    "state": "Maritime",
+    "country": "Togo"
+  },
+  {
     "city": "Kete Krachi",
     "state": "Oti",
     "country": "Ghana"
@@ -735,7 +805,7 @@ export const keCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Keol\u0101ri",
+    "city": "Keolari",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -755,7 +825,12 @@ export const keCities = [
     "country": "Japan"
   },
   {
-    "city": "Kenduad\u012bh",
+    "city": "Kedougou",
+    "state": "K\u00e9dougou",
+    "country": "Senegal"
+  },
+  {
+    "city": "Kenduadih",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -785,7 +860,7 @@ export const keCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Ker\u0101i",
+    "city": "Kerai",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -825,12 +900,12 @@ export const keCities = [
     "country": "Ethiopia"
   },
   {
-    "city": "Kerw\u0101da",
+    "city": "Kerwada",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Ketugr\u0101m",
+    "city": "Ketugram",
     "state": "West Bengal",
     "country": "India"
   },
@@ -850,7 +925,7 @@ export const keCities = [
     "country": "United States"
   },
   {
-    "city": "Keshw\u0101ri",
+    "city": "Keshwari",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -890,12 +965,12 @@ export const keCities = [
     "country": "Finland"
   },
   {
-    "city": "Ke\u015fap",
+    "city": "Kesap",
     "state": "Giresun",
     "country": "Turkey"
   },
   {
-    "city": "Ken\u0101r",
+    "city": "Kenar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -908,6 +983,11 @@ export const keCities = [
     "city": "Kelso",
     "state": "New South Wales",
     "country": "Australia"
+  },
+  {
+    "city": "Kelle",
+    "state": "Cuvette-Ouest",
+    "country": "Congo (Brazzaville)"
   },
   {
     "city": "Keora",
@@ -935,12 +1015,12 @@ export const keCities = [
     "country": "India"
   },
   {
-    "city": "Kemij\u00e4rvi",
+    "city": "Kemijarvi",
     "state": "Lappi",
     "country": "Finland"
   },
   {
-    "city": "Kelm\u0117",
+    "city": "Kelme",
     "state": "Kelm\u0117",
     "country": "Lithuania"
   },
@@ -955,12 +1035,17 @@ export const keCities = [
     "country": "Papua New Guinea"
   },
   {
+    "city": "Kekava",
+    "state": "\u0136ekava",
+    "country": "Latvia"
+  },
+  {
     "city": "Kerewan",
     "state": "North Bank",
     "country": "Gambia, The"
   },
   {
-    "city": "Ker\u010bem",
+    "city": "Kercem",
     "state": "Ker\u010bem",
     "country": "Malta"
   },
@@ -970,7 +1055,7 @@ export const keCities = [
     "country": "Australia"
   },
   {
-    "city": "Keflav\u00edk",
+    "city": "Keflavik",
     "state": "Reykjanesb\u00e6r",
     "country": "Iceland"
   }

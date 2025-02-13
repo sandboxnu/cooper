@@ -1,6 +1,6 @@
 export const jbCities = [
   {
-    "city": "Jba\u00efl",
+    "city": "Jbail",
     "state": "Mont-Liban",
     "country": "Lebanon"
   },

@@ -25,7 +25,7 @@ export const ilCities = [
     "country": "Philippines"
   },
   {
-    "city": "Ilh\u00e9us",
+    "city": "Ilheus",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -55,7 +55,12 @@ export const ilCities = [
     "country": "El Salvador"
   },
   {
-    "city": "Ilio\u00fapoli",
+    "city": "Ilion",
+    "state": "Attik\u00ed",
+    "country": "Greece"
+  },
+  {
+    "city": "Ilioupoli",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -65,7 +70,7 @@ export const ilCities = [
     "country": "India"
   },
   {
-    "city": "Ilid\u017ea",
+    "city": "Ilidza",
     "state": "Bosnia and Herzegovina, Federation of",
     "country": "Bosnia and Herzegovina"
   },
@@ -90,7 +95,7 @@ export const ilCities = [
     "country": "India"
   },
   {
-    "city": "Ilg\u0131n",
+    "city": "Ilgin",
     "state": "Konya",
     "country": "Turkey"
   },
@@ -108,6 +113,16 @@ export const ilCities = [
     "city": "Ilhabela",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
+  },
+  {
+    "city": "Ilawa",
+    "state": "Warmi\u0144sko-Mazurskie",
+    "country": "Poland"
+  },
+  {
+    "city": "Ilhavo",
+    "state": "Aveiro",
+    "country": "Portugal"
   },
   {
     "city": "Illescas",
@@ -135,7 +150,7 @@ export const ilCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ilaiy\u0101nkudi",
+    "city": "Ilaiyankudi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -150,7 +165,7 @@ export const ilCities = [
     "country": "Chile"
   },
   {
-    "city": "Ilija\u0161",
+    "city": "Ilijas",
     "state": "Bosnia and Herzegovina, Federation of",
     "country": "Bosnia and Herzegovina"
   },
@@ -158,6 +173,11 @@ export const ilCities = [
     "city": "Illertissen",
     "state": "Bavaria",
     "country": "Germany"
+  },
+  {
+    "city": "Ilam",
+    "state": NaN,
+    "country": "Nepal"
   },
   {
     "city": "Illizi",
@@ -185,6 +205,16 @@ export const ilCities = [
     "country": "India"
   },
   {
+    "city": "Ilkhchi",
+    "state": "\u0100z\u0304arb\u0101yj\u0101n-e Sharq\u012b",
+    "country": "Iran"
+  },
+  {
+    "city": "Ilkhechi",
+    "state": "\u0100z\u0304arb\u0101yj\u0101n-e Sharq\u012b",
+    "country": "Iran"
+  },
+  {
     "city": "Illingen",
     "state": "Saarland",
     "country": "Germany"
@@ -210,12 +240,12 @@ export const ilCities = [
     "country": "India"
   },
   {
-    "city": "Ilha de Mo\u00e7ambique",
+    "city": "Ilha de Mocambique",
     "state": "Nampula",
     "country": "Mozambique"
   },
   {
-    "city": "Ilamatl\u00e1n",
+    "city": "Ilamatlan",
     "state": "Veracruz",
     "country": "Mexico"
   },
@@ -225,7 +255,7 @@ export const ilCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Ilic\u00ednia",
+    "city": "Ilicinia",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -245,8 +275,13 @@ export const ilCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Il\u0131cak\u00f6y",
+    "city": "Ilicakoy",
     "state": "Antalya",
+    "country": "Turkey"
+  },
+  {
+    "city": "Ilic",
+    "state": "Erzincan",
     "country": "Turkey"
   },
   {
@@ -255,7 +290,7 @@ export const ilCities = [
     "country": "Germany"
   },
   {
-    "city": "Il\u0101mi",
+    "city": "Ilami",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -290,7 +325,7 @@ export const ilCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Il\u2019pyrskiy",
+    "city": "Il'pyrskiy",
     "state": "Kamchatskiy Kray",
     "country": "Russia"
   },
@@ -298,5 +333,10 @@ export const ilCities = [
     "city": "Ilinden",
     "state": "Ilinden",
     "country": "North Macedonia"
+  },
+  {
+    "city": "Ilam",
+    "state": "\u012al\u0101m",
+    "country": "Iran"
   }
 ]

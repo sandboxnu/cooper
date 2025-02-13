@@ -1,6 +1,6 @@
 export const fdCities = [
   {
-    "city": "Fd\u00e9rik",
+    "city": "Fderik",
     "state": "Tiris Zemmour",
     "country": "Mauritania"
   }

@@ -100,7 +100,7 @@ export const baCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Bal\u0131kesir",
+    "city": "Balikesir",
     "state": "Bal\u0131kesir",
     "country": "Turkey"
   },
@@ -150,7 +150,7 @@ export const baCities = [
     "country": "Somalia"
   },
   {
-    "city": "Ba\u011fc\u0131lar",
+    "city": "Bagcilar",
     "state": "\u0130stanbul",
     "country": "Turkey"
   },
@@ -160,7 +160,7 @@ export const baCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Bah\u0101r",
+    "city": "Bahar",
     "state": "Hamad\u0101n",
     "country": "Iran"
   },
@@ -185,7 +185,7 @@ export const baCities = [
     "country": "Russia"
   },
   {
-    "city": "Bazal\u2019tove",
+    "city": "Bazal'tove",
     "state": "Rivnenska Oblast",
     "country": "Ukraine"
   },
@@ -215,9 +215,19 @@ export const baCities = [
     "country": "United States"
   },
   {
-    "city": "Bandar \u2018Abb\u0101s",
+    "city": "Bandar `Abbas",
     "state": "Hormozg\u0101n",
     "country": "Iran"
+  },
+  {
+    "city": "Bac Ninh",
+    "state": "B\u1eafc Ninh",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Bardoli",
+    "state": "Gujar\u0101t",
+    "country": "India"
   },
   {
     "city": "Balashikha",
@@ -225,7 +235,7 @@ export const baCities = [
     "country": "Russia"
   },
   {
-    "city": "Ba\u2018q\u016bbah",
+    "city": "Ba`qubah",
     "state": "Diy\u0101l\u00e1",
     "country": "Iraq"
   },
@@ -250,12 +260,17 @@ export const baCities = [
     "country": "Indonesia"
   },
   {
+    "city": "Baramati",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
     "city": "Banjul",
     "state": "Banjul",
     "country": "Gambia, The"
   },
   {
-    "city": "Ba\u011flar",
+    "city": "Baglar",
     "state": "Diyarbak\u0131r",
     "country": "Turkey"
   },
@@ -305,22 +320,22 @@ export const baCities = [
     "country": "Italy"
   },
   {
-    "city": "Barddham\u0101n",
+    "city": "Barddhaman",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Bah\u00eda Blanca",
+    "city": "Bahia Blanca",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
   {
-    "city": "Barr Eli\u00e2s",
+    "city": "Barr Elias",
     "state": "B\u00e9qaa",
     "country": "Lebanon"
   },
   {
-    "city": "Bada Barab\u012bl",
+    "city": "Bada Barabil",
     "state": "Odisha",
     "country": "India"
   },
@@ -328,6 +343,11 @@ export const baCities = [
     "city": "Battalgazi",
     "state": "Malatya",
     "country": "Turkey"
+  },
+  {
+    "city": "Bali",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Batna",
@@ -338,6 +358,11 @@ export const baCities = [
     "city": "Bago",
     "state": "Bago",
     "country": "Burma"
+  },
+  {
+    "city": "Barasat",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Bayat",
@@ -355,6 +380,11 @@ export const baCities = [
     "country": "Equatorial Guinea"
   },
   {
+    "city": "Babol",
+    "state": "M\u0101zandar\u0101n",
+    "country": "Iran"
+  },
+  {
     "city": "Banikoara",
     "state": "Alibori",
     "country": "Benin"
@@ -368,6 +398,11 @@ export const baCities = [
     "city": "Bahir Dar",
     "state": "\u0100mara",
     "country": "Ethiopia"
+  },
+  {
+    "city": "Banchpar",
+    "state": "Chattogram",
+    "country": "Bangladesh"
   },
   {
     "city": "Baruta",
@@ -400,7 +435,7 @@ export const baCities = [
     "country": "Argentina"
   },
   {
-    "city": "Bandar-e B\u016bshehr",
+    "city": "Bandar-e Bushehr",
     "state": "B\u016bshehr",
     "country": "Iran"
   },
@@ -450,7 +485,7 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Ban\u012b Suwayf",
+    "city": "Bani Suwayf",
     "state": "Ban\u012b Suwayf",
     "country": "Egypt"
   },
@@ -480,9 +515,14 @@ export const baCities = [
     "country": "Bosnia and Herzegovina"
   },
   {
-    "city": "Bat\u0101la",
+    "city": "Batala",
     "state": "Punjab",
     "country": "India"
+  },
+  {
+    "city": "Bac Giang",
+    "state": "B\u1eafc Giang",
+    "country": "Vietnam"
   },
   {
     "city": "Basel",
@@ -500,6 +540,11 @@ export const baCities = [
     "country": "Taiwan"
   },
   {
+    "city": "Bao Loc",
+    "state": "L\u00e2m \u0110\u1ed3ng",
+    "country": "Vietnam"
+  },
+  {
     "city": "Barra Mansa",
     "state": "Rio de Janeiro",
     "country": "Brazil"
@@ -510,7 +555,7 @@ export const baCities = [
     "country": "Georgia"
   },
   {
-    "city": "Bayam\u00f3n",
+    "city": "Bayamon",
     "state": "Puerto Rico",
     "country": "Puerto Rico"
   },
@@ -518,6 +563,11 @@ export const baCities = [
     "city": "Baliuag",
     "state": "Bulacan",
     "country": "Philippines"
+  },
+  {
+    "city": "Baramula",
+    "state": "Jammu and Kashm\u012br",
+    "country": "India"
   },
   {
     "city": "Basuo",
@@ -530,7 +580,7 @@ export const baCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Bandar-e M\u0101hshahr",
+    "city": "Bandar-e Mahshahr",
     "state": "Kh\u016bzest\u0101n",
     "country": "Iran"
   },
@@ -540,9 +590,14 @@ export const baCities = [
     "country": "Brazil"
   },
   {
-    "city": "Banh\u0101",
+    "city": "Banha",
     "state": "Al Qaly\u016bb\u012byah",
     "country": "Egypt"
+  },
+  {
+    "city": "Bac Lieu",
+    "state": "B\u1ea1c Li\u00eau",
+    "country": "Vietnam"
   },
   {
     "city": "Barrie",
@@ -550,9 +605,19 @@ export const baCities = [
     "country": "Canada"
   },
   {
-    "city": "Band\u0131rma",
+    "city": "Bandirma",
     "state": "Bal\u0131kesir",
     "country": "Turkey"
+  },
+  {
+    "city": "Balurghat",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
+    "city": "Barakpur",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Badajoz",
@@ -560,7 +625,12 @@ export const baCities = [
     "country": "Spain"
   },
   {
-    "city": "Ban\u00ed",
+    "city": "Bavaro",
+    "state": "Yuma",
+    "country": "Dominican Republic"
+  },
+  {
+    "city": "Bani",
     "state": "Valdesia",
     "country": "Dominican Republic"
   },
@@ -595,7 +665,7 @@ export const baCities = [
     "country": "Malaysia"
   },
   {
-    "city": "Balne\u00e1rio de Cambori\u00fa",
+    "city": "Balneario de Camboriu",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -603,6 +673,11 @@ export const baCities = [
     "city": "Balkanabat",
     "state": "Balkan",
     "country": "Turkmenistan"
+  },
+  {
+    "city": "Bankura",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Barrechid",
@@ -615,12 +690,12 @@ export const baCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Bac\u0103u",
+    "city": "Bacau",
     "state": "Bac\u0103u",
     "country": "Romania"
   },
   {
-    "city": "Ba \u0110\u1ed3n",
+    "city": "Ba Don",
     "state": "Qu\u1ea3ng B\u00ecnh",
     "country": "Vietnam"
   },
@@ -675,7 +750,7 @@ export const baCities = [
     "country": "Brazil"
   },
   {
-    "city": "Bas\u012brhat",
+    "city": "Basirhat",
     "state": "West Bengal",
     "country": "India"
   },
@@ -725,7 +800,7 @@ export const baCities = [
     "country": "Congo (Kinshasa)"
   },
   {
-    "city": "Bandar-e Anzal\u012b",
+    "city": "Bandar-e Anzali",
     "state": "G\u012bl\u0101n",
     "country": "Iran"
   },
@@ -735,7 +810,7 @@ export const baCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Bag\u00e9",
+    "city": "Bage",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -750,12 +825,12 @@ export const baCities = [
     "country": "Burkina Faso"
   },
   {
-    "city": "Barip\u0101da",
+    "city": "Baripada",
     "state": "Odisha",
     "country": "India"
   },
   {
-    "city": "Barn\u0101la",
+    "city": "Barnala",
     "state": "Punjab",
     "country": "India"
   },
@@ -765,7 +840,7 @@ export const baCities = [
     "country": "Australia"
   },
   {
-    "city": "Bal\u0101ng\u012br",
+    "city": "Balangir",
     "state": "Odisha",
     "country": "India"
   },
@@ -773,6 +848,11 @@ export const baCities = [
     "city": "Badin",
     "state": "Sindh",
     "country": "Pakistan"
+  },
+  {
+    "city": "Bagalkot",
+    "state": "Karn\u0101taka",
+    "country": "India"
   },
   {
     "city": "Baybay",
@@ -783,6 +863,11 @@ export const baCities = [
     "city": "Baleraja",
     "state": "Jawa Barat",
     "country": "Indonesia"
+  },
+  {
+    "city": "Baneh",
+    "state": "Kordest\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Bayugan",
@@ -810,7 +895,12 @@ export const baCities = [
     "country": "Romania"
   },
   {
-    "city": "Ba\u00eda Farta",
+    "city": "Ba Ria",
+    "state": "B\u00e0 R\u1ecba-V\u0169ng T\u00e0u",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Baia Farta",
     "state": "Benguela",
     "country": "Angola"
   },
@@ -825,7 +915,7 @@ export const baCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Bant\u00e9",
+    "city": "Bante",
     "state": "Collines",
     "country": "Benin"
   },
@@ -855,6 +945,11 @@ export const baCities = [
     "country": "Philippines"
   },
   {
+    "city": "Bansbaria",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Bacabal",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
@@ -870,12 +965,17 @@ export const baCities = [
     "country": "Pakistan"
   },
   {
+    "city": "Bamyan",
+    "state": "B\u0101my\u0101n",
+    "country": "Afghanistan"
+  },
+  {
     "city": "Banzhuangcun",
     "state": "Jiangsu",
     "country": "China"
   },
   {
-    "city": "Bab\u012bl\u0113",
+    "city": "Babile",
     "state": "Orom\u012bya",
     "country": "Ethiopia"
   },
@@ -888,6 +988,11 @@ export const baCities = [
     "city": "Babahoyo",
     "state": "Los R\u00edos",
     "country": "Ecuador"
+  },
+  {
+    "city": "Balti",
+    "state": "B\u0103l\u0163i",
+    "country": "Moldova"
   },
   {
     "city": "Bab Ezzouar",
@@ -920,7 +1025,7 @@ export const baCities = [
     "country": "China"
   },
   {
-    "city": "Barra do Pira\u00ed",
+    "city": "Barra do Pirai",
     "state": "Rio de Janeiro",
     "country": "Brazil"
   },
@@ -940,7 +1045,7 @@ export const baCities = [
     "country": "Somalia"
   },
   {
-    "city": "Bayt L\u0101hy\u0101",
+    "city": "Bayt Lahya",
     "state": NaN,
     "country": "Gaza Strip"
   },
@@ -995,12 +1100,17 @@ export const baCities = [
     "country": "Sri Lanka"
   },
   {
+    "city": "Basoda",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Batarasa",
     "state": "Palawan",
     "country": "Philippines"
   },
   {
-    "city": "Bahl\u0101\u2019",
+    "city": "Bahla'",
     "state": "Ad D\u0101khil\u012byah",
     "country": "Oman"
   },
@@ -1035,7 +1145,7 @@ export const baCities = [
     "country": "Philippines"
   },
   {
-    "city": "Balr\u0101mpur",
+    "city": "Balrampur",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -1045,7 +1155,7 @@ export const baCities = [
     "country": "Lebanon"
   },
   {
-    "city": "Bal\u00e7ova",
+    "city": "Balcova",
     "state": "\u0130zmir",
     "country": "Turkey"
   },
@@ -1075,7 +1185,7 @@ export const baCities = [
     "country": "Germany"
   },
   {
-    "city": "Ban\u012b Maz\u0101r",
+    "city": "Bani Mazar",
     "state": "Al Miny\u0101",
     "country": "Egypt"
   },
@@ -1090,7 +1200,7 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Bah\u0101rest\u0101n",
+    "city": "Baharestan",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
@@ -1100,7 +1210,7 @@ export const baCities = [
     "country": "Philippines"
   },
   {
-    "city": "Bandar Em\u0101m",
+    "city": "Bandar Emam",
     "state": "Kh\u016bzest\u0101n",
     "country": "Iran"
   },
@@ -1155,7 +1265,7 @@ export const baCities = [
     "country": "Russia"
   },
   {
-    "city": "Bansk\u00e1 Bystrica",
+    "city": "Banska Bystrica",
     "state": "Bansk\u00e1 Bystrica",
     "country": "Slovakia"
   },
@@ -1170,7 +1280,7 @@ export const baCities = [
     "country": "Philippines"
   },
   {
-    "city": "Bandar-e Gen\u0101veh",
+    "city": "Bandar-e Genaveh",
     "state": "B\u016bshehr",
     "country": "Iran"
   },
@@ -1180,7 +1290,7 @@ export const baCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Baghl\u0101n",
+    "city": "Baghlan",
     "state": "Baghl\u0101n",
     "country": "Afghanistan"
   },
@@ -1200,12 +1310,12 @@ export const baCities = [
     "country": "United States"
   },
   {
-    "city": "Bak\u0131xanov",
+    "city": "Bakixanov",
     "state": "Bak\u0131",
     "country": "Azerbaijan"
   },
   {
-    "city": "Bart\u0131n",
+    "city": "Bartin",
     "state": "Bart\u0131n",
     "country": "Turkey"
   },
@@ -1213,6 +1323,11 @@ export const baCities = [
     "city": "Bakhmut",
     "state": "Donetska Oblast",
     "country": "Ukraine"
+  },
+  {
+    "city": "Bapatla",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Badvel",
@@ -1240,7 +1355,7 @@ export const baCities = [
     "country": "Somalia"
   },
   {
-    "city": "Basavakaly\u0101n",
+    "city": "Basavakalyan",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1255,7 +1370,7 @@ export const baCities = [
     "country": "Cameroon"
   },
   {
-    "city": "Barra do Gar\u00e7as",
+    "city": "Barra do Garcas",
     "state": "Mato Grosso",
     "country": "Brazil"
   },
@@ -1265,7 +1380,7 @@ export const baCities = [
     "country": "Philippines"
   },
   {
-    "city": "Bardi\u0307\u0304b\u0101s",
+    "city": "Bardibas",
     "state": NaN,
     "country": "Nepal"
   },
@@ -1275,7 +1390,7 @@ export const baCities = [
     "country": "Philippines"
   },
   {
-    "city": "Banep\u0101",
+    "city": "Banepa",
     "state": NaN,
     "country": "Nepal"
   },
@@ -1300,12 +1415,22 @@ export const baCities = [
     "country": "Brazil"
   },
   {
+    "city": "Baqershahr",
+    "state": "Tehr\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Bazar-e Yakawlang",
+    "state": "B\u0101my\u0101n",
+    "country": "Afghanistan"
+  },
+  {
     "city": "Bankra",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Badr \u1e28unayn",
+    "city": "Badr Hunayn",
     "state": "Al Mad\u012bnah al Munawwarah",
     "country": "Saudi Arabia"
   },
@@ -1315,7 +1440,7 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Banda del R\u00edo Sal\u00ed",
+    "city": "Banda del Rio Sali",
     "state": "Tucum\u00e1n",
     "country": "Argentina"
   },
@@ -1338,6 +1463,11 @@ export const baCities = [
     "city": "Bansalan",
     "state": "Davao del Sur",
     "country": "Philippines"
+  },
+  {
+    "city": "Bari",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
   },
   {
     "city": "Bainet",
@@ -1375,7 +1505,7 @@ export const baCities = [
     "country": "Algeria"
   },
   {
-    "city": "Bayj\u012b",
+    "city": "Bayji",
     "state": "\u015eal\u0101\u1e29 ad D\u012bn",
     "country": "Iraq"
   },
@@ -1388,6 +1518,11 @@ export const baCities = [
     "city": "Barneveld",
     "state": "Gelderland",
     "country": "Netherlands"
+  },
+  {
+    "city": "Babolsar",
+    "state": "M\u0101zandar\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Barking",
@@ -1405,12 +1540,12 @@ export const baCities = [
     "country": "Philippines"
   },
   {
-    "city": "Baguin\u00e9da",
+    "city": "Baguineda",
     "state": "Koulikoro",
     "country": "Mali"
   },
   {
-    "city": "Balanc\u00e1n",
+    "city": "Balancan",
     "state": "Tabasco",
     "country": "Mexico"
   },
@@ -1455,7 +1590,7 @@ export const baCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Bartolom\u00e9 Mas\u00f3",
+    "city": "Bartolome Maso",
     "state": "Granma",
     "country": "Cuba"
   },
@@ -1465,7 +1600,7 @@ export const baCities = [
     "country": "Philippines"
   },
   {
-    "city": "Barw\u0101ni",
+    "city": "Barwani",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1505,7 +1640,7 @@ export const baCities = [
     "country": "Somalia"
   },
   {
-    "city": "Bakhtiy\u0101rpur",
+    "city": "Bakhtiyarpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1518,6 +1653,11 @@ export const baCities = [
     "city": "Barobo",
     "state": "Surigao del Sur",
     "country": "Philippines"
+  },
+  {
+    "city": "Baruipur",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Bagheria",
@@ -1535,7 +1675,7 @@ export const baCities = [
     "country": "Philippines"
   },
   {
-    "city": "Ba\u015fkale",
+    "city": "Baskale",
     "state": "Van",
     "country": "Turkey"
   },
@@ -1550,9 +1690,14 @@ export const baCities = [
     "country": "China"
   },
   {
-    "city": "Bad\u016bria",
+    "city": "Baduria",
     "state": "West Bengal",
     "country": "India"
+  },
+  {
+    "city": "Barlad",
+    "state": "Vaslui",
+    "country": "Romania"
   },
   {
     "city": "Ban Om Noi",
@@ -1570,12 +1715,12 @@ export const baCities = [
     "country": "Colombia"
   },
   {
-    "city": "Bai\u00e3o",
+    "city": "Baiao",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Band\u014d",
+    "city": "Bando",
     "state": "Ibaraki",
     "country": "Japan"
   },
@@ -1605,17 +1750,17 @@ export const baCities = [
     "country": "Brazil"
   },
   {
-    "city": "Bab\u012bl\u0101",
+    "city": "Babila",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
   },
   {
-    "city": "Ban\u012b Wal\u012bd",
+    "city": "Bani Walid",
     "state": "Mi\u015fr\u0101tah",
     "country": "Libya"
   },
   {
-    "city": "Bas Limb\u00e9",
+    "city": "Bas Limbe",
     "state": "Nord",
     "country": "Haiti"
   },
@@ -1628,6 +1773,11 @@ export const baCities = [
     "city": "Bangued",
     "state": "Abra",
     "country": "Philippines"
+  },
+  {
+    "city": "Baghpat",
+    "state": "Uttar Pradesh",
+    "country": "India"
   },
   {
     "city": "Bang Bua Thong",
@@ -1665,6 +1815,11 @@ export const baCities = [
     "country": "United States"
   },
   {
+    "city": "Badurpalle",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
     "city": "Bastia",
     "state": "Corsica",
     "country": "France"
@@ -1675,7 +1830,7 @@ export const baCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Bantv\u0101l",
+    "city": "Bantval",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1715,6 +1870,11 @@ export const baCities = [
     "country": "Brazil"
   },
   {
+    "city": "Baguanos",
+    "state": "Holgu\u00edn",
+    "country": "Cuba"
+  },
+  {
     "city": "Barnet",
     "state": "Barnet",
     "country": "United Kingdom"
@@ -1735,6 +1895,11 @@ export const baCities = [
     "country": "Thailand"
   },
   {
+    "city": "Bajil",
+    "state": "Al \u1e28udaydah",
+    "country": "Yemen"
+  },
+  {
     "city": "Ban Bang Mae Nang",
     "state": "Nonthaburi",
     "country": "Thailand"
@@ -1750,12 +1915,17 @@ export const baCities = [
     "country": "China"
   },
   {
+    "city": "Bafq",
+    "state": "Yazd",
+    "country": "Iran"
+  },
+  {
     "city": "Barra Velha",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
   {
-    "city": "Ban\u012b \u2018Ubayd",
+    "city": "Bani `Ubayd",
     "state": "Ad Daqahl\u012byah",
     "country": "Egypt"
   },
@@ -1765,7 +1935,12 @@ export const baCities = [
     "country": "Philippines"
   },
   {
-    "city": "Batro\u00fbn",
+    "city": "Bac Kan",
+    "state": "B\u1eafc K\u1ea1n",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Batroun",
     "state": "Liban-Nord",
     "country": "Lebanon"
   },
@@ -1800,7 +1975,7 @@ export const baCities = [
     "country": "Philippines"
   },
   {
-    "city": "Barw\u0101h",
+    "city": "Barwah",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1825,9 +2000,14 @@ export const baCities = [
     "country": "France"
   },
   {
-    "city": "Bah\u00eda Honda",
+    "city": "Bahia Honda",
     "state": "Artemisa",
     "country": "Cuba"
+  },
+  {
+    "city": "Baniyas",
+    "state": "\u0162ar\u0163\u016bs",
+    "country": "Syria"
   },
   {
     "city": "Bakau",
@@ -1845,7 +2025,7 @@ export const baCities = [
     "country": "Sri Lanka"
   },
   {
-    "city": "Bair\u0101gnia",
+    "city": "Bairagnia",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1900,7 +2080,7 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Bayt al Faq\u012bh",
+    "city": "Bayt al Faqih",
     "state": "Al \u1e28udaydah",
     "country": "Yemen"
   },
@@ -1910,7 +2090,7 @@ export const baCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ban\u012b Suhayl\u0101",
+    "city": "Bani Suhayla",
     "state": NaN,
     "country": "Gaza Strip"
   },
@@ -1945,12 +2125,12 @@ export const baCities = [
     "country": "China"
   },
   {
-    "city": "Barra de S\u00e3o Francisco",
+    "city": "Barra de Sao Francisco",
     "state": "Esp\u00edrito Santo",
     "country": "Brazil"
   },
   {
-    "city": "Bay\u0131nd\u0131r",
+    "city": "Bayindir",
     "state": "\u0130zmir",
     "country": "Turkey"
   },
@@ -1965,7 +2145,7 @@ export const baCities = [
     "country": "Philippines"
   },
   {
-    "city": "Ba\u00f1ga",
+    "city": "Banga",
     "state": "Aklan",
     "country": "Philippines"
   },
@@ -1993,6 +2173,16 @@ export const baCities = [
     "city": "Baco",
     "state": "Oriental Mindoro",
     "country": "Philippines"
+  },
+  {
+    "city": "Basudebpur",
+    "state": "Odisha",
+    "country": "India"
+  },
+  {
+    "city": "Badepalli",
+    "state": "Telang\u0101na",
+    "country": "India"
   },
   {
     "city": "Bagnolet",
@@ -2023,6 +2213,11 @@ export const baCities = [
     "city": "Ban Na Pa",
     "state": "Chon Buri",
     "country": "Thailand"
+  },
+  {
+    "city": "Barda",
+    "state": "B\u0259rd\u0259",
+    "country": "Azerbaijan"
   },
   {
     "city": "Bayan",
@@ -2070,7 +2265,7 @@ export const baCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Basavana B\u0101gev\u0101di",
+    "city": "Basavana Bagevadi",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -2105,7 +2300,7 @@ export const baCities = [
     "country": "Philippines"
   },
   {
-    "city": "Bah\u0101durganj",
+    "city": "Bahadurganj",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2130,7 +2325,7 @@ export const baCities = [
     "country": "China"
   },
   {
-    "city": "Barra do Cho\u00e7a",
+    "city": "Barra do Choca",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -2153,6 +2348,11 @@ export const baCities = [
     "city": "Barira",
     "state": "Maguindanao",
     "country": "Philippines"
+  },
+  {
+    "city": "Balarampuram",
+    "state": "Kerala",
+    "country": "India"
   },
   {
     "city": "Bad Vilbel",
@@ -2180,7 +2380,7 @@ export const baCities = [
     "country": "Brazil"
   },
   {
-    "city": "Baturit\u00e9",
+    "city": "Baturite",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -2198,6 +2398,11 @@ export const baCities = [
     "city": "Bagamoyo",
     "state": "Coast",
     "country": "Tanzania"
+  },
+  {
+    "city": "Bapaura",
+    "state": "Hary\u0101na",
+    "country": "India"
   },
   {
     "city": "Balingen",
@@ -2218,6 +2423,11 @@ export const baCities = [
     "city": "Bayog",
     "state": "Zamboanga del Sur",
     "country": "Philippines"
+  },
+  {
+    "city": "Baft",
+    "state": "Kerm\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Barugo",
@@ -2250,7 +2460,7 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Balar\u0101mpur",
+    "city": "Balarampur",
     "state": "West Bengal",
     "country": "India"
   },
@@ -2278,6 +2488,11 @@ export const baCities = [
     "city": "Batobato",
     "state": "Davao Oriental",
     "country": "Philippines"
+  },
+  {
+    "city": "Barhadashi",
+    "state": NaN,
+    "country": "Nepal"
   },
   {
     "city": "Batouri",
@@ -2335,6 +2550,11 @@ export const baCities = [
     "country": "Russia"
   },
   {
+    "city": "Bamaur",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Barguna",
     "state": "Barishal",
     "country": "Bangladesh"
@@ -2350,7 +2570,7 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Baragu\u00e1",
+    "city": "Baragua",
     "state": "Ciego de \u00c1vila",
     "country": "Cuba"
   },
@@ -2365,7 +2585,7 @@ export const baCities = [
     "country": "Ecuador"
   },
   {
-    "city": "Barou\u00e9li",
+    "city": "Baroueli",
     "state": "S\u00e9gou",
     "country": "Mali"
   },
@@ -2425,12 +2645,12 @@ export const baCities = [
     "country": "United States"
   },
   {
-    "city": "Barad\u00e8res",
+    "city": "Baraderes",
     "state": "Nippes",
     "country": "Haiti"
   },
   {
-    "city": "Bagr\u0101m\u012b",
+    "city": "Bagrami",
     "state": "K\u0101bul",
     "country": "Afghanistan"
   },
@@ -2480,12 +2700,17 @@ export const baCities = [
     "country": "United States"
   },
   {
+    "city": "Badami",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
     "city": "Bairi Chak",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Bar\u00e3o de Cocais",
+    "city": "Barao de Cocais",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -2495,7 +2720,12 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Bann\u016br",
+    "city": "Babura",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Bannur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -2523,6 +2753,11 @@ export const baCities = [
     "city": "Bandar-e Lengeh",
     "state": "Hormozg\u0101n",
     "country": "Iran"
+  },
+  {
+    "city": "Bala Koh",
+    "state": "Balkh",
+    "country": "Afghanistan"
   },
   {
     "city": "Banlung",
@@ -2555,6 +2790,11 @@ export const baCities = [
     "country": "Philippines"
   },
   {
+    "city": "Baghmari",
+    "state": "Odisha",
+    "country": "India"
+  },
+  {
     "city": "Banning",
     "state": "California",
     "country": "United States"
@@ -2570,7 +2810,12 @@ export const baCities = [
     "country": "Germany"
   },
   {
-    "city": "Bayrami\u00e7",
+    "city": "Bazeh Kalagh",
+    "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
+    "country": "Iran"
+  },
+  {
+    "city": "Bayramic",
     "state": "\u00c7anakkale",
     "country": "Turkey"
   },
@@ -2583,6 +2828,11 @@ export const baCities = [
     "city": "Bagong Pag-Asa",
     "state": "Quezon",
     "country": "Philippines"
+  },
+  {
+    "city": "Baglung",
+    "state": NaN,
+    "country": "Nepal"
   },
   {
     "city": "Baixo Guandu",
@@ -2640,9 +2890,19 @@ export const baCities = [
     "country": "Mali"
   },
   {
+    "city": "Bagha Purana",
+    "state": "Punjab",
+    "country": "India"
+  },
+  {
     "city": "Baishaling",
     "state": "Guangdong",
     "country": "China"
+  },
+  {
+    "city": "Banswada",
+    "state": "Telang\u0101na",
+    "country": "India"
   },
   {
     "city": "Ban Bang Khu Wat",
@@ -2673,6 +2933,11 @@ export const baCities = [
     "city": "Bayang",
     "state": "Lanao del Sur",
     "country": "Philippines"
+  },
+  {
+    "city": "Barughutu",
+    "state": "Jh\u0101rkhand",
+    "country": "India"
   },
   {
     "city": "Batken",
@@ -2720,6 +2985,11 @@ export const baCities = [
     "country": "Philippines"
   },
   {
+    "city": "Bagepalli",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
     "city": "Barbacha",
     "state": "Beja\u00efa",
     "country": "Algeria"
@@ -2730,7 +3000,7 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Bara\u00fana",
+    "city": "Barauna",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
   },
@@ -2740,7 +3010,7 @@ export const baCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Bank\u0101pur",
+    "city": "Bankapur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -2760,7 +3030,7 @@ export const baCities = [
     "country": "Germany"
   },
   {
-    "city": "Bayt\u016bny\u0101",
+    "city": "Baytunya",
     "state": NaN,
     "country": "West Bank"
   },
@@ -2773,6 +3043,11 @@ export const baCities = [
     "city": "Batavia",
     "state": "Illinois",
     "country": "United States"
+  },
+  {
+    "city": "Bagh-e Malek",
+    "state": "Kh\u016bzest\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Batalha",
@@ -2795,6 +3070,11 @@ export const baCities = [
     "country": "Turkey"
   },
   {
+    "city": "Baruni",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Bad Honnef am Rhein",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
@@ -2810,7 +3090,7 @@ export const baCities = [
     "country": "Brazil"
   },
   {
-    "city": "Bajina Ba\u0161ta",
+    "city": "Bajina Basta",
     "state": "Bajina Ba\u0161ta",
     "country": "Serbia"
   },
@@ -2830,7 +3110,7 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Bataban\u00f3",
+    "city": "Batabano",
     "state": "Mayabeque",
     "country": "Cuba"
   },
@@ -2845,13 +3125,18 @@ export const baCities = [
     "country": "Mali"
   },
   {
-    "city": "Ba\u010dka Palanka",
+    "city": "Backa Palanka",
     "state": "Ba\u010dka Palanka",
     "country": "Serbia"
   },
   {
-    "city": "Bathn\u0101ha",
+    "city": "Bathnaha",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Babra",
+    "state": "Gujar\u0101t",
     "country": "India"
   },
   {
@@ -2880,7 +3165,7 @@ export const baCities = [
     "country": "Italy"
   },
   {
-    "city": "Bards\u012br",
+    "city": "Bardsir",
     "state": "Kerm\u0101n",
     "country": "Iran"
   },
@@ -2890,7 +3175,7 @@ export const baCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Barwa S\u0101gar",
+    "city": "Barwa Sagar",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -2905,7 +3190,7 @@ export const baCities = [
     "country": "Somalia"
   },
   {
-    "city": "Baind\u016br",
+    "city": "Baindur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -2917,6 +3202,11 @@ export const baCities = [
   {
     "city": "Banga",
     "state": "Punjab",
+    "country": "India"
+  },
+  {
+    "city": "Basopatti",
+    "state": "Bih\u0101r",
     "country": "India"
   },
   {
@@ -2933,6 +3223,11 @@ export const baCities = [
     "city": "Ban Khamen",
     "state": "Nonthaburi",
     "country": "Thailand"
+  },
+  {
+    "city": "Bazarak",
+    "state": "Panjshir",
+    "country": "Afghanistan"
   },
   {
     "city": "Baroy",
@@ -2965,7 +3260,7 @@ export const baCities = [
     "country": "Switzerland"
   },
   {
-    "city": "Balar\u0101mpur",
+    "city": "Balarampur",
     "state": "West Bengal",
     "country": "India"
   },
@@ -3035,7 +3330,7 @@ export const baCities = [
     "country": "Cuba"
   },
   {
-    "city": "Bambu\u00ed",
+    "city": "Bambui",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -3045,7 +3340,7 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Badn\u0101war",
+    "city": "Badnawar",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -3090,7 +3385,7 @@ export const baCities = [
     "country": "Germany"
   },
   {
-    "city": "Batagua\u00e7u",
+    "city": "Bataguacu",
     "state": "Mato Grosso do Sul",
     "country": "Brazil"
   },
@@ -3110,7 +3405,7 @@ export const baCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Baile \u00c1tha Luain",
+    "city": "Baile Atha Luain",
     "state": "Westmeath",
     "country": "Ireland"
   },
@@ -3125,22 +3420,22 @@ export const baCities = [
     "country": "Spain"
   },
   {
-    "city": "Barav\u0101t",
+    "city": "Baravat",
     "state": "Kerm\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Bagul\u0101",
+    "city": "Bagula",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Barak\u012b Barak",
+    "city": "Baraki Barak",
     "state": "L\u014dgar",
     "country": "Afghanistan"
   },
   {
-    "city": "Bafat\u00e1",
+    "city": "Bafata",
     "state": "Bafat\u00e1",
     "country": "Guinea-Bissau"
   },
@@ -3165,12 +3460,12 @@ export const baCities = [
     "country": "Poland"
   },
   {
-    "city": "Bah\u00e7e",
+    "city": "Bahce",
     "state": "Osmaniye",
     "country": "Turkey"
   },
   {
-    "city": "Bah\u00eda de Car\u00e1quez",
+    "city": "Bahia de Caraquez",
     "state": "Manab\u00ed",
     "country": "Ecuador"
   },
@@ -3205,6 +3500,11 @@ export const baCities = [
     "country": "Philippines"
   },
   {
+    "city": "Banapur",
+    "state": "Odisha",
+    "country": "India"
+  },
+  {
     "city": "Bad Harzburg",
     "state": "Lower Saxony",
     "country": "Germany"
@@ -3230,7 +3530,7 @@ export const baCities = [
     "country": "Brazil"
   },
   {
-    "city": "Bari\u0101rpur",
+    "city": "Bariarpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -3250,6 +3550,11 @@ export const baCities = [
     "country": "United States"
   },
   {
+    "city": "Banki",
+    "state": "Odisha",
+    "country": "India"
+  },
+  {
     "city": "Barcelona",
     "state": "Sorsogon",
     "country": "Philippines"
@@ -3263,6 +3568,11 @@ export const baCities = [
     "city": "Battle Ground",
     "state": "Washington",
     "country": "United States"
+  },
+  {
+    "city": "Balugan",
+    "state": "Odisha",
+    "country": "India"
   },
   {
     "city": "Bambalang",
@@ -3320,12 +3630,12 @@ export const baCities = [
     "country": "Spain"
   },
   {
-    "city": "Bat\u012b",
+    "city": "Bati",
     "state": "\u0100mara",
     "country": "Ethiopia"
   },
   {
-    "city": "Bai\u00e3o",
+    "city": "Baiao",
     "state": "Porto",
     "country": "Portugal"
   },
@@ -3335,7 +3645,7 @@ export const baCities = [
     "country": "Turkey"
   },
   {
-    "city": "Ba\u00f1olas",
+    "city": "Banolas",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -3385,7 +3695,7 @@ export const baCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ban\u012b Murr",
+    "city": "Bani Murr",
     "state": "Asy\u016b\u0163",
     "country": "Egypt"
   },
@@ -3410,12 +3720,17 @@ export const baCities = [
     "country": "India"
   },
   {
+    "city": "Bazidpur Madhaul",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Baragoi",
     "state": "Samburu",
     "country": "Kenya"
   },
   {
-    "city": "Bafoulab\u00e9",
+    "city": "Bafoulabe",
     "state": "Kayes",
     "country": "Mali"
   },
@@ -3445,7 +3760,7 @@ export const baCities = [
     "country": "Russia"
   },
   {
-    "city": "Baban\u016bsah",
+    "city": "Babanusah",
     "state": "West Kordofan",
     "country": "Sudan"
   },
@@ -3460,7 +3775,7 @@ export const baCities = [
     "country": "Germany"
   },
   {
-    "city": "Bara\u00f1\u00e1in",
+    "city": "Baranain",
     "state": "Navarre",
     "country": "Spain"
   },
@@ -3525,6 +3840,11 @@ export const baCities = [
     "country": "Philippines"
   },
   {
+    "city": "Babai",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Ballitoville",
     "state": "KwaZulu-Natal",
     "country": "South Africa"
@@ -3535,7 +3855,7 @@ export const baCities = [
     "country": "Iran"
   },
   {
-    "city": "Bad T\u00f6lz",
+    "city": "Bad Tolz",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -3565,7 +3885,7 @@ export const baCities = [
     "country": "Panama"
   },
   {
-    "city": "Bar\u00e3o do Graja\u00fa",
+    "city": "Barao do Grajau",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
@@ -3590,7 +3910,7 @@ export const baCities = [
     "country": "Brazil"
   },
   {
-    "city": "Bad D\u00fcrkheim",
+    "city": "Bad Durkheim",
     "state": "Rhineland-Palatinate",
     "country": "Germany"
   },
@@ -3665,7 +3985,7 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Bagnols-sur-C\u00e8ze",
+    "city": "Bagnols-sur-Ceze",
     "state": "Occitanie",
     "country": "France"
   },
@@ -3680,7 +4000,7 @@ export const baCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ban\u012b \u1e28asan ash Shur\u016bq",
+    "city": "Bani Hasan ash Shuruq",
     "state": "Al Miny\u0101",
     "country": "Egypt"
   },
@@ -3690,9 +4010,14 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Bar\u012bkot",
+    "city": "Barikot",
     "state": "Kar\u1e47\u0101l\u012b",
     "country": "Nepal"
+  },
+  {
+    "city": "Badkulla",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Banbalah",
@@ -3700,12 +4025,12 @@ export const baCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Bati\u00e9",
+    "city": "Batie",
     "state": "Sud-Ouest",
     "country": "Burkina Faso"
   },
   {
-    "city": "Barv\u0101la",
+    "city": "Barvala",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -3725,7 +4050,7 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Bad M\u00fcnder am Deister",
+    "city": "Bad Munder am Deister",
     "state": "Lower Saxony",
     "country": "Germany"
   },
@@ -3735,7 +4060,7 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Bad S\u00e4ckingen",
+    "city": "Bad Sackingen",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
@@ -3825,7 +4150,7 @@ export const baCities = [
     "country": "Spain"
   },
   {
-    "city": "Bad M\u00fcnstereifel",
+    "city": "Bad Munstereifel",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
   },
@@ -3840,7 +4165,7 @@ export const baCities = [
     "country": "Russia"
   },
   {
-    "city": "Baturb\u0101ri",
+    "city": "Baturbari",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -3860,12 +4185,12 @@ export const baCities = [
     "country": "Italy"
   },
   {
-    "city": "Bail\u00e9n",
+    "city": "Bailen",
     "state": "Andalusia",
     "country": "Spain"
   },
   {
-    "city": "Banabui\u00fa",
+    "city": "Banabuiu",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -3875,12 +4200,17 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Bad W\u00f6rishofen",
+    "city": "Batufah",
+    "state": "Dah\u016bk",
+    "country": "Iraq"
+  },
+  {
+    "city": "Bad Worishofen",
     "state": "Bavaria",
     "country": "Germany"
   },
   {
-    "city": "Banovi\u0107i",
+    "city": "Banovici",
     "state": "Bosnia and Herzegovina, Federation of",
     "country": "Bosnia and Herzegovina"
   },
@@ -3895,7 +4225,7 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Baaql\u00eene",
+    "city": "Baaqline",
     "state": "Mont-Liban",
     "country": "Lebanon"
   },
@@ -3905,12 +4235,12 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Bayt \u016ammar",
+    "city": "Bayt Ummar",
     "state": NaN,
     "country": "West Bank"
   },
   {
-    "city": "Balmaz\u00fajv\u00e1ros",
+    "city": "Balmazujvaros",
     "state": "Hajd\u00fa-Bihar",
     "country": "Hungary"
   },
@@ -3920,7 +4250,7 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Bambara-Maound\u00e9",
+    "city": "Bambara-Maounde",
     "state": "Tombouctou",
     "country": "Mali"
   },
@@ -3943,6 +4273,16 @@ export const baCities = [
     "city": "Batuco",
     "state": "Regi\u00f3n Metropolitana",
     "country": "Chile"
+  },
+  {
+    "city": "Bauria",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
+    "city": "Baicoi",
+    "state": "Prahova",
+    "country": "Romania"
   },
   {
     "city": "Balighattam",
@@ -3975,12 +4315,17 @@ export const baCities = [
     "country": "Philippines"
   },
   {
-    "city": "Bari\u0101rpur",
+    "city": "Banovce nad Bebravou",
+    "state": "Nitra",
+    "country": "Slovakia"
+  },
+  {
+    "city": "Bariarpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Barg\u016br",
+    "city": "Bargur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3990,7 +4335,7 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Bat\u00e1n",
+    "city": "Batan",
     "state": "Lim\u00f3n",
     "country": "Costa Rica"
   },
@@ -4035,7 +4380,7 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Barra de Santo Ant\u00f4nio",
+    "city": "Barra de Santo Antonio",
     "state": "Alagoas",
     "country": "Brazil"
   },
@@ -4048,6 +4393,11 @@ export const baCities = [
     "city": "Bangor",
     "state": "Isle of Anglesey",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Barnia",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Ban Thung Tam Sao",
@@ -4080,7 +4430,7 @@ export const baCities = [
     "country": "Brazil"
   },
   {
-    "city": "Barharwa Kal\u0101n",
+    "city": "Barharwa Kalan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -4088,6 +4438,11 @@ export const baCities = [
     "city": "Bad Bentheim",
     "state": "Lower Saxony",
     "country": "Germany"
+  },
+  {
+    "city": "Balasamudram",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Basford",
@@ -4125,7 +4480,7 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Bal\u015f",
+    "city": "Bals",
     "state": "Olt",
     "country": "Romania"
   },
@@ -4135,12 +4490,17 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Banigb\u00e9",
+    "city": "Banigbe",
     "state": "Plateau",
     "country": "Benin"
   },
   {
-    "city": "Bal\u00e9yara",
+    "city": "Badshahpur",
+    "state": "Hary\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Baleyara",
     "state": "Tillab\u00e9ri",
     "country": "Niger"
   },
@@ -4160,7 +4520,7 @@ export const baCities = [
     "country": "Canada"
   },
   {
-    "city": "Balne\u00e1rio do Rinc\u00e3o",
+    "city": "Balneario do Rincao",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -4170,9 +4530,14 @@ export const baCities = [
     "country": "Russia"
   },
   {
-    "city": "Bahut\u0101l",
+    "city": "Bahutal",
     "state": "West Bengal",
     "country": "India"
+  },
+  {
+    "city": "Bailesti",
+    "state": "Dolj",
+    "country": "Romania"
   },
   {
     "city": "Ban Dung",
@@ -4215,7 +4580,7 @@ export const baCities = [
     "country": "Spain"
   },
   {
-    "city": "Bayt Sa\u1e29am",
+    "city": "Bayt Saham",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
   },
@@ -4225,12 +4590,17 @@ export const baCities = [
     "country": "Thailand"
   },
   {
+    "city": "Balkonda",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
     "city": "Baile an Bhiataigh",
     "state": "Meath",
     "country": "Ireland"
   },
   {
-    "city": "Bayn\u0101la",
+    "city": "Baynala",
     "state": "West Bengal",
     "country": "India"
   },
@@ -4300,12 +4670,12 @@ export const baCities = [
     "country": "Germany"
   },
   {
-    "city": "Bas\u0101rh",
+    "city": "Basarh",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Bandar-e Kham\u012br",
+    "city": "Bandar-e Khamir",
     "state": "Hormozg\u0101n",
     "country": "Iran"
   },
@@ -4375,12 +4745,17 @@ export const baCities = [
     "country": "Senegal"
   },
   {
-    "city": "Barak\u012b",
+    "city": "Baraki",
     "state": "L\u014dgar",
     "country": "Afghanistan"
   },
   {
-    "city": "Bar\u0163alah",
+    "city": "Baisari",
+    "state": "Barishal",
+    "country": "Bangladesh"
+  },
+  {
+    "city": "Bartalah",
     "state": "N\u012bnaw\u00e1",
     "country": "Iraq"
   },
@@ -4415,7 +4790,7 @@ export const baCities = [
     "country": "France"
   },
   {
-    "city": "Barharw\u0101",
+    "city": "Barharwa",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -4435,6 +4810,11 @@ export const baCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Baladharmaram",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
     "city": "Baie du Tombeau",
     "state": "Pamplemousses",
     "country": "Mauritius"
@@ -4445,7 +4825,7 @@ export const baCities = [
     "country": "France"
   },
   {
-    "city": "Bah\u00e7esaray",
+    "city": "Bahcesaray",
     "state": "Van",
     "country": "Turkey"
   },
@@ -4460,7 +4840,7 @@ export const baCities = [
     "country": "Philippines"
   },
   {
-    "city": "Bal\u012bgaon",
+    "city": "Baligaon",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -4490,7 +4870,7 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Babhang\u0101w\u0101n",
+    "city": "Babhangawan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -4498,6 +4878,11 @@ export const baCities = [
     "city": "Barroquinha",
     "state": "Cear\u00e1",
     "country": "Brazil"
+  },
+  {
+    "city": "Bara",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Ban Ao Nang",
@@ -4510,7 +4895,7 @@ export const baCities = [
     "country": "Colombia"
   },
   {
-    "city": "Baqi\u0101b\u0101d",
+    "city": "Baqiabad",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -4565,7 +4950,7 @@ export const baCities = [
     "country": "Germany"
   },
   {
-    "city": "Bariariy\u0101",
+    "city": "Bariariya",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -4610,7 +4995,7 @@ export const baCities = [
     "country": "Austria"
   },
   {
-    "city": "Ba\u00f1os",
+    "city": "Banos",
     "state": "Tungurahua",
     "country": "Ecuador"
   },
@@ -4625,7 +5010,7 @@ export const baCities = [
     "country": "Hungary"
   },
   {
-    "city": "Bar\u0101ri",
+    "city": "Barari",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -4660,7 +5045,7 @@ export const baCities = [
     "country": "Brazil"
   },
   {
-    "city": "Bad Soden-Salm\u00fcnster",
+    "city": "Bad Soden-Salmunster",
     "state": "Hesse",
     "country": "Germany"
   },
@@ -4680,17 +5065,17 @@ export const baCities = [
     "country": "Somalia"
   },
   {
-    "city": "Bargh\u0101t",
+    "city": "Barghat",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Badarw\u0101s",
+    "city": "Badarwas",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Bad D\u00fcrrheim",
+    "city": "Bad Durrheim",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
@@ -4700,12 +5085,12 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Balh\u0101pur",
+    "city": "Balhapur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Bamaf\u00e9l\u00e9",
+    "city": "Bamafele",
     "state": "Kayes",
     "country": "Mali"
   },
@@ -4715,12 +5100,12 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Baian\u00f3polis",
+    "city": "Baianopolis",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Bar\u00dfel",
+    "city": "Barssel",
     "state": "Lower Saxony",
     "country": "Germany"
   },
@@ -4730,7 +5115,7 @@ export const baCities = [
     "country": "United States"
   },
   {
-    "city": "Bandar-e \u2018Asal\u016byeh",
+    "city": "Bandar-e `Asaluyeh",
     "state": "B\u016bshehr",
     "country": "Iran"
   },
@@ -4750,7 +5135,7 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Bayt J\u0101l\u0101",
+    "city": "Bayt Jala",
     "state": NaN,
     "country": "West Bank"
   },
@@ -4770,7 +5155,7 @@ export const baCities = [
     "country": "Brazil"
   },
   {
-    "city": "Bas\u0101on",
+    "city": "Basaon",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -4783,6 +5168,11 @@ export const baCities = [
     "city": "Balsa Nova",
     "state": "Paran\u00e1",
     "country": "Brazil"
+  },
+  {
+    "city": "Bagli",
+    "state": "Madhya Pradesh",
+    "country": "India"
   },
   {
     "city": "Barka Parbatta",
@@ -4815,7 +5205,7 @@ export const baCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Bayt S\u0101\u1e29\u016br",
+    "city": "Bayt Sahur",
     "state": NaN,
     "country": "West Bank"
   },
@@ -4825,7 +5215,7 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Ba\u015f G\u00f6yn\u00fck",
+    "city": "Bas Goynuk",
     "state": "\u015e\u0259ki",
     "country": "Azerbaijan"
   },
@@ -4840,7 +5230,7 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Bagad\u00f3",
+    "city": "Bagado",
     "state": "Choc\u00f3",
     "country": "Colombia"
   },
@@ -4865,17 +5255,22 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Ba Ch\u00fac",
+    "city": "Balsta",
+    "state": "Uppsala",
+    "country": "Sweden"
+  },
+  {
+    "city": "Ba Chuc",
     "state": "An Giang",
     "country": "Vietnam"
   },
   {
-    "city": "Barh\u012b",
+    "city": "Barhi",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
   {
-    "city": "Barsb\u00fcttel",
+    "city": "Barsbuttel",
     "state": "Hamburg",
     "country": "Germany"
   },
@@ -4885,27 +5280,32 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Balatonf\u00fcred",
+    "city": "Balatonfured",
     "state": "Veszpr\u00e9m",
     "country": "Hungary"
   },
   {
-    "city": "Bar\u0101on",
+    "city": "Baraon",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Baduri\u0101tola",
+    "city": "Barah",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Baduriatola",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
   {
-    "city": "Barwat Pasr\u0101in",
+    "city": "Barwat Pasrain",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Bachr\u0101",
+    "city": "Bachra",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -4925,12 +5325,17 @@ export const baCities = [
     "country": "India"
   },
   {
+    "city": "Bagewadi",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
     "city": "Barja",
     "state": "Mont-Liban",
     "country": "Lebanon"
   },
   {
-    "city": "Bal\u00e1o",
+    "city": "Balao",
     "state": "Guayas",
     "country": "Ecuador"
   },
@@ -4945,12 +5350,17 @@ export const baCities = [
     "country": "Germany"
   },
   {
+    "city": "Bazidpur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Ban Krang",
     "state": "Phitsanulok",
     "country": "Thailand"
   },
   {
-    "city": "Bag\u2018dod",
+    "city": "Bag`dod",
     "state": "Farg\u2018ona",
     "country": "Uzbekistan"
   },
@@ -4965,7 +5375,7 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Bariy\u0101rpur",
+    "city": "Bariyarpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -4980,18 +5390,23 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Bah\u0101durpur",
+    "city": "Bahadurpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Bandlag\u016bda",
+    "city": "Bandlaguda",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Bakht\u0101warpur",
+    "city": "Bakhtawarpur",
     "state": "Delhi",
+    "country": "India"
+  },
+  {
+    "city": "Bari",
+    "state": "Bih\u0101r",
     "country": "India"
   },
   {
@@ -5000,7 +5415,12 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Bamhn\u012b",
+    "city": "Basmenj",
+    "state": "\u0100z\u0304arb\u0101yj\u0101n-e Sharq\u012b",
+    "country": "Iran"
+  },
+  {
+    "city": "Bamhni",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -5010,7 +5430,7 @@ export const baCities = [
     "country": "Germany"
   },
   {
-    "city": "Balpyq B\u012b",
+    "city": "Balpyq Bi",
     "state": "Zhetis\u016b",
     "country": "Kazakhstan"
   },
@@ -5045,7 +5465,7 @@ export const baCities = [
     "country": "Mexico"
   },
   {
-    "city": "Ba\u016byrzhan Momyshuly",
+    "city": "Bauyrzhan Momyshuly",
     "state": "Zhambyl",
     "country": "Kazakhstan"
   },
@@ -5075,7 +5495,7 @@ export const baCities = [
     "country": "Germany"
   },
   {
-    "city": "Bandi\u0307\u0304pur",
+    "city": "Bandipur",
     "state": NaN,
     "country": "Nepal"
   },
@@ -5110,7 +5530,7 @@ export const baCities = [
     "country": "Germany"
   },
   {
-    "city": "Bayana\u016byl",
+    "city": "Bayanauyl",
     "state": "Pavlodar",
     "country": "Kazakhstan"
   },
@@ -5120,7 +5540,7 @@ export const baCities = [
     "country": "Germany"
   },
   {
-    "city": "Bandw\u0101r",
+    "city": "Bandwar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -5130,7 +5550,7 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Ba\u00f1os",
+    "city": "Banos",
     "state": "Azuay",
     "country": "Ecuador"
   },
@@ -5150,7 +5570,7 @@ export const baCities = [
     "country": "Brazil"
   },
   {
-    "city": "Bamp\u016br",
+    "city": "Bampur",
     "state": "S\u012bst\u0101n va Bal\u016bchest\u0101n",
     "country": "Iran"
   },
@@ -5200,7 +5620,7 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Bang\u0101w\u0101n",
+    "city": "Bangawan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -5213,6 +5633,11 @@ export const baCities = [
     "city": "Baxiangshan",
     "state": "Guangdong",
     "country": "China"
+  },
+  {
+    "city": "Bagra",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
   },
   {
     "city": "Balha",
@@ -5240,7 +5665,7 @@ export const baCities = [
     "country": "United States"
   },
   {
-    "city": "Ba\u010dka Topola",
+    "city": "Backa Topola",
     "state": "Ba\u010dka Topola",
     "country": "Serbia"
   },
@@ -5270,7 +5695,7 @@ export const baCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Bad V\u00f6slau",
+    "city": "Bad Voslau",
     "state": "Nieder\u00f6sterreich",
     "country": "Austria"
   },
@@ -5295,7 +5720,7 @@ export const baCities = [
     "country": "Italy"
   },
   {
-    "city": "Barapir\u00e9",
+    "city": "Barapire",
     "state": "Mopti",
     "country": "Mali"
   },
@@ -5310,12 +5735,12 @@ export const baCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Bato\u010dina",
+    "city": "Batocina",
     "state": "Bato\u010dina",
     "country": "Serbia"
   },
   {
-    "city": "Bad D\u00fcrrenberg",
+    "city": "Bad Durrenberg",
     "state": "Saxony-Anhalt",
     "country": "Germany"
   },
@@ -5325,7 +5750,7 @@ export const baCities = [
     "country": "China"
   },
   {
-    "city": "Bajest\u0101n",
+    "city": "Bajestan",
     "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
     "country": "Iran"
   },
@@ -5340,12 +5765,12 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Bark\u0101gaon",
+    "city": "Barkagaon",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
   {
-    "city": "Bayyanag\u016bdem",
+    "city": "Bayyanagudem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -5365,7 +5790,7 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Balaxan\u0131",
+    "city": "Balaxani",
     "state": "Bak\u0131",
     "country": "Azerbaijan"
   },
@@ -5380,7 +5805,7 @@ export const baCities = [
     "country": "Switzerland"
   },
   {
-    "city": "Bah\u0101darpur",
+    "city": "Bahadarpur",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -5395,6 +5820,11 @@ export const baCities = [
     "country": "Thailand"
   },
   {
+    "city": "Bahagalpur",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Badou",
     "state": "Plateaux",
     "country": "Togo"
@@ -5405,7 +5835,12 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Baru\u0101ri",
+    "city": "Baruari",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Bank",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -5450,6 +5885,11 @@ export const baCities = [
     "country": "India"
   },
   {
+    "city": "Bansbari",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Baghra",
     "state": "Bih\u0101r",
     "country": "India"
@@ -5465,7 +5905,7 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Bataipor\u00e3",
+    "city": "Bataipora",
     "state": "Mato Grosso do Sul",
     "country": "Brazil"
   },
@@ -5473,6 +5913,11 @@ export const baCities = [
     "city": "Ban Bang Lamung",
     "state": "Chon Buri",
     "country": "Thailand"
+  },
+  {
+    "city": "Barigarh",
+    "state": "Madhya Pradesh",
+    "country": "India"
   },
   {
     "city": "Batemans Bay",
@@ -5485,9 +5930,19 @@ export const baCities = [
     "country": "Germany"
   },
   {
+    "city": "Batonyterenye",
+    "state": "N\u00f3gr\u00e1d",
+    "country": "Hungary"
+  },
+  {
     "city": "Ban Kat",
     "state": "Mae Hong Son",
     "country": "Thailand"
+  },
+  {
+    "city": "Banavar",
+    "state": "Karn\u0101taka",
+    "country": "India"
   },
   {
     "city": "Bara Belun",
@@ -5500,7 +5955,7 @@ export const baCities = [
     "country": "United States"
   },
   {
-    "city": "Bard\u012bha Turki",
+    "city": "Bardiha Turki",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -5550,6 +6005,11 @@ export const baCities = [
     "country": "India"
   },
   {
+    "city": "Balehonnur",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
     "city": "Bang Ban",
     "state": "Phra Nakhon Si Ayutthaya",
     "country": "Thailand"
@@ -5575,7 +6035,7 @@ export const baCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Bangramanj\u0113shvara",
+    "city": "Bangramanjeshvara",
     "state": "Kerala",
     "country": "India"
   },
@@ -5590,6 +6050,11 @@ export const baCities = [
     "country": "Philippines"
   },
   {
+    "city": "Bagnan",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Bardipuram",
     "state": "Telang\u0101na",
     "country": "India"
@@ -5600,12 +6065,17 @@ export const baCities = [
     "country": "Spain"
   },
   {
+    "city": "Bawali",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Ban Yang Hom",
     "state": "Chiang Rai",
     "country": "Thailand"
   },
   {
-    "city": "Bari\u0101rpur K\u0101ndh",
+    "city": "Bariarpur Kandh",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -5620,6 +6090,21 @@ export const baCities = [
     "country": "Italy"
   },
   {
+    "city": "Banu Chhapra",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Balupur",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
+    "city": "Bara",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Barbosa Ferraz",
     "state": "Paran\u00e1",
     "country": "Brazil"
@@ -5628,6 +6113,11 @@ export const baCities = [
     "city": "Ban Bang Yai",
     "state": "Nonthaburi",
     "country": "Thailand"
+  },
+  {
+    "city": "Basht",
+    "state": "Kohg\u012bl\u016byeh va Bowyer A\u1e29mad",
+    "country": "Iran"
   },
   {
     "city": "Barnoldswick",
@@ -5643,6 +6133,16 @@ export const baCities = [
     "city": "Bad Orb",
     "state": "Hesse",
     "country": "Germany"
+  },
+  {
+    "city": "Bazid Chak Kasturi",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Baghuz Fawqani",
+    "state": "Dayr az Zawr",
+    "country": "Syria"
   },
   {
     "city": "Baetov",
@@ -5680,7 +6180,7 @@ export const baCities = [
     "country": "Germany"
   },
   {
-    "city": "Bagr\u012bnagar",
+    "city": "Bagrinagar",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -5705,7 +6205,7 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Balua R\u0101mpur",
+    "city": "Balua Rampur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -5713,6 +6213,16 @@ export const baCities = [
     "city": "Bakwa",
     "state": "Bih\u0101r",
     "country": "India"
+  },
+  {
+    "city": "Balia",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
+    "city": "Baghin",
+    "state": "Kerm\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Barhi",
@@ -5745,12 +6255,17 @@ export const baCities = [
     "country": "Angola"
   },
   {
+    "city": "Barah",
+    "state": "Idlib",
+    "country": "Syria"
+  },
+  {
     "city": "Ban Dan Na Kham",
     "state": "Uttaradit",
     "country": "Thailand"
   },
   {
-    "city": "Babhniy\u0101w\u0101n",
+    "city": "Babhniyawan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -5780,6 +6295,11 @@ export const baCities = [
     "country": "Mayotte"
   },
   {
+    "city": "Bagh-e Bahadoran",
+    "state": "E\u015ffah\u0101n",
+    "country": "Iran"
+  },
+  {
     "city": "Ban Wisit",
     "state": "Bueng Kan",
     "country": "Thailand"
@@ -5790,17 +6310,17 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Badru Kh\u0101n",
+    "city": "Badru Khan",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Bar\u0101gaon",
+    "city": "Baragaon",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Bar\u0101hi",
+    "city": "Barahi",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -5808,6 +6328,11 @@ export const baCities = [
     "city": "Balangkayan",
     "state": "Eastern Samar",
     "country": "Philippines"
+  },
+  {
+    "city": "Bacioi",
+    "state": "Chi\u015fin\u0103u",
+    "country": "Moldova"
   },
   {
     "city": "Ban Bong Tai",
@@ -5825,7 +6350,7 @@ export const baCities = [
     "country": "Cameroon"
   },
   {
-    "city": "Bat\u00e1n",
+    "city": "Batan",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -5855,9 +6380,19 @@ export const baCities = [
     "country": "Italy"
   },
   {
+    "city": "Bagalur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Ban Bu Sung",
     "state": "Si Sa Ket",
     "country": "Thailand"
+  },
+  {
+    "city": "Bara Khurd",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Baldeogarh",
@@ -5865,7 +6400,7 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Ba\u015fmak\u00e7\u0131",
+    "city": "Basmakci",
     "state": "Afyonkarahisar",
     "country": "Turkey"
   },
@@ -5873,6 +6408,11 @@ export const baCities = [
     "city": "Basla",
     "state": "Punjab",
     "country": "Pakistan"
+  },
+  {
+    "city": "Balagam",
+    "state": "Gujar\u0101t",
+    "country": "India"
   },
   {
     "city": "Bad Frankenhausen",
@@ -5885,7 +6425,7 @@ export const baCities = [
     "country": "South Africa"
   },
   {
-    "city": "Barano d\u2019Ischia",
+    "city": "Barano d'Ischia",
     "state": "Campania",
     "country": "Italy"
   },
@@ -5905,7 +6445,7 @@ export const baCities = [
     "country": "United States"
   },
   {
-    "city": "Bad K\u00f6nig",
+    "city": "Bad Konig",
     "state": "Hesse",
     "country": "Germany"
   },
@@ -5920,7 +6460,7 @@ export const baCities = [
     "country": "Germany"
   },
   {
-    "city": "Balatonalm\u00e1di",
+    "city": "Balatonalmadi",
     "state": "Veszpr\u00e9m",
     "country": "Hungary"
   },
@@ -5935,7 +6475,7 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Bajw\u0101ra",
+    "city": "Bajwara",
     "state": "Punjab",
     "country": "India"
   },
@@ -5955,7 +6495,7 @@ export const baCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Bagh\u0101nt",
+    "city": "Baghant",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -5965,7 +6505,7 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Balt\u0101ra",
+    "city": "Baltara",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -6000,7 +6540,7 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Bas\u0101patna",
+    "city": "Basapatna",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -6035,17 +6575,22 @@ export const baCities = [
     "country": "United States"
   },
   {
+    "city": "Bag",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Bamora",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Bav\u0101n\u0101t",
+    "city": "Bavanat",
     "state": "F\u0101rs",
     "country": "Iran"
   },
   {
-    "city": "Barrac\u00e3o",
+    "city": "Barracao",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -6100,7 +6645,7 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Bansk\u00e1 \u0160tiavnica",
+    "city": "Banska Stiavnica",
     "state": "Bansk\u00e1 Bystrica",
     "country": "Slovakia"
   },
@@ -6115,12 +6660,17 @@ export const baCities = [
     "country": "India"
   },
   {
+    "city": "Balsamo",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
+  },
+  {
     "city": "Ban Nam Dip Luang",
     "state": "Lamphun",
     "country": "Thailand"
   },
   {
-    "city": "Ban\u0101so",
+    "city": "Banaso",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -6155,7 +6705,7 @@ export const baCities = [
     "country": "Kyrgyzstan"
   },
   {
-    "city": "Barw\u0101dih",
+    "city": "Barwadih",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -6173,6 +6723,16 @@ export const baCities = [
     "city": "Ban Nong Tong",
     "state": "Chiang Mai",
     "country": "Thailand"
+  },
+  {
+    "city": "Bagor",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
+    "city": "Baghduma",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Ban Krot",
@@ -6200,7 +6760,7 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Bairiy\u0101",
+    "city": "Bairiya",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -6215,7 +6775,7 @@ export const baCities = [
     "country": "Italy"
   },
   {
-    "city": "Bakhari\u0101",
+    "city": "Bakharia",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -6235,7 +6795,17 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Barpath\u0101r",
+    "city": "Bagchini",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Bayaram",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Barpathar",
     "state": "Assam",
     "country": "India"
   },
@@ -6285,7 +6855,7 @@ export const baCities = [
     "country": "Benin"
   },
   {
-    "city": "Barn\u0101on",
+    "city": "Barnaon",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -6305,12 +6875,12 @@ export const baCities = [
     "country": "Niger"
   },
   {
-    "city": "Bah\u0101b\u0101d",
+    "city": "Bahabad",
     "state": "Yazd",
     "country": "Iran"
   },
   {
-    "city": "Ba\u00eda da Trai\u00e7\u00e3o",
+    "city": "Baia da Traicao",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -6345,6 +6915,11 @@ export const baCities = [
     "country": "Thailand"
   },
   {
+    "city": "Badanahatti",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
     "city": "Ban Chang Phuak",
     "state": "Chiang Mai",
     "country": "Thailand"
@@ -6365,12 +6940,12 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Banbh\u0101g",
+    "city": "Banbhag",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Bariariya Tola R\u0101jpur",
+    "city": "Bariariya Tola Rajpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -6380,7 +6955,12 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Bamaiya Harl\u0101l",
+    "city": "Basudebpur",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
+    "city": "Bamaiya Harlal",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -6390,7 +6970,12 @@ export const baCities = [
     "country": "Germany"
   },
   {
-    "city": "Ban\u0101r\u016byeh",
+    "city": "Bageshwar",
+    "state": "Uttar\u0101khand",
+    "country": "India"
+  },
+  {
+    "city": "Banaruyeh",
     "state": "F\u0101rs",
     "country": "Iran"
   },
@@ -6400,7 +6985,7 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Banir\u00e9 Kor\u00e9",
+    "city": "Banire Kore",
     "state": "Kayes",
     "country": "Mali"
   },
@@ -6425,6 +7010,16 @@ export const baCities = [
     "country": "Thailand"
   },
   {
+    "city": "Babai Kalan",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Basdeopur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Bassenge",
     "state": "Wallonia",
     "country": "Belgium"
@@ -6435,7 +7030,7 @@ export const baCities = [
     "country": "Philippines"
   },
   {
-    "city": "Barw\u0101n",
+    "city": "Barwan",
     "state": "West Bengal",
     "country": "India"
   },
@@ -6450,12 +7045,17 @@ export const baCities = [
     "country": "Comoros"
   },
   {
-    "city": "Baw\u0101na",
+    "city": "Bawana",
     "state": "Delhi",
     "country": "India"
   },
   {
-    "city": "Bad Lauchst\u00e4dt",
+    "city": "Baba Bakala",
+    "state": "Punjab",
+    "country": "India"
+  },
+  {
+    "city": "Bad Lauchstadt",
     "state": "Saxony-Anhalt",
     "country": "Germany"
   },
@@ -6465,7 +7065,7 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Balv\u0101di",
+    "city": "Balvadi",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -6480,7 +7080,7 @@ export const baCities = [
     "country": "India"
   },
   {
-    "city": "Bas\u0101ha",
+    "city": "Basaha",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -6493,6 +7093,11 @@ export const baCities = [
     "city": "Bargara",
     "state": "Queensland",
     "country": "Australia"
+  },
+  {
+    "city": "Balumath",
+    "state": "Jh\u0101rkhand",
+    "country": "India"
   },
   {
     "city": "Ban Pong Tao",
@@ -6515,7 +7120,7 @@ export const baCities = [
     "country": "Thailand"
   },
   {
-    "city": "Ba\u00eda Formosa",
+    "city": "Baia Formosa",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
   },
@@ -6523,6 +7128,11 @@ export const baCities = [
     "city": "Baciu",
     "state": "Cluj",
     "country": "Romania"
+  },
+  {
+    "city": "Basmanpur",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Baramandougou",
@@ -6533,6 +7143,11 @@ export const baCities = [
     "city": "Ban Si Don Chai",
     "state": "Chiang Rai",
     "country": "Thailand"
+  },
+  {
+    "city": "Barun",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Bainbridge",
@@ -6585,6 +7200,11 @@ export const baCities = [
     "country": "India"
   },
   {
+    "city": "Bagalvad",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
     "city": "Baxter",
     "state": "Minnesota",
     "country": "United States"
@@ -6600,7 +7220,7 @@ export const baCities = [
     "country": "Australia"
   },
   {
-    "city": "Basr\u016br",
+    "city": "Basrur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -6615,12 +7235,17 @@ export const baCities = [
     "country": "Germany"
   },
   {
+    "city": "Balakrishnanpatti",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Bargaon",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
   {
-    "city": "Bandam\u016brlanka",
+    "city": "Bandamurlanka",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -6665,12 +7290,17 @@ export const baCities = [
     "country": "Guyana"
   },
   {
+    "city": "Banki",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Basarabeasca",
     "state": "Basarabeasca",
     "country": "Moldova"
   },
   {
-    "city": "Bayghan\u012bn",
+    "city": "Bayghanin",
     "state": "Aqt\u00f6be",
     "country": "Kazakhstan"
   },
@@ -6680,12 +7310,12 @@ export const baCities = [
     "country": "Australia"
   },
   {
-    "city": "Ba\u010dki Petrovac",
+    "city": "Backi Petrovac",
     "state": "Ba\u010dki Petrovac",
     "country": "Serbia"
   },
   {
-    "city": "Ba\u010d",
+    "city": "Bac",
     "state": "Ba\u010d",
     "country": "Serbia"
   },
@@ -6695,7 +7325,7 @@ export const baCities = [
     "country": "Latvia"
   },
   {
-    "city": "Bab\u0259k",
+    "city": "Babak",
     "state": "Bab\u0259k",
     "country": "Azerbaijan"
   },
@@ -6740,7 +7370,7 @@ export const baCities = [
     "country": "Bolivia"
   },
   {
-    "city": "Balak\u0259n",
+    "city": "Balakan",
     "state": "Balak\u0259n",
     "country": "Azerbaijan"
   },
@@ -6770,7 +7400,7 @@ export const baCities = [
     "country": "Congo (Kinshasa)"
   },
   {
-    "city": "Barn\u012bs",
+    "city": "Barnis",
     "state": "Al Ba\u1e29r al A\u1e29mar",
     "country": "Egypt"
   },
@@ -6780,12 +7410,12 @@ export const baCities = [
     "country": "Malawi"
   },
   {
-    "city": "Babu\u0161nica",
+    "city": "Babusnica",
     "state": "Babu\u0161nica",
     "country": "Serbia"
   },
   {
-    "city": "Barda\u00ef",
+    "city": "Bardai",
     "state": "Tibesti",
     "country": "Chad"
   },

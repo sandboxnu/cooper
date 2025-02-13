@@ -70,12 +70,12 @@ export const reCities = [
     "country": "Germany"
   },
   {
-    "city": "Rew\u0101ri",
+    "city": "Rewari",
     "state": "Hary\u0101na",
     "country": "India"
   },
   {
-    "city": "Reykjav\u00edk",
+    "city": "Reykjavik",
     "state": "Reykjav\u00edk",
     "country": "Iceland"
   },
@@ -85,7 +85,7 @@ export const reCities = [
     "country": "Chile"
   },
   {
-    "city": "Re\u1e96ovot",
+    "city": "Rehovot",
     "state": "Central",
     "country": "Israel"
   },
@@ -150,7 +150,7 @@ export const reCities = [
     "country": "Canada"
   },
   {
-    "city": "Reyhanl\u0131",
+    "city": "Reyhanli",
     "state": "Hatay",
     "country": "Turkey"
   },
@@ -160,12 +160,12 @@ export const reCities = [
     "country": "Canada"
   },
   {
-    "city": "Reden\u00e7\u00e3o",
+    "city": "Redencao",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Re\u015fi\u0163a",
+    "city": "Resita",
     "state": "Cara\u015f-Severin",
     "country": "Romania"
   },
@@ -210,12 +210,12 @@ export const reCities = [
     "country": "South Sudan"
   },
   {
-    "city": "Renuk\u016bt",
+    "city": "Renukut",
     "state": "Uttar Pradesh",
     "country": "India"
   },
   {
-    "city": "Regha\u00efa",
+    "city": "Reghaia",
     "state": "Boumerdes",
     "country": "Algeria"
   },
@@ -270,7 +270,7 @@ export const reCities = [
     "country": "Cuba"
   },
   {
-    "city": "Rez\u00e9",
+    "city": "Reze",
     "state": "Pays de la Loire",
     "country": "France"
   },
@@ -325,9 +325,19 @@ export const reCities = [
     "country": "United States"
   },
   {
+    "city": "Reo",
+    "state": "Centre-Ouest",
+    "country": "Burkina Faso"
+  },
+  {
     "city": "Rencun",
     "state": "Guangdong",
     "country": "China"
+  },
+  {
+    "city": "Rethymno",
+    "state": "Kr\u00edti",
+    "country": "Greece"
   },
   {
     "city": "Redcliff",
@@ -415,9 +425,14 @@ export const reCities = [
     "country": "United States"
   },
   {
-    "city": "Reden\u00e7\u00e3o",
+    "city": "Redencao",
     "state": "Cear\u00e1",
     "country": "Brazil"
+  },
+  {
+    "city": "Rezekne",
+    "state": "R\u0113zekne",
+    "country": "Latvia"
   },
   {
     "city": "Reoti",
@@ -425,7 +440,7 @@ export const reCities = [
     "country": "India"
   },
   {
-    "city": "Requ\u00ednoa",
+    "city": "Requinoa",
     "state": "Libertador General Bernardo O\u2019Higgins",
     "country": "Chile"
   },
@@ -455,7 +470,7 @@ export const reCities = [
     "country": "Brazil"
   },
   {
-    "city": "Repel\u00f3n",
+    "city": "Repelon",
     "state": "Atl\u00e1ntico",
     "country": "Colombia"
   },
@@ -485,7 +500,7 @@ export const reCities = [
     "country": "Italy"
   },
   {
-    "city": "Re\u00e7ani",
+    "city": "Recani",
     "state": "Dr\u00e2a-Tafilalet",
     "country": "Morocco"
   },
@@ -510,17 +525,17 @@ export const reCities = [
     "country": "South Africa"
   },
   {
-    "city": "Regente Feij\u00f3",
+    "city": "Regente Feijo",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Recha\u00efga",
+    "city": "Rechaiga",
     "state": "Tiaret",
     "country": "Algeria"
   },
   {
-    "city": "Rem\u00edgio",
+    "city": "Remigio",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -595,7 +610,7 @@ export const reCities = [
     "country": "Brazil"
   },
   {
-    "city": "Regenera\u00e7\u00e3o",
+    "city": "Regeneracao",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
@@ -660,12 +675,12 @@ export const reCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Rev\u016br",
+    "city": "Revur",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Restinga S\u00eaca",
+    "city": "Restinga Seca",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -695,7 +710,7 @@ export const reCities = [
     "country": "United States"
   },
   {
-    "city": "Rebou\u00e7as",
+    "city": "Reboucas",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -710,7 +725,7 @@ export const reCities = [
     "country": "Italy"
   },
   {
-    "city": "Retirol\u00e2ndia",
+    "city": "Retirolandia",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -755,7 +770,7 @@ export const reCities = [
     "country": "Turkey"
   },
   {
-    "city": "Re\u1e95v\u0101nshahr",
+    "city": "Rezvanshahr",
     "state": "G\u012bl\u0101n",
     "country": "Iran"
   },
@@ -770,17 +785,17 @@ export const reCities = [
     "country": "Argentina"
   },
   {
-    "city": "Ren\u0101pur",
+    "city": "Renapur",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
   {
-    "city": "Rev\u00faca",
+    "city": "Revuca",
     "state": "Bansk\u00e1 Bystrica",
     "country": "Slovakia"
   },
   {
-    "city": "Reng\u0101li",
+    "city": "Rengali",
     "state": "Odisha",
     "country": "India"
   },
@@ -900,7 +915,7 @@ export const reCities = [
     "country": "India"
   },
   {
-    "city": "Reddig\u016bdem",
+    "city": "Reddigudem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -910,12 +925,12 @@ export const reCities = [
     "country": "Chile"
   },
   {
-    "city": "Re\u015fadiye",
+    "city": "Resadiye",
     "state": "Tokat",
     "country": "Turkey"
   },
   {
-    "city": "Repatriaci\u00f3n",
+    "city": "Repatriacion",
     "state": "Caaguaz\u00fa",
     "country": "Paraguay"
   },
@@ -995,7 +1010,7 @@ export const reCities = [
     "country": "United States"
   },
   {
-    "city": "Rew\u0101hi",
+    "city": "Rewahi",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1050,7 +1065,7 @@ export const reCities = [
     "country": "Mozambique"
   },
   {
-    "city": "Re\u010dica",
+    "city": "Recica",
     "state": "Re\u010dica ob Savinji",
     "country": "Slovenia"
   },

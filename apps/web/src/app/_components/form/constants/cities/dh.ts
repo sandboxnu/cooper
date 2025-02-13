@@ -5,17 +5,17 @@ export const dhCities = [
     "country": "Bangladesh"
   },
   {
-    "city": "Dhanb\u0101d",
+    "city": "Dhanbad",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
   {
-    "city": "Dh\u016blia",
+    "city": "Dhulia",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
   {
-    "city": "Dham\u0101r",
+    "city": "Dhamar",
     "state": "Dham\u0101r",
     "country": "Yemen"
   },
@@ -25,12 +25,12 @@ export const dhCities = [
     "country": "India"
   },
   {
-    "city": "Dhar\u0101n",
+    "city": "Dharan",
     "state": NaN,
     "country": "Nepal"
   },
   {
-    "city": "Dhanga\u1e0dhi\u0307\u0304",
+    "city": "Dhangadhi",
     "state": NaN,
     "country": "Nepal"
   },
@@ -40,42 +40,42 @@ export const dhCities = [
     "country": "India"
   },
   {
-    "city": "Dhuli\u0101n",
+    "city": "Dhulian",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Dh\u0101r",
+    "city": "Dhar",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Dhor\u0101ji",
+    "city": "Dhoraji",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Dhr\u0101ngadhra",
+    "city": "Dhrangadhra",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Dharmas\u0101garam",
+    "city": "Dharmasagaram",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Dhenk\u0101n\u0101l",
+    "city": "Dhenkanal",
     "state": "Odisha",
     "country": "India"
   },
   {
-    "city": "Dh\u0101r\u0101puram",
+    "city": "Dharapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Dh\u016bri",
+    "city": "Dhuri",
     "state": "Punjab",
     "country": "India"
   },
@@ -105,17 +105,17 @@ export const dhCities = [
     "country": "India"
   },
   {
-    "city": "Dhupg\u0101ri",
+    "city": "Dhupgari",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Dh\u0101ka",
+    "city": "Dhaka",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Dhamd\u0101ha",
+    "city": "Dhamdaha",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -125,7 +125,7 @@ export const dhCities = [
     "country": "India"
   },
   {
-    "city": "Dh\u0101mnod",
+    "city": "Dhamnod",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -145,7 +145,7 @@ export const dhCities = [
     "country": "India"
   },
   {
-    "city": "Dh\u0101ri",
+    "city": "Dhari",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -170,7 +170,7 @@ export const dhCities = [
     "country": "India"
   },
   {
-    "city": "Dh\u0101mnagar",
+    "city": "Dhamnagar",
     "state": "Odisha",
     "country": "India"
   },
@@ -185,7 +185,7 @@ export const dhCities = [
     "country": "India"
   },
   {
-    "city": "Dhor\u012bmanna",
+    "city": "Dhorimanna",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -200,17 +200,17 @@ export const dhCities = [
     "country": "India"
   },
   {
-    "city": "Dharms\u0101la",
+    "city": "Dharmsala",
     "state": "Him\u0101chal Pradesh",
     "country": "India"
   },
   {
-    "city": "Dh\u0101riw\u0101l",
+    "city": "Dhariwal",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Dh\u0101ns\u0101ria",
+    "city": "Dhansaria",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -225,7 +225,7 @@ export const dhCities = [
     "country": "India"
   },
   {
-    "city": "Dharm\u0101puri",
+    "city": "Dharmapuri",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -240,17 +240,17 @@ export const dhCities = [
     "country": "India"
   },
   {
-    "city": "Dhusar Tik\u0101patti",
+    "city": "Dhusar Tikapatti",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Dh\u0101ni Sukhan",
+    "city": "Dhani Sukhan",
     "state": "Hary\u0101na",
     "country": "India"
   },
   {
-    "city": "Dh\u016bmnagar",
+    "city": "Dhumnagar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -260,12 +260,12 @@ export const dhCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Dhem\u0101ji",
+    "city": "Dhemaji",
     "state": "Assam",
     "country": "India"
   },
   {
-    "city": "Dh\u0101na",
+    "city": "Dhana",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -290,7 +290,7 @@ export const dhCities = [
     "country": "Bangladesh"
   },
   {
-    "city": "Dharampur B\u0101nde",
+    "city": "Dharampur Bande",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -330,7 +330,7 @@ export const dhCities = [
     "country": "India"
   },
   {
-    "city": "Dharm\u0101ram",
+    "city": "Dharmaram",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -350,7 +350,7 @@ export const dhCities = [
     "country": "India"
   },
   {
-    "city": "Dhilw\u0101n Kal\u0101n",
+    "city": "Dhilwan Kalan",
     "state": "Punjab",
     "country": "India"
   },
@@ -365,17 +365,17 @@ export const dhCities = [
     "country": "India"
   },
   {
-    "city": "Dhanw\u0101r",
+    "city": "Dhanwar",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
   {
-    "city": "Dhanur Kaly\u0101nw\u0101di",
+    "city": "Dhanur Kalyanwadi",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Dh\u0101mua",
+    "city": "Dhamua",
     "state": "West Bengal",
     "country": "India"
   },
@@ -390,7 +390,7 @@ export const dhCities = [
     "country": "India"
   },
   {
-    "city": "Dh\u012brw\u0101s",
+    "city": "Dhirwas",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -400,12 +400,12 @@ export const dhCities = [
     "country": "India"
   },
   {
-    "city": "Dhams\u0101in",
+    "city": "Dhamsain",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Dhanw\u0101da",
+    "city": "Dhanwada",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -415,12 +415,12 @@ export const dhCities = [
     "country": "India"
   },
   {
-    "city": "Dh\u0101ntola",
+    "city": "Dhantola",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Dh\u0101nga",
+    "city": "Dhanga",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -430,7 +430,7 @@ export const dhCities = [
     "country": "India"
   },
   {
-    "city": "Dh\u0101mnod",
+    "city": "Dhamnod",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -445,12 +445,12 @@ export const dhCities = [
     "country": "India"
   },
   {
-    "city": "Dh\u012bb\u0101n",
+    "city": "Dhiban",
     "state": "Dayr az Zawr",
     "country": "Syria"
   },
   {
-    "city": "Dholb\u0101ja",
+    "city": "Dholbaja",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -460,7 +460,7 @@ export const dhCities = [
     "country": "India"
   },
   {
-    "city": "Dhar\u0101wat",
+    "city": "Dharawat",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -475,7 +475,7 @@ export const dhCities = [
     "country": "India"
   },
   {
-    "city": "Dharm\u0101jig\u016bdem",
+    "city": "Dharmajigudem",
     "state": "Andhra Pradesh",
     "country": "India"
   },

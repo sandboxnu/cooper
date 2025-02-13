@@ -5,7 +5,7 @@ export const idCities = [
     "country": "Syria"
   },
   {
-    "city": "Idf\u016b",
+    "city": "Idfu",
     "state": "Asw\u0101n",
     "country": "Egypt"
   },
@@ -20,7 +20,7 @@ export const idCities = [
     "country": "United States"
   },
   {
-    "city": "Idk\u016b",
+    "city": "Idku",
     "state": "Al Bu\u1e29ayrah",
     "country": "Egypt"
   },
@@ -30,7 +30,12 @@ export const idCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Idapp\u0101di",
+    "city": "Idil",
+    "state": "\u015e\u0131rnak",
+    "country": "Turkey"
+  },
+  {
+    "city": "Idappadi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -40,7 +45,7 @@ export const idCities = [
     "country": "Congo (Kinshasa)"
   },
   {
-    "city": "Idangans\u0101lai",
+    "city": "Idangansalai",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -55,7 +60,7 @@ export const idCities = [
     "country": "Benin"
   },
   {
-    "city": "Idhn\u0101",
+    "city": "Idhna",
     "state": NaN,
     "country": "West Bank"
   },
@@ -85,8 +90,13 @@ export const idCities = [
     "country": "Portugal"
   },
   {
-    "city": "Idumb\u0101vanam",
+    "city": "Idumbavanam",
     "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Idupugallu",
+    "state": "Andhra Pradesh",
     "country": "India"
   },
   {
@@ -95,7 +105,7 @@ export const idCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Idr\u012b",
+    "city": "Idri",
     "state": "W\u0101d\u012b ash Sh\u0101\u0163i\u2019",
     "country": "Libya"
   }

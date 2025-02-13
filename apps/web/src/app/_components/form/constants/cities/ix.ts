@@ -15,22 +15,22 @@ export const ixCities = [
     "country": "Mexico"
   },
   {
-    "city": "Ixtaczoquitl\u00e1n",
+    "city": "Ixtaczoquitlan",
     "state": "Veracruz",
     "country": "Mexico"
   },
   {
-    "city": "Ixtlahuac\u00e1n de los Membrillos",
+    "city": "Ixtlahuacan de los Membrillos",
     "state": "Jalisco",
     "country": "Mexico"
   },
   {
-    "city": "Ixtahuac\u00e1n",
+    "city": "Ixtahuacan",
     "state": "Huehuetenango",
     "country": "Guatemala"
   },
   {
-    "city": "Ixhuatl\u00e1n de Madero",
+    "city": "Ixhuatlan de Madero",
     "state": "Veracruz",
     "country": "Mexico"
   },
@@ -40,7 +40,7 @@ export const ixCities = [
     "country": "Mexico"
   },
   {
-    "city": "Ixchigu\u00e1n",
+    "city": "Ixchiguan",
     "state": "San Marcos",
     "country": "Guatemala"
   },
@@ -50,12 +50,12 @@ export const ixCities = [
     "country": "Mexico"
   },
   {
-    "city": "Ixtlahuac\u00e1n del R\u00edo",
+    "city": "Ixtlahuacan del Rio",
     "state": "Jalisco",
     "country": "Mexico"
   },
   {
-    "city": "Ixhuatl\u00e1n del Sureste",
+    "city": "Ixhuatlan del Sureste",
     "state": "Veracruz",
     "country": "Mexico"
   },

@@ -55,6 +55,11 @@ export const muCities = [
     "country": "India"
   },
   {
+    "city": "Munster",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
     "city": "Muhanga",
     "state": "Southern Province",
     "country": "Rwanda"
@@ -75,12 +80,12 @@ export const muCities = [
     "country": "Zimbabwe"
   },
   {
-    "city": "Mu\u015f",
+    "city": "Mus",
     "state": "Mu\u015f",
     "country": "Turkey"
   },
   {
-    "city": "Murtaz\u0101b\u0101d",
+    "city": "Murtazabad",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -88,6 +93,11 @@ export const muCities = [
     "city": "Murfreesboro",
     "state": "Tennessee",
     "country": "United States"
+  },
+  {
+    "city": "Mulheim",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
   },
   {
     "city": "Muskegon",
@@ -125,7 +135,7 @@ export const muCities = [
     "country": "Japan"
   },
   {
-    "city": "Mukeri\u0101n",
+    "city": "Mukerian",
     "state": "Punjab",
     "country": "India"
   },
@@ -135,7 +145,7 @@ export const muCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Munch\u2019\u014fn",
+    "city": "Munch'on",
     "state": "Kangw\u014fn",
     "country": "Korea, North"
   },
@@ -145,7 +155,7 @@ export const muCities = [
     "country": "Zambia"
   },
   {
-    "city": "Mun\u016bf",
+    "city": "Munuf",
     "state": "Al Min\u016bf\u012byah",
     "country": "Egypt"
   },
@@ -185,7 +195,7 @@ export const muCities = [
     "country": "France"
   },
   {
-    "city": "Muria\u00e9",
+    "city": "Muriae",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -200,7 +210,7 @@ export const muCities = [
     "country": "Uganda"
   },
   {
-    "city": "Mustafakemalpa\u015fa",
+    "city": "Mustafakemalpasa",
     "state": "Bursa",
     "country": "Turkey"
   },
@@ -240,7 +250,7 @@ export const muCities = [
     "country": "Japan"
   },
   {
-    "city": "Mun\u2019gy\u014fng",
+    "city": "Mun'gyong",
     "state": "Gyeongbuk",
     "country": "Korea, South"
   },
@@ -260,17 +270,17 @@ export const muCities = [
     "country": "Japan"
   },
   {
-    "city": "Mulb\u0101gal",
+    "city": "Mulbagal",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Mu\u011fla",
+    "city": "Mugla",
     "state": "Mu\u011fla",
     "country": "Turkey"
   },
   {
-    "city": "Muk\u014dch\u014d",
+    "city": "Mukocho",
     "state": "Ky\u014dto",
     "country": "Japan"
   },
@@ -278,6 +288,11 @@ export const muCities = [
     "city": "Mulanay",
     "state": "Quezon",
     "country": "Philippines"
+  },
+  {
+    "city": "Mundka",
+    "state": "Delhi",
+    "country": "India"
   },
   {
     "city": "Mutsu",
@@ -305,12 +320,12 @@ export const muCities = [
     "country": "United States"
   },
   {
-    "city": "Mukt\u0101g\u0101cha",
+    "city": "Muktagacha",
     "state": "Mymensingh",
     "country": "Bangladesh"
   },
   {
-    "city": "Mulukuk\u00fa",
+    "city": "Mulukuku",
     "state": "Costa Caribe Norte",
     "country": "Nicaragua"
   },
@@ -325,12 +340,12 @@ export const muCities = [
     "country": "Turkey"
   },
   {
-    "city": "Muddebih\u0101l",
+    "city": "Muddebihal",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Murshid\u0101b\u0101d",
+    "city": "Murshidabad",
     "state": "West Bengal",
     "country": "India"
   },
@@ -350,12 +365,12 @@ export const muCities = [
     "country": "South Africa"
   },
   {
-    "city": "Muttayy\u0101puram",
+    "city": "Muttayyapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Muan\u00e1",
+    "city": "Muana",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -365,7 +380,7 @@ export const muCities = [
     "country": "India"
   },
   {
-    "city": "Murtaj\u0101pur",
+    "city": "Murtajapur",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -395,6 +410,11 @@ export const muCities = [
     "country": "India"
   },
   {
+    "city": "Muhlhausen",
+    "state": "Thuringia",
+    "country": "Germany"
+  },
+  {
     "city": "Mugumu",
     "state": "Mara",
     "country": "Tanzania"
@@ -410,7 +430,7 @@ export const muCities = [
     "country": "Philippines"
   },
   {
-    "city": "Munnark\u014dd",
+    "city": "Munnarkod",
     "state": "Kerala",
     "country": "India"
   },
@@ -420,7 +440,7 @@ export const muCities = [
     "country": "Italy"
   },
   {
-    "city": "Mulav\u016br",
+    "city": "Mulavur",
     "state": "Kerala",
     "country": "India"
   },
@@ -440,7 +460,7 @@ export const muCities = [
     "country": "Congo (Kinshasa)"
   },
   {
-    "city": "Musiko\u1e6d-Khala\u1e45g\u0101",
+    "city": "Musikot-Khalanga",
     "state": NaN,
     "country": "Nepal"
   },
@@ -460,7 +480,7 @@ export const muCities = [
     "country": "United States"
   },
   {
-    "city": "Mush\u0101bani",
+    "city": "Mushabani",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -468,6 +488,11 @@ export const muCities = [
     "city": "Mukumbura",
     "state": "Mashonaland Central",
     "country": "Zimbabwe"
+  },
+  {
+    "city": "Muvattupula",
+    "state": "Kerala",
+    "country": "India"
   },
   {
     "city": "Mussoorie",
@@ -480,12 +505,12 @@ export const muCities = [
     "country": "Angola"
   },
   {
-    "city": "Muratl\u0131",
+    "city": "Muratli",
     "state": "Tekirda\u011f",
     "country": "Turkey"
   },
   {
-    "city": "Mund\u0101hal Khurd",
+    "city": "Mundahal Khurd",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -500,6 +525,11 @@ export const muCities = [
     "country": "Comoros"
   },
   {
+    "city": "Mudbidri",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
     "city": "Munsan",
     "state": "Gyeonggi",
     "country": "Korea, South"
@@ -510,7 +540,7 @@ export const muCities = [
     "country": "Brazil"
   },
   {
-    "city": "Murl\u012bganj",
+    "city": "Murliganj",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -530,12 +560,12 @@ export const muCities = [
     "country": "India"
   },
   {
-    "city": "Mulch\u00e9n",
+    "city": "Mulchen",
     "state": "Biob\u00edo",
     "country": "Chile"
   },
   {
-    "city": "Mu\u2019tah",
+    "city": "Mu'tah",
     "state": "Al Karak",
     "country": "Jordan"
   },
@@ -545,7 +575,12 @@ export const muCities = [
     "country": "Spain"
   },
   {
-    "city": "Mu\u00f1iz",
+    "city": "Muhlacker",
+    "state": "Baden-W\u00fcrttemberg",
+    "country": "Germany"
+  },
+  {
+    "city": "Muniz",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -580,7 +615,7 @@ export const muCities = [
     "country": "India"
   },
   {
-    "city": "Mulakum\u016bd",
+    "city": "Mulakumud",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -600,7 +635,7 @@ export const muCities = [
     "country": "United States"
   },
   {
-    "city": "Muju\u00ed dos Campos",
+    "city": "Mujui dos Campos",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -610,9 +645,14 @@ export const muCities = [
     "country": "Laos"
   },
   {
-    "city": "Muggi\u00f2",
+    "city": "Muggio",
     "state": "Lombardy",
     "country": "Italy"
+  },
+  {
+    "city": "Mulampilli",
+    "state": "Kerala",
+    "country": "India"
   },
   {
     "city": "Mujiayu",
@@ -625,7 +665,7 @@ export const muCities = [
     "country": "India"
   },
   {
-    "city": "Mur\u0101dpur",
+    "city": "Muradpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -635,7 +675,7 @@ export const muCities = [
     "country": "Ireland"
   },
   {
-    "city": "Mutat\u00e1",
+    "city": "Mutata",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -650,7 +690,7 @@ export const muCities = [
     "country": "Nicaragua"
   },
   {
-    "city": "Mundam\u0101la",
+    "city": "Mundamala",
     "state": "R\u0101jsh\u0101hi",
     "country": "Bangladesh"
   },
@@ -668,6 +708,11 @@ export const muCities = [
     "city": "Muzhakkunnu",
     "state": "Kerala",
     "country": "India"
+  },
+  {
+    "city": "Muhldorf",
+    "state": "Bavaria",
+    "country": "Germany"
   },
   {
     "city": "Muthutala",
@@ -700,7 +745,7 @@ export const muCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Mud\u0101kkal",
+    "city": "Mudakkal",
     "state": "Kerala",
     "country": "India"
   },
@@ -715,7 +760,7 @@ export const muCities = [
     "country": "United States"
   },
   {
-    "city": "Muttat\u014ddi",
+    "city": "Muttatodi",
     "state": "Kerala",
     "country": "India"
   },
@@ -725,9 +770,14 @@ export const muCities = [
     "country": "United States"
   },
   {
-    "city": "Muhammad\u0101b\u0101d",
+    "city": "Muhammadabad",
     "state": "Uttar Pradesh",
     "country": "India"
+  },
+  {
+    "city": "Muong Lay",
+    "state": "\u0110i\u1ec7n Bi\u00ean",
+    "country": "Vietnam"
   },
   {
     "city": "Mundra",
@@ -735,7 +785,7 @@ export const muCities = [
     "country": "India"
   },
   {
-    "city": "Mutu\u00edpe",
+    "city": "Mutuipe",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -745,9 +795,19 @@ export const muCities = [
     "country": "Tanzania"
   },
   {
+    "city": "Munak",
+    "state": "Hary\u0101na",
+    "country": "India"
+  },
+  {
     "city": "Mulundo",
     "state": "Lanao del Sur",
     "country": "Philippines"
+  },
+  {
+    "city": "Mullheim",
+    "state": "Baden-W\u00fcrttemberg",
+    "country": "Germany"
   },
   {
     "city": "Mukaiengaru",
@@ -760,17 +820,22 @@ export const muCities = [
     "country": "Zambia"
   },
   {
-    "city": "Murugamp\u0101laiyam",
+    "city": "Murugampalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Mullach \u00cdde",
+    "city": "Mukkanur",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Mullach Ide",
     "state": "Fingal",
     "country": "Ireland"
   },
   {
-    "city": "Mukk\u016bdal",
+    "city": "Mukkudal",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -780,9 +845,19 @@ export const muCities = [
     "country": "Ghana"
   },
   {
+    "city": "Mulanur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Mure",
     "state": "Kagawa",
     "country": "Japan"
+  },
+  {
+    "city": "Mukondapalli",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Murambi",
@@ -790,7 +865,7 @@ export const muCities = [
     "country": "Rwanda"
   },
   {
-    "city": "Mungu\u00eda",
+    "city": "Munguia",
     "state": "Basque Country",
     "country": "Spain"
   },
@@ -800,7 +875,7 @@ export const muCities = [
     "country": "Switzerland"
   },
   {
-    "city": "Mu\u1e29radah",
+    "city": "Muhradah",
     "state": "\u1e28am\u0101h",
     "country": "Syria"
   },
@@ -820,7 +895,7 @@ export const muCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Mudukulatt\u016br",
+    "city": "Mudukulattur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -835,6 +910,11 @@ export const muCities = [
     "country": "Brazil"
   },
   {
+    "city": "Mulki",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
     "city": "Murraysville",
     "state": "North Carolina",
     "country": "United States"
@@ -845,7 +925,7 @@ export const muCities = [
     "country": "Zimbabwe"
   },
   {
-    "city": "Mull\u0101nw\u0101la",
+    "city": "Mullanwala",
     "state": "Punjab",
     "country": "India"
   },
@@ -860,12 +940,12 @@ export const muCities = [
     "country": "United States"
   },
   {
-    "city": "Mukht\u0101rpur Salkani",
+    "city": "Mukhtarpur Salkani",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Muhammad\u0101b\u0101d",
+    "city": "Muhammadabad",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -875,7 +955,7 @@ export const muCities = [
     "country": "India"
   },
   {
-    "city": "Mus\u0101pur",
+    "city": "Musapur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -910,9 +990,14 @@ export const muCities = [
     "country": "Nicaragua"
   },
   {
-    "city": "Mulak\u0101d",
+    "city": "Mulakad",
     "state": "Kerala",
     "country": "India"
+  },
+  {
+    "city": "Munster",
+    "state": "Hesse",
+    "country": "Germany"
   },
   {
     "city": "Murra",
@@ -920,7 +1005,7 @@ export const muCities = [
     "country": "Nicaragua"
   },
   {
-    "city": "Muty\u0101lapalle",
+    "city": "Mutyalapalle",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -930,9 +1015,14 @@ export const muCities = [
     "country": "Brazil"
   },
   {
-    "city": "Muttuk\u016bru",
+    "city": "Muttukuru",
     "state": "Andhra Pradesh",
     "country": "India"
+  },
+  {
+    "city": "Murak",
+    "state": "\u1e28am\u0101h",
+    "country": "Syria"
   },
   {
     "city": "Murrhardt",
@@ -940,7 +1030,12 @@ export const muCities = [
     "country": "Germany"
   },
   {
-    "city": "Muttun\u0101yakkanpatti",
+    "city": "Mu'minobod",
+    "state": "Khatlon",
+    "country": "Tajikistan"
+  },
+  {
+    "city": "Muttunayakkanpatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -950,12 +1045,17 @@ export const muCities = [
     "country": "Brazil"
   },
   {
+    "city": "Muynoq",
+    "state": "Qoraqalpog\u2018iston",
+    "country": "Uzbekistan"
+  },
+  {
     "city": "Mucur",
     "state": "K\u0131r\u015fehir",
     "country": "Turkey"
   },
   {
-    "city": "Murag\u0101cha",
+    "city": "Muragacha",
     "state": "West Bengal",
     "country": "India"
   },
@@ -980,12 +1080,22 @@ export const muCities = [
     "country": "Switzerland"
   },
   {
-    "city": "Mulakal\u016bru",
+    "city": "Mulakaluru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Mullassh\u0113ri",
+    "city": "Muggia",
+    "state": "Friuli Venezia Giulia",
+    "country": "Italy"
+  },
+  {
+    "city": "Mulaikkaraippatti",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Mullassheri",
     "state": "Kerala",
     "country": "India"
   },
@@ -1000,7 +1110,7 @@ export const muCities = [
     "country": "India"
   },
   {
-    "city": "Muttanamp\u0101laiyam",
+    "city": "Muttanampalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1015,12 +1125,12 @@ export const muCities = [
     "country": "Zimbabwe"
   },
   {
-    "city": "Mucug\u00ea",
+    "city": "Mucuge",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Muthusw\u0101mipuram",
+    "city": "Muthuswamipuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1028,6 +1138,11 @@ export const muCities = [
     "city": "Mulug",
     "state": "Telang\u0101na",
     "country": "India"
+  },
+  {
+    "city": "Munchenstein",
+    "state": "Basel-Landschaft",
+    "country": "Switzerland"
   },
   {
     "city": "Mugalivakkam",
@@ -1060,9 +1175,14 @@ export const muCities = [
     "country": "China"
   },
   {
-    "city": "Murukondap\u0101du",
+    "city": "Murukondapadu",
     "state": "Andhra Pradesh",
     "country": "India"
+  },
+  {
+    "city": "Muong Theng",
+    "state": "\u0110i\u1ec7n Bi\u00ean",
+    "country": "Vietnam"
   },
   {
     "city": "Mutia",
@@ -1085,7 +1205,12 @@ export const muCities = [
     "country": "Italy"
   },
   {
-    "city": "Murap\u0101ka",
+    "city": "Mulheim-Karlich",
+    "state": "Rhineland-Palatinate",
+    "country": "Germany"
+  },
+  {
+    "city": "Murapaka",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1095,7 +1220,7 @@ export const muCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Muk\u0101si Pid\u0101riy\u016br",
+    "city": "Mukasi Pidariyur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1115,9 +1240,14 @@ export const muCities = [
     "country": "India"
   },
   {
-    "city": "Mutl\u016bru",
+    "city": "Mutluru",
     "state": "Andhra Pradesh",
     "country": "India"
+  },
+  {
+    "city": "Mulsen",
+    "state": "Saxony",
+    "country": "Germany"
   },
   {
     "city": "Muzaffarnagar",
@@ -1125,7 +1255,7 @@ export const muCities = [
     "country": "India"
   },
   {
-    "city": "Mutuk\u016bru",
+    "city": "Mutukuru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1135,7 +1265,7 @@ export const muCities = [
     "country": "United States"
   },
   {
-    "city": "Munn\u016bru",
+    "city": "Munnuru",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1155,7 +1285,7 @@ export const muCities = [
     "country": "Japan"
   },
   {
-    "city": "Muqu\u00e9m de S\u00e3o Francisco",
+    "city": "Muquem de Sao Francisco",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -1165,7 +1295,7 @@ export const muCities = [
     "country": "United States"
   },
   {
-    "city": "Murowana Go\u015blina",
+    "city": "Murowana Goslina",
     "state": "Wielkopolskie",
     "country": "Poland"
   },
@@ -1180,6 +1310,11 @@ export const muCities = [
     "country": "India"
   },
   {
+    "city": "Munchberg",
+    "state": "Bavaria",
+    "country": "Germany"
+  },
+  {
     "city": "Mungod",
     "state": "Telang\u0101na",
     "country": "India"
@@ -1190,7 +1325,7 @@ export const muCities = [
     "country": "Finland"
   },
   {
-    "city": "Munagap\u0101ka",
+    "city": "Munagapaka",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1220,7 +1355,7 @@ export const muCities = [
     "country": "Italy"
   },
   {
-    "city": "Muth\u0101bana",
+    "city": "Muthabana",
     "state": "West Bengal",
     "country": "India"
   },
@@ -1235,7 +1370,7 @@ export const muCities = [
     "country": "Australia"
   },
   {
-    "city": "Muddan\u016bru",
+    "city": "Muddanuru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1250,12 +1385,17 @@ export const muCities = [
     "country": "Burundi"
   },
   {
-    "city": "Mudd\u0101da",
+    "city": "Muh Hasan",
+    "state": "Dayr az Zawr",
+    "country": "Syria"
+  },
+  {
+    "city": "Muddada",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Mus\u0101pur",
+    "city": "Musapur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1270,7 +1410,7 @@ export const muCities = [
     "country": "Colombia"
   },
   {
-    "city": "Mupp\u0101lla",
+    "city": "Muppalla",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1310,14 +1450,19 @@ export const muCities = [
     "country": "India"
   },
   {
-    "city": "Munag\u0101la",
+    "city": "Munagala",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Muriy\u0101d",
+    "city": "Muriyad",
     "state": "Kerala",
     "country": "India"
+  },
+  {
+    "city": "Muhlhausen",
+    "state": "Baden-W\u00fcrttemberg",
+    "country": "Germany"
   },
   {
     "city": "Muturkha",
@@ -1330,12 +1475,12 @@ export const muCities = [
     "country": "United States"
   },
   {
-    "city": "Mur\u0101jpur",
+    "city": "Murajpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Mustaf\u0101b\u0101d",
+    "city": "Mustafabad",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1348,6 +1493,11 @@ export const muCities = [
     "city": "Muzo",
     "state": "Boyac\u00e1",
     "country": "Colombia"
+  },
+  {
+    "city": "Mucheln",
+    "state": "Saxony-Anhalt",
+    "country": "Germany"
   },
   {
     "city": "Munnelli",
@@ -1400,7 +1550,7 @@ export const muCities = [
     "country": "Samoa"
   },
   {
-    "city": "Murang\u2019a",
+    "city": "Murang'a",
     "state": "Murang\u2019a",
     "country": "Kenya"
   },

@@ -5,7 +5,7 @@ export const zgCities = [
     "country": "Poland"
   },
   {
-    "city": "Zghart\u0101",
+    "city": "Zgharta",
     "state": "Liban-Nord",
     "country": "Lebanon"
   },

@@ -50,6 +50,11 @@ export const kuCities = [
     "country": "Japan"
   },
   {
+    "city": "Kucukcekmece",
+    "state": "\u0130stanbul",
+    "country": "Turkey"
+  },
+  {
     "city": "Kupang",
     "state": "Nusa Tenggara Timur",
     "country": "Indonesia"
@@ -80,6 +85,16 @@ export const kuCities = [
     "country": "Korea, South"
   },
   {
+    "city": "Kukatpalli",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Kusti",
+    "state": "White Nile",
+    "country": "Sudan"
+  },
+  {
     "city": "Kuching",
     "state": "Sarawak",
     "country": "Malaysia"
@@ -100,7 +115,7 @@ export const kuCities = [
     "country": "Korea, South"
   },
   {
-    "city": "Kunp\u2019o",
+    "city": "Kunp'o",
     "state": "Gyeonggi",
     "country": "Korea, South"
   },
@@ -108,6 +123,11 @@ export const kuCities = [
     "city": "Kunduz",
     "state": "Kunduz",
     "country": "Afghanistan"
+  },
+  {
+    "city": "Kutahya",
+    "state": "K\u00fctahya",
+    "country": "Turkey"
   },
   {
     "city": "Kuala Terengganu",
@@ -140,7 +160,7 @@ export const kuCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Kus\u014fng",
+    "city": "Kusong",
     "state": "P\u2019y\u014fngbuk",
     "country": "Korea, North"
   },
@@ -165,7 +185,7 @@ export const kuCities = [
     "country": "Japan"
   },
   {
-    "city": "Kukich\u016b\u014d",
+    "city": "Kukichuo",
     "state": "Saitama",
     "country": "Japan"
   },
@@ -190,7 +210,7 @@ export const kuCities = [
     "country": "Japan"
   },
   {
-    "city": "Ku\u015fadas\u0131",
+    "city": "Kusadasi",
     "state": "\u0130zmir",
     "country": "Turkey"
   },
@@ -205,6 +225,11 @@ export const kuCities = [
     "country": "Indonesia"
   },
   {
+    "city": "Kulob",
+    "state": "Khatlon",
+    "country": "Tajikistan"
+  },
+  {
     "city": "Kurichchi",
     "state": "Tamil N\u0101du",
     "country": "India"
@@ -215,7 +240,12 @@ export const kuCities = [
     "country": "India"
   },
   {
-    "city": "Kum\u0101rap\u0101laiyam",
+    "city": "Kuhdasht",
+    "state": "Lorest\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Kumarapalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -240,7 +270,7 @@ export const kuCities = [
     "country": "South Sudan"
   },
   {
-    "city": "Kuniyamutt\u016br",
+    "city": "Kuniyamuttur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -260,7 +290,7 @@ export const kuCities = [
     "country": "North Macedonia"
   },
   {
-    "city": "Kurab\u016br",
+    "city": "Kurabur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -288,6 +318,11 @@ export const kuCities = [
     "city": "Kudamatsu",
     "state": "Yamaguchi",
     "country": "Japan"
+  },
+  {
+    "city": "Kut-e `Abdollah",
+    "state": "Kh\u016bzest\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Kuala Kapuas",
@@ -410,7 +445,7 @@ export const kuCities = [
     "country": "Japan"
   },
   {
-    "city": "Kusap\u00edn",
+    "city": "Kusapin",
     "state": "Ng\u00e4be-Bugl\u00e9",
     "country": "Panama"
   },
@@ -440,7 +475,7 @@ export const kuCities = [
     "country": "India"
   },
   {
-    "city": "Kunnatn\u0101d",
+    "city": "Kunnatnad",
     "state": "Kerala",
     "country": "India"
   },
@@ -448,6 +483,11 @@ export const kuCities = [
     "city": "Kudymkar",
     "state": "Permskiy Kray",
     "country": "Russia"
+  },
+  {
+    "city": "Kuttanallur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Kurunegala",
@@ -477,6 +517,11 @@ export const kuCities = [
   {
     "city": "Kuttuparamba",
     "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Kudligi",
+    "state": "Karn\u0101taka",
     "country": "India"
   },
   {
@@ -515,7 +560,12 @@ export const kuCities = [
     "country": "India"
   },
   {
-    "city": "Kupp\u0101di",
+    "city": "Kuppadi",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Kudlu",
     "state": "Kerala",
     "country": "India"
   },
@@ -575,7 +625,12 @@ export const kuCities = [
     "country": "India"
   },
   {
-    "city": "Kulattupp\u0101laiyam",
+    "city": "Kun Puhal",
+    "state": "Him\u0101chal Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Kulattuppalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -585,7 +640,7 @@ export const kuCities = [
     "country": "Sweden"
   },
   {
-    "city": "Kung\u00e4lv",
+    "city": "Kungalv",
     "state": "V\u00e4stra G\u00f6taland",
     "country": "Sweden"
   },
@@ -625,12 +680,12 @@ export const kuCities = [
     "country": "Sweden"
   },
   {
-    "city": "Kutn\u00e1 Hora",
+    "city": "Kutna Hora",
     "state": "St\u0159edo\u010desk\u00fd Kraj",
     "country": "Czechia"
   },
   {
-    "city": "Kud\u0101l",
+    "city": "Kudal",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -640,7 +695,7 @@ export const kuCities = [
     "country": "Russia"
   },
   {
-    "city": "Kukn\u016br",
+    "city": "Kuknur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -655,12 +710,22 @@ export const kuCities = [
     "country": "Indonesia"
   },
   {
+    "city": "Kuttampala",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
     "city": "Kubinka",
     "state": "Moskovskaya Oblast\u2019",
     "country": "Russia"
   },
   {
-    "city": "Kulpah\u0101r",
+    "city": "Kurten",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
+    "city": "Kulpahar",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -670,9 +735,14 @@ export const kuCities = [
     "country": "Malaysia"
   },
   {
-    "city": "Kum\u012bl",
+    "city": "Kumil",
     "state": "Kerala",
     "country": "India"
+  },
+  {
+    "city": "Kuysinjaq",
+    "state": "Arb\u012bl",
+    "country": "Iraq"
   },
   {
     "city": "Kuusankoski",
@@ -690,7 +760,7 @@ export const kuCities = [
     "country": "Japan"
   },
   {
-    "city": "Kutty\u0101di",
+    "city": "Kuttyadi",
     "state": "Kerala",
     "country": "India"
   },
@@ -705,12 +775,12 @@ export const kuCities = [
     "country": "Austria"
   },
   {
-    "city": "Kurumbap\u0101laiyam",
+    "city": "Kurumbapalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Kumbhr\u0101j",
+    "city": "Kumbhraj",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -725,7 +795,7 @@ export const kuCities = [
     "country": "Japan"
   },
   {
-    "city": "Kum\u0101rapuram",
+    "city": "Kumarapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -750,12 +820,12 @@ export const kuCities = [
     "country": "Russia"
   },
   {
-    "city": "Kutt\u0101lam",
+    "city": "Kuttalam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Kudav\u0101sal",
+    "city": "Kudavasal",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -785,9 +855,14 @@ export const kuCities = [
     "country": "Russia"
   },
   {
-    "city": "Kutiy\u0101na",
+    "city": "Kutiyana",
     "state": "Gujar\u0101t",
     "country": "India"
+  },
+  {
+    "city": "Kunzell",
+    "state": "Hesse",
+    "country": "Germany"
   },
   {
     "city": "Kushima",
@@ -795,7 +870,7 @@ export const kuCities = [
     "country": "Japan"
   },
   {
-    "city": "Kuk\u00ebs",
+    "city": "Kukes",
     "state": "Kuk\u00ebs",
     "country": "Albania"
   },
@@ -815,12 +890,17 @@ export const kuCities = [
     "country": "Russia"
   },
   {
+    "city": "Kunzelsau",
+    "state": "Baden-W\u00fcrttemberg",
+    "country": "Germany"
+  },
+  {
     "city": "Kujwa",
     "state": "Jeju",
     "country": "Korea, South"
   },
   {
-    "city": "Kumaranall\u016br",
+    "city": "Kumaranallur",
     "state": "Kerala",
     "country": "India"
   },
@@ -830,7 +910,7 @@ export const kuCities = [
     "country": "India"
   },
   {
-    "city": "Kur\u0161umlija",
+    "city": "Kursumlija",
     "state": "Kur\u0161umlija",
     "country": "Serbia"
   },
@@ -850,7 +930,7 @@ export const kuCities = [
     "country": "India"
   },
   {
-    "city": "Kukkund\u016br",
+    "city": "Kukkundur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -860,17 +940,22 @@ export const kuCities = [
     "country": "India"
   },
   {
-    "city": "Ku\u010devo",
+    "city": "Kucevo",
     "state": "Ku\u010devo",
     "country": "Serbia"
   },
   {
-    "city": "Kur\u0101war",
+    "city": "Kurawar",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Kumaramputt\u016br",
+    "city": "Kurdamir",
+    "state": "K\u00fcrd\u0259mir",
+    "country": "Azerbaijan"
+  },
+  {
+    "city": "Kumaramputtur",
     "state": "Kerala",
     "country": "India"
   },
@@ -895,12 +980,12 @@ export const kuCities = [
     "country": "Russia"
   },
   {
-    "city": "Kutavett\u016br",
+    "city": "Kutavettur",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Kuljibr\u012bn",
+    "city": "Kuljibrin",
     "state": "\u1e28alab",
     "country": "Syria"
   },
@@ -910,7 +995,7 @@ export const kuCities = [
     "country": "India"
   },
   {
-    "city": "Kunnum\u0113l",
+    "city": "Kunnumel",
     "state": "Kerala",
     "country": "India"
   },
@@ -920,17 +1005,17 @@ export const kuCities = [
     "country": "Japan"
   },
   {
-    "city": "Kum\u0101ramangalam",
+    "city": "Kumaramangalam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Kum\u0101r\u012bpur",
+    "city": "Kumaripur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Kurumbal\u016br",
+    "city": "Kurumbalur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -940,14 +1025,19 @@ export const kuCities = [
     "country": "Japan"
   },
   {
-    "city": "Kuj\u016bkuri",
+    "city": "Kujukuri",
     "state": "Chiba",
     "country": "Japan"
   },
   {
-    "city": "Kus\u0101ha",
+    "city": "Kusaha",
     "state": "Bih\u0101r",
     "country": "India"
+  },
+  {
+    "city": "Kusnacht",
+    "state": "Z\u00fcrich",
+    "country": "Switzerland"
   },
   {
     "city": "Kukdeshwar",
@@ -955,7 +1045,7 @@ export const kuCities = [
     "country": "India"
   },
   {
-    "city": "Kutav\u016br",
+    "city": "Kutavur",
     "state": "Kerala",
     "country": "India"
   },
@@ -965,7 +1055,7 @@ export const kuCities = [
     "country": "Sudan"
   },
   {
-    "city": "Kub\u0101dupuram",
+    "city": "Kubadupuram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1015,6 +1105,11 @@ export const kuCities = [
     "country": "Belgium"
   },
   {
+    "city": "Kuhbil",
+    "state": "N\u012bnaw\u00e1",
+    "country": "Iraq"
+  },
+  {
     "city": "Kuttyattur",
     "state": "Kerala",
     "country": "India"
@@ -1023,6 +1118,11 @@ export const kuCities = [
     "city": "Kuressaare",
     "state": "Saaremaa",
     "country": "Estonia"
+  },
+  {
+    "city": "Kussnacht",
+    "state": "Schwyz",
+    "country": "Switzerland"
   },
   {
     "city": "Kuruman",
@@ -1035,32 +1135,37 @@ export const kuCities = [
     "country": "Uganda"
   },
   {
+    "city": "Kudangulam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Kuala Kurun",
     "state": "Kalimantan Tengah",
     "country": "Indonesia"
   },
   {
-    "city": "Kurwa Mathi\u0101",
+    "city": "Kurwa Mathia",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Ku\u00e7ov\u00eb",
+    "city": "Kucove",
     "state": "Berat",
     "country": "Albania"
   },
   {
-    "city": "Kuttiy\u0113ri",
+    "city": "Kuttiyeri",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Kuhs\u0101n",
+    "city": "Kuhsan",
     "state": "Her\u0101t",
     "country": "Afghanistan"
   },
   {
-    "city": "Kulatt\u016br",
+    "city": "Kulattur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1075,7 +1180,7 @@ export const kuCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Kutt\u016br",
+    "city": "Kuttur",
     "state": "Kerala",
     "country": "India"
   },
@@ -1085,7 +1190,7 @@ export const kuCities = [
     "country": "India"
   },
   {
-    "city": "Kumarkh\u0101li",
+    "city": "Kumarkhali",
     "state": "West Bengal",
     "country": "India"
   },
@@ -1145,7 +1250,12 @@ export const kuCities = [
     "country": "India"
   },
   {
-    "city": "Ku\u0159im",
+    "city": "Kushk",
+    "state": "E\u015ffah\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Kurim",
     "state": "Jihomoravsk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -1155,7 +1265,7 @@ export const kuCities = [
     "country": "Russia"
   },
   {
-    "city": "Kummarapurugup\u0101lem",
+    "city": "Kummarapurugupalem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1165,7 +1275,7 @@ export const kuCities = [
     "country": "Turkey"
   },
   {
-    "city": "Kumbad\u0101je",
+    "city": "Kumbadaje",
     "state": "Kerala",
     "country": "India"
   },
@@ -1190,7 +1300,7 @@ export const kuCities = [
     "country": "India"
   },
   {
-    "city": "Kurw\u0101r",
+    "city": "Kurwar",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -1200,9 +1310,14 @@ export const kuCities = [
     "country": "India"
   },
   {
-    "city": "Kuppachchip\u0101laiyam",
+    "city": "Kuppachchipalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
+  },
+  {
+    "city": "Kuhbanan",
+    "state": "Kerm\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Kuruvambalam",
@@ -1215,7 +1330,7 @@ export const kuCities = [
     "country": "India"
   },
   {
-    "city": "Kum\u0101rav\u0101di",
+    "city": "Kumaravadi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1225,14 +1340,24 @@ export const kuCities = [
     "country": "India"
   },
   {
-    "city": "Kur\u0161\u0117nai",
+    "city": "Kursenai",
     "state": "\u0160iauliai",
     "country": "Lithuania"
   },
   {
-    "city": "Kumbh\u0101ri",
+    "city": "Kumbhari",
     "state": "Odisha",
     "country": "India"
+  },
+  {
+    "city": "Kucukkuyu",
+    "state": "\u00c7anakkale",
+    "country": "Turkey"
+  },
+  {
+    "city": "Kucuk Dalyan",
+    "state": "Hatay",
+    "country": "Turkey"
   },
   {
     "city": "Kurhani",
@@ -1245,12 +1370,12 @@ export const kuCities = [
     "country": "China"
   },
   {
-    "city": "Kulri\u0101n",
+    "city": "Kulrian",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Kur\u015funlu",
+    "city": "Kursunlu",
     "state": "\u00c7ank\u0131r\u0131",
     "country": "Turkey"
   },
@@ -1265,7 +1390,7 @@ export const kuCities = [
     "country": "Kyrgyzstan"
   },
   {
-    "city": "Kum\u00e7at\u0131",
+    "city": "Kumcati",
     "state": "\u015e\u0131rnak",
     "country": "Turkey"
   },
@@ -1275,17 +1400,27 @@ export const kuCities = [
     "country": "Japan"
   },
   {
-    "city": "Kuld\u012bga",
+    "city": "Kuchesfahan",
+    "state": "G\u012bl\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Kuldiga",
     "state": "Kuld\u012bga",
     "country": "Latvia"
   },
   {
-    "city": "Kunn\u016br",
+    "city": "Kunnur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Kushnar\u00ebnkovo",
+    "city": "Kummersbruck",
+    "state": "Bavaria",
+    "country": "Germany"
+  },
+  {
+    "city": "Kushnarenkovo",
     "state": "Bashkortostan",
     "country": "Russia"
   },
@@ -1300,7 +1435,7 @@ export const kuCities = [
     "country": "India"
   },
   {
-    "city": "Kudowa-Zdr\u00f3j",
+    "city": "Kudowa-Zdroj",
     "state": "Dolno\u015bl\u0105skie",
     "country": "Poland"
   },
@@ -1310,7 +1445,7 @@ export const kuCities = [
     "country": "Japan"
   },
   {
-    "city": "Kudayatt\u016br",
+    "city": "Kudayattur",
     "state": "Kerala",
     "country": "India"
   },
@@ -1325,12 +1460,12 @@ export const kuCities = [
     "country": "Germany"
   },
   {
-    "city": "Kungs\u00e4ngen",
+    "city": "Kungsangen",
     "state": "Stockholm",
     "country": "Sweden"
   },
   {
-    "city": "Kunnatt\u016br",
+    "city": "Kunnattur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1340,7 +1475,7 @@ export const kuCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Kud\u016bru",
+    "city": "Kuduru",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1395,6 +1530,11 @@ export const kuCities = [
     "country": "Nicaragua"
   },
   {
+    "city": "Kunimedu",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Kusumbe",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
@@ -1410,7 +1550,7 @@ export const kuCities = [
     "country": "India"
   },
   {
-    "city": "Kupi\u0161kis",
+    "city": "Kupiskis",
     "state": "Kupi\u0161kis",
     "country": "Lithuania"
   },

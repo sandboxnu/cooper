@@ -25,7 +25,7 @@ export const trCities = [
     "country": "United States"
   },
   {
-    "city": "Trich\u016br",
+    "city": "Trichur",
     "state": "Kerala",
     "country": "India"
   },
@@ -50,12 +50,12 @@ export const trCities = [
     "country": "Italy"
   },
   {
-    "city": "Tr\u1ea3ng B\u00e0ng",
+    "city": "Trang Bang",
     "state": "T\u00e2y Ninh",
     "country": "Vietnam"
   },
   {
-    "city": "Tr\u00e0 Vinh",
+    "city": "Tra Vinh",
     "state": "Tr\u00e0 Vinh",
     "country": "Vietnam"
   },
@@ -65,7 +65,7 @@ export const trCities = [
     "country": "Brazil"
   },
   {
-    "city": "Trois-Rivi\u00e8res",
+    "city": "Trois-Rivieres",
     "state": "Quebec",
     "country": "Canada"
   },
@@ -75,7 +75,7 @@ export const trCities = [
     "country": "Bolivia"
   },
   {
-    "city": "Tr\u00eas Lagoas",
+    "city": "Tres Lagoas",
     "state": "Mato Grosso do Sul",
     "country": "Brazil"
   },
@@ -115,7 +115,7 @@ export const trCities = [
     "country": "Italy"
   },
   {
-    "city": "Tr\u00eas Rios",
+    "city": "Tres Rios",
     "state": "Rio de Janeiro",
     "country": "Brazil"
   },
@@ -130,7 +130,7 @@ export const trCities = [
     "country": "Germany"
   },
   {
-    "city": "Tr\u00eas Cora\u00e7\u00f5es",
+    "city": "Tres Coracoes",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -155,7 +155,7 @@ export const trCities = [
     "country": "France"
   },
   {
-    "city": "Tr\u00edkala",
+    "city": "Trikala",
     "state": "Thessal\u00eda",
     "country": "Greece"
   },
@@ -175,7 +175,7 @@ export const trCities = [
     "country": "Honduras"
   },
   {
-    "city": "Trollh\u00e4ttan",
+    "city": "Trollhattan",
     "state": "V\u00e4stra G\u00f6taland",
     "country": "Sweden"
   },
@@ -195,7 +195,7 @@ export const trCities = [
     "country": "Italy"
   },
   {
-    "city": "Tr\u00eas Pontas",
+    "city": "Tres Pontas",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -205,7 +205,7 @@ export const trCities = [
     "country": "Italy"
   },
   {
-    "city": "Tren\u010d\u00edn",
+    "city": "Trencin",
     "state": "Tren\u010din",
     "country": "Slovakia"
   },
@@ -220,7 +220,7 @@ export const trCities = [
     "country": "Bosnia and Herzegovina"
   },
   {
-    "city": "Tramanda\u00ed",
+    "city": "Tramandai",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -230,7 +230,7 @@ export const trCities = [
     "country": "United States"
   },
   {
-    "city": "Trememb\u00e9",
+    "city": "Tremembe",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -255,7 +255,7 @@ export const trCities = [
     "country": "Puerto Rico"
   },
   {
-    "city": "Trikarp\u016br North",
+    "city": "Trikarpur North",
     "state": "Kerala",
     "country": "India"
   },
@@ -265,7 +265,7 @@ export const trCities = [
     "country": "Portugal"
   },
   {
-    "city": "Troms\u00f8",
+    "city": "Tromso",
     "state": "Troms og Finnmark",
     "country": "Norway"
   },
@@ -285,6 +285,16 @@ export const trCities = [
     "country": "Philippines"
   },
   {
+    "city": "Trebic",
+    "state": "Vyso\u010dina",
+    "country": "Czechia"
+  },
+  {
+    "city": "Trinec",
+    "state": "Moravskoslezsk\u00fd Kraj",
+    "country": "Czechia"
+  },
+  {
     "city": "Trappes",
     "state": "\u00cele-de-France",
     "country": "France"
@@ -295,7 +305,7 @@ export const trCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Tr\u00ebkhgornyy",
+    "city": "Trekhgornyy",
     "state": "Chelyabinskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -315,7 +325,7 @@ export const trCities = [
     "country": "Italy"
   },
   {
-    "city": "Tr\u00edpoli",
+    "city": "Tripoli",
     "state": "Pelop\u00f3nnisos",
     "country": "Greece"
   },
@@ -325,7 +335,7 @@ export const trCities = [
     "country": "Brazil"
   },
   {
-    "city": "Triprang\u014dtt\u016br",
+    "city": "Triprangottur",
     "state": "Kerala",
     "country": "India"
   },
@@ -335,7 +345,7 @@ export const trCities = [
     "country": "Czechia"
   },
   {
-    "city": "Tr\u00eas Marias",
+    "city": "Tres Marias",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -395,7 +405,7 @@ export const trCities = [
     "country": "Uruguay"
   },
   {
-    "city": "Tr\u00eas Passos",
+    "city": "Tres Passos",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -410,7 +420,7 @@ export const trCities = [
     "country": "Australia"
   },
   {
-    "city": "Tr\u00eas de Maio",
+    "city": "Tres de Maio",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -425,7 +435,7 @@ export const trCities = [
     "country": "Austria"
   },
   {
-    "city": "Tr\u00eas Coroas",
+    "city": "Tres Coroas",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -445,7 +455,7 @@ export const trCities = [
     "country": "United States"
   },
   {
-    "city": "Trebi\u0161ov",
+    "city": "Trebisov",
     "state": "Ko\u0161ice",
     "country": "Slovakia"
   },
@@ -485,12 +495,12 @@ export const trCities = [
     "country": "Italy"
   },
   {
-    "city": "Trostyanets\u2019",
+    "city": "Trostyanets'",
     "state": "Sumska Oblast",
     "country": "Ukraine"
   },
   {
-    "city": "Tr\u00eas Barras",
+    "city": "Tres Barras",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -550,7 +560,7 @@ export const trCities = [
     "country": "Serbia"
   },
   {
-    "city": "Traigu\u00e9n",
+    "city": "Traiguen",
     "state": "Araucan\u00eda",
     "country": "Chile"
   },
@@ -585,7 +595,7 @@ export const trCities = [
     "country": "United States"
   },
   {
-    "city": "Trisshil\u0113ri",
+    "city": "Trisshileri",
     "state": "Kerala",
     "country": "India"
   },
@@ -595,7 +605,7 @@ export const trCities = [
     "country": "United States"
   },
   {
-    "city": "Tr\u00e9laz\u00e9",
+    "city": "Trelaze",
     "state": "Pays de la Loire",
     "country": "France"
   },
@@ -620,7 +630,7 @@ export const trCities = [
     "country": "Brazil"
   },
   {
-    "city": "Tran\u00e5s",
+    "city": "Tranas",
     "state": "J\u00f6nk\u00f6ping",
     "country": "Sweden"
   },
@@ -630,7 +640,7 @@ export const trCities = [
     "country": "Italy"
   },
   {
-    "city": "Tracunha\u00e9m",
+    "city": "Tracunhaem",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -730,7 +740,7 @@ export const trCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Trezzo sull\u2019Adda",
+    "city": "Trezzo sull'Adda",
     "state": "Lombardy",
     "country": "Italy"
   },
@@ -770,7 +780,7 @@ export const trCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Tr\u00eas Cachoeiras",
+    "city": "Tres Cachoeiras",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -815,12 +825,12 @@ export const trCities = [
     "country": "Thailand"
   },
   {
-    "city": "Tripur\u0101ntakam",
+    "city": "Tripurantakam",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Tru\u015feni",
+    "city": "Truseni",
     "state": "Chi\u015fin\u0103u",
     "country": "Moldova"
   },
@@ -840,7 +850,7 @@ export const trCities = [
     "country": "United States"
   },
   {
-    "city": "Treilli\u00e8res",
+    "city": "Treillieres",
     "state": "Pays de la Loire",
     "country": "France"
   },
@@ -860,7 +870,7 @@ export const trCities = [
     "country": "Italy"
   },
   {
-    "city": "Trzebiat\u00f3w",
+    "city": "Trzebiatow",
     "state": "Zachodniopomorskie",
     "country": "Poland"
   },
@@ -875,7 +885,7 @@ export const trCities = [
     "country": "India"
   },
   {
-    "city": "Tres R\u00edos",
+    "city": "Tres Rios",
     "state": "Cartago",
     "country": "Costa Rica"
   },
@@ -900,7 +910,7 @@ export const trCities = [
     "country": "Spain"
   },
   {
-    "city": "Treze T\u00edlias",
+    "city": "Treze Tilias",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -955,7 +965,7 @@ export const trCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Tr\u017ei\u010d",
+    "city": "Trzic",
     "state": "Tr\u017ei\u010d",
     "country": "Slovenia"
   },
@@ -995,7 +1005,7 @@ export const trCities = [
     "country": "Russia"
   },
   {
-    "city": "Trgovi\u0161te",
+    "city": "Trgoviste",
     "state": "Trgovi\u0161te",
     "country": "Serbia"
   },

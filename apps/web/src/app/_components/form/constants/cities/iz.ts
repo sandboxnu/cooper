@@ -1,5 +1,10 @@
 export const izCities = [
   {
+    "city": "Izmir",
+    "state": "\u0130zmir",
+    "country": "Turkey"
+  },
+  {
     "city": "Izhevsk",
     "state": "Udmurtiya",
     "country": "Russia"
@@ -15,7 +20,7 @@ export const izCities = [
     "country": "Japan"
   },
   {
-    "city": "Izumi\u014dtsu",
+    "city": "Izumiotsu",
     "state": "\u014csaka",
     "country": "Japan"
   },
@@ -45,12 +50,17 @@ export const izCities = [
     "country": "Japan"
   },
   {
-    "city": "Izobil\u2019nyy",
+    "city": "Iznik",
+    "state": "Bursa",
+    "country": "Turkey"
+  },
+  {
+    "city": "Izobil'nyy",
     "state": "Stavropol\u2019skiy Kray",
     "country": "Russia"
   },
   {
-    "city": "Izk\u012b",
+    "city": "Izki",
     "state": "Ad D\u0101khil\u012byah",
     "country": "Oman"
   },

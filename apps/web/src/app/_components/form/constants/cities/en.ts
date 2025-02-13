@@ -55,7 +55,7 @@ export const enCities = [
     "country": "Uganda"
   },
   {
-    "city": "Encarnaci\u00f3n",
+    "city": "Encarnacion",
     "state": "Itap\u00faa",
     "country": "Paraguay"
   },
@@ -70,7 +70,7 @@ export const enCities = [
     "country": "Argentina"
   },
   {
-    "city": "Encarnaci\u00f3n de D\u00edaz",
+    "city": "Encarnacion de Diaz",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -150,7 +150,7 @@ export const enCities = [
     "country": "Brazil"
   },
   {
-    "city": "Engandiy\u016br",
+    "city": "Engandiyur",
     "state": "Kerala",
     "country": "India"
   },
@@ -165,7 +165,7 @@ export const enCities = [
     "country": "United States"
   },
   {
-    "city": "Enk\u00f6ping",
+    "city": "Enkoping",
     "state": "Uppsala",
     "country": "Sweden"
   },
@@ -255,7 +255,7 @@ export const enCities = [
     "country": "United States"
   },
   {
-    "city": "Engenheiro Beltr\u00e3o",
+    "city": "Engenheiro Beltrao",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -340,17 +340,17 @@ export const enCities = [
     "country": "India"
   },
   {
-    "city": "Entre Iju\u00eds",
+    "city": "Entre Ijuis",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
   {
-    "city": "Enkak\u0101d",
+    "city": "Enkakad",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Entrerr\u00edos",
+    "city": "Entrerrios",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -365,7 +365,7 @@ export const enCities = [
     "country": "Austria"
   },
   {
-    "city": "Entre R\u00edos",
+    "city": "Entre Rios",
     "state": "Tarija",
     "country": "Bolivia"
   },

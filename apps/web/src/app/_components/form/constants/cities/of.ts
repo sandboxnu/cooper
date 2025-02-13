@@ -20,6 +20,11 @@ export const ofCities = [
     "country": "Japan"
   },
   {
+    "city": "Ofunato",
+    "state": "Iwate",
+    "country": "Japan"
+  },
+  {
     "city": "Ofaqim",
     "state": "Southern",
     "country": "Israel"
@@ -35,7 +40,7 @@ export const ofCities = [
     "country": "Germany"
   },
   {
-    "city": "Oficina Mar\u00eda Elena",
+    "city": "Oficina Maria Elena",
     "state": "Antofagasta",
     "country": "Chile"
   }

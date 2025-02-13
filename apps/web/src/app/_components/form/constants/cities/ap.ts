@@ -1,5 +1,10 @@
 export const apCities = [
   {
+    "city": "Ap Da Loi",
+    "state": "L\u00e2m \u0110\u1ed3ng",
+    "country": "Vietnam"
+  },
+  {
     "city": "Appleton",
     "state": "Wisconsin",
     "country": "United States"
@@ -10,7 +15,7 @@ export const apCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Aplahou\u00e9",
+    "city": "Aplahoue",
     "state": "Couffo",
     "country": "Benin"
   },
@@ -35,7 +40,7 @@ export const apCities = [
     "country": "Mexico"
   },
   {
-    "city": "Apartad\u00f3",
+    "city": "Apartado",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -100,7 +105,7 @@ export const apCities = [
     "country": "United States"
   },
   {
-    "city": "Ap\u00f3stoles",
+    "city": "Apostoles",
     "state": "Misiones",
     "country": "Argentina"
   },
@@ -155,9 +160,14 @@ export const apCities = [
     "country": "United States"
   },
   {
-    "city": "Apia\u00ed",
+    "city": "Apiai",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
+  },
+  {
+    "city": "Ap Khanh Hoa",
+    "state": "An Giang",
+    "country": "Vietnam"
   },
   {
     "city": "Apatin",
@@ -170,6 +180,16 @@ export const apCities = [
     "country": "Germany"
   },
   {
+    "city": "Ap Phu My",
+    "state": "S\u00f3c Tr\u0103ng",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Ap Khanh Hung",
+    "state": "C\u1ea7n Th\u01a1",
+    "country": "Vietnam"
+  },
+  {
     "city": "Appley Bridge",
     "state": "Lancashire",
     "country": "United Kingdom"
@@ -180,7 +200,7 @@ export const apCities = [
     "country": "El Salvador"
   },
   {
-    "city": "Apor\u00e1",
+    "city": "Apora",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -190,12 +210,22 @@ export const apCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Apuiar\u00e9s",
+    "city": "Apuiares",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Ap\u00eda",
+    "city": "Ap Binh Thanh",
+    "state": "Ki\u1ebfn Giang",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Ap Phu Hai",
+    "state": "B\u00ecnh Thu\u1eadn",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Apia",
     "state": "Risaralda",
     "country": "Colombia"
   },
@@ -203,6 +233,11 @@ export const apCities = [
     "city": "Apricena",
     "state": "Puglia",
     "country": "Italy"
+  },
+  {
+    "city": "Appukkudal",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Aphaur",
@@ -220,7 +255,7 @@ export const apCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Aperib\u00e9",
+    "city": "Aperibe",
     "state": "Rio de Janeiro",
     "country": "Brazil"
   },
@@ -240,12 +275,12 @@ export const apCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "App\u0101r\u0101opeta",
+    "city": "Apparaopeta",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Api\u00fana",
+    "city": "Apiuna",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -260,6 +295,11 @@ export const apCities = [
     "country": "Romania"
   },
   {
+    "city": "Ap Tan Ngai",
+    "state": "B\u1ebfn Tre",
+    "country": "Vietnam"
+  },
+  {
     "city": "Appenzell",
     "state": "Appenzell Innerrhoden",
     "country": "Switzerland"
@@ -270,7 +310,7 @@ export const apCities = [
     "country": "Bolivia"
   },
   {
-    "city": "Apa\u010de",
+    "city": "Apace",
     "state": "Apa\u010de",
     "country": "Slovenia"
   }

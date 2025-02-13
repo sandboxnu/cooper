@@ -15,7 +15,7 @@ export const rhCities = [
     "country": "Italy"
   },
   {
-    "city": "Rheda-Wiedenbr\u00fcck",
+    "city": "Rheda-Wiedenbruck",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
   },

@@ -5,7 +5,7 @@ export const mlCities = [
     "country": "Serbia"
   },
   {
-    "city": "Mlad\u00e1 Boleslav",
+    "city": "Mlada Boleslav",
     "state": "St\u0159edo\u010desk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -13,5 +13,10 @@ export const mlCities = [
     "city": "Mlimba",
     "state": "Morogoro",
     "country": "Tanzania"
+  },
+  {
+    "city": "Mlawa",
+    "state": "Mazowieckie",
+    "country": "Poland"
   }
 ]

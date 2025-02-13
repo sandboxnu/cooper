@@ -30,7 +30,7 @@ export const tlCities = [
     "country": "Mexico"
   },
   {
-    "city": "Tlajomulco de Z\u00fa\u00f1iga",
+    "city": "Tlajomulco de Zuniga",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -55,7 +55,7 @@ export const tlCities = [
     "country": "Mexico"
   },
   {
-    "city": "Tlalpujahua de Ray\u00f3n",
+    "city": "Tlalpujahua de Rayon",
     "state": "Michoac\u00e1n",
     "country": "Mexico"
   },
@@ -70,7 +70,7 @@ export const tlCities = [
     "country": "Mexico"
   },
   {
-    "city": "Tlaltenango de S\u00e1nchez Rom\u00e1n",
+    "city": "Tlaltenango de Sanchez Roman",
     "state": "Zacatecas",
     "country": "Mexico"
   },

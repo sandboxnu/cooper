@@ -1,6 +1,6 @@
 export const jhCities = [
   {
-    "city": "Jh\u0101nsi",
+    "city": "Jhansi",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -20,22 +20,22 @@ export const jhCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Jh\u0101rsugra",
+    "city": "Jharsugra",
     "state": "Odisha",
     "country": "India"
   },
   {
-    "city": "Jh\u0101rgr\u0101m",
+    "city": "Jhargram",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Jh\u0101bua",
+    "city": "Jhabua",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Jhanjh\u0101rpur",
+    "city": "Jhanjharpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -45,7 +45,7 @@ export const jhCities = [
     "country": "India"
   },
   {
-    "city": "Jhalid\u0101",
+    "city": "Jhalida",
     "state": "West Bengal",
     "country": "India"
   },
@@ -55,7 +55,7 @@ export const jhCities = [
     "country": "India"
   },
   {
-    "city": "Jhand\u0101pur",
+    "city": "Jhandapur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -80,7 +80,7 @@ export const jhCities = [
     "country": "India"
   },
   {
-    "city": "Jh\u0101ua",
+    "city": "Jhaua",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -90,7 +90,7 @@ export const jhCities = [
     "country": "India"
   },
   {
-    "city": "Jhitkahiy\u0101",
+    "city": "Jhitkahiya",
     "state": "Bih\u0101r",
     "country": "India"
   },

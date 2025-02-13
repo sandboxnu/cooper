@@ -45,9 +45,19 @@ export const naCities = [
     "country": "China"
   },
   {
+    "city": "Nagpur",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
     "city": "Nantong",
     "state": "Jiangsu",
     "country": "China"
+  },
+  {
+    "city": "Nasik",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
   },
   {
     "city": "Najafgarh",
@@ -70,6 +80,11 @@ export const naCities = [
     "country": "Brazil"
   },
   {
+    "city": "Narayanganj",
+    "state": "Dhaka",
+    "country": "Bangladesh"
+  },
+  {
     "city": "Nada",
     "state": "Hainan",
     "country": "China"
@@ -80,7 +95,7 @@ export const naCities = [
     "country": "Italy"
   },
   {
-    "city": "Naucalpan de Ju\u00e1rez",
+    "city": "Naucalpan de Juarez",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
@@ -120,6 +135,11 @@ export const naCities = [
     "country": "India"
   },
   {
+    "city": "Nanded",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
     "city": "Naberezhnyye Chelny",
     "state": "Tatarstan",
     "country": "Russia"
@@ -128,6 +148,11 @@ export const naCities = [
     "city": "Nansana",
     "state": "Wakiso",
     "country": "Uganda"
+  },
+  {
+    "city": "Nagercoil",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Nagqu",
@@ -165,7 +190,7 @@ export const naCities = [
     "country": "Japan"
   },
   {
-    "city": "Nam \u0110\u1ecbnh",
+    "city": "Nam Dinh",
     "state": "Nam \u0110\u1ecbnh",
     "country": "Vietnam"
   },
@@ -180,7 +205,7 @@ export const naCities = [
     "country": "Philippines"
   },
   {
-    "city": "Nazr\u0113t",
+    "city": "Nazret",
     "state": "Orom\u012bya",
     "country": "Ethiopia"
   },
@@ -230,7 +255,7 @@ export const naCities = [
     "country": "United States"
   },
   {
-    "city": "Najaf\u0101b\u0101d",
+    "city": "Najafabad",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
@@ -240,22 +265,22 @@ export const naCities = [
     "country": "Bangladesh"
   },
   {
-    "city": "Nadi\u0101d",
+    "city": "Nadiad",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Naih\u0101ti",
+    "city": "Naihati",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Nandy\u0101l",
+    "city": "Nandyal",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Nas\u012bm Shahr",
+    "city": "Nasim Shahr",
     "state": "Tehr\u0101n",
     "country": "Iran"
   },
@@ -275,12 +300,12 @@ export const naCities = [
     "country": "Bangladesh"
   },
   {
-    "city": "Naw\u0101da",
+    "city": "Nawada",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Navadw\u012bp",
+    "city": "Navadwip",
     "state": "West Bengal",
     "country": "India"
   },
@@ -310,6 +335,11 @@ export const naCities = [
     "country": "Philippines"
   },
   {
+    "city": "Nablus",
+    "state": NaN,
+    "country": "West Bank"
+  },
+  {
     "city": "Nan Zhuang",
     "state": "Guangdong",
     "country": "China"
@@ -317,6 +347,11 @@ export const naCities = [
   {
     "city": "Nalgonda",
     "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Nangloi Jat",
+    "state": "Delhi",
     "country": "India"
   },
   {
@@ -330,12 +365,17 @@ export const naCities = [
     "country": "United States"
   },
   {
+    "city": "Narnaul",
+    "state": "Hary\u0101na",
+    "country": "India"
+  },
+  {
     "city": "Nakhodka",
     "state": "Primorskiy Kray",
     "country": "Russia"
   },
   {
-    "city": "Naw\u0101bganj",
+    "city": "Nawabganj",
     "state": "R\u0101jsh\u0101hi",
     "country": "Bangladesh"
   },
@@ -343,6 +383,11 @@ export const naCities = [
     "city": "Namacunde",
     "state": "Cunene",
     "country": "Angola"
+  },
+  {
+    "city": "Nahiyat Ghammas",
+    "state": "Al Q\u0101dis\u012byah",
+    "country": "Iraq"
   },
   {
     "city": "Nasugbu",
@@ -360,7 +405,7 @@ export const naCities = [
     "country": "Philippines"
   },
   {
-    "city": "Nary\u0101i ka Puri",
+    "city": "Naryai ka Puri",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -385,12 +430,22 @@ export const naCities = [
     "country": "India"
   },
   {
+    "city": "Nahiyat Khan Bani Sa`d",
+    "state": "Diy\u0101l\u00e1",
+    "country": "Iraq"
+  },
+  {
+    "city": "Nandgaon",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
     "city": "Navojoa",
     "state": "Sonora",
     "country": "Mexico"
   },
   {
-    "city": "Naz\u0327ar\u0101b\u0101d",
+    "city": "Nazarabad",
     "state": "Alborz",
     "country": "Iran"
   },
@@ -465,6 +520,11 @@ export const naCities = [
     "country": "Taiwan"
   },
   {
+    "city": "Nahiyat al Iskandariyah",
+    "state": "B\u0101bil",
+    "country": "Iraq"
+  },
+  {
     "city": "Navalyal",
     "state": "Karn\u0101taka",
     "country": "India"
@@ -490,14 +550,19 @@ export const naCities = [
     "country": "Belarus"
   },
   {
-    "city": "Nag\u012bna",
+    "city": "Nagina",
     "state": "Uttar Pradesh",
     "country": "India"
   },
   {
-    "city": "Nax\u00e7\u0131van",
+    "city": "Naxcivan",
     "state": "Nax\u00e7\u0131van",
     "country": "Azerbaijan"
+  },
+  {
+    "city": "Nahiyat al Karmah",
+    "state": "Al Anb\u0101r",
+    "country": "Iraq"
   },
   {
     "city": "Naju",
@@ -510,12 +575,12 @@ export const naCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Naj\u012bb\u0101b\u0101d",
+    "city": "Najibabad",
     "state": "Uttar Pradesh",
     "country": "India"
   },
   {
-    "city": "Nahual\u00e1",
+    "city": "Nahuala",
     "state": "Solol\u00e1",
     "country": "Guatemala"
   },
@@ -530,7 +595,7 @@ export const naCities = [
     "country": "Thailand"
   },
   {
-    "city": "Nachch\u0101ndupatti",
+    "city": "Nachchandupatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -575,7 +640,7 @@ export const naCities = [
     "country": "Korea, North"
   },
   {
-    "city": "Nabat\u00eey\u00e9",
+    "city": "Nabatiye",
     "state": "Nabat\u00eey\u00e9",
     "country": "Lebanon"
   },
@@ -610,7 +675,7 @@ export const naCities = [
     "country": "Dominican Republic"
   },
   {
-    "city": "Nah\u0101vand",
+    "city": "Nahavand",
     "state": "Hamad\u0101n",
     "country": "Iran"
   },
@@ -630,7 +695,7 @@ export const naCities = [
     "country": "Iran"
   },
   {
-    "city": "Najr\u0101n",
+    "city": "Najran",
     "state": "Najr\u0101n",
     "country": "Saudi Arabia"
   },
@@ -645,9 +710,24 @@ export const naCities = [
     "country": "Fiji"
   },
   {
+    "city": "Nandura Buzurg",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
     "city": "Nansang",
     "state": "Shan State",
     "country": "Burma"
+  },
+  {
+    "city": "Nabha",
+    "state": "Punjab",
+    "country": "India"
+  },
+  {
+    "city": "Nalut",
+    "state": "N\u0101l\u016bt",
+    "country": "Libya"
   },
   {
     "city": "Narok",
@@ -670,7 +750,7 @@ export const naCities = [
     "country": "India"
   },
   {
-    "city": "Naw\u00e1",
+    "city": "Nawa",
     "state": "Dar\u2018\u0101",
     "country": "Syria"
   },
@@ -685,9 +765,14 @@ export const naCities = [
     "country": "Japan"
   },
   {
-    "city": "Narl\u0131dere",
+    "city": "Narlidere",
     "state": "\u0130zmir",
     "country": "Turkey"
+  },
+  {
+    "city": "Nanpara",
+    "state": "Uttar Pradesh",
+    "country": "India"
   },
   {
     "city": "Nagakute",
@@ -705,7 +790,7 @@ export const naCities = [
     "country": "New Zealand"
   },
   {
-    "city": "Narw\u0101na",
+    "city": "Narwana",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -715,17 +800,17 @@ export const naCities = [
     "country": "Russia"
   },
   {
-    "city": "Nanjang\u016bd",
+    "city": "Nanjangud",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Nakhyaungchar\u012bp\u0101ra",
+    "city": "Nakhyaungcharipara",
     "state": "Chattogram",
     "country": "Bangladesh"
   },
   {
-    "city": "Naj\u2018 \u1e28amm\u0101d\u012b",
+    "city": "Naj` Hammadi",
     "state": "Qin\u0101",
     "country": "Egypt"
   },
@@ -755,7 +840,7 @@ export const naCities = [
     "country": "Philippines"
   },
   {
-    "city": "Nanjakk\u0101d",
+    "city": "Nanjakkad",
     "state": "Kerala",
     "country": "India"
   },
@@ -770,12 +855,12 @@ export const naCities = [
     "country": "Honduras"
   },
   {
-    "city": "Nas\u012brab\u0101d",
+    "city": "Nasirabad",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
   {
-    "city": "Naugaon S\u0101d\u0101t",
+    "city": "Naugaon Sadat",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -805,9 +890,19 @@ export const naCities = [
     "country": "China"
   },
   {
-    "city": "Narutoch\u014d-mitsuishi",
+    "city": "Namakkal",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Narutocho-mitsuishi",
     "state": "Tokushima",
     "country": "Japan"
+  },
+  {
+    "city": "Nandod",
+    "state": "Gujar\u0101t",
+    "country": "India"
   },
   {
     "city": "Narva",
@@ -825,7 +920,7 @@ export const naCities = [
     "country": "Philippines"
   },
   {
-    "city": "Navira\u00ed",
+    "city": "Navirai",
     "state": "Mato Grosso do Sul",
     "country": "Brazil"
   },
@@ -855,12 +950,17 @@ export const naCities = [
     "country": "Burma"
   },
   {
+    "city": "Nangal Township",
+    "state": "Punjab",
+    "country": "India"
+  },
+  {
     "city": "Nanto",
     "state": "Toyama",
     "country": "Japan"
   },
   {
-    "city": "Nandikotk\u016br",
+    "city": "Nandikotkur",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -880,7 +980,7 @@ export const naCities = [
     "country": "Philippines"
   },
   {
-    "city": "Naw\u0101shahr",
+    "city": "Nawashahr",
     "state": "Punjab",
     "country": "India"
   },
@@ -895,9 +995,19 @@ export const naCities = [
     "country": "Russia"
   },
   {
+    "city": "Nayudupet",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Nalegaon",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
+  },
+  {
+    "city": "Naestved",
+    "state": "Sj\u00e6lland",
+    "country": "Denmark"
   },
   {
     "city": "Nadym",
@@ -910,12 +1020,12 @@ export const naCities = [
     "country": "Philippines"
   },
   {
-    "city": "Nandig\u0101ma",
+    "city": "Nandigama",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Nanj\u014d",
+    "city": "Nanjo",
     "state": "Okinawa",
     "country": "Japan"
   },
@@ -950,12 +1060,27 @@ export const naCities = [
     "country": "Japan"
   },
   {
+    "city": "Nathdwara",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
+    "city": "Naikankudi",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Narayanpet",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
     "city": "Naga",
     "state": "Zamboanga Sibugay",
     "country": "Philippines"
   },
   {
-    "city": "Nalh\u0101ti",
+    "city": "Nalhati",
     "state": "West Bengal",
     "country": "India"
   },
@@ -995,22 +1120,22 @@ export const naCities = [
     "country": "Ecuador"
   },
   {
-    "city": "Naw\u0101bganj",
+    "city": "Nawabganj",
     "state": "Uttar Pradesh",
     "country": "India"
   },
   {
-    "city": "Nar\u00f3n",
+    "city": "Naron",
     "state": "Galicia",
     "country": "Spain"
   },
   {
-    "city": "Nabar\u016bh",
+    "city": "Nabaruh",
     "state": "Ad Daqahl\u012byah",
     "country": "Egypt"
   },
   {
-    "city": "Nall\u016br",
+    "city": "Nallur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1085,9 +1210,19 @@ export const naCities = [
     "country": "Ecuador"
   },
   {
+    "city": "Navodari",
+    "state": "Constan\u0163a",
+    "country": "Romania"
+  },
+  {
     "city": "Nandaime",
     "state": "Granada",
     "country": "Nicaragua"
+  },
+  {
+    "city": "Nazerabad",
+    "state": "Yazd",
+    "country": "Iran"
   },
   {
     "city": "Navan",
@@ -1100,7 +1235,7 @@ export const naCities = [
     "country": "Philippines"
   },
   {
-    "city": "Nars\u012bpatnam",
+    "city": "Narsipatnam",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1108,6 +1243,11 @@ export const naCities = [
     "city": "Namhkam",
     "state": "Shan State",
     "country": "Burma"
+  },
+  {
+    "city": "Nanjikkottai",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Narsinghgarh",
@@ -1165,7 +1305,7 @@ export const naCities = [
     "country": "Bangladesh"
   },
   {
-    "city": "Nau\u0101garhi",
+    "city": "Nauagarhi",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1173,6 +1313,11 @@ export const naCities = [
     "city": "Navalcarnero",
     "state": "Madrid",
     "country": "Spain"
+  },
+  {
+    "city": "Naspur",
+    "state": "Telang\u0101na",
+    "country": "India"
   },
   {
     "city": "Nantan",
@@ -1185,27 +1330,37 @@ export const naCities = [
     "country": "Russia"
   },
   {
-    "city": "Nard\u00f2",
+    "city": "Nalchiti",
+    "state": "Barishal",
+    "country": "Bangladesh"
+  },
+  {
+    "city": "Nardo",
     "state": "Puglia",
     "country": "Italy"
   },
   {
-    "city": "Nazar\u00e9 da Mata",
+    "city": "Nazare da Mata",
     "state": "Pernambuco",
     "country": "Brazil"
   },
   {
-    "city": "Nany\u014d",
+    "city": "Nagawaram",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Nanyo",
     "state": "Yamagata",
     "country": "Japan"
   },
   {
-    "city": "Nanchital de L\u00e1zaro C\u00e1rdenas del R\u00edo",
+    "city": "Nanchital de Lazaro Cardenas del Rio",
     "state": "Veracruz",
     "country": "Mexico"
   },
   {
-    "city": "Nav\u0101pur",
+    "city": "Navapur",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -1220,7 +1375,7 @@ export const naCities = [
     "country": "India"
   },
   {
-    "city": "Nan\u2019ao",
+    "city": "Nan'ao",
     "state": "Hebei",
     "country": "China"
   },
@@ -1240,7 +1395,12 @@ export const naCities = [
     "country": "India"
   },
   {
-    "city": "Narsiml\u0101pet",
+    "city": "Nahan",
+    "state": "Him\u0101chal Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Narsimlapet",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1260,7 +1420,7 @@ export const naCities = [
     "country": "Mongolia"
   },
   {
-    "city": "Nall\u0131han",
+    "city": "Nallihan",
     "state": "Ankara",
     "country": "Turkey"
   },
@@ -1280,7 +1440,12 @@ export const naCities = [
     "country": "China"
   },
   {
-    "city": "Nalb\u0101ri",
+    "city": "Nasriganj",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Nalbari",
     "state": "Assam",
     "country": "India"
   },
@@ -1295,7 +1460,7 @@ export const naCities = [
     "country": "Japan"
   },
   {
-    "city": "Nazar\u00e9",
+    "city": "Nazare",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -1325,6 +1490,11 @@ export const naCities = [
     "country": "Thailand"
   },
   {
+    "city": "Nadbai",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
     "city": "Navabad",
     "state": "Nohiyahoi Tobei Jumhur\u00ed",
     "country": "Tajikistan"
@@ -1350,6 +1520,11 @@ export const naCities = [
     "country": "China"
   },
   {
+    "city": "Nagod",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Nanminda",
     "state": "Kerala",
     "country": "India"
@@ -1365,7 +1540,12 @@ export const naCities = [
     "country": "Philippines"
   },
   {
-    "city": "Nab\u012bnagar",
+    "city": "Namrup",
+    "state": "Assam",
+    "country": "India"
+  },
+  {
+    "city": "Nabinagar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1385,12 +1565,12 @@ export const naCities = [
     "country": "India"
   },
   {
-    "city": "Nar\u2019yan-Mar",
+    "city": "Nar'yan-Mar",
     "state": "Nenetskiy Avtonomnyy Okrug",
     "country": "Russia"
   },
   {
-    "city": "Narut\u014d",
+    "city": "Naruto",
     "state": "Chiba",
     "country": "Japan"
   },
@@ -1415,8 +1595,18 @@ export const naCities = [
     "country": "Japan"
   },
   {
-    "city": "Nagarp\u0101ra",
+    "city": "Nagarpara",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Naravarikuppam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Nayanakulam",
+    "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
@@ -1430,7 +1620,7 @@ export const naCities = [
     "country": "Japan"
   },
   {
-    "city": "Nagyk\u0151r\u00f6s",
+    "city": "Nagykoros",
     "state": "Pest",
     "country": "Hungary"
   },
@@ -1445,7 +1635,7 @@ export const naCities = [
     "country": "Peru"
   },
   {
-    "city": "Nay\u0101gaon",
+    "city": "Nayagaon",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -1455,12 +1645,17 @@ export const naCities = [
     "country": "Mexico"
   },
   {
-    "city": "Nasrull\u0101hganj",
+    "city": "Nahiyat al Kifl",
+    "state": "B\u0101bil",
+    "country": "Iraq"
+  },
+  {
+    "city": "Nasrullahganj",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Nak\u016br",
+    "city": "Nakur",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -1515,7 +1710,12 @@ export const naCities = [
     "country": "India"
   },
   {
-    "city": "Naq\u0101dah",
+    "city": "Naranammalpuram",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Naqadah",
     "state": "Qin\u0101",
     "country": "Egypt"
   },
@@ -1540,12 +1740,22 @@ export const naCities = [
     "country": "India"
   },
   {
+    "city": "Namagiripettai",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Narkher",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
   {
-    "city": "Nambiy\u016br",
+    "city": "Nagamangala",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Nambiyur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1580,7 +1790,7 @@ export const naCities = [
     "country": "India"
   },
   {
-    "city": "Nadik\u016bde",
+    "city": "Nadikude",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1595,17 +1805,27 @@ export const naCities = [
     "country": "Mexico"
   },
   {
+    "city": "Naranda",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
+    "city": "Nachod",
+    "state": "Kr\u00e1lov\u00e9hradeck\u00fd Kraj",
+    "country": "Czechia"
+  },
+  {
     "city": "Namegawa",
     "state": "Saitama",
     "country": "Japan"
   },
   {
-    "city": "Namb\u016bru",
+    "city": "Namburu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Nars\u0101pur",
+    "city": "Narsapur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1635,19 +1855,29 @@ export const naCities = [
     "country": "India"
   },
   {
+    "city": "Narapala",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Nakasi",
     "state": "Naitasiri",
     "country": "Fiji"
   },
   {
-    "city": "Nay\u0101garh",
+    "city": "Nayagarh",
     "state": "Odisha",
     "country": "India"
   },
   {
-    "city": "Nanjan\u0101d",
+    "city": "Nanjanad",
     "state": "Tamil N\u0101du",
     "country": "India"
+  },
+  {
+    "city": "Naousa",
+    "state": "Kentrik\u00ed Makedon\u00eda",
+    "country": "Greece"
   },
   {
     "city": "Naaldwijk",
@@ -1655,7 +1885,7 @@ export const naCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Nakhl-e Taq\u012b",
+    "city": "Nakhl-e Taqi",
     "state": "B\u016bshehr",
     "country": "Iran"
   },
@@ -1675,9 +1905,14 @@ export const naCities = [
     "country": "Mali"
   },
   {
-    "city": "Narl\u0131ca",
+    "city": "Narlica",
     "state": "Hatay",
     "country": "Turkey"
+  },
+  {
+    "city": "Nari Bhadaun",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Navraftor",
@@ -1685,7 +1920,12 @@ export const naCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Nazar\u00e9 Paulista",
+    "city": "Narayankher",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Nazare Paulista",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -1700,12 +1940,17 @@ export const naCities = [
     "country": "United States"
   },
   {
-    "city": "Nak\u0142o nad Noteci\u0105",
+    "city": "Nao-Me-Toque",
+    "state": "Rio Grande do Sul",
+    "country": "Brazil"
+  },
+  {
+    "city": "Naklo nad Notecia",
     "state": "Kujawsko-Pomorskie",
     "country": "Poland"
   },
   {
-    "city": "Nah\u0101z\u0101ri",
+    "city": "Nahazari",
     "state": "West Bengal",
     "country": "India"
   },
@@ -1725,14 +1970,24 @@ export const naCities = [
     "country": "India"
   },
   {
+    "city": "Nayakanhatti",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
     "city": "Naula",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Namys\u0142\u00f3w",
+    "city": "Namyslow",
     "state": "Opolskie",
     "country": "Poland"
+  },
+  {
+    "city": "Naranattenvanpatti",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Navalmoral de la Mata",
@@ -1743,6 +1998,11 @@ export const naCities = [
     "city": "Nandigaon",
     "state": "Telang\u0101na",
     "country": "India"
+  },
+  {
+    "city": "Nassjo",
+    "state": "J\u00f6nk\u00f6ping",
+    "country": "Sweden"
   },
   {
     "city": "Nanbu",
@@ -1770,7 +2030,7 @@ export const naCities = [
     "country": "Thailand"
   },
   {
-    "city": "Nan\u0101ttup\u0101rai",
+    "city": "Nanattuparai",
     "state": "Kerala",
     "country": "India"
   },
@@ -1810,12 +2070,12 @@ export const naCities = [
     "country": "Japan"
   },
   {
-    "city": "Nakanoj\u014dmachi",
+    "city": "Nakanojomachi",
     "state": "Gunma",
     "country": "Japan"
   },
   {
-    "city": "Nazar\u00e9",
+    "city": "Nazare",
     "state": "Leiria",
     "country": "Portugal"
   },
@@ -1850,7 +2110,7 @@ export const naCities = [
     "country": "Finland"
   },
   {
-    "city": "Nagar\u016br",
+    "city": "Nagarur",
     "state": "Kerala",
     "country": "India"
   },
@@ -1870,7 +2130,12 @@ export const naCities = [
     "country": "Kenya"
   },
   {
-    "city": "Nadis\u0101l",
+    "city": "Nagireddipalli",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Nadisal",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1915,7 +2180,7 @@ export const naCities = [
     "country": "Uganda"
   },
   {
-    "city": "Na\u0161ice",
+    "city": "Nasice",
     "state": "Osje\u010dko-Baranjska \u017dupanija",
     "country": "Croatia"
   },
@@ -1923,6 +2188,11 @@ export const naCities = [
     "city": "Nagardevla Budrukh",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
+  },
+  {
+    "city": "Nafplio",
+    "state": "Pelop\u00f3nnisos",
+    "country": "Greece"
   },
   {
     "city": "Nallagunta",
@@ -1935,7 +2205,7 @@ export const naCities = [
     "country": "Norway"
   },
   {
-    "city": "Na\u0163anz",
+    "city": "Natanz",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
@@ -1960,19 +2230,24 @@ export const naCities = [
     "country": "Japan"
   },
   {
-    "city": "Naw\u0101garh",
+    "city": "Nawagarh",
     "state": "Him\u0101chal Pradesh",
     "country": "India"
   },
   {
-    "city": "Naw\u0101da",
+    "city": "Nawada",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Nam\u012bn",
+    "city": "Namin",
     "state": "Ardab\u012bl",
     "country": "Iran"
+  },
+  {
+    "city": "Nalatvad",
+    "state": "Karn\u0101taka",
+    "country": "India"
   },
   {
     "city": "Nagnur",
@@ -1985,8 +2260,18 @@ export const naCities = [
     "country": "India"
   },
   {
+    "city": "Nafpaktos",
+    "state": "Dytik\u00ed Ell\u00e1da",
+    "country": "Greece"
+  },
+  {
     "city": "Nattappettai",
     "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Narayangarh",
+    "state": "Madhya Pradesh",
     "country": "India"
   },
   {
@@ -1995,7 +2280,7 @@ export const naCities = [
     "country": "United States"
   },
   {
-    "city": "Nanjai Kil\u0101b\u0101di",
+    "city": "Nanjai Kilabadi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2005,12 +2290,12 @@ export const naCities = [
     "country": "Lesotho"
   },
   {
-    "city": "Nasiyan\u016br",
+    "city": "Nasiyanur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Nacozari de Garc\u00eda",
+    "city": "Nacozari de Garcia",
     "state": "Sonora",
     "country": "Mexico"
   },
@@ -2025,12 +2310,12 @@ export const naCities = [
     "country": "India"
   },
   {
-    "city": "Nandy\u0101lampeta",
+    "city": "Nandyalampeta",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Naw\u0101da Gobindganj",
+    "city": "Nawada Gobindganj",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2050,7 +2335,7 @@ export const naCities = [
     "country": "India"
   },
   {
-    "city": "Nakhtar\u0101na",
+    "city": "Nakhtarana",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -2058,6 +2343,11 @@ export const naCities = [
     "city": "Nanzhai",
     "state": "Guizhou",
     "country": "China"
+  },
+  {
+    "city": "Naysar",
+    "state": "Kordest\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Nakskov",
@@ -2075,7 +2365,7 @@ export const naCities = [
     "country": "India"
   },
   {
-    "city": "Naw\u0101da",
+    "city": "Nawada",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2105,12 +2395,17 @@ export const naCities = [
     "country": "India"
   },
   {
+    "city": "Nattarampalli",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Nariman",
     "state": "Osh",
     "country": "Kyrgyzstan"
   },
   {
-    "city": "Nagyk\u00e1ta",
+    "city": "Nagykata",
     "state": "Pest",
     "country": "Hungary"
   },
@@ -2130,7 +2425,7 @@ export const naCities = [
     "country": "Uganda"
   },
   {
-    "city": "Naras\u0101puram",
+    "city": "Narasapuram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2140,12 +2435,12 @@ export const naCities = [
     "country": "India"
   },
   {
-    "city": "Naw\u0101 Nagar Niz\u0101mat",
+    "city": "Nawa Nagar Nizamat",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Nall\u016br",
+    "city": "Nallur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -2155,7 +2450,7 @@ export const naCities = [
     "country": "Belgium"
   },
   {
-    "city": "Na\u012bgarhi",
+    "city": "Naigarhi",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -2163,6 +2458,11 @@ export const naCities = [
     "city": "Navarro",
     "state": "Buenos Aires",
     "country": "Argentina"
+  },
+  {
+    "city": "Nalwar",
+    "state": "Karn\u0101taka",
+    "country": "India"
   },
   {
     "city": "Nandipeta",
@@ -2175,7 +2475,7 @@ export const naCities = [
     "country": "India"
   },
   {
-    "city": "Nalamb\u016br",
+    "city": "Nalambur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2190,6 +2490,11 @@ export const naCities = [
     "country": "Kyrgyzstan"
   },
   {
+    "city": "Narayanavanam",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Namli",
     "state": "Madhya Pradesh",
     "country": "India"
@@ -2198,6 +2503,11 @@ export const naCities = [
     "city": "Nambour",
     "state": "Queensland",
     "country": "Australia"
+  },
+  {
+    "city": "Nagalapuram",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Nandayure",
@@ -2213,6 +2523,11 @@ export const naCities = [
     "city": "Nazyvayevsk",
     "state": "Omskaya Oblast\u2019",
     "country": "Russia"
+  },
+  {
+    "city": "Nagojanahalli",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Narimanov",
@@ -2245,12 +2560,22 @@ export const naCities = [
     "country": "India"
   },
   {
+    "city": "Nadendla",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Nauheim",
     "state": "Hesse",
     "country": "Germany"
   },
   {
-    "city": "Na Sceir\u00ed",
+    "city": "Naranapuram",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Na Sceiri",
     "state": "Fingal",
     "country": "Ireland"
   },
@@ -2295,12 +2620,22 @@ export const naCities = [
     "country": "Italy"
   },
   {
+    "city": "Nagambhotlapalem",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Nahargarh",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Naganuma",
     "state": "Hokkaid\u014d",
     "country": "Japan"
   },
   {
-    "city": "Nallipp\u0101laiyam",
+    "city": "Nallippalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2340,18 +2675,33 @@ export const naCities = [
     "country": "Philippines"
   },
   {
+    "city": "Nana",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
     "city": "Nanbu",
     "state": "Tottori",
     "country": "Japan"
   },
   {
-    "city": "Naz\u00e1ria",
+    "city": "Nazaria",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
   {
-    "city": "Nay\u0101nagar",
+    "city": "Nayanagar",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Nasaud",
+    "state": "Bistri\u0163a-N\u0103s\u0103ud",
+    "country": "Romania"
+  },
+  {
+    "city": "Nagasamudram",
+    "state": "Andhra Pradesh",
     "country": "India"
   },
   {
@@ -2375,6 +2725,11 @@ export const naCities = [
     "country": "India"
   },
   {
+    "city": "Nathpur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Naftalan",
     "state": "Naftalan",
     "country": "Azerbaijan"
@@ -2390,7 +2745,7 @@ export const naCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Nallikod\u016br",
+    "city": "Nallikodur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -2400,7 +2755,7 @@ export const naCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Nari\u0101r",
+    "city": "Nariar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2410,18 +2765,28 @@ export const naCities = [
     "country": "Taiwan"
   },
   {
+    "city": "Navinipatti",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Namakadu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Nay\u0101gaon",
+    "city": "Nayagaon",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Narasimhar\u0101japura",
+    "city": "Narasimharajapura",
     "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Nagulapadu",
+    "state": "Andhra Pradesh",
     "country": "India"
   },
   {
@@ -2430,7 +2795,7 @@ export const naCities = [
     "country": "India"
   },
   {
-    "city": "Nanjund\u0101puram",
+    "city": "Nanjundapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2445,12 +2810,22 @@ export const naCities = [
     "country": "Japan"
   },
   {
-    "city": "Nandam\u016bru",
+    "city": "Nagathan",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Nandamuru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Naru\u0101r",
+    "city": "Nazira",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
+    "city": "Naruar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2460,18 +2835,28 @@ export const naCities = [
     "country": "India"
   },
   {
-    "city": "Nagyat\u00e1d",
+    "city": "Nagyatad",
     "state": "Somogy",
     "country": "Hungary"
   },
   {
-    "city": "Nath\u0101na",
+    "city": "Nathana",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Nadimp\u0101lem",
+    "city": "Narayanraopet",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Nadimpalem",
     "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Narsingi",
+    "state": "Telang\u0101na",
     "country": "India"
   },
   {
@@ -2480,8 +2865,18 @@ export const naCities = [
     "country": "India"
   },
   {
-    "city": "Nattakk\u0101daiy\u016br",
+    "city": "Narpes",
+    "state": "Pohjanmaa",
+    "country": "Finland"
+  },
+  {
+    "city": "Nattakkadaiyur",
     "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Nagayalanka",
+    "state": "Andhra Pradesh",
     "country": "India"
   },
   {
@@ -2500,17 +2895,22 @@ export const naCities = [
     "country": "Japan"
   },
   {
-    "city": "Nasht\u012bf\u0101n",
+    "city": "Nashtifan",
     "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
     "country": "Iran"
   },
   {
-    "city": "Nagyk\u00e1ll\u00f3",
+    "city": "Narayanpur",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Nagykallo",
     "state": "Szabolcs-Szatm\u00e1r-Bereg",
     "country": "Hungary"
   },
   {
-    "city": "Nandiy\u0101lam",
+    "city": "Nandiyalam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2535,6 +2935,16 @@ export const naCities = [
     "country": "Taiwan"
   },
   {
+    "city": "Nadol",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
+    "city": "Narsingi",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
     "city": "Nato",
     "state": "Fianarantsoa",
     "country": "Madagascar"
@@ -2550,8 +2960,13 @@ export const naCities = [
     "country": "China"
   },
   {
-    "city": "Naw\u0101da",
+    "city": "Nawada",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Nanguneri",
+    "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
@@ -2565,12 +2980,17 @@ export const naCities = [
     "country": "United States"
   },
   {
+    "city": "Nanan",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Naunhof",
     "state": "Saxony",
     "country": "Germany"
   },
   {
-    "city": "Nagykov\u00e1csi",
+    "city": "Nagykovacsi",
     "state": "Pest",
     "country": "Hungary"
   },
@@ -2585,6 +3005,16 @@ export const naCities = [
     "country": "Thailand"
   },
   {
+    "city": "Nagaiyampatti",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Narona",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
     "city": "Navappatti",
     "state": "Tamil N\u0101du",
     "country": "India"
@@ -2595,12 +3025,17 @@ export const naCities = [
     "country": "China"
   },
   {
+    "city": "Nattarasankottai",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Nagdah",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Najr\u012bj",
+    "city": "Najrij",
     "state": "Al Gharb\u012byah",
     "country": "Egypt"
   },
@@ -2610,17 +3045,17 @@ export const naCities = [
     "country": "Tanzania"
   },
   {
-    "city": "Nandn\u0101w\u0101n",
+    "city": "Nandnawan",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Nay\u0101gaon",
+    "city": "Nayagaon",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Nari\u00f1o",
+    "city": "Narino",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -2640,12 +3075,22 @@ export const naCities = [
     "country": "India"
   },
   {
-    "city": "Naw\u0101nagar",
+    "city": "Nangal Chaudhri",
+    "state": "Hary\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Nawanagar",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Nal\u0101s",
+    "city": "Nalikkalpatti",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Nalas",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Gharb\u012b",
     "country": "Iran"
   },
@@ -2655,7 +3100,7 @@ export const naCities = [
     "country": "Norway"
   },
   {
-    "city": "Naujoji Akmen\u0117",
+    "city": "Naujoji Akmene",
     "state": "Akmen\u0117",
     "country": "Lithuania"
   },
@@ -2725,6 +3170,11 @@ export const naCities = [
     "country": "Russia"
   },
   {
+    "city": "Nacunday",
+    "state": "Alto Paran\u00e1",
+    "country": "Paraguay"
+  },
+  {
     "city": "Nazarje",
     "state": "Nazarje",
     "country": "Slovenia"
@@ -2760,7 +3210,7 @@ export const naCities = [
     "country": "China"
   },
   {
-    "city": "Navs\u0101ri",
+    "city": "Navsari",
     "state": "Gujar\u0101t",
     "country": "India"
   }

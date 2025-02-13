@@ -10,7 +10,7 @@ export const neCities = [
     "country": "China"
   },
   {
-    "city": "Nezahualc\u00f3yotl",
+    "city": "Nezahualcoyotl",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
@@ -80,7 +80,7 @@ export const neCities = [
     "country": "India"
   },
   {
-    "city": "Neuqu\u00e9n",
+    "city": "Neuquen",
     "state": "Neuqu\u00e9n",
     "country": "Argentina"
   },
@@ -90,7 +90,7 @@ export const neCities = [
     "country": "Japan"
   },
   {
-    "city": "Neysh\u0101b\u016br",
+    "city": "Neyshabur",
     "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
     "country": "Iran"
   },
@@ -125,7 +125,7 @@ export const neCities = [
     "country": "United States"
   },
   {
-    "city": "Nev\u015fehir",
+    "city": "Nevsehir",
     "state": "Nev\u015fehir",
     "country": "Turkey"
   },
@@ -135,7 +135,7 @@ export const neCities = [
     "country": "Australia"
   },
   {
-    "city": "Nek\u2019emt\u0113",
+    "city": "Nek'emte",
     "state": "Orom\u012bya",
     "country": "Ethiopia"
   },
@@ -153,6 +153,11 @@ export const neCities = [
     "city": "Nefteyugansk",
     "state": "Khanty-Mansiyskiy Avtonomnyy Okrug-Yugra",
     "country": "Russia"
+  },
+  {
+    "city": "Nemby",
+    "state": "Central",
+    "country": "Paraguay"
   },
   {
     "city": "Neftekamsk",
@@ -220,7 +225,7 @@ export const neCities = [
     "country": "United States"
   },
   {
-    "city": "Neum\u00fcnster",
+    "city": "Neumunster",
     "state": "Schleswig-Holstein",
     "country": "Germany"
   },
@@ -240,19 +245,29 @@ export const neCities = [
     "country": "United States"
   },
   {
-    "city": "Nep\u0101lga\u00f1j",
+    "city": "Nea Smyrni",
+    "state": "Attik\u00ed",
+    "country": "Greece"
+  },
+  {
+    "city": "Nepalganj",
     "state": NaN,
     "country": "Nepal"
   },
   {
-    "city": "Neyy\u0101ttinkara",
+    "city": "Neyyattinkara",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Necocl\u00ed",
+    "city": "Necocli",
     "state": "Antioquia",
     "country": "Colombia"
+  },
+  {
+    "city": "Nea Ionia",
+    "state": "Attik\u00ed",
+    "country": "Greece"
   },
   {
     "city": "Neuwied",
@@ -270,12 +285,12 @@ export const neCities = [
     "country": "Germany"
   },
   {
-    "city": "Nek\u0101",
+    "city": "Neka",
     "state": "M\u0101zandar\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Nedumang\u0101d",
+    "city": "Nedumangad",
     "state": "Kerala",
     "country": "India"
   },
@@ -320,7 +335,7 @@ export const neCities = [
     "country": "Taiwan"
   },
   {
-    "city": "Nent\u00f3n",
+    "city": "Nenton",
     "state": "Huehuetenango",
     "country": "Guatemala"
   },
@@ -330,12 +345,12 @@ export const neCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Nes \u1e94iyyona",
+    "city": "Nes Ziyyona",
     "state": "Central",
     "country": "Israel"
   },
   {
-    "city": "Neyr\u012bz",
+    "city": "Neyriz",
     "state": "F\u0101rs",
     "country": "Iran"
   },
@@ -370,7 +385,7 @@ export const neCities = [
     "country": "New Zealand"
   },
   {
-    "city": "Neustadt am R\u00fcbenberge",
+    "city": "Neustadt am Rubenberge",
     "state": "Lower Saxony",
     "country": "Germany"
   },
@@ -440,7 +455,7 @@ export const neCities = [
     "country": "Dominican Republic"
   },
   {
-    "city": "Nell\u0101ya",
+    "city": "Nellaya",
     "state": "Kerala",
     "country": "India"
   },
@@ -465,7 +480,7 @@ export const neCities = [
     "country": "United States"
   },
   {
-    "city": "Neuch\u00e2tel",
+    "city": "Neuchatel",
     "state": "Neuch\u00e2tel",
     "country": "Switzerland"
   },
@@ -485,7 +500,7 @@ export const neCities = [
     "country": "United States"
   },
   {
-    "city": "Ner\u00f3polis",
+    "city": "Neropolis",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -540,7 +555,7 @@ export const neCities = [
     "country": "India"
   },
   {
-    "city": "Nep\u0101nagar",
+    "city": "Nepanagar",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -560,7 +575,7 @@ export const neCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Neduvann\u016br",
+    "city": "Neduvannur",
     "state": "Kerala",
     "country": "India"
   },
@@ -635,9 +650,14 @@ export const neCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Nech\u00ed",
+    "city": "Nechi",
     "state": "Antioquia",
     "country": "Colombia"
+  },
+  {
+    "city": "Nea Filadelfeia",
+    "state": "Attik\u00ed",
+    "country": "Greece"
   },
   {
     "city": "New Milton",
@@ -645,12 +665,12 @@ export const neCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Net\u0101pur T\u0101nda",
+    "city": "Netapur Tanda",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Nettapp\u0101kkam",
+    "city": "Nettappakkam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -685,7 +705,7 @@ export const neCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Neduvatt\u016br",
+    "city": "Neduvattur",
     "state": "Kerala",
     "country": "India"
   },
@@ -715,7 +735,7 @@ export const neCities = [
     "country": "China"
   },
   {
-    "city": "Neus\u00e4\u00df",
+    "city": "Neusass",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -728,6 +748,11 @@ export const neCities = [
     "city": "Nevyansk",
     "state": "Sverdlovskaya Oblast\u2019",
     "country": "Russia"
+  },
+  {
+    "city": "Nema",
+    "state": "Hodh ech Chargui",
+    "country": "Mauritania"
   },
   {
     "city": "New Hartford",
@@ -820,7 +845,7 @@ export const neCities = [
     "country": "Germany"
   },
   {
-    "city": "Nefas Mewch\u2019a",
+    "city": "Nefas Mewch'a",
     "state": "\u0100mara",
     "country": "Ethiopia"
   },
@@ -845,7 +870,7 @@ export const neCities = [
     "country": "United States"
   },
   {
-    "city": "Nehband\u0101n",
+    "city": "Nehbandan",
     "state": "Khor\u0101s\u0101n-e Jon\u016bb\u012b",
     "country": "Iran"
   },
@@ -885,6 +910,11 @@ export const neCities = [
     "country": "United States"
   },
   {
+    "city": "Nea Erythraia",
+    "state": "Attik\u00ed",
+    "country": "Greece"
+  },
+  {
     "city": "New Amsterdam",
     "state": "East Berbice-Corentyne",
     "country": "Guyana"
@@ -920,7 +950,12 @@ export const neCities = [
     "country": "United States"
   },
   {
-    "city": "Ne\u00f3polis",
+    "city": "Nea Makri",
+    "state": "Attik\u00ed",
+    "country": "Greece"
+  },
+  {
+    "city": "Neopolis",
     "state": "Sergipe",
     "country": "Brazil"
   },
@@ -935,7 +970,7 @@ export const neCities = [
     "country": "India"
   },
   {
-    "city": "Neykk\u0101rappatti",
+    "city": "Neykkarappatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1025,7 +1060,7 @@ export const neCities = [
     "country": "United States"
   },
   {
-    "city": "Neq\u0101b",
+    "city": "Neqab",
     "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
     "country": "Iran"
   },
@@ -1035,7 +1070,12 @@ export const neCities = [
     "country": "Germany"
   },
   {
-    "city": "Negre\u015fti-Oa\u015f",
+    "city": "Nea Alikarnassos",
+    "state": "Kr\u00edti",
+    "country": "Greece"
+  },
+  {
+    "city": "Negresti-Oas",
     "state": "Satu Mare",
     "country": "Romania"
   },
@@ -1065,7 +1105,7 @@ export const neCities = [
     "country": "Germany"
   },
   {
-    "city": "Neft\u00e7ala",
+    "city": "Neftcala",
     "state": "Neft\u00e7ala",
     "country": "Azerbaijan"
   },
@@ -1100,7 +1140,7 @@ export const neCities = [
     "country": "United States"
   },
   {
-    "city": "Nehr\u0259m",
+    "city": "Nehram",
     "state": "Bab\u0259k",
     "country": "Azerbaijan"
   },
@@ -1115,7 +1155,7 @@ export const neCities = [
     "country": "United States"
   },
   {
-    "city": "Neckargem\u00fcnd",
+    "city": "Neckargemund",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
@@ -1130,7 +1170,7 @@ export const neCities = [
     "country": "United States"
   },
   {
-    "city": "Nemoc\u00f3n",
+    "city": "Nemocon",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
@@ -1160,7 +1200,7 @@ export const neCities = [
     "country": "United States"
   },
   {
-    "city": "Neykk\u0101rappatti",
+    "city": "Neykkarappatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1210,7 +1250,7 @@ export const neCities = [
     "country": "Germany"
   },
   {
-    "city": "Nelmad\u016br",
+    "city": "Nelmadur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1280,7 +1320,7 @@ export const neCities = [
     "country": "Germany"
   },
   {
-    "city": "Neg\u0113l\u0113",
+    "city": "Negele",
     "state": "Orom\u012bya",
     "country": "Ethiopia"
   },
@@ -1295,7 +1335,7 @@ export const neCities = [
     "country": "India"
   },
   {
-    "city": "Nellip\u0101ka",
+    "city": "Nellipaka",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1345,7 +1385,7 @@ export const neCities = [
     "country": "United States"
   },
   {
-    "city": "Nedeli\u0161\u0107e",
+    "city": "Nedelisce",
     "state": "Me\u0111imurska \u017dupanija",
     "country": "Croatia"
   },
@@ -1410,6 +1450,11 @@ export const neCities = [
     "country": "United States"
   },
   {
+    "city": "Neo Karlovasi",
+    "state": "V\u00f3reio Aiga\u00edo",
+    "country": "Greece"
+  },
+  {
     "city": "New Silksworth",
     "state": "Sunderland",
     "country": "United Kingdom"
@@ -1423,6 +1468,11 @@ export const neCities = [
     "city": "New Richmond",
     "state": "Wisconsin",
     "country": "United States"
+  },
+  {
+    "city": "Neo Psychiko",
+    "state": "Attik\u00ed",
+    "country": "Greece"
   },
   {
     "city": "Neves",
@@ -1450,7 +1500,7 @@ export const neCities = [
     "country": "Brazil"
   },
   {
-    "city": "Neuville-l\u00e8s-Dieppe",
+    "city": "Neuville-les-Dieppe",
     "state": "Normandie",
     "country": "France"
   },
@@ -1468,6 +1518,11 @@ export const neCities = [
     "city": "Newburn",
     "state": "Gateshead",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Nea Artaki",
+    "state": "Stere\u00e1 Ell\u00e1da",
+    "country": "Greece"
   },
   {
     "city": "Nehoiu",
@@ -1493,6 +1548,11 @@ export const neCities = [
     "city": "Nepi",
     "state": "Lazio",
     "country": "Italy"
+  },
+  {
+    "city": "Nea Moudania",
+    "state": "Kentrik\u00ed Makedon\u00eda",
+    "country": "Greece"
   },
   {
     "city": "Newfane",
@@ -1535,7 +1595,7 @@ export const neCities = [
     "country": "Germany"
   },
   {
-    "city": "Neu\u00f6tting",
+    "city": "Neuotting",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -1565,6 +1625,11 @@ export const neCities = [
     "country": "Switzerland"
   },
   {
+    "city": "Nea Michaniona",
+    "state": "Kentrik\u00ed Makedon\u00eda",
+    "country": "Greece"
+  },
+  {
     "city": "Newstead",
     "state": "New York",
     "country": "United States"
@@ -1575,12 +1640,12 @@ export const neCities = [
     "country": "Ireland"
   },
   {
-    "city": "Nefas\u012bt",
+    "city": "Nefasit",
     "state": "Semienawi K\u2019eyy\u012dh\u0323 Bah\u0323ri",
     "country": "Eritrea"
   },
   {
-    "city": "Nett\u0101dahalli",
+    "city": "Nettadahalli",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1590,17 +1655,17 @@ export const neCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Nerk\u2019in Getashen",
+    "city": "Nerk'in Getashen",
     "state": "Geghark\u2019unik\u2019",
     "country": "Armenia"
   },
   {
-    "city": "Nes\u0101rg",
+    "city": "Nesarg",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Neuenb\u00fcrg",
+    "city": "Neuenburg",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },

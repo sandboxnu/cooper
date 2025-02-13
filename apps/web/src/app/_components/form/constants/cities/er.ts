@@ -10,7 +10,12 @@ export const erCities = [
     "country": "Turkey"
   },
   {
-    "city": "Erk\u00f6kl\u00fc",
+    "city": "Erer Sata",
+    "state": "Sumal\u0113",
+    "country": "Ethiopia"
+  },
+  {
+    "city": "Erkoklu",
     "state": "Batman",
     "country": "Turkey"
   },
@@ -20,7 +25,7 @@ export const erCities = [
     "country": "United States"
   },
   {
-    "city": "Erci\u015f",
+    "city": "Ercis",
     "state": "Van",
     "country": "Turkey"
   },
@@ -40,7 +45,7 @@ export const erCities = [
     "country": "India"
   },
   {
-    "city": "Ere\u011fli",
+    "city": "Eregli",
     "state": "Konya",
     "country": "Turkey"
   },
@@ -50,7 +55,7 @@ export const erCities = [
     "country": "Turkey"
   },
   {
-    "city": "Ere\u011fli",
+    "city": "Eregli",
     "state": "Zonguldak",
     "country": "Turkey"
   },
@@ -83,6 +88,11 @@ export const erCities = [
     "city": "Ermelo",
     "state": "Mpumalanga",
     "country": "South Africa"
+  },
+  {
+    "city": "Erd",
+    "state": "Pest",
+    "country": "Hungary"
   },
   {
     "city": "Erumaippatti",
@@ -125,7 +135,7 @@ export const erCities = [
     "country": "Turkey"
   },
   {
-    "city": "Erramv\u0101rip\u0101lem",
+    "city": "Erramvaripalem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -150,7 +160,7 @@ export const erCities = [
     "country": "India"
   },
   {
-    "city": "Er\u0101mala",
+    "city": "Eramala",
     "state": "Kerala",
     "country": "India"
   },
@@ -195,7 +205,7 @@ export const erCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Erval d\u2019Oeste",
+    "city": "Erval d'Oeste",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -205,12 +215,12 @@ export const erCities = [
     "country": "Turkey"
   },
   {
-    "city": "Erv\u00e1lia",
+    "city": "Ervalia",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
   {
-    "city": "Erragondap\u0101lem",
+    "city": "Erragondapalem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -235,7 +245,12 @@ export const erCities = [
     "country": "India"
   },
   {
-    "city": "Erum\u0101p\u0101laiyam",
+    "city": "Eragny",
+    "state": "\u00cele-de-France",
+    "country": "France"
+  },
+  {
+    "city": "Erumapalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -245,12 +260,12 @@ export const erCities = [
     "country": "China"
   },
   {
-    "city": "Erum\u0101d",
+    "city": "Erumad",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Erv\u0101di",
+    "city": "Ervadi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -270,27 +285,27 @@ export const erCities = [
     "country": "Germany"
   },
   {
-    "city": "Eravatt\u016br",
+    "city": "Eravattur",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Erm\u00faa",
+    "city": "Ermua",
     "state": "Basque Country",
     "country": "Spain"
   },
   {
-    "city": "Ernag\u016bdem",
+    "city": "Ernagudem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Erongar\u00edcuaro",
+    "city": "Erongaricuaro",
     "state": "Michoac\u00e1n",
     "country": "Mexico"
   },
   {
-    "city": "Eraur\u0101",
+    "city": "Eraura",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -310,7 +325,7 @@ export const erCities = [
     "country": "Germany"
   },
   {
-    "city": "Ermo\u00fapoli",
+    "city": "Ermoupoli",
     "state": "N\u00f3tio Aiga\u00edo",
     "country": "Greece"
   },
@@ -320,7 +335,7 @@ export const erCities = [
     "country": "Germany"
   },
   {
-    "city": "Ereymenta\u016b",
+    "city": "Ereymentau",
     "state": "Aqmola",
     "country": "Kazakhstan"
   },
@@ -375,7 +390,7 @@ export const erCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Eran\u0101puram",
+    "city": "Eranapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -455,7 +470,7 @@ export const erCities = [
     "country": "India"
   },
   {
-    "city": "Erd\u0151kertes",
+    "city": "Erdokertes",
     "state": "Pest",
     "country": "Hungary"
   },
@@ -470,7 +485,7 @@ export const erCities = [
     "country": "Germany"
   },
   {
-    "city": "Ergu\u00e9-Gab\u00e9ric",
+    "city": "Ergue-Gaberic",
     "state": "Bretagne",
     "country": "France"
   },
@@ -480,7 +495,7 @@ export const erCities = [
     "country": "Kazakhstan"
   },
   {
-    "city": "Ersek\u00eb",
+    "city": "Erseke",
     "state": "Kor\u00e7\u00eb",
     "country": "Albania"
   },

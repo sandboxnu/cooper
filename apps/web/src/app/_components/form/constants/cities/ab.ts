@@ -30,12 +30,12 @@ export const abCities = [
     "country": "Benin"
   },
   {
-    "city": "Ab\u016b \u1e28ummu\u015f",
+    "city": "Abu Hummus",
     "state": "Al Bu\u1e29ayrah",
     "country": "Egypt"
   },
   {
-    "city": "Ab\u016b \u0162isht",
+    "city": "Abu Tisht",
     "state": "Qin\u0101",
     "country": "Egypt"
   },
@@ -45,12 +45,12 @@ export const abCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Ab\u012b al Kha\u015f\u012bb",
+    "city": "Abi al Khasib",
     "state": "Al Ba\u015frah",
     "country": "Iraq"
   },
   {
-    "city": "Abh\u0101",
+    "city": "Abha",
     "state": "\u2018As\u012br",
     "country": "Saudi Arabia"
   },
@@ -60,7 +60,7 @@ export const abCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Ab\u016b Ghurayb",
+    "city": "Abu Ghurayb",
     "state": "Baghd\u0101d",
     "country": "Iraq"
   },
@@ -75,7 +75,7 @@ export const abCities = [
     "country": "C\u00f4te d\u2019Ivoire"
   },
   {
-    "city": "Ab\u016b \u1e28ulayfah",
+    "city": "Abu Hulayfah",
     "state": "Al A\u1e29mad\u012b",
     "country": "Kuwait"
   },
@@ -140,7 +140,7 @@ export const abCities = [
     "country": "Benin"
   },
   {
-    "city": "Ab\u00e9ch\u00e9",
+    "city": "Abeche",
     "state": "Ouadda\u00ef",
     "country": "Chad"
   },
@@ -150,12 +150,12 @@ export const abCities = [
     "country": "Peru"
   },
   {
-    "city": "Abn\u016bb",
+    "city": "Abnub",
     "state": "Asy\u016b\u0163",
     "country": "Egypt"
   },
   {
-    "city": "Ab\u016b Qurq\u0101\u015f",
+    "city": "Abu Qurqas",
     "state": "Al Miny\u0101",
     "country": "Egypt"
   },
@@ -165,12 +165,17 @@ export const abCities = [
     "country": "Philippines"
   },
   {
+    "city": "Abyek",
+    "state": "Qazv\u012bn",
+    "country": "Iran"
+  },
+  {
     "city": "Abington",
     "state": "Pennsylvania",
     "country": "United States"
   },
   {
-    "city": "Ab\u016b Za\u2018bal",
+    "city": "Abu Za`bal",
     "state": "Al Qaly\u016bb\u012byah",
     "country": "Egypt"
   },
@@ -180,7 +185,7 @@ export const abCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Ab\u016b \u1e28amad",
+    "city": "Abu Hamad",
     "state": "River Nile",
     "country": "Sudan"
   },
@@ -190,7 +195,7 @@ export const abCities = [
     "country": "Saudi Arabia"
   },
   {
-    "city": "Ab\u016b al Ma\u0163\u0101m\u012br",
+    "city": "Abu al Matamir",
     "state": "Al Bu\u1e29ayrah",
     "country": "Egypt"
   },
@@ -225,7 +230,12 @@ export const abCities = [
     "country": "Philippines"
   },
   {
-    "city": "Ab\u016b Q\u012br",
+    "city": "Abrego",
+    "state": "Norte de Santander",
+    "country": "Colombia"
+  },
+  {
+    "city": "Abu Qir",
     "state": "Al Iskandar\u012byah",
     "country": "Egypt"
   },
@@ -245,6 +255,11 @@ export const abCities = [
     "country": "Philippines"
   },
   {
+    "city": "Abiy Adi",
+    "state": "Tigray",
+    "country": "Ethiopia"
+  },
+  {
     "city": "Abingdon",
     "state": "Oxfordshire",
     "country": "United Kingdom"
@@ -255,7 +270,7 @@ export const abCities = [
     "country": "Italy"
   },
   {
-    "city": "Ab\u016b \u015euwayr",
+    "city": "Abu Suwayr",
     "state": "Ash Sharq\u012byah",
     "country": "Egypt"
   },
@@ -270,7 +285,7 @@ export const abCities = [
     "country": "United States"
   },
   {
-    "city": "Abark\u016bh",
+    "city": "Abarkuh",
     "state": "Yazd",
     "country": "Iran"
   },
@@ -285,7 +300,7 @@ export const abCities = [
     "country": "Uganda"
   },
   {
-    "city": "Abaet\u00e9",
+    "city": "Abaete",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -305,7 +320,7 @@ export const abCities = [
     "country": "France"
   },
   {
-    "city": "Ab\u016b \u015e\u012br Ban\u0101",
+    "city": "Abu Sir Bana",
     "state": "Al Gharb\u012byah",
     "country": "Egypt"
   },
@@ -325,12 +340,12 @@ export const abCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Abr\u012bsham",
+    "city": "Abrisham",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Abhay\u0101puri",
+    "city": "Abhayapuri",
     "state": "Assam",
     "country": "India"
   },
@@ -340,7 +355,17 @@ export const abCities = [
     "country": "United States"
   },
   {
-    "city": "Abdurahmoni Jom\u00ed",
+    "city": "Abomsa",
+    "state": "Orom\u012bya",
+    "country": "Ethiopia"
+  },
+  {
+    "city": "Ab Pakhsh",
+    "state": "B\u016bshehr",
+    "country": "Iran"
+  },
+  {
+    "city": "Abdurahmoni Jomi",
     "state": "Khatlon",
     "country": "Tajikistan"
   },
@@ -360,7 +385,7 @@ export const abCities = [
     "country": "Russia"
   },
   {
-    "city": "Abrand\u0101b\u0101d-e Sh\u0101hed\u012byeh",
+    "city": "Abrandabad-e Shahediyeh",
     "state": "Yazd",
     "country": "Iran"
   },
@@ -370,7 +395,7 @@ export const abCities = [
     "country": "Costa Rica"
   },
   {
-    "city": "Abar\u00e9",
+    "city": "Abare",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -390,7 +415,7 @@ export const abCities = [
     "country": "Brazil"
   },
   {
-    "city": "Abadi\u00e2nia",
+    "city": "Abadiania",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -450,7 +475,7 @@ export const abCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Abar\u00e1n",
+    "city": "Abaran",
     "state": "Murcia",
     "country": "Spain"
   },
@@ -460,7 +485,7 @@ export const abCities = [
     "country": "Spain"
   },
   {
-    "city": "Ab\u016b D\u012bs",
+    "city": "Abu Dis",
     "state": NaN,
     "country": "West Bank"
   },
@@ -520,7 +545,7 @@ export const abCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Abj\u012bj",
+    "city": "Abjij",
     "state": "Al Fayy\u016bm",
     "country": "Egypt"
   },
@@ -550,7 +575,7 @@ export const abCities = [
     "country": "Argentina"
   },
   {
-    "city": "Ab\u016bz\u0304ar-e Ghaff\u0101r\u012b",
+    "city": "Abuzar-e Ghaffari",
     "state": "Kh\u016bzest\u0101n",
     "country": "Iran"
   },
@@ -570,7 +595,7 @@ export const abCities = [
     "country": "United States"
   },
   {
-    "city": "Ab\u016b Khashab",
+    "city": "Abu Khashab",
     "state": "Dayr az Zawr",
     "country": "Syria"
   },
@@ -585,7 +610,7 @@ export const abCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Abir\u0101mam",
+    "city": "Abiramam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -595,17 +620,17 @@ export const abCities = [
     "country": "United States"
   },
   {
-    "city": "Ab\u016b \u1e28ard\u016bb",
+    "city": "Abu Hardub",
     "state": "Dayr az Zawr",
     "country": "Syria"
   },
   {
-    "city": "Aba\u00ed",
+    "city": "Abai",
     "state": "Caazap\u00e1",
     "country": "Paraguay"
   },
   {
-    "city": "Abun\u00e3",
+    "city": "Abuna",
     "state": "Rond\u00f4nia",
     "country": "Brazil"
   },

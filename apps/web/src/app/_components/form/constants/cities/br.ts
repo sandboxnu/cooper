@@ -1,6 +1,6 @@
 export const brCities = [
   {
-    "city": "Bras\u00edlia",
+    "city": "Brasilia",
     "state": "Distrito Federal",
     "country": "Brazil"
   },
@@ -85,7 +85,7 @@ export const brCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Br\u0101hmanb\u0101ria",
+    "city": "Brahmanbaria",
     "state": "Chattogram",
     "country": "Bangladesh"
   },
@@ -95,7 +95,7 @@ export const brCities = [
     "country": "Germany"
   },
   {
-    "city": "Bra\u015fov",
+    "city": "Brasov",
     "state": "Bra\u015fov",
     "country": "Romania"
   },
@@ -135,12 +135,12 @@ export const brCities = [
     "country": "Portugal"
   },
   {
-    "city": "Bragan\u00e7a Paulista",
+    "city": "Braganca Paulista",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Br\u0103ila",
+    "city": "Braila",
     "state": "Br\u0103ila",
     "country": "Romania"
   },
@@ -160,7 +160,7 @@ export const brCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Bragan\u00e7a",
+    "city": "Braganca",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -210,7 +210,7 @@ export const brCities = [
     "country": "Brazil"
   },
   {
-    "city": "Br\u0101jar\u0101jnagar",
+    "city": "Brajarajnagar",
     "state": "Odisha",
     "country": "India"
   },
@@ -390,7 +390,7 @@ export const brCities = [
     "country": "United States"
   },
   {
-    "city": "Br\u00fchl",
+    "city": "Bruhl",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
   },
@@ -425,12 +425,12 @@ export const brCities = [
     "country": "Romania"
   },
   {
-    "city": "Br\u010dko",
+    "city": "Brcko",
     "state": "Brcko District",
     "country": "Bosnia and Herzegovina"
   },
   {
-    "city": "Braine-l\u2019Alleud",
+    "city": "Braine-l'Alleud",
     "state": "Wallonia",
     "country": "Belgium"
   },
@@ -465,7 +465,7 @@ export const brCities = [
     "country": "United States"
   },
   {
-    "city": "Bragan\u00e7a",
+    "city": "Braganca",
     "state": "Bragan\u00e7a",
     "country": "Portugal"
   },
@@ -500,7 +500,7 @@ export const brCities = [
     "country": "Brazil"
   },
   {
-    "city": "Bra\u00e7o do Norte",
+    "city": "Braco do Norte",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -525,7 +525,7 @@ export const brCities = [
     "country": "Germany"
   },
   {
-    "city": "Bras\u00edlia de Minas",
+    "city": "Brasilia de Minas",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -575,7 +575,7 @@ export const brCities = [
     "country": "United States"
   },
   {
-    "city": "Br\u0101hmana Periya Agrah\u0101ram",
+    "city": "Brahmana Periya Agraharam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -585,7 +585,7 @@ export const brCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Br\u00e9tigny-sur-Orge",
+    "city": "Bretigny-sur-Orge",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -605,9 +605,14 @@ export const brCities = [
     "country": "Italy"
   },
   {
-    "city": "Brasil\u00e9ia",
+    "city": "Brasileia",
     "state": "Acre",
     "country": "Brazil"
+  },
+  {
+    "city": "Brevnov",
+    "state": "St\u0159edo\u010desk\u00fd Kraj",
+    "country": "Czechia"
   },
   {
     "city": "Brilon",
@@ -620,7 +625,7 @@ export const brCities = [
     "country": "France"
   },
   {
-    "city": "Brod\u00f3squi",
+    "city": "Brodosqui",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -638,6 +643,11 @@ export const brCities = [
     "city": "Brasil Novo",
     "state": "Par\u00e1",
     "country": "Brazil"
+  },
+  {
+    "city": "Breclav",
+    "state": "Jihomoravsk\u00fd Kraj",
+    "country": "Czechia"
   },
   {
     "city": "Brotas",
@@ -705,7 +715,7 @@ export const brCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Bruchk\u00f6bel",
+    "city": "Bruchkobel",
     "state": "Hesse",
     "country": "Germany"
   },
@@ -750,7 +760,7 @@ export const brCities = [
     "country": "United States"
   },
   {
-    "city": "Brand\u00fds nad Labem-Star\u00e1 Boleslav",
+    "city": "Brandys nad Labem-Stara Boleslav",
     "state": "St\u0159edo\u010desk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -785,7 +795,7 @@ export const brCities = [
     "country": "United States"
   },
   {
-    "city": "Bremerv\u00f6rde",
+    "city": "Bremervorde",
     "state": "Lower Saxony",
     "country": "Germany"
   },
@@ -885,7 +895,7 @@ export const brCities = [
     "country": "United States"
   },
   {
-    "city": "Bruckm\u00fchl",
+    "city": "Bruckmuhl",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -940,7 +950,7 @@ export const brCities = [
     "country": "Poland"
   },
   {
-    "city": "Br\u00fcggen",
+    "city": "Bruggen",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
   },
@@ -965,7 +975,7 @@ export const brCities = [
     "country": "Italy"
   },
   {
-    "city": "Brofodoum\u00e9",
+    "city": "Brofodoume",
     "state": "Abidjan",
     "country": "C\u00f4te d\u2019Ivoire"
   },
@@ -990,7 +1000,7 @@ export const brCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Brunt\u00e1l",
+    "city": "Bruntal",
     "state": "Moravskoslezsk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -1010,7 +1020,7 @@ export const brCities = [
     "country": "Germany"
   },
   {
-    "city": "Brasil\u00e2ndia",
+    "city": "Brasilandia",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1055,7 +1065,7 @@ export const brCities = [
     "country": "Bosnia and Herzegovina"
   },
   {
-    "city": "Brwin\u00f3w",
+    "city": "Brwinow",
     "state": "Mazowieckie",
     "country": "Poland"
   },
@@ -1085,17 +1095,17 @@ export const brCities = [
     "country": "United States"
   },
   {
-    "city": "Braz\u00f3polis",
+    "city": "Brazopolis",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
   {
-    "city": "Br\u00fchl",
+    "city": "Bruhl",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
   {
-    "city": "Brahm\u0101nandapuram",
+    "city": "Brahmanandapuram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1150,12 +1160,12 @@ export const brCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Brej\u00f5es",
+    "city": "Brejoes",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Br\u00f8nderslev",
+    "city": "Bronderslev",
     "state": "Nordjylland",
     "country": "Denmark"
   },
@@ -1195,7 +1205,7 @@ export const brCities = [
     "country": "Germany"
   },
   {
-    "city": "Brunsb\u00fcttel",
+    "city": "Brunsbuttel",
     "state": "Schleswig-Holstein",
     "country": "Germany"
   },
@@ -1260,7 +1270,7 @@ export const brCities = [
     "country": "Canada"
   },
   {
-    "city": "Brotas de Maca\u00fabas",
+    "city": "Brotas de Macaubas",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -1300,7 +1310,7 @@ export const brCities = [
     "country": "Canada"
   },
   {
-    "city": "Bruay-sur-l\u2019Escaut",
+    "city": "Bruay-sur-l'Escaut",
     "state": "Hauts-de-France",
     "country": "France"
   },
@@ -1355,12 +1365,12 @@ export const brCities = [
     "country": "United States"
   },
   {
-    "city": "Brian\u00e7on",
+    "city": "Briancon",
     "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
     "country": "France"
   },
   {
-    "city": "Braine-le-Ch\u00e2teau",
+    "city": "Braine-le-Chateau",
     "state": "Wallonia",
     "country": "Belgium"
   },
@@ -1500,12 +1510,12 @@ export const brCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Brejol\u00e2ndia",
+    "city": "Brejolandia",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Brej\u00e3o",
+    "city": "Brejao",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -1570,7 +1580,7 @@ export const brCities = [
     "country": "Italy"
   },
   {
-    "city": "Brice\u00f1o",
+    "city": "Briceno",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -1600,7 +1610,7 @@ export const brCities = [
     "country": "Moldova"
   },
   {
-    "city": "Bre\u017eice",
+    "city": "Brezice",
     "state": "Bre\u017eice",
     "country": "Slovenia"
   },
@@ -1635,7 +1645,7 @@ export const brCities = [
     "country": "Montserrat"
   },
   {
-    "city": "Braslov\u010de",
+    "city": "Braslovce",
     "state": "Braslov\u010de",
     "country": "Slovenia"
   }

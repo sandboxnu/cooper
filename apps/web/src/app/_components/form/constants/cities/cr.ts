@@ -20,7 +20,7 @@ export const crCities = [
     "country": "Romania"
   },
   {
-    "city": "Crici\u00fama",
+    "city": "Criciuma",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -40,7 +40,7 @@ export const crCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Cr\u00e9teil",
+    "city": "Creteil",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -60,7 +60,7 @@ export const crCities = [
     "country": "Brazil"
   },
   {
-    "city": "Crate\u00fas",
+    "city": "Crateus",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -170,7 +170,7 @@ export const crCities = [
     "country": "United States"
   },
   {
-    "city": "Cra\u00edbas",
+    "city": "Craibas",
     "state": "Alagoas",
     "country": "Brazil"
   },
@@ -220,7 +220,7 @@ export const crCities = [
     "country": "United States"
   },
   {
-    "city": "Cris\u00f3polis",
+    "city": "Crisopolis",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -245,27 +245,27 @@ export const crCities = [
     "country": "United States"
   },
   {
-    "city": "Cran-G\u00e9vrier",
+    "city": "Cran-Gevrier",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
   {
-    "city": "Cristin\u00e1polis",
+    "city": "Cristinapolis",
     "state": "Sergipe",
     "country": "Brazil"
   },
   {
-    "city": "Croat\u00e1",
+    "city": "Croata",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Cruz do Esp\u00edrito Santo",
+    "city": "Cruz do Espirito Santo",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
   {
-    "city": "Crix\u00e1s",
+    "city": "Crixas",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -285,17 +285,17 @@ export const crCities = [
     "country": "Italy"
   },
   {
-    "city": "Cruz\u00edlia",
+    "city": "Cruzilia",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
   {
-    "city": "Cr\u00e9py-en-Valois",
+    "city": "Crepy-en-Valois",
     "state": "Hauts-de-France",
     "country": "France"
   },
   {
-    "city": "Crist\u00f3polis",
+    "city": "Cristopolis",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -483,6 +483,21 @@ export const crCities = [
     "city": "Criuleni",
     "state": "Criuleni",
     "country": "Moldova"
+  },
+  {
+    "city": "Crnomelj",
+    "state": "\u010crnomelj",
+    "country": "Slovenia"
+  },
+  {
+    "city": "Crna na Koroskem",
+    "state": "\u010crna na Koro\u0161kem",
+    "country": "Slovenia"
+  },
+  {
+    "city": "Crensovci",
+    "state": "\u010cren\u0161ovci",
+    "country": "Slovenia"
   },
   {
     "city": "Crna Trava",

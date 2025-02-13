@@ -5,6 +5,11 @@ export const coCities = [
     "country": "Sri Lanka"
   },
   {
+    "city": "Cordoba",
+    "state": "C\u00f3rdoba",
+    "country": "Argentina"
+  },
+  {
     "city": "Conakry",
     "state": "Conakry",
     "country": "Guinea"
@@ -20,7 +25,7 @@ export const coCities = [
     "country": "Denmark"
   },
   {
-    "city": "Comayag\u00fcela",
+    "city": "Comayaguela",
     "state": "Francisco Moraz\u00e1n",
     "country": "Honduras"
   },
@@ -45,7 +50,7 @@ export const coCities = [
     "country": "Argentina"
   },
   {
-    "city": "Concepci\u00f3n",
+    "city": "Concepcion",
     "state": "Biob\u00edo",
     "country": "Chile"
   },
@@ -105,6 +110,11 @@ export const coCities = [
     "country": "Philippines"
   },
   {
+    "city": "Cordoba",
+    "state": "Andalusia",
+    "country": "Spain"
+  },
+  {
     "city": "Coatzacoalcos",
     "state": "Veracruz",
     "country": "Mexico"
@@ -125,6 +135,11 @@ export const coCities = [
     "country": "United States"
   },
   {
+    "city": "Corlu",
+    "state": "Tekirda\u011f",
+    "country": "Turkey"
+  },
+  {
     "city": "Cotia",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
@@ -135,7 +150,7 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Constan\u0163a",
+    "city": "Constanta",
     "state": "Constan\u0163a",
     "country": "Romania"
   },
@@ -150,12 +165,12 @@ export const coCities = [
     "country": "Brazil"
   },
   {
-    "city": "Cob\u00e1n",
+    "city": "Coban",
     "state": "Alta Verapaz",
     "country": "Guatemala"
   },
   {
-    "city": "Cox\u2019s B\u0101z\u0101r",
+    "city": "Cox's Bazar",
     "state": "Chattogram",
     "country": "Bangladesh"
   },
@@ -173,6 +188,11 @@ export const coCities = [
     "city": "College Station",
     "state": "Texas",
     "country": "United States"
+  },
+  {
+    "city": "Cordoba",
+    "state": "Veracruz",
+    "country": "Mexico"
   },
   {
     "city": "Coquimbo",
@@ -200,7 +220,7 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Copiap\u00f3",
+    "city": "Copiapo",
     "state": "Atacama",
     "country": "Chile"
   },
@@ -260,7 +280,7 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Conchal\u00ed",
+    "city": "Conchali",
     "state": "Regi\u00f3n Metropolitana",
     "country": "Chile"
   },
@@ -285,12 +305,12 @@ export const coCities = [
     "country": "Chile"
   },
   {
-    "city": "Cod\u00f3",
+    "city": "Codo",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
   {
-    "city": "Comit\u00e1n",
+    "city": "Comitan",
     "state": "Chiapas",
     "country": "Mexico"
   },
@@ -320,7 +340,7 @@ export const coCities = [
     "country": "Brazil"
   },
   {
-    "city": "Concepci\u00f3n del Uruguay",
+    "city": "Concepcion del Uruguay",
     "state": "Entre R\u00edos",
     "country": "Argentina"
   },
@@ -330,12 +350,12 @@ export const coCities = [
     "country": "Germany"
   },
   {
-    "city": "Col\u00f3n",
+    "city": "Colon",
     "state": "La Libertad",
     "country": "El Salvador"
   },
   {
-    "city": "Corumb\u00e1",
+    "city": "Corumba",
     "state": "Mato Grosso do Sul",
     "country": "Brazil"
   },
@@ -375,7 +395,7 @@ export const coCities = [
     "country": "France"
   },
   {
-    "city": "Consolaci\u00f3n del Sur",
+    "city": "Consolacion del Sur",
     "state": "Pinar del R\u00edo",
     "country": "Cuba"
   },
@@ -385,7 +405,7 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Concepci\u00f3n Tutuapa",
+    "city": "Concepcion Tutuapa",
     "state": "San Marcos",
     "country": "Guatemala"
   },
@@ -395,7 +415,7 @@ export const coCities = [
     "country": "Italy"
   },
   {
-    "city": "Conc\u00f3rdia",
+    "city": "Concordia",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -410,7 +430,7 @@ export const coCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Col\u00f3n",
+    "city": "Colon",
     "state": "Col\u00f3n",
     "country": "Panama"
   },
@@ -420,7 +440,7 @@ export const coCities = [
     "country": "Mexico"
   },
   {
-    "city": "Cotu\u00ed",
+    "city": "Cotui",
     "state": "Cibao Sur",
     "country": "Dominican Republic"
   },
@@ -435,7 +455,7 @@ export const coCities = [
     "country": "Colombia"
   },
   {
-    "city": "Col\u00f3n",
+    "city": "Colon",
     "state": "Matanzas",
     "country": "Cuba"
   },
@@ -455,7 +475,7 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Concei\u00e7\u00e3o do Coit\u00e9",
+    "city": "Conceicao do Coite",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -470,7 +490,7 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Cosm\u00f3polis",
+    "city": "Cosmopolis",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -520,7 +540,7 @@ export const coCities = [
     "country": "Dominican Republic"
   },
   {
-    "city": "Coroat\u00e1",
+    "city": "Coroata",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
@@ -540,7 +560,7 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Cosqu\u00edn",
+    "city": "Cosquin",
     "state": "C\u00f3rdoba",
     "country": "Argentina"
   },
@@ -595,7 +615,7 @@ export const coCities = [
     "country": "Paraguay"
   },
   {
-    "city": "Covilh\u00e3",
+    "city": "Covilha",
     "state": "Castelo Branco",
     "country": "Portugal"
   },
@@ -625,7 +645,7 @@ export const coCities = [
     "country": "El Salvador"
   },
   {
-    "city": "Concepci\u00f3n",
+    "city": "Concepcion",
     "state": "Tucum\u00e1n",
     "country": "Argentina"
   },
@@ -700,12 +720,12 @@ export const coCities = [
     "country": "India"
   },
   {
-    "city": "Corn\u00e9lio Proc\u00f3pio",
+    "city": "Cornelio Procopio",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Concepci\u00f3n",
+    "city": "Concepcion",
     "state": "Concepci\u00f3n",
     "country": "Paraguay"
   },
@@ -720,7 +740,7 @@ export const coCities = [
     "country": "Philippines"
   },
   {
-    "city": "Concei\u00e7\u00e3o do Araguaia",
+    "city": "Conceicao do Araguaia",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -740,7 +760,7 @@ export const coCities = [
     "country": "Dominican Republic"
   },
   {
-    "city": "Cov\u00e9",
+    "city": "Cove",
     "state": "Zou",
     "country": "Benin"
   },
@@ -760,7 +780,7 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Coronel Su\u00e1rez",
+    "city": "Coronel Suarez",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -775,7 +795,7 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Coyuca de Catal\u00e1n",
+    "city": "Coyuca de Catalan",
     "state": "Guerrero",
     "country": "Mexico"
   },
@@ -790,12 +810,12 @@ export const coCities = [
     "country": "Mexico"
   },
   {
-    "city": "Cop\u00e1n",
+    "city": "Copan",
     "state": "Cop\u00e1n",
     "country": "Honduras"
   },
   {
-    "city": "Constituci\u00f3n",
+    "city": "Constitucion",
     "state": "Maule",
     "country": "Chile"
   },
@@ -810,7 +830,7 @@ export const coCities = [
     "country": "Italy"
   },
   {
-    "city": "Compi\u00e8gne",
+    "city": "Compiegne",
     "state": "Hauts-de-France",
     "country": "France"
   },
@@ -865,7 +885,7 @@ export const coCities = [
     "country": "Germany"
   },
   {
-    "city": "Col\u00f3n",
+    "city": "Colon",
     "state": "T\u00e1chira",
     "country": "Venezuela"
   },
@@ -910,7 +930,7 @@ export const coCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Concei\u00e7\u00e3o de Jacu\u00edpe",
+    "city": "Conceicao de Jacuipe",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -923,6 +943,16 @@ export const coCities = [
     "city": "Cookeville",
     "state": "Tennessee",
     "country": "United States"
+  },
+  {
+    "city": "Corum",
+    "state": "\u00c7orum",
+    "country": "Turkey"
+  },
+  {
+    "city": "Cote-Saint-Luc",
+    "state": "Quebec",
+    "country": "Canada"
   },
   {
     "city": "College Park",
@@ -950,12 +980,17 @@ export const coCities = [
     "country": "United States"
   },
   {
+    "city": "Cotes de Fer",
+    "state": "Sud-Est",
+    "country": "Haiti"
+  },
+  {
     "city": "Columbio",
     "state": "Sultan Kudarat",
     "country": "Philippines"
   },
   {
-    "city": "Com\u00e9",
+    "city": "Come",
     "state": "Mono",
     "country": "Benin"
   },
@@ -985,7 +1020,7 @@ export const coCities = [
     "country": "Brazil"
   },
   {
-    "city": "Conc\u00f3n",
+    "city": "Concon",
     "state": "Valpara\u00edso",
     "country": "Chile"
   },
@@ -1010,12 +1045,12 @@ export const coCities = [
     "country": "Belgium"
   },
   {
-    "city": "Col\u00edder",
+    "city": "Colider",
     "state": "Mato Grosso",
     "country": "Brazil"
   },
   {
-    "city": "Coria del R\u00edo",
+    "city": "Coria del Rio",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -1055,7 +1090,7 @@ export const coCities = [
     "country": "Nicaragua"
   },
   {
-    "city": "Concei\u00e7\u00e3o da Barra",
+    "city": "Conceicao da Barra",
     "state": "Esp\u00edrito Santo",
     "country": "Brazil"
   },
@@ -1065,7 +1100,7 @@ export const coCities = [
     "country": "Colombia"
   },
   {
-    "city": "Concei\u00e7\u00e3o das Alagoas",
+    "city": "Conceicao das Alagoas",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1150,7 +1185,7 @@ export const coCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Cora\u00e7\u00e3o de Jesus",
+    "city": "Coracao de Jesus",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1170,7 +1205,7 @@ export const coCities = [
     "country": "Italy"
   },
   {
-    "city": "Co\u00edn",
+    "city": "Coin",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -1195,7 +1230,7 @@ export const coCities = [
     "country": "Brazil"
   },
   {
-    "city": "Cordeir\u00f3polis",
+    "city": "Cordeiropolis",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -1230,7 +1265,7 @@ export const coCities = [
     "country": "Brazil"
   },
   {
-    "city": "Codaj\u00e1s",
+    "city": "Codajas",
     "state": "Amazonas",
     "country": "Brazil"
   },
@@ -1265,22 +1300,22 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Col\u00f3n",
+    "city": "Colon",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
   {
-    "city": "Concei\u00e7\u00e3o do Mato Dentro",
+    "city": "Conceicao do Mato Dentro",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
   {
-    "city": "Col\u00f3n",
+    "city": "Colon",
     "state": "Entre R\u00edos",
     "country": "Argentina"
   },
   {
-    "city": "Cou\u00ebron",
+    "city": "Coueron",
     "state": "Pays de la Loire",
     "country": "France"
   },
@@ -1305,7 +1340,7 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Cora\u00e7\u00e3o de Maria",
+    "city": "Coracao de Maria",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -1340,7 +1375,7 @@ export const coCities = [
     "country": "Mexico"
   },
   {
-    "city": "Colle di Val d\u2019Elsa",
+    "city": "Colle di Val d'Elsa",
     "state": "Tuscany",
     "country": "Italy"
   },
@@ -1350,7 +1385,7 @@ export const coCities = [
     "country": "Italy"
   },
   {
-    "city": "Concepci\u00f3n Huista",
+    "city": "Concepcion Huista",
     "state": "Huehuetenango",
     "country": "Guatemala"
   },
@@ -1360,17 +1395,17 @@ export const coCities = [
     "country": "Italy"
   },
   {
-    "city": "Concei\u00e7\u00e3o de Macabu",
+    "city": "Conceicao de Macabu",
     "state": "Rio de Janeiro",
     "country": "Brazil"
   },
   {
-    "city": "Corea\u00fa",
+    "city": "Coreau",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Concepci\u00f3n Chiquirichapa",
+    "city": "Concepcion Chiquirichapa",
     "state": "Quetzaltenango",
     "country": "Guatemala"
   },
@@ -1385,7 +1420,7 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Concei\u00e7\u00e3o da Feira",
+    "city": "Conceicao da Feira",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -1440,12 +1475,12 @@ export const coCities = [
     "country": "Germany"
   },
   {
-    "city": "Colonia General Felipe \u00c1ngeles",
+    "city": "Colonia General Felipe Angeles",
     "state": "Durango",
     "country": "Mexico"
   },
   {
-    "city": "Costas de C\u00e3o",
+    "city": "Costas de Cao",
     "state": "Set\u00fabal",
     "country": "Portugal"
   },
@@ -1460,7 +1495,7 @@ export const coCities = [
     "country": "Colombia"
   },
   {
-    "city": "Cournon-d\u2019Auvergne",
+    "city": "Cournon-d'Auvergne",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
@@ -1470,7 +1505,7 @@ export const coCities = [
     "country": "Moldova"
   },
   {
-    "city": "Com\u0103ne\u015fti",
+    "city": "Comanesti",
     "state": "Bac\u0103u",
     "country": "Romania"
   },
@@ -1485,7 +1520,7 @@ export const coCities = [
     "country": "Mexico"
   },
   {
-    "city": "Colotl\u00e1n",
+    "city": "Colotlan",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -1525,7 +1560,7 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Concei\u00e7\u00e3o",
+    "city": "Conceicao",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -1560,7 +1595,7 @@ export const coCities = [
     "country": "France"
   },
   {
-    "city": "Coalcom\u00e1n de V\u00e1zquez Pallares",
+    "city": "Coalcoman de Vazquez Pallares",
     "state": "Michoac\u00e1n",
     "country": "Mexico"
   },
@@ -1600,12 +1635,12 @@ export const coCities = [
     "country": "Argentina"
   },
   {
-    "city": "Convenci\u00f3n",
+    "city": "Convencion",
     "state": "Norte de Santander",
     "country": "Colombia"
   },
   {
-    "city": "Cofrad\u00eda",
+    "city": "Cofradia",
     "state": "Cort\u00e9s",
     "country": "Honduras"
   },
@@ -1635,7 +1670,7 @@ export const coCities = [
     "country": "Italy"
   },
   {
-    "city": "Colb\u00fan",
+    "city": "Colbun",
     "state": "Maule",
     "country": "Chile"
   },
@@ -1660,7 +1695,7 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Corb\u00e9lia",
+    "city": "Corbelia",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -1670,12 +1705,12 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Col\u00f3n",
+    "city": "Colon",
     "state": "San Jos\u00e9",
     "country": "Costa Rica"
   },
   {
-    "city": "Concei\u00e7\u00e3o do Almeida",
+    "city": "Conceicao do Almeida",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -1695,7 +1730,7 @@ export const coCities = [
     "country": "Portugal"
   },
   {
-    "city": "Conde\u00faba",
+    "city": "Condeuba",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -1730,7 +1765,7 @@ export const coCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Cosautl\u00e1n",
+    "city": "Cosautlan",
     "state": "Veracruz",
     "country": "Mexico"
   },
@@ -1770,7 +1805,7 @@ export const coCities = [
     "country": "Italy"
   },
   {
-    "city": "Col\u00f4nia Leopoldina",
+    "city": "Colonia Leopoldina",
     "state": "Alagoas",
     "country": "Brazil"
   },
@@ -1800,7 +1835,7 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Cos\u00edo",
+    "city": "Cosio",
     "state": "Aguascalientes",
     "country": "Mexico"
   },
@@ -1820,7 +1855,7 @@ export const coCities = [
     "country": "Spain"
   },
   {
-    "city": "Concepci\u00f3n",
+    "city": "Concepcion",
     "state": "Jun\u00edn",
     "country": "Peru"
   },
@@ -1850,7 +1885,7 @@ export const coCities = [
     "country": "Peru"
   },
   {
-    "city": "Corup\u00e1",
+    "city": "Corupa",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -1870,7 +1905,7 @@ export const coCities = [
     "country": "Colombia"
   },
   {
-    "city": "Coquimatl\u00e1n",
+    "city": "Coquimatlan",
     "state": "Colima",
     "country": "Mexico"
   },
@@ -1880,7 +1915,7 @@ export const coCities = [
     "country": "Canada"
   },
   {
-    "city": "Cocorn\u00e1",
+    "city": "Cocorna",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -1907,6 +1942,11 @@ export const coCities = [
   {
     "city": "Condoto",
     "state": "Choc\u00f3",
+    "country": "Colombia"
+  },
+  {
+    "city": "Combita",
+    "state": "Boyac\u00e1",
     "country": "Colombia"
   },
   {
@@ -1955,6 +1995,11 @@ export const coCities = [
     "country": "Venezuela"
   },
   {
+    "city": "Cordoba",
+    "state": "Nari\u00f1o",
+    "country": "Colombia"
+  },
+  {
     "city": "Coribe",
     "state": "Bahia",
     "country": "Brazil"
@@ -1990,12 +2035,12 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Copalch\u00ed",
+    "city": "Copalchi",
     "state": "Cartago",
     "country": "Costa Rica"
   },
   {
-    "city": "Combarbal\u00e1",
+    "city": "Combarbala",
     "state": "Coquimbo",
     "country": "Chile"
   },
@@ -2065,7 +2110,7 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Concepci\u00f3n de Ataco",
+    "city": "Concepcion de Ataco",
     "state": "Ahuachap\u00e1n",
     "country": "El Salvador"
   },
@@ -2080,12 +2125,12 @@ export const coCities = [
     "country": "Brazil"
   },
   {
-    "city": "Concepci\u00f3n Las Minas",
+    "city": "Concepcion Las Minas",
     "state": "Chiquimula",
     "country": "Guatemala"
   },
   {
-    "city": "Concei\u00e7\u00e3o do Rio Verde",
+    "city": "Conceicao do Rio Verde",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -2130,22 +2175,27 @@ export const coCities = [
     "country": "United States"
   },
   {
+    "city": "Cordoba",
+    "state": "Bol\u00edvar",
+    "country": "Colombia"
+  },
+  {
     "city": "Commerce",
     "state": "California",
     "country": "United States"
   },
   {
-    "city": "Concepci\u00f3n Batres",
+    "city": "Concepcion Batres",
     "state": "Usulut\u00e1n",
     "country": "El Salvador"
   },
   {
-    "city": "Cocotitl\u00e1n",
+    "city": "Cocotitlan",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
   {
-    "city": "Couss\u00e9",
+    "city": "Cousse",
     "state": "Atlantique",
     "country": "Benin"
   },
@@ -2165,7 +2215,7 @@ export const coCities = [
     "country": "France"
   },
   {
-    "city": "Cossimb\u0101z\u0101r",
+    "city": "Cossimbazar",
     "state": "West Bengal",
     "country": "India"
   },
@@ -2175,7 +2225,7 @@ export const coCities = [
     "country": "Portugal"
   },
   {
-    "city": "Concei\u00e7\u00e3o do Castelo",
+    "city": "Conceicao do Castelo",
     "state": "Esp\u00edrito Santo",
     "country": "Brazil"
   },
@@ -2220,7 +2270,7 @@ export const coCities = [
     "country": "Morocco"
   },
   {
-    "city": "Cove\u00f1as",
+    "city": "Covenas",
     "state": "Sucre",
     "country": "Colombia"
   },
@@ -2295,7 +2345,7 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Coste\u015fti",
+    "city": "Costesti",
     "state": "Ialoveni",
     "country": "Moldova"
   },
@@ -2305,12 +2355,12 @@ export const coCities = [
     "country": "Brazil"
   },
   {
-    "city": "Concei\u00e7\u00e3o dos Ouros",
+    "city": "Conceicao dos Ouros",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
   {
-    "city": "Cornate d\u2019Adda",
+    "city": "Cornate d'Adda",
     "state": "Lombardy",
     "country": "Italy"
   },
@@ -2330,7 +2380,7 @@ export const coCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Coit\u00e9 do N\u00f3ia",
+    "city": "Coite do Noia",
     "state": "Alagoas",
     "country": "Brazil"
   },
@@ -2340,7 +2390,7 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Corumb\u00e1 de Goi\u00e1s",
+    "city": "Corumba de Goias",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -2350,7 +2400,7 @@ export const coCities = [
     "country": "Ecuador"
   },
   {
-    "city": "Court-Saint-\u00c9tienne",
+    "city": "Court-Saint-Etienne",
     "state": "Wallonia",
     "country": "Belgium"
   },
@@ -2390,7 +2440,7 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Concei\u00e7\u00e3o da Aparecida",
+    "city": "Conceicao da Aparecida",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -2425,12 +2475,12 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Courri\u00e8res",
+    "city": "Courrieres",
     "state": "Hauts-de-France",
     "country": "France"
   },
   {
-    "city": "Cort\u00eas",
+    "city": "Cortes",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -2565,7 +2615,7 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Coste\u015fti",
+    "city": "Costesti",
     "state": "Arge\u015f",
     "country": "Romania"
   },
@@ -2580,7 +2630,7 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Cond\u00e9-sur-l\u2019Escaut",
+    "city": "Conde-sur-l'Escaut",
     "state": "Hauts-de-France",
     "country": "France"
   },
@@ -2600,12 +2650,17 @@ export const coCities = [
     "country": "Romania"
   },
   {
+    "city": "Cobanlar",
+    "state": "Afyonkarahisar",
+    "country": "Turkey"
+  },
+  {
     "city": "Conshohocken",
     "state": "Pennsylvania",
     "country": "United States"
   },
   {
-    "city": "Corumba\u00edba",
+    "city": "Corumbaiba",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -2615,7 +2670,7 @@ export const coCities = [
     "country": "Moldova"
   },
   {
-    "city": "Consac\u00e1",
+    "city": "Consaca",
     "state": "Nari\u00f1o",
     "country": "Colombia"
   },
@@ -2650,7 +2705,7 @@ export const coCities = [
     "country": "Argentina"
   },
   {
-    "city": "Colm\u00e9ia",
+    "city": "Colmeia",
     "state": "Tocantins",
     "country": "Brazil"
   },
@@ -2688,6 +2743,11 @@ export const coCities = [
     "city": "Cortez",
     "state": "Colorado",
     "country": "United States"
+  },
+  {
+    "city": "Con Dao",
+    "state": "B\u00e0 R\u1ecba-V\u0169ng T\u00e0u",
+    "country": "Vietnam"
   },
   {
     "city": "Cofimvaba",
@@ -2760,7 +2820,7 @@ export const coCities = [
     "country": "United States"
   },
   {
-    "city": "Coahuitl\u00e1n",
+    "city": "Coahuitlan",
     "state": "Veracruz",
     "country": "Mexico"
   },
@@ -2805,9 +2865,19 @@ export const coCities = [
     "country": "Australia"
   },
   {
+    "city": "Coka",
+    "state": "\u010coka",
+    "country": "Serbia"
+  },
+  {
     "city": "Comandante Fontana",
     "state": "Formosa",
     "country": "Argentina"
+  },
+  {
+    "city": "Corovode",
+    "state": "Berat",
+    "country": "Albania"
   },
   {
     "city": "Colonia",

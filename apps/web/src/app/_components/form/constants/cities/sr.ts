@@ -1,11 +1,11 @@
 export const srCities = [
   {
-    "city": "Sr\u012bnagar",
+    "city": "Srinagar",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
   {
-    "city": "Sr\u012bpur",
+    "city": "Sripur",
     "state": "Dhaka",
     "country": "Bangladesh"
   },
@@ -15,7 +15,7 @@ export const srCities = [
     "country": "Sri Lanka"
   },
   {
-    "city": "Sr\u012bvilliputt\u016br",
+    "city": "Srivilliputtur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -30,14 +30,19 @@ export const srCities = [
     "country": "Bosnia and Herzegovina"
   },
   {
-    "city": "Sr\u012bnagar",
+    "city": "Srinagar",
     "state": "Uttar\u0101khand",
     "country": "India"
   },
   {
-    "city": "Sri M\u0101dhopur",
+    "city": "Sri Madhopur",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
+  },
+  {
+    "city": "Srem",
+    "state": "Wielkopolskie",
+    "country": "Poland"
   },
   {
     "city": "Srungavarapukota",
@@ -45,9 +50,14 @@ export const srCities = [
     "country": "India"
   },
   {
-    "city": "Sr\u012bniv\u0101spur",
+    "city": "Srinivaspur",
     "state": "Karn\u0101taka",
     "country": "India"
+  },
+  {
+    "city": "Sroda Wielkopolska",
+    "state": "Wielkopolskie",
+    "country": "Poland"
   },
   {
     "city": "Srvanampatti",
@@ -60,17 +70,17 @@ export const srCities = [
     "country": "Russia"
   },
   {
-    "city": "Sr\u012bvaikuntam",
+    "city": "Srivaikuntam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Sr\u012bperumb\u016bd\u016br",
+    "city": "Sriperumbudur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Srem\u010dica",
+    "city": "Sremcica",
     "state": "Beograd",
     "country": "Serbia"
   },
@@ -85,7 +95,7 @@ export const srCities = [
     "country": "Bosnia and Herzegovina"
   },
   {
-    "city": "Sr\u012bk\u016brmam",
+    "city": "Srikurmam",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -95,17 +105,17 @@ export const srCities = [
     "country": "Serbia"
   },
   {
-    "city": "Sr\u012bmushnam",
+    "city": "Srimushnam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Sr\u012bvardhan",
+    "city": "Srivardhan",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
   {
-    "city": "Sr\u012bnagar",
+    "city": "Srinagar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -115,7 +125,7 @@ export const srCities = [
     "country": "Bosnia and Herzegovina"
   },
   {
-    "city": "Sr\u012bnagar",
+    "city": "Srinagar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -125,12 +135,12 @@ export const srCities = [
     "country": "Serbia"
   },
   {
-    "city": "Sr\u012br\u0101mpuram",
+    "city": "Srirampuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Sr\u012bpur",
+    "city": "Sripur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -140,17 +150,22 @@ export const srCities = [
     "country": "India"
   },
   {
-    "city": "Sr\u012bsailain",
+    "city": "Srisailain",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Sr\u00eefa",
+    "city": "Srifa",
     "state": "Liban-Sud",
     "country": "Lebanon"
   },
   {
-    "city": "Sr\u012br\u0101mapuram",
+    "city": "Sroda Slaska",
+    "state": "Dolno\u015bl\u0105skie",
+    "country": "Poland"
+  },
+  {
+    "city": "Sriramapuram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -165,7 +180,7 @@ export const srCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Sr\u012brang\u0101pur",
+    "city": "Srirangapur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -175,7 +190,7 @@ export const srCities = [
     "country": "Russia"
   },
   {
-    "city": "Sredi\u0161\u010de ob Dravi",
+    "city": "Sredisce ob Dravi",
     "state": "Sredi\u0161\u010de ob Dravi",
     "country": "Slovenia"
   }

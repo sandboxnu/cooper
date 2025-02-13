@@ -5,7 +5,7 @@ export const faCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Far\u012bd\u0101b\u0101d",
+    "city": "Faridabad",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -15,7 +15,7 @@ export const faCities = [
     "country": "China"
   },
   {
-    "city": "Far\u0101h",
+    "city": "Farah",
     "state": "Far\u0101h",
     "country": "Afghanistan"
   },
@@ -40,12 +40,12 @@ export const faCities = [
     "country": "India"
   },
   {
-    "city": "Farg\u2018ona",
+    "city": "Farg`ona",
     "state": "Farg\u2018ona",
     "country": "Uzbekistan"
   },
   {
-    "city": "Farrukh\u0101b\u0101d",
+    "city": "Farrukhabad",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -55,7 +55,7 @@ export const faCities = [
     "country": "United States"
   },
   {
-    "city": "Farsh\u016b\u0163",
+    "city": "Farshut",
     "state": "Qin\u0101",
     "country": "Egypt"
   },
@@ -65,7 +65,7 @@ export const faCities = [
     "country": "India"
   },
   {
-    "city": "Fard\u012bs",
+    "city": "Fardis",
     "state": "Alborz",
     "country": "Iran"
   },
@@ -75,19 +75,24 @@ export const faCities = [
     "country": "United States"
   },
   {
-    "city": "Facatativ\u00e1",
+    "city": "Facatativa",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
   {
-    "city": "Famalic\u00e3o",
+    "city": "Famalicao",
     "state": "Braga",
     "country": "Portugal"
   },
   {
-    "city": "Far\u012bdpur",
+    "city": "Faridpur",
     "state": "Dhaka",
     "country": "Bangladesh"
+  },
+  {
+    "city": "Faqus",
+    "state": "Ash Sharq\u012byah",
+    "country": "Egypt"
   },
   {
     "city": "Fatsa",
@@ -95,7 +100,7 @@ export const faCities = [
     "country": "Turkey"
   },
   {
-    "city": "Fas\u0101",
+    "city": "Fasa",
     "state": "F\u0101rs",
     "country": "Iran"
   },
@@ -110,7 +115,7 @@ export const faCities = [
     "country": "United States"
   },
   {
-    "city": "Far\u012bdkot",
+    "city": "Faridkot",
     "state": "Punjab",
     "country": "India"
   },
@@ -123,6 +128,11 @@ export const faCities = [
     "city": "Faranah",
     "state": "Faranah",
     "country": "Guinea"
+  },
+  {
+    "city": "Fazilka",
+    "state": "Punjab",
+    "country": "India"
   },
   {
     "city": "Fancheng",
@@ -140,7 +150,7 @@ export const faCities = [
     "country": "United States"
   },
   {
-    "city": "Fateh\u0101b\u0101d",
+    "city": "Fatehabad",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -150,7 +160,7 @@ export const faCities = [
     "country": "Brazil"
   },
   {
-    "city": "Far\u012bdpur",
+    "city": "Faridpur",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -165,7 +175,7 @@ export const faCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Fa\u012b\u1e95\u0101b\u0101d",
+    "city": "Faizabad",
     "state": "Badakhsh\u0101n",
     "country": "Afghanistan"
   },
@@ -188,6 +198,11 @@ export const faCities = [
     "city": "Faenza",
     "state": "Emilia-Romagna",
     "country": "Italy"
+  },
+  {
+    "city": "Falakata",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Fatwa",
@@ -260,7 +275,7 @@ export const faCities = [
     "country": "Cyprus"
   },
   {
-    "city": "Far\u012bm\u0101n",
+    "city": "Fariman",
     "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
     "country": "Iran"
   },
@@ -270,7 +285,7 @@ export const faCities = [
     "country": "Italy"
   },
   {
-    "city": "Fal\u0101varj\u0101n",
+    "city": "Falavarjan",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
@@ -278,6 +293,11 @@ export const faCities = [
     "city": "Falun",
     "state": "Dalarna",
     "country": "Sweden"
+  },
+  {
+    "city": "Faraskur",
+    "state": "Dumy\u0101\u0163",
+    "country": "Egypt"
   },
   {
     "city": "Farafenni",
@@ -325,7 +345,7 @@ export const faCities = [
     "country": "United States"
   },
   {
-    "city": "Fatehpur S\u012bkri",
+    "city": "Fatehpur Sikri",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -355,6 +375,11 @@ export const faCities = [
     "country": "Taiwan"
   },
   {
+    "city": "Farsan",
+    "state": "Chah\u0101r Ma\u1e29\u0101l va Bakht\u012b\u0101r\u012b",
+    "country": "Iran"
+  },
+  {
     "city": "Falou",
     "state": "Koulikoro",
     "country": "Mali"
@@ -373,6 +398,11 @@ export const faCities = [
     "city": "Farnworth",
     "state": "Bolton",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Fagaras",
+    "state": "Bra\u015fov",
+    "country": "Romania"
   },
   {
     "city": "Fairland",
@@ -395,7 +425,7 @@ export const faCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Fatim\u00e9",
+    "city": "Fatime",
     "state": "S\u00e9gou",
     "country": "Mali"
   },
@@ -425,6 +455,11 @@ export const faCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Falticeni",
+    "state": "Suceava",
+    "country": "Romania"
+  },
+  {
     "city": "Farragut",
     "state": "Tennessee",
     "country": "United States"
@@ -440,12 +475,17 @@ export const faCities = [
     "country": "United States"
   },
   {
+    "city": "Fanzeres",
+    "state": "Porto",
+    "country": "Portugal"
+  },
+  {
     "city": "Farahalana",
     "state": "Antsiranana",
     "country": "Madagascar"
   },
   {
-    "city": "Famaill\u00e1",
+    "city": "Famailla",
     "state": "Tucum\u00e1n",
     "country": "Argentina"
   },
@@ -475,7 +515,7 @@ export const faCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Fatehgarh Ch\u016bri\u0101n",
+    "city": "Fatehgarh Churian",
     "state": "Punjab",
     "country": "India"
   },
@@ -490,7 +530,7 @@ export const faCities = [
     "country": "Burkina Faso"
   },
   {
-    "city": "Far\u0101shband",
+    "city": "Farashband",
     "state": "F\u0101rs",
     "country": "Iran"
   },
@@ -550,9 +590,19 @@ export const faCities = [
     "country": "Brazil"
   },
   {
-    "city": "Falk\u00f6ping",
+    "city": "Faches-Thumesnil",
+    "state": "Hauts-de-France",
+    "country": "France"
+  },
+  {
+    "city": "Falkoping",
     "state": "V\u00e4stra G\u00f6taland",
     "country": "Sweden"
+  },
+  {
+    "city": "Fatima",
+    "state": "Bahia",
+    "country": "Brazil"
   },
   {
     "city": "Farmington",
@@ -560,7 +610,7 @@ export const faCities = [
     "country": "United States"
   },
   {
-    "city": "Fanipal\u2019",
+    "city": "Fanipal'",
     "state": "Minskaya Voblasts\u2019",
     "country": "Belarus"
   },
@@ -575,7 +625,7 @@ export const faCities = [
     "country": "United States"
   },
   {
-    "city": "Fal\u00e9a",
+    "city": "Falea",
     "state": "Kayes",
     "country": "Mali"
   },
@@ -635,7 +685,7 @@ export const faCities = [
     "country": "India"
   },
   {
-    "city": "Fayr\u014dz K\u014dh",
+    "city": "Fayroz Koh",
     "state": "Gh\u014dr",
     "country": "Afghanistan"
   },
@@ -685,12 +735,22 @@ export const faCities = [
     "country": "United States"
   },
   {
+    "city": "Famenin",
+    "state": "Hamad\u0101n",
+    "country": "Iran"
+  },
+  {
     "city": "Fara in Sabina",
     "state": "Lazio",
     "country": "Italy"
   },
   {
-    "city": "Far\u0101donbeh",
+    "city": "Faberg",
+    "state": "Innlandet",
+    "country": "Norway"
+  },
+  {
+    "city": "Faradonbeh",
     "state": "Chah\u0101r Ma\u1e29\u0101l va Bakht\u012b\u0101r\u012b",
     "country": "Iran"
   },
@@ -700,7 +760,12 @@ export const faCities = [
     "country": "India"
   },
   {
-    "city": "Fann\u016bj",
+    "city": "Fatima",
+    "state": "Santar\u00e9m",
+    "country": "Portugal"
+  },
+  {
+    "city": "Fannuj",
     "state": "S\u012bst\u0101n va Bal\u016bchest\u0101n",
     "country": "Iran"
   },
@@ -730,12 +795,17 @@ export const faCities = [
     "country": "United States"
   },
   {
+    "city": "Falesti",
+    "state": "F\u0103le\u015fti",
+    "country": "Moldova"
+  },
+  {
     "city": "Fanambana",
     "state": "Antsiranana",
     "country": "Madagascar"
   },
   {
-    "city": "Fateh\u0101b\u0101d",
+    "city": "Fatehabad",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -745,12 +815,12 @@ export const faCities = [
     "country": "United States"
   },
   {
-    "city": "Fatehpur Sh\u0101hb\u0101z",
+    "city": "Fatehpur Shahbaz",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Falim\u0101ri",
+    "city": "Falimari",
     "state": "West Bengal",
     "country": "India"
   },
@@ -795,7 +865,7 @@ export const faCities = [
     "country": "United States"
   },
   {
-    "city": "Farkh\u00e2na",
+    "city": "Farkhana",
     "state": "Oriental",
     "country": "Morocco"
   },
@@ -840,7 +910,7 @@ export const faCities = [
     "country": "United States"
   },
   {
-    "city": "Fanj\u0101\u2019",
+    "city": "Fanja'",
     "state": "Ad D\u0101khil\u012byah",
     "country": "Oman"
   },
@@ -850,7 +920,7 @@ export const faCities = [
     "country": "United States"
   },
   {
-    "city": "Farad\u0101b\u0101d",
+    "city": "Faradabad",
     "state": "Chattogram",
     "country": "Bangladesh"
   },
@@ -890,7 +960,7 @@ export const faCities = [
     "country": "India"
   },
   {
-    "city": "Fateh\u0101b\u0101d",
+    "city": "Fatehabad",
     "state": "Punjab",
     "country": "India"
   },
@@ -960,6 +1030,11 @@ export const faCities = [
     "country": "United States"
   },
   {
+    "city": "Farsala",
+    "state": "Thessal\u00eda",
+    "country": "Greece"
+  },
+  {
     "city": "Fairfield Glade",
     "state": "Tennessee",
     "country": "United States"
@@ -995,7 +1070,7 @@ export const faCities = [
     "country": "United States"
   },
   {
-    "city": "Fatehpur B\u0101la",
+    "city": "Fatehpur Bala",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1020,6 +1095,11 @@ export const faCities = [
     "country": "Tajikistan"
   },
   {
+    "city": "Fallanden",
+    "state": "Z\u00fcrich",
+    "country": "Switzerland"
+  },
+  {
     "city": "Falmouth",
     "state": "Trelawny",
     "country": "Jamaica"
@@ -1028,5 +1108,10 @@ export const faCities = [
     "city": "Faetano",
     "state": "Faetano",
     "country": "San Marino"
+  },
+  {
+    "city": "Famjin",
+    "state": "F\u00e1mjin",
+    "country": "Faroe Islands"
   }
 ]

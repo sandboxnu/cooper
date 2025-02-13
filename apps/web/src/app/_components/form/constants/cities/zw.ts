@@ -15,7 +15,7 @@ export const zwCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Zweibr\u00fccken",
+    "city": "Zweibrucken",
     "state": "Rhineland-Palatinate",
     "country": "Germany"
   },
@@ -35,7 +35,7 @@ export const zwCities = [
     "country": "Belgium"
   },
   {
-    "city": "Zw\u00f6nitz",
+    "city": "Zwonitz",
     "state": "Saxony",
     "country": "Germany"
   },

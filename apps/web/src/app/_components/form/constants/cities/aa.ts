@@ -30,7 +30,7 @@ export const aaCities = [
     "country": "Germany"
   },
   {
-    "city": "Aars\u00e2l",
+    "city": "Aarsal",
     "state": "Baalbek-Hermel",
     "country": "Lebanon"
   },
@@ -53,6 +53,11 @@ export const aaCities = [
     "city": "Aarau",
     "state": "Aargau",
     "country": "Switzerland"
+  },
+  {
+    "city": "Aanekoski",
+    "state": "Keski-Suomi",
+    "country": "Finland"
   },
   {
     "city": "Aabenraa",

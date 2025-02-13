@@ -55,7 +55,7 @@ export const wuCities = [
     "country": "China"
   },
   {
-    "city": "Wu\u2019an",
+    "city": "Wu'an",
     "state": "Hebei",
     "country": "China"
   },
@@ -88,6 +88,11 @@ export const wuCities = [
     "city": "Wuyishan",
     "state": "Fujian",
     "country": "China"
+  },
+  {
+    "city": "Wurzburg",
+    "state": "Bavaria",
+    "country": "Germany"
   },
   {
     "city": "Wuling",
@@ -150,6 +155,11 @@ export const wuCities = [
     "country": "Taiwan"
   },
   {
+    "city": "Wurselen",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
     "city": "Wuyuan",
     "state": "Inner Mongolia",
     "country": "China"
@@ -175,6 +185,11 @@ export const wuCities = [
     "country": "China"
   },
   {
+    "city": "Wulfrath",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
     "city": "Wuustwezel",
     "state": "Flanders",
     "country": "Belgium"
@@ -183,6 +198,11 @@ export const wuCities = [
     "city": "Wurzen",
     "state": "Saxony",
     "country": "Germany"
+  },
+  {
+    "city": "Wulflingen",
+    "state": "Z\u00fcrich",
+    "country": "Switzerland"
   },
   {
     "city": "Wulong",

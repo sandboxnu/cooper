@@ -5,7 +5,7 @@ export const ubCities = [
     "country": "Tanzania"
   },
   {
-    "city": "Uberl\u00e2ndia",
+    "city": "Uberlandia",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -20,7 +20,7 @@ export const ubCities = [
     "country": "Japan"
   },
   {
-    "city": "Ub\u00e1",
+    "city": "Uba",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -45,17 +45,32 @@ export const ubCities = [
     "country": "Indonesia"
   },
   {
+    "city": "Ubeda",
+    "state": "Andalusia",
+    "country": "Spain"
+  },
+  {
     "city": "Ubajara",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Ubaidull\u0101hganj",
+    "city": "Ubaidullahganj",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Uba\u00edra",
+    "city": "Ubach-Palenberg",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
+    "city": "Uberlingen",
+    "state": "Baden-W\u00fcrttemberg",
+    "country": "Germany"
+  },
+  {
+    "city": "Ubaira",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -70,7 +85,7 @@ export const ubCities = [
     "country": "Spain"
   },
   {
-    "city": "Ubat\u00e3",
+    "city": "Ubata",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -85,12 +100,17 @@ export const ubCities = [
     "country": "Brazil"
   },
   {
-    "city": "Uba\u00ed",
+    "city": "Ubai",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
   {
-    "city": "Ubal\u00e1",
+    "city": "Uberherrn",
+    "state": "Saarland",
+    "country": "Germany"
+  },
+  {
+    "city": "Ubala",
     "state": "Cundinamarca",
     "country": "Colombia"
   },

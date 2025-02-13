@@ -65,7 +65,7 @@ export const laCities = [
     "country": "Spain"
   },
   {
-    "city": "Las Pi\u00f1as City",
+    "city": "Las Pinas City",
     "state": "Las Pi\u00f1as",
     "country": "Philippines"
   },
@@ -90,7 +90,7 @@ export const laCities = [
     "country": "China"
   },
   {
-    "city": "Lan\u00fas",
+    "city": "Lanus",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -125,7 +125,7 @@ export const laCities = [
     "country": "United States"
   },
   {
-    "city": "Lashkar G\u0101h",
+    "city": "Lashkar Gah",
     "state": "Helmand",
     "country": "Afghanistan"
   },
@@ -155,7 +155,7 @@ export const laCities = [
     "country": "Dominican Republic"
   },
   {
-    "city": "La\u00e2youne",
+    "city": "Laayoune",
     "state": "La\u00e2youne-Sakia El Hamra",
     "country": "Morocco"
   },
@@ -185,12 +185,17 @@ export const laCities = [
     "country": "Cuba"
   },
   {
+    "city": "Lang Son",
+    "state": "L\u1ea1ng S\u01a1n",
+    "country": "Vietnam"
+  },
+  {
     "city": "Lahad Datu",
     "state": "Sabah",
     "country": "Malaysia"
   },
   {
-    "city": "Laq\u0163ah",
+    "city": "Laqtah",
     "state": "Ash Sh\u012b\u1e29\u0101n\u012byah",
     "country": "Qatar"
   },
@@ -270,6 +275,11 @@ export const laCities = [
     "country": "Burma"
   },
   {
+    "city": "Larisa",
+    "state": "Thessal\u00eda",
+    "country": "Greece"
+  },
+  {
     "city": "La Lisa",
     "state": "La Habana",
     "country": "Cuba"
@@ -320,6 +330,11 @@ export const laCities = [
     "country": "Hong Kong"
   },
   {
+    "city": "Lao Cai",
+    "state": "L\u00e0o Cai",
+    "country": "Vietnam"
+  },
+  {
     "city": "Latina",
     "state": "Lazio",
     "country": "Italy"
@@ -340,7 +355,7 @@ export const laCities = [
     "country": "Finland"
   },
   {
-    "city": "La Asunci\u00f3n",
+    "city": "La Asuncion",
     "state": "Nueva Esparta",
     "country": "Venezuela"
   },
@@ -370,7 +385,7 @@ export const laCities = [
     "country": "Philippines"
   },
   {
-    "city": "Lab\u00e9",
+    "city": "Labe",
     "state": "Lab\u00e9",
     "country": "Guinea"
   },
@@ -395,7 +410,7 @@ export const laCities = [
     "country": "Brazil"
   },
   {
-    "city": "Lah\u0101n",
+    "city": "Lahan",
     "state": NaN,
     "country": "Nepal"
   },
@@ -460,7 +475,7 @@ export const laCities = [
     "country": "United States"
   },
   {
-    "city": "Lachhmangarh S\u012bkar",
+    "city": "Lachhmangarh Sikar",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -485,6 +500,11 @@ export const laCities = [
     "country": "Cyprus"
   },
   {
+    "city": "Laharpur",
+    "state": "Uttar Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Lafey",
     "state": "Mandera",
     "country": "Kenya"
@@ -495,7 +515,7 @@ export const laCities = [
     "country": "Mexico"
   },
   {
-    "city": "Lakshm\u012bpur",
+    "city": "Lakshmipur",
     "state": "Chattogram",
     "country": "Bangladesh"
   },
@@ -530,7 +550,7 @@ export const laCities = [
     "country": "Philippines"
   },
   {
-    "city": "La Louvi\u00e8re",
+    "city": "La Louviere",
     "state": "Wallonia",
     "country": "Belgium"
   },
@@ -540,7 +560,7 @@ export const laCities = [
     "country": "Australia"
   },
   {
-    "city": "Langar\u016bd",
+    "city": "Langarud",
     "state": "G\u012bl\u0101n",
     "country": "Iran"
   },
@@ -665,7 +685,7 @@ export const laCities = [
     "country": "United States"
   },
   {
-    "city": "La L\u00ednea de la Concepci\u00f3n",
+    "city": "La Linea de la Concepcion",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -805,6 +825,11 @@ export const laCities = [
     "country": "Fiji"
   },
   {
+    "city": "Lankaran",
+    "state": "L\u0259nk\u0259ran",
+    "country": "Azerbaijan"
+  },
+  {
     "city": "Lakewood",
     "state": "Ohio",
     "country": "United States"
@@ -855,7 +880,7 @@ export const laCities = [
     "country": "Germany"
   },
   {
-    "city": "Lam\u00eda",
+    "city": "Lamia",
     "state": "Stere\u00e1 Ell\u00e1da",
     "country": "Greece"
   },
@@ -910,6 +935,11 @@ export const laCities = [
     "country": "Pakistan"
   },
   {
+    "city": "Labrea",
+    "state": "Amazonas",
+    "country": "Brazil"
+  },
+  {
     "city": "Lapa",
     "state": "Paran\u00e1",
     "country": "Brazil"
@@ -930,7 +960,7 @@ export const laCities = [
     "country": "Philippines"
   },
   {
-    "city": "Las Matas de Farf\u00e1n",
+    "city": "Las Matas de Farfan",
     "state": "El Valle",
     "country": "Dominican Republic"
   },
@@ -950,7 +980,7 @@ export const laCities = [
     "country": "Philippines"
   },
   {
-    "city": "Lai Ch\u00e2u",
+    "city": "Lai Chau",
     "state": "Lai Ch\u00e2u",
     "country": "Vietnam"
   },
@@ -975,7 +1005,7 @@ export const laCities = [
     "country": "Spain"
   },
   {
-    "city": "Laungow\u0101l",
+    "city": "Laungowal",
     "state": "Punjab",
     "country": "India"
   },
@@ -1025,7 +1055,7 @@ export const laCities = [
     "country": "Canada"
   },
   {
-    "city": "La Uni\u00f3n",
+    "city": "La Union",
     "state": "Valle del Cauca",
     "country": "Colombia"
   },
@@ -1045,6 +1075,11 @@ export const laCities = [
     "country": "Colombia"
   },
   {
+    "city": "Lalganj",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Langen",
     "state": "Hesse",
     "country": "Germany"
@@ -1060,7 +1095,7 @@ export const laCities = [
     "country": "United States"
   },
   {
-    "city": "Lambar\u00e9n\u00e9",
+    "city": "Lambarene",
     "state": "Moyen-Ogoou\u00e9",
     "country": "Gabon"
   },
@@ -1075,7 +1110,7 @@ export const laCities = [
     "country": "United States"
   },
   {
-    "city": "La Uni\u00f3n",
+    "city": "La Union",
     "state": "Zacapa",
     "country": "Guatemala"
   },
@@ -1105,7 +1140,7 @@ export const laCities = [
     "country": "Chile"
   },
   {
-    "city": "Lah\u0101r",
+    "city": "Lahar",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1125,7 +1160,7 @@ export const laCities = [
     "country": "Philippines"
   },
   {
-    "city": "Lagkad\u00e1s",
+    "city": "Lagkadas",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
@@ -1155,7 +1190,7 @@ export const laCities = [
     "country": "Philippines"
   },
   {
-    "city": "La Vall\u00e9e de Jacmel",
+    "city": "La Vallee de Jacmel",
     "state": "Sud-Est",
     "country": "Haiti"
   },
@@ -1215,7 +1250,7 @@ export const laCities = [
     "country": "Philippines"
   },
   {
-    "city": "La Uni\u00f3n",
+    "city": "La Union",
     "state": "La Uni\u00f3n",
     "country": "El Salvador"
   },
@@ -1275,7 +1310,7 @@ export const laCities = [
     "country": "Brazil"
   },
   {
-    "city": "La Concepci\u00f3n",
+    "city": "La Concepcion",
     "state": "Masaya",
     "country": "Nicaragua"
   },
@@ -1285,7 +1320,7 @@ export const laCities = [
     "country": "Switzerland"
   },
   {
-    "city": "La Man\u00e1",
+    "city": "La Mana",
     "state": "Cotopaxi",
     "country": "Ecuador"
   },
@@ -1298,6 +1333,11 @@ export const laCities = [
     "city": "La Uruca",
     "state": "San Jos\u00e9",
     "country": "Costa Rica"
+  },
+  {
+    "city": "Lalgola",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Lawndale",
@@ -1345,7 +1385,7 @@ export const laCities = [
     "country": "Brazil"
   },
   {
-    "city": "La\u1e29ij",
+    "city": "Lahij",
     "state": "La\u1e29ij",
     "country": "Yemen"
   },
@@ -1380,6 +1420,11 @@ export const laCities = [
     "country": "United States"
   },
   {
+    "city": "Lakheri",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
     "city": "Landsberg",
     "state": "Bavaria",
     "country": "Germany"
@@ -1393,6 +1438,11 @@ export const laCities = [
     "city": "Lavezares",
     "state": "Northern Samar",
     "country": "Philippines"
+  },
+  {
+    "city": "Lamerd",
+    "state": "F\u0101rs",
+    "country": "Iran"
   },
   {
     "city": "La Source",
@@ -1428,6 +1478,11 @@ export const laCities = [
     "city": "La Calera",
     "state": "Cundinamarca",
     "country": "Colombia"
+  },
+  {
+    "city": "Ladwa",
+    "state": "Hary\u0101na",
+    "country": "India"
   },
   {
     "city": "Lacey",
@@ -1495,7 +1550,7 @@ export const laCities = [
     "country": "Brazil"
   },
   {
-    "city": "Lagoa S\u00eaca",
+    "city": "Lagoa Seca",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -1540,12 +1595,12 @@ export const laCities = [
     "country": "France"
   },
   {
-    "city": "Lanqu\u00edn",
+    "city": "Lanquin",
     "state": "Alta Verapaz",
     "country": "Guatemala"
   },
   {
-    "city": "La Uni\u00f3n",
+    "city": "La Union",
     "state": "Los R\u00edos",
     "country": "Chile"
   },
@@ -1595,12 +1650,12 @@ export const laCities = [
     "country": "Russia"
   },
   {
-    "city": "La M\u00e1quina",
+    "city": "La Maquina",
     "state": "Suchitep\u00e9quez",
     "country": "Guatemala"
   },
   {
-    "city": "Lakshm\u012bchar\u012bp\u0101ra",
+    "city": "Lakshmicharipara",
     "state": "Chattogram",
     "country": "Bangladesh"
   },
@@ -1615,7 +1670,12 @@ export const laCities = [
     "country": "Belgium"
   },
   {
-    "city": "Lap\u00e3o",
+    "city": "Ladkhed",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
+    "city": "Lapao",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -1635,14 +1695,29 @@ export const laCities = [
     "country": "United States"
   },
   {
-    "city": "La Uni\u00f3n",
+    "city": "La Union",
     "state": "Nari\u00f1o",
     "country": "Colombia"
+  },
+  {
+    "city": "Latehar",
+    "state": "Jh\u0101rkhand",
+    "country": "India"
   },
   {
     "city": "Lanling",
     "state": "Guangdong",
     "country": "China"
+  },
+  {
+    "city": "Lalru",
+    "state": "Punjab",
+    "country": "India"
+  },
+  {
+    "city": "Ladol",
+    "state": "Gujar\u0101t",
+    "country": "India"
   },
   {
     "city": "La Esperanza",
@@ -1710,7 +1785,12 @@ export const laCities = [
     "country": "France"
   },
   {
-    "city": "La Cruz de R\u00edo Grande",
+    "city": "Lalgudi",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "La Cruz de Rio Grande",
     "state": "Costa Caribe Sur",
     "country": "Nicaragua"
   },
@@ -1755,7 +1835,7 @@ export const laCities = [
     "country": "India"
   },
   {
-    "city": "Las Bre\u00f1as",
+    "city": "Las Brenas",
     "state": "Chaco",
     "country": "Argentina"
   },
@@ -1840,7 +1920,12 @@ export const laCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Lad\u00e1rio",
+    "city": "Laziska Gorne",
+    "state": "\u015al\u0105skie",
+    "country": "Poland"
+  },
+  {
+    "city": "Ladario",
     "state": "Mato Grosso do Sul",
     "country": "Brazil"
   },
@@ -1848,6 +1933,11 @@ export const laCities = [
     "city": "Laventille",
     "state": "San Juan/Laventille",
     "country": "Trinidad and Tobago"
+  },
+  {
+    "city": "Lathi",
+    "state": "Gujar\u0101t",
+    "country": "India"
   },
   {
     "city": "Laje",
@@ -1865,7 +1955,7 @@ export const laCities = [
     "country": "Portugal"
   },
   {
-    "city": "La Uni\u00f3n",
+    "city": "La Union",
     "state": "Murcia",
     "country": "Spain"
   },
@@ -1910,7 +2000,7 @@ export const laCities = [
     "country": "Brazil"
   },
   {
-    "city": "La Ca\u00f1ada Flintridge",
+    "city": "La Canada Flintridge",
     "state": "California",
     "country": "United States"
   },
@@ -1925,12 +2015,12 @@ export const laCities = [
     "country": "France"
   },
   {
-    "city": "Las Vigas de Ram\u00edrez",
+    "city": "Las Vigas de Ramirez",
     "state": "Veracruz",
     "country": "Mexico"
   },
   {
-    "city": "Lal\u00edn",
+    "city": "Lalin",
     "state": "Galicia",
     "country": "Spain"
   },
@@ -1975,7 +2065,7 @@ export const laCities = [
     "country": "United States"
   },
   {
-    "city": "La Corredor\u00eda",
+    "city": "La Corredoria",
     "state": "Asturias",
     "country": "Spain"
   },
@@ -1995,7 +2085,7 @@ export const laCities = [
     "country": "Chile"
   },
   {
-    "city": "La Uni\u00f3n",
+    "city": "La Union",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -2015,12 +2105,12 @@ export const laCities = [
     "country": "Finland"
   },
   {
-    "city": "La Nuc\u00eda",
+    "city": "La Nucia",
     "state": "Valencia",
     "country": "Spain"
   },
   {
-    "city": "Lakhn\u0101don",
+    "city": "Lakhnadon",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -2070,7 +2160,7 @@ export const laCities = [
     "country": "India"
   },
   {
-    "city": "Lau\u0101l\u0101gaon",
+    "city": "Laualagaon",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2115,7 +2205,7 @@ export const laCities = [
     "country": "Italy"
   },
   {
-    "city": "Lav\u0101s\u0101n",
+    "city": "Lavasan",
     "state": "Tehr\u0101n",
     "country": "Iran"
   },
@@ -2135,12 +2225,17 @@ export const laCities = [
     "country": "Argentina"
   },
   {
+    "city": "Lancut",
+    "state": "Podkarpackie",
+    "country": "Poland"
+  },
+  {
     "city": "Lake Butler",
     "state": "Florida",
     "country": "United States"
   },
   {
-    "city": "Lauk\u0101ha",
+    "city": "Laukaha",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2170,7 +2265,7 @@ export const laCities = [
     "country": "India"
   },
   {
-    "city": "Lal\u012bbela",
+    "city": "Lalibela",
     "state": "\u0100mara",
     "country": "Ethiopia"
   },
@@ -2185,7 +2280,7 @@ export const laCities = [
     "country": "United States"
   },
   {
-    "city": "La\u00e7",
+    "city": "Lac",
     "state": "Lezh\u00eb",
     "country": "Albania"
   },
@@ -2205,7 +2300,7 @@ export const laCities = [
     "country": "United States"
   },
   {
-    "city": "Laferri\u00e8re",
+    "city": "Laferriere",
     "state": "Grand\u2019Anse",
     "country": "Haiti"
   },
@@ -2248,6 +2343,11 @@ export const laCities = [
     "city": "La Algaba",
     "state": "Andalusia",
     "country": "Spain"
+  },
+  {
+    "city": "Lask",
+    "state": "\u0141\u00f3dzkie",
+    "country": "Poland"
   },
   {
     "city": "La Sierpe",
@@ -2310,7 +2410,7 @@ export const laCities = [
     "country": "Belgium"
   },
   {
-    "city": "Lakaman\u00e9",
+    "city": "Lakamane",
     "state": "Kayes",
     "country": "Mali"
   },
@@ -2340,7 +2440,7 @@ export const laCities = [
     "country": "Canada"
   },
   {
-    "city": "La Monta\u00f1ita",
+    "city": "La Montanita",
     "state": "Caquet\u00e1",
     "country": "Colombia"
   },
@@ -2385,7 +2485,12 @@ export const laCities = [
     "country": "Serbia"
   },
   {
-    "city": "Land\u00e1zuri",
+    "city": "Lal Khatanga",
+    "state": "Jh\u0101rkhand",
+    "country": "India"
+  },
+  {
+    "city": "Landazuri",
     "state": "Santander",
     "country": "Colombia"
   },
@@ -2395,7 +2500,7 @@ export const laCities = [
     "country": "United States"
   },
   {
-    "city": "Lagoa da Confus\u00e3o",
+    "city": "Lagoa da Confusao",
     "state": "Tocantins",
     "country": "Brazil"
   },
@@ -2455,14 +2560,24 @@ export const laCities = [
     "country": "Mali"
   },
   {
-    "city": "La Fl\u00e8che",
+    "city": "La Fleche",
     "state": "Pays de la Loire",
     "country": "France"
+  },
+  {
+    "city": "Lanji",
+    "state": "Madhya Pradesh",
+    "country": "India"
   },
   {
     "city": "Lakkundi",
     "state": "Karn\u0101taka",
     "country": "India"
+  },
+  {
+    "city": "Lalejin",
+    "state": "Hamad\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Lagangilang",
@@ -2478,6 +2593,11 @@ export const laCities = [
     "city": "La Carolina",
     "state": "Andalusia",
     "country": "Spain"
+  },
+  {
+    "city": "Lapy",
+    "state": "Podlaskie",
+    "country": "Poland"
   },
   {
     "city": "Lampa",
@@ -2510,7 +2630,7 @@ export const laCities = [
     "country": "United States"
   },
   {
-    "city": "Las Gu\u00e1ranas",
+    "city": "Las Guaranas",
     "state": "Cibao Nordeste",
     "country": "Dominican Republic"
   },
@@ -2530,13 +2650,18 @@ export const laCities = [
     "country": "Germany"
   },
   {
-    "city": "Lauda-K\u00f6nigshofen",
+    "city": "Lauda-Konigshofen",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
   {
     "city": "Lakkampatti",
     "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Lakho",
+    "state": "Bih\u0101r",
     "country": "India"
   },
   {
@@ -2575,7 +2700,7 @@ export const laCities = [
     "country": "Russia"
   },
   {
-    "city": "La\u00ef",
+    "city": "Lai",
     "state": "Tandjil\u00e9",
     "country": "Chad"
   },
@@ -2670,6 +2795,11 @@ export const laCities = [
     "country": "Italy"
   },
   {
+    "city": "Lala",
+    "state": "Assam",
+    "country": "India"
+  },
+  {
     "city": "Lake Forest Park",
     "state": "Washington",
     "country": "United States"
@@ -2735,7 +2865,7 @@ export const laCities = [
     "country": "Colombia"
   },
   {
-    "city": "Lama\u00e7\u00e3es",
+    "city": "Lamacaes",
     "state": "Braga",
     "country": "Portugal"
   },
@@ -2845,7 +2975,7 @@ export const laCities = [
     "country": "Colombia"
   },
   {
-    "city": "Lakshm\u012bn\u0101r\u0101yanapuram",
+    "city": "Lakshminarayanapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2885,7 +3015,7 @@ export const laCities = [
     "country": "Italy"
   },
   {
-    "city": "Lav\u00ednia",
+    "city": "Lavinia",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -2900,7 +3030,7 @@ export const laCities = [
     "country": "El Salvador"
   },
   {
-    "city": "Lauriy\u0101 Nandangarh",
+    "city": "Lauriya Nandangarh",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2945,7 +3075,7 @@ export const laCities = [
     "country": "Italy"
   },
   {
-    "city": "La Puebla del R\u00edo",
+    "city": "La Puebla del Rio",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -2985,7 +3115,7 @@ export const laCities = [
     "country": "Germany"
   },
   {
-    "city": "Langg\u00f6ns",
+    "city": "Langgons",
     "state": "Hesse",
     "country": "Germany"
   },
@@ -3050,7 +3180,7 @@ export const laCities = [
     "country": "United States"
   },
   {
-    "city": "La Uni\u00f3n",
+    "city": "La Union",
     "state": "Sucre",
     "country": "Colombia"
   },
@@ -3060,7 +3190,7 @@ export const laCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Labbaikkudikk\u0101du",
+    "city": "Labbaikkudikkadu",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3150,7 +3280,7 @@ export const laCities = [
     "country": "Dominican Republic"
   },
   {
-    "city": "Lavandev\u012bl",
+    "city": "Lavandevil",
     "state": "G\u012bl\u0101n",
     "country": "Iran"
   },
@@ -3183,6 +3313,11 @@ export const laCities = [
     "city": "La Massana",
     "state": "La Massana",
     "country": "Andorra"
+  },
+  {
+    "city": "Lalsaraia",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Lake Grove",
@@ -3265,7 +3400,7 @@ export const laCities = [
     "country": "Spain"
   },
   {
-    "city": "Lachhm\u012bpur",
+    "city": "Lachhmipur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -3280,7 +3415,7 @@ export const laCities = [
     "country": "Morocco"
   },
   {
-    "city": "La\u0107arak",
+    "city": "Lacarak",
     "state": NaN,
     "country": "Serbia"
   },
@@ -3315,7 +3450,7 @@ export const laCities = [
     "country": "Dominican Republic"
   },
   {
-    "city": "Lasht-e Nesh\u0101",
+    "city": "Lasht-e Nesha",
     "state": "G\u012bl\u0101n",
     "country": "Iran"
   },
@@ -3350,12 +3485,12 @@ export const laCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Lakhn\u0101",
+    "city": "Lakhna",
     "state": "Uttar Pradesh",
     "country": "India"
   },
   {
-    "city": "Lauk\u0101ha",
+    "city": "Laukaha",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -3380,7 +3515,7 @@ export const laCities = [
     "country": "United States"
   },
   {
-    "city": "La Trinit\u00e9",
+    "city": "La Trinite",
     "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
     "country": "France"
   },
@@ -3400,7 +3535,12 @@ export const laCities = [
     "country": "United States"
   },
   {
-    "city": "La Misi\u00f3n",
+    "city": "Labhgaon",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "La Mision",
     "state": "Hidalgo",
     "country": "Mexico"
   },
@@ -3420,12 +3560,12 @@ export const laCities = [
     "country": "United States"
   },
   {
-    "city": "La\u2019tamna",
+    "city": "La'tamna",
     "state": "Marrakech-Safi",
     "country": "Morocco"
   },
   {
-    "city": "La Ba\u00f1eza",
+    "city": "La Baneza",
     "state": "Castille-Leon",
     "country": "Spain"
   },
@@ -3435,7 +3575,12 @@ export const laCities = [
     "country": "Austria"
   },
   {
-    "city": "Lakshm\u012bpuram",
+    "city": "Lalmunia Munhara",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Lakshmipuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3458,6 +3603,11 @@ export const laCities = [
     "city": "La Pointe",
     "state": "Nord-Ouest",
     "country": "Haiti"
+  },
+  {
+    "city": "Lalganj",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Latifpur",
@@ -3485,19 +3635,29 @@ export const laCities = [
     "country": "Germany"
   },
   {
-    "city": "Lakha N\u00ebvre",
+    "city": "Lakha Nevre",
     "state": "Chechnya",
     "country": "Russia"
   },
   {
-    "city": "La Fert\u00e9-sous-Jouarre",
+    "city": "Lagos",
+    "state": "Anatolik\u00ed Makedon\u00eda kai Thr\u00e1ki",
+    "country": "Greece"
+  },
+  {
+    "city": "La Ferte-sous-Jouarre",
     "state": "\u00cele-de-France",
     "country": "France"
   },
   {
-    "city": "Lan\u0161kroun",
+    "city": "Lanskroun",
     "state": "Pardubick\u00fd Kraj",
     "country": "Czechia"
+  },
+  {
+    "city": "Lapanga",
+    "state": "Jh\u0101rkhand",
+    "country": "India"
   },
   {
     "city": "Lake Mohawk",
@@ -3525,7 +3685,7 @@ export const laCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "La Farl\u00e8de",
+    "city": "La Farlede",
     "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
     "country": "France"
   },
@@ -3560,12 +3720,22 @@ export const laCities = [
     "country": "Switzerland"
   },
   {
+    "city": "Langhnaj",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
     "city": "Laanoussar",
     "state": "F\u00e8s-Mekn\u00e8s",
     "country": "Morocco"
   },
   {
-    "city": "Lan\u00e7on-Provence",
+    "city": "Ladhuka",
+    "state": "Punjab",
+    "country": "India"
+  },
+  {
+    "city": "Lancon-Provence",
     "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
     "country": "France"
   },
@@ -3615,7 +3785,7 @@ export const laCities = [
     "country": "Spain"
   },
   {
-    "city": "La Bruy\u00e8re",
+    "city": "La Bruyere",
     "state": "Wallonia",
     "country": "Belgium"
   },
@@ -3640,7 +3810,7 @@ export const laCities = [
     "country": "Italy"
   },
   {
-    "city": "Lagb\u00e9",
+    "city": "Lagbe",
     "state": "Plateau",
     "country": "Benin"
   },
@@ -3725,7 +3895,7 @@ export const laCities = [
     "country": "Mexico"
   },
   {
-    "city": "Lakhan\u0101puram",
+    "city": "Lakhanapuram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -3745,7 +3915,7 @@ export const laCities = [
     "country": "Switzerland"
   },
   {
-    "city": "La Fert\u00e9-Bernard",
+    "city": "La Ferte-Bernard",
     "state": "Pays de la Loire",
     "country": "France"
   },
@@ -3765,14 +3935,19 @@ export const laCities = [
     "country": "Switzerland"
   },
   {
-    "city": "Lamar\u00e3o",
+    "city": "Lamarao",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "La Chapelle d\u2019Armenti\u00e8res",
+    "city": "La Chapelle d'Armentieres",
     "state": "Hauts-de-France",
     "country": "France"
+  },
+  {
+    "city": "Lazaro Cardenas",
+    "state": "Chihuahua",
+    "country": "Mexico"
   },
   {
     "city": "Lake Villa",
@@ -3785,7 +3960,7 @@ export const laCities = [
     "country": "Guatemala"
   },
   {
-    "city": "La P\u00eache",
+    "city": "La Peche",
     "state": "Quebec",
     "country": "Canada"
   },
@@ -3825,9 +4000,19 @@ export const laCities = [
     "country": "France"
   },
   {
+    "city": "Lalam",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
     "city": "Lamesa",
     "state": "Texas",
     "country": "United States"
+  },
+  {
+    "city": "Landupdih",
+    "state": "Jh\u0101rkhand",
+    "country": "India"
   },
   {
     "city": "Lambarkiyine",
@@ -3885,12 +4070,12 @@ export const laCities = [
     "country": "Uruguay"
   },
   {
-    "city": "La\u0161ko",
+    "city": "Lasko",
     "state": "La\u0161ko",
     "country": "Slovenia"
   },
   {
-    "city": "La\u00e7\u0131n",
+    "city": "Lacin",
     "state": "La\u00e7\u0131n",
     "country": "Azerbaijan"
   },

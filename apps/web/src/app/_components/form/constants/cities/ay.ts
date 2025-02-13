@@ -1,6 +1,6 @@
 export const ayCities = [
   {
-    "city": "Ayd\u0131n",
+    "city": "Aydin",
     "state": "Ayd\u0131n",
     "country": "Turkey"
   },
@@ -20,7 +20,7 @@ export const ayCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Ayval\u0131k",
+    "city": "Ayvalik",
     "state": "Bal\u0131kesir",
     "country": "Turkey"
   },
@@ -45,12 +45,12 @@ export const ayCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Ayag\u00f6z",
+    "city": "Ayagoz",
     "state": "Abay",
     "country": "Kazakhstan"
   },
   {
-    "city": "Ayir\u0101puram",
+    "city": "Ayirapuram",
     "state": "Kerala",
     "country": "India"
   },
@@ -90,7 +90,7 @@ export const ayCities = [
     "country": "Philippines"
   },
   {
-    "city": "Ayir\u016brp\u0101ra",
+    "city": "Ayirurpara",
     "state": "Kerala",
     "country": "India"
   },
@@ -100,7 +100,7 @@ export const ayCities = [
     "country": "India"
   },
   {
-    "city": "Ayanc\u0131k",
+    "city": "Ayancik",
     "state": "Sinop",
     "country": "Turkey"
   },
@@ -115,7 +115,7 @@ export const ayCities = [
     "country": "Cameroon"
   },
   {
-    "city": "Aybast\u0131",
+    "city": "Aybasti",
     "state": "Ordu",
     "country": "Turkey"
   },
@@ -145,12 +145,12 @@ export const ayCities = [
     "country": "Ethiopia"
   },
   {
-    "city": "Ayvac\u0131k",
+    "city": "Ayvacik",
     "state": "Samsun",
     "country": "Turkey"
   },
   {
-    "city": "Ayy\u0101mpettai",
+    "city": "Ayyampettai",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -160,17 +160,22 @@ export const ayCities = [
     "country": "Argentina"
   },
   {
-    "city": "Ayin\u012bkk\u0101d",
+    "city": "Ayinikkad",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Ayyamp\u0101laiyam",
+    "city": "Ayikudi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Aya\u015f",
+    "city": "Ayyampalaiyam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Ayas",
     "state": "Ankara",
     "country": "Turkey"
   },
@@ -180,12 +185,12 @@ export const ayCities = [
     "country": "Mexico"
   },
   {
-    "city": "Ayn\u00ed",
+    "city": "Ayni",
     "state": "Sughd",
     "country": "Tajikistan"
   },
   {
-    "city": "Ayt \u2019Attou ou L\u2019Arbi",
+    "city": "Ayt 'Attou ou L'Arbi",
     "state": "Marrakech-Safi",
     "country": "Morocco"
   },
@@ -200,7 +205,7 @@ export const ayCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Ayodhy\u0101pattanam",
+    "city": "Ayodhyapattanam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -220,7 +225,7 @@ export const ayCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Ayd\u0131nc\u0131k",
+    "city": "Aydincik",
     "state": "Mersin",
     "country": "Turkey"
   },
@@ -230,7 +235,7 @@ export const ayCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Ayd\u0131nc\u0131k",
+    "city": "Aydincik",
     "state": "Yozgat",
     "country": "Turkey"
   },
@@ -240,17 +245,17 @@ export const ayCities = [
     "country": "Kyrgyzstan"
   },
   {
-    "city": "Ayvac\u0131k",
+    "city": "Ayvacik",
     "state": "\u00c7anakkale",
     "country": "Turkey"
   },
   {
-    "city": "Aytr\u00e9",
+    "city": "Aytre",
     "state": "Nouvelle-Aquitaine",
     "country": "France"
   },
   {
-    "city": "Ayanikk\u0101d",
+    "city": "Ayanikkad",
     "state": "Kerala",
     "country": "India"
   },

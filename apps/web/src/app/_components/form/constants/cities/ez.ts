@@ -38,5 +38,10 @@ export const ezCities = [
     "city": "Ezequiel Montes",
     "state": "Quer\u00e9taro",
     "country": "Mexico"
+  },
+  {
+    "city": "Ezanville",
+    "state": "\u00cele-de-France",
+    "country": "France"
   }
 ]

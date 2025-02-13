@@ -25,7 +25,12 @@ export const duCities = [
     "country": "Mexico"
   },
   {
-    "city": "Durg\u0101pur",
+    "city": "Dusseldorf",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
+    "city": "Durgapur",
     "state": "West Bengal",
     "country": "India"
   },
@@ -55,7 +60,12 @@ export const duCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Duekou\u00e9",
+    "city": "Duzce",
+    "state": "D\u00fczce",
+    "country": "Turkey"
+  },
+  {
+    "city": "Duekoue",
     "state": "Montagnes",
     "country": "C\u00f4te d\u2019Ivoire"
   },
@@ -70,7 +80,7 @@ export const duCities = [
     "country": "Angola"
   },
   {
-    "city": "Durr\u00ebs",
+    "city": "Durres",
     "state": "Durr\u00ebs",
     "country": "Albania"
   },
@@ -78,6 +88,11 @@ export const duCities = [
     "city": "Dutse",
     "state": "Jigawa",
     "country": "Nigeria"
+  },
+  {
+    "city": "Duc Pho",
+    "state": "Qu\u1ea3ng Ng\u00e3i",
+    "country": "Vietnam"
   },
   {
     "city": "Dundee",
@@ -100,6 +115,11 @@ export const duCities = [
     "country": "Colombia"
   },
   {
+    "city": "Duma",
+    "state": "R\u012bf Dimashq",
+    "country": "Syria"
+  },
+  {
     "city": "Duluth",
     "state": "Minnesota",
     "country": "United States"
@@ -108,6 +128,11 @@ export const duCities = [
     "city": "Dunedin",
     "state": "Otago",
     "country": "New Zealand"
+  },
+  {
+    "city": "Duren",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
   },
   {
     "city": "Dunkerque",
@@ -160,6 +185,11 @@ export const duCities = [
     "country": "Philippines"
   },
   {
+    "city": "Duzici",
+    "state": "Osmaniye",
+    "country": "Turkey"
+  },
+  {
     "city": "Dunfermline",
     "state": "Fife",
     "country": "United Kingdom"
@@ -195,7 +225,7 @@ export const duCities = [
     "country": "Philippines"
   },
   {
-    "city": "Duy\u00ean H\u1ea3i",
+    "city": "Duyen Hai",
     "state": "Tr\u00e0 Vinh",
     "country": "Vietnam"
   },
@@ -205,9 +235,24 @@ export const duCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Dungarpur",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
     "city": "Dumka",
     "state": "Jh\u0101rkhand",
     "country": "India"
+  },
+  {
+    "city": "Dulmen",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
+    "city": "Dun Dealgan",
+    "state": "Louth",
+    "country": "Ireland"
   },
   {
     "city": "Dunakeszi",
@@ -220,7 +265,7 @@ export const duCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Duna\u00fajv\u00e1ros",
+    "city": "Dunaujvaros",
     "state": "Duna\u00fajv\u00e1ros",
     "country": "Hungary"
   },
@@ -240,12 +285,17 @@ export const duCities = [
     "country": "United States"
   },
   {
+    "city": "Duba",
+    "state": "Tab\u016bk",
+    "country": "Saudi Arabia"
+  },
+  {
     "city": "Dubbo",
     "state": "New South Wales",
     "country": "Australia"
   },
   {
-    "city": "Dubr\u0101jpur",
+    "city": "Dubrajpur",
     "state": "West Bengal",
     "country": "India"
   },
@@ -260,9 +310,14 @@ export const duCities = [
     "country": "United States"
   },
   {
-    "city": "Dumb\u00e9a",
+    "city": "Dumbea",
     "state": "Province Sud",
     "country": "New Caledonia"
+  },
+  {
+    "city": "Dulay` Rashid",
+    "state": "Al Qa\u015f\u012bm",
+    "country": "Saudi Arabia"
   },
   {
     "city": "Dulhanganj",
@@ -275,7 +330,7 @@ export const duCities = [
     "country": "South Africa"
   },
   {
-    "city": "Due\u00f1as",
+    "city": "Duenas",
     "state": "Iloilo",
     "country": "Philippines"
   },
@@ -345,9 +400,14 @@ export const duCities = [
     "country": "China"
   },
   {
-    "city": "Dub\u0103sari",
+    "city": "Dubasari",
     "state": "St\u00eenga Nistrului",
     "country": "Moldova"
+  },
+  {
+    "city": "Dubendorf",
+    "state": "Z\u00fcrich",
+    "country": "Switzerland"
   },
   {
     "city": "Duayaw-Nkwanta",
@@ -400,7 +460,7 @@ export const duCities = [
     "country": "Philippines"
   },
   {
-    "city": "Dunajsk\u00e1 Streda",
+    "city": "Dunajska Streda",
     "state": "Trnava",
     "country": "Slovakia"
   },
@@ -410,7 +470,7 @@ export const duCities = [
     "country": "United States"
   },
   {
-    "city": "Dubnica nad V\u00e1hom",
+    "city": "Dubnica nad Vahom",
     "state": "Nitra",
     "country": "Slovakia"
   },
@@ -440,6 +500,11 @@ export const duCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Dulken",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
     "city": "Duderstadt",
     "state": "Lower Saxony",
     "country": "Germany"
@@ -450,12 +515,12 @@ export const duCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Dumbr\u0103vi\u0163a",
+    "city": "Dumbravita",
     "state": "Timi\u015f",
     "country": "Romania"
   },
   {
-    "city": "Dura\u011fan",
+    "city": "Duragan",
     "state": "Sinop",
     "country": "Turkey"
   },
@@ -485,6 +550,11 @@ export const duCities = [
     "country": "United States"
   },
   {
+    "city": "Durpalli",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
     "city": "Duero",
     "state": "Bohol",
     "country": "Philippines"
@@ -493,6 +563,11 @@ export const duCities = [
     "city": "Dukli",
     "state": "Madhya Pradesh",
     "country": "India"
+  },
+  {
+    "city": "Dusti",
+    "state": "Khatlon",
+    "country": "Tajikistan"
   },
   {
     "city": "Durant",
@@ -535,7 +610,7 @@ export const duCities = [
     "country": "China"
   },
   {
-    "city": "Durle\u015fti",
+    "city": "Durlesti",
     "state": "Chi\u015fin\u0103u",
     "country": "Moldova"
   },
@@ -558,6 +633,11 @@ export const duCities = [
     "city": "Dunaivtsi",
     "state": "Khmelnytska Oblast",
     "country": "Ukraine"
+  },
+  {
+    "city": "Dubacherla",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Dudhgaon",
@@ -590,7 +670,7 @@ export const duCities = [
     "country": "India"
   },
   {
-    "city": "Duverg\u00e9",
+    "city": "Duverge",
     "state": "Enriquillo",
     "country": "Dominican Republic"
   },
@@ -610,12 +690,17 @@ export const duCities = [
     "country": "India"
   },
   {
-    "city": "Dumari\u0101",
+    "city": "Dumaria",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Duvv\u016bru",
+    "city": "Duzkoy",
+    "state": "Trabzon",
+    "country": "Turkey"
+  },
+  {
+    "city": "Duvvuru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -650,12 +735,17 @@ export const duCities = [
     "country": "Belgium"
   },
   {
+    "city": "Duruma",
+    "state": "Ar Riy\u0101\u1e11",
+    "country": "Saudi Arabia"
+  },
+  {
     "city": "Dugny",
     "state": "\u00cele-de-France",
     "country": "France"
   },
   {
-    "city": "Duggir\u0101la",
+    "city": "Duggirala",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -670,7 +760,7 @@ export const duCities = [
     "country": "Brazil"
   },
   {
-    "city": "Duraisw\u0101mipuram",
+    "city": "Duraiswamipuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -730,7 +820,7 @@ export const duCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Dulce Nombre de Jes\u00fas",
+    "city": "Dulce Nombre de Jesus",
     "state": "San Jos\u00e9",
     "country": "Costa Rica"
   },
@@ -760,7 +850,7 @@ export const duCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Dushanov\u00eb",
+    "city": "Dushanove",
     "state": "Prizren",
     "country": "Kosovo"
   },
@@ -775,7 +865,7 @@ export const duCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Dulce Nombre de Mar\u00eda",
+    "city": "Dulce Nombre de Maria",
     "state": "Chalatenango",
     "country": "El Salvador"
   },
@@ -785,12 +875,12 @@ export const duCities = [
     "country": "India"
   },
   {
-    "city": "Duvv\u016bru",
+    "city": "Duvvuru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Dunavars\u00e1ny",
+    "city": "Dunavarsany",
     "state": "Pest",
     "country": "Hungary"
   },

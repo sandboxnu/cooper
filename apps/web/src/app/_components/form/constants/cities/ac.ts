@@ -5,7 +5,7 @@ export const acCities = [
     "country": "Ghana"
   },
   {
-    "city": "Acapulco de Ju\u00e1rez",
+    "city": "Acapulco de Juarez",
     "state": "Guerrero",
     "country": "Mexico"
   },
@@ -15,9 +15,14 @@ export const acCities = [
     "country": "Venezuela"
   },
   {
-    "city": "Acharn\u00e9s",
+    "city": "Acharnes",
     "state": "Attik\u00ed",
     "country": "Greece"
+  },
+  {
+    "city": "Acailandia",
+    "state": "Maranh\u00e3o",
+    "country": "Brazil"
   },
   {
     "city": "Achinsk",
@@ -30,7 +35,7 @@ export const acCities = [
     "country": "Mexico"
   },
   {
-    "city": "Acac\u00edas",
+    "city": "Acacias",
     "state": "Meta",
     "country": "Colombia"
   },
@@ -40,7 +45,7 @@ export const acCities = [
     "country": "Italy"
   },
   {
-    "city": "Acara\u00fa",
+    "city": "Acarau",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -55,7 +60,7 @@ export const acCities = [
     "country": "Italy"
   },
   {
-    "city": "Acar\u00e1",
+    "city": "Acara",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -65,7 +70,7 @@ export const acCities = [
     "country": "Mexico"
   },
   {
-    "city": "Ac\u00e1mbaro",
+    "city": "Acambaro",
     "state": "Guanajuato",
     "country": "Mexico"
   },
@@ -75,9 +80,14 @@ export const acCities = [
     "country": "Haiti"
   },
   {
-    "city": "Ac\u0131payam",
+    "city": "Acipayam",
     "state": "Denizli",
     "country": "Turkey"
+  },
+  {
+    "city": "Acu",
+    "state": "Rio Grande do Norte",
+    "country": "Brazil"
   },
   {
     "city": "Acajutla",
@@ -95,7 +105,7 @@ export const acCities = [
     "country": "Italy"
   },
   {
-    "city": "Acaxochitl\u00e1n",
+    "city": "Acaxochitlan",
     "state": "Hidalgo",
     "country": "Mexico"
   },
@@ -110,7 +120,7 @@ export const acCities = [
     "country": "Mexico"
   },
   {
-    "city": "Acatl\u00e1n de P\u00e9rez Figueroa",
+    "city": "Acatlan de Perez Figueroa",
     "state": "Oaxaca",
     "country": "Mexico"
   },
@@ -130,7 +140,7 @@ export const acCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Acatl\u00e1n de Osorio",
+    "city": "Acatlan de Osorio",
     "state": "Puebla",
     "country": "Mexico"
   },
@@ -170,7 +180,7 @@ export const acCities = [
     "country": "Germany"
   },
   {
-    "city": "Acatl\u00e1n",
+    "city": "Acatlan",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -185,7 +195,7 @@ export const acCities = [
     "country": "Russia"
   },
   {
-    "city": "Ach\u00ed",
+    "city": "Achi",
     "state": "Bol\u00edvar",
     "country": "Colombia"
   },
@@ -200,7 +210,7 @@ export const acCities = [
     "country": "United States"
   },
   {
-    "city": "Acatl\u00e1n",
+    "city": "Acatlan",
     "state": "Hidalgo",
     "country": "Mexico"
   },
@@ -215,7 +225,7 @@ export const acCities = [
     "country": "Mexico"
   },
   {
-    "city": "Ach\u00e8res",
+    "city": "Acheres",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -230,7 +240,7 @@ export const acCities = [
     "country": "Italy"
   },
   {
-    "city": "Ac\u0131g\u00f6l",
+    "city": "Acigol",
     "state": "Nev\u015fehir",
     "country": "Turkey"
   },
@@ -250,7 +260,7 @@ export const acCities = [
     "country": "Bolivia"
   },
   {
-    "city": "Aci Sant\u2019Antonio",
+    "city": "Aci Sant'Antonio",
     "state": "Sicilia",
     "country": "Italy"
   },
@@ -270,7 +280,7 @@ export const acCities = [
     "country": "India"
   },
   {
-    "city": "Achalj\u0101mu",
+    "city": "Achaljamu",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -283,6 +293,11 @@ export const acCities = [
     "city": "Acahay",
     "state": "Paraguar\u00ed",
     "country": "Paraguay"
+  },
+  {
+    "city": "Ac-cahrij",
+    "state": "Marrakech-Safi",
+    "country": "Morocco"
   },
   {
     "city": "Acala",
@@ -320,12 +335,12 @@ export const acCities = [
     "country": "Turkey"
   },
   {
-    "city": "Acal\u00e1 del R\u00edo",
+    "city": "Acala del Rio",
     "state": "Andalusia",
     "country": "Spain"
   },
   {
-    "city": "Acand\u00ed",
+    "city": "Acandi",
     "state": "Choc\u00f3",
     "country": "Colombia"
   },
@@ -368,6 +383,11 @@ export const acCities = [
     "city": "Acobamba",
     "state": "Huancavelica",
     "country": "Peru"
+  },
+  {
+    "city": "Acucena",
+    "state": "Minas Gerais",
+    "country": "Brazil"
   },
   {
     "city": "Achacachi",

@@ -1,11 +1,16 @@
 export const esCities = [
   {
+    "city": "Esfahan",
+    "state": "E\u015ffah\u0101n",
+    "country": "Iran"
+  },
+  {
     "city": "Esenyurt",
     "state": "\u0130stanbul",
     "country": "Turkey"
   },
   {
-    "city": "Eski\u015fehir",
+    "city": "Eskisehir",
     "state": "Eski\u015fehir",
     "country": "Turkey"
   },
@@ -15,7 +20,7 @@ export const esCities = [
     "country": "Germany"
   },
   {
-    "city": "Esl\u0101mshahr",
+    "city": "Eslamshahr",
     "state": "Tehr\u0101n",
     "country": "Iran"
   },
@@ -45,12 +50,12 @@ export const esCities = [
     "country": "United States"
   },
   {
-    "city": "Estel\u00ed",
+    "city": "Esteli",
     "state": "Estel\u00ed",
     "country": "Nicaragua"
   },
   {
-    "city": "Esteban Echeverr\u00eda",
+    "city": "Esteban Echeverria",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -75,12 +80,12 @@ export const esCities = [
     "country": "Germany"
   },
   {
-    "city": "Esl\u0101m\u0101b\u0101d-e Gharb",
+    "city": "Eslamabad-e Gharb",
     "state": "Kerm\u0101nsh\u0101h",
     "country": "Iran"
   },
   {
-    "city": "Es\u00e9ka",
+    "city": "Eseka",
     "state": "Centre",
     "country": "Cameroon"
   },
@@ -130,7 +135,7 @@ export const esCities = [
     "country": "Sweden"
   },
   {
-    "city": "Est\u00e2ncia",
+    "city": "Estancia",
     "state": "Sergipe",
     "country": "Brazil"
   },
@@ -140,7 +145,7 @@ export const esCities = [
     "country": "Brazil"
   },
   {
-    "city": "Esfar\u0101yen",
+    "city": "Esfarayen",
     "state": "Khor\u0101s\u0101n-e Shom\u0101l\u012b",
     "country": "Iran"
   },
@@ -170,7 +175,7 @@ export const esCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Est\u00e2ncia Velha",
+    "city": "Estancia Velha",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -215,9 +220,14 @@ export const esCities = [
     "country": "Luxembourg"
   },
   {
-    "city": "Estahb\u0101n",
+    "city": "Estahban",
     "state": "F\u0101rs",
     "country": "Iran"
+  },
+  {
+    "city": "Esme",
+    "state": "U\u015fak",
+    "country": "Turkey"
   },
   {
     "city": "Espiye",
@@ -245,12 +255,12 @@ export const esCities = [
     "country": "Brazil"
   },
   {
-    "city": "Estr\u00eala",
+    "city": "Estrela",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
   {
-    "city": "Esperan\u00e7a",
+    "city": "Esperanca",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -270,17 +280,17 @@ export const esCities = [
     "country": "Mexico"
   },
   {
-    "city": "Eshteh\u0101rd",
+    "city": "Eshtehard",
     "state": "Alborz",
     "country": "Iran"
   },
   {
-    "city": "Esc\u00e1rcega",
+    "city": "Escarcega",
     "state": "Campeche",
     "country": "Mexico"
   },
   {
-    "city": "Espig\u00e3o D\u2019Oeste",
+    "city": "Espigao D'Oeste",
     "state": "Rond\u00f4nia",
     "country": "Brazil"
   },
@@ -355,6 +365,11 @@ export const esCities = [
     "country": "Dominican Republic"
   },
   {
+    "city": "Esanboy",
+    "state": "Nohiyahoi Tobei Jumhur\u00ed",
+    "country": "Tajikistan"
+  },
+  {
     "city": "Eschwege",
     "state": "Hesse",
     "country": "Germany"
@@ -375,7 +390,7 @@ export const esCities = [
     "country": "Kyrgyzstan"
   },
   {
-    "city": "Esl\u00f6v",
+    "city": "Eslov",
     "state": "Sk\u00e5ne",
     "country": "Sweden"
   },
@@ -460,7 +475,7 @@ export const esCities = [
     "country": "Portugal"
   },
   {
-    "city": "Eski \u012akan",
+    "city": "Eski Ikan",
     "state": "T\u00fcrkistan",
     "country": "Kazakhstan"
   },
@@ -495,7 +510,7 @@ export const esCities = [
     "country": "Germany"
   },
   {
-    "city": "Escaz\u00fa",
+    "city": "Escazu",
     "state": "San Jos\u00e9",
     "country": "Costa Rica"
   },
@@ -540,7 +555,7 @@ export const esCities = [
     "country": "Canada"
   },
   {
-    "city": "Eski Yakkabog\u2018",
+    "city": "Eski Yakkabog`",
     "state": "Qashqadaryo",
     "country": "Uzbekistan"
   },
@@ -555,7 +570,7 @@ export const esCities = [
     "country": "Mexico"
   },
   {
-    "city": "Espa\u00f1ola",
+    "city": "Espanola",
     "state": "New Mexico",
     "country": "United States"
   },
@@ -565,7 +580,7 @@ export const esCities = [
     "country": "Belgium"
   },
   {
-    "city": "Estreito de C\u00e2mara de Lobos",
+    "city": "Estreito de Camara de Lobos",
     "state": "Madeira",
     "country": "Portugal"
   },
@@ -590,7 +605,7 @@ export const esCities = [
     "country": "United States"
   },
   {
-    "city": "Estr\u00eala d\u2019Oeste",
+    "city": "Estrela d'Oeste",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -600,7 +615,7 @@ export const esCities = [
     "country": "France"
   },
   {
-    "city": "Eshkan\u0101n",
+    "city": "Eshkanan",
     "state": "F\u0101rs",
     "country": "Iran"
   },
@@ -620,7 +635,7 @@ export const esCities = [
     "country": "Germany"
   },
   {
-    "city": "Essey-l\u00e8s-Nancy",
+    "city": "Essey-les-Nancy",
     "state": "Grand Est",
     "country": "France"
   },

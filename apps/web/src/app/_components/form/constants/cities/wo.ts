@@ -10,6 +10,16 @@ export const woCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Wonsan",
+    "state": "Kangw\u014fn",
+    "country": "Korea, North"
+  },
+  {
+    "city": "Wonju",
+    "state": "Gangwon",
+    "country": "Korea, South"
+  },
+  {
     "city": "Wollongong",
     "state": "New South Wales",
     "country": "Australia"
@@ -80,12 +90,12 @@ export const woCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Wolfenb\u00fcttel",
+    "city": "Wolfenbuttel",
     "state": "Lower Saxony",
     "country": "Germany"
   },
   {
-    "city": "Woloss\u00e9bougou",
+    "city": "Wolossebougou",
     "state": "Koulikoro",
     "country": "Mali"
   },
@@ -100,7 +110,7 @@ export const woCities = [
     "country": "Canada"
   },
   {
-    "city": "Wodzis\u0142aw \u015al\u0105ski",
+    "city": "Wodzislaw Slaski",
     "state": "\u015al\u0105skie",
     "country": "Poland"
   },
@@ -130,7 +140,7 @@ export const woCities = [
     "country": "United States"
   },
   {
-    "city": "Wo\u0142omin",
+    "city": "Wolomin",
     "state": "Mazowieckie",
     "country": "Poland"
   },
@@ -225,6 +235,11 @@ export const woCities = [
     "country": "Germany"
   },
   {
+    "city": "Worth am Rhein",
+    "state": "Rhineland-Palatinate",
+    "country": "Germany"
+  },
+  {
     "city": "Woodmere",
     "state": "New York",
     "country": "United States"
@@ -295,6 +310,11 @@ export const woCities = [
     "country": "United States"
   },
   {
+    "city": "Worgl",
+    "state": "Tirol",
+    "country": "Austria"
+  },
+  {
     "city": "Woudenberg",
     "state": "Utrecht",
     "country": "Netherlands"
@@ -360,7 +380,7 @@ export const woCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Wo\u0142\u00f3w",
+    "city": "Wolow",
     "state": "Dolno\u015bl\u0105skie",
     "country": "Poland"
   },
@@ -458,6 +478,11 @@ export const woCities = [
     "city": "Worth",
     "state": "West Sussex",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Wolfersheim",
+    "state": "Hesse",
+    "country": "Germany"
   },
   {
     "city": "Worpswede",

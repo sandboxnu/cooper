@@ -30,7 +30,7 @@ export const quCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Qu\u1ea3ng H\u00e0",
+    "city": "Quang Ha",
     "state": "Qu\u1ea3ng Nam",
     "country": "Vietnam"
   },
@@ -40,7 +40,7 @@ export const quCities = [
     "country": "China"
   },
   {
-    "city": "Quer\u00e9taro",
+    "city": "Queretaro",
     "state": "Quer\u00e9taro",
     "country": "Mexico"
   },
@@ -60,7 +60,7 @@ export const quCities = [
     "country": "India"
   },
   {
-    "city": "Quy Nh\u01a1n",
+    "city": "Quy Nhon",
     "state": "B\u00ecnh \u0110\u1ecbnh",
     "country": "Vietnam"
   },
@@ -70,7 +70,7 @@ export const quCities = [
     "country": "Argentina"
   },
   {
-    "city": "Qu\u1ea3ng Ng\u00e3i",
+    "city": "Quang Ngai",
     "state": "Qu\u1ea3ng Ng\u00e3i",
     "country": "Vietnam"
   },
@@ -90,7 +90,7 @@ export const quCities = [
     "country": "Mozambique"
   },
   {
-    "city": "Qu\u1ea3ng Y\u00ean",
+    "city": "Quang Yen",
     "state": "Qu\u1ea3ng Ninh",
     "country": "Vietnam"
   },
@@ -110,9 +110,14 @@ export const quCities = [
     "country": "Angola"
   },
   {
-    "city": "Quilpu\u00e9",
+    "city": "Quilpue",
     "state": "Valpara\u00edso",
     "country": "Chile"
+  },
+  {
+    "city": "Quchan",
+    "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
+    "country": "Iran"
   },
   {
     "city": "Quillacollo",
@@ -125,7 +130,7 @@ export const quCities = [
     "country": "Angola"
   },
   {
-    "city": "Quibd\u00f3",
+    "city": "Quibdo",
     "state": "Choc\u00f3",
     "country": "Colombia"
   },
@@ -140,7 +145,7 @@ export const quCities = [
     "country": "Angola"
   },
   {
-    "city": "Qu\u00edbor",
+    "city": "Quibor",
     "state": "Lara",
     "country": "Venezuela"
   },
@@ -165,7 +170,7 @@ export const quCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Quixad\u00e1",
+    "city": "Quixada",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -173,6 +178,11 @@ export const quCities = [
     "city": "Quixeramobim",
     "state": "Cear\u00e1",
     "country": "Brazil"
+  },
+  {
+    "city": "Qunghirot",
+    "state": "Qoraqalpog\u2018iston",
+    "country": "Uzbekistan"
   },
   {
     "city": "Queluz",
@@ -190,7 +200,7 @@ export const quCities = [
     "country": "Chile"
   },
   {
-    "city": "Quil\u0101ndi",
+    "city": "Quilandi",
     "state": "Kerala",
     "country": "India"
   },
@@ -200,7 +210,7 @@ export const quCities = [
     "country": "South Africa"
   },
   {
-    "city": "Quartu Sant\u2019Elena",
+    "city": "Quartu Sant'Elena",
     "state": "Sardegna",
     "country": "Italy"
   },
@@ -215,7 +225,7 @@ export const quCities = [
     "country": "France"
   },
   {
-    "city": "Qurayy\u0101t",
+    "city": "Qurayyat",
     "state": "Masqa\u0163",
     "country": "Oman"
   },
@@ -235,7 +245,7 @@ export const quCities = [
     "country": "El Salvador"
   },
   {
-    "city": "Quirin\u00f3polis",
+    "city": "Quirinopolis",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -255,7 +265,7 @@ export const quCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Quinh\u00e1mel",
+    "city": "Quinhamel",
     "state": "Biombo",
     "country": "Guinea-Bissau"
   },
@@ -295,7 +305,7 @@ export const quCities = [
     "country": "Angola"
   },
   {
-    "city": "Quinch\u00eda",
+    "city": "Quinchia",
     "state": "Risaralda",
     "country": "Colombia"
   },
@@ -310,7 +320,7 @@ export const quCities = [
     "country": "Chile"
   },
   {
-    "city": "Qu\u0163\u016br",
+    "city": "Qutur",
     "state": "Al Gharb\u012byah",
     "country": "Egypt"
   },
@@ -330,7 +340,7 @@ export const quCities = [
     "country": "Philippines"
   },
   {
-    "city": "Quivic\u00e1n",
+    "city": "Quivican",
     "state": "Mayabeque",
     "country": "Cuba"
   },
@@ -370,7 +380,7 @@ export const quCities = [
     "country": "Italy"
   },
   {
-    "city": "Quilal\u00ed",
+    "city": "Quilali",
     "state": "Nueva Segovia",
     "country": "Nicaragua"
   },
@@ -410,7 +420,7 @@ export const quCities = [
     "country": "Philippines"
   },
   {
-    "city": "Quell\u00f3n",
+    "city": "Quellon",
     "state": "Los Lagos",
     "country": "Chile"
   },
@@ -420,12 +430,12 @@ export const quCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Quara\u00ed",
+    "city": "Quarai",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
   {
-    "city": "Qu\u1ea3ng Tr\u1ecb",
+    "city": "Quang Tri",
     "state": "Qu\u1ea3ng Tr\u1ecb",
     "country": "Vietnam"
   },
@@ -440,7 +450,7 @@ export const quCities = [
     "country": "Mauritius"
   },
   {
-    "city": "Quissam\u00e3",
+    "city": "Quissama",
     "state": "Rio de Janeiro",
     "country": "Brazil"
   },
@@ -455,12 +465,12 @@ export const quCities = [
     "country": "Angola"
   },
   {
-    "city": "Quixer\u00e9",
+    "city": "Quixere",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Quemado de G\u00fcines",
+    "city": "Quemado de Guines",
     "state": "Villa Clara",
     "country": "Cuba"
   },
@@ -490,7 +500,7 @@ export const quCities = [
     "country": "Angola"
   },
   {
-    "city": "Quipap\u00e1",
+    "city": "Quipapa",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -525,7 +535,7 @@ export const quCities = [
     "country": "Paraguay"
   },
   {
-    "city": "Quixel\u00f4",
+    "city": "Quixelo",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -545,12 +555,12 @@ export const quCities = [
     "country": "Lesotho"
   },
   {
-    "city": "Qumqo\u2018rg\u2018on",
+    "city": "Qumqo`rg`on",
     "state": "Surxondaryo",
     "country": "Uzbekistan"
   },
   {
-    "city": "Quan\u2019ancun",
+    "city": "Quan'ancun",
     "state": "Guangdong",
     "country": "China"
   },
@@ -560,12 +570,12 @@ export const quCities = [
     "country": "Philippines"
   },
   {
-    "city": "Quakenbr\u00fcck",
+    "city": "Quakenbruck",
     "state": "Lower Saxony",
     "country": "Germany"
   },
   {
-    "city": "Quat\u00e1",
+    "city": "Quata",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -585,7 +595,7 @@ export const quCities = [
     "country": "Italy"
   },
   {
-    "city": "Quzanl\u0131",
+    "city": "Quzanli",
     "state": "A\u011fdam",
     "country": "Azerbaijan"
   },
@@ -615,7 +625,7 @@ export const quCities = [
     "country": "Chile"
   },
   {
-    "city": "Quimperl\u00e9",
+    "city": "Quimperle",
     "state": "Bretagne",
     "country": "France"
   },
@@ -640,7 +650,7 @@ export const quCities = [
     "country": "Spain"
   },
   {
-    "city": "Quimil\u00ed",
+    "city": "Quimili",
     "state": "Santiago del Estero",
     "country": "Argentina"
   },
@@ -650,7 +660,7 @@ export const quCities = [
     "country": "Brazil"
   },
   {
-    "city": "Quer\u00eancia do Norte",
+    "city": "Querencia do Norte",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -675,7 +685,7 @@ export const quCities = [
     "country": "Italy"
   },
   {
-    "city": "Quf\u0101dah",
+    "city": "Qufadah",
     "state": "Al Miny\u0101",
     "country": "Egypt"
   },
@@ -685,7 +695,7 @@ export const quCities = [
     "country": "Angola"
   },
   {
-    "city": "Quincy-sous-S\u00e9nart",
+    "city": "Quincy-sous-Senart",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -720,12 +730,12 @@ export const quCities = [
     "country": "Canada"
   },
   {
-    "city": "Qu\u00e9tigny",
+    "city": "Quetigny",
     "state": "Bourgogne-Franche-Comt\u00e9",
     "country": "France"
   },
   {
-    "city": "Qu\u00e9ven",
+    "city": "Queven",
     "state": "Bretagne",
     "country": "France"
   },
@@ -760,7 +770,7 @@ export const quCities = [
     "country": "Australia"
   },
   {
-    "city": "Qubadl\u0131",
+    "city": "Qubadli",
     "state": "Qubadl\u0131",
     "country": "Azerbaijan"
   },

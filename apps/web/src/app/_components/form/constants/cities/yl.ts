@@ -1,6 +1,6 @@
 export const ylCities = [
   {
-    "city": "Yl\u00f6j\u00e4rvi",
+    "city": "Ylojarvi",
     "state": "Pirkanmaa",
     "country": "Finland"
   },

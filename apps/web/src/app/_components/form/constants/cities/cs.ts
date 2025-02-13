@@ -1,11 +1,11 @@
 export const csCities = [
   {
-    "city": "Csongr\u00e1d",
+    "city": "Csongrad",
     "state": "Csongr\u00e1d-Csan\u00e1d",
     "country": "Hungary"
   },
   {
-    "city": "Cs\u00f6m\u00f6r",
+    "city": "Csomor",
     "state": "Pest",
     "country": "Hungary"
   },

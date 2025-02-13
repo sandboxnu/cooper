@@ -10,9 +10,14 @@ export const soCities = [
     "country": "South Africa"
   },
   {
-    "city": "Sol\u0101pur",
+    "city": "Solapur",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
+  },
+  {
+    "city": "Songnam",
+    "state": "Gyeonggi",
+    "country": "Korea, South"
   },
   {
     "city": "Southampton",
@@ -60,12 +65,12 @@ export const soCities = [
     "country": "Russia"
   },
   {
-    "city": "Son\u012bpat",
+    "city": "Sonipat",
     "state": "Hary\u0101na",
     "country": "India"
   },
   {
-    "city": "Soledad de Graciano S\u00e1nchez",
+    "city": "Soledad de Graciano Sanchez",
     "state": "San Luis Potos\u00ed",
     "country": "Mexico"
   },
@@ -85,14 +90,24 @@ export const soCities = [
     "country": "United States"
   },
   {
-    "city": "Soubr\u00e9",
+    "city": "Soubre",
     "state": "Bas-Sassandra",
     "country": "C\u00f4te d\u2019Ivoire"
+  },
+  {
+    "city": "Soka",
+    "state": "Saitama",
+    "country": "Japan"
   },
   {
     "city": "Soyapango",
     "state": "San Salvador",
     "country": "El Salvador"
+  },
+  {
+    "city": "Son Tay",
+    "state": "H\u00e0 N\u1ed9i",
+    "country": "Vietnam"
   },
   {
     "city": "Songadh",
@@ -103,6 +118,11 @@ export const soCities = [
     "city": "Sousse",
     "state": "Sousse",
     "country": "Tunisia"
+  },
+  {
+    "city": "Soc Trang",
+    "state": "S\u00f3c Tr\u0103ng",
+    "country": "Vietnam"
   },
   {
     "city": "Sodo",
@@ -135,6 +155,11 @@ export const soCities = [
     "country": "Philippines"
   },
   {
+    "city": "Sosan",
+    "state": "Chungnam",
+    "country": "Korea, South"
+  },
+  {
     "city": "Solingen",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
@@ -165,6 +190,11 @@ export const soCities = [
     "country": "Korea, North"
   },
   {
+    "city": "Soke",
+    "state": "Ayd\u0131n",
+    "country": "Turkey"
+  },
+  {
     "city": "Sopur",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
@@ -185,7 +215,7 @@ export const soCities = [
     "country": "Colombia"
   },
   {
-    "city": "Sokod\u00e9",
+    "city": "Sokode",
     "state": "Centrale",
     "country": "Togo"
   },
@@ -195,7 +225,7 @@ export const soCities = [
     "country": "Brazil"
   },
   {
-    "city": "Socop\u00f3",
+    "city": "Socopo",
     "state": "Barinas",
     "country": "Venezuela"
   },
@@ -210,12 +240,22 @@ export const soCities = [
     "country": "United States"
   },
   {
+    "city": "Son La",
+    "state": "S\u01a1n La",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Song Cau",
+    "state": "Ph\u00fa Y\u00ean",
+    "country": "Vietnam"
+  },
+  {
     "city": "Songea",
     "state": "Ruvuma",
     "country": "Tanzania"
   },
   {
-    "city": "Solol\u00e1",
+    "city": "Solola",
     "state": "Solol\u00e1",
     "country": "Guatemala"
   },
@@ -300,6 +340,11 @@ export const soCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Sodertalje",
+    "state": "Stockholm",
+    "country": "Sweden"
+  },
+  {
     "city": "Sonsonate",
     "state": "Sonsonate",
     "country": "El Salvador"
@@ -308,6 +353,11 @@ export const soCities = [
     "city": "Somasso",
     "state": "S\u00e9gou",
     "country": "Mali"
+  },
+  {
+    "city": "Soja",
+    "state": "Okayama",
+    "country": "Japan"
   },
   {
     "city": "Southampton",
@@ -410,9 +460,14 @@ export const soCities = [
     "country": "India"
   },
   {
-    "city": "Sos\u00faa",
+    "city": "Sosua",
     "state": "Cibao Norte",
     "country": "Dominican Republic"
+  },
+  {
+    "city": "Song Doc",
+    "state": "C\u00e0 Mau",
+    "country": "Vietnam"
   },
   {
     "city": "Soest",
@@ -423,6 +478,11 @@ export const soCities = [
     "city": "Sogod",
     "state": "Southern Leyte",
     "country": "Philippines"
+  },
+  {
+    "city": "Sowme`eh Sara",
+    "state": "G\u012bl\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Soest",
@@ -525,6 +585,11 @@ export const soCities = [
     "country": "Algeria"
   },
   {
+    "city": "Soma",
+    "state": "Fukushima",
+    "country": "Japan"
+  },
+  {
     "city": "Sorel-Tracy",
     "state": "Quebec",
     "country": "Canada"
@@ -535,7 +600,7 @@ export const soCities = [
     "country": "Mozambique"
   },
   {
-    "city": "Sons\u00f3n",
+    "city": "Sonson",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -548,6 +613,11 @@ export const soCities = [
     "city": "South Miami Heights",
     "state": "Florida",
     "country": "United States"
+  },
+  {
+    "city": "Sosa",
+    "state": "Chiba",
+    "country": "Japan"
   },
   {
     "city": "Socorro",
@@ -583,6 +653,11 @@ export const soCities = [
     "city": "Sopot",
     "state": "Pomorskie",
     "country": "Poland"
+  },
+  {
+    "city": "So",
+    "state": "Kagoshima",
+    "country": "Japan"
   },
   {
     "city": "Sotouboua",
@@ -645,12 +720,12 @@ export const soCities = [
     "country": "Philippines"
   },
   {
-    "city": "Sop\u00f3",
+    "city": "Sopo",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
   {
-    "city": "Son\u0101mukhi",
+    "city": "Sonamukhi",
     "state": "West Bengal",
     "country": "India"
   },
@@ -660,12 +735,12 @@ export const soCities = [
     "country": "Nicaragua"
   },
   {
-    "city": "Sort\u00f6be",
+    "city": "Sortobe",
     "state": "Zhambyl",
     "country": "Kazakhstan"
   },
   {
-    "city": "Sotteville-l\u00e8s-Rouen",
+    "city": "Sotteville-les-Rouen",
     "state": "Normandie",
     "country": "France"
   },
@@ -680,7 +755,7 @@ export const soCities = [
     "country": "Morocco"
   },
   {
-    "city": "Sottaiyamp\u0101laiyam",
+    "city": "Sottaiyampalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -688,6 +763,11 @@ export const soCities = [
     "city": "South Laurel",
     "state": "Maryland",
     "country": "United States"
+  },
+  {
+    "city": "Sonderborg",
+    "state": "Syddanmark",
+    "country": "Denmark"
   },
   {
     "city": "Soledad de Doblado",
@@ -705,7 +785,7 @@ export const soCities = [
     "country": "Russia"
   },
   {
-    "city": "Sol\u2019-Iletsk",
+    "city": "Sol'-Iletsk",
     "state": "Orenburgskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -715,7 +795,7 @@ export const soCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Sol\u00e2nea",
+    "city": "Solanea",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -735,7 +815,7 @@ export const soCities = [
     "country": "United States"
   },
   {
-    "city": "Sofiyivs\u2019ka Borshchahivka",
+    "city": "Sofiyivs'ka Borshchahivka",
     "state": "Kyivska Oblast",
     "country": "Ukraine"
   },
@@ -750,7 +830,7 @@ export const soCities = [
     "country": "United States"
   },
   {
-    "city": "Sogr\u0101ha",
+    "city": "Sograha",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -780,7 +860,7 @@ export const soCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Sovetskaya Gavan\u2019",
+    "city": "Sovetskaya Gavan'",
     "state": "Khabarovskiy Kray",
     "country": "Russia"
   },
@@ -795,7 +875,7 @@ export const soCities = [
     "country": "Philippines"
   },
   {
-    "city": "Soh\u0101gpur",
+    "city": "Sohagpur",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -805,7 +885,7 @@ export const soCities = [
     "country": "El Salvador"
   },
   {
-    "city": "Soj\u012btra",
+    "city": "Sojitra",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -890,7 +970,7 @@ export const soCities = [
     "country": "Mexico"
   },
   {
-    "city": "Son\u0101ri",
+    "city": "Sonari",
     "state": "Assam",
     "country": "India"
   },
@@ -920,7 +1000,7 @@ export const soCities = [
     "country": "Germany"
   },
   {
-    "city": "Soy\u0101gaon",
+    "city": "Soyagaon",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -990,7 +1070,7 @@ export const soCities = [
     "country": "Colombia"
   },
   {
-    "city": "Son\u0101g\u0101zi",
+    "city": "Sonagazi",
     "state": "Chattogram",
     "country": "Bangladesh"
   },
@@ -1045,12 +1125,12 @@ export const soCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Soh\u0101na",
+    "city": "Sohana",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Son\u0101imukh",
+    "city": "Sonaimukh",
     "state": "Assam",
     "country": "India"
   },
@@ -1078,6 +1158,16 @@ export const soCities = [
     "city": "Soure",
     "state": "Coimbra",
     "country": "Portugal"
+  },
+  {
+    "city": "Sogut",
+    "state": "Bilecik",
+    "country": "Turkey"
+  },
+  {
+    "city": "Sommerda",
+    "state": "Thuringia",
+    "country": "Germany"
   },
   {
     "city": "Sorgues",
@@ -1125,7 +1215,7 @@ export const soCities = [
     "country": "India"
   },
   {
-    "city": "Soko\u0142\u00f3w Podlaski",
+    "city": "Sokolow Podlaski",
     "state": "Mazowieckie",
     "country": "Poland"
   },
@@ -1140,7 +1230,7 @@ export const soCities = [
     "country": "United States"
   },
   {
-    "city": "Solon\u00f3pole",
+    "city": "Solonopole",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -1185,7 +1275,7 @@ export const soCities = [
     "country": "United States"
   },
   {
-    "city": "Sok\u00f3\u0142ka",
+    "city": "Sokolka",
     "state": "Podlaskie",
     "country": "Poland"
   },
@@ -1210,7 +1300,7 @@ export const soCities = [
     "country": "United States"
   },
   {
-    "city": "Solr\u00f8d Strand",
+    "city": "Solrod Strand",
     "state": "Sj\u00e6lland",
     "country": "Denmark"
   },
@@ -1275,7 +1365,7 @@ export const soCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Son\u0101pur",
+    "city": "Sonapur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1325,7 +1415,7 @@ export const soCities = [
     "country": "Italy"
   },
   {
-    "city": "Sod\u0101g",
+    "city": "Sodag",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -1390,7 +1480,7 @@ export const soCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Sopetr\u00e1n",
+    "city": "Sopetran",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -1410,6 +1500,11 @@ export const soCities = [
     "country": "Turkey"
   },
   {
+    "city": "Sogutlu",
+    "state": "Sakarya",
+    "country": "Turkey"
+  },
+  {
     "city": "Soledade",
     "state": "Para\u00edba",
     "country": "Brazil"
@@ -1425,7 +1520,7 @@ export const soCities = [
     "country": "United States"
   },
   {
-    "city": "Sobr\u0101on",
+    "city": "Sobraon",
     "state": "Punjab",
     "country": "India"
   },
@@ -1438,6 +1533,11 @@ export const soCities = [
     "city": "Solonytsivka",
     "state": "Kharkivska Oblast",
     "country": "Ukraine"
+  },
+  {
+    "city": "Soller",
+    "state": "Balearic Islands",
+    "country": "Spain"
   },
   {
     "city": "South Stormont",
@@ -1490,6 +1590,11 @@ export const soCities = [
     "country": "Thailand"
   },
   {
+    "city": "Sorum",
+    "state": "Viken",
+    "country": "Norway"
+  },
+  {
     "city": "Sonbarsa",
     "state": "Bih\u0101r",
     "country": "India"
@@ -1520,7 +1625,7 @@ export const soCities = [
     "country": "Norway"
   },
   {
-    "city": "Socu\u00e9llamos",
+    "city": "Socuellamos",
     "state": "Castille-La Mancha",
     "country": "Spain"
   },
@@ -1530,7 +1635,7 @@ export const soCities = [
     "country": "India"
   },
   {
-    "city": "Solli\u00e8s-Pont",
+    "city": "Sollies-Pont",
     "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
     "country": "France"
   },
@@ -1545,7 +1650,7 @@ export const soCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Sokouhou\u00e9",
+    "city": "Sokouhoue",
     "state": "Couffo",
     "country": "Benin"
   },
@@ -1565,7 +1670,7 @@ export const soCities = [
     "country": "Morocco"
   },
   {
-    "city": "Sondho Dull\u0101h",
+    "city": "Sondho Dullah",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1595,6 +1700,11 @@ export const soCities = [
     "country": "France"
   },
   {
+    "city": "Soderhamn",
+    "state": "G\u00e4vleborg",
+    "country": "Sweden"
+  },
+  {
     "city": "Soalandy",
     "state": "Antananarivo",
     "country": "Madagascar"
@@ -1610,12 +1720,12 @@ export const soCities = [
     "country": "India"
   },
   {
-    "city": "Son\u0101da",
+    "city": "Sonada",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Son\u0101pur",
+    "city": "Sonapur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1640,9 +1750,14 @@ export const soCities = [
     "country": "Australia"
   },
   {
-    "city": "Somav\u0101rappatti",
+    "city": "Somavarappatti",
     "state": "Tamil N\u0101du",
     "country": "India"
+  },
+  {
+    "city": "Sogne",
+    "state": "Agder",
+    "country": "Norway"
   },
   {
     "city": "Sosenskiy",
@@ -1655,12 +1770,12 @@ export const soCities = [
     "country": "Spain"
   },
   {
-    "city": "Somn\u0101ha",
+    "city": "Somnaha",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Sonb\u0101ri",
+    "city": "Sonbari",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1680,7 +1795,7 @@ export const soCities = [
     "country": "Russia"
   },
   {
-    "city": "Solym\u00e1r",
+    "city": "Solymar",
     "state": "Pest",
     "country": "Hungary"
   },
@@ -1700,7 +1815,7 @@ export const soCities = [
     "country": "India"
   },
   {
-    "city": "Soyal\u00f3",
+    "city": "Soyalo",
     "state": "Chiapas",
     "country": "Mexico"
   },
@@ -1715,7 +1830,7 @@ export const soCities = [
     "country": "Canada"
   },
   {
-    "city": "Sohw\u0101l",
+    "city": "Sohwal",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -1785,7 +1900,7 @@ export const soCities = [
     "country": "United States"
   },
   {
-    "city": "Sonw\u0101n",
+    "city": "Sonwan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1810,12 +1925,12 @@ export const soCities = [
     "country": "India"
   },
   {
-    "city": "Sobral de Monte Agra\u00e7o",
+    "city": "Sobral de Monte Agraco",
     "state": "Lisboa",
     "country": "Portugal"
   },
   {
-    "city": "Solind\u0101b\u0101d",
+    "city": "Solindabad",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1870,7 +1985,7 @@ export const soCities = [
     "country": "Iran"
   },
   {
-    "city": "Soule\u00ef",
+    "city": "Soulei",
     "state": "S\u00e9gou",
     "country": "Mali"
   },
@@ -1880,7 +1995,7 @@ export const soCities = [
     "country": "Italy"
   },
   {
-    "city": "Socot\u00e1",
+    "city": "Socota",
     "state": "Boyac\u00e1",
     "country": "Colombia"
   },
@@ -1920,7 +2035,7 @@ export const soCities = [
     "country": "Italy"
   },
   {
-    "city": "Somv\u0101rpet",
+    "city": "Somvarpet",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1950,7 +2065,7 @@ export const soCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Soubakani\u00e9dougou",
+    "city": "Soubakaniedougou",
     "state": "Cascades",
     "country": "Burkina Faso"
   },
@@ -1985,7 +2100,7 @@ export const soCities = [
     "country": "Colombia"
   },
   {
-    "city": "Sog\u0101m",
+    "city": "Sogam",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
@@ -2040,12 +2155,12 @@ export const soCities = [
     "country": "Japan"
   },
   {
-    "city": "Sow\u0101n",
+    "city": "Sowan",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Sodankyl\u00e4",
+    "city": "Sodankyla",
     "state": "Lappi",
     "country": "Finland"
   },
@@ -2080,12 +2195,12 @@ export const soCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Sollefte\u00e5",
+    "city": "Solleftea",
     "state": "V\u00e4sternorrland",
     "country": "Sweden"
   },
   {
-    "city": "Sobh\u0101pur",
+    "city": "Sobhapur",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -2120,7 +2235,7 @@ export const soCities = [
     "country": "United States"
   },
   {
-    "city": "Sor\u00f8",
+    "city": "Soro",
     "state": "Sj\u00e6lland",
     "country": "Denmark"
   },
@@ -2128,6 +2243,16 @@ export const soCities = [
     "city": "Sokobanja",
     "state": "Sokobanja",
     "country": "Serbia"
+  },
+  {
+    "city": "Soldanesti",
+    "state": "\u015eold\u0103ne\u015fti",
+    "country": "Moldova"
+  },
+  {
+    "city": "Sostanj",
+    "state": "\u0160o\u0161tanj",
+    "country": "Slovenia"
   },
   {
     "city": "Sowa Town",
@@ -2150,12 +2275,12 @@ export const soCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Sodra\u017eica",
+    "city": "Sodrazica",
     "state": "Sodra\u017eica",
     "country": "Slovenia"
   },
   {
-    "city": "Sopi\u0161te",
+    "city": "Sopiste",
     "state": "Sopi\u0161te",
     "country": "North Macedonia"
   },
@@ -2165,7 +2290,7 @@ export const soCities = [
     "country": "Australia"
   },
   {
-    "city": "Sol\u010dava",
+    "city": "Solcava",
     "state": "Sol\u010dava",
     "country": "Slovenia"
   },
@@ -2178,6 +2303,11 @@ export const soCities = [
     "city": "Sola",
     "state": "Torba",
     "country": "Vanuatu"
+  },
+  {
+    "city": "Sorvagur",
+    "state": "S\u00f8rv\u00e1gur",
+    "country": "Faroe Islands"
   },
   {
     "city": "Sotik Post",

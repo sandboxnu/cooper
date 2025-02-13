@@ -13,5 +13,15 @@ export const ujCities = [
     "city": "Ujre",
     "state": "Karn\u0101taka",
     "country": "India"
+  },
+  {
+    "city": "Ujfeherto",
+    "state": "Szabolcs-Szatm\u00e1r-Bereg",
+    "country": "Hungary"
+  },
+  {
+    "city": "Ujhana",
+    "state": "Hary\u0101na",
+    "country": "India"
   }
 ]

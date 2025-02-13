@@ -20,12 +20,12 @@ export const ziCities = [
     "country": "Niger"
   },
   {
-    "city": "Zielona G\u00f3ra",
+    "city": "Zielona Gora",
     "state": "Lubuskie",
     "country": "Poland"
   },
   {
-    "city": "Zipaquir\u00e1",
+    "city": "Zipaquira",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
@@ -40,12 +40,17 @@ export const ziCities = [
     "country": "Mexico"
   },
   {
-    "city": "Zift\u00e1",
+    "city": "Zilina",
+    "state": "\u017dilina",
+    "country": "Slovakia"
+  },
+  {
+    "city": "Zifta",
     "state": "Al Gharb\u012byah",
     "country": "Egypt"
   },
   {
-    "city": "Zinjib\u0101r",
+    "city": "Zinjibar",
     "state": "Abyan",
     "country": "Yemen"
   },
@@ -65,6 +70,11 @@ export const ziCities = [
     "country": "Mexico"
   },
   {
+    "city": "Zivinice",
+    "state": "Bosnia and Herzegovina, Federation of",
+    "country": "Bosnia and Herzegovina"
+  },
+  {
     "city": "Zile",
     "state": "Tokat",
     "country": "Turkey"
@@ -75,12 +85,17 @@ export const ziCities = [
     "country": "Mexico"
   },
   {
+    "city": "Zira",
+    "state": "Punjab",
+    "country": "India"
+  },
+  {
     "city": "Zinzana",
     "state": "S\u00e9gou",
     "country": "Mali"
   },
   {
-    "city": "Ziniar\u00e9",
+    "city": "Ziniare",
     "state": "Plateau-Central",
     "country": "Burkina Faso"
   },
@@ -115,12 +130,12 @@ export const ziCities = [
     "country": "United States"
   },
   {
-    "city": "Zir\u0101pur",
+    "city": "Zirapur",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Zimatl\u00e1n de \u00c1lvarez",
+    "city": "Zimatlan de Alvarez",
     "state": "Oaxaca",
     "country": "Mexico"
   },
@@ -130,9 +145,14 @@ export const ziCities = [
     "country": "Poland"
   },
   {
-    "city": "Zinvi\u00e9",
+    "city": "Zinvie",
     "state": "Atlantique",
     "country": "Benin"
+  },
+  {
+    "city": "Ziar nad Hronom",
+    "state": "Bansk\u00e1 Bystrica",
+    "country": "Slovakia"
   },
   {
     "city": "Ziracuaretiro",
@@ -140,7 +160,7 @@ export const ziCities = [
     "country": "Mexico"
   },
   {
-    "city": "Zinap\u00e9cuaro",
+    "city": "Zinapecuaro",
     "state": "Michoac\u00e1n",
     "country": "Mexico"
   },
@@ -148,6 +168,16 @@ export const ziCities = [
     "city": "Zirara",
     "state": "Casablanca-Settat",
     "country": "Morocco"
+  },
+  {
+    "city": "Zitorada",
+    "state": "\u017ditora\u0111a",
+    "country": "Serbia"
+  },
+  {
+    "city": "Zitsa",
+    "state": "\u00cdpeiros",
+    "country": "Greece"
   },
   {
     "city": "Ziro",
@@ -180,7 +210,7 @@ export const ziCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Zir\u0259",
+    "city": "Zira",
     "state": "Bak\u0131",
     "country": "Azerbaijan"
   },
@@ -193,6 +223,16 @@ export const ziCities = [
     "city": "Zinkiv",
     "state": "Poltavska Oblast",
     "country": "Ukraine"
+  },
+  {
+    "city": "Ziri",
+    "state": "\u017diri",
+    "country": "Slovenia"
+  },
+  {
+    "city": "Zitiste",
+    "state": "\u017diti\u0161te",
+    "country": "Serbia"
   },
   {
     "city": "Zillah",

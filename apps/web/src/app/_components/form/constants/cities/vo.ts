@@ -50,6 +50,11 @@ export const voCities = [
     "country": "Russia"
   },
   {
+    "city": "Volos",
+    "state": "Thessal\u00eda",
+    "country": "Greece"
+  },
+  {
     "city": "Vorkuta",
     "state": "Komi",
     "country": "Russia"
@@ -78,6 +83,11 @@ export const voCities = [
     "city": "Volkhov",
     "state": "Leningradskaya Oblast\u2019",
     "country": "Russia"
+  },
+  {
+    "city": "Volklingen",
+    "state": "Saarland",
+    "country": "Germany"
   },
   {
     "city": "Voghera",
@@ -120,7 +130,7 @@ export const voCities = [
     "country": "United States"
   },
   {
-    "city": "Vo\u00fala",
+    "city": "Voula",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -135,12 +145,12 @@ export const voCities = [
     "country": "Liberia"
   },
   {
-    "city": "Vogo\u0161\u0107a",
+    "city": "Vogosca",
     "state": "Bosnia and Herzegovina, Federation of",
     "country": "Bosnia and Herzegovina"
   },
   {
-    "city": "Vork\u0101di",
+    "city": "Vorkadi",
     "state": "Kerala",
     "country": "India"
   },
@@ -150,7 +160,7 @@ export const voCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Voduriv\u0101ndlag\u016bdem",
+    "city": "Vodurivandlagudem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -260,6 +270,11 @@ export const voCities = [
     "country": "Russia"
   },
   {
+    "city": "Vohringen",
+    "state": "Bavaria",
+    "country": "Germany"
+  },
+  {
     "city": "Vohitrindry",
     "state": "Fianarantsoa",
     "country": "Madagascar"
@@ -278,6 +293,16 @@ export const voCities = [
     "city": "Vobkent Shahri",
     "state": "Buxoro",
     "country": "Uzbekistan"
+  },
+  {
+    "city": "Vocklabruck",
+    "state": "Ober\u00f6sterreich",
+    "country": "Austria"
+  },
+  {
+    "city": "Voru",
+    "state": "V\u00f5ru",
+    "country": "Estonia"
   },
   {
     "city": "Vohindava",
@@ -305,7 +330,7 @@ export const voCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Vocha\u00efk\u00f3",
+    "city": "Vochaiko",
     "state": "Pelop\u00f3nnisos",
     "country": "Greece"
   },
@@ -313,6 +338,11 @@ export const voCities = [
     "city": "Volda",
     "state": "M\u00f8re og Romsdal",
     "country": "Norway"
+  },
+  {
+    "city": "Volkermarkt",
+    "state": "K\u00e4rnten",
+    "country": "Austria"
   },
   {
     "city": "Voisins-le-Bretonneux",

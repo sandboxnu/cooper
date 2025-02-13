@@ -1,6 +1,6 @@
 export const wrCities = [
   {
-    "city": "Wroc\u0142aw",
+    "city": "Wroclaw",
     "state": "Dolno\u015bl\u0105skie",
     "country": "Poland"
   },
@@ -10,7 +10,7 @@ export const wrCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Wrze\u015bnia",
+    "city": "Wrzesnia",
     "state": "Wielkopolskie",
     "country": "Poland"
   },

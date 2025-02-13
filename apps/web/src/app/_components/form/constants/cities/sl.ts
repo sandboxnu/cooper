@@ -20,6 +20,11 @@ export const slCities = [
     "country": "United States"
   },
   {
+    "city": "Slupsk",
+    "state": "Pomorskie",
+    "country": "Poland"
+  },
+  {
     "city": "Slavyansk-na-Kubani",
     "state": "Krasnodarskiy Kray",
     "country": "Russia"
@@ -115,9 +120,14 @@ export const slCities = [
     "country": "Malta"
   },
   {
-    "city": "Slan\u00fd",
+    "city": "Slany",
     "state": "St\u0159edo\u010desk\u00fd Kraj",
     "country": "Czechia"
+  },
+  {
+    "city": "Slubice",
+    "state": "Lubuskie",
+    "country": "Poland"
   },
   {
     "city": "Slobozhanske",
@@ -125,9 +135,19 @@ export const slCities = [
     "country": "Ukraine"
   },
   {
+    "city": "Slupca",
+    "state": "Wielkopolskie",
+    "country": "Poland"
+  },
+  {
     "city": "Slobozhanske",
     "state": "Dnipropetrovska Oblast",
     "country": "Ukraine"
+  },
+  {
+    "city": "Slawno",
+    "state": "Zachodniopomorskie",
+    "country": "Poland"
   },
   {
     "city": "Slatina",

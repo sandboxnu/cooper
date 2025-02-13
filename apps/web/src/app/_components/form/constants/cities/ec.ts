@@ -15,9 +15,19 @@ export const ecCities = [
     "country": "Japan"
   },
   {
+    "city": "Ecija",
+    "state": "Andalusia",
+    "country": "Spain"
+  },
+  {
     "city": "Eccles",
     "state": "Salford",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Echirolles",
+    "state": "Auvergne-Rh\u00f4ne-Alpes",
+    "country": "France"
   },
   {
     "city": "Ecclesfield",
@@ -35,7 +45,7 @@ export const ecCities = [
     "country": "Brazil"
   },
   {
-    "city": "Eckernf\u00f6rde",
+    "city": "Eckernforde",
     "state": "Schleswig-Holstein",
     "country": "Germany"
   },
@@ -48,6 +58,11 @@ export const ecCities = [
     "city": "Ecclesall",
     "state": "Sheffield",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Ecully",
+    "state": "Auvergne-Rh\u00f4ne-Alpes",
+    "country": "France"
   },
   {
     "city": "Echuca",
@@ -75,12 +90,17 @@ export const ecCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Ecaussinnes-Lalaing",
+    "state": "Wallonia",
+    "country": "Belgium"
+  },
+  {
     "city": "Eccleston",
     "state": "St. Helens",
     "country": "United Kingdom"
   },
   {
-    "city": "Ech Cha\u00efbat",
+    "city": "Ech Chaibat",
     "state": "Marrakech-Safi",
     "country": "Morocco"
   },

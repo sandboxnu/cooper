@@ -5,7 +5,7 @@ export const xeCities = [
     "country": "United States"
   },
   {
-    "city": "Xex\u00e9u",
+    "city": "Xexeu",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -13,5 +13,10 @@ export const xeCities = [
     "city": "Xewkija",
     "state": "Xewkija",
     "country": "Malta"
+  },
+  {
+    "city": "Xekong",
+    "state": "X\u00e9kong",
+    "country": "Laos"
   }
 ]

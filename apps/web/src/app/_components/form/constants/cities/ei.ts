@@ -15,7 +15,7 @@ export const eiCities = [
     "country": "Germany"
   },
   {
-    "city": "Eirunep\u00e9",
+    "city": "Eirunepe",
     "state": "Amazonas",
     "country": "Brazil"
   },
@@ -30,7 +30,7 @@ export const eiCities = [
     "country": "Norway"
   },
   {
-    "city": "Eisenh\u00fcttenstadt",
+    "city": "Eisenhuttenstadt",
     "state": "Brandenburg",
     "country": "Germany"
   },
@@ -70,7 +70,7 @@ export const eiCities = [
     "country": "Austria"
   },
   {
-    "city": "Eichst\u00e4tt",
+    "city": "Eichstatt",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -120,7 +120,7 @@ export const eiCities = [
     "country": "Australia"
   },
   {
-    "city": "Ei\u00f0i",
+    "city": "Eidhi",
     "state": "Ei\u00f0i",
     "country": "Faroe Islands"
   }

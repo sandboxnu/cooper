@@ -15,7 +15,7 @@ export const hlCities = [
     "country": "Belarus"
   },
   {
-    "city": "Hlu\u010d\u00edn",
+    "city": "Hlucin",
     "state": "Moravskoslezsk\u00fd Kraj",
     "country": "Czechia"
   },

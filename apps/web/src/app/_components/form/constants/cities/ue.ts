@@ -25,7 +25,7 @@ export const ueCities = [
     "country": "Germany"
   },
   {
-    "city": "Ueckerm\u00fcnde",
+    "city": "Ueckermunde",
     "state": "Mecklenburg-Western Pomerania",
     "country": "Germany"
   },

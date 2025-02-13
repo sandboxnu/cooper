@@ -10,7 +10,7 @@ export const utCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Uttarp\u0101ra",
+    "city": "Uttarpara",
     "state": "West Bengal",
     "country": "India"
   },
@@ -25,7 +25,7 @@ export const utCities = [
     "country": "Spain"
   },
   {
-    "city": "Uttark\u0101shi",
+    "city": "Uttarkashi",
     "state": "Uttar\u0101khand",
     "country": "India"
   },
@@ -50,7 +50,7 @@ export const utCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Uttamap\u0101laiyam",
+    "city": "Uttamapalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -60,7 +60,7 @@ export const utCities = [
     "country": "Lithuania"
   },
   {
-    "city": "Uttaramer\u016br",
+    "city": "Uttaramerur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -80,7 +80,7 @@ export const utCities = [
     "country": "Brazil"
   },
   {
-    "city": "Utn\u016br",
+    "city": "Utnur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -93,6 +93,11 @@ export const utCities = [
     "city": "Ut Bulag",
     "state": "Xinjiang",
     "country": "China"
+  },
+  {
+    "city": "Uttukkottai",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Uttoxeter",
@@ -108,6 +113,11 @@ export const utCities = [
     "city": "Utiel",
     "state": "Valencia",
     "country": "Spain"
+  },
+  {
+    "city": "Uttukkuli",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Uta",

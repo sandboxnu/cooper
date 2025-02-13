@@ -1,11 +1,11 @@
 export const iaCities = [
   {
-    "city": "Ia\u015fi",
+    "city": "Iasi",
     "state": "Ia\u015fi",
     "country": "Romania"
   },
   {
-    "city": "Ia\u00e7u",
+    "city": "Iacu",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -50,7 +50,7 @@ export const iaCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ialys\u00f3s",
+    "city": "Ialysos",
     "state": "N\u00f3tio Aiga\u00edo",
     "country": "Greece"
   },
@@ -68,6 +68,11 @@ export const iaCities = [
     "city": "Ianapera",
     "state": "Toliara",
     "country": "Madagascar"
+  },
+  {
+    "city": "Iawar",
+    "state": "Madhya Pradesh",
+    "country": "India"
   },
   {
     "city": "Iarpur",

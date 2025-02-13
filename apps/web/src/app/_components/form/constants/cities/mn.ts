@@ -10,7 +10,7 @@ export const mnCities = [
     "country": "Algeria"
   },
   {
-    "city": "Mnichovo Hradi\u0161t\u011b",
+    "city": "Mnichovo Hradiste",
     "state": "St\u0159edo\u010desk\u00fd Kraj",
     "country": "Czechia"
   }

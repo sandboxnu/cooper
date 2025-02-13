@@ -20,7 +20,7 @@ export const scCities = [
     "country": "Germany"
   },
   {
-    "city": "Science City of Mu\u00f1oz",
+    "city": "Science City of Munoz",
     "state": "Nueva Ecija",
     "country": "Philippines"
   },
@@ -45,7 +45,7 @@ export const scCities = [
     "country": "United States"
   },
   {
-    "city": "Schw\u00e4bisch Gm\u00fcnd",
+    "city": "Schwabisch Gmund",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
@@ -90,7 +90,7 @@ export const scCities = [
     "country": "United States"
   },
   {
-    "city": "Schw\u00e4bisch Hall",
+    "city": "Schwabisch Hall",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
@@ -140,7 +140,7 @@ export const scCities = [
     "country": "Germany"
   },
   {
-    "city": "Sch\u00f6nebeck",
+    "city": "Schonebeck",
     "state": "Saxony-Anhalt",
     "country": "Germany"
   },
@@ -160,7 +160,7 @@ export const scCities = [
     "country": "Germany"
   },
   {
-    "city": "Schlo\u00df Holte-Stukenbrock",
+    "city": "Schloss Holte-Stukenbrock",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
   },
@@ -265,7 +265,7 @@ export const scCities = [
     "country": "Germany"
   },
   {
-    "city": "Sch\u00f6nefeld",
+    "city": "Schonefeld",
     "state": "Brandenburg",
     "country": "Germany"
   },
@@ -285,7 +285,7 @@ export const scCities = [
     "country": "United States"
   },
   {
-    "city": "Scorz\u00e8",
+    "city": "Scorze",
     "state": "Veneto",
     "country": "Italy"
   },
@@ -345,7 +345,7 @@ export const scCities = [
     "country": "Germany"
   },
   {
-    "city": "Schl\u00fcchtern",
+    "city": "Schluchtern",
     "state": "Hesse",
     "country": "Germany"
   },
@@ -390,7 +390,7 @@ export const scCities = [
     "country": "Germany"
   },
   {
-    "city": "Schwabm\u00fcnchen",
+    "city": "Schwabmunchen",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -410,7 +410,7 @@ export const scCities = [
     "country": "Austria"
   },
   {
-    "city": "Schm\u00f6lln",
+    "city": "Schmolln",
     "state": "Thuringia",
     "country": "Germany"
   },
@@ -420,12 +420,12 @@ export const scCities = [
     "country": "Germany"
   },
   {
-    "city": "Sch\u00fcttorf",
+    "city": "Schuttorf",
     "state": "Lower Saxony",
     "country": "Germany"
   },
   {
-    "city": "Schee\u00dfel",
+    "city": "Scheessel",
     "state": "Lower Saxony",
     "country": "Germany"
   },
@@ -490,7 +490,7 @@ export const scCities = [
     "country": "Italy"
   },
   {
-    "city": "Sch\u00f6ningen",
+    "city": "Schoningen",
     "state": "Lower Saxony",
     "country": "Germany"
   },
@@ -500,12 +500,12 @@ export const scCities = [
     "country": "Germany"
   },
   {
-    "city": "Sch\u00f6naich",
+    "city": "Schonaich",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
   {
-    "city": "Scornice\u015fti",
+    "city": "Scornicesti",
     "state": "Olt",
     "country": "Romania"
   },
@@ -520,7 +520,7 @@ export const scCities = [
     "country": "Germany"
   },
   {
-    "city": "Sch\u00f6nwalde-Siedlung",
+    "city": "Schonwalde-Siedlung",
     "state": "Brandenburg",
     "country": "Germany"
   },
@@ -545,7 +545,7 @@ export const scCities = [
     "country": "United States"
   },
   {
-    "city": "Schalksm\u00fchle",
+    "city": "Schalksmuhle",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
   },
@@ -590,7 +590,7 @@ export const scCities = [
     "country": "Germany"
   },
   {
-    "city": "Sch\u00fcbelbach",
+    "city": "Schubelbach",
     "state": "Schwyz",
     "country": "Switzerland"
   },

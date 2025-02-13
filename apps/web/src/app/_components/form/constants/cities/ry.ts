@@ -15,7 +15,7 @@ export const ryCities = [
     "country": "Poland"
   },
   {
-    "city": "Ry\u016bgasaki",
+    "city": "Ryugasaki",
     "state": "Ibaraki",
     "country": "Japan"
   },
@@ -35,7 +35,7 @@ export const ryCities = [
     "country": "Russia"
   },
   {
-    "city": "Ry\u016by\u014d",
+    "city": "Ryuyo",
     "state": "Shizuoka",
     "country": "Japan"
   },
@@ -60,12 +60,12 @@ export const ryCities = [
     "country": "Poland"
   },
   {
-    "city": "Ry\u016b\u014d",
+    "city": "Ryuo",
     "state": "Shiga",
     "country": "Japan"
   },
   {
-    "city": "Rychnov nad Kn\u011b\u017enou",
+    "city": "Rychnov nad Kneznou",
     "state": "Kr\u00e1lov\u00e9hradeck\u00fd Kraj",
     "country": "Czechia"
   },

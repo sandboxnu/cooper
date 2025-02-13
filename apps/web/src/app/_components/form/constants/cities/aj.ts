@@ -5,7 +5,7 @@ export const ajCities = [
     "country": "India"
   },
   {
-    "city": "Ajd\u0101biy\u0101",
+    "city": "Ajdabiya",
     "state": "Al W\u0101\u1e29\u0101t",
     "country": "Libya"
   },
@@ -45,7 +45,7 @@ export const ajCities = [
     "country": "Mexico"
   },
   {
-    "city": "Ajn\u0101la",
+    "city": "Ajnala",
     "state": "Punjab",
     "country": "India"
   },
@@ -55,7 +55,7 @@ export const ajCities = [
     "country": "India"
   },
   {
-    "city": "Aj\u0101",
+    "city": "Aja",
     "state": "Ad Daqahl\u012byah",
     "country": "Egypt"
   },
@@ -90,7 +90,7 @@ export const ajCities = [
     "country": "India"
   },
   {
-    "city": "Ajdov\u0161\u010dina",
+    "city": "Ajdovscina",
     "state": "Ajdov\u0161\u010dina",
     "country": "Slovenia"
   }

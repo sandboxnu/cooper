@@ -70,9 +70,19 @@ export const waCities = [
     "country": "India"
   },
   {
+    "city": "Waraseoni",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Warrington",
     "state": "Warrington",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Wapi",
+    "state": "Gujar\u0101t",
+    "country": "India"
   },
   {
     "city": "Wau",
@@ -130,7 +140,7 @@ export const waCities = [
     "country": "India"
   },
   {
-    "city": "Wa\u0142brzych",
+    "city": "Walbrzych",
     "state": "Dolno\u015bl\u0105skie",
     "country": "Poland"
   },
@@ -180,7 +190,7 @@ export const waCities = [
     "country": "Namibia"
   },
   {
-    "city": "Wak\u014d",
+    "city": "Wako",
     "state": "Saitama",
     "country": "Japan"
   },
@@ -205,7 +215,7 @@ export const waCities = [
     "country": "Japan"
   },
   {
-    "city": "Wandiw\u0101sh",
+    "city": "Wandiwash",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -280,6 +290,11 @@ export const waCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Washim",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
     "city": "Wanparti",
     "state": "Telang\u0101na",
     "country": "India"
@@ -318,6 +333,11 @@ export const waCities = [
     "city": "Wangjiazhai",
     "state": "Guizhou",
     "country": "China"
+  },
+  {
+    "city": "Walin",
+    "state": NaN,
+    "country": "Nepal"
   },
   {
     "city": "Wao",
@@ -365,7 +385,7 @@ export const waCities = [
     "country": "United States"
   },
   {
-    "city": "Wasp\u00e1n",
+    "city": "Waspan",
     "state": "Costa Caribe Norte",
     "country": "Nicaragua"
   },
@@ -377,6 +397,11 @@ export const waCities = [
   {
     "city": "Warud",
     "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
+    "city": "Wankaner",
+    "state": "Gujar\u0101t",
     "country": "India"
   },
   {
@@ -400,6 +425,11 @@ export const waCities = [
     "country": "France"
   },
   {
+    "city": "Wadegaon",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
     "city": "Waipahu",
     "state": "Hawaii",
     "country": "United States"
@@ -413,6 +443,11 @@ export const waCities = [
     "city": "Warren",
     "state": "Ohio",
     "country": "United States"
+  },
+  {
+    "city": "Walajapet",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Waregem",
@@ -453,6 +488,11 @@ export const waCities = [
     "city": "Wavre",
     "state": "Wallonia",
     "country": "Belgium"
+  },
+  {
+    "city": "Waris Aliganj",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Walla Walla",
@@ -555,12 +595,17 @@ export const waCities = [
     "country": "Thailand"
   },
   {
+    "city": "Wasi",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
     "city": "Wajimazakimachi",
     "state": "Ishikawa",
     "country": "Japan"
   },
   {
-    "city": "Wadd\u0101n",
+    "city": "Waddan",
     "state": "Al Jufrah",
     "country": "Libya"
   },
@@ -570,7 +615,7 @@ export const waCities = [
     "country": "China"
   },
   {
-    "city": "Wangen im Allg\u00e4u",
+    "city": "Wangen im Allgau",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
@@ -610,9 +655,19 @@ export const waCities = [
     "country": "United States"
   },
   {
+    "city": "Wagrowiec",
+    "state": "Wielkopolskie",
+    "country": "Poland"
+  },
+  {
     "city": "Warrington",
     "state": "Pennsylvania",
     "country": "United States"
+  },
+  {
+    "city": "Wadi",
+    "state": "Karn\u0101taka",
+    "country": "India"
   },
   {
     "city": "Walker",
@@ -655,7 +710,7 @@ export const waCities = [
     "country": "Germany"
   },
   {
-    "city": "Wa\u0142cz",
+    "city": "Walcz",
     "state": "Zachodniopomorskie",
     "country": "Poland"
   },
@@ -730,7 +785,12 @@ export const waCities = [
     "country": "Germany"
   },
   {
-    "city": "Wagh\u00e4usel",
+    "city": "Wadenswil",
+    "state": "Z\u00fcrich",
+    "country": "Switzerland"
+  },
+  {
+    "city": "Waghausel",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
@@ -770,7 +830,7 @@ export const waCities = [
     "country": "Germany"
   },
   {
-    "city": "Waldbr\u00f6l",
+    "city": "Waldbrol",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
   },
@@ -855,6 +915,11 @@ export const waCities = [
     "country": "Australia"
   },
   {
+    "city": "Wadi Halfa'",
+    "state": "Northern",
+    "country": "Sudan"
+  },
+  {
     "city": "Wang Tau Hom",
     "state": NaN,
     "country": "Hong Kong"
@@ -898,6 +963,11 @@ export const waCities = [
     "city": "Walnut Park",
     "state": "California",
     "country": "United States"
+  },
+  {
+    "city": "Watrap",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Washington",
@@ -955,6 +1025,11 @@ export const waCities = [
     "country": "Australia"
   },
   {
+    "city": "Wan Long",
+    "state": "Shan State",
+    "country": "Burma"
+  },
+  {
     "city": "Washington",
     "state": "Pennsylvania",
     "country": "United States"
@@ -988,6 +1063,11 @@ export const waCities = [
     "city": "Washington Court House",
     "state": "Ohio",
     "country": "United States"
+  },
+  {
+    "city": "Walajabad",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Wauconda",
@@ -1050,6 +1130,11 @@ export const waCities = [
     "country": "United States"
   },
   {
+    "city": "Wabrzezno",
+    "state": "Kujawsko-Pomorskie",
+    "country": "Poland"
+  },
+  {
     "city": "Walsall Wood",
     "state": "Walsall",
     "country": "United Kingdom"
@@ -1073,6 +1158,11 @@ export const waCities = [
     "city": "Wanderley",
     "state": "Bahia",
     "country": "Brazil"
+  },
+  {
+    "city": "Wachtersbach",
+    "state": "Hesse",
+    "country": "Germany"
   },
   {
     "city": "Wadersloh",
@@ -1110,7 +1200,7 @@ export const waCities = [
     "country": "Australia"
   },
   {
-    "city": "Wasilk\u00f3w",
+    "city": "Wasilkow",
     "state": "Podlaskie",
     "country": "Poland"
   },
@@ -1160,7 +1250,7 @@ export const waCities = [
     "country": "India"
   },
   {
-    "city": "Walld\u00fcrn",
+    "city": "Walldurn",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
@@ -1240,6 +1330,11 @@ export const waCities = [
     "country": "United States"
   },
   {
+    "city": "Walur",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
     "city": "Warden",
     "state": "Free State",
     "country": "South Africa"
@@ -1280,7 +1375,7 @@ export const waCities = [
     "country": "United States"
   },
   {
-    "city": "Wanderl\u00e2ndia",
+    "city": "Wanderlandia",
     "state": "Tocantins",
     "country": "Brazil"
   },
@@ -1350,7 +1445,7 @@ export const waCities = [
     "country": "United States"
   },
   {
-    "city": "Wagh\u0101i",
+    "city": "Waghai",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -1368,6 +1463,11 @@ export const waCities = [
     "city": "Waltenhofen",
     "state": "Bavaria",
     "country": "Germany"
+  },
+  {
+    "city": "Wangi",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
   },
   {
     "city": "Wapakoneta",
@@ -1478,6 +1578,11 @@ export const waCities = [
     "city": "Wanaka",
     "state": "Otago",
     "country": "New Zealand"
+  },
+  {
+    "city": "Wabagai",
+    "state": "Manipur",
+    "country": "India"
   },
   {
     "city": "Waldenbuch",

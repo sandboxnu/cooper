@@ -1,6 +1,6 @@
 export const fyCities = [
   {
-    "city": "Fyz\u0101b\u0101d",
+    "city": "Fyzabad",
     "state": "Uttar Pradesh",
     "country": "India"
   },

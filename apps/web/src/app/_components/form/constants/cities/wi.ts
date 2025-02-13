@@ -125,7 +125,7 @@ export const wiCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Wiwil\u00ed",
+    "city": "Wiwili",
     "state": "Nueva Segovia",
     "country": "Nicaragua"
   },
@@ -255,7 +255,7 @@ export const wiCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Wik\u2019ro",
+    "city": "Wik'ro",
     "state": "Tigray",
     "country": "Ethiopia"
   },
@@ -390,7 +390,7 @@ export const wiCities = [
     "country": "United States"
   },
   {
-    "city": "Wielu\u0144",
+    "city": "Wielun",
     "state": "\u0141\u00f3dzkie",
     "country": "Poland"
   },
@@ -400,7 +400,7 @@ export const wiCities = [
     "country": "Germany"
   },
   {
-    "city": "Wipperf\u00fcrth",
+    "city": "Wipperfurth",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
   },
@@ -655,7 +655,7 @@ export const wiCities = [
     "country": "Germany"
   },
   {
-    "city": "Wis\u0142a",
+    "city": "Wisla",
     "state": "\u015al\u0105skie",
     "country": "Poland"
   },
@@ -685,7 +685,7 @@ export const wiCities = [
     "country": "United States"
   },
   {
-    "city": "Willst\u00e4tt",
+    "city": "Willstatt",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
@@ -740,7 +740,7 @@ export const wiCities = [
     "country": "Belgium"
   },
   {
-    "city": "Wilkau-Ha\u00dflau",
+    "city": "Wilkau-Hasslau",
     "state": "Saxony",
     "country": "Germany"
   },
@@ -795,7 +795,7 @@ export const wiCities = [
     "country": "Germany"
   },
   {
-    "city": "Wierusz\u00f3w",
+    "city": "Wieruszow",
     "state": "\u0141\u00f3dzkie",
     "country": "Poland"
   },

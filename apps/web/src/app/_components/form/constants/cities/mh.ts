@@ -10,7 +10,7 @@ export const mhCities = [
     "country": "Zimbabwe"
   },
   {
-    "city": "Mh\u00e2j\u00e2r",
+    "city": "Mhajar",
     "state": "Oriental",
     "country": "Morocco"
   }

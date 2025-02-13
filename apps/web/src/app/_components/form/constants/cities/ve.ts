@@ -25,12 +25,12 @@ export const veCities = [
     "country": "Russia"
   },
   {
-    "city": "Ver\u0101val",
+    "city": "Veraval",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Veszpr\u00e9m",
+    "city": "Veszprem",
     "state": "Veszpr\u00e9m",
     "country": "Hungary"
   },
@@ -50,9 +50,14 @@ export const veCities = [
     "country": "Russia"
   },
   {
-    "city": "Vezirk\u00f6pr\u00fc",
+    "city": "Vezirkopru",
     "state": "Samsun",
     "country": "Turkey"
+  },
+  {
+    "city": "Velez-Malaga",
+    "state": "Andalusia",
+    "country": "Spain"
   },
   {
     "city": "Versailles",
@@ -75,7 +80,7 @@ export const veCities = [
     "country": "Russia"
   },
   {
-    "city": "Ven\u00e2ncio Aires",
+    "city": "Venancio Aires",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -90,6 +95,11 @@ export const veCities = [
     "country": "Netherlands"
   },
   {
+    "city": "Venissieux",
+    "state": "Auvergne-Rh\u00f4ne-Alpes",
+    "country": "France"
+  },
+  {
     "city": "Vejle",
     "state": "Syddanmark",
     "country": "Denmark"
@@ -100,7 +110,7 @@ export const veCities = [
     "country": "Croatia"
   },
   {
-    "city": "Velamp\u0101laiyam",
+    "city": "Velampalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -150,7 +160,12 @@ export const veCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Verg\u00edna",
+    "city": "Veroia",
+    "state": "Kentrik\u00ed Makedon\u00eda",
+    "country": "Greece"
+  },
+  {
+    "city": "Vergina",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
@@ -200,7 +215,7 @@ export const veCities = [
     "country": "Spain"
   },
   {
-    "city": "Vetap\u0101lem",
+    "city": "Vetapalem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -225,7 +240,7 @@ export const veCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Vett\u016br",
+    "city": "Vettur",
     "state": "Kerala",
     "country": "India"
   },
@@ -240,7 +255,7 @@ export const veCities = [
     "country": "Switzerland"
   },
   {
-    "city": "Ved\u0101ranniyam",
+    "city": "Vedaranniyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -250,7 +265,7 @@ export const veCities = [
     "country": "Germany"
   },
   {
-    "city": "Vemalw\u0101da",
+    "city": "Vemalwada",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -275,12 +290,12 @@ export const veCities = [
     "country": "Russia"
   },
   {
-    "city": "Velliy\u014dd",
+    "city": "Velliyod",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Vellan\u0101d",
+    "city": "Vellanad",
     "state": "Kerala",
     "country": "India"
   },
@@ -300,7 +315,7 @@ export const veCities = [
     "country": "United States"
   },
   {
-    "city": "Veliyang\u014dd",
+    "city": "Veliyangod",
     "state": "Kerala",
     "country": "India"
   },
@@ -365,7 +380,12 @@ export const veCities = [
     "country": "France"
   },
   {
-    "city": "Vel\u016br",
+    "city": "Velur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Vettakkaranpudur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -375,9 +395,14 @@ export const veCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Veran\u00f3polis",
+    "city": "Veranopolis",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
+  },
+  {
+    "city": "Velingara",
+    "state": "Kolda",
+    "country": "Senegal"
   },
   {
     "city": "Verukulambu",
@@ -400,7 +425,7 @@ export const veCities = [
     "country": "India"
   },
   {
-    "city": "Vellal\u016br",
+    "city": "Vellalur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -415,12 +440,17 @@ export const veCities = [
     "country": "Russia"
   },
   {
-    "city": "Vern\u0101g",
+    "city": "Vernag",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
   {
-    "city": "Vengatt\u016br",
+    "city": "Velizy-Villacoublay",
+    "state": "\u00cele-de-France",
+    "country": "France"
+  },
+  {
+    "city": "Vengattur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -455,12 +485,12 @@ export const veCities = [
     "country": "India"
   },
   {
-    "city": "Vecs\u00e9s",
+    "city": "Vecses",
     "state": "Pest",
     "country": "Hungary"
   },
   {
-    "city": "Veresegyh\u00e1z",
+    "city": "Veresegyhaz",
     "state": "Pest",
     "country": "Hungary"
   },
@@ -495,7 +525,7 @@ export const veCities = [
     "country": "France"
   },
   {
-    "city": "Venceslau Br\u00e1s",
+    "city": "Venceslau Bras",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -508,6 +538,11 @@ export const veCities = [
     "city": "Vera",
     "state": "Andalusia",
     "country": "Spain"
+  },
+  {
+    "city": "Velez",
+    "state": "Santander",
+    "country": "Colombia"
   },
   {
     "city": "Vellmar",
@@ -525,7 +560,7 @@ export const veCities = [
     "country": "India"
   },
   {
-    "city": "Vennand\u016br",
+    "city": "Vennandur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -540,7 +575,7 @@ export const veCities = [
     "country": "India"
   },
   {
-    "city": "Veliko Gradi\u0161te",
+    "city": "Veliko Gradiste",
     "state": "Veliko Gradi\u0161te",
     "country": "Serbia"
   },
@@ -555,7 +590,7 @@ export const veCities = [
     "country": "Brazil"
   },
   {
-    "city": "Vech\u016br",
+    "city": "Vechur",
     "state": "Kerala",
     "country": "India"
   },
@@ -590,12 +625,12 @@ export const veCities = [
     "country": "India"
   },
   {
-    "city": "Vend\u00f4me",
+    "city": "Vendome",
     "state": "Centre-Val de Loire",
     "country": "France"
   },
   {
-    "city": "Vemulad\u012bvi",
+    "city": "Vemuladivi",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -640,17 +675,17 @@ export const veCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Vell\u0101l\u0101puram",
+    "city": "Vellalapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Vemul\u016bru",
+    "city": "Vemuluru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Verri\u00e8res-le-Buisson",
+    "city": "Verrieres-le-Buisson",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -660,12 +695,12 @@ export const veCities = [
     "country": "United States"
   },
   {
-    "city": "Vedasand\u016br",
+    "city": "Vedasandur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Ven\u00ebv",
+    "city": "Venev",
     "state": "Tul\u2019skaya Oblast\u2019",
     "country": "Russia"
   },
@@ -680,7 +715,7 @@ export const veCities = [
     "country": "India"
   },
   {
-    "city": "Vemb\u0101rpatti",
+    "city": "Vembarpatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -690,7 +725,7 @@ export const veCities = [
     "country": "India"
   },
   {
-    "city": "Ver\u00edn",
+    "city": "Verin",
     "state": "Galicia",
     "country": "Spain"
   },
@@ -715,12 +750,12 @@ export const veCities = [
     "country": "India"
   },
   {
-    "city": "Vel\u0101nganni",
+    "city": "Velanganni",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Vemulap\u016bdi",
+    "city": "Vemulapudi",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -815,7 +850,7 @@ export const veCities = [
     "country": "Portugal"
   },
   {
-    "city": "Vellall\u016br",
+    "city": "Vellallur",
     "state": "Kerala",
     "country": "India"
   },
@@ -835,7 +870,7 @@ export const veCities = [
     "country": "India"
   },
   {
-    "city": "Vell\u0101r",
+    "city": "Vellar",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -855,7 +890,7 @@ export const veCities = [
     "country": "Switzerland"
   },
   {
-    "city": "Velk\u00e9 Mezi\u0159\u00ed\u010d\u00ed",
+    "city": "Velke Mezirici",
     "state": "Vyso\u010dina",
     "country": "Czechia"
   },
@@ -865,12 +900,12 @@ export const veCities = [
     "country": "India"
   },
   {
-    "city": "Ved\u00e8ne",
+    "city": "Vedene",
     "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
     "country": "France"
   },
   {
-    "city": "Velime\u015fe",
+    "city": "Velimese",
     "state": "Tekirda\u011f",
     "country": "Turkey"
   },
@@ -880,7 +915,7 @@ export const veCities = [
     "country": "South Africa"
   },
   {
-    "city": "Ve\u013ek\u00fd Krt\u00ed\u0161",
+    "city": "Vel'ky Krtis",
     "state": "Bansk\u00e1 Bystrica",
     "country": "Slovakia"
   },
@@ -895,7 +930,7 @@ export const veCities = [
     "country": "India"
   },
   {
-    "city": "Veng\u016br",
+    "city": "Vengur",
     "state": "Kerala",
     "country": "India"
   },
@@ -910,27 +945,27 @@ export const veCities = [
     "country": "Italy"
   },
   {
-    "city": "Venmani Padinj\u0101ra",
+    "city": "Venmani Padinjara",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Vellav\u0101danparappu",
+    "city": "Vellavadanparappu",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Vesel\u00ed nad Moravou",
+    "city": "Veseli nad Moravou",
     "state": "Jihomoravsk\u00fd Kraj",
     "country": "Czechia"
   },
   {
-    "city": "Vellip\u0101laiyam",
+    "city": "Vellipalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Vemb\u016br",
+    "city": "Vembur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -940,17 +975,17 @@ export const veCities = [
     "country": "United States"
   },
   {
-    "city": "Veng\u0101nell\u016br",
+    "city": "Venganellur",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Velapp\u0101di",
+    "city": "Velappadi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Vellat\u016bru",
+    "city": "Vellaturu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -975,7 +1010,7 @@ export const veCities = [
     "country": "Denmark"
   },
   {
-    "city": "Venkat\u0101puram",
+    "city": "Venkatapuram",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1000,7 +1035,7 @@ export const veCities = [
     "country": "Italy"
   },
   {
-    "city": "Vembadit\u0101lam",
+    "city": "Vembaditalam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1015,12 +1050,12 @@ export const veCities = [
     "country": "United States"
   },
   {
-    "city": "Venkat\u0101puram",
+    "city": "Venkatapuram",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Vegach\u00ed",
+    "city": "Vegachi",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -1030,27 +1065,32 @@ export const veCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Vedurup\u0101val\u016bru",
+    "city": "Vedurupavaluru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Vettaikk\u0101raniruppu",
+    "city": "Vetraz-Monthoux",
+    "state": "Auvergne-Rh\u00f4ne-Alpes",
+    "country": "France"
+  },
+  {
+    "city": "Vettaikkaraniruppu",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Vettwei\u00df",
+    "city": "Vettweiss",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
   },
   {
-    "city": "Velp\u016bru",
+    "city": "Velpuru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Veppatt\u016br",
+    "city": "Veppattur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1070,7 +1110,7 @@ export const veCities = [
     "country": "Brazil"
   },
   {
-    "city": "Velp\u016bru",
+    "city": "Velpuru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1080,7 +1120,7 @@ export const veCities = [
     "country": "Costa Rica"
   },
   {
-    "city": "Veitsh\u00f6chheim",
+    "city": "Veitshochheim",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -1140,7 +1180,7 @@ export const veCities = [
     "country": "India"
   },
   {
-    "city": "Venkat\u0101drip\u0101lem",
+    "city": "Venkatadripalem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1165,7 +1205,7 @@ export const veCities = [
     "country": "France"
   },
   {
-    "city": "Velden am W\u00f6rthersee",
+    "city": "Velden am Worthersee",
     "state": "K\u00e4rnten",
     "country": "Austria"
   },
@@ -1175,7 +1215,7 @@ export const veCities = [
     "country": "France"
   },
   {
-    "city": "Ve\u013ek\u00e9 Kapu\u0161any",
+    "city": "Vel'ke Kapusany",
     "state": "Ko\u0161ice",
     "country": "Slovakia"
   },
@@ -1235,7 +1275,7 @@ export const veCities = [
     "country": "Uruguay"
   },
   {
-    "city": "Vev\u010dani",
+    "city": "Vevcani",
     "state": "Vev\u010dani",
     "country": "North Macedonia"
   },
@@ -1250,7 +1290,7 @@ export const veCities = [
     "country": "Russia"
   },
   {
-    "city": "Ver\u017eej",
+    "city": "Verzej",
     "state": "Ver\u017eej",
     "country": "Slovenia"
   },
@@ -1260,7 +1300,7 @@ export const veCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Velike La\u0161\u010de",
+    "city": "Velike Lasce",
     "state": "Velike La\u0161\u010de",
     "country": "Slovenia"
   },

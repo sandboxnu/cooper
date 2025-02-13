@@ -1,6 +1,6 @@
 export const ymCities = [
   {
-    "city": "Ymitt\u00f3s",
+    "city": "Ymittos",
     "state": "Attik\u00ed",
     "country": "Greece"
   }

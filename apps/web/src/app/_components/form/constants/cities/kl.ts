@@ -15,7 +15,7 @@ export const klCities = [
     "country": "South Africa"
   },
   {
-    "city": "Klaip\u0117da",
+    "city": "Klaipeda",
     "state": "Klaip\u0117dos Miestas",
     "country": "Lithuania"
   },
@@ -50,12 +50,12 @@ export const klCities = [
     "country": "Germany"
   },
   {
-    "city": "Klin\u00eb",
+    "city": "Kline",
     "state": "Klin\u00eb",
     "country": "Kosovo"
   },
   {
-    "city": "Kl\u00e9la",
+    "city": "Klela",
     "state": "Sikasso",
     "country": "Mali"
   },
@@ -68,6 +68,11 @@ export const klCities = [
     "city": "Klosterneuburg",
     "state": "Nieder\u00f6sterreich",
     "country": "Austria"
+  },
+  {
+    "city": "Klodzko",
+    "state": "Dolno\u015bl\u0105skie",
+    "country": "Poland"
   },
   {
     "city": "Kluczbork",
@@ -105,7 +110,7 @@ export const klCities = [
     "country": "Switzerland"
   },
   {
-    "city": "Klju\u010d",
+    "city": "Kljuc",
     "state": "Bosnia and Herzegovina, Federation of",
     "country": "Bosnia and Herzegovina"
   },
@@ -125,9 +130,14 @@ export const klCities = [
     "country": "Belarus"
   },
   {
-    "city": "Kl\u00e1\u0161terec nad Oh\u0159\u00ed",
+    "city": "Klasterec nad Ohri",
     "state": "\u00dasteck\u00fd Kraj",
     "country": "Czechia"
+  },
+  {
+    "city": "Klobuck",
+    "state": "\u015al\u0105skie",
+    "country": "Poland"
   },
   {
     "city": "Kladanj",
@@ -155,12 +165,12 @@ export const klCities = [
     "country": "Germany"
   },
   {
-    "city": "Kl\u00f6tze",
+    "city": "Klotze",
     "state": "Saxony-Anhalt",
     "country": "Germany"
   },
   {
-    "city": "Klaksv\u00edk",
+    "city": "Klaksvik",
     "state": "Klaksv\u00edk",
     "country": "Faroe Islands"
   },

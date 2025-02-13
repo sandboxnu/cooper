@@ -5,7 +5,7 @@ export const qoCities = [
     "country": "Iran"
   },
   {
-    "city": "Qo\u2018qon",
+    "city": "Qo`qon",
     "state": "Farg\u2018ona",
     "country": "Uzbekistan"
   },
@@ -35,22 +35,22 @@ export const qoCities = [
     "country": "Somalia"
   },
   {
-    "city": "Qo\u2018ng\u2018irot Shahri",
+    "city": "Qo`ng`irot Shahri",
     "state": "Qoraqalpog\u2018iston",
     "country": "Uzbekistan"
   },
   {
-    "city": "Qo\u2018rg\u2018ontepa",
+    "city": "Qo`rg`ontepa",
     "state": "Andijon",
     "country": "Uzbekistan"
   },
   {
-    "city": "Qornet Chahou\u00e2ne",
+    "city": "Qornet Chahouane",
     "state": "Mont-Liban",
     "country": "Lebanon"
   },
   {
-    "city": "Qorako\u2018l Shahri",
+    "city": "Qorako`l Shahri",
     "state": "Buxoro",
     "country": "Uzbekistan"
   },
@@ -60,7 +60,7 @@ export const qoCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Qo\u2019shko\u2019pir",
+    "city": "Qo'shko'pir",
     "state": "Xorazm",
     "country": "Uzbekistan"
   },
@@ -70,7 +70,7 @@ export const qoCities = [
     "country": "Azerbaijan"
   },
   {
-    "city": "Qorao\u2018zak",
+    "city": "Qorao`zak",
     "state": "Qoraqalpog\u2018iston",
     "country": "Uzbekistan"
   },

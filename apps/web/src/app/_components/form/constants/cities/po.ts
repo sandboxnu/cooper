@@ -40,7 +40,7 @@ export const poCities = [
     "country": "Papua New Guinea"
   },
   {
-    "city": "Port-Bou\u00ebt",
+    "city": "Port-Bouet",
     "state": "Abidjan",
     "country": "C\u00f4te d\u2019Ivoire"
   },
@@ -55,7 +55,7 @@ export const poCities = [
     "country": "Sudan"
   },
   {
-    "city": "Pozna\u0144",
+    "city": "Poznan",
     "state": "Wielkopolskie",
     "country": "Poland"
   },
@@ -100,7 +100,7 @@ export const poCities = [
     "country": "Russia"
   },
   {
-    "city": "Popay\u00e1n",
+    "city": "Popayan",
     "state": "Cauca",
     "country": "Colombia"
   },
@@ -120,12 +120,12 @@ export const poCities = [
     "country": "Argentina"
   },
   {
-    "city": "Potos\u00ed",
+    "city": "Potosi",
     "state": "Potos\u00ed",
     "country": "Bolivia"
   },
   {
-    "city": "Pointe-\u00e0-Pitre",
+    "city": "Pointe-a-Pitre",
     "state": NaN,
     "country": "Guadeloupe"
   },
@@ -165,7 +165,12 @@ export const poCities = [
     "country": "Philippines"
   },
   {
-    "city": "Po\u00e7os de Caldas",
+    "city": "Porto Seguro",
+    "state": "Bahia",
+    "country": "Brazil"
+  },
+  {
+    "city": "Pocos de Caldas",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -240,12 +245,12 @@ export const poCities = [
     "country": "Burma"
   },
   {
-    "city": "Polatl\u0131",
+    "city": "Polatli",
     "state": "Ankara",
     "country": "Turkey"
   },
   {
-    "city": "Pob\u00e9",
+    "city": "Pobe",
     "state": "Plateau",
     "country": "Benin"
   },
@@ -280,7 +285,7 @@ export const poCities = [
     "country": "Puerto Rico"
   },
   {
-    "city": "Po\u00e1",
+    "city": "Poa",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -315,7 +320,7 @@ export const poCities = [
     "country": "United States"
   },
   {
-    "city": "Ponta Por\u00e3",
+    "city": "Ponta Pora",
     "state": "Mato Grosso do Sul",
     "country": "Brazil"
   },
@@ -325,7 +330,7 @@ export const poCities = [
     "country": "Philippines"
   },
   {
-    "city": "Ponn\u0101ni",
+    "city": "Ponnani",
     "state": "Kerala",
     "country": "India"
   },
@@ -335,7 +340,7 @@ export const poCities = [
     "country": "France"
   },
   {
-    "city": "Poll\u0101chi",
+    "city": "Pollachi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -345,7 +350,7 @@ export const poCities = [
     "country": "Philippines"
   },
   {
-    "city": "Podujev\u00eb",
+    "city": "Podujeve",
     "state": "Podujev\u00eb",
     "country": "Kosovo"
   },
@@ -415,7 +420,7 @@ export const poCities = [
     "country": "Philippines"
   },
   {
-    "city": "Popt\u00fan",
+    "city": "Poptun",
     "state": "Pet\u00e9n",
     "country": "Guatemala"
   },
@@ -430,7 +435,7 @@ export const poCities = [
     "country": "Portugal"
   },
   {
-    "city": "Po\u017earevac",
+    "city": "Pozarevac",
     "state": "Po\u017earevac",
     "country": "Serbia"
   },
@@ -453,6 +458,11 @@ export const poCities = [
     "city": "Potenza",
     "state": "Basilicata",
     "country": "Italy"
+  },
+  {
+    "city": "Povoa de Varzim",
+    "state": "Porto",
+    "country": "Portugal"
   },
   {
     "city": "Pomezia",
@@ -500,7 +510,7 @@ export const poCities = [
     "country": "Canada"
   },
   {
-    "city": "Ponn\u016bru",
+    "city": "Ponnuru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -525,12 +535,12 @@ export const poCities = [
     "country": "Philippines"
   },
   {
-    "city": "Portim\u00e3o",
+    "city": "Portimao",
     "state": "Faro",
     "country": "Portugal"
   },
   {
-    "city": "Porto Alexandre",
+    "city": "PortoAlexandre",
     "state": "Namibe",
     "country": "Angola"
   },
@@ -545,7 +555,7 @@ export const poCities = [
     "country": "Portugal"
   },
   {
-    "city": "Pol\u016br",
+    "city": "Polur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -555,9 +565,14 @@ export const poCities = [
     "country": "Philippines"
   },
   {
-    "city": "Pope\u015fti-Leordeni",
+    "city": "Popesti-Leordeni",
     "state": "Ilfov",
     "country": "Romania"
+  },
+  {
+    "city": "Porto Ferreira",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
   },
   {
     "city": "Pola de Siero",
@@ -620,7 +635,7 @@ export const poCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Po\u00e7\u00f5es",
+    "city": "Pocoes",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -675,6 +690,11 @@ export const poCities = [
     "country": "Taiwan"
   },
   {
+    "city": "Porto de Moz",
+    "state": "Par\u00e1",
+    "country": "Brazil"
+  },
+  {
     "city": "Podilsk",
     "state": "Odeska Oblast",
     "country": "Ukraine"
@@ -690,7 +710,7 @@ export const poCities = [
     "country": "United States"
   },
   {
-    "city": "Pomigliano d\u2019Arco",
+    "city": "Pomigliano d'Arco",
     "state": "Campania",
     "country": "Italy"
   },
@@ -700,7 +720,7 @@ export const poCities = [
     "country": "Philippines"
   },
   {
-    "city": "Pova\u017esk\u00e1 Bystrica",
+    "city": "Povazska Bystrica",
     "state": "Nitra",
     "country": "Slovakia"
   },
@@ -765,12 +785,12 @@ export const poCities = [
     "country": "Brazil"
   },
   {
-    "city": "Port\u00e3o",
+    "city": "Portao",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
   {
-    "city": "Podg\u00f3rze",
+    "city": "Podgorze",
     "state": "Ma\u0142opolskie",
     "country": "Poland"
   },
@@ -785,8 +805,13 @@ export const poCities = [
     "country": "Canada"
   },
   {
-    "city": "Po\u00e7o Redondo",
+    "city": "Poco Redondo",
     "state": "Sergipe",
+    "country": "Brazil"
+  },
+  {
+    "city": "Porto Uniao",
+    "state": "Santa Catarina",
     "country": "Brazil"
   },
   {
@@ -820,7 +845,7 @@ export const poCities = [
     "country": "United States"
   },
   {
-    "city": "Pocon\u00e9",
+    "city": "Pocone",
     "state": "Mato Grosso",
     "country": "Brazil"
   },
@@ -850,7 +875,7 @@ export const poCities = [
     "country": "Poland"
   },
   {
-    "city": "Pontal do Paran\u00e1",
+    "city": "Pontal do Parana",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -880,7 +905,12 @@ export const poCities = [
     "country": "Italy"
   },
   {
-    "city": "Po\u00e1s",
+    "city": "Povoa de Santa Iria",
+    "state": "Lisboa",
+    "country": "Portugal"
+  },
+  {
+    "city": "Poas",
     "state": "Alajuela",
     "country": "Costa Rica"
   },
@@ -890,7 +920,7 @@ export const poCities = [
     "country": "Philippines"
   },
   {
-    "city": "Pont-y-p\u0175l",
+    "city": "Pont-y-pwl",
     "state": "Torfaen",
     "country": "United Kingdom"
   },
@@ -905,7 +935,7 @@ export const poCities = [
     "country": "Philippines"
   },
   {
-    "city": "Pokhr\u0101m",
+    "city": "Pokhram",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -928,6 +958,11 @@ export const poCities = [
     "city": "Pokhvistnevo",
     "state": "Samarskaya Oblast\u2019",
     "country": "Russia"
+  },
+  {
+    "city": "Po",
+    "state": "Centre-Sud",
+    "country": "Burkina Faso"
   },
   {
     "city": "Poruvakara",
@@ -980,7 +1015,7 @@ export const poCities = [
     "country": "Russia"
   },
   {
-    "city": "Poytug\u2018",
+    "city": "Poytug`",
     "state": "Andijon",
     "country": "Uzbekistan"
   },
@@ -995,7 +1030,7 @@ export const poCities = [
     "country": "India"
   },
   {
-    "city": "Porto Sant\u2019Elpidio",
+    "city": "Porto Sant'Elpidio",
     "state": "Marche",
     "country": "Italy"
   },
@@ -1025,7 +1060,7 @@ export const poCities = [
     "country": "Philippines"
   },
   {
-    "city": "Podat\u016brpeta",
+    "city": "Podaturpeta",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1040,7 +1075,7 @@ export const poCities = [
     "country": "United States"
   },
   {
-    "city": "Porto de M\u00f3s",
+    "city": "Porto de Mos",
     "state": "Leiria",
     "country": "Portugal"
   },
@@ -1095,7 +1130,7 @@ export const poCities = [
     "country": "United States"
   },
   {
-    "city": "Poxor\u00e9o",
+    "city": "Poxoreo",
     "state": "Mato Grosso",
     "country": "Brazil"
   },
@@ -1105,7 +1140,7 @@ export const poCities = [
     "country": "India"
   },
   {
-    "city": "Pointe \u00e0 Raquettes",
+    "city": "Pointe a Raquettes",
     "state": "Ouest",
     "country": "Haiti"
   },
@@ -1120,7 +1155,7 @@ export const poCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Po\u017eega",
+    "city": "Pozega",
     "state": "Po\u017ee\u0161ko-Slavonska \u017dupanija",
     "country": "Croatia"
   },
@@ -1130,14 +1165,19 @@ export const poCities = [
     "country": "Italy"
   },
   {
-    "city": "Pol\u00fdgyros",
+    "city": "Polygyros",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
   {
-    "city": "Poch\u0101ram",
+    "city": "Pocharam",
     "state": "Telang\u0101na",
     "country": "India"
+  },
+  {
+    "city": "Povoa de Lanhoso",
+    "state": "Braga",
+    "country": "Portugal"
   },
   {
     "city": "Port Hueneme",
@@ -1145,7 +1185,7 @@ export const poCities = [
     "country": "United States"
   },
   {
-    "city": "Po\u00e7o Verde",
+    "city": "Poco Verde",
     "state": "Sergipe",
     "country": "Brazil"
   },
@@ -1170,7 +1210,7 @@ export const poCities = [
     "country": "Albania"
   },
   {
-    "city": "Pozant\u0131",
+    "city": "Pozanti",
     "state": "Adana",
     "country": "Turkey"
   },
@@ -1180,7 +1220,7 @@ export const poCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Posu\u0161je",
+    "city": "Posusje",
     "state": "Bosnia and Herzegovina, Federation of",
     "country": "Bosnia and Herzegovina"
   },
@@ -1195,7 +1235,7 @@ export const poCities = [
     "country": "Italy"
   },
   {
-    "city": "Pomp\u00e9ia",
+    "city": "Pompeia",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -1210,7 +1250,7 @@ export const poCities = [
     "country": "United States"
   },
   {
-    "city": "Porto Real do Col\u00e9gio",
+    "city": "Porto Real do Colegio",
     "state": "Alagoas",
     "country": "Brazil"
   },
@@ -1240,12 +1280,12 @@ export const poCities = [
     "country": "Colombia"
   },
   {
-    "city": "Poh\u0101di",
+    "city": "Pohadi",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Pottanik\u0101d",
+    "city": "Pottanikad",
     "state": "Kerala",
     "country": "India"
   },
@@ -1275,7 +1315,7 @@ export const poCities = [
     "country": "Colombia"
   },
   {
-    "city": "Pom\u00e1z",
+    "city": "Pomaz",
     "state": "Pest",
     "country": "Hungary"
   },
@@ -1290,7 +1330,7 @@ export const poCities = [
     "country": "United States"
   },
   {
-    "city": "Pottan\u016br",
+    "city": "Pottanur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1318,6 +1358,11 @@ export const poCities = [
     "city": "Pontarlier",
     "state": "Bourgogne-Franche-Comt\u00e9",
     "country": "France"
+  },
+  {
+    "city": "Porto Grande",
+    "state": "Amap\u00e1",
+    "country": "Brazil"
   },
   {
     "city": "Portsmouth",
@@ -1355,7 +1400,7 @@ export const poCities = [
     "country": "Brazil"
   },
   {
-    "city": "Poh\u0101di",
+    "city": "Pohadi",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1370,12 +1415,12 @@ export const poCities = [
     "country": "Canada"
   },
   {
-    "city": "Porci\u00fancula",
+    "city": "Porciuncula",
     "state": "Rio de Janeiro",
     "country": "Brazil"
   },
   {
-    "city": "Pont-\u00e0-Celles",
+    "city": "Pont-a-Celles",
     "state": "Wallonia",
     "country": "Belgium"
   },
@@ -1385,12 +1430,12 @@ export const poCities = [
     "country": "Spain"
   },
   {
-    "city": "Port-\u00e0-Piment",
+    "city": "Port-a-Piment",
     "state": "Sud",
     "country": "Haiti"
   },
   {
-    "city": "Po\u00e7\u00e3o de Pedras",
+    "city": "Pocao de Pedras",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
@@ -1400,7 +1445,7 @@ export const poCities = [
     "country": "Brazil"
   },
   {
-    "city": "Pottassh\u0113ri",
+    "city": "Pottassheri",
     "state": "Kerala",
     "country": "India"
   },
@@ -1440,7 +1485,7 @@ export const poCities = [
     "country": "Nicaragua"
   },
   {
-    "city": "Ponte de S\u00f4r",
+    "city": "Ponte de Sor",
     "state": "Portalegre",
     "country": "Portugal"
   },
@@ -1450,17 +1495,22 @@ export const poCities = [
     "country": "Russia"
   },
   {
-    "city": "Poch\u00ebp",
+    "city": "Porto Acre",
+    "state": "Acre",
+    "country": "Brazil"
+  },
+  {
+    "city": "Pochep",
     "state": "Bryanskaya Oblast\u2019",
     "country": "Russia"
   },
   {
-    "city": "Podalak\u016br",
+    "city": "Podalakur",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Pore\u010d",
+    "city": "Porec",
     "state": "Istarska \u017dupanija",
     "country": "Croatia"
   },
@@ -1480,7 +1530,7 @@ export const poCities = [
     "country": "Germany"
   },
   {
-    "city": "Po\u00e7o Fundo",
+    "city": "Poco Fundo",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1490,7 +1540,7 @@ export const poCities = [
     "country": "United States"
   },
   {
-    "city": "Porum\u0101milla",
+    "city": "Porumamilla",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1540,7 +1590,7 @@ export const poCities = [
     "country": "Costa Rica"
   },
   {
-    "city": "Ponnamar\u0101vati",
+    "city": "Ponnamaravati",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1570,7 +1620,7 @@ export const poCities = [
     "country": "Italy"
   },
   {
-    "city": "Pod\u011bbrady",
+    "city": "Podebrady",
     "state": "St\u0159edo\u010desk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -1600,7 +1650,7 @@ export const poCities = [
     "country": "United States"
   },
   {
-    "city": "Po\u00e7o das Trincheiras",
+    "city": "Poco das Trincheiras",
     "state": "Alagoas",
     "country": "Brazil"
   },
@@ -1615,12 +1665,12 @@ export const poCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Pont-\u00e0-Mousson",
+    "city": "Pont-a-Mousson",
     "state": "Grand Est",
     "country": "France"
   },
   {
-    "city": "Pol\u0101ia Kal\u0101n",
+    "city": "Polaia Kalan",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1675,12 +1725,12 @@ export const poCities = [
     "country": "India"
   },
   {
-    "city": "Polotitl\u00e1n de la Ilustraci\u00f3n",
+    "city": "Polotitlan de la Ilustracion",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
   {
-    "city": "Pot\u00e9",
+    "city": "Pote",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1720,7 +1770,12 @@ export const poCities = [
     "country": "United States"
   },
   {
-    "city": "Pond\u016bru",
+    "city": "Porto Murtinho",
+    "state": "Mato Grosso do Sul",
+    "country": "Brazil"
+  },
+  {
+    "city": "Ponduru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1730,7 +1785,7 @@ export const poCities = [
     "country": "United States"
   },
   {
-    "city": "Pont-du-Ch\u00e2teau",
+    "city": "Pont-du-Chateau",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
@@ -1745,7 +1800,7 @@ export const poCities = [
     "country": "India"
   },
   {
-    "city": "Po\u00e7o Branco",
+    "city": "Poco Branco",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
   },
@@ -1770,7 +1825,7 @@ export const poCities = [
     "country": "France"
   },
   {
-    "city": "Pol\u0101s",
+    "city": "Polas",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1840,6 +1895,11 @@ export const poCities = [
     "country": "Italy"
   },
   {
+    "city": "Possneck",
+    "state": "Thuringia",
+    "country": "Germany"
+  },
+  {
     "city": "Ponte San Pietro",
     "state": "Lombardy",
     "country": "Italy"
@@ -1900,7 +1960,7 @@ export const poCities = [
     "country": "India"
   },
   {
-    "city": "Pongal\u016br",
+    "city": "Pongalur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1910,12 +1970,12 @@ export const poCities = [
     "country": "United States"
   },
   {
-    "city": "Potos\u00ed",
+    "city": "Potosi",
     "state": "Rivas",
     "country": "Nicaragua"
   },
   {
-    "city": "Pontch\u00e2teau",
+    "city": "Pontchateau",
     "state": "Pays de la Loire",
     "country": "France"
   },
@@ -1975,7 +2035,12 @@ export const poCities = [
     "country": "France"
   },
   {
-    "city": "Po\u00e7\u00e3o",
+    "city": "Porto Firme",
+    "state": "Minas Gerais",
+    "country": "Brazil"
+  },
+  {
+    "city": "Pocao",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -1985,7 +2050,7 @@ export const poCities = [
     "country": "United States"
   },
   {
-    "city": "Portes-l\u00e8s-Valence",
+    "city": "Portes-les-Valence",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
@@ -2000,22 +2065,27 @@ export const poCities = [
     "country": "Spain"
   },
   {
-    "city": "Potiragu\u00e1",
+    "city": "Potiragua",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Popova\u010da",
+    "city": "Popovaca",
     "state": "Sisa\u010dko-Moslava\u010dka \u017dupanija",
     "country": "Croatia"
   },
   {
-    "city": "Potun\u016bru",
+    "city": "Potunuru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Potos\u00ed",
+    "city": "Porto Esperidiao",
+    "state": "Mato Grosso",
+    "country": "Brazil"
+  },
+  {
+    "city": "Potosi",
     "state": "Nari\u00f1o",
     "country": "Colombia"
   },
@@ -2045,9 +2115,14 @@ export const poCities = [
     "country": "Brazil"
   },
   {
-    "city": "Pont Sond\u00e9",
+    "city": "Pont Sonde",
     "state": "Artibonite",
     "country": "Haiti"
+  },
+  {
+    "city": "Porto Xavier",
+    "state": "Rio Grande do Sul",
+    "country": "Brazil"
   },
   {
     "city": "Pokrovske",
@@ -2085,12 +2160,17 @@ export const poCities = [
     "country": "Italy"
   },
   {
-    "city": "Polor\u00f3s",
+    "city": "Poloros",
     "state": "La Uni\u00f3n",
     "country": "El Salvador"
   },
   {
-    "city": "Pondal\u016bru",
+    "city": "Porto Rafti",
+    "state": "Attik\u00ed",
+    "country": "Greece"
+  },
+  {
+    "city": "Pondaluru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2195,12 +2275,12 @@ export const poCities = [
     "country": "Romania"
   },
   {
-    "city": "Ponn\u0101da",
+    "city": "Ponnada",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Poli\u010dka",
+    "city": "Policka",
     "state": "Pardubick\u00fd Kraj",
     "country": "Czechia"
   },
@@ -2280,6 +2360,11 @@ export const poCities = [
     "country": "India"
   },
   {
+    "city": "Poytya",
+    "state": "Varsinais-Suomi",
+    "country": "Finland"
+  },
+  {
     "city": "Pochinok",
     "state": "Smolenskaya Oblast\u2019",
     "country": "Russia"
@@ -2310,9 +2395,14 @@ export const poCities = [
     "country": "Australia"
   },
   {
-    "city": "Port Saint John\u2019s",
+    "city": "Port Saint John's",
     "state": "Eastern Cape",
     "country": "South Africa"
+  },
+  {
+    "city": "Polva",
+    "state": "P\u00f5lva",
+    "country": "Estonia"
   },
   {
     "city": "Ponta do Sol",
@@ -2335,7 +2425,7 @@ export const poCities = [
     "country": "South Africa"
   },
   {
-    "city": "Porto Ingl\u00eas",
+    "city": "Porto Ingles",
     "state": "Maio",
     "country": "Cabo Verde"
   },
@@ -2355,12 +2445,12 @@ export const poCities = [
     "country": "Australia"
   },
   {
-    "city": "Polj\u010dane",
+    "city": "Poljcane",
     "state": "Polj\u010dane",
     "country": "Slovenia"
   },
   {
-    "city": "Pod\u010detrtek",
+    "city": "Podcetrtek",
     "state": "Pod\u010detrtek",
     "country": "Slovenia"
   },
@@ -2390,7 +2480,7 @@ export const poCities = [
     "country": "Russia"
   },
   {
-    "city": "Po\u017eega",
+    "city": "Pozega",
     "state": "Po\u017eega",
     "country": "Serbia"
   },

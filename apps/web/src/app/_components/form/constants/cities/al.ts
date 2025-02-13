@@ -20,12 +20,12 @@ export const alCities = [
     "country": "Kazakhstan"
   },
   {
-    "city": "Al Ba\u015frah",
+    "city": "Al Basrah",
     "state": "Al Ba\u015frah",
     "country": "Iraq"
   },
   {
-    "city": "Al\u012bgarh",
+    "city": "Aligarh",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -40,12 +40,12 @@ export const alCities = [
     "country": "United States"
   },
   {
-    "city": "Al \u2018Ayn",
+    "city": "Al `Ayn",
     "state": "Ab\u016b Z\u0327aby",
     "country": "United Arab Emirates"
   },
   {
-    "city": "Al Huf\u016bf",
+    "city": "Al Hufuf",
     "state": "Ash Sharq\u012byah",
     "country": "Saudi Arabia"
   },
@@ -55,22 +55,22 @@ export const alCities = [
     "country": "United States"
   },
   {
-    "city": "Al Qa\u0163\u012bf",
+    "city": "Al Qatif",
     "state": "Ash Sharq\u012byah",
     "country": "Saudi Arabia"
   },
   {
-    "city": "Al Man\u015f\u016brah",
+    "city": "Al Mansurah",
     "state": "Ad Daqahl\u012byah",
     "country": "Egypt"
   },
   {
-    "city": "Al \u1e28illah",
+    "city": "Al Hillah",
     "state": "Ar Riy\u0101\u1e11",
     "country": "Saudi Arabia"
   },
   {
-    "city": "Al Ma\u1e29allah al Kubr\u00e1",
+    "city": "Al Mahallah al Kubra",
     "state": "Al Gharb\u012byah",
     "country": "Egypt"
   },
@@ -85,17 +85,17 @@ export const alCities = [
     "country": "Jordan"
   },
   {
-    "city": "Al \u1e28udaydah",
+    "city": "Al Hudaydah",
     "state": "Al \u1e28udaydah",
     "country": "Yemen"
   },
   {
-    "city": "Al \u1e28illah",
+    "city": "Al Hillah",
     "state": "B\u0101bil",
     "country": "Iraq"
   },
   {
-    "city": "Al Fayy\u016bm",
+    "city": "Al Fayyum",
     "state": "Al Fayy\u016bm",
     "country": "Egypt"
   },
@@ -105,7 +105,7 @@ export const alCities = [
     "country": "Egypt"
   },
   {
-    "city": "Al \u2018Am\u0101rah",
+    "city": "Al `Amarah",
     "state": "Mays\u0101n",
     "country": "Iraq"
   },
@@ -115,22 +115,22 @@ export const alCities = [
     "country": "Saudi Arabia"
   },
   {
-    "city": "Al Mar\u0101ghah",
+    "city": "Al Maraghah",
     "state": "S\u016bh\u0101j",
     "country": "Egypt"
   },
   {
-    "city": "Al B\u0101j\u016br",
+    "city": "Al Bajur",
     "state": "Al Min\u016bf\u012byah",
     "country": "Egypt"
   },
   {
-    "city": "Alt\u0131nda\u011f",
+    "city": "Altindag",
     "state": "Ankara",
     "country": "Turkey"
   },
   {
-    "city": "Al Jahr\u0101\u2019",
+    "city": "Al Jahra'",
     "state": "Al Jahr\u0101\u2019",
     "country": "Kuwait"
   },
@@ -145,7 +145,7 @@ export const alCities = [
     "country": "Spain"
   },
   {
-    "city": "Alam\u0101di",
+    "city": "Alamadi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -155,7 +155,7 @@ export const alCities = [
     "country": "India"
   },
   {
-    "city": "Al K\u016bt",
+    "city": "Al Kut",
     "state": "W\u0101si\u0163",
     "country": "Iraq"
   },
@@ -170,12 +170,12 @@ export const alCities = [
     "country": "Saudi Arabia"
   },
   {
-    "city": "Al \u2018Ajam\u012b",
+    "city": "Al `Ajami",
     "state": "Al Iskandar\u012byah",
     "country": "Egypt"
   },
   {
-    "city": "Al Ma\u0163ar\u012byah",
+    "city": "Al Matariyah",
     "state": "Ad Daqahl\u012byah",
     "country": "Egypt"
   },
@@ -190,27 +190,27 @@ export const alCities = [
     "country": "Iraq"
   },
   {
-    "city": "Al \u1e28amzah",
+    "city": "Al Hamzah",
     "state": "Al Q\u0101dis\u012byah",
     "country": "Iraq"
   },
   {
-    "city": "Al Fall\u016bjah",
+    "city": "Al Fallujah",
     "state": "Al Anb\u0101r",
     "country": "Iraq"
   },
   {
-    "city": "Al Bay\u1e11\u0101\u2019",
+    "city": "Al Bayda'",
     "state": "Al Jabal al Akh\u1e11ar",
     "country": "Libya"
   },
   {
-    "city": "Al \u2018\u0100shir min Rama\u1e11\u0101n",
+    "city": "Al `Ashir min Ramadan",
     "state": "Ash Sharq\u012byah",
     "country": "Egypt"
   },
   {
-    "city": "Al Miny\u0101",
+    "city": "Al Minya",
     "state": "Al Miny\u0101",
     "country": "Egypt"
   },
@@ -235,17 +235,17 @@ export const alCities = [
     "country": "Libya"
   },
   {
-    "city": "Almer\u00eda",
+    "city": "Almeria",
     "state": "Andalusia",
     "country": "Spain"
   },
   {
-    "city": "Alcal\u00e1 de Henares",
+    "city": "Alcala de Henares",
     "state": "Madrid",
     "country": "Spain"
   },
   {
-    "city": "Al \u1e28asakah",
+    "city": "Al Hasakah",
     "state": "Al \u1e28asakah",
     "country": "Syria"
   },
@@ -255,12 +255,12 @@ export const alCities = [
     "country": "Brazil"
   },
   {
-    "city": "Al Q\u0101mishl\u012b",
+    "city": "Al Qamishli",
     "state": "Al \u1e28asakah",
     "country": "Syria"
   },
   {
-    "city": "Al \u2018Ar\u012bsh",
+    "city": "Al `Arish",
     "state": "Sham\u0101l S\u012bn\u0101\u2019",
     "country": "Egypt"
   },
@@ -285,12 +285,12 @@ export const alCities = [
     "country": "Spain"
   },
   {
-    "city": "Alcorc\u00f3n",
+    "city": "Alcorcon",
     "state": "Madrid",
     "country": "Spain"
   },
   {
-    "city": "Al K\u016bfah",
+    "city": "Al Kufah",
     "state": "An Najaf",
     "country": "Iraq"
   },
@@ -300,7 +300,7 @@ export const alCities = [
     "country": "Libya"
   },
   {
-    "city": "Al Qurayy\u0101t",
+    "city": "Al Qurayyat",
     "state": "Al Jawf",
     "country": "Saudi Arabia"
   },
@@ -325,7 +325,7 @@ export const alCities = [
     "country": "Russia"
   },
   {
-    "city": "Al Miqd\u0101d\u012byah",
+    "city": "Al Miqdadiyah",
     "state": "Diy\u0101l\u00e1",
     "country": "Iraq"
   },
@@ -335,22 +335,22 @@ export const alCities = [
     "country": "Brazil"
   },
   {
-    "city": "Al Man\u0101qil",
+    "city": "Al Manaqil",
     "state": "Gezira",
     "country": "Sudan"
   },
   {
-    "city": "Al \u2018Aqabah",
+    "city": "Al `Aqabah",
     "state": "Al \u2018Aqabah",
     "country": "Jordan"
   },
   {
-    "city": "Al \u1e28aw\u012byah",
+    "city": "Al Hawiyah",
     "state": "Makkah al Mukarramah",
     "country": "Saudi Arabia"
   },
   {
-    "city": "Al Mukall\u0101",
+    "city": "Al Mukalla",
     "state": "\u1e28a\u1e11ramawt",
     "country": "Yemen"
   },
@@ -380,7 +380,7 @@ export const alCities = [
     "country": "Spain"
   },
   {
-    "city": "Alw\u0101l",
+    "city": "Alwal",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -390,7 +390,7 @@ export const alCities = [
     "country": "South Africa"
   },
   {
-    "city": "Almirante Tamandar\u00e9",
+    "city": "Almirante Tamandare",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -400,12 +400,12 @@ export const alCities = [
     "country": "Spain"
   },
   {
-    "city": "Al Mu\u1e11ayb\u012b",
+    "city": "Al Mudaybi",
     "state": "Sham\u0101l ash Sharq\u012byah",
     "country": "Oman"
   },
   {
-    "city": "Al Man\u015f\u016brah",
+    "city": "Al Mansurah",
     "state": "\u2018Adan",
     "country": "Yemen"
   },
@@ -420,7 +420,7 @@ export const alCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Al A\u1e29ad al Mas\u0101ri\u1e29ah",
+    "city": "Al Ahad al Masarihah",
     "state": "J\u0101z\u0101n",
     "country": "Saudi Arabia"
   },
@@ -440,17 +440,17 @@ export const alCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Ala\u015fehir",
+    "city": "Alasehir",
     "state": "Manisa",
     "country": "Turkey"
   },
   {
-    "city": "Al F\u0101w",
+    "city": "Al Faw",
     "state": "Al Ba\u015frah",
     "country": "Iraq"
   },
   {
-    "city": "Al Fqih Ben \u00c7alah",
+    "city": "Al Fqih Ben Calah",
     "state": "B\u00e9ni Mellal-Kh\u00e9nifra",
     "country": "Morocco"
   },
@@ -460,7 +460,7 @@ export const alCities = [
     "country": "Libya"
   },
   {
-    "city": "Al \u1e28ajar al Aswad",
+    "city": "Al Hajar al Aswad",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
   },
@@ -470,17 +470,17 @@ export const alCities = [
     "country": "Philippines"
   },
   {
-    "city": "Al Jamm\u0101l\u012byah",
+    "city": "Al Jammaliyah",
     "state": "Ad Daqahl\u012byah",
     "country": "Egypt"
   },
   {
-    "city": "Alia\u011fa",
+    "city": "Aliaga",
     "state": "\u0130zmir",
     "country": "Turkey"
   },
   {
-    "city": "Al J\u012bzah",
+    "city": "Al Jizah",
     "state": "Al \u2018\u0100\u015fimah",
     "country": "Jordan"
   },
@@ -525,7 +525,7 @@ export const alCities = [
     "country": "Qatar"
   },
   {
-    "city": "Al Hind\u012byah",
+    "city": "Al Hindiyah",
     "state": "Karbal\u0101\u2019",
     "country": "Iraq"
   },
@@ -535,7 +535,7 @@ export const alCities = [
     "country": "United States"
   },
   {
-    "city": "Al \u1e28ayy",
+    "city": "Al Hayy",
     "state": "W\u0101si\u0163",
     "country": "Iraq"
   },
@@ -555,12 +555,12 @@ export const alCities = [
     "country": "United States"
   },
   {
-    "city": "Al\u012bg\u016bdarz",
+    "city": "Aligudarz",
     "state": "Lorest\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Al Kh\u0101nkah",
+    "city": "Al Khankah",
     "state": "Al Qaly\u016bb\u012byah",
     "country": "Egypt"
   },
@@ -575,7 +575,7 @@ export const alCities = [
     "country": "United States"
   },
   {
-    "city": "Alcal\u00e1 de Guadaira",
+    "city": "Alcala de Guadaira",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -585,12 +585,12 @@ export const alCities = [
     "country": "Iraq"
   },
   {
-    "city": "Al Mu\u1e29arraq",
+    "city": "Al Muharraq",
     "state": "Al Mu\u1e29arraq",
     "country": "Bahrain"
   },
   {
-    "city": "Al Q\u0101\u2019im",
+    "city": "Al Qa'im",
     "state": "Al Anb\u0101r",
     "country": "Iraq"
   },
@@ -615,7 +615,7 @@ export const alCities = [
     "country": "United States"
   },
   {
-    "city": "Al L\u012bth",
+    "city": "Al Lith",
     "state": "Makkah al Mukarramah",
     "country": "Saudi Arabia"
   },
@@ -625,7 +625,7 @@ export const alCities = [
     "country": "Philippines"
   },
   {
-    "city": "Al Qurayy\u0101",
+    "city": "Al Qurayya",
     "state": "Dayr az Zawr",
     "country": "Syria"
   },
@@ -635,7 +635,7 @@ export const alCities = [
     "country": "Philippines"
   },
   {
-    "city": "Al \u2018\u0100mir\u0101t",
+    "city": "Al `Amirat",
     "state": "Masqa\u0163",
     "country": "Oman"
   },
@@ -645,7 +645,7 @@ export const alCities = [
     "country": "Italy"
   },
   {
-    "city": "Al Q\u016b\u015f\u012byah",
+    "city": "Al Qusiyah",
     "state": "Asy\u016b\u0163",
     "country": "Egypt"
   },
@@ -655,7 +655,7 @@ export const alCities = [
     "country": "Brazil"
   },
   {
-    "city": "Al A\u1e29mad\u012b",
+    "city": "Al Ahmadi",
     "state": "Al A\u1e29mad\u012b",
     "country": "Kuwait"
   },
@@ -665,7 +665,7 @@ export const alCities = [
     "country": "Philippines"
   },
   {
-    "city": "Al Buraym\u012b",
+    "city": "Al Buraymi",
     "state": "Al Buraym\u012b",
     "country": "Oman"
   },
@@ -675,12 +675,12 @@ export const alCities = [
     "country": "United States"
   },
   {
-    "city": "Al Minsh\u0101h",
+    "city": "Al Minshah",
     "state": "S\u016bh\u0101j",
     "country": "Egypt"
   },
   {
-    "city": "Al\u012bpur Du\u0101r",
+    "city": "Alipur Duar",
     "state": "West Bengal",
     "country": "India"
   },
@@ -695,12 +695,12 @@ export const alCities = [
     "country": "Romania"
   },
   {
-    "city": "Alt\u0131n\u00f6z\u00fc",
+    "city": "Altinozu",
     "state": "Hatay",
     "country": "Turkey"
   },
   {
-    "city": "Alexandro\u00fapoli",
+    "city": "Alexandroupoli",
     "state": "Anatolik\u00ed Makedon\u00eda kai Thr\u00e1ki",
     "country": "Greece"
   },
@@ -755,7 +755,7 @@ export const alCities = [
     "country": "Mexico"
   },
   {
-    "city": "Al Hoce\u00efma",
+    "city": "Al Hoceima",
     "state": "Tanger-T\u00e9touan-Al Hoce\u00efma",
     "country": "Morocco"
   },
@@ -765,12 +765,12 @@ export const alCities = [
     "country": "United States"
   },
   {
-    "city": "Alcoba\u00e7a",
+    "city": "Alcobaca",
     "state": "Leiria",
     "country": "Portugal"
   },
   {
-    "city": "Al Maj\u0101ridah",
+    "city": "Al Majaridah",
     "state": "\u2018As\u012br",
     "country": "Saudi Arabia"
   },
@@ -783,6 +783,16 @@ export const alCities = [
     "city": "Altrincham",
     "state": "Trafford",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Alesund",
+    "state": "M\u00f8re og Romsdal",
+    "country": "Norway"
+  },
+  {
+    "city": "Albu Kamal",
+    "state": "Dayr az Zawr",
+    "country": "Syria"
   },
   {
     "city": "Al Kharj",
@@ -810,12 +820,12 @@ export const alCities = [
     "country": "Saudi Arabia"
   },
   {
-    "city": "Al Kh\u0101rjah",
+    "city": "Al Kharjah",
     "state": "Al W\u0101d\u012b al Jad\u012bd",
     "country": "Egypt"
   },
   {
-    "city": "Al Ma\u2018all\u0101\u2019",
+    "city": "Al Ma`alla'",
     "state": "\u2018Adan",
     "country": "Yemen"
   },
@@ -825,7 +835,7 @@ export const alCities = [
     "country": "France"
   },
   {
-    "city": "Al May\u0101d\u012bn",
+    "city": "Al Mayadin",
     "state": "Dayr az Zawr",
     "country": "Syria"
   },
@@ -850,7 +860,7 @@ export const alCities = [
     "country": "Argentina"
   },
   {
-    "city": "Al Madrah Sam\u0101\u2019il",
+    "city": "Al Madrah Sama'il",
     "state": "Ad D\u0101khil\u012byah",
     "country": "Oman"
   },
@@ -870,12 +880,12 @@ export const alCities = [
     "country": "Philippines"
   },
   {
-    "city": "Al Balyan\u0101",
+    "city": "Al Balyana",
     "state": "S\u016bh\u0101j",
     "country": "Egypt"
   },
   {
-    "city": "Al Qu\u015fayr",
+    "city": "Al Qusayr",
     "state": "\u1e28im\u015f",
     "country": "Syria"
   },
@@ -905,7 +915,12 @@ export const alCities = [
     "country": "France"
   },
   {
-    "city": "Al \u2018Az\u012bz\u012byah",
+    "city": "Alamuru",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Al `Aziziyah",
     "state": "W\u0101si\u0163",
     "country": "Iraq"
   },
@@ -915,12 +930,12 @@ export const alCities = [
     "country": "Italy"
   },
   {
-    "city": "Alapl\u0131",
+    "city": "Alapli",
     "state": "Zonguldak",
     "country": "Turkey"
   },
   {
-    "city": "Al \u2018Ayy\u0101\u0163",
+    "city": "Al `Ayyat",
     "state": "Al J\u012bzah",
     "country": "Egypt"
   },
@@ -935,12 +950,12 @@ export const alCities = [
     "country": "Saudi Arabia"
   },
   {
-    "city": "Al\u00e8s",
+    "city": "Ales",
     "state": "Occitanie",
     "country": "France"
   },
   {
-    "city": "Alhaur\u00edn de la Torre",
+    "city": "Alhaurin de la Torre",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -965,7 +980,7 @@ export const alCities = [
     "country": "Spain"
   },
   {
-    "city": "Al Bad\u0101r\u012b",
+    "city": "Al Badari",
     "state": "Asy\u016b\u0163",
     "country": "Egypt"
   },
@@ -975,7 +990,7 @@ export const alCities = [
     "country": "United States"
   },
   {
-    "city": "All\u016bru",
+    "city": "Alluru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -990,12 +1005,17 @@ export const alCities = [
     "country": "Chile"
   },
   {
+    "city": "Alimos",
+    "state": "Attik\u00ed",
+    "country": "Greece"
+  },
+  {
     "city": "Alcala",
     "state": "Cagayan",
     "country": "Philippines"
   },
   {
-    "city": "Alcalde D\u00edaz",
+    "city": "Alcalde Diaz",
     "state": "Panam\u00e1",
     "country": "Panama"
   },
@@ -1035,22 +1055,22 @@ export const alCities = [
     "country": "Philippines"
   },
   {
-    "city": "Al Q\u0101\u2018idah",
+    "city": "Al Qa`idah",
     "state": "Ibb",
     "country": "Yemen"
   },
   {
-    "city": "Al M\u0101lik\u012byah",
+    "city": "Al Malikiyah",
     "state": "Al \u1e28asakah",
     "country": "Syria"
   },
   {
-    "city": "Alings\u00e5s",
+    "city": "Alingsas",
     "state": "V\u00e4stra G\u00f6taland",
     "country": "Sweden"
   },
   {
-    "city": "Al Ghizl\u0101n\u012byah",
+    "city": "Al Ghizlaniyah",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
   },
@@ -1065,7 +1085,7 @@ export const alCities = [
     "country": "Djibouti"
   },
   {
-    "city": "Al Bay\u1e11\u0101\u2019",
+    "city": "Al Bayda'",
     "state": "Al Bay\u1e11\u0101\u2019",
     "country": "Yemen"
   },
@@ -1080,7 +1100,7 @@ export const alCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Al H\u0101shim\u012byah",
+    "city": "Al Hashimiyah",
     "state": "B\u0101bil",
     "country": "Iraq"
   },
@@ -1090,17 +1110,17 @@ export const alCities = [
     "country": "Russia"
   },
   {
-    "city": "Al Jab\u0101yish",
+    "city": "Al Jabayish",
     "state": "Dh\u012b Q\u0101r",
     "country": "Iraq"
   },
   {
-    "city": "Alian\u00e7a",
+    "city": "Alianca",
     "state": "Pernambuco",
     "country": "Brazil"
   },
   {
-    "city": "Al \u2018Aq\u012bq",
+    "city": "Al `Aqiq",
     "state": "Al B\u0101\u1e29ah",
     "country": "Saudi Arabia"
   },
@@ -1110,18 +1130,23 @@ export const alCities = [
     "country": "Philippines"
   },
   {
-    "city": "Al \u1e28i\u015fn",
+    "city": "Al Hisn",
     "state": "Irbid",
     "country": "Jordan"
   },
   {
-    "city": "Al \u1e28amd\u0101n\u012byah",
+    "city": "Al Hamdaniyah",
     "state": "N\u012bnaw\u00e1",
     "country": "Iraq"
   },
   {
     "city": "Alandatte",
     "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Allagadda",
+    "state": "Andhra Pradesh",
     "country": "India"
   },
   {
@@ -1170,12 +1195,17 @@ export const alCities = [
     "country": "Saudi Arabia"
   },
   {
+    "city": "Alamat'a",
+    "state": "Tigray",
+    "country": "Ethiopia"
+  },
+  {
     "city": "Alubijid",
     "state": "Misamis Oriental",
     "country": "Philippines"
   },
   {
-    "city": "Aleng\u0101d",
+    "city": "Alengad",
     "state": "Kerala",
     "country": "India"
   },
@@ -1185,7 +1215,7 @@ export const alCities = [
     "country": "India"
   },
   {
-    "city": "Al \u2018Ayd\u0101b\u012b",
+    "city": "Al `Aydabi",
     "state": "J\u0101z\u0101n",
     "country": "Saudi Arabia"
   },
@@ -1210,12 +1240,12 @@ export const alCities = [
     "country": "United States"
   },
   {
-    "city": "Alc\u00e1zar de San Juan",
+    "city": "Alcazar de San Juan",
     "state": "Castille-La Mancha",
     "country": "Spain"
   },
   {
-    "city": "Al \u1e28usayn\u012byah",
+    "city": "Al Husayniyah",
     "state": "Ash Sharq\u012byah",
     "country": "Egypt"
   },
@@ -1225,7 +1255,7 @@ export const alCities = [
     "country": "Brazil"
   },
   {
-    "city": "Al\u00e9m Para\u00edba",
+    "city": "Alem Paraiba",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1235,7 +1265,7 @@ export const alCities = [
     "country": "Canada"
   },
   {
-    "city": "Al \u2019Attawia",
+    "city": "Al 'Attawia",
     "state": "Marrakech-Safi",
     "country": "Morocco"
   },
@@ -1250,7 +1280,7 @@ export const alCities = [
     "country": "Yemen"
   },
   {
-    "city": "Alacu\u00e1s",
+    "city": "Alacuas",
     "state": "Valencia",
     "country": "Spain"
   },
@@ -1260,7 +1290,7 @@ export const alCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Alqu\u00edzar",
+    "city": "Alquizar",
     "state": "Artemisa",
     "country": "Cuba"
   },
@@ -1280,7 +1310,7 @@ export const alCities = [
     "country": "United States"
   },
   {
-    "city": "Alt\u0131nova",
+    "city": "Altinova",
     "state": "Yalova",
     "country": "Turkey"
   },
@@ -1310,7 +1340,7 @@ export const alCities = [
     "country": "Russia"
   },
   {
-    "city": "Algemes\u00ed",
+    "city": "Algemesi",
     "state": "Valencia",
     "country": "Spain"
   },
@@ -1320,12 +1350,17 @@ export const alCities = [
     "country": "United States"
   },
   {
-    "city": "Almu\u00f1\u00e9car",
+    "city": "Almunecar",
     "state": "Andalusia",
     "country": "Spain"
   },
   {
-    "city": "Alex\u00e2nia",
+    "city": "Alvares Machado",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
+  },
+  {
+    "city": "Alexania",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -1345,7 +1380,7 @@ export const alCities = [
     "country": "Colombia"
   },
   {
-    "city": "Al Qi\u0163ena",
+    "city": "Al Qitena",
     "state": "White Nile",
     "country": "Sudan"
   },
@@ -1355,7 +1390,7 @@ export const alCities = [
     "country": "Italy"
   },
   {
-    "city": "Alhaur\u00edn el Grande",
+    "city": "Alhaurin el Grande",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -1365,12 +1400,12 @@ export const alCities = [
     "country": "Philippines"
   },
   {
-    "city": "Alatt\u016br",
+    "city": "Alattur",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Al Qu\u0163ayfah",
+    "city": "Al Qutayfah",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
   },
@@ -1390,7 +1425,7 @@ export const alCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ala\u00e7am",
+    "city": "Alacam",
     "state": "Samsun",
     "country": "Turkey"
   },
@@ -1410,12 +1445,12 @@ export const alCities = [
     "country": "Philippines"
   },
   {
-    "city": "Alen\u00e7on",
+    "city": "Alencon",
     "state": "Normandie",
     "country": "France"
   },
   {
-    "city": "Al \u2018Aww\u0101m\u012byah",
+    "city": "Al `Awwamiyah",
     "state": "Ash Sharq\u012byah",
     "country": "Saudi Arabia"
   },
@@ -1445,6 +1480,11 @@ export const alCities = [
     "country": "Australia"
   },
   {
+    "city": "Alamo",
+    "state": "Veracruz",
+    "country": "Mexico"
+  },
+  {
     "city": "Algeciras",
     "state": "Huila",
     "country": "Colombia"
@@ -1455,7 +1495,7 @@ export const alCities = [
     "country": "Libya"
   },
   {
-    "city": "Alcoba\u00e7a",
+    "city": "Alcobaca",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -1495,7 +1535,12 @@ export const alCities = [
     "country": "Australia"
   },
   {
-    "city": "Al \u2018Az\u012bz\u012byah",
+    "city": "Alangulam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Al `Aziziyah",
     "state": "Al Jaf\u0101rah",
     "country": "Libya"
   },
@@ -1550,12 +1595,12 @@ export const alCities = [
     "country": "Spain"
   },
   {
-    "city": "Alang\u0101yam",
+    "city": "Alangayam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Aleksandr\u00f3w \u0141\u00f3dzki",
+    "city": "Aleksandrow Lodzki",
     "state": "\u0141\u00f3dzkie",
     "country": "Poland"
   },
@@ -1565,12 +1610,12 @@ export const alCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Al B\u0101\u1e29ah",
+    "city": "Al Bahah",
     "state": "Al B\u0101\u1e29ah",
     "country": "Saudi Arabia"
   },
   {
-    "city": "Al Fu\u1e29ay\u015f",
+    "city": "Al Fuhays",
     "state": "Al Balq\u0101\u2019",
     "country": "Jordan"
   },
@@ -1580,7 +1625,7 @@ export const alCities = [
     "country": "Spain"
   },
   {
-    "city": "Almorad\u00ed",
+    "city": "Almoradi",
     "state": "Valencia",
     "country": "Spain"
   },
@@ -1600,17 +1645,17 @@ export const alCities = [
     "country": "United States"
   },
   {
-    "city": "Alcal\u00e1 la Real",
+    "city": "Alcala la Real",
     "state": "Andalusia",
     "country": "Spain"
   },
   {
-    "city": "Aln\u0101var",
+    "city": "Alnavar",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Alta Floresta D\u2019Oeste",
+    "city": "Alta Floresta D'Oeste",
     "state": "Rond\u00f4nia",
     "country": "Brazil"
   },
@@ -1700,6 +1745,11 @@ export const alCities = [
     "country": "Netherlands"
   },
   {
+    "city": "Alampalaiyam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Alagir",
     "state": "North Ossetia",
     "country": "Russia"
@@ -1720,7 +1770,7 @@ export const alCities = [
     "country": "Portugal"
   },
   {
-    "city": "Alpin\u00f3polis",
+    "city": "Alpinopolis",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1795,7 +1845,7 @@ export const alCities = [
     "country": "Germany"
   },
   {
-    "city": "Alt\u00f4nia",
+    "city": "Altonia",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -1830,7 +1880,7 @@ export const alCities = [
     "country": "United States"
   },
   {
-    "city": "Alc\u00e2ntara",
+    "city": "Alcantara",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
@@ -1885,12 +1935,12 @@ export const alCities = [
     "country": "Portugal"
   },
   {
-    "city": "Aliy\u0101b\u0101d",
+    "city": "Aliyabad",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Al \u2018Ash\u0101rah",
+    "city": "Al `Asharah",
     "state": "Dayr az Zawr",
     "country": "Syria"
   },
@@ -1905,7 +1955,7 @@ export const alCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Al \u1e28\u0101rah",
+    "city": "Al Harah",
     "state": "Dar\u2018\u0101",
     "country": "Syria"
   },
@@ -1935,12 +1985,12 @@ export const alCities = [
     "country": "Mexico"
   },
   {
-    "city": "Alt\u0131nta\u015f",
+    "city": "Altintas",
     "state": "K\u00fctahya",
     "country": "Turkey"
   },
   {
-    "city": "Al Gh\u0101\u0163",
+    "city": "Al Ghat",
     "state": "Ar Riy\u0101\u1e11",
     "country": "Saudi Arabia"
   },
@@ -1960,17 +2010,17 @@ export const alCities = [
     "country": "Germany"
   },
   {
-    "city": "Al La\u0163\u0101minah",
+    "city": "Al Lataminah",
     "state": "\u1e28am\u0101h",
     "country": "Syria"
   },
   {
-    "city": "Al \u1e28\u012bbah",
+    "city": "Al Hibah",
     "state": "Al Ba\u1e29r al A\u1e29mar",
     "country": "Egypt"
   },
   {
-    "city": "Altin\u00f3polis",
+    "city": "Altinopolis",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -1990,17 +2040,17 @@ export const alCities = [
     "country": "Morocco"
   },
   {
-    "city": "Alca\u00f1iz",
+    "city": "Alcaniz",
     "state": "Aragon",
     "country": "Spain"
   },
   {
-    "city": "Al Awj\u0101m",
+    "city": "Al Awjam",
     "state": "Ash Sharq\u012byah",
     "country": "Saudi Arabia"
   },
   {
-    "city": "Al \u1e28azm",
+    "city": "Al Hazm",
     "state": "Al Jawf",
     "country": "Yemen"
   },
@@ -2010,7 +2060,7 @@ export const alCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Al Maz\u0101r ash Sham\u0101l\u012b",
+    "city": "Al Mazar ash Shamali",
     "state": "Irbid",
     "country": "Jordan"
   },
@@ -2030,17 +2080,17 @@ export const alCities = [
     "country": "United States"
   },
   {
-    "city": "Alex\u00e1ndreia",
+    "city": "Alexandreia",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
   {
-    "city": "Alada\u011f",
+    "city": "Aladag",
     "state": "Adana",
     "country": "Turkey"
   },
   {
-    "city": "Alvar\u00e3es",
+    "city": "Alvaraes",
     "state": "Amazonas",
     "country": "Brazil"
   },
@@ -2055,7 +2105,7 @@ export const alCities = [
     "country": "Italy"
   },
   {
-    "city": "Al Mu\u2018abbadah",
+    "city": "Al Mu`abbadah",
     "state": "Al \u1e28asakah",
     "country": "Syria"
   },
@@ -2095,12 +2145,12 @@ export const alCities = [
     "country": "South Africa"
   },
   {
-    "city": "Al Mad\u0101m\u016bd",
+    "city": "Al Madamud",
     "state": "Al Uq\u015fur",
     "country": "Egypt"
   },
   {
-    "city": "Alvin\u00f3polis",
+    "city": "Alvinopolis",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -2115,7 +2165,12 @@ export const alCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Al M\u0101lik\u012byah",
+    "city": "Alampur",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Al Malikiyah",
     "state": "Ash Sham\u0101l\u012byah",
     "country": "Bahrain"
   },
@@ -2130,7 +2185,7 @@ export const alCities = [
     "country": "Brazil"
   },
   {
-    "city": "Alang\u0101nall\u016br",
+    "city": "Alanganallur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2140,7 +2195,7 @@ export const alCities = [
     "country": "Kyrgyzstan"
   },
   {
-    "city": "Alt\u0131nekin",
+    "city": "Altinekin",
     "state": "Konya",
     "country": "Turkey"
   },
@@ -2155,7 +2210,7 @@ export const alCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Al\u016br",
+    "city": "Alur",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2175,7 +2230,7 @@ export const alCities = [
     "country": "United States"
   },
   {
-    "city": "Alto Long\u00e1",
+    "city": "Alto Longa",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
@@ -2190,9 +2245,14 @@ export const alCities = [
     "country": "Colombia"
   },
   {
-    "city": "Al Mu\u2018a\u1e11\u1e11am\u012byah",
+    "city": "Al Mu`addamiyah",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
+  },
+  {
+    "city": "Alangudi",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Almoloya de Alquisiras",
@@ -2230,7 +2290,7 @@ export const alCities = [
     "country": "Brazil"
   },
   {
-    "city": "Alto Paran\u00e1",
+    "city": "Alto Parana",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -2275,7 +2335,7 @@ export const alCities = [
     "country": "Hungary"
   },
   {
-    "city": "Al \u1e28\u0101\u2019ir",
+    "city": "Al Ha'ir",
     "state": "Ar Riy\u0101\u1e11",
     "country": "Saudi Arabia"
   },
@@ -2305,7 +2365,7 @@ export const alCities = [
     "country": "Spain"
   },
   {
-    "city": "Alvorada D\u2019Oeste",
+    "city": "Alvorada D'Oeste",
     "state": "Rond\u00f4nia",
     "country": "Brazil"
   },
@@ -2320,17 +2380,17 @@ export const alCities = [
     "country": "Spain"
   },
   {
-    "city": "Al Jumayl\u012byah",
+    "city": "Al Jumayliyah",
     "state": "Ash Sh\u012b\u1e29\u0101n\u012byah",
     "country": "Qatar"
   },
   {
-    "city": "Alto Gar\u00e7as",
+    "city": "Alto Garcas",
     "state": "Mato Grosso",
     "country": "Brazil"
   },
   {
-    "city": "Alc\u00e1cer do Sal",
+    "city": "Alcacer do Sal",
     "state": "Set\u00fabal",
     "country": "Portugal"
   },
@@ -2340,7 +2400,7 @@ export const alCities = [
     "country": "Armenia"
   },
   {
-    "city": "Al\u0101yaman",
+    "city": "Alayaman",
     "state": "Kerala",
     "country": "India"
   },
@@ -2355,7 +2415,7 @@ export const alCities = [
     "country": "Panama"
   },
   {
-    "city": "Alcal\u00e1",
+    "city": "Alcala",
     "state": "Valle del Cauca",
     "country": "Colombia"
   },
@@ -2365,14 +2425,29 @@ export const alCities = [
     "country": "Germany"
   },
   {
+    "city": "Alampur Gonpura",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Alpen",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
   },
   {
-    "city": "Al Muzayr\u012bb",
+    "city": "Al Muzayrib",
     "state": "Dar\u2018\u0101",
     "country": "Syria"
+  },
+  {
+    "city": "Alat",
+    "state": "Bak\u0131",
+    "country": "Azerbaijan"
+  },
+  {
+    "city": "Alwarkurichchi",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Alto do Rodrigues",
@@ -2400,7 +2475,7 @@ export const alCities = [
     "country": "Spain"
   },
   {
-    "city": "Al Majma\u2018ah",
+    "city": "Al Majma`ah",
     "state": "Ar Riy\u0101\u1e11",
     "country": "Saudi Arabia"
   },
@@ -2420,7 +2495,7 @@ export const alCities = [
     "country": "Costa Rica"
   },
   {
-    "city": "Alij\u00f3",
+    "city": "Alijo",
     "state": "Vila Real",
     "country": "Portugal"
   },
@@ -2440,7 +2515,7 @@ export const alCities = [
     "country": "Kyrgyzstan"
   },
   {
-    "city": "All\u016br",
+    "city": "Allur",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2450,17 +2525,17 @@ export const alCities = [
     "country": "Belgium"
   },
   {
-    "city": "Altst\u00e4tten",
+    "city": "Altstatten",
     "state": "Sankt Gallen",
     "country": "Switzerland"
   },
   {
-    "city": "Aleksandr\u00f3w Kujawski",
+    "city": "Aleksandrow Kujawski",
     "state": "Kujawsko-Pomorskie",
     "country": "Poland"
   },
   {
-    "city": "Alegr\u00eda",
+    "city": "Alegria",
     "state": "Usulut\u00e1n",
     "country": "El Salvador"
   },
@@ -2470,7 +2545,7 @@ export const alCities = [
     "country": "Mali"
   },
   {
-    "city": "Al M\u2019aziz",
+    "city": "Al M'aziz",
     "state": "Rabat-Sal\u00e9-K\u00e9nitra",
     "country": "Morocco"
   },
@@ -2485,7 +2560,7 @@ export const alCities = [
     "country": "Italy"
   },
   {
-    "city": "Alc\u00e2ntaras",
+    "city": "Alcantaras",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -2505,7 +2580,7 @@ export const alCities = [
     "country": "Turkey"
   },
   {
-    "city": "Alto Parna\u00edba",
+    "city": "Alto Parnaiba",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
@@ -2515,7 +2590,7 @@ export const alCities = [
     "country": "United States"
   },
   {
-    "city": "All\u0101hdurg",
+    "city": "Allahdurg",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -2525,12 +2600,22 @@ export const alCities = [
     "country": "France"
   },
   {
-    "city": "Al \u2018Am\u0101d\u012byah",
+    "city": "Almhult",
+    "state": "Kronoberg",
+    "country": "Sweden"
+  },
+  {
+    "city": "Al `Amadiyah",
     "state": "Dah\u016bk",
     "country": "Iraq"
   },
   {
-    "city": "Al Ghayz\u0327ah",
+    "city": "Alamos",
+    "state": "Sonora",
+    "country": "Mexico"
+  },
+  {
+    "city": "Al Ghayzah",
     "state": "Al Mahrah",
     "country": "Yemen"
   },
@@ -2570,7 +2655,12 @@ export const alCities = [
     "country": "India"
   },
   {
-    "city": "Al At\u0101rib",
+    "city": "Aliabad",
+    "state": "Zaqatala",
+    "country": "Azerbaijan"
+  },
+  {
+    "city": "Al Atarib",
     "state": "\u1e28alab",
     "country": "Syria"
   },
@@ -2585,7 +2675,7 @@ export const alCities = [
     "country": "Mexico"
   },
   {
-    "city": "Al Ma\u1e29w\u012bt",
+    "city": "Al Mahwit",
     "state": "Al Ma\u1e29w\u012bt",
     "country": "Yemen"
   },
@@ -2625,7 +2715,7 @@ export const alCities = [
     "country": "Germany"
   },
   {
-    "city": "Ala\u00e7at\u0131",
+    "city": "Alacati",
     "state": "\u0130zmir",
     "country": "Turkey"
   },
@@ -2645,7 +2735,7 @@ export const alCities = [
     "country": "United States"
   },
   {
-    "city": "Alto Para\u00edso de Goi\u00e1s",
+    "city": "Alto Paraiso de Goias",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -2675,7 +2765,7 @@ export const alCities = [
     "country": "Chile"
   },
   {
-    "city": "Alhend\u00edn",
+    "city": "Alhendin",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -2685,7 +2775,7 @@ export const alCities = [
     "country": "United States"
   },
   {
-    "city": "Al Jaz\u012brah al \u1e28amr\u0101\u2019",
+    "city": "Al Jazirah al Hamra'",
     "state": "Ra\u2019s al Khaymah",
     "country": "United Arab Emirates"
   },
@@ -2700,7 +2790,7 @@ export const alCities = [
     "country": "Spain"
   },
   {
-    "city": "Alt\u00f6tting",
+    "city": "Altotting",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -2715,19 +2805,24 @@ export const alCities = [
     "country": "Italy"
   },
   {
-    "city": "Al H\u0101mah",
+    "city": "Al Hamah",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
   },
   {
-    "city": "Alaj\u00e4rvi",
+    "city": "Alajarvi",
     "state": "Etel\u00e4-Pohjanmaa",
     "country": "Finland"
   },
   {
-    "city": "Al Mazy\u016bnah",
+    "city": "Al Mazyunah",
     "state": "Z\u0327uf\u0101r",
     "country": "Oman"
+  },
+  {
+    "city": "Alta",
+    "state": "Stockholm",
+    "country": "Sweden"
   },
   {
     "city": "Altenholz",
@@ -2765,7 +2860,7 @@ export const alCities = [
     "country": "United States"
   },
   {
-    "city": "Altm\u00fcnster",
+    "city": "Altmunster",
     "state": "Ober\u00f6sterreich",
     "country": "Austria"
   },
@@ -2820,7 +2915,7 @@ export const alCities = [
     "country": "Paraguay"
   },
   {
-    "city": "Ale\u015fd",
+    "city": "Alesd",
     "state": "Bihor",
     "country": "Romania"
   },
@@ -2835,7 +2930,12 @@ export const alCities = [
     "country": "Russia"
   },
   {
-    "city": "Al\u0101walpur",
+    "city": "Aliabad",
+    "state": "Nax\u00e7\u0131van",
+    "country": "Azerbaijan"
+  },
+  {
+    "city": "Alawalpur",
     "state": "Punjab",
     "country": "India"
   },
@@ -2850,9 +2950,14 @@ export const alCities = [
     "country": "Switzerland"
   },
   {
-    "city": "Alt\u0131nyayla",
+    "city": "Altinyayla",
     "state": "Sivas",
     "country": "Turkey"
+  },
+  {
+    "city": "Altun Kawbri",
+    "state": "Kark\u016bk",
+    "country": "Iraq"
   },
   {
     "city": "Almagro",
@@ -2870,7 +2975,7 @@ export const alCities = [
     "country": "Portugal"
   },
   {
-    "city": "Alg\u016bn",
+    "city": "Algun",
     "state": "Punjab",
     "country": "India"
   },
@@ -2885,18 +2990,23 @@ export const alCities = [
     "country": "United States"
   },
   {
-    "city": "Alsbach-H\u00e4hnlein",
+    "city": "Alsbach-Hahnlein",
     "state": "Hesse",
     "country": "Germany"
   },
   {
-    "city": "Al Bard\u012byah",
+    "city": "Al Bardiyah",
     "state": "Al Bu\u0163n\u0101n",
     "country": "Libya"
   },
   {
     "city": "Alawandi",
     "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Alampur",
+    "state": "Bih\u0101r",
     "country": "India"
   },
   {
@@ -2915,12 +3025,12 @@ export const alCities = [
     "country": "Portugal"
   },
   {
-    "city": "Al Y\u0101d\u016bdah",
+    "city": "Al Yadudah",
     "state": "Dar\u2018\u0101",
     "country": "Syria"
   },
   {
-    "city": "Almoloya del R\u00edo",
+    "city": "Almoloya del Rio",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
@@ -2930,7 +3040,7 @@ export const alCities = [
     "country": "Spain"
   },
   {
-    "city": "All\u0101hpur",
+    "city": "Allahpur",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -2950,7 +3060,7 @@ export const alCities = [
     "country": "Libya"
   },
   {
-    "city": "Al Buway\u1e11ah",
+    "city": "Al Buwaydah",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
   },
@@ -2970,17 +3080,17 @@ export const alCities = [
     "country": "Brazil"
   },
   {
-    "city": "Al\u00edartos",
+    "city": "Aliartos",
     "state": "Stere\u00e1 Ell\u00e1da",
     "country": "Greece"
   },
   {
-    "city": "Al Quway\u2018\u012byah",
+    "city": "Al Quway`iyah",
     "state": "Ar Riy\u0101\u1e11",
     "country": "Saudi Arabia"
   },
   {
-    "city": "Al Qard\u0101\u1e29ah",
+    "city": "Al Qardahah",
     "state": "Al L\u0101dhiq\u012byah",
     "country": "Syria"
   },
@@ -2990,7 +3100,7 @@ export const alCities = [
     "country": "Italy"
   },
   {
-    "city": "Alfonso Casta\u00f1eda",
+    "city": "Alfonso Castaneda",
     "state": "Nueva Vizcaya",
     "country": "Philippines"
   },
@@ -3005,12 +3115,12 @@ export const alCities = [
     "country": "Uganda"
   },
   {
-    "city": "Al\u016bksne",
+    "city": "Aluksne",
     "state": "Al\u016bksne",
     "country": "Latvia"
   },
   {
-    "city": "Alaus\u00ed",
+    "city": "Alausi",
     "state": "Chimborazo",
     "country": "Ecuador"
   },
@@ -3025,7 +3135,7 @@ export const alCities = [
     "country": "Australia"
   },
   {
-    "city": "Al Qa\u015fr",
+    "city": "Al Qasr",
     "state": "Al W\u0101d\u012b al Jad\u012bd",
     "country": "Egypt"
   },
@@ -3040,12 +3150,12 @@ export const alCities = [
     "country": "Serbia"
   },
   {
-    "city": "Al Jaghb\u016bb",
+    "city": "Al Jaghbub",
     "state": "Al Bu\u0163n\u0101n",
     "country": "Libya"
   },
   {
-    "city": "Al \u2018Alamayn",
+    "city": "Al `Alamayn",
     "state": "Ma\u0163r\u016b\u1e29",
     "country": "Egypt"
   },
@@ -3055,7 +3165,7 @@ export const alCities = [
     "country": "Mexico"
   },
   {
-    "city": "Alto R\u00edo Senguer",
+    "city": "Alto Rio Senguer",
     "state": "Chubut",
     "country": "Argentina"
   },
@@ -3070,17 +3180,17 @@ export const alCities = [
     "country": "Niue"
   },
   {
-    "city": "Al Qunay\u0163irah",
+    "city": "Al Qunaytirah",
     "state": "Al Qunay\u0163irah",
     "country": "Syria"
   },
   {
-    "city": "Al \u2018Uqaylah",
+    "city": "Al `Uqaylah",
     "state": "Al W\u0101\u1e29\u0101t",
     "country": "Libya"
   },
   {
-    "city": "Al Jab\u012bn",
+    "city": "Al Jabin",
     "state": "Raymah",
     "country": "Yemen"
   }

@@ -30,7 +30,7 @@ export const elCities = [
     "country": "Kenya"
   },
   {
-    "city": "Elaz\u0131\u011f",
+    "city": "Elazig",
     "state": "Elaz\u0131\u011f",
     "country": "Turkey"
   },
@@ -95,7 +95,7 @@ export const elCities = [
     "country": "Algeria"
   },
   {
-    "city": "El Mini\u00e9",
+    "city": "El Minie",
     "state": "Liban-Nord",
     "country": "Lebanon"
   },
@@ -125,7 +125,7 @@ export const elCities = [
     "country": "Mexico"
   },
   {
-    "city": "Elbl\u0105g",
+    "city": "Elblag",
     "state": "Warmi\u0144sko-Mazurskie",
     "country": "Poland"
   },
@@ -140,7 +140,7 @@ export const elCities = [
     "country": "United States"
   },
   {
-    "city": "El Lim\u00f3n",
+    "city": "El Limon",
     "state": "Aragua",
     "country": "Venezuela"
   },
@@ -160,7 +160,7 @@ export const elCities = [
     "country": "Spain"
   },
   {
-    "city": "El Puerto de Santa Mar\u00eda",
+    "city": "El Puerto de Santa Maria",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -225,7 +225,7 @@ export const elCities = [
     "country": "Dominican Republic"
   },
   {
-    "city": "El Carmen de Bol\u00edvar",
+    "city": "El Carmen de Bolivar",
     "state": "Bol\u00edvar",
     "country": "Colombia"
   },
@@ -243,6 +243,11 @@ export const elCities = [
     "city": "El Wak",
     "state": "Mandera",
     "country": "Kenya"
+  },
+  {
+    "city": "Elk",
+    "state": "Warmi\u0144sko-Mazurskie",
+    "country": "Poland"
   },
   {
     "city": "El Palomar",
@@ -325,12 +330,12 @@ export const elCities = [
     "country": "Argentina"
   },
   {
-    "city": "El Gh\u00e2z\u00eey\u00e9",
+    "city": "El Ghaziye",
     "state": "Liban-Sud",
     "country": "Lebanon"
   },
   {
-    "city": "El Megha\u00efer",
+    "city": "El Meghaier",
     "state": "El Meghaier",
     "country": "Algeria"
   },
@@ -345,7 +350,7 @@ export const elCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "El\u2018ad",
+    "city": "El`ad",
     "state": "Central",
     "country": "Israel"
   },
@@ -355,7 +360,7 @@ export const elCities = [
     "country": "United States"
   },
   {
-    "city": "El Valle del Esp\u00edritu Santo",
+    "city": "El Valle del Espiritu Santo",
     "state": "Nueva Esparta",
     "country": "Venezuela"
   },
@@ -365,7 +370,7 @@ export const elCities = [
     "country": "India"
   },
   {
-    "city": "Elmada\u011f",
+    "city": "Elmadag",
     "state": "Ankara",
     "country": "Turkey"
   },
@@ -375,7 +380,7 @@ export const elCities = [
     "country": "United States"
   },
   {
-    "city": "El Cu\u00e1",
+    "city": "El Cua",
     "state": "Jinotega",
     "country": "Nicaragua"
   },
@@ -395,7 +400,7 @@ export const elCities = [
     "country": "Colombia"
   },
   {
-    "city": "El A\u00efoun",
+    "city": "El Aioun",
     "state": "Oriental",
     "country": "Morocco"
   },
@@ -410,7 +415,7 @@ export const elCities = [
     "country": "Venezuela"
   },
   {
-    "city": "Elmal\u0131",
+    "city": "Elmali",
     "state": "Antalya",
     "country": "Turkey"
   },
@@ -470,7 +475,7 @@ export const elCities = [
     "country": "India"
   },
   {
-    "city": "El Dif\u00edcil",
+    "city": "El Dificil",
     "state": "Magdalena",
     "country": "Colombia"
   },
@@ -500,7 +505,7 @@ export const elCities = [
     "country": "United States"
   },
   {
-    "city": "El\u016br",
+    "city": "Elur",
     "state": "Kerala",
     "country": "India"
   },
@@ -555,12 +560,12 @@ export const elCities = [
     "country": "Chile"
   },
   {
-    "city": "Elak\u0101du",
+    "city": "Elakadu",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "El\u00f3i Mendes",
+    "city": "Eloi Mendes",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -568,6 +573,11 @@ export const elCities = [
     "city": "Elangunnapuzha",
     "state": "Kerala",
     "country": "India"
+  },
+  {
+    "city": "Elancourt",
+    "state": "\u00cele-de-France",
+    "country": "France"
   },
   {
     "city": "El Hadjar",
@@ -580,7 +590,7 @@ export const elCities = [
     "country": "United States"
   },
   {
-    "city": "El J\u00edcaro",
+    "city": "El Jicaro",
     "state": "Nueva Segovia",
     "country": "Nicaragua"
   },
@@ -630,7 +640,7 @@ export const elCities = [
     "country": "Algeria"
   },
   {
-    "city": "Elefs\u00edna",
+    "city": "Elefsina",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -750,7 +760,7 @@ export const elCities = [
     "country": "Norway"
   },
   {
-    "city": "El Pauj\u00edl",
+    "city": "El Paujil",
     "state": "Caquet\u00e1",
     "country": "Colombia"
   },
@@ -765,7 +775,7 @@ export const elCities = [
     "country": "Uruguay"
   },
   {
-    "city": "El Ret\u00e9n",
+    "city": "El Reten",
     "state": "Magdalena",
     "country": "Colombia"
   },
@@ -810,7 +820,7 @@ export const elCities = [
     "country": "Morocco"
   },
   {
-    "city": "El B\u00e2zo\u00fbr\u00eey\u00e9",
+    "city": "El Bazouriye",
     "state": "Liban-Sud",
     "country": "Lebanon"
   },
@@ -820,12 +830,12 @@ export const elCities = [
     "country": "Mexico"
   },
   {
-    "city": "El Para\u00edso",
+    "city": "El Paraiso",
     "state": "Cop\u00e1n",
     "country": "Honduras"
   },
   {
-    "city": "El Castillo de La Concepci\u00f3n",
+    "city": "El Castillo de La Concepcion",
     "state": "R\u00edo San Juan",
     "country": "Nicaragua"
   },
@@ -855,7 +865,7 @@ export const elCities = [
     "country": "Spain"
   },
   {
-    "city": "El Bols\u00f3n",
+    "city": "El Bolson",
     "state": "R\u00edo Negro",
     "country": "Argentina"
   },
@@ -875,7 +885,7 @@ export const elCities = [
     "country": "Algeria"
   },
   {
-    "city": "Elam\u0101tt\u016br",
+    "city": "Elamattur",
     "state": "Kerala",
     "country": "India"
   },
@@ -890,7 +900,7 @@ export const elCities = [
     "country": "United States"
   },
   {
-    "city": "El Tr\u00e1nsito",
+    "city": "El Transito",
     "state": "San Miguel",
     "country": "El Salvador"
   },
@@ -915,7 +925,7 @@ export const elCities = [
     "country": "Algeria"
   },
   {
-    "city": "El Carmen de Chucur\u00ed",
+    "city": "El Carmen de Chucuri",
     "state": "Santander",
     "country": "Colombia"
   },
@@ -930,7 +940,7 @@ export const elCities = [
     "country": "Kenya"
   },
   {
-    "city": "Elank\u016br",
+    "city": "Elankur",
     "state": "Kerala",
     "country": "India"
   },
@@ -945,7 +955,7 @@ export const elCities = [
     "country": "Algeria"
   },
   {
-    "city": "Ellinik\u00f3",
+    "city": "Elliniko",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -965,7 +975,7 @@ export const elCities = [
     "country": "El Salvador"
   },
   {
-    "city": "El Pi\u00f1\u00f3n",
+    "city": "El Pinon",
     "state": "Magdalena",
     "country": "Colombia"
   },
@@ -980,7 +990,7 @@ export const elCities = [
     "country": "Germany"
   },
   {
-    "city": "El Pe\u00f1ol",
+    "city": "El Penol",
     "state": "Nari\u00f1o",
     "country": "Colombia"
   },
@@ -1095,7 +1105,7 @@ export const elCities = [
     "country": "Algeria"
   },
   {
-    "city": "Elesb\u00e3o Veloso",
+    "city": "Elesbao Veloso",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
@@ -1130,7 +1140,7 @@ export const elCities = [
     "country": "Chile"
   },
   {
-    "city": "El Tabl\u00f3n",
+    "city": "El Tablon",
     "state": "Nari\u00f1o",
     "country": "Colombia"
   },
@@ -1145,7 +1155,7 @@ export const elCities = [
     "country": "South Africa"
   },
   {
-    "city": "Elavanas\u016br",
+    "city": "Elavanasur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1165,7 +1175,7 @@ export const elCities = [
     "country": "Mexico"
   },
   {
-    "city": "Eloxochitl\u00e1n",
+    "city": "Eloxochitlan",
     "state": "Puebla",
     "country": "Mexico"
   },
@@ -1225,7 +1235,7 @@ export const elCities = [
     "country": "Colombia"
   },
   {
-    "city": "El Q\u00e2a",
+    "city": "El Qaa",
     "state": "Baalbek-Hermel",
     "country": "Lebanon"
   },
@@ -1245,7 +1255,7 @@ export const elCities = [
     "country": "United States"
   },
   {
-    "city": "Elektr\u0117nai",
+    "city": "Elektrenai",
     "state": "Elektr\u00e9nai",
     "country": "Lithuania"
   },
@@ -1265,7 +1275,7 @@ export const elCities = [
     "country": "India"
   },
   {
-    "city": "Elg\u00f3ibar",
+    "city": "Elgoibar",
     "state": "Basque Country",
     "country": "Spain"
   },
@@ -1275,7 +1285,7 @@ export const elCities = [
     "country": "United States"
   },
   {
-    "city": "El An\u00e7or",
+    "city": "El Ancor",
     "state": "Oran",
     "country": "Algeria"
   },
@@ -1305,7 +1315,7 @@ export const elCities = [
     "country": "Morocco"
   },
   {
-    "city": "El Play\u00f3n",
+    "city": "El Playon",
     "state": "Santander",
     "country": "Colombia"
   },
@@ -1320,17 +1330,17 @@ export const elCities = [
     "country": "United States"
   },
   {
-    "city": "El Tr\u00e9bol",
+    "city": "El Trebol",
     "state": "Santa Fe",
     "country": "Argentina"
   },
   {
-    "city": "Elch\u016bru",
+    "city": "Elchuru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "El \u00c1guila",
+    "city": "El Aguila",
     "state": "Valle del Cauca",
     "country": "Colombia"
   },
@@ -1350,7 +1360,7 @@ export const elCities = [
     "country": "Canada"
   },
   {
-    "city": "El Para\u00edso",
+    "city": "El Paraiso",
     "state": "Chalatenango",
     "country": "El Salvador"
   },
@@ -1370,7 +1380,7 @@ export const elCities = [
     "country": "Nicaragua"
   },
   {
-    "city": "El \u00c1lamo",
+    "city": "El Alamo",
     "state": "Madrid",
     "country": "Spain"
   },
@@ -1385,12 +1395,12 @@ export const elCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Ele\u015fkirt",
+    "city": "Eleskirt",
     "state": "A\u011fr\u0131",
     "country": "Turkey"
   },
   {
-    "city": "Elatt\u016br",
+    "city": "Elattur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1425,7 +1435,7 @@ export const elCities = [
     "country": "Spain"
   },
   {
-    "city": "Elambal\u016br",
+    "city": "Elambalur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1450,7 +1460,7 @@ export const elCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "El\u016brpatti",
+    "city": "Elurpatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1465,7 +1475,7 @@ export const elCities = [
     "country": "France"
   },
   {
-    "city": "El\u016brup\u0101du",
+    "city": "Elurupadu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1530,7 +1540,7 @@ export const elCities = [
     "country": "Colombia"
   },
   {
-    "city": "El Mait\u00e9n",
+    "city": "El Maiten",
     "state": "Chubut",
     "country": "Argentina"
   },

@@ -5,6 +5,11 @@ export const aiCities = [
     "country": "China"
   },
   {
+    "city": "Aizawl",
+    "state": "Mizoram",
+    "country": "India"
+  },
+  {
     "city": "Ait Melloul",
     "state": "Souss-Massa",
     "country": "Morocco"
@@ -20,9 +25,24 @@ export const aiCities = [
     "country": "Japan"
   },
   {
+    "city": "Ain Beida",
+    "state": "Oum el Bouaghi",
+    "country": "Algeria"
+  },
+  {
     "city": "Aihua",
     "state": "Yunnan",
     "country": "China"
+  },
+  {
+    "city": "Ain Oussera",
+    "state": "Djelfa",
+    "country": "Algeria"
+  },
+  {
+    "city": "Ain M'Lila",
+    "state": "Oum el Bouaghi",
+    "country": "Algeria"
   },
   {
     "city": "Ait Ali",
@@ -35,14 +55,34 @@ export const aiCities = [
     "country": "Japan"
   },
   {
+    "city": "Ain Temouchent",
+    "state": "A\u00efn Temouchent",
+    "country": "Algeria"
+  },
+  {
     "city": "Airdrie",
     "state": "Alberta",
     "country": "Canada"
   },
   {
-    "city": "Aig\u00e1leo",
+    "city": "Ain Oulmene",
+    "state": "S\u00e9tif",
+    "country": "Algeria"
+  },
+  {
+    "city": "Aigaleo",
     "state": "Attik\u00ed",
     "country": "Greece"
+  },
+  {
+    "city": "Ain Defla",
+    "state": "A\u00efn Defla",
+    "country": "Algeria"
+  },
+  {
+    "city": "Ain Harrouda",
+    "state": "Casablanca-Settat",
+    "country": "Morocco"
   },
   {
     "city": "Aisai",
@@ -50,9 +90,24 @@ export const aiCities = [
     "country": "Japan"
   },
   {
+    "city": "Ain Touta",
+    "state": "Batna",
+    "country": "Algeria"
+  },
+  {
+    "city": "Ain Sefra",
+    "state": "Naama",
+    "country": "Algeria"
+  },
+  {
     "city": "Ain El Aouda",
     "state": "Rabat-Sal\u00e9-K\u00e9nitra",
     "country": "Morocco"
+  },
+  {
+    "city": "Ain Fakroun",
+    "state": "Oum el Bouaghi",
+    "country": "Algeria"
   },
   {
     "city": "Aizawa",
@@ -65,9 +120,19 @@ export const aiCities = [
     "country": "Morocco"
   },
   {
+    "city": "Ain Tedeles",
+    "state": "Mostaganem",
+    "country": "Algeria"
+  },
+  {
     "city": "Airdrie",
     "state": "North Lanarkshire",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Aine Draham",
+    "state": "Jendouba",
+    "country": "Tunisia"
   },
   {
     "city": "Aizumi",
@@ -75,9 +140,24 @@ export const aiCities = [
     "country": "Japan"
   },
   {
-    "city": "Aiyappan K\u014dvil",
+    "city": "Ain Taya",
+    "state": "Alger",
+    "country": "Algeria"
+  },
+  {
+    "city": "Aiyappan Kovil",
     "state": "Kerala",
     "country": "India"
+  },
+  {
+    "city": "Ain el Bya",
+    "state": "Oran",
+    "country": "Algeria"
+  },
+  {
+    "city": "Ain Bessem",
+    "state": "Bouira",
+    "country": "Algeria"
   },
   {
     "city": "Aiken",
@@ -95,6 +175,11 @@ export const aiCities = [
     "country": "Indonesia"
   },
   {
+    "city": "Ain Kercha",
+    "state": "Oum el Bouaghi",
+    "country": "Algeria"
+  },
+  {
     "city": "Aipe",
     "state": "Huila",
     "country": "Colombia"
@@ -105,14 +190,29 @@ export const aiCities = [
     "country": "Japan"
   },
   {
+    "city": "Ain Taoujdat",
+    "state": "F\u00e8s-Mekn\u00e8s",
+    "country": "Morocco"
+  },
+  {
+    "city": "Ait Faska",
+    "state": "Marrakech-Safi",
+    "country": "Morocco"
+  },
+  {
     "city": "Ain Aicha",
     "state": "F\u00e8s-Mekn\u00e8s",
     "country": "Morocco"
   },
   {
-    "city": "Aimor\u00e9s",
+    "city": "Aimores",
     "state": "Minas Gerais",
     "country": "Brazil"
+  },
+  {
+    "city": "Ain Kechera",
+    "state": "Skikda",
+    "country": "Algeria"
   },
   {
     "city": "Ain Dfali",
@@ -135,9 +235,24 @@ export const aiCities = [
     "country": "Romania"
   },
   {
-    "city": "Aish\u014d",
+    "city": "Aisho",
     "state": "Shiga",
     "country": "Japan"
+  },
+  {
+    "city": "Ain Cheggag",
+    "state": "F\u00e8s-Mekn\u00e8s",
+    "country": "Morocco"
+  },
+  {
+    "city": "Aigio",
+    "state": "Dytik\u00ed Ell\u00e1da",
+    "country": "Greece"
+  },
+  {
+    "city": "Ait Tamlil",
+    "state": "B\u00e9ni Mellal-Kh\u00e9nifra",
+    "country": "Morocco"
   },
   {
     "city": "Ait Bousarane",
@@ -170,7 +285,32 @@ export const aiCities = [
     "country": "India"
   },
   {
+    "city": "Ait Bouchta",
+    "state": "Tanger-T\u00e9touan-Al Hoce\u00efma",
+    "country": "Morocco"
+  },
+  {
+    "city": "Ait Majdane",
+    "state": "B\u00e9ni Mellal-Kh\u00e9nifra",
+    "country": "Morocco"
+  },
+  {
+    "city": "Ain Zaouia",
+    "state": "Tizi Ouzou",
+    "country": "Algeria"
+  },
+  {
+    "city": "Ain Feka",
+    "state": "Djelfa",
+    "country": "Algeria"
+  },
+  {
     "city": "Ait Yaazem",
+    "state": "F\u00e8s-Mekn\u00e8s",
+    "country": "Morocco"
+  },
+  {
+    "city": "Ain Mediouna",
     "state": "F\u00e8s-Mekn\u00e8s",
     "country": "Morocco"
   },
@@ -178,6 +318,11 @@ export const aiCities = [
     "city": "Ain el Hadid",
     "state": "Tiaret",
     "country": "Algeria"
+  },
+  {
+    "city": "Ain Jemaa",
+    "state": "F\u00e8s-Mekn\u00e8s",
+    "country": "Morocco"
   },
   {
     "city": "Aiyetoro Gbede",
@@ -200,9 +345,24 @@ export const aiCities = [
     "country": "India"
   },
   {
+    "city": "Ain Nouissy",
+    "state": "Mostaganem",
+    "country": "Algeria"
+  },
+  {
+    "city": "Ait Yaich",
+    "state": "Tizi Ouzou",
+    "country": "Algeria"
+  },
+  {
     "city": "Ait Yazza",
     "state": "Souss-Massa",
     "country": "Morocco"
+  },
+  {
+    "city": "Aibongo",
+    "state": "Tombouctou",
+    "country": "Mali"
   },
   {
     "city": "Aiuaba",
@@ -210,9 +370,24 @@ export const aiCities = [
     "country": "Brazil"
   },
   {
+    "city": "Ain Youcef",
+    "state": "Tlemcen",
+    "country": "Algeria"
+  },
+  {
+    "city": "Ain Lechiakh",
+    "state": "A\u00efn Defla",
+    "country": "Algeria"
+  },
+  {
     "city": "Ainsdale",
     "state": "Sefton",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Ait Youssef Ou Ali",
+    "state": "Dr\u00e2a-Tafilalet",
+    "country": "Morocco"
   },
   {
     "city": "Ain Kansara",
@@ -225,14 +400,34 @@ export const aiCities = [
     "country": "Morocco"
   },
   {
+    "city": "Ait I'yach",
+    "state": "Dr\u00e2a-Tafilalet",
+    "country": "Morocco"
+  },
+  {
     "city": "Ain Legdah",
     "state": "F\u00e8s-Mekn\u00e8s",
+    "country": "Morocco"
+  },
+  {
+    "city": "Ain Zora",
+    "state": "Oriental",
+    "country": "Morocco"
+  },
+  {
+    "city": "Ait Hani",
+    "state": "Dr\u00e2a-Tafilalet",
     "country": "Morocco"
   },
   {
     "city": "Airway Heights",
     "state": "Washington",
     "country": "United States"
+  },
+  {
+    "city": "Ain Zohra",
+    "state": "Rabat-Sal\u00e9-K\u00e9nitra",
+    "country": "Morocco"
   },
   {
     "city": "Aizenay",
@@ -253,6 +448,11 @@ export const aiCities = [
     "city": "Ainring",
     "state": "Bavaria",
     "country": "Germany"
+  },
+  {
+    "city": "Aibak",
+    "state": "Samang\u0101n",
+    "country": "Afghanistan"
   },
   {
     "city": "Aich",
@@ -280,14 +480,29 @@ export const aiCities = [
     "country": "Germany"
   },
   {
+    "city": "Ain el Hadjar",
+    "state": "Bouira",
+    "country": "Algeria"
+  },
+  {
+    "city": "Ain el Mediour",
+    "state": "Souss-Massa",
+    "country": "Morocco"
+  },
+  {
     "city": "Ait Ikkou",
     "state": "F\u00e8s-Mekn\u00e8s",
     "country": "Morocco"
   },
   {
-    "city": "Ain\u0101pur",
+    "city": "Ainapur",
     "state": "Karn\u0101taka",
     "country": "India"
+  },
+  {
+    "city": "Ait Ouaoumana",
+    "state": "B\u00e9ni Mellal-Kh\u00e9nifra",
+    "country": "Morocco"
   },
   {
     "city": "Aigues-Mortes",
@@ -320,7 +535,7 @@ export const aiCities = [
     "country": "Timor-Leste"
   },
   {
-    "city": "Aigu\u00e1",
+    "city": "Aigua",
     "state": "Maldonado",
     "country": "Uruguay"
   },

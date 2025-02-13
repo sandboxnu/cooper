@@ -5,12 +5,12 @@ export const etCities = [
     "country": "Turkey"
   },
   {
-    "city": "Et\u0101wa",
+    "city": "Etawa",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Et\u0101wah",
+    "city": "Etawah",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -30,9 +30,24 @@ export const etCities = [
     "country": "Netherlands"
   },
   {
+    "city": "Et Taiyiba",
+    "state": "Central",
+    "country": "Israel"
+  },
+  {
     "city": "Ettlingen",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
+  },
+  {
+    "city": "Etampes",
+    "state": "\u00cele-de-France",
+    "country": "France"
+  },
+  {
+    "city": "Et Tira",
+    "state": "Central",
+    "country": "Israel"
   },
   {
     "city": "Etajima",
@@ -40,7 +55,7 @@ export const etCities = [
     "country": "Japan"
   },
   {
-    "city": "Etzatl\u00e1n",
+    "city": "Etzatlan",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -55,7 +70,7 @@ export const etCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Ettaiy\u0101puram",
+    "city": "Ettaiyapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -65,9 +80,14 @@ export const etCities = [
     "country": "Germany"
   },
   {
-    "city": "Ett\u0101pur",
+    "city": "Ettapur",
     "state": "Tamil N\u0101du",
     "country": "India"
+  },
+  {
+    "city": "Etaples",
+    "state": "Hauts-de-France",
+    "country": "France"
   },
   {
     "city": "Etoumbi",

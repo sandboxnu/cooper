@@ -75,7 +75,7 @@ export const heCities = [
     "country": "United States"
   },
   {
-    "city": "Her\u0101t",
+    "city": "Herat",
     "state": "Her\u0101t",
     "country": "Afghanistan"
   },
@@ -180,7 +180,7 @@ export const heCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Her\u1e95liyya",
+    "city": "Herzliyya",
     "state": "Tel Aviv",
     "country": "Israel"
   },
@@ -210,7 +210,7 @@ export const heCities = [
     "country": "Netherlands"
   },
   {
-    "city": "He\u1e6dau\u1e0d\u0101",
+    "city": "Hetauda",
     "state": "B\u0101gmat\u012b",
     "country": "Nepal"
   },
@@ -295,7 +295,7 @@ export const heCities = [
     "country": "Germany"
   },
   {
-    "city": "Helsing\u00f8r",
+    "city": "Helsingor",
     "state": "Hovedstaden",
     "country": "Denmark"
   },
@@ -400,7 +400,7 @@ export const heCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Hell\u00edn",
+    "city": "Hellin",
     "state": "Castille-La Mancha",
     "country": "Spain"
   },
@@ -420,7 +420,7 @@ export const heCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Hend\u012bj\u0101n",
+    "city": "Hendijan",
     "state": "Kh\u016bzest\u0101n",
     "country": "Iran"
   },
@@ -490,6 +490,11 @@ export const heCities = [
     "country": "United States"
   },
   {
+    "city": "Henin-Beaumont",
+    "state": "Hauts-de-France",
+    "country": "France"
+  },
+  {
     "city": "Helmstedt",
     "state": "Lower Saxony",
     "country": "Germany"
@@ -538,6 +543,11 @@ export const heCities = [
     "city": "Herdecke",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
+  },
+  {
+    "city": "Herouville-Saint-Clair",
+    "state": "Normandie",
+    "country": "France"
   },
   {
     "city": "Heide",
@@ -815,6 +825,11 @@ export const heCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Hevie",
+    "state": "Atlantique",
+    "country": "Benin"
+  },
+  {
     "city": "Heswall",
     "state": "Wirral",
     "country": "United Kingdom"
@@ -865,7 +880,7 @@ export const heCities = [
     "country": "United States"
   },
   {
-    "city": "Heli\u00f3polis",
+    "city": "Heliopolis",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -940,12 +955,12 @@ export const heCities = [
     "country": "Germany"
   },
   {
-    "city": "Hejam\u0101di",
+    "city": "Hejamadi",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Hem\u0101vati",
+    "city": "Hemavati",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -955,7 +970,7 @@ export const heCities = [
     "country": "Morocco"
   },
   {
-    "city": "Her\u012bs",
+    "city": "Heris",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Sharq\u012b",
     "country": "Iran"
   },
@@ -970,7 +985,12 @@ export const heCities = [
     "country": "United States"
   },
   {
-    "city": "Hecelchak\u00e1n",
+    "city": "Hericourt",
+    "state": "Bourgogne-Franche-Comt\u00e9",
+    "country": "France"
+  },
+  {
+    "city": "Hecelchakan",
     "state": "Campeche",
     "country": "Mexico"
   },
@@ -1055,7 +1075,7 @@ export const heCities = [
     "country": "Germany"
   },
   {
-    "city": "Hercul\u00e2ndia",
+    "city": "Herculandia",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -1110,7 +1130,7 @@ export const heCities = [
     "country": "Germany"
   },
   {
-    "city": "Herseh Chh\u012bna",
+    "city": "Herseh Chhina",
     "state": "Punjab",
     "country": "India"
   },
@@ -1140,7 +1160,7 @@ export const heCities = [
     "country": "South Africa"
   },
   {
-    "city": "Heyd\u0259rabad",
+    "city": "Heydarabad",
     "state": "S\u0259d\u0259r\u0259k",
     "country": "Azerbaijan"
   }

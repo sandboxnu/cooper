@@ -1,5 +1,10 @@
 export const feCities = [
   {
+    "city": "Fes",
+    "state": "F\u00e8s-Mekn\u00e8s",
+    "country": "Morocco"
+  },
+  {
     "city": "Feicheng",
     "state": "Shandong",
     "country": "China"
@@ -45,7 +50,7 @@ export const feCities = [
     "country": "Turkey"
   },
   {
-    "city": "Ferkess\u00e9dougou",
+    "city": "Ferkessedougou",
     "state": "Savanes",
     "country": "C\u00f4te d\u2019Ivoire"
   },
@@ -95,7 +100,7 @@ export const feCities = [
     "country": "China"
   },
   {
-    "city": "Fernand\u00f3polis",
+    "city": "Fernandopolis",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -130,7 +135,7 @@ export const feCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Fereyd\u016bn Ken\u0101r",
+    "city": "Fereydun Kenar",
     "state": "M\u0101zandar\u0101n",
     "country": "Iran"
   },
@@ -145,7 +150,7 @@ export const feCities = [
     "country": "Italy"
   },
   {
-    "city": "Feij\u00f3",
+    "city": "Feijo",
     "state": "Acre",
     "country": "Brazil"
   },
@@ -155,7 +160,7 @@ export const feCities = [
     "country": "United States"
   },
   {
-    "city": "Ferre\u00f1afe",
+    "city": "Ferrenafe",
     "state": "Lambayeque",
     "country": "Peru"
   },
@@ -180,7 +185,7 @@ export const feCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Fete\u015fti",
+    "city": "Fetesti",
     "state": "Ialomi\u0163a",
     "country": "Romania"
   },
@@ -270,9 +275,14 @@ export const feCities = [
     "country": "United States"
   },
   {
-    "city": "Fey\u1e95\u0101b\u0101d",
+    "city": "Feyzabad",
     "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
     "country": "Iran"
+  },
+  {
+    "city": "Fecamp",
+    "state": "Normandie",
+    "country": "France"
   },
   {
     "city": "Feilding",
@@ -295,7 +305,7 @@ export const feCities = [
     "country": "United States"
   },
   {
-    "city": "Federaci\u00f3n",
+    "city": "Federacion",
     "state": "Entre R\u00edos",
     "country": "Argentina"
   },
@@ -360,7 +370,7 @@ export const feCities = [
     "country": "United States"
   },
   {
-    "city": "Felixl\u00e2ndia",
+    "city": "Felixlandia",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -370,7 +380,7 @@ export const feCities = [
     "country": "Brazil"
   },
   {
-    "city": "Fereyd\u016bnshahr",
+    "city": "Fereydunshahr",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
@@ -480,7 +490,7 @@ export const feCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Fern\u00e1n-N\u00fa\u00f1ez",
+    "city": "Fernan-Nunez",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -510,7 +520,7 @@ export const feCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Ferreira do Z\u00eazere",
+    "city": "Ferreira do Zezere",
     "state": "Santar\u00e9m",
     "country": "Portugal"
   },

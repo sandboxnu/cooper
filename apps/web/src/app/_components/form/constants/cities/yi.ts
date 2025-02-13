@@ -60,6 +60,11 @@ export const yiCities = [
     "country": "China"
   },
   {
+    "city": "Yildirim",
+    "state": "Bursa",
+    "country": "Turkey"
+  },
+  {
     "city": "Yicheng",
     "state": "Hubei",
     "country": "China"
@@ -110,6 +115,11 @@ export const yiCities = [
     "country": "China"
   },
   {
+    "city": "Yildiz",
+    "state": "Bart\u0131n",
+    "country": "Turkey"
+  },
+  {
     "city": "Yinying",
     "state": "Shanxi",
     "country": "China"
@@ -125,7 +135,7 @@ export const yiCities = [
     "country": "China"
   },
   {
-    "city": "Yirga \u2018Alem",
+    "city": "Yirga `Alem",
     "state": "YeDebub Bih\u0113roch Bih\u0113reseboch na Hizboch",
     "country": "Ethiopia"
   },
@@ -155,6 +165,11 @@ export const yiCities = [
     "country": "China"
   },
   {
+    "city": "Yildizeli",
+    "state": "Sivas",
+    "country": "Turkey"
+  },
+  {
     "city": "Yingyangcun",
     "state": "Guangxi",
     "country": "China"
@@ -173,6 +188,11 @@ export const yiCities = [
     "city": "Yizhu",
     "state": "Chiayi",
     "country": "Taiwan"
+  },
+  {
+    "city": "Yigilca",
+    "state": "D\u00fczce",
+    "country": "Turkey"
   },
   {
     "city": "Yinhua",

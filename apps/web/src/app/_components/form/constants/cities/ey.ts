@@ -1,6 +1,6 @@
 export const eyCities = [
   {
-    "city": "Eyv\u0101n",
+    "city": "Eyvan",
     "state": "\u012al\u0101m",
     "country": "Iran"
   },
@@ -20,7 +20,7 @@ export const eyCities = [
     "country": "Turkey"
   },
   {
-    "city": "Eyv\u0101nekey",
+    "city": "Eyvanekey",
     "state": "Semn\u0101n",
     "country": "Iran"
   },

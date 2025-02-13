@@ -10,12 +10,17 @@ export const ogCities = [
     "country": "United States"
   },
   {
-    "city": "Og\u014dshi",
+    "city": "Ogaki",
+    "state": "Gifu",
+    "country": "Japan"
+  },
+  {
+    "city": "Ogoshi",
     "state": "Kumamoto",
     "country": "Japan"
   },
   {
-    "city": "Og\u014dri",
+    "city": "Ogori",
     "state": "Fukuoka",
     "country": "Japan"
   },
@@ -25,6 +30,11 @@ export const ogCities = [
     "country": "Japan"
   },
   {
+    "city": "Oguzeli",
+    "state": "Gaziantep",
+    "country": "Turkey"
+  },
+  {
     "city": "Ogawa",
     "state": "Saitama",
     "country": "Japan"
@@ -32,6 +42,16 @@ export const ogCities = [
   {
     "city": "Oga",
     "state": "Akita",
+    "country": "Japan"
+  },
+  {
+    "city": "Oguchi",
+    "state": "Aichi",
+    "country": "Japan"
+  },
+  {
+    "city": "Ogawara",
+    "state": "Miyagi",
     "country": "Japan"
   },
   {
@@ -45,7 +65,7 @@ export const ogCities = [
     "country": "United States"
   },
   {
-    "city": "Og\u00edjares",
+    "city": "Ogijares",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -83,5 +103,10 @@ export const ogCities = [
     "city": "Ogden",
     "state": "North Carolina",
     "country": "United States"
+  },
+  {
+    "city": "Oguz",
+    "state": "O\u011fuz",
+    "country": "Azerbaijan"
   }
 ]

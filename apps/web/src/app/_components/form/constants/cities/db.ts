@@ -5,7 +5,7 @@ export const dbCities = [
     "country": "Eritrea"
   },
   {
-    "city": "Dba\u00efy\u00e9",
+    "city": "Dbaiye",
     "state": "Mont-Liban",
     "country": "Lebanon"
   }

@@ -40,7 +40,7 @@ export const yoCities = [
     "country": "Japan"
   },
   {
-    "city": "Yong\u2019an",
+    "city": "Yong'an",
     "state": "Fujian",
     "country": "China"
   },
@@ -70,7 +70,7 @@ export const yoCities = [
     "country": "United States"
   },
   {
-    "city": "Yoshiich\u014d-shimobaru",
+    "city": "Yoshiicho-shimobaru",
     "state": "Nagasaki",
     "country": "Japan"
   },
@@ -95,6 +95,16 @@ export const yoCities = [
     "country": "China"
   },
   {
+    "city": "Yoju",
+    "state": "Gyeonggi",
+    "country": "Korea, South"
+  },
+  {
+    "city": "Yongju",
+    "state": "Gyeongbuk",
+    "country": "Korea, South"
+  },
+  {
     "city": "Yopal",
     "state": "Casanare",
     "country": "Colombia"
@@ -105,7 +115,7 @@ export const yoCities = [
     "country": "Turkey"
   },
   {
-    "city": "Yotsukaid\u014d",
+    "city": "Yotsukaido",
     "state": "Chiba",
     "country": "Japan"
   },
@@ -165,7 +175,7 @@ export const yoCities = [
     "country": "China"
   },
   {
-    "city": "Yong\u2019an",
+    "city": "Yong'an",
     "state": "Chongqing",
     "country": "China"
   },
@@ -190,7 +200,7 @@ export const yoCities = [
     "country": "Japan"
   },
   {
-    "city": "Yol\u00f6ten",
+    "city": "Yoloten",
     "state": "Mary",
     "country": "Turkmenistan"
   },
@@ -210,6 +220,11 @@ export const yoCities = [
     "country": "Taiwan"
   },
   {
+    "city": "Yokaichiba",
+    "state": "Chiba",
+    "country": "Japan"
+  },
+  {
     "city": "Yorii",
     "state": "Saitama",
     "country": "Japan"
@@ -220,9 +235,14 @@ export const yoCities = [
     "country": "China"
   },
   {
-    "city": "Yong\u2019ancun",
+    "city": "Yong'ancun",
     "state": "Guangdong",
     "country": "China"
+  },
+  {
+    "city": "Yoro",
+    "state": "Gifu",
+    "country": "Japan"
   },
   {
     "city": "Yomou",
@@ -235,7 +255,7 @@ export const yoCities = [
     "country": "Japan"
   },
   {
-    "city": "Yolomb\u00f3",
+    "city": "Yolombo",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -245,7 +265,7 @@ export const yoCities = [
     "country": "Cameroon"
   },
   {
-    "city": "Yoqne\u2018am \u2018Illit",
+    "city": "Yoqne`am `Illit",
     "state": "Northern",
     "country": "Israel"
   },
@@ -305,7 +325,7 @@ export const yoCities = [
     "country": "Djibouti"
   },
   {
-    "city": "Yond\u00f3",
+    "city": "Yondo",
     "state": "Antioquia",
     "country": "Colombia"
   },

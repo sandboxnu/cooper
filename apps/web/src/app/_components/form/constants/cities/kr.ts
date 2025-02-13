@@ -10,7 +10,7 @@ export const krCities = [
     "country": "Russia"
   },
   {
-    "city": "Krak\u00f3w",
+    "city": "Krakow",
     "state": "Ma\u0142opolskie",
     "country": "Poland"
   },
@@ -20,7 +20,7 @@ export const krCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Krishnar\u0101jpur",
+    "city": "Krishnarajpur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -110,12 +110,12 @@ export const krCities = [
     "country": "Cambodia"
   },
   {
-    "city": "Kru\u0161evac",
+    "city": "Krusevac",
     "state": "Kru\u0161evac",
     "country": "Serbia"
   },
   {
-    "city": "Krasnotur\u2019insk",
+    "city": "Krasnotur'insk",
     "state": "Sverdlovskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -160,7 +160,7 @@ export const krCities = [
     "country": "Russia"
   },
   {
-    "city": "Krishnar\u0101j\u0101s\u0101gara",
+    "city": "Krishnarajasagara",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -185,7 +185,7 @@ export const krCities = [
     "country": "Cambodia"
   },
   {
-    "city": "Kra\u015bnik",
+    "city": "Krasnik",
     "state": "Lubelskie",
     "country": "Poland"
   },
@@ -205,7 +205,7 @@ export const krCities = [
     "country": "Thailand"
   },
   {
-    "city": "Krishnar\u0101jpet",
+    "city": "Krishnarajpet",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -220,7 +220,7 @@ export const krCities = [
     "country": "Poland"
   },
   {
-    "city": "Krom\u011b\u0159\u00ed\u017e",
+    "city": "Kromeriz",
     "state": "Zl\u00ednsk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -235,7 +235,7 @@ export const krCities = [
     "country": "Russia"
   },
   {
-    "city": "Krishn\u0101puram",
+    "city": "Krishnapuram",
     "state": "Kerala",
     "country": "India"
   },
@@ -310,7 +310,7 @@ export const krCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Kri\u017eevci",
+    "city": "Krizevci",
     "state": "Koprivni\u010dko-Kri\u017eeva\u010dka \u017dupanija",
     "country": "Croatia"
   },
@@ -420,7 +420,7 @@ export const krCities = [
     "country": "Russia"
   },
   {
-    "city": "Krishnar\u0101yapuram",
+    "city": "Krishnarayapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -455,7 +455,7 @@ export const krCities = [
     "country": "Russia"
   },
   {
-    "city": "Krasnousol\u2019skiy",
+    "city": "Krasnousol'skiy",
     "state": "Bashkortostan",
     "country": "Russia"
   },
@@ -465,12 +465,12 @@ export const krCities = [
     "country": "Germany"
   },
   {
-    "city": "Kruj\u00eb",
+    "city": "Kruje",
     "state": "Durr\u00ebs",
     "country": "Albania"
   },
   {
-    "city": "Kros\u016bru",
+    "city": "Krosuru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -490,7 +490,7 @@ export const krCities = [
     "country": "Germany"
   },
   {
-    "city": "Krosno Odrza\u0144skie",
+    "city": "Krosno Odrzanskie",
     "state": "Lubuskie",
     "country": "Poland"
   },
@@ -510,17 +510,17 @@ export const krCities = [
     "country": "India"
   },
   {
-    "city": "Kr\u00e8miss",
+    "city": "Kremiss",
     "state": "Kayes",
     "country": "Mali"
   },
   {
-    "city": "Kr\u00e1l\u016dv Dv\u016dr",
+    "city": "Kraluv Dvur",
     "state": "St\u0159edo\u010desk\u00fd Kraj",
     "country": "Czechia"
   },
   {
-    "city": "Krager\u00f8",
+    "city": "Kragero",
     "state": "Vestfold og Telemark",
     "country": "Norway"
   },
@@ -565,7 +565,7 @@ export const krCities = [
     "country": "Russia"
   },
   {
-    "city": "Kran\u00eddi",
+    "city": "Kranidi",
     "state": "Pelop\u00f3nnisos",
     "country": "Greece"
   },
@@ -600,7 +600,7 @@ export const krCities = [
     "country": "Slovakia"
   },
   {
-    "city": "Kr\u0101slava",
+    "city": "Kraslava",
     "state": "Kr\u0101slava",
     "country": "Latvia"
   },
@@ -610,7 +610,7 @@ export const krCities = [
     "country": "North Macedonia"
   },
   {
-    "city": "Kru\u0161evo",
+    "city": "Krusevo",
     "state": "Kru\u0161evo",
     "country": "North Macedonia"
   },
@@ -620,12 +620,12 @@ export const krCities = [
     "country": "Russia"
   },
   {
-    "city": "Kr\u0161ko",
+    "city": "Krsko",
     "state": "Kr\u0161ko",
     "country": "Slovenia"
   },
   {
-    "city": "Krivoga\u0161tani",
+    "city": "Krivogastani",
     "state": "Krivoga\u0161tani",
     "country": "North Macedonia"
   },
@@ -635,7 +635,7 @@ export const krCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Kri\u017eevci",
+    "city": "Krizevci",
     "state": "Kri\u017eevci",
     "country": "Slovenia"
   },

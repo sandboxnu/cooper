@@ -1,6 +1,6 @@
 export const czCities = [
   {
-    "city": "Cz\u0119stochowa",
+    "city": "Czestochowa",
     "state": "\u015al\u0105skie",
     "country": "Poland"
   },
@@ -10,7 +10,7 @@ export const czCities = [
     "country": "Poland"
   },
   {
-    "city": "Czelad\u017a",
+    "city": "Czeladz",
     "state": "\u015al\u0105skie",
     "country": "Poland"
   },
@@ -20,12 +20,12 @@ export const czCities = [
     "country": "Poland"
   },
   {
-    "city": "Cz\u0142uch\u00f3w",
+    "city": "Czluchow",
     "state": "Pomorskie",
     "country": "Poland"
   },
   {
-    "city": "Czarnk\u00f3w",
+    "city": "Czarnkow",
     "state": "Wielkopolskie",
     "country": "Poland"
   },
@@ -35,7 +35,7 @@ export const czCities = [
     "country": "Poland"
   },
   {
-    "city": "Czarna Bia\u0142ostocka",
+    "city": "Czarna Bialostocka",
     "state": "Podlaskie",
     "country": "Poland"
   }

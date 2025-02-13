@@ -30,9 +30,19 @@ export const odCities = [
     "country": "Portugal"
   },
   {
-    "city": "Odienn\u00e9",
+    "city": "Odemis",
+    "state": "\u0130zmir",
+    "country": "Turkey"
+  },
+  {
+    "city": "Odienne",
     "state": "Dengu\u00e9l\u00e9",
     "country": "C\u00f4te d\u2019Ivoire"
+  },
+  {
+    "city": "Odate",
+    "state": "Akita",
+    "country": "Japan"
   },
   {
     "city": "Odendaalsrus",
@@ -55,6 +65,11 @@ export const odCities = [
     "country": "United States"
   },
   {
+    "city": "Odacho-oda",
+    "state": "Shimane",
+    "country": "Japan"
+  },
+  {
     "city": "Odorheiu Secuiesc",
     "state": "Harghita",
     "country": "Romania"
@@ -70,7 +85,7 @@ export const odCities = [
     "country": "Italy"
   },
   {
-    "city": "Od\u017eak",
+    "city": "Odzak",
     "state": "Bosnia and Herzegovina, Federation of",
     "country": "Bosnia and Herzegovina"
   },
@@ -95,7 +110,7 @@ export const odCities = [
     "country": "India"
   },
   {
-    "city": "Odan\u0101vattam",
+    "city": "Odanavattam",
     "state": "Kerala",
     "country": "India"
   },
@@ -105,7 +120,7 @@ export const odCities = [
     "country": "Germany"
   },
   {
-    "city": "Odl\u0101b\u0101ri",
+    "city": "Odlabari",
     "state": "West Bengal",
     "country": "India"
   },
@@ -120,22 +135,22 @@ export const odCities = [
     "country": "India"
   },
   {
-    "city": "Odugatt\u016br",
+    "city": "Odugattur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Odobe\u015fti",
+    "city": "Odobesti",
     "state": "Vrancea",
     "country": "Romania"
   },
   {
-    "city": "Oday\u0101rpatti",
+    "city": "Odayarpatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Od\u017eaci",
+    "city": "Odzaci",
     "state": "Od\u017eaci",
     "country": "Serbia"
   },

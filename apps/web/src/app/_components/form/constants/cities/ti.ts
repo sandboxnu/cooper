@@ -20,7 +20,7 @@ export const tiCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Tirupp\u016br",
+    "city": "Tiruppur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -55,12 +55,12 @@ export const tiCities = [
     "country": "Hong Kong"
   },
   {
-    "city": "Timi\u015foara",
+    "city": "Timisoara",
     "state": "Timi\u015f",
     "country": "Romania"
   },
   {
-    "city": "Tiruvottiy\u016br",
+    "city": "Tiruvottiyur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -70,7 +70,7 @@ export const tiCities = [
     "country": "India"
   },
   {
-    "city": "Timayy al Imd\u012bd",
+    "city": "Timayy al Imdid",
     "state": "Ad Daqahl\u012byah",
     "country": "Egypt"
   },
@@ -85,7 +85,7 @@ export const tiCities = [
     "country": "Brazil"
   },
   {
-    "city": "Tiruvann\u0101malai",
+    "city": "Tiruvannamalai",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -100,7 +100,7 @@ export const tiCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Tindw\u0101ra",
+    "city": "Tindwara",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -130,7 +130,7 @@ export const tiCities = [
     "country": "Mexico"
   },
   {
-    "city": "Tit\u0101garh",
+    "city": "Titagarh",
     "state": "West Bengal",
     "country": "India"
   },
@@ -145,7 +145,7 @@ export const tiCities = [
     "country": "Philippines"
   },
   {
-    "city": "Tikr\u012bt",
+    "city": "Tikrit",
     "state": "\u015eal\u0101\u1e29 ad D\u012bn",
     "country": "Iraq"
   },
@@ -180,12 +180,12 @@ export const tiCities = [
     "country": "Turkey"
   },
   {
-    "city": "Tiruppatt\u016br",
+    "city": "Tiruppattur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Tim\u00f3teo",
+    "city": "Timoteo",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -193,6 +193,11 @@ export const tiCities = [
     "city": "Tissamaharama",
     "state": "Southern",
     "country": "Sri Lanka"
+  },
+  {
+    "city": "Tikamgarh",
+    "state": "Madhya Pradesh",
+    "country": "India"
   },
   {
     "city": "Tiko",
@@ -205,12 +210,12 @@ export const tiCities = [
     "country": "Colombia"
   },
   {
-    "city": "Tirk\u0101kara",
+    "city": "Tirkakara",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Tiangu\u00e1",
+    "city": "Tiangua",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -265,12 +270,12 @@ export const tiCities = [
     "country": "Philippines"
   },
   {
-    "city": "Tirukkoyil\u016br",
+    "city": "Tirukkoyilur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Tipt\u016br",
+    "city": "Tiptur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -280,7 +285,7 @@ export const tiCities = [
     "country": "China"
   },
   {
-    "city": "Tiruv\u0101l\u016br",
+    "city": "Tiruvalur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -315,7 +320,7 @@ export const tiCities = [
     "country": "Nepal"
   },
   {
-    "city": "Tiruvall\u016br",
+    "city": "Tiruvallur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -355,12 +360,12 @@ export const tiCities = [
     "country": "India"
   },
   {
-    "city": "Timba\u00faba",
+    "city": "Timbauba",
     "state": "Pernambuco",
     "country": "Brazil"
   },
   {
-    "city": "Tizim\u00edn",
+    "city": "Tizimin",
     "state": "Yucat\u00e1n",
     "country": "Mexico"
   },
@@ -395,7 +400,7 @@ export const tiCities = [
     "country": "Philippines"
   },
   {
-    "city": "Tingo Mar\u00eda",
+    "city": "Tingo Maria",
     "state": "Hu\u00e1nuco",
     "country": "Peru"
   },
@@ -405,7 +410,7 @@ export const tiCities = [
     "country": "Algeria"
   },
   {
-    "city": "Timb\u00f3",
+    "city": "Timbo",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -425,7 +430,7 @@ export const tiCities = [
     "country": "Morocco"
   },
   {
-    "city": "Ti\u0307\u0304npiple",
+    "city": "Tinpiple",
     "state": NaN,
     "country": "Nepal"
   },
@@ -440,7 +445,7 @@ export const tiCities = [
     "country": "Canada"
   },
   {
-    "city": "Tiruchend\u016br",
+    "city": "Tiruchendur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -460,7 +465,7 @@ export const tiCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Tinnan\u016br",
+    "city": "Tinnanur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -470,17 +475,17 @@ export const tiCities = [
     "country": "China"
   },
   {
-    "city": "Tiet\u00ea",
+    "city": "Tiete",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Tib\u00fa",
+    "city": "Tibu",
     "state": "Norte de Santander",
     "country": "Colombia"
   },
   {
-    "city": "Tirkadav\u016br",
+    "city": "Tirkadavur",
     "state": "Kerala",
     "country": "India"
   },
@@ -505,17 +510,17 @@ export const tiCities = [
     "country": "United States"
   },
   {
-    "city": "Tiruv\u016br",
+    "city": "Tiruvur",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Titl\u0101garh",
+    "city": "Titlagarh",
     "state": "Odisha",
     "country": "India"
   },
   {
-    "city": "Timb\u00edo",
+    "city": "Timbio",
     "state": "Cauca",
     "country": "Colombia"
   },
@@ -550,7 +555,7 @@ export const tiCities = [
     "country": "India"
   },
   {
-    "city": "Tiruv\u0113gapra",
+    "city": "Tiruvegapra",
     "state": "Kerala",
     "country": "India"
   },
@@ -600,7 +605,7 @@ export const tiCities = [
     "country": "Taiwan"
   },
   {
-    "city": "Tiruppatt\u016br",
+    "city": "Tiruppattur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -620,22 +625,22 @@ export const tiCities = [
     "country": "Algeria"
   },
   {
-    "city": "Tiror\u0101",
+    "city": "Tirora",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
   {
-    "city": "Tirumuruganp\u016bndi",
+    "city": "Tirumuruganpundi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Tirutturaipp\u016bndi",
+    "city": "Tirutturaippundi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Tiruvatt\u0101r",
+    "city": "Tiruvattar",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -655,7 +660,7 @@ export const tiCities = [
     "country": "Morocco"
   },
   {
-    "city": "Timm\u0101pur",
+    "city": "Timmapur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -670,7 +675,7 @@ export const tiCities = [
     "country": "India"
   },
   {
-    "city": "Tiruverumb\u016br",
+    "city": "Tiruverumbur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -680,7 +685,7 @@ export const tiCities = [
     "country": "Israel"
   },
   {
-    "city": "Timbiqu\u00ed",
+    "city": "Timbiqui",
     "state": "Cauca",
     "country": "Colombia"
   },
@@ -730,7 +735,7 @@ export const tiCities = [
     "country": "Algeria"
   },
   {
-    "city": "Timmar\u0101san\u0101yakkan\u016br",
+    "city": "Timmarasanayakkanur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -745,7 +750,7 @@ export const tiCities = [
     "country": "Belgium"
   },
   {
-    "city": "Timan\u00e1",
+    "city": "Timana",
     "state": "Huila",
     "country": "Colombia"
   },
@@ -760,12 +765,17 @@ export const tiCities = [
     "country": "Norway"
   },
   {
+    "city": "Tirthahalli",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
     "city": "Tibba",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Tillab\u00e9ri",
+    "city": "Tillaberi",
     "state": "Tillab\u00e9ri",
     "country": "Niger"
   },
@@ -780,7 +790,7 @@ export const tiCities = [
     "country": "United States"
   },
   {
-    "city": "Tiruv\u0101di",
+    "city": "Tiruvadi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -820,7 +830,7 @@ export const tiCities = [
     "country": "Philippines"
   },
   {
-    "city": "Tirun\u0101geswaram",
+    "city": "Tirunageswaram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -848,6 +858,11 @@ export const tiCities = [
     "city": "Tijucas do Sul",
     "state": "Paran\u00e1",
     "country": "Brazil"
+  },
+  {
+    "city": "Tiogollo",
+    "state": "Magdalena",
+    "country": "Colombia"
   },
   {
     "city": "Tizi Rached",
@@ -890,6 +905,11 @@ export const tiCities = [
     "country": "Serbia"
   },
   {
+    "city": "Tiran",
+    "state": "E\u015ffah\u0101n",
+    "country": "Iran"
+  },
+  {
     "city": "Tidjikja",
     "state": "Tagant",
     "country": "Mauritania"
@@ -900,7 +920,7 @@ export const tiCities = [
     "country": "Algeria"
   },
   {
-    "city": "Tisza\u00fajv\u00e1ros",
+    "city": "Tiszaujvaros",
     "state": "Borsod-Aba\u00faj-Zempl\u00e9n",
     "country": "Hungary"
   },
@@ -925,17 +945,17 @@ export const tiCities = [
     "country": "Chile"
   },
   {
-    "city": "Tirumalaiyamp\u0101laiyam",
+    "city": "Tirumalaiyampalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Tiruv\u0101saladi",
+    "city": "Tiruvasaladi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Tirupp\u0101ch\u016br",
+    "city": "Tiruppachur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -945,7 +965,7 @@ export const tiCities = [
     "country": "India"
   },
   {
-    "city": "Tirkar\u016br",
+    "city": "Tirkarur",
     "state": "Kerala",
     "country": "India"
   },
@@ -955,7 +975,7 @@ export const tiCities = [
     "country": "Mexico"
   },
   {
-    "city": "Titirib\u00ed",
+    "city": "Titiribi",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -980,17 +1000,17 @@ export const tiCities = [
     "country": "India"
   },
   {
-    "city": "Tiruppanand\u0101l",
+    "city": "Tiruppanandal",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Tiorp\u0101ra",
+    "city": "Tiorpara",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Tiruv\u0101rpu",
+    "city": "Tiruvarpu",
     "state": "Kerala",
     "country": "India"
   },
@@ -1000,7 +1020,7 @@ export const tiCities = [
     "country": "Philippines"
   },
   {
-    "city": "Tirumak\u016bdal Narsipur",
+    "city": "Tirumakudal Narsipur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1020,17 +1040,17 @@ export const tiCities = [
     "country": "Morocco"
   },
   {
-    "city": "Til\u0101ri",
+    "city": "Tilari",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Tirukk\u0101ttuppalli",
+    "city": "Tirukkattuppalli",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Tirupp\u0101lai",
+    "city": "Tiruppalai",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1050,7 +1070,7 @@ export const tiCities = [
     "country": "Germany"
   },
   {
-    "city": "Tiszavasv\u00e1ri",
+    "city": "Tiszavasvari",
     "state": "Szabolcs-Szatm\u00e1r-Bereg",
     "country": "Hungary"
   },
@@ -1080,6 +1100,11 @@ export const tiCities = [
     "country": "Morocco"
   },
   {
+    "city": "Tikar",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Tiny",
     "state": "Ontario",
     "country": "Canada"
@@ -1090,7 +1115,7 @@ export const tiCities = [
     "country": "Morocco"
   },
   {
-    "city": "Tiruv\u0101d\u0101nai",
+    "city": "Tiruvadanai",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1105,7 +1130,7 @@ export const tiCities = [
     "country": "India"
   },
   {
-    "city": "Tiszak\u00e9cske",
+    "city": "Tiszakecske",
     "state": "B\u00e1cs-Kiskun",
     "country": "Hungary"
   },
@@ -1120,7 +1145,7 @@ export const tiCities = [
     "country": "Morocco"
   },
   {
-    "city": "Tiruvennanall\u016br",
+    "city": "Tiruvennanallur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1155,7 +1180,7 @@ export const tiCities = [
     "country": "Mexico"
   },
   {
-    "city": "Tiruppor\u016br",
+    "city": "Tirupporur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1180,7 +1205,7 @@ export const tiCities = [
     "country": "United States"
   },
   {
-    "city": "Tirupp\u0101laikudi",
+    "city": "Tiruppalaikudi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1190,12 +1215,12 @@ export const tiCities = [
     "country": "United States"
   },
   {
-    "city": "Tiszaf\u00fcred",
+    "city": "Tiszafured",
     "state": "J\u00e1sz-Nagykun-Szolnok",
     "country": "Hungary"
   },
   {
-    "city": "Tigr\u0101na",
+    "city": "Tigrana",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -1230,7 +1255,7 @@ export const tiCities = [
     "country": "India"
   },
   {
-    "city": "Timr\u00e5",
+    "city": "Timra",
     "state": "V\u00e4sternorrland",
     "country": "Sweden"
   },
@@ -1255,13 +1280,18 @@ export const tiCities = [
     "country": "India"
   },
   {
-    "city": "Tiszaf\u00f6ldv\u00e1r",
+    "city": "Tiszafoldvar",
     "state": "J\u00e1sz-Nagykun-Szolnok",
     "country": "Hungary"
   },
   {
     "city": "Tiri",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Tigaon",
+    "state": "Madhya Pradesh",
     "country": "India"
   },
   {
@@ -1285,7 +1315,7 @@ export const tiCities = [
     "country": "India"
   },
   {
-    "city": "Tir\u00faa",
+    "city": "Tirua",
     "state": "Biob\u00edo",
     "country": "Chile"
   },
@@ -1320,12 +1350,12 @@ export const tiCities = [
     "country": "Montenegro"
   },
   {
-    "city": "Tiruv\u0101duturai",
+    "city": "Tiruvaduturai",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Timm\u0101puram",
+    "city": "Timmapuram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1335,7 +1365,7 @@ export const tiCities = [
     "country": "Romania"
   },
   {
-    "city": "Ti\u0161nov",
+    "city": "Tisnov",
     "state": "Jihomoravsk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -1345,7 +1375,7 @@ export const tiCities = [
     "country": "Spain"
   },
   {
-    "city": "Tiban\u00e1",
+    "city": "Tibana",
     "state": "Boyac\u00e1",
     "country": "Colombia"
   },
@@ -1400,7 +1430,7 @@ export const tiCities = [
     "country": "Italy"
   },
   {
-    "city": "Tillaivil\u0101gam",
+    "city": "Tillaivilagam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1420,7 +1450,7 @@ export const tiCities = [
     "country": "Germany"
   },
   {
-    "city": "Tilar\u00e1n",
+    "city": "Tilaran",
     "state": "Guanacaste",
     "country": "Costa Rica"
   },
@@ -1465,7 +1495,7 @@ export const tiCities = [
     "country": "Solomon Islands"
   },
   {
-    "city": "Ti\u0161ina",
+    "city": "Tisina",
     "state": "Ti\u0161ina",
     "country": "Slovenia"
   },

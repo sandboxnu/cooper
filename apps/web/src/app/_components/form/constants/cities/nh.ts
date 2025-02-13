@@ -5,7 +5,7 @@ export const nhCities = [
     "country": "Vietnam"
   },
   {
-    "city": "Nhamund\u00e1",
+    "city": "Nhamunda",
     "state": "Amazonas",
     "country": "Brazil"
   },
@@ -15,7 +15,7 @@ export const nhCities = [
     "country": "Brazil"
   },
   {
-    "city": "Nh\u00e2n Tr\u1ea1ch",
+    "city": "Nhan Trach",
     "state": "Ngh\u1ec7 An",
     "country": "Vietnam"
   },

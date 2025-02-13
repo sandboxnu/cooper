@@ -1,11 +1,11 @@
 export const aqCities = [
   {
-    "city": "Aqt\u00f6be",
+    "city": "Aqtobe",
     "state": "Aqt\u00f6be",
     "country": "Kazakhstan"
   },
   {
-    "city": "Aqta\u016b",
+    "city": "Aqtau",
     "state": "Mangghysta\u016b",
     "country": "Kazakhstan"
   },
@@ -20,9 +20,14 @@ export const aqCities = [
     "country": "Brazil"
   },
   {
-    "city": "Aqs\u016b",
+    "city": "Aqsu",
     "state": "Pavlodar",
     "country": "Kazakhstan"
+  },
+  {
+    "city": "Aqchah",
+    "state": "Jowzj\u0101n",
+    "country": "Afghanistan"
   },
   {
     "city": "Aquidauana",
@@ -30,7 +35,7 @@ export const aqCities = [
     "country": "Brazil"
   },
   {
-    "city": "Aquidab\u00e3",
+    "city": "Aquidaba",
     "state": "Sergipe",
     "country": "Brazil"
   },
@@ -40,7 +45,7 @@ export const aqCities = [
     "country": "Colombia"
   },
   {
-    "city": "Aqk\u00f6l",
+    "city": "Aqkol",
     "state": "Aqmola",
     "country": "Kazakhstan"
   },
@@ -50,7 +55,7 @@ export const aqCities = [
     "country": "Kazakhstan"
   },
   {
-    "city": "Aqs\u016b",
+    "city": "Aqsu",
     "state": "Aqmola",
     "country": "Kazakhstan"
   }

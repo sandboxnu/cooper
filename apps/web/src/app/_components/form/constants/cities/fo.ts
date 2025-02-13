@@ -25,12 +25,12 @@ export const foCities = [
     "country": "United States"
   },
   {
-    "city": "Fontib\u00f3n",
+    "city": "Fontibon",
     "state": "Bogot\u00e1",
     "country": "Colombia"
   },
   {
-    "city": "Foz do Igua\u00e7u",
+    "city": "Foz do Iguacu",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -65,7 +65,7 @@ export const foCities = [
     "country": "United States"
   },
   {
-    "city": "Forl\u00ec",
+    "city": "Forli",
     "state": "Emilia-Romagna",
     "country": "Italy"
   },
@@ -105,7 +105,7 @@ export const foCities = [
     "country": "Brazil"
   },
   {
-    "city": "Foc\u015fani",
+    "city": "Focsani",
     "state": "Vrancea",
     "country": "Romania"
   },
@@ -210,7 +210,7 @@ export const foCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Fo\u00e7a",
+    "city": "Foca",
     "state": "\u0130zmir",
     "country": "Turkey"
   },
@@ -220,7 +220,7 @@ export const foCities = [
     "country": "Italy"
   },
   {
-    "city": "Fort Libert\u00e9",
+    "city": "Fort Liberte",
     "state": "Nord-Est",
     "country": "Haiti"
   },
@@ -390,7 +390,7 @@ export const foCities = [
     "country": "United States"
   },
   {
-    "city": "Fort\u00edn de las Flores",
+    "city": "Fortin de las Flores",
     "state": "Veracruz",
     "country": "Mexico"
   },
@@ -405,12 +405,17 @@ export const foCities = [
     "country": "United States"
   },
   {
+    "city": "Fot",
+    "state": "Pest",
+    "country": "Hungary"
+  },
+  {
     "city": "Fort Walton Beach",
     "state": "Florida",
     "country": "United States"
   },
   {
-    "city": "Foug\u00e8res",
+    "city": "Fougeres",
     "state": "Bretagne",
     "country": "France"
   },
@@ -480,7 +485,7 @@ export const foCities = [
     "country": "Germany"
   },
   {
-    "city": "Fontaine-l\u2019\u00c9v\u00eaque",
+    "city": "Fontaine-l'Eveque",
     "state": "Wallonia",
     "country": "Belgium"
   },
@@ -670,7 +675,7 @@ export const foCities = [
     "country": "United States"
   },
   {
-    "city": "For\u00e9cariah",
+    "city": "Forecariah",
     "state": "Kindia",
     "country": "Guinea"
   },
@@ -680,9 +685,14 @@ export const foCities = [
     "country": "Bosnia and Herzegovina"
   },
   {
-    "city": "Fo\u010da",
+    "city": "Foca",
     "state": "Srpska, Republika",
     "country": "Bosnia and Herzegovina"
+  },
+  {
+    "city": "Fomeque",
+    "state": "Cundinamarca",
+    "country": "Colombia"
   },
   {
     "city": "Fort Campbell North",
@@ -740,6 +750,11 @@ export const foCities = [
     "country": "United States"
   },
   {
+    "city": "Fo-Boure",
+    "state": "Borgou",
+    "country": "Benin"
+  },
+  {
     "city": "Fountain Inn",
     "state": "South Carolina",
     "country": "United States"
@@ -753,6 +768,11 @@ export const foCities = [
     "city": "Folomana",
     "state": "S\u00e9gou",
     "country": "Mali"
+  },
+  {
+    "city": "Forde",
+    "state": "Vestland",
+    "country": "Norway"
   },
   {
     "city": "Fort Madison",
@@ -800,7 +820,7 @@ export const foCities = [
     "country": "France"
   },
   {
-    "city": "Foum Jam\u2019a",
+    "city": "Foum Jam'a",
     "state": "B\u00e9ni Mellal-Kh\u00e9nifra",
     "country": "Morocco"
   },
@@ -860,7 +880,7 @@ export const foCities = [
     "country": "United States"
   },
   {
-    "city": "Fontaine-l\u00e8s-Dijon",
+    "city": "Fontaine-les-Dijon",
     "state": "Bourgogne-Franche-Comt\u00e9",
     "country": "France"
   },

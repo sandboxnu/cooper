@@ -68,5 +68,10 @@ export const owCities = [
     "city": "Owk",
     "state": "Andhra Pradesh",
     "country": "India"
+  },
+  {
+    "city": "Owani",
+    "state": "Aomori",
+    "country": "Japan"
   }
 ]

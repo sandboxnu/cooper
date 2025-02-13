@@ -65,7 +65,7 @@ export const kaCities = [
     "country": "Russia"
   },
   {
-    "city": "Kaly\u0101n",
+    "city": "Kalyan",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -95,7 +95,7 @@ export const kaCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Karbal\u0101\u2019",
+    "city": "Karbala'",
     "state": "Karbal\u0101\u2019",
     "country": "Iraq"
   },
@@ -110,7 +110,7 @@ export const kaCities = [
     "country": "China"
   },
   {
-    "city": "Kandah\u0101r",
+    "city": "Kandahar",
     "state": "Kandah\u0101r",
     "country": "Afghanistan"
   },
@@ -145,7 +145,7 @@ export const kaCities = [
     "country": "China"
   },
   {
-    "city": "Kawachich\u014d",
+    "city": "Kawachicho",
     "state": "\u014csaka",
     "country": "Japan"
   },
@@ -170,8 +170,13 @@ export const kaCities = [
     "country": "Japan"
   },
   {
-    "city": "Kahramanmara\u015f",
+    "city": "Kahramanmaras",
     "state": "Kahramanmara\u015f",
+    "country": "Turkey"
+  },
+  {
+    "city": "Kagithane",
+    "state": "\u0130stanbul",
     "country": "Turkey"
   },
   {
@@ -185,17 +190,22 @@ export const kaCities = [
     "country": "Lithuania"
   },
   {
-    "city": "Kayap\u0131nar",
+    "city": "Kakinada",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Kayapinar",
     "state": "Diyarbak\u0131r",
     "country": "Turkey"
   },
   {
-    "city": "Kar\u016br",
+    "city": "Karur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Karn\u0101l",
+    "city": "Karnal",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -205,7 +215,7 @@ export const kaCities = [
     "country": "Japan"
   },
   {
-    "city": "Kar\u015f\u0131yaka",
+    "city": "Karsiyaka",
     "state": "\u0130zmir",
     "country": "Turkey"
   },
@@ -215,12 +225,22 @@ export const kaCities = [
     "country": "Russia"
   },
   {
+    "city": "Kamarhati",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Kaiyuan",
     "state": "Yunnan",
     "country": "China"
   },
   {
-    "city": "Kaech\u2019\u014fn",
+    "city": "Kashipur",
+    "state": "Uttar\u0101khand",
+    "country": "India"
+  },
+  {
+    "city": "Kaech'on",
     "state": "P\u2019y\u014fngnam",
     "country": "Korea, North"
   },
@@ -250,12 +270,17 @@ export const kaCities = [
     "country": "Japan"
   },
   {
-    "city": "Kafr \u015eaqr",
+    "city": "Kashan",
+    "state": "E\u015ffah\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Kafr Saqr",
     "state": "Ash Sharq\u012byah",
     "country": "Egypt"
   },
   {
-    "city": "Kar\u012bmnagar",
+    "city": "Karimnagar",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -270,12 +295,12 @@ export const kaCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Kafr ad Daww\u0101r",
+    "city": "Kafr ad Dawwar",
     "state": "Al Bu\u1e29ayrah",
     "country": "Egypt"
   },
   {
-    "city": "Kakogawach\u014d-honmachi",
+    "city": "Kakogawacho-honmachi",
     "state": "Hy\u014dgo",
     "country": "Japan"
   },
@@ -285,7 +310,7 @@ export const kaCities = [
     "country": "Korea, North"
   },
   {
-    "city": "Kal\u0101r",
+    "city": "Kalar",
     "state": "As Sulaym\u0101n\u012byah",
     "country": "Iraq"
   },
@@ -300,7 +325,7 @@ export const kaCities = [
     "country": "Tanzania"
   },
   {
-    "city": "Katih\u0101r",
+    "city": "Katihar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -333,6 +358,11 @@ export const kaCities = [
     "city": "Kafue",
     "state": "Lusaka",
     "country": "Zambia"
+  },
+  {
+    "city": "Kapra",
+    "state": "Telang\u0101na",
+    "country": "India"
   },
   {
     "city": "Kasangati",
@@ -370,7 +400,7 @@ export const kaCities = [
     "country": "South Sudan"
   },
   {
-    "city": "Karak\u00f6pr\u00fc",
+    "city": "Karakopru",
     "state": "\u015eanl\u0131urfa",
     "country": "Turkey"
   },
@@ -380,7 +410,7 @@ export const kaCities = [
     "country": "Japan"
   },
   {
-    "city": "Kaes\u014fng",
+    "city": "Kaesong",
     "state": "Kaes\u014fng",
     "country": "Korea, North"
   },
@@ -388,6 +418,11 @@ export const kaCities = [
     "city": "Kairouan",
     "state": "Kairouan",
     "country": "Tunisia"
+  },
+  {
+    "city": "Karaikkudi",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Kandi",
@@ -415,12 +450,12 @@ export const kaCities = [
     "country": "Senegal"
   },
   {
-    "city": "Kamensk-Ural\u2019skiy",
+    "city": "Kamensk-Ural'skiy",
     "state": "Sverdlovskaya Oblast\u2019",
     "country": "Russia"
   },
   {
-    "city": "Kalal\u00e9",
+    "city": "Kalale",
     "state": "Borgou",
     "country": "Benin"
   },
@@ -490,12 +525,12 @@ export const kaCities = [
     "country": "Japan"
   },
   {
-    "city": "Kam\u0101lshahr",
+    "city": "Kamalshahr",
     "state": "Alborz",
     "country": "Iran"
   },
   {
-    "city": "Kanas\u00edn",
+    "city": "Kanasin",
     "state": "Yucat\u00e1n",
     "country": "Mexico"
   },
@@ -510,9 +545,14 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Karab\u00fck",
+    "city": "Karabuk",
     "state": "Karab\u00fck",
     "country": "Turkey"
+  },
+  {
+    "city": "Kanchrapara",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Kayes",
@@ -520,7 +560,7 @@ export const kaCities = [
     "country": "Mali"
   },
   {
-    "city": "Kam\u00ebz",
+    "city": "Kamez",
     "state": "Tiran\u00eb",
     "country": "Albania"
   },
@@ -543,6 +583,11 @@ export const kaCities = [
     "city": "Kaya",
     "state": "Centre-Nord",
     "country": "Burkina Faso"
+  },
+  {
+    "city": "Kahta",
+    "state": "Ad\u0131yaman",
+    "country": "Turkey"
   },
   {
     "city": "Kashiwara",
@@ -575,7 +620,7 @@ export const kaCities = [
     "country": "Zambia"
   },
   {
-    "city": "Kapakl\u0131",
+    "city": "Kapakli",
     "state": "Tekirda\u011f",
     "country": "Turkey"
   },
@@ -610,12 +655,12 @@ export const kaCities = [
     "country": "Japan"
   },
   {
-    "city": "Kaposv\u00e1r",
+    "city": "Kaposvar",
     "state": "Somogy",
     "country": "Hungary"
   },
   {
-    "city": "Kali\u0101npur",
+    "city": "Kalianpur",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -670,7 +715,12 @@ export const kaCities = [
     "country": "Japan"
   },
   {
-    "city": "Kap\u016brthala",
+    "city": "Kashmar",
+    "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
+    "country": "Iran"
+  },
+  {
+    "city": "Kapurthala",
     "state": "Punjab",
     "country": "India"
   },
@@ -678,6 +728,11 @@ export const kaCities = [
     "city": "Kaiserslautern",
     "state": "Rhineland-Palatinate",
     "country": "Germany"
+  },
+  {
+    "city": "Karanja",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
   },
   {
     "city": "Kalyani",
@@ -695,7 +750,7 @@ export const kaCities = [
     "country": "Japan"
   },
   {
-    "city": "Kadaiyanall\u016br",
+    "city": "Kadaiyanallur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -715,14 +770,19 @@ export const kaCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Kallith\u00e9a",
+    "city": "Kallithea",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
   {
-    "city": "Kall\u016bru",
+    "city": "Kalluru",
     "state": "Andhra Pradesh",
     "country": "India"
+  },
+  {
+    "city": "Kazerun",
+    "state": "F\u0101rs",
+    "country": "Iran"
   },
   {
     "city": "Kalisz",
@@ -755,7 +815,12 @@ export const kaCities = [
     "country": "Kenya"
   },
   {
-    "city": "Kalamari\u00e1",
+    "city": "Karwar",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Kalamaria",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
@@ -763,6 +828,11 @@ export const kaCities = [
     "city": "Katiola",
     "state": "Vall\u00e9e du Bandama",
     "country": "C\u00f4te d\u2019Ivoire"
+  },
+  {
+    "city": "Kavali",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Kadiri",
@@ -775,7 +845,7 @@ export const kaCities = [
     "country": "Philippines"
   },
   {
-    "city": "Kair\u0101na",
+    "city": "Kairana",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -815,7 +885,7 @@ export const kaCities = [
     "country": "Kyrgyzstan"
   },
   {
-    "city": "Kar\u0101d",
+    "city": "Karad",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -835,6 +905,11 @@ export const kaCities = [
     "country": "Cambodia"
   },
   {
+    "city": "Katoya",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Kadi",
     "state": "Gujar\u0101t",
     "country": "India"
@@ -848,6 +923,11 @@ export const kaCities = [
     "city": "Kashiwazaki",
     "state": "Niigata",
     "country": "Japan"
+  },
+  {
+    "city": "Kamareddipet",
+    "state": "Telang\u0101na",
+    "country": "India"
   },
   {
     "city": "Kathri",
@@ -880,7 +960,7 @@ export const kaCities = [
     "country": "Philippines"
   },
   {
-    "city": "Kafr az Zayy\u0101t",
+    "city": "Kafr az Zayyat",
     "state": "Al Gharb\u012byah",
     "country": "Egypt"
   },
@@ -930,6 +1010,11 @@ export const kaCities = [
     "country": "Japan"
   },
   {
+    "city": "Kasipalaiyam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Kabarore",
     "state": "Eastern Province",
     "country": "Rwanda"
@@ -940,7 +1025,7 @@ export const kaCities = [
     "country": "Congo (Brazzaville)"
   },
   {
-    "city": "Kawm Umb\u016b",
+    "city": "Kawm Umbu",
     "state": "Asw\u0101n",
     "country": "Egypt"
   },
@@ -955,7 +1040,7 @@ export const kaCities = [
     "country": "Turkey"
   },
   {
-    "city": "Kaukh\u0101li",
+    "city": "Kaukhali",
     "state": "Barishal",
     "country": "Bangladesh"
   },
@@ -973,6 +1058,11 @@ export const kaCities = [
     "city": "Kamsar",
     "state": "Bok\u00e9",
     "country": "Guinea"
+  },
+  {
+    "city": "Kayankulam",
+    "state": "Kerala",
+    "country": "India"
   },
   {
     "city": "Kamuli",
@@ -1030,7 +1120,7 @@ export const kaCities = [
     "country": "United States"
   },
   {
-    "city": "Kav\u00e1la",
+    "city": "Kavala",
     "state": "Anatolik\u00ed Makedon\u00eda kai Thr\u00e1ki",
     "country": "Greece"
   },
@@ -1038,6 +1128,11 @@ export const kaCities = [
     "city": "Karlstad",
     "state": "V\u00e4rmland",
     "country": "Sweden"
+  },
+  {
+    "city": "Kanhangad",
+    "state": "Kerala",
+    "country": "India"
   },
   {
     "city": "Kangbao",
@@ -1070,7 +1165,7 @@ export const kaCities = [
     "country": "Malawi"
   },
   {
-    "city": "Kang\u0101n",
+    "city": "Kangan",
     "state": "B\u016bshehr",
     "country": "Iran"
   },
@@ -1090,22 +1185,22 @@ export const kaCities = [
     "country": "Philippines"
   },
   {
-    "city": "Karam\u00fcrsel",
+    "city": "Karamursel",
     "state": "Kocaeli",
     "country": "Turkey"
   },
   {
-    "city": "Kater\u00edni",
+    "city": "Katerini",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
   {
-    "city": "Kattaqo\u2019rg\u2019on Shahri",
+    "city": "Kattaqo'rg'on Shahri",
     "state": "Samarqand",
     "country": "Uzbekistan"
   },
   {
-    "city": "Kalam\u00e1ta",
+    "city": "Kalamata",
     "state": "Pelop\u00f3nnisos",
     "country": "Greece"
   },
@@ -1115,7 +1210,7 @@ export const kaCities = [
     "country": "Malawi"
   },
   {
-    "city": "Ka\u015f",
+    "city": "Kas",
     "state": "Antalya",
     "country": "Turkey"
   },
@@ -1125,18 +1220,23 @@ export const kaCities = [
     "country": "Burma"
   },
   {
-    "city": "Kan\u2019onjich\u014d",
+    "city": "Kan'onjicho",
     "state": "Kagawa",
     "country": "Japan"
   },
   {
-    "city": "Kanduk\u016br",
+    "city": "Kandukur",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Kar\u012bmganj",
+    "city": "Karimganj",
     "state": "Assam",
+    "country": "India"
+  },
+  {
+    "city": "Kalna",
+    "state": "West Bengal",
     "country": "India"
   },
   {
@@ -1145,9 +1245,24 @@ export const kaCities = [
     "country": "India"
   },
   {
+    "city": "Kandi",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Kampen",
     "state": "Overijssel",
     "country": "Netherlands"
+  },
+  {
+    "city": "Kasaragod",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Kaliyaganj",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Kannapolis",
@@ -1165,7 +1280,7 @@ export const kaCities = [
     "country": "Mali"
   },
   {
-    "city": "Kand\u0131ra",
+    "city": "Kandira",
     "state": "Kocaeli",
     "country": "Turkey"
   },
@@ -1175,7 +1290,7 @@ export const kaCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Kahn\u016bj",
+    "city": "Kahnuj",
     "state": "Kerm\u0101n",
     "country": "Iran"
   },
@@ -1185,12 +1300,17 @@ export const kaCities = [
     "country": "Bulgaria"
   },
   {
+    "city": "Kalpi",
+    "state": "Uttar Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Kalawana",
     "state": "Sabaragamuwa",
     "country": "Sri Lanka"
   },
   {
-    "city": "Kalb\u0101",
+    "city": "Kalba",
     "state": "Ash Sh\u0101riqah",
     "country": "United Arab Emirates"
   },
@@ -1200,7 +1320,7 @@ export const kaCities = [
     "country": "Philippines"
   },
   {
-    "city": "Karvin\u00e1",
+    "city": "Karvina",
     "state": "Moravskoslezsk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -1210,7 +1330,7 @@ export const kaCities = [
     "country": "Congo (Kinshasa)"
   },
   {
-    "city": "Karap\u0131nar",
+    "city": "Karapinar",
     "state": "Konya",
     "country": "Turkey"
   },
@@ -1235,7 +1355,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Ka\u00e9di",
+    "city": "Kaedi",
     "state": "Gorgol",
     "country": "Mauritania"
   },
@@ -1330,7 +1450,7 @@ export const kaCities = [
     "country": "Israel"
   },
   {
-    "city": "Kafr al Ba\u0163\u0163\u012bkh",
+    "city": "Kafr al Battikh",
     "state": "Dumy\u0101\u0163",
     "country": "Egypt"
   },
@@ -1340,7 +1460,7 @@ export const kaCities = [
     "country": "Philippines"
   },
   {
-    "city": "Karv\u0101rakundu",
+    "city": "Karvarakundu",
     "state": "Kerala",
     "country": "India"
   },
@@ -1365,22 +1485,27 @@ export const kaCities = [
     "country": "Armenia"
   },
   {
+    "city": "Kayalpattanam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Kamen",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
   },
   {
-    "city": "Kattiv\u0101kkam",
+    "city": "Kattivakkam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Kalaiy\u0101",
+    "city": "Kalaiya",
     "state": NaN,
     "country": "Nepal"
   },
   {
-    "city": "Kafr al Kurd\u012b",
+    "city": "Kafr al Kurdi",
     "state": "Ad Daqahl\u012byah",
     "country": "Egypt"
   },
@@ -1390,9 +1515,24 @@ export const kaCities = [
     "country": "India"
   },
   {
+    "city": "Karsiyang",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Kasai",
     "state": "Hy\u014dgo",
     "country": "Japan"
+  },
+  {
+    "city": "Karmegh",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Kalol",
+    "state": "Gujar\u0101t",
+    "country": "India"
   },
   {
     "city": "Kalmar",
@@ -1415,17 +1555,17 @@ export const kaCities = [
     "country": "Russia"
   },
   {
-    "city": "Kall\u0101r",
+    "city": "Kallar",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Kat\u014d",
+    "city": "Kato",
     "state": "Hy\u014dgo",
     "country": "Japan"
   },
   {
-    "city": "Kad\u016br",
+    "city": "Kadur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1435,12 +1575,12 @@ export const kaCities = [
     "country": "Japan"
   },
   {
-    "city": "Kamen\u2019-na-Obi",
+    "city": "Kamen'-na-Obi",
     "state": "Altayskiy Kray",
     "country": "Russia"
   },
   {
-    "city": "Kard\u00edtsa",
+    "city": "Karditsa",
     "state": "Thessal\u00eda",
     "country": "Greece"
   },
@@ -1450,7 +1590,12 @@ export const kaCities = [
     "country": "Rwanda"
   },
   {
-    "city": "Kakr\u0101la",
+    "city": "Kalimpong",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
+    "city": "Kakrala",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -1515,7 +1660,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Ka\u0161tel Stari",
+    "city": "Kastel Stari",
     "state": "Splitsko-Dalmatinska \u017dupanija",
     "country": "Croatia"
   },
@@ -1525,7 +1670,7 @@ export const kaCities = [
     "country": "Philippines"
   },
   {
-    "city": "Kahr\u012bzak",
+    "city": "Kahrizak",
     "state": "Tehr\u0101n",
     "country": "Iran"
   },
@@ -1560,14 +1705,29 @@ export const kaCities = [
     "country": "Belarus"
   },
   {
+    "city": "Kalihati",
+    "state": "R\u0101jsh\u0101hi",
+    "country": "Bangladesh"
+  },
+  {
     "city": "Kampene",
     "state": "Maniema",
     "country": "Congo (Kinshasa)"
   },
   {
+    "city": "Kankuria",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Kanie",
     "state": "Aichi",
     "country": "Japan"
+  },
+  {
+    "city": "Karamadai",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Kambove",
@@ -1590,12 +1750,12 @@ export const kaCities = [
     "country": "Finland"
   },
   {
-    "city": "Kal\u0101leh",
+    "city": "Kalaleh",
     "state": "Golest\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Kamenic\u00eb",
+    "city": "Kamenice",
     "state": "Kamenic\u00eb",
     "country": "Kosovo"
   },
@@ -1620,7 +1780,12 @@ export const kaCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Kalakk\u0101du",
+    "city": "Kattipparutti",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Kalakkadu",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1660,7 +1825,7 @@ export const kaCities = [
     "country": "Thailand"
   },
   {
-    "city": "Kalar\u016bch",
+    "city": "Kalaruch",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
@@ -1690,12 +1855,12 @@ export const kaCities = [
     "country": "Philippines"
   },
   {
-    "city": "Kaippakanch\u0113ri",
+    "city": "Kaippakancheri",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Karaa\u011fa\u00e7",
+    "city": "Karaagac",
     "state": "Hatay",
     "country": "Turkey"
   },
@@ -1705,7 +1870,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Ka\u00e7anik",
+    "city": "Kacanik",
     "state": "Ka\u00e7anik",
     "country": "Kosovo"
   },
@@ -1715,17 +1880,17 @@ export const kaCities = [
     "country": "Cambodia"
   },
   {
-    "city": "Kavundapp\u0101di",
+    "city": "Kavundappadi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Kart\u0101rpur",
+    "city": "Kartarpur",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Kati\u00e9na",
+    "city": "Katiena",
     "state": "S\u00e9gou",
     "country": "Mali"
   },
@@ -1745,7 +1910,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kad\u0131nhan\u0131",
+    "city": "Kadinhani",
     "state": "Konya",
     "country": "Turkey"
   },
@@ -1755,7 +1920,7 @@ export const kaCities = [
     "country": "Uganda"
   },
   {
-    "city": "Kall\u016br",
+    "city": "Kallur",
     "state": "Kerala",
     "country": "India"
   },
@@ -1765,9 +1930,14 @@ export const kaCities = [
     "country": "United States"
   },
   {
-    "city": "Kameda-honch\u014d",
+    "city": "Kameda-honcho",
     "state": "Niigata",
     "country": "Japan"
+  },
+  {
+    "city": "Kavlinge",
+    "state": "Sk\u00e5ne",
+    "country": "Sweden"
   },
   {
     "city": "Kalyandrug",
@@ -1780,6 +1950,11 @@ export const kaCities = [
     "country": "Finland"
   },
   {
+    "city": "Kangayam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Kanzakimachi-kanzaki",
     "state": "Saga",
     "country": "Japan"
@@ -1790,7 +1965,7 @@ export const kaCities = [
     "country": "Cambodia"
   },
   {
-    "city": "Kav\u0101r",
+    "city": "Kavar",
     "state": "F\u0101rs",
     "country": "Iran"
   },
@@ -1810,7 +1985,7 @@ export const kaCities = [
     "country": "Russia"
   },
   {
-    "city": "Kalliyassh\u0113ri",
+    "city": "Kalliyassheri",
     "state": "Kerala",
     "country": "India"
   },
@@ -1830,7 +2005,7 @@ export const kaCities = [
     "country": "Australia"
   },
   {
-    "city": "Kael\u00e9",
+    "city": "Kaele",
     "state": "Extr\u00eame-Nord",
     "country": "Cameroon"
   },
@@ -1880,7 +2055,7 @@ export const kaCities = [
     "country": "Congo (Kinshasa)"
   },
   {
-    "city": "Kaluv\u0101ya",
+    "city": "Kaluvaya",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1905,12 +2080,12 @@ export const kaCities = [
     "country": "Japan"
   },
   {
-    "city": "Kal\u0101teh-ye M\u012br \u0100b",
+    "city": "Kalateh-ye Mir Ab",
     "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
     "country": "Iran"
   },
   {
-    "city": "Karahr\u016bd",
+    "city": "Karahrud",
     "state": "Markaz\u012b",
     "country": "Iran"
   },
@@ -1920,7 +2095,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kavaj\u00eb",
+    "city": "Kavaje",
     "state": "Tiran\u00eb",
     "country": "Albania"
   },
@@ -1930,7 +2105,12 @@ export const kaCities = [
     "country": "Thailand"
   },
   {
-    "city": "Kail\u0101ras",
+    "city": "Kalappatti",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Kailaras",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1940,12 +2120,12 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kamal\u0101puram",
+    "city": "Kamalapuram",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Karako\u00e7an",
+    "city": "Karakocan",
     "state": "Elaz\u0131\u011f",
     "country": "Turkey"
   },
@@ -1960,12 +2140,12 @@ export const kaCities = [
     "country": "Russia"
   },
   {
-    "city": "Kamater\u00f3",
+    "city": "Kamatero",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
   {
-    "city": "Karanji\u0101",
+    "city": "Karanjia",
     "state": "Odisha",
     "country": "India"
   },
@@ -1975,8 +2155,13 @@ export const kaCities = [
     "country": "Uganda"
   },
   {
-    "city": "Kalw\u0101kurti",
+    "city": "Kalwakurti",
     "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Karakurisshi",
+    "state": "Kerala",
     "country": "India"
   },
   {
@@ -1985,7 +2170,7 @@ export const kaCities = [
     "country": "Congo (Kinshasa)"
   },
   {
-    "city": "Kanav\u0101ikuli",
+    "city": "Kanavaikuli",
     "state": "Kerala",
     "country": "India"
   },
@@ -2025,7 +2210,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kalu\u0111erica",
+    "city": "Kaluderica",
     "state": "Beograd",
     "country": "Serbia"
   },
@@ -2035,22 +2220,27 @@ export const kaCities = [
     "country": "Russia"
   },
   {
-    "city": "Kadamban\u0101d",
+    "city": "Kadambanad",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Karar\u0101n",
+    "city": "Kararan",
     "state": "Chand\u012bgarh",
     "country": "India"
   },
   {
-    "city": "Kant\u0101b\u0101nji",
+    "city": "Kalikavu",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Kantabanji",
     "state": "Odisha",
     "country": "India"
   },
   {
-    "city": "Karum\u0101ndi Chellip\u0101laiyam",
+    "city": "Karumandi Chellipalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2060,7 +2250,7 @@ export const kaCities = [
     "country": "Philippines"
   },
   {
-    "city": "Kaisarian\u00ed",
+    "city": "Kaisariani",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -2070,7 +2260,7 @@ export const kaCities = [
     "country": "Russia"
   },
   {
-    "city": "Kabo\u00efla",
+    "city": "Kaboila",
     "state": "Sikasso",
     "country": "Mali"
   },
@@ -2095,6 +2285,11 @@ export const kaCities = [
     "country": "Thailand"
   },
   {
+    "city": "Karkala",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
     "city": "Kadamalaikkundu",
     "state": "Tamil N\u0101du",
     "country": "India"
@@ -2110,12 +2305,17 @@ export const kaCities = [
     "country": "Thailand"
   },
   {
+    "city": "Kako",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Kami",
     "state": "K\u014dchi",
     "country": "Japan"
   },
   {
-    "city": "Karayaz\u0131",
+    "city": "Karayazi",
     "state": "Erzurum",
     "country": "Turkey"
   },
@@ -2125,7 +2325,7 @@ export const kaCities = [
     "country": "United States"
   },
   {
-    "city": "Karun\u0101gapalli",
+    "city": "Karunagapalli",
     "state": "Kerala",
     "country": "India"
   },
@@ -2135,12 +2335,12 @@ export const kaCities = [
     "country": "Burma"
   },
   {
-    "city": "Kasr\u0101wad",
+    "city": "Kasrawad",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Kadav\u016br",
+    "city": "Kadavur",
     "state": "Kerala",
     "country": "India"
   },
@@ -2170,6 +2370,11 @@ export const kaCities = [
     "country": "India"
   },
   {
+    "city": "Kalavad",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
     "city": "Kalayaan",
     "state": "Laguna",
     "country": "Philippines"
@@ -2190,7 +2395,7 @@ export const kaCities = [
     "country": "Central African Republic"
   },
   {
-    "city": "Karata\u015f",
+    "city": "Karatas",
     "state": "Adana",
     "country": "Turkey"
   },
@@ -2240,7 +2445,7 @@ export const kaCities = [
     "country": "Philippines"
   },
   {
-    "city": "Karaval\u016br",
+    "city": "Karavalur",
     "state": "Kerala",
     "country": "India"
   },
@@ -2260,7 +2465,7 @@ export const kaCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Kail\u0101shahar",
+    "city": "Kailashahar",
     "state": "Tripura",
     "country": "India"
   },
@@ -2315,7 +2520,7 @@ export const kaCities = [
     "country": "Austria"
   },
   {
-    "city": "Kavallemm\u0101vu",
+    "city": "Kavallemmavu",
     "state": "Kerala",
     "country": "India"
   },
@@ -2340,7 +2545,7 @@ export const kaCities = [
     "country": "United States"
   },
   {
-    "city": "Kafr Ba\u0163n\u0101",
+    "city": "Kafr Batna",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
   },
@@ -2350,7 +2555,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kafr Sa\u2018d",
+    "city": "Kafr Sa`d",
     "state": "Dumy\u0101\u0163",
     "country": "Egypt"
   },
@@ -2360,9 +2565,14 @@ export const kaCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Kasamatsuch\u014d",
+    "city": "Kasamatsucho",
     "state": "Gifu",
     "country": "Japan"
+  },
+  {
+    "city": "Kato Polemidia",
+    "state": "Lemes\u00f3s",
+    "country": "Cyprus"
   },
   {
     "city": "Kadiria",
@@ -2370,7 +2580,7 @@ export const kaCities = [
     "country": "Algeria"
   },
   {
-    "city": "Kara\u00e7oban",
+    "city": "Karacoban",
     "state": "Erzurum",
     "country": "Turkey"
   },
@@ -2380,19 +2590,29 @@ export const kaCities = [
     "country": "India"
   },
   {
+    "city": "Kalchini",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Karlsfeld",
     "state": "Bavaria",
     "country": "Germany"
   },
   {
-    "city": "Kal\u00fdves Polyg\u00fdrou",
+    "city": "Kalyves Polygyrou",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
   {
-    "city": "Karaisal\u0131",
+    "city": "Karaisali",
     "state": "Adana",
     "country": "Turkey"
+  },
+  {
+    "city": "Kachhari",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Karlovo",
@@ -2400,7 +2620,7 @@ export const kaCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Kafr Q\u0101sim",
+    "city": "Kafr Qasim",
     "state": "Central",
     "country": "Israel"
   },
@@ -2410,7 +2630,7 @@ export const kaCities = [
     "country": "Burundi"
   },
   {
-    "city": "Kalleribh\u0101gam",
+    "city": "Kalleribhagam",
     "state": "Kerala",
     "country": "India"
   },
@@ -2435,6 +2655,11 @@ export const kaCities = [
     "country": "Japan"
   },
   {
+    "city": "Kanke",
+    "state": "Jh\u0101rkhand",
+    "country": "India"
+  },
+  {
     "city": "Kalpakathukonam",
     "state": "Kerala",
     "country": "India"
@@ -2455,7 +2680,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kaikal\u016br",
+    "city": "Kaikalur",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2465,12 +2690,12 @@ export const kaCities = [
     "country": "Japan"
   },
   {
-    "city": "Kann\u0101nendal",
+    "city": "Kannanendal",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Ka\u011f\u0131zman",
+    "city": "Kagizman",
     "state": "Kars",
     "country": "Turkey"
   },
@@ -2500,6 +2725,11 @@ export const kaCities = [
     "country": "Uzbekistan"
   },
   {
+    "city": "Kamalapuram",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Kawambwa",
     "state": "Luapula",
     "country": "Zambia"
@@ -2525,7 +2755,7 @@ export const kaCities = [
     "country": "Japan"
   },
   {
-    "city": "Karaiy\u0101mpud\u016br",
+    "city": "Karaiyampudur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2535,7 +2765,7 @@ export const kaCities = [
     "country": "Kyrgyzstan"
   },
   {
-    "city": "Kat\u0101kos",
+    "city": "Katakos",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2545,12 +2775,17 @@ export const kaCities = [
     "country": "India"
   },
   {
+    "city": "Kartikapalli",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
     "city": "Kannod",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Kafr L\u0101h\u0101",
+    "city": "Kafr Laha",
     "state": "\u1e28im\u015f",
     "country": "Syria"
   },
@@ -2570,7 +2805,7 @@ export const kaCities = [
     "country": "Cambodia"
   },
   {
-    "city": "Karlap\u0101lem",
+    "city": "Karlapalem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2580,7 +2815,12 @@ export const kaCities = [
     "country": "Papua New Guinea"
   },
   {
-    "city": "Kann\u0101nkurichchi",
+    "city": "Kamakhyanagar",
+    "state": "Odisha",
+    "country": "India"
+  },
+  {
+    "city": "Kannankurichchi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2595,7 +2835,12 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kanniy\u0101kum\u0101ri",
+    "city": "Katpadi",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Kanniyakumari",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2615,6 +2860,11 @@ export const kaCities = [
     "country": "India"
   },
   {
+    "city": "Karttigappalli",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
     "city": "Kantharalak",
     "state": "Si Sa Ket",
     "country": "Thailand"
@@ -2622,6 +2872,11 @@ export const kaCities = [
   {
     "city": "Kalghatgi",
     "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Kakdwip",
+    "state": "West Bengal",
     "country": "India"
   },
   {
@@ -2645,7 +2900,7 @@ export const kaCities = [
     "country": "Mali"
   },
   {
-    "city": "Kab\u016bdar\u0101hang",
+    "city": "Kabudarahang",
     "state": "Hamad\u0101n",
     "country": "Iran"
   },
@@ -2660,6 +2915,11 @@ export const kaCities = [
     "country": "Sweden"
   },
   {
+    "city": "Kaveripatnam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Kasterlee",
     "state": "Flanders",
     "country": "Belgium"
@@ -2670,12 +2930,12 @@ export const kaCities = [
     "country": "Belgium"
   },
   {
-    "city": "Kabb\u016br",
+    "city": "Kabbur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Kara-K\u00f6l",
+    "city": "Kara-Kol",
     "state": "Jalal-Abad",
     "country": "Kyrgyzstan"
   },
@@ -2735,6 +2995,11 @@ export const kaCities = [
     "country": "India"
   },
   {
+    "city": "Kariyapatti",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Kassaro",
     "state": "Kayes",
     "country": "Mali"
@@ -2745,7 +3010,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kada\u0148",
+    "city": "Kadan",
     "state": "\u00dasteck\u00fd Kraj",
     "country": "Czechia"
   },
@@ -2755,7 +3020,12 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kamienna G\u00f3ra",
+    "city": "Kanp",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Kamienna Gora",
     "state": "Dolno\u015bl\u0105skie",
     "country": "Poland"
   },
@@ -2765,7 +3035,7 @@ export const kaCities = [
     "country": "Kenya"
   },
   {
-    "city": "Kaly\u0101npur Bamaiya",
+    "city": "Kalyanpur Bamaiya",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2845,7 +3115,7 @@ export const kaCities = [
     "country": "United States"
   },
   {
-    "city": "Kafr Zayt\u0101",
+    "city": "Kafr Zayta",
     "state": "\u1e28am\u0101h",
     "country": "Syria"
   },
@@ -2870,7 +3140,7 @@ export const kaCities = [
     "country": "Japan"
   },
   {
-    "city": "Kadikk\u0101d",
+    "city": "Kadikkad",
     "state": "Kerala",
     "country": "India"
   },
@@ -2878,6 +3148,11 @@ export const kaCities = [
     "city": "Kaliro",
     "state": "Kaliro",
     "country": "Uganda"
+  },
+  {
+    "city": "Kamavarapukota",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Kauhava",
@@ -2925,7 +3200,7 @@ export const kaCities = [
     "country": "Uganda"
   },
   {
-    "city": "Kastori\u00e1",
+    "city": "Kastoria",
     "state": "Dytik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
@@ -2970,12 +3245,22 @@ export const kaCities = [
     "country": "India"
   },
   {
+    "city": "Kamayakkavundanpatti",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Kajur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Kalanj\u016br",
+    "city": "Kalanjur",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Kayanna",
     "state": "Kerala",
     "country": "India"
   },
@@ -3020,7 +3305,7 @@ export const kaCities = [
     "country": "Russia"
   },
   {
-    "city": "Kall\u016br",
+    "city": "Kallur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -3030,18 +3315,28 @@ export const kaCities = [
     "country": "Philippines"
   },
   {
-    "city": "Kannamp\u0101laiyam",
+    "city": "Kandla Port",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
+    "city": "Kannampalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Kalan\u0101du",
+    "city": "Kalanadu",
     "state": "Kerala",
     "country": "India"
   },
   {
     "city": "Kasimkota",
     "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Kajha",
+    "state": "Bih\u0101r",
     "country": "India"
   },
   {
@@ -3065,7 +3360,7 @@ export const kaCities = [
     "country": "Japan"
   },
   {
-    "city": "Kambad\u016bru",
+    "city": "Kambaduru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -3073,6 +3368,11 @@ export const kaCities = [
     "city": "Kanegasaki",
     "state": "Iwate",
     "country": "Japan"
+  },
+  {
+    "city": "Kalikapur",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Kanding",
@@ -3130,7 +3430,7 @@ export const kaCities = [
     "country": "Zambia"
   },
   {
-    "city": "Kamr\u0101w\u0101n",
+    "city": "Kamrawan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -3155,19 +3455,29 @@ export const kaCities = [
     "country": "Hungary"
   },
   {
-    "city": "Kankip\u0101du",
+    "city": "Kankipadu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Kannaman\u0101yakkan\u016br",
+    "city": "Kanjikkovil",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Kal\u00fdvia Thoriko\u00fa",
+    "city": "Kannamanayakkanur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Kalyvia Thorikou",
     "state": "Attik\u00ed",
     "country": "Greece"
+  },
+  {
+    "city": "Karempudi",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Kamatgi",
@@ -3175,8 +3485,18 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kambainell\u016br",
+    "city": "Karkudalpatti",
     "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Kambainellur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Kashti",
+    "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
   {
@@ -3200,12 +3520,17 @@ export const kaCities = [
     "country": "Germany"
   },
   {
+    "city": "Katravulapalle",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Kakunodatemachi",
     "state": "Akita",
     "country": "Japan"
   },
   {
-    "city": "Karugam\u0101d",
+    "city": "Karugamad",
     "state": "Kerala",
     "country": "India"
   },
@@ -3213,6 +3538,11 @@ export const kaCities = [
     "city": "Karlivka",
     "state": "Poltavska Oblast",
     "country": "Ukraine"
+  },
+  {
+    "city": "Karai",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Kalandy",
@@ -3230,17 +3560,22 @@ export const kaCities = [
     "country": "Mali"
   },
   {
-    "city": "Karg\u0131p\u0131nar",
+    "city": "Kargipinar",
     "state": "Mersin",
     "country": "Turkey"
   },
   {
-    "city": "Kan\u0101kir",
+    "city": "Kanakir",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
   },
   {
-    "city": "Kamig\u014dri",
+    "city": "Kauriya",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Kamigori",
     "state": "Hy\u014dgo",
     "country": "Japan"
   },
@@ -3255,12 +3590,12 @@ export const kaCities = [
     "country": "Russia"
   },
   {
-    "city": "Kanniv\u0101di",
+    "city": "Kannivadi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Kaley\u0101npur",
+    "city": "Kaleyanpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -3275,7 +3610,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kal\u0101dgi",
+    "city": "Kaladgi",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -3290,7 +3625,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Karn\u0101wad",
+    "city": "Karnawad",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -3300,22 +3635,22 @@ export const kaCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Kafr Nab\u016bdah",
+    "city": "Kafr Nabudah",
     "state": "\u1e28am\u0101h",
     "country": "Syria"
   },
   {
-    "city": "Karuvell\u016br",
+    "city": "Karuvellur",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Kadatt\u016br",
+    "city": "Kadattur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Kal\u0101rdasht",
+    "city": "Kalardasht",
     "state": "M\u0101zandar\u0101n",
     "country": "Iran"
   },
@@ -3335,9 +3670,14 @@ export const kaCities = [
     "country": "Japan"
   },
   {
-    "city": "Karap\u00fcr\u00e7ek",
+    "city": "Karapurcek",
     "state": "Sakarya",
     "country": "Turkey"
+  },
+  {
+    "city": "Kagvad",
+    "state": "Karn\u0101taka",
+    "country": "India"
   },
   {
     "city": "Kadena",
@@ -3345,7 +3685,7 @@ export const kaCities = [
     "country": "Japan"
   },
   {
-    "city": "Karivalamvandanall\u016br",
+    "city": "Karivalamvandanallur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3375,17 +3715,17 @@ export const kaCities = [
     "country": "Russia"
   },
   {
-    "city": "Kanab\u016br",
+    "city": "Kanabur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Kall\u016br",
+    "city": "Kallur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Kavit\u0101l",
+    "city": "Kavital",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -3400,7 +3740,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kafr \u2018Aw\u0101n",
+    "city": "Kafr `Awan",
     "state": "Irbid",
     "country": "Jordan"
   },
@@ -3410,7 +3750,7 @@ export const kaCities = [
     "country": "Mali"
   },
   {
-    "city": "Kalaiyamputt\u016br",
+    "city": "Kalaiyamputtur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3420,7 +3760,7 @@ export const kaCities = [
     "country": "China"
   },
   {
-    "city": "Kahhal\u00e9",
+    "city": "Kahhale",
     "state": "Mont-Liban",
     "country": "Lebanon"
   },
@@ -3445,7 +3785,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kar\u0101hal",
+    "city": "Karahal",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -3460,7 +3800,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kalapp\u0101langulam",
+    "city": "Kalappalangulam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3480,8 +3820,13 @@ export const kaCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Kall\u0101d",
+    "city": "Kallad",
     "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Kadachchinallur",
+    "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
@@ -3505,7 +3850,7 @@ export const kaCities = [
     "country": "Morocco"
   },
   {
-    "city": "Kannudaiy\u0101mpatti",
+    "city": "Kannudaiyampatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3525,13 +3870,28 @@ export const kaCities = [
     "country": "Thailand"
   },
   {
+    "city": "Kamrej",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
     "city": "Kaspi",
     "state": "Shida Kartli",
     "country": "Georgia"
   },
   {
+    "city": "Kakan",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Kanniyambram",
     "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Kadiyampatti",
+    "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
@@ -3540,7 +3900,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kamal\u0101puram",
+    "city": "Kamalapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3575,7 +3935,7 @@ export const kaCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Kath\u0101ni\u0101n",
+    "city": "Kathanian",
     "state": "Punjab",
     "country": "India"
   },
@@ -3583,6 +3943,11 @@ export const kaCities = [
     "city": "Kanoni",
     "state": "Gomba",
     "country": "Uganda"
+  },
+  {
+    "city": "Kankon",
+    "state": "Goa",
+    "country": "India"
   },
   {
     "city": "Kallupatti",
@@ -3620,6 +3985,16 @@ export const kaCities = [
     "country": "Finland"
   },
   {
+    "city": "Kalymnos",
+    "state": "N\u00f3tio Aiga\u00edo",
+    "country": "Greece"
+  },
+  {
+    "city": "Kattukkottai",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Kakching Khunou",
     "state": "Manipur",
     "country": "India"
@@ -3630,7 +4005,7 @@ export const kaCities = [
     "country": "Japan"
   },
   {
-    "city": "Kafr R\u016bm\u0101",
+    "city": "Kafr Ruma",
     "state": "Idlib",
     "country": "Syria"
   },
@@ -3645,7 +4020,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Karr\u0101pur",
+    "city": "Karrapur",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -3670,7 +4045,7 @@ export const kaCities = [
     "country": "Benin"
   },
   {
-    "city": "Kayatt\u0101r",
+    "city": "Kayattar",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3690,7 +4065,12 @@ export const kaCities = [
     "country": "Uganda"
   },
   {
-    "city": "Karr\u0101nah",
+    "city": "Karvetnagar",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Karranah",
     "state": "Ash Sham\u0101l\u012byah",
     "country": "Bahrain"
   },
@@ -3720,12 +4100,22 @@ export const kaCities = [
     "country": "Japan"
   },
   {
-    "city": "Kaml\u0101pur",
+    "city": "Kamlapur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Kankaanp\u00e4\u00e4",
+    "city": "Kalipatnam",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Kakalur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Kankaanpaa",
     "state": "Satakunta",
     "country": "Finland"
   },
@@ -3735,8 +4125,18 @@ export const kaCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Kaut\u0101lam",
+    "city": "Kautalam",
     "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Karanchedu",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Kattakampala",
+    "state": "Kerala",
     "country": "India"
   },
   {
@@ -3770,13 +4170,18 @@ export const kaCities = [
     "country": "Benin"
   },
   {
-    "city": "Kamal\u0101puram",
+    "city": "Kamalapuram",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
     "city": "Kavaratti",
     "state": "Lakshadweep",
+    "country": "India"
+  },
+  {
+    "city": "Kari",
+    "state": "Madhya Pradesh",
     "country": "India"
   },
   {
@@ -3800,7 +4205,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kanh\u0101ipur",
+    "city": "Kanhaipur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -3835,14 +4240,24 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kachn\u0101r",
+    "city": "Kachnar",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Kattupputtur",
+    "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
     "city": "Kall",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
+  },
+  {
+    "city": "Kariz",
+    "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
+    "country": "Iran"
   },
   {
     "city": "Kariat Ben Aouda",
@@ -3855,17 +4270,17 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Ka\u0107",
+    "city": "Kac",
     "state": NaN,
     "country": "Serbia"
   },
   {
-    "city": "Kaniyamb\u0101di",
+    "city": "Kaniyambadi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Kad\u016br S\u0101hib",
+    "city": "Kadur Sahib",
     "state": "Punjab",
     "country": "India"
   },
@@ -3885,17 +4300,17 @@ export const kaCities = [
     "country": "Russia"
   },
   {
-    "city": "Kalavap\u016bdi",
+    "city": "Kalavapudi",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Kab\u012brpur",
+    "city": "Kabirpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Kaniy\u016br",
+    "city": "Kaniyur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3910,17 +4325,17 @@ export const kaCities = [
     "country": "Germany"
   },
   {
-    "city": "Kamen\u2019-Rybolov",
+    "city": "Kamen'-Rybolov",
     "state": "Primorskiy Kray",
     "country": "Russia"
   },
   {
-    "city": "Kavakl\u0131dere",
+    "city": "Kavaklidere",
     "state": "Mu\u011fla",
     "country": "Turkey"
   },
   {
-    "city": "Karik\u0101d",
+    "city": "Karikad",
     "state": "Kerala",
     "country": "India"
   },
@@ -3935,7 +4350,7 @@ export const kaCities = [
     "country": "United States"
   },
   {
-    "city": "Kaurih\u0101r",
+    "city": "Kaurihar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -3945,7 +4360,12 @@ export const kaCities = [
     "country": "Kyrgyzstan"
   },
   {
-    "city": "Katt\u0101ri",
+    "city": "Kajhi Hridenagar",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Kattari",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3955,7 +4375,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kattip\u016bdi",
+    "city": "Kattipudi",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -3965,12 +4385,22 @@ export const kaCities = [
     "country": "India"
   },
   {
+    "city": "Kankol",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Kala Diara",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Kadwa",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Karadichitt\u016br",
+    "city": "Karadichittur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3990,7 +4420,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kart\u0101l",
+    "city": "Kartal",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -4005,12 +4435,17 @@ export const kaCities = [
     "country": "Japan"
   },
   {
-    "city": "Kanagich\u014d",
+    "city": "Kanagicho",
     "state": "Aomori",
     "country": "Japan"
   },
   {
-    "city": "Karukkalv\u0101di",
+    "city": "Kakhandiki",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Karukkalvadi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -4020,17 +4455,22 @@ export const kaCities = [
     "country": "Japan"
   },
   {
-    "city": "Karahall\u0131",
+    "city": "Karahalli",
     "state": "U\u015fak",
     "country": "Turkey"
   },
   {
-    "city": "Karkam\u0131\u015f",
+    "city": "Kamthi",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
+    "city": "Karkamis",
     "state": "Gaziantep",
     "country": "Turkey"
   },
   {
-    "city": "Kamal\u0101puram",
+    "city": "Kamalapuram",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -4060,6 +4500,11 @@ export const kaCities = [
     "country": "India"
   },
   {
+    "city": "Kamepalle",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Karuzi",
     "state": "Karuzi",
     "country": "Burundi"
@@ -4070,12 +4515,12 @@ export const kaCities = [
     "country": "China"
   },
   {
-    "city": "Kalam\u016bla",
+    "city": "Kalamula",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Kandr\u0101w\u0101n",
+    "city": "Kandrawan",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -4085,7 +4530,7 @@ export const kaCities = [
     "country": "Russia"
   },
   {
-    "city": "Kandul\u0101puram",
+    "city": "Kandulapuram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -4100,12 +4545,12 @@ export const kaCities = [
     "country": "Uganda"
   },
   {
-    "city": "Kayna\u015fl\u0131",
+    "city": "Kaynasli",
     "state": "D\u00fczce",
     "country": "Turkey"
   },
   {
-    "city": "Kat\u0101lpur",
+    "city": "Katalpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -4115,7 +4560,12 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kabata\u015f",
+    "city": "Kaza",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Kabatas",
     "state": "Ordu",
     "country": "Turkey"
   },
@@ -4125,7 +4575,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kadal\u0101di",
+    "city": "Kadaladi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -4140,7 +4590,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kafr Takh\u0101r\u012bm",
+    "city": "Kafr Takharim",
     "state": "Idlib",
     "country": "Syria"
   },
@@ -4170,12 +4620,12 @@ export const kaCities = [
     "country": "Ghana"
   },
   {
-    "city": "Karum\u016blaikkal",
+    "city": "Karumulaikkal",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Kambh\u0101ladinne",
+    "city": "Kambhaladinne",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -4185,7 +4635,7 @@ export const kaCities = [
     "country": "Kenya"
   },
   {
-    "city": "Kany\u0101na",
+    "city": "Kanyana",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -4195,7 +4645,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kapasi\u0101w\u0101n",
+    "city": "Kapasiawan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -4205,7 +4655,7 @@ export const kaCities = [
     "country": "Japan"
   },
   {
-    "city": "Kapuv\u00e1r",
+    "city": "Kapuvar",
     "state": "Gy\u0151r-Moson-Sopron",
     "country": "Hungary"
   },
@@ -4235,12 +4685,12 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kadr\u0101b\u0101d",
+    "city": "Kadrabad",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Kargahi\u0101 Purab",
+    "city": "Kargahia Purab",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -4260,7 +4710,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kaim\u0101ti",
+    "city": "Kaimati",
     "state": "West Bengal",
     "country": "India"
   },
@@ -4275,7 +4725,7 @@ export const kaCities = [
     "country": "Argentina"
   },
   {
-    "city": "Kanji\u017ea",
+    "city": "Kanjiza",
     "state": "Kanji\u017ea",
     "country": "Serbia"
   },
@@ -4285,12 +4735,12 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Katarm\u0101la",
+    "city": "Katarmala",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Kaim\u016bh",
+    "city": "Kaimuh",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
@@ -4310,7 +4760,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kaly\u0101npur",
+    "city": "Kalyanpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -4330,12 +4780,17 @@ export const kaCities = [
     "country": "India"
   },
   {
+    "city": "Kattagaram",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Kaithinia",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Karattupp\u0101laiyam",
+    "city": "Karattuppalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -4345,12 +4800,12 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kann\u0101ndahalli",
+    "city": "Kannandahalli",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Kar\u012bmpur",
+    "city": "Karimpur",
     "state": "West Bengal",
     "country": "India"
   },
@@ -4370,7 +4825,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kath\u016brah",
+    "city": "Kathurah",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -4395,12 +4850,12 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kann\u016blu",
+    "city": "Kannulu",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Kad\u0131k\u00f6y",
+    "city": "Kadikoy",
     "state": "Yalova",
     "country": "Turkey"
   },
@@ -4430,7 +4885,7 @@ export const kaCities = [
     "country": "Thailand"
   },
   {
-    "city": "Kaithw\u0101r",
+    "city": "Kaithwar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -4445,12 +4900,12 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kadan\u0101du",
+    "city": "Kadanadu",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Kankan\u0101lapalle",
+    "city": "Kankanalapalle",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -4470,13 +4925,23 @@ export const kaCities = [
     "country": "India"
   },
   {
+    "city": "Kakarati",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Kargat",
     "state": "Novosibirskaya Oblast\u2019",
     "country": "Russia"
   },
   {
-    "city": "Kala\u012bkunda",
+    "city": "Kalaikunda",
     "state": "West Bengal",
+    "country": "India"
+  },
+  {
+    "city": "Katuria",
+    "state": "Bih\u0101r",
     "country": "India"
   },
   {
@@ -4485,7 +4950,7 @@ export const kaCities = [
     "country": "Iran"
   },
   {
-    "city": "Kalv\u0101rpatti",
+    "city": "Kalvarpatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -4540,7 +5005,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kaith\u0101hi",
+    "city": "Kaithahi",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -4555,12 +5020,12 @@ export const kaCities = [
     "country": "Uganda"
   },
   {
-    "city": "Kanas\u0101napalle",
+    "city": "Kanasanapalle",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Karay\u0131lan",
+    "city": "Karayilan",
     "state": "Hatay",
     "country": "Turkey"
   },
@@ -4570,7 +5035,7 @@ export const kaCities = [
     "country": "Niger"
   },
   {
-    "city": "Kann\u0101l",
+    "city": "Kannal",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -4580,12 +5045,12 @@ export const kaCities = [
     "country": "Japan"
   },
   {
-    "city": "Kaniw\u0101ra",
+    "city": "Kaniwara",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Karl\u0131ova",
+    "city": "Karliova",
     "state": "Bing\u00f6l",
     "country": "Turkey"
   },
@@ -4610,12 +5075,17 @@ export const kaCities = [
     "country": "India"
   },
   {
+    "city": "Kandra",
+    "state": "Jh\u0101rkhand",
+    "country": "India"
+  },
+  {
     "city": "Kanchanpalli",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Kattam\u016bru",
+    "city": "Kattamuru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -4645,7 +5115,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kamb\u016br",
+    "city": "Kambur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -4665,12 +5135,17 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Karariy\u0101",
+    "city": "Karariya",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Ka\u00ef",
+    "city": "Kalkuni",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Kai",
     "state": NaN,
     "country": "Mali"
   },
@@ -4690,7 +5165,7 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Kanav\u0101ypud\u016br",
+    "city": "Kanavaypudur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -4700,12 +5175,12 @@ export const kaCities = [
     "country": "India"
   },
   {
-    "city": "Karadip\u0101ra",
+    "city": "Karadipara",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Katr\u012bdih",
+    "city": "Katridih",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -4715,12 +5190,12 @@ export const kaCities = [
     "country": "Norway"
   },
   {
-    "city": "Katuet\u00e9",
+    "city": "Katuete",
     "state": "Canindey\u00fa",
     "country": "Paraguay"
   },
   {
-    "city": "Kambhamp\u0101du",
+    "city": "Kambhampadu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -4733,6 +5208,11 @@ export const kaCities = [
     "city": "Karavan",
     "state": "Batken",
     "country": "Kyrgyzstan"
+  },
+  {
+    "city": "Kaoni",
+    "state": "Punjab",
+    "country": "India"
   },
   {
     "city": "Kattirippulam",
@@ -4755,12 +5235,12 @@ export const kaCities = [
     "country": "Finland"
   },
   {
-    "city": "Kanav\u0101ypatti",
+    "city": "Kanavaypatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Kany\u0101kulam",
+    "city": "Kanyakulam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -4770,12 +5250,17 @@ export const kaCities = [
     "country": "Nepal"
   },
   {
-    "city": "Karpen\u00edsi",
+    "city": "Karpenisi",
     "state": "Stere\u00e1 Ell\u00e1da",
     "country": "Greece"
   },
   {
-    "city": "Kamie\u0144 Pomorski",
+    "city": "Kaliganj",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
+    "city": "Kamien Pomorski",
     "state": "Zachodniopomorskie",
     "country": "Poland"
   },
@@ -4790,32 +5275,32 @@ export const kaCities = [
     "country": "Germany"
   },
   {
-    "city": "Kandan\u0101ti",
+    "city": "Kandanati",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Karupp\u016br",
+    "city": "Karuppur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Kas\u0101p",
+    "city": "Kasap",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Kandan\u016br",
+    "city": "Kandanur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Kallon\u00ed",
+    "city": "Kalloni",
     "state": "V\u00f3reio Aiga\u00edo",
     "country": "Greece"
   },
   {
-    "city": "Kai\u0161iadorys",
+    "city": "Kaisiadorys",
     "state": "Kai\u0161iadorys",
     "country": "Lithuania"
   },
@@ -4845,7 +5330,7 @@ export const kaCities = [
     "country": "New Zealand"
   },
   {
-    "city": "Kazl\u0173 R\u016bda",
+    "city": "Kazlu Ruda",
     "state": "Kazl\u0173 R\u016bdos",
     "country": "Lithuania"
   },
@@ -4883,6 +5368,11 @@ export const kaCities = [
     "city": "Kaberamaido",
     "state": "Kaberamaido",
     "country": "Uganda"
+  },
+  {
+    "city": "Kardla",
+    "state": "Hiiumaa",
+    "country": "Estonia"
   },
   {
     "city": "Kalkara",
@@ -4923,6 +5413,11 @@ export const kaCities = [
     "city": "Kanal",
     "state": "Kanal ob So\u010di",
     "country": "Slovenia"
+  },
+  {
+    "city": "Kalbacar",
+    "state": "K\u0259lb\u0259c\u0259r",
+    "country": "Azerbaijan"
   },
   {
     "city": "Karbinci",

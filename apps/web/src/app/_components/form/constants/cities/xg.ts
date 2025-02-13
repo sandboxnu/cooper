@@ -1,6 +1,6 @@
 export const xgCities = [
   {
-    "city": "Xg\u0127ajra",
+    "city": "Xghajra",
     "state": "Xg\u0127ajra",
     "country": "Malta"
   }

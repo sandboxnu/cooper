@@ -75,7 +75,7 @@ export const noCities = [
     "country": "Brazil"
   },
   {
-    "city": "Nong\u2019an",
+    "city": "Nong'an",
     "state": "Jilin",
     "country": "China"
   },
@@ -100,7 +100,7 @@ export const noCities = [
     "country": "Brazil"
   },
   {
-    "city": "Noum\u00e9a",
+    "city": "Noumea",
     "state": "Province Sud",
     "country": "New Caledonia"
   },
@@ -130,7 +130,7 @@ export const noCities = [
     "country": "Japan"
   },
   {
-    "city": "Norrk\u00f6ping",
+    "city": "Norrkoping",
     "state": "\u00d6sterg\u00f6tland",
     "country": "Sweden"
   },
@@ -250,7 +250,7 @@ export const noCities = [
     "country": "Germany"
   },
   {
-    "city": "Nowy S\u0105cz",
+    "city": "Nowy Sacz",
     "state": "Ma\u0142opolskie",
     "country": "Poland"
   },
@@ -325,7 +325,7 @@ export const noCities = [
     "country": "Brazil"
   },
   {
-    "city": "Nordre F\u00e5le",
+    "city": "Nordre Fale",
     "state": "Viken",
     "country": "Norway"
   },
@@ -345,13 +345,18 @@ export const noCities = [
     "country": "Canada"
   },
   {
-    "city": "Nova Esperan\u00e7a",
+    "city": "Nova Esperanca",
     "state": "U\u00edge",
     "country": "Angola"
   },
   {
     "city": "Nonoichi",
     "state": "Ishikawa",
+    "country": "Japan"
+  },
+  {
+    "city": "Nogata",
+    "state": "Fukuoka",
     "country": "Japan"
   },
   {
@@ -420,7 +425,7 @@ export const noCities = [
     "country": "Iran"
   },
   {
-    "city": "Nots\u00e9",
+    "city": "Notse",
     "state": "Plateaux",
     "country": "Togo"
   },
@@ -455,7 +460,7 @@ export const noCities = [
     "country": "France"
   },
   {
-    "city": "Nova Ven\u00e9cia",
+    "city": "Nova Venecia",
     "state": "Esp\u00edrito Santo",
     "country": "Brazil"
   },
@@ -505,7 +510,7 @@ export const noCities = [
     "country": "Germany"
   },
   {
-    "city": "Nossa Senhora da Gl\u00f3ria",
+    "city": "Nossa Senhora da Gloria",
     "state": "Sergipe",
     "country": "Brazil"
   },
@@ -525,7 +530,7 @@ export const noCities = [
     "country": "Russia"
   },
   {
-    "city": "Nova Vi\u00e7osa",
+    "city": "Nova Vicosa",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -550,12 +555,12 @@ export const noCities = [
     "country": "United States"
   },
   {
-    "city": "Nov\u00e9 Z\u00e1mky",
+    "city": "Nove Zamky",
     "state": "Nitra",
     "country": "Slovakia"
   },
   {
-    "city": "Nowa S\u00f3l",
+    "city": "Nowa Sol",
     "state": "Lubuskie",
     "country": "Poland"
   },
@@ -695,7 +700,7 @@ export const noCities = [
     "country": "Germany"
   },
   {
-    "city": "Novaya Usman\u2019",
+    "city": "Novaya Usman'",
     "state": "Voronezhskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -710,7 +715,7 @@ export const noCities = [
     "country": "India"
   },
   {
-    "city": "Nowy Dw\u00f3r Mazowiecki",
+    "city": "Nowy Dwor Mazowiecki",
     "state": "Mazowieckie",
     "country": "Poland"
   },
@@ -720,12 +725,12 @@ export const noCities = [
     "country": "United States"
   },
   {
-    "city": "No\u00e9",
+    "city": "Noe",
     "state": "Como\u00e9",
     "country": "C\u00f4te d\u2019Ivoire"
   },
   {
-    "city": "Nochistl\u00e1n de Mej\u00eda",
+    "city": "Nochistlan de Mejia",
     "state": "Zacatecas",
     "country": "Mexico"
   },
@@ -765,7 +770,7 @@ export const noCities = [
     "country": "Brazil"
   },
   {
-    "city": "Nova Esperan\u00e7a",
+    "city": "Nova Esperanca",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -810,7 +815,7 @@ export const noCities = [
     "country": "Brazil"
   },
   {
-    "city": "Non\u0101hi",
+    "city": "Nonahi",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -890,7 +895,12 @@ export const noCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Novo Aripuan\u00e3",
+    "city": "Noqui",
+    "state": "Zaire",
+    "country": "Angola"
+  },
+  {
+    "city": "Novo Aripuana",
     "state": "Amazonas",
     "country": "Brazil"
   },
@@ -900,12 +910,17 @@ export const noCities = [
     "country": "Italy"
   },
   {
+    "city": "Norresundby",
+    "state": "Nordjylland",
+    "country": "Denmark"
+  },
+  {
     "city": "North Platte",
     "state": "Nebraska",
     "country": "United States"
   },
   {
-    "city": "Nova Petr\u00f3polis",
+    "city": "Nova Petropolis",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -915,7 +930,7 @@ export const noCities = [
     "country": "Italy"
   },
   {
-    "city": "Nov\u00fd Ji\u010d\u00edn",
+    "city": "Novy Jicin",
     "state": "Moravskoslezsk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -925,7 +940,7 @@ export const noCities = [
     "country": "United States"
   },
   {
-    "city": "Nogoy\u00e1",
+    "city": "Nogoya",
     "state": "Entre R\u00edos",
     "country": "Argentina"
   },
@@ -955,6 +970,11 @@ export const noCities = [
     "country": "Chile"
   },
   {
+    "city": "Notteroy",
+    "state": "Vestfold og Telemark",
+    "country": "Norway"
+  },
+  {
     "city": "Novopokrovka",
     "state": "Ch\u00fcy",
     "country": "Kyrgyzstan"
@@ -965,12 +985,12 @@ export const noCities = [
     "country": "Thailand"
   },
   {
-    "city": "North Guw\u0101h\u0101ti",
+    "city": "North Guwahati",
     "state": "Assam",
     "country": "India"
   },
   {
-    "city": "No\u0101mundi",
+    "city": "Noamundi",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -998,6 +1018,11 @@ export const noCities = [
     "city": "North Ogden",
     "state": "Utah",
     "country": "United States"
+  },
+  {
+    "city": "Nordlingen",
+    "state": "Bavaria",
+    "country": "Germany"
   },
   {
     "city": "Normanton",
@@ -1045,7 +1070,7 @@ export const noCities = [
     "country": "United States"
   },
   {
-    "city": "Nov\u00e9 Mesto nad V\u00e1hom",
+    "city": "Nove Mesto nad Vahom",
     "state": "Nitra",
     "country": "Slovakia"
   },
@@ -1145,7 +1170,7 @@ export const noCities = [
     "country": "Brazil"
   },
   {
-    "city": "Norrt\u00e4lje",
+    "city": "Norrtalje",
     "state": "Stockholm",
     "country": "Sweden"
   },
@@ -1190,7 +1215,7 @@ export const noCities = [
     "country": "Brazil"
   },
   {
-    "city": "Nova Ol\u00edmpia",
+    "city": "Nova Olimpia",
     "state": "Mato Grosso",
     "country": "Brazil"
   },
@@ -1210,7 +1235,7 @@ export const noCities = [
     "country": "United States"
   },
   {
-    "city": "Noniy\u0101",
+    "city": "Noniya",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1245,7 +1270,7 @@ export const noCities = [
     "country": "United States"
   },
   {
-    "city": "Novo Air\u00e3o",
+    "city": "Novo Airao",
     "state": "Amazonas",
     "country": "Brazil"
   },
@@ -1270,7 +1295,7 @@ export const noCities = [
     "country": "Japan"
   },
   {
-    "city": "Nova Brasil\u00e2ndia d\u2019Oeste",
+    "city": "Nova Brasilandia d'Oeste",
     "state": "Rond\u00f4nia",
     "country": "Brazil"
   },
@@ -1365,7 +1390,7 @@ export const noCities = [
     "country": "United States"
   },
   {
-    "city": "Nowy Tomy\u015bl",
+    "city": "Nowy Tomysl",
     "state": "Wielkopolskie",
     "country": "Poland"
   },
@@ -1405,7 +1430,7 @@ export const noCities = [
     "country": "United States"
   },
   {
-    "city": "Nova Cana\u00e3",
+    "city": "Nova Canaa",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -1425,7 +1450,7 @@ export const noCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Nova Varo\u0161",
+    "city": "Nova Varos",
     "state": "Nova Varo\u0161",
     "country": "Serbia"
   },
@@ -1450,7 +1475,7 @@ export const noCities = [
     "country": "Italy"
   },
   {
-    "city": "Novi Be\u010dej",
+    "city": "Novi Becej",
     "state": "Novi Be\u010dej",
     "country": "Serbia"
   },
@@ -1495,7 +1520,7 @@ export const noCities = [
     "country": "Brazil"
   },
   {
-    "city": "Nova Crix\u00e1s",
+    "city": "Nova Crixas",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -1590,7 +1615,7 @@ export const noCities = [
     "country": "Brazil"
   },
   {
-    "city": "Novalukoml\u2019",
+    "city": "Novalukoml'",
     "state": "Vitsyebskaya Voblasts\u2019",
     "country": "Belarus"
   },
@@ -1605,7 +1630,7 @@ export const noCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Nor\u012ba",
+    "city": "Noria",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
@@ -1630,7 +1655,7 @@ export const noCities = [
     "country": "Croatia"
   },
   {
-    "city": "Nova Gradi\u0161ka",
+    "city": "Nova Gradiska",
     "state": "Brodsko-Posavska \u017dupanija",
     "country": "Croatia"
   },
@@ -1640,7 +1665,7 @@ export const noCities = [
     "country": "United States"
   },
   {
-    "city": "Novo\u012bsh\u012bmsk\u012by",
+    "city": "Novoishimskiy",
     "state": "North Kazakhstan",
     "country": "Kazakhstan"
   },
@@ -1660,12 +1685,12 @@ export const noCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Nova Ubirat\u00e3",
+    "city": "Nova Ubirata",
     "state": "Mato Grosso",
     "country": "Brazil"
   },
   {
-    "city": "Nov\u00fd Bor",
+    "city": "Novy Bor",
     "state": "Libereck\u00fd Kraj",
     "country": "Czechia"
   },
@@ -1675,7 +1700,7 @@ export const noCities = [
     "country": "United States"
   },
   {
-    "city": "Notre-Dame-de-l'\u00cele-Perrot",
+    "city": "Notre-Dame-de-l'Ile-Perrot",
     "state": "Quebec",
     "country": "Canada"
   },
@@ -1715,6 +1740,11 @@ export const noCities = [
     "country": "Brazil"
   },
   {
+    "city": "Norvenich",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
     "city": "Novoazovsk",
     "state": "Donetska Oblast",
     "country": "Ukraine"
@@ -1745,7 +1775,7 @@ export const noCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Nowa D\u0119ba",
+    "city": "Nowa Deba",
     "state": "Podkarpackie",
     "country": "Poland"
   },
@@ -1770,7 +1800,7 @@ export const noCities = [
     "country": "Poland"
   },
   {
-    "city": "Nov\u00e1 Dubnica",
+    "city": "Nova Dubnica",
     "state": "Nitra",
     "country": "Slovakia"
   },
@@ -1860,7 +1890,7 @@ export const noCities = [
     "country": "Germany"
   },
   {
-    "city": "Nov\u00e9 M\u011bsto na Morav\u011b",
+    "city": "Nove Mesto na Morave",
     "state": "Vyso\u010dina",
     "country": "Czechia"
   },
@@ -1870,9 +1900,14 @@ export const noCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Noros\u00ed",
+    "city": "Norosi",
     "state": "Bol\u00edvar",
     "country": "Colombia"
+  },
+  {
+    "city": "Nodinge-Nol",
+    "state": "V\u00e4stra G\u00f6taland",
+    "country": "Sweden"
   },
   {
     "city": "Nong Wua So",
@@ -1910,7 +1945,7 @@ export const noCities = [
     "country": "Brazil"
   },
   {
-    "city": "Nowy Dw\u00f3r Gda\u0144ski",
+    "city": "Nowy Dwor Gdanski",
     "state": "Pomorskie",
     "country": "Poland"
   },
@@ -1940,7 +1975,7 @@ export const noCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Nov\u00e9 M\u011bsto nad Metuj\u00ed",
+    "city": "Nove Mesto nad Metuji",
     "state": "Kr\u00e1lov\u00e9hradeck\u00fd Kraj",
     "country": "Czechia"
   },
@@ -1995,7 +2030,7 @@ export const noCities = [
     "country": "United States"
   },
   {
-    "city": "Nov\u00e1 Paka",
+    "city": "Nova Paka",
     "state": "Libereck\u00fd Kraj",
     "country": "Czechia"
   },
@@ -2035,6 +2070,11 @@ export const noCities = [
     "country": "France"
   },
   {
+    "city": "Norten-Hardenberg",
+    "state": "Lower Saxony",
+    "country": "Germany"
+  },
+  {
     "city": "North Cornwall",
     "state": "Pennsylvania",
     "country": "United States"
@@ -2050,7 +2090,7 @@ export const noCities = [
     "country": "Germany"
   },
   {
-    "city": "Nossa Senhora dos Rem\u00e9dios",
+    "city": "Nossa Senhora dos Remedios",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
@@ -2060,12 +2100,12 @@ export const noCities = [
     "country": "India"
   },
   {
-    "city": "Novob\u00ebrd\u00eb",
+    "city": "Novoberde",
     "state": "Novob\u00ebrd\u00eb",
     "country": "Kosovo"
   },
   {
-    "city": "Novi Kne\u017eevac",
+    "city": "Novi Knezevac",
     "state": "Novi Kne\u017eevac",
     "country": "Serbia"
   },
@@ -2130,7 +2170,7 @@ export const noCities = [
     "country": "Cabo Verde"
   },
   {
-    "city": "Nor\u00f0rag\u00f8ta",
+    "city": "Nordhragota",
     "state": "Eystur",
     "country": "Faroe Islands"
   }

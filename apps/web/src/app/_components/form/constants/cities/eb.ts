@@ -15,6 +15,11 @@ export const ebCities = [
     "country": "Japan"
   },
   {
+    "city": "Ebolowa",
+    "state": "Sud",
+    "country": "Cameroon"
+  },
+  {
     "city": "Eberswalde",
     "state": "Brandenburg",
     "country": "Germany"
@@ -25,7 +30,7 @@ export const ebCities = [
     "country": "Italy"
   },
   {
-    "city": "Ebebiy\u00edn",
+    "city": "Ebebiyin",
     "state": "Ki\u00e9-Ntem",
     "country": "Equatorial Guinea"
   },
@@ -60,7 +65,7 @@ export const ebCities = [
     "country": "Germany"
   },
   {
-    "city": "Eb\u00e9jico",
+    "city": "Ebejico",
     "state": "Antioquia",
     "country": "Colombia"
   },

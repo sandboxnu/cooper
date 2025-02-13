@@ -5,7 +5,7 @@ export const arCities = [
     "country": "Peru"
   },
   {
-    "city": "Ar Ram\u0101d\u012b",
+    "city": "Ar Ramadi",
     "state": "Al Anb\u0101r",
     "country": "Iraq"
   },
@@ -15,22 +15,22 @@ export const arCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ar Rayy\u0101n",
+    "city": "Ar Rayyan",
     "state": "Ar Rayy\u0101n",
     "country": "Qatar"
   },
   {
-    "city": "Ardab\u012bl",
+    "city": "Ardabil",
     "state": "Ardab\u012bl",
     "country": "Iran"
   },
   {
-    "city": "Ar\u0101k",
+    "city": "Arak",
     "state": "Markaz\u012b",
     "country": "Iran"
   },
   {
-    "city": "Ar Ru\u015fayfah",
+    "city": "Ar Rusayfah",
     "state": "Az Zarq\u0101\u2019",
     "country": "Jordan"
   },
@@ -60,7 +60,7 @@ export const arCities = [
     "country": "Syria"
   },
   {
-    "city": "Arnavutk\u00f6y",
+    "city": "Arnavutkoy",
     "state": "\u0130stanbul",
     "country": "Turkey"
   },
@@ -105,9 +105,14 @@ export const arCities = [
     "country": "Chile"
   },
   {
-    "city": "Ara\u00e7atuba",
+    "city": "Aracatuba",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
+  },
+  {
+    "city": "Arba Minch'",
+    "state": "YeDebub Bih\u0113roch Bih\u0113reseboch na Hizboch",
+    "country": "Ethiopia"
   },
   {
     "city": "Armavir",
@@ -120,7 +125,7 @@ export const arCities = [
     "country": "Venezuela"
   },
   {
-    "city": "Ar Ra\u1e29m\u0101n\u012byah",
+    "city": "Ar Rahmaniyah",
     "state": "Al Bu\u1e29ayrah",
     "country": "Egypt"
   },
@@ -130,7 +135,7 @@ export const arCities = [
     "country": "Mauritania"
   },
   {
-    "city": "Aragua\u00edna",
+    "city": "Araguaina",
     "state": "Tocantins",
     "country": "Brazil"
   },
@@ -145,12 +150,12 @@ export const arCities = [
     "country": "China"
   },
   {
-    "city": "Ar Ramth\u0101",
+    "city": "Ar Ramtha",
     "state": "Irbid",
     "country": "Jordan"
   },
   {
-    "city": "Arauc\u00e1ria",
+    "city": "Araucaria",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -200,7 +205,7 @@ export const arCities = [
     "country": "Saudi Arabia"
   },
   {
-    "city": "Ar Rust\u0101q",
+    "city": "Ar Rustaq",
     "state": "Jan\u016bb al B\u0101\u0163inah",
     "country": "Oman"
   },
@@ -225,7 +230,7 @@ export const arCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Arax\u00e1",
+    "city": "Araxa",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -240,7 +245,7 @@ export const arCities = [
     "country": "France"
   },
   {
-    "city": "Art\u00ebm",
+    "city": "Artem",
     "state": "Primorskiy Kray",
     "country": "Russia"
   },
@@ -305,7 +310,7 @@ export const arCities = [
     "country": "Brazil"
   },
   {
-    "city": "Aruj\u00e1",
+    "city": "Aruja",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -315,7 +320,7 @@ export const arCities = [
     "country": "India"
   },
   {
-    "city": "Ar\u0101ria",
+    "city": "Araria",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -355,7 +360,7 @@ export const arCities = [
     "country": "Colombia"
   },
   {
-    "city": "Ardak\u0101n",
+    "city": "Ardakan",
     "state": "Yazd",
     "country": "Iran"
   },
@@ -370,7 +375,7 @@ export const arCities = [
     "country": "Germany"
   },
   {
-    "city": "Ararangu\u00e1",
+    "city": "Ararangua",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -380,12 +385,12 @@ export const arCities = [
     "country": "Brazil"
   },
   {
-    "city": "Aregu\u00e1",
+    "city": "Aregua",
     "state": "Central",
     "country": "Paraguay"
   },
   {
-    "city": "Ar\u0101mb\u0101gh",
+    "city": "Arambagh",
     "state": "West Bengal",
     "country": "India"
   },
@@ -395,12 +400,17 @@ export const arCities = [
     "country": "Trinidad and Tobago"
   },
   {
+    "city": "Aran Bidgol",
+    "state": "E\u015ffah\u0101n",
+    "country": "Iran"
+  },
+  {
     "city": "Arrecife",
     "state": "Canary Islands",
     "country": "Spain"
   },
   {
-    "city": "Arm\u016br",
+    "city": "Armur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -470,7 +480,7 @@ export const arCities = [
     "country": "Brazil"
   },
   {
-    "city": "Arakl\u0131",
+    "city": "Arakli",
     "state": "Trabzon",
     "country": "Turkey"
   },
@@ -500,7 +510,7 @@ export const arCities = [
     "country": "Brazil"
   },
   {
-    "city": "Aran\u0111elovac",
+    "city": "Arandelovac",
     "state": "Aran\u0111elovac",
     "country": "Serbia"
   },
@@ -525,7 +535,7 @@ export const arCities = [
     "country": "Brazil"
   },
   {
-    "city": "Arant\u0101ngi",
+    "city": "Arantangi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -555,12 +565,12 @@ export const arCities = [
     "country": "Colombia"
   },
   {
-    "city": "Arde\u015fen",
+    "city": "Ardesen",
     "state": "Rize",
     "country": "Turkey"
   },
   {
-    "city": "Arraij\u00e1n",
+    "city": "Arraijan",
     "state": "Panam\u00e1 Oeste",
     "country": "Panama"
   },
@@ -580,7 +590,7 @@ export const arCities = [
     "country": "Colombia"
   },
   {
-    "city": "Arma\u00e7\u00e3o dos B\u00fazios",
+    "city": "Armacao dos Buzios",
     "state": "Rio de Janeiro",
     "country": "Brazil"
   },
@@ -595,7 +605,7 @@ export const arCities = [
     "country": "Spain"
   },
   {
-    "city": "Arist\u00f3bulo del Valle",
+    "city": "Aristobulo del Valle",
     "state": "Misiones",
     "country": "Argentina"
   },
@@ -635,12 +645,12 @@ export const arCities = [
     "country": "Turkey"
   },
   {
-    "city": "Ara\u00e7ua\u00ed",
+    "city": "Aracuai",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
   {
-    "city": "Argyro\u00fapoli",
+    "city": "Argyroupoli",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -665,6 +675,11 @@ export const arCities = [
     "country": "Turkey"
   },
   {
+    "city": "Arumuganeri",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Arbaoua",
     "state": "Rabat-Sal\u00e9-K\u00e9nitra",
     "country": "Morocco"
@@ -685,7 +700,12 @@ export const arCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ara\u00e7oiaba da Serra",
+    "city": "Areka",
+    "state": "YeDebub Bih\u0113roch Bih\u0113reseboch na Hizboch",
+    "country": "Ethiopia"
+  },
+  {
+    "city": "Aracoiaba da Serra",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -705,9 +725,14 @@ export const arCities = [
     "country": "Belgium"
   },
   {
-    "city": "Ar Ru\u1e29aybah",
+    "city": "Ar Ruhaybah",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
+  },
+  {
+    "city": "Arda",
+    "state": "Him\u0101chal Pradesh",
+    "country": "India"
   },
   {
     "city": "Aral",
@@ -715,7 +740,7 @@ export const arCities = [
     "country": "Kazakhstan"
   },
   {
-    "city": "Art\u00ebmovskiy",
+    "city": "Artemovskiy",
     "state": "Sverdlovskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -740,7 +765,7 @@ export const arCities = [
     "country": "Haiti"
   },
   {
-    "city": "Ariyal\u016br",
+    "city": "Ariyalur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -750,7 +775,7 @@ export const arCities = [
     "country": "Portugal"
   },
   {
-    "city": "Ar Ru\u0163bah",
+    "city": "Ar Rutbah",
     "state": "Al Anb\u0101r",
     "country": "Iraq"
   },
@@ -768,6 +793,11 @@ export const arCities = [
     "city": "Arnstadt",
     "state": "Thuringia",
     "country": "Germany"
+  },
+  {
+    "city": "Aron",
+    "state": "Madhya Pradesh",
+    "country": "India"
   },
   {
     "city": "Argelia",
@@ -795,7 +825,7 @@ export const arCities = [
     "country": "Argentina"
   },
   {
-    "city": "Aripuan\u00e3",
+    "city": "Aripuana",
     "state": "Mato Grosso",
     "country": "Brazil"
   },
@@ -805,7 +835,7 @@ export const arCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Arer\u0101j",
+    "city": "Areraj",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -830,7 +860,7 @@ export const arCities = [
     "country": "Japan"
   },
   {
-    "city": "Armenti\u00e8res",
+    "city": "Armentieres",
     "state": "Hauts-de-France",
     "country": "France"
   },
@@ -890,7 +920,7 @@ export const arCities = [
     "country": "Brazil"
   },
   {
-    "city": "Arttuv\u0101ttala",
+    "city": "Arttuvattala",
     "state": "Kerala",
     "country": "India"
   },
@@ -910,7 +940,7 @@ export const arCities = [
     "country": "Turkey"
   },
   {
-    "city": "Ara\u00e7ariguama",
+    "city": "Aracariguama",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -935,7 +965,7 @@ export const arCities = [
     "country": "Portugal"
   },
   {
-    "city": "Arbi\u2019a Tighadwiyn",
+    "city": "Arbi'a Tighadwiyn",
     "state": "Marrakech-Safi",
     "country": "Morocco"
   },
@@ -945,9 +975,19 @@ export const arCities = [
     "country": "Paraguay"
   },
   {
+    "city": "Argos",
+    "state": "Pelop\u00f3nnisos",
+    "country": "Greece"
+  },
+  {
     "city": "Arroio do Meio",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
+  },
+  {
+    "city": "Arta",
+    "state": "\u00cdpeiros",
+    "country": "Greece"
   },
   {
     "city": "Arcueil",
@@ -955,7 +995,7 @@ export const arCities = [
     "country": "France"
   },
   {
-    "city": "Art\u00e9mida",
+    "city": "Artemida",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -965,7 +1005,7 @@ export const arCities = [
     "country": "Australia"
   },
   {
-    "city": "Aral\u0131k",
+    "city": "Aralik",
     "state": "Ad\u0131yaman",
     "country": "Turkey"
   },
@@ -1075,12 +1115,12 @@ export const arCities = [
     "country": "Algeria"
   },
   {
-    "city": "Ara\u00e7oiaba",
+    "city": "Aracoiaba",
     "state": "Pernambuco",
     "country": "Brazil"
   },
   {
-    "city": "Arad\u00edppou",
+    "city": "Aradippou",
     "state": "L\u00e1rnaka",
     "country": "Cyprus"
   },
@@ -1090,7 +1130,7 @@ export const arCities = [
     "country": "Japan"
   },
   {
-    "city": "Ara\u00e7",
+    "city": "Arac",
     "state": "Kastamonu",
     "country": "Turkey"
   },
@@ -1120,12 +1160,12 @@ export const arCities = [
     "country": "United States"
   },
   {
-    "city": "Aragar\u00e7as",
+    "city": "Aragarcas",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
   {
-    "city": "Ar\u0101jpur",
+    "city": "Arajpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1140,7 +1180,7 @@ export const arCities = [
     "country": "Italy"
   },
   {
-    "city": "Arakkap\u0101di",
+    "city": "Arakkapadi",
     "state": "Kerala",
     "country": "India"
   },
@@ -1150,7 +1190,7 @@ export const arCities = [
     "country": "Italy"
   },
   {
-    "city": "Arsanj\u0101n",
+    "city": "Arsanjan",
     "state": "F\u0101rs",
     "country": "Iran"
   },
@@ -1165,7 +1205,7 @@ export const arCities = [
     "country": "Brazil"
   },
   {
-    "city": "Arpa\u00e7ay",
+    "city": "Arpacay",
     "state": "Kars",
     "country": "Turkey"
   },
@@ -1180,7 +1220,7 @@ export const arCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ar\u0131cak",
+    "city": "Aricak",
     "state": "Elaz\u0131\u011f",
     "country": "Turkey"
   },
@@ -1200,7 +1240,7 @@ export const arCities = [
     "country": "India"
   },
   {
-    "city": "Ara\u00e7agi",
+    "city": "Aracagi",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -1215,7 +1255,7 @@ export const arCities = [
     "country": "Spain"
   },
   {
-    "city": "Arachchal\u016br",
+    "city": "Arachchalur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1230,17 +1270,22 @@ export const arCities = [
     "country": "Thailand"
   },
   {
-    "city": "Aruv\u0101palam",
+    "city": "Aruvapalam",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Ardest\u0101n",
+    "city": "Ardestan",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Arumb\u0101v\u016br",
+    "city": "Arkivan",
+    "state": "Masall\u0131",
+    "country": "Azerbaijan"
+  },
+  {
+    "city": "Arumbavur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1285,7 +1330,7 @@ export const arCities = [
     "country": "Brazil"
   },
   {
-    "city": "Arnouville-l\u00e8s-Gonesse",
+    "city": "Arnouville-les-Gonesse",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -1405,7 +1450,7 @@ export const arCities = [
     "country": "Belgium"
   },
   {
-    "city": "Ar\u00eas",
+    "city": "Ares",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
   },
@@ -1465,7 +1510,7 @@ export const arCities = [
     "country": "Morocco"
   },
   {
-    "city": "Arbel\u00e1ez",
+    "city": "Arbelaez",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
@@ -1490,6 +1535,11 @@ export const arCities = [
     "country": "India"
   },
   {
+    "city": "Arutla",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
     "city": "Arkansas City",
     "state": "Kansas",
     "country": "United States"
@@ -1500,7 +1550,7 @@ export const arCities = [
     "country": "Switzerland"
   },
   {
-    "city": "Arakv\u0101z-e Maleksh\u0101h\u012b",
+    "city": "Arakvaz-e Malekshahi",
     "state": "\u012al\u0101m",
     "country": "Iran"
   },
@@ -1515,7 +1565,7 @@ export const arCities = [
     "country": "Russia"
   },
   {
-    "city": "Aragoi\u00e2nia",
+    "city": "Aragoiania",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -1530,17 +1580,17 @@ export const arCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ara\u00e7\u00e1s",
+    "city": "Aracas",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Aras\u016br",
+    "city": "Arasur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Arumb\u0101kkam",
+    "city": "Arumbakkam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1570,27 +1620,32 @@ export const arCities = [
     "country": "Brazil"
   },
   {
+    "city": "Arambakkam",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Armstrong",
     "state": "Santa Fe",
     "country": "Argentina"
   },
   {
-    "city": "Arvand Ken\u0101r",
+    "city": "Arvand Kenar",
     "state": "Kh\u016bzest\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Arvand Ken\u0101r",
+    "city": "Arvand Kenar",
     "state": "Kh\u016bzest\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Arei\u00f3polis",
+    "city": "Areiopolis",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Ararend\u00e1",
+    "city": "Ararenda",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -1600,7 +1655,7 @@ export const arCities = [
     "country": "Italy"
   },
   {
-    "city": "Argost\u00f3li",
+    "city": "Argostoli",
     "state": "Ion\u00eda N\u00edsia",
     "country": "Greece"
   },
@@ -1620,7 +1675,7 @@ export const arCities = [
     "country": "Turkey"
   },
   {
-    "city": "Argel\u00e8s-sur-Mer",
+    "city": "Argeles-sur-Mer",
     "state": "Occitanie",
     "country": "France"
   },
@@ -1645,12 +1700,12 @@ export const arCities = [
     "country": "India"
   },
   {
-    "city": "Ar\u0101velli",
+    "city": "Aravelli",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Arkaloch\u00f3ri",
+    "city": "Arkalochori",
     "state": "Kr\u00edti",
     "country": "Greece"
   },
@@ -1660,12 +1715,17 @@ export const arCities = [
     "country": "United States"
   },
   {
+    "city": "Arvorezinha",
+    "state": "Rio Grande do Sul",
+    "country": "Brazil"
+  },
+  {
     "city": "Arimalam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Arman\u0101z",
+    "city": "Armanaz",
     "state": "Idlib",
     "country": "Syria"
   },
@@ -1680,7 +1740,7 @@ export const arCities = [
     "country": "Brazil"
   },
   {
-    "city": "Arl\u00f6v",
+    "city": "Arlov",
     "state": "Sk\u00e5ne",
     "country": "Sweden"
   },
@@ -1695,7 +1755,7 @@ export const arCities = [
     "country": "Italy"
   },
   {
-    "city": "Aro\u0101li",
+    "city": "Aroali",
     "state": "West Bengal",
     "country": "India"
   },
@@ -1705,7 +1765,7 @@ export const arCities = [
     "country": "Iran"
   },
   {
-    "city": "Arau\u00e1",
+    "city": "Araua",
     "state": "Sergipe",
     "country": "Brazil"
   },
@@ -1755,7 +1815,7 @@ export const arCities = [
     "country": "India"
   },
   {
-    "city": "Aren\u00e1polis",
+    "city": "Arenapolis",
     "state": "Mato Grosso",
     "country": "Brazil"
   },
@@ -1765,7 +1825,7 @@ export const arCities = [
     "country": "Spain"
   },
   {
-    "city": "Aranya Kal\u0101n",
+    "city": "Aranya Kalan",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1775,7 +1835,7 @@ export const arCities = [
     "country": "Switzerland"
   },
   {
-    "city": "Ara\u00fajos",
+    "city": "Araujos",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1810,12 +1870,17 @@ export const arCities = [
     "country": "Colombia"
   },
   {
+    "city": "Argos Orestiko",
+    "state": "Dytik\u00ed Makedon\u00eda",
+    "country": "Greece"
+  },
+  {
     "city": "Aradeo",
     "state": "Puglia",
     "country": "Italy"
   },
   {
-    "city": "Armaz\u00e9m",
+    "city": "Armazem",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -1830,12 +1895,12 @@ export const arCities = [
     "country": "United States"
   },
   {
-    "city": "Aratu\u00edpe",
+    "city": "Aratuipe",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Artigues-pr\u00e8s-Bordeaux",
+    "city": "Artigues-pres-Bordeaux",
     "state": "Nouvelle-Aquitaine",
     "country": "France"
   },
@@ -1865,7 +1930,7 @@ export const arCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ara\u010dinovo",
+    "city": "Aracinovo",
     "state": "Ara\u010dinovo",
     "country": "North Macedonia"
   },
@@ -1880,7 +1945,7 @@ export const arCities = [
     "country": "Paraguay"
   },
   {
-    "city": "Art\u00ebmovsk",
+    "city": "Artemovsk",
     "state": "Krasnoyarskiy Kray",
     "country": "Russia"
   },

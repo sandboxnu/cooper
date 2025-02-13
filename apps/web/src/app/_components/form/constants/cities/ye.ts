@@ -15,7 +15,7 @@ export const yeCities = [
     "country": "Turkey"
   },
   {
-    "city": "Ye\u015filyurt",
+    "city": "Yesilyurt",
     "state": "Malatya",
     "country": "Turkey"
   },
@@ -30,7 +30,7 @@ export const yeCities = [
     "country": "Korea, South"
   },
   {
-    "city": "Yeni\u015fehir",
+    "city": "Yenisehir",
     "state": "Diyarbak\u0131r",
     "country": "Turkey"
   },
@@ -60,6 +60,11 @@ export const yeCities = [
     "country": "Russia"
   },
   {
+    "city": "Yen Bai",
+    "state": "Y\u00ean B\u00e1i",
+    "country": "Vietnam"
+  },
+  {
     "city": "Yeysk",
     "state": "Krasnodarskiy Kray",
     "country": "Russia"
@@ -85,7 +90,7 @@ export const yeCities = [
     "country": "Azerbaijan"
   },
   {
-    "city": "Yeni\u015fehir",
+    "city": "Yenisehir",
     "state": "Bursa",
     "country": "Turkey"
   },
@@ -140,7 +145,7 @@ export const yeCities = [
     "country": "China"
   },
   {
-    "city": "Yerk\u00f6y",
+    "city": "Yerkoy",
     "state": "Yozgat",
     "country": "Turkey"
   },
@@ -190,7 +195,7 @@ export const yeCities = [
     "country": "Russia"
   },
   {
-    "city": "Yell\u0101pur",
+    "city": "Yellapur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -230,7 +235,7 @@ export const yeCities = [
     "country": "Russia"
   },
   {
-    "city": "Yeddumail\u0101ram",
+    "city": "Yeddumailaram",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -240,12 +245,12 @@ export const yeCities = [
     "country": "Russia"
   },
   {
-    "city": "Ye\u015filhisar",
+    "city": "Yesilhisar",
     "state": "Kayseri",
     "country": "Turkey"
   },
   {
-    "city": "Yerrap\u0101lem",
+    "city": "Yerrapalem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -255,12 +260,12 @@ export const yeCities = [
     "country": "Chile"
   },
   {
-    "city": "Yeni Suraxan\u0131",
+    "city": "Yeni Suraxani",
     "state": "Bak\u0131",
     "country": "Azerbaijan"
   },
   {
-    "city": "Ye\u015filova",
+    "city": "Yesilova",
     "state": "Burdur",
     "country": "Turkey"
   },
@@ -275,12 +280,17 @@ export const yeCities = [
     "country": "India"
   },
   {
-    "city": "Yell\u0101reddi",
+    "city": "Yellareddi",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Ye\u015filli",
+    "city": "Yerere",
+    "state": "Kayes",
+    "country": "Mali"
+  },
+  {
+    "city": "Yesilli",
     "state": "Mardin",
     "country": "Turkey"
   },
@@ -310,7 +320,7 @@ export const yeCities = [
     "country": "Turkey"
   },
   {
-    "city": "Yenkuv\u0101rig\u016bdem",
+    "city": "Yenkuvarigudem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -330,7 +340,7 @@ export const yeCities = [
     "country": "United States"
   },
   {
-    "city": "Yeni\u00e7iftlik",
+    "city": "Yeniciftlik",
     "state": "Tekirda\u011f",
     "country": "Turkey"
   },
@@ -345,7 +355,7 @@ export const yeCities = [
     "country": "India"
   },
   {
-    "city": "Yellayap\u0101lem",
+    "city": "Yellayapalem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -365,7 +375,7 @@ export const yeCities = [
     "country": "United States"
   },
   {
-    "city": "Ye\u015filk\u00f6y",
+    "city": "Yesilkoy",
     "state": "Hatay",
     "country": "Turkey"
   },
@@ -380,7 +390,7 @@ export const yeCities = [
     "country": "China"
   },
   {
-    "city": "Ye\u015filyurt",
+    "city": "Yesilyurt",
     "state": "Tokat",
     "country": "Turkey"
   },
@@ -390,7 +400,7 @@ export const yeCities = [
     "country": "India"
   },
   {
-    "city": "Yeld\u016brti",
+    "city": "Yeldurti",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -400,7 +410,7 @@ export const yeCities = [
     "country": "Russia"
   },
   {
-    "city": "Yek\u0101mbarakuppam",
+    "city": "Yekambarakuppam",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -415,12 +425,12 @@ export const yeCities = [
     "country": "Belarus"
   },
   {
-    "city": "Yeland\u016br",
+    "city": "Yelandur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Yell\u0101reddi",
+    "city": "Yellareddi",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -435,7 +445,12 @@ export const yeCities = [
     "country": "Australia"
   },
   {
-    "city": "Yer\u00ebma",
+    "city": "Yelimane",
+    "state": "Kayes",
+    "country": "Mali"
+  },
+  {
+    "city": "Yerema",
     "state": "Irkutskaya Oblast\u2019",
     "country": "Russia"
   },

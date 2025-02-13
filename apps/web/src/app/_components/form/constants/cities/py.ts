@@ -35,13 +35,18 @@ export const pyCities = [
     "country": "Burma"
   },
   {
-    "city": "Pyt\u2019-Yakh",
+    "city": "Pyt'-Yakh",
     "state": "Khanty-Mansiyskiy Avtonomnyy Okrug-Yugra",
     "country": "Russia"
   },
   {
-    "city": "Pyla\u00eda",
+    "city": "Pylaia",
     "state": "Kentrik\u00ed Makedon\u00eda",
+    "country": "Greece"
+  },
+  {
+    "city": "Pyrgos",
+    "state": "Dytik\u00ed Ell\u00e1da",
     "country": "Greece"
   },
   {
@@ -50,7 +55,7 @@ export const pyCities = [
     "country": "Poland"
   },
   {
-    "city": "Py\u0101pali",
+    "city": "Pyapali",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -70,7 +75,7 @@ export const pyCities = [
     "country": "Belarus"
   },
   {
-    "city": "Py\u0101lakurti",
+    "city": "Pyalakurti",
     "state": "Andhra Pradesh",
     "country": "India"
   }

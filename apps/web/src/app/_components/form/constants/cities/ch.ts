@@ -110,7 +110,7 @@ export const chCities = [
     "country": "Russia"
   },
   {
-    "city": "Chand\u012bgarh",
+    "city": "Chandigarh",
     "state": "Chand\u012bgarh",
     "country": "India"
   },
@@ -165,12 +165,12 @@ export const chCities = [
     "country": "Moldova"
   },
   {
-    "city": "Ch\u2019\u014fngjin",
+    "city": "Ch'ongjin",
     "state": "Hambuk",
     "country": "Korea, North"
   },
   {
-    "city": "Ch\u2019\u014fnan",
+    "city": "Ch'onan",
     "state": "Chungnam",
     "country": "Korea, South"
   },
@@ -190,7 +190,7 @@ export const chCities = [
     "country": "China"
   },
   {
-    "city": "Chimalhuac\u00e1n",
+    "city": "Chimalhuacan",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
@@ -200,7 +200,7 @@ export const chCities = [
     "country": "Peru"
   },
   {
-    "city": "Chang\u2019an",
+    "city": "Chang'an",
     "state": "Hunan",
     "country": "China"
   },
@@ -245,7 +245,7 @@ export const chCities = [
     "country": "Zimbabwe"
   },
   {
-    "city": "Ch\u0101nda",
+    "city": "Chanda",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -355,7 +355,7 @@ export const chCities = [
     "country": "Mozambique"
   },
   {
-    "city": "Ch\u014dfugaoka",
+    "city": "Chofugaoka",
     "state": "T\u014dky\u014d",
     "country": "Japan"
   },
@@ -380,17 +380,17 @@ export const chCities = [
     "country": "Taiwan"
   },
   {
-    "city": "Chu\u0101d\u0101nga",
+    "city": "Chuadanga",
     "state": "Khulna",
     "country": "Bangladesh"
   },
   {
-    "city": "Chapec\u00f3",
+    "city": "Chapeco",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
   {
-    "city": "Ch\u00ed Linh",
+    "city": "Chi Linh",
     "state": "H\u1ea3i D\u01b0\u01a1ng",
     "country": "Vietnam"
   },
@@ -400,7 +400,7 @@ export const chCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Ch\u0101pra",
+    "city": "Chapra",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -410,7 +410,7 @@ export const chCities = [
     "country": "Korea, South"
   },
   {
-    "city": "Chhindw\u0101ra",
+    "city": "Chhindwara",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -430,12 +430,12 @@ export const chCities = [
     "country": "Angola"
   },
   {
-    "city": "Ch\u014fngju",
+    "city": "Chongju",
     "state": "P\u2019y\u014fngbuk",
     "country": "Korea, North"
   },
   {
-    "city": "Chaed\u014fk",
+    "city": "Chaedok",
     "state": "Hambuk",
     "country": "Korea, North"
   },
@@ -450,12 +450,12 @@ export const chCities = [
     "country": "Mexico"
   },
   {
-    "city": "Ch\u012br\u0101la",
+    "city": "Chirala",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Ch\u016b\u014d-ku",
+    "city": "Chuo-ku",
     "state": "T\u014dky\u014d",
     "country": "Japan"
   },
@@ -470,7 +470,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Chill\u00e1n",
+    "city": "Chillan",
     "state": "\u00d1uble",
     "country": "Chile"
   },
@@ -485,7 +485,7 @@ export const chCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Ch\u00e2u \u0110\u1ed1c",
+    "city": "Chau Doc",
     "state": "An Giang",
     "country": "Vietnam"
   },
@@ -530,7 +530,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Chech\u2019\u014fn",
+    "city": "Chech'on",
     "state": "Chungbuk",
     "country": "Korea, South"
   },
@@ -540,7 +540,7 @@ export const chCities = [
     "country": "Angola"
   },
   {
-    "city": "Chittandikavundan\u016br",
+    "city": "Chittandikavundanur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -560,7 +560,7 @@ export const chCities = [
     "country": "Mexico"
   },
   {
-    "city": "Ch\u0101s",
+    "city": "Chas",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -570,7 +570,7 @@ export const chCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Ch\u00eda",
+    "city": "Chia",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
@@ -585,22 +585,22 @@ export const chCities = [
     "country": "Nicaragua"
   },
   {
-    "city": "Ch\u01a1n Th\u00e0nh",
+    "city": "Chon Thanh",
     "state": "B\u00ecnh Ph\u01b0\u1edbc",
     "country": "Vietnam"
   },
   {
-    "city": "Ch\u2019ungmu",
+    "city": "Ch'ungmu",
     "state": "Gyeongnam",
     "country": "Korea, South"
   },
   {
-    "city": "Chilapa de \u00c1lvarez",
+    "city": "Chilapa de Alvarez",
     "state": "Guerrero",
     "country": "Mexico"
   },
   {
-    "city": "Chikmagal\u016br",
+    "city": "Chikmagalur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -630,7 +630,7 @@ export const chCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Chil\u00f3n",
+    "city": "Chilon",
     "state": "Chiapas",
     "country": "Mexico"
   },
@@ -665,7 +665,7 @@ export const chCities = [
     "country": "China"
   },
   {
-    "city": "Ch\u0101bah\u0101r",
+    "city": "Chabahar",
     "state": "S\u012bst\u0101n va Bal\u016bchest\u0101n",
     "country": "Iran"
   },
@@ -675,7 +675,7 @@ export const chCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Chorz\u00f3w",
+    "city": "Chorzow",
     "state": "\u015al\u0105skie",
     "country": "Poland"
   },
@@ -705,7 +705,7 @@ export const chCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Chilakal\u016brupet",
+    "city": "Chilakalurupet",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -740,12 +740,12 @@ export const chCities = [
     "country": "Japan"
   },
   {
-    "city": "Ch\u0101r\u012bk\u0101r",
+    "city": "Charikar",
     "state": "Parw\u0101n",
     "country": "Afghanistan"
   },
   {
-    "city": "Ch\u0101kdaha",
+    "city": "Chakdaha",
     "state": "West Bengal",
     "country": "India"
   },
@@ -815,7 +815,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Chiquinquir\u00e1",
+    "city": "Chiquinquira",
     "state": "Boyac\u00e1",
     "country": "Colombia"
   },
@@ -825,7 +825,7 @@ export const chCities = [
     "country": "Zambia"
   },
   {
-    "city": "Chigorod\u00f3",
+    "city": "Chigorodo",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -845,7 +845,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Chelghoum el A\u00efd",
+    "city": "Chelghoum el Aid",
     "state": "Mila",
     "country": "Algeria"
   },
@@ -895,7 +895,7 @@ export const chCities = [
     "country": "France"
   },
   {
-    "city": "Chal\u00e1ndri",
+    "city": "Chalandri",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -905,12 +905,12 @@ export const chCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Chint\u0101mani",
+    "city": "Chintamani",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Ch\u00e2teauguay",
+    "city": "Chateauguay",
     "state": "Quebec",
     "country": "Canada"
   },
@@ -945,12 +945,12 @@ export const chCities = [
     "country": "Russia"
   },
   {
-    "city": "Chakl\u0101si",
+    "city": "Chaklasi",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Chiry\u016b",
+    "city": "Chiryu",
     "state": "Aichi",
     "country": "Japan"
   },
@@ -1025,7 +1025,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Chokw\u00e9",
+    "city": "Chokwe",
     "state": "Gaza",
     "country": "Mozambique"
   },
@@ -1035,7 +1035,7 @@ export const chCities = [
     "country": "Peru"
   },
   {
-    "city": "Chik Ball\u0101pur",
+    "city": "Chik Ballapur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1050,7 +1050,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Ch\u0101mr\u0101jnagar",
+    "city": "Chamrajnagar",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1060,22 +1060,22 @@ export const chCities = [
     "country": "Russia"
   },
   {
-    "city": "Chandralap\u0101du",
+    "city": "Chandralapadu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Chamb\u00e9ry",
+    "city": "Chambery",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
   {
-    "city": "Che\u0142m",
+    "city": "Chelm",
     "state": "Lubelskie",
     "country": "Poland"
   },
   {
-    "city": "Chalk\u00edda",
+    "city": "Chalkida",
     "state": "Stere\u00e1 Ell\u00e1da",
     "country": "Greece"
   },
@@ -1155,7 +1155,7 @@ export const chCities = [
     "country": "United States"
   },
   {
-    "city": "Ch\u0101lil",
+    "city": "Chalil",
     "state": "Kerala",
     "country": "India"
   },
@@ -1200,7 +1200,7 @@ export const chCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Ch\u00e8ddra",
+    "city": "Cheddra",
     "state": "Barh-El-Gazel",
     "country": "Chad"
   },
@@ -1220,7 +1220,7 @@ export const chCities = [
     "country": "France"
   },
   {
-    "city": "Chani\u00e1",
+    "city": "Chania",
     "state": "Kr\u00edti",
     "country": "Greece"
   },
@@ -1250,12 +1250,12 @@ export const chCities = [
     "country": "Russia"
   },
   {
-    "city": "Chinchin\u00e1",
+    "city": "Chinchina",
     "state": "Caldas",
     "country": "Colombia"
   },
   {
-    "city": "Chinnaman\u016br",
+    "city": "Chinnamanur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1265,7 +1265,7 @@ export const chCities = [
     "country": "Cambodia"
   },
   {
-    "city": "Chin\u00fa",
+    "city": "Chinu",
     "state": "C\u00f3rdoba",
     "country": "Colombia"
   },
@@ -1280,7 +1280,7 @@ export const chCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Chatr\u0101",
+    "city": "Chatra",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -1290,7 +1290,7 @@ export const chCities = [
     "country": "Tanzania"
   },
   {
-    "city": "Chah\u0101r Dangeh",
+    "city": "Chahar Dangeh",
     "state": "Tehr\u0101n",
     "country": "Iran"
   },
@@ -1300,7 +1300,7 @@ export const chCities = [
     "country": "United States"
   },
   {
-    "city": "Changy\u014fn",
+    "city": "Changyon",
     "state": "Hwangnam",
     "country": "Korea, North"
   },
@@ -1315,7 +1315,7 @@ export const chCities = [
     "country": "Italy"
   },
   {
-    "city": "Chh\u0101galn\u0101iya",
+    "city": "Chhagalnaiya",
     "state": "Chattogram",
     "country": "Bangladesh"
   },
@@ -1325,7 +1325,7 @@ export const chCities = [
     "country": "Thailand"
   },
   {
-    "city": "Chandr\u0101w\u0101da",
+    "city": "Chandrawada",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -1340,7 +1340,7 @@ export const chCities = [
     "country": "Italy"
   },
   {
-    "city": "Changan\u0101cheri",
+    "city": "Changanacheri",
     "state": "Kerala",
     "country": "India"
   },
@@ -1350,12 +1350,12 @@ export const chCities = [
     "country": "Colombia"
   },
   {
-    "city": "Chenalh\u00f3",
+    "city": "Chenalho",
     "state": "Chiapas",
     "country": "Mexico"
   },
   {
-    "city": "Cha\u00efd\u00e1ri",
+    "city": "Chaidari",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -1365,12 +1365,12 @@ export const chCities = [
     "country": "Czechia"
   },
   {
-    "city": "Charleville-M\u00e9zi\u00e8res",
+    "city": "Charleville-Mezieres",
     "state": "Grand Est",
     "country": "France"
   },
   {
-    "city": "Chitr\u00e9",
+    "city": "Chitre",
     "state": "Herrera",
     "country": "Panama"
   },
@@ -1380,12 +1380,12 @@ export const chCities = [
     "country": "France"
   },
   {
-    "city": "Chep\u00e9n",
+    "city": "Chepen",
     "state": "La Libertad",
     "country": "Peru"
   },
   {
-    "city": "Chajar\u00ed",
+    "city": "Chajari",
     "state": "Entre R\u00edos",
     "country": "Argentina"
   },
@@ -1410,17 +1410,17 @@ export const chCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Chalungalp\u0101dam",
+    "city": "Chalungalpadam",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Chalon-sur-Sa\u00f4ne",
+    "city": "Chalon-sur-Saone",
     "state": "Bourgogne-Franche-Comt\u00e9",
     "country": "France"
   },
   {
-    "city": "Charkhi D\u0101dri",
+    "city": "Charkhi Dadri",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -1440,7 +1440,7 @@ export const chCities = [
     "country": "Burma"
   },
   {
-    "city": "Ch\u00e2lons-en-Champagne",
+    "city": "Chalons-en-Champagne",
     "state": "Grand Est",
     "country": "France"
   },
@@ -1460,12 +1460,12 @@ export const chCities = [
     "country": "United States"
   },
   {
-    "city": "Chicam\u00e1n",
+    "city": "Chicaman",
     "state": "Quich\u00e9",
     "country": "Guatemala"
   },
   {
-    "city": "Ch\u00e2teauroux",
+    "city": "Chateauroux",
     "state": "Centre-Val de Loire",
     "country": "France"
   },
@@ -1480,7 +1480,7 @@ export const chCities = [
     "country": "Morocco"
   },
   {
-    "city": "Cherupulassh\u0113ri",
+    "city": "Cherupulassheri",
     "state": "Kerala",
     "country": "India"
   },
@@ -1495,7 +1495,7 @@ export const chCities = [
     "country": "Cuba"
   },
   {
-    "city": "Channar\u0101yapatna",
+    "city": "Channarayapatna",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1585,7 +1585,7 @@ export const chCities = [
     "country": "United States"
   },
   {
-    "city": "Cheyy\u0101r",
+    "city": "Cheyyar",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1595,12 +1595,12 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Chun\u0101r",
+    "city": "Chunar",
     "state": "Uttar Pradesh",
     "country": "India"
   },
   {
-    "city": "Chork\u016dh",
+    "city": "Chorkuh",
     "state": "Sughd",
     "country": "Tajikistan"
   },
@@ -1615,7 +1615,7 @@ export const chCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Ch\u00e2tillon",
+    "city": "Chatillon",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -1635,7 +1635,7 @@ export const chCities = [
     "country": "United States"
   },
   {
-    "city": "Ch\u00e2telet",
+    "city": "Chatelet",
     "state": "Wallonia",
     "country": "Belgium"
   },
@@ -1660,7 +1660,7 @@ export const chCities = [
     "country": "Italy"
   },
   {
-    "city": "Ch\u012bt\u0101pur",
+    "city": "Chitapur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1685,7 +1685,7 @@ export const chCities = [
     "country": "Bangladesh"
   },
   {
-    "city": "Chrzan\u00f3w",
+    "city": "Chrzanow",
     "state": "Ma\u0142opolskie",
     "country": "Poland"
   },
@@ -1705,7 +1705,7 @@ export const chCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Chipl\u016bn",
+    "city": "Chiplun",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -1715,7 +1715,7 @@ export const chCities = [
     "country": "Zimbabwe"
   },
   {
-    "city": "Ch\u00e2tenay-Malabry",
+    "city": "Chatenay-Malabry",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -1735,12 +1735,12 @@ export const chCities = [
     "country": "Argentina"
   },
   {
-    "city": "Chascom\u00fas",
+    "city": "Chascomus",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
   {
-    "city": "Ch\u0101vakk\u0101d",
+    "city": "Chavakkad",
     "state": "Kerala",
     "country": "India"
   },
@@ -1790,7 +1790,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Ch\u0113manch\u0113ri",
+    "city": "Chemancheri",
     "state": "Kerala",
     "country": "India"
   },
@@ -1810,7 +1810,7 @@ export const chCities = [
     "country": "Peru"
   },
   {
-    "city": "Chich\u00e9",
+    "city": "Chiche",
     "state": "Quich\u00e9",
     "country": "Guatemala"
   },
@@ -1835,7 +1835,7 @@ export const chCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Charth\u0101wal",
+    "city": "Charthawal",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -1845,7 +1845,7 @@ export const chCities = [
     "country": "Canada"
   },
   {
-    "city": "Ch\u00e2tellerault",
+    "city": "Chatellerault",
     "state": "Nouvelle-Aquitaine",
     "country": "France"
   },
@@ -1875,17 +1875,17 @@ export const chCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Champot\u00f3n",
+    "city": "Champoton",
     "state": "Campeche",
     "country": "Mexico"
   },
   {
-    "city": "Cholarg\u00f3s",
+    "city": "Cholargos",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
   {
-    "city": "Chinn\u0101lapatti",
+    "city": "Chinnalapatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1895,7 +1895,7 @@ export const chCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Ch\u016b\u014d",
+    "city": "Chuo",
     "state": "Yamanashi",
     "country": "Japan"
   },
@@ -1910,7 +1910,7 @@ export const chCities = [
     "country": "Colombia"
   },
   {
-    "city": "Chim\u0101kurti",
+    "city": "Chimakurti",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1920,7 +1920,7 @@ export const chCities = [
     "country": "Algeria"
   },
   {
-    "city": "Chmist\u00e2r",
+    "city": "Chmistar",
     "state": "Baalbek-Hermel",
     "country": "Lebanon"
   },
@@ -1950,7 +1950,7 @@ export const chCities = [
     "country": "Japan"
   },
   {
-    "city": "Chikn\u0101yakanhalli",
+    "city": "Chiknayakanhalli",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -2015,7 +2015,7 @@ export const chCities = [
     "country": "United States"
   },
   {
-    "city": "Charkh\u0101ri",
+    "city": "Charkhari",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -2025,7 +2025,7 @@ export const chCities = [
     "country": "United States"
   },
   {
-    "city": "Chill\u00e1n Viejo",
+    "city": "Chillan Viejo",
     "state": "\u00d1uble",
     "country": "Chile"
   },
@@ -2040,17 +2040,17 @@ export const chCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Chiriguan\u00e1",
+    "city": "Chiriguana",
     "state": "Cesar",
     "country": "Colombia"
   },
   {
-    "city": "Ch\u00edos",
+    "city": "Chios",
     "state": "V\u00f3reio Aiga\u00edo",
     "country": "Greece"
   },
   {
-    "city": "Chettip\u0101laiyam",
+    "city": "Chettipalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2070,7 +2070,7 @@ export const chCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Cheranall\u016br",
+    "city": "Cheranallur",
     "state": "Kerala",
     "country": "India"
   },
@@ -2090,7 +2090,7 @@ export const chCities = [
     "country": "China"
   },
   {
-    "city": "Chintalap\u016bdi",
+    "city": "Chintalapudi",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2130,7 +2130,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Chengann\u016br",
+    "city": "Chengannur",
     "state": "Kerala",
     "country": "India"
   },
@@ -2140,12 +2140,12 @@ export const chCities = [
     "country": "France"
   },
   {
-    "city": "Chocont\u00e1",
+    "city": "Choconta",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
   {
-    "city": "Chardonni\u00e8res",
+    "city": "Chardonnieres",
     "state": "Sud",
     "country": "Haiti"
   },
@@ -2165,7 +2165,7 @@ export const chCities = [
     "country": "Armenia"
   },
   {
-    "city": "Ch\u0101nasma",
+    "city": "Chanasma",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -2180,7 +2180,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Cheruv\u0101ranam",
+    "city": "Cheruvaranam",
     "state": "Kerala",
     "country": "India"
   },
@@ -2255,7 +2255,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Cheri\u0101l",
+    "city": "Cherial",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -2270,7 +2270,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Cholavand\u0101n",
+    "city": "Cholavandan",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2285,7 +2285,7 @@ export const chCities = [
     "country": "France"
   },
   {
-    "city": "Chavassh\u0113ri",
+    "city": "Chavassheri",
     "state": "Kerala",
     "country": "India"
   },
@@ -2330,7 +2330,7 @@ export const chCities = [
     "country": "United States"
   },
   {
-    "city": "Ch\u0101kia",
+    "city": "Chakia",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2340,7 +2340,7 @@ export const chCities = [
     "country": "United States"
   },
   {
-    "city": "Chalchihuit\u00e1n",
+    "city": "Chalchihuitan",
     "state": "Chiapas",
     "country": "Mexico"
   },
@@ -2360,12 +2360,12 @@ export const chCities = [
     "country": "Mexico"
   },
   {
-    "city": "Chimor\u00e9",
+    "city": "Chimore",
     "state": "Cochabamba",
     "country": "Bolivia"
   },
   {
-    "city": "Ch\u0101gallu",
+    "city": "Chagallu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2405,17 +2405,17 @@ export const chCities = [
     "country": "Russia"
   },
   {
-    "city": "Ch\u0101galamarri",
+    "city": "Chagalamarri",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Chorw\u0101d",
+    "city": "Chorwad",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Chocam\u00e1n",
+    "city": "Chocaman",
     "state": "Veracruz",
     "country": "Mexico"
   },
@@ -2435,7 +2435,7 @@ export const chCities = [
     "country": "Belgium"
   },
   {
-    "city": "Ch\u1ee3 Ph\u01b0\u1edbc H\u1ea3i",
+    "city": "Cho Phuoc Hai",
     "state": "B\u00e0 R\u1ecba-V\u0169ng T\u00e0u",
     "country": "Vietnam"
   },
@@ -2460,7 +2460,7 @@ export const chCities = [
     "country": "Mexico"
   },
   {
-    "city": "Chapulhuac\u00e1n",
+    "city": "Chapulhuacan",
     "state": "Hidalgo",
     "country": "Mexico"
   },
@@ -2470,7 +2470,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Ch\u00e3 Grande",
+    "city": "Cha Grande",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -2510,12 +2510,12 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Ch\u0101ndpur",
+    "city": "Chandpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Chimth\u0101na",
+    "city": "Chimthana",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -2535,7 +2535,7 @@ export const chCities = [
     "country": "France"
   },
   {
-    "city": "Chati\u0101",
+    "city": "Chatia",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2570,7 +2570,7 @@ export const chCities = [
     "country": "Algeria"
   },
   {
-    "city": "Chetich\u0113ri",
+    "city": "Cheticheri",
     "state": "Kerala",
     "country": "India"
   },
@@ -2580,27 +2580,27 @@ export const chCities = [
     "country": "Italy"
   },
   {
-    "city": "Chenn\u012brkara",
+    "city": "Chennirkara",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Chaut\u0101pal",
+    "city": "Chautapal",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Cher\u00e1n",
+    "city": "Cheran",
     "state": "Michoac\u00e1n",
     "country": "Mexico"
   },
   {
-    "city": "Chinna Ganj\u0101m",
+    "city": "Chinna Ganjam",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Chapada dos Guimar\u00e3es",
+    "city": "Chapada dos Guimaraes",
     "state": "Mato Grosso",
     "country": "Brazil"
   },
@@ -2610,12 +2610,12 @@ export const chCities = [
     "country": "Venezuela"
   },
   {
-    "city": "Chilk\u016bru",
+    "city": "Chilkuru",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Che\u0142mno",
+    "city": "Chelmno",
     "state": "Kujawsko-Pomorskie",
     "country": "Poland"
   },
@@ -2625,12 +2625,12 @@ export const chCities = [
     "country": "United States"
   },
   {
-    "city": "Chogh\u0101dak",
+    "city": "Choghadak",
     "state": "B\u016bshehr",
     "country": "Iran"
   },
   {
-    "city": "Ch\u0101k\u016br",
+    "city": "Chakur",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -2650,12 +2650,12 @@ export const chCities = [
     "country": "Hong Kong"
   },
   {
-    "city": "Chennevi\u00e8res-sur-Marne",
+    "city": "Chennevieres-sur-Marne",
     "state": "\u00cele-de-France",
     "country": "France"
   },
   {
-    "city": "Chhoti S\u0101dri",
+    "city": "Chhoti Sadri",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -2665,7 +2665,7 @@ export const chCities = [
     "country": "Haiti"
   },
   {
-    "city": "Chodzie\u017c",
+    "city": "Chodziez",
     "state": "Wielkopolskie",
     "country": "Poland"
   },
@@ -2675,12 +2675,12 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Ch\u00e2teauneuf-les-Martigues",
+    "city": "Chateauneuf-les-Martigues",
     "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
     "country": "France"
   },
   {
-    "city": "Chorti\u00e1tis",
+    "city": "Chortiatis",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
@@ -2705,7 +2705,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Chamali\u00e8res",
+    "city": "Chamalieres",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
@@ -2720,7 +2720,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Ch\u0101rip\u0101ra",
+    "city": "Charipara",
     "state": "Odisha",
     "country": "India"
   },
@@ -2760,7 +2760,7 @@ export const chCities = [
     "country": "Ethiopia"
   },
   {
-    "city": "Chavara Gr\u0101mam",
+    "city": "Chavara Gramam",
     "state": "Kerala",
     "country": "India"
   },
@@ -2785,12 +2785,12 @@ export const chCities = [
     "country": "Mexico"
   },
   {
-    "city": "Chal\u0101la",
+    "city": "Chalala",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Ch\u00e2teaurenard",
+    "city": "Chateaurenard",
     "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
     "country": "France"
   },
@@ -2820,12 +2820,12 @@ export const chCities = [
     "country": "Brazil"
   },
   {
-    "city": "Chettin\u0101yakkanpatti",
+    "city": "Chettinayakkanpatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Chin\u00e1cota",
+    "city": "Chinacota",
     "state": "Norte de Santander",
     "country": "Colombia"
   },
@@ -2835,7 +2835,7 @@ export const chCities = [
     "country": "China"
   },
   {
-    "city": "Cher\u0101n",
+    "city": "Cheran",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2845,7 +2845,7 @@ export const chCities = [
     "country": "United States"
   },
   {
-    "city": "Chot\u0101la",
+    "city": "Chotala",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -2855,7 +2855,7 @@ export const chCities = [
     "country": "Algeria"
   },
   {
-    "city": "Chenn\u016br",
+    "city": "Chennur",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2880,7 +2880,7 @@ export const chCities = [
     "country": "Thailand"
   },
   {
-    "city": "Chilgaz\u00ed",
+    "city": "Chilgazi",
     "state": "Sughd",
     "country": "Tajikistan"
   },
@@ -2905,7 +2905,7 @@ export const chCities = [
     "country": "Colombia"
   },
   {
-    "city": "Chhapra Bah\u0101s",
+    "city": "Chhapra Bahas",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2935,17 +2935,17 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Chembagar\u0101manpud\u016br",
+    "city": "Chembagaramanpudur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Chamgard\u0101n",
+    "city": "Chamgardan",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Chitt\u016br",
+    "city": "Chittur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2955,17 +2955,17 @@ export const chCities = [
     "country": "United States"
   },
   {
-    "city": "Chilamatt\u016bru",
+    "city": "Chilamatturu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Chokkan\u0101thapuram",
+    "city": "Chokkanathapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Chh\u0101jli",
+    "city": "Chhajli",
     "state": "Punjab",
     "country": "India"
   },
@@ -2995,12 +2995,12 @@ export const chCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Char\u0101m",
+    "city": "Charam",
     "state": "Kohg\u012bl\u016byeh va Bowyer A\u1e29mad",
     "country": "Iran"
   },
   {
-    "city": "Ch\u00e2teau-Thierry",
+    "city": "Chateau-Thierry",
     "state": "Hauts-de-France",
     "country": "France"
   },
@@ -3030,7 +3030,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Ch\u00e9pica",
+    "city": "Chepica",
     "state": "Libertador General Bernardo O\u2019Higgins",
     "country": "Chile"
   },
@@ -3050,12 +3050,12 @@ export const chCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Chryso\u00fapoli",
+    "city": "Chrysoupoli",
     "state": "Anatolik\u00ed Makedon\u00eda kai Thr\u00e1ki",
     "country": "Greece"
   },
   {
-    "city": "Ch\u0101ndi",
+    "city": "Chandi",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -3075,12 +3075,12 @@ export const chCities = [
     "country": "Mexico"
   },
   {
-    "city": "Champ\u0101pur",
+    "city": "Champapur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Ch\u0101il\u0101ha",
+    "city": "Chailaha",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -3090,7 +3090,7 @@ export const chCities = [
     "country": "Russia"
   },
   {
-    "city": "Ch\u012bpurupalle",
+    "city": "Chipurupalle",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -3120,7 +3120,7 @@ export const chCities = [
     "country": "Algeria"
   },
   {
-    "city": "Chh\u0101pia",
+    "city": "Chhapia",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -3135,12 +3135,12 @@ export const chCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Chinnav\u0101dampatti",
+    "city": "Chinnavadampatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Chen\u00f4ve",
+    "city": "Chenove",
     "state": "Bourgogne-Franche-Comt\u00e9",
     "country": "France"
   },
@@ -3150,12 +3150,12 @@ export const chCities = [
     "country": "United States"
   },
   {
-    "city": "Ch\u00e2teau-d\u2019Olonne",
+    "city": "Chateau-d'Olonne",
     "state": "Pays de la Loire",
     "country": "France"
   },
   {
-    "city": "Chik B\u0101navar",
+    "city": "Chik Banavar",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -3175,7 +3175,7 @@ export const chCities = [
     "country": "Mexico"
   },
   {
-    "city": "Chikhli Kal\u0101n",
+    "city": "Chikhli Kalan",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -3210,7 +3210,7 @@ export const chCities = [
     "country": "United States"
   },
   {
-    "city": "Ch\u0101pr\u0101",
+    "city": "Chapra",
     "state": "West Bengal",
     "country": "India"
   },
@@ -3220,7 +3220,7 @@ export const chCities = [
     "country": "Mexico"
   },
   {
-    "city": "Che\u0142m\u017ca",
+    "city": "Chelmza",
     "state": "Kujawsko-Pomorskie",
     "country": "Poland"
   },
@@ -3230,7 +3230,7 @@ export const chCities = [
     "country": "China"
   },
   {
-    "city": "Chaug\u0101in",
+    "city": "Chaugain",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -3250,7 +3250,7 @@ export const chCities = [
     "country": "China"
   },
   {
-    "city": "Chity\u0101l",
+    "city": "Chityal",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -3265,7 +3265,7 @@ export const chCities = [
     "country": "Japan"
   },
   {
-    "city": "Ch\u014dsei",
+    "city": "Chosei",
     "state": "Chiba",
     "country": "Japan"
   },
@@ -3285,7 +3285,7 @@ export const chCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Chim\u00e1",
+    "city": "Chima",
     "state": "C\u00f3rdoba",
     "country": "Colombia"
   },
@@ -3300,12 +3300,12 @@ export const chCities = [
     "country": "Mexico"
   },
   {
-    "city": "Chembrassh\u0113ri",
+    "city": "Chembrassheri",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Chinna Mushidiv\u0101da",
+    "city": "Chinna Mushidivada",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -3320,7 +3320,7 @@ export const chCities = [
     "country": "Algeria"
   },
   {
-    "city": "Ch\u012bmalap\u0101du",
+    "city": "Chimalapadu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -3370,7 +3370,7 @@ export const chCities = [
     "country": "United States"
   },
   {
-    "city": "Cha\u00f1aral",
+    "city": "Chanaral",
     "state": "Atacama",
     "country": "Chile"
   },
@@ -3400,7 +3400,7 @@ export const chCities = [
     "country": "Russia"
   },
   {
-    "city": "Char\u0101bidya",
+    "city": "Charabidya",
     "state": "West Bengal",
     "country": "India"
   },
@@ -3410,22 +3410,22 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Chh\u0101ra",
+    "city": "Chhara",
     "state": "Hary\u0101na",
     "country": "India"
   },
   {
-    "city": "Ch\u0101walh\u0101ti",
+    "city": "Chawalhati",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Ch\u00e3 da Alegria",
+    "city": "Cha da Alegria",
     "state": "Pernambuco",
     "country": "Brazil"
   },
   {
-    "city": "Ch\u0101ng",
+    "city": "Chang",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -3445,12 +3445,12 @@ export const chCities = [
     "country": "Argentina"
   },
   {
-    "city": "Ch\u00e2teaudun",
+    "city": "Chateaudun",
     "state": "Centre-Val de Loire",
     "country": "France"
   },
   {
-    "city": "Ch\u1ee3 M\u1edbi",
+    "city": "Cho Moi",
     "state": "An Giang",
     "country": "Vietnam"
   },
@@ -3475,12 +3475,12 @@ export const chCities = [
     "country": "Georgia"
   },
   {
-    "city": "Chinnakk\u0101mp\u0101laiyam",
+    "city": "Chinnakkampalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Chojn\u00f3w",
+    "city": "Chojnow",
     "state": "Dolno\u015bl\u0105skie",
     "country": "Poland"
   },
@@ -3495,12 +3495,12 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Ch\u0101hatpur",
+    "city": "Chahatpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Chinna Gollap\u0101lem",
+    "city": "Chinna Gollapalem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -3510,7 +3510,7 @@ export const chCities = [
     "country": "Czechia"
   },
   {
-    "city": "Ch\u00e2lette-sur-Loing",
+    "city": "Chalette-sur-Loing",
     "state": "Centre-Val de Loire",
     "country": "France"
   },
@@ -3520,7 +3520,7 @@ export const chCities = [
     "country": "Thailand"
   },
   {
-    "city": "Ch\u00fcy",
+    "city": "Chuy",
     "state": "Ch\u00fcy",
     "country": "Kyrgyzstan"
   },
@@ -3535,12 +3535,12 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Chropacz\u00f3w",
+    "city": "Chropaczow",
     "state": "\u015al\u0105skie",
     "country": "Poland"
   },
   {
-    "city": "Chandw\u0101",
+    "city": "Chandwa",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -3565,12 +3565,12 @@ export const chCities = [
     "country": "Japan"
   },
   {
-    "city": "Champ\u0101d\u0101nga",
+    "city": "Champadanga",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Chab\u0101l Kal\u0101n",
+    "city": "Chabal Kalan",
     "state": "Punjab",
     "country": "India"
   },
@@ -3585,7 +3585,7 @@ export const chCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Chachag\u00fc\u00ed",
+    "city": "Chachagui",
     "state": "Nari\u00f1o",
     "country": "Colombia"
   },
@@ -3605,7 +3605,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Charmah\u012bn",
+    "city": "Charmahin",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
@@ -3615,12 +3615,12 @@ export const chCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Ch\u0101marru",
+    "city": "Chamarru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Ch\u00eane-Bougeries",
+    "city": "Chene-Bougeries",
     "state": "Gen\u00e8ve",
     "country": "Switzerland"
   },
@@ -3630,7 +3630,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Ch\u00e2teaubriant",
+    "city": "Chateaubriant",
     "state": "Pays de la Loire",
     "country": "France"
   },
@@ -3650,12 +3650,12 @@ export const chCities = [
     "country": "Russia"
   },
   {
-    "city": "Chor\u00f3",
+    "city": "Choro",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Ch\u0101mp\u0101h\u0101ti",
+    "city": "Champahati",
     "state": "West Bengal",
     "country": "India"
   },
@@ -3680,12 +3680,12 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Ch\u0101ndpura",
+    "city": "Chandpura",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Chinna Oramp\u0101du",
+    "city": "Chinna Orampadu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -3695,7 +3695,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Ch\u1ee3 L\u00e1ch",
+    "city": "Cho Lach",
     "state": "B\u1ebfn Tre",
     "country": "Vietnam"
   },
@@ -3710,7 +3710,7 @@ export const chCities = [
     "country": "Zambia"
   },
   {
-    "city": "Ch\u00e2teau-Gontier",
+    "city": "Chateau-Gontier",
     "state": "Pays de la Loire",
     "country": "France"
   },
@@ -3725,12 +3725,12 @@ export const chCities = [
     "country": "Mexico"
   },
   {
-    "city": "Chin\u0101val",
+    "city": "Chinaval",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
   {
-    "city": "Ch\u0101lt\u0101b\u0101ria",
+    "city": "Chaltabaria",
     "state": "West Bengal",
     "country": "India"
   },
@@ -3745,7 +3745,7 @@ export const chCities = [
     "country": "Belgium"
   },
   {
-    "city": "Ch\u016bndal",
+    "city": "Chundal",
     "state": "Kerala",
     "country": "India"
   },
@@ -3755,7 +3755,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Chitt\u0101ttukara",
+    "city": "Chittattukara",
     "state": "Kerala",
     "country": "India"
   },
@@ -3770,7 +3770,7 @@ export const chCities = [
     "country": "Canada"
   },
   {
-    "city": "Chambray-l\u00e8s-Tours",
+    "city": "Chambray-les-Tours",
     "state": "Centre-Val de Loire",
     "country": "France"
   },
@@ -3780,12 +3780,12 @@ export const chCities = [
     "country": "Russia"
   },
   {
-    "city": "Chenn\u016br",
+    "city": "Chennur",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Chintalav\u0101di",
+    "city": "Chintalavadi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3830,7 +3830,7 @@ export const chCities = [
     "country": "Russia"
   },
   {
-    "city": "Cherlagandlap\u0101lem",
+    "city": "Cherlagandlapalem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -3850,7 +3850,7 @@ export const chCities = [
     "country": "Russia"
   },
   {
-    "city": "Chamest\u0101n",
+    "city": "Chamestan",
     "state": "M\u0101zandar\u0101n",
     "country": "Iran"
   },
@@ -3860,7 +3860,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Chikk\u0101ramp\u0101laiyam",
+    "city": "Chikkarampalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3900,7 +3900,7 @@ export const chCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Chinna Annal\u016bru",
+    "city": "Chinna Annaluru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -3935,12 +3935,12 @@ export const chCities = [
     "country": "United States"
   },
   {
-    "city": "Ch\u0101oke",
+    "city": "Chaoke",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Chinnatad\u0101gam",
+    "city": "Chinnatadagam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3950,12 +3950,12 @@ export const chCities = [
     "country": "United States"
   },
   {
-    "city": "Chiltiup\u00e1n",
+    "city": "Chiltiupan",
     "state": "La Libertad",
     "country": "El Salvador"
   },
   {
-    "city": "Chand\u016br",
+    "city": "Chandur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -3970,12 +3970,12 @@ export const chCities = [
     "country": "Japan"
   },
   {
-    "city": "Chh\u0101t\u0101pur",
+    "city": "Chhatapur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Chiramanang\u0101d",
+    "city": "Chiramanangad",
     "state": "Kerala",
     "country": "India"
   },
@@ -3990,7 +3990,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Choach\u00ed",
+    "city": "Choachi",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
@@ -4000,12 +4000,12 @@ export const chCities = [
     "country": "El Salvador"
   },
   {
-    "city": "Chitt\u0101rkottal",
+    "city": "Chittarkottal",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Chettip\u0101laiyam",
+    "city": "Chettipalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -4035,12 +4035,12 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Chorroch\u00f3",
+    "city": "Chorrocho",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Chitag\u00e1",
+    "city": "Chitaga",
     "state": "Norte de Santander",
     "country": "Colombia"
   },
@@ -4050,7 +4050,7 @@ export const chCities = [
     "country": "Belarus"
   },
   {
-    "city": "Chota Mollakh\u0101li",
+    "city": "Chota Mollakhali",
     "state": "West Bengal",
     "country": "India"
   },
@@ -4085,7 +4085,7 @@ export const chCities = [
     "country": "Chile"
   },
   {
-    "city": "Cheruvann\u016br",
+    "city": "Cheruvannur",
     "state": "Kerala",
     "country": "India"
   },
@@ -4125,7 +4125,7 @@ export const chCities = [
     "country": "France"
   },
   {
-    "city": "Charal\u00e1",
+    "city": "Charala",
     "state": "Santander",
     "country": "Colombia"
   },
@@ -4175,7 +4175,7 @@ export const chCities = [
     "country": "United States"
   },
   {
-    "city": "Charto\u00fbn",
+    "city": "Chartoun",
     "state": "Mont-Liban",
     "country": "Lebanon"
   },
@@ -4205,7 +4205,7 @@ export const chCities = [
     "country": "France"
   },
   {
-    "city": "Ch\u0101kicherla",
+    "city": "Chakicherla",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -4225,7 +4225,7 @@ export const chCities = [
     "country": "Peru"
   },
   {
-    "city": "Cheg\u016br",
+    "city": "Chegur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -4235,7 +4235,7 @@ export const chCities = [
     "country": "Belgium"
   },
   {
-    "city": "Chandanki\u0101ri",
+    "city": "Chandankiari",
     "state": "West Bengal",
     "country": "India"
   },
@@ -4255,7 +4255,7 @@ export const chCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Chak Th\u0101t",
+    "city": "Chak That",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -4340,7 +4340,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Chah\u0101r Borj-e Qad\u012bm",
+    "city": "Chahar Borj-e Qadim",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Gharb\u012b",
     "country": "Iran"
   },
@@ -4350,7 +4350,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Chinn\u0101mp\u0101laiyam",
+    "city": "Chinnampalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -4365,7 +4365,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Chandw\u0101r\u0101",
+    "city": "Chandwara",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -4375,7 +4375,7 @@ export const chCities = [
     "country": "United States"
   },
   {
-    "city": "Chinnakkavundan\u016br",
+    "city": "Chinnakkavundanur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -4385,7 +4385,7 @@ export const chCities = [
     "country": "Brazil"
   },
   {
-    "city": "Chiank\u012b",
+    "city": "Chianki",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -4410,7 +4410,7 @@ export const chCities = [
     "country": "United States"
   },
   {
-    "city": "Chilakh\u0101na",
+    "city": "Chilakhana",
     "state": "West Bengal",
     "country": "India"
   },
@@ -4430,17 +4430,17 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Chalk\u0101ri",
+    "city": "Chalkari",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
   {
-    "city": "Chikk\u0101la",
+    "city": "Chikkala",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Chinn\u0101yag\u016bdem",
+    "city": "Chinnayagudem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -4460,12 +4460,12 @@ export const chCities = [
     "country": "Morocco"
   },
   {
-    "city": "Chitr\u0101da",
+    "city": "Chitrada",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Chot\u011bbo\u0159",
+    "city": "Chotebor",
     "state": "Vyso\u010dina",
     "country": "Czechia"
   },
@@ -4480,12 +4480,12 @@ export const chCities = [
     "country": "United States"
   },
   {
-    "city": "Chal\u00e1stra",
+    "city": "Chalastra",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
   {
-    "city": "Ch\u0101ndpur",
+    "city": "Chandpur",
     "state": "West Bengal",
     "country": "India"
   },
@@ -4495,7 +4495,7 @@ export const chCities = [
     "country": "France"
   },
   {
-    "city": "Ch\u0101rakunda",
+    "city": "Charakunda",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -4510,7 +4510,7 @@ export const chCities = [
     "country": "Chile"
   },
   {
-    "city": "Chi\u0163cani",
+    "city": "Chitcani",
     "state": "St\u00eenga Nistrului",
     "country": "Moldova"
   },
@@ -4520,7 +4520,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Chil\u00f3n",
+    "city": "Chilon",
     "state": "Chiapas",
     "country": "Mexico"
   },
@@ -4535,7 +4535,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Chinna Kalaiyamputt\u016br",
+    "city": "Chinna Kalaiyamputtur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -4560,7 +4560,7 @@ export const chCities = [
     "country": "Belarus"
   },
   {
-    "city": "Chiranell\u016br",
+    "city": "Chiranellur",
     "state": "Kerala",
     "country": "India"
   },
@@ -4575,12 +4575,12 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Ch\u00e9cy",
+    "city": "Checy",
     "state": "Centre-Val de Loire",
     "country": "France"
   },
   {
-    "city": "Ch\u012bchkah",
+    "city": "Chichkah",
     "state": "Kunduz",
     "country": "Afghanistan"
   },
@@ -4610,7 +4610,7 @@ export const chCities = [
     "country": "United States"
   },
   {
-    "city": "Choce\u0148",
+    "city": "Chocen",
     "state": "Pardubick\u00fd Kraj",
     "country": "Czechia"
   },
@@ -4630,12 +4630,12 @@ export const chCities = [
     "country": "Algeria"
   },
   {
-    "city": "Ch\u0101kand",
+    "city": "Chakand",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Che\u0142mek",
+    "city": "Chelmek",
     "state": "Ma\u0142opolskie",
     "country": "Poland"
   },
@@ -4650,7 +4650,7 @@ export const chCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Chak Pah\u0101r",
+    "city": "Chak Pahar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -4675,7 +4675,7 @@ export const chCities = [
     "country": "India"
   },
   {
-    "city": "Ch\u0101np",
+    "city": "Chanp",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -4685,12 +4685,12 @@ export const chCities = [
     "country": "Ghana"
   },
   {
-    "city": "Charu\u0101nw\u0101n",
+    "city": "Charuanwan",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Ch\u0101palamadugu",
+    "city": "Chapalamadugu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -4725,7 +4725,7 @@ export const chCities = [
     "country": "Australia"
   },
   {
-    "city": "Ch\u2019osan-\u016dp",
+    "city": "Ch'osan-up",
     "state": "Chagang",
     "country": "Korea, North"
   },
@@ -4785,7 +4785,7 @@ export const chCities = [
     "country": "Russia"
   },
   {
-    "city": "Chara\u00f1a",
+    "city": "Charana",
     "state": "La Paz",
     "country": "Bolivia"
   },

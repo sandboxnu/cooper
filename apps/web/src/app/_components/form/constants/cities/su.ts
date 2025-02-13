@@ -5,6 +5,11 @@ export const suCities = [
     "country": "Indonesia"
   },
   {
+    "city": "Surat",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
     "city": "Suzhou",
     "state": "Anhui",
     "country": "China"
@@ -90,7 +95,7 @@ export const suCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Sunch\u2019\u014fn",
+    "city": "Sunch'on",
     "state": "P\u2019y\u014fngnam",
     "country": "Korea, North"
   },
@@ -100,7 +105,7 @@ export const suCities = [
     "country": "Russia"
   },
   {
-    "city": "Sumqay\u0131t",
+    "city": "Sumqayit",
     "state": "Sumqay\u0131t",
     "country": "Azerbaijan"
   },
@@ -150,7 +155,7 @@ export const suCities = [
     "country": "Japan"
   },
   {
-    "city": "Sumar\u00e9",
+    "city": "Sumare",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -180,6 +185,11 @@ export const suCities = [
     "country": "Japan"
   },
   {
+    "city": "Suhaj",
+    "state": "S\u016bh\u0101j",
+    "country": "Egypt"
+  },
+  {
     "city": "Suva",
     "state": "Rewa",
     "country": "Fiji"
@@ -195,7 +205,7 @@ export const suCities = [
     "country": "Canada"
   },
   {
-    "city": "Sult\u0101npur Mazra",
+    "city": "Sultanpur Mazra",
     "state": "Delhi",
     "country": "India"
   },
@@ -235,7 +245,7 @@ export const suCities = [
     "country": "Ghana"
   },
   {
-    "city": "Sun\u0101m",
+    "city": "Sunam",
     "state": "Punjab",
     "country": "India"
   },
@@ -255,12 +265,12 @@ export const suCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Sult\u0101npur",
+    "city": "Sultanpur",
     "state": "Uttar Pradesh",
     "country": "India"
   },
   {
-    "city": "Suri\u0101pet",
+    "city": "Suriapet",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -270,13 +280,18 @@ export const suCities = [
     "country": "Philippines"
   },
   {
-    "city": "Suru\u00e7",
+    "city": "Suruc",
     "state": "\u015eanl\u0131urfa",
     "country": "Turkey"
   },
   {
     "city": "Sundarnagar",
     "state": "Him\u0101chal Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Sujangarh",
+    "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
   {
@@ -295,7 +310,7 @@ export const suCities = [
     "country": "Turkey"
   },
   {
-    "city": "Suram\u0101la",
+    "city": "Suramala",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -355,7 +370,12 @@ export const suCities = [
     "country": "United States"
   },
   {
-    "city": "Suwa\u0142ki",
+    "city": "Suratgarh",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
+    "city": "Suwalki",
     "state": "Podlaskie",
     "country": "Poland"
   },
@@ -370,7 +390,7 @@ export const suCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Sundap\u0101laiyam",
+    "city": "Sundapalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -385,7 +405,7 @@ export const suCities = [
     "country": "China"
   },
   {
-    "city": "Suharek\u00eb",
+    "city": "Suhareke",
     "state": "Suharek\u00eb",
     "country": "Kosovo"
   },
@@ -405,9 +425,14 @@ export const suCities = [
     "country": "Philippines"
   },
   {
-    "city": "Sult\u0101nganj",
+    "city": "Sultanganj",
     "state": "Bih\u0101r",
     "country": "India"
+  },
+  {
+    "city": "Susangerd",
+    "state": "Kh\u016bzest\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Summerville",
@@ -415,7 +440,7 @@ export const suCities = [
     "country": "United States"
   },
   {
-    "city": "Sun\u0101mganj",
+    "city": "Sunamganj",
     "state": "Sylhet",
     "country": "Bangladesh"
   },
@@ -425,7 +450,7 @@ export const suCities = [
     "country": "Japan"
   },
   {
-    "city": "Suj\u0101npur",
+    "city": "Sujanpur",
     "state": "Punjab",
     "country": "India"
   },
@@ -480,7 +505,7 @@ export const suCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Sur\u010din",
+    "city": "Surcin",
     "state": "Beograd",
     "country": "Serbia"
   },
@@ -503,6 +528,11 @@ export const suCities = [
     "city": "Sukheke Mandi",
     "state": "Punjab",
     "country": "Pakistan"
+  },
+  {
+    "city": "Surampatti",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Su-ngai Kolok",
@@ -550,7 +580,7 @@ export const suCities = [
     "country": "United States"
   },
   {
-    "city": "Su\u2019ao",
+    "city": "Su'ao",
     "state": "Yilan",
     "country": "Taiwan"
   },
@@ -558,6 +588,11 @@ export const suCities = [
     "city": "Suhl",
     "state": "Thuringia",
     "country": "Germany"
+  },
+  {
+    "city": "Suhut",
+    "state": "Afyonkarahisar",
+    "country": "Turkey"
   },
   {
     "city": "Sunbury",
@@ -573,6 +608,11 @@ export const suCities = [
     "city": "Sungaiselam",
     "state": "Kepulauan Bangka Belitung",
     "country": "Indonesia"
+  },
+  {
+    "city": "Surandai",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Sulop",
@@ -625,6 +665,11 @@ export const suCities = [
     "country": "United States"
   },
   {
+    "city": "Suran",
+    "state": "\u1e28am\u0101h",
+    "country": "Syria"
+  },
+  {
     "city": "Sue",
     "state": "Fukuoka",
     "country": "Japan"
@@ -650,9 +695,19 @@ export const suCities = [
     "country": "France"
   },
   {
-    "city": "Sup\u00eda",
+    "city": "Suluru",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Supia",
     "state": "Caldas",
     "country": "Colombia"
+  },
+  {
+    "city": "Surmene",
+    "state": "Trabzon",
+    "country": "Turkey"
   },
   {
     "city": "Sun City West",
@@ -675,7 +730,7 @@ export const suCities = [
     "country": "Thailand"
   },
   {
-    "city": "Su\u0101r",
+    "city": "Suar",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -685,9 +740,14 @@ export const suCities = [
     "country": "United States"
   },
   {
-    "city": "Su\u015fehri",
+    "city": "Susehri",
     "state": "Sivas",
     "country": "Turkey"
+  },
+  {
+    "city": "Sumperk",
+    "state": "Olomouck\u00fd Kraj",
+    "country": "Czechia"
   },
   {
     "city": "Sultepec",
@@ -710,7 +770,12 @@ export const suCities = [
     "country": "India"
   },
   {
-    "city": "Subaykh\u0101n",
+    "city": "Suleswaranpatti",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Subaykhan",
     "state": "Dayr az Zawr",
     "country": "Syria"
   },
@@ -770,7 +835,7 @@ export const suCities = [
     "country": "United States"
   },
   {
-    "city": "Sulej\u00f3wek",
+    "city": "Sulejowek",
     "state": "Mazowieckie",
     "country": "Poland"
   },
@@ -795,7 +860,7 @@ export const suCities = [
     "country": "India"
   },
   {
-    "city": "Sunb\u0101\u0163",
+    "city": "Sunbat",
     "state": "Al Gharb\u012byah",
     "country": "Egypt"
   },
@@ -835,7 +900,7 @@ export const suCities = [
     "country": "India"
   },
   {
-    "city": "Su\u00e1rez",
+    "city": "Suarez",
     "state": "Cauca",
     "country": "Colombia"
   },
@@ -860,7 +925,12 @@ export const suCities = [
     "country": "United States"
   },
   {
-    "city": "Sukh\u0101san",
+    "city": "Suhbaatar",
+    "state": "Selenge",
+    "country": "Mongolia"
+  },
+  {
+    "city": "Sukhasan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -915,7 +985,7 @@ export const suCities = [
     "country": "Philippines"
   },
   {
-    "city": "Sum\u00e9",
+    "city": "Sume",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -955,8 +1025,13 @@ export const suCities = [
     "country": "Colombia"
   },
   {
-    "city": "Sult\u0101n\u0101b\u0101d",
+    "city": "Sultanabad",
     "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Surappalli",
+    "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
@@ -965,7 +1040,7 @@ export const suCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Sulech\u00f3w",
+    "city": "Sulechow",
     "state": "Lubuskie",
     "country": "Poland"
   },
@@ -975,7 +1050,7 @@ export const suCities = [
     "country": "United States"
   },
   {
-    "city": "Sughr\u0101in",
+    "city": "Sughrain",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -988,6 +1063,11 @@ export const suCities = [
     "city": "Sukth",
     "state": "Durr\u00ebs",
     "country": "Albania"
+  },
+  {
+    "city": "Suchteln",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
   },
   {
     "city": "Summerfield",
@@ -1025,9 +1105,14 @@ export const suCities = [
     "country": "Brazil"
   },
   {
-    "city": "Sultanda\u011f\u0131",
+    "city": "Sultandagi",
     "state": "Afyonkarahisar",
     "country": "Turkey"
+  },
+  {
+    "city": "Suvalan",
+    "state": "Bak\u0131",
+    "country": "Azerbaijan"
   },
   {
     "city": "Sudbury",
@@ -1050,12 +1135,12 @@ export const suCities = [
     "country": "Italy"
   },
   {
-    "city": "Su\u014d-\u014cshima",
+    "city": "Suo-Oshima",
     "state": "Yamaguchi",
     "country": "Japan"
   },
   {
-    "city": "Suw\u0101sra",
+    "city": "Suwasra",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1090,12 +1175,12 @@ export const suCities = [
     "country": "India"
   },
   {
-    "city": "Suknad\u0101nga",
+    "city": "Suknadanga",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Sutih\u0101r",
+    "city": "Sutihar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1110,7 +1195,12 @@ export const suCities = [
     "country": "United States"
   },
   {
-    "city": "Sukh\u0101san",
+    "city": "Suran",
+    "state": "S\u012bst\u0101n va Bal\u016bchest\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Sukhasan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1123,6 +1213,11 @@ export const suCities = [
     "city": "Sunjiayan",
     "state": "Guizhou",
     "country": "China"
+  },
+  {
+    "city": "Suluktu",
+    "state": "Batken",
+    "country": "Kyrgyzstan"
   },
   {
     "city": "Sulingen",
@@ -1190,12 +1285,17 @@ export const suCities = [
     "country": "South Africa"
   },
   {
+    "city": "Sureshjan",
+    "state": "Chah\u0101r Ma\u1e29\u0101l va Bakht\u012b\u0101r\u012b",
+    "country": "Iran"
+  },
+  {
     "city": "Susa",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
   {
-    "city": "Sultanhan\u0131",
+    "city": "Sultanhani",
     "state": "Aksaray",
     "country": "Turkey"
   },
@@ -1230,7 +1330,7 @@ export const suCities = [
     "country": "India"
   },
   {
-    "city": "Sult\u0101npur",
+    "city": "Sultanpur",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1245,7 +1345,7 @@ export const suCities = [
     "country": "United States"
   },
   {
-    "city": "Sult\u0101npur",
+    "city": "Sultanpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1260,7 +1360,7 @@ export const suCities = [
     "country": "United States"
   },
   {
-    "city": "Suc\u00faa",
+    "city": "Sucua",
     "state": "Morona-Santiago",
     "country": "Ecuador"
   },
@@ -1270,7 +1370,7 @@ export const suCities = [
     "country": "United States"
   },
   {
-    "city": "Su\u0161ice",
+    "city": "Susice",
     "state": "Plze\u0148sk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -1285,7 +1385,7 @@ export const suCities = [
     "country": "India"
   },
   {
-    "city": "Suh\u0101gi",
+    "city": "Suhagi",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1293,6 +1393,11 @@ export const suCities = [
     "city": "Surazh",
     "state": "Bryanskaya Oblast\u2019",
     "country": "Russia"
+  },
+  {
+    "city": "Sutculer",
+    "state": "Isparta",
+    "country": "Turkey"
   },
   {
     "city": "Sumner",
@@ -1325,6 +1430,11 @@ export const suCities = [
     "country": "Poland"
   },
   {
+    "city": "Sussen",
+    "state": "Baden-W\u00fcrttemberg",
+    "country": "Germany"
+  },
+  {
     "city": "Sucupira do Norte",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
@@ -1335,12 +1445,17 @@ export const suCities = [
     "country": "India"
   },
   {
+    "city": "Sulagiri",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Sung Noen",
     "state": "Nakhon Ratchasima",
     "country": "Thailand"
   },
   {
-    "city": "Suth\u0101lia",
+    "city": "Suthalia",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1355,9 +1470,19 @@ export const suCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Sul\u0119cin",
+    "city": "Sulecin",
     "state": "Lubuskie",
     "country": "Poland"
+  },
+  {
+    "city": "Sufian",
+    "state": "\u0100z\u0304arb\u0101yj\u0101n-e Sharq\u012b",
+    "country": "Iran"
+  },
+  {
+    "city": "Sundekuppam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Sursee",
@@ -1370,12 +1495,17 @@ export const suCities = [
     "country": "India"
   },
   {
-    "city": "Sult\u0101npur",
+    "city": "Suknah",
+    "state": "Al Jufrah",
+    "country": "Libya"
+  },
+  {
+    "city": "Sultanpur",
     "state": "Uttar\u0101khand",
     "country": "India"
   },
   {
-    "city": "Sur\u012br",
+    "city": "Surir",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -1405,7 +1535,7 @@ export const suCities = [
     "country": "Russia"
   },
   {
-    "city": "Sundarap\u0101ndiyam",
+    "city": "Sundarapandiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1413,6 +1543,21 @@ export const suCities = [
     "city": "Sunbury",
     "state": "Pennsylvania",
     "country": "United States"
+  },
+  {
+    "city": "Sudlohn",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
+    "city": "Sulibele",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Surany",
+    "state": "Nitra",
+    "country": "Slovakia"
   },
   {
     "city": "Sundarsi",
@@ -1435,7 +1580,7 @@ export const suCities = [
     "country": "Colombia"
   },
   {
-    "city": "Suj\u0101pur",
+    "city": "Sujapur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1450,7 +1595,12 @@ export const suCities = [
     "country": "United States"
   },
   {
-    "city": "Sus\u0101ri",
+    "city": "Surak",
+    "state": "M\u0101zandar\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Susari",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1460,7 +1610,7 @@ export const suCities = [
     "country": "Thailand"
   },
   {
-    "city": "Sukk\u0101mpatti",
+    "city": "Sukkampatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1480,7 +1630,7 @@ export const suCities = [
     "country": "Spain"
   },
   {
-    "city": "Suganw\u0101n",
+    "city": "Suganwan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1540,6 +1690,11 @@ export const suCities = [
     "country": "United States"
   },
   {
+    "city": "Susa",
+    "state": "\u015eu\u015fa",
+    "country": "Azerbaijan"
+  },
+  {
     "city": "Susuman",
     "state": "Magadanskaya Oblast\u2019",
     "country": "Russia"
@@ -1548,6 +1703,16 @@ export const suCities = [
     "city": "Susques",
     "state": "Jujuy",
     "country": "Argentina"
+  },
+  {
+    "city": "Sur",
+    "state": "Jan\u016bb ash Sharq\u012byah",
+    "country": "Oman"
+  },
+  {
+    "city": "Suhar",
+    "state": "Sham\u0101l al B\u0101\u0163inah",
+    "country": "Oman"
   },
   {
     "city": "Suai",

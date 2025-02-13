@@ -15,7 +15,7 @@ export const akCities = [
     "country": "China"
   },
   {
-    "city": "Akhm\u012bm",
+    "city": "Akhmim",
     "state": "S\u016bh\u0101j",
     "country": "Egypt"
   },
@@ -40,12 +40,12 @@ export const akCities = [
     "country": "Turkey"
   },
   {
-    "city": "Ak\u00e7aabat",
+    "city": "Akcaabat",
     "state": "Trabzon",
     "country": "Turkey"
   },
   {
-    "city": "Ak\u00e7akale",
+    "city": "Akcakale",
     "state": "\u015eanl\u0131urfa",
     "country": "Turkey"
   },
@@ -55,7 +55,7 @@ export const akCities = [
     "country": "Japan"
   },
   {
-    "city": "Ak\u015fehir",
+    "city": "Aksehir",
     "state": "Konya",
     "country": "Turkey"
   },
@@ -65,7 +65,7 @@ export const akCities = [
     "country": "India"
   },
   {
-    "city": "Akyaz\u0131",
+    "city": "Akyazi",
     "state": "Sakarya",
     "country": "Turkey"
   },
@@ -78,6 +78,11 @@ export const akCities = [
     "city": "Aksu",
     "state": "Antalya",
     "country": "Turkey"
+  },
+  {
+    "city": "Aksum",
+    "state": "Tigray",
+    "country": "Ethiopia"
   },
   {
     "city": "Akurana",
@@ -95,7 +100,7 @@ export const akCities = [
     "country": "Russia"
   },
   {
-    "city": "Akda\u011fmadeni",
+    "city": "Akdagmadeni",
     "state": "Yozgat",
     "country": "Turkey"
   },
@@ -115,7 +120,7 @@ export const akCities = [
     "country": "Turkey"
   },
   {
-    "city": "Ak\u00e7akoca",
+    "city": "Akcakoca",
     "state": "D\u00fczce",
     "country": "Turkey"
   },
@@ -140,7 +145,7 @@ export const akCities = [
     "country": "China"
   },
   {
-    "city": "Ak\u00e7ada\u011f",
+    "city": "Akcadag",
     "state": "Malatya",
     "country": "Turkey"
   },
@@ -160,7 +165,7 @@ export const akCities = [
     "country": "Kazakhstan"
   },
   {
-    "city": "Akiv\u012bdu",
+    "city": "Akividu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -168,6 +173,11 @@ export const akCities = [
     "city": "Akkattettar",
     "state": "Kerala",
     "country": "India"
+  },
+  {
+    "city": "Akersberga",
+    "state": "Stockholm",
+    "country": "Sweden"
   },
   {
     "city": "Akitakata",
@@ -185,7 +195,7 @@ export const akCities = [
     "country": "Ghana"
   },
   {
-    "city": "Akku\u015f",
+    "city": "Akkus",
     "state": "Ordu",
     "country": "Turkey"
   },
@@ -205,7 +215,7 @@ export const akCities = [
     "country": "Iceland"
   },
   {
-    "city": "Akanav\u0101ritota",
+    "city": "Akanavaritota",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -230,7 +240,7 @@ export const akCities = [
     "country": "Japan"
   },
   {
-    "city": "Akamb\u0101dam",
+    "city": "Akambadam",
     "state": "Kerala",
     "country": "India"
   },
@@ -285,7 +295,7 @@ export const akCities = [
     "country": "Turkey"
   },
   {
-    "city": "Akhn\u016br",
+    "city": "Akhnur",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
@@ -315,7 +325,7 @@ export const akCities = [
     "country": "Georgia"
   },
   {
-    "city": "Akal\u0101pura",
+    "city": "Akalapura",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -350,7 +360,7 @@ export const akCities = [
     "country": "Benin"
   },
   {
-    "city": "Ak\u2019ordat",
+    "city": "Ak'ordat",
     "state": "Gash-Barka",
     "country": "Eritrea"
   },
@@ -360,7 +370,7 @@ export const akCities = [
     "country": "Turkey"
   },
   {
-    "city": "Ak\u0101lgarh",
+    "city": "Akalgarh",
     "state": "Punjab",
     "country": "India"
   }

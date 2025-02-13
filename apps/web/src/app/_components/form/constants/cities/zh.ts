@@ -185,7 +185,7 @@ export const zhCities = [
     "country": "China"
   },
   {
-    "city": "Zhanga\u00f6zen",
+    "city": "Zhangaozen",
     "state": "Mangghysta\u016b",
     "country": "Kazakhstan"
   },
@@ -650,7 +650,7 @@ export const zhCities = [
     "country": "China"
   },
   {
-    "city": "Zh\u00e4nibek",
+    "city": "Zhanibek",
     "state": "West Kazakhstan",
     "country": "Kazakhstan"
   },

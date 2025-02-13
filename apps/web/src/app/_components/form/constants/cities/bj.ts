@@ -5,7 +5,7 @@ export const bjCities = [
     "country": "Croatia"
   },
   {
-    "city": "Bj\u00e4rred",
+    "city": "Bjarred",
     "state": "Sk\u00e5ne",
     "country": "Sweden"
   }

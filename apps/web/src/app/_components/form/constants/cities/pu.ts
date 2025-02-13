@@ -130,7 +130,7 @@ export const puCities = [
     "country": "Chile"
   },
   {
-    "city": "Puerto Cort\u00e9s",
+    "city": "Puerto Cortes",
     "state": "Cort\u00e9s",
     "country": "Honduras"
   },
@@ -155,7 +155,7 @@ export const puCities = [
     "country": "Argentina"
   },
   {
-    "city": "Pul-e Khumr\u012b",
+    "city": "Pul-e Khumri",
     "state": "Baghl\u0101n",
     "country": "Afghanistan"
   },
@@ -195,7 +195,7 @@ export const puCities = [
     "country": "Peru"
   },
   {
-    "city": "Puerto Iguaz\u00fa",
+    "city": "Puerto Iguazu",
     "state": "Misiones",
     "country": "Argentina"
   },
@@ -220,12 +220,12 @@ export const puCities = [
     "country": "China"
   },
   {
-    "city": "Pur\u00edsima de Bustos",
+    "city": "Purisima de Bustos",
     "state": "Guanajuato",
     "country": "Mexico"
   },
   {
-    "city": "Puerto San Jos\u00e9",
+    "city": "Puerto San Jose",
     "state": "Escuintla",
     "country": "Guatemala"
   },
@@ -245,22 +245,22 @@ export const puCities = [
     "country": "India"
   },
   {
-    "city": "Purulh\u00e1",
+    "city": "Purulha",
     "state": "Baja Verapaz",
     "country": "Guatemala"
   },
   {
-    "city": "Puerto As\u00eds",
+    "city": "Puerto Asis",
     "state": "Putumayo",
     "country": "Colombia"
   },
   {
-    "city": "Puerto Pe\u00f1asco",
+    "city": "Puerto Penasco",
     "state": "Sonora",
     "country": "Mexico"
   },
   {
-    "city": "Puerto Lim\u00f3n",
+    "city": "Puerto Limon",
     "state": "Lim\u00f3n",
     "country": "Costa Rica"
   },
@@ -275,7 +275,7 @@ export const puCities = [
     "country": "Cambodia"
   },
   {
-    "city": "Puerto Boyac\u00e1",
+    "city": "Puerto Boyaca",
     "state": "Boyac\u00e1",
     "country": "Colombia"
   },
@@ -285,17 +285,17 @@ export const puCities = [
     "country": "Germany"
   },
   {
-    "city": "Puthiyang\u0101di",
+    "city": "Puthiyangadi",
     "state": "Puducherry",
     "country": "India"
   },
   {
-    "city": "Pungan\u016bru",
+    "city": "Punganuru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Putt\u016br",
+    "city": "Puttur",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -305,7 +305,7 @@ export const puCities = [
     "country": "Colombia"
   },
   {
-    "city": "Putt\u016br",
+    "city": "Puttur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -320,7 +320,7 @@ export const puCities = [
     "country": "Ecuador"
   },
   {
-    "city": "Puthuppariy\u0101ram",
+    "city": "Puthuppariyaram",
     "state": "Kerala",
     "country": "India"
   },
@@ -330,7 +330,7 @@ export const puCities = [
     "country": "Honduras"
   },
   {
-    "city": "Punal\u016br",
+    "city": "Punalur",
     "state": "Kerala",
     "country": "India"
   },
@@ -340,7 +340,7 @@ export const puCities = [
     "country": "Bolivia"
   },
   {
-    "city": "Pu\u00f1al",
+    "city": "Punal",
     "state": "Cibao Norte",
     "country": "Dominican Republic"
   },
@@ -355,7 +355,7 @@ export const puCities = [
     "country": "Sri Lanka"
   },
   {
-    "city": "Pu\u0142awy",
+    "city": "Pulawy",
     "state": "Lubelskie",
     "country": "Poland"
   },
@@ -405,7 +405,7 @@ export const puCities = [
     "country": "Costa Rica"
   },
   {
-    "city": "Puerto Gait\u00e1n",
+    "city": "Puerto Gaitan",
     "state": "Meta",
     "country": "Colombia"
   },
@@ -415,7 +415,7 @@ export const puCities = [
     "country": "Russia"
   },
   {
-    "city": "Puerto Berr\u00edo",
+    "city": "Puerto Berrio",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -430,12 +430,17 @@ export const puCities = [
     "country": "India"
   },
   {
-    "city": "Pun\u0101rakh",
+    "city": "Punarakh",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Puerto L\u00f3pez",
+    "city": "Purna",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
+    "city": "Puerto Lopez",
     "state": "Meta",
     "country": "Colombia"
   },
@@ -495,12 +500,12 @@ export const puCities = [
     "country": "United States"
   },
   {
-    "city": "Pur\u0101ini",
+    "city": "Puraini",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Puratt\u016br",
+    "city": "Purattur",
     "state": "Kerala",
     "country": "India"
   },
@@ -530,22 +535,22 @@ export const puCities = [
     "country": "India"
   },
   {
-    "city": "Purificaci\u00f3n",
+    "city": "Purificacion",
     "state": "Tolima",
     "country": "Colombia"
   },
   {
-    "city": "Pueblo Nuevo Vi\u00f1as",
+    "city": "Pueblo Nuevo Vinas",
     "state": "Santa Rosa",
     "country": "Guatemala"
   },
   {
-    "city": "Puc\u00f3n",
+    "city": "Pucon",
     "state": "Araucan\u00eda",
     "country": "Chile"
   },
   {
-    "city": "Puerto Legu\u00edzamo",
+    "city": "Puerto Leguizamo",
     "state": "Putumayo",
     "country": "Colombia"
   },
@@ -575,12 +580,17 @@ export const puCities = [
     "country": "Colombia"
   },
   {
+    "city": "Punch",
+    "state": "Jammu and Kashm\u012br",
+    "country": "India"
+  },
+  {
     "city": "Puerto Varas",
     "state": "Los Lagos",
     "country": "Chile"
   },
   {
-    "city": "Puerto P\u00edritu",
+    "city": "Puerto Piritu",
     "state": "Anzo\u00e1tegui",
     "country": "Venezuela"
   },
@@ -600,7 +610,7 @@ export const puCities = [
     "country": "Philippines"
   },
   {
-    "city": "Purw\u0101",
+    "city": "Purwa",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -610,7 +620,7 @@ export const puCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Puerto Guzm\u00e1n",
+    "city": "Puerto Guzman",
     "state": "Putumayo",
     "country": "Colombia"
   },
@@ -635,12 +645,12 @@ export const puCities = [
     "country": "Colombia"
   },
   {
-    "city": "Pul-e \u2018Alam",
+    "city": "Pul-e `Alam",
     "state": "L\u014dgar",
     "country": "Afghanistan"
   },
   {
-    "city": "Pulim\u0101thu",
+    "city": "Pulimathu",
     "state": "Kerala",
     "country": "India"
   },
@@ -670,7 +680,7 @@ export const puCities = [
     "country": "India"
   },
   {
-    "city": "Pueblo Ju\u00e1rez",
+    "city": "Pueblo Juarez",
     "state": "Chiapas",
     "country": "Mexico"
   },
@@ -755,12 +765,12 @@ export const puCities = [
     "country": "Sierra Leone"
   },
   {
-    "city": "Pukhr\u0101y\u0101n",
+    "city": "Pukhrayan",
     "state": "Uttar Pradesh",
     "country": "India"
   },
   {
-    "city": "Putt\u016br",
+    "city": "Puttur",
     "state": "Kerala",
     "country": "India"
   },
@@ -785,7 +795,7 @@ export const puCities = [
     "country": "Philippines"
   },
   {
-    "city": "Pu\u0142tusk",
+    "city": "Pultusk",
     "state": "Mazowieckie",
     "country": "Poland"
   },
@@ -793,6 +803,11 @@ export const puCities = [
     "city": "Puerto Morelos",
     "state": "Quintana Roo",
     "country": "Mexico"
+  },
+  {
+    "city": "Puranpur",
+    "state": "Uttar Pradesh",
+    "country": "India"
   },
   {
     "city": "Purushottampur",
@@ -805,6 +820,11 @@ export const puCities = [
     "country": "Switzerland"
   },
   {
+    "city": "Puttlingen",
+    "state": "Saarland",
+    "country": "Germany"
+  },
+  {
     "city": "Pudunagaram",
     "state": "Kerala",
     "country": "India"
@@ -813,6 +833,11 @@ export const puCities = [
     "city": "Puquio",
     "state": "Ayacucho",
     "country": "Peru"
+  },
+  {
+    "city": "Pulla",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Pupri",
@@ -825,12 +850,12 @@ export const puCities = [
     "country": "Belgium"
   },
   {
-    "city": "Punnay\u016br",
+    "city": "Punnayur",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Puerto Guzm\u00e1n",
+    "city": "Puerto Guzman",
     "state": "Putumayo",
     "country": "Colombia"
   },
@@ -845,9 +870,14 @@ export const puCities = [
     "country": "Belgium"
   },
   {
-    "city": "Puerto Ays\u00e9n",
+    "city": "Puerto Aysen",
     "state": "Ays\u00e9n",
     "country": "Chile"
+  },
+  {
+    "city": "Puchov",
+    "state": "Nitra",
+    "country": "Slovakia"
   },
   {
     "city": "Puerto Caimito",
@@ -865,7 +895,7 @@ export const puCities = [
     "country": "India"
   },
   {
-    "city": "Puerto Carre\u00f1o",
+    "city": "Puerto Carreno",
     "state": "Vichada",
     "country": "Colombia"
   },
@@ -875,7 +905,7 @@ export const puCities = [
     "country": "El Salvador"
   },
   {
-    "city": "Puerto Pil\u00f3n",
+    "city": "Puerto Pilon",
     "state": "Col\u00f3n",
     "country": "Panama"
   },
@@ -895,14 +925,19 @@ export const puCities = [
     "country": "Argentina"
   },
   {
-    "city": "Pujil\u00ed",
+    "city": "Pujili",
     "state": "Cotopaxi",
     "country": "Ecuador"
   },
   {
-    "city": "Punta Umbr\u00eda",
+    "city": "Punta Umbria",
     "state": "Andalusia",
     "country": "Spain"
+  },
+  {
+    "city": "Puluvappatti",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Puduppatti",
@@ -930,12 +965,12 @@ export const puCities = [
     "country": "Chile"
   },
   {
-    "city": "Pur\u00e9paro de Echa\u00edz",
+    "city": "Pureparo de Echaiz",
     "state": "Michoac\u00e1n",
     "country": "Mexico"
   },
   {
-    "city": "Puliy\u016br",
+    "city": "Puliyur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -965,7 +1000,7 @@ export const puCities = [
     "country": "Bolivia"
   },
   {
-    "city": "Pur\u00edsima de la Concepci\u00f3n",
+    "city": "Purisima de la Concepcion",
     "state": "C\u00f3rdoba",
     "country": "Colombia"
   },
@@ -985,7 +1020,7 @@ export const puCities = [
     "country": "India"
   },
   {
-    "city": "Puxinan\u00e3",
+    "city": "Puxinana",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -995,12 +1030,12 @@ export const puCities = [
     "country": "Argentina"
   },
   {
-    "city": "Pul\u016br",
+    "city": "Pulur",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Puerto Moraz\u00e1n",
+    "city": "Puerto Morazan",
     "state": "Chinandega",
     "country": "Nicaragua"
   },
@@ -1010,9 +1045,14 @@ export const puCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Puerto San Mart\u00edn",
+    "city": "Puerto San Martin",
     "state": "Santa Fe",
     "country": "Argentina"
+  },
+  {
+    "city": "Puspokladany",
+    "state": "Hajd\u00fa-Bihar",
+    "country": "Hungary"
   },
   {
     "city": "Pucioasa",
@@ -1020,12 +1060,12 @@ export const puCities = [
     "country": "Romania"
   },
   {
-    "city": "Pur\u00e9n",
+    "city": "Puren",
     "state": "Araucan\u00eda",
     "country": "Chile"
   },
   {
-    "city": "Puerto Jim\u00e9nez",
+    "city": "Puerto Jimenez",
     "state": "Puntarenas",
     "country": "Costa Rica"
   },
@@ -1040,14 +1080,24 @@ export const puCities = [
     "country": "Ecuador"
   },
   {
-    "city": "Putt\u0101nattam",
+    "city": "Puduru",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Puttanattam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Puerto L\u00f3pez",
+    "city": "Puerto Lopez",
     "state": "Manab\u00ed",
     "country": "Ecuador"
+  },
+  {
+    "city": "Puturge",
+    "state": "Malatya",
+    "country": "Turkey"
   },
   {
     "city": "Putussibau",
@@ -1080,7 +1130,7 @@ export const puCities = [
     "country": "India"
   },
   {
-    "city": "Pud\u016br",
+    "city": "Pudur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1100,7 +1150,7 @@ export const puCities = [
     "country": "Colombia"
   },
   {
-    "city": "Puerto Su\u00e1rez",
+    "city": "Puerto Suarez",
     "state": "Santa Cruz",
     "country": "Bolivia"
   },
@@ -1115,7 +1165,7 @@ export const puCities = [
     "country": "Chile"
   },
   {
-    "city": "Pulp\u00ed",
+    "city": "Pulpi",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -1123,6 +1173,11 @@ export const puCities = [
     "city": "Pueblo Viejo",
     "state": "Valdesia",
     "country": "Dominican Republic"
+  },
+  {
+    "city": "Pungulam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Pulsano",
@@ -1140,7 +1195,7 @@ export const puCities = [
     "country": "India"
   },
   {
-    "city": "Punjai Turaiy\u0101mp\u0101laiyam",
+    "city": "Punjai Turaiyampalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1160,13 +1215,18 @@ export const puCities = [
     "country": "Thailand"
   },
   {
-    "city": "Punjai K\u0101l\u0101mangalam",
+    "city": "Punjai Kalamangalam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Puran\u0101ttukara",
+    "city": "Puranattukara",
     "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Puligunta",
+    "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
@@ -1190,7 +1250,12 @@ export const puCities = [
     "country": "Colombia"
   },
   {
-    "city": "Puduparambubh\u0101gam",
+    "city": "Puvalur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Puduparambubhagam",
     "state": "Kerala",
     "country": "India"
   },
@@ -1205,7 +1270,7 @@ export const puCities = [
     "country": "Bolivia"
   },
   {
-    "city": "Pullamb\u0101di",
+    "city": "Pullambadi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1215,7 +1280,12 @@ export const puCities = [
     "country": "India"
   },
   {
-    "city": "Pushpatt\u016br",
+    "city": "Pudimadaka",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Pushpattur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1225,7 +1295,7 @@ export const puCities = [
     "country": "Argentina"
   },
   {
-    "city": "Puerto Nari\u00f1o",
+    "city": "Puerto Narino",
     "state": "Amazonas",
     "country": "Colombia"
   },
@@ -1245,7 +1315,7 @@ export const puCities = [
     "country": "Mexico"
   },
   {
-    "city": "Pull\u016bru",
+    "city": "Pulluru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1255,7 +1325,7 @@ export const puCities = [
     "country": "India"
   },
   {
-    "city": "Puigcerd\u00e1",
+    "city": "Puigcerda",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -1263,6 +1333,11 @@ export const puCities = [
     "city": "Puszczykowo",
     "state": "Wielkopolskie",
     "country": "Poland"
+  },
+  {
+    "city": "Pumalakkundu",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Pustomyty",
@@ -1280,12 +1355,17 @@ export const puCities = [
     "country": "Uruguay"
   },
   {
-    "city": "Punnaikk\u0101yal",
+    "city": "Punnaikkayal",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
     "city": "Pudukkottai",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Puttai",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1310,7 +1390,7 @@ export const puCities = [
     "country": "United States"
   },
   {
-    "city": "Pulim\u0101kkal",
+    "city": "Pulimakkal",
     "state": "Kerala",
     "country": "India"
   },
@@ -1325,7 +1405,7 @@ export const puCities = [
     "country": "Russia"
   },
   {
-    "city": "Punjai Lakk\u0101puram",
+    "city": "Punjai Lakkapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1345,7 +1425,7 @@ export const puCities = [
     "country": "India"
   },
   {
-    "city": "Pull\u0101nvidudi",
+    "city": "Pullanvidudi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1390,7 +1470,7 @@ export const puCities = [
     "country": "Paraguay"
   },
   {
-    "city": "Puk\u00eb",
+    "city": "Puke",
     "state": "Shkod\u00ebr",
     "country": "Albania"
   },
@@ -1425,7 +1505,7 @@ export const puCities = [
     "country": "Paraguay"
   },
   {
-    "city": "Put\u2019 Lenina",
+    "city": "Put' Lenina",
     "state": "Sakha (Yakutiya)",
     "country": "Russia"
   },

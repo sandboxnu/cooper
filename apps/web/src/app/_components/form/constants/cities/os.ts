@@ -1,5 +1,10 @@
 export const osCities = [
   {
+    "city": "Osaka",
+    "state": "\u014csaka",
+    "country": "Japan"
+  },
+  {
     "city": "Oslo",
     "state": "Oslo",
     "country": "Norway"
@@ -18,6 +23,11 @@ export const osCities = [
     "city": "Osogbo",
     "state": "Osun",
     "country": "Nigeria"
+  },
+  {
+    "city": "Oskemen",
+    "state": "East Kazakhstan",
+    "country": "Kazakhstan"
   },
   {
     "city": "Osh",
@@ -50,7 +60,7 @@ export const osCities = [
     "country": "Korea, South"
   },
   {
-    "city": "Osnabr\u00fcck",
+    "city": "Osnabruck",
     "state": "Lower Saxony",
     "country": "Germany"
   },
@@ -60,7 +70,17 @@ export const osCities = [
     "country": "Chile"
   },
   {
-    "city": "Osm\u0101n\u0101b\u0101d",
+    "city": "Osaki",
+    "state": "Miyagi",
+    "country": "Japan"
+  },
+  {
+    "city": "Oshu",
+    "state": "Iwate",
+    "country": "Japan"
+  },
+  {
+    "city": "Osmanabad",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -85,12 +105,12 @@ export const osCities = [
     "country": "Belgium"
   },
   {
-    "city": "Ostr\u00f3w Wielkopolski",
+    "city": "Ostrow Wielkopolski",
     "state": "Wielkopolskie",
     "country": "Poland"
   },
   {
-    "city": "Ostrowiec \u015awi\u0119tokrzyski",
+    "city": "Ostrowiec Swietokrzyski",
     "state": "\u015awi\u0119tokrzyskie",
     "country": "Poland"
   },
@@ -100,12 +120,22 @@ export const osCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Ostro\u0142\u0119ka",
+    "city": "Osakasayama",
+    "state": "\u014csaka",
+    "country": "Japan"
+  },
+  {
+    "city": "Ostersund",
+    "state": "J\u00e4mtland",
+    "country": "Sweden"
+  },
+  {
+    "city": "Ostroleka",
     "state": "Mazowieckie",
     "country": "Poland"
   },
   {
-    "city": "Os\u00f3rio",
+    "city": "Osorio",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -120,7 +150,7 @@ export const osCities = [
     "country": "Germany"
   },
   {
-    "city": "Oshnav\u012byeh",
+    "city": "Oshnaviyeh",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Gharb\u012b",
     "country": "Iran"
   },
@@ -140,6 +170,11 @@ export const osCities = [
     "country": "Venezuela"
   },
   {
+    "city": "Oswiecim",
+    "state": "Ma\u0142opolskie",
+    "country": "Poland"
+  },
+  {
     "city": "Oswego",
     "state": "Illinois",
     "country": "United States"
@@ -155,6 +190,11 @@ export const osCities = [
     "country": "Brazil"
   },
   {
+    "city": "Osawa",
+    "state": "Fukuoka",
+    "country": "Japan"
+  },
+  {
     "city": "Ostrogozhsk",
     "state": "Voronezhskaya Oblast\u2019",
     "country": "Russia"
@@ -165,7 +205,7 @@ export const osCities = [
     "country": "Germany"
   },
   {
-    "city": "Osmanc\u0131k",
+    "city": "Osmancik",
     "state": "\u00c7orum",
     "country": "Turkey"
   },
@@ -185,7 +225,7 @@ export const osCities = [
     "country": "Congo (Kinshasa)"
   },
   {
-    "city": "Ostr\u00f3w Mazowiecka",
+    "city": "Ostrow Mazowiecka",
     "state": "Mazowieckie",
     "country": "Poland"
   },
@@ -230,7 +270,7 @@ export const osCities = [
     "country": "Germany"
   },
   {
-    "city": "Osk\u016b",
+    "city": "Osku",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Sharq\u012b",
     "country": "Iran"
   },
@@ -295,7 +335,7 @@ export const osCities = [
     "country": "Germany"
   },
   {
-    "city": "Ostrzesz\u00f3w",
+    "city": "Ostrzeszow",
     "state": "Wielkopolskie",
     "country": "Poland"
   },
@@ -305,12 +345,17 @@ export const osCities = [
     "country": "France"
   },
   {
-    "city": "Ose\u010dina",
+    "city": "Ostringen",
+    "state": "Baden-W\u00fcrttemberg",
+    "country": "Germany"
+  },
+  {
+    "city": "Osecina",
     "state": "Ose\u010dina",
     "country": "Serbia"
   },
   {
-    "city": "Osi\u0101n",
+    "city": "Osian",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -323,6 +368,11 @@ export const osCities = [
     "city": "Osterhofen",
     "state": "Bavaria",
     "country": "Germany"
+  },
+  {
+    "city": "Osako",
+    "state": "Kagoshima",
+    "country": "Japan"
   },
   {
     "city": "Oswaldtwistle",
@@ -365,7 +415,7 @@ export const osCities = [
     "country": "Germany"
   },
   {
-    "city": "Ostr\u00f3da",
+    "city": "Ostroda",
     "state": "Warmi\u0144sko-Mazurskie",
     "country": "Poland"
   },

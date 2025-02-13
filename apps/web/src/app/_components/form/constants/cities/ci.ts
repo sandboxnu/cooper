@@ -10,7 +10,7 @@ export const ciCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Ciudad Nezahualc\u00f3yotl",
+    "city": "Ciudad Nezahualcoyotl",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
@@ -20,7 +20,7 @@ export const ciCities = [
     "country": "Venezuela"
   },
   {
-    "city": "City of Para\u00f1aque",
+    "city": "City of Paranaque",
     "state": "Para\u00f1aque",
     "country": "Philippines"
   },
@@ -30,7 +30,7 @@ export const ciCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Ciudad Bol\u00edvar",
+    "city": "Ciudad Bolivar",
     "state": "Bol\u00edvar",
     "country": "Venezuela"
   },
@@ -45,7 +45,7 @@ export const ciCities = [
     "country": "Mexico"
   },
   {
-    "city": "Ciudad L\u00f3pez Mateos",
+    "city": "Ciudad Lopez Mateos",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
@@ -60,7 +60,7 @@ export const ciCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Ciudad Obreg\u00f3n",
+    "city": "Ciudad Obregon",
     "state": "Sonora",
     "country": "Mexico"
   },
@@ -75,7 +75,7 @@ export const ciCities = [
     "country": "Paraguay"
   },
   {
-    "city": "Ciudad Benito Ju\u00e1rez",
+    "city": "Ciudad Benito Juarez",
     "state": "Nuevo Le\u00f3n",
     "country": "Mexico"
   },
@@ -103,6 +103,11 @@ export const ciCities = [
     "city": "Cikupa",
     "state": "Jawa Barat",
     "country": "Indonesia"
+  },
+  {
+    "city": "Cigli",
+    "state": "\u0130zmir",
+    "country": "Turkey"
   },
   {
     "city": "Ciputat",
@@ -140,7 +145,7 @@ export const ciCities = [
     "country": "Cuba"
   },
   {
-    "city": "Ciudad Acu\u00f1a",
+    "city": "Ciudad Acuna",
     "state": "Coahuila",
     "country": "Mexico"
   },
@@ -155,7 +160,7 @@ export const ciCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Ciego de \u00c1vila",
+    "city": "Ciego de Avila",
     "state": "Ciego de \u00c1vila",
     "country": "Cuba"
   },
@@ -175,7 +180,7 @@ export const ciCities = [
     "country": "China"
   },
   {
-    "city": "Ci\u00e9naga",
+    "city": "Cienaga",
     "state": "Magdalena",
     "country": "Colombia"
   },
@@ -195,7 +200,7 @@ export const ciCities = [
     "country": "Venezuela"
   },
   {
-    "city": "Ciudad Guzm\u00e1n",
+    "city": "Ciudad Guzman",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -205,7 +210,7 @@ export const ciCities = [
     "country": "Uruguay"
   },
   {
-    "city": "Ciudad R\u00edo Bravo",
+    "city": "Ciudad Rio Bravo",
     "state": "Tamaulipas",
     "country": "Mexico"
   },
@@ -270,7 +275,7 @@ export const ciCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ciudad L\u00e1zaro C\u00e1rdenas",
+    "city": "Ciudad Lazaro Cardenas",
     "state": "Michoac\u00e1n",
     "country": "Mexico"
   },
@@ -285,12 +290,17 @@ export const ciCities = [
     "country": "Italy"
   },
   {
+    "city": "Cinar",
+    "state": "Diyarbak\u0131r",
+    "country": "Turkey"
+  },
+  {
     "city": "Ciudadela",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
   {
-    "city": "Ci\u00e9naga de Oro",
+    "city": "Cienaga de Oro",
     "state": "C\u00f3rdoba",
     "country": "Colombia"
   },
@@ -298,6 +308,11 @@ export const ciCities = [
     "city": "Ciudad Arce",
     "state": "La Libertad",
     "country": "El Salvador"
+  },
+  {
+    "city": "Civril",
+    "state": "Denizli",
+    "country": "Turkey"
   },
   {
     "city": "Cihanbeyli",
@@ -310,6 +325,11 @@ export const ciCities = [
     "country": "Italy"
   },
   {
+    "city": "Cine",
+    "state": "Ayd\u0131n",
+    "country": "Turkey"
+  },
+  {
     "city": "Cimitarra",
     "state": "Santander",
     "country": "Colombia"
@@ -320,12 +340,12 @@ export const ciCities = [
     "country": "Mexico"
   },
   {
-    "city": "Ciudad de Huajuapam de Le\u00f3n",
+    "city": "Ciudad de Huajuapam de Leon",
     "state": "Oaxaca",
     "country": "Mexico"
   },
   {
-    "city": "Ciudad Constituci\u00f3n",
+    "city": "Ciudad Constitucion",
     "state": "Baja California Sur",
     "country": "Mexico"
   },
@@ -335,7 +355,7 @@ export const ciCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Ciechan\u00f3w",
+    "city": "Ciechanow",
     "state": "Mazowieckie",
     "country": "Poland"
   },
@@ -345,7 +365,7 @@ export const ciCities = [
     "country": "Italy"
   },
   {
-    "city": "Ciudad Dar\u00edo",
+    "city": "Ciudad Dario",
     "state": "Matagalpa",
     "country": "Nicaragua"
   },
@@ -360,12 +380,17 @@ export const ciCities = [
     "country": "Venezuela"
   },
   {
-    "city": "Cihuatl\u00e1n",
+    "city": "Cihuatlan",
     "state": "Jalisco",
     "country": "Mexico"
   },
   {
-    "city": "Ciudad Melchor M\u00fazquiz",
+    "city": "Ciftlikkoy",
+    "state": "Yalova",
+    "country": "Turkey"
+  },
+  {
+    "city": "Ciudad Melchor Muzquiz",
     "state": "Coahuila",
     "country": "Mexico"
   },
@@ -375,7 +400,7 @@ export const ciCities = [
     "country": "Italy"
   },
   {
-    "city": "Citt\u00e0 di Castello",
+    "city": "Citta di Castello",
     "state": "Umbria",
     "country": "Italy"
   },
@@ -398,6 +423,11 @@ export const ciCities = [
     "city": "Cieza",
     "state": "Murcia",
     "country": "Spain"
+  },
+  {
+    "city": "Cinarcik",
+    "state": "Yalova",
+    "country": "Turkey"
   },
   {
     "city": "Cieszyn",
@@ -440,6 +470,11 @@ export const ciCities = [
     "country": "Uruguay"
   },
   {
+    "city": "Cicero Dantas",
+    "state": "Bahia",
+    "country": "Brazil"
+  },
+  {
     "city": "Ciudad Melchor de Mencos",
     "state": "Pet\u00e9n",
     "country": "Guatemala"
@@ -455,17 +490,22 @@ export const ciCities = [
     "country": "Cuba"
   },
   {
+    "city": "Ciftlik",
+    "state": "Ni\u011fde",
+    "country": "Turkey"
+  },
+  {
     "city": "Citong",
     "state": "Yunlin",
     "country": "Taiwan"
   },
   {
-    "city": "Ciudad Bol\u00edvar",
+    "city": "Ciudad Bolivar",
     "state": "Antioquia",
     "country": "Colombia"
   },
   {
-    "city": "Ciudad Tec\u00fan Um\u00e1n",
+    "city": "Ciudad Tecun Uman",
     "state": "San Marcos",
     "country": "Guatemala"
   },
@@ -510,7 +550,7 @@ export const ciCities = [
     "country": "Burundi"
   },
   {
-    "city": "Ciudad Serd\u00e1n",
+    "city": "Ciudad Serdan",
     "state": "Puebla",
     "country": "Mexico"
   },
@@ -525,14 +565,19 @@ export const ciCities = [
     "country": "Argentina"
   },
   {
-    "city": "Cisn\u0103die",
+    "city": "Cisnadie",
     "state": "Sibiu",
     "country": "Romania"
   },
   {
-    "city": "Cinf\u00e3es",
+    "city": "Cinfaes",
     "state": "Viseu",
     "country": "Portugal"
+  },
+  {
+    "city": "Cilimli",
+    "state": "D\u00fczce",
+    "country": "Turkey"
   },
   {
     "city": "Cittadella",
@@ -540,7 +585,7 @@ export const ciCities = [
     "country": "Italy"
   },
   {
-    "city": "Ciudad Miguel Alem\u00e1n",
+    "city": "Ciudad Miguel Aleman",
     "state": "Tamaulipas",
     "country": "Mexico"
   },
@@ -560,7 +605,12 @@ export const ciCities = [
     "country": "United States"
   },
   {
-    "city": "Ciri\u00e8",
+    "city": "Citluk",
+    "state": "Bosnia and Herzegovina, Federation of",
+    "country": "Bosnia and Herzegovina"
+  },
+  {
+    "city": "Cirie",
     "state": "Piedmont",
     "country": "Italy"
   },
@@ -570,7 +620,7 @@ export const ciCities = [
     "country": "Mexico"
   },
   {
-    "city": "Cip\u00f3",
+    "city": "Cipo",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -610,17 +660,27 @@ export const ciCities = [
     "country": "Italy"
   },
   {
-    "city": "Citt\u00e0 Sant\u2019Angelo",
+    "city": "Cifteler",
+    "state": "Eski\u015fehir",
+    "country": "Turkey"
+  },
+  {
+    "city": "Citta Sant'Angelo",
     "state": "Abruzzo",
     "country": "Italy"
   },
   {
-    "city": "Ci\u00e9nega de Flores",
+    "city": "Cicekdagi",
+    "state": "K\u0131r\u015fehir",
+    "country": "Turkey"
+  },
+  {
+    "city": "Cienega de Flores",
     "state": "Nuevo Le\u00f3n",
     "country": "Mexico"
   },
   {
-    "city": "Cir\u00f2 Marina",
+    "city": "Ciro Marina",
     "state": "Calabria",
     "country": "Italy"
   },
@@ -635,7 +695,7 @@ export const ciCities = [
     "country": "Colombia"
   },
   {
-    "city": "Cidel\u00e2ndia",
+    "city": "Cidelandia",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
@@ -645,7 +705,7 @@ export const ciCities = [
     "country": "Italy"
   },
   {
-    "city": "Citlalt\u00e9pec",
+    "city": "Citlaltepec",
     "state": "Veracruz",
     "country": "Mexico"
   },
@@ -655,7 +715,7 @@ export const ciCities = [
     "country": "Spain"
   },
   {
-    "city": "Cimi\u015flia",
+    "city": "Cimislia",
     "state": "Cimi\u015flia",
     "country": "Moldova"
   },
@@ -670,7 +730,7 @@ export const ciCities = [
     "country": "Colombia"
   },
   {
-    "city": "Cidade Ga\u00facha",
+    "city": "Cidade Gaucha",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -715,12 +775,17 @@ export const ciCities = [
     "country": "Argentina"
   },
   {
+    "city": "Cildir",
+    "state": "Ardahan",
+    "country": "Turkey"
+  },
+  {
     "city": "Cittanova",
     "state": "Calabria",
     "country": "Italy"
   },
   {
-    "city": "Ciudad Cuauht\u00e9moc",
+    "city": "Ciudad Cuauhtemoc",
     "state": "Veracruz",
     "country": "Mexico"
   },
@@ -730,7 +795,12 @@ export const ciCities = [
     "country": "Italy"
   },
   {
-    "city": "Cist\u00e9rniga",
+    "city": "Cicevac",
+    "state": "\u0106i\u0107evac",
+    "country": "Serbia"
+  },
+  {
+    "city": "Cisterniga",
     "state": "Castille-Leon",
     "country": "Spain"
   },
@@ -755,7 +825,7 @@ export const ciCities = [
     "country": "United States"
   },
   {
-    "city": "Ciudad Cort\u00e9s",
+    "city": "Ciudad Cortes",
     "state": "Puntarenas",
     "country": "Costa Rica"
   },

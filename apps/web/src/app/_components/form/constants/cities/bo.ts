@@ -1,6 +1,6 @@
 export const boCities = [
   {
-    "city": "Bogot\u00e1",
+    "city": "Bogota",
     "state": "Bogot\u00e1",
     "country": "Colombia"
   },
@@ -40,12 +40,12 @@ export const boCities = [
     "country": "Somalia"
   },
   {
-    "city": "Borv\u0101yeh-ye Al B\u016b \u2018Az\u012bz",
+    "city": "Borvayeh-ye Al Bu `Aziz",
     "state": "Kh\u016bzest\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Bouak\u00e9",
+    "city": "Bouake",
     "state": "Vall\u00e9e du Bandama",
     "country": "C\u00f4te d\u2019Ivoire"
   },
@@ -115,7 +115,7 @@ export const boCities = [
     "country": "South Africa"
   },
   {
-    "city": "Bojn\u016brd",
+    "city": "Bojnurd",
     "state": "Khor\u0101s\u0101n-e Shom\u0101l\u012b",
     "country": "Iran"
   },
@@ -125,7 +125,7 @@ export const boCities = [
     "country": "China"
   },
   {
-    "city": "Bor\u016bjerd",
+    "city": "Borujerd",
     "state": "Lorest\u0101n",
     "country": "Iran"
   },
@@ -170,7 +170,7 @@ export const boCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Bor\u0101zj\u0101n",
+    "city": "Borazjan",
     "state": "B\u016bshehr",
     "country": "Iran"
   },
@@ -215,7 +215,7 @@ export const boCities = [
     "country": "Brazil"
   },
   {
-    "city": "Bot\u0101d",
+    "city": "Botad",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -245,7 +245,7 @@ export const boCities = [
     "country": "United States"
   },
   {
-    "city": "Bok\u00e9",
+    "city": "Boke",
     "state": "Bok\u00e9",
     "country": "Guinea"
   },
@@ -255,7 +255,7 @@ export const boCities = [
     "country": "Philippines"
   },
   {
-    "city": "Bor\u00e5s",
+    "city": "Boras",
     "state": "V\u00e4stra G\u00f6taland",
     "country": "Sweden"
   },
@@ -265,7 +265,7 @@ export const boCities = [
     "country": "Algeria"
   },
   {
-    "city": "Bou Sa\u00e2da",
+    "city": "Bou Saada",
     "state": "M\u2019sila",
     "country": "Algeria"
   },
@@ -285,7 +285,7 @@ export const boCities = [
     "country": "Korea, South"
   },
   {
-    "city": "Bocon\u00f3",
+    "city": "Bocono",
     "state": "Trujillo",
     "country": "Venezuela"
   },
@@ -300,7 +300,7 @@ export const boCities = [
     "country": "United States"
   },
   {
-    "city": "Bodin\u0101yakkan\u016br",
+    "city": "Bodinayakkanur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -325,7 +325,7 @@ export const boCities = [
     "country": "C\u00f4te d\u2019Ivoire"
   },
   {
-    "city": "Boto\u015fani",
+    "city": "Botosani",
     "state": "Boto\u015fani",
     "country": "Romania"
   },
@@ -340,7 +340,7 @@ export const boCities = [
     "country": "Philippines"
   },
   {
-    "city": "Boukoumb\u00e9",
+    "city": "Boukoumbe",
     "state": "Atacora",
     "country": "Benin"
   },
@@ -365,12 +365,12 @@ export const boCities = [
     "country": "Philippines"
   },
   {
-    "city": "Bon\u0101b",
+    "city": "Bonab",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Sharq\u012b",
     "country": "Iran"
   },
   {
-    "city": "Boz\u00fcy\u00fck",
+    "city": "Bozuyuk",
     "state": "Bilecik",
     "country": "Turkey"
   },
@@ -395,7 +395,7 @@ export const boCities = [
     "country": "Germany"
   },
   {
-    "city": "Bouafl\u00e9",
+    "city": "Bouafle",
     "state": "Sassandra-Marahou\u00e9",
     "country": "C\u00f4te d\u2019Ivoire"
   },
@@ -410,7 +410,7 @@ export const boCities = [
     "country": "Algeria"
   },
   {
-    "city": "Bod\u012bt\u012b",
+    "city": "Boditi",
     "state": "YeDebub Bih\u0113roch Bih\u0113reseboch na Hizboch",
     "country": "Ethiopia"
   },
@@ -440,7 +440,7 @@ export const boCities = [
     "country": "United States"
   },
   {
-    "city": "Bordj Mena\u00efel",
+    "city": "Bordj Menaiel",
     "state": "Boumerdes",
     "country": "Algeria"
   },
@@ -480,7 +480,7 @@ export const boCities = [
     "country": "Brazil"
   },
   {
-    "city": "Borj el Qobl\u00e9",
+    "city": "Borj el Qoble",
     "state": "Liban-Sud",
     "country": "Lebanon"
   },
@@ -520,7 +520,7 @@ export const boCities = [
     "country": "Algeria"
   },
   {
-    "city": "Bor\u016bjen",
+    "city": "Borujen",
     "state": "Chah\u0101r Ma\u1e29\u0101l va Bakht\u012b\u0101r\u012b",
     "country": "Iran"
   },
@@ -558,6 +558,11 @@ export const boCities = [
     "city": "Bozova",
     "state": "\u015eanl\u0131urfa",
     "country": "Turkey"
+  },
+  {
+    "city": "Boblingen",
+    "state": "Baden-W\u00fcrttemberg",
+    "country": "Germany"
   },
   {
     "city": "Bootle",
@@ -600,17 +605,17 @@ export const boCities = [
     "country": "Germany"
   },
   {
-    "city": "Boucan Carr\u00e9",
+    "city": "Boucan Carre",
     "state": "Centre",
     "country": "Haiti"
   },
   {
-    "city": "Bok\u0101ro",
+    "city": "Bokaro",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
   {
-    "city": "Bocai\u00fava",
+    "city": "Bocaiuva",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -630,7 +635,7 @@ export const boCities = [
     "country": "Haiti"
   },
   {
-    "city": "Bor\u010da",
+    "city": "Borca",
     "state": "Beograd",
     "country": "Serbia"
   },
@@ -650,12 +655,12 @@ export const boCities = [
     "country": "United States"
   },
   {
-    "city": "Borl\u00e4nge",
+    "city": "Borlange",
     "state": "Dalarna",
     "country": "Sweden"
   },
   {
-    "city": "Bol\u00edvar",
+    "city": "Bolivar",
     "state": "Cauca",
     "country": "Colombia"
   },
@@ -670,7 +675,7 @@ export const boCities = [
     "country": "Turkey"
   },
   {
-    "city": "Bodup\u0101l",
+    "city": "Bodupal",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -695,7 +700,7 @@ export const boCities = [
     "country": "Canada"
   },
   {
-    "city": "Bod\u00f8",
+    "city": "Bodo",
     "state": "Nordland",
     "country": "Norway"
   },
@@ -725,7 +730,7 @@ export const boCities = [
     "country": "Central African Republic"
   },
   {
-    "city": "Boa Esperan\u00e7a",
+    "city": "Boa Esperanca",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -740,7 +745,7 @@ export const boCities = [
     "country": "Philippines"
   },
   {
-    "city": "Bol\u2019shoy Kamen\u2019",
+    "city": "Bol'shoy Kamen'",
     "state": "Primorskiy Kray",
     "country": "Russia"
   },
@@ -750,7 +755,7 @@ export const boCities = [
     "country": "Brazil"
   },
   {
-    "city": "Boles\u0142awiec",
+    "city": "Boleslawiec",
     "state": "Dolno\u015bl\u0105skie",
     "country": "Poland"
   },
@@ -800,6 +805,11 @@ export const boCities = [
     "country": "Russia"
   },
   {
+    "city": "Boca do Acre",
+    "state": "Amazonas",
+    "country": "Brazil"
+  },
+  {
     "city": "Boyarka",
     "state": "Kyivska Oblast",
     "country": "Ukraine"
@@ -825,7 +835,7 @@ export const boCities = [
     "country": "Philippines"
   },
   {
-    "city": "Bodoc\u00f3",
+    "city": "Bodoco",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -835,12 +845,12 @@ export const boCities = [
     "country": "Serbia"
   },
   {
-    "city": "Bo\u011fazl\u0131yan",
+    "city": "Bogazliyan",
     "state": "Yozgat",
     "country": "Turkey"
   },
   {
-    "city": "Bozdo\u011fan",
+    "city": "Bozdogan",
     "state": "Ayd\u0131n",
     "country": "Turkey"
   },
@@ -885,7 +895,7 @@ export const boCities = [
     "country": "Nicaragua"
   },
   {
-    "city": "Bostani\u00e7i",
+    "city": "Bostanici",
     "state": "Van",
     "country": "Turkey"
   },
@@ -910,7 +920,7 @@ export const boCities = [
     "country": "United States"
   },
   {
-    "city": "Bour\u00e8m Guindou",
+    "city": "Bourem Guindou",
     "state": "Gao",
     "country": "Mali"
   },
@@ -925,7 +935,7 @@ export const boCities = [
     "country": "France"
   },
   {
-    "city": "Bozmarg\u012b",
+    "city": "Bozmargi",
     "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
     "country": "Iran"
   },
@@ -990,7 +1000,7 @@ export const boCities = [
     "country": "Brazil"
   },
   {
-    "city": "Bo\u2018ka",
+    "city": "Bo`ka",
     "state": "Toshkent",
     "country": "Uzbekistan"
   },
@@ -1010,7 +1020,7 @@ export const boCities = [
     "country": "Chad"
   },
   {
-    "city": "Bor\u015fa",
+    "city": "Borsa",
     "state": "Maramure\u015f",
     "country": "Romania"
   },
@@ -1030,7 +1040,7 @@ export const boCities = [
     "country": "Kazakhstan"
   },
   {
-    "city": "Bo\u2019ao",
+    "city": "Bo'ao",
     "state": "Hainan",
     "country": "China"
   },
@@ -1040,7 +1050,7 @@ export const boCities = [
     "country": "Algeria"
   },
   {
-    "city": "Bozyaz\u0131",
+    "city": "Bozyazi",
     "state": "Mersin",
     "country": "Turkey"
   },
@@ -1055,7 +1065,7 @@ export const boCities = [
     "country": "Uganda"
   },
   {
-    "city": "Bozk\u0131r",
+    "city": "Bozkir",
     "state": "Konya",
     "country": "Turkey"
   },
@@ -1065,7 +1075,7 @@ export const boCities = [
     "country": "Morocco"
   },
   {
-    "city": "Bom Jesus dos Perd\u00f5es",
+    "city": "Bom Jesus dos Perdoes",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -1085,12 +1095,12 @@ export const boCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Boure\u00eft",
+    "city": "Boureit",
     "state": "Tanger-T\u00e9touan-Al Hoce\u00efma",
     "country": "Morocco"
   },
   {
-    "city": "Bor\u00e7ka",
+    "city": "Borcka",
     "state": "Artvin",
     "country": "Turkey"
   },
@@ -1105,7 +1115,7 @@ export const boCities = [
     "country": "Brazil"
   },
   {
-    "city": "Bouss\u00e9",
+    "city": "Bousse",
     "state": "Plateau-Central",
     "country": "Burkina Faso"
   },
@@ -1210,7 +1220,7 @@ export const boCities = [
     "country": "Brazil"
   },
   {
-    "city": "Bogand\u00e9",
+    "city": "Bogande",
     "state": "Est",
     "country": "Burkina Faso"
   },
@@ -1260,7 +1270,7 @@ export const boCities = [
     "country": "Central African Republic"
   },
   {
-    "city": "Bohum\u00edn",
+    "city": "Bohumin",
     "state": "Moravskoslezsk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -1310,7 +1320,7 @@ export const boCities = [
     "country": "Congo (Kinshasa)"
   },
   {
-    "city": "Bourg-l\u00e8s-Valence",
+    "city": "Bourg-les-Valence",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
@@ -1365,6 +1375,11 @@ export const boCities = [
     "country": "United States"
   },
   {
+    "city": "Bonen",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
     "city": "Bouarouss",
     "state": "F\u00e8s-Mekn\u00e8s",
     "country": "Morocco"
@@ -1400,12 +1415,12 @@ export const boCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Boqueir\u00e3o",
+    "city": "Boqueirao",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
   {
-    "city": "Boissy-Saint-L\u00e9ger",
+    "city": "Boissy-Saint-Leger",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -1445,7 +1460,7 @@ export const boCities = [
     "country": "Algeria"
   },
   {
-    "city": "Boki-W\u00e9r\u00e9",
+    "city": "Boki-Were",
     "state": "S\u00e9gou",
     "country": "Mali"
   },
@@ -1495,7 +1510,7 @@ export const boCities = [
     "country": "Algeria"
   },
   {
-    "city": "Boshr\u016byeh",
+    "city": "Boshruyeh",
     "state": "Khor\u0101s\u0101n-e Jon\u016bb\u012b",
     "country": "Iran"
   },
@@ -1555,7 +1570,7 @@ export const boCities = [
     "country": "Chad"
   },
   {
-    "city": "Bois-d\u2019Arcy",
+    "city": "Bois-d'Arcy",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -1590,7 +1605,7 @@ export const boCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Boa Esperan\u00e7a do Sul",
+    "city": "Boa Esperanca do Sul",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -1615,7 +1630,7 @@ export const boCities = [
     "country": "Brazil"
   },
   {
-    "city": "Bo\u2019ness",
+    "city": "Bo'ness",
     "state": "Falkirk",
     "country": "United Kingdom"
   },
@@ -1625,7 +1640,7 @@ export const boCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Bogusz\u00f3w-Gorce",
+    "city": "Boguszow-Gorce",
     "state": "Dolno\u015bl\u0105skie",
     "country": "Poland"
   },
@@ -1640,7 +1655,7 @@ export const boCities = [
     "country": "Brazil"
   },
   {
-    "city": "Boula\u2019wane",
+    "city": "Boula'wane",
     "state": "Casablanca-Settat",
     "country": "Morocco"
   },
@@ -1658,6 +1673,11 @@ export const boCities = [
     "city": "Bousso",
     "state": "Chari-Baguirmi",
     "country": "Chad"
+  },
+  {
+    "city": "Bokonbaev",
+    "state": "Ysyk-K\u00f6l",
+    "country": "Kyrgyzstan"
   },
   {
     "city": "Bollullos par del Condado",
@@ -1685,7 +1705,7 @@ export const boCities = [
     "country": "Mexico"
   },
   {
-    "city": "Boa Esperan\u00e7a",
+    "city": "Boa Esperanca",
     "state": "Esp\u00edrito Santo",
     "country": "Brazil"
   },
@@ -1710,7 +1730,7 @@ export const boCities = [
     "country": "India"
   },
   {
-    "city": "Bol\u00edvar",
+    "city": "Bolivar",
     "state": "Valle del Cauca",
     "country": "Colombia"
   },
@@ -1735,7 +1755,7 @@ export const boCities = [
     "country": "Italy"
   },
   {
-    "city": "Bodagudip\u0101du",
+    "city": "Bodagudipadu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1750,7 +1770,7 @@ export const boCities = [
     "country": "Brazil"
   },
   {
-    "city": "Boll\u00e8ne",
+    "city": "Bollene",
     "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
     "country": "France"
   },
@@ -1785,7 +1805,7 @@ export const boCities = [
     "country": "Algeria"
   },
   {
-    "city": "Bocai\u00fava do Sul",
+    "city": "Bocaiuva do Sul",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -1795,7 +1815,7 @@ export const boCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Bond\u0101da",
+    "city": "Bondada",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1810,7 +1830,7 @@ export const boCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Bom Princ\u00edpio",
+    "city": "Bom Principio",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -1835,7 +1855,7 @@ export const boCities = [
     "country": "Panama"
   },
   {
-    "city": "Boc\u015fa",
+    "city": "Bocsa",
     "state": "Cara\u015f-Severin",
     "country": "Romania"
   },
@@ -1890,12 +1910,12 @@ export const boCities = [
     "country": "Morocco"
   },
   {
-    "city": "Bouss\u00e9",
+    "city": "Bousse",
     "state": "S\u00e9gou",
     "country": "Mali"
   },
   {
-    "city": "Bolln\u00e4s",
+    "city": "Bollnas",
     "state": "G\u00e4vleborg",
     "country": "Sweden"
   },
@@ -1950,7 +1970,7 @@ export const boCities = [
     "country": "Brazil"
   },
   {
-    "city": "Bonyh\u00e1d",
+    "city": "Bonyhad",
     "state": "Tolna",
     "country": "Hungary"
   },
@@ -1958,6 +1978,11 @@ export const boCities = [
     "city": "Botlikh",
     "state": "Dagestan",
     "country": "Russia"
+  },
+  {
+    "city": "Bomlo",
+    "state": "Vestland",
+    "country": "Norway"
   },
   {
     "city": "Borgosesia",
@@ -1970,12 +1995,12 @@ export const boCities = [
     "country": "Czechia"
   },
   {
-    "city": "Bola\u00f1os de Calatrava",
+    "city": "Bolanos de Calatrava",
     "state": "Castille-La Mancha",
     "country": "Spain"
   },
   {
-    "city": "Bold\u0101j\u012b",
+    "city": "Boldaji",
     "state": "Chah\u0101r Ma\u1e29\u0101l va Bakht\u012b\u0101r\u012b",
     "country": "Iran"
   },
@@ -1995,7 +2020,7 @@ export const boCities = [
     "country": "United States"
   },
   {
-    "city": "Bou Merd\u00e8s",
+    "city": "Bou Merdes",
     "state": "Mahdia",
     "country": "Tunisia"
   },
@@ -2020,7 +2045,7 @@ export const boCities = [
     "country": "Chad"
   },
   {
-    "city": "Bok\u0101kh\u0101t",
+    "city": "Bokakhat",
     "state": "Assam",
     "country": "India"
   },
@@ -2080,7 +2105,7 @@ export const boCities = [
     "country": "Morocco"
   },
   {
-    "city": "Bollullos de la Mitaci\u00f3n",
+    "city": "Bollullos de la Mitacion",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -2095,7 +2120,7 @@ export const boCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Botupor\u00e3",
+    "city": "Botupora",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -2170,7 +2195,7 @@ export const boCities = [
     "country": "Algeria"
   },
   {
-    "city": "Bog\u2019ot",
+    "city": "Bog'ot",
     "state": "Xorazm",
     "country": "Uzbekistan"
   },
@@ -2188,6 +2213,11 @@ export const boCities = [
     "city": "Bouhmama",
     "state": "Khenchela",
     "country": "Algeria"
+  },
+  {
+    "city": "Bohl-Iggelheim",
+    "state": "Rhineland-Palatinate",
+    "country": "Germany"
   },
   {
     "city": "Bodippatti",
@@ -2215,12 +2245,12 @@ export const boCities = [
     "country": "Algeria"
   },
   {
-    "city": "Bogu\u00e9",
+    "city": "Bogue",
     "state": "Brakna",
     "country": "Mauritania"
   },
   {
-    "city": "Bomm\u0101rbettu",
+    "city": "Bommarbettu",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -2240,12 +2270,12 @@ export const boCities = [
     "country": "Morocco"
   },
   {
-    "city": "Bolde\u015fti-Sc\u0103eni",
+    "city": "Boldesti-Scaeni",
     "state": "Prahova",
     "country": "Romania"
   },
   {
-    "city": "Bonfin\u00f3polis",
+    "city": "Bonfinopolis",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -2260,7 +2290,7 @@ export const boCities = [
     "country": "Germany"
   },
   {
-    "city": "Bonito de Santa F\u00e9",
+    "city": "Bonito de Santa Fe",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -2275,7 +2305,7 @@ export const boCities = [
     "country": "United States"
   },
   {
-    "city": "Borgamp\u0101d",
+    "city": "Borgampad",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -2320,7 +2350,7 @@ export const boCities = [
     "country": "Germany"
   },
   {
-    "city": "Bou\u2019nane",
+    "city": "Bou'nane",
     "state": "Oriental",
     "country": "Morocco"
   },
@@ -2330,7 +2360,7 @@ export const boCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Bolad\u0131",
+    "city": "Boladi",
     "state": "L\u0259nk\u0259ran",
     "country": "Azerbaijan"
   },
@@ -2390,7 +2420,7 @@ export const boCities = [
     "country": "France"
   },
   {
-    "city": "Bohech\u00edo",
+    "city": "Bohechio",
     "state": "El Valle",
     "country": "Dominican Republic"
   },
@@ -2420,12 +2450,12 @@ export const boCities = [
     "country": "Morocco"
   },
   {
-    "city": "Bourg-de-P\u00e9age",
+    "city": "Bourg-de-Peage",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
   {
-    "city": "Bol\u00edvar",
+    "city": "Bolivar",
     "state": "Santander",
     "country": "Colombia"
   },
@@ -2465,7 +2495,7 @@ export const boCities = [
     "country": "India"
   },
   {
-    "city": "Boddik\u016brap\u0101du",
+    "city": "Boddikurapadu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2480,12 +2510,12 @@ export const boCities = [
     "country": "Central African Republic"
   },
   {
-    "city": "Bo\u2018z",
+    "city": "Bo`z",
     "state": "Andijon",
     "country": "Uzbekistan"
   },
   {
-    "city": "Bojac\u00e1",
+    "city": "Bojaca",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
@@ -2570,6 +2600,11 @@ export const boCities = [
     "country": "India"
   },
   {
+    "city": "Bosel",
+    "state": "Lower Saxony",
+    "country": "Germany"
+  },
+  {
     "city": "Bouati Mahmoud",
     "state": "Guelma",
     "country": "Algeria"
@@ -2585,7 +2620,7 @@ export const boCities = [
     "country": "Poland"
   },
   {
-    "city": "Bommayap\u0101laiyam",
+    "city": "Bommayapalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2650,7 +2685,7 @@ export const boCities = [
     "country": "San Marino"
   },
   {
-    "city": "Bogati\u0107",
+    "city": "Bogatic",
     "state": "Bogati\u0107",
     "country": "Serbia"
   },
@@ -2725,7 +2760,7 @@ export const boCities = [
     "country": "North Macedonia"
   },
   {
-    "city": "Bol\u2019sheretsk",
+    "city": "Bol'sheretsk",
     "state": "Kamchatskiy Kray",
     "country": "Russia"
   },

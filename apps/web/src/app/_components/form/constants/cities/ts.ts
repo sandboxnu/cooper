@@ -10,7 +10,7 @@ export const tsCities = [
     "country": "Japan"
   },
   {
-    "city": "Tsukuba-kenky\u016bgakuen-toshi",
+    "city": "Tsukuba-kenkyugakuen-toshi",
     "state": "Ibaraki",
     "country": "Japan"
   },
@@ -60,7 +60,7 @@ export const tsCities = [
     "country": "Japan"
   },
   {
-    "city": "Ts\u00e9vi\u00e9",
+    "city": "Tsevie",
     "state": "Maritime",
     "country": "Togo"
   },
@@ -285,7 +285,7 @@ export const tsCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Tsun\u014d",
+    "city": "Tsuno",
     "state": "Miyazaki",
     "country": "Japan"
   },
@@ -310,7 +310,7 @@ export const tsCities = [
     "country": "Botswana"
   },
   {
-    "city": "Tsr\u0101r Shar\u012bf",
+    "city": "Tsrar Sharif",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },

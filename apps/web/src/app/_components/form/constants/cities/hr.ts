@@ -5,7 +5,7 @@ export const hrCities = [
     "country": "Belarus"
   },
   {
-    "city": "Hradec Kr\u00e1lov\u00e9",
+    "city": "Hradec Kralove",
     "state": "Kr\u00e1lov\u00e9hradeck\u00fd Kraj",
     "country": "Czechia"
   },
@@ -20,7 +20,7 @@ export const hrCities = [
     "country": "Czechia"
   },
   {
-    "city": "Hrubiesz\u00f3w",
+    "city": "Hrubieszow",
     "state": "Lubelskie",
     "country": "Poland"
   },
@@ -35,7 +35,7 @@ export const hrCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Hrib-Lo\u0161ki Potok",
+    "city": "Hrib-Loski Potok",
     "state": "Lo\u0161ki Potok",
     "country": "Slovenia"
   }

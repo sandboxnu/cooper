@@ -15,7 +15,7 @@ export const afCities = [
     "country": "Somalia"
   },
   {
-    "city": "Af\u015fin",
+    "city": "Afsin",
     "state": "Kahramanmara\u015f",
     "country": "Turkey"
   },
@@ -45,12 +45,12 @@ export const afCities = [
     "country": "Brazil"
   },
   {
-    "city": "Afu\u00e1",
+    "city": "Afua",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Afonso Cl\u00e1udio",
+    "city": "Afonso Claudio",
     "state": "Esp\u00edrito Santo",
     "country": "Brazil"
   },
@@ -70,9 +70,14 @@ export const afCities = [
     "country": "United States"
   },
   {
-    "city": "Afr\u00e2nio",
+    "city": "Afranio",
     "state": "Pernambuco",
     "country": "Brazil"
+  },
+  {
+    "city": "Afdem",
+    "state": "Sumal\u0113",
+    "country": "Ethiopia"
   },
   {
     "city": "Afzala",
@@ -100,7 +105,7 @@ export const afCities = [
     "country": "Brazil"
   },
   {
-    "city": "Afuma\u0163i",
+    "city": "Afumati",
     "state": "Ilfov",
     "country": "Romania"
   },

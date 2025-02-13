@@ -20,7 +20,12 @@ export const obCities = [
     "country": "Russia"
   },
   {
-    "city": "Ober\u00e1",
+    "city": "Obu",
+    "state": "Aichi",
+    "country": "Japan"
+  },
+  {
+    "city": "Obera",
     "state": "Misiones",
     "country": "Argentina"
   },
@@ -28,6 +33,11 @@ export const obCities = [
     "city": "Obando",
     "state": "Bulacan",
     "country": "Philippines"
+  },
+  {
+    "city": "Obidos",
+    "state": "Par\u00e1",
+    "country": "Brazil"
   },
   {
     "city": "Obra",
@@ -125,7 +135,7 @@ export const obCities = [
     "country": "Russia"
   },
   {
-    "city": "Obal\u0101puram",
+    "city": "Obalapuram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -140,7 +150,7 @@ export const obCities = [
     "country": "France"
   },
   {
-    "city": "Oberschlei\u00dfheim",
+    "city": "Oberschleissheim",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -148,6 +158,11 @@ export const obCities = [
     "city": "Oberderdingen",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
+  },
+  {
+    "city": "Obidos",
+    "state": "Leiria",
+    "country": "Portugal"
   },
   {
     "city": "Oberwil",
@@ -180,7 +195,7 @@ export const obCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Oborniki \u015al\u0105skie",
+    "city": "Oborniki Slaskie",
     "state": "Dolno\u015bl\u0105skie",
     "country": "Poland"
   },
@@ -220,7 +235,7 @@ export const obCities = [
     "country": "Kosovo"
   },
   {
-    "city": "Oble\u0161evo",
+    "city": "Oblesevo",
     "state": "\u010ce\u0161inovo-Oble\u0161evo",
     "country": "North Macedonia"
   }

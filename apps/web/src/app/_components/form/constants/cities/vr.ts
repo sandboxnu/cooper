@@ -1,6 +1,6 @@
 export const vrCities = [
   {
-    "city": "Vriddh\u0101chalam",
+    "city": "Vriddhachalam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -10,7 +10,7 @@ export const vrCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Vrind\u0101van",
+    "city": "Vrindavan",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -30,12 +30,12 @@ export const vrCities = [
     "country": "South Africa"
   },
   {
-    "city": "Vr\u0161ac",
+    "city": "Vrsac",
     "state": "Vr\u0161ac",
     "country": "Serbia"
   },
   {
-    "city": "Vril\u00edssia",
+    "city": "Vrilissia",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -55,7 +55,7 @@ export const vrCities = [
     "country": "South Africa"
   },
   {
-    "city": "Vranov nad Top\u013eou",
+    "city": "Vranov nad Topl'ou",
     "state": "Pre\u0161ov",
     "country": "Slovakia"
   },
@@ -80,12 +80,12 @@ export const vrCities = [
     "country": "Croatia"
   },
   {
-    "city": "Vrchlab\u00ed",
+    "city": "Vrchlabi",
     "state": "Kr\u00e1lov\u00e9hradeck\u00fd Kraj",
     "country": "Czechia"
   },
   {
-    "city": "Vrnja\u010dka Banja",
+    "city": "Vrnjacka Banja",
     "state": "Vrnja\u010dka Banja",
     "country": "Serbia"
   },
@@ -95,12 +95,12 @@ export const vrCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Vr\u00e1ble",
+    "city": "Vrable",
     "state": "Nitra",
     "country": "Slovakia"
   },
   {
-    "city": "Vrap\u010di\u0161te",
+    "city": "Vrapciste",
     "state": "Vrap\u010di\u0161te",
     "country": "North Macedonia"
   },

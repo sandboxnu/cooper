@@ -35,6 +35,11 @@ export const loCities = [
     "country": "Nigeria"
   },
   {
+    "city": "Lodz",
+    "state": "\u0141\u00f3dzkie",
+    "country": "Poland"
+  },
+  {
     "city": "Londrina",
     "state": "Paran\u00e1",
     "country": "Brazil"
@@ -80,7 +85,7 @@ export const loCities = [
     "country": "Mexico"
   },
   {
-    "city": "Long Xuy\u00ean",
+    "city": "Long Xuyen",
     "state": "An Giang",
     "country": "Vietnam"
   },
@@ -140,17 +145,17 @@ export const loCities = [
     "country": "China"
   },
   {
-    "city": "Long Kh\u00e1nh",
+    "city": "Long Khanh",
     "state": "\u0110\u1ed3ng Nai",
     "country": "Vietnam"
   },
   {
-    "city": "Logro\u00f1o",
+    "city": "Logrono",
     "state": "La Rioja",
     "country": "Spain"
   },
   {
-    "city": "Los \u00c1ngeles",
+    "city": "Los Angeles",
     "state": "Biob\u00edo",
     "country": "Chile"
   },
@@ -160,7 +165,7 @@ export const loCities = [
     "country": "Angola"
   },
   {
-    "city": "Long B\u00ecnh",
+    "city": "Long Binh",
     "state": "\u0110\u1ed3ng Nai",
     "country": "Vietnam"
   },
@@ -185,7 +190,7 @@ export const loCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Los Ba\u00f1os",
+    "city": "Los Banos",
     "state": "Laguna",
     "country": "Philippines"
   },
@@ -320,7 +325,7 @@ export const loCities = [
     "country": "China"
   },
   {
-    "city": "Long M\u1ef9",
+    "city": "Long My",
     "state": "H\u1eadu Giang",
     "country": "Vietnam"
   },
@@ -335,7 +340,7 @@ export const loCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Loul\u00e9",
+    "city": "Loule",
     "state": "Faro",
     "country": "Portugal"
   },
@@ -380,6 +385,11 @@ export const loCities = [
     "country": "Argentina"
   },
   {
+    "city": "Lomza",
+    "state": "Podlaskie",
+    "country": "Poland"
+  },
+  {
     "city": "Loughborough",
     "state": "Leicestershire",
     "country": "United Kingdom"
@@ -395,12 +405,12 @@ export const loCities = [
     "country": "France"
   },
   {
-    "city": "Lon\u0101vale",
+    "city": "Lonavale",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
   {
-    "city": "Loh\u0101rdag\u0101",
+    "city": "Lohardaga",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -450,6 +460,11 @@ export const loCities = [
     "country": "Brazil"
   },
   {
+    "city": "Lorrach",
+    "state": "Baden-W\u00fcrttemberg",
+    "country": "Germany"
+  },
+  {
     "city": "Longchamps",
     "state": "Buenos Aires",
     "country": "Argentina"
@@ -463,6 +478,11 @@ export const loCities = [
     "city": "Loum",
     "state": "Littoral",
     "country": "Cameroon"
+  },
+  {
+    "city": "Lorenskog",
+    "state": "Viken",
+    "country": "Norway"
   },
   {
     "city": "Lohja",
@@ -535,9 +555,14 @@ export const loCities = [
     "country": "Philippines"
   },
   {
-    "city": "Lordeg\u0101n",
+    "city": "Lordegan",
     "state": "Chah\u0101r Ma\u1e29\u0101l va Bakht\u012b\u0101r\u012b",
     "country": "Iran"
+  },
+  {
+    "city": "Lohne",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
   },
   {
     "city": "Longtang",
@@ -570,6 +595,11 @@ export const loCities = [
     "country": "Malaysia"
   },
   {
+    "city": "Lokbatan",
+    "state": "Bak\u0131",
+    "country": "Azerbaijan"
+  },
+  {
     "city": "Long Beach",
     "state": "New York",
     "country": "United States"
@@ -600,7 +630,7 @@ export const loCities = [
     "country": "United States"
   },
   {
-    "city": "Lom\u00e9",
+    "city": "Lome",
     "state": "Maritime",
     "country": "Togo"
   },
@@ -640,7 +670,7 @@ export const loCities = [
     "country": "Germany"
   },
   {
-    "city": "Loh\u0101g\u0101ra",
+    "city": "Lohagara",
     "state": "Chattogram",
     "country": "Bangladesh"
   },
@@ -650,7 +680,7 @@ export const loCities = [
     "country": "India"
   },
   {
-    "city": "Longav\u00ed",
+    "city": "Longavi",
     "state": "Maule",
     "country": "Chile"
   },
@@ -670,7 +700,7 @@ export const loCities = [
     "country": "China"
   },
   {
-    "city": "Los Reyes de Ju\u00e1rez",
+    "city": "Los Reyes de Juarez",
     "state": "Puebla",
     "country": "Mexico"
   },
@@ -680,7 +710,7 @@ export const loCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Long Th\u00e0nh",
+    "city": "Long Thanh",
     "state": "\u0110\u1ed3ng Nai",
     "country": "Vietnam"
   },
@@ -690,9 +720,14 @@ export const loCities = [
     "country": "United States"
   },
   {
-    "city": "Lout\u00e9t\u00e9",
+    "city": "Loutete",
     "state": "Bouenza",
     "country": "Congo (Brazzaville)"
+  },
+  {
+    "city": "Lowicz",
+    "state": "\u0141\u00f3dzkie",
+    "country": "Poland"
   },
   {
     "city": "Lobatse",
@@ -700,7 +735,7 @@ export const loCities = [
     "country": "Botswana"
   },
   {
-    "city": "Los C\u00f3rdobas",
+    "city": "Los Cordobas",
     "state": "C\u00f3rdoba",
     "country": "Colombia"
   },
@@ -720,7 +755,7 @@ export const loCities = [
     "country": "United States"
   },
   {
-    "city": "Lourinh\u00e3",
+    "city": "Lourinha",
     "state": "Lisboa",
     "country": "Portugal"
   },
@@ -855,7 +890,7 @@ export const loCities = [
     "country": "Philippines"
   },
   {
-    "city": "Lohut\u00ed",
+    "city": "Lohuti",
     "state": "Sughd",
     "country": "Tajikistan"
   },
@@ -920,7 +955,7 @@ export const loCities = [
     "country": "United States"
   },
   {
-    "city": "Lon\u0101r",
+    "city": "Lonar",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -935,7 +970,7 @@ export const loCities = [
     "country": "Congo (Brazzaville)"
   },
   {
-    "city": "Los \u00c1lamos",
+    "city": "Los Alamos",
     "state": "Biob\u00edo",
     "country": "Chile"
   },
@@ -960,7 +995,7 @@ export const loCities = [
     "country": "Belgium"
   },
   {
-    "city": "Los Alc\u00e1zares",
+    "city": "Los Alcazares",
     "state": "Murcia",
     "country": "Spain"
   },
@@ -985,7 +1020,7 @@ export const loCities = [
     "country": "France"
   },
   {
-    "city": "Lora del R\u00edo",
+    "city": "Lora del Rio",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -993,6 +1028,11 @@ export const loCities = [
     "city": "Logansport",
     "state": "Indiana",
     "country": "United States"
+  },
+  {
+    "city": "Lomianki",
+    "state": "Mazowieckie",
+    "country": "Poland"
   },
   {
     "city": "Louny",
@@ -1020,7 +1060,7 @@ export const loCities = [
     "country": "China"
   },
   {
-    "city": "Lous\u00e3",
+    "city": "Lousa",
     "state": "Coimbra",
     "country": "Portugal"
   },
@@ -1050,7 +1090,7 @@ export const loCities = [
     "country": "Kenya"
   },
   {
-    "city": "Long\u2019e",
+    "city": "Long'e",
     "state": "Guizhou",
     "country": "China"
   },
@@ -1195,6 +1235,11 @@ export const loCities = [
     "country": "Germany"
   },
   {
+    "city": "Lobau",
+    "state": "Saxony",
+    "country": "Germany"
+  },
+  {
     "city": "Lotte",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
@@ -1230,6 +1275,11 @@ export const loCities = [
     "country": "France"
   },
   {
+    "city": "Loningen",
+    "state": "Lower Saxony",
+    "country": "Germany"
+  },
+  {
     "city": "Lomma",
     "state": "Sk\u00e5ne",
     "country": "Sweden"
@@ -1255,12 +1305,12 @@ export const loCities = [
     "country": "United States"
   },
   {
-    "city": "Lowsh\u0101n",
+    "city": "Lowshan",
     "state": "G\u012bl\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Lohiy\u0101r Ujain",
+    "city": "Lohiyar Ujain",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1275,7 +1325,7 @@ export const loCities = [
     "country": "Brazil"
   },
   {
-    "city": "Lok\u0101pur",
+    "city": "Lokapur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1305,7 +1355,7 @@ export const loCities = [
     "country": "Dominican Republic"
   },
   {
-    "city": "Lodh\u012bkheda",
+    "city": "Lodhikheda",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1315,7 +1365,7 @@ export const loCities = [
     "country": "United States"
   },
   {
-    "city": "Lober\u00eda",
+    "city": "Loberia",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -1360,7 +1410,7 @@ export const loCities = [
     "country": "Brazil"
   },
   {
-    "city": "Loutr\u00e1ki",
+    "city": "Loutraki",
     "state": "Pelop\u00f3nnisos",
     "country": "Greece"
   },
@@ -1405,7 +1455,7 @@ export const loCities = [
     "country": "Norway"
   },
   {
-    "city": "Los Alm\u00e1cigos",
+    "city": "Los Almacigos",
     "state": "Cibao Noroeste",
     "country": "Dominican Republic"
   },
@@ -1470,7 +1520,7 @@ export const loCities = [
     "country": "France"
   },
   {
-    "city": "Loh\u0101rda",
+    "city": "Loharda",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1520,7 +1570,7 @@ export const loCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Los R\u00edos",
+    "city": "Los Rios",
     "state": "Enriquillo",
     "country": "Dominican Republic"
   },
@@ -1535,7 +1585,12 @@ export const loCities = [
     "country": "United States"
   },
   {
-    "city": "Loud\u00e9ac",
+    "city": "Lobez",
+    "state": "Zachodniopomorskie",
+    "country": "Poland"
+  },
+  {
+    "city": "Loudeac",
     "state": "Bretagne",
     "country": "France"
   },
@@ -1635,9 +1690,19 @@ export const loCities = [
     "country": "Brazil"
   },
   {
+    "city": "Lowenberg",
+    "state": "Brandenburg",
+    "country": "Germany"
+  },
+  {
     "city": "Longvic",
     "state": "Bourgogne-Franche-Comt\u00e9",
     "country": "France"
+  },
+  {
+    "city": "Logten",
+    "state": "Midtjylland",
+    "country": "Denmark"
   },
   {
     "city": "Lourosa",
@@ -1650,7 +1715,7 @@ export const loCities = [
     "country": "United States"
   },
   {
-    "city": "Locogahou\u00e9",
+    "city": "Locogahoue",
     "state": "Couffo",
     "country": "Benin"
   },

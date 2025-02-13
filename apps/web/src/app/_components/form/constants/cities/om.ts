@@ -15,13 +15,43 @@ export const omCities = [
     "country": "United States"
   },
   {
-    "city": "Om\u012bd\u012byeh",
+    "city": "Ome",
+    "state": "T\u014dky\u014d",
+    "country": "Japan"
+  },
+  {
+    "city": "Omiyacho",
+    "state": "Shizuoka",
+    "country": "Japan"
+  },
+  {
+    "city": "Omuta",
+    "state": "Fukuoka",
+    "country": "Japan"
+  },
+  {
+    "city": "Omura",
+    "state": "Nagasaki",
+    "country": "Japan"
+  },
+  {
+    "city": "Omihachiman",
+    "state": "Shiga",
+    "country": "Japan"
+  },
+  {
+    "city": "Omidiyeh",
     "state": "Kh\u016bzest\u0101n",
     "country": "Iran"
   },
   {
     "city": "Omitama",
     "state": "Ibaraki",
+    "country": "Japan"
+  },
+  {
+    "city": "Omagari",
+    "state": "Akita",
     "country": "Japan"
   },
   {
@@ -33,6 +63,11 @@ export const omCities = [
     "city": "Ometepec",
     "state": "Guerrero",
     "country": "Mexico"
+  },
+  {
+    "city": "Omachi",
+    "state": "Nagano",
+    "country": "Japan"
   },
   {
     "city": "Omigawa",
@@ -60,12 +95,12 @@ export const omCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Omall\u016br",
+    "city": "Omallur",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Omal\u016br",
+    "city": "Omalur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -75,7 +110,12 @@ export const omCities = [
     "country": "Italy"
   },
   {
-    "city": "Omi\u0161",
+    "city": "Omerli",
+    "state": "Mardin",
+    "country": "Turkey"
+  },
+  {
+    "city": "Omis",
     "state": "Splitsko-Dalmatinska \u017dupanija",
     "country": "Croatia"
   },
@@ -105,7 +145,7 @@ export const omCities = [
     "country": "Namibia"
   },
   {
-    "city": "Ombou\u00e9",
+    "city": "Omboue",
     "state": "Ogoou\u00e9-Maritime",
     "country": "Gabon"
   },

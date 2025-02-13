@@ -325,7 +325,7 @@ export const weCities = [
     "country": "United States"
   },
   {
-    "city": "Wei\u00dfenfels",
+    "city": "Weissenfels",
     "state": "Saxony-Anhalt",
     "country": "Germany"
   },
@@ -460,7 +460,7 @@ export const weCities = [
     "country": "United States"
   },
   {
-    "city": "Welk\u2019\u012bt\u2019\u0113",
+    "city": "Welk'it'e",
     "state": "YeDebub Bih\u0113roch Bih\u0113reseboch na Hizboch",
     "country": "Ethiopia"
   },
@@ -680,7 +680,7 @@ export const weCities = [
     "country": "United States"
   },
   {
-    "city": "Welench\u2019\u012bt\u012b",
+    "city": "Welench'iti",
     "state": "Orom\u012bya",
     "country": "Ethiopia"
   },
@@ -765,7 +765,7 @@ export const weCities = [
     "country": "United States"
   },
   {
-    "city": "Wei\u00dfenburg",
+    "city": "Weissenburg",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -900,7 +900,7 @@ export const weCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Wei\u00dfwasser/Oberlausitz",
+    "city": "Weisswasser/Oberlausitz",
     "state": "Saxony",
     "country": "Germany"
   },
@@ -995,7 +995,7 @@ export const weCities = [
     "country": "United States"
   },
   {
-    "city": "Wei\u00dfenhorn",
+    "city": "Weissenhorn",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -1105,6 +1105,11 @@ export const weCities = [
     "country": "United States"
   },
   {
+    "city": "Wegrow",
+    "state": "Mazowieckie",
+    "country": "Poland"
+  },
+  {
     "city": "Welver",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
@@ -1195,7 +1200,7 @@ export const weCities = [
     "country": "United States"
   },
   {
-    "city": "Wen\u2019anyi",
+    "city": "Wen'anyi",
     "state": "Shaanxi",
     "country": "China"
   },
@@ -1213,6 +1218,11 @@ export const weCities = [
     "city": "West Caldwell",
     "state": "New Jersey",
     "country": "United States"
+  },
+  {
+    "city": "Wegorzewo",
+    "state": "Warmi\u0144sko-Mazurskie",
+    "country": "Poland"
   },
   {
     "city": "West Hanover",
@@ -1240,7 +1250,7 @@ export const weCities = [
     "country": "United States"
   },
   {
-    "city": "Weinb\u00f6hla",
+    "city": "Weinbohla",
     "state": "Saxony",
     "country": "Germany"
   },
@@ -1285,7 +1295,7 @@ export const weCities = [
     "country": "Germany"
   },
   {
-    "city": "Weil im Sch\u00f6nbuch",
+    "city": "Weil im Schonbuch",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
@@ -1295,7 +1305,7 @@ export const weCities = [
     "country": "United States"
   },
   {
-    "city": "Were \u012alu",
+    "city": "Were Ilu",
     "state": "\u0100mara",
     "country": "Ethiopia"
   },
@@ -1330,7 +1340,7 @@ export const weCities = [
     "country": "Germany"
   },
   {
-    "city": "Wei\u00dfenthurm",
+    "city": "Weissenthurm",
     "state": "Rhineland-Palatinate",
     "country": "Germany"
   },
@@ -1380,7 +1390,7 @@ export const weCities = [
     "country": "United States"
   },
   {
-    "city": "Weilm\u00fcnster",
+    "city": "Weilmunster",
     "state": "Hesse",
     "country": "Germany"
   },
@@ -1423,5 +1433,10 @@ export const weCities = [
     "city": "Weipa",
     "state": "Queensland",
     "country": "Australia"
+  },
+  {
+    "city": "We",
+    "state": "Province \u00celes",
+    "country": "New Caledonia"
   }
 ]

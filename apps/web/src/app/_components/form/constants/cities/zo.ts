@@ -20,14 +20,19 @@ export const zoCities = [
     "country": "Malawi"
   },
   {
-    "city": "Zogbodom\u00e9",
+    "city": "Zogbodome",
     "state": "Zou",
     "country": "Benin"
   },
   {
-    "city": "Zogr\u00e1fos",
+    "city": "Zografos",
     "state": "Attik\u00ed",
     "country": "Greece"
+  },
+  {
+    "city": "Zory",
+    "state": "\u015al\u0105skie",
+    "country": "Poland"
   },
   {
     "city": "Zongo",
@@ -110,7 +115,7 @@ export const zoCities = [
     "country": "Uganda"
   },
   {
-    "city": "Zontecomatl\u00e1n de L\u00f3pez y Fuentes",
+    "city": "Zontecomatlan de Lopez y Fuentes",
     "state": "Veracruz",
     "country": "Mexico"
   },
@@ -140,7 +145,7 @@ export const zoCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Zoudjam\u00e9",
+    "city": "Zoudjame",
     "state": "Couffo",
     "country": "Benin"
   },
@@ -153,6 +158,11 @@ export const zoCities = [
     "city": "Zoubiria",
     "state": "M\u00e9d\u00e9a",
     "country": "Algeria"
+  },
+  {
+    "city": "Zorbig",
+    "state": "Saxony-Anhalt",
+    "country": "Germany"
   },
   {
     "city": "Zoeterwoude",

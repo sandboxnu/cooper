@@ -80,7 +80,7 @@ export const llCities = [
     "country": "Spain"
   },
   {
-    "city": "Llor\u00f3",
+    "city": "Lloro",
     "state": "Choc\u00f3",
     "country": "Colombia"
   },

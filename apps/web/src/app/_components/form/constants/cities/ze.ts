@@ -1,11 +1,21 @@
 export const zeCities = [
   {
+    "city": "Zetang",
+    "state": "Tibet",
+    "country": "China"
+  },
+  {
+    "city": "Zegoua",
+    "state": NaN,
+    "country": "Mali"
+  },
+  {
     "city": "Zemun",
     "state": "Beograd",
     "country": "Serbia"
   },
   {
-    "city": "Zel\u00ebnodol\u2019sk",
+    "city": "Zelenodol'sk",
     "state": "Tatarstan",
     "country": "Russia"
   },
@@ -55,6 +65,11 @@ export const zeCities = [
     "country": "Netherlands"
   },
   {
+    "city": "Zefat",
+    "state": "Northern",
+    "country": "Israel"
+  },
+  {
     "city": "Zelenokumsk",
     "state": "Stavropol\u2019skiy Kray",
     "country": "Russia"
@@ -65,9 +80,14 @@ export const zeCities = [
     "country": "Morocco"
   },
   {
-    "city": "Zentsujich\u00f3",
+    "city": "Zentsujicho",
     "state": "Kagawa",
     "country": "Japan"
+  },
+  {
+    "city": "Zepce",
+    "state": "Bosnia and Herzegovina, Federation of",
+    "country": "Bosnia and Herzegovina"
   },
   {
     "city": "Zemoura",
@@ -145,6 +165,11 @@ export const zeCities = [
     "country": "United States"
   },
   {
+    "city": "Zebala",
+    "state": "Sikasso",
+    "country": "Mali"
+  },
+  {
     "city": "Zequ",
     "state": "Qinghai",
     "country": "China"
@@ -210,6 +235,11 @@ export const zeCities = [
     "country": "Germany"
   },
   {
+    "city": "Zebbug",
+    "state": "\u017bebbu\u0121",
+    "country": "Malta"
+  },
+  {
     "city": "Zemamra",
     "state": "Casablanca-Settat",
     "country": "Morocco"
@@ -218,6 +248,11 @@ export const zeCities = [
     "city": "Zero Branco",
     "state": "Veneto",
     "country": "Italy"
+  },
+  {
+    "city": "Zejtun",
+    "state": "\u017bejtun",
+    "country": "Malta"
   },
   {
     "city": "Zeuthen",
@@ -230,7 +265,12 @@ export const zeCities = [
     "country": "Algeria"
   },
   {
-    "city": "Zef\u00fdri",
+    "city": "Zerizer",
+    "state": "El Tarf",
+    "country": "Algeria"
+  },
+  {
+    "city": "Zefyri",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -245,7 +285,7 @@ export const zeCities = [
     "country": "China"
   },
   {
-    "city": "Zeyd\u0101b\u0101d",
+    "city": "Zeydabad",
     "state": "Kerm\u0101n",
     "country": "Iran"
   },
@@ -255,13 +295,33 @@ export const zeCities = [
     "country": "South Africa"
   },
   {
+    "city": "Zelezniki",
+    "state": "\u017delezniki",
+    "country": "Slovenia"
+  },
+  {
+    "city": "Zebbug",
+    "state": "\u017bebbu\u0121 (Ghawdex)",
+    "country": "Malta"
+  },
+  {
     "city": "Zelenikovo",
     "state": "Zelenikovo",
+    "country": "North Macedonia"
+  },
+  {
+    "city": "Zelino",
+    "state": "\u017delino",
     "country": "North Macedonia"
   },
   {
     "city": "Zemlya Bunge",
     "state": "Sakha (Yakutiya)",
     "country": "Russia"
+  },
+  {
+    "city": "Zetale",
+    "state": "\u017detale",
+    "country": "Slovenia"
   }
 ]

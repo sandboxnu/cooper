@@ -15,7 +15,7 @@ export const giCities = [
     "country": "Korea, South"
   },
   {
-    "city": "Gij\u00f3n",
+    "city": "Gijon",
     "state": "Asturias",
     "country": "Spain"
   },
@@ -25,12 +25,12 @@ export const giCities = [
     "country": "United States"
   },
   {
-    "city": "Gir\u00f3n",
+    "city": "Giron",
     "state": "Santander",
     "country": "Colombia"
   },
   {
-    "city": "Gi\u00e1 Rai",
+    "city": "Gia Rai",
     "state": "B\u1ea1c Li\u00eau",
     "country": "Vietnam"
   },
@@ -80,7 +80,7 @@ export const giCities = [
     "country": "Japan"
   },
   {
-    "city": "Gie\u00dfen",
+    "city": "Giessen",
     "state": "Hesse",
     "country": "Germany"
   },
@@ -95,12 +95,12 @@ export const giCities = [
     "country": "Cuba"
   },
   {
-    "city": "Giddarb\u0101ha",
+    "city": "Giddarbaha",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Gia Ngh\u0129a",
+    "city": "Gia Nghia",
     "state": "\u0110\u1eafk N\u00f4ng",
     "country": "Vietnam"
   },
@@ -145,7 +145,7 @@ export const giCities = [
     "country": "Colombia"
   },
   {
-    "city": "Giddal\u016br",
+    "city": "Giddalur",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -165,7 +165,12 @@ export const giCities = [
     "country": "United States"
   },
   {
-    "city": "Giannits\u00e1",
+    "city": "Gimbi",
+    "state": "Orom\u012bya",
+    "country": "Ethiopia"
+  },
+  {
+    "city": "Giannitsa",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
@@ -175,7 +180,7 @@ export const giCities = [
     "country": "India"
   },
   {
-    "city": "Gi\u017cycko",
+    "city": "Gizycko",
     "state": "Warmi\u0144sko-Mazurskie",
     "country": "Poland"
   },
@@ -205,7 +210,7 @@ export const giCities = [
     "country": "South Africa"
   },
   {
-    "city": "Gilarch\u0101t",
+    "city": "Gilarchat",
     "state": "West Bengal",
     "country": "India"
   },
@@ -215,7 +220,7 @@ export const giCities = [
     "country": "Japan"
   },
   {
-    "city": "Giv\u2018at Shemu\u2019\u00e9l",
+    "city": "Giv`at Shemu'el",
     "state": "Central",
     "country": "Israel"
   },
@@ -233,6 +238,11 @@ export const giCities = [
     "city": "Gif-sur-Yvette",
     "state": "\u00cele-de-France",
     "country": "France"
+  },
+  {
+    "city": "Gilan-e Gharb",
+    "state": "Kerm\u0101nsh\u0101h",
+    "country": "Iran"
   },
   {
     "city": "Gigaquit",
@@ -305,6 +315,11 @@ export const giCities = [
     "country": "India"
   },
   {
+    "city": "Ginir",
+    "state": "Orom\u012bya",
+    "country": "Ethiopia"
+  },
+  {
     "city": "Ginsheim-Gustavsburg",
     "state": "Hesse",
     "country": "Germany"
@@ -325,7 +340,7 @@ export const giCities = [
     "country": "Italy"
   },
   {
-    "city": "Giru\u00e1",
+    "city": "Girua",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -345,12 +360,12 @@ export const giCities = [
     "country": "Philippines"
   },
   {
-    "city": "Gibrale\u00f3n",
+    "city": "Gibraleon",
     "state": "Andalusia",
     "country": "Spain"
   },
   {
-    "city": "Gi\u00e1nnouli",
+    "city": "Giannouli",
     "state": "Thessal\u00eda",
     "country": "Greece"
   },
@@ -365,7 +380,7 @@ export const giCities = [
     "country": "Belgium"
   },
   {
-    "city": "Giera\u0142towice",
+    "city": "Gieraltowice",
     "state": "\u015al\u0105skie",
     "country": "Poland"
   },
@@ -390,7 +405,7 @@ export const giCities = [
     "country": "Italy"
   },
   {
-    "city": "Gilbu\u00e9s",
+    "city": "Gilbues",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
@@ -455,7 +470,7 @@ export const giCities = [
     "country": "South Africa"
   },
   {
-    "city": "Gidan Id\u00e8r",
+    "city": "Gidan Ider",
     "state": "Tahoua",
     "country": "Niger"
   },

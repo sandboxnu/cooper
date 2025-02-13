@@ -45,7 +45,7 @@ export const udCities = [
     "country": "India"
   },
   {
-    "city": "Udaypur Ga\u1e0dhi\u0307\u0304",
+    "city": "Udaypur Gadhi",
     "state": NaN,
     "country": "Nepal"
   },
@@ -90,7 +90,7 @@ export const udCities = [
     "country": "India"
   },
   {
-    "city": "Udiy\u0101vara",
+    "city": "Udiyavara",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -105,7 +105,7 @@ export const udCities = [
     "country": "India"
   },
   {
-    "city": "Udaipur Bithw\u0101r",
+    "city": "Udaipur Bithwar",
     "state": "Bih\u0101r",
     "country": "India"
   },

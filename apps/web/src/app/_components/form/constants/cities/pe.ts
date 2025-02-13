@@ -60,6 +60,11 @@ export const peCities = [
     "country": "Venezuela"
   },
   {
+    "city": "Petion-Ville",
+    "state": "Ouest",
+    "country": "Haiti"
+  },
+  {
     "city": "Pelotas",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
@@ -70,7 +75,7 @@ export const peCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Petr\u00f3polis",
+    "city": "Petropolis",
     "state": "Rio de Janeiro",
     "country": "Brazil"
   },
@@ -90,12 +95,17 @@ export const peCities = [
     "country": "United States"
   },
   {
-    "city": "Peta\u1e96 Tiqwa",
+    "city": "Pecs",
+    "state": "Baranya",
+    "country": "Hungary"
+  },
+  {
+    "city": "Petah Tiqwa",
     "state": "Central",
     "country": "Israel"
   },
   {
-    "city": "Petl\u0101d",
+    "city": "Petlad",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -105,7 +115,7 @@ export const peCities = [
     "country": "Spain"
   },
   {
-    "city": "Pe\u00f1alol\u00e9n",
+    "city": "Penalolen",
     "state": "Regi\u00f3n Metropolitana",
     "country": "Chile"
   },
@@ -130,7 +140,7 @@ export const peCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Petite Rivi\u00e8re de l\u2019Artibonite",
+    "city": "Petite Riviere de l'Artibonite",
     "state": "Artibonite",
     "country": "Haiti"
   },
@@ -150,7 +160,12 @@ export const peCities = [
     "country": "Italy"
   },
   {
-    "city": "Pesquer\u00eda",
+    "city": "Penjamo",
+    "state": "Guanajuato",
+    "country": "Mexico"
+  },
+  {
+    "city": "Pesqueria",
     "state": "Nuevo Le\u00f3n",
     "country": "Mexico"
   },
@@ -160,7 +175,7 @@ export const peCities = [
     "country": "Mozambique"
   },
   {
-    "city": "Perist\u00e9ri",
+    "city": "Peristeri",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -200,7 +215,7 @@ export const peCities = [
     "country": "Paraguay"
   },
   {
-    "city": "Petr\u017ealka",
+    "city": "Petrzalka",
     "state": "Bratislava",
     "country": "Slovakia"
   },
@@ -215,7 +230,7 @@ export const peCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Pej\u00eb",
+    "city": "Peje",
     "state": "Pej\u00eb",
     "country": "Kosovo"
   },
@@ -225,12 +240,12 @@ export const peCities = [
     "country": "Italy"
   },
   {
-    "city": "Pedag\u0101di",
+    "city": "Pedagadi",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Pe\u00f1aflor",
+    "city": "Penaflor",
     "state": "Regi\u00f3n Metropolitana",
     "country": "Chile"
   },
@@ -245,9 +260,24 @@ export const peCities = [
     "country": "India"
   },
   {
+    "city": "Perere",
+    "state": "Borgou",
+    "country": "Benin"
+  },
+  {
     "city": "Perris",
     "state": "California",
     "country": "United States"
+  },
+  {
+    "city": "Pehonko",
+    "state": "Atacora",
+    "country": "Benin"
+  },
+  {
+    "city": "Peda-Houeyogbe",
+    "state": "Mono",
+    "country": "Benin"
   },
   {
     "city": "Pedro Brand",
@@ -260,7 +290,7 @@ export const peCities = [
     "country": "Portugal"
   },
   {
-    "city": "Peru\u00edbe",
+    "city": "Peruibe",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -285,7 +315,7 @@ export const peCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Pen\u00e1polis",
+    "city": "Penapolis",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -295,7 +325,7 @@ export const peCities = [
     "country": "United States"
   },
   {
-    "city": "Petro\u00fapoli",
+    "city": "Petroupoli",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -310,7 +340,12 @@ export const peCities = [
     "country": "Mozambique"
   },
   {
-    "city": "Periya Sem\u016br",
+    "city": "Pelengana",
+    "state": "S\u00e9gou",
+    "country": "Mali"
+  },
+  {
+    "city": "Periya Semur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -330,12 +365,12 @@ export const peCities = [
     "country": "Germany"
   },
   {
-    "city": "Peran\u0101mpattu",
+    "city": "Peranampattu",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Pe\u00f1ablanca",
+    "city": "Penablanca",
     "state": "Cagayan",
     "country": "Philippines"
   },
@@ -345,12 +380,12 @@ export const peCities = [
     "country": "India"
   },
   {
-    "city": "Perambal\u016br",
+    "city": "Perambalur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Pedd\u0101puram",
+    "city": "Peddapuram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -395,7 +430,7 @@ export const peCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Petatl\u00e1n",
+    "city": "Petatlan",
     "state": "Guerrero",
     "country": "Mexico"
   },
@@ -445,7 +480,7 @@ export const peCities = [
     "country": "United States"
   },
   {
-    "city": "Penum\u016br",
+    "city": "Penumur",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -465,7 +500,7 @@ export const peCities = [
     "country": "Brazil"
   },
   {
-    "city": "Pereslavl\u2019-Zalesskiy",
+    "city": "Pereslavl'-Zalesskiy",
     "state": "Yaroslavskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -515,7 +550,7 @@ export const peCities = [
     "country": "Haiti"
   },
   {
-    "city": "Perun\u0101d",
+    "city": "Perunad",
     "state": "Kerala",
     "country": "India"
   },
@@ -535,12 +570,12 @@ export const peCities = [
     "country": "United States"
   },
   {
-    "city": "Per\u015fembe",
+    "city": "Persembe",
     "state": "Ordu",
     "country": "Turkey"
   },
   {
-    "city": "Pe\u00f1aranda",
+    "city": "Penaranda",
     "state": "Nueva Ecija",
     "country": "Philippines"
   },
@@ -555,7 +590,7 @@ export const peCities = [
     "country": "United States"
   },
   {
-    "city": "Pehuaj\u00f3",
+    "city": "Pehuajo",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -565,7 +600,7 @@ export const peCities = [
     "country": "Serbia"
   },
   {
-    "city": "Petro\u015fani",
+    "city": "Petrosani",
     "state": "Hunedoara",
     "country": "Romania"
   },
@@ -575,12 +610,12 @@ export const peCities = [
     "country": "India"
   },
   {
-    "city": "Periyan\u0101yakkanp\u0101laiyam",
+    "city": "Periyanayakkanpalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Petite Rivi\u00e8re de Nippes",
+    "city": "Petite Riviere de Nippes",
     "state": "Nippes",
     "country": "Haiti"
   },
@@ -603,6 +638,11 @@ export const peCities = [
     "city": "Pedro Betancourt",
     "state": "Matanzas",
     "country": "Cuba"
+  },
+  {
+    "city": "Perigueux",
+    "state": "Nouvelle-Aquitaine",
+    "country": "France"
   },
   {
     "city": "Perafita",
@@ -640,7 +680,7 @@ export const peCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Pereyaslav-Khmel\u2019nyts\u2019kyy",
+    "city": "Pereyaslav-Khmel'nyts'kyy",
     "state": "Kyivska Oblast",
     "country": "Ukraine"
   },
@@ -658,6 +698,11 @@ export const peCities = [
     "city": "Perumbalam",
     "state": "Kerala",
     "country": "India"
+  },
+  {
+    "city": "Perez",
+    "state": "Santa Fe",
+    "country": "Argentina"
   },
   {
     "city": "Peniche",
@@ -688,6 +733,11 @@ export const peCities = [
     "city": "Peekskill",
     "state": "New York",
     "country": "United States"
+  },
+  {
+    "city": "Perama",
+    "state": "Attik\u00ed",
+    "country": "Greece"
   },
   {
     "city": "Petershagen",
@@ -730,7 +780,7 @@ export const peCities = [
     "country": "United States"
   },
   {
-    "city": "Penn\u0101dam",
+    "city": "Pennadam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -747,6 +797,11 @@ export const peCities = [
   {
     "city": "Perungudi",
     "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Peravur",
+    "state": "Kerala",
     "country": "India"
   },
   {
@@ -785,7 +840,7 @@ export const peCities = [
     "country": "India"
   },
   {
-    "city": "Per\u0101v\u016brani",
+    "city": "Peravurani",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -795,7 +850,7 @@ export const peCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Penonom\u00e9",
+    "city": "Penonome",
     "state": "Cocl\u00e9",
     "country": "Panama"
   },
@@ -810,7 +865,12 @@ export const peCities = [
     "country": "India"
   },
   {
-    "city": "Perd\u00f5es",
+    "city": "Pefki",
+    "state": "Attik\u00ed",
+    "country": "Greece"
+  },
+  {
+    "city": "Perdoes",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -825,7 +885,7 @@ export const peCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Peringan\u0101d",
+    "city": "Peringanad",
     "state": "Kerala",
     "country": "India"
   },
@@ -835,12 +895,12 @@ export const peCities = [
     "country": "Sierra Leone"
   },
   {
-    "city": "Peritor\u00f3",
+    "city": "Peritoro",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
   {
-    "city": "Penn\u0101garam",
+    "city": "Pennagaram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -870,7 +930,7 @@ export const peCities = [
     "country": "Mexico"
   },
   {
-    "city": "Pe\u0107inci",
+    "city": "Pecinci",
     "state": "Pe\u0107inci",
     "country": "Serbia"
   },
@@ -880,7 +940,7 @@ export const peCities = [
     "country": "Romania"
   },
   {
-    "city": "Per\u016bru",
+    "city": "Peruru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -940,7 +1000,7 @@ export const peCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Peruvanth\u0101nam",
+    "city": "Peruvanthanam",
     "state": "Kerala",
     "country": "India"
   },
@@ -950,7 +1010,7 @@ export const peCities = [
     "country": "United States"
   },
   {
-    "city": "Pe\u00e7anha",
+    "city": "Pecanha",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -960,14 +1020,24 @@ export const peCities = [
     "country": "Italy"
   },
   {
+    "city": "Pecel",
+    "state": "Pest",
+    "country": "Hungary"
+  },
+  {
     "city": "Peka",
     "state": "Leribe",
     "country": "Lesotho"
   },
   {
-    "city": "Peso da R\u00e9gua",
+    "city": "Peso da Regua",
     "state": "Vila Real",
     "country": "Portugal"
+  },
+  {
+    "city": "Peruwelz",
+    "state": "Wallonia",
+    "country": "Belgium"
   },
   {
     "city": "Peragamanna",
@@ -980,7 +1050,7 @@ export const peCities = [
     "country": "India"
   },
   {
-    "city": "Pe\u00f1amiller",
+    "city": "Penamiller",
     "state": "Quer\u00e9taro",
     "country": "Mexico"
   },
@@ -990,12 +1060,12 @@ export const peCities = [
     "country": "United States"
   },
   {
-    "city": "Pera\u00eda",
+    "city": "Peraia",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
   {
-    "city": "Perup\u0101lem",
+    "city": "Perupalem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1020,7 +1090,7 @@ export const peCities = [
     "country": "United States"
   },
   {
-    "city": "Pelh\u0159imov",
+    "city": "Pelhrimov",
     "state": "Vyso\u010dina",
     "country": "Czechia"
   },
@@ -1035,7 +1105,7 @@ export const peCities = [
     "country": "Germany"
   },
   {
-    "city": "Petrovsk-Zabaykal\u2019skiy",
+    "city": "Petrovsk-Zabaykal'skiy",
     "state": "Zabaykal\u2019skiy Kray",
     "country": "Russia"
   },
@@ -1085,7 +1155,7 @@ export const peCities = [
     "country": "Portugal"
   },
   {
-    "city": "Petl\u0101wad",
+    "city": "Petlawad",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1125,7 +1195,7 @@ export const peCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Perunkolatt\u016br",
+    "city": "Perunkolattur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1150,12 +1220,17 @@ export const peCities = [
     "country": "United States"
   },
   {
+    "city": "Pelezi",
+    "state": "Sassandra-Marahou\u00e9",
+    "country": "C\u00f4te d\u2019Ivoire"
+  },
+  {
     "city": "Pedro Afonso",
     "state": "Tocantins",
     "country": "Brazil"
   },
   {
-    "city": "Petrol\u00e2ndia",
+    "city": "Petrolandia",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -1170,7 +1245,7 @@ export const peCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Perd\u016br",
+    "city": "Perdur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1200,6 +1275,11 @@ export const peCities = [
     "country": "India"
   },
   {
+    "city": "Pefka",
+    "state": "Kentrik\u00ed Makedon\u00eda",
+    "country": "Greece"
+  },
+  {
     "city": "Peabiru",
     "state": "Paran\u00e1",
     "country": "Brazil"
@@ -1220,6 +1300,11 @@ export const peCities = [
     "country": "Albania"
   },
   {
+    "city": "Pe de Serra",
+    "state": "Bahia",
+    "country": "Brazil"
+  },
+  {
     "city": "Perladka",
     "state": "Kerala",
     "country": "India"
@@ -1230,7 +1315,7 @@ export const peCities = [
     "country": "Russia"
   },
   {
-    "city": "Penamal\u016bru",
+    "city": "Penamaluru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1240,7 +1325,7 @@ export const peCities = [
     "country": "United States"
   },
   {
-    "city": "Peddavadlap\u016bdi",
+    "city": "Peddavadlapudi",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1250,7 +1335,7 @@ export const peCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Peddak\u016brap\u0101du",
+    "city": "Peddakurapadu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1265,12 +1350,12 @@ export const peCities = [
     "country": "South Africa"
   },
   {
-    "city": "Pentap\u0101du Kasba",
+    "city": "Pentapadu Kasba",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Pei\u00dfenberg",
+    "city": "Peissenberg",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -1290,7 +1375,7 @@ export const peCities = [
     "country": "United States"
   },
   {
-    "city": "Peraiy\u016br",
+    "city": "Peraiyur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1325,7 +1410,7 @@ export const peCities = [
     "country": "Trinidad and Tobago"
   },
   {
-    "city": "Pend\u00eancias",
+    "city": "Pendencias",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
   },
@@ -1340,7 +1425,7 @@ export const peCities = [
     "country": "Germany"
   },
   {
-    "city": "Petit-Go\u00e2ve",
+    "city": "Petit-Goave",
     "state": "Ouest",
     "country": "Haiti"
   },
@@ -1360,6 +1445,11 @@ export const peCities = [
     "country": "India"
   },
   {
+    "city": "Peonga",
+    "state": "Borgou",
+    "country": "Benin"
+  },
+  {
     "city": "Peiting",
     "state": "Bavaria",
     "country": "Germany"
@@ -1375,7 +1465,7 @@ export const peCities = [
     "country": "United States"
   },
   {
-    "city": "Pettaiv\u0101yttalai",
+    "city": "Pettaivayttalai",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1390,7 +1480,7 @@ export const peCities = [
     "country": "India"
   },
   {
-    "city": "Pering\u014dttukurusshi",
+    "city": "Peringottukurusshi",
     "state": "Kerala",
     "country": "India"
   },
@@ -1405,12 +1495,12 @@ export const peCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Per\u0101mpuzha",
+    "city": "Perampuzha",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Pemmp\u00e9r\u00e9na",
+    "city": "Pemmperena",
     "state": "Sikasso",
     "country": "Mali"
   },
@@ -1435,9 +1525,14 @@ export const peCities = [
     "country": "Brazil"
   },
   {
-    "city": "Peders\u00f6re",
+    "city": "Pedersore",
     "state": "Pohjanmaa",
     "country": "Finland"
+  },
+  {
+    "city": "Penagam",
+    "state": "Kerala",
+    "country": "India"
   },
   {
     "city": "Petal",
@@ -1500,7 +1595,12 @@ export const peCities = [
     "country": "United States"
   },
   {
-    "city": "Per\u016br",
+    "city": "Pelissanne",
+    "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
+    "country": "France"
+  },
+  {
+    "city": "Perur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1515,12 +1615,12 @@ export const peCities = [
     "country": "India"
   },
   {
-    "city": "Pe\u00f1arroya-Pueblonuevo",
+    "city": "Penarroya-Pueblonuevo",
     "state": "Andalusia",
     "country": "Spain"
   },
   {
-    "city": "Pedd\u0101puram",
+    "city": "Peddapuram",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1595,7 +1695,7 @@ export const peCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Periyapuliy\u016br",
+    "city": "Periyapuliyur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1620,14 +1720,19 @@ export const peCities = [
     "country": "India"
   },
   {
-    "city": "Perumb\u0101lai",
+    "city": "Perumbalai",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Petrolina de Goi\u00e1s",
+    "city": "Petrolina de Goias",
     "state": "Goi\u00e1s",
     "country": "Brazil"
+  },
+  {
+    "city": "Perols",
+    "state": "Occitanie",
+    "country": "France"
   },
   {
     "city": "Pedra Badejo",
@@ -1645,7 +1750,7 @@ export const peCities = [
     "country": "India"
   },
   {
-    "city": "Pett\u0101mp\u0101laiyam",
+    "city": "Pettampalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1655,7 +1760,7 @@ export const peCities = [
     "country": "Germany"
   },
   {
-    "city": "Pel\u0101gor",
+    "city": "Pelagor",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1700,12 +1805,12 @@ export const peCities = [
     "country": "Moldova"
   },
   {
-    "city": "Periyamutt\u016br",
+    "city": "Periyamuttur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Pedda Mupp\u0101ram",
+    "city": "Pedda Mupparam",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1715,7 +1820,7 @@ export const peCities = [
     "country": "Albania"
   },
   {
-    "city": "Peddannav\u0101ripalle",
+    "city": "Peddannavaripalle",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1725,7 +1830,7 @@ export const peCities = [
     "country": "Germany"
   },
   {
-    "city": "Pedda Pendy\u0101la",
+    "city": "Pedda Pendyala",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1750,7 +1855,7 @@ export const peCities = [
     "country": "India"
   },
   {
-    "city": "Periyap\u014ddu",
+    "city": "Periyapodu",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1778,6 +1883,11 @@ export const peCities = [
     "city": "Perry Heights",
     "state": "Ohio",
     "country": "United States"
+  },
+  {
+    "city": "Perigny",
+    "state": "Nouvelle-Aquitaine",
+    "country": "France"
   },
   {
     "city": "Pedda Nindrakolanu",
@@ -1825,6 +1935,11 @@ export const peCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Perenchies",
+    "state": "Hauts-de-France",
+    "country": "France"
+  },
+  {
     "city": "Perungulam",
     "state": "Tamil N\u0101du",
     "country": "India"
@@ -1833,6 +1948,11 @@ export const peCities = [
     "city": "Pedda Penki",
     "state": "Andhra Pradesh",
     "country": "India"
+  },
+  {
+    "city": "Permet",
+    "state": "Gjirokast\u00ebr",
+    "country": "Albania"
   },
   {
     "city": "Petnjica",
@@ -1855,7 +1975,7 @@ export const peCities = [
     "country": "Malta"
   },
   {
-    "city": "Peh\u010devo",
+    "city": "Pehcevo",
     "state": "Peh\u010devo",
     "country": "North Macedonia"
   },

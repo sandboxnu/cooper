@@ -5,12 +5,37 @@ export const ozCities = [
     "country": "Philippines"
   },
   {
-    "city": "Oz\u00ebrsk",
+    "city": "Ozersk",
     "state": "Chelyabinskaya Oblast\u2019",
     "country": "Russia"
   },
   {
-    "city": "Ozh\u016br",
+    "city": "Ozalp",
+    "state": "Van",
+    "country": "Turkey"
+  },
+  {
+    "city": "Ozgon",
+    "state": "Osh",
+    "country": "Kyrgyzstan"
+  },
+  {
+    "city": "Ozu",
+    "state": "Ehime",
+    "country": "Japan"
+  },
+  {
+    "city": "Ozu",
+    "state": "Kumamoto",
+    "country": "Japan"
+  },
+  {
+    "city": "Ozd",
+    "state": "Borsod-Aba\u00faj-Zempl\u00e9n",
+    "country": "Hungary"
+  },
+  {
+    "city": "Ozhur",
     "state": "Kerala",
     "country": "India"
   },
@@ -20,12 +45,12 @@ export const ozCities = [
     "country": "Mexico"
   },
   {
-    "city": "Oz\u00ebry",
+    "city": "Ozery",
     "state": "Moskovskaya Oblast\u2019",
     "country": "Russia"
   },
   {
-    "city": "Ozuluama de Mascare\u00f1as",
+    "city": "Ozuluama de Mascarenas",
     "state": "Veracruz",
     "country": "Mexico"
   },
@@ -35,13 +60,23 @@ export const ozCities = [
     "country": "United States"
   },
   {
-    "city": "Ozoir-la-Ferri\u00e8re",
+    "city": "Ozoir-la-Ferriere",
     "state": "\u00cele-de-France",
     "country": "France"
   },
   {
-    "city": "Ozork\u00f3w",
+    "city": "Ozorkow",
     "state": "\u0141\u00f3dzkie",
+    "country": "Poland"
+  },
+  {
+    "city": "Ozdere",
+    "state": "\u0130zmir",
+    "country": "Turkey"
+  },
+  {
+    "city": "Ozarow Mazowiecki",
+    "state": "Mazowieckie",
     "country": "Poland"
   },
   {
@@ -50,7 +85,7 @@ export const ozCities = [
     "country": "United States"
   },
   {
-    "city": "Ozatl\u00e1n",
+    "city": "Ozatlan",
     "state": "Usulut\u00e1n",
     "country": "El Salvador"
   },

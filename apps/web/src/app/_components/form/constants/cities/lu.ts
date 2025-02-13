@@ -5,7 +5,7 @@ export const luCities = [
     "country": "Angola"
   },
   {
-    "city": "Lu\u2019an",
+    "city": "Lu'an",
     "state": "Anhui",
     "country": "China"
   },
@@ -40,7 +40,7 @@ export const luCities = [
     "country": "Congo (Kinshasa)"
   },
   {
-    "city": "Ludhi\u0101na",
+    "city": "Ludhiana",
     "state": "Punjab",
     "country": "India"
   },
@@ -100,6 +100,11 @@ export const luCities = [
     "country": "Paraguay"
   },
   {
+    "city": "Lubeck",
+    "state": "Schleswig-Holstein",
+    "country": "Germany"
+  },
+  {
     "city": "Lutsk",
     "state": "Volynska Oblast",
     "country": "Ukraine"
@@ -110,7 +115,7 @@ export const luCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Luzi\u00e2nia",
+    "city": "Luziania",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -150,6 +155,11 @@ export const luCities = [
     "country": "Angola"
   },
   {
+    "city": "Luleburgaz",
+    "state": "K\u0131rklareli",
+    "country": "Turkey"
+  },
+  {
     "city": "Luuq",
     "state": "Gedo",
     "country": "Somalia"
@@ -175,7 +185,7 @@ export const luCities = [
     "country": "Uganda"
   },
   {
-    "city": "Luj\u00e1n",
+    "city": "Lujan",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -205,6 +215,11 @@ export const luCities = [
     "country": "Italy"
   },
   {
+    "city": "Lunen",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
     "city": "Lugang",
     "state": "Changhua",
     "country": "Taiwan"
@@ -230,9 +245,19 @@ export const luCities = [
     "country": "Switzerland"
   },
   {
-    "city": "Luj\u00e1n de Cuyo",
+    "city": "Luneburg",
+    "state": "Lower Saxony",
+    "country": "Germany"
+  },
+  {
+    "city": "Lujan de Cuyo",
     "state": "Mendoza",
     "country": "Argentina"
+  },
+  {
+    "city": "Ludenscheid",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
   },
   {
     "city": "Lubin",
@@ -285,7 +310,7 @@ export const luCities = [
     "country": "Philippines"
   },
   {
-    "city": "Lule\u00e5",
+    "city": "Lulea",
     "state": "Norrbotten",
     "country": "Sweden"
   },
@@ -360,6 +385,11 @@ export const luCities = [
     "country": "Philippines"
   },
   {
+    "city": "Lunavada",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
     "city": "Lunsar",
     "state": "Northern",
     "country": "Sierra Leone"
@@ -390,7 +420,7 @@ export const luCities = [
     "country": "Philippines"
   },
   {
-    "city": "Lubo\u0144",
+    "city": "Lubon",
     "state": "Wielkopolskie",
     "country": "Poland"
   },
@@ -415,7 +445,7 @@ export const luCities = [
     "country": "India"
   },
   {
-    "city": "Lushnj\u00eb",
+    "city": "Lushnje",
     "state": "Fier",
     "country": "Albania"
   },
@@ -425,7 +455,7 @@ export const luCities = [
     "country": "Italy"
   },
   {
-    "city": "Lu\u00eds Correia",
+    "city": "Luis Correia",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
@@ -445,6 +475,11 @@ export const luCities = [
     "country": "Malaysia"
   },
   {
+    "city": "Lukow",
+    "state": "Lubelskie",
+    "country": "Poland"
+  },
+  {
     "city": "Lukula",
     "state": "Kongo Central",
     "country": "Congo (Kinshasa)"
@@ -455,14 +490,24 @@ export const luCities = [
     "country": "France"
   },
   {
-    "city": "Lu\u010denec",
+    "city": "Lubbecke",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
+    "city": "Lucenec",
     "state": "Bansk\u00e1 Bystrica",
     "country": "Slovakia"
   },
   {
-    "city": "Luzil\u00e2ndia",
+    "city": "Luzilandia",
     "state": "Piau\u00ed",
     "country": "Brazil"
+  },
+  {
+    "city": "Ludinghausen",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
   },
   {
     "city": "Lutz",
@@ -520,12 +565,12 @@ export const luCities = [
     "country": "Philippines"
   },
   {
-    "city": "Luc\u00e9lia",
+    "city": "Lucelia",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Lu\u010dani",
+    "city": "Lucani",
     "state": "Lu\u010dani",
     "country": "Serbia"
   },
@@ -565,22 +610,22 @@ export const luCities = [
     "country": "Philippines"
   },
   {
-    "city": "Lubart\u00f3w",
+    "city": "Lubartow",
     "state": "Lubelskie",
     "country": "Poland"
   },
   {
-    "city": "Luper\u00f3n",
+    "city": "Luperon",
     "state": "Cibao Norte",
     "country": "Dominican Republic"
   },
   {
-    "city": "Luba\u0144",
+    "city": "Luban",
     "state": "Dolno\u015bl\u0105skie",
     "country": "Poland"
   },
   {
-    "city": "Lu\u00e9noufla",
+    "city": "Luenoufla",
     "state": "Sassandra-Marahou\u00e9",
     "country": "C\u00f4te d\u2019Ivoire"
   },
@@ -620,7 +665,7 @@ export const luCities = [
     "country": "Vanuatu"
   },
   {
-    "city": "Lun\u00e9ville",
+    "city": "Luneville",
     "state": "Grand Est",
     "country": "France"
   },
@@ -650,7 +695,12 @@ export const luCities = [
     "country": "China"
   },
   {
-    "city": "Luc\u00e9",
+    "city": "Lubbenau/Spreewald",
+    "state": "Brandenburg",
+    "country": "Germany"
+  },
+  {
+    "city": "Luce",
     "state": "Centre-Val de Loire",
     "country": "France"
   },
@@ -660,7 +710,7 @@ export const luCities = [
     "country": "Belgium"
   },
   {
-    "city": "Ludu\u015f",
+    "city": "Ludus",
     "state": "Mure\u015f",
     "country": "Romania"
   },
@@ -695,6 +745,11 @@ export const luCities = [
     "country": "Italy"
   },
   {
+    "city": "Lubben (Spreewald)",
+    "state": "Brandenburg",
+    "country": "Germany"
+  },
+  {
     "city": "Luozi",
     "state": "Kongo Central",
     "country": "Congo (Kinshasa)"
@@ -705,7 +760,7 @@ export const luCities = [
     "country": "United States"
   },
   {
-    "city": "Lu\u00eds Ant\u00f4nio",
+    "city": "Luis Antonio",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -740,6 +795,11 @@ export const luCities = [
     "country": "Brazil"
   },
   {
+    "city": "Luderitz",
+    "state": "\u01c1Karas",
+    "country": "Namibia"
+  },
+  {
     "city": "Ludwigslust",
     "state": "Mecklenburg-Western Pomerania",
     "country": "Germany"
@@ -750,7 +810,7 @@ export const luCities = [
     "country": "United States"
   },
   {
-    "city": "Lu\u00eds Alves",
+    "city": "Luis Alves",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -760,7 +820,7 @@ export const luCities = [
     "country": "Zambia"
   },
   {
-    "city": "Lubacz\u00f3w",
+    "city": "Lubaczow",
     "state": "Podkarpackie",
     "country": "Poland"
   },
@@ -780,7 +840,7 @@ export const luCities = [
     "country": "Poland"
   },
   {
-    "city": "Lunca Cet\u0103\u0163uii",
+    "city": "Lunca Cetatuii",
     "state": "Ia\u015fi",
     "country": "Romania"
   },
@@ -800,6 +860,11 @@ export const luCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Lugovoy",
+    "state": "Zhambyl",
+    "country": "Kazakhstan"
+  },
+  {
     "city": "Luathaha",
     "state": "Bih\u0101r",
     "country": "India"
@@ -815,12 +880,17 @@ export const luCities = [
     "country": "Russia"
   },
   {
+    "city": "Luchow",
+    "state": "Lower Saxony",
+    "country": "Germany"
+  },
+  {
     "city": "Luckau",
     "state": "Brandenburg",
     "country": "Germany"
   },
   {
-    "city": "Lu\u00e7on",
+    "city": "Lucon",
     "state": "Pays de la Loire",
     "country": "France"
   },
@@ -840,7 +910,7 @@ export const luCities = [
     "country": "Philippines"
   },
   {
-    "city": "Lu\u00eds Gomes",
+    "city": "Luis Gomes",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
   },
@@ -870,7 +940,7 @@ export const luCities = [
     "country": "Latvia"
   },
   {
-    "city": "Lu\u00e2n Ch\u00e2u",
+    "city": "Luan Chau",
     "state": "\u0110i\u1ec7n Bi\u00ean",
     "country": "Vietnam"
   },
@@ -910,7 +980,7 @@ export const luCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Lu\u010de",
+    "city": "Luce",
     "state": "Lu\u010de",
     "country": "Slovenia"
   },

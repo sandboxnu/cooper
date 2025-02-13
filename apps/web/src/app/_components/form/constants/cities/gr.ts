@@ -25,7 +25,7 @@ export const grCities = [
     "country": "Russia"
   },
   {
-    "city": "Gravata\u00ed",
+    "city": "Gravatai",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -100,7 +100,7 @@ export const grCities = [
     "country": "South Africa"
   },
   {
-    "city": "Grudzi\u0105dz",
+    "city": "Grudziadz",
     "state": "Kujawsko-Pomorskie",
     "country": "Poland"
   },
@@ -110,7 +110,7 @@ export const grCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Gravat\u00e1",
+    "city": "Gravata",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -140,7 +140,7 @@ export const grCities = [
     "country": "United States"
   },
   {
-    "city": "Graja\u00fa",
+    "city": "Grajau",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
@@ -205,7 +205,7 @@ export const grCities = [
     "country": "United States"
   },
   {
-    "city": "Gradi\u0161ka",
+    "city": "Gradiska",
     "state": "Srpska, Republika",
     "country": "Bosnia and Herzegovina"
   },
@@ -240,7 +240,7 @@ export const grCities = [
     "country": "Russia"
   },
   {
-    "city": "Gra\u010danica",
+    "city": "Gracanica",
     "state": "Bosnia and Herzegovina, Federation of",
     "country": "Bosnia and Herzegovina"
   },
@@ -275,7 +275,7 @@ export const grCities = [
     "country": "Brazil"
   },
   {
-    "city": "Grada\u010dac",
+    "city": "Gradacac",
     "state": "Bosnia and Herzegovina, Federation of",
     "country": "Bosnia and Herzegovina"
   },
@@ -400,7 +400,7 @@ export const grCities = [
     "country": "United States"
   },
   {
-    "city": "Gro\u00df-Gerau",
+    "city": "Gross-Gerau",
     "state": "Hesse",
     "country": "Germany"
   },
@@ -415,7 +415,7 @@ export const grCities = [
     "country": "United States"
   },
   {
-    "city": "Greven\u00e1",
+    "city": "Grevena",
     "state": "Dytik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
@@ -485,7 +485,7 @@ export const grCities = [
     "country": "Poland"
   },
   {
-    "city": "Gro\u00df-Umstadt",
+    "city": "Gross-Umstadt",
     "state": "Hesse",
     "country": "Germany"
   },
@@ -520,7 +520,7 @@ export const grCities = [
     "country": "Poland"
   },
   {
-    "city": "Gr\u00f6benzell",
+    "city": "Grobenzell",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -560,7 +560,7 @@ export const grCities = [
     "country": "Australia"
   },
   {
-    "city": "Gro\u00dfenhain",
+    "city": "Grossenhain",
     "state": "Saxony",
     "country": "Germany"
   },
@@ -590,7 +590,7 @@ export const grCities = [
     "country": "United States"
   },
   {
-    "city": "Gr\u00f3jec",
+    "city": "Grojec",
     "state": "Mazowieckie",
     "country": "Poland"
   },
@@ -610,7 +610,7 @@ export const grCities = [
     "country": "Liberia"
   },
   {
-    "city": "Gro\u00dfostheim",
+    "city": "Grossostheim",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -625,7 +625,7 @@ export const grCities = [
     "country": "United States"
   },
   {
-    "city": "Gro\u00dfenkneten",
+    "city": "Grossenkneten",
     "state": "Lower Saxony",
     "country": "Germany"
   },
@@ -715,7 +715,7 @@ export const grCities = [
     "country": "Costa Rica"
   },
   {
-    "city": "Gr\u00e2ndola",
+    "city": "Grandola",
     "state": "Set\u00fabal",
     "country": "Portugal"
   },
@@ -735,7 +735,7 @@ export const grCities = [
     "country": "United States"
   },
   {
-    "city": "Gro\u00df-Zimmern",
+    "city": "Gross-Zimmern",
     "state": "Hesse",
     "country": "Germany"
   },
@@ -750,7 +750,7 @@ export const grCities = [
     "country": "United States"
   },
   {
-    "city": "Grafing bei M\u00fcnchen",
+    "city": "Grafing bei Munchen",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -770,7 +770,7 @@ export const grCities = [
     "country": "Mexico"
   },
   {
-    "city": "Gr\u00fcnstadt",
+    "city": "Grunstadt",
     "state": "Rhineland-Palatinate",
     "country": "Germany"
   },
@@ -780,12 +780,12 @@ export const grCities = [
     "country": "United States"
   },
   {
-    "city": "Gr\u00fcnberg",
+    "city": "Grunberg",
     "state": "Hesse",
     "country": "Germany"
   },
   {
-    "city": "Gr\u00e3o Mogol",
+    "city": "Grao Mogol",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -795,12 +795,12 @@ export const grCities = [
     "country": "Canada"
   },
   {
-    "city": "Gra\u00e7a",
+    "city": "Graca",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Gr\u00e4felfing",
+    "city": "Grafelfing",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -850,7 +850,7 @@ export const grCities = [
     "country": "United States"
   },
   {
-    "city": "Granarolo del l\u2019Emilia",
+    "city": "Granarolo del l'Emilia",
     "state": "Emilia-Romagna",
     "country": "Italy"
   },
@@ -860,7 +860,7 @@ export const grCities = [
     "country": "United States"
   },
   {
-    "city": "Gricignano d\u2019Aversa",
+    "city": "Gricignano d'Aversa",
     "state": "Campania",
     "country": "Italy"
   },
@@ -920,7 +920,7 @@ export const grCities = [
     "country": "Mauritius"
   },
   {
-    "city": "Gro\u00df-Enzersdorf",
+    "city": "Gross-Enzersdorf",
     "state": "Nieder\u00f6sterreich",
     "country": "Austria"
   },
@@ -935,7 +935,7 @@ export const grCities = [
     "country": "United States"
   },
   {
-    "city": "Gr\u00e4fenhainichen",
+    "city": "Grafenhainichen",
     "state": "Saxony-Anhalt",
     "country": "Germany"
   },
@@ -950,7 +950,7 @@ export const grCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Gr\u00fcnwald",
+    "city": "Grunwald",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -1020,7 +1020,7 @@ export const grCities = [
     "country": "United States"
   },
   {
-    "city": "Groa\u00edras",
+    "city": "Groairas",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -1040,7 +1040,7 @@ export const grCities = [
     "country": "Italy"
   },
   {
-    "city": "Gra\u00e7anic\u00eb",
+    "city": "Gracanice",
     "state": "Gra\u00e7anic\u00eb",
     "country": "Kosovo"
   },
@@ -1050,17 +1050,17 @@ export const grCities = [
     "country": "South Africa"
   },
   {
-    "city": "Grij\u00f3",
+    "city": "Grijo",
     "state": "Porto",
     "country": "Portugal"
   },
   {
-    "city": "Grevesm\u00fchlen",
+    "city": "Grevesmuhlen",
     "state": "Mecklenburg-Western Pomerania",
     "country": "Germany"
   },
   {
-    "city": "Gri\u00f1\u00f3n",
+    "city": "Grinon",
     "state": "Madrid",
     "country": "Spain"
   },
@@ -1075,7 +1075,7 @@ export const grCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Gro\u00dfburgwedel",
+    "city": "Grossburgwedel",
     "state": "Lower Saxony",
     "country": "Germany"
   },
@@ -1125,7 +1125,7 @@ export const grCities = [
     "country": "United States"
   },
   {
-    "city": "Grigi\u0161k\u0117s",
+    "city": "Grigiskes",
     "state": "Vilniaus Miestas",
     "country": "Lithuania"
   },
@@ -1135,7 +1135,7 @@ export const grCities = [
     "country": "France"
   },
   {
-    "city": "Gro\u00dfr\u00f6hrsdorf",
+    "city": "Grossrohrsdorf",
     "state": "Saxony",
     "country": "Germany"
   },
@@ -1165,7 +1165,7 @@ export const grCities = [
     "country": "United States"
   },
   {
-    "city": "Gro\u00dfhansdorf",
+    "city": "Grosshansdorf",
     "state": "Schleswig-Holstein",
     "country": "Germany"
   },
@@ -1185,7 +1185,7 @@ export const grCities = [
     "country": "United States"
   },
   {
-    "city": "Gr\u00fcnheide",
+    "city": "Grunheide",
     "state": "Brandenburg",
     "country": "Germany"
   },
@@ -1200,7 +1200,7 @@ export const grCities = [
     "country": "South Africa"
   },
   {
-    "city": "Gro\u00dfbeeren",
+    "city": "Grossbeeren",
     "state": "Brandenburg",
     "country": "Germany"
   },
@@ -1220,7 +1220,7 @@ export const grCities = [
     "country": "France"
   },
   {
-    "city": "Gro\u00df Kreutz",
+    "city": "Gross Kreutz",
     "state": "Brandenburg",
     "country": "Germany"
   },
@@ -1240,7 +1240,7 @@ export const grCities = [
     "country": "United States"
   },
   {
-    "city": "Gro\u00dfenl\u00fcder",
+    "city": "Grossenluder",
     "state": "Hesse",
     "country": "Germany"
   },

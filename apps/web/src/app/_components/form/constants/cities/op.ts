@@ -20,7 +20,7 @@ export const opCities = [
     "country": "United States"
   },
   {
-    "city": "Oppeg\u00e5rd",
+    "city": "Oppegard",
     "state": "Viken",
     "country": "Norway"
   },
@@ -80,7 +80,7 @@ export const opCities = [
     "country": "Belgium"
   },
   {
-    "city": "Oppatav\u0101di",
+    "city": "Oppatavadi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },

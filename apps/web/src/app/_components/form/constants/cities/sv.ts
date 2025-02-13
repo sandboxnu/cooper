@@ -110,14 +110,19 @@ export const svCities = [
     "country": "Sweden"
   },
   {
-    "city": "Svidn\u00edk",
+    "city": "Svidnik",
     "state": "Pre\u0161ov",
     "country": "Slovakia"
   },
   {
-    "city": "Svolv\u00e6r",
+    "city": "Svolvaer",
     "state": "Nordland",
     "country": "Norway"
+  },
+  {
+    "city": "Svencionys",
+    "state": "\u0160ven\u010dionys",
+    "country": "Lithuania"
   },
   {
     "city": "Sveta Ana",

@@ -40,7 +40,7 @@ export const jeCities = [
     "country": "Spain"
   },
   {
-    "city": "Jequi\u00e9",
+    "city": "Jequie",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -75,12 +75,12 @@ export const jeCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Jelenia G\u00f3ra",
+    "city": "Jelenia Gora",
     "state": "Dolno\u015bl\u0105skie",
     "country": "Poland"
   },
   {
-    "city": "Jerez de Garc\u00eda Salinas",
+    "city": "Jerez de Garcia Salinas",
     "state": "Zacatecas",
     "country": "Mexico"
   },
@@ -100,7 +100,7 @@ export const jeCities = [
     "country": "United States"
   },
   {
-    "city": "Jes\u00fas Men\u00e9ndez",
+    "city": "Jesus Menendez",
     "state": "Las Tunas",
     "country": "Cuba"
   },
@@ -115,7 +115,7 @@ export const jeCities = [
     "country": "Korea, South"
   },
   {
-    "city": "Jede\u00efda",
+    "city": "Jedeida",
     "state": "Manouba",
     "country": "Tunisia"
   },
@@ -125,7 +125,7 @@ export const jeCities = [
     "country": "Morocco"
   },
   {
-    "city": "Jes\u00fas Mar\u00eda",
+    "city": "Jesus Maria",
     "state": "Aguascalientes",
     "country": "Mexico"
   },
@@ -140,12 +140,12 @@ export const jeCities = [
     "country": "Brazil"
   },
   {
-    "city": "Jelily\u00fczi",
+    "city": "Jelilyuzi",
     "state": "Xinjiang",
     "country": "China"
   },
   {
-    "city": "Jes\u00fas Mar\u00eda",
+    "city": "Jesus Maria",
     "state": "C\u00f3rdoba",
     "country": "Argentina"
   },
@@ -155,12 +155,17 @@ export const jeCities = [
     "country": "Guatemala"
   },
   {
+    "city": "Jeremie",
+    "state": "Grand\u2019Anse",
+    "country": "Haiti"
+  },
+  {
     "city": "Jeffersontown",
     "state": "Kentucky",
     "country": "United States"
   },
   {
-    "city": "Jeffrey\u2019s Bay",
+    "city": "Jeffrey's Bay",
     "state": "Eastern Cape",
     "country": "South Africa"
   },
@@ -190,6 +195,11 @@ export const jeCities = [
     "country": "Nigeria"
   },
   {
+    "city": "Jekabpils",
+    "state": "J\u0113kabpils",
+    "country": "Latvia"
+  },
+  {
     "city": "Jericho",
     "state": NaN,
     "country": "West Bank"
@@ -200,7 +210,7 @@ export const jeCities = [
     "country": "United States"
   },
   {
-    "city": "Jes\u00fas Mar\u00eda",
+    "city": "Jesus Maria",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -218,6 +228,11 @@ export const jeCities = [
     "city": "Jever",
     "state": "Lower Saxony",
     "country": "Germany"
+  },
+  {
+    "city": "Jedrzejow",
+    "state": "\u015awi\u0119tokrzyskie",
+    "country": "Poland"
   },
   {
     "city": "Jericho",
@@ -240,7 +255,7 @@ export const jeCities = [
     "country": "United States"
   },
   {
-    "city": "Jeppe\u2019s Reef",
+    "city": "Jeppe's Reef",
     "state": "Mpumalanga",
     "country": "South Africa"
   },
@@ -265,12 +280,12 @@ export const jeCities = [
     "country": "United States"
   },
   {
-    "city": "Jer\u00f4nimo Monteiro",
+    "city": "Jeronimo Monteiro",
     "state": "Esp\u00edrito Santo",
     "country": "Brazil"
   },
   {
-    "city": "Jeric\u00f3",
+    "city": "Jerico",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -280,12 +295,12 @@ export const jeCities = [
     "country": "India"
   },
   {
-    "city": "Jem\u2019at Oulad \u2019Abbou",
+    "city": "Jem'at Oulad 'Abbou",
     "state": "Casablanca-Settat",
     "country": "Morocco"
   },
   {
-    "city": "Jesen\u00edk",
+    "city": "Jesenik",
     "state": "Olomouck\u00fd Kraj",
     "country": "Czechia"
   },

@@ -15,7 +15,7 @@ export const wyCities = [
     "country": "United States"
   },
   {
-    "city": "Wyszk\u00f3w",
+    "city": "Wyszkow",
     "state": "Mazowieckie",
     "country": "Poland"
   },

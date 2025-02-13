@@ -10,7 +10,7 @@ export const imCities = [
     "country": "Brazil"
   },
   {
-    "city": "Imph\u0101l",
+    "city": "Imphal",
     "state": "Manipur",
     "country": "India"
   },
@@ -20,7 +20,7 @@ export const imCities = [
     "country": "Japan"
   },
   {
-    "city": "Imizuch\u014d",
+    "city": "Imizucho",
     "state": "Toyama",
     "country": "Japan"
   },
@@ -40,7 +40,7 @@ export const imCities = [
     "country": "Italy"
   },
   {
-    "city": "Imarich\u014d-k\u014d",
+    "city": "Imaricho-ko",
     "state": "Saga",
     "country": "Japan"
   },
@@ -75,6 +75,11 @@ export const imCities = [
     "country": "Morocco"
   },
   {
+    "city": "Imisli",
+    "state": "\u0130mi\u015fli",
+    "country": "Azerbaijan"
+  },
+  {
     "city": "Imbituva",
     "state": "Paran\u00e1",
     "country": "Brazil"
@@ -88,6 +93,11 @@ export const imCities = [
     "city": "Immokalee",
     "state": "Florida",
     "country": "United States"
+  },
+  {
+    "city": "Imamoglu",
+    "state": "Adana",
+    "country": "Turkey"
   },
   {
     "city": "Imperial Beach",
@@ -105,7 +115,7 @@ export const imCities = [
     "country": "Dominican Republic"
   },
   {
-    "city": "Imi n\u2019Oulaoun",
+    "city": "Imi n'Oulaoun",
     "state": "Dr\u00e2a-Tafilalet",
     "country": "Morocco"
   },
@@ -135,7 +145,7 @@ export const imCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Immenstadt im Allg\u00e4u",
+    "city": "Immenstadt im Allgau",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -145,7 +155,7 @@ export const imCities = [
     "country": "Italy"
   },
   {
-    "city": "Imba\u00fa",
+    "city": "Imbau",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -155,7 +165,7 @@ export const imCities = [
     "country": "Burkina Faso"
   },
   {
-    "city": "Imaru\u00ed",
+    "city": "Imarui",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -175,6 +185,11 @@ export const imCities = [
     "country": "Morocco"
   },
   {
+    "city": "Imani",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Imst",
     "state": "Tirol",
     "country": "Austria"
@@ -185,12 +200,12 @@ export const imCities = [
     "country": "Morocco"
   },
   {
-    "city": "Im\u00edas",
+    "city": "Imias",
     "state": "Guant\u00e1namo",
     "country": "Cuba"
   },
   {
-    "city": "Im\u0101m \u015e\u0101\u1e29ib",
+    "city": "Imam Sahib",
     "state": "Kunduz",
     "country": "Afghanistan"
   },
@@ -220,7 +235,7 @@ export const imCities = [
     "country": "Malta"
   },
   {
-    "city": "Im\u0121arr",
+    "city": "Imgarr",
     "state": "Im\u0121arr",
     "country": "Malta"
   },

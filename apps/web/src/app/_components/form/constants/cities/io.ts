@@ -5,7 +5,7 @@ export const ioCities = [
     "country": "United States"
   },
   {
-    "city": "Io\u00e1nnina",
+    "city": "Ioannina",
     "state": "\u00cdpeiros",
     "country": "Greece"
   },

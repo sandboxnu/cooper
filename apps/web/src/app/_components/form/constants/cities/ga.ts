@@ -5,6 +5,11 @@ export const gaCities = [
     "country": "China"
   },
   {
+    "city": "Gazipura",
+    "state": "Dhaka",
+    "country": "Bangladesh"
+  },
+  {
     "city": "Gaoping",
     "state": "Sichuan",
     "country": "China"
@@ -70,6 +75,11 @@ export const gaCities = [
     "country": "Turkey"
   },
   {
+    "city": "Ganca",
+    "state": "G\u0259nc\u0259",
+    "country": "Azerbaijan"
+  },
+  {
     "city": "Gatineau",
     "state": "Quebec",
     "country": "Canada"
@@ -85,12 +95,17 @@ export const gaCities = [
     "country": "Angola"
   },
   {
+    "city": "Gandhidham",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
     "city": "Garland",
     "state": "Texas",
     "country": "United States"
   },
   {
-    "city": "Gang\u0101nagar",
+    "city": "Ganganagar",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -105,7 +120,7 @@ export const gaCities = [
     "country": "Angola"
   },
   {
-    "city": "Garc\u00eda",
+    "city": "Garcia",
     "state": "Nuevo Le\u00f3n",
     "country": "Mexico"
   },
@@ -120,7 +135,7 @@ export const gaCities = [
     "country": "United States"
   },
   {
-    "city": "Gala\u0163i",
+    "city": "Galati",
     "state": "Gala\u0163i",
     "country": "Romania"
   },
@@ -195,7 +210,7 @@ export const gaCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Gab\u00e8s",
+    "city": "Gabes",
     "state": "Gab\u00e8s",
     "country": "Tunisia"
   },
@@ -205,7 +220,7 @@ export const gaCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Gang\u0101wati",
+    "city": "Gangawati",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -215,9 +230,14 @@ export const gaCities = [
     "country": "India"
   },
   {
-    "city": "Gamb\u0113la",
+    "city": "Gambela",
     "state": "Gamb\u0113la Hizboch",
     "country": "Ethiopia"
+  },
+  {
+    "city": "Gavle",
+    "state": "G\u00e4vleborg",
+    "country": "Sweden"
   },
   {
     "city": "Gatchina",
@@ -245,12 +265,12 @@ export const gaCities = [
     "country": "China"
   },
   {
-    "city": "Gamag\u014dri",
+    "city": "Gamagori",
     "state": "Aichi",
     "country": "Japan"
   },
   {
-    "city": "Gand\u00eda",
+    "city": "Gandia",
     "state": "Valencia",
     "country": "Spain"
   },
@@ -275,7 +295,7 @@ export const gaCities = [
     "country": "Haiti"
   },
   {
-    "city": "Gard\u0113z",
+    "city": "Gardez",
     "state": "Paktiy\u0101",
     "country": "Afghanistan"
   },
@@ -285,7 +305,7 @@ export const gaCities = [
     "country": "India"
   },
   {
-    "city": "Garz\u00f3n",
+    "city": "Garzon",
     "state": "Huila",
     "country": "Colombia"
   },
@@ -310,7 +330,7 @@ export const gaCities = [
     "country": "Sri Lanka"
   },
   {
-    "city": "Gadw\u0101l",
+    "city": "Gadwal",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -335,12 +355,12 @@ export const gaCities = [
     "country": "United States"
   },
   {
-    "city": "Gal\u00e1tsi",
+    "city": "Galatsi",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
   {
-    "city": "Gar\u00edn",
+    "city": "Garin",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -360,7 +380,7 @@ export const gaCities = [
     "country": "Philippines"
   },
   {
-    "city": "Gang\u0101r\u0101mpur",
+    "city": "Gangarampur",
     "state": "West Bengal",
     "country": "India"
   },
@@ -370,7 +390,7 @@ export const gaCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Gazipa\u015fa",
+    "city": "Gazipasa",
     "state": "Antalya",
     "country": "Turkey"
   },
@@ -380,17 +400,22 @@ export const gaCities = [
     "country": "Italy"
   },
   {
+    "city": "Gadarwara",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Gao",
     "state": "Gao",
     "country": "Mali"
   },
   {
-    "city": "Garms\u0101r",
+    "city": "Garmsar",
     "state": "Semn\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Gav\u00e1",
+    "city": "Gava",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -440,7 +465,7 @@ export const gaCities = [
     "country": "United States"
   },
   {
-    "city": "Gar\u00e7a",
+    "city": "Garca",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -450,7 +475,7 @@ export const gaCities = [
     "country": "Somalia"
   },
   {
-    "city": "Garges-l\u00e8s-Gonesse",
+    "city": "Garges-les-Gonesse",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -505,7 +530,7 @@ export const gaCities = [
     "country": "Sri Lanka"
   },
   {
-    "city": "Gaspar Hern\u00e1ndez",
+    "city": "Gaspar Hernandez",
     "state": "Cibao Norte",
     "country": "Dominican Republic"
   },
@@ -515,7 +540,7 @@ export const gaCities = [
     "country": "United States"
   },
   {
-    "city": "Gab\u00fa",
+    "city": "Gabu",
     "state": "Gab\u00fa",
     "country": "Guinea-Bissau"
   },
@@ -530,7 +555,7 @@ export const gaCities = [
     "country": "Philippines"
   },
   {
-    "city": "Garh\u0101kota",
+    "city": "Garhakota",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -640,7 +665,7 @@ export const gaCities = [
     "country": "United States"
   },
   {
-    "city": "Garaim\u0101ri",
+    "city": "Garaimari",
     "state": "West Bengal",
     "country": "India"
   },
@@ -650,7 +675,7 @@ export const gaCities = [
     "country": "Russia"
   },
   {
-    "city": "Garup\u00e1",
+    "city": "Garupa",
     "state": "Misiones",
     "country": "Argentina"
   },
@@ -725,7 +750,7 @@ export const gaCities = [
     "country": "India"
   },
   {
-    "city": "Gald\u00e1cano",
+    "city": "Galdacano",
     "state": "Basque Country",
     "country": "Spain"
   },
@@ -770,12 +795,17 @@ export const gaCities = [
     "country": "India"
   },
   {
+    "city": "Galikesh",
+    "state": "Golest\u0101n",
+    "country": "Iran"
+  },
+  {
     "city": "Gamay",
     "state": "Northern Samar",
     "country": "Philippines"
   },
   {
-    "city": "Garoua Boula\u00ef",
+    "city": "Garoua Boulai",
     "state": "Est",
     "country": "Cameroon"
   },
@@ -810,7 +840,7 @@ export const gaCities = [
     "country": "Germany"
   },
   {
-    "city": "Gaviman\u00e9",
+    "city": "Gavimane",
     "state": "Kayes",
     "country": "Mali"
   },
@@ -830,7 +860,7 @@ export const gaCities = [
     "country": "India"
   },
   {
-    "city": "Gal\u016bg\u0101h",
+    "city": "Galugah",
     "state": "M\u0101zandar\u0101n",
     "country": "Iran"
   },
@@ -868,6 +898,11 @@ export const gaCities = [
     "city": "Gandujie",
     "state": "Qinghai",
     "country": "China"
+  },
+  {
+    "city": "Galvez",
+    "state": "Santa Fe",
+    "country": "Argentina"
   },
   {
     "city": "Gahi Mammar",
@@ -910,12 +945,22 @@ export const gaCities = [
     "country": "India"
   },
   {
+    "city": "Gazi",
+    "state": "Kr\u00edti",
+    "country": "Greece"
+  },
+  {
     "city": "Gautier",
     "state": "Mississippi",
     "country": "United States"
   },
   {
-    "city": "Gar\u00f0ab\u00e6r",
+    "city": "Gatada",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Gardhabaer",
     "state": "Gar\u00f0ab\u00e6r",
     "country": "Iceland"
   },
@@ -945,6 +990,11 @@ export const gaCities = [
     "country": "China"
   },
   {
+    "city": "Gandarbal",
+    "state": "Jammu and Kashm\u012br",
+    "country": "India"
+  },
+  {
     "city": "Garches",
     "state": "\u00cele-de-France",
     "country": "France"
@@ -960,7 +1010,7 @@ export const gaCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Garching bei M\u00fcnchen",
+    "city": "Garching bei Munchen",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -990,7 +1040,7 @@ export const gaCities = [
     "country": "Russia"
   },
   {
-    "city": "Gachancip\u00e1",
+    "city": "Gachancipa",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
@@ -1015,6 +1065,11 @@ export const gaCities = [
     "country": "Trinidad and Tobago"
   },
   {
+    "city": "Galivedu",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Garou",
     "state": "Atacora",
     "country": "Benin"
@@ -1030,12 +1085,12 @@ export const gaCities = [
     "country": "United States"
   },
   {
-    "city": "Garg\u017edai",
+    "city": "Gargzdai",
     "state": "Klaip\u0117da",
     "country": "Lithuania"
   },
   {
-    "city": "Galv\u00e1n",
+    "city": "Galvan",
     "state": "Enriquillo",
     "country": "Dominican Republic"
   },
@@ -1075,17 +1130,17 @@ export const gaCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Gay\u00e9ri",
+    "city": "Gayeri",
     "state": "Est",
     "country": "Burkina Faso"
   },
   {
-    "city": "Gasp\u00e9",
+    "city": "Gaspe",
     "state": "Quebec",
     "country": "Canada"
   },
   {
-    "city": "Gang\u0101pur",
+    "city": "Gangapur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1105,7 +1160,7 @@ export const gaCities = [
     "country": "India"
   },
   {
-    "city": "Ganj\u0101m",
+    "city": "Ganjam",
     "state": "Odisha",
     "country": "India"
   },
@@ -1120,7 +1175,7 @@ export const gaCities = [
     "country": "India"
   },
   {
-    "city": "Gaviniv\u0101rip\u0101lem",
+    "city": "Gavinivaripalem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1130,12 +1185,12 @@ export const gaCities = [
     "country": "United States"
   },
   {
-    "city": "Gafanha da Nazar\u00e9",
+    "city": "Gafanha da Nazare",
     "state": "Aveiro",
     "country": "Portugal"
   },
   {
-    "city": "Ganguv\u0101rpatti",
+    "city": "Ganguvarpatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1145,7 +1200,7 @@ export const gaCities = [
     "country": "Niger"
   },
   {
-    "city": "Gangaikond\u0101n",
+    "city": "Gangaikondan",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1160,7 +1215,12 @@ export const gaCities = [
     "country": "China"
   },
   {
-    "city": "Gaundr\u0101",
+    "city": "Gardony",
+    "state": "Fej\u00e9r",
+    "country": "Hungary"
+  },
+  {
+    "city": "Gaundra",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1210,6 +1270,11 @@ export const gaCities = [
     "country": "Belgium"
   },
   {
+    "city": "Gartringen",
+    "state": "Baden-W\u00fcrttemberg",
+    "country": "Germany"
+  },
+  {
     "city": "Gaffney",
     "state": "South Carolina",
     "country": "United States"
@@ -1223,6 +1288,11 @@ export const gaCities = [
     "city": "Galaosiyo Shahri",
     "state": "Buxoro",
     "country": "Uzbekistan"
+  },
+  {
+    "city": "Gaesti",
+    "state": "D\u00e2mbovi\u0163a",
+    "country": "Romania"
   },
   {
     "city": "Gamarra",
@@ -1265,7 +1335,7 @@ export const gaCities = [
     "country": "India"
   },
   {
-    "city": "Ganapatip\u0101laiyam",
+    "city": "Ganapatipalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1315,14 +1385,19 @@ export const gaCities = [
     "country": "United States"
   },
   {
-    "city": "Gaurihar Kh\u0101liqnagar",
+    "city": "Gaurihar Khaliqnagar",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Gandh\u0101ri",
+    "city": "Gandhari",
     "state": "Telang\u0101na",
     "country": "India"
+  },
+  {
+    "city": "Ganserndorf",
+    "state": "Nieder\u00f6sterreich",
+    "country": "Austria"
   },
   {
     "city": "Gardone Val Trompia",
@@ -1335,7 +1410,7 @@ export const gaCities = [
     "country": "Algeria"
   },
   {
-    "city": "Gachet\u00e1",
+    "city": "Gacheta",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
@@ -1390,7 +1465,7 @@ export const gaCities = [
     "country": "United States"
   },
   {
-    "city": "Gajiginh\u0101lu",
+    "city": "Gajiginhalu",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1405,7 +1480,7 @@ export const gaCities = [
     "country": "United States"
   },
   {
-    "city": "Gay\u0101spur",
+    "city": "Gayaspur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1420,7 +1495,7 @@ export const gaCities = [
     "country": "United States"
   },
   {
-    "city": "Ganga S\u0101gar",
+    "city": "Ganga Sagar",
     "state": "West Bengal",
     "country": "India"
   },
@@ -1435,7 +1510,7 @@ export const gaCities = [
     "country": "Sweden"
   },
   {
-    "city": "Ganvi\u00e9",
+    "city": "Ganvie",
     "state": "Atlantique",
     "country": "Benin"
   },
@@ -1445,7 +1520,7 @@ export const gaCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Gauniv\u0101ripalle",
+    "city": "Gaunivaripalle",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1485,7 +1560,7 @@ export const gaCities = [
     "country": "Gambia, The"
   },
   {
-    "city": "Gauli Pal\u0101siya",
+    "city": "Gauli Palasiya",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1510,7 +1585,12 @@ export const gaCities = [
     "country": "China"
   },
   {
-    "city": "Galleh D\u0101r",
+    "city": "Gandhali",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
+    "city": "Galleh Dar",
     "state": "F\u0101rs",
     "country": "Iran"
   },
@@ -1525,7 +1605,7 @@ export const gaCities = [
     "country": "South Africa"
   },
   {
-    "city": "Gang\u0101pur Athar",
+    "city": "Gangapur Athar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1545,7 +1625,7 @@ export const gaCities = [
     "country": "United States"
   },
   {
-    "city": "Gang\u016bru",
+    "city": "Ganguru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1555,9 +1635,14 @@ export const gaCities = [
     "country": "Poland"
   },
   {
-    "city": "Gambol\u00f2",
+    "city": "Gambolo",
     "state": "Lombardy",
     "country": "Italy"
+  },
+  {
+    "city": "Gandlapenta",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Gamharia",
@@ -1565,12 +1650,12 @@ export const gaCities = [
     "country": "India"
   },
   {
-    "city": "Gaw\u0101n",
+    "city": "Gawan",
     "state": "Uttar Pradesh",
     "country": "India"
   },
   {
-    "city": "Gang\u0101dhar",
+    "city": "Gangadhar",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1585,7 +1670,7 @@ export const gaCities = [
     "country": "Morocco"
   },
   {
-    "city": "Gang\u0101pur",
+    "city": "Gangapur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1625,7 +1710,7 @@ export const gaCities = [
     "country": "India"
   },
   {
-    "city": "Gan\u0101ram",
+    "city": "Ganaram",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1635,7 +1720,7 @@ export const gaCities = [
     "country": "India"
   },
   {
-    "city": "Gandhw\u0101ni",
+    "city": "Gandhwani",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1650,6 +1735,11 @@ export const gaCities = [
     "country": "Denmark"
   },
   {
+    "city": "Gadabay",
+    "state": "G\u0259d\u0259b\u0259y",
+    "country": "Azerbaijan"
+  },
+  {
     "city": "Gavirate",
     "state": "Lombardy",
     "country": "Italy"
@@ -1658,6 +1748,11 @@ export const gaCities = [
     "city": "Gacko",
     "state": "Srpska, Republika",
     "country": "Bosnia and Herzegovina"
+  },
+  {
+    "city": "Gazulapalle",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Gangapatnam",
@@ -1685,7 +1780,7 @@ export const gaCities = [
     "country": "Belgium"
   },
   {
-    "city": "Gang\u0101jalgh\u0101ti",
+    "city": "Gangajalghati",
     "state": "West Bengal",
     "country": "India"
   },
@@ -1695,7 +1790,7 @@ export const gaCities = [
     "country": "India"
   },
   {
-    "city": "Gare\u0161nica",
+    "city": "Garesnica",
     "state": "Bjelovarsko-Bilogorska \u017dupanija",
     "country": "Croatia"
   },
@@ -1705,7 +1800,7 @@ export const gaCities = [
     "country": "India"
   },
   {
-    "city": "Gad\u017ein Han",
+    "city": "Gadzin Han",
     "state": "Gad\u017ein Han",
     "country": "Serbia"
   },

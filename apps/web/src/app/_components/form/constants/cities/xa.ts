@@ -25,9 +25,19 @@ export const xaCities = [
     "country": "Angola"
   },
   {
+    "city": "Xa Muteba",
+    "state": "Lunda-Norte",
+    "country": "Angola"
+  },
+  {
     "city": "Xarardheere",
     "state": "Mudug",
     "country": "Somalia"
+  },
+  {
+    "city": "Xanthi",
+    "state": "Anatolik\u00ed Makedon\u00eda kai Thr\u00e1ki",
+    "country": "Greece"
   },
   {
     "city": "Xam Nua",
@@ -35,17 +45,17 @@ export const xaCities = [
     "country": "Laos"
   },
   {
-    "city": "Xanxer\u00ea",
+    "city": "Xanxere",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
   {
-    "city": "Xank\u0259ndi",
+    "city": "Xankandi",
     "state": "Xank\u0259ndi",
     "country": "Azerbaijan"
   },
   {
-    "city": "Xa\u00e7maz",
+    "city": "Xacmaz",
     "state": "Xa\u00e7maz",
     "country": "Azerbaijan"
   },
@@ -90,7 +100,7 @@ export const xaCities = [
     "country": "Brazil"
   },
   {
-    "city": "Xambio\u00e1",
+    "city": "Xambioa",
     "state": "Tocantins",
     "country": "Brazil"
   },
@@ -100,7 +110,7 @@ export const xaCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Xag\u0127ra",
+    "city": "Xaghra",
     "state": "Xag\u0127ra",
     "country": "Malta"
   }

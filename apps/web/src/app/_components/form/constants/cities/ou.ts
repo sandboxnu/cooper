@@ -15,7 +15,7 @@ export const ouCities = [
     "country": "India"
   },
   {
-    "city": "Oum\u00e9",
+    "city": "Oume",
     "state": "G\u00f4h-Djiboua",
     "country": "C\u00f4te d\u2019Ivoire"
   },
@@ -60,7 +60,7 @@ export const ouCities = [
     "country": "South Africa"
   },
   {
-    "city": "Oulad Te\u00efma",
+    "city": "Oulad Teima",
     "state": "Souss-Massa",
     "country": "Morocco"
   },
@@ -70,12 +70,12 @@ export const ouCities = [
     "country": "Algeria"
   },
   {
-    "city": "Ouro Pr\u00eato",
+    "city": "Ouro Preto",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
   {
-    "city": "Ouak\u00e9",
+    "city": "Ouake",
     "state": "Donga",
     "country": "Benin"
   },
@@ -110,7 +110,7 @@ export const ouCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Oulad Ya\u00efch",
+    "city": "Oulad Yaich",
     "state": "Blida",
     "country": "Algeria"
   },
@@ -125,7 +125,7 @@ export const ouCities = [
     "country": "Algeria"
   },
   {
-    "city": "Our\u00e9m",
+    "city": "Ourem",
     "state": "Santar\u00e9m",
     "country": "Portugal"
   },
@@ -155,7 +155,7 @@ export const ouCities = [
     "country": "Algeria"
   },
   {
-    "city": "Ouro Preto d\u2019Oeste",
+    "city": "Ouro Preto d'Oeste",
     "state": "Rond\u00f4nia",
     "country": "Brazil"
   },
@@ -180,7 +180,7 @@ export const ouCities = [
     "country": "Algeria"
   },
   {
-    "city": "Ouril\u00e2ndia do Norte",
+    "city": "Ourilandia do Norte",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -215,9 +215,14 @@ export const ouCities = [
     "country": "Algeria"
   },
   {
-    "city": "Ou\u00e9sso",
+    "city": "Ouesso",
     "state": "Sangha",
     "country": "Congo (Brazzaville)"
+  },
+  {
+    "city": "Ouda-yamaguchi",
+    "state": "Nara",
+    "country": "Japan"
   },
   {
     "city": "Ouled Fayet",
@@ -230,7 +235,7 @@ export const ouCities = [
     "country": "Algeria"
   },
   {
-    "city": "Oulad Ya\u00efch",
+    "city": "Oulad Yaich",
     "state": "B\u00e9ni Mellal-Kh\u00e9nifra",
     "country": "Morocco"
   },
@@ -355,12 +360,12 @@ export const ouCities = [
     "country": "Mali"
   },
   {
-    "city": "Our\u00e9m",
+    "city": "Ourem",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Oued el Khe\u00efr",
+    "city": "Oued el Kheir",
     "state": "Mostaganem",
     "country": "Algeria"
   },
@@ -445,7 +450,7 @@ export const ouCities = [
     "country": "Burkina Faso"
   },
   {
-    "city": "Oued Tl\u00e9lat",
+    "city": "Oued Tlelat",
     "state": "Oran",
     "country": "Algeria"
   },
@@ -485,7 +490,7 @@ export const ouCities = [
     "country": "Morocco"
   },
   {
-    "city": "Oulad A\u00efssa",
+    "city": "Oulad Aissa",
     "state": "Souss-Massa",
     "country": "Morocco"
   },
@@ -495,7 +500,7 @@ export const ouCities = [
     "country": "Morocco"
   },
   {
-    "city": "Ou\u00e9nou",
+    "city": "Ouenou",
     "state": "Borgou",
     "country": "Benin"
   },
@@ -555,7 +560,7 @@ export const ouCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Ou\u00e9do-Agu\u00e9ko",
+    "city": "Ouedo-Agueko",
     "state": "Atlantique",
     "country": "Benin"
   },
@@ -595,7 +600,7 @@ export const ouCities = [
     "country": "Algeria"
   },
   {
-    "city": "Ou\u00e9do",
+    "city": "Ouedo",
     "state": "Atlantique",
     "country": "Benin"
   },
@@ -615,7 +620,7 @@ export const ouCities = [
     "country": "Morocco"
   },
   {
-    "city": "Oulad \u2019Azzouz",
+    "city": "Oulad 'Azzouz",
     "state": "B\u00e9ni Mellal-Kh\u00e9nifra",
     "country": "Morocco"
   },
@@ -665,12 +670,12 @@ export const ouCities = [
     "country": "Morocco"
   },
   {
-    "city": "Ou\u00e9d\u00e9m\u00e8",
+    "city": "Ouedeme",
     "state": "Couffo",
     "country": "Benin"
   },
   {
-    "city": "Ouar\u00e9gou",
+    "city": "Ouaregou",
     "state": "Centre-Est",
     "country": "Burkina Faso"
   },
@@ -683,6 +688,11 @@ export const ouCities = [
     "city": "Ouando",
     "state": "Ou\u00e9m\u00e9",
     "country": "Benin"
+  },
+  {
+    "city": "Ouda-daito",
+    "state": "Nara",
+    "country": "Japan"
   },
   {
     "city": "Ouro Verde",

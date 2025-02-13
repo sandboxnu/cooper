@@ -15,7 +15,7 @@ export const siCities = [
     "country": "China"
   },
   {
-    "city": "Sinn\u016bris",
+    "city": "Sinnuris",
     "state": "Al Fayy\u016bm",
     "country": "Egypt"
   },
@@ -35,7 +35,7 @@ export const siCities = [
     "country": "Turkey"
   },
   {
-    "city": "Sir\u0101jganj",
+    "city": "Sirajganj",
     "state": "R\u0101jsh\u0101hi",
     "country": "Bangladesh"
   },
@@ -45,12 +45,12 @@ export const siCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Sih\u016dng",
+    "city": "Sihung",
     "state": "Gyeonggi",
     "country": "Korea, South"
   },
   {
-    "city": "Sir\u016br",
+    "city": "Sirur",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -65,7 +65,12 @@ export const siCities = [
     "country": "Turkey"
   },
   {
-    "city": "Sin\u016diju",
+    "city": "Sikar",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
+    "city": "Sinuiju",
     "state": "P\u2019y\u014fngbuk",
     "country": "Korea, North"
   },
@@ -85,7 +90,7 @@ export const siCities = [
     "country": "Philippines"
   },
   {
-    "city": "Sikandar\u0101b\u0101d",
+    "city": "Sikandarabad",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -125,7 +130,7 @@ export const siCities = [
     "country": "India"
   },
   {
-    "city": "Sidi A\u00efssa",
+    "city": "Sidi Aissa",
     "state": "M\u2019sila",
     "country": "Algeria"
   },
@@ -135,7 +140,7 @@ export const siCities = [
     "country": "Mali"
   },
   {
-    "city": "Sidi Bel Abb\u00e8s",
+    "city": "Sidi Bel Abbes",
     "state": "Sidi Bel Abb\u00e8s",
     "country": "Algeria"
   },
@@ -143,6 +148,11 @@ export const siCities = [
     "city": "Sioux Falls",
     "state": "South Dakota",
     "country": "United States"
+  },
+  {
+    "city": "Sidfa",
+    "state": "Asy\u016b\u0163",
+    "country": "Egypt"
   },
   {
     "city": "Sinop",
@@ -163,6 +173,16 @@ export const siCities = [
     "city": "Singosari",
     "state": "Jawa Timur",
     "country": "Indonesia"
+  },
+  {
+    "city": "Sitapur",
+    "state": "Uttar Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Sirjan",
+    "state": "Kerm\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Silchar",
@@ -190,7 +210,7 @@ export const siCities = [
     "country": "China"
   },
   {
-    "city": "Sivak\u0101si",
+    "city": "Sivakasi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -210,7 +230,7 @@ export const siCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Sit\u0101rganj",
+    "city": "Sitarganj",
     "state": "Uttar\u0101khand",
     "country": "India"
   },
@@ -230,7 +250,7 @@ export const siCities = [
     "country": "C\u00f4te d\u2019Ivoire"
   },
   {
-    "city": "Siw\u0101n",
+    "city": "Siwan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -270,7 +290,7 @@ export const siCities = [
     "country": "Italy"
   },
   {
-    "city": "Sim\u00f5es Filho",
+    "city": "Simoes Filho",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -278,6 +298,16 @@ export const siCities = [
     "city": "Sioux City",
     "state": "Iowa",
     "country": "United States"
+  },
+  {
+    "city": "Sitamarhi",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Siauliai",
+    "state": "\u0160iauli\u0173 Miestas",
+    "country": "Lithuania"
   },
   {
     "city": "Sindangan",
@@ -330,7 +360,7 @@ export const siCities = [
     "country": "Morocco"
   },
   {
-    "city": "Sinend\u00e9",
+    "city": "Sinende",
     "state": "Borgou",
     "country": "Benin"
   },
@@ -400,6 +430,11 @@ export const siCities = [
     "country": "Cambodia"
   },
   {
+    "city": "Sirvan",
+    "state": "\u015eirvan",
+    "country": "Azerbaijan"
+  },
+  {
     "city": "Sig",
     "state": "Mascara",
     "country": "Algeria"
@@ -435,7 +470,7 @@ export const siCities = [
     "country": "Germany"
   },
   {
-    "city": "Siemianowice \u015al\u0105skie",
+    "city": "Siemianowice Slaskie",
     "state": "\u015al\u0105skie",
     "country": "Poland"
   },
@@ -463,6 +498,11 @@ export const siCities = [
     "city": "Sibalom",
     "state": "Antique",
     "country": "Philippines"
+  },
+  {
+    "city": "Sidi Barani",
+    "state": "Ma\u0163r\u016b\u1e29",
+    "country": "Egypt"
   },
   {
     "city": "Sirsi",
@@ -510,6 +550,11 @@ export const siCities = [
     "country": "Morocco"
   },
   {
+    "city": "Sira",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
     "city": "Sinop",
     "state": "Sinop",
     "country": "Turkey"
@@ -523,6 +568,11 @@ export const siCities = [
     "city": "Siliancun",
     "state": "Guangdong",
     "country": "China"
+  },
+  {
+    "city": "Sirnak",
+    "state": "\u015e\u0131rnak",
+    "country": "Turkey"
   },
   {
     "city": "Sidhi",
@@ -570,17 +620,17 @@ export const siCities = [
     "country": "Denmark"
   },
   {
-    "city": "Sibs\u0101gar",
+    "city": "Sibsagar",
     "state": "Assam",
     "country": "India"
   },
   {
-    "city": "Sihor\u0101",
+    "city": "Sihora",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Simraunga\u1e0dh",
+    "city": "Simraungadh",
     "state": NaN,
     "country": "Nepal"
   },
@@ -595,7 +645,7 @@ export const siCities = [
     "country": "Philippines"
   },
   {
-    "city": "Sidrol\u00e2ndia",
+    "city": "Sidrolandia",
     "state": "Mato Grosso do Sul",
     "country": "Brazil"
   },
@@ -615,7 +665,7 @@ export const siCities = [
     "country": "United States"
   },
   {
-    "city": "Siy\u0101na",
+    "city": "Siyana",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -640,7 +690,12 @@ export const siCities = [
     "country": "Morocco"
   },
   {
-    "city": "Sim\u00e3o Dias",
+    "city": "Sibenik",
+    "state": "\u0160ibensko-Kninska \u017dupanija",
+    "country": "Croatia"
+  },
+  {
+    "city": "Simao Dias",
     "state": "Sergipe",
     "country": "Brazil"
   },
@@ -665,7 +720,7 @@ export const siCities = [
     "country": "Bolivia"
   },
   {
-    "city": "Sinanpa\u015fa",
+    "city": "Sinanpasa",
     "state": "Afyonkarahisar",
     "country": "Turkey"
   },
@@ -720,7 +775,7 @@ export const siCities = [
     "country": "Algeria"
   },
   {
-    "city": "Sibat\u00e9",
+    "city": "Sibate",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
@@ -740,7 +795,7 @@ export const siCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Sirinha\u00e9m",
+    "city": "Sirinhaem",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -775,9 +830,19 @@ export const siCities = [
     "country": "South Africa"
   },
   {
+    "city": "Sitakund",
+    "state": "Chattogram",
+    "country": "Bangladesh"
+  },
+  {
     "city": "Sinsheim",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
+  },
+  {
+    "city": "Sile",
+    "state": "\u0130stanbul",
+    "country": "Turkey"
   },
   {
     "city": "Simbahan",
@@ -835,6 +900,11 @@ export const siCities = [
     "country": "Philippines"
   },
   {
+    "city": "Sid",
+    "state": "\u0160id",
+    "country": "Serbia"
+  },
+  {
     "city": "Sint-Pieters-Leeuw",
     "state": "Flanders",
     "country": "Belgium"
@@ -843,6 +913,11 @@ export const siCities = [
     "city": "Sibagat",
     "state": "Agusan del Sur",
     "country": "Philippines"
+  },
+  {
+    "city": "Sindirgi",
+    "state": "Bal\u0131kesir",
+    "country": "Turkey"
   },
   {
     "city": "Sicuani",
@@ -855,12 +930,12 @@ export const siCities = [
     "country": "Algeria"
   },
   {
-    "city": "Sir\u012bpur",
+    "city": "Siripur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Sighetu Marma\u0163iei",
+    "city": "Sighetu Marmatiei",
     "state": "Maramure\u015f",
     "country": "Romania"
   },
@@ -925,9 +1000,14 @@ export const siCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Sibanic\u00fa",
+    "city": "Sibanicu",
     "state": "Camag\u00fcey",
     "country": "Cuba"
+  },
+  {
+    "city": "Siroki Brijeg",
+    "state": "Bosnia and Herzegovina, Federation of",
+    "country": "Bosnia and Herzegovina"
   },
   {
     "city": "Siquijor",
@@ -935,12 +1015,12 @@ export const siCities = [
     "country": "Philippines"
   },
   {
-    "city": "Sidi Smai\u2019il",
+    "city": "Sidi Smai'il",
     "state": "Casablanca-Settat",
     "country": "Morocco"
   },
   {
-    "city": "Simri Bakhri\u0101rpur",
+    "city": "Simri Bakhriarpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -955,7 +1035,7 @@ export const siCities = [
     "country": "Algeria"
   },
   {
-    "city": "Sirs\u0101ganj",
+    "city": "Sirsaganj",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -1005,7 +1085,7 @@ export const siCities = [
     "country": "Algeria"
   },
   {
-    "city": "Siquinal\u00e1",
+    "city": "Siquinala",
     "state": "Escuintla",
     "country": "Guatemala"
   },
@@ -1020,7 +1100,7 @@ export const siCities = [
     "country": "Philippines"
   },
   {
-    "city": "Siqb\u0101",
+    "city": "Siqba",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
   },
@@ -1040,7 +1120,7 @@ export const siCities = [
     "country": "India"
   },
   {
-    "city": "Singh\u0101na",
+    "city": "Singhana",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -1050,7 +1130,7 @@ export const siCities = [
     "country": "India"
   },
   {
-    "city": "Sidhaul\u012b",
+    "city": "Sidhauli",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -1065,12 +1145,12 @@ export const siCities = [
     "country": "India"
   },
   {
-    "city": "Si\u00f3fok",
+    "city": "Siofok",
     "state": "Somogy",
     "country": "Hungary"
   },
   {
-    "city": "Singar\u0101yakonda",
+    "city": "Singarayakonda",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1090,9 +1170,14 @@ export const siCities = [
     "country": "India"
   },
   {
-    "city": "Sighi\u015foara",
+    "city": "Sighisoara",
     "state": "Mure\u015f",
     "country": "Romania"
+  },
+  {
+    "city": "Silappadi",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Sinj",
@@ -1100,9 +1185,14 @@ export const siCities = [
     "country": "Croatia"
   },
   {
-    "city": "Singh\u0101ra Buzurg",
+    "city": "Singhara Buzurg",
     "state": "Bih\u0101r",
     "country": "India"
+  },
+  {
+    "city": "Siwah",
+    "state": "Ma\u0163r\u016b\u1e29",
+    "country": "Egypt"
   },
   {
     "city": "Siqueira Campos",
@@ -1115,7 +1205,12 @@ export const siCities = [
     "country": "Morocco"
   },
   {
-    "city": "Sinj\u0101r",
+    "city": "Sirvan",
+    "state": "Siirt",
+    "country": "Turkey"
+  },
+  {
+    "city": "Sinjar",
     "state": "N\u012bnaw\u00e1",
     "country": "Iraq"
   },
@@ -1135,7 +1230,7 @@ export const siCities = [
     "country": "India"
   },
   {
-    "city": "Silv\u00e2nia",
+    "city": "Silvania",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -1155,7 +1250,7 @@ export const siCities = [
     "country": "Colombia"
   },
   {
-    "city": "Siilinj\u00e4rvi",
+    "city": "Siilinjarvi",
     "state": "Pohjois-Savo",
     "country": "Finland"
   },
@@ -1215,7 +1310,7 @@ export const siCities = [
     "country": "Morocco"
   },
   {
-    "city": "Sivasl\u0131",
+    "city": "Sivasli",
     "state": "U\u015fak",
     "country": "Turkey"
   },
@@ -1245,7 +1340,7 @@ export const siCities = [
     "country": "United States"
   },
   {
-    "city": "Simit\u00ed",
+    "city": "Simiti",
     "state": "Bol\u00edvar",
     "country": "Colombia"
   },
@@ -1253,6 +1348,11 @@ export const siCities = [
     "city": "Sivagiri",
     "state": "Tamil N\u0101du",
     "country": "India"
+  },
+  {
+    "city": "Siran",
+    "state": "G\u00fcm\u00fc\u015fhane",
+    "country": "Turkey"
   },
   {
     "city": "Sidhapa",
@@ -1280,12 +1380,17 @@ export const siCities = [
     "country": "Morocco"
   },
   {
+    "city": "Siahkal",
+    "state": "G\u012bl\u0101n",
+    "country": "Iran"
+  },
+  {
     "city": "Sint-Andries",
     "state": "Flanders",
     "country": "Belgium"
   },
   {
-    "city": "Simon\u00e9sia",
+    "city": "Simonesia",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1315,7 +1420,7 @@ export const siCities = [
     "country": "Finland"
   },
   {
-    "city": "Sirv\u0101r",
+    "city": "Sirvar",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1345,7 +1450,7 @@ export const siCities = [
     "country": "Morocco"
   },
   {
-    "city": "Sir\u0101lkoppa",
+    "city": "Siralkoppa",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1370,7 +1475,7 @@ export const siCities = [
     "country": "Italy"
   },
   {
-    "city": "Siy\u0259z\u0259n",
+    "city": "Siyazan",
     "state": "Siy\u0259z\u0259n",
     "country": "Azerbaijan"
   },
@@ -1425,7 +1530,7 @@ export const siCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Silv\u0101ni",
+    "city": "Silvani",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1475,6 +1580,11 @@ export const siCities = [
     "country": "Poland"
   },
   {
+    "city": "Sinnai",
+    "state": "Sardegna",
+    "country": "Italy"
+  },
+  {
     "city": "Sibinal",
     "state": "San Marcos",
     "country": "Guatemala"
@@ -1488,6 +1598,11 @@ export const siCities = [
     "city": "Sinsina",
     "state": "Sikasso",
     "country": "Mali"
+  },
+  {
+    "city": "Sitamau",
+    "state": "Madhya Pradesh",
+    "country": "India"
   },
   {
     "city": "Sikandra",
@@ -1505,7 +1620,7 @@ export const siCities = [
     "country": "Morocco"
   },
   {
-    "city": "Sin\u016bn\u012b",
+    "city": "Sinuni",
     "state": "N\u012bnaw\u00e1",
     "country": "Iraq"
   },
@@ -1528,6 +1643,11 @@ export const siCities = [
     "city": "Singhwara",
     "state": "Bih\u0101r",
     "country": "India"
+  },
+  {
+    "city": "Silute",
+    "state": "\u0160ilut\u0117",
+    "country": "Lithuania"
   },
   {
     "city": "Sikeston",
@@ -1575,7 +1695,7 @@ export const siCities = [
     "country": "France"
   },
   {
-    "city": "Sir\u0101li",
+    "city": "Sirali",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1605,7 +1725,7 @@ export const siCities = [
     "country": "Philippines"
   },
   {
-    "city": "Singh\u0101nw\u0101la",
+    "city": "Singhanwala",
     "state": "Punjab",
     "country": "India"
   },
@@ -1615,7 +1735,7 @@ export const siCities = [
     "country": "Morocco"
   },
   {
-    "city": "Sindhn\u016br",
+    "city": "Sindhnur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1625,7 +1745,12 @@ export const siCities = [
     "country": "Armenia"
   },
   {
-    "city": "Sinmp\u00e9r\u00e9kou",
+    "city": "Sitio do Quinto",
+    "state": "Bahia",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sinmperekou",
     "state": "Alibori",
     "country": "Benin"
   },
@@ -1665,7 +1790,7 @@ export const siCities = [
     "country": "Morocco"
   },
   {
-    "city": "Sim\u00f5es",
+    "city": "Simoes",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
@@ -1680,7 +1805,7 @@ export const siCities = [
     "country": "Portugal"
   },
   {
-    "city": "Sidd\u0101pur",
+    "city": "Siddapur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1695,7 +1820,7 @@ export const siCities = [
     "country": "Colombia"
   },
   {
-    "city": "Sider\u00f3polis",
+    "city": "Sideropolis",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -1715,7 +1840,7 @@ export const siCities = [
     "country": "Mali"
   },
   {
-    "city": "Simpl\u00edcio Mendes",
+    "city": "Simplicio Mendes",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
@@ -1735,7 +1860,7 @@ export const siCities = [
     "country": "India"
   },
   {
-    "city": "Singal\u0101nd\u0101puram",
+    "city": "Singalandapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1750,7 +1875,7 @@ export const siCities = [
     "country": "India"
   },
   {
-    "city": "Siri\u0101ri",
+    "city": "Siriari",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -1758,6 +1883,11 @@ export const siCities = [
     "city": "Sikat",
     "state": "Bih\u0101r",
     "country": "India"
+  },
+  {
+    "city": "Sitio do Mato",
+    "state": "Bahia",
+    "country": "Brazil"
   },
   {
     "city": "Sigli",
@@ -1770,7 +1900,7 @@ export const siCities = [
     "country": "Algeria"
   },
   {
-    "city": "Sirh\u0101li Kal\u0101n",
+    "city": "Sirhali Kalan",
     "state": "Punjab",
     "country": "India"
   },
@@ -1795,7 +1925,7 @@ export const siCities = [
     "country": "Colombia"
   },
   {
-    "city": "Sidhw\u0101n",
+    "city": "Sidhwan",
     "state": "Punjab",
     "country": "India"
   },
@@ -1825,7 +1955,7 @@ export const siCities = [
     "country": "Poland"
   },
   {
-    "city": "Sival\u0101rkulam",
+    "city": "Sivalarkulam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1835,7 +1965,7 @@ export const siCities = [
     "country": "Ecuador"
   },
   {
-    "city": "Sir\u016br",
+    "city": "Sirur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1845,7 +1975,12 @@ export const siCities = [
     "country": "India"
   },
   {
-    "city": "Sillam\u00e4e",
+    "city": "Singerei",
+    "state": "S\u00eengerei",
+    "country": "Moldova"
+  },
+  {
+    "city": "Sillamae",
     "state": "Sillam\u00e4e",
     "country": "Estonia"
   },
@@ -1885,12 +2020,12 @@ export const siCities = [
     "country": "Italy"
   },
   {
-    "city": "Singhb\u0101ri",
+    "city": "Singhbari",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Siruv\u0101chch\u016br",
+    "city": "Siruvachchur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1905,7 +2040,7 @@ export const siCities = [
     "country": "Costa Rica"
   },
   {
-    "city": "Sirsia Hanum\u0101nganj",
+    "city": "Sirsia Hanumanganj",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1918,6 +2053,11 @@ export const siCities = [
     "city": "Sidi Ladjel",
     "state": "Djelfa",
     "country": "Algeria"
+  },
+  {
+    "city": "Sipalakottai",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Sindalakkundu",
@@ -1965,12 +2105,12 @@ export const siCities = [
     "country": "Morocco"
   },
   {
-    "city": "Sid\u00e9radougou",
+    "city": "Sideradougou",
     "state": "Cascades",
     "country": "Burkina Faso"
   },
   {
-    "city": "Simr\u0101hi",
+    "city": "Simrahi",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1997,6 +2137,11 @@ export const siCities = [
   {
     "city": "Sinor",
     "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
+    "city": "Sirpanandal",
+    "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
@@ -2030,7 +2175,7 @@ export const siCities = [
     "country": "Thailand"
   },
   {
-    "city": "Siy\u0101na",
+    "city": "Siyana",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -2055,12 +2200,22 @@ export const siCities = [
     "country": "Ukraine"
   },
   {
+    "city": "Sitio Novo de Goias",
+    "state": "Tocantins",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sitalpur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Sivrice",
     "state": "Elaz\u0131\u011f",
     "country": "Turkey"
   },
   {
-    "city": "Sidhap Kal\u0101n",
+    "city": "Sidhap Kalan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2070,7 +2225,7 @@ export const siCities = [
     "country": "Algeria"
   },
   {
-    "city": "Singapperum\u0101lkovil",
+    "city": "Singapperumalkovil",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2080,7 +2235,7 @@ export const siCities = [
     "country": "India"
   },
   {
-    "city": "Sir\u016br T\u0101jband",
+    "city": "Sirur Tajband",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -2130,7 +2285,7 @@ export const siCities = [
     "country": "Algeria"
   },
   {
-    "city": "Sikti\u0101hi",
+    "city": "Siktiahi",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2145,7 +2300,7 @@ export const siCities = [
     "country": "Mali"
   },
   {
-    "city": "Simarw\u0101ra Durg\u0101pur",
+    "city": "Simarwara Durgapur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2175,7 +2330,7 @@ export const siCities = [
     "country": "Algeria"
   },
   {
-    "city": "Sisw\u0101r",
+    "city": "Siswar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2190,12 +2345,17 @@ export const siCities = [
     "country": "India"
   },
   {
+    "city": "Silamalai",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Sihanamaro",
     "state": "Toliara",
     "country": "Madagascar"
   },
   {
-    "city": "Siddar\u0101mpuram",
+    "city": "Siddarampuram",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -2203,6 +2363,11 @@ export const siCities = [
     "city": "Simri",
     "state": "Bih\u0101r",
     "country": "India"
+  },
+  {
+    "city": "Singera",
+    "state": "Chi\u015fin\u0103u",
+    "country": "Moldova"
   },
   {
     "city": "Siechnice",
@@ -2215,7 +2380,7 @@ export const siCities = [
     "country": "Morocco"
   },
   {
-    "city": "Siruval\u016br",
+    "city": "Siruvalur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2225,7 +2390,7 @@ export const siCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Silv\u0101rpatti",
+    "city": "Silvarpatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2300,7 +2465,7 @@ export const siCities = [
     "country": "Italy"
   },
   {
-    "city": "Singh\u0101na",
+    "city": "Singhana",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -2315,14 +2480,24 @@ export const siCities = [
     "country": "Austria"
   },
   {
-    "city": "Site\u00eda",
+    "city": "Siteia",
     "state": "Kr\u00edti",
+    "country": "Greece"
+  },
+  {
+    "city": "Sindos",
+    "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
   {
     "city": "Sidi Lahsene",
     "state": "Oriental",
     "country": "Morocco"
+  },
+  {
+    "city": "Sitanagaram",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Sidi Bou Othmane",
@@ -2335,7 +2510,7 @@ export const siCities = [
     "country": "India"
   },
   {
-    "city": "Sih\u0101li J\u0101g\u012br",
+    "city": "Sihali Jagir",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -2385,7 +2560,7 @@ export const siCities = [
     "country": "United States"
   },
   {
-    "city": "Si\u0121\u0121iewi",
+    "city": "Siggiewi",
     "state": "Si\u0121\u0121iewi",
     "country": "Malta"
   },
@@ -2400,7 +2575,7 @@ export const siCities = [
     "country": "Morocco"
   },
   {
-    "city": "Sikl\u00f3s",
+    "city": "Siklos",
     "state": "Baranya",
     "country": "Hungary"
   },
@@ -2410,14 +2585,19 @@ export const siCities = [
     "country": "India"
   },
   {
-    "city": "Sim\u00f3n Bol\u00edvar",
+    "city": "Simon Bolivar",
     "state": "Guayas",
     "country": "Ecuador"
   },
   {
-    "city": "Sint-Job-in-\u2019t-Goor",
+    "city": "Sint-Job-in-'t-Goor",
     "state": "Flanders",
     "country": "Belgium"
+  },
+  {
+    "city": "Silaiyampatti",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Sinimbu",
@@ -2430,7 +2610,7 @@ export const siCities = [
     "country": "Germany"
   },
   {
-    "city": "Silv\u0101rpatti",
+    "city": "Silvarpatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2438,6 +2618,11 @@ export const siCities = [
     "city": "Siteki",
     "state": "Lubombo",
     "country": "Eswatini"
+  },
+  {
+    "city": "Sirvintos",
+    "state": "\u0160irvintos",
+    "country": "Lithuania"
   },
   {
     "city": "Sisimiut",
@@ -2448,6 +2633,11 @@ export const siCities = [
     "city": "Singleton",
     "state": "New South Wales",
     "country": "Australia"
+  },
+  {
+    "city": "Silale",
+    "state": "\u0160ilal\u0117",
+    "country": "Lithuania"
   },
   {
     "city": "Sicasica",

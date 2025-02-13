@@ -15,6 +15,11 @@ export const tuCities = [
     "country": "United States"
   },
   {
+    "city": "Tukh",
+    "state": "Al Qaly\u016bb\u012byah",
+    "country": "Egypt"
+  },
+  {
     "city": "Turpan",
     "state": "Xinjiang",
     "country": "China"
@@ -25,7 +30,7 @@ export const tuCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Tumk\u016br",
+    "city": "Tumkur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -35,7 +40,7 @@ export const tuCities = [
     "country": "Mexico"
   },
   {
-    "city": "Tultitl\u00e1n de Mariano Escobedo",
+    "city": "Tultitlan de Mariano Escobedo",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
@@ -48,6 +53,11 @@ export const tuCities = [
     "city": "Tungi",
     "state": "Dhaka",
     "country": "Bangladesh"
+  },
+  {
+    "city": "Turkmenabat",
+    "state": "Lebap",
+    "country": "Turkmenistan"
   },
   {
     "city": "Tuzla",
@@ -70,7 +80,12 @@ export const tuCities = [
     "country": "Finland"
   },
   {
-    "city": "Tuy H\u00f2a",
+    "city": "Turkistan",
+    "state": "T\u00fcrkistan",
+    "country": "Kazakhstan"
+  },
+  {
+    "city": "Tuy Hoa",
     "state": "Ph\u00fa Y\u00ean",
     "country": "Vietnam"
   },
@@ -80,7 +95,7 @@ export const tuCities = [
     "country": "India"
   },
   {
-    "city": "Tulu\u00e1",
+    "city": "Tulua",
     "state": "Valle del Cauca",
     "country": "Colombia"
   },
@@ -145,6 +160,11 @@ export const tuCities = [
     "country": "China"
   },
   {
+    "city": "Tuz Khurmatu",
+    "state": "\u015eal\u0101\u1e29 ad D\u012bn",
+    "country": "Iraq"
+  },
+  {
     "city": "Turbaco",
     "state": "Bol\u00edvar",
     "country": "Colombia"
@@ -155,12 +175,12 @@ export const tuCities = [
     "country": "Bosnia and Herzegovina"
   },
   {
-    "city": "Tubar\u00e3o",
+    "city": "Tubarao",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
   {
-    "city": "Tuy\u00ean Quang",
+    "city": "Tuyen Quang",
     "state": "Tuy\u00ean Quang",
     "country": "Vietnam"
   },
@@ -180,12 +200,22 @@ export const tuCities = [
     "country": "Indonesia"
   },
   {
+    "city": "Tubingen",
+    "state": "Baden-W\u00fcrttemberg",
+    "country": "Germany"
+  },
+  {
     "city": "Tultepec",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
   {
-    "city": "Tucuru\u00ed",
+    "city": "Turayf",
+    "state": "Al \u1e28ud\u016bd ash Sham\u0101l\u012byah",
+    "country": "Saudi Arabia"
+  },
+  {
+    "city": "Tucurui",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -198,6 +228,11 @@ export const tuCities = [
     "city": "Tuncheng",
     "state": "Hainan",
     "country": "China"
+  },
+  {
+    "city": "Tuxpam de Rodriguez Cano",
+    "state": "Veracruz",
+    "country": "Mexico"
   },
   {
     "city": "Turhal",
@@ -225,12 +260,22 @@ export const tuCities = [
     "country": "India"
   },
   {
+    "city": "Turkoglu",
+    "state": "Kahramanmara\u015f",
+    "country": "Turkey"
+  },
+  {
     "city": "Tupi",
     "state": "South Cotabato",
     "country": "Philippines"
   },
   {
-    "city": "Turban\u00e1",
+    "city": "Turkmenbasy",
+    "state": "Balkan",
+    "country": "Turkmenistan"
+  },
+  {
+    "city": "Turbana",
     "state": "Bol\u00edvar",
     "country": "Colombia"
   },
@@ -260,12 +305,17 @@ export const tuCities = [
     "country": "Romania"
   },
   {
+    "city": "Tulkarm",
+    "state": NaN,
+    "country": "West Bank"
+  },
+  {
     "city": "Tuao",
     "state": "Cagayan",
     "country": "Philippines"
   },
   {
-    "city": "Tup\u00e3",
+    "city": "Tupa",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -285,7 +335,7 @@ export const tuCities = [
     "country": "Philippines"
   },
   {
-    "city": "Tulc\u00e1n",
+    "city": "Tulcan",
     "state": "Carchi",
     "country": "Ecuador"
   },
@@ -295,19 +345,34 @@ export const tuCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Tut\u00f3ia",
+    "city": "Tutoia",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
   {
-    "city": "Tuls\u012bpur",
+    "city": "Tulsipur",
     "state": NaN,
     "country": "Nepal"
   },
   {
-    "city": "Tucur\u00fa",
+    "city": "Tucuru",
     "state": "Alta Verapaz",
     "country": "Guatemala"
+  },
+  {
+    "city": "Turtkul",
+    "state": "Qoraqalpog\u2018iston",
+    "country": "Uzbekistan"
+  },
+  {
+    "city": "Tuyserkan",
+    "state": "Hamad\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Tundla",
+    "state": "Uttar Pradesh",
+    "country": "India"
   },
   {
     "city": "Tubod",
@@ -325,7 +390,7 @@ export const tuCities = [
     "country": "China"
   },
   {
-    "city": "Tunuy\u00e1n",
+    "city": "Tunuyan",
     "state": "Mendoza",
     "country": "Argentina"
   },
@@ -375,8 +440,13 @@ export const tuCities = [
     "country": "Philippines"
   },
   {
-    "city": "Tuch\u00edn",
+    "city": "Tuchin",
     "state": "C\u00f3rdoba",
+    "country": "Colombia"
+  },
+  {
+    "city": "Tuquerres",
+    "state": "Nari\u00f1o",
     "country": "Colombia"
   },
   {
@@ -390,12 +460,12 @@ export const tuCities = [
     "country": "Russia"
   },
   {
-    "city": "Tucum\u00e3",
+    "city": "Tucuma",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Tuv\u0101gudi",
+    "city": "Tuvagudi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -425,7 +495,7 @@ export const tuCities = [
     "country": "Mexico"
   },
   {
-    "city": "Turia\u00e7u",
+    "city": "Turiacu",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
@@ -470,7 +540,7 @@ export const tuCities = [
     "country": "Serbia"
   },
   {
-    "city": "Turkauliy\u0101",
+    "city": "Turkauliya",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -480,7 +550,7 @@ export const tuCities = [
     "country": "Turkey"
   },
   {
-    "city": "Turaiy\u016br",
+    "city": "Turaiyur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -495,12 +565,12 @@ export const tuCities = [
     "country": "Philippines"
   },
   {
-    "city": "Tulj\u0101pur",
+    "city": "Tuljapur",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
   {
-    "city": "Tummap\u0101la",
+    "city": "Tummapala",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -515,7 +585,7 @@ export const tuCities = [
     "country": "United States"
   },
   {
-    "city": "Tudiyal\u016br",
+    "city": "Tudiyalur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -533,6 +603,11 @@ export const tuCities = [
     "city": "Tupanatinga",
     "state": "Pernambuco",
     "country": "Brazil"
+  },
+  {
+    "city": "Tuvur",
+    "state": "Kerala",
+    "country": "India"
   },
   {
     "city": "Turrialba",
@@ -595,7 +670,7 @@ export const tuCities = [
     "country": "Turkey"
   },
   {
-    "city": "Tuls\u012bpur",
+    "city": "Tulsipur",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -603,6 +678,11 @@ export const tuCities = [
     "city": "Tugatog",
     "state": "Malabon",
     "country": "Philippines"
+  },
+  {
+    "city": "Tukrah",
+    "state": "Bangh\u0101z\u012b",
+    "country": "Libya"
   },
   {
     "city": "Tupiza",
@@ -613,6 +693,11 @@ export const tuCities = [
     "city": "Tubungan",
     "state": "Iloilo",
     "country": "Philippines"
+  },
+  {
+    "city": "Tuneri",
+    "state": "Kerala",
+    "country": "India"
   },
   {
     "city": "Tukwila",
@@ -630,7 +715,7 @@ export const tuCities = [
     "country": "United States"
   },
   {
-    "city": "Tuf\u0101nganj",
+    "city": "Tufanganj",
     "state": "West Bengal",
     "country": "India"
   },
@@ -640,7 +725,7 @@ export const tuCities = [
     "country": "Brazil"
   },
   {
-    "city": "Tupanciret\u00e3",
+    "city": "Tupancireta",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -650,7 +735,7 @@ export const tuCities = [
     "country": "India"
   },
   {
-    "city": "Turnu M\u0103gurele",
+    "city": "Turnu Magurele",
     "state": "Teleorman",
     "country": "Romania"
   },
@@ -700,6 +785,11 @@ export const tuCities = [
     "country": "Turkey"
   },
   {
+    "city": "Turkeli",
+    "state": "Sinop",
+    "country": "Turkey"
+  },
+  {
     "city": "Tullinge",
     "state": "Stockholm",
     "country": "Sweden"
@@ -730,7 +820,7 @@ export const tuCities = [
     "country": "Hong Kong"
   },
   {
-    "city": "Turh\u0101patti",
+    "city": "Turhapatti",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -765,6 +855,11 @@ export const tuCities = [
     "country": "Ukraine"
   },
   {
+    "city": "Tupran",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
     "city": "Turuttiyad",
     "state": "Kerala",
     "country": "India"
@@ -780,12 +875,12 @@ export const tuCities = [
     "country": "Venezuela"
   },
   {
-    "city": "Tumbipp\u0101di",
+    "city": "Tumbippadi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Turuvan\u016br",
+    "city": "Turuvanur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -820,7 +915,7 @@ export const tuCities = [
     "country": "Brazil"
   },
   {
-    "city": "Turbih\u0101l",
+    "city": "Turbihal",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -835,7 +930,7 @@ export const tuCities = [
     "country": "United States"
   },
   {
-    "city": "Tuzdybasta\u016b",
+    "city": "Tuzdybastau",
     "state": "Almaty",
     "country": "Kazakhstan"
   },
@@ -843,6 +938,11 @@ export const tuCities = [
     "city": "Turki",
     "state": "Bih\u0101r",
     "country": "India"
+  },
+  {
+    "city": "Tup",
+    "state": "Ysyk-K\u00f6l",
+    "country": "Kyrgyzstan"
   },
   {
     "city": "Turki",
@@ -875,7 +975,7 @@ export const tuCities = [
     "country": "Philippines"
   },
   {
-    "city": "Tubar\u00e1",
+    "city": "Tubara",
     "state": "Atl\u00e1ntico",
     "country": "Colombia"
   },
@@ -885,7 +985,7 @@ export const tuCities = [
     "country": "India"
   },
   {
-    "city": "Turm\u0101n\u012bn",
+    "city": "Turmanin",
     "state": "Idlib",
     "country": "Syria"
   },
@@ -893,6 +993,11 @@ export const tuCities = [
     "city": "Tut",
     "state": "Ad\u0131yaman",
     "country": "Turkey"
+  },
+  {
+    "city": "Turkan",
+    "state": "Bak\u0131",
+    "country": "Azerbaijan"
   },
   {
     "city": "Tutzing",
@@ -905,7 +1010,12 @@ export const tuCities = [
     "country": "Afghanistan"
   },
   {
-    "city": "Tung\u0101vi",
+    "city": "Tulin",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
+    "city": "Tungavi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -940,7 +1050,7 @@ export const tuCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Tur\u00edn",
+    "city": "Turin",
     "state": "Ahuachap\u00e1n",
     "country": "El Salvador"
   },
@@ -950,7 +1060,7 @@ export const tuCities = [
     "country": "South Africa"
   },
   {
-    "city": "Tullukuttin\u0101yakkan\u016br",
+    "city": "Tullukuttinayakkanur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1000,7 +1110,7 @@ export const tuCities = [
     "country": "Australia"
   },
   {
-    "city": "Turni\u0161\u010de",
+    "city": "Turnisce",
     "state": "Turni\u0161\u010de",
     "country": "Slovenia"
   },

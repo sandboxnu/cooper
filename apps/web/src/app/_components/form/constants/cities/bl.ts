@@ -295,6 +295,11 @@ export const blCities = [
     "country": "United States"
   },
   {
+    "city": "Blonie",
+    "state": "Mazowieckie",
+    "country": "Poland"
+  },
+  {
     "city": "Blaricum",
     "state": "Noord-Holland",
     "country": "Netherlands"

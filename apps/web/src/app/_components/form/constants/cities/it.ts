@@ -10,17 +10,17 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "Itag\u00fc\u00ed",
+    "city": "Itagui",
     "state": "Antioquia",
     "country": "Colombia"
   },
   {
-    "city": "Itaja\u00ed",
+    "city": "Itajai",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
   {
-    "city": "Itabora\u00ed",
+    "city": "Itaborai",
     "state": "Rio de Janeiro",
     "country": "Brazil"
   },
@@ -60,7 +60,7 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ituzaing\u00f3",
+    "city": "Ituzaingo",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -100,7 +100,7 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "Itanha\u00e9m",
+    "city": "Itanhaem",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -115,12 +115,12 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "Itaugu\u00e1",
+    "city": "Itaugua",
     "state": "Central",
     "country": "Paraguay"
   },
   {
-    "city": "It\u0101rsi",
+    "city": "Itarsi",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -130,7 +130,7 @@ export const itCities = [
     "country": "Japan"
   },
   {
-    "city": "Ita\u00fana",
+    "city": "Itauna",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -140,7 +140,7 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "Itajub\u00e1",
+    "city": "Itajuba",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -150,7 +150,7 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "It\u00e1",
+    "city": "Ita",
     "state": "Central",
     "country": "Paraguay"
   },
@@ -158,6 +158,11 @@ export const itCities = [
     "city": "Itapira",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
+  },
+  {
+    "city": "Itahari",
+    "state": NaN,
+    "country": "Nepal"
   },
   {
     "city": "Itapema",
@@ -180,7 +185,7 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "It\u014d",
+    "city": "Ito",
     "state": "Shizuoka",
     "country": "Japan"
   },
@@ -205,7 +210,7 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "It\u0101nagar",
+    "city": "Itanagar",
     "state": "Arun\u0101chal Pradesh",
     "country": "India"
   },
@@ -215,12 +220,12 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "Itapag\u00e9",
+    "city": "Itapage",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Itarar\u00e9",
+    "city": "Itarare",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -230,7 +235,7 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "Itabera\u00ed",
+    "city": "Itaberai",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -260,7 +265,7 @@ export const itCities = [
     "country": "Japan"
   },
   {
-    "city": "It\u00e1polis",
+    "city": "Itapolis",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -280,12 +285,12 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "Itaporanga d\u2019Ajuda",
+    "city": "Itaporanga d'Ajuda",
     "state": "Sergipe",
     "country": "Brazil"
   },
   {
-    "city": "Iti\u00faba",
+    "city": "Itiuba",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -295,7 +300,7 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ita\u00edba",
+    "city": "Itaiba",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -320,7 +325,7 @@ export const itCities = [
     "country": "United States"
   },
   {
-    "city": "Itaperu\u00e7u",
+    "city": "Itaperucu",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -345,12 +350,12 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "Itacar\u00e9",
+    "city": "Itacare",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Ita\u00ed",
+    "city": "Itai",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -360,7 +365,7 @@ export const itCities = [
     "country": "Japan"
   },
   {
-    "city": "Itamarac\u00e1",
+    "city": "Itamaraca",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -375,12 +380,12 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "Itamb\u00e9",
+    "city": "Itambe",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Itapor\u00e3",
+    "city": "Itapora",
     "state": "Mato Grosso do Sul",
     "country": "Brazil"
   },
@@ -415,12 +420,12 @@ export const itCities = [
     "country": "Japan"
   },
   {
-    "city": "Itai\u00f3polis",
+    "city": "Itaiopolis",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
   {
-    "city": "Ituber\u00e1",
+    "city": "Itubera",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -460,7 +465,7 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ituzaing\u00f3",
+    "city": "Ituzaingo",
     "state": "Corrientes",
     "country": "Argentina"
   },
@@ -470,7 +475,7 @@ export const itCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Itaju\u00edpe",
+    "city": "Itajuipe",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -480,22 +485,22 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "Itaber\u00e1",
+    "city": "Itabera",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Itua\u00e7u",
+    "city": "Ituacu",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Itapi\u00fana",
+    "city": "Itapiuna",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Itanh\u00e9m",
+    "city": "Itanhem",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -530,7 +535,7 @@ export const itCities = [
     "country": "India"
   },
   {
-    "city": "Itoror\u00f3",
+    "city": "Itororo",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -540,7 +545,7 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "It\u0101hri",
+    "city": "Itahri",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -555,7 +560,7 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "Itajib\u00e1",
+    "city": "Itajiba",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -565,9 +570,14 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "Itki Th\u0101kurgaon",
+    "city": "Itki Thakurgaon",
     "state": "Jh\u0101rkhand",
     "country": "India"
+  },
+  {
+    "city": "Itahara",
+    "state": NaN,
+    "country": "Nepal"
   },
   {
     "city": "Itamonte",
@@ -575,7 +585,7 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ita\u00fa de Minas",
+    "city": "Itau de Minas",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -590,7 +600,7 @@ export const itCities = [
     "country": "Japan"
   },
   {
-    "city": "Itagua\u00e7u",
+    "city": "Itaguacu",
     "state": "Esp\u00edrito Santo",
     "country": "Brazil"
   },
@@ -620,12 +630,12 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "Itaet\u00e9",
+    "city": "Itaete",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Itapu\u00ed",
+    "city": "Itapui",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -635,7 +645,7 @@ export const itCities = [
     "country": "Japan"
   },
   {
-    "city": "Itatiaiu\u00e7u",
+    "city": "Itatiaiucu",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -655,12 +665,12 @@ export const itCities = [
     "country": "Madagascar"
   },
   {
-    "city": "It\u0101m\u0101ti",
+    "city": "Itamati",
     "state": "Odisha",
     "country": "India"
   },
   {
-    "city": "Itain\u00f3polis",
+    "city": "Itainopolis",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
@@ -675,7 +685,7 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "Itiru\u00e7u",
+    "city": "Itirucu",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -695,12 +705,12 @@ export const itCities = [
     "country": "Brazil"
   },
   {
-    "city": "Itacurub\u00ed de la Cordillera",
+    "city": "Itacurubi de la Cordillera",
     "state": "Cordillera",
     "country": "Paraguay"
   },
   {
-    "city": "It\u0101rhi",
+    "city": "Itarhi",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -710,7 +720,7 @@ export const itCities = [
     "country": "Morocco"
   },
   {
-    "city": "Itaip\u00e9",
+    "city": "Itaipe",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -725,7 +735,7 @@ export const itCities = [
     "country": "Italy"
   },
   {
-    "city": "Itap\u00e9",
+    "city": "Itape",
     "state": "Bahia",
     "country": "Brazil"
   },

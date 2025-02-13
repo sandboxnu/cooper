@@ -5,7 +5,7 @@ export const oqCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Oqqo\u2018rg\u2018on",
+    "city": "Oqqo`rg`on",
     "state": "Toshkent",
     "country": "Uzbekistan"
   }

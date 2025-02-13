@@ -50,7 +50,7 @@ export const olCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Olavarr\u00eda",
+    "city": "Olavarria",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -70,7 +70,7 @@ export const olCities = [
     "country": "Italy"
   },
   {
-    "city": "Ol\u00edmpia",
+    "city": "Olimpia",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -80,9 +80,14 @@ export const olCities = [
     "country": "United States"
   },
   {
-    "city": "Olh\u00e3o",
+    "city": "Olhao",
     "state": "Faro",
     "country": "Portugal"
+  },
+  {
+    "city": "Olgiy",
+    "state": "Bayan-\u00d6lgiy",
+    "country": "Mongolia"
   },
   {
     "city": "Olintepeque",
@@ -110,7 +115,7 @@ export const olCities = [
     "country": "Spain"
   },
   {
-    "city": "Ole\u015bnica",
+    "city": "Olesnica",
     "state": "Dolno\u015bl\u0105skie",
     "country": "Poland"
   },
@@ -122,6 +127,11 @@ export const olCities = [
   {
     "city": "Olkusz",
     "state": "Ma\u0142opolskie",
+    "country": "Poland"
+  },
+  {
+    "city": "Olawa",
+    "state": "Dolno\u015bl\u0105skie",
     "country": "Poland"
   },
   {
@@ -150,7 +160,7 @@ export const olCities = [
     "country": "Jamaica"
   },
   {
-    "city": "Oltinko\u2018l",
+    "city": "Oltinko`l",
     "state": "Qoraqalpog\u2018iston",
     "country": "Uzbekistan"
   },
@@ -205,7 +215,7 @@ export const olCities = [
     "country": "Brazil"
   },
   {
-    "city": "Olteni\u0163a",
+    "city": "Oltenita",
     "state": "C\u0103l\u0103ra\u015fi",
     "country": "Romania"
   },
@@ -230,7 +240,7 @@ export const olCities = [
     "country": "Brazil"
   },
   {
-    "city": "Olho d\u2019\u00c1gua das Flores",
+    "city": "Olho d'Agua das Flores",
     "state": "Alagoas",
     "country": "Brazil"
   },
@@ -245,7 +255,7 @@ export const olCities = [
     "country": "Switzerland"
   },
   {
-    "city": "Olho d\u2019\u00c1gua das Cunh\u00e3s",
+    "city": "Olho d'Agua das Cunhas",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
@@ -260,7 +270,7 @@ export const olCities = [
     "country": "Poland"
   },
   {
-    "city": "Olmu\u00e9",
+    "city": "Olmue",
     "state": "Valpara\u00edso",
     "country": "Chile"
   },
@@ -375,7 +385,7 @@ export const olCities = [
     "country": "Portugal"
   },
   {
-    "city": "Oliven\u00e7a",
+    "city": "Olivenca",
     "state": "Alagoas",
     "country": "Brazil"
   },
@@ -385,7 +395,7 @@ export const olCities = [
     "country": "France"
   },
   {
-    "city": "Ol\u00ebkminsk",
+    "city": "Olekminsk",
     "state": "Sakha (Yakutiya)",
     "country": "Russia"
   },
@@ -445,7 +455,7 @@ export const olCities = [
     "country": "Poland"
   },
   {
-    "city": "Olalap\u0101di",
+    "city": "Olalapadi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -465,7 +475,7 @@ export const olCities = [
     "country": "United States"
   },
   {
-    "city": "Olamz\u00e9",
+    "city": "Olamze",
     "state": "Sud",
     "country": "Cameroon"
   },
@@ -485,7 +495,7 @@ export const olCities = [
     "country": "Tanzania"
   },
   {
-    "city": "Olen\u00ebk",
+    "city": "Olenek",
     "state": "Sakha (Yakutiya)",
     "country": "Russia"
   },

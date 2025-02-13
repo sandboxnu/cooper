@@ -5,7 +5,7 @@ export const vsCities = [
     "country": "Russia"
   },
   {
-    "city": "Vset\u00edn",
+    "city": "Vsetin",
     "state": "Zl\u00ednsk\u00fd Kraj",
     "country": "Czechia"
   }

@@ -20,9 +20,24 @@ export const egCities = [
     "country": "India"
   },
   {
+    "city": "Egil",
+    "state": "Diyarbak\u0131r",
+    "country": "Turkey"
+  },
+  {
     "city": "Eggenstein-Leopoldshafen",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
+  },
+  {
+    "city": "Egirdir",
+    "state": "Isparta",
+    "country": "Turkey"
+  },
+  {
+    "city": "Eghezee",
+    "state": "Wallonia",
+    "country": "Belgium"
   },
   {
     "city": "Eggertsville",
@@ -60,7 +75,7 @@ export const egCities = [
     "country": "Switzerland"
   },
   {
-    "city": "Egilssta\u00f0ir",
+    "city": "Egilsstadhir",
     "state": "M\u00fala\u00feing",
     "country": "Iceland"
   },

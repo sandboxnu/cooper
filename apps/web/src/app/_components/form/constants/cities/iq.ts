@@ -10,6 +10,11 @@ export const iqCities = [
     "country": "Chile"
   },
   {
+    "city": "Iquira",
+    "state": "Huila",
+    "country": "Colombia"
+  },
+  {
     "city": "Iqaluit",
     "state": "Nunavut",
     "country": "Canada"

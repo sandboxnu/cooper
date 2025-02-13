@@ -5,7 +5,7 @@ export const orCities = [
     "country": "United States"
   },
   {
-    "city": "Or\u016bm\u012byeh",
+    "city": "Orumiyeh",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Gharb\u012b",
     "country": "Iran"
   },
@@ -20,7 +20,7 @@ export const orCities = [
     "country": "Bolivia"
   },
   {
-    "city": "Or\u00ebl",
+    "city": "Orel",
     "state": "Orlovskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -70,6 +70,11 @@ export const orCities = [
     "country": "United States"
   },
   {
+    "city": "Orebro",
+    "state": "\u00d6rebro",
+    "country": "Sweden"
+  },
+  {
     "city": "Orizaba",
     "state": "Veracruz",
     "country": "Mexico"
@@ -80,7 +85,7 @@ export const orCities = [
     "country": "Russia"
   },
   {
-    "city": "Orl\u00e9ans",
+    "city": "Orleans",
     "state": "Centre-Val de Loire",
     "country": "France"
   },
@@ -125,7 +130,7 @@ export const orCities = [
     "country": "Philippines"
   },
   {
-    "city": "Oriximin\u00e1",
+    "city": "Oriximina",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -175,7 +180,7 @@ export const orCities = [
     "country": "United States"
   },
   {
-    "city": "Orl\u00e2ndia",
+    "city": "Orlandia",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -185,7 +190,7 @@ export const orCities = [
     "country": "China"
   },
   {
-    "city": "Orai\u00f3kastro",
+    "city": "Oraiokastro",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
@@ -235,7 +240,12 @@ export const orCities = [
     "country": "Canada"
   },
   {
-    "city": "Ortak\u00f6y",
+    "city": "Ornskoldsvik",
+    "state": "V\u00e4sternorrland",
+    "country": "Sweden"
+  },
+  {
+    "city": "Ortakoy",
     "state": "Aksaray",
     "country": "Turkey"
   },
@@ -265,7 +275,7 @@ export const orCities = [
     "country": "France"
   },
   {
-    "city": "Orlov\u00e1",
+    "city": "Orlova",
     "state": "Moravskoslezsk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -275,7 +285,12 @@ export const orCities = [
     "country": "France"
   },
   {
-    "city": "Orosh\u00e1za",
+    "city": "Ora",
+    "state": "Gunma",
+    "country": "Japan"
+  },
+  {
+    "city": "Oroshaza",
     "state": "B\u00e9k\u00e9s",
     "country": "Hungary"
   },
@@ -295,7 +310,7 @@ export const orCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Orle\u00e3es",
+    "city": "Orleaes",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -310,7 +325,7 @@ export const orCities = [
     "country": "Italy"
   },
   {
-    "city": "Orob\u00f3",
+    "city": "Orobo",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -340,12 +355,12 @@ export const orCities = [
     "country": "United States"
   },
   {
-    "city": "Ora\u0161je",
+    "city": "Orasje",
     "state": "Bosnia and Herzegovina, Federation of",
     "country": "Bosnia and Herzegovina"
   },
   {
-    "city": "Or\u00f3s",
+    "city": "Oros",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -360,7 +375,7 @@ export const orCities = [
     "country": "Italy"
   },
   {
-    "city": "Oruvad\u0101lkotta",
+    "city": "Oruvadalkotta",
     "state": "Kerala",
     "country": "India"
   },
@@ -375,22 +390,22 @@ export const orCities = [
     "country": "Turkey"
   },
   {
-    "city": "Oresti\u00e1da",
+    "city": "Orestiada",
     "state": "Anatolik\u00ed Makedon\u00eda kai Thr\u00e1ki",
     "country": "Greece"
   },
   {
-    "city": "Oroszl\u00e1ny",
+    "city": "Oroszlany",
     "state": "Kom\u00e1rom-Esztergom",
     "country": "Hungary"
   },
   {
-    "city": "Or \u2018Aqiva",
+    "city": "Or `Aqiva",
     "state": "Haifa",
     "country": "Israel"
   },
   {
-    "city": "Or\u0103\u015ftie",
+    "city": "Orastie",
     "state": "Hunedoara",
     "country": "Romania"
   },
@@ -430,7 +445,7 @@ export const orCities = [
     "country": "Italy"
   },
   {
-    "city": "Orumanay\u016br",
+    "city": "Orumanayur",
     "state": "Kerala",
     "country": "India"
   },
@@ -445,7 +460,7 @@ export const orCities = [
     "country": "Belize"
   },
   {
-    "city": "Oroc\u00f3",
+    "city": "Oroco",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -495,6 +510,11 @@ export const orCities = [
     "country": "United States"
   },
   {
+    "city": "Orsta",
+    "state": "M\u00f8re og Romsdal",
+    "country": "Norway"
+  },
+  {
     "city": "Ormesby",
     "state": "Middlesbrough",
     "country": "United Kingdom"
@@ -515,9 +535,14 @@ export const orCities = [
     "country": "Azerbaijan"
   },
   {
-    "city": "Ortak\u00f6y",
+    "city": "Ortakoy",
     "state": "Mardin",
     "country": "Turkey"
+  },
+  {
+    "city": "Orkelljunga",
+    "state": "Sk\u00e5ne",
+    "country": "Sweden"
   },
   {
     "city": "Orange Lake",
@@ -545,7 +570,7 @@ export const orCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Oravi\u0163a",
+    "city": "Oravita",
     "state": "Cara\u015f-Severin",
     "country": "Romania"
   },
@@ -580,7 +605,7 @@ export const orCities = [
     "country": "United States"
   },
   {
-    "city": "Ortak\u00f6y",
+    "city": "Ortakoy",
     "state": "\u00c7orum",
     "country": "Turkey"
   },
@@ -590,12 +615,12 @@ export const orCities = [
     "country": "Spain"
   },
   {
-    "city": "Or\u015fova",
+    "city": "Orsova",
     "state": "Mehedin\u0163i",
     "country": "Romania"
   },
   {
-    "city": "Orocu\u00e9",
+    "city": "Orocue",
     "state": "Casanare",
     "country": "Colombia"
   },
@@ -610,7 +635,7 @@ export const orCities = [
     "country": "Namibia"
   },
   {
-    "city": "Ormo\u017e",
+    "city": "Ormoz",
     "state": "Ormo\u017e",
     "country": "Slovenia"
   },

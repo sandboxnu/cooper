@@ -170,7 +170,7 @@ export const clCities = [
     "country": "United States"
   },
   {
-    "city": "Cl\u00e1udio",
+    "city": "Claudio",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -330,7 +330,7 @@ export const clCities = [
     "country": "Germany"
   },
   {
-    "city": "Clevel\u00e2ndia",
+    "city": "Clevelandia",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -450,7 +450,7 @@ export const clCities = [
     "country": "United States"
   },
   {
-    "city": "Clermont-l\u2019H\u00e9rault",
+    "city": "Clermont-l'Herault",
     "state": "Occitanie",
     "country": "France"
   },

@@ -10,7 +10,7 @@ export const zrCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Zre\u010de",
+    "city": "Zrece",
     "state": "Zre\u010de",
     "country": "Slovenia"
   },

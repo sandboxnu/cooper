@@ -10,7 +10,7 @@ export const moCities = [
     "country": "Mexico"
   },
   {
-    "city": "Montr\u00e9al",
+    "city": "Montreal",
     "state": "Quebec",
     "country": "Canada"
   },
@@ -45,12 +45,12 @@ export const moCities = [
     "country": "Mexico"
   },
   {
-    "city": "Mor\u0101d\u0101b\u0101d",
+    "city": "Moradabad",
     "state": "Uttar Pradesh",
     "country": "India"
   },
   {
-    "city": "Monter\u00eda",
+    "city": "Monteria",
     "state": "C\u00f3rdoba",
     "country": "Colombia"
   },
@@ -60,7 +60,7 @@ export const moCities = [
     "country": "Brazil"
   },
   {
-    "city": "Moth\u012bh\u0101ri",
+    "city": "Mothihari",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -85,12 +85,17 @@ export const moCities = [
     "country": "Japan"
   },
   {
-    "city": "Mossor\u00f3",
+    "city": "Monchengladbach",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
+    "city": "Mossoro",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
   },
   {
-    "city": "Mo\u00e7\u00e2medes",
+    "city": "Mocamedes",
     "state": "Namibe",
     "country": "Angola"
   },
@@ -118,6 +123,11 @@ export const moCities = [
     "city": "Monghyr",
     "state": "Bih\u0101r",
     "country": "India"
+  },
+  {
+    "city": "Mostoles",
+    "state": "Madrid",
+    "country": "Spain"
   },
   {
     "city": "Moreno Valley",
@@ -195,7 +205,7 @@ export const moCities = [
     "country": "Congo (Kinshasa)"
   },
   {
-    "city": "Mogi Gua\u00e7u",
+    "city": "Mogi Guacu",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -230,6 +240,11 @@ export const moCities = [
     "country": "Bolivia"
   },
   {
+    "city": "Moron",
+    "state": "H\u00f6vsg\u00f6l",
+    "country": "Mongolia"
+  },
+  {
     "city": "Mogaung",
     "state": "Kachin State",
     "country": "Burma"
@@ -255,7 +270,7 @@ export const moCities = [
     "country": "Canada"
   },
   {
-    "city": "Mo\u1e29ammad Shahr",
+    "city": "Mohammad Shahr",
     "state": "Alborz",
     "country": "Iran"
   },
@@ -273,6 +288,11 @@ export const moCities = [
     "city": "Montreuil",
     "state": "\u00cele-de-France",
     "country": "France"
+  },
+  {
+    "city": "Mong Cai",
+    "state": "Qu\u1ea3ng Ninh",
+    "country": "Vietnam"
   },
   {
     "city": "Mopti",
@@ -295,7 +315,7 @@ export const moCities = [
     "country": "China"
   },
   {
-    "city": "Mor\u00f3n",
+    "city": "Moron",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -310,7 +330,7 @@ export const moCities = [
     "country": "Jamaica"
   },
   {
-    "city": "Modi\u2018in Makkabbim Re\u2018ut",
+    "city": "Modi`in Makkabbim Re`ut",
     "state": "Central",
     "country": "Israel"
   },
@@ -345,7 +365,12 @@ export const moCities = [
     "country": "United States"
   },
   {
-    "city": "Montel\u00edbano",
+    "city": "Mong Tun",
+    "state": "Shan State",
+    "country": "Burma"
+  },
+  {
+    "city": "Montelibano",
     "state": "C\u00f3rdoba",
     "country": "Colombia"
   },
@@ -450,7 +475,7 @@ export const moCities = [
     "country": "Brazil"
   },
   {
-    "city": "Mod\u0101sa",
+    "city": "Modasa",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -490,7 +515,7 @@ export const moCities = [
     "country": "United States"
   },
   {
-    "city": "Mob\u0101rakeh",
+    "city": "Mobarakeh",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
@@ -500,7 +525,7 @@ export const moCities = [
     "country": "United States"
   },
   {
-    "city": "Mongagu\u00e1",
+    "city": "Mongagua",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -530,7 +555,7 @@ export const moCities = [
     "country": "Brazil"
   },
   {
-    "city": "Mor\u00f3n",
+    "city": "Moron",
     "state": "Ciego de \u00c1vila",
     "country": "Cuba"
   },
@@ -805,7 +830,7 @@ export const moCities = [
     "country": "Philippines"
   },
   {
-    "city": "Mont\u00e9limar",
+    "city": "Montelimar",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
@@ -860,7 +885,7 @@ export const moCities = [
     "country": "United States"
   },
   {
-    "city": "Momba\u00e7a",
+    "city": "Mombaca",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -868,6 +893,11 @@ export const moCities = [
     "city": "Monrovia",
     "state": "California",
     "country": "United States"
+  },
+  {
+    "city": "Molndal",
+    "state": "V\u00e4stra G\u00f6taland",
+    "country": "Sweden"
   },
   {
     "city": "Moerdijk",
@@ -880,7 +910,7 @@ export const moCities = [
     "country": "Belgium"
   },
   {
-    "city": "Monat\u00e9l\u00e9",
+    "city": "Monatele",
     "state": "Centre",
     "country": "Cameroon"
   },
@@ -910,7 +940,7 @@ export const moCities = [
     "country": "United States"
   },
   {
-    "city": "Mokokch\u016bng",
+    "city": "Mokokchung",
     "state": "N\u0101g\u0101land",
     "country": "India"
   },
@@ -920,9 +950,14 @@ export const moCities = [
     "country": "Philippines"
   },
   {
-    "city": "Morohong\u014d",
+    "city": "Morohongo",
     "state": "Saitama",
     "country": "Japan"
+  },
+  {
+    "city": "Morfelden-Walldorf",
+    "state": "Hesse",
+    "country": "Germany"
   },
   {
     "city": "Monroe",
@@ -950,7 +985,7 @@ export const moCities = [
     "country": "Japan"
   },
   {
-    "city": "Mosonmagyar\u00f3v\u00e1r",
+    "city": "Mosonmagyarovar",
     "state": "Gy\u0151r-Moson-Sopron",
     "country": "Hungary"
   },
@@ -965,7 +1000,7 @@ export const moCities = [
     "country": "Canada"
   },
   {
-    "city": "Morro do Chap\u00e9u",
+    "city": "Morro do Chapeu",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -975,7 +1010,7 @@ export const moCities = [
     "country": "Brazil"
   },
   {
-    "city": "Montlu\u00e7on",
+    "city": "Montlucon",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
@@ -985,7 +1020,7 @@ export const moCities = [
     "country": "Burma"
   },
   {
-    "city": "Moninnp\u00e9bougou",
+    "city": "Moninnpebougou",
     "state": "S\u00e9gou",
     "country": "Mali"
   },
@@ -1020,7 +1055,7 @@ export const moCities = [
     "country": "Italy"
   },
   {
-    "city": "Moc\u00edmboa da Praia",
+    "city": "Mocimboa da Praia",
     "state": "Cabo Delgado",
     "country": "Mozambique"
   },
@@ -1085,7 +1120,7 @@ export const moCities = [
     "country": "Italy"
   },
   {
-    "city": "Mo\u00f1itos",
+    "city": "Monitos",
     "state": "C\u00f3rdoba",
     "country": "Colombia"
   },
@@ -1110,7 +1145,7 @@ export const moCities = [
     "country": "Mali"
   },
   {
-    "city": "Mouza\u00efa",
+    "city": "Mouzaia",
     "state": "Tipaza",
     "country": "Algeria"
   },
@@ -1135,7 +1170,7 @@ export const moCities = [
     "country": "France"
   },
   {
-    "city": "Moc\u00edmboa",
+    "city": "Mocimboa",
     "state": "Cabo Delgado",
     "country": "Mozambique"
   },
@@ -1150,7 +1185,7 @@ export const moCities = [
     "country": "Chad"
   },
   {
-    "city": "Mon\u00e7\u00e3o",
+    "city": "Moncao",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
@@ -1170,7 +1205,7 @@ export const moCities = [
     "country": "New Caledonia"
   },
   {
-    "city": "Mor\u00f3n de la Frontera",
+    "city": "Moron de la Frontera",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -1195,7 +1230,7 @@ export const moCities = [
     "country": "Morocco"
   },
   {
-    "city": "Mol\u00edns de Rey",
+    "city": "Molins de Rey",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -1225,7 +1260,7 @@ export const moCities = [
     "country": "United States"
   },
   {
-    "city": "Mogt\u00e9do",
+    "city": "Mogtedo",
     "state": "Plateau-Central",
     "country": "Burkina Faso"
   },
@@ -1240,12 +1275,12 @@ export const moCities = [
     "country": "Australia"
   },
   {
-    "city": "Montb\u00e9liard",
+    "city": "Montbeliard",
     "state": "Bourgogne-Franche-Comt\u00e9",
     "country": "France"
   },
   {
-    "city": "Mosch\u00e1to",
+    "city": "Moschato",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -1270,7 +1305,7 @@ export const moCities = [
     "country": "Haiti"
   },
   {
-    "city": "Moyal\u0113",
+    "city": "Moyale",
     "state": "Orom\u012bya",
     "country": "Ethiopia"
   },
@@ -1280,7 +1315,7 @@ export const moCities = [
     "country": "Kenya"
   },
   {
-    "city": "Mohale\u2019s Hoek",
+    "city": "Mohale's Hoek",
     "state": "Mohale\u2019s Hoek",
     "country": "Lesotho"
   },
@@ -1290,7 +1325,7 @@ export const moCities = [
     "country": "United States"
   },
   {
-    "city": "Montalb\u00e1n",
+    "city": "Montalban",
     "state": "Carabobo",
     "country": "Venezuela"
   },
@@ -1315,7 +1350,7 @@ export const moCities = [
     "country": "India"
   },
   {
-    "city": "Monte Si\u00e3o",
+    "city": "Monte Siao",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1335,7 +1370,7 @@ export const moCities = [
     "country": "United States"
   },
   {
-    "city": "Monsef\u00fa",
+    "city": "Monsefu",
     "state": "Lambayeque",
     "country": "Peru"
   },
@@ -1410,7 +1445,7 @@ export const moCities = [
     "country": "Brazil"
   },
   {
-    "city": "Moir\u0101ng",
+    "city": "Moirang",
     "state": "Manipur",
     "country": "India"
   },
@@ -1425,7 +1460,7 @@ export const moCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Montigny-l\u00e8s-Cormeilles",
+    "city": "Montigny-les-Cormeilles",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -1455,7 +1490,7 @@ export const moCities = [
     "country": "Spain"
   },
   {
-    "city": "Monte Apraz\u00edvel",
+    "city": "Monte Aprazivel",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -1480,7 +1515,7 @@ export const moCities = [
     "country": "Spain"
   },
   {
-    "city": "Mondov\u00ec",
+    "city": "Mondovi",
     "state": "Piedmont",
     "country": "Italy"
   },
@@ -1490,7 +1525,7 @@ export const moCities = [
     "country": "France"
   },
   {
-    "city": "Montigny-l\u00e8s-Metz",
+    "city": "Montigny-les-Metz",
     "state": "Grand Est",
     "country": "France"
   },
@@ -1505,7 +1540,7 @@ export const moCities = [
     "country": "India"
   },
   {
-    "city": "Moular\u00e8s",
+    "city": "Moulares",
     "state": "Gafsa",
     "country": "Tunisia"
   },
@@ -1515,7 +1550,7 @@ export const moCities = [
     "country": "France"
   },
   {
-    "city": "Mohiudd\u012bnnagar",
+    "city": "Mohiuddinnagar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1545,7 +1580,7 @@ export const moCities = [
     "country": "Colombia"
   },
   {
-    "city": "Mor\u0101sar",
+    "city": "Morasar",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -1565,12 +1600,17 @@ export const moCities = [
     "country": "Canada"
   },
   {
+    "city": "Mossingen",
+    "state": "Baden-W\u00fcrttemberg",
+    "country": "Germany"
+  },
+  {
     "city": "Monte Santo de Minas",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
   {
-    "city": "Moniquir\u00e1",
+    "city": "Moniquira",
     "state": "Boyac\u00e1",
     "country": "Colombia"
   },
@@ -1585,7 +1625,7 @@ export const moCities = [
     "country": "Italy"
   },
   {
-    "city": "Mo\u1e29ammad\u0101b\u0101d",
+    "city": "Mohammadabad",
     "state": "Kerm\u0101n",
     "country": "Iran"
   },
@@ -1603,6 +1643,11 @@ export const moCities = [
     "city": "Montgomery",
     "state": "Illinois",
     "country": "United States"
+  },
+  {
+    "city": "Modling",
+    "state": "Nieder\u00f6sterreich",
+    "country": "Austria"
   },
   {
     "city": "Monroe",
@@ -1625,7 +1670,7 @@ export const moCities = [
     "country": "Brazil"
   },
   {
-    "city": "Motat\u00e1n",
+    "city": "Motatan",
     "state": "Trujillo",
     "country": "Venezuela"
   },
@@ -1660,12 +1705,12 @@ export const moCities = [
     "country": "Botswana"
   },
   {
-    "city": "Moine\u015fti",
+    "city": "Moinesti",
     "state": "Bac\u0103u",
     "country": "Romania"
   },
   {
-    "city": "Mok\u0113ri",
+    "city": "Mokeri",
     "state": "Kerala",
     "country": "India"
   },
@@ -1690,12 +1735,17 @@ export const moCities = [
     "country": "Tajikistan"
   },
   {
+    "city": "Molln",
+    "state": "Schleswig-Holstein",
+    "country": "Germany"
+  },
+  {
     "city": "Moulins",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
   {
-    "city": "Moa\u00f1a",
+    "city": "Moana",
     "state": "Galicia",
     "country": "Spain"
   },
@@ -1705,7 +1755,7 @@ export const moCities = [
     "country": "Brazil"
   },
   {
-    "city": "Mon\u00e7\u00e3o",
+    "city": "Moncao",
     "state": "Viana do Castelo",
     "country": "Portugal"
   },
@@ -1765,7 +1815,7 @@ export const moCities = [
     "country": "Colombia"
   },
   {
-    "city": "Molak\u0101lumuru",
+    "city": "Molakalumuru",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1785,7 +1835,7 @@ export const moCities = [
     "country": "Brazil"
   },
   {
-    "city": "Morro da Fuma\u00e7a",
+    "city": "Morro da Fumaca",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -1850,7 +1900,7 @@ export const moCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Monz\u00f3n",
+    "city": "Monzon",
     "state": "Aragon",
     "country": "Spain"
   },
@@ -1865,7 +1915,7 @@ export const moCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Moloac\u00e1n",
+    "city": "Moloacan",
     "state": "Veracruz",
     "country": "Mexico"
   },
@@ -1885,7 +1935,7 @@ export const moCities = [
     "country": "Japan"
   },
   {
-    "city": "Moh\u00e1cs",
+    "city": "Mohacs",
     "state": "Baranya",
     "country": "Hungary"
   },
@@ -1900,7 +1950,7 @@ export const moCities = [
     "country": "Italy"
   },
   {
-    "city": "Mont-Organis\u00e9",
+    "city": "Mont-Organise",
     "state": "Nord-Est",
     "country": "Haiti"
   },
@@ -1940,7 +1990,7 @@ export const moCities = [
     "country": "France"
   },
   {
-    "city": "Montorn\u00e9s del Vall\u00e9s",
+    "city": "Montornes del Valles",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -1955,7 +2005,7 @@ export const moCities = [
     "country": "India"
   },
   {
-    "city": "Mohan\u016br",
+    "city": "Mohanur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2010,6 +2060,11 @@ export const moCities = [
     "country": "United States"
   },
   {
+    "city": "Mong Duong",
+    "state": "Qu\u1ea3ng Ninh",
+    "country": "Vietnam"
+  },
+  {
     "city": "Mohanpur",
     "state": "Bih\u0101r",
     "country": "India"
@@ -2035,12 +2090,17 @@ export const moCities = [
     "country": "Italy"
   },
   {
+    "city": "Molnlycke",
+    "state": "V\u00e4stra G\u00f6taland",
+    "country": "Sweden"
+  },
+  {
     "city": "Mouiat Ouennsa",
     "state": "El Oued",
     "country": "Algeria"
   },
   {
-    "city": "Morte\u1e95\u00e1 Gerd",
+    "city": "Morteza Gerd",
     "state": "Tehr\u0101n",
     "country": "Iran"
   },
@@ -2135,7 +2195,7 @@ export const moCities = [
     "country": "France"
   },
   {
-    "city": "Mozarl\u00e2ndia",
+    "city": "Mozarlandia",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -2195,7 +2255,7 @@ export const moCities = [
     "country": "Colombia"
   },
   {
-    "city": "Mohanpur Gaugh\u0101ta",
+    "city": "Mohanpur Gaughata",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2230,7 +2290,7 @@ export const moCities = [
     "country": "Italy"
   },
   {
-    "city": "Montalv\u00e2nia",
+    "city": "Montalvania",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -2250,7 +2310,7 @@ export const moCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Mont\u00e9vrain",
+    "city": "Montevrain",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -2310,6 +2370,11 @@ export const moCities = [
     "country": "India"
   },
   {
+    "city": "Mor",
+    "state": "Fej\u00e9r",
+    "country": "Hungary"
+  },
+  {
     "city": "Moncks Corner",
     "state": "South Carolina",
     "country": "United States"
@@ -2330,7 +2395,7 @@ export const moCities = [
     "country": "United States"
   },
   {
-    "city": "Mor\u0105g",
+    "city": "Morag",
     "state": "Warmi\u0144sko-Mazurskie",
     "country": "Poland"
   },
@@ -2435,6 +2500,11 @@ export const moCities = [
     "country": "Brazil"
   },
   {
+    "city": "Mockern",
+    "state": "Saxony-Anhalt",
+    "country": "Germany"
+  },
+  {
     "city": "Monteprandone",
     "state": "Marche",
     "country": "Italy"
@@ -2460,12 +2530,12 @@ export const moCities = [
     "country": "Sweden"
   },
   {
-    "city": "Moraz\u00e1n",
+    "city": "Morazan",
     "state": "El Progreso",
     "country": "Guatemala"
   },
   {
-    "city": "Motk\u016br",
+    "city": "Motkur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -2475,7 +2545,7 @@ export const moCities = [
     "country": "Argentina"
   },
   {
-    "city": "Mon\u00f3var",
+    "city": "Monovar",
     "state": "Valencia",
     "country": "Spain"
   },
@@ -2530,7 +2600,7 @@ export const moCities = [
     "country": "Brazil"
   },
   {
-    "city": "Motta Sant\u2019Anastasia",
+    "city": "Motta Sant'Anastasia",
     "state": "Sicilia",
     "country": "Italy"
   },
@@ -2543,6 +2613,11 @@ export const moCities = [
     "city": "Monte San Giovanni Campano",
     "state": "Lazio",
     "country": "Italy"
+  },
+  {
+    "city": "Mohnesee",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
   },
   {
     "city": "Monschau",
@@ -2570,7 +2645,7 @@ export const moCities = [
     "country": "United States"
   },
   {
-    "city": "Monci\u00f3n",
+    "city": "Moncion",
     "state": "Cibao Noroeste",
     "country": "Dominican Republic"
   },
@@ -2590,7 +2665,12 @@ export const moCities = [
     "country": "Morocco"
   },
   {
-    "city": "Mor\u016br",
+    "city": "Mombris",
+    "state": "Bavaria",
+    "country": "Germany"
+  },
+  {
+    "city": "Morur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2605,7 +2685,7 @@ export const moCities = [
     "country": "South Africa"
   },
   {
-    "city": "Moparip\u0101laiyam",
+    "city": "Moparipalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2650,9 +2730,14 @@ export const moCities = [
     "country": "United States"
   },
   {
-    "city": "Monte Sant\u2019Angelo",
+    "city": "Monte Sant'Angelo",
     "state": "Puglia",
     "country": "Italy"
+  },
+  {
+    "city": "Moglingen",
+    "state": "Baden-W\u00fcrttemberg",
+    "country": "Germany"
   },
   {
     "city": "Mountain Ash",
@@ -2675,7 +2760,7 @@ export const moCities = [
     "country": "Italy"
   },
   {
-    "city": "Montopoli in Val d\u2019Arno",
+    "city": "Montopoli in Val d'Arno",
     "state": "Tuscany",
     "country": "Italy"
   },
@@ -2690,7 +2775,7 @@ export const moCities = [
     "country": "Brazil"
   },
   {
-    "city": "Mort\u0101d",
+    "city": "Mortad",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -2718,6 +2803,11 @@ export const moCities = [
     "city": "Montlouis-sur-Loire",
     "state": "Centre-Val de Loire",
     "country": "France"
+  },
+  {
+    "city": "Mohlin",
+    "state": "Aargau",
+    "country": "Switzerland"
   },
   {
     "city": "Morafeno",
@@ -2775,7 +2865,7 @@ export const moCities = [
     "country": "Germany"
   },
   {
-    "city": "Monte Alegre do Piau\u00ed",
+    "city": "Monte Alegre do Piaui",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
@@ -2900,6 +2990,11 @@ export const moCities = [
     "country": "Colombia"
   },
   {
+    "city": "Morlenbach",
+    "state": "Hesse",
+    "country": "Germany"
+  },
+  {
     "city": "Molalla",
     "state": "Oregon",
     "country": "United States"
@@ -2925,7 +3020,7 @@ export const moCities = [
     "country": "France"
   },
   {
-    "city": "Monda\u00ed",
+    "city": "Mondai",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -2990,12 +3085,12 @@ export const moCities = [
     "country": "France"
   },
   {
-    "city": "Mosj\u00f8en",
+    "city": "Mosjoen",
     "state": "Nordland",
     "country": "Norway"
   },
   {
-    "city": "Mogo\u015foaia",
+    "city": "Mogosoaia",
     "state": "Ilfov",
     "country": "Romania"
   },
@@ -3020,7 +3115,7 @@ export const moCities = [
     "country": "United States"
   },
   {
-    "city": "Mot\u012bpur",
+    "city": "Motipur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -3045,12 +3140,12 @@ export const moCities = [
     "country": "India"
   },
   {
-    "city": "Moravsk\u00e1 T\u0159ebov\u00e1",
+    "city": "Moravska Trebova",
     "state": "Pardubick\u00fd Kraj",
     "country": "Czechia"
   },
   {
-    "city": "Mo\u0144ki",
+    "city": "Monki",
     "state": "Podlaskie",
     "country": "Poland"
   },
@@ -3075,7 +3170,7 @@ export const moCities = [
     "country": "United States"
   },
   {
-    "city": "Mort\u00e1gua",
+    "city": "Mortagua",
     "state": "Viseu",
     "country": "Portugal"
   },
@@ -3135,7 +3230,7 @@ export const moCities = [
     "country": "Romania"
   },
   {
-    "city": "Mo\u1e29ammad Y\u0101r",
+    "city": "Mohammad Yar",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Gharb\u012b",
     "country": "Iran"
   },
@@ -3145,12 +3240,12 @@ export const moCities = [
     "country": "Spain"
   },
   {
-    "city": "Modav\u0101ndisatyamangalam",
+    "city": "Modavandisatyamangalam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Moldova Nou\u0103",
+    "city": "Moldova Noua",
     "state": "Cara\u015f-Severin",
     "country": "Romania"
   },
@@ -3185,7 +3280,7 @@ export const moCities = [
     "country": "Argentina"
   },
   {
-    "city": "Morub\u0101galu",
+    "city": "Morubagalu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -3205,7 +3300,7 @@ export const moCities = [
     "country": "Brazil"
   },
   {
-    "city": "Mosciano Sant\u2019Angelo",
+    "city": "Mosciano Sant'Angelo",
     "state": "Abruzzo",
     "country": "Italy"
   },
@@ -3220,7 +3315,7 @@ export const moCities = [
     "country": "France"
   },
   {
-    "city": "Monteroni d\u2019Arbia",
+    "city": "Monteroni d'Arbia",
     "state": "Tuscany",
     "country": "Italy"
   },
@@ -3235,7 +3330,7 @@ export const moCities = [
     "country": "India"
   },
   {
-    "city": "Mor\u0101nha",
+    "city": "Moranha",
     "state": "Assam",
     "country": "India"
   },
@@ -3255,7 +3350,7 @@ export const moCities = [
     "country": "Italy"
   },
   {
-    "city": "Monteforte d\u2019Alpone",
+    "city": "Monteforte d'Alpone",
     "state": "Veneto",
     "country": "Italy"
   },
@@ -3270,12 +3365,12 @@ export const moCities = [
     "country": "France"
   },
   {
-    "city": "Mori\u00e8res-l\u00e8s-Avignon",
+    "city": "Morieres-les-Avignon",
     "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
     "country": "France"
   },
   {
-    "city": "Mosr\u0101h",
+    "city": "Mosrah",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -3285,12 +3380,12 @@ export const moCities = [
     "country": "Mauritius"
   },
   {
-    "city": "Moslem Ebn-e \u2018Aq\u012bl",
+    "city": "Moslem Ebn-e `Aqil",
     "state": "Kh\u016bzest\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Montmel\u00f3",
+    "city": "Montmelo",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -3340,7 +3435,7 @@ export const moCities = [
     "country": "Mexico"
   },
   {
-    "city": "Montlh\u00e9ry",
+    "city": "Montlhery",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -3370,7 +3465,7 @@ export const moCities = [
     "country": "Australia"
   },
   {
-    "city": "Modachch\u016br",
+    "city": "Modachchur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3388,6 +3483,16 @@ export const moCities = [
     "city": "Montague",
     "state": "Massachusetts",
     "country": "United States"
+  },
+  {
+    "city": "Mockmuhl",
+    "state": "Baden-W\u00fcrttemberg",
+    "country": "Germany"
+  },
+  {
+    "city": "Moser",
+    "state": "Saxony-Anhalt",
+    "country": "Germany"
   },
   {
     "city": "Moengo",
@@ -3425,7 +3530,7 @@ export const moCities = [
     "country": "Norway"
   },
   {
-    "city": "Mol\u0117tai",
+    "city": "Moletai",
     "state": "Mol\u0117tai",
     "country": "Lithuania"
   },
@@ -3465,7 +3570,7 @@ export const moCities = [
     "country": "San Marino"
   },
   {
-    "city": "Morav\u010de",
+    "city": "Moravce",
     "state": "Morav\u010de",
     "country": "Slovenia"
   },

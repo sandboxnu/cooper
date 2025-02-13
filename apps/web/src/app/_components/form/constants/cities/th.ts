@@ -1,16 +1,16 @@
 export const thCities = [
   {
-    "city": "Th\u0101ne",
+    "city": "Thane",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
   {
-    "city": "Th\u1ee7 \u0110\u1ee9c",
+    "city": "Thu Duc",
     "state": "H\u1ed3 Ch\u00ed Minh",
     "country": "Vietnam"
   },
   {
-    "city": "Thessalon\u00edki",
+    "city": "Thessaloniki",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
@@ -25,12 +25,12 @@ export const thCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Thi\u00e8s",
+    "city": "Thies",
     "state": "Thi\u00e8s",
     "country": "Senegal"
   },
   {
-    "city": "Thanh H\u00f3a",
+    "city": "Thanh Hoa",
     "state": "Thanh H\u00f3a",
     "country": "Vietnam"
   },
@@ -40,22 +40,22 @@ export const thCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Th\u00e1i Nguy\u00ean",
+    "city": "Thai Nguyen",
     "state": "Th\u00e1i Nguy\u00ean",
     "country": "Vietnam"
   },
   {
-    "city": "Thar\u0101d",
+    "city": "Tharad",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Th\u1ee7 D\u1ea7u M\u1ed9t",
+    "city": "Thu Dau Mot",
     "state": "B\u00ecnh D\u01b0\u01a1ng",
     "country": "Vietnam"
   },
   {
-    "city": "Th\u00e1i B\u00ecnh",
+    "city": "Thai Binh",
     "state": "Th\u00e1i B\u00ecnh",
     "country": "Vietnam"
   },
@@ -80,7 +80,7 @@ export const thCities = [
     "country": "Burma"
   },
   {
-    "city": "Th\u0101nesar",
+    "city": "Thanesar",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -105,7 +105,7 @@ export const thCities = [
     "country": "Burma"
   },
   {
-    "city": "Th\u00e0nh Ph\u1ed1 U\u00f4ng B\u00ed",
+    "city": "Thanh Pho Uong Bi",
     "state": "Qu\u1ea3ng Ninh",
     "country": "Vietnam"
   },
@@ -140,7 +140,7 @@ export const thCities = [
     "country": "South Africa"
   },
   {
-    "city": "Thakh\u00e8k",
+    "city": "Thakhek",
     "state": "Khammouan",
     "country": "Laos"
   },
@@ -165,7 +165,7 @@ export const thCities = [
     "country": "United States"
   },
   {
-    "city": "Th\u00e9rmi",
+    "city": "Thermi",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
@@ -180,7 +180,7 @@ export const thCities = [
     "country": "Haiti"
   },
   {
-    "city": "Thoub\u0101l",
+    "city": "Thoubal",
     "state": "Manipur",
     "country": "India"
   },
@@ -205,7 +205,7 @@ export const thCities = [
     "country": "Haiti"
   },
   {
-    "city": "Th\u0101n",
+    "city": "Than",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -230,7 +230,7 @@ export const thCities = [
     "country": "France"
   },
   {
-    "city": "Th\u0101na Bhawan",
+    "city": "Thana Bhawan",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -255,7 +255,7 @@ export const thCities = [
     "country": "Thailand"
   },
   {
-    "city": "Thu\u1eadn Ti\u1ebfn",
+    "city": "Thuan Tien",
     "state": "V\u0129nh Long",
     "country": "Vietnam"
   },
@@ -285,7 +285,7 @@ export const thCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Th\u0101tha",
+    "city": "Thatha",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -350,7 +350,7 @@ export const thCities = [
     "country": "Algeria"
   },
   {
-    "city": "Thu\u00e2n An",
+    "city": "Thuan An",
     "state": "Th\u1eeba Thi\u00ean-Hu\u1ebf",
     "country": "Vietnam"
   },
@@ -410,7 +410,7 @@ export const thCities = [
     "country": "United States"
   },
   {
-    "city": "Th\u1ecb Tr\u1ea5n Ng\u1ea3i Giao",
+    "city": "Thi Tran Ngai Giao",
     "state": "B\u00e0 R\u1ecba-V\u0169ng T\u00e0u",
     "country": "Vietnam"
   },
@@ -440,7 +440,7 @@ export const thCities = [
     "country": "Belgium"
   },
   {
-    "city": "Thillang\u00e9ri",
+    "city": "Thillangeri",
     "state": "Kerala",
     "country": "India"
   },
@@ -465,7 +465,7 @@ export const thCities = [
     "country": "Thailand"
   },
   {
-    "city": "Th\u00f4nex",
+    "city": "Thonex",
     "state": "Gen\u00e8ve",
     "country": "Switzerland"
   },
@@ -550,7 +550,7 @@ export const thCities = [
     "country": "Thailand"
   },
   {
-    "city": "Thanh Xu\u00e2n",
+    "city": "Thanh Xuan",
     "state": "B\u1ebfn Tre",
     "country": "Vietnam"
   },
@@ -560,12 +560,12 @@ export const thCities = [
     "country": "United States"
   },
   {
-    "city": "Thouar\u00e9-sur-Loire",
+    "city": "Thouare-sur-Loire",
     "state": "Pays de la Loire",
     "country": "France"
   },
   {
-    "city": "Thev\u016br",
+    "city": "Thevur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -585,7 +585,7 @@ export const thCities = [
     "country": "France"
   },
   {
-    "city": "Th\u1ea1nh Ph\u00fa",
+    "city": "Thanh Phu",
     "state": "B\u1ebfn Tre",
     "country": "Vietnam"
   },
@@ -595,17 +595,17 @@ export const thCities = [
     "country": "Thailand"
   },
   {
-    "city": "Thikriw\u0101la",
+    "city": "Thikriwala",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Thari\u0101l",
+    "city": "Tharial",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Th\u1ecb Tr\u1ea5n M\u1eadu A",
+    "city": "Thi Tran Mau A",
     "state": "Y\u00ean B\u00e1i",
     "country": "Vietnam"
   },
@@ -630,17 +630,17 @@ export const thCities = [
     "country": "Thailand"
   },
   {
-    "city": "Thepaha R\u0101ja R\u0101m",
+    "city": "Thepaha Raja Ram",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Thogad\u016bru",
+    "city": "Thogaduru",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Th\u012bkri",
+    "city": "Thikri",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -675,12 +675,12 @@ export const thCities = [
     "country": "Thailand"
   },
   {
-    "city": "Th\u1ecb Tr\u1ea5n \u0110\u1ed3ng \u0110\u0103ng",
+    "city": "Thi Tran Dong Dang",
     "state": "L\u1ea1ng S\u01a1n",
     "country": "Vietnam"
   },
   {
-    "city": "Thar\u012bke",
+    "city": "Tharike",
     "state": "Punjab",
     "country": "India"
   },
@@ -690,17 +690,17 @@ export const thCities = [
     "country": "United States"
   },
   {
-    "city": "Th\u0101th\u016bpur",
+    "city": "Thathupur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Thorign\u00e9-Fouillard",
+    "city": "Thorigne-Fouillard",
     "state": "Bretagne",
     "country": "France"
   },
   {
-    "city": "Th\u0101ndew\u0101la",
+    "city": "Thandewala",
     "state": "Punjab",
     "country": "India"
   },

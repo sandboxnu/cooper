@@ -55,7 +55,7 @@ export const qiCities = [
     "country": "China"
   },
   {
-    "city": "Qian\u2019an",
+    "city": "Qian'an",
     "state": "Hebei",
     "country": "China"
   },
@@ -80,12 +80,12 @@ export const qiCities = [
     "country": "China"
   },
   {
-    "city": "Qill\u012bn",
+    "city": "Qillin",
     "state": "Kafr ash Shaykh",
     "country": "Egypt"
   },
   {
-    "city": "Qin\u0101",
+    "city": "Qina",
     "state": "Qin\u0101",
     "country": "Egypt"
   },
@@ -145,7 +145,7 @@ export const qiCities = [
     "country": "China"
   },
   {
-    "city": "Qiryat Mo\u1e95qin",
+    "city": "Qiryat Mozqin",
     "state": "Haifa",
     "country": "Israel"
   },
@@ -180,7 +180,7 @@ export const qiCities = [
     "country": "China"
   },
   {
-    "city": "Qiman al \u2018Ar\u016bs",
+    "city": "Qiman al `Arus",
     "state": "Ban\u012b Suwayf",
     "country": "Egypt"
   },
@@ -215,7 +215,7 @@ export const qiCities = [
     "country": "Lesotho"
   },
   {
-    "city": "Qiryat Mal\u2019akhi",
+    "city": "Qiryat Mal'akhi",
     "state": "Southern",
     "country": "Israel"
   },
@@ -225,12 +225,12 @@ export const qiCities = [
     "country": "Israel"
   },
   {
-    "city": "Qif\u0163",
+    "city": "Qift",
     "state": "Qin\u0101",
     "country": "Egypt"
   },
   {
-    "city": "Qia\u2019erbagecun",
+    "city": "Qia'erbagecun",
     "state": "Xinjiang",
     "country": "China"
   },
@@ -250,7 +250,7 @@ export const qiCities = [
     "country": "China"
   },
   {
-    "city": "Qibla\u00ed",
+    "city": "Qiblai",
     "state": "Nohiyahoi Tobei Jumhur\u00ed",
     "country": "Tajikistan"
   },
@@ -278,5 +278,15 @@ export const qiCities = [
     "city": "Qiziltepa",
     "state": "Navoiy",
     "country": "Uzbekistan"
+  },
+  {
+    "city": "Qizilhacili",
+    "state": "Goranboy",
+    "country": "Azerbaijan"
+  },
+  {
+    "city": "Qivraq",
+    "state": "K\u0259ng\u0259rli",
+    "country": "Azerbaijan"
   }
 ]

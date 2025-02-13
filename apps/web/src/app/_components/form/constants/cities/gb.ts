@@ -20,7 +20,7 @@ export const gbCities = [
     "country": "Benin"
   },
   {
-    "city": "Gb\u00e9roubou\u00e8",
+    "city": "Gberouboue",
     "state": "Borgou",
     "country": "Benin"
   }

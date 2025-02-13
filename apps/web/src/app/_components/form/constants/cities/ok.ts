@@ -30,7 +30,7 @@ export const okCities = [
     "country": "Japan"
   },
   {
-    "city": "Oktyabr\u2019skiy",
+    "city": "Oktyabr'skiy",
     "state": "Bashkortostan",
     "country": "Russia"
   },
@@ -70,7 +70,7 @@ export const okCities = [
     "country": "Canada"
   },
   {
-    "city": "Oktyabr\u2019sk",
+    "city": "Oktyabr'sk",
     "state": "Aqt\u00f6be",
     "country": "Kazakhstan"
   },
@@ -95,6 +95,11 @@ export const okCities = [
     "country": "Namibia"
   },
   {
+    "city": "Okuchi-shinohara",
+    "state": "Kagoshima",
+    "country": "Japan"
+  },
+  {
     "city": "Okha",
     "state": "Sakhalinskaya Oblast\u2019",
     "country": "Russia"
@@ -103,6 +108,11 @@ export const okCities = [
     "city": "Okhmalynka",
     "state": "Odeska Oblast",
     "country": "Ukraine"
+  },
+  {
+    "city": "Oki",
+    "state": "Fukuoka",
+    "country": "Japan"
   },
   {
     "city": "Okinoshima",
@@ -115,12 +125,12 @@ export const okCities = [
     "country": "South Africa"
   },
   {
-    "city": "Okinawa N\u00famero Uno",
+    "city": "Okinawa Numero Uno",
     "state": "Santa Cruz",
     "country": "Bolivia"
   },
   {
-    "city": "Okabech\u014d-okabe",
+    "city": "Okabecho-okabe",
     "state": "Shizuoka",
     "country": "Japan"
   },
@@ -155,7 +165,7 @@ export const okCities = [
     "country": "Russia"
   },
   {
-    "city": "Oktyabr\u2019skiy",
+    "city": "Oktyabr'skiy",
     "state": "Kamchatskiy Kray",
     "country": "Russia"
   }

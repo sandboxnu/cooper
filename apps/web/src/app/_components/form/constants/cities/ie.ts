@@ -15,7 +15,7 @@ export const ieCities = [
     "country": "Italy"
   },
   {
-    "city": "Ier\u00e1petra",
+    "city": "Ierapetra",
     "state": "Kr\u00edti",
     "country": "Greece"
   },

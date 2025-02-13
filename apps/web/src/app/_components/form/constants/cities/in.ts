@@ -20,9 +20,14 @@ export const inCities = [
     "country": "United States"
   },
   {
-    "city": "Ingr\u0101j B\u0101z\u0101r",
+    "city": "Ingraj Bazar",
     "state": "West Bengal",
     "country": "India"
+  },
+  {
+    "city": "Inegol",
+    "state": "Bursa",
+    "country": "Turkey"
   },
   {
     "city": "Indaiatuba",
@@ -100,7 +105,7 @@ export const inCities = [
     "country": "Brazil"
   },
   {
-    "city": "Inowroc\u0142aw",
+    "city": "Inowroclaw",
     "state": "Kujawsko-Pomorskie",
     "country": "Poland"
   },
@@ -120,7 +125,7 @@ export const inCities = [
     "country": "Mozambique"
   },
   {
-    "city": "Intibuc\u00e1",
+    "city": "Intibuca",
     "state": "Intibuc\u00e1",
     "country": "Honduras"
   },
@@ -128,6 +133,11 @@ export const inCities = [
     "city": "Inhumas",
     "state": "Goi\u00e1s",
     "country": "Brazil"
+  },
+  {
+    "city": "Incirliova",
+    "state": "Ayd\u0131n",
+    "country": "Turkey"
   },
   {
     "city": "Inabanga",
@@ -140,7 +150,7 @@ export const inCities = [
     "country": "New Zealand"
   },
   {
-    "city": "In\u0111ija",
+    "city": "Indija",
     "state": "In\u0111ija",
     "country": "Serbia"
   },
@@ -185,7 +195,7 @@ export const inCities = [
     "country": "Japan"
   },
   {
-    "city": "Ingeniero Pablo Nogu\u00e9s",
+    "city": "Ingeniero Pablo Nogues",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -215,7 +225,7 @@ export const inCities = [
     "country": "Brazil"
   },
   {
-    "city": "Inz\u00e1",
+    "city": "Inza",
     "state": "Cauca",
     "country": "Colombia"
   },
@@ -245,6 +255,11 @@ export const inCities = [
     "country": "United States"
   },
   {
+    "city": "Incesu",
+    "state": "Kayseri",
+    "country": "Turkey"
+  },
+  {
     "city": "Infanta",
     "state": "Pangasinan",
     "country": "Philippines"
@@ -255,7 +270,7 @@ export const inCities = [
     "country": "United States"
   },
   {
-    "city": "Inaj\u00e1",
+    "city": "Inaja",
     "state": "Alagoas",
     "country": "Brazil"
   },
@@ -265,7 +280,7 @@ export const inCities = [
     "country": "Russia"
   },
   {
-    "city": "Independ\u00eancia",
+    "city": "Independencia",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -300,7 +315,7 @@ export const inCities = [
     "country": "Japan"
   },
   {
-    "city": "In\u00edrida",
+    "city": "Inirida",
     "state": "Guain\u00eda",
     "country": "Colombia"
   },
@@ -320,7 +335,7 @@ export const inCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ing\u00e1",
+    "city": "Inga",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -385,6 +400,11 @@ export const inCities = [
     "country": "Japan"
   },
   {
+    "city": "Inderbor",
+    "state": "Atyra\u016b",
+    "country": "Kazakhstan"
+  },
+  {
     "city": "Ingeniero Maschwitz",
     "state": "Buenos Aires",
     "country": "Argentina"
@@ -420,6 +440,11 @@ export const inCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Inebolu",
+    "state": "Kastamonu",
+    "country": "Turkey"
+  },
+  {
     "city": "Ingeniero White",
     "state": "Buenos Aires",
     "country": "Argentina"
@@ -445,7 +470,7 @@ export const inCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Inung\u016br",
+    "city": "Inungur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -465,12 +490,12 @@ export const inCities = [
     "country": "United States"
   },
   {
-    "city": "Ind\u016brti",
+    "city": "Indurti",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Ingr\u00e9",
+    "city": "Ingre",
     "state": "Centre-Val de Loire",
     "country": "France"
   },
@@ -485,7 +510,7 @@ export const inCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "In\u00e1cio Martins",
+    "city": "Inacio Martins",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -515,7 +540,7 @@ export const inCities = [
     "country": "United States"
   },
   {
-    "city": "Intich\u2019o",
+    "city": "Intich'o",
     "state": "Tigray",
     "country": "Ethiopia"
   },
@@ -535,7 +560,7 @@ export const inCities = [
     "country": "Romania"
   },
   {
-    "city": "In\u00e9kar",
+    "city": "Inekar",
     "state": "Gao",
     "country": "Mali"
   },
@@ -545,7 +570,7 @@ export const inCities = [
     "country": "United States"
   },
   {
-    "city": "Ind\u016brti",
+    "city": "Indurti",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -560,7 +585,7 @@ export const inCities = [
     "country": "Algeria"
   },
   {
-    "city": "Ingeniero Guillermo N. Ju\u00e1rez",
+    "city": "Ingeniero Guillermo N. Juarez",
     "state": "Formosa",
     "country": "Argentina"
   },

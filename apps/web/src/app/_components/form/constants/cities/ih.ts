@@ -1,6 +1,6 @@
 export const ihCities = [
   {
-    "city": "Ihn\u0101sy\u0101 al Mad\u012bnah",
+    "city": "Ihnasya al Madinah",
     "state": "Ban\u012b Suwayf",
     "country": "Egypt"
   },
@@ -10,12 +10,17 @@ export const ihCities = [
     "country": "Madagascar"
   },
   {
+    "city": "Ihsaniye",
+    "state": "Afyonkarahisar",
+    "country": "Turkey"
+  },
+  {
     "city": "Iheddadene",
     "state": "Oriental",
     "country": "Morocco"
   },
   {
-    "city": "Iharan\u0308a",
+    "city": "Iharana",
     "state": "Antsiranana",
     "country": "Madagascar"
   },

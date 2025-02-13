@@ -10,7 +10,7 @@ export const auCities = [
     "country": "New Zealand"
   },
   {
-    "city": "Aurang\u0101b\u0101d",
+    "city": "Aurangabad",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -50,7 +50,7 @@ export const auCities = [
     "country": "United States"
   },
   {
-    "city": "Aurang\u0101b\u0101d",
+    "city": "Aurangabad",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -70,7 +70,7 @@ export const auCities = [
     "country": "United States"
   },
   {
-    "city": "Autl\u00e1n de Navarro",
+    "city": "Autlan de Navarro",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -90,7 +90,7 @@ export const auCities = [
     "country": "Philippines"
   },
   {
-    "city": "Aurang\u0101b\u0101d",
+    "city": "Aurangabad",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -140,7 +140,7 @@ export const auCities = [
     "country": "United States"
   },
   {
-    "city": "August\u00f3w",
+    "city": "Augustow",
     "state": "Podlaskie",
     "country": "Poland"
   },
@@ -180,12 +180,12 @@ export const auCities = [
     "country": "France"
   },
   {
-    "city": "Aur\u0101d",
+    "city": "Aurad",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Aur\u0101d Sh\u0101hjah\u0101ni",
+    "city": "Aurad Shahjahani",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -200,7 +200,7 @@ export const auCities = [
     "country": "Germany"
   },
   {
-    "city": "Augustin\u00f3polis",
+    "city": "Augustinopolis",
     "state": "Tocantins",
     "country": "Brazil"
   },
@@ -225,7 +225,7 @@ export const auCities = [
     "country": "United States"
   },
   {
-    "city": "Aur\u0101hi",
+    "city": "Aurahi",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -305,12 +305,12 @@ export const auCities = [
     "country": "Brazil"
   },
   {
-    "city": "Auk\u0161tieji Paneriai",
+    "city": "Aukstieji Paneriai",
     "state": "Vilniaus Miestas",
     "country": "Lithuania"
   },
   {
-    "city": "Aur\u0101hi",
+    "city": "Aurahi",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -335,7 +335,7 @@ export const auCities = [
     "country": "India"
   },
   {
-    "city": "Aubi\u00e8re",
+    "city": "Aubiere",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
@@ -350,7 +350,7 @@ export const auCities = [
     "country": "France"
   },
   {
-    "city": "Aur\u0101hi",
+    "city": "Aurahi",
     "state": "Bih\u0101r",
     "country": "India"
   },

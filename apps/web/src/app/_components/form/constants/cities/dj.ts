@@ -15,7 +15,7 @@ export const djCities = [
     "country": "Benin"
   },
   {
-    "city": "Djakotom\u00e9",
+    "city": "Djakotome",
     "state": "Couffo",
     "country": "Benin"
   },
@@ -40,12 +40,12 @@ export const djCities = [
     "country": "Algeria"
   },
   {
-    "city": "Djidian K\u00e9ni\u00e9ba",
+    "city": "Djidian Kenieba",
     "state": "Kayes",
     "country": "Mali"
   },
   {
-    "city": "Djenn\u00e9",
+    "city": "Djenne",
     "state": "Mopti",
     "country": "Mali"
   },

@@ -1,6 +1,6 @@
 export const gjCities = [
   {
-    "city": "Gjakov\u00eb",
+    "city": "Gjakove",
     "state": "Gjakov\u00eb",
     "country": "Kosovo"
   },
@@ -10,12 +10,12 @@ export const gjCities = [
     "country": "Kosovo"
   },
   {
-    "city": "Gjirokast\u00ebr",
+    "city": "Gjirokaster",
     "state": "Gjirokast\u00ebr",
     "country": "Albania"
   },
   {
-    "city": "Gj\u00f8vik",
+    "city": "Gjovik",
     "state": "Innlandet",
     "country": "Norway"
   }

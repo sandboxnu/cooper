@@ -10,12 +10,12 @@ export const skCities = [
     "country": "Algeria"
   },
   {
-    "city": "Skar\u017cysko-Kamienna",
+    "city": "Skarzysko-Kamienna",
     "state": "\u015awi\u0119tokrzyskie",
     "country": "Poland"
   },
   {
-    "city": "Skellefte\u00e5",
+    "city": "Skelleftea",
     "state": "V\u00e4sterbotten",
     "country": "Sweden"
   },
@@ -45,7 +45,7 @@ export const skCities = [
     "country": "Poland"
   },
   {
-    "city": "Sk\u00f6vde",
+    "city": "Skovde",
     "state": "V\u00e4stra G\u00f6taland",
     "country": "Sweden"
   },
@@ -105,7 +105,7 @@ export const skCities = [
     "country": "Sweden"
   },
   {
-    "city": "Sk\u00fddra",
+    "city": "Skydra",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
@@ -140,7 +140,7 @@ export const skCities = [
     "country": "United States"
   },
   {
-    "city": "Skocz\u00f3w",
+    "city": "Skoczow",
     "state": "\u015al\u0105skie",
     "country": "Poland"
   },
@@ -150,12 +150,17 @@ export const skCities = [
     "country": "Sweden"
   },
   {
-    "city": "Skillo\u00fanta",
+    "city": "Skofja Loka",
+    "state": "\u0160kofja Loka",
+    "country": "Slovenia"
+  },
+  {
+    "city": "Skillounta",
     "state": "Dytik\u00ed Ell\u00e1da",
     "country": "Greece"
   },
   {
-    "city": "Skidal\u2019",
+    "city": "Skidal'",
     "state": "Hrodzyenskaya Voblasts\u2019",
     "country": "Belarus"
   },
@@ -185,17 +190,27 @@ export const skCities = [
     "country": "Lithuania"
   },
   {
+    "city": "Skofljica",
+    "state": "\u0160kofljica",
+    "country": "Slovenia"
+  },
+  {
     "city": "Skopun",
     "state": "Skopun",
     "country": "Faroe Islands"
   },
   {
-    "city": "Sk\u00favoy",
+    "city": "Skocjan",
+    "state": "\u0160kocjan",
+    "country": "Slovenia"
+  },
+  {
+    "city": "Skuvoy",
     "state": "Sk\u00favoy",
     "country": "Faroe Islands"
   },
   {
-    "city": "Sk\u00e1lav\u00edk",
+    "city": "Skalavik",
     "state": "Sk\u00e1lav\u00edk",
     "country": "Faroe Islands"
   }

@@ -35,7 +35,7 @@ export const paCities = [
     "country": "Colombia"
   },
   {
-    "city": "Pati\u0101la",
+    "city": "Patiala",
     "state": "Punjab",
     "country": "India"
   },
@@ -70,7 +70,7 @@ export const paCities = [
     "country": "Colombia"
   },
   {
-    "city": "Padi\u0101la",
+    "city": "Padiala",
     "state": "Punjab",
     "country": "India"
   },
@@ -78,6 +78,11 @@ export const paCities = [
     "city": "Palu",
     "state": "Sulawesi Tengah",
     "country": "Indonesia"
+  },
+  {
+    "city": "Panihati",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Panshi",
@@ -130,6 +135,11 @@ export const paCities = [
     "country": "Mexico"
   },
   {
+    "city": "Panipat",
+    "state": "Hary\u0101na",
+    "country": "India"
+  },
+  {
     "city": "Palni",
     "state": "Tamil N\u0101du",
     "country": "India"
@@ -155,12 +165,32 @@ export const paCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Paran\u00e1",
+    "city": "Parana",
     "state": "Entre R\u00edos",
     "country": "Argentina"
   },
   {
+    "city": "Palanpur",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
     "city": "Pandharpur",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
+    "city": "Pakdasht",
+    "state": "Tehr\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Pali",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
+    "city": "Pathardi",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -180,7 +210,7 @@ export const paCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Pall\u0101varam",
+    "city": "Pallavaram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -230,6 +260,16 @@ export const paCities = [
     "country": "Pakistan"
   },
   {
+    "city": "Pandhurna",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Pabna",
+    "state": "R\u0101jsh\u0101hi",
+    "country": "Bangladesh"
+  },
+  {
     "city": "Paradise",
     "state": "Nevada",
     "country": "United States"
@@ -255,6 +295,11 @@ export const paCities = [
     "country": "Indonesia"
   },
   {
+    "city": "Patra",
+    "state": "Dytik\u00ed Ell\u00e1da",
+    "country": "Greece"
+  },
+  {
     "city": "Panama City",
     "state": "Florida",
     "country": "United States"
@@ -265,7 +310,7 @@ export const paCities = [
     "country": "United States"
   },
   {
-    "city": "Parna\u00edba",
+    "city": "Parnaiba",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
@@ -290,7 +335,7 @@ export const paCities = [
     "country": "United States"
   },
   {
-    "city": "Path\u0101nkot",
+    "city": "Pathankot",
     "state": "Punjab",
     "country": "India"
   },
@@ -320,17 +365,17 @@ export const paCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Pa\u00e7o do Lumiar",
+    "city": "Paco do Lumiar",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
   {
-    "city": "Paghm\u0101n",
+    "city": "Paghman",
     "state": "K\u0101bul",
     "country": "Afghanistan"
   },
   {
-    "city": "Paranagu\u00e1",
+    "city": "Paranagua",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -355,7 +400,7 @@ export const paCities = [
     "country": "United States"
   },
   {
-    "city": "Palho\u00e7a",
+    "city": "Palhoca",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -375,6 +420,11 @@ export const paCities = [
     "country": "French Polynesia"
   },
   {
+    "city": "Palghat",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
     "city": "Parepare",
     "state": "Sulawesi Selatan",
     "country": "Indonesia"
@@ -390,9 +440,19 @@ export const paCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Panev\u0117\u017eys",
+    "city": "Patan",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
+    "city": "Panevezys",
     "state": "Panev\u0117\u017eio Miestas",
     "country": "Lithuania"
+  },
+  {
+    "city": "Pali",
+    "state": "Madhya Pradesh",
+    "country": "India"
   },
   {
     "city": "Paleng",
@@ -470,12 +530,12 @@ export const paCities = [
     "country": "Cambodia"
   },
   {
-    "city": "Paul\u00ednia",
+    "city": "Paulinia",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Par\u00e1 de Minas",
+    "city": "Para de Minas",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -485,7 +545,7 @@ export const paCities = [
     "country": "Burma"
   },
   {
-    "city": "Para\u00edso",
+    "city": "Paraiso",
     "state": "Tabasco",
     "country": "Mexico"
   },
@@ -520,6 +580,11 @@ export const paCities = [
     "country": "Brazil"
   },
   {
+    "city": "Paloncha",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
     "city": "Palm Coast",
     "state": "Florida",
     "country": "United States"
@@ -535,7 +600,7 @@ export const paCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Patroc\u00ednio",
+    "city": "Patrocinio",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -555,7 +620,7 @@ export const paCities = [
     "country": "Burma"
   },
   {
-    "city": "Palangotu Adw\u0101r",
+    "city": "Palangotu Adwar",
     "state": "Him\u0101chal Pradesh",
     "country": "India"
   },
@@ -575,7 +640,7 @@ export const paCities = [
     "country": "Philippines"
   },
   {
-    "city": "Paranava\u00ed",
+    "city": "Paranavai",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -600,6 +665,11 @@ export const paCities = [
     "country": "Pakistan"
   },
   {
+    "city": "Patzcuaro",
+    "state": "Michoac\u00e1n",
+    "country": "Mexico"
+  },
+  {
     "city": "Paco",
     "state": "Manila",
     "country": "Philippines"
@@ -615,7 +685,7 @@ export const paCities = [
     "country": "Philippines"
   },
   {
-    "city": "Pakx\u00e9",
+    "city": "Pakxe",
     "state": "Champasak",
     "country": "Laos"
   },
@@ -640,7 +710,7 @@ export const paCities = [
     "country": "France"
   },
   {
-    "city": "Paysand\u00fa",
+    "city": "Paysandu",
     "state": "Paysand\u00fa",
     "country": "Uruguay"
   },
@@ -670,7 +740,7 @@ export const paCities = [
     "country": "United States"
   },
   {
-    "city": "Pardig\u016bda",
+    "city": "Pardiguda",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -690,7 +760,7 @@ export const paCities = [
     "country": "Spain"
   },
   {
-    "city": "Pan\u010devo",
+    "city": "Pancevo",
     "state": "Pan\u010devo",
     "country": "Serbia"
   },
@@ -715,17 +785,17 @@ export const paCities = [
     "country": "Chile"
   },
   {
-    "city": "Pal\u00edn",
+    "city": "Palin",
     "state": "Escuintla",
     "country": "Guatemala"
   },
   {
-    "city": "Patz\u00fan",
+    "city": "Patzun",
     "state": "Chimaltenango",
     "country": "Guatemala"
   },
   {
-    "city": "Palmeira dos \u00cdndios",
+    "city": "Palmeira dos Indios",
     "state": "Alagoas",
     "country": "Brazil"
   },
@@ -735,7 +805,7 @@ export const paCities = [
     "country": "Philippines"
   },
   {
-    "city": "Parappanang\u0101di",
+    "city": "Parappanangadi",
     "state": "Kerala",
     "country": "India"
   },
@@ -750,12 +820,12 @@ export const paCities = [
     "country": "Philippines"
   },
   {
-    "city": "Pazarc\u0131k",
+    "city": "Pazarcik",
     "state": "Kahramanmara\u015f",
     "country": "Turkey"
   },
   {
-    "city": "Pan\u2019an",
+    "city": "Pan'an",
     "state": "Gansu",
     "country": "China"
   },
@@ -765,12 +835,17 @@ export const paCities = [
     "country": "United States"
   },
   {
-    "city": "Pakribaraw\u0101n",
+    "city": "Palghar",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
+    "city": "Pakribarawan",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Par\u0101d\u012bp Garh",
+    "city": "Paradip Garh",
     "state": "Odisha",
     "country": "India"
   },
@@ -795,14 +870,19 @@ export const paCities = [
     "country": "Philippines"
   },
   {
-    "city": "Patuakh\u0101li",
+    "city": "Patuakhali",
     "state": "Khulna",
     "country": "Bangladesh"
   },
   {
-    "city": "Palai\u00f3 F\u00e1liro",
+    "city": "Palaio Faliro",
     "state": "Attik\u00ed",
     "country": "Greece"
+  },
+  {
+    "city": "Palitana",
+    "state": "Gujar\u0101t",
+    "country": "India"
   },
   {
     "city": "Paignton",
@@ -813,6 +893,11 @@ export const paCities = [
     "city": "Paphos",
     "state": "P\u00e1fos",
     "country": "Cyprus"
+  },
+  {
+    "city": "Pamuru",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Pabianice",
@@ -865,6 +950,11 @@ export const paCities = [
     "country": "Ecuador"
   },
   {
+    "city": "Pachora",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
     "city": "Panna",
     "state": "Madhya Pradesh",
     "country": "India"
@@ -875,7 +965,7 @@ export const paCities = [
     "country": "United States"
   },
   {
-    "city": "Parob\u00e9",
+    "city": "Parobe",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -895,17 +985,22 @@ export const paCities = [
     "country": "Philippines"
   },
   {
+    "city": "Panskura",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Pavlovo",
     "state": "Nizhegorodskaya Oblast\u2019",
     "country": "Russia"
   },
   {
-    "city": "Pal\u0101sa",
+    "city": "Palasa",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Pau d\u2019Alho",
+    "city": "Pau d'Alho",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -915,7 +1010,7 @@ export const paCities = [
     "country": "Philippines"
   },
   {
-    "city": "Pa\u00e7os de Ferreira",
+    "city": "Pacos de Ferreira",
     "state": "Porto",
     "country": "Portugal"
   },
@@ -935,12 +1030,12 @@ export const paCities = [
     "country": "Brazil"
   },
   {
-    "city": "Pall\u00edni",
+    "city": "Pallini",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
   {
-    "city": "Para\u0107in",
+    "city": "Paracin",
     "state": "Para\u0107in",
     "country": "Serbia"
   },
@@ -953,6 +1048,11 @@ export const paCities = [
     "city": "Passau",
     "state": "Bavaria",
     "country": "Germany"
+  },
+  {
+    "city": "Parvatipuram",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Pasacao",
@@ -990,7 +1090,7 @@ export const paCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Para\u00edso do Tocantins",
+    "city": "Paraiso do Tocantins",
     "state": "Tocantins",
     "country": "Brazil"
   },
@@ -1015,12 +1115,12 @@ export const paCities = [
     "country": "United States"
   },
   {
-    "city": "Pardw\u0101l",
+    "city": "Pardwal",
     "state": "Him\u0101chal Pradesh",
     "country": "India"
   },
   {
-    "city": "Palpal\u00e1",
+    "city": "Palpala",
     "state": "Jujuy",
     "country": "Argentina"
   },
@@ -1030,7 +1130,7 @@ export const paCities = [
     "country": "Colombia"
   },
   {
-    "city": "Par\u0101sia",
+    "city": "Parasia",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1060,12 +1160,12 @@ export const paCities = [
     "country": "Peru"
   },
   {
-    "city": "Pabell\u00f3n de Arteaga",
+    "city": "Pabellon de Arteaga",
     "state": "Aguascalientes",
     "country": "Mexico"
   },
   {
-    "city": "Pamp\u00e1n",
+    "city": "Pampan",
     "state": "Trujillo",
     "country": "Venezuela"
   },
@@ -1075,7 +1175,7 @@ export const paCities = [
     "country": "Italy"
   },
   {
-    "city": "Pallip\u0101laiyam",
+    "city": "Pallipalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1095,7 +1195,7 @@ export const paCities = [
     "country": "Philippines"
   },
   {
-    "city": "Paragua\u00e7u Paulista",
+    "city": "Paraguacu Paulista",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -1103,6 +1203,11 @@ export const paCities = [
     "city": "Parys",
     "state": "Free State",
     "country": "South Africa"
+  },
+  {
+    "city": "Pakaur",
+    "state": "Jh\u0101rkhand",
+    "country": "India"
   },
   {
     "city": "Palayan City",
@@ -1180,14 +1285,19 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Pard\u00e9s H\u0331anna Karkur",
+    "city": "Pardes Hanna Karkur",
     "state": "Haifa",
     "country": "Israel"
   },
   {
-    "city": "Para\u00edba do Sul",
+    "city": "Paraiba do Sul",
     "state": "Rio de Janeiro",
     "country": "Brazil"
+  },
+  {
+    "city": "Pachkhal",
+    "state": NaN,
+    "country": "Nepal"
   },
   {
     "city": "Palmares",
@@ -1195,7 +1305,7 @@ export const paCities = [
     "country": "Costa Rica"
   },
   {
-    "city": "Pai\u00e7andu",
+    "city": "Paicandu",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -1210,7 +1320,7 @@ export const paCities = [
     "country": "El Salvador"
   },
   {
-    "city": "Pali\u0101 Kal\u0101n",
+    "city": "Palia Kalan",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -1220,19 +1330,29 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Parana\u00edba",
+    "city": "Paranaiba",
     "state": "Mato Grosso do Sul",
     "country": "Brazil"
   },
   {
-    "city": "Patzic\u00eda",
+    "city": "Patzicia",
     "state": "Chimaltenango",
     "country": "Guatemala"
+  },
+  {
+    "city": "Pamban",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Padre Las Casas",
     "state": "Valdesia",
     "country": "Dominican Republic"
+  },
+  {
+    "city": "Palampur",
+    "state": "Him\u0101chal Pradesh",
+    "country": "India"
   },
   {
     "city": "Payabon",
@@ -1260,7 +1380,12 @@ export const paCities = [
     "country": "Philippines"
   },
   {
-    "city": "Pachr\u016bkha",
+    "city": "Parnu",
+    "state": "P\u00e4rnu",
+    "country": "Estonia"
+  },
+  {
+    "city": "Pachrukha",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1285,7 +1410,7 @@ export const paCities = [
     "country": "Philippines"
   },
   {
-    "city": "Part\u0101pnagar",
+    "city": "Partapnagar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1300,7 +1425,7 @@ export const paCities = [
     "country": "Brazil"
   },
   {
-    "city": "Parav\u016brkambolam",
+    "city": "Paravurkambolam",
     "state": "Kerala",
     "country": "India"
   },
@@ -1325,12 +1450,12 @@ export const paCities = [
     "country": "United States"
   },
   {
-    "city": "Pathan\u0101mthitta",
+    "city": "Pathanamthitta",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Pat\u00eda",
+    "city": "Patia",
     "state": "Cauca",
     "country": "Colombia"
   },
@@ -1345,8 +1470,13 @@ export const paCities = [
     "country": "Mexico"
   },
   {
-    "city": "Parav\u016br Tekkumbh\u0101gam",
+    "city": "Paravur Tekkumbhagam",
     "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Pathri",
+    "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
   {
@@ -1355,7 +1485,7 @@ export const paCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Pat\u0101mundai",
+    "city": "Patamundai",
     "state": "Odisha",
     "country": "India"
   },
@@ -1375,7 +1505,7 @@ export const paCities = [
     "country": "Philippines"
   },
   {
-    "city": "Part\u016br",
+    "city": "Partur",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -1403,6 +1533,11 @@ export const paCities = [
     "city": "Pansol",
     "state": "Quezon",
     "country": "Philippines"
+  },
+  {
+    "city": "Pappinissheri",
+    "state": "Kerala",
+    "country": "India"
   },
   {
     "city": "Pandaul",
@@ -1500,12 +1635,17 @@ export const paCities = [
     "country": "Russia"
   },
   {
-    "city": "Palmeira das Miss\u00f5es",
+    "city": "Palmeira das Missoes",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
   {
-    "city": "Patr\u0101tu",
+    "city": "Panuco",
+    "state": "Veracruz",
+    "country": "Mexico"
+  },
+  {
+    "city": "Patratu",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -1560,7 +1700,7 @@ export const paCities = [
     "country": "Colombia"
   },
   {
-    "city": "Palmeiras de Goi\u00e1s",
+    "city": "Palmeiras de Goias",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -1595,12 +1735,12 @@ export const paCities = [
     "country": "Philippines"
   },
   {
-    "city": "Pattanakk\u0101d",
+    "city": "Pattanakkad",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Palaiya \u0100yakkudi",
+    "city": "Palaiya Ayakkudi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1610,7 +1750,7 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Pa\u015fcani",
+    "city": "Pascani",
     "state": "Ia\u015fi",
     "country": "Romania"
   },
@@ -1645,8 +1785,23 @@ export const paCities = [
     "country": "Philippines"
   },
   {
+    "city": "Patri",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
     "city": "Padappakara",
     "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Parakadavu",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Panakkudi",
+    "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
@@ -1690,9 +1845,19 @@ export const paCities = [
     "country": "India"
   },
   {
+    "city": "Palpa",
+    "state": NaN,
+    "country": "Nepal"
+  },
+  {
     "city": "Paripiranga",
     "state": "Bahia",
     "country": "Brazil"
+  },
+  {
+    "city": "Papa",
+    "state": "Veszpr\u00e9m",
+    "country": "Hungary"
   },
   {
     "city": "Paraparaumu",
@@ -1705,13 +1870,23 @@ export const paCities = [
     "country": "Uganda"
   },
   {
-    "city": "Patt\u0101mbi",
+    "city": "Pattambi",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Paw\u0101yan",
+    "city": "Pawayan",
     "state": "Uttar Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Pardi",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
+    "city": "Pavugada",
+    "state": "Karn\u0101taka",
     "country": "India"
   },
   {
@@ -1750,6 +1925,11 @@ export const paCities = [
     "country": "India"
   },
   {
+    "city": "Padiyanallur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Patjirwa",
     "state": "Bih\u0101r",
     "country": "India"
@@ -1775,7 +1955,7 @@ export const paCities = [
     "country": "Philippines"
   },
   {
-    "city": "Pallippurattus\u0113ri",
+    "city": "Pallippurattuseri",
     "state": "Kerala",
     "country": "India"
   },
@@ -1785,7 +1965,7 @@ export const paCities = [
     "country": "Spain"
   },
   {
-    "city": "Parimp\u016bdi",
+    "city": "Parimpudi",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1795,9 +1975,24 @@ export const paCities = [
     "country": "Turkey"
   },
   {
+    "city": "Payakaraopeta",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Paracuellos de Jarama",
     "state": "Madrid",
     "country": "Spain"
+  },
+  {
+    "city": "Pappakurichchi",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Pamidi",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Paducah",
@@ -1815,7 +2010,7 @@ export const paCities = [
     "country": "United States"
   },
   {
-    "city": "Paian\u00eda",
+    "city": "Paiania",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -1830,7 +2025,12 @@ export const paCities = [
     "country": "United States"
   },
   {
-    "city": "Panch\u0101nandapur",
+    "city": "Panchla",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
+    "city": "Panchanandapur",
     "state": "West Bengal",
     "country": "India"
   },
@@ -1865,6 +2065,11 @@ export const paCities = [
     "country": "Uruguay"
   },
   {
+    "city": "Paveh",
+    "state": "Kerm\u0101nsh\u0101h",
+    "country": "Iran"
+  },
+  {
     "city": "Palm River-Clair Mel",
     "state": "Florida",
     "country": "United States"
@@ -1885,7 +2090,12 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Pan\u0101gar",
+    "city": "Paonta Sahib",
+    "state": "Uttar\u0101khand",
+    "country": "India"
+  },
+  {
+    "city": "Panagar",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1915,6 +2125,11 @@ export const paCities = [
     "country": "Philippines"
   },
   {
+    "city": "Parner",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
     "city": "Paduvari",
     "state": "Karn\u0101taka",
     "country": "India"
@@ -1940,8 +2155,28 @@ export const paCities = [
     "country": "Philippines"
   },
   {
-    "city": "Patn\u0101garh",
+    "city": "Panapur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Patnagarh",
     "state": "Odisha",
+    "country": "India"
+  },
+  {
+    "city": "Pasighat",
+    "state": "Arun\u0101chal Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Palakodu",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Pata Kalidindi",
+    "state": "Andhra Pradesh",
     "country": "India"
   },
   {
@@ -1955,7 +2190,7 @@ export const paCities = [
     "country": "Burma"
   },
   {
-    "city": "Pa\u00efta",
+    "city": "Paita",
     "state": "Province Sud",
     "country": "New Caledonia"
   },
@@ -1970,7 +2205,7 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Paruth\u016br",
+    "city": "Paruthur",
     "state": "Kerala",
     "country": "India"
   },
@@ -2010,6 +2245,11 @@ export const paCities = [
     "country": "Turkey"
   },
   {
+    "city": "Pao de Acucar",
+    "state": "Alagoas",
+    "country": "Brazil"
+  },
+  {
     "city": "Patterson",
     "state": "California",
     "country": "United States"
@@ -2023,6 +2263,11 @@ export const paCities = [
     "city": "Padre Burgos",
     "state": "Quezon",
     "country": "Philippines"
+  },
+  {
+    "city": "Patakakani",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Pajapita",
@@ -2055,7 +2300,7 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Pariy\u0101puram",
+    "city": "Pariyapuram",
     "state": "Kerala",
     "country": "India"
   },
@@ -2070,7 +2315,7 @@ export const paCities = [
     "country": "Philippines"
   },
   {
-    "city": "Panniyann\u016br",
+    "city": "Panniyannur",
     "state": "Kerala",
     "country": "India"
   },
@@ -2090,12 +2335,12 @@ export const paCities = [
     "country": "United States"
   },
   {
-    "city": "Pattiy\u016brgr\u0101mam",
+    "city": "Pattiyurgramam",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Paraguar\u00ed",
+    "city": "Paraguari",
     "state": "Paraguar\u00ed",
     "country": "Paraguay"
   },
@@ -2115,7 +2360,7 @@ export const paCities = [
     "country": "Italy"
   },
   {
-    "city": "Pars\u0101garhi",
+    "city": "Parsagarhi",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2165,9 +2410,24 @@ export const paCities = [
     "country": "Brazil"
   },
   {
-    "city": "Paragua\u00e7u",
+    "city": "Pampur",
+    "state": "Jammu and Kashm\u012br",
+    "country": "India"
+  },
+  {
+    "city": "Papanasam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Paraguacu",
     "state": "Minas Gerais",
     "country": "Brazil"
+  },
+  {
+    "city": "Pakala",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Pancas",
@@ -2205,7 +2465,7 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Partiz\u00e1nske",
+    "city": "Partizanske",
     "state": "Nitra",
     "country": "Slovakia"
   },
@@ -2215,14 +2475,29 @@ export const paCities = [
     "country": "Bulgaria"
   },
   {
+    "city": "Pamarru",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Palma di Montechiaro",
     "state": "Sicilia",
     "country": "Italy"
   },
   {
-    "city": "Padman\u0101bhapuram",
+    "city": "Padmanabhapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
+  },
+  {
+    "city": "Pambadi",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Pajara",
+    "state": "Canary Islands",
+    "country": "Spain"
   },
   {
     "city": "Parasi",
@@ -2255,7 +2530,7 @@ export const paCities = [
     "country": "United States"
   },
   {
-    "city": "Patp\u0101ra",
+    "city": "Patpara",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2265,7 +2540,7 @@ export const paCities = [
     "country": "Brazil"
   },
   {
-    "city": "Palav\u016br",
+    "city": "Palavur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2273,6 +2548,11 @@ export const paCities = [
     "city": "Paldorak",
     "state": "Sughd",
     "country": "Tajikistan"
+  },
+  {
+    "city": "Palkonda",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Palestina de los Altos",
@@ -2285,7 +2565,7 @@ export const paCities = [
     "country": "United States"
   },
   {
-    "city": "Palma del R\u00edo",
+    "city": "Palma del Rio",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -2295,17 +2575,17 @@ export const paCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Pahuatl\u00e1n de Valle",
+    "city": "Pahuatlan de Valle",
     "state": "Puebla",
     "country": "Mexico"
   },
   {
-    "city": "Para\u00edso",
+    "city": "Paraiso",
     "state": "Cartago",
     "country": "Costa Rica"
   },
   {
-    "city": "Patuvil\u0101yi",
+    "city": "Patuvilayi",
     "state": "Kerala",
     "country": "India"
   },
@@ -2315,7 +2595,7 @@ export const paCities = [
     "country": "Italy"
   },
   {
-    "city": "Parais\u00f3polis",
+    "city": "Paraisopolis",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -2325,7 +2605,7 @@ export const paCities = [
     "country": "Thailand"
   },
   {
-    "city": "Pariy\u0101ram",
+    "city": "Pariyaram",
     "state": "Kerala",
     "country": "India"
   },
@@ -2335,7 +2615,7 @@ export const paCities = [
     "country": "United States"
   },
   {
-    "city": "Park\u0101l",
+    "city": "Parkal",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -2360,12 +2640,12 @@ export const paCities = [
     "country": "Burma"
   },
   {
-    "city": "Pallazzolo sull\u2019Oglio",
+    "city": "Pallazzolo sull'Oglio",
     "state": "Lombardy",
     "country": "Italy"
   },
   {
-    "city": "Pal\u0101shi",
+    "city": "Palashi",
     "state": "West Bengal",
     "country": "India"
   },
@@ -2405,7 +2685,7 @@ export const paCities = [
     "country": "Brazil"
   },
   {
-    "city": "Pars\u0101hi Sirsia",
+    "city": "Parsahi Sirsia",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2415,7 +2695,7 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Pariquera-A\u00e7u",
+    "city": "Pariquera-Acu",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -2490,6 +2770,11 @@ export const paCities = [
     "country": "United States"
   },
   {
+    "city": "Palaiyampatti",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Panama City Beach",
     "state": "Florida",
     "country": "United States"
@@ -2515,7 +2800,7 @@ export const paCities = [
     "country": "Brazil"
   },
   {
-    "city": "Palam\u00f3s",
+    "city": "Palamos",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -2525,7 +2810,7 @@ export const paCities = [
     "country": "Lithuania"
   },
   {
-    "city": "Pah\u0101rpur",
+    "city": "Paharpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2535,7 +2820,7 @@ export const paCities = [
     "country": "Italy"
   },
   {
-    "city": "Payyann\u016br",
+    "city": "Payyannur",
     "state": "Kerala",
     "country": "India"
   },
@@ -2550,7 +2835,7 @@ export const paCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Pachm\u012br",
+    "city": "Pachmir",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2580,7 +2865,7 @@ export const paCities = [
     "country": "Philippines"
   },
   {
-    "city": "Pan\u00f3rama",
+    "city": "Panorama",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
@@ -2595,9 +2880,19 @@ export const paCities = [
     "country": "C\u00f4te d\u2019Ivoire"
   },
   {
+    "city": "Palaiyam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Pajapan",
     "state": "Veracruz",
     "country": "Mexico"
+  },
+  {
+    "city": "Patan",
+    "state": "Madhya Pradesh",
+    "country": "India"
   },
   {
     "city": "Paoua",
@@ -2605,13 +2900,23 @@ export const paCities = [
     "country": "Central African Republic"
   },
   {
-    "city": "Padre Para\u00edso",
+    "city": "Padre Paraiso",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
   {
-    "city": "Padugup\u0101du",
+    "city": "Pavumba",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Padugupadu",
     "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Panchgram",
+    "state": "West Bengal",
     "country": "India"
   },
   {
@@ -2635,7 +2940,7 @@ export const paCities = [
     "country": "United States"
   },
   {
-    "city": "Pazhayann\u016br",
+    "city": "Pazhayannur",
     "state": "Kerala",
     "country": "India"
   },
@@ -2705,6 +3010,11 @@ export const paCities = [
     "country": "Guatemala"
   },
   {
+    "city": "Patapatnam",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Paso de Carrasco",
     "state": "Canelones",
     "country": "Uruguay"
@@ -2740,7 +3050,7 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Palh\u0101lan",
+    "city": "Palhalan",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
@@ -2750,7 +3060,7 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Patil\u0101r",
+    "city": "Patilar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2773,6 +3083,11 @@ export const paCities = [
     "city": "Palmview",
     "state": "Texas",
     "country": "United States"
+  },
+  {
+    "city": "Pa",
+    "state": "Boucle du Mouhoun",
+    "country": "Burkina Faso"
   },
   {
     "city": "Palmers Green",
@@ -2800,7 +3115,7 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Paral\u00edmni",
+    "city": "Paralimni",
     "state": "Amm\u00f3chostos",
     "country": "Cyprus"
   },
@@ -2815,9 +3130,14 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Patroc\u00ednio Paulista",
+    "city": "Patrocinio Paulista",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
+  },
+  {
+    "city": "Palod",
+    "state": "Kerala",
+    "country": "India"
   },
   {
     "city": "Pattensen",
@@ -2865,19 +3185,24 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Pandh\u0101na",
+    "city": "Pandhana",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Pakary\u0101 Harsidhi",
+    "city": "Pakarya Harsidhi",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Para\u00edso",
+    "city": "Paraiso",
     "state": "Enriquillo",
     "country": "Dominican Republic"
+  },
+  {
+    "city": "Pakala",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Pahou",
@@ -2895,7 +3220,7 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Pati\u0101li",
+    "city": "Patiali",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -2903,6 +3228,11 @@ export const paCities = [
     "city": "Pazar",
     "state": "Tokat",
     "country": "Turkey"
+  },
+  {
+    "city": "Palda",
+    "state": "Madhya Pradesh",
+    "country": "India"
   },
   {
     "city": "Patcham",
@@ -2915,7 +3245,7 @@ export const paCities = [
     "country": "Thailand"
   },
   {
-    "city": "Padav\u0113du",
+    "city": "Padavedu",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2925,9 +3255,24 @@ export const paCities = [
     "country": "India"
   },
   {
+    "city": "Panr",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Pansemal",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Pathum Thani",
     "state": "Pathum Thani",
     "country": "Thailand"
+  },
+  {
+    "city": "Pali",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Pacaembu",
@@ -2940,7 +3285,7 @@ export const paCities = [
     "country": "Brazil"
   },
   {
-    "city": "Parih\u0101ra",
+    "city": "Parihara",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2955,12 +3300,12 @@ export const paCities = [
     "country": "Brazil"
   },
   {
-    "city": "Palk\u016br",
+    "city": "Palkur",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Pap\u00e1gos",
+    "city": "Papagos",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -2975,7 +3320,7 @@ export const paCities = [
     "country": "Burkina Faso"
   },
   {
-    "city": "Pat\u0101lia",
+    "city": "Patalia",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2985,17 +3330,22 @@ export const paCities = [
     "country": "Colombia"
   },
   {
-    "city": "Panjgir\u0101in Kal\u0101n",
+    "city": "Palakkuzhi",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Panjgirain Kalan",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Parih\u0101rpur",
+    "city": "Pariharpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Panap\u0101kkam",
+    "city": "Panapakkam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3005,7 +3355,7 @@ export const paCities = [
     "country": "United States"
   },
   {
-    "city": "Paruch\u016bru",
+    "city": "Paruchuru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -3030,7 +3380,12 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Para\u00edso do Norte",
+    "city": "Panchgani",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
+    "city": "Paraiso do Norte",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -3038,6 +3393,11 @@ export const paCities = [
     "city": "Palos Verdes Estates",
     "state": "California",
     "country": "United States"
+  },
+  {
+    "city": "Pacora",
+    "state": "Caldas",
+    "country": "Colombia"
   },
   {
     "city": "Parvomay",
@@ -3055,7 +3415,7 @@ export const paCities = [
     "country": "Italy"
   },
   {
-    "city": "Pallapp\u0101laiyam",
+    "city": "Pallappalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3065,7 +3425,7 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Pandireddig\u016bdem",
+    "city": "Pandireddigudem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -3100,7 +3460,7 @@ export const paCities = [
     "country": "Brazil"
   },
   {
-    "city": "Palacag\u00fcina",
+    "city": "Palacaguina",
     "state": "Madriz",
     "country": "Nicaragua"
   },
@@ -3130,7 +3490,7 @@ export const paCities = [
     "country": "American Samoa"
   },
   {
-    "city": "Parasur\u0101mp\u016br",
+    "city": "Parasurampur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -3145,7 +3505,7 @@ export const paCities = [
     "country": "Spain"
   },
   {
-    "city": "Pannaikk\u0101du",
+    "city": "Pannaikkadu",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3155,7 +3515,7 @@ export const paCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Paith\u0101n Kawai",
+    "city": "Paithan Kawai",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -3163,6 +3523,11 @@ export const paCities = [
     "city": "Parker",
     "state": "South Carolina",
     "country": "United States"
+  },
+  {
+    "city": "Patiram",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Palmer",
@@ -3175,7 +3540,7 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Panj\u012bp\u0101ra",
+    "city": "Panjipara",
     "state": "West Bengal",
     "country": "India"
   },
@@ -3205,6 +3570,11 @@ export const paCities = [
     "country": "Mexico"
   },
   {
+    "city": "Paiker",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Pathra",
     "state": "Bih\u0101r",
     "country": "India"
@@ -3225,7 +3595,7 @@ export const paCities = [
     "country": "Colombia"
   },
   {
-    "city": "Panzg\u0101m",
+    "city": "Panzgam",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
@@ -3235,18 +3605,28 @@ export const paCities = [
     "country": "India"
   },
   {
+    "city": "Papampeta",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Paal",
     "state": "Flanders",
     "country": "Belgium"
   },
   {
-    "city": "Pas\u0142\u0119k",
+    "city": "Paslek",
     "state": "Warmi\u0144sko-Mazurskie",
     "country": "Poland"
   },
   {
     "city": "Paramanandal",
     "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Pata Putrela",
+    "state": "Andhra Pradesh",
     "country": "India"
   },
   {
@@ -3265,12 +3645,17 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Patarr\u00e1",
+    "city": "Panuco de Coronado",
+    "state": "Durango",
+    "country": "Mexico"
+  },
+  {
+    "city": "Patarra",
     "state": "San Jos\u00e9",
     "country": "Costa Rica"
   },
   {
-    "city": "Pac\u00e9",
+    "city": "Pace",
     "state": "Bretagne",
     "country": "France"
   },
@@ -3300,17 +3685,17 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Pastp\u0101r",
+    "city": "Pastpar",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Padinj\u0101remuri",
+    "city": "Padinjaremuri",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Pallej\u00e1",
+    "city": "Palleja",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -3335,6 +3720,16 @@ export const paCities = [
     "country": "India"
   },
   {
+    "city": "Pakkam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Panapur Langa",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Palestina",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
@@ -3355,13 +3750,18 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Pach\u0101hi",
+    "city": "Pachahi",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
     "city": "Parvatgiri",
     "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Papireddippatti",
+    "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
@@ -3405,7 +3805,7 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Parapu\u00e3",
+    "city": "Parapua",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -3413,6 +3813,11 @@ export const paCities = [
     "city": "Panguipulli",
     "state": "Araucan\u00eda",
     "country": "Chile"
+  },
+  {
+    "city": "Pata Ellamilli",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Paullo",
@@ -3440,7 +3845,7 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Para\u00fana",
+    "city": "Parauna",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -3465,7 +3870,27 @@ export const paCities = [
     "country": "India"
   },
   {
+    "city": "Panetha",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
+    "city": "Palakollu",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Patrasaer",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Pattanam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Palamedu",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3495,6 +3920,11 @@ export const paCities = [
     "country": "Italy"
   },
   {
+    "city": "Padiyur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Panamarattuppatti",
     "state": "Tamil N\u0101du",
     "country": "India"
@@ -3505,12 +3935,17 @@ export const paCities = [
     "country": "India"
   },
   {
+    "city": "Pama",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Paimio",
     "state": "Varsinais-Suomi",
     "country": "Finland"
   },
   {
-    "city": "Part\u0101p T\u0101nr",
+    "city": "Partap Tanr",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -3520,7 +3955,7 @@ export const paCities = [
     "country": "Philippines"
   },
   {
-    "city": "Paric\u00f4nia",
+    "city": "Pariconia",
     "state": "Alagoas",
     "country": "Brazil"
   },
@@ -3535,12 +3970,12 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Paran\u00e3",
+    "city": "Parana",
     "state": "Tocantins",
     "country": "Brazil"
   },
   {
-    "city": "Pallatt\u016br",
+    "city": "Pallattur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3555,7 +3990,7 @@ export const paCities = [
     "country": "Poland"
   },
   {
-    "city": "Paitt\u016br",
+    "city": "Paittur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3585,6 +4020,11 @@ export const paCities = [
     "country": "Brazil"
   },
   {
+    "city": "Paraippatti",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Palmeiras",
     "state": "Bahia",
     "country": "Brazil"
@@ -3595,12 +4035,27 @@ export const paCities = [
     "country": "United States"
   },
   {
-    "city": "Palm\u00e1cia",
+    "city": "Palmacia",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Pab\u00e9gou",
+    "city": "Partibanur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Pantano Grande",
+    "state": "Rio Grande do Sul",
+    "country": "Brazil"
+  },
+  {
+    "city": "Panchi",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Pabegou",
     "state": "Donga",
     "country": "Benin"
   },
@@ -3615,7 +4070,7 @@ export const paCities = [
     "country": "France"
   },
   {
-    "city": "Parnagu\u00e1",
+    "city": "Parnagua",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
@@ -3635,17 +4090,27 @@ export const paCities = [
     "country": "France"
   },
   {
+    "city": "Pajaros",
+    "state": "Puerto Rico",
+    "country": "Puerto Rico"
+  },
+  {
     "city": "Parilla",
     "state": "Tabasco",
     "country": "Mexico"
   },
   {
-    "city": "Pajacuar\u00e1n",
+    "city": "Panrepatti",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Pajacuaran",
     "state": "Michoac\u00e1n",
     "country": "Mexico"
   },
   {
-    "city": "Pakka Kal\u0101n",
+    "city": "Pakka Kalan",
     "state": "Punjab",
     "country": "India"
   },
@@ -3655,8 +4120,13 @@ export const paCities = [
     "country": "Malaysia"
   },
   {
-    "city": "Parav\u0101kkottai",
+    "city": "Paravakkottai",
     "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Paikpara",
+    "state": "West Bengal",
     "country": "India"
   },
   {
@@ -3665,12 +4135,12 @@ export const paCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Pain\u0101l",
+    "city": "Painal",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Padinj\u0101reb\u0101gam",
+    "city": "Padinjarebagam",
     "state": "Kerala",
     "country": "India"
   },
@@ -3680,7 +4150,7 @@ export const paCities = [
     "country": "Switzerland"
   },
   {
-    "city": "Pachch\u0101mp\u0101laiyam",
+    "city": "Pachchampalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3690,7 +4160,7 @@ export const paCities = [
     "country": "Colombia"
   },
   {
-    "city": "Parw\u0101ha",
+    "city": "Parwaha",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -3700,7 +4170,7 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Panj\u0101b",
+    "city": "Panjab",
     "state": "B\u0101my\u0101n",
     "country": "Afghanistan"
   },
@@ -3710,12 +4180,17 @@ export const paCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Paradar\u0101mi",
+    "city": "Palepalli",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Pail\u00f3n",
+    "city": "Paradarami",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Pailon",
     "state": "Santa Cruz",
     "country": "Bolivia"
   },
@@ -3735,6 +4210,11 @@ export const paCities = [
     "country": "Australia"
   },
   {
+    "city": "Padarti",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Pasewalk",
     "state": "Mecklenburg-Western Pomerania",
     "country": "Germany"
@@ -3745,7 +4225,12 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Parav\u0101da",
+    "city": "Palkot",
+    "state": "Jh\u0101rkhand",
+    "country": "India"
+  },
+  {
+    "city": "Paravada",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -3760,6 +4245,11 @@ export const paCities = [
     "country": "Philippines"
   },
   {
+    "city": "Para",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Pai Bigha",
     "state": "Bih\u0101r",
     "country": "India"
@@ -3770,12 +4260,12 @@ export const paCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Path\u0101ri",
+    "city": "Pathari",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Parm\u0101npur",
+    "city": "Parmanpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -3795,12 +4285,17 @@ export const paCities = [
     "country": "Brazil"
   },
   {
-    "city": "Pagidy\u0101la",
+    "city": "Pachhapur",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Pagidyala",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Par\u016br",
+    "city": "Parur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3830,12 +4325,12 @@ export const paCities = [
     "country": "Panama"
   },
   {
-    "city": "Pagq\u00ean",
+    "city": "Pagqen",
     "state": "Qinghai",
     "country": "China"
   },
   {
-    "city": "Pah\u0101rpur",
+    "city": "Paharpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -3860,13 +4355,18 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Patch\u016br",
+    "city": "Patchur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Pasr\u0101ha",
+    "city": "Pasraha",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Pappampatti",
+    "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
@@ -3900,7 +4400,7 @@ export const paCities = [
     "country": "United States"
   },
   {
-    "city": "Palomares del R\u00edo",
+    "city": "Palomares del Rio",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -3910,7 +4410,7 @@ export const paCities = [
     "country": "Colombia"
   },
   {
-    "city": "Patt\u012bswaram",
+    "city": "Pattiswaram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3930,12 +4430,12 @@ export const paCities = [
     "country": "Brazil"
   },
   {
-    "city": "Pat\u016bt",
+    "city": "Patut",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Panasap\u0101du",
+    "city": "Panasapadu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -3950,7 +4450,7 @@ export const paCities = [
     "country": "United States"
   },
   {
-    "city": "Palmeira d\u2019Oeste",
+    "city": "Palmeira d'Oeste",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -3960,7 +4460,7 @@ export const paCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Palangav\u0101ngudi",
+    "city": "Palangavangudi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3985,7 +4485,12 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Param\u00e9",
+    "city": "Pa'in Chaf",
+    "state": "G\u012bl\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Parame",
     "state": "Bretagne",
     "country": "France"
   },
@@ -4025,9 +4530,14 @@ export const paCities = [
     "country": "Malta"
   },
   {
-    "city": "Pardanj\u0101n",
+    "city": "Pardanjan",
     "state": "Chah\u0101r Ma\u1e29\u0101l va Bakht\u012b\u0101r\u012b",
     "country": "Iran"
+  },
+  {
+    "city": "Pappakudi",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Painkulam",
@@ -4040,17 +4550,17 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Passo do Sert\u00e3o",
+    "city": "Passo do Sertao",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
   {
-    "city": "Pathr\u0101ha",
+    "city": "Pathraha",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Paula C\u00e2ndido",
+    "city": "Paula Candido",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -4070,12 +4580,12 @@ export const paCities = [
     "country": "Kyrgyzstan"
   },
   {
-    "city": "Pars\u0101d",
+    "city": "Parsad",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Pantelh\u00f3",
+    "city": "Pantelho",
     "state": "Chiapas",
     "country": "Mexico"
   },
@@ -4090,12 +4600,12 @@ export const paCities = [
     "country": "India"
   },
   {
-    "city": "Pariy\u0101ri",
+    "city": "Pariyari",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Pallapp\u0101laiyam",
+    "city": "Pallappalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -4108,6 +4618,16 @@ export const paCities = [
     "city": "Pattanam",
     "state": "Tamil N\u0101du",
     "country": "India"
+  },
+  {
+    "city": "Pata Uppal",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Paszto",
+    "state": "N\u00f3gr\u00e1d",
+    "country": "Hungary"
   },
   {
     "city": "Pachrukhi",
@@ -4140,7 +4660,7 @@ export const paCities = [
     "country": "Micronesia, Federated States of"
   },
   {
-    "city": "Pal\u00e9",
+    "city": "Pale",
     "state": "Annob\u00f3n",
     "country": "Equatorial Guinea"
   },
@@ -4170,6 +4690,11 @@ export const paCities = [
     "country": "Kosovo"
   },
   {
+    "city": "Parun",
+    "state": "N\u016brist\u0101n",
+    "country": "Afghanistan"
+  },
+  {
     "city": "Paamiut",
     "state": "Sermersooq",
     "country": "Greenland"
@@ -4185,7 +4710,7 @@ export const paCities = [
     "country": "Mozambique"
   },
   {
-    "city": "Pag\u0117giai",
+    "city": "Pagegiai",
     "state": "Pag\u00e9giai",
     "country": "Lithuania"
   },

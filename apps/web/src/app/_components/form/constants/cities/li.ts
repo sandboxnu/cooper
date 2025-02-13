@@ -185,7 +185,7 @@ export const liCities = [
     "country": "Cyprus"
   },
   {
-    "city": "Lin\u2019an",
+    "city": "Lin'an",
     "state": "Yunnan",
     "country": "China"
   },
@@ -200,7 +200,7 @@ export const liCities = [
     "country": "India"
   },
   {
-    "city": "Li\u00e8ge",
+    "city": "Liege",
     "state": "Wallonia",
     "country": "Belgium"
   },
@@ -255,7 +255,7 @@ export const liCities = [
     "country": "Uganda"
   },
   {
-    "city": "Link\u00f6ping",
+    "city": "Linkoping",
     "state": "\u00d6sterg\u00f6tland",
     "country": "Sweden"
   },
@@ -315,6 +315,11 @@ export const liCities = [
     "country": "United States"
   },
   {
+    "city": "Livingston",
+    "state": "Izabal",
+    "country": "Guatemala"
+  },
+  {
     "city": "Lisala",
     "state": "Mongala",
     "country": "Congo (Kinshasa)"
@@ -365,7 +370,7 @@ export const liCities = [
     "country": "Haiti"
   },
   {
-    "city": "Limb\u00e9",
+    "city": "Limbe",
     "state": "Nord",
     "country": "Haiti"
   },
@@ -385,7 +390,7 @@ export const liCities = [
     "country": "China"
   },
   {
-    "city": "Liep\u0101ja",
+    "city": "Liepaja",
     "state": "Liep\u0101ja",
     "country": "Latvia"
   },
@@ -515,7 +520,7 @@ export const liCities = [
     "country": "China"
   },
   {
-    "city": "Libertador General San Mart\u00edn",
+    "city": "Libertador General San Martin",
     "state": "Jujuy",
     "country": "Argentina"
   },
@@ -595,7 +600,7 @@ export const liCities = [
     "country": "China"
   },
   {
-    "city": "Lidk\u00f6ping",
+    "city": "Lidkoping",
     "state": "V\u00e4stra G\u00f6taland",
     "country": "Sweden"
   },
@@ -608,6 +613,11 @@ export const liCities = [
     "city": "Lincoln Park",
     "state": "Michigan",
     "country": "United States"
+  },
+  {
+    "city": "Libano",
+    "state": "Tolima",
+    "country": "Colombia"
   },
   {
     "city": "Lilio",
@@ -640,7 +650,7 @@ export const liCities = [
     "country": "Philippines"
   },
   {
-    "city": "Lingsug\u016br",
+    "city": "Lingsugur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -680,7 +690,7 @@ export const liCities = [
     "country": "Zambia"
   },
   {
-    "city": "Liding\u00f6",
+    "city": "Lidingo",
     "state": "Stockholm",
     "country": "Sweden"
   },
@@ -690,7 +700,7 @@ export const liCities = [
     "country": "United States"
   },
   {
-    "city": "Liptovsk\u00fd Mikul\u00e1\u0161",
+    "city": "Liptovsky Mikulas",
     "state": "\u017dilina",
     "country": "Slovakia"
   },
@@ -700,7 +710,7 @@ export const liCities = [
     "country": "United States"
   },
   {
-    "city": "Li\u00e9vin",
+    "city": "Lievin",
     "state": "Hauts-de-France",
     "country": "France"
   },
@@ -750,7 +760,7 @@ export const liCities = [
     "country": "Argentina"
   },
   {
-    "city": "Limeil-Br\u00e9vannes",
+    "city": "Limeil-Brevannes",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -778,6 +788,11 @@ export const liCities = [
     "city": "Limbe",
     "state": "South-West",
     "country": "Cameroon"
+  },
+  {
+    "city": "Lisen",
+    "state": "Jihomoravsk\u00fd Kraj",
+    "country": "Czechia"
   },
   {
     "city": "Lido di Iesolo",
@@ -875,7 +890,7 @@ export const liCities = [
     "country": "United States"
   },
   {
-    "city": "Litom\u011b\u0159ice",
+    "city": "Litomerice",
     "state": "\u00dasteck\u00fd Kraj",
     "country": "Czechia"
   },
@@ -895,7 +910,7 @@ export const liCities = [
     "country": "Jamaica"
   },
   {
-    "city": "Litv\u00ednov",
+    "city": "Litvinov",
     "state": "\u00dasteck\u00fd Kraj",
     "country": "Czechia"
   },
@@ -915,7 +930,7 @@ export const liCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Livadei\u00e1",
+    "city": "Livadeia",
     "state": "Stere\u00e1 Ell\u00e1da",
     "country": "Greece"
   },
@@ -983,6 +998,11 @@ export const liCities = [
     "city": "Lichtenfels",
     "state": "Bavaria",
     "country": "Germany"
+  },
+  {
+    "city": "Likak",
+    "state": "Kohg\u012bl\u016byeh va Bowyer A\u1e29mad",
+    "country": "Iran"
   },
   {
     "city": "Lincolnia",
@@ -1075,7 +1095,7 @@ export const liCities = [
     "country": "Taiwan"
   },
   {
-    "city": "Liller\u00f8d",
+    "city": "Lillerod",
     "state": "Hovedstaden",
     "country": "Denmark"
   },
@@ -1100,7 +1120,7 @@ export const liCities = [
     "country": "Taiwan"
   },
   {
-    "city": "Libi\u0105\u017c",
+    "city": "Libiaz",
     "state": "Ma\u0142opolskie",
     "country": "Poland"
   },
@@ -1110,7 +1130,7 @@ export const liCities = [
     "country": "United States"
   },
   {
-    "city": "Lind\u00e5s",
+    "city": "Lindas",
     "state": "Vestland",
     "country": "Norway"
   },
@@ -1120,7 +1140,7 @@ export const liCities = [
     "country": "United States"
   },
   {
-    "city": "Lingu\u00e8re",
+    "city": "Linguere",
     "state": "Louga",
     "country": "Senegal"
   },
@@ -1130,7 +1150,7 @@ export const liCities = [
     "country": "Philippines"
   },
   {
-    "city": "Lidzbark Warmi\u0144ski",
+    "city": "Lidzbark Warminski",
     "state": "Warmi\u0144sko-Mazurskie",
     "country": "Poland"
   },
@@ -1145,7 +1165,7 @@ export const liCities = [
     "country": "Poland"
   },
   {
-    "city": "Ling\u0101l",
+    "city": "Lingal",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1250,7 +1270,7 @@ export const liCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Librazhd-Qend\u00ebr",
+    "city": "Librazhd-Qender",
     "state": "Elbasan",
     "country": "Albania"
   },
@@ -1310,7 +1330,7 @@ export const liCities = [
     "country": "Italy"
   },
   {
-    "city": "Lic\u00ednio de Almeida",
+    "city": "Licinio de Almeida",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -1320,7 +1340,7 @@ export const liCities = [
     "country": "United States"
   },
   {
-    "city": "Lindenberg im Allg\u00e4u",
+    "city": "Lindenberg im Allgau",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -1435,17 +1455,17 @@ export const liCities = [
     "country": "United States"
   },
   {
-    "city": "Liki\u0161kiai",
+    "city": "Likiskiai",
     "state": "Alytus",
     "country": "Lithuania"
   },
   {
-    "city": "Litomy\u0161l",
+    "city": "Litomysl",
     "state": "Pardubick\u00fd Kraj",
     "country": "Czechia"
   },
   {
-    "city": "Lib\u0101nggaon",
+    "city": "Libanggaon",
     "state": NaN,
     "country": "Nepal"
   },
@@ -1455,7 +1475,7 @@ export const liCities = [
     "country": "Paraguay"
   },
   {
-    "city": "Libant\u00e9",
+    "city": "Libante",
     "state": "Alibori",
     "country": "Benin"
   },
@@ -1555,7 +1575,7 @@ export const liCities = [
     "country": "Canada"
   },
   {
-    "city": "Livron-sur-Dr\u00f4me",
+    "city": "Livron-sur-Drome",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
@@ -1615,7 +1635,7 @@ export const liCities = [
     "country": "France"
   },
   {
-    "city": "Limeira d\u2019Oeste",
+    "city": "Limeira d'Oeste",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1640,12 +1660,12 @@ export const liCities = [
     "country": "Russia"
   },
   {
-    "city": "Liffr\u00e9",
+    "city": "Liffre",
     "state": "Bretagne",
     "country": "France"
   },
   {
-    "city": "Lie\u015fti",
+    "city": "Liesti",
     "state": "Gala\u0163i",
     "country": "Romania"
   },
@@ -1655,7 +1675,12 @@ export const liCities = [
     "country": "Albania"
   },
   {
-    "city": "Limba\u017ei",
+    "city": "Livani",
+    "state": "L\u012bv\u0101ni",
+    "country": "Latvia"
+  },
+  {
+    "city": "Limbazi",
     "state": "Limba\u017ei",
     "country": "Latvia"
   },
@@ -1665,7 +1690,7 @@ export const liCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Liqui\u00e7\u00e1",
+    "city": "Liquica",
     "state": "Likis\u00e1",
     "country": "Timor-Leste"
   },

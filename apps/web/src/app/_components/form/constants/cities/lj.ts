@@ -5,7 +5,7 @@ export const ljCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Ljubu\u0161ki",
+    "city": "Ljubuski",
     "state": "Bosnia and Herzegovina, Federation of",
     "country": "Bosnia and Herzegovina"
   },

@@ -1,6 +1,6 @@
 export const kpCities = [
   {
-    "city": "Kpalim\u00e9",
+    "city": "Kpalime",
     "state": "Plateaux",
     "country": "Togo"
   },

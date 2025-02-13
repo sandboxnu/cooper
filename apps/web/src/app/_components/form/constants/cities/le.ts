@@ -5,7 +5,7 @@ export const leCities = [
     "country": "China"
   },
   {
-    "city": "Le\u00f3n de los Aldama",
+    "city": "Leon de los Aldama",
     "state": "Guanajuato",
     "country": "Mexico"
   },
@@ -70,7 +70,7 @@ export const leCities = [
     "country": "Philippines"
   },
   {
-    "city": "Legan\u00e9s",
+    "city": "Leganes",
     "state": "Madrid",
     "country": "Spain"
   },
@@ -80,7 +80,7 @@ export const leCities = [
     "country": "Burma"
   },
   {
-    "city": "Le\u00f3n",
+    "city": "Leon",
     "state": "Le\u00f3n",
     "country": "Nicaragua"
   },
@@ -98,6 +98,11 @@ export const leCities = [
     "city": "Leverkusen",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
+  },
+  {
+    "city": "Levis",
+    "state": "Quebec",
+    "country": "Canada"
   },
   {
     "city": "Le Mans",
@@ -135,7 +140,7 @@ export const leCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Le\u00f3n",
+    "city": "Leon",
     "state": "Castille-Leon",
     "country": "Spain"
   },
@@ -195,6 +200,16 @@ export const leCities = [
     "country": "Philippines"
   },
   {
+    "city": "Leogane",
+    "state": "Ouest",
+    "country": "Haiti"
+  },
+  {
+    "city": "Lere",
+    "state": "Mayo-Kebbi-Ouest",
+    "country": "Chad"
+  },
+  {
     "city": "Leping",
     "state": "Shanxi",
     "country": "China"
@@ -240,7 +255,7 @@ export const leCities = [
     "country": "France"
   },
   {
-    "city": "Len\u00e7\u00f3is Paulista",
+    "city": "Lencois Paulista",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -425,7 +440,7 @@ export const leCities = [
     "country": "Russia"
   },
   {
-    "city": "Lecher\u00edas",
+    "city": "Lecherias",
     "state": "Anzo\u00e1tegui",
     "country": "Venezuela"
   },
@@ -448,6 +463,11 @@ export const leCities = [
     "city": "Leganes",
     "state": "Iloilo",
     "country": "Philippines"
+  },
+  {
+    "city": "Lebork",
+    "state": "Pomorskie",
+    "country": "Poland"
   },
   {
     "city": "Lewiston",
@@ -483,6 +503,11 @@ export const leCities = [
     "city": "Leawood",
     "state": "Kansas",
     "country": "United States"
+  },
+  {
+    "city": "Leo",
+    "state": "Centre-Ouest",
+    "country": "Burkina Faso"
   },
   {
     "city": "Leticia",
@@ -630,7 +655,7 @@ export const leCities = [
     "country": "United States"
   },
   {
-    "city": "Le Kremlin-Bic\u00eatre",
+    "city": "Le Kremlin-Bicetre",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -675,7 +700,7 @@ export const leCities = [
     "country": "France"
   },
   {
-    "city": "Leutkirch im Allg\u00e4u",
+    "city": "Leutkirch im Allgau",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
@@ -690,7 +715,7 @@ export const leCities = [
     "country": "Russia"
   },
   {
-    "city": "Lefk\u00e1da",
+    "city": "Lefkada",
     "state": "Ion\u00eda N\u00edsia",
     "country": "Greece"
   },
@@ -700,7 +725,7 @@ export const leCities = [
     "country": "Ireland"
   },
   {
-    "city": "Lemp\u00e4\u00e4l\u00e4",
+    "city": "Lempaala",
     "state": "Pirkanmaa",
     "country": "Finland"
   },
@@ -770,12 +795,12 @@ export const leCities = [
     "country": "United States"
   },
   {
-    "city": "Le Plessis-Tr\u00e9vise",
+    "city": "Le Plessis-Trevise",
     "state": "\u00cele-de-France",
     "country": "France"
   },
   {
-    "city": "Le M\u00e9e-sur-Seine",
+    "city": "Le Mee-sur-Seine",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -785,7 +810,7 @@ export const leCities = [
     "country": "Germany"
   },
   {
-    "city": "Leh\u0101ra",
+    "city": "Lehara",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -805,7 +830,7 @@ export const leCities = [
     "country": "Canada"
   },
   {
-    "city": "Les C\u00f4teaux",
+    "city": "Les Coteaux",
     "state": "Sud",
     "country": "Haiti"
   },
@@ -875,6 +900,11 @@ export const leCities = [
     "country": "United States"
   },
   {
+    "city": "Leczna",
+    "state": "Lubelskie",
+    "country": "Poland"
+  },
+  {
     "city": "Levin",
     "state": "Manawatu-Wanganui",
     "country": "New Zealand"
@@ -900,7 +930,12 @@ export const leCities = [
     "country": "France"
   },
   {
-    "city": "Le Pr\u00e9-Saint-Gervais",
+    "city": "Lerida",
+    "state": "Tolima",
+    "country": "Colombia"
+  },
+  {
+    "city": "Le Pre-Saint-Gervais",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -915,7 +950,7 @@ export const leCities = [
     "country": "Ireland"
   },
   {
-    "city": "Leopoldsh\u00f6he",
+    "city": "Leopoldshohe",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
   },
@@ -930,7 +965,7 @@ export const leCities = [
     "country": "France"
   },
   {
-    "city": "Lein\u00ec",
+    "city": "Leini",
     "state": "Piedmont",
     "country": "Italy"
   },
@@ -938,6 +973,11 @@ export const leCities = [
     "city": "Lemay",
     "state": "Missouri",
     "country": "United States"
+  },
+  {
+    "city": "Lere",
+    "state": "Tombouctou",
+    "country": "Mali"
   },
   {
     "city": "Leanja",
@@ -965,7 +1005,7 @@ export const leCities = [
     "country": "Italy"
   },
   {
-    "city": "Le V\u00e9sinet",
+    "city": "Le Vesinet",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -980,7 +1020,7 @@ export const leCities = [
     "country": "Belgium"
   },
   {
-    "city": "Lezh\u00eb",
+    "city": "Lezhe",
     "state": "Lezh\u00eb",
     "country": "Albania"
   },
@@ -1015,7 +1055,7 @@ export const leCities = [
     "country": "United States"
   },
   {
-    "city": "Les Sables-d\u2019Olonne",
+    "city": "Les Sables-d'Olonne",
     "state": "Pays de la Loire",
     "country": "France"
   },
@@ -1035,7 +1075,7 @@ export const leCities = [
     "country": "Germany"
   },
   {
-    "city": "Levo\u010da",
+    "city": "Levoca",
     "state": "Pre\u0161ov",
     "country": "Slovakia"
   },
@@ -1060,6 +1100,11 @@ export const leCities = [
     "country": "Italy"
   },
   {
+    "city": "Leczyca",
+    "state": "\u0141\u00f3dzkie",
+    "country": "Poland"
+  },
+  {
     "city": "Lexington Park",
     "state": "Maryland",
     "country": "United States"
@@ -1070,7 +1115,7 @@ export const leCities = [
     "country": "United States"
   },
   {
-    "city": "Le\u017cajsk",
+    "city": "Lezajsk",
     "state": "Podkarpackie",
     "country": "Poland"
   },
@@ -1090,7 +1135,7 @@ export const leCities = [
     "country": "Australia"
   },
   {
-    "city": "Les Ponts-de-C\u00e9",
+    "city": "Les Ponts-de-Ce",
     "state": "Pays de la Loire",
     "country": "France"
   },
@@ -1140,7 +1185,7 @@ export const leCities = [
     "country": "France"
   },
   {
-    "city": "Les \u00celes-de-la-Madeleine",
+    "city": "Les Iles-de-la-Madeleine",
     "state": "Quebec",
     "country": "Canada"
   },
@@ -1185,12 +1230,12 @@ export const leCities = [
     "country": "France"
   },
   {
-    "city": "Le\u0101ma",
+    "city": "Leama",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Len\u00e7\u00f3is",
+    "city": "Lencois",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -1200,7 +1245,7 @@ export const leCities = [
     "country": "United States"
   },
   {
-    "city": "Lebon R\u00e9gis",
+    "city": "Lebon Regis",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -1230,6 +1275,11 @@ export const leCities = [
     "country": "France"
   },
   {
+    "city": "Lezignan-Corbieres",
+    "state": "Occitanie",
+    "country": "France"
+  },
+  {
     "city": "Lehman",
     "state": "Pennsylvania",
     "country": "United States"
@@ -1250,7 +1300,12 @@ export const leCities = [
     "country": "France"
   },
   {
-    "city": "Le Taillan-M\u00e9doc",
+    "city": "Le Taillan-Medoc",
+    "state": "Nouvelle-Aquitaine",
+    "country": "France"
+  },
+  {
+    "city": "Leognan",
     "state": "Nouvelle-Aquitaine",
     "country": "France"
   },
@@ -1265,7 +1320,7 @@ export const leCities = [
     "country": "Kyrgyzstan"
   },
   {
-    "city": "Lejan\u00edas",
+    "city": "Lejanias",
     "state": "Meta",
     "country": "Colombia"
   },
@@ -1340,7 +1395,7 @@ export const leCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Lep\u0101kshi",
+    "city": "Lepakshi",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1350,12 +1405,12 @@ export const leCities = [
     "country": "France"
   },
   {
-    "city": "Len\u012bnsk\u012by",
+    "city": "Leninskiy",
     "state": "Pavlodar",
     "country": "Kazakhstan"
   },
   {
-    "city": "Lepp\u00e4virta",
+    "city": "Leppavirta",
     "state": "Pohjois-Savo",
     "country": "Finland"
   },
@@ -1395,6 +1450,11 @@ export const leCities = [
     "country": "France"
   },
   {
+    "city": "Leguevin",
+    "state": "Occitanie",
+    "country": "France"
+  },
+  {
     "city": "Leeds and the Thousand Islands",
     "state": "Ontario",
     "country": "Canada"
@@ -1415,7 +1475,7 @@ export const leCities = [
     "country": "France"
   },
   {
-    "city": "Le Cr\u00e8s",
+    "city": "Le Cres",
     "state": "Occitanie",
     "country": "France"
   },
@@ -1450,7 +1510,7 @@ export const leCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Les Sorini\u00e8res",
+    "city": "Les Sorinieres",
     "state": "Pays de la Loire",
     "country": "France"
   },
@@ -1490,7 +1550,7 @@ export const leCities = [
     "country": "United States"
   },
   {
-    "city": "Leopoldo de Bulh\u00f5es",
+    "city": "Leopoldo de Bulhoes",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -1515,7 +1575,7 @@ export const leCities = [
     "country": "France"
   },
   {
-    "city": "Le Poir\u00e9-sur-Vie",
+    "city": "Le Poire-sur-Vie",
     "state": "Pays de la Loire",
     "country": "France"
   },

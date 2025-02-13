@@ -20,9 +20,14 @@ export const ivCities = [
     "country": "France"
   },
   {
-    "city": "Ivaipor\u00e3",
+    "city": "Ivaipora",
     "state": "Paran\u00e1",
     "country": "Brazil"
+  },
+  {
+    "city": "Ivrindi",
+    "state": "Bal\u0131kesir",
+    "country": "Turkey"
   },
   {
     "city": "Ivisan",
@@ -75,12 +80,12 @@ export const ivCities = [
     "country": "Russia"
   },
   {
-    "city": "Iva\u00ed",
+    "city": "Ivai",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Ivani\u0107-Grad",
+    "city": "Ivanic-Grad",
     "state": "Zagreba\u010dka \u017dupanija",
     "country": "Croatia"
   },
@@ -110,7 +115,7 @@ export const ivCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Ivan\u010dice",
+    "city": "Ivancice",
     "state": "Jihomoravsk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -130,7 +135,7 @@ export const ivCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Ivan\u010dna Gorica",
+    "city": "Ivancna Gorica",
     "state": "Ivan\u010dna Gorica",
     "country": "Slovenia"
   },

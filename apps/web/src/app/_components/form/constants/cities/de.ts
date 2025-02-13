@@ -50,7 +50,7 @@ export const deCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Dehra D\u016bn",
+    "city": "Dehra Dun",
     "state": "Uttar\u0101khand",
     "country": "India"
   },
@@ -95,7 +95,7 @@ export const deCities = [
     "country": "China"
   },
   {
-    "city": "Dew\u0101s",
+    "city": "Dewas",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -110,7 +110,7 @@ export const deCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Dezf\u016bl",
+    "city": "Dezful",
     "state": "Kh\u016bzest\u0101n",
     "country": "Iran"
   },
@@ -125,7 +125,7 @@ export const deCities = [
     "country": "India"
   },
   {
-    "city": "Des\u0113",
+    "city": "Dese",
     "state": "\u0100mara",
     "country": "Ethiopia"
   },
@@ -155,7 +155,7 @@ export const deCities = [
     "country": "India"
   },
   {
-    "city": "Debre Mark\u2019os",
+    "city": "Debre Mark'os",
     "state": "\u0100mara",
     "country": "Ethiopia"
   },
@@ -245,11 +245,6 @@ export const deCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Dessau-Rosslau",
-    "state": "Saxony-Anhalt",
-    "country": "Germany"
-  },
-  {
     "city": "Delmenhorst",
     "state": "Lower Saxony",
     "country": "Germany"
@@ -273,6 +268,11 @@ export const deCities = [
     "city": "Develi",
     "state": "Kayseri",
     "country": "Turkey"
+  },
+  {
+    "city": "Dedougou",
+    "state": "Boucle du Mouhoun",
+    "country": "Burkina Faso"
   },
   {
     "city": "Dewsbury",
@@ -320,7 +320,7 @@ export const deCities = [
     "country": "United States"
   },
   {
-    "city": "Deol\u0101li",
+    "city": "Deolali",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -340,6 +340,16 @@ export const deCities = [
     "country": "United States"
   },
   {
+    "city": "Deressia",
+    "state": "Tandjil\u00e9",
+    "country": "Chad"
+  },
+  {
+    "city": "Decin",
+    "state": "\u00dasteck\u00fd Kraj",
+    "country": "Czechia"
+  },
+  {
     "city": "Dendermonde",
     "state": "Flanders",
     "country": "Belgium"
@@ -353,6 +363,11 @@ export const deCities = [
     "city": "Deinze",
     "state": "Flanders",
     "country": "Belgium"
+  },
+  {
+    "city": "Debica",
+    "state": "Podkarpackie",
+    "country": "Poland"
   },
   {
     "city": "De Bilt",
@@ -370,7 +385,7 @@ export const deCities = [
     "country": "Italy"
   },
   {
-    "city": "Del\u012bj\u0101n",
+    "city": "Delijan",
     "state": "Markaz\u012b",
     "country": "Iran"
   },
@@ -415,7 +430,7 @@ export const deCities = [
     "country": "United States"
   },
   {
-    "city": "Deg\u0101na",
+    "city": "Degana",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -440,17 +455,17 @@ export const deCities = [
     "country": "Algeria"
   },
   {
-    "city": "Dehlor\u0101n",
+    "city": "Dehloran",
     "state": "\u012al\u0101m",
     "country": "Iran"
   },
   {
-    "city": "Delbr\u00fcck",
+    "city": "Delbruck",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
   },
   {
-    "city": "Debagr\u0101m",
+    "city": "Debagram",
     "state": "West Bengal",
     "country": "India"
   },
@@ -485,7 +500,7 @@ export const deCities = [
     "country": "Romania"
   },
   {
-    "city": "Deori Kh\u0101s",
+    "city": "Deori Khas",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -515,6 +530,11 @@ export const deCities = [
     "country": "Russia"
   },
   {
+    "city": "Decines-Charpieu",
+    "state": "Auvergne-Rh\u00f4ne-Alpes",
+    "country": "France"
+  },
+  {
     "city": "Devarkonda",
     "state": "Telang\u0101na",
     "country": "India"
@@ -525,7 +545,7 @@ export const deCities = [
     "country": "Morocco"
   },
   {
-    "city": "Demb\u012b Dolo",
+    "city": "Dembi Dolo",
     "state": "Orom\u012bya",
     "country": "Ethiopia"
   },
@@ -555,7 +575,7 @@ export const deCities = [
     "country": "United States"
   },
   {
-    "city": "Debi\u0101pur",
+    "city": "Debiapur",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -585,7 +605,7 @@ export const deCities = [
     "country": "United States"
   },
   {
-    "city": "Dehgol\u0101n",
+    "city": "Dehgolan",
     "state": "Kordest\u0101n",
     "country": "Iran"
   },
@@ -700,7 +720,7 @@ export const deCities = [
     "country": "United States"
   },
   {
-    "city": "De\u00e1n Funes",
+    "city": "Dean Funes",
     "state": "C\u00f3rdoba",
     "country": "Argentina"
   },
@@ -710,7 +730,7 @@ export const deCities = [
     "country": "Mexico"
   },
   {
-    "city": "Debark\u2019",
+    "city": "Debark'",
     "state": "\u0100mara",
     "country": "Ethiopia"
   },
@@ -750,7 +770,7 @@ export const deCities = [
     "country": "Belgium"
   },
   {
-    "city": "Dep\u0101lpur",
+    "city": "Depalpur",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -760,7 +780,7 @@ export const deCities = [
     "country": "South Africa"
   },
   {
-    "city": "Devgadh B\u0101riya",
+    "city": "Devgadh Bariya",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -775,7 +795,7 @@ export const deCities = [
     "country": "India"
   },
   {
-    "city": "Devad\u0101nappatti",
+    "city": "Devadanappatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -815,7 +835,7 @@ export const deCities = [
     "country": "United States"
   },
   {
-    "city": "Deh\u0101q\u0101n",
+    "city": "Dehaqan",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
@@ -828,6 +848,11 @@ export const deCities = [
     "city": "Devizes",
     "state": "Wiltshire",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Dera",
+    "state": "Orom\u012bya",
+    "country": "Ethiopia"
   },
   {
     "city": "Deoria",
@@ -850,12 +875,17 @@ export const deCities = [
     "country": "Russia"
   },
   {
+    "city": "Dengka",
+    "state": "Gansu",
+    "country": "China"
+  },
+  {
     "city": "Despujols",
     "state": "Romblon",
     "country": "Philippines"
   },
   {
-    "city": "Demerval Lob\u00e3o",
+    "city": "Demerval Lobao",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
@@ -895,7 +925,7 @@ export const deCities = [
     "country": "Ethiopia"
   },
   {
-    "city": "Dehmo\u00ed",
+    "city": "Dehmoi",
     "state": "Sughd",
     "country": "Tajikistan"
   },
@@ -903,6 +933,11 @@ export const deCities = [
     "city": "Devarapalle",
     "state": "Andhra Pradesh",
     "country": "India"
+  },
+  {
+    "city": "Deblin",
+    "state": "Lubelskie",
+    "country": "Poland"
   },
   {
     "city": "Deming",
@@ -945,9 +980,14 @@ export const deCities = [
     "country": "Germany"
   },
   {
-    "city": "Debre Werk\u2019",
+    "city": "Debre Werk'",
     "state": "\u0100mara",
     "country": "Ethiopia"
+  },
+  {
+    "city": "Debno",
+    "state": "Zachodniopomorskie",
+    "country": "Poland"
   },
   {
     "city": "Dedemsvaart",
@@ -960,7 +1000,7 @@ export const deCities = [
     "country": "Algeria"
   },
   {
-    "city": "Del\u00e9mont",
+    "city": "Delemont",
     "state": "Jura",
     "country": "Switzerland"
   },
@@ -975,7 +1015,7 @@ export const deCities = [
     "country": "Belgium"
   },
   {
-    "city": "Dev\u0101pur",
+    "city": "Devapur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1005,7 +1045,7 @@ export const deCities = [
     "country": "United States"
   },
   {
-    "city": "Dendul\u016bru",
+    "city": "Denduluru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1023,6 +1063,11 @@ export const deCities = [
     "city": "Dent",
     "state": "Ohio",
     "country": "United States"
+  },
+  {
+    "city": "Derassi",
+    "state": "Borgou",
+    "country": "Benin"
   },
   {
     "city": "Devipattinam",
@@ -1045,7 +1090,7 @@ export const deCities = [
     "country": "India"
   },
   {
-    "city": "Devik\u0101puram",
+    "city": "Devikapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1085,7 +1130,7 @@ export const deCities = [
     "country": "Belgium"
   },
   {
-    "city": "Devanakavundan\u016br",
+    "city": "Devanakavundanur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1095,12 +1140,12 @@ export const deCities = [
     "country": "Belgium"
   },
   {
-    "city": "Delv\u0101da",
+    "city": "Delvada",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Dek\u2019emh\u0101re",
+    "city": "Dek'emhare",
     "state": "Debub",
     "country": "Eritrea"
   },
@@ -1125,7 +1170,12 @@ export const deCities = [
     "country": "United States"
   },
   {
-    "city": "Deh Bakr\u012b",
+    "city": "Deville-les-Rouen",
+    "state": "Normandie",
+    "country": "France"
+  },
+  {
+    "city": "Deh Bakri",
     "state": "Kerm\u0101n",
     "country": "Iran"
   },
@@ -1170,7 +1220,7 @@ export const deCities = [
     "country": "South Africa"
   },
   {
-    "city": "De\u016blgaon M\u0101hi",
+    "city": "Deulgaon Mahi",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -1215,7 +1265,7 @@ export const deCities = [
     "country": "United States"
   },
   {
-    "city": "Del\u010devo",
+    "city": "Delcevo",
     "state": "Del\u010devo",
     "country": "North Macedonia"
   },
@@ -1230,9 +1280,14 @@ export const deCities = [
     "country": "India"
   },
   {
-    "city": "Deh-e Sh\u016b",
+    "city": "Deh-e Shu",
     "state": "Helmand",
     "country": "Afghanistan"
+  },
+  {
+    "city": "Denyekoro",
+    "state": "Koulikoro",
+    "country": "Mali"
   },
   {
     "city": "Deruta",
@@ -1240,7 +1295,7 @@ export const deCities = [
     "country": "Italy"
   },
   {
-    "city": "Devar\u0101palle",
+    "city": "Devarapalle",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1275,7 +1330,7 @@ export const deCities = [
     "country": "United States"
   },
   {
-    "city": "Devan\u0101ngurichchi",
+    "city": "Devanangurichchi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1300,7 +1355,7 @@ export const deCities = [
     "country": "India"
   },
   {
-    "city": "Demir\u00f6z\u00fc",
+    "city": "Demirozu",
     "state": "Bayburt",
     "country": "Turkey"
   },
@@ -1308,6 +1363,11 @@ export const deCities = [
     "city": "Deutsch-Wagram",
     "state": "Nieder\u00f6sterreich",
     "country": "Austria"
+  },
+  {
+    "city": "Dekanme",
+    "state": "Zou",
+    "country": "Benin"
   },
   {
     "city": "Delavan",
@@ -1325,7 +1385,7 @@ export const deCities = [
     "country": "Australia"
   },
   {
-    "city": "Derzhav\u012bnsk",
+    "city": "Derzhavinsk",
     "state": "Aqmola",
     "country": "Kazakhstan"
   },
@@ -1335,7 +1395,7 @@ export const deCities = [
     "country": "Tunisia"
   },
   {
-    "city": "De\u00e7an",
+    "city": "Decan",
     "state": "De\u00e7an",
     "country": "Kosovo"
   },

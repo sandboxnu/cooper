@@ -1,6 +1,6 @@
 export const ghCities = [
   {
-    "city": "Gh\u0101zi\u0101b\u0101d",
+    "city": "Ghaziabad",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -10,32 +10,32 @@ export const ghCities = [
     "country": "China"
   },
   {
-    "city": "Gh\u0101nd\u012bnagar",
+    "city": "Ghandinagar",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Ghary\u0101n",
+    "city": "Gharyan",
     "state": "Al Jabal al Gharb\u012b",
     "country": "Libya"
   },
   {
-    "city": "Ghor\u0101h\u012b",
+    "city": "Ghorahi",
     "state": NaN,
     "country": "Nepal"
   },
   {
-    "city": "Ghazn\u012b",
+    "city": "Ghazni",
     "state": "Ghazn\u012b",
     "country": "Afghanistan"
   },
   {
-    "city": "Ghaz\u012bpur",
+    "city": "Ghazipur",
     "state": "Uttar Pradesh",
     "country": "India"
   },
   {
-    "city": "Gharda\u00efa",
+    "city": "Ghardaia",
     "state": "Gharda\u00efa",
     "country": "Algeria"
   },
@@ -55,17 +55,17 @@ export const ghCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Gh\u0101t\u0101l",
+    "city": "Ghatal",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Gh\u014driy\u0101n",
+    "city": "Ghoriyan",
     "state": "Her\u0101t",
     "country": "Afghanistan"
   },
   {
-    "city": "Gh\u016dlakandoz",
+    "city": "Ghulakandoz",
     "state": "Sughd",
     "country": "Tajikistan"
   },
@@ -80,7 +80,7 @@ export const ghCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Ghat\u0101ro Chaturbhuj",
+    "city": "Ghataro Chaturbhuj",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -95,7 +95,7 @@ export const ghCities = [
     "country": "Algeria"
   },
   {
-    "city": "Gh\u0101t",
+    "city": "Ghat",
     "state": "Gh\u0101t",
     "country": "Libya"
   },
@@ -120,12 +120,12 @@ export const ghCities = [
     "country": "India"
   },
   {
-    "city": "Ghos\u0101i",
+    "city": "Ghosai",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Ghogard\u012bha",
+    "city": "Ghogardiha",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -145,7 +145,7 @@ export const ghCities = [
     "country": "India"
   },
   {
-    "city": "Ghonch\u00ed",
+    "city": "Ghonchi",
     "state": "Sughd",
     "country": "Tajikistan"
   },
@@ -175,7 +175,7 @@ export const ghCities = [
     "country": "India"
   },
   {
-    "city": "Ghor\u0101dongri",
+    "city": "Ghoradongri",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -190,22 +190,22 @@ export const ghCities = [
     "country": "India"
   },
   {
-    "city": "Ghor\u0101dal",
+    "city": "Ghoradal",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Ghab\u0101ghib",
+    "city": "Ghabaghib",
     "state": "Dar\u2018\u0101",
     "country": "Syria"
   },
   {
-    "city": "Ghal Kal\u0101n",
+    "city": "Ghal Kalan",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Ghinda\u2019e",
+    "city": "Ghinda'e",
     "state": "Semienawi K\u2019eyy\u012dh\u0323 Bah\u0323ri",
     "country": "Eritrea"
   },
@@ -230,22 +230,22 @@ export const ghCities = [
     "country": "India"
   },
   {
-    "city": "Ghosw\u0101ri",
+    "city": "Ghoswari",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Ghary\u0101la",
+    "city": "Gharyala",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Ghat\u0101w\u0101n",
+    "city": "Ghatawan",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Ghad\u0101mis",
+    "city": "Ghadamis",
     "state": "N\u0101l\u016bt",
     "country": "Libya"
   },
@@ -260,7 +260,7 @@ export const ghCities = [
     "country": "India"
   },
   {
-    "city": "Gh\u0101riyah al Gharb\u012byah",
+    "city": "Ghariyah al Gharbiyah",
     "state": "Dar\u2018\u0101",
     "country": "Syria"
   },
@@ -275,12 +275,12 @@ export const ghCities = [
     "country": "India"
   },
   {
-    "city": "Ghosr\u0101w\u0101n",
+    "city": "Ghosrawan",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Ghan\u012bpur Bejha",
+    "city": "Ghanipur Bejha",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -290,7 +290,7 @@ export const ghCities = [
     "country": "India"
   },
   {
-    "city": "Gh\u0101t Bor\u016bl",
+    "city": "Ghat Borul",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -300,8 +300,33 @@ export const ghCities = [
     "country": "India"
   },
   {
-    "city": "Gholia Kal\u0101n",
+    "city": "Gholia Kalan",
     "state": "Punjab",
     "country": "India"
+  },
+  {
+    "city": "Ghaxaq",
+    "state": "G\u0127axaq",
+    "country": "Malta"
+  },
+  {
+    "city": "Ghajnsielem",
+    "state": "G\u0127ajnsielem",
+    "country": "Malta"
+  },
+  {
+    "city": "Gharghur",
+    "state": "G\u0127arg\u0127ur",
+    "country": "Malta"
+  },
+  {
+    "city": "Gharb",
+    "state": "G\u0127arb",
+    "country": "Malta"
+  },
+  {
+    "city": "Ghasri",
+    "state": "G\u0127asri",
+    "country": "Malta"
   }
 ]

@@ -5,12 +5,17 @@ export const cuCities = [
     "country": "Brazil"
   },
   {
-    "city": "Culiac\u00e1n",
+    "city": "Culiacan",
     "state": "Sinaloa",
     "country": "Mexico"
   },
   {
-    "city": "Cuiab\u00e1",
+    "city": "Cucuta",
+    "state": "Norte de Santander",
+    "country": "Colombia"
+  },
+  {
+    "city": "Cuiaba",
     "state": "Mato Grosso",
     "country": "Brazil"
   },
@@ -20,7 +25,7 @@ export const cuCities = [
     "country": "India"
   },
   {
-    "city": "Cuautitl\u00e1n Izcalli",
+    "city": "Cuautitlan Izcalli",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
@@ -30,7 +35,7 @@ export const cuCities = [
     "country": "Peru"
   },
   {
-    "city": "Cuman\u00e1",
+    "city": "Cumana",
     "state": "Sucre",
     "country": "Venezuela"
   },
@@ -60,6 +65,11 @@ export const cuCities = [
     "country": "Mexico"
   },
   {
+    "city": "Cua",
+    "state": "Miranda",
+    "country": "Venezuela"
+  },
+  {
     "city": "Cuautla",
     "state": "Morelos",
     "country": "Mexico"
@@ -70,12 +80,12 @@ export const cuCities = [
     "country": "Angola"
   },
   {
-    "city": "Cuauht\u00e9moc",
+    "city": "Cuauhtemoc",
     "state": "Chihuahua",
     "country": "Mexico"
   },
   {
-    "city": "Cuautitl\u00e1n",
+    "city": "Cuautitlan",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
@@ -90,19 +100,24 @@ export const cuCities = [
     "country": "India"
   },
   {
-    "city": "Cunduac\u00e1n",
+    "city": "Cunduacan",
     "state": "Tabasco",
     "country": "Mexico"
   },
   {
-    "city": "Curic\u00f3",
+    "city": "Curico",
     "state": "Maule",
     "country": "Chile"
   },
   {
-    "city": "Cubat\u00e3o",
+    "city": "Cubatao",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
+  },
+  {
+    "city": "Cubuk",
+    "state": "Ankara",
+    "country": "Turkey"
   },
   {
     "city": "Cukai",
@@ -125,12 +140,17 @@ export const cuCities = [
     "country": "Mauritius"
   },
   {
+    "city": "Cua Lo",
+    "state": "Ngh\u1ec7 An",
+    "country": "Vietnam"
+  },
+  {
     "city": "Cunhinga",
     "state": "Bi\u00e9",
     "country": "Angola"
   },
   {
-    "city": "Cu\u00edmba",
+    "city": "Cuimba",
     "state": "Zaire",
     "country": "Angola"
   },
@@ -143,6 +163,11 @@ export const cuCities = [
     "city": "Cuilco",
     "state": "Huehuetenango",
     "country": "Guatemala"
+  },
+  {
+    "city": "Cumra",
+    "state": "Konya",
+    "country": "Turkey"
   },
   {
     "city": "Cuscatancingo",
@@ -215,7 +240,7 @@ export const cuCities = [
     "country": "Mexico"
   },
   {
-    "city": "Cun\u00e9n",
+    "city": "Cunen",
     "state": "Quich\u00e9",
     "country": "Guatemala"
   },
@@ -280,7 +305,7 @@ export const cuCities = [
     "country": "United States"
   },
   {
-    "city": "Curu\u00e7\u00e1",
+    "city": "Curuca",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -290,7 +315,7 @@ export const cuCities = [
     "country": "Brazil"
   },
   {
-    "city": "Cust\u00f3dia",
+    "city": "Custodia",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -310,17 +335,17 @@ export const cuCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Cutral-C\u00f3",
+    "city": "Cutral-Co",
     "state": "Neuqu\u00e9n",
     "country": "Argentina"
   },
   {
-    "city": "Curuz\u00fa Cuati\u00e1",
+    "city": "Curuzu Cuatia",
     "state": "Corrientes",
     "country": "Argentina"
   },
   {
-    "city": "Cura\u00e7\u00e1",
+    "city": "Curaca",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -328,6 +353,11 @@ export const cuCities = [
     "city": "Curralinho",
     "state": "Par\u00e1",
     "country": "Brazil"
+  },
+  {
+    "city": "Cukurcayir",
+    "state": "Trabzon",
+    "country": "Turkey"
   },
   {
     "city": "Curanilahue",
@@ -345,7 +375,7 @@ export const cuCities = [
     "country": "Cuba"
   },
   {
-    "city": "Cuauht\u00e9moc",
+    "city": "Cuauhtemoc",
     "state": "Colima",
     "country": "Mexico"
   },
@@ -375,7 +405,7 @@ export const cuCities = [
     "country": "Philippines"
   },
   {
-    "city": "Cuer\u00e1maro",
+    "city": "Cueramaro",
     "state": "Guanajuato",
     "country": "Mexico"
   },
@@ -385,7 +415,7 @@ export const cuCities = [
     "country": "Mexico"
   },
   {
-    "city": "Curtea de Arge\u015f",
+    "city": "Curtea de Arges",
     "state": "Arge\u015f",
     "country": "Romania"
   },
@@ -395,7 +425,7 @@ export const cuCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Curacav\u00ed",
+    "city": "Curacavi",
     "state": "Regi\u00f3n Metropolitana",
     "country": "Chile"
   },
@@ -420,7 +450,7 @@ export const cuCities = [
     "country": "Philippines"
   },
   {
-    "city": "Curuman\u00ed",
+    "city": "Curumani",
     "state": "Cesar",
     "country": "Colombia"
   },
@@ -470,7 +500,7 @@ export const cuCities = [
     "country": "United States"
   },
   {
-    "city": "Cuit\u00e9",
+    "city": "Cuite",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -505,7 +535,7 @@ export const cuCities = [
     "country": "United States"
   },
   {
-    "city": "Cuautitl\u00e1n",
+    "city": "Cuautitlan",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -515,7 +545,7 @@ export const cuCities = [
     "country": "United States"
   },
   {
-    "city": "Cuqu\u00edo",
+    "city": "Cuquio",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -525,12 +555,17 @@ export const cuCities = [
     "country": "India"
   },
   {
+    "city": "Cukurca",
+    "state": "Hakk\u00e2ri",
+    "country": "Turkey"
+  },
+  {
     "city": "Cubellas",
     "state": "Catalonia",
     "country": "Spain"
   },
   {
-    "city": "Curacaut\u00edn",
+    "city": "Curacautin",
     "state": "Araucan\u00eda",
     "country": "Chile"
   },
@@ -575,7 +610,7 @@ export const cuCities = [
     "country": "India"
   },
   {
-    "city": "Cump\u0103na",
+    "city": "Cumpana",
     "state": "Constan\u0163a",
     "country": "Romania"
   },
@@ -585,12 +620,12 @@ export const cuCities = [
     "country": "Spain"
   },
   {
-    "city": "Curu\u00e1",
+    "city": "Curua",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Curi\u00fava",
+    "city": "Curiuva",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -610,7 +645,7 @@ export const cuCities = [
     "country": "El Salvador"
   },
   {
-    "city": "Cunda di\u00e1 Baze",
+    "city": "Cunda dia Baze",
     "state": "Malanje",
     "country": "Angola"
   },
@@ -635,9 +670,14 @@ export const cuCities = [
     "country": "Philippines"
   },
   {
-    "city": "Curit\u00ed",
+    "city": "Curiti",
     "state": "Santander",
     "country": "Colombia"
+  },
+  {
+    "city": "Cungus",
+    "state": "Diyarbak\u0131r",
+    "country": "Turkey"
   },
   {
     "city": "Culcheth",
@@ -645,12 +685,12 @@ export const cuCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Cumand\u00e1",
+    "city": "Cumanda",
     "state": "Ca\u00f1ar",
     "country": "Ecuador"
   },
   {
-    "city": "Curimat\u00e1",
+    "city": "Curimata",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
@@ -660,7 +700,7 @@ export const cuCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Cunha Por\u00e3",
+    "city": "Cunha Pora",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -670,7 +710,7 @@ export const cuCities = [
     "country": "Portugal"
   },
   {
-    "city": "Cuatro Ci\u00e9negas de Carranza",
+    "city": "Cuatro Cienegas de Carranza",
     "state": "Coahuila",
     "country": "Mexico"
   },
@@ -690,12 +730,17 @@ export const cuCities = [
     "country": "Mexico"
   },
   {
-    "city": "Cuencam\u00e9 de Ceniceros",
+    "city": "Cuencame de Ceniceros",
     "state": "Durango",
     "country": "Mexico"
   },
   {
-    "city": "Cu\u00e9llar",
+    "city": "Cuprija",
+    "state": "\u0106uprija",
+    "country": "Serbia"
+  },
+  {
+    "city": "Cuellar",
     "state": "Castille-Leon",
     "country": "Spain"
   },
@@ -710,7 +755,7 @@ export const cuCities = [
     "country": "Colombia"
   },
   {
-    "city": "Cuorgn\u00e8",
+    "city": "Cuorgne",
     "state": "Piedmont",
     "country": "Italy"
   },
@@ -773,6 +818,11 @@ export const cuCities = [
     "city": "Cuevo",
     "state": "Santa Cruz",
     "country": "Bolivia"
+  },
+  {
+    "city": "Cucer-Sandevo",
+    "state": "\u010cu\u010der-Sandevo",
+    "country": "North Macedonia"
   },
   {
     "city": "Cuya",

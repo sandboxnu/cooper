@@ -1,11 +1,11 @@
 export const uhCities = [
   {
-    "city": "Uhersk\u00e9 Hradi\u0161t\u011b",
+    "city": "Uherske Hradiste",
     "state": "Zl\u00ednsk\u00fd Kraj",
     "country": "Czechia"
   },
   {
-    "city": "Uhersk\u00fd Brod",
+    "city": "Uhersky Brod",
     "state": "Zl\u00ednsk\u00fd Kraj",
     "country": "Czechia"
   },

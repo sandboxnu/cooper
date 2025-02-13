@@ -65,7 +65,7 @@ export const prCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Proddat\u016br",
+    "city": "Proddatur",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -85,7 +85,7 @@ export const prCities = [
     "country": "United States"
   },
   {
-    "city": "Presidencia Roque S\u00e1enz Pe\u00f1a",
+    "city": "Presidencia Roque Saenz Pena",
     "state": "Chaco",
     "country": "Argentina"
   },
@@ -100,7 +100,7 @@ export const prCities = [
     "country": "Philippines"
   },
   {
-    "city": "Pre\u0161ov",
+    "city": "Presov",
     "state": "Pre\u0161ov",
     "country": "Slovakia"
   },
@@ -110,7 +110,7 @@ export const prCities = [
     "country": "Canada"
   },
   {
-    "city": "Pruszk\u00f3w",
+    "city": "Pruszkow",
     "state": "Mazowieckie",
     "country": "Poland"
   },
@@ -125,7 +125,7 @@ export const prCities = [
     "country": "Cabo Verde"
   },
   {
-    "city": "Przemy\u015bl",
+    "city": "Przemysl",
     "state": "Podkarpackie",
     "country": "Poland"
   },
@@ -155,12 +155,12 @@ export const prCities = [
     "country": "Philippines"
   },
   {
-    "city": "Prudent\u00f3polis",
+    "city": "Prudentopolis",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Prattip\u0101du",
+    "city": "Prattipadu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -180,12 +180,12 @@ export const prCities = [
     "country": "Slovakia"
   },
   {
-    "city": "Prost\u011bjov",
+    "city": "Prostejov",
     "state": "Olomouck\u00fd Kraj",
     "country": "Czechia"
   },
   {
-    "city": "Presidente Epit\u00e1cio",
+    "city": "Presidente Epitacio",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -200,12 +200,17 @@ export const prCities = [
     "country": "Philippines"
   },
   {
-    "city": "Prat\u0101pgarh",
+    "city": "Pratapgarh",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
   {
-    "city": "Promiss\u00e3o",
+    "city": "Prerov",
+    "state": "Olomouck\u00fd Kraj",
+    "country": "Czechia"
+  },
+  {
+    "city": "Promissao",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -275,12 +280,17 @@ export const prCities = [
     "country": "United States"
   },
   {
+    "city": "Pribram",
+    "state": "St\u0159edo\u010desk\u00fd Kraj",
+    "country": "Czechia"
+  },
+  {
     "city": "Primorsko-Akhtarsk",
     "state": "Krasnodarskiy Kray",
     "country": "Russia"
   },
   {
-    "city": "Pruszcz Gda\u0144ski",
+    "city": "Pruszcz Gdanski",
     "state": "Pomorskie",
     "country": "Poland"
   },
@@ -320,7 +330,7 @@ export const prCities = [
     "country": "Cuba"
   },
   {
-    "city": "Premi\u00e1 de Mar",
+    "city": "Premia de Mar",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -340,7 +350,7 @@ export const prCities = [
     "country": "United States"
   },
   {
-    "city": "Propri\u00e1",
+    "city": "Propria",
     "state": "Sergipe",
     "country": "Brazil"
   },
@@ -360,12 +370,12 @@ export const prCities = [
     "country": "Philippines"
   },
   {
-    "city": "Pr\u0101ntij",
+    "city": "Prantij",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Priego de C\u00f3rdoba",
+    "city": "Priego de Cordoba",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -375,7 +385,7 @@ export const prCities = [
     "country": "Brazil"
   },
   {
-    "city": "Praia da Vit\u00f3ria",
+    "city": "Praia da Vitoria",
     "state": "Azores",
     "country": "Portugal"
   },
@@ -385,12 +395,12 @@ export const prCities = [
     "country": "Argentina"
   },
   {
-    "city": "Presidente Get\u00falio",
+    "city": "Presidente Getulio",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
   {
-    "city": "Prad\u00f3polis",
+    "city": "Pradopolis",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -410,7 +420,7 @@ export const prCities = [
     "country": "United States"
   },
   {
-    "city": "Presidente M\u00e9dici",
+    "city": "Presidente Medici",
     "state": "Rond\u00f4nia",
     "country": "Brazil"
   },
@@ -425,7 +435,7 @@ export const prCities = [
     "country": "Belarus"
   },
   {
-    "city": "Pr\u00e9veza",
+    "city": "Preveza",
     "state": "\u00cdpeiros",
     "country": "Greece"
   },
@@ -440,7 +450,7 @@ export const prCities = [
     "country": "Germany"
   },
   {
-    "city": "Presidente Oleg\u00e1rio",
+    "city": "Presidente Olegario",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -450,7 +460,7 @@ export const prCities = [
     "country": "United States"
   },
   {
-    "city": "Prioz\u00ebrsk",
+    "city": "Priozersk",
     "state": "Leningradskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -575,7 +585,7 @@ export const prCities = [
     "country": "South Africa"
   },
   {
-    "city": "Presidente J\u00e2nio Quadros",
+    "city": "Presidente Janio Quadros",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -590,7 +600,7 @@ export const prCities = [
     "country": "Mexico"
   },
   {
-    "city": "Preu\u00dfisch Oldendorf",
+    "city": "Preussisch Oldendorf",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
   },
@@ -625,7 +635,7 @@ export const prCities = [
     "country": "Belgium"
   },
   {
-    "city": "Pr\u00e9vost",
+    "city": "Prevost",
     "state": "Quebec",
     "country": "Canada"
   },
@@ -645,7 +655,7 @@ export const prCities = [
     "country": "France"
   },
   {
-    "city": "Prattip\u0101du",
+    "city": "Prattipadu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -675,7 +685,7 @@ export const prCities = [
     "country": "Brazil"
   },
   {
-    "city": "Prat\u0101par\u0101mpuram",
+    "city": "Prataparampuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -715,7 +725,7 @@ export const prCities = [
     "country": "United States"
   },
   {
-    "city": "Probi\u0161tip",
+    "city": "Probistip",
     "state": "Probi\u0161tip",
     "country": "North Macedonia"
   },
@@ -770,12 +780,17 @@ export const prCities = [
     "country": "Portugal"
   },
   {
+    "city": "Prelouc",
+    "state": "Pardubick\u00fd Kraj",
+    "country": "Czechia"
+  },
+  {
     "city": "Pryor Creek",
     "state": "Oklahoma",
     "country": "United States"
   },
   {
-    "city": "Prabh\u0101t Pattan",
+    "city": "Prabhat Pattan",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -795,7 +810,7 @@ export const prCities = [
     "country": "France"
   },
   {
-    "city": "Prei\u013ci",
+    "city": "Preili",
     "state": "Prei\u013ci",
     "country": "Latvia"
   },
@@ -820,7 +835,7 @@ export const prCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Pr\u00edncipe da Beira",
+    "city": "Principe da Beira",
     "state": "Rond\u00f4nia",
     "country": "Brazil"
   },
@@ -835,7 +850,7 @@ export const prCities = [
     "country": "Russia"
   },
   {
-    "city": "Pre\u0161evo",
+    "city": "Presevo",
     "state": "Pre\u0161evo",
     "country": "Serbia"
   },

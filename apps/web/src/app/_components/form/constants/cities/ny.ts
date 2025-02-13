@@ -5,7 +5,7 @@ export const nyCities = [
     "country": "Sudan"
   },
   {
-    "city": "Ny\u00edregyh\u00e1za",
+    "city": "Nyiregyhaza",
     "state": "Szabolcs-Szatm\u00e1r-Bereg",
     "country": "Hungary"
   },
@@ -40,7 +40,7 @@ export const nyCities = [
     "country": "Poland"
   },
   {
-    "city": "Nyk\u00f6ping",
+    "city": "Nykoping",
     "state": "S\u00f6dermanland",
     "country": "Sweden"
   },
@@ -55,7 +55,7 @@ export const nyCities = [
     "country": "Rwanda"
   },
   {
-    "city": "Ny\u0101mti",
+    "city": "Nyamti",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -65,7 +65,7 @@ export const nyCities = [
     "country": "Rwanda"
   },
   {
-    "city": "Ny\u016bzen",
+    "city": "Nyuzen",
     "state": "Toyama",
     "country": "Japan"
   },
@@ -80,7 +80,7 @@ export const nyCities = [
     "country": "Switzerland"
   },
   {
-    "city": "Nyk\u00f8bing Falster",
+    "city": "Nykobing Falster",
     "state": "Sj\u00e6lland",
     "country": "Denmark"
   },
@@ -125,7 +125,7 @@ export const nyCities = [
     "country": "Sweden"
   },
   {
-    "city": "Nyn\u00e4shamn",
+    "city": "Nynashamn",
     "state": "Stockholm",
     "country": "Sweden"
   },
@@ -135,7 +135,7 @@ export const nyCities = [
     "country": "Russia"
   },
   {
-    "city": "Ny\u00edrb\u00e1tor",
+    "city": "Nyirbator",
     "state": "Szabolcs-Szatm\u00e1r-Bereg",
     "country": "Hungary"
   },
@@ -155,7 +155,7 @@ export const nyCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Nyk\u00f8bing Mors",
+    "city": "Nykobing Mors",
     "state": "Nordjylland",
     "country": "Denmark"
   },

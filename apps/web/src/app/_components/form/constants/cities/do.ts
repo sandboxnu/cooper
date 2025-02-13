@@ -40,7 +40,7 @@ export const doCities = [
     "country": "Germany"
   },
   {
-    "city": "Dod Ball\u0101pur",
+    "city": "Dod Ballapur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -75,6 +75,16 @@ export const doCities = [
     "country": "Colombia"
   },
   {
+    "city": "Dong Hoi",
+    "state": "Qu\u1ea3ng B\u00ecnh",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Dong Xoai",
+    "state": "B\u00ecnh Ph\u01b0\u1edbc",
+    "country": "Vietnam"
+  },
+  {
     "city": "Dongguazhen",
     "state": "Yunnan",
     "country": "China"
@@ -95,6 +105,11 @@ export const doCities = [
     "country": "United States"
   },
   {
+    "city": "Dortyol",
+    "state": "Hatay",
+    "country": "Turkey"
+  },
+  {
     "city": "Dongsheng",
     "state": "Guangdong",
     "country": "China"
@@ -105,7 +120,7 @@ export const doCities = [
     "country": "Russia"
   },
   {
-    "city": "Dor\u016bd",
+    "city": "Dorud",
     "state": "Lorest\u0101n",
     "country": "Iran"
   },
@@ -115,9 +130,14 @@ export const doCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Do\u011fubayaz\u0131t",
+    "city": "Dogubayazit",
     "state": "A\u011fr\u0131",
     "country": "Turkey"
+  },
+  {
+    "city": "Dong Hoa",
+    "state": "Ph\u00fa Y\u00ean",
+    "country": "Vietnam"
   },
   {
     "city": "Dongsheng",
@@ -150,7 +170,7 @@ export const doCities = [
     "country": "Korea, South"
   },
   {
-    "city": "Do Gonbad\u0101n",
+    "city": "Do Gonbadan",
     "state": "Kohg\u012bl\u016byeh va Bowyer A\u1e29mad",
     "country": "Iran"
   },
@@ -170,6 +190,11 @@ export const doCities = [
     "country": "China"
   },
   {
+    "city": "Dong Ha",
+    "state": "Qu\u1ea3ng Tr\u1ecb",
+    "country": "Vietnam"
+  },
+  {
     "city": "Dobrich",
     "state": "Dobrich",
     "country": "Bulgaria"
@@ -178,6 +203,11 @@ export const doCities = [
     "city": "Dolisie",
     "state": "Niari",
     "country": "Congo (Brazzaville)"
+  },
+  {
+    "city": "Dosemealti",
+    "state": "Antalya",
+    "country": "Turkey"
   },
   {
     "city": "Dobni Para",
@@ -420,7 +450,7 @@ export const doCities = [
     "country": "China"
   },
   {
-    "city": "Dowlat\u0101b\u0101d",
+    "city": "Dowlatabad",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
@@ -430,7 +460,7 @@ export const doCities = [
     "country": "Morocco"
   },
   {
-    "city": "Dohaz\u0101ri",
+    "city": "Dohazari",
     "state": "Chattogram",
     "country": "Bangladesh"
   },
@@ -440,7 +470,7 @@ export const doCities = [
     "country": "France"
   },
   {
-    "city": "Do\u011fan\u015fehir",
+    "city": "Dogansehir",
     "state": "Malatya",
     "country": "Turkey"
   },
@@ -500,7 +530,7 @@ export const doCities = [
     "country": "Ethiopia"
   },
   {
-    "city": "Dois Irm\u00e3os",
+    "city": "Dois Irmaos",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -520,7 +550,7 @@ export const doCities = [
     "country": "Mali"
   },
   {
-    "city": "Do\u00f1a Remedios Trinidad",
+    "city": "Dona Remedios Trinidad",
     "state": "Bulacan",
     "country": "Philippines"
   },
@@ -555,7 +585,7 @@ export const doCities = [
     "country": "Ireland"
   },
   {
-    "city": "Dois C\u00f3rregos",
+    "city": "Dois Corregos",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -605,12 +635,12 @@ export const doCities = [
     "country": "China"
   },
   {
-    "city": "Douar \u2019Ayn Dfali",
+    "city": "Douar 'Ayn Dfali",
     "state": "F\u00e8s-Mekn\u00e8s",
     "country": "Morocco"
   },
   {
-    "city": "Donmat\u00edas",
+    "city": "Donmatias",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -633,6 +663,11 @@ export const doCities = [
     "city": "Dole",
     "state": "Bourgogne-Franche-Comt\u00e9",
     "country": "France"
+  },
+  {
+    "city": "Dobeln",
+    "state": "Saxony",
+    "country": "Germany"
   },
   {
     "city": "Dongshi",
@@ -725,7 +760,7 @@ export const doCities = [
     "country": "South Africa"
   },
   {
-    "city": "Donauw\u00f6rth",
+    "city": "Donauworth",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -770,7 +805,7 @@ export const doCities = [
     "country": "Morocco"
   },
   {
-    "city": "Do\u00f1ihue",
+    "city": "Donihue",
     "state": "Libertador General Bernardo O\u2019Higgins",
     "country": "Chile"
   },
@@ -785,7 +820,7 @@ export const doCities = [
     "country": "United States"
   },
   {
-    "city": "Do\u2019stlik Shahri",
+    "city": "Do'stlik Shahri",
     "state": "Jizzax",
     "country": "Uzbekistan"
   },
@@ -795,7 +830,7 @@ export const doCities = [
     "country": "Belarus"
   },
   {
-    "city": "Doln\u00fd Kub\u00edn",
+    "city": "Dolny Kubin",
     "state": "\u017dilina",
     "country": "Slovakia"
   },
@@ -825,12 +860,12 @@ export const doCities = [
     "country": "Chad"
   },
   {
-    "city": "Dou\u00e9tir\u00e9",
+    "city": "Douetire",
     "state": "Tombouctou",
     "country": "Mali"
   },
   {
-    "city": "Domb\u00f3v\u00e1r",
+    "city": "Dombovar",
     "state": "Tolna",
     "country": "Hungary"
   },
@@ -865,7 +900,7 @@ export const doCities = [
     "country": "Morocco"
   },
   {
-    "city": "Domch\u0101nch",
+    "city": "Domchanch",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -880,7 +915,7 @@ export const doCities = [
     "country": "Comoros"
   },
   {
-    "city": "Do\u2018stobod",
+    "city": "Do`stobod",
     "state": "Toshkent",
     "country": "Uzbekistan"
   },
@@ -895,7 +930,7 @@ export const doCities = [
     "country": "France"
   },
   {
-    "city": "Do\u011fanhisar",
+    "city": "Doganhisar",
     "state": "Konya",
     "country": "Turkey"
   },
@@ -915,7 +950,7 @@ export const doCities = [
     "country": "Mali"
   },
   {
-    "city": "Domani\u00e7",
+    "city": "Domanic",
     "state": "K\u00fctahya",
     "country": "Turkey"
   },
@@ -935,7 +970,7 @@ export const doCities = [
     "country": "Mali"
   },
   {
-    "city": "Douar Souk L\u2018qolla",
+    "city": "Douar Souk L`qolla",
     "state": "Tanger-T\u00e9touan-Al Hoce\u00efma",
     "country": "Morocco"
   },
@@ -965,7 +1000,7 @@ export const doCities = [
     "country": "India"
   },
   {
-    "city": "Doria Son\u0101pur",
+    "city": "Doria Sonapur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -995,12 +1030,12 @@ export const doCities = [
     "country": "Bosnia and Herzegovina"
   },
   {
-    "city": "Dog\u0101chi",
+    "city": "Dogachi",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Dowbar\u0101n",
+    "city": "Dowbaran",
     "state": "F\u0101rs",
     "country": "Iran"
   },
@@ -1020,7 +1055,7 @@ export const doCities = [
     "country": "Taiwan"
   },
   {
-    "city": "Doum\u00e9",
+    "city": "Doume",
     "state": "Collines",
     "country": "Benin"
   },
@@ -1070,7 +1105,7 @@ export const doCities = [
     "country": "Benin"
   },
   {
-    "city": "Dores do Indai\u00e1",
+    "city": "Dores do Indaia",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1110,12 +1145,12 @@ export const doCities = [
     "country": "India"
   },
   {
-    "city": "Dorand\u0101",
+    "city": "Doranda",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
   {
-    "city": "Doran\u0101la",
+    "city": "Doranala",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1125,7 +1160,7 @@ export const doCities = [
     "country": "Thailand"
   },
   {
-    "city": "Dom Bas\u00edlio",
+    "city": "Dom Basilio",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -1155,7 +1190,7 @@ export const doCities = [
     "country": "India"
   },
   {
-    "city": "Doddappan\u0101yakkan\u016br",
+    "city": "Doddappanayakkanur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1195,7 +1230,7 @@ export const doCities = [
     "country": "Morocco"
   },
   {
-    "city": "Domne\u015fti",
+    "city": "Domnesti",
     "state": "Ilfov",
     "country": "Romania"
   },
@@ -1235,7 +1270,7 @@ export const doCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Doma\u017elice",
+    "city": "Domazlice",
     "state": "Plze\u0148sk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -1280,7 +1315,7 @@ export const doCities = [
     "country": "Philippines"
   },
   {
-    "city": "Dona In\u00eas",
+    "city": "Dona Ines",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -1295,7 +1330,7 @@ export const doCities = [
     "country": "Morocco"
   },
   {
-    "city": "Domb\u0101chcheri",
+    "city": "Dombachcheri",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1360,7 +1395,7 @@ export const doCities = [
     "country": "Morocco"
   },
   {
-    "city": "Dod\u00f3ni",
+    "city": "Dodoni",
     "state": "\u00cdpeiros",
     "country": "Greece"
   },
@@ -1380,7 +1415,7 @@ export const doCities = [
     "country": "Poland"
   },
   {
-    "city": "Dobh\u0101w\u0101n",
+    "city": "Dobhawan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1415,7 +1450,7 @@ export const doCities = [
     "country": "Mexico"
   },
   {
-    "city": "Dowlat\u0101b\u0101d",
+    "city": "Dowlatabad",
     "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
     "country": "Iran"
   },
@@ -1438,6 +1473,11 @@ export const doCities = [
     "city": "Douar El Mellaliyine",
     "state": "Tanger-T\u00e9touan-Al Hoce\u00efma",
     "country": "Morocco"
+  },
+  {
+    "city": "Dorverden",
+    "state": "Lower Saxony",
+    "country": "Germany"
   },
   {
     "city": "Dommasandra",
@@ -1475,7 +1515,7 @@ export const doCities = [
     "country": "Morocco"
   },
   {
-    "city": "Dob\u0159\u00ed\u0161",
+    "city": "Dobris",
     "state": "St\u0159edo\u010desk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -1485,12 +1525,12 @@ export const doCities = [
     "country": "South Africa"
   },
   {
-    "city": "Doiw\u0101la",
+    "city": "Doiwala",
     "state": "Uttar\u0101khand",
     "country": "India"
   },
   {
-    "city": "Dom\u00e9rat",
+    "city": "Domerat",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
@@ -1505,7 +1545,7 @@ export const doCities = [
     "country": "Brazil"
   },
   {
-    "city": "Dougouf\u00e9",
+    "city": "Dougoufe",
     "state": "S\u00e9gou",
     "country": "Mali"
   },
@@ -1525,7 +1565,7 @@ export const doCities = [
     "country": "Malawi"
   },
   {
-    "city": "Dondu\u015feni",
+    "city": "Donduseni",
     "state": "Dondu\u015feni",
     "country": "Moldova"
   },
@@ -1535,7 +1575,7 @@ export const doCities = [
     "country": "San Marino"
   },
   {
-    "city": "Dom\u017eale",
+    "city": "Domzale",
     "state": "Dom\u017eale",
     "country": "Slovenia"
   },

@@ -1,5 +1,10 @@
 export const saCities = [
   {
+    "city": "Sao Paulo",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
+  },
+  {
     "city": "Santiago",
     "state": "Regi\u00f3n Metropolitana",
     "country": "Chile"
@@ -85,7 +90,7 @@ export const saCities = [
     "country": "China"
   },
   {
-    "city": "San Jos\u00e9",
+    "city": "San Jose",
     "state": "San Jos\u00e9",
     "country": "Costa Rica"
   },
@@ -125,12 +130,17 @@ export const saCities = [
     "country": "Dominican Republic"
   },
   {
+    "city": "Sao Luis",
+    "state": "Maranh\u00e3o",
+    "country": "Brazil"
+  },
+  {
     "city": "Sanya",
     "state": "Hainan",
     "country": "China"
   },
   {
-    "city": "San Crist\u00f3bal",
+    "city": "San Cristobal",
     "state": "T\u00e1chira",
     "country": "Venezuela"
   },
@@ -143,6 +153,11 @@ export const saCities = [
     "city": "Santiago del Estero",
     "state": "Santiago del Estero",
     "country": "Argentina"
+  },
+  {
+    "city": "Sao Goncalo",
+    "state": "Rio de Janeiro",
+    "country": "Brazil"
   },
   {
     "city": "Saltillo",
@@ -170,17 +185,22 @@ export const saCities = [
     "country": "Japan"
   },
   {
+    "city": "Sao Bernardo do Campo",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
+  },
+  {
     "city": "San Pedro Sula",
     "state": "Cort\u00e9s",
     "country": "Honduras"
   },
   {
-    "city": "San Luis Potos\u00ed",
+    "city": "San Luis Potosi",
     "state": "San Luis Potos\u00ed",
     "country": "Mexico"
   },
   {
-    "city": "Santo Andr\u00e9",
+    "city": "Santo Andre",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -190,9 +210,14 @@ export const saCities = [
     "country": "Japan"
   },
   {
-    "city": "Sah\u0101ranpur",
+    "city": "Saharanpur",
     "state": "Uttar Pradesh",
     "country": "India"
+  },
+  {
+    "city": "Sao Jose dos Campos",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
   },
   {
     "city": "Salem",
@@ -215,12 +240,12 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "San Miguel de Tucum\u00e1n",
+    "city": "San Miguel de Tucuman",
     "state": "Tucum\u00e1n",
     "country": "Argentina"
   },
   {
-    "city": "Sal\u012bmpur",
+    "city": "Salimpur",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -250,6 +275,16 @@ export const saCities = [
     "country": "Colombia"
   },
   {
+    "city": "Sanliurfa",
+    "state": "\u015eanl\u0131urfa",
+    "country": "Turkey"
+  },
+  {
+    "city": "Sao Jose do Rio Preto",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
+  },
+  {
     "city": "San Juan",
     "state": "San Juan",
     "country": "Argentina"
@@ -260,9 +295,14 @@ export const saCities = [
     "country": "Cuba"
   },
   {
-    "city": "San Nicol\u00e1s de los Garza",
+    "city": "San Nicolas de los Garza",
     "state": "Nuevo Le\u00f3n",
     "country": "Mexico"
+  },
+  {
+    "city": "Sangli",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
   },
   {
     "city": "Sanghar",
@@ -305,7 +345,7 @@ export const saCities = [
     "country": "Angola"
   },
   {
-    "city": "San-P\u00e9dro",
+    "city": "San-Pedro",
     "state": "Bas-Sassandra",
     "country": "C\u00f4te d\u2019Ivoire"
   },
@@ -325,7 +365,7 @@ export const saCities = [
     "country": "Bangladesh"
   },
   {
-    "city": "Sasar\u0101m",
+    "city": "Sasaram",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -340,12 +380,12 @@ export const saCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Sawr\u0101n",
+    "city": "Sawran",
     "state": "Arb\u012bl",
     "country": "Iraq"
   },
   {
-    "city": "Sar\u0131yer",
+    "city": "Sariyer",
     "state": "\u0130stanbul",
     "country": "Turkey"
   },
@@ -360,8 +400,23 @@ export const saCities = [
     "country": "Ecuador"
   },
   {
-    "city": "Santar\u00e9m",
+    "city": "Salalah",
+    "state": "Z\u0327uf\u0101r",
+    "country": "Oman"
+  },
+  {
+    "city": "Santarem",
     "state": "Par\u00e1",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sao Vicente",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sao Jose dos Pinhais",
+    "state": "Paran\u00e1",
     "country": "Brazil"
   },
   {
@@ -415,7 +470,7 @@ export const saCities = [
     "country": "Morocco"
   },
   {
-    "city": "Sariw\u014fn",
+    "city": "Sariwon",
     "state": "Hwangbuk",
     "country": "Korea, North"
   },
@@ -425,7 +480,7 @@ export const saCities = [
     "country": "Chile"
   },
   {
-    "city": "San Juan del R\u00edo",
+    "city": "San Juan del Rio",
     "state": "Quer\u00e9taro",
     "country": "Mexico"
   },
@@ -450,7 +505,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "San Juan Sacatep\u00e9quez",
+    "city": "San Juan Sacatepequez",
     "state": "Guatemala",
     "country": "Guatemala"
   },
@@ -490,7 +545,7 @@ export const saCities = [
     "country": "Brazil"
   },
   {
-    "city": "Sart\u0101",
+    "city": "Sarta",
     "state": "M\u0101zandar\u0101n",
     "country": "Iran"
   },
@@ -510,22 +565,32 @@ export const saCities = [
     "country": "Canada"
   },
   {
-    "city": "San Pedro Carch\u00e1",
+    "city": "San Pedro Carcha",
     "state": "Alta Verapaz",
     "country": "Guatemala"
   },
   {
-    "city": "Sab\u2018 al B\u016br",
+    "city": "Sao Carlos",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sab` al Bur",
     "state": "Baghd\u0101d",
     "country": "Iraq"
   },
   {
-    "city": "Sam\u0101stipur",
+    "city": "Samastipur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Sal\u016bmbar",
+    "city": "Sao Jose",
+    "state": "Santa Catarina",
+    "country": "Brazil"
+  },
+  {
+    "city": "Salumbar",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -540,7 +605,12 @@ export const saCities = [
     "country": "Cuba"
   },
   {
-    "city": "Sabzev\u0101r",
+    "city": "Sao Jose de Ribamar",
+    "state": "Maranh\u00e3o",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sabzevar",
     "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
     "country": "Iran"
   },
@@ -560,7 +630,7 @@ export const saCities = [
     "country": "Norway"
   },
   {
-    "city": "San Crist\u00f3bal",
+    "city": "San Cristobal",
     "state": "Valdesia",
     "country": "Dominican Republic"
   },
@@ -575,12 +645,22 @@ export const saCities = [
     "country": "Bangladesh"
   },
   {
+    "city": "Sabya",
+    "state": "J\u0101z\u0101n",
+    "country": "Saudi Arabia"
+  },
+  {
+    "city": "Saqultah",
+    "state": "S\u016bh\u0101j",
+    "country": "Egypt"
+  },
+  {
     "city": "Sandton",
     "state": "Gauteng",
     "country": "South Africa"
   },
   {
-    "city": "Sar\u0131\u00e7am",
+    "city": "Saricam",
     "state": "Adana",
     "country": "Turkey"
   },
@@ -598,6 +678,11 @@ export const saCities = [
     "city": "San Felipe",
     "state": "Yaracuy",
     "country": "Venezuela"
+  },
+  {
+    "city": "Saveh",
+    "state": "Markaz\u012b",
+    "country": "Iran"
   },
   {
     "city": "Santa Luzia",
@@ -620,12 +705,17 @@ export const saCities = [
     "country": "Spain"
   },
   {
+    "city": "Sao Leopoldo",
+    "state": "Rio Grande do Sul",
+    "country": "Brazil"
+  },
+  {
     "city": "San Rafael",
     "state": "Mendoza",
     "country": "Argentina"
   },
   {
-    "city": "Sa \u0110\u00e9c",
+    "city": "Sa Dec",
     "state": "\u0110\u1ed3ng Th\u00e1p",
     "country": "Vietnam"
   },
@@ -640,7 +730,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Sak\u0101k\u0101",
+    "city": "Sakaka",
     "state": "Al Jawf",
     "country": "Saudi Arabia"
   },
@@ -660,7 +750,7 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "San Pedro de Macor\u00eds",
+    "city": "San Pedro de Macoris",
     "state": "Higuamo",
     "country": "Dominican Republic"
   },
@@ -675,7 +765,7 @@ export const saCities = [
     "country": "Pakistan"
   },
   {
-    "city": "San Francisco de Macor\u00eds",
+    "city": "San Francisco de Macoris",
     "state": "Cibao Nordeste",
     "country": "Dominican Republic"
   },
@@ -685,17 +775,17 @@ export const saCities = [
     "country": "Venezuela"
   },
   {
-    "city": "San Crist\u00f3bal",
+    "city": "San Cristobal",
     "state": "Chiapas",
     "country": "Mexico"
   },
   {
-    "city": "Santa B\u00e1rbara d\u2019Oeste",
+    "city": "Santa Barbara d'Oeste",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Saarbr\u00fccken",
+    "city": "Saarbrucken",
     "state": "Saarland",
     "country": "Germany"
   },
@@ -705,17 +795,22 @@ export const saCities = [
     "country": "Colombia"
   },
   {
+    "city": "Satara",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
     "city": "Salinas",
     "state": "California",
     "country": "United States"
   },
   {
-    "city": "San Luis R\u00edo Colorado",
+    "city": "San Luis Rio Colorado",
     "state": "Sonora",
     "country": "Mexico"
   },
   {
-    "city": "Santa Mar\u00eda Texmelucan",
+    "city": "Santa Maria Texmelucan",
     "state": "Puebla",
     "country": "Mexico"
   },
@@ -735,7 +830,7 @@ export const saCities = [
     "country": "Spain"
   },
   {
-    "city": "Saint-\u00c9tienne",
+    "city": "Saint-Etienne",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
@@ -755,7 +850,7 @@ export const saCities = [
     "country": "Argentina"
   },
   {
-    "city": "Sa\u1e29\u0101b",
+    "city": "Sahab",
     "state": "Al \u2018\u0100\u015fimah",
     "country": "Jordan"
   },
@@ -775,6 +870,11 @@ export const saCities = [
     "country": "Indonesia"
   },
   {
+    "city": "Sao Caetano do Sul",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
+  },
+  {
     "city": "Sawangan",
     "state": "Jawa Barat",
     "country": "Indonesia"
@@ -785,7 +885,7 @@ export const saCities = [
     "country": "Iran"
   },
   {
-    "city": "Saw\u0101i M\u0101dhopur",
+    "city": "Sawai Madhopur",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -805,7 +905,7 @@ export const saCities = [
     "country": "Argentina"
   },
   {
-    "city": "San Andr\u00e9s Tuxtla",
+    "city": "San Andres Tuxtla",
     "state": "Veracruz",
     "country": "Mexico"
   },
@@ -820,7 +920,7 @@ export const saCities = [
     "country": "Turkey"
   },
   {
-    "city": "San Miguel del Padr\u00f3n",
+    "city": "San Miguel del Padron",
     "state": "La Habana",
     "country": "Cuba"
   },
@@ -830,7 +930,7 @@ export const saCities = [
     "country": "Haiti"
   },
   {
-    "city": "San Nicol\u00e1s de los Arroyos",
+    "city": "San Nicolas de los Arroyos",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -855,7 +955,7 @@ export const saCities = [
     "country": "Senegal"
   },
   {
-    "city": "Santana de Parna\u00edba",
+    "city": "Santana de Parnaiba",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -915,12 +1015,17 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Sann\u0101r",
+    "city": "Sannar",
     "state": "Sennar",
     "country": "Sudan"
   },
   {
-    "city": "Sancti Sp\u00edritus",
+    "city": "Samarra'",
+    "state": "\u015eal\u0101\u1e29 ad D\u012bn",
+    "country": "Iraq"
+  },
+  {
+    "city": "Sancti Spiritus",
     "state": "Sancti Sp\u00edritus",
     "country": "Cuba"
   },
@@ -930,7 +1035,7 @@ export const saCities = [
     "country": "Argentina"
   },
   {
-    "city": "San Jos\u00e9 del Cabo",
+    "city": "San Jose del Cabo",
     "state": "Baja California Sur",
     "country": "Mexico"
   },
@@ -960,6 +1065,11 @@ export const saCities = [
     "country": "Philippines"
   },
   {
+    "city": "Sao Mateus",
+    "state": "Esp\u00edrito Santo",
+    "country": "Brazil"
+  },
+  {
     "city": "San Luis",
     "state": "Pet\u00e9n",
     "country": "Guatemala"
@@ -970,7 +1080,7 @@ export const saCities = [
     "country": "Dominican Republic"
   },
   {
-    "city": "Sabar\u00e1",
+    "city": "Sabara",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -985,7 +1095,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Sa\u00efda",
+    "city": "Saida",
     "state": "Sa\u00efda",
     "country": "Algeria"
   },
@@ -995,12 +1105,12 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Salm\u0101s",
+    "city": "Salmas",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Gharb\u012b",
     "country": "Iran"
   },
   {
-    "city": "Santa Luc\u00eda Cotzumalguapa",
+    "city": "Santa Lucia Cotzumalguapa",
     "state": "Escuintla",
     "country": "Guatemala"
   },
@@ -1050,17 +1160,17 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "San Pedro Garza Garc\u00eda",
+    "city": "San Pedro Garza Garcia",
     "state": "Nuevo Le\u00f3n",
     "country": "Mexico"
   },
   {
-    "city": "Sarang\u0101puram",
+    "city": "Sarangapuram",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Samanda\u011f",
+    "city": "Samandag",
     "state": "Hatay",
     "country": "Turkey"
   },
@@ -1085,7 +1195,7 @@ export const saCities = [
     "country": "Canada"
   },
   {
-    "city": "Salm\u0101n B\u0101k",
+    "city": "Salman Bak",
     "state": "Baghd\u0101d",
     "country": "Iraq"
   },
@@ -1098,6 +1208,11 @@ export const saCities = [
     "city": "San Tung Chung Hang",
     "state": NaN,
     "country": "Hong Kong"
+  },
+  {
+    "city": "Sao Goncalo do Amarante",
+    "state": "Rio Grande do Norte",
+    "country": "Brazil"
   },
   {
     "city": "San Ildefonso",
@@ -1120,12 +1235,12 @@ export const saCities = [
     "country": "Japan"
   },
   {
-    "city": "Sach\u2019on",
+    "city": "Sach'on",
     "state": "Gyeongnam",
     "country": "Korea, South"
   },
   {
-    "city": "Sak\u00e9t\u00e9",
+    "city": "Sakete",
     "state": "Plateau",
     "country": "Benin"
   },
@@ -1145,9 +1260,14 @@ export const saCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Sa-ch\u2019on",
+    "city": "Sa-ch'on",
     "state": "Gyeongnam",
     "country": "Korea, South"
+  },
+  {
+    "city": "Satkhira",
+    "state": "Khulna",
+    "country": "Bangladesh"
   },
   {
     "city": "San Carlos de Bariloche",
@@ -1155,9 +1275,14 @@ export const saCities = [
     "country": "Argentina"
   },
   {
-    "city": "Santa Luc\u00eda",
+    "city": "Santa Lucia",
     "state": "Miranda",
     "country": "Venezuela"
+  },
+  {
+    "city": "Sahibganj",
+    "state": "Jh\u0101rkhand",
+    "country": "India"
   },
   {
     "city": "Sabara Bangou",
@@ -1170,6 +1295,11 @@ export const saCities = [
     "country": "Philippines"
   },
   {
+    "city": "Sao Lourenco da Mata",
+    "state": "Pernambuco",
+    "country": "Brazil"
+  },
+  {
     "city": "San Antonio Enchisi",
     "state": "M\u00e9xico",
     "country": "Mexico"
@@ -1180,9 +1310,14 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Sandach\u014d",
+    "city": "Sandacho",
     "state": "Hy\u014dgo",
     "country": "Japan"
+  },
+  {
+    "city": "Sam Son",
+    "state": "Thanh H\u00f3a",
+    "country": "Vietnam"
   },
   {
     "city": "Sarh",
@@ -1200,6 +1335,16 @@ export const saCities = [
     "country": "United States"
   },
   {
+    "city": "Sao Pedro da Aldeia",
+    "state": "Rio de Janeiro",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sabac",
+    "state": "\u0160abac",
+    "country": "Serbia"
+  },
+  {
     "city": "Salzgitter",
     "state": "Lower Saxony",
     "country": "Germany"
@@ -1215,7 +1360,7 @@ export const saCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Saij\u014d",
+    "city": "Saijo",
     "state": "Ehime",
     "country": "Japan"
   },
@@ -1225,7 +1370,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Santo Ant\u00f4nio de Jesus",
+    "city": "Santo Antonio de Jesus",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -1243,6 +1388,11 @@ export const saCities = [
     "city": "Saint Helens",
     "state": "St. Helens",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Sabratah",
+    "state": "An Nuq\u0101\u0163 al Khams",
+    "country": "Libya"
   },
   {
     "city": "San Luis de la Paz",
@@ -1270,7 +1420,7 @@ export const saCities = [
     "country": "Laos"
   },
   {
-    "city": "Saint-J\u00e9r\u00f4me",
+    "city": "Saint-Jerome",
     "state": "Quebec",
     "country": "Canada"
   },
@@ -1295,12 +1445,12 @@ export const saCities = [
     "country": "Colombia"
   },
   {
-    "city": "Sayaxch\u00e9",
+    "city": "Sayaxche",
     "state": "Pet\u00e9n",
     "country": "Guatemala"
   },
   {
-    "city": "Santa Cruz del Quich\u00e9",
+    "city": "Santa Cruz del Quiche",
     "state": "Quich\u00e9",
     "country": "Guatemala"
   },
@@ -1340,17 +1490,17 @@ export const saCities = [
     "country": "Canada"
   },
   {
-    "city": "San Cugat del Vall\u00e9s",
+    "city": "San Cugat del Valles",
     "state": "Catalonia",
     "country": "Spain"
   },
   {
-    "city": "Sangolqu\u00ed",
+    "city": "Sangolqui",
     "state": "Pichincha",
     "country": "Ecuador"
   },
   {
-    "city": "Sard\u0101rshahr",
+    "city": "Sardarshahr",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -1360,22 +1510,27 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Saint-Michel de l\u2019Atalaye",
+    "city": "Sao Cristovao",
+    "state": "Sergipe",
+    "country": "Brazil"
+  },
+  {
+    "city": "Saint-Michel de l'Atalaye",
     "state": "Artibonite",
     "country": "Haiti"
   },
   {
-    "city": "San Ram\u00f3n",
+    "city": "San Ramon",
     "state": "Regi\u00f3n Metropolitana",
     "country": "Chile"
   },
   {
-    "city": "San Mart\u00edn Jilotepeque",
+    "city": "San Martin Jilotepeque",
     "state": "Chimaltenango",
     "country": "Guatemala"
   },
   {
-    "city": "San Joaqu\u00edn",
+    "city": "San Joaquin",
     "state": "Regi\u00f3n Metropolitana",
     "country": "Chile"
   },
@@ -1390,17 +1545,17 @@ export const saCities = [
     "country": "Spain"
   },
   {
-    "city": "San Jos\u00e9 del Rinc\u00f3n Centro",
+    "city": "San Jose del Rincon Centro",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
   {
-    "city": "Sanj\u014d",
+    "city": "Sanjo",
     "state": "Niigata",
     "country": "Japan"
   },
   {
-    "city": "San Germ\u00e1n",
+    "city": "San German",
     "state": "Puerto Rico",
     "country": "Puerto Rico"
   },
@@ -1410,7 +1565,7 @@ export const saCities = [
     "country": "Russia"
   },
   {
-    "city": "Santa Cruz Xoxocotl\u00e1n",
+    "city": "Santa Cruz Xoxocotlan",
     "state": "Oaxaca",
     "country": "Mexico"
   },
@@ -1420,7 +1575,7 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "San Sebasti\u00e1n de los Reyes",
+    "city": "San Sebastian de los Reyes",
     "state": "Madrid",
     "country": "Spain"
   },
@@ -1428,6 +1583,11 @@ export const saCities = [
     "city": "Sablayan",
     "state": "Occidental Mindoro",
     "country": "Philippines"
+  },
+  {
+    "city": "Sao Joao da Boa Vista",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
   },
   {
     "city": "Santa Barbara",
@@ -1440,6 +1600,11 @@ export const saCities = [
     "country": "United States"
   },
   {
+    "city": "Sao Roque",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
+  },
+  {
     "city": "Satsumasendai",
     "state": "Kagoshima",
     "country": "Japan"
@@ -1450,7 +1615,7 @@ export const saCities = [
     "country": "Romania"
   },
   {
-    "city": "Sam\u0101l\u016b\u0163",
+    "city": "Samalut",
     "state": "Al Miny\u0101",
     "country": "Egypt"
   },
@@ -1465,9 +1630,14 @@ export const saCities = [
     "country": "Argentina"
   },
   {
-    "city": "Sahag\u00fan",
+    "city": "Sahagun",
     "state": "C\u00f3rdoba",
     "country": "Colombia"
+  },
+  {
+    "city": "Sao Joao del Rei",
+    "state": "Minas Gerais",
+    "country": "Brazil"
   },
   {
     "city": "San Leandro",
@@ -1475,7 +1645,7 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "San Jos\u00e9 Pinula",
+    "city": "San Jose Pinula",
     "state": "Guatemala",
     "country": "Guatemala"
   },
@@ -1505,7 +1675,7 @@ export const saCities = [
     "country": "Cuba"
   },
   {
-    "city": "Sangr\u016br",
+    "city": "Sangrur",
     "state": "Punjab",
     "country": "India"
   },
@@ -1535,6 +1705,11 @@ export const saCities = [
     "country": "Philippines"
   },
   {
+    "city": "Satrovka",
+    "state": "Salyan",
+    "country": "Azerbaijan"
+  },
+  {
     "city": "Santa Catarina Pinula",
     "state": "Guatemala",
     "country": "Guatemala"
@@ -1555,22 +1730,27 @@ export const saCities = [
     "country": "Chile"
   },
   {
+    "city": "Sarni",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
     "city": "San Ramon",
     "state": "California",
     "country": "United States"
   },
   {
-    "city": "San Pedro Sacatep\u00e9quez",
+    "city": "San Pedro Sacatepequez",
     "state": "San Marcos",
     "country": "Guatemala"
   },
   {
-    "city": "Santa In\u00eas",
+    "city": "Santa Ines",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
   {
-    "city": "Sayh\u0101t",
+    "city": "Sayhat",
     "state": "Ash Sharq\u012byah",
     "country": "Saudi Arabia"
   },
@@ -1595,9 +1775,14 @@ export const saCities = [
     "country": "Spain"
   },
   {
-    "city": "Samadi\u0101la",
+    "city": "Samadiala",
     "state": "Gujar\u0101t",
     "country": "India"
+  },
+  {
+    "city": "Sao Bento do Sul",
+    "state": "Santa Catarina",
+    "country": "Brazil"
   },
   {
     "city": "San Antonio",
@@ -1630,7 +1815,12 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "San Jos\u00e9 de las Lajas",
+    "city": "Sao Sebastiao",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
+  },
+  {
+    "city": "San Jose de las Lajas",
     "state": "Mayabeque",
     "country": "Cuba"
   },
@@ -1645,22 +1835,22 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "San Crist\u00f3bal Verapaz",
+    "city": "San Cristobal Verapaz",
     "state": "Alta Verapaz",
     "country": "Guatemala"
   },
   {
-    "city": "San Ram\u00f3n",
+    "city": "San Ramon",
     "state": "Alajuela",
     "country": "Costa Rica"
   },
   {
-    "city": "Sam\u0101\u2019il",
+    "city": "Sama'il",
     "state": "Ad D\u0101khil\u012byah",
     "country": "Oman"
   },
   {
-    "city": "San Andr\u00e9s Cholula",
+    "city": "San Andres Cholula",
     "state": "Puebla",
     "country": "Mexico"
   },
@@ -1675,7 +1865,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "San Mart\u00edn",
+    "city": "San Martin",
     "state": "Mendoza",
     "country": "Argentina"
   },
@@ -1705,7 +1895,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Santo \u00c2ngelo",
+    "city": "Santo Angelo",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -1715,7 +1905,7 @@ export const saCities = [
     "country": "South Africa"
   },
   {
-    "city": "San Ram\u00f3n de la Nueva Or\u00e1n",
+    "city": "San Ramon de la Nueva Oran",
     "state": "Salta",
     "country": "Argentina"
   },
@@ -1740,7 +1930,7 @@ export const saCities = [
     "country": "Argentina"
   },
   {
-    "city": "Saint-Maur-des-Foss\u00e9s",
+    "city": "Saint-Maur-des-Fosses",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -1780,17 +1970,17 @@ export const saCities = [
     "country": "Colombia"
   },
   {
-    "city": "Santa Isabel do Par\u00e1",
+    "city": "Santa Isabel do Para",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "San Vicente del Cagu\u00e1n",
+    "city": "San Vicente del Caguan",
     "state": "Caquet\u00e1",
     "country": "Colombia"
   },
   {
-    "city": "San Mart\u00edn",
+    "city": "San Martin",
     "state": "San Salvador",
     "country": "El Salvador"
   },
@@ -1805,12 +1995,12 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Samborond\u00f3n",
+    "city": "Samborondon",
     "state": "Guayas",
     "country": "Ecuador"
   },
   {
-    "city": "Sang\u0101reddi",
+    "city": "Sangareddi",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1820,7 +2010,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Santo Ant\u00f4nio do Descoberto",
+    "city": "Santo Antonio do Descoberto",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -1835,9 +2025,14 @@ export const saCities = [
     "country": "Canada"
   },
   {
-    "city": "San Andr\u00e9s",
+    "city": "San Andres",
     "state": "San Andr\u00e9s y Providencia",
     "country": "Colombia"
+  },
+  {
+    "city": "Sao Sebastiao do Paraiso",
+    "state": "Minas Gerais",
+    "country": "Brazil"
   },
   {
     "city": "Sambrial",
@@ -1855,12 +2050,12 @@ export const saCities = [
     "country": "Portugal"
   },
   {
-    "city": "Salam\u00e1",
+    "city": "Salama",
     "state": "Baja Verapaz",
     "country": "Guatemala"
   },
   {
-    "city": "San Francisco del Rinc\u00f3n",
+    "city": "San Francisco del Rincon",
     "state": "Guanajuato",
     "country": "Mexico"
   },
@@ -1870,14 +2065,19 @@ export const saCities = [
     "country": "Cambodia"
   },
   {
-    "city": "Sankaranayin\u0101r Kovil",
+    "city": "Sankaranayinar Kovil",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Santa Mar\u00eda La Pila",
+    "city": "Santa Maria La Pila",
     "state": "Alta Verapaz",
     "country": "Guatemala"
+  },
+  {
+    "city": "Sa`dah",
+    "state": "\u015ea\u2018dah",
+    "country": "Yemen"
   },
   {
     "city": "San Antonio",
@@ -1915,7 +2115,7 @@ export const saCities = [
     "country": "Mexico"
   },
   {
-    "city": "Sanl\u00facar de Barrameda",
+    "city": "Sanlucar de Barrameda",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -1930,7 +2130,7 @@ export const saCities = [
     "country": "Haiti"
   },
   {
-    "city": "Samch\u2019\u014fk",
+    "city": "Samch'ok",
     "state": "Gangwon",
     "country": "Korea, South"
   },
@@ -1940,12 +2140,12 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "San Jos\u00e9 del Guaviare",
+    "city": "San Jose del Guaviare",
     "state": "Guaviare",
     "country": "Colombia"
   },
   {
-    "city": "Say\u2019\u016bn",
+    "city": "Say'un",
     "state": "\u1e28a\u1e11ramawt",
     "country": "Yemen"
   },
@@ -1965,12 +2165,17 @@ export const saCities = [
     "country": "Angola"
   },
   {
+    "city": "Saki",
+    "state": "\u015e\u0259ki",
+    "country": "Azerbaijan"
+  },
+  {
     "city": "San Pedro Ayampuc",
     "state": "Guatemala",
     "country": "Guatemala"
   },
   {
-    "city": "Sant\u2019Eufemia Lamezia",
+    "city": "Sant'Eufemia Lamezia",
     "state": "Calabria",
     "country": "Italy"
   },
@@ -1995,7 +2200,7 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "Sa\u2019ada",
+    "city": "Sa'ada",
     "state": "Marrakech-Safi",
     "country": "Morocco"
   },
@@ -2020,7 +2225,7 @@ export const saCities = [
     "country": "Japan"
   },
   {
-    "city": "Sahasw\u0101n",
+    "city": "Sahaswan",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -2040,7 +2245,7 @@ export const saCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Santo Tom\u00e9",
+    "city": "Santo Tome",
     "state": "Santa Fe",
     "country": "Argentina"
   },
@@ -2050,9 +2255,19 @@ export const saCities = [
     "country": "Guatemala"
   },
   {
-    "city": "San Antonio Suchitep\u00e9quez",
+    "city": "San Antonio Suchitepequez",
     "state": "Suchitep\u00e9quez",
     "country": "Guatemala"
+  },
+  {
+    "city": "Sao Tome",
+    "state": "\u00c1gua Grande",
+    "country": "Sao Tome and Principe"
+  },
+  {
+    "city": "Sao Felix do Xingu",
+    "state": "Par\u00e1",
+    "country": "Brazil"
   },
   {
     "city": "San Jose",
@@ -2095,7 +2310,7 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Sangm\u00e9lima",
+    "city": "Sangmelima",
     "state": "Sud",
     "country": "Cameroon"
   },
@@ -2120,7 +2335,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Santar\u00e9m",
+    "city": "Santarem",
     "state": "Santar\u00e9m",
     "country": "Portugal"
   },
@@ -2128,6 +2343,16 @@ export const saCities = [
     "city": "San Francisco",
     "state": "C\u00f3rdoba",
     "country": "Argentina"
+  },
+  {
+    "city": "Satbayev",
+    "state": "Ulyta\u016b",
+    "country": "Kazakhstan"
+  },
+  {
+    "city": "Sao Miguel dos Campos",
+    "state": "Alagoas",
+    "country": "Brazil"
   },
   {
     "city": "Saraburi",
@@ -2145,12 +2370,12 @@ export const saCities = [
     "country": "Guatemala"
   },
   {
-    "city": "San Antonio del T\u00e1chira",
+    "city": "San Antonio del Tachira",
     "state": "T\u00e1chira",
     "country": "Venezuela"
   },
   {
-    "city": "Sayyid \u015e\u0101diq",
+    "city": "Sayyid Sadiq",
     "state": "As Sulaym\u0101n\u012byah",
     "country": "Iraq"
   },
@@ -2165,7 +2390,7 @@ export const saCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Santa Catarina Ixtahuac\u00e1n",
+    "city": "Santa Catarina Ixtahuacan",
     "state": "Solol\u00e1",
     "country": "Guatemala"
   },
@@ -2185,7 +2410,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Santa Rosa de Cop\u00e1n",
+    "city": "Santa Rosa de Copan",
     "state": "Cop\u00e1n",
     "country": "Honduras"
   },
@@ -2195,12 +2420,12 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Sarand\u00ed",
+    "city": "Sarandi",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
   {
-    "city": "San Mateo Ixtat\u00e1n",
+    "city": "San Mateo Ixtatan",
     "state": "Huehuetenango",
     "country": "Guatemala"
   },
@@ -2215,7 +2440,12 @@ export const saCities = [
     "country": "Thailand"
   },
   {
-    "city": "Sar\u0101v\u0101n",
+    "city": "Sao Borja",
+    "state": "Rio Grande do Sul",
+    "country": "Brazil"
+  },
+  {
+    "city": "Saravan",
     "state": "S\u012bst\u0101n va Bal\u016bchest\u0101n",
     "country": "Iran"
   },
@@ -2230,7 +2460,7 @@ export const saCities = [
     "country": "Spain"
   },
   {
-    "city": "Sany\u014d-Onoda",
+    "city": "Sanyo-Onoda",
     "state": "Yamaguchi",
     "country": "Japan"
   },
@@ -2255,7 +2485,7 @@ export const saCities = [
     "country": "Haiti"
   },
   {
-    "city": "Santa Mar\u00eda Chiquimula",
+    "city": "Santa Maria Chiquimula",
     "state": "Totonicap\u00e1n",
     "country": "Guatemala"
   },
@@ -2268,6 +2498,11 @@ export const saCities = [
     "city": "Sardhana",
     "state": "Uttar Pradesh",
     "country": "India"
+  },
+  {
+    "city": "Sao Gabriel",
+    "state": "Rio Grande do Sul",
+    "country": "Brazil"
   },
   {
     "city": "San Pedro",
@@ -2285,7 +2520,7 @@ export const saCities = [
     "country": "Chile"
   },
   {
-    "city": "Sand\u012bla",
+    "city": "Sandila",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -2295,7 +2530,7 @@ export const saCities = [
     "country": "Italy"
   },
   {
-    "city": "Saman\u00e1",
+    "city": "Samana",
     "state": "Cibao Nordeste",
     "country": "Dominican Republic"
   },
@@ -2325,12 +2560,12 @@ export const saCities = [
     "country": "Canada"
   },
   {
-    "city": "Samann\u016bd",
+    "city": "Samannud",
     "state": "Al Gharb\u012byah",
     "country": "Egypt"
   },
   {
-    "city": "Sarapiqu\u00ed",
+    "city": "Sarapiqui",
     "state": "Heredia",
     "country": "Costa Rica"
   },
@@ -2338,6 +2573,11 @@ export const saCities = [
     "city": "San Luis",
     "state": "Ozama",
     "country": "Dominican Republic"
+  },
+  {
+    "city": "Samalkot",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Santa Rosa",
@@ -2350,7 +2590,7 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "San Pedro Sacatep\u00e9quez",
+    "city": "San Pedro Sacatepequez",
     "state": "Guatemala",
     "country": "Guatemala"
   },
@@ -2365,7 +2605,7 @@ export const saCities = [
     "country": "Malaysia"
   },
   {
-    "city": "San Andr\u00e9s Villa Seca",
+    "city": "San Andres Villa Seca",
     "state": "Retalhuleu",
     "country": "Guatemala"
   },
@@ -2375,12 +2615,12 @@ export const saCities = [
     "country": "Colombia"
   },
   {
-    "city": "Sankt P\u00f6lten",
+    "city": "Sankt Polten",
     "state": "Nieder\u00f6sterreich",
     "country": "Austria"
   },
   {
-    "city": "San Agust\u00edn Acasaguastl\u00e1n",
+    "city": "San Agustin Acasaguastlan",
     "state": "El Progreso",
     "country": "Guatemala"
   },
@@ -2410,7 +2650,7 @@ export const saCities = [
     "country": "Norway"
   },
   {
-    "city": "Saruhanl\u0131",
+    "city": "Saruhanli",
     "state": "Manisa",
     "country": "Turkey"
   },
@@ -2423,6 +2663,11 @@ export const saCities = [
     "city": "Santa Elena",
     "state": "Santa Elena",
     "country": "Ecuador"
+  },
+  {
+    "city": "Sagar",
+    "state": "Karn\u0101taka",
+    "country": "India"
   },
   {
     "city": "San Isidro",
@@ -2450,14 +2695,29 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Sam\u0101na",
+    "city": "Samana",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "San Bartolom\u00e9",
+    "city": "Sao Goncalo do Amarante",
+    "state": "Cear\u00e1",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sabbashahr",
+    "state": "Tehr\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "San Bartolome",
     "state": "Canary Islands",
     "country": "Spain"
+  },
+  {
+    "city": "Sao Francisco do Sul",
+    "state": "Santa Catarina",
+    "country": "Brazil"
   },
   {
     "city": "Sakon Nakhon",
@@ -2465,7 +2725,7 @@ export const saCities = [
     "country": "Thailand"
   },
   {
-    "city": "Santa Luc\u00eda",
+    "city": "Santa Lucia",
     "state": "Holgu\u00edn",
     "country": "Cuba"
   },
@@ -2510,12 +2770,22 @@ export const saCities = [
     "country": "France"
   },
   {
+    "city": "Sao Miguel do Guama",
+    "state": "Par\u00e1",
+    "country": "Brazil"
+  },
+  {
     "city": "San Remo",
     "state": "Liguria",
     "country": "Italy"
   },
   {
-    "city": "San Jos\u00e9 Villa de Allende",
+    "city": "Sao Francisco",
+    "state": "Minas Gerais",
+    "country": "Brazil"
+  },
+  {
+    "city": "San Jose Villa de Allende",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
@@ -2525,12 +2795,12 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "San Miguel Ixtahuac\u00e1n",
+    "city": "San Miguel Ixtahuacan",
     "state": "San Marcos",
     "country": "Guatemala"
   },
   {
-    "city": "Santo Est\u00eav\u00e3o",
+    "city": "Santo Estevao",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -2538,6 +2808,11 @@ export const saCities = [
     "city": "San Pablo",
     "state": "San Marcos",
     "country": "Guatemala"
+  },
+  {
+    "city": "Sao Jose do Rio Pardo",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
   },
   {
     "city": "San Onofre",
@@ -2555,6 +2830,11 @@ export const saCities = [
     "country": "Colombia"
   },
   {
+    "city": "Sao Gabriel da Cachoeira",
+    "state": "Amazonas",
+    "country": "Brazil"
+  },
+  {
     "city": "Santa Ignacia",
     "state": "Tarlac",
     "country": "Philippines"
@@ -2565,7 +2845,7 @@ export const saCities = [
     "country": "Thailand"
   },
   {
-    "city": "Sap\u00e9",
+    "city": "Sape",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -2590,7 +2870,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Sakaidech\u014d",
+    "city": "Sakaidecho",
     "state": "Kagawa",
     "country": "Japan"
   },
@@ -2630,9 +2910,14 @@ export const saCities = [
     "country": "Mexico"
   },
   {
-    "city": "Santa Luc\u00eda del Camino",
+    "city": "Santa Lucia del Camino",
     "state": "Oaxaca",
     "country": "Mexico"
+  },
+  {
+    "city": "Sao Bento do Una",
+    "state": "Pernambuco",
+    "country": "Brazil"
   },
   {
     "city": "Santiago",
@@ -2660,7 +2945,7 @@ export const saCities = [
     "country": "Turkey"
   },
   {
-    "city": "Santo Domingo Suchitep\u00e9quez",
+    "city": "Santo Domingo Suchitepequez",
     "state": "Suchitep\u00e9quez",
     "country": "Guatemala"
   },
@@ -2673,6 +2958,11 @@ export const saCities = [
     "city": "Sanare",
     "state": "Lara",
     "country": "Venezuela"
+  },
+  {
+    "city": "Sao Joaquim da Barra",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
   },
   {
     "city": "San Pedro Mixtepec",
@@ -2695,9 +2985,14 @@ export const saCities = [
     "country": "China"
   },
   {
-    "city": "Sad\u0101seopet",
+    "city": "Sadaseopet",
     "state": "Telang\u0101na",
     "country": "India"
+  },
+  {
+    "city": "Sao Benedito",
+    "state": "Cear\u00e1",
+    "country": "Brazil"
   },
   {
     "city": "San Lorenzo",
@@ -2725,7 +3020,12 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "San Andr\u00e9s de Sotavento",
+    "city": "Sao Jose de Mipibu",
+    "state": "Rio Grande do Norte",
+    "country": "Brazil"
+  },
+  {
+    "city": "San Andres de Sotavento",
     "state": "C\u00f3rdoba",
     "country": "Colombia"
   },
@@ -2785,6 +3085,11 @@ export const saCities = [
     "country": "Iran"
   },
   {
+    "city": "Sao Bento",
+    "state": "Maranh\u00e3o",
+    "country": "Brazil"
+  },
+  {
     "city": "San Lorenzo",
     "state": "Santa Fe",
     "country": "Argentina"
@@ -2800,7 +3105,7 @@ export const saCities = [
     "country": "Spain"
   },
   {
-    "city": "San Fel\u00edu de Llobregat",
+    "city": "San Feliu de Llobregat",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -2820,12 +3125,12 @@ export const saCities = [
     "country": "Cuba"
   },
   {
-    "city": "Santa Mar\u00eda Huatulco",
+    "city": "Santa Maria Huatulco",
     "state": "Oaxaca",
     "country": "Mexico"
   },
   {
-    "city": "Sangar\u00e9bougou",
+    "city": "Sangarebougou",
     "state": "Koulikoro",
     "country": "Mali"
   },
@@ -2860,27 +3165,32 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Sach\u012bn",
+    "city": "Sachin",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Sagua de T\u00e1namo",
+    "city": "Sagua de Tanamo",
     "state": "Holgu\u00edn",
     "country": "Cuba"
   },
   {
-    "city": "Santiago Atitl\u00e1n",
+    "city": "Santiago Atitlan",
     "state": "Solol\u00e1",
     "country": "Guatemala"
   },
   {
-    "city": "Santa B\u00e1rbara",
+    "city": "Santa Barbara",
     "state": "Huehuetenango",
     "country": "Guatemala"
   },
   {
-    "city": "Santana do Para\u00edso",
+    "city": "Santana do Paraiso",
+    "state": "Minas Gerais",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sao Lourenco",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -2895,7 +3205,7 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "San Pedro Perulap\u00e1n",
+    "city": "San Pedro Perulapan",
     "state": "Cuscatl\u00e1n",
     "country": "El Salvador"
   },
@@ -2925,7 +3235,12 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Santo Ant\u00f4nio da Platina",
+    "city": "Sao Sebastiao do Passe",
+    "state": "Bahia",
+    "country": "Brazil"
+  },
+  {
+    "city": "Santo Antonio da Platina",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -2940,9 +3255,14 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "San Juan y Mart\u00ednez",
+    "city": "San Juan y Martinez",
     "state": "Pinar del R\u00edo",
     "country": "Cuba"
+  },
+  {
+    "city": "Sao Miguel d'Oeste",
+    "state": "Santa Catarina",
+    "country": "Brazil"
   },
   {
     "city": "Saint-Brieuc",
@@ -2975,7 +3295,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Saw\u0101kin",
+    "city": "Sawakin",
     "state": "Red Sea",
     "country": "Sudan"
   },
@@ -2985,7 +3305,7 @@ export const saCities = [
     "country": "Chile"
   },
   {
-    "city": "San Sebasti\u00e1n Huehuetenango",
+    "city": "San Sebastian Huehuetenango",
     "state": "Huehuetenango",
     "country": "Guatemala"
   },
@@ -2993,6 +3313,11 @@ export const saCities = [
     "city": "San Bruno",
     "state": "California",
     "country": "United States"
+  },
+  {
+    "city": "San al Hajar al Qibliyah",
+    "state": "Ash Sharq\u012byah",
+    "country": "Egypt"
   },
   {
     "city": "Santa Cruz",
@@ -3005,12 +3330,12 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "Santo Ant\u00f4nio",
+    "city": "Santo Antonio",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
   {
-    "city": "San Crist\u00f3bal Totonicap\u00e1n",
+    "city": "San Cristobal Totonicapan",
     "state": "Totonicap\u00e1n",
     "country": "Guatemala"
   },
@@ -3025,14 +3350,19 @@ export const saCities = [
     "country": "Canada"
   },
   {
-    "city": "Sar\u0131kam\u0131\u015f",
+    "city": "Sarikamis",
     "state": "Kars",
     "country": "Turkey"
   },
   {
-    "city": "San Francisco Men\u00e9ndez",
+    "city": "San Francisco Menendez",
     "state": "Ahuachap\u00e1n",
     "country": "El Salvador"
+  },
+  {
+    "city": "Salar",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "San Giorgio a Cremano",
@@ -3060,6 +3390,11 @@ export const saCities = [
     "country": "Philippines"
   },
   {
+    "city": "Sao Mateus do Sul",
+    "state": "Paran\u00e1",
+    "country": "Brazil"
+  },
+  {
     "city": "Sarakhs",
     "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
     "country": "Iran"
@@ -3070,12 +3405,12 @@ export const saCities = [
     "country": "Russia"
   },
   {
-    "city": "Sar\u0101b",
+    "city": "Sarab",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Sharq\u012b",
     "country": "Iran"
   },
   {
-    "city": "San Jos\u00e9 de Bocay",
+    "city": "San Jose de Bocay",
     "state": "Jinotega",
     "country": "Nicaragua"
   },
@@ -3085,7 +3420,12 @@ export const saCities = [
     "country": "Colombia"
   },
   {
-    "city": "Santa Mar\u00eda Atzompa",
+    "city": "Sao Lourenco do Sul",
+    "state": "Rio Grande do Sul",
+    "country": "Brazil"
+  },
+  {
+    "city": "Santa Maria Atzompa",
     "state": "Oaxaca",
     "country": "Mexico"
   },
@@ -3100,7 +3440,7 @@ export const saCities = [
     "country": "Russia"
   },
   {
-    "city": "Santa B\u00e1rbara",
+    "city": "Santa Barbara",
     "state": "Santa B\u00e1rbara",
     "country": "Honduras"
   },
@@ -3130,9 +3470,14 @@ export const saCities = [
     "country": "Brazil"
   },
   {
-    "city": "San Don\u00e0 di Piave",
+    "city": "San Dona di Piave",
     "state": "Veneto",
     "country": "Italy"
+  },
+  {
+    "city": "Sanand",
+    "state": "Gujar\u0101t",
+    "country": "India"
   },
   {
     "city": "Sagauli",
@@ -3150,7 +3495,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Santo Ant\u00f4nio de P\u00e1dua",
+    "city": "Santo Antonio de Padua",
     "state": "Rio de Janeiro",
     "country": "Brazil"
   },
@@ -3160,7 +3505,7 @@ export const saCities = [
     "country": "Honduras"
   },
   {
-    "city": "Santa Eulalia del R\u00edo",
+    "city": "Santa Eulalia del Rio",
     "state": "Balearic Islands",
     "country": "Spain"
   },
@@ -3170,12 +3515,12 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Sarand\u00eb",
+    "city": "Sarande",
     "state": "Vlor\u00eb",
     "country": "Albania"
   },
   {
-    "city": "Salin\u00f3polis",
+    "city": "Salinopolis",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -3195,9 +3540,14 @@ export const saCities = [
     "country": "Italy"
   },
   {
-    "city": "Santa Rita do Sapuca\u00ed",
+    "city": "Santa Rita do Sapucai",
     "state": "Minas Gerais",
     "country": "Brazil"
+  },
+  {
+    "city": "Samkir",
+    "state": "\u015e\u0259mkir",
+    "country": "Azerbaijan"
   },
   {
     "city": "Santa Maria da Boa Vista",
@@ -3220,7 +3570,7 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "Santa Quit\u00e9ria",
+    "city": "Santa Quiteria",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -3245,7 +3595,7 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "Sam\u0101lkha",
+    "city": "Samalkha",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -3260,7 +3610,7 @@ export const saCities = [
     "country": "Cuba"
   },
   {
-    "city": "Sar\u0101qib",
+    "city": "Saraqib",
     "state": "Idlib",
     "country": "Syria"
   },
@@ -3275,7 +3625,7 @@ export const saCities = [
     "country": "Japan"
   },
   {
-    "city": "Santo Ni\u00f1o",
+    "city": "Santo Nino",
     "state": "South Cotabato",
     "country": "Philippines"
   },
@@ -3285,12 +3635,22 @@ export const saCities = [
     "country": "Philippines"
   },
   {
+    "city": "Samaxi",
+    "state": "\u015eamax\u0131",
+    "country": "Azerbaijan"
+  },
+  {
     "city": "Salcedo",
     "state": "Cibao Nordeste",
     "country": "Dominican Republic"
   },
   {
-    "city": "San Jos\u00e9 de Ocoa",
+    "city": "Sao Goncalo dos Campos",
+    "state": "Bahia",
+    "country": "Brazil"
+  },
+  {
+    "city": "San Jose de Ocoa",
     "state": "Valdesia",
     "country": "Dominican Republic"
   },
@@ -3330,6 +3690,16 @@ export const saCities = [
     "country": "Russia"
   },
   {
+    "city": "Sao Fidelis",
+    "state": "Rio de Janeiro",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sao Raimundo Nonato",
+    "state": "Piau\u00ed",
+    "country": "Brazil"
+  },
+  {
     "city": "San Nicolas",
     "state": "Ilocos Norte",
     "country": "Philippines"
@@ -3345,7 +3715,12 @@ export const saCities = [
     "country": "Kazakhstan"
   },
   {
-    "city": "Santa Helena de Goi\u00e1s",
+    "city": "Sao Mateus do Maranhao",
+    "state": "Maranh\u00e3o",
+    "country": "Brazil"
+  },
+  {
+    "city": "Santa Helena de Goias",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -3355,7 +3730,7 @@ export const saCities = [
     "country": "Japan"
   },
   {
-    "city": "San Jos\u00e9 de Las Matas",
+    "city": "San Jose de Las Matas",
     "state": "Cibao Norte",
     "country": "Dominican Republic"
   },
@@ -3365,7 +3740,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Santa Maria da Vit\u00f3ria",
+    "city": "Santa Maria da Vitoria",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -3385,12 +3760,12 @@ export const saCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "San Felipe Orizatl\u00e1n",
+    "city": "San Felipe Orizatlan",
     "state": "Hidalgo",
     "country": "Mexico"
   },
   {
-    "city": "Saint-Martin-d\u2019H\u00e8res",
+    "city": "Saint-Martin-d'Heres",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
@@ -3400,12 +3775,17 @@ export const saCities = [
     "country": "Italy"
   },
   {
+    "city": "Sarkisla",
+    "state": "Sivas",
+    "country": "Turkey"
+  },
+  {
     "city": "Samal",
     "state": "Bataan",
     "country": "Philippines"
   },
   {
-    "city": "San Germ\u00e1n",
+    "city": "San German",
     "state": "Holgu\u00edn",
     "country": "Cuba"
   },
@@ -3425,7 +3805,7 @@ export const saCities = [
     "country": "Venezuela"
   },
   {
-    "city": "San P\u00e9dro Jocopilas",
+    "city": "San Pedro Jocopilas",
     "state": "Quich\u00e9",
     "country": "Guatemala"
   },
@@ -3440,12 +3820,12 @@ export const saCities = [
     "country": "Mexico"
   },
   {
-    "city": "Sampu\u00e9s",
+    "city": "Sampues",
     "state": "Sucre",
     "country": "Colombia"
   },
   {
-    "city": "San Adri\u00e1n de Bes\u00f3s",
+    "city": "San Adrian de Besos",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -3465,7 +3845,7 @@ export const saCities = [
     "country": "Argentina"
   },
   {
-    "city": "San Sebasti\u00e1n de Mariquita",
+    "city": "San Sebastian de Mariquita",
     "state": "Tolima",
     "country": "Colombia"
   },
@@ -3475,12 +3855,17 @@ export const saCities = [
     "country": "Philippines"
   },
   {
+    "city": "Sao Francisco do Conde",
+    "state": "Bahia",
+    "country": "Brazil"
+  },
+  {
     "city": "San Marcelino",
     "state": "Zambales",
     "country": "Philippines"
   },
   {
-    "city": "Sat\u0101n\u0101",
+    "city": "Satana",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -3490,7 +3875,7 @@ export const saCities = [
     "country": "China"
   },
   {
-    "city": "Salto del Guair\u00e1",
+    "city": "Salto del Guaira",
     "state": "Canindey\u00fa",
     "country": "Paraguay"
   },
@@ -3520,7 +3905,12 @@ export const saCities = [
     "country": "Croatia"
   },
   {
-    "city": "Sand\u016br",
+    "city": "Sarangpur",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Sandur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -3540,12 +3930,17 @@ export const saCities = [
     "country": "Mali"
   },
   {
+    "city": "Sao Manuel",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
+  },
+  {
     "city": "Salvatierra",
     "state": "Guanajuato",
     "country": "Mexico"
   },
   {
-    "city": "Santiago Sacatep\u00e9quez",
+    "city": "Santiago Sacatepequez",
     "state": "Sacatep\u00e9quez",
     "country": "Guatemala"
   },
@@ -3580,9 +3975,14 @@ export const saCities = [
     "country": "Mexico"
   },
   {
-    "city": "San Jos\u00e9",
+    "city": "San Jose",
     "state": "San Jos\u00e9",
     "country": "Uruguay"
+  },
+  {
+    "city": "Sao Joao da Barra",
+    "state": "Rio de Janeiro",
+    "country": "Brazil"
   },
   {
     "city": "San Pablo",
@@ -3605,7 +4005,7 @@ export const saCities = [
     "country": "Mexico"
   },
   {
-    "city": "San Miguel Acat\u00e1n",
+    "city": "San Miguel Acatan",
     "state": "Huehuetenango",
     "country": "Guatemala"
   },
@@ -3635,17 +4035,17 @@ export const saCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Sar\u0131g\u00f6l",
+    "city": "Sarigol",
     "state": "Manisa",
     "country": "Turkey"
   },
   {
-    "city": "Saint-Rapha\u00ebl",
+    "city": "Saint-Raphael",
     "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
     "country": "France"
   },
   {
-    "city": "San Lorenzo de Guayub\u00edn",
+    "city": "San Lorenzo de Guayubin",
     "state": "Cibao Noroeste",
     "country": "Dominican Republic"
   },
@@ -3660,7 +4060,7 @@ export const saCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Sainte-Genevi\u00e8ve-des-Bois",
+    "city": "Sainte-Genevieve-des-Bois",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -3670,17 +4070,17 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Santiago de Tol\u00fa",
+    "city": "Santiago de Tolu",
     "state": "Sucre",
     "country": "Colombia"
   },
   {
-    "city": "San Andr\u00e9s Itzapa",
+    "city": "San Andres Itzapa",
     "state": "Chimaltenango",
     "country": "Guatemala"
   },
   {
-    "city": "Savan\u016br",
+    "city": "Savanur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -3693,6 +4093,11 @@ export const saCities = [
     "city": "Savonlinna",
     "state": "Etel\u00e4-Savo",
     "country": "Finland"
+  },
+  {
+    "city": "Sahneh",
+    "state": "Kerm\u0101nsh\u0101h",
+    "country": "Iran"
   },
   {
     "city": "San Juan",
@@ -3725,7 +4130,7 @@ export const saCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Saint-Beno\u00eet",
+    "city": "Saint-Benoit",
     "state": NaN,
     "country": "Reunion"
   },
@@ -3765,14 +4170,19 @@ export const saCities = [
     "country": "Ecuador"
   },
   {
-    "city": "San Luis de Sinc\u00e9",
+    "city": "San Luis de Since",
     "state": "Sucre",
     "country": "Colombia"
   },
   {
-    "city": "San Pedro de Ycuamandiy\u00fa",
+    "city": "San Pedro de Ycuamandiyu",
     "state": "San Pedro",
     "country": "Paraguay"
+  },
+  {
+    "city": "Salkhad",
+    "state": "As Suwayd\u0101\u2019",
+    "country": "Syria"
   },
   {
     "city": "Santa Cruz",
@@ -3785,14 +4195,24 @@ export const saCities = [
     "country": "Cuba"
   },
   {
-    "city": "Santa F\u00e9 do Sul",
+    "city": "Sao Jose do Belmonte",
+    "state": "Pernambuco",
+    "country": "Brazil"
+  },
+  {
+    "city": "Santa Fe do Sul",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Sansann\u00e9-Mango",
+    "city": "Sansanne-Mango",
     "state": "Savanes",
     "country": "Togo"
+  },
+  {
+    "city": "Sao Luis Gonzaga",
+    "state": "Rio Grande do Sul",
+    "country": "Brazil"
   },
   {
     "city": "Safidon",
@@ -3805,12 +4225,12 @@ export const saCities = [
     "country": "Germany"
   },
   {
-    "city": "Sarpol-e Z\u0304ah\u0101b",
+    "city": "Sarpol-e Zahab",
     "state": "Kerm\u0101nsh\u0101h",
     "country": "Iran"
   },
   {
-    "city": "San Juan Desp\u00ed",
+    "city": "San Juan Despi",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -3850,9 +4270,24 @@ export const saCities = [
     "country": "Mexico"
   },
   {
+    "city": "Sao Joaquim de Bicas",
+    "state": "Minas Gerais",
+    "country": "Brazil"
+  },
+  {
     "city": "Same",
     "state": "Kilimanjaro",
     "country": "Tanzania"
+  },
+  {
+    "city": "Sao Pedro",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sao Desiderio",
+    "state": "Bahia",
+    "country": "Brazil"
   },
   {
     "city": "Sahuarita",
@@ -3865,7 +4300,12 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "San Agust\u00edn",
+    "city": "Sao Sebastiao",
+    "state": "Alagoas",
+    "country": "Brazil"
+  },
+  {
+    "city": "San Agustin",
     "state": "Huila",
     "country": "Colombia"
   },
@@ -3880,6 +4320,11 @@ export const saCities = [
     "country": "Philippines"
   },
   {
+    "city": "Sao Domingos do Maranhao",
+    "state": "Maranh\u00e3o",
+    "country": "Brazil"
+  },
+  {
     "city": "San Juan Nepomuceno",
     "state": "Bol\u00edvar",
     "country": "Colombia"
@@ -3890,7 +4335,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "San Jos\u00e9 Poaquil",
+    "city": "San Jose Poaquil",
     "state": "Chimaltenango",
     "country": "Guatemala"
   },
@@ -3900,12 +4345,17 @@ export const saCities = [
     "country": "Mexico"
   },
   {
-    "city": "San Mart\u00edn Sacatep\u00e9quez",
+    "city": "Sao Luis de Montes Belos",
+    "state": "Goi\u00e1s",
+    "country": "Brazil"
+  },
+  {
+    "city": "San Martin Sacatepequez",
     "state": "Quetzaltenango",
     "country": "Guatemala"
   },
   {
-    "city": "San Antonio de los Ba\u00f1os",
+    "city": "San Antonio de los Banos",
     "state": "Artemisa",
     "country": "Cuba"
   },
@@ -3955,9 +4405,14 @@ export const saCities = [
     "country": "Cuba"
   },
   {
-    "city": "Sar\u0131kaya",
+    "city": "Sarikaya",
     "state": "Yozgat",
     "country": "Turkey"
+  },
+  {
+    "city": "Sao Paulo de Olivenca",
+    "state": "Amazonas",
+    "country": "Brazil"
   },
   {
     "city": "Saint-Georges",
@@ -3968,6 +4423,11 @@ export const saCities = [
     "city": "Saintard",
     "state": "Ouest",
     "country": "Haiti"
+  },
+  {
+    "city": "Sanchor",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
   },
   {
     "city": "San Felipe",
@@ -3985,9 +4445,14 @@ export const saCities = [
     "country": "Kazakhstan"
   },
   {
-    "city": "Sayula de Alem\u00e1n",
+    "city": "Sayula de Aleman",
     "state": "Veracruz",
     "country": "Mexico"
+  },
+  {
+    "city": "Sao Joao Batista",
+    "state": "Santa Catarina",
+    "country": "Brazil"
   },
   {
     "city": "San Lazzaro di Savena",
@@ -3995,7 +4460,12 @@ export const saCities = [
     "country": "Italy"
   },
   {
-    "city": "Saint-M\u00e9dard-en-Jalles",
+    "city": "Sarkoy",
+    "state": "Tekirda\u011f",
+    "country": "Turkey"
+  },
+  {
+    "city": "Saint-Medard-en-Jalles",
     "state": "Nouvelle-Aquitaine",
     "country": "France"
   },
@@ -4010,14 +4480,29 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "San Pedro de Urab\u00e1",
+    "city": "Sasthankotta",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "San Pedro de Uraba",
     "state": "Antioquia",
     "country": "Colombia"
   },
   {
-    "city": "Sant\u2019Antimo",
+    "city": "Sant'Antimo",
     "state": "Campania",
     "country": "Italy"
+  },
+  {
+    "city": "Sao Bento",
+    "state": "Para\u00edba",
+    "country": "Brazil"
+  },
+  {
+    "city": "Safita",
+    "state": "\u0162ar\u0163\u016bs",
+    "country": "Syria"
   },
   {
     "city": "Salug",
@@ -4030,6 +4515,11 @@ export const saCities = [
     "country": "Burma"
   },
   {
+    "city": "Sao Miguel Arcanjo",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
+  },
+  {
     "city": "San Donato Milanese",
     "state": "Lombardy",
     "country": "Italy"
@@ -4040,7 +4530,7 @@ export const saCities = [
     "country": "Japan"
   },
   {
-    "city": "Santo Tom\u00e1s",
+    "city": "Santo Tomas",
     "state": "Atl\u00e1ntico",
     "country": "Colombia"
   },
@@ -4050,7 +4540,7 @@ export const saCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Santo Ant\u00f4nio do Tau\u00e1",
+    "city": "Santo Antonio do Taua",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -4065,12 +4555,22 @@ export const saCities = [
     "country": "Italy"
   },
   {
+    "city": "Sao Gabriel",
+    "state": "Esp\u00edrito Santo",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sao Gotardo",
+    "state": "Minas Gerais",
+    "country": "Brazil"
+  },
+  {
     "city": "Santa Rita",
     "state": "Zulia",
     "country": "Venezuela"
   },
   {
-    "city": "San Lucas Tolim\u00e1n",
+    "city": "San Lucas Toliman",
     "state": "Solol\u00e1",
     "country": "Guatemala"
   },
@@ -4080,12 +4580,12 @@ export const saCities = [
     "country": "Spain"
   },
   {
-    "city": "Salam\u00edna",
+    "city": "Salamina",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
   {
-    "city": "Sad\u0101b\u0101d",
+    "city": "Sadabad",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -4100,7 +4600,7 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "Sav\u00e9",
+    "city": "Save",
     "state": "Collines",
     "country": "Benin"
   },
@@ -4110,7 +4610,7 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "Salg\u00f3tarj\u00e1n",
+    "city": "Salgotarjan",
     "state": "N\u00f3gr\u00e1d",
     "country": "Hungary"
   },
@@ -4125,12 +4625,12 @@ export const saCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Sakhn\u012bn",
+    "city": "Sakhnin",
     "state": "Northern",
     "country": "Israel"
   },
   {
-    "city": "Sabana Grande de Boy\u00e1",
+    "city": "Sabana Grande de Boya",
     "state": "Higuamo",
     "country": "Dominican Republic"
   },
@@ -4145,12 +4645,17 @@ export const saCities = [
     "country": "Guatemala"
   },
   {
+    "city": "Sao Jose do Egito",
+    "state": "Pernambuco",
+    "country": "Brazil"
+  },
+  {
     "city": "San Vicente",
     "state": "San Jos\u00e9",
     "country": "Costa Rica"
   },
   {
-    "city": "Santa Vit\u00f3ria do Palmar",
+    "city": "Santa Vitoria do Palmar",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -4160,9 +4665,19 @@ export const saCities = [
     "country": "France"
   },
   {
+    "city": "Sacele",
+    "state": "Bra\u015fov",
+    "country": "Romania"
+  },
+  {
     "city": "Sabirabad",
     "state": "Sabirabad",
     "country": "Azerbaijan"
+  },
+  {
+    "city": "Sao Luis do Quitunde",
+    "state": "Alagoas",
+    "country": "Brazil"
   },
   {
     "city": "San Antonio Ilotenango",
@@ -4170,7 +4685,7 @@ export const saCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Sarayk\u00f6y",
+    "city": "Saraykoy",
     "state": "Denizli",
     "country": "Turkey"
   },
@@ -4190,7 +4705,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "San Sebasti\u00e1n",
+    "city": "San Sebastian",
     "state": "Retalhuleu",
     "country": "Guatemala"
   },
@@ -4200,7 +4715,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "San Ram\u00f3n",
+    "city": "San Ramon",
     "state": "Matagalpa",
     "country": "Nicaragua"
   },
@@ -4210,8 +4725,13 @@ export const saCities = [
     "country": "Italy"
   },
   {
-    "city": "Santana do Acara\u00fa",
+    "city": "Santana do Acarau",
     "state": "Cear\u00e1",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sao Jose da Tapera",
+    "state": "Alagoas",
     "country": "Brazil"
   },
   {
@@ -4235,7 +4755,7 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Santa B\u00e1rbara",
+    "city": "Santa Barbara",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -4290,7 +4810,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Sakt\u012b",
+    "city": "Sakti",
     "state": "Chhatt\u012bsgarh",
     "country": "India"
   },
@@ -4315,8 +4835,13 @@ export const saCities = [
     "country": "Senegal"
   },
   {
-    "city": "Sal\u0101ya",
+    "city": "Salaya",
     "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
+    "city": "Sagwara",
+    "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
   {
@@ -4325,7 +4850,7 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "Saundhonw\u0101li",
+    "city": "Saundhonwali",
     "state": "Uttar\u0101khand",
     "country": "India"
   },
@@ -4335,7 +4860,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "San Andr\u00e9s del Rabanedo",
+    "city": "San Andres del Rabanedo",
     "state": "Castille-Leon",
     "country": "Spain"
   },
@@ -4355,7 +4880,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "San Andr\u00e9s Xecul",
+    "city": "San Andres Xecul",
     "state": "Totonicap\u00e1n",
     "country": "Guatemala"
   },
@@ -4375,12 +4900,12 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Santiago do Cac\u00e9m",
+    "city": "Santiago do Cacem",
     "state": "Set\u00fabal",
     "country": "Portugal"
   },
   {
-    "city": "Sardr\u016bd",
+    "city": "Sardrud",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Sharq\u012b",
     "country": "Iran"
   },
@@ -4400,7 +4925,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "San Agust\u00edn Chahal",
+    "city": "San Agustin Chahal",
     "state": "Alta Verapaz",
     "country": "Guatemala"
   },
@@ -4425,7 +4950,7 @@ export const saCities = [
     "country": "Germany"
   },
   {
-    "city": "Santa Cruz Cabr\u00e1lia",
+    "city": "Santa Cruz Cabralia",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -4435,9 +4960,19 @@ export const saCities = [
     "country": "Mexico"
   },
   {
-    "city": "San Crist\u00f3bal",
+    "city": "Sao Miguel do Iguacu",
+    "state": "Paran\u00e1",
+    "country": "Brazil"
+  },
+  {
+    "city": "San Cristobal",
     "state": "Artemisa",
     "country": "Cuba"
+  },
+  {
+    "city": "Sankrail",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Santo Domingo",
@@ -4455,7 +4990,7 @@ export const saCities = [
     "country": "Chile"
   },
   {
-    "city": "Santo Ni\u00f1o",
+    "city": "Santo Nino",
     "state": "Para\u00f1aque",
     "country": "Philippines"
   },
@@ -4465,12 +5000,12 @@ export const saCities = [
     "country": "Brazil"
   },
   {
-    "city": "San Lucas Sacatep\u00e9quez",
+    "city": "San Lucas Sacatepequez",
     "state": "Sacatep\u00e9quez",
     "country": "Guatemala"
   },
   {
-    "city": "Saikaich\u014d-kobag\u014d",
+    "city": "Saikaicho-kobago",
     "state": "Nagasaki",
     "country": "Japan"
   },
@@ -4510,12 +5045,12 @@ export const saCities = [
     "country": "Algeria"
   },
   {
-    "city": "Santo Ni\u00f1o",
+    "city": "Santo Nino",
     "state": "Cagayan",
     "country": "Philippines"
   },
   {
-    "city": "Saint-\u00c9tienne-du-Rouvray",
+    "city": "Saint-Etienne-du-Rouvray",
     "state": "Normandie",
     "country": "France"
   },
@@ -4540,17 +5075,22 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Saint-S\u00e9bastien-sur-Loire",
+    "city": "Saho",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Saint-Sebastien-sur-Loire",
     "state": "Pays de la Loire",
     "country": "France"
   },
   {
-    "city": "Saf\u0101j\u0101",
+    "city": "Safaja",
     "state": "Al Ba\u1e29r al A\u1e29mar",
     "country": "Egypt"
   },
   {
-    "city": "Santo Ant\u00f4nio do I\u00e7\u00e1",
+    "city": "Santo Antonio do Ica",
     "state": "Amazonas",
     "country": "Brazil"
   },
@@ -4560,12 +5100,17 @@ export const saCities = [
     "country": "South Africa"
   },
   {
+    "city": "Sangola",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
     "city": "San Vicente dels Horts",
     "state": "Catalonia",
     "country": "Spain"
   },
   {
-    "city": "San Vicente de Chucur\u00ed",
+    "city": "San Vicente de Chucuri",
     "state": "Santander",
     "country": "Colombia"
   },
@@ -4580,17 +5125,22 @@ export const saCities = [
     "country": "Madagascar"
   },
   {
-    "city": "San Felipe Jalapa de D\u00edaz",
+    "city": "Saila",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
+    "city": "San Felipe Jalapa de Diaz",
     "state": "Oaxaca",
     "country": "Mexico"
   },
   {
-    "city": "San Andr\u00e9s Sajcabaj\u00e1",
+    "city": "San Andres Sajcabaja",
     "state": "Quich\u00e9",
     "country": "Guatemala"
   },
   {
-    "city": "San Mart\u00edn de los Andes",
+    "city": "San Martin de los Andes",
     "state": "Neuqu\u00e9n",
     "country": "Argentina"
   },
@@ -4615,7 +5165,7 @@ export const saCities = [
     "country": "Italy"
   },
   {
-    "city": "Santa B\u00e1rbara",
+    "city": "Santa Barbara",
     "state": "Suchitep\u00e9quez",
     "country": "Guatemala"
   },
@@ -4650,12 +5200,17 @@ export const saCities = [
     "country": "Uruguay"
   },
   {
+    "city": "Sadri",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
     "city": "Savur",
     "state": "Mardin",
     "country": "Turkey"
   },
   {
-    "city": "Santo Ant\u00f4nio do Monte",
+    "city": "Santo Antonio do Monte",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -4665,12 +5220,12 @@ export const saCities = [
     "country": "Brazil"
   },
   {
-    "city": "San Juan de Urab\u00e1",
+    "city": "San Juan de Uraba",
     "state": "Antioquia",
     "country": "Colombia"
   },
   {
-    "city": "San Agust\u00edn Tlaxiaca",
+    "city": "San Agustin Tlaxiaca",
     "state": "Hidalgo",
     "country": "Mexico"
   },
@@ -4685,12 +5240,22 @@ export const saCities = [
     "country": "Spain"
   },
   {
-    "city": "San Sebasti\u00e1n de Yal\u00ed",
+    "city": "San Sebastian de Yali",
     "state": "Jinotega",
     "country": "Nicaragua"
   },
   {
-    "city": "San Andr\u00e9s de la Barca",
+    "city": "Sao Bernardo",
+    "state": "Maranh\u00e3o",
+    "country": "Brazil"
+  },
+  {
+    "city": "Safashahr",
+    "state": "F\u0101rs",
+    "country": "Iran"
+  },
+  {
+    "city": "San Andres de la Barca",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -4700,7 +5265,7 @@ export const saCities = [
     "country": "El Salvador"
   },
   {
-    "city": "Saray\u00f6n\u00fc",
+    "city": "Sarayonu",
     "state": "Konya",
     "country": "Turkey"
   },
@@ -4715,7 +5280,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Santa Mar\u00eda de Jes\u00fas",
+    "city": "Santa Maria de Jesus",
     "state": "Sacatep\u00e9quez",
     "country": "Guatemala"
   },
@@ -4725,7 +5290,7 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "Santa Mar\u00eda Ixhuat\u00e1n",
+    "city": "Santa Maria Ixhuatan",
     "state": "Santa Rosa",
     "country": "Guatemala"
   },
@@ -4780,7 +5345,7 @@ export const saCities = [
     "country": "Colombia"
   },
   {
-    "city": "Sainte-Th\u00e9r\u00e8se",
+    "city": "Sainte-Therese",
     "state": "Quebec",
     "country": "Canada"
   },
@@ -4825,7 +5390,7 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "Sant\u2019Anastasia",
+    "city": "Sant'Anastasia",
     "state": "Campania",
     "country": "Italy"
   },
@@ -4845,9 +5410,14 @@ export const saCities = [
     "country": "Mexico"
   },
   {
-    "city": "San Juan Atit\u00e1n",
+    "city": "San Juan Atitan",
     "state": "Huehuetenango",
     "country": "Guatemala"
+  },
+  {
+    "city": "Sandi",
+    "state": "Uttar Pradesh",
+    "country": "India"
   },
   {
     "city": "Santa Lucia",
@@ -4855,12 +5425,17 @@ export const saCities = [
     "country": "Philippines"
   },
   {
+    "city": "Sao Joaquim",
+    "state": "Santa Catarina",
+    "country": "Brazil"
+  },
+  {
     "city": "Santa Ana",
     "state": "Magdalena",
     "country": "Colombia"
   },
   {
-    "city": "San Sebasti\u00e1n Coat\u00e1n",
+    "city": "San Sebastian Coatan",
     "state": "Huehuetenango",
     "country": "Guatemala"
   },
@@ -4870,7 +5445,7 @@ export const saCities = [
     "country": "Spain"
   },
   {
-    "city": "San Mart\u00edn",
+    "city": "San Martin",
     "state": "Meta",
     "country": "Colombia"
   },
@@ -4885,7 +5460,7 @@ export const saCities = [
     "country": "Brazil"
   },
   {
-    "city": "San Vicente de Ca\u00f1ete",
+    "city": "San Vicente de Canete",
     "state": "Lima",
     "country": "Peru"
   },
@@ -4910,7 +5485,7 @@ export const saCities = [
     "country": "Italy"
   },
   {
-    "city": "Saf\u012bpur",
+    "city": "Safipur",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -4925,9 +5500,24 @@ export const saCities = [
     "country": "Japan"
   },
   {
+    "city": "Sao Sebastiao da Boa Vista",
+    "state": "Par\u00e1",
+    "country": "Brazil"
+  },
+  {
     "city": "Sankt Wendel",
     "state": "Saarland",
     "country": "Germany"
+  },
+  {
+    "city": "Sarkikaraagac",
+    "state": "Isparta",
+    "country": "Turkey"
+  },
+  {
+    "city": "Sao Joao Nepomuceno",
+    "state": "Minas Gerais",
+    "country": "Brazil"
   },
   {
     "city": "Salor",
@@ -4955,12 +5545,17 @@ export const saCities = [
     "country": "El Salvador"
   },
   {
+    "city": "Sao Jose do Norte",
+    "state": "Rio Grande do Sul",
+    "country": "Brazil"
+  },
+  {
     "city": "Sangerhausen",
     "state": "Saxony-Anhalt",
     "country": "Germany"
   },
   {
-    "city": "San Jos\u00e9",
+    "city": "San Jose",
     "state": "Nari\u00f1o",
     "country": "Colombia"
   },
@@ -4975,7 +5570,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Santo Tom\u00e1s",
+    "city": "Santo Tomas",
     "state": "San Salvador",
     "country": "El Salvador"
   },
@@ -5000,7 +5595,7 @@ export const saCities = [
     "country": "Spain"
   },
   {
-    "city": "Sandon\u00e1",
+    "city": "Sandona",
     "state": "Nari\u00f1o",
     "country": "Colombia"
   },
@@ -5015,14 +5610,24 @@ export const saCities = [
     "country": "India"
   },
   {
+    "city": "Saydnaya",
+    "state": "R\u012bf Dimashq",
+    "country": "Syria"
+  },
+  {
     "city": "Sarrat",
     "state": "Ilocos Norte",
     "country": "Philippines"
   },
   {
-    "city": "Santa Mar\u00eda Tonameca",
+    "city": "Santa Maria Tonameca",
     "state": "Oaxaca",
     "country": "Mexico"
+  },
+  {
+    "city": "Sahibpur Kamal",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Saiha",
@@ -5035,7 +5640,7 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "Santo Tom\u00e1s",
+    "city": "Santo Tomas",
     "state": "Cusco",
     "country": "Peru"
   },
@@ -5050,9 +5655,14 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Saint-Ouen-l\u2019Aum\u00f4ne",
+    "city": "Saint-Ouen-l'Aumone",
     "state": "\u00cele-de-France",
     "country": "France"
+  },
+  {
+    "city": "Sao Joao dos Patos",
+    "state": "Maranh\u00e3o",
+    "country": "Brazil"
   },
   {
     "city": "Santiago de Chuco",
@@ -5080,6 +5690,11 @@ export const saCities = [
     "country": "Brazil"
   },
   {
+    "city": "Sao Lourenco d'Oeste",
+    "state": "Santa Catarina",
+    "country": "Brazil"
+  },
+  {
     "city": "Salanso",
     "state": "Boucle du Mouhoun",
     "country": "Burkina Faso"
@@ -5090,7 +5705,7 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "San Francisco Zapotitl\u00e1n",
+    "city": "San Francisco Zapotitlan",
     "state": "Suchitep\u00e9quez",
     "country": "Guatemala"
   },
@@ -5110,7 +5725,7 @@ export const saCities = [
     "country": "Ghana"
   },
   {
-    "city": "Santa Maria do Par\u00e1",
+    "city": "Santa Maria do Para",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -5125,7 +5740,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "San Agust\u00edn Loxicha",
+    "city": "San Agustin Loxicha",
     "state": "Oaxaca",
     "country": "Mexico"
   },
@@ -5135,9 +5750,14 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "Sah\u0101war",
+    "city": "Sahawar",
     "state": "Uttar Pradesh",
     "country": "India"
+  },
+  {
+    "city": "Sao Sebastiao do Cai",
+    "state": "Rio Grande do Sul",
+    "country": "Brazil"
   },
   {
     "city": "Santa Ana",
@@ -5172,6 +5792,11 @@ export const saCities = [
   {
     "city": "Satuba",
     "state": "Alagoas",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sao Geraldo do Araguaia",
+    "state": "Par\u00e1",
     "country": "Brazil"
   },
   {
@@ -5210,12 +5835,12 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Santa Mar\u00eda Colotepec",
+    "city": "Santa Maria Colotepec",
     "state": "Oaxaca",
     "country": "Mexico"
   },
   {
-    "city": "Sangr\u0101mpur",
+    "city": "Sangrampur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -5240,13 +5865,28 @@ export const saCities = [
     "country": "Costa Rica"
   },
   {
+    "city": "Sao Goncalo do Sapucai",
+    "state": "Minas Gerais",
+    "country": "Brazil"
+  },
+  {
     "city": "San Fernando",
     "state": "California",
     "country": "United States"
   },
   {
-    "city": "Santa Quit\u00e9ria do Maranh\u00e3o",
+    "city": "Santa Quiteria do Maranhao",
     "state": "Maranh\u00e3o",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sao Joao da Ponte",
+    "state": "Minas Gerais",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sao Joao do Paraiso",
+    "state": "Minas Gerais",
     "country": "Brazil"
   },
   {
@@ -5270,12 +5910,12 @@ export const saCities = [
     "country": "Italy"
   },
   {
-    "city": "Salq\u012bn",
+    "city": "Salqin",
     "state": "Idlib",
     "country": "Syria"
   },
   {
-    "city": "San Juan Cotzoc\u00f3n",
+    "city": "San Juan Cotzocon",
     "state": "Oaxaca",
     "country": "Mexico"
   },
@@ -5285,7 +5925,7 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "Santo Ant\u00f4nio do Sudoeste",
+    "city": "Santo Antonio do Sudoeste",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -5305,7 +5945,7 @@ export const saCities = [
     "country": "Brazil"
   },
   {
-    "city": "San Mart\u00edn Totol\u00e1n",
+    "city": "San Martin Totolan",
     "state": "Michoac\u00e1n",
     "country": "Mexico"
   },
@@ -5318,6 +5958,11 @@ export const saCities = [
     "city": "Salzwedel",
     "state": "Saxony-Anhalt",
     "country": "Germany"
+  },
+  {
+    "city": "Sao Miguel",
+    "state": "Rio Grande do Norte",
+    "country": "Brazil"
   },
   {
     "city": "Sanga",
@@ -5345,6 +5990,11 @@ export const saCities = [
     "country": "India"
   },
   {
+    "city": "Sandwa",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
     "city": "Saint-Ghislain",
     "state": "Wallonia",
     "country": "Belgium"
@@ -5355,7 +6005,7 @@ export const saCities = [
     "country": "Thailand"
   },
   {
-    "city": "Santo Tom\u00e9",
+    "city": "Santo Tome",
     "state": "Corrientes",
     "country": "Argentina"
   },
@@ -5365,17 +6015,17 @@ export const saCities = [
     "country": "Costa Rica"
   },
   {
-    "city": "San Jos\u00e9",
+    "city": "San Jose",
     "state": "Nari\u00f1o",
     "country": "Colombia"
   },
   {
-    "city": "Santo Ant\u00f4nio de Posse",
+    "city": "Santo Antonio de Posse",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Samr\u0101la",
+    "city": "Samrala",
     "state": "Punjab",
     "country": "India"
   },
@@ -5383,6 +6033,11 @@ export const saCities = [
     "city": "Sasovo",
     "state": "Ryazanskaya Oblast\u2019",
     "country": "Russia"
+  },
+  {
+    "city": "Sao Mamede de Infesta",
+    "state": "Porto",
+    "country": "Portugal"
   },
   {
     "city": "Sansanding",
@@ -5395,7 +6050,7 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "San Andr\u00e9s de Giles",
+    "city": "San Andres de Giles",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -5410,7 +6065,7 @@ export const saCities = [
     "country": "Brazil"
   },
   {
-    "city": "San Jos\u00e9 Ojetenam",
+    "city": "San Jose Ojetenam",
     "state": "San Marcos",
     "country": "Guatemala"
   },
@@ -5420,7 +6075,7 @@ export const saCities = [
     "country": "Canada"
   },
   {
-    "city": "San Fel\u00edu de Guixols",
+    "city": "San Feliu de Guixols",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -5475,7 +6130,7 @@ export const saCities = [
     "country": "Spain"
   },
   {
-    "city": "Sarea Kh\u0101s",
+    "city": "Sarea Khas",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -5485,9 +6140,14 @@ export const saCities = [
     "country": "Canada"
   },
   {
-    "city": "Sabun\u00e7u",
+    "city": "Sabuncu",
     "state": "Bak\u0131",
     "country": "Azerbaijan"
+  },
+  {
+    "city": "Sambhar",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
   },
   {
     "city": "Sanso",
@@ -5495,7 +6155,12 @@ export const saCities = [
     "country": "Mali"
   },
   {
-    "city": "Saint John\u2019s",
+    "city": "Sao Filipe",
+    "state": "S\u00e3o Filipe",
+    "country": "Cabo Verde"
+  },
+  {
+    "city": "Saint John's",
     "state": "Saint John",
     "country": "Antigua and Barbuda"
   },
@@ -5510,7 +6175,7 @@ export const saCities = [
     "country": "Poland"
   },
   {
-    "city": "Santo Ant\u00f4nio",
+    "city": "Santo Antonio",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
   },
@@ -5520,12 +6185,12 @@ export const saCities = [
     "country": "Portugal"
   },
   {
-    "city": "Sarap\u0101ka",
+    "city": "Sarapaka",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Sant\u2019Arcangelo di Romagna",
+    "city": "Sant'Arcangelo di Romagna",
     "state": "Emilia-Romagna",
     "country": "Italy"
   },
@@ -5540,7 +6205,7 @@ export const saCities = [
     "country": "Azerbaijan"
   },
   {
-    "city": "Sal\u00e9mata",
+    "city": "Salemata",
     "state": "K\u00e9dougou",
     "country": "Senegal"
   },
@@ -5555,7 +6220,12 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "San Mart\u00edn",
+    "city": "Sao Jose do Rio Preto",
+    "state": "Rio de Janeiro",
+    "country": "Brazil"
+  },
+  {
+    "city": "San Martin",
     "state": "San Juan",
     "country": "Argentina"
   },
@@ -5590,12 +6260,22 @@ export const saCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Sao Miguel do Araguaia",
+    "state": "Goi\u00e1s",
+    "country": "Brazil"
+  },
+  {
     "city": "Sayada",
     "state": "Mostaganem",
     "country": "Algeria"
   },
   {
-    "city": "Sainte-Foy-l\u00e8s-Lyon",
+    "city": "Sao Francisco de Paula",
+    "state": "Rio Grande do Sul",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sainte-Foy-les-Lyon",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
@@ -5605,7 +6285,7 @@ export const saCities = [
     "country": "Brazil"
   },
   {
-    "city": "Santa Luc\u00eda Utatl\u00e1n",
+    "city": "Santa Lucia Utatlan",
     "state": "Solol\u00e1",
     "country": "Guatemala"
   },
@@ -5613,6 +6293,11 @@ export const saCities = [
     "city": "Sarai Ranjan",
     "state": "Bih\u0101r",
     "country": "India"
+  },
+  {
+    "city": "Sao Joao da Madeira",
+    "state": "Aveiro",
+    "country": "Portugal"
   },
   {
     "city": "Saint-Jean-de-Braye",
@@ -5635,6 +6320,11 @@ export const saCities = [
     "country": "Colombia"
   },
   {
+    "city": "Sao Miguel do Guapore",
+    "state": "Rond\u00f4nia",
+    "country": "Brazil"
+  },
+  {
     "city": "San Justo",
     "state": "Santa Fe",
     "country": "Argentina"
@@ -5655,12 +6345,12 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Salcaj\u00e1",
+    "city": "Salcaja",
     "state": "Quetzaltenango",
     "country": "Guatemala"
   },
   {
-    "city": "San Nicol\u00e1s",
+    "city": "San Nicolas",
     "state": "Mayabeque",
     "country": "Cuba"
   },
@@ -5670,7 +6360,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "San Mart\u00edn de las Pir\u00e1mides",
+    "city": "San Martin de las Piramides",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
@@ -5685,6 +6375,11 @@ export const saCities = [
     "country": "France"
   },
   {
+    "city": "Sao Joao do Piaui",
+    "state": "Piau\u00ed",
+    "country": "Brazil"
+  },
+  {
     "city": "San Bonifacio",
     "state": "Veneto",
     "country": "Italy"
@@ -5695,7 +6390,7 @@ export const saCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Santa B\u00e1rbara",
+    "city": "Santa Barbara",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -5705,22 +6400,37 @@ export const saCities = [
     "country": "Argentina"
   },
   {
+    "city": "Sao Joao",
+    "state": "Pernambuco",
+    "country": "Brazil"
+  },
+  {
     "city": "Sanxing",
     "state": "Yilan",
     "country": "Taiwan"
   },
   {
-    "city": "Saint-Mand\u00e9",
+    "city": "Sao Sepe",
+    "state": "Rio Grande do Sul",
+    "country": "Brazil"
+  },
+  {
+    "city": "Saint-Mande",
     "state": "\u00cele-de-France",
     "country": "France"
   },
   {
-    "city": "Sar\u0101ri",
+    "city": "Sal'a",
+    "state": "Nitra",
+    "country": "Slovakia"
+  },
+  {
+    "city": "Sarari",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Sapon\u00e9",
+    "city": "Sapone",
     "state": "Centre-Sud",
     "country": "Burkina Faso"
   },
@@ -5730,7 +6440,7 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "San Juan de R\u00edo Coco",
+    "city": "San Juan de Rio Coco",
     "state": "Madriz",
     "country": "Nicaragua"
   },
@@ -5743,6 +6453,11 @@ export const saCities = [
     "city": "Sadao",
     "state": "Songkhla",
     "country": "Thailand"
+  },
+  {
+    "city": "Sao Marcos",
+    "state": "Rio Grande do Sul",
+    "country": "Brazil"
   },
   {
     "city": "San Juan de Vilasar",
@@ -5765,19 +6480,29 @@ export const saCities = [
     "country": "Morocco"
   },
   {
-    "city": "Saint Paul\u2019s Bay",
+    "city": "Saint Paul's Bay",
     "state": "San Pawl il-Ba\u0127ar",
     "country": "Malta"
   },
   {
-    "city": "San Jos\u00e9 de J\u00e1chal",
+    "city": "Sao Jeronimo",
+    "state": "Rio Grande do Sul",
+    "country": "Brazil"
+  },
+  {
+    "city": "San Jose de Jachal",
     "state": "San Juan",
     "country": "Argentina"
   },
   {
-    "city": "San V\u00edctor Abajo",
+    "city": "San Victor Abajo",
     "state": "Cibao Norte",
     "country": "Dominican Republic"
+  },
+  {
+    "city": "Samba",
+    "state": "Jammu and Kashm\u012br",
+    "country": "India"
   },
   {
     "city": "Sahamadio",
@@ -5790,17 +6515,17 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "San Antonio Sacatep\u00e9quez",
+    "city": "San Antonio Sacatepequez",
     "state": "San Marcos",
     "country": "Guatemala"
   },
   {
-    "city": "Santa Vit\u00f3ria",
+    "city": "Santa Vitoria",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
   {
-    "city": "Saint-Cyr-l\u2019\u00c9cole",
+    "city": "Saint-Cyr-l'Ecole",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -5825,17 +6550,37 @@ export const saCities = [
     "country": "France"
   },
   {
+    "city": "Sanchez",
+    "state": "Cibao Nordeste",
+    "country": "Dominican Republic"
+  },
+  {
     "city": "Sanhe",
     "state": "Ningxia",
     "country": "China"
   },
   {
-    "city": "Samac\u00e1",
+    "city": "Sao Jose da Laje",
+    "state": "Alagoas",
+    "country": "Brazil"
+  },
+  {
+    "city": "Samaca",
     "state": "Boyac\u00e1",
     "country": "Colombia"
   },
   {
-    "city": "San Juli\u00e1n",
+    "city": "Sao Joao Batista",
+    "state": "Maranh\u00e3o",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sao Joao de Pirabas",
+    "state": "Par\u00e1",
+    "country": "Brazil"
+  },
+  {
+    "city": "San Julian",
     "state": "Santa Cruz",
     "country": "Bolivia"
   },
@@ -5848,6 +6593,16 @@ export const saCities = [
     "city": "Sarreguemines",
     "state": "Grand Est",
     "country": "France"
+  },
+  {
+    "city": "Savda",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
+    "city": "Sa al Hajar",
+    "state": "Al Gharb\u012byah",
+    "country": "Egypt"
   },
   {
     "city": "San Bernardino",
@@ -5870,7 +6625,7 @@ export const saCities = [
     "country": "Spain"
   },
   {
-    "city": "San Mart\u00edn",
+    "city": "San Martin",
     "state": "Cesar",
     "country": "Colombia"
   },
@@ -5910,7 +6665,7 @@ export const saCities = [
     "country": "Costa Rica"
   },
   {
-    "city": "Santa Mar\u00eda Chilchotla",
+    "city": "Santa Maria Chilchotla",
     "state": "Oaxaca",
     "country": "Mexico"
   },
@@ -5935,6 +6690,11 @@ export const saCities = [
     "country": "Philippines"
   },
   {
+    "city": "Sao Felipe",
+    "state": "Bahia",
+    "country": "Brazil"
+  },
+  {
     "city": "Salgado",
     "state": "Sergipe",
     "country": "Brazil"
@@ -5955,7 +6715,12 @@ export const saCities = [
     "country": "Japan"
   },
   {
-    "city": "Sang\u012bn",
+    "city": "Sao Joaquim do Monte",
+    "state": "Pernambuco",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sangin",
     "state": "Helmand",
     "country": "Afghanistan"
   },
@@ -5980,7 +6745,7 @@ export const saCities = [
     "country": "Honduras"
   },
   {
-    "city": "San Mart\u00edn de la Vega",
+    "city": "San Martin de la Vega",
     "state": "Madrid",
     "country": "Spain"
   },
@@ -6045,9 +6810,19 @@ export const saCities = [
     "country": "Mexico"
   },
   {
+    "city": "Sadpur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Santa Teresita",
     "state": "Cagayan",
     "country": "Philippines"
+  },
+  {
+    "city": "Sao Vicente Ferrer",
+    "state": "Maranh\u00e3o",
+    "country": "Brazil"
   },
   {
     "city": "Sangasso",
@@ -6085,7 +6860,12 @@ export const saCities = [
     "country": "El Salvador"
   },
   {
-    "city": "Salangaipp\u0101laiyam",
+    "city": "Samalapuram",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Salangaippalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -6095,7 +6875,7 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Saint-L\u00f4",
+    "city": "Saint-Lo",
     "state": "Normandie",
     "country": "France"
   },
@@ -6105,7 +6885,7 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "Sar\u00e9-Yamou",
+    "city": "Sare-Yamou",
     "state": "Tombouctou",
     "country": "Mali"
   },
@@ -6115,7 +6895,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Saint-Di\u00e9-des-Vosges",
+    "city": "Saint-Die-des-Vosges",
     "state": "Grand Est",
     "country": "France"
   },
@@ -6135,7 +6915,12 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Sant\u2019Antonio Abate",
+    "city": "Sao Jose de Piranhas",
+    "state": "Para\u00edba",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sant'Antonio Abate",
     "state": "Campania",
     "country": "Italy"
   },
@@ -6160,6 +6945,11 @@ export const saCities = [
     "country": "Tunisia"
   },
   {
+    "city": "Sarangpur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Sarso",
     "state": "Bih\u0101r",
     "country": "India"
@@ -6170,7 +6960,7 @@ export const saCities = [
     "country": "Guernsey"
   },
   {
-    "city": "Sars\u0101wa",
+    "city": "Sarsawa",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -6190,7 +6980,7 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "San Sebasti\u00e1n de Buenavista",
+    "city": "San Sebastian de Buenavista",
     "state": "Magdalena",
     "country": "Colombia"
   },
@@ -6198,6 +6988,11 @@ export const saCities = [
     "city": "Santa Fe Springs",
     "state": "California",
     "country": "United States"
+  },
+  {
+    "city": "Sao Jose da Coroa Grande",
+    "state": "Pernambuco",
+    "country": "Brazil"
   },
   {
     "city": "Sabalpur",
@@ -6220,17 +7015,27 @@ export const saCities = [
     "country": "Colombia"
   },
   {
+    "city": "Sao Raimundo das Mangabeiras",
+    "state": "Maranh\u00e3o",
+    "country": "Brazil"
+  },
+  {
+    "city": "Samma",
+    "state": "Irbid",
+    "country": "Jordan"
+  },
+  {
     "city": "Santa Catarina Juquila",
     "state": "Oaxaca",
     "country": "Mexico"
   },
   {
-    "city": "San Juli\u00e1n",
+    "city": "San Julian",
     "state": "Sonsonate",
     "country": "El Salvador"
   },
   {
-    "city": "Sanhar\u00f3",
+    "city": "Sanharo",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -6238,6 +7043,11 @@ export const saCities = [
     "city": "Saylac",
     "state": "Awdal",
     "country": "Somalia"
+  },
+  {
+    "city": "Sao Gabriel",
+    "state": "Bahia",
+    "country": "Brazil"
   },
   {
     "city": "San Miguel",
@@ -6250,7 +7060,7 @@ export const saCities = [
     "country": "Italy"
   },
   {
-    "city": "San Sebasti\u00e1n Salitrillo",
+    "city": "San Sebastian Salitrillo",
     "state": "Santa Ana",
     "country": "El Salvador"
   },
@@ -6280,7 +7090,7 @@ export const saCities = [
     "country": "Spain"
   },
   {
-    "city": "Sacav\u00e9m",
+    "city": "Sacavem",
     "state": "Lisboa",
     "country": "Portugal"
   },
@@ -6310,6 +7120,11 @@ export const saCities = [
     "country": "Mexico"
   },
   {
+    "city": "Sao Benedito do Rio Preto",
+    "state": "Maranh\u00e3o",
+    "country": "Brazil"
+  },
+  {
     "city": "San Rafael Pie de la Cuesta",
     "state": "San Marcos",
     "country": "Guatemala"
@@ -6320,17 +7135,17 @@ export const saCities = [
     "country": "Argentina"
   },
   {
-    "city": "Sandar\u00e9",
+    "city": "Sandare",
     "state": "Kayes",
     "country": "Mali"
   },
   {
-    "city": "San Jos\u00e9 Tenango",
+    "city": "San Jose Tenango",
     "state": "Oaxaca",
     "country": "Mexico"
   },
   {
-    "city": "Sakou\u00e9ba",
+    "city": "Sakoueba",
     "state": "S\u00e9gou",
     "country": "Mali"
   },
@@ -6340,27 +7155,32 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Sava\u015ftepe",
+    "city": "Savastepe",
     "state": "Bal\u0131kesir",
     "country": "Turkey"
   },
   {
-    "city": "Santa Iria da Az\u00f3ia",
+    "city": "Santa Iria da Azoia",
     "state": "Lisboa",
     "country": "Portugal"
   },
   {
-    "city": "Santiago de Mar\u00eda",
+    "city": "Sahna",
+    "state": "Punjab",
+    "country": "India"
+  },
+  {
+    "city": "Santiago de Maria",
     "state": "Usulut\u00e1n",
     "country": "El Salvador"
   },
   {
-    "city": "San Sebasti\u00e1n Tutla",
+    "city": "San Sebastian Tutla",
     "state": "Oaxaca",
     "country": "Mexico"
   },
   {
-    "city": "Sarvest\u0101n",
+    "city": "Sarvestan",
     "state": "F\u0101rs",
     "country": "Iran"
   },
@@ -6378,6 +7198,11 @@ export const saCities = [
     "city": "San Vito dei Normanni",
     "state": "Puglia",
     "country": "Italy"
+  },
+  {
+    "city": "Sao Tiago de Custoias",
+    "state": "Porto",
+    "country": "Portugal"
   },
   {
     "city": "Santa Ana",
@@ -6400,22 +7225,22 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "San Crist\u00f3bal Cucho",
+    "city": "San Cristobal Cucho",
     "state": "San Marcos",
     "country": "Guatemala"
   },
   {
-    "city": "Sapea\u00e7u",
+    "city": "Sapeacu",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Santo Anast\u00e1cio",
+    "city": "Santo Anastacio",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Saatl\u0131",
+    "city": "Saatli",
     "state": "Saatl\u0131",
     "country": "Azerbaijan"
   },
@@ -6453,6 +7278,11 @@ export const saCities = [
     "city": "San Bartolo Tutotepec",
     "state": "Hidalgo",
     "country": "Mexico"
+  },
+  {
+    "city": "Sao Luis Gonzaga do Maranhao",
+    "state": "Maranh\u00e3o",
+    "country": "Brazil"
   },
   {
     "city": "Salgar",
@@ -6500,9 +7330,19 @@ export const saCities = [
     "country": "Philippines"
   },
   {
+    "city": "Sao Miguel do Tapuio",
+    "state": "Piau\u00ed",
+    "country": "Brazil"
+  },
+  {
     "city": "Saint-Maximin-la-Sainte-Baume",
     "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
     "country": "France"
+  },
+  {
+    "city": "Sao Francisco de Assis",
+    "state": "Rio Grande do Sul",
+    "country": "Brazil"
   },
   {
     "city": "San Jorge",
@@ -6513,6 +7353,11 @@ export const saCities = [
     "city": "Sam Phran",
     "state": "Nakhon Pathom",
     "country": "Thailand"
+  },
+  {
+    "city": "Savsat",
+    "state": "Artvin",
+    "country": "Turkey"
   },
   {
     "city": "San Alejo",
@@ -6555,12 +7400,12 @@ export const saCities = [
     "country": "Italy"
   },
   {
-    "city": "Saman\u00e1",
+    "city": "Samana",
     "state": "Caldas",
     "country": "Colombia"
   },
   {
-    "city": "Santa Luc\u00eda Milpas Altas",
+    "city": "Santa Lucia Milpas Altas",
     "state": "Sacatep\u00e9quez",
     "country": "Guatemala"
   },
@@ -6570,9 +7415,19 @@ export const saCities = [
     "country": "Nicaragua"
   },
   {
+    "city": "Sao Domingos do Prata",
+    "state": "Minas Gerais",
+    "country": "Brazil"
+  },
+  {
     "city": "Santa Maria di Sala",
     "state": "Veneto",
     "country": "Italy"
+  },
+  {
+    "city": "Sanwer",
+    "state": "Madhya Pradesh",
+    "country": "India"
   },
   {
     "city": "Sainte-Catherine",
@@ -6585,7 +7440,12 @@ export const saCities = [
     "country": "El Salvador"
   },
   {
-    "city": "Santo Ant\u00f4nio do Amparo",
+    "city": "Saram",
+    "state": "Jh\u0101rkhand",
+    "country": "India"
+  },
+  {
+    "city": "Santo Antonio do Amparo",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -6625,7 +7485,7 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "Sa\u2018\u0101dat Shahr",
+    "city": "Sa`adat Shahr",
     "state": "F\u0101rs",
     "country": "Iran"
   },
@@ -6670,9 +7530,14 @@ export const saCities = [
     "country": "Nicaragua"
   },
   {
-    "city": "Santa Mar\u00eda",
+    "city": "Santa Maria",
     "state": "Catamarca",
     "country": "Argentina"
+  },
+  {
+    "city": "Sao Simao",
+    "state": "Goi\u00e1s",
+    "country": "Brazil"
   },
   {
     "city": "Saint-Cyr-sur-Loire",
@@ -6690,17 +7555,17 @@ export const saCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Santo Ant\u00f4nio do Leverger",
+    "city": "Santo Antonio do Leverger",
     "state": "Mato Grosso",
     "country": "Brazil"
   },
   {
-    "city": "Saint-\u00c9gr\u00e8ve",
+    "city": "Saint-Egreve",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
   {
-    "city": "Santo Tom\u00e1s de J\u00e1nico",
+    "city": "Santo Tomas de Janico",
     "state": "Cibao Norte",
     "country": "Dominican Republic"
   },
@@ -6715,12 +7580,12 @@ export const saCities = [
     "country": "Brazil"
   },
   {
-    "city": "San Jos\u00e9 de Chiquitos",
+    "city": "San Jose de Chiquitos",
     "state": "Santa Cruz",
     "country": "Bolivia"
   },
   {
-    "city": "Sar\u0131o\u011flan",
+    "city": "Sarioglan",
     "state": "Kayseri",
     "country": "Turkey"
   },
@@ -6730,9 +7595,24 @@ export const saCities = [
     "country": "Nicaragua"
   },
   {
+    "city": "Sao Joao dos Poleiros",
+    "state": "Maranh\u00e3o",
+    "country": "Brazil"
+  },
+  {
     "city": "Sada",
     "state": "Galicia",
     "country": "Spain"
+  },
+  {
+    "city": "Sayarpuram",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Sao Pedro do Sul",
+    "state": "Viseu",
+    "country": "Portugal"
   },
   {
     "city": "Saltash",
@@ -6750,7 +7630,7 @@ export const saCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "San Juli\u00e1n",
+    "city": "San Julian",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -6765,12 +7645,17 @@ export const saCities = [
     "country": "Guatemala"
   },
   {
+    "city": "Sao Paulo do Potengi",
+    "state": "Rio Grande do Norte",
+    "country": "Brazil"
+  },
+  {
     "city": "San Miguel de Salcedo",
     "state": "Cotopaxi",
     "country": "Ecuador"
   },
   {
-    "city": "Santa Luc\u00eda",
+    "city": "Santa Lucia",
     "state": "Canelones",
     "country": "Uruguay"
   },
@@ -6783,6 +7668,16 @@ export const saCities = [
     "city": "Saran",
     "state": "Centre-Val de Loire",
     "country": "France"
+  },
+  {
+    "city": "Sao Vicente Ferrer",
+    "state": "Pernambuco",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sao Caetano de Odivelas",
+    "state": "Par\u00e1",
+    "country": "Brazil"
   },
   {
     "city": "Salitre",
@@ -6815,7 +7710,7 @@ export const saCities = [
     "country": "Brazil"
   },
   {
-    "city": "Santa Mar\u00eda Petapa",
+    "city": "Santa Maria Petapa",
     "state": "Oaxaca",
     "country": "Mexico"
   },
@@ -6825,7 +7720,7 @@ export const saCities = [
     "country": "Colombia"
   },
   {
-    "city": "Sant\u2019Elpidio a Mare",
+    "city": "Sant'Elpidio a Mare",
     "state": "Marche",
     "country": "Italy"
   },
@@ -6862,6 +7757,11 @@ export const saCities = [
   {
     "city": "Sananduva",
     "state": "Rio Grande do Sul",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sao Francisco do Guapore",
+    "state": "Rond\u00f4nia",
     "country": "Brazil"
   },
   {
@@ -6910,7 +7810,7 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Santa Cruz Mulu\u00e1",
+    "city": "Santa Cruz Mulua",
     "state": "Retalhuleu",
     "country": "Guatemala"
   },
@@ -6940,7 +7840,12 @@ export const saCities = [
     "country": "Honduras"
   },
   {
-    "city": "Sapatgr\u0101m",
+    "city": "Satiro Dias",
+    "state": "Bahia",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sapatgram",
     "state": "Assam",
     "country": "India"
   },
@@ -6955,12 +7860,17 @@ export const saCities = [
     "country": "Italy"
   },
   {
+    "city": "Sao Lourenco da Serra",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
+  },
+  {
     "city": "Saint-Amand-les-Eaux",
     "state": "Hauts-de-France",
     "country": "France"
   },
   {
-    "city": "Saint-Leu-la-For\u00eat",
+    "city": "Saint-Leu-la-Foret",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -6968,6 +7878,11 @@ export const saCities = [
     "city": "Saint-Pierre-des-Corps",
     "state": "Centre-Val de Loire",
     "country": "France"
+  },
+  {
+    "city": "Sayalkudi",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "San Giovanni in Fiore",
@@ -7000,12 +7915,12 @@ export const saCities = [
     "country": "Romania"
   },
   {
-    "city": "San Bartolom\u00e9 Jocotenango",
+    "city": "San Bartolome Jocotenango",
     "state": "Quich\u00e9",
     "country": "Guatemala"
   },
   {
-    "city": "San Antonio Palop\u00f3",
+    "city": "San Antonio Palopo",
     "state": "Solol\u00e1",
     "country": "Guatemala"
   },
@@ -7020,19 +7935,39 @@ export const saCities = [
     "country": "Mexico"
   },
   {
+    "city": "Sahar",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "San Miguel",
     "state": "Catanduanes",
     "country": "Philippines"
   },
   {
-    "city": "San Miguel Due\u00f1as",
+    "city": "Sao Pedro do Sul",
+    "state": "Rio Grande do Sul",
+    "country": "Brazil"
+  },
+  {
+    "city": "San Miguel Duenas",
     "state": "Sacatep\u00e9quez",
     "country": "Guatemala"
   },
   {
-    "city": "Santa Cec\u00edlia",
+    "city": "Saligrama",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Santa Cecilia",
     "state": "Santa Catarina",
     "country": "Brazil"
+  },
+  {
+    "city": "Sanatikri",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Sainte-Luce-sur-Loire",
@@ -7040,7 +7975,7 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "Say\u014d",
+    "city": "Sayo",
     "state": "Hy\u014dgo",
     "country": "Japan"
   },
@@ -7055,7 +7990,7 @@ export const saCities = [
     "country": "Dominican Republic"
   },
   {
-    "city": "Sarai Jatt\u0101n",
+    "city": "Sarai Jattan",
     "state": "Punjab",
     "country": "India"
   },
@@ -7080,7 +8015,7 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "Samsik\u0101puram",
+    "city": "Samsikapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -7100,14 +8035,24 @@ export const saCities = [
     "country": "Argentina"
   },
   {
-    "city": "Santa \u00darsula",
+    "city": "Sao Joao Evangelista",
+    "state": "Minas Gerais",
+    "country": "Brazil"
+  },
+  {
+    "city": "Santa Ursula",
     "state": "Canary Islands",
     "country": "Spain"
   },
   {
-    "city": "Saint-Charles-Borrom\u00e9e",
+    "city": "Saint-Charles-Borromee",
     "state": "Quebec",
     "country": "Canada"
+  },
+  {
+    "city": "Sahpur",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "San Rafael Arriba",
@@ -7120,12 +8065,12 @@ export const saCities = [
     "country": "Canada"
   },
   {
-    "city": "Saint-Brice-sous-For\u00eat",
+    "city": "Saint-Brice-sous-Foret",
     "state": "\u00cele-de-France",
     "country": "France"
   },
   {
-    "city": "Sales\u00f3polis",
+    "city": "Salesopolis",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -7165,7 +8110,7 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "Saty\u0101mangala",
+    "city": "Satyamangala",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -7180,6 +8125,11 @@ export const saCities = [
     "country": "India"
   },
   {
+    "city": "Sarvar",
+    "state": "Vas",
+    "country": "Hungary"
+  },
+  {
     "city": "Sahave",
     "state": "Fianarantsoa",
     "country": "Madagascar"
@@ -7190,7 +8140,7 @@ export const saCities = [
     "country": "Nepal"
   },
   {
-    "city": "Sarmad\u0101",
+    "city": "Sarmada",
     "state": "Idlib",
     "country": "Syria"
   },
@@ -7220,12 +8170,12 @@ export const saCities = [
     "country": "Brazil"
   },
   {
-    "city": "Sant\u2019Arpino",
+    "city": "Sant'Arpino",
     "state": "Campania",
     "country": "Italy"
   },
   {
-    "city": "Santa Br\u00edgida",
+    "city": "Santa Brigida",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -7300,22 +8250,27 @@ export const saCities = [
     "country": "Nicaragua"
   },
   {
-    "city": "Sakh\u0101",
+    "city": "Sakha",
     "state": "Kafr ash Shaykh",
     "country": "Egypt"
   },
   {
-    "city": "San \u0120wann",
+    "city": "San Gwann",
     "state": "San \u0120wann",
     "country": "Malta"
   },
   {
-    "city": "San Ram\u00f3n",
+    "city": "Sahit",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "San Ramon",
     "state": "Jun\u00edn",
     "country": "Peru"
   },
   {
-    "city": "Santa Croce sull\u2019 Arno",
+    "city": "Santa Croce sull' Arno",
     "state": "Tuscany",
     "country": "Italy"
   },
@@ -7340,6 +8295,11 @@ export const saCities = [
     "country": "France"
   },
   {
+    "city": "Satyun",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
     "city": "Sangota",
     "state": "Khyber Pakhtunkhwa",
     "country": "Pakistan"
@@ -7360,7 +8320,7 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "Sarm\u012bn",
+    "city": "Sarmin",
     "state": "Idlib",
     "country": "Syria"
   },
@@ -7370,7 +8330,7 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "San Mart\u00edn de Loba",
+    "city": "San Martin de Loba",
     "state": "Bol\u00edvar",
     "country": "Colombia"
   },
@@ -7410,7 +8370,7 @@ export const saCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Santa Mar\u00eda",
+    "city": "Santa Maria",
     "state": "Valpara\u00edso",
     "country": "Chile"
   },
@@ -7420,12 +8380,12 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "Satw\u0101s",
+    "city": "Satwas",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "San Sebasti\u00e1n",
+    "city": "San Sebastian",
     "state": "San Vicente",
     "country": "El Salvador"
   },
@@ -7440,7 +8400,7 @@ export const saCities = [
     "country": "Colombia"
   },
   {
-    "city": "San Crist\u00f3bal",
+    "city": "San Cristobal",
     "state": "Santa Fe",
     "country": "Argentina"
   },
@@ -7450,22 +8410,22 @@ export const saCities = [
     "country": "Trinidad and Tobago"
   },
   {
-    "city": "Sail\u0101na",
+    "city": "Sailana",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Santa Rosal\u00eda",
+    "city": "Santa Rosalia",
     "state": "Baja California Sur",
     "country": "Mexico"
   },
   {
-    "city": "San Andr\u00e9s Timilpan",
+    "city": "San Andres Timilpan",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
   {
-    "city": "Salda\u00f1a",
+    "city": "Saldana",
     "state": "Tolima",
     "country": "Colombia"
   },
@@ -7480,12 +8440,12 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Saint-Paul-l\u00e8s-Dax",
+    "city": "Saint-Paul-les-Dax",
     "state": "Nouvelle-Aquitaine",
     "country": "France"
   },
   {
-    "city": "Sal\u012bmpur",
+    "city": "Salimpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -7495,7 +8455,7 @@ export const saCities = [
     "country": "Kazakhstan"
   },
   {
-    "city": "Santo Ant\u00f4nio dos Lopes",
+    "city": "Santo Antonio dos Lopes",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
@@ -7515,7 +8475,7 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "Sabin\u00f3polis",
+    "city": "Sabinopolis",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -7535,14 +8495,24 @@ export const saCities = [
     "country": "Turkey"
   },
   {
-    "city": "Sanl\u00facar la Mayor",
+    "city": "Sanlucar la Mayor",
     "state": "Andalusia",
     "country": "Spain"
+  },
+  {
+    "city": "Sao Jose do Cedro",
+    "state": "Santa Catarina",
+    "country": "Brazil"
   },
   {
     "city": "Santol",
     "state": "La Union",
     "country": "Philippines"
+  },
+  {
+    "city": "Sao Martinho do Bispo",
+    "state": "Coimbra",
+    "country": "Portugal"
   },
   {
     "city": "Sanjiang Nongchang",
@@ -7565,12 +8535,17 @@ export const saCities = [
     "country": "Mexico"
   },
   {
+    "city": "Sasan",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Santa Catalina",
     "state": "Bol\u00edvar",
     "country": "Colombia"
   },
   {
-    "city": "Santa Ad\u00e9lia",
+    "city": "Santa Adelia",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -7578,6 +8553,16 @@ export const saCities = [
     "city": "Sahalanona",
     "state": "Fianarantsoa",
     "country": "Madagascar"
+  },
+  {
+    "city": "Sahnaya",
+    "state": "R\u012bf Dimashq",
+    "country": "Syria"
+  },
+  {
+    "city": "Sao Joao d'Alianca",
+    "state": "Goi\u00e1s",
+    "country": "Brazil"
   },
   {
     "city": "Santa Branca",
@@ -7590,7 +8575,7 @@ export const saCities = [
     "country": "Japan"
   },
   {
-    "city": "San Jos\u00e9 Acatempa",
+    "city": "San Jose Acatempa",
     "state": "Jutiapa",
     "country": "Guatemala"
   },
@@ -7610,6 +8595,11 @@ export const saCities = [
     "country": "Peru"
   },
   {
+    "city": "Sagar",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
     "city": "Saboeiro",
     "state": "Cear\u00e1",
     "country": "Brazil"
@@ -7620,7 +8610,7 @@ export const saCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Salo\u00e1",
+    "city": "Saloa",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -7640,12 +8630,12 @@ export const saCities = [
     "country": "Trinidad and Tobago"
   },
   {
-    "city": "Sar\u0101y\u0101n",
+    "city": "Sarayan",
     "state": "Khor\u0101s\u0101n-e Jon\u016bb\u012b",
     "country": "Iran"
   },
   {
-    "city": "San \u0120iljan",
+    "city": "San Giljan",
     "state": "San \u0120iljan",
     "country": "Malta"
   },
@@ -7670,9 +8660,19 @@ export const saCities = [
     "country": "France"
   },
   {
+    "city": "Sao Pedro do Piaui",
+    "state": "Piau\u00ed",
+    "country": "Brazil"
+  },
+  {
     "city": "Saint-Martin-de-Crau",
     "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
     "country": "France"
+  },
+  {
+    "city": "Sao Joao do Triunfo",
+    "state": "Paran\u00e1",
+    "country": "Brazil"
   },
   {
     "city": "Saugeen Shores",
@@ -7705,7 +8705,7 @@ export const saCities = [
     "country": "Australia"
   },
   {
-    "city": "Saint Ann\u2019s Bay",
+    "city": "Saint Ann's Bay",
     "state": "Saint Ann",
     "country": "Jamaica"
   },
@@ -7720,7 +8720,7 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "San Agust\u00edn de Guadalix",
+    "city": "San Agustin de Guadalix",
     "state": "Madrid",
     "country": "Spain"
   },
@@ -7730,7 +8730,7 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Santa Coloma de Farn\u00e9s",
+    "city": "Santa Coloma de Farnes",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -7738,6 +8738,11 @@ export const saCities = [
     "city": "Sampaloc",
     "state": "Quezon",
     "country": "Philippines"
+  },
+  {
+    "city": "Samorin",
+    "state": "Trnava",
+    "country": "Slovakia"
   },
   {
     "city": "Saimbeyli",
@@ -7750,12 +8755,17 @@ export const saCities = [
     "country": "Brazil"
   },
   {
+    "city": "Sao Felix do Araguaia",
+    "state": "Mato Grosso",
+    "country": "Brazil"
+  },
+  {
     "city": "San Javier",
     "state": "Santa Fe",
     "country": "Argentina"
   },
   {
-    "city": "San Jos\u00e9 Villanueva",
+    "city": "San Jose Villanueva",
     "state": "La Libertad",
     "country": "El Salvador"
   },
@@ -7765,9 +8775,29 @@ export const saCities = [
     "country": "Guatemala"
   },
   {
+    "city": "Sao Ludgero",
+    "state": "Santa Catarina",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sao Joao do Araguaia",
+    "state": "Par\u00e1",
+    "country": "Brazil"
+  },
+  {
     "city": "San Juan de Limay",
     "state": "Estel\u00ed",
     "country": "Nicaragua"
+  },
+  {
+    "city": "Sao Pedro da Agua Branca",
+    "state": "Maranh\u00e3o",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sao Simao",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
   },
   {
     "city": "San Juan de Betulia",
@@ -7790,7 +8820,7 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Santa B\u00e1rbara",
+    "city": "Santa Barbara",
     "state": "Biob\u00edo",
     "country": "Chile"
   },
@@ -7815,7 +8845,7 @@ export const saCities = [
     "country": "Guatemala"
   },
   {
-    "city": "San Jos\u00e9 de Maipo",
+    "city": "San Jose de Maipo",
     "state": "Regi\u00f3n Metropolitana",
     "country": "Chile"
   },
@@ -7835,7 +8865,7 @@ export const saCities = [
     "country": "Dominican Republic"
   },
   {
-    "city": "Sant\u2019Angelo Lodigiano",
+    "city": "Sant'Angelo Lodigiano",
     "state": "Lombardy",
     "country": "Italy"
   },
@@ -7870,6 +8900,11 @@ export const saCities = [
     "country": "Chile"
   },
   {
+    "city": "Sabang",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Sarria",
     "state": "Galicia",
     "country": "Spain"
@@ -7890,12 +8925,12 @@ export const saCities = [
     "country": "Brazil"
   },
   {
-    "city": "Santa Mar\u00eda de Ipire",
+    "city": "Santa Maria de Ipire",
     "state": "Gu\u00e1rico",
     "country": "Venezuela"
   },
   {
-    "city": "Sam\u0101lsar",
+    "city": "Samalsar",
     "state": "Punjab",
     "country": "India"
   },
@@ -7905,12 +8940,12 @@ export const saCities = [
     "country": "Spain"
   },
   {
-    "city": "San Jer\u00f3nimo",
+    "city": "San Jeronimo",
     "state": "Antioquia",
     "country": "Colombia"
   },
   {
-    "city": "Santa Mar\u00eda Jalapa del Marqu\u00e9s",
+    "city": "Santa Maria Jalapa del Marques",
     "state": "Oaxaca",
     "country": "Mexico"
   },
@@ -7940,17 +8975,27 @@ export const saCities = [
     "country": "Germany"
   },
   {
+    "city": "Satoraljaujhely",
+    "state": "Borsod-Aba\u00faj-Zempl\u00e9n",
+    "country": "Hungary"
+  },
+  {
     "city": "San Vicente",
     "state": "Ilocos Sur",
     "country": "Philippines"
   },
   {
-    "city": "Sarg\u016br",
+    "city": "Sargur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "San Mart\u00edn Zapotitl\u00e1n",
+    "city": "Sao Domingos",
+    "state": "Goi\u00e1s",
+    "country": "Brazil"
+  },
+  {
+    "city": "San Martin Zapotitlan",
     "state": "Retalhuleu",
     "country": "Guatemala"
   },
@@ -8000,14 +9045,19 @@ export const saCities = [
     "country": "Peru"
   },
   {
-    "city": "Sant Sadurn\u00ed d\u2019Anoia",
+    "city": "Sant Sadurni d'Anoia",
     "state": "Catalonia",
     "country": "Spain"
   },
   {
-    "city": "Saint-Andr\u00e9",
+    "city": "Saint-Andre",
     "state": "Hauts-de-France",
     "country": "France"
+  },
+  {
+    "city": "Sakhmohan",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "San Pablo",
@@ -8020,12 +9070,12 @@ export const saCities = [
     "country": "Venezuela"
   },
   {
-    "city": "Saghar Sult\u0101npur",
+    "city": "Saghar Sultanpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Sang\u00e3o",
+    "city": "Sangao",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -8035,7 +9085,7 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Saint-Andr\u00e9-de-Cubzac",
+    "city": "Saint-Andre-de-Cubzac",
     "state": "Nouvelle-Aquitaine",
     "country": "France"
   },
@@ -8075,7 +9125,7 @@ export const saCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Sam\u00e9",
+    "city": "Same",
     "state": "Kayes",
     "country": "Mali"
   },
@@ -8090,7 +9140,7 @@ export const saCities = [
     "country": "Mexico"
   },
   {
-    "city": "Santo Tom\u00e1s La Uni\u00f3n",
+    "city": "Santo Tomas La Union",
     "state": "Suchitep\u00e9quez",
     "country": "Guatemala"
   },
@@ -8105,7 +9155,7 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Santa Maria do Sua\u00e7u\u00ed",
+    "city": "Santa Maria do Suacui",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -8120,7 +9170,7 @@ export const saCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Saint-Andr\u00e9-les-Vergers",
+    "city": "Saint-Andre-les-Vergers",
     "state": "Grand Est",
     "country": "France"
   },
@@ -8155,7 +9205,12 @@ export const saCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Sam\u0101i",
+    "city": "Sao Felix da Marinha",
+    "state": "Porto",
+    "country": "Portugal"
+  },
+  {
+    "city": "Samai",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -8165,12 +9220,12 @@ export const saCities = [
     "country": "Turkey"
   },
   {
-    "city": "Sante Benn\u016br",
+    "city": "Sante Bennur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Sangt\u016dda",
+    "city": "Sangtuda",
     "state": "Khatlon",
     "country": "Tajikistan"
   },
@@ -8215,12 +9270,12 @@ export const saCities = [
     "country": "Japan"
   },
   {
-    "city": "Santa B\u00e1rbara de Pinto",
+    "city": "Santa Barbara de Pinto",
     "state": "Magdalena",
     "country": "Colombia"
   },
   {
-    "city": "Sar\u0131veliler",
+    "city": "Sariveliler",
     "state": "Karaman",
     "country": "Turkey"
   },
@@ -8250,12 +9305,12 @@ export const saCities = [
     "country": "Colombia"
   },
   {
-    "city": "Saint-Jean-de-V\u00e9das",
+    "city": "Saint-Jean-de-Vedas",
     "state": "Occitanie",
     "country": "France"
   },
   {
-    "city": "Salobre\u00f1a",
+    "city": "Salobrena",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -8275,12 +9330,17 @@ export const saCities = [
     "country": "Venezuela"
   },
   {
-    "city": "Santo Ni\u00f1o",
+    "city": "Santo Nino",
     "state": "Samar",
     "country": "Philippines"
   },
   {
-    "city": "Satt\u0113g\u0101lam",
+    "city": "Savalgi",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Sattegalam",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -8290,17 +9350,17 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Saint David\u2019s",
+    "city": "Saint David's",
     "state": "Saint David",
     "country": "Grenada"
   },
   {
-    "city": "Santa\u00f1y",
+    "city": "Santany",
     "state": "Balearic Islands",
     "country": "Spain"
   },
   {
-    "city": "San Miguel Pan\u00e1n",
+    "city": "San Miguel Panan",
     "state": "Suchitep\u00e9quez",
     "country": "Guatemala"
   },
@@ -8308,6 +9368,11 @@ export const saCities = [
     "city": "Santa Ana Maya",
     "state": "Michoac\u00e1n",
     "country": "Mexico"
+  },
+  {
+    "city": "Santana",
+    "state": "Arad",
+    "country": "Romania"
   },
   {
     "city": "San Bartolo",
@@ -8320,7 +9385,12 @@ export const saCities = [
     "country": "Brazil"
   },
   {
-    "city": "Sang\u0101n",
+    "city": "Satao",
+    "state": "Viseu",
+    "country": "Portugal"
+  },
+  {
+    "city": "Sangan",
     "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
     "country": "Iran"
   },
@@ -8330,12 +9400,12 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Sar\u0101bleh",
+    "city": "Sarableh",
     "state": "\u012al\u0101m",
     "country": "Iran"
   },
   {
-    "city": "San Pedro Jicay\u00e1n",
+    "city": "San Pedro Jicayan",
     "state": "Oaxaca",
     "country": "Mexico"
   },
@@ -8345,7 +9415,7 @@ export const saCities = [
     "country": "Mexico"
   },
   {
-    "city": "Saboy\u00e1",
+    "city": "Saboya",
     "state": "Boyac\u00e1",
     "country": "Colombia"
   },
@@ -8425,12 +9495,12 @@ export const saCities = [
     "country": "Benin"
   },
   {
-    "city": "Sam\u0101dh Bhai",
+    "city": "Samadh Bhai",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Sainte-Ad\u00e8le",
+    "city": "Sainte-Adele",
     "state": "Quebec",
     "country": "Canada"
   },
@@ -8445,7 +9515,7 @@ export const saCities = [
     "country": "Canada"
   },
   {
-    "city": "Salgado de S\u00e3o F\u00e9lix",
+    "city": "Salgado de Sao Felix",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -8475,7 +9545,7 @@ export const saCities = [
     "country": "Mexico"
   },
   {
-    "city": "Sabl\u00e9-sur-Sarthe",
+    "city": "Sable-sur-Sarthe",
     "state": "Pays de la Loire",
     "country": "France"
   },
@@ -8483,6 +9553,11 @@ export const saCities = [
     "city": "Sassenburg",
     "state": "Lower Saxony",
     "country": "Germany"
+  },
+  {
+    "city": "Sao Francisco do Maranhao",
+    "state": "Maranh\u00e3o",
+    "country": "Brazil"
   },
   {
     "city": "Sarmastpur",
@@ -8495,7 +9570,7 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "San Jos\u00e9 El \u00cddolo",
+    "city": "San Jose El Idolo",
     "state": "Suchitep\u00e9quez",
     "country": "Guatemala"
   },
@@ -8505,7 +9580,7 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Saht\u0101h",
+    "city": "Sahtah",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -8540,12 +9615,17 @@ export const saCities = [
     "country": "Spain"
   },
   {
-    "city": "Saksoh\u0101ra",
+    "city": "Saksohara",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Saint-Av\u00e9",
+    "city": "Salpazari",
+    "state": "Trabzon",
+    "country": "Turkey"
+  },
+  {
+    "city": "Saint-Ave",
     "state": "Bretagne",
     "country": "France"
   },
@@ -8560,9 +9640,14 @@ export const saCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Sansal\u00e9",
+    "city": "Sansale",
     "state": "Bok\u00e9",
     "country": "Guinea"
+  },
+  {
+    "city": "Sao Joao",
+    "state": "Paran\u00e1",
+    "country": "Brazil"
   },
   {
     "city": "San Severino Marche",
@@ -8575,7 +9660,7 @@ export const saCities = [
     "country": "Mexico"
   },
   {
-    "city": "Sant\u2019Agata di Militello",
+    "city": "Sant'Agata di Militello",
     "state": "Sicilia",
     "country": "Italy"
   },
@@ -8590,12 +9675,17 @@ export const saCities = [
     "country": "Mexico"
   },
   {
-    "city": "Sant\u2019Ambrogio di Valpolicella",
+    "city": "Sao Goncalo do Rio Abaixo",
+    "state": "Minas Gerais",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sant'Ambrogio di Valpolicella",
     "state": "Veneto",
     "country": "Italy"
   },
   {
-    "city": "San Andr\u00e9s de Llevaneras",
+    "city": "San Andres de Llevaneras",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -8603,6 +9693,11 @@ export const saCities = [
     "city": "San Pedro La Laguna",
     "state": "Solol\u00e1",
     "country": "Guatemala"
+  },
+  {
+    "city": "Sanpetru",
+    "state": "Bra\u015fov",
+    "country": "Romania"
   },
   {
     "city": "Santa Cruz Michapa",
@@ -8620,12 +9715,17 @@ export const saCities = [
     "country": "India"
   },
   {
+    "city": "Sao Goncalo do Para",
+    "state": "Minas Gerais",
+    "country": "Brazil"
+  },
+  {
     "city": "San Pedro",
     "state": "Belize",
     "country": "Belize"
   },
   {
-    "city": "San Nicol\u00e1s de los Ranchos",
+    "city": "San Nicolas de los Ranchos",
     "state": "Puebla",
     "country": "Mexico"
   },
@@ -8635,9 +9735,24 @@ export const saCities = [
     "country": "United States"
   },
   {
+    "city": "Saaminki",
+    "state": "Etel\u00e4-Savo",
+    "country": "Finland"
+  },
+  {
+    "city": "Sao Bento do Sapucai",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
+  },
+  {
     "city": "Saint-Pierre-du-Perray",
     "state": "\u00cele-de-France",
     "country": "France"
+  },
+  {
+    "city": "Sao Sebastiao do Uatuma",
+    "state": "Amazonas",
+    "country": "Brazil"
   },
   {
     "city": "Sassenage",
@@ -8650,7 +9765,7 @@ export const saCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "San Pedro Ixcatl\u00e1n",
+    "city": "San Pedro Ixcatlan",
     "state": "Oaxaca",
     "country": "Mexico"
   },
@@ -8670,12 +9785,12 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "Santa Comba D\u00e3o",
+    "city": "Santa Comba Dao",
     "state": "Viseu",
     "country": "Portugal"
   },
   {
-    "city": "Santa Luc\u00eda",
+    "city": "Santa Lucia",
     "state": "Corrientes",
     "country": "Argentina"
   },
@@ -8685,12 +9800,17 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Santa Luc\u00eda",
+    "city": "Sakib",
+    "state": "Jarash",
+    "country": "Jordan"
+  },
+  {
+    "city": "Santa Lucia",
     "state": "Atl\u00e1ntico",
     "country": "Colombia"
   },
   {
-    "city": "Santa Genoveva de Docord\u00f3",
+    "city": "Santa Genoveva de Docordo",
     "state": "Choc\u00f3",
     "country": "Colombia"
   },
@@ -8710,7 +9830,7 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "Saint-Est\u00e8ve",
+    "city": "Saint-Esteve",
     "state": "Occitanie",
     "country": "France"
   },
@@ -8735,7 +9855,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "San L\u00e1zaro",
+    "city": "San Lazaro",
     "state": "Concepci\u00f3n",
     "country": "Paraguay"
   },
@@ -8745,7 +9865,7 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Sathi\u0101la",
+    "city": "Sathiala",
     "state": "Punjab",
     "country": "India"
   },
@@ -8753,6 +9873,11 @@ export const saCities = [
     "city": "San Gregorio di Catania",
     "state": "Sicilia",
     "country": "Italy"
+  },
+  {
+    "city": "Sarbogard",
+    "state": "Fej\u00e9r",
+    "country": "Hungary"
   },
   {
     "city": "Satyavedu",
@@ -8770,7 +9895,7 @@ export const saCities = [
     "country": "Brazil"
   },
   {
-    "city": "San Jos\u00e9 de Guaribe",
+    "city": "San Jose de Guaribe",
     "state": "Gu\u00e1rico",
     "country": "Venezuela"
   },
@@ -8785,6 +9910,11 @@ export const saCities = [
     "country": "Brazil"
   },
   {
+    "city": "Sao Amaro das Brotas",
+    "state": "Sergipe",
+    "country": "Brazil"
+  },
+  {
     "city": "Saint-Cyprien",
     "state": "Occitanie",
     "country": "France"
@@ -8793,6 +9923,11 @@ export const saCities = [
     "city": "San Michele al Tagliamento",
     "state": "Veneto",
     "country": "Italy"
+  },
+  {
+    "city": "Sao Joao das Lampas",
+    "state": "Lisboa",
+    "country": "Portugal"
   },
   {
     "city": "Saverne",
@@ -8805,18 +9940,23 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "Samayanall\u016br",
+    "city": "Samayanallur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Santa F\u00e9",
+    "city": "Santa Fe",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Sarj\u0101pur",
+    "city": "Sarjapur",
     "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Salamedu",
+    "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
@@ -8825,7 +9965,7 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "San Jos\u00e9 del Fragua",
+    "city": "San Jose del Fragua",
     "state": "Caquet\u00e1",
     "country": "Colombia"
   },
@@ -8835,7 +9975,7 @@ export const saCities = [
     "country": "Colombia"
   },
   {
-    "city": "Saint-Germain-l\u00e8s-Arpajon",
+    "city": "Saint-Germain-les-Arpajon",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -8845,7 +9985,7 @@ export const saCities = [
     "country": "Dominican Republic"
   },
   {
-    "city": "Saj\u00f3szentp\u00e9ter",
+    "city": "Sajoszentpeter",
     "state": "Borsod-Aba\u00faj-Zempl\u00e9n",
     "country": "Hungary"
   },
@@ -8860,9 +10000,14 @@ export const saCities = [
     "country": "Ecuador"
   },
   {
-    "city": "Sant\u2019Ilario d\u2019Enza",
+    "city": "Sant'Ilario d'Enza",
     "state": "Emilia-Romagna",
     "country": "Italy"
+  },
+  {
+    "city": "Sao Joao do Manhuacu",
+    "state": "Minas Gerais",
+    "country": "Brazil"
   },
   {
     "city": "Sahsaul",
@@ -8890,6 +10035,11 @@ export const saCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Sayda",
+    "state": "Dar\u2018\u0101",
+    "country": "Syria"
+  },
+  {
     "city": "Sanzana",
     "state": "Sikasso",
     "country": "Mali"
@@ -8900,7 +10050,7 @@ export const saCities = [
     "country": "China"
   },
   {
-    "city": "Sar\u0101b-e T\u0101veh-ye \u2018Oly\u0101",
+    "city": "Sarab-e Taveh-ye `Olya",
     "state": "Kohg\u012bl\u016byeh va Bowyer A\u1e29mad",
     "country": "Iran"
   },
@@ -8915,9 +10065,14 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "San Jos\u00e9 de Aerocuar",
+    "city": "San Jose de Aerocuar",
     "state": "Sucre",
     "country": "Venezuela"
+  },
+  {
+    "city": "Sater",
+    "state": "Dalarna",
+    "country": "Sweden"
   },
   {
     "city": "Sada",
@@ -8925,9 +10080,14 @@ export const saCities = [
     "country": "Mayotte"
   },
   {
-    "city": "Sa\u0101datpur Agu\u0101ni",
+    "city": "Saadatpur Aguani",
     "state": "Bih\u0101r",
     "country": "India"
+  },
+  {
+    "city": "Sao Jose do Campestre",
+    "state": "Rio Grande do Norte",
+    "country": "Brazil"
   },
   {
     "city": "Saint-Saulve",
@@ -8950,6 +10110,11 @@ export const saCities = [
     "country": "Mexico"
   },
   {
+    "city": "Sa'in Qal`eh",
+    "state": "Zanj\u0101n",
+    "country": "Iran"
+  },
+  {
     "city": "Santa Mariana",
     "state": "Paran\u00e1",
     "country": "Brazil"
@@ -8965,6 +10130,11 @@ export const saCities = [
     "country": "Argentina"
   },
   {
+    "city": "Sao Sebastiao de Lagoa de Roca",
+    "state": "Para\u00edba",
+    "country": "Brazil"
+  },
+  {
     "city": "Sankhavaram",
     "state": "Andhra Pradesh",
     "country": "India"
@@ -8975,12 +10145,17 @@ export const saCities = [
     "country": "India"
   },
   {
+    "city": "Sao Felix",
+    "state": "Bahia",
+    "country": "Brazil"
+  },
+  {
     "city": "Sannieshof",
     "state": "North West",
     "country": "South Africa"
   },
   {
-    "city": "Sarauni Kal\u0101n",
+    "city": "Sarauni Kalan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -9010,7 +10185,7 @@ export const saCities = [
     "country": "Costa Rica"
   },
   {
-    "city": "Santa Cruz Balany\u00e1",
+    "city": "Santa Cruz Balanya",
     "state": "Chimaltenango",
     "country": "Guatemala"
   },
@@ -9020,7 +10195,7 @@ export const saCities = [
     "country": "Italy"
   },
   {
-    "city": "Satosh\u014d",
+    "city": "Satosho",
     "state": "Okayama",
     "country": "Japan"
   },
@@ -9035,22 +10210,27 @@ export const saCities = [
     "country": "India"
   },
   {
+    "city": "Sangeorz-Bai",
+    "state": "Bistri\u0163a-N\u0103s\u0103ud",
+    "country": "Romania"
+  },
+  {
     "city": "Sankhavaram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Sangr\u0101m",
+    "city": "Sangram",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Santo\u00f1a",
+    "city": "Santona",
     "state": "Cantabria",
     "country": "Spain"
   },
   {
-    "city": "Sair\u00e9",
+    "city": "Saire",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -9065,7 +10245,7 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "Santa Rosa de R\u00edo Primero",
+    "city": "Santa Rosa de Rio Primero",
     "state": "C\u00f3rdoba",
     "country": "Argentina"
   },
@@ -9090,6 +10270,16 @@ export const saCities = [
     "country": "Argentina"
   },
   {
+    "city": "Sao Jeronimo da Serra",
+    "state": "Paran\u00e1",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sao Luis do Curu",
+    "state": "Cear\u00e1",
+    "country": "Brazil"
+  },
+  {
     "city": "San Valentino Torio",
     "state": "Campania",
     "country": "Italy"
@@ -9100,7 +10290,7 @@ export const saCities = [
     "country": "Benin"
   },
   {
-    "city": "Sarsai N\u0101war",
+    "city": "Sarsai Nawar",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -9110,12 +10300,22 @@ export const saCities = [
     "country": "Colombia"
   },
   {
-    "city": "Santa Mar\u00eda",
+    "city": "Sambre",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Sarospatak",
+    "state": "Borsod-Aba\u00faj-Zempl\u00e9n",
+    "country": "Hungary"
+  },
+  {
+    "city": "Santa Maria",
     "state": "Usulut\u00e1n",
     "country": "El Salvador"
   },
   {
-    "city": "Santa B\u00e1rbara",
+    "city": "Santa Barbara",
     "state": "Chihuahua",
     "country": "Mexico"
   },
@@ -9123,6 +10323,11 @@ export const saCities = [
     "city": "Sapahi",
     "state": "Bih\u0101r",
     "country": "India"
+  },
+  {
+    "city": "Sacueni",
+    "state": "Bihor",
+    "country": "Romania"
   },
   {
     "city": "Santa Catarina Ayotzingo",
@@ -9150,7 +10355,7 @@ export const saCities = [
     "country": "Azerbaijan"
   },
   {
-    "city": "Sangalbah\u012bta",
+    "city": "Sangalbahita",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -9170,24 +10375,39 @@ export const saCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Santo Andr\u00e9",
+    "city": "Salotgi",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Sao Bras de Alportel",
+    "state": "Faro",
+    "country": "Portugal"
+  },
+  {
+    "city": "Santo Andre",
     "state": "Set\u00fabal",
     "country": "Portugal"
   },
   {
-    "city": "Santa Terezinha de Goi\u00e1s",
+    "city": "Santa Terezinha de Goias",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
   {
-    "city": "Sant\u2019Ant\u00ecoco",
+    "city": "Sant'Antioco",
     "state": "Sardegna",
     "country": "Italy"
   },
   {
-    "city": "San Nicol\u00e1s",
+    "city": "San Nicolas",
     "state": "\u00d1uble",
     "country": "Chile"
+  },
+  {
+    "city": "Sannicolau Mare",
+    "state": "Timi\u015f",
+    "country": "Romania"
   },
   {
     "city": "Sabnima",
@@ -9205,9 +10425,19 @@ export const saCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Saw\u0101dah",
+    "city": "Sao Joao de Ver",
+    "state": "Aveiro",
+    "country": "Portugal"
+  },
+  {
+    "city": "Sawadah",
     "state": "Al Miny\u0101",
     "country": "Egypt"
+  },
+  {
+    "city": "Sao Tiago",
+    "state": "Minas Gerais",
+    "country": "Brazil"
   },
   {
     "city": "Sawla",
@@ -9215,7 +10445,12 @@ export const saCities = [
     "country": "Ghana"
   },
   {
-    "city": "Sabaneta de Y\u00e1sica",
+    "city": "Sao Jose do Calcado",
+    "state": "Esp\u00edrito Santo",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sabaneta de Yasica",
     "state": "Cibao Norte",
     "country": "Dominican Republic"
   },
@@ -9230,7 +10465,7 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "Saint-G\u00e9ly-du-Fesc",
+    "city": "Saint-Gely-du-Fesc",
     "state": "Occitanie",
     "country": "France"
   },
@@ -9270,6 +10505,11 @@ export const saCities = [
     "country": "Philippines"
   },
   {
+    "city": "Samakhiali",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
     "city": "Sadon",
     "state": "Kachin State",
     "country": "Burma"
@@ -9280,7 +10520,7 @@ export const saCities = [
     "country": "Brazil"
   },
   {
-    "city": "Sa\u00fade",
+    "city": "Saude",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -9290,7 +10530,7 @@ export const saCities = [
     "country": "Mexico"
   },
   {
-    "city": "Santa Margarita de Momb\u00fay",
+    "city": "Santa Margarita de Mombuy",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -9310,7 +10550,12 @@ export const saCities = [
     "country": "Brazil"
   },
   {
-    "city": "Sal\u00f2",
+    "city": "Sao Sebastiao da Grama",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
+  },
+  {
+    "city": "Salo",
     "state": "Lombardy",
     "country": "Italy"
   },
@@ -9320,17 +10565,22 @@ export const saCities = [
     "country": "Mexico"
   },
   {
+    "city": "Sainkhera",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Santa Clara La Laguna",
     "state": "Solol\u00e1",
     "country": "Guatemala"
   },
   {
-    "city": "Sangr\u0101mpur",
+    "city": "Sangrampur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Sarapu\u00ed",
+    "city": "Sarapui",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -9350,7 +10600,27 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "Santo Ant\u00f4nio do Jacinto",
+    "city": "Sao Luis do Paraitinga",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sao Miguel das Matas",
+    "state": "Bahia",
+    "country": "Brazil"
+  },
+  {
+    "city": "Santo Antonio do Jacinto",
+    "state": "Minas Gerais",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sao Domingos",
+    "state": "Sergipe",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sao Romao",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -9360,7 +10630,7 @@ export const saCities = [
     "country": "Puerto Rico"
   },
   {
-    "city": "Santa In\u00eas",
+    "city": "Santa Ines",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -9370,12 +10640,22 @@ export const saCities = [
     "country": "Sao Tome and Principe"
   },
   {
-    "city": "San Jos\u00e9 de Feliciano",
+    "city": "San Jose de Feliciano",
     "state": "Entre R\u00edos",
     "country": "Argentina"
   },
   {
-    "city": "Sant\u2019Agata de\u2019 Goti",
+    "city": "Sao Geraldo",
+    "state": "Minas Gerais",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sao Carlos",
+    "state": "Santa Catarina",
+    "country": "Brazil"
+  },
+  {
+    "city": "Sant'Agata de' Goti",
     "state": "Campania",
     "country": "Italy"
   },
@@ -9385,12 +10665,12 @@ export const saCities = [
     "country": "Italy"
   },
   {
-    "city": "Saint-F\u00e9licien",
+    "city": "Saint-Felicien",
     "state": "Quebec",
     "country": "Canada"
   },
   {
-    "city": "Salvatierra de Mi\u00f1o",
+    "city": "Salvatierra de Mino",
     "state": "Galicia",
     "country": "Spain"
   },
@@ -9410,7 +10690,7 @@ export const saCities = [
     "country": "Italy"
   },
   {
-    "city": "Santa Isabel Ishuat\u00e1n",
+    "city": "Santa Isabel Ishuatan",
     "state": "Sonsonate",
     "country": "El Salvador"
   },
@@ -9430,7 +10710,12 @@ export const saCities = [
     "country": "Azerbaijan"
   },
   {
-    "city": "Santa Mar\u00eda",
+    "city": "Sao Miguel de Touros",
+    "state": "Rio Grande do Norte",
+    "country": "Brazil"
+  },
+  {
+    "city": "Santa Maria",
     "state": "Huila",
     "country": "Colombia"
   },
@@ -9438,6 +10723,11 @@ export const saCities = [
     "city": "San Blas",
     "state": "Nayarit",
     "country": "Mexico"
+  },
+  {
+    "city": "Sao Jose do Jacuipe",
+    "state": "Bahia",
+    "country": "Brazil"
   },
   {
     "city": "San Pablo",
@@ -9455,12 +10745,12 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "San Sim\u00f3n",
+    "city": "San Simon",
     "state": "Moraz\u00e1n",
     "country": "El Salvador"
   },
   {
-    "city": "Sar\u0131z",
+    "city": "Sariz",
     "state": "Kayseri",
     "country": "Turkey"
   },
@@ -9468,6 +10758,11 @@ export const saCities = [
     "city": "Sahidganj",
     "state": "Bih\u0101r",
     "country": "India"
+  },
+  {
+    "city": "Sao Sebastiao do Maranhao",
+    "state": "Minas Gerais",
+    "country": "Brazil"
   },
   {
     "city": "Santa Catarina Masahuat",
@@ -9515,6 +10810,11 @@ export const saCities = [
     "country": "Peru"
   },
   {
+    "city": "Saha",
+    "state": "Hary\u0101na",
+    "country": "India"
+  },
+  {
     "city": "Sakuho",
     "state": "Nagano",
     "country": "Japan"
@@ -9530,7 +10830,7 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "Saint-Loub\u00e8s",
+    "city": "Saint-Loubes",
     "state": "Nouvelle-Aquitaine",
     "country": "France"
   },
@@ -9565,17 +10865,22 @@ export const saCities = [
     "country": "Mexico"
   },
   {
+    "city": "Sao Tome",
+    "state": "Rio Grande do Norte",
+    "country": "Brazil"
+  },
+  {
     "city": "San Calixto",
     "state": "Norte de Santander",
     "country": "Colombia"
   },
   {
-    "city": "Sagur\u0113",
+    "city": "Sagure",
     "state": "Orom\u012bya",
     "country": "Ethiopia"
   },
   {
-    "city": "Sankt Andr\u00e4",
+    "city": "Sankt Andra",
     "state": "K\u00e4rnten",
     "country": "Austria"
   },
@@ -9600,7 +10905,7 @@ export const saCities = [
     "country": "Portugal"
   },
   {
-    "city": "Saarij\u00e4rvi",
+    "city": "Saarijarvi",
     "state": "Keski-Suomi",
     "country": "Finland"
   },
@@ -9610,7 +10915,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Saquisil\u00ed",
+    "city": "Saquisili",
     "state": "Cotopaxi",
     "country": "Ecuador"
   },
@@ -9620,7 +10925,7 @@ export const saCities = [
     "country": "Canada"
   },
   {
-    "city": "Santa Mar\u00eda de Palautordera",
+    "city": "Santa Maria de Palautordera",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -9630,12 +10935,12 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "San Miguel Sig\u00fcil\u00e1",
+    "city": "San Miguel Siguila",
     "state": "Quetzaltenango",
     "country": "Guatemala"
   },
   {
-    "city": "Sarkegh\u0101\u1e6d",
+    "city": "Sarkeghat",
     "state": "Kar\u1e47\u0101l\u012b",
     "country": "Nepal"
   },
@@ -9650,7 +10955,7 @@ export const saCities = [
     "country": "Italy"
   },
   {
-    "city": "Saint-Gr\u00e9goire",
+    "city": "Saint-Gregoire",
     "state": "Bretagne",
     "country": "France"
   },
@@ -9665,7 +10970,7 @@ export const saCities = [
     "country": "Ecuador"
   },
   {
-    "city": "Santa B\u00e1rbara",
+    "city": "Santa Barbara",
     "state": "Monagas",
     "country": "Venezuela"
   },
@@ -9680,7 +10985,7 @@ export const saCities = [
     "country": "Colombia"
   },
   {
-    "city": "San Sebasti\u00e1n",
+    "city": "San Sebastian",
     "state": "Cauca",
     "country": "Colombia"
   },
@@ -9720,7 +11025,7 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "Sant\u2019Egidio alla Vibrata",
+    "city": "Sant'Egidio alla Vibrata",
     "state": "Abruzzo",
     "country": "Italy"
   },
@@ -9728,6 +11033,11 @@ export const saCities = [
     "city": "Sankt Johann in Tirol",
     "state": "Tirol",
     "country": "Austria"
+  },
+  {
+    "city": "Satuluru",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "San Giorgio del Sannio",
@@ -9740,12 +11050,12 @@ export const saCities = [
     "country": "Chile"
   },
   {
-    "city": "Sant Juli\u00e0 de L\u00f2ria",
+    "city": "Sant Julia de Loria",
     "state": "Sant Juli\u00e0 de L\u00f2ria",
     "country": "Andorra"
   },
   {
-    "city": "Santam\u0101gul\u016bru",
+    "city": "Santamaguluru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -9755,7 +11065,12 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "Santo Tom\u00e1s de los Pl\u00e1tanos",
+    "city": "Savja",
+    "state": "Uppsala",
+    "country": "Sweden"
+  },
+  {
+    "city": "Santo Tomas de los Platanos",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
@@ -9770,7 +11085,7 @@ export const saCities = [
     "country": "Mexico"
   },
   {
-    "city": "San Francisco la Uni\u00f3n",
+    "city": "San Francisco la Union",
     "state": "Quetzaltenango",
     "country": "Guatemala"
   },
@@ -9780,7 +11095,7 @@ export const saCities = [
     "country": "Spain"
   },
   {
-    "city": "Salm\u0101nshahr",
+    "city": "Salmanshahr",
     "state": "M\u0101zandar\u0101n",
     "country": "Iran"
   },
@@ -9815,7 +11130,7 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Saint-R\u00e9my-de-Provence",
+    "city": "Saint-Remy-de-Provence",
     "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
     "country": "France"
   },
@@ -9855,17 +11170,32 @@ export const saCities = [
     "country": "India"
   },
   {
+    "city": "Sanampudi",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Savignano sul Panaro",
     "state": "Emilia-Romagna",
     "country": "Italy"
   },
   {
-    "city": "Santa Rosa del Pe\u00f1\u00f3n",
+    "city": "Sangi",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Salehpur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Santa Rosa del Penon",
     "state": "Le\u00f3n",
     "country": "Nicaragua"
   },
   {
-    "city": "Santa Mar\u00eda",
+    "city": "Santa Maria",
     "state": "C\u00f3rdoba",
     "country": "Argentina"
   },
@@ -9875,7 +11205,12 @@ export const saCities = [
     "country": "Romania"
   },
   {
-    "city": "San Sebasti\u00e1n de la Gomera",
+    "city": "Sabaoani",
+    "state": "Neam\u0163",
+    "country": "Romania"
+  },
+  {
+    "city": "San Sebastian de la Gomera",
     "state": "Canary Islands",
     "country": "Spain"
   },
@@ -9885,17 +11220,17 @@ export const saCities = [
     "country": "Latvia"
   },
   {
-    "city": "Saltsj\u00f6baden",
+    "city": "Saltsjobaden",
     "state": "Stockholm",
     "country": "Sweden"
   },
   {
-    "city": "Sa\u016bmalk\u00f6l",
+    "city": "Saumalkol",
     "state": "North Kazakhstan",
     "country": "Kazakhstan"
   },
   {
-    "city": "Santa Mar\u00eda Jacatepec",
+    "city": "Santa Maria Jacatepec",
     "state": "Oaxaca",
     "country": "Mexico"
   },
@@ -9905,7 +11240,7 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Saint-Barth\u00e9lemy-d\u2019Anjou",
+    "city": "Saint-Barthelemy-d'Anjou",
     "state": "Pays de la Loire",
     "country": "France"
   },
@@ -9930,9 +11265,14 @@ export const saCities = [
     "country": "Philippines"
   },
   {
-    "city": "Sabi\u00f1\u00e1nigo",
+    "city": "Sabinanigo",
     "state": "Aragon",
     "country": "Spain"
+  },
+  {
+    "city": "Sadiqpur Maraul",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "San Francisco Libre",
@@ -9940,7 +11280,7 @@ export const saCities = [
     "country": "Nicaragua"
   },
   {
-    "city": "Sarpam\u0101ri",
+    "city": "Sarpamari",
     "state": "Assam",
     "country": "India"
   },
@@ -9970,6 +11310,11 @@ export const saCities = [
     "country": "France"
   },
   {
+    "city": "Sao Jorge d'Oeste",
+    "state": "Paran\u00e1",
+    "country": "Brazil"
+  },
+  {
     "city": "Salzhemmendorf",
     "state": "Lower Saxony",
     "country": "Germany"
@@ -9990,7 +11335,7 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "San Agust\u00edn de las Juntas",
+    "city": "San Agustin de las Juntas",
     "state": "Oaxaca",
     "country": "Mexico"
   },
@@ -10020,7 +11365,7 @@ export const saCities = [
     "country": "Bhutan"
   },
   {
-    "city": "Santa Mar\u00eda de Cay\u00f3n",
+    "city": "Santa Maria de Cayon",
     "state": "Cantabria",
     "country": "Spain"
   },
@@ -10030,17 +11375,22 @@ export const saCities = [
     "country": "Mexico"
   },
   {
-    "city": "Saint-Jean-d\u2019Illac",
+    "city": "Sadarak",
+    "state": "S\u0259d\u0259r\u0259k",
+    "country": "Azerbaijan"
+  },
+  {
+    "city": "Saint-Jean-d'Illac",
     "state": "Nouvelle-Aquitaine",
     "country": "France"
   },
   {
-    "city": "Satrav\u0101da",
+    "city": "Satravada",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "San Jos\u00e9 Guayabal",
+    "city": "San Jose Guayabal",
     "state": "Cuscatl\u00e1n",
     "country": "El Salvador"
   },
@@ -10060,7 +11410,7 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "San Jos\u00e9 La Arada",
+    "city": "San Jose La Arada",
     "state": "Chiquimula",
     "country": "Guatemala"
   },
@@ -10080,12 +11430,17 @@ export const saCities = [
     "country": "Spain"
   },
   {
+    "city": "Sao Domingos",
+    "state": "Santa Catarina",
+    "country": "Brazil"
+  },
+  {
     "city": "Saraunja",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Sa\u00dfnitz",
+    "city": "Sassnitz",
     "state": "Mecklenburg-Western Pomerania",
     "country": "Germany"
   },
@@ -10100,7 +11455,7 @@ export const saCities = [
     "country": "El Salvador"
   },
   {
-    "city": "Santa Mar\u00eda Ajoloapan",
+    "city": "Santa Maria Ajoloapan",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
@@ -10120,9 +11475,14 @@ export const saCities = [
     "country": "Mexico"
   },
   {
-    "city": "San Fructuoso de Bag\u00e9s",
+    "city": "San Fructuoso de Bages",
     "state": "Catalonia",
     "country": "Spain"
+  },
+  {
+    "city": "Sangeorgiu de Mures",
+    "state": "Mure\u015f",
+    "country": "Romania"
   },
   {
     "city": "Sabie",
@@ -10145,7 +11505,7 @@ export const saCities = [
     "country": "Italy"
   },
   {
-    "city": "San Manuel Chaparr\u00f3n",
+    "city": "San Manuel Chaparron",
     "state": "Jalapa",
     "country": "Guatemala"
   },
@@ -10170,7 +11530,7 @@ export const saCities = [
     "country": "India"
   },
   {
-    "city": "San Zen\u00f3n",
+    "city": "San Zenon",
     "state": "Magdalena",
     "country": "Colombia"
   },
@@ -10185,12 +11545,17 @@ export const saCities = [
     "country": "India"
   },
   {
+    "city": "Sao Francisco",
+    "state": "Maranh\u00e3o",
+    "country": "Brazil"
+  },
+  {
     "city": "Salto Grande",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "San Sebasti\u00e1n",
+    "city": "San Sebastian",
     "state": "Puerto Rico",
     "country": "Puerto Rico"
   },
@@ -10203,6 +11568,11 @@ export const saCities = [
     "city": "Santa Sylvina",
     "state": "Chaco",
     "country": "Argentina"
+  },
+  {
+    "city": "Sahapur",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "San Francisco",
@@ -10235,7 +11605,12 @@ export const saCities = [
     "country": "Mexico"
   },
   {
-    "city": "Santana do Manhua\u00e7u",
+    "city": "Saffle",
+    "state": "V\u00e4rmland",
+    "country": "Sweden"
+  },
+  {
+    "city": "Santana do Manhuacu",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -10270,6 +11645,11 @@ export const saCities = [
     "country": "India"
   },
   {
+    "city": "Sanchi",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
     "city": "San Francisco Chimalpa",
     "state": "M\u00e9xico",
     "country": "Mexico"
@@ -10290,17 +11670,17 @@ export const saCities = [
     "country": "Thailand"
   },
   {
-    "city": "Santa Mar\u00eda del Tule",
+    "city": "Santa Maria del Tule",
     "state": "Oaxaca",
     "country": "Mexico"
   },
   {
-    "city": "Santa Isabel do Iva\u00ed",
+    "city": "Santa Isabel do Ivai",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Santa Cruz Atizap\u00e1n",
+    "city": "Santa Cruz Atizapan",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
@@ -10310,7 +11690,7 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "San Jos\u00e9 de Gracia",
+    "city": "San Jose de Gracia",
     "state": "Aguascalientes",
     "country": "Mexico"
   },
@@ -10335,6 +11715,21 @@ export const saCities = [
     "country": "India"
   },
   {
+    "city": "Sabanozu",
+    "state": "\u00c7ank\u0131r\u0131",
+    "country": "Turkey"
+  },
+  {
+    "city": "Saeby",
+    "state": "Nordjylland",
+    "country": "Denmark"
+  },
+  {
+    "city": "Sanwas",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "San Juan de la Costa",
     "state": "Los Lagos",
     "country": "Chile"
@@ -10345,22 +11740,27 @@ export const saCities = [
     "country": "United States"
   },
   {
-    "city": "Satw\u0101r",
+    "city": "Satwar",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Sab\u00e1udia",
+    "city": "Sabaudia",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "San Mart\u00edn de Valdeiglesias",
+    "city": "Sao Sebastiao do Curral",
+    "state": "Minas Gerais",
+    "country": "Brazil"
+  },
+  {
+    "city": "San Martin de Valdeiglesias",
     "state": "Madrid",
     "country": "Spain"
   },
   {
-    "city": "Sarlat-la-Can\u00e9da",
+    "city": "Sarlat-la-Caneda",
     "state": "Nouvelle-Aquitaine",
     "country": "France"
   },
@@ -10375,7 +11775,7 @@ export const saCities = [
     "country": "Honduras"
   },
   {
-    "city": "Santa Mar\u00eda Xadani",
+    "city": "Santa Maria Xadani",
     "state": "Oaxaca",
     "country": "Mexico"
   },
@@ -10385,7 +11785,7 @@ export const saCities = [
     "country": "Morocco"
   },
   {
-    "city": "Saint-Paul-Trois-Ch\u00e2teaux",
+    "city": "Saint-Paul-Trois-Chateaux",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
@@ -10400,9 +11800,14 @@ export const saCities = [
     "country": "Mexico"
   },
   {
-    "city": "Sant\u2019Angelo in Lizzola",
+    "city": "Sant'Angelo in Lizzola",
     "state": "Marche",
     "country": "Italy"
+  },
+  {
+    "city": "Sanrha",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Saint-Jean-de-Monts",
@@ -10410,8 +11815,13 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "Sanj\u0101t",
+    "city": "Sanjat",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Satgachia",
+    "state": "West Bengal",
     "country": "India"
   },
   {
@@ -10425,19 +11835,29 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "Santan\u00f3polis",
+    "city": "Santanopolis",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Sarb\u012bsheh",
+    "city": "Sarbisheh",
     "state": "Khor\u0101s\u0101n-e Jon\u016bb\u012b",
     "country": "Iran"
+  },
+  {
+    "city": "Sao Jose do Cerrito",
+    "state": "Santa Catarina",
+    "country": "Brazil"
   },
   {
     "city": "San Sebastian",
     "state": "Samar",
     "country": "Philippines"
+  },
+  {
+    "city": "Sao Pedro do Ivai",
+    "state": "Paran\u00e1",
+    "country": "Brazil"
   },
   {
     "city": "Savoy",
@@ -10465,12 +11885,12 @@ export const saCities = [
     "country": "France"
   },
   {
-    "city": "San Bartolom\u00e9 Milpas Altas",
+    "city": "San Bartolome Milpas Altas",
     "state": "Sacatep\u00e9quez",
     "country": "Guatemala"
   },
   {
-    "city": "Sant\u2019Agnello",
+    "city": "Sant'Agnello",
     "state": "Campania",
     "country": "Italy"
   },
@@ -10480,7 +11900,7 @@ export const saCities = [
     "country": "Uruguay"
   },
   {
-    "city": "Sa\u2018\u012bd\u012b",
+    "city": "Sa`idi",
     "state": "Kerm\u0101n",
     "country": "Iran"
   },
@@ -10490,7 +11910,7 @@ export const saCities = [
     "country": "Germany"
   },
   {
-    "city": "Said\u0101b\u0101d",
+    "city": "Saidabad",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -10550,6 +11970,11 @@ export const saCities = [
     "country": "France"
   },
   {
+    "city": "Sagarpur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Saint-Vallier",
     "state": "Bourgogne-Franche-Comt\u00e9",
     "country": "France"
@@ -10560,7 +11985,7 @@ export const saCities = [
     "country": "Kyrgyzstan"
   },
   {
-    "city": "San Juli\u00e1n",
+    "city": "San Julian",
     "state": "Santa Cruz",
     "country": "Argentina"
   },
@@ -10573,6 +11998,11 @@ export const saCities = [
     "city": "Santa Venera",
     "state": "Santa Venera",
     "country": "Malta"
+  },
+  {
+    "city": "Salcininkai",
+    "state": "\u0160al\u010dininkai",
+    "country": "Lithuania"
   },
   {
     "city": "Sal Rei",
@@ -10595,7 +12025,12 @@ export const saCities = [
     "country": "Argentina"
   },
   {
-    "city": "San Quint\u00edn",
+    "city": "Sakiai",
+    "state": "\u0160akiai",
+    "country": "Lithuania"
+  },
+  {
+    "city": "San Quintin",
     "state": "Baja California",
     "country": "Mexico"
   },
@@ -10605,12 +12040,12 @@ export const saCities = [
     "country": "Saint Pierre and Miquelon"
   },
   {
-    "city": "San Ram\u00f3n",
+    "city": "San Ramon",
     "state": "El Beni",
     "country": "Bolivia"
   },
   {
-    "city": "San Mat\u00edas",
+    "city": "San Matias",
     "state": "Santa Cruz",
     "country": "Bolivia"
   },
@@ -10635,7 +12070,7 @@ export const saCities = [
     "country": "Kazakhstan"
   },
   {
-    "city": "Saint George\u2019s",
+    "city": "Saint George's",
     "state": "Saint George",
     "country": "Grenada"
   },
@@ -10643,6 +12078,11 @@ export const saCities = [
     "city": "San Marino",
     "state": "San Marino Citt\u00e0",
     "country": "San Marino"
+  },
+  {
+    "city": "Sao Joao dos Angolares",
+    "state": "Cau\u00e9",
+    "country": "Sao Tome and Principe"
   },
   {
     "city": "Saulkrasti",
@@ -10660,12 +12100,17 @@ export const saCities = [
     "country": "Russia"
   },
   {
+    "city": "Sao Domingos",
+    "state": "S\u00e3o Domingos",
+    "country": "Cabo Verde"
+  },
+  {
     "city": "Saint-Georges",
     "state": NaN,
     "country": "French Guiana"
   },
   {
-    "city": "Sau\u00f0\u00e1rkr\u00f3kur",
+    "city": "Saudharkrokur",
     "state": "Skagafj\u00f6r\u00f0ur",
     "country": "Iceland"
   },
@@ -10673,6 +12118,11 @@ export const saCities = [
     "city": "Saskylakh",
     "state": "Sakha (Yakutiya)",
     "country": "Russia"
+  },
+  {
+    "city": "Sahbuz",
+    "state": "\u015eahbuz",
+    "country": "Azerbaijan"
   },
   {
     "city": "Safi",
@@ -10690,7 +12140,7 @@ export const saCities = [
     "country": "Timor-Leste"
   },
   {
-    "city": "Santo Ant\u00f3nio",
+    "city": "Santo Antonio",
     "state": "Pr\u00edncipe",
     "country": "Sao Tome and Principe"
   },
@@ -10720,6 +12170,16 @@ export const saCities = [
     "country": "Bolivia"
   },
   {
+    "city": "Salovci",
+    "state": "\u0160alovci",
+    "country": "Slovenia"
+  },
+  {
+    "city": "Savnik",
+    "state": "\u0160avnik",
+    "country": "Montenegro"
+  },
+  {
     "city": "Savissivik",
     "state": "Avannaata",
     "country": "Greenland"
@@ -10735,12 +12195,12 @@ export const saCities = [
     "country": "Russia"
   },
   {
-    "city": "Sabh\u0101",
+    "city": "Sabha",
     "state": "Sabh\u0101",
     "country": "Libya"
   },
   {
-    "city": "Santa Lu\u010bija",
+    "city": "Santa Lucija",
     "state": "Santa Lu\u010bija",
     "country": "Malta"
   },
@@ -10765,9 +12225,14 @@ export const saCities = [
     "country": "Samoa"
   },
   {
-    "city": "Satupa\u2018itea",
+    "city": "Satupa`itea",
     "state": "Satupa\u2018itea",
     "country": "Samoa"
+  },
+  {
+    "city": "Sarur",
+    "state": "\u015e\u0259rur",
+    "country": "Azerbaijan"
   },
   {
     "city": "San Rafael",
@@ -10785,17 +12250,22 @@ export const saCities = [
     "country": "Faroe Islands"
   },
   {
-    "city": "Saltangar\u00e1",
+    "city": "Saltangara",
     "state": "Runav\u00edk",
     "country": "Faroe Islands"
   },
   {
-    "city": "Sandav\u00e1gur",
+    "city": "Sandavagur",
     "state": "V\u00e1gar",
     "country": "Faroe Islands"
   },
   {
-    "city": "Sariw\u014fn-si",
+    "city": "Sari",
+    "state": "M\u0101zandar\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Sariwon-si",
     "state": "Hwangbuk",
     "country": "Korea, North"
   }

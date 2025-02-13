@@ -15,12 +15,12 @@ export const emCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Emmigan\u016br",
+    "city": "Emmiganur",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Embu-Gua\u00e7u",
+    "city": "Embu-Guacu",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -45,12 +45,12 @@ export const emCities = [
     "country": "Mexico"
   },
   {
-    "city": "Em\u00eer Abdelkader",
+    "city": "Emir Abdelkader",
     "state": "Jijel",
     "country": "Algeria"
   },
   {
-    "city": "Emirda\u011f",
+    "city": "Emirdag",
     "state": "Afyonkarahisar",
     "country": "Turkey"
   },
@@ -80,7 +80,7 @@ export const emCities = [
     "country": "United States"
   },
   {
-    "city": "Embarcaci\u00f3n",
+    "city": "Embarcacion",
     "state": "Salta",
     "country": "Argentina"
   },
@@ -120,7 +120,7 @@ export const emCities = [
     "country": "United States"
   },
   {
-    "city": "Emmigan\u016bru",
+    "city": "Emmiganuru",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -155,7 +155,7 @@ export const emCities = [
     "country": "Mexico"
   },
   {
-    "city": "Emsb\u00fcren",
+    "city": "Emsburen",
     "state": "Lower Saxony",
     "country": "Germany"
   },

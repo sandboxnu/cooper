@@ -15,14 +15,19 @@ export const asCities = [
     "country": "Eritrea"
   },
   {
-    "city": "Ashm\u016bn",
+    "city": "Ashmun",
     "state": "Al Min\u016bf\u012byah",
     "country": "Egypt"
   },
   {
-    "city": "As Sulaym\u0101n\u012byah",
+    "city": "As Sulaymaniyah",
     "state": "As Sulaym\u0101n\u012byah",
     "country": "Iraq"
+  },
+  {
+    "city": "Asansol",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Astrakhan",
@@ -30,17 +35,17 @@ export const asCities = [
     "country": "Russia"
   },
   {
-    "city": "Asunci\u00f3n",
+    "city": "Asuncion",
     "state": "Asunci\u00f3n",
     "country": "Paraguay"
   },
   {
-    "city": "Asy\u016b\u0163",
+    "city": "Asyut",
     "state": "Asy\u016b\u0163",
     "country": "Egypt"
   },
   {
-    "city": "Ash Shuhad\u0101\u2019",
+    "city": "Ash Shuhada'",
     "state": "Al Min\u016bf\u012byah",
     "country": "Egypt"
   },
@@ -60,7 +65,7 @@ export const asCities = [
     "country": "Korea, South"
   },
   {
-    "city": "Ash Sh\u0101m\u012byah",
+    "city": "Ash Shamiyah",
     "state": "Al Q\u0101dis\u012byah",
     "country": "Iraq"
   },
@@ -70,17 +75,17 @@ export const asCities = [
     "country": "United States"
   },
   {
-    "city": "Asw\u0101n",
+    "city": "Aswan",
     "state": "Asw\u0101n",
     "country": "Egypt"
   },
   {
-    "city": "Ash Sha\u0163rah",
+    "city": "Ash Shatrah",
     "state": "Dh\u012b Q\u0101r",
     "country": "Iraq"
   },
   {
-    "city": "As S\u012bb",
+    "city": "As Sib",
     "state": "Masqa\u0163",
     "country": "Oman"
   },
@@ -90,7 +95,7 @@ export const asCities = [
     "country": "Israel"
   },
   {
-    "city": "As Sam\u0101wah",
+    "city": "As Samawah",
     "state": "Al Muthann\u00e1",
     "country": "Iraq"
   },
@@ -105,9 +110,14 @@ export const asCities = [
     "country": "Oman"
   },
   {
-    "city": "Ash Sh\u012b\u1e29\u0101n\u012byah",
+    "city": "Ash Shihaniyah",
     "state": "Ash Sh\u012b\u1e29\u0101n\u012byah",
     "country": "Qatar"
+  },
+  {
+    "city": "As Suwayhirah as Sahil",
+    "state": "Sham\u0101l al B\u0101\u0163inah",
+    "country": "Oman"
   },
   {
     "city": "Asaba",
@@ -130,17 +140,17 @@ export const asCities = [
     "country": "Israel"
   },
   {
-    "city": "As Salam\u012byah",
+    "city": "As Salamiyah",
     "state": "\u1e28am\u0101h",
     "country": "Syria"
   },
   {
-    "city": "As Saf\u012brah",
+    "city": "As Safirah",
     "state": "\u1e28alab",
     "country": "Syria"
   },
   {
-    "city": "Ash Shaykh \u2018Uthm\u0101n",
+    "city": "Ash Shaykh `Uthman",
     "state": "\u2018Adan",
     "country": "Yemen"
   },
@@ -150,12 +160,17 @@ export const asCities = [
     "country": "Brazil"
   },
   {
+    "city": "Asagicinik",
+    "state": "Samsun",
+    "country": "Turkey"
+  },
+  {
     "city": "Ashiya",
     "state": "Hy\u014dgo",
     "country": "Japan"
   },
   {
-    "city": "As Sal\u0163",
+    "city": "As Salt",
     "state": "Al Balq\u0101\u2019",
     "country": "Jordan"
   },
@@ -168,6 +183,11 @@ export const asCities = [
     "city": "Ashoknagar",
     "state": "Madhya Pradesh",
     "country": "India"
+  },
+  {
+    "city": "As Suwayrah",
+    "state": "W\u0101si\u0163",
+    "country": "Iraq"
   },
   {
     "city": "Assab",
@@ -190,9 +210,14 @@ export const asCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Ash Shi\u1e29r",
+    "city": "Ash Shihr",
     "state": "\u1e28a\u1e11ramawt",
     "country": "Yemen"
+  },
+  {
+    "city": "Asela",
+    "state": "Orom\u012bya",
+    "country": "Ethiopia"
   },
   {
     "city": "Asenovgrad",
@@ -200,7 +225,7 @@ export const asCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "As Suwayd\u0101\u2019",
+    "city": "As Suwayda'",
     "state": "As Suwayd\u0101\u2019",
     "country": "Syria"
   },
@@ -235,12 +260,17 @@ export const asCities = [
     "country": "Norway"
   },
   {
+    "city": "As Saff",
+    "state": "Al J\u012bzah",
+    "country": "Egypt"
+  },
+  {
     "city": "Asingan",
     "state": "Pangasinan",
     "country": "Philippines"
   },
   {
-    "city": "Asad\u0101b\u0101d",
+    "city": "Asadabad",
     "state": "Hamad\u0101n",
     "country": "Iran"
   },
@@ -265,12 +295,12 @@ export const asCities = [
     "country": "Japan"
   },
   {
-    "city": "Asad\u0101b\u0101d",
+    "city": "Asadabad",
     "state": "Kuna\u1e5f",
     "country": "Afghanistan"
   },
   {
-    "city": "Asunci\u00f3n Mita",
+    "city": "Asuncion Mita",
     "state": "Jutiapa",
     "country": "Guatemala"
   },
@@ -280,7 +310,7 @@ export const asCities = [
     "country": "Syria"
   },
   {
-    "city": "As Sa\u2018d\u012byah",
+    "city": "As Sa`diyah",
     "state": "Diy\u0101l\u00e1",
     "country": "Iraq"
   },
@@ -298,6 +328,11 @@ export const asCities = [
     "city": "Ashton",
     "state": "Tameside",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Astaneh-ye Ashrafiyeh",
+    "state": "G\u012bl\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Asamankese",
@@ -320,17 +355,17 @@ export const asCities = [
     "country": "Morocco"
   },
   {
-    "city": "Ash Shin\u0101n",
+    "city": "Ash Shinan",
     "state": "\u1e28\u0101\u2019il",
     "country": "Saudi Arabia"
   },
   {
-    "city": "Aspr\u00f3pyrgos",
+    "city": "Aspropyrgos",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
   {
-    "city": "Ask\u00f8y",
+    "city": "Askoy",
     "state": "Vestland",
     "country": "Norway"
   },
@@ -390,7 +425,12 @@ export const asCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Ass\u00e8mini",
+    "city": "As Sanamayn",
+    "state": "Dar\u2018\u0101",
+    "country": "Syria"
+  },
+  {
+    "city": "Assemini",
     "state": "Sardegna",
     "country": "Italy"
   },
@@ -400,7 +440,17 @@ export const asCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ash Sh\u016bnah ash Sham\u0101l\u012byah",
+    "city": "Ashkhaneh",
+    "state": "Khor\u0101s\u0101n-e Shom\u0101l\u012b",
+    "country": "Iran"
+  },
+  {
+    "city": "As Saqlawiyah",
+    "state": "Al Anb\u0101r",
+    "country": "Iraq"
+  },
+  {
+    "city": "Ash Shunah ash Shamaliyah",
     "state": "Irbid",
     "country": "Jordan"
   },
@@ -410,7 +460,7 @@ export const asCities = [
     "country": "Japan"
   },
   {
-    "city": "Ashwar\u0101opeta",
+    "city": "Ashwaraopeta",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -430,12 +480,17 @@ export const asCities = [
     "country": "Saudi Arabia"
   },
   {
+    "city": "Askale",
+    "state": "Erzurum",
+    "country": "Turkey"
+  },
+  {
     "city": "Ashland",
     "state": "California",
     "country": "United States"
   },
   {
-    "city": "Asaf\u0101b\u0101d",
+    "city": "Asafabad",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -450,12 +505,12 @@ export const asCities = [
     "country": "Ethiopia"
   },
   {
-    "city": "Asw\u0101puram",
+    "city": "Aswapuram",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Assar\u00e9",
+    "city": "Assare",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -485,6 +540,16 @@ export const asCities = [
     "country": "Morocco"
   },
   {
+    "city": "As",
+    "state": "Viken",
+    "country": "Norway"
+  },
+  {
+    "city": "Asosa",
+    "state": "B\u012bnshangul Gumuz",
+    "country": "Ethiopia"
+  },
+  {
     "city": "Asarganj",
     "state": "Bih\u0101r",
     "country": "India"
@@ -493,6 +558,11 @@ export const asCities = [
     "city": "Assebroek",
     "state": "Flanders",
     "country": "Belgium"
+  },
+  {
+    "city": "Asasa",
+    "state": "Orom\u012bya",
+    "country": "Ethiopia"
   },
   {
     "city": "Assamannur",
@@ -510,7 +580,7 @@ export const asCities = [
     "country": "Iran"
   },
   {
-    "city": "Ascenci\u00f3n de Guarayos",
+    "city": "Ascencion de Guarayos",
     "state": "Santa Cruz",
     "country": "Bolivia"
   },
@@ -520,7 +590,7 @@ export const asCities = [
     "country": "United States"
   },
   {
-    "city": "Asunci\u00f3n Nochixtl\u00e1n",
+    "city": "Asuncion Nochixtlan",
     "state": "Oaxaca",
     "country": "Mexico"
   },
@@ -540,12 +610,17 @@ export const asCities = [
     "country": "India"
   },
   {
+    "city": "Asane",
+    "state": "Vestland",
+    "country": "Norway"
+  },
+  {
     "city": "Ashtabula",
     "state": "Ohio",
     "country": "United States"
   },
   {
-    "city": "Ash Shaykh\u0101n",
+    "city": "Ash Shaykhan",
     "state": "N\u012bnaw\u00e1",
     "country": "Iraq"
   },
@@ -555,12 +630,12 @@ export const asCities = [
     "country": "New Zealand"
   },
   {
-    "city": "Asarc\u0131k",
+    "city": "Asarcik",
     "state": "Samsun",
     "country": "Turkey"
   },
   {
-    "city": "As Suqaylib\u012byah",
+    "city": "As Suqaylibiyah",
     "state": "\u1e28am\u0101h",
     "country": "Syria"
   },
@@ -600,7 +675,7 @@ export const asCities = [
     "country": "Syria"
   },
   {
-    "city": "As\u0101ra",
+    "city": "Asara",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -610,7 +685,7 @@ export const asCities = [
     "country": "Germany"
   },
   {
-    "city": "Ash Shadd\u0101dah",
+    "city": "Ash Shaddadah",
     "state": "Al \u1e28asakah",
     "country": "Syria"
   },
@@ -620,7 +695,7 @@ export const asCities = [
     "country": "Japan"
   },
   {
-    "city": "Asth\u0101nw\u0101n",
+    "city": "Asthanwan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -645,7 +720,7 @@ export const asCities = [
     "country": "Japan"
   },
   {
-    "city": "Ascensi\u00f3n",
+    "city": "Ascension",
     "state": "Santa Cruz",
     "country": "Bolivia"
   },
@@ -665,7 +740,12 @@ export const asCities = [
     "country": "Brazil"
   },
   {
-    "city": "Assa\u00ed",
+    "city": "Asslar",
+    "state": "Hesse",
+    "country": "Germany"
+  },
+  {
+    "city": "Assai",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -680,7 +760,7 @@ export const asCities = [
     "country": "Japan"
   },
   {
-    "city": "Ascensi\u00f3n",
+    "city": "Ascension",
     "state": "Chihuahua",
     "country": "Mexico"
   },
@@ -695,6 +775,11 @@ export const asCities = [
     "country": "Morocco"
   },
   {
+    "city": "As",
+    "state": "Karlovarsk\u00fd Kraj",
+    "country": "Czechia"
+  },
+  {
     "city": "Ashibetsu",
     "state": "Hokkaid\u014d",
     "country": "Japan"
@@ -705,7 +790,7 @@ export const asCities = [
     "country": "United States"
   },
   {
-    "city": "Asfarvar\u012bn",
+    "city": "Asfarvarin",
     "state": "Qazv\u012bn",
     "country": "Iran"
   },
@@ -740,12 +825,17 @@ export const asCities = [
     "country": "Japan"
   },
   {
+    "city": "As Sabburah",
+    "state": "R\u012bf Dimashq",
+    "country": "Syria"
+  },
+  {
     "city": "Asahi",
     "state": "Toyama",
     "country": "Japan"
   },
   {
-    "city": "As\u0101lem",
+    "city": "Asalem",
     "state": "G\u012bl\u0101n",
     "country": "Iran"
   },
@@ -770,6 +860,11 @@ export const asCities = [
     "country": "United States"
   },
   {
+    "city": "Asagi Ayibli",
+    "state": "Tovuz",
+    "country": "Azerbaijan"
+  },
+  {
     "city": "Asola",
     "state": "Lombardy",
     "country": "Italy"
@@ -783,6 +878,11 @@ export const asCities = [
     "city": "Ashukino",
     "state": "Moskovskaya Oblast\u2019",
     "country": "Russia"
+  },
+  {
+    "city": "Astorp",
+    "state": "Sk\u00e5ne",
+    "country": "Sweden"
   },
   {
     "city": "Asahni",
@@ -810,7 +910,7 @@ export const asCities = [
     "country": "India"
   },
   {
-    "city": "As\u0101rhi",
+    "city": "Asarhi",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -830,7 +930,17 @@ export const asCities = [
     "country": "Italy"
   },
   {
-    "city": "As Sall\u016bm",
+    "city": "Ashtian",
+    "state": "Markaz\u012b",
+    "country": "Iran"
+  },
+  {
+    "city": "Asagi Quscu",
+    "state": "Tovuz",
+    "country": "Azerbaijan"
+  },
+  {
+    "city": "As Sallum",
     "state": "Ma\u0163r\u016b\u1e29",
     "country": "Egypt"
   },

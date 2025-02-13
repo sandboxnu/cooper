@@ -15,7 +15,7 @@ export const miCities = [
     "country": "United States"
   },
   {
-    "city": "Mirz\u0101pur",
+    "city": "Mirzapur",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -85,7 +85,7 @@ export const miCities = [
     "country": "Japan"
   },
   {
-    "city": "Minatitl\u00e1n",
+    "city": "Minatitlan",
     "state": "Veracruz",
     "country": "Mexico"
   },
@@ -120,7 +120,7 @@ export const miCities = [
     "country": "Japan"
   },
   {
-    "city": "Mi\u015fr\u0101tah",
+    "city": "Misratah",
     "state": "Mi\u015fr\u0101tah",
     "country": "Libya"
   },
@@ -135,7 +135,7 @@ export const miCities = [
     "country": "Malaysia"
   },
   {
-    "city": "Miri\u0101lg\u016bda",
+    "city": "Mirialguda",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -155,7 +155,7 @@ export const miCities = [
     "country": "Burma"
   },
   {
-    "city": "Miyakonoj\u014d",
+    "city": "Miyakonojo",
     "state": "Miyazaki",
     "country": "Japan"
   },
@@ -200,7 +200,7 @@ export const miCities = [
     "country": "United States"
   },
   {
-    "city": "Min\u014d",
+    "city": "Mino",
     "state": "\u014csaka",
     "country": "Japan"
   },
@@ -220,9 +220,14 @@ export const miCities = [
     "country": "Canada"
   },
   {
-    "city": "Miss\u00e9r\u00e9t\u00e9",
+    "city": "Misserete",
     "state": "Ou\u00e9m\u00e9",
     "country": "Benin"
+  },
+  {
+    "city": "Mit Ghamr",
+    "state": "Ad Daqahl\u012byah",
+    "country": "Egypt"
   },
   {
     "city": "Miramar",
@@ -250,7 +255,7 @@ export const miCities = [
     "country": "Japan"
   },
   {
-    "city": "Ming\u0259\u00e7evir",
+    "city": "Mingacevir",
     "state": "Ming\u0259\u00e7evir",
     "country": "Azerbaijan"
   },
@@ -263,6 +268,11 @@ export const miCities = [
     "city": "Miryang",
     "state": "Gyeongnam",
     "country": "Korea, South"
+  },
+  {
+    "city": "Mianeh",
+    "state": "\u0100z\u0304arb\u0101yj\u0101n-e Sharq\u012b",
+    "country": "Iran"
   },
   {
     "city": "Mianwali",
@@ -288,6 +298,11 @@ export const miCities = [
     "city": "Mijas",
     "state": "Andalusia",
     "country": "Spain"
+  },
+  {
+    "city": "Mizan Teferi",
+    "state": "YeDebub Bih\u0113roch Bih\u0113reseboch na Hizboch",
+    "country": "Ethiopia"
   },
   {
     "city": "Miaoli",
@@ -320,7 +335,7 @@ export const miCities = [
     "country": "United States"
   },
   {
-    "city": "Mitrovic\u00eb",
+    "city": "Mitrovice",
     "state": NaN,
     "country": "Kosovo"
   },
@@ -345,6 +360,11 @@ export const miCities = [
     "country": "United States"
   },
   {
+    "city": "Mit Salsil",
+    "state": "Ad Daqahl\u012byah",
+    "country": "Egypt"
+  },
+  {
     "city": "Milpitas",
     "state": "California",
     "country": "United States"
@@ -360,7 +380,7 @@ export const miCities = [
     "country": "Japan"
   },
   {
-    "city": "Mineral\u2019nyye Vody",
+    "city": "Mineral'nyye Vody",
     "state": "Stavropol\u2019skiy Kray",
     "country": "Russia"
   },
@@ -408,6 +428,11 @@ export const miCities = [
     "city": "Minusinsk",
     "state": "Krasnoyarskiy Kray",
     "country": "Russia"
+  },
+  {
+    "city": "Mirpeta",
+    "state": "Telang\u0101na",
+    "country": "India"
   },
   {
     "city": "Middletown",
@@ -485,7 +510,7 @@ export const miCities = [
     "country": "Japan"
   },
   {
-    "city": "Mirago\u00e2ne",
+    "city": "Miragoane",
     "state": "Nippes",
     "country": "Haiti"
   },
@@ -525,7 +550,7 @@ export const miCities = [
     "country": "United States"
   },
   {
-    "city": "Minami-S\u014dma",
+    "city": "Minami-Soma",
     "state": "Fukushima",
     "country": "Japan"
   },
@@ -600,7 +625,7 @@ export const miCities = [
     "country": "Spain"
   },
   {
-    "city": "Miss\u00e9ni",
+    "city": "Misseni",
     "state": NaN,
     "country": "Mali"
   },
@@ -645,7 +670,7 @@ export const miCities = [
     "country": "Canada"
   },
   {
-    "city": "Miko\u0142\u00f3w",
+    "city": "Mikolow",
     "state": "\u015al\u0105skie",
     "country": "Poland"
   },
@@ -655,7 +680,7 @@ export const miCities = [
     "country": "United States"
   },
   {
-    "city": "Mi\u0144sk Mazowiecki",
+    "city": "Minsk Mazowiecki",
     "state": "Mazowieckie",
     "country": "Poland"
   },
@@ -705,12 +730,12 @@ export const miCities = [
     "country": "Italy"
   },
   {
-    "city": "Minami-B\u014ds\u014d",
+    "city": "Minami-Boso",
     "state": "Chiba",
     "country": "Japan"
   },
   {
-    "city": "Miss\u00e3o Velha",
+    "city": "Missao Velha",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -750,7 +775,7 @@ export const miCities = [
     "country": "United States"
   },
   {
-    "city": "Miahuatl\u00e1n de Porfirio D\u00edaz",
+    "city": "Miahuatlan de Porfirio Diaz",
     "state": "Oaxaca",
     "country": "Mexico"
   },
@@ -795,7 +820,7 @@ export const miCities = [
     "country": "Philippines"
   },
   {
-    "city": "Minamiky\u016bsh\u016b",
+    "city": "Minamikyushu",
     "state": "Kagoshima",
     "country": "Japan"
   },
@@ -855,9 +880,19 @@ export const miCities = [
     "country": "Argentina"
   },
   {
+    "city": "Minudasht",
+    "state": "Golest\u0101n",
+    "country": "Iran"
+  },
+  {
     "city": "Milazzo",
     "state": "Sicilia",
     "country": "Italy"
+  },
+  {
+    "city": "Minad",
+    "state": "Kerala",
+    "country": "India"
   },
   {
     "city": "Mioveni",
@@ -865,7 +900,7 @@ export const miCities = [
     "country": "Romania"
   },
   {
-    "city": "Mirand\u00f3polis",
+    "city": "Mirandopolis",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -875,7 +910,7 @@ export const miCities = [
     "country": "Italy"
   },
   {
-    "city": "Mirz\u0101pur",
+    "city": "Mirzapur",
     "state": "Dhaka",
     "country": "Bangladesh"
   },
@@ -885,7 +920,7 @@ export const miCities = [
     "country": "United States"
   },
   {
-    "city": "Mit\u00fa",
+    "city": "Mitu",
     "state": "Vaup\u00e9s",
     "country": "Colombia"
   },
@@ -920,7 +955,7 @@ export const miCities = [
     "country": "Italy"
   },
   {
-    "city": "Mina\u00e7u",
+    "city": "Minacu",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -940,12 +975,12 @@ export const miCities = [
     "country": "Japan"
   },
   {
-    "city": "Mirassol d\u2019Oeste",
+    "city": "Mirassol d'Oeste",
     "state": "Mato Grosso",
     "country": "Brazil"
   },
   {
-    "city": "Miacatl\u00e1n",
+    "city": "Miacatlan",
     "state": "Morelos",
     "country": "Mexico"
   },
@@ -995,7 +1030,7 @@ export const miCities = [
     "country": "Brazil"
   },
   {
-    "city": "Migdal Ha\u2018Emeq",
+    "city": "Migdal Ha`Emeq",
     "state": "Northern",
     "country": "Israel"
   },
@@ -1030,7 +1065,7 @@ export const miCities = [
     "country": "United States"
   },
   {
-    "city": "Miahuatl\u00e1n",
+    "city": "Miahuatlan",
     "state": "Puebla",
     "country": "Mexico"
   },
@@ -1145,7 +1180,7 @@ export const miCities = [
     "country": "United States"
   },
   {
-    "city": "Miguel\u00f3polis",
+    "city": "Miguelopolis",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -1163,6 +1198,16 @@ export const miCities = [
     "city": "Mililani Mauka",
     "state": "Hawaii",
     "country": "United States"
+  },
+  {
+    "city": "Mi'eso",
+    "state": "Orom\u012bya",
+    "country": "Ethiopia"
+  },
+  {
+    "city": "Mit Nama",
+    "state": "Al Qaly\u016bb\u012byah",
+    "country": "Egypt"
   },
   {
     "city": "Milwaukie",
@@ -1335,7 +1380,7 @@ export const miCities = [
     "country": "Brazil"
   },
   {
-    "city": "Minamishibetsuch\u014d",
+    "city": "Minamishibetsucho",
     "state": "Hokkaid\u014d",
     "country": "Japan"
   },
@@ -1375,17 +1420,17 @@ export const miCities = [
     "country": "Japan"
   },
   {
-    "city": "Mistrat\u00f3",
+    "city": "Mistrato",
     "state": "Risaralda",
     "country": "Colombia"
   },
   {
-    "city": "Mi\u0119dzyrzecz",
+    "city": "Miedzyrzecz",
     "state": "Lubuskie",
     "country": "Poland"
   },
   {
-    "city": "Milla\u2019ab",
+    "city": "Milla'ab",
     "state": "Dr\u00e2a-Tafilalet",
     "country": "Morocco"
   },
@@ -1450,7 +1495,7 @@ export const miCities = [
     "country": "Denmark"
   },
   {
-    "city": "Milan\u00f3wek",
+    "city": "Milanowek",
     "state": "Mazowieckie",
     "country": "Poland"
   },
@@ -1490,7 +1535,7 @@ export const miCities = [
     "country": "United States"
   },
   {
-    "city": "Mi\u0119dzyrzec Podlaski",
+    "city": "Miedzyrzec Podlaski",
     "state": "Lubelskie",
     "country": "Poland"
   },
@@ -1530,7 +1575,7 @@ export const miCities = [
     "country": "India"
   },
   {
-    "city": "Mira\u00ed",
+    "city": "Mirai",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1610,7 +1655,7 @@ export const miCities = [
     "country": "Serbia"
   },
   {
-    "city": "Mittegro\u00dfefehn",
+    "city": "Mittegrossefehn",
     "state": "Lower Saxony",
     "country": "Germany"
   },
@@ -1630,7 +1675,7 @@ export const miCities = [
     "country": "United States"
   },
   {
-    "city": "Mira\u00edma",
+    "city": "Miraima",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -1640,7 +1685,7 @@ export const miCities = [
     "country": "Brazil"
   },
   {
-    "city": "Mignour\u00e9",
+    "city": "Mignoure",
     "state": "Sassandra-Marahou\u00e9",
     "country": "C\u00f4te d\u2019Ivoire"
   },
@@ -1650,12 +1695,12 @@ export const miCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Milh\u00e3",
+    "city": "Milha",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Mirz\u0101pur",
+    "city": "Mirzapur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1720,7 +1765,7 @@ export const miCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Miahuatl\u00e1n",
+    "city": "Miahuatlan",
     "state": "Puebla",
     "country": "Mexico"
   },
@@ -1740,7 +1785,7 @@ export const miCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Miss\u00f5es",
+    "city": "Missoes",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1785,6 +1830,11 @@ export const miCities = [
     "country": "United States"
   },
   {
+    "city": "Minakshipuram",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Miary",
     "state": "Toliara",
     "country": "Madagascar"
@@ -1800,7 +1850,7 @@ export const miCities = [
     "country": "Belarus"
   },
   {
-    "city": "Mi\u2018rabah",
+    "city": "Mi`rabah",
     "state": "Dar\u2018\u0101",
     "country": "Syria"
   },
@@ -1830,7 +1880,7 @@ export const miCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Minn\u0101l",
+    "city": "Minnal",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1885,6 +1935,11 @@ export const miCities = [
     "country": "Austria"
   },
   {
+    "city": "Mit Damsis",
+    "state": "Ad Daqahl\u012byah",
+    "country": "Egypt"
+  },
+  {
     "city": "Mirik",
     "state": "West Bengal",
     "country": "India"
@@ -1895,7 +1950,7 @@ export const miCities = [
     "country": "France"
   },
   {
-    "city": "Mili\u0107i",
+    "city": "Milici",
     "state": "Srpska, Republika",
     "country": "Bosnia and Herzegovina"
   },
@@ -1905,12 +1960,12 @@ export const miCities = [
     "country": "Russia"
   },
   {
-    "city": "Mineiros do Tiet\u00ea",
+    "city": "Mineiros do Tiete",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Miech\u00f3w",
+    "city": "Miechow",
     "state": "Ma\u0142opolskie",
     "country": "Poland"
   },
@@ -1960,7 +2015,7 @@ export const miCities = [
     "country": "United States"
   },
   {
-    "city": "Milatt\u016br",
+    "city": "Milattur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2000,7 +2055,7 @@ export const miCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Mi\u0119dzych\u00f3d",
+    "city": "Miedzychod",
     "state": "Wielkopolskie",
     "country": "Poland"
   },
@@ -2010,7 +2065,7 @@ export const miCities = [
     "country": "United States"
   },
   {
-    "city": "Minatitl\u00e1n",
+    "city": "Minatitlan",
     "state": "Colima",
     "country": "Mexico"
   },
@@ -2030,7 +2085,7 @@ export const miCities = [
     "country": "Japan"
   },
   {
-    "city": "Mi\u0101ni",
+    "city": "Miani",
     "state": "Punjab",
     "country": "India"
   },
@@ -2045,7 +2100,7 @@ export const miCities = [
     "country": "Russia"
   },
   {
-    "city": "Mi\u1e29qan",
+    "city": "Mihqan",
     "state": "Dayr az Zawr",
     "country": "Syria"
   },
@@ -2065,7 +2120,12 @@ export const miCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Minn\u0101mpalli",
+    "city": "Miandasht",
+    "state": "E\u015ffah\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Minnampalli",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2120,8 +2180,13 @@ export const miCities = [
     "country": "Germany"
   },
   {
-    "city": "Mi\u0101npur Dubauli",
+    "city": "Mianpur Dubauli",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Minakshipuram",
+    "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
@@ -2140,9 +2205,19 @@ export const miCities = [
     "country": "Spain"
   },
   {
+    "city": "Mirjaveh",
+    "state": "S\u012bst\u0101n va Bal\u016bchest\u0101n",
+    "country": "Iran"
+  },
+  {
     "city": "Minano",
     "state": "Saitama",
     "country": "Japan"
+  },
+  {
+    "city": "Milajerd",
+    "state": "Markaz\u012b",
+    "country": "Iran"
   },
   {
     "city": "Mirante da Serra",
@@ -2185,7 +2260,7 @@ export const miCities = [
     "country": "United States"
   },
   {
-    "city": "Mirz\u0101nagar",
+    "city": "Mirzanagar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2220,7 +2295,7 @@ export const miCities = [
     "country": "Italy"
   },
   {
-    "city": "Miy\u0101r",
+    "city": "Miyar",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -2260,7 +2335,7 @@ export const miCities = [
     "country": "United States"
   },
   {
-    "city": "Midut\u016bru",
+    "city": "Miduturu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2280,7 +2355,7 @@ export const miCities = [
     "country": "Gabon"
   },
   {
-    "city": "Miklav\u017e na Dravskem Polju",
+    "city": "Miklavz na Dravskem Polju",
     "state": "Miklav\u017e na Dravskem Polju",
     "country": "Slovenia"
   },
@@ -2300,12 +2375,12 @@ export const miCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Mirb\u0101\u0163",
+    "city": "Mirbat",
     "state": "Z\u0327uf\u0101r",
     "country": "Oman"
   },
   {
-    "city": "Mirna Pe\u010d",
+    "city": "Mirna Pec",
     "state": "Mirna Pe\u010d",
     "country": "Slovenia"
   },

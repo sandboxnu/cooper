@@ -30,7 +30,7 @@ export const jaCities = [
     "country": "India"
   },
   {
-    "city": "Jaboat\u00e3o",
+    "city": "Jaboatao",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -40,7 +40,7 @@ export const jaCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Jaboat\u00e3o dos Guararapes",
+    "city": "Jaboatao dos Guararapes",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -52,6 +52,11 @@ export const jaCities = [
   {
     "city": "Jammu",
     "state": "Jammu and Kashm\u012br",
+    "country": "India"
+  },
+  {
+    "city": "Jamnagar",
+    "state": "Gujar\u0101t",
     "country": "India"
   },
   {
@@ -70,7 +75,12 @@ export const jaCities = [
     "country": "United States"
   },
   {
-    "city": "Jal\u0101l\u0101b\u0101d",
+    "city": "Jalna",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
+    "city": "Jalalabad",
     "state": "Nangarh\u0101r",
     "country": "Afghanistan"
   },
@@ -80,7 +90,7 @@ export const jaCities = [
     "country": "India"
   },
   {
-    "city": "Jacare\u00ed",
+    "city": "Jacarei",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -95,7 +105,7 @@ export const jaCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Jaragu\u00e1 do Sul",
+    "city": "Jaragua do Sul",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -105,17 +115,17 @@ export const jaCities = [
     "country": "India"
   },
   {
-    "city": "Jab\u0101ly\u0101",
+    "city": "Jabalya",
     "state": NaN,
     "country": "Gaza Strip"
   },
   {
-    "city": "Jal\u0101l\u0101b\u0101d",
+    "city": "Jalalabad",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Jam\u0101lpur",
+    "city": "Jamalpur",
     "state": "Mymensingh",
     "country": "Bangladesh"
   },
@@ -135,12 +145,12 @@ export const jaCities = [
     "country": "Haiti"
   },
   {
-    "city": "Ja\u00fa",
+    "city": "Jau",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Jamund\u00ed",
+    "city": "Jamundi",
     "state": "Valle del Cauca",
     "country": "Colombia"
   },
@@ -150,12 +160,17 @@ export const jaCities = [
     "country": "Somalia"
   },
   {
+    "city": "Jazan",
+    "state": "J\u0101z\u0101n",
+    "country": "Saudi Arabia"
+  },
+  {
     "city": "Jandira",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Jag\u0101dhri",
+    "city": "Jagadhri",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -165,12 +180,12 @@ export const jaCities = [
     "country": "India"
   },
   {
-    "city": "Jaram\u0101n\u0101",
+    "city": "Jaramana",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
   },
   {
-    "city": "Ja\u00e9n",
+    "city": "Jaen",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -185,12 +200,12 @@ export const jaCities = [
     "country": "Somalia"
   },
   {
-    "city": "Jalp\u0101iguri",
+    "city": "Jalpaiguri",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Jata\u00ed",
+    "city": "Jatai",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -200,7 +215,7 @@ export const jaCities = [
     "country": "Brazil"
   },
   {
-    "city": "Jam\u0101lpur",
+    "city": "Jamalpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -210,7 +225,7 @@ export const jaCities = [
     "country": "Nepal"
   },
   {
-    "city": "Ja\u00e9n",
+    "city": "Jaen",
     "state": "Cajamarca",
     "country": "Peru"
   },
@@ -218,6 +233,11 @@ export const jaCities = [
     "city": "Jauharabad",
     "state": "Punjab",
     "country": "Pakistan"
+  },
+  {
+    "city": "Jamtara",
+    "state": "Jh\u0101rkhand",
+    "country": "India"
   },
   {
     "city": "Jalalpur Jattan",
@@ -245,22 +265,22 @@ export const jaCities = [
     "country": "Sri Lanka"
   },
   {
-    "city": "Janz\u016br",
+    "city": "Janzur",
     "state": "Al Jaf\u0101rah",
     "country": "Libya"
   },
   {
-    "city": "Jag\u00fcey Grande",
+    "city": "Jaguey Grande",
     "state": "Matanzas",
     "country": "Cuba"
   },
   {
-    "city": "Jam\u016b\u012b",
+    "city": "Jamui",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Jastrz\u0119bie-Zdr\u00f3j",
+    "city": "Jastrzebie-Zdroj",
     "state": "\u015al\u0105skie",
     "country": "Poland"
   },
@@ -290,7 +310,7 @@ export const jaCities = [
     "country": "Syria"
   },
   {
-    "city": "Jaor\u0101",
+    "city": "Jaora",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -320,7 +340,7 @@ export const jaCities = [
     "country": "Dominican Republic"
   },
   {
-    "city": "Janu\u00e1ria",
+    "city": "Januaria",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -330,7 +350,7 @@ export const jaCities = [
     "country": "India"
   },
   {
-    "city": "Jana\u00faba",
+    "city": "Janauba",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -345,7 +365,7 @@ export const jaCities = [
     "country": "India"
   },
   {
-    "city": "Jamjam\u0101l",
+    "city": "Jamjamal",
     "state": "As Sulaym\u0101n\u012byah",
     "country": "Iraq"
   },
@@ -365,7 +385,7 @@ export const jaCities = [
     "country": "United States"
   },
   {
-    "city": "Jaguari\u00fana",
+    "city": "Jaguariuna",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -380,7 +400,7 @@ export const jaCities = [
     "country": "Nicaragua"
   },
   {
-    "city": "Jav\u0101nr\u016bd",
+    "city": "Javanrud",
     "state": "Kerm\u0101nsh\u0101h",
     "country": "Iran"
   },
@@ -388,6 +408,11 @@ export const jaCities = [
     "city": "Jalor",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
+  },
+  {
+    "city": "Jalakati",
+    "state": "Khulna",
+    "country": "Bangladesh"
   },
   {
     "city": "Jaggayyapeta",
@@ -415,12 +440,12 @@ export const jaCities = [
     "country": "India"
   },
   {
-    "city": "Jan\u012bn",
+    "city": "Janin",
     "state": NaN,
     "country": "West Bank"
   },
   {
-    "city": "Jaggisettig\u016bdem",
+    "city": "Jaggisettigudem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -455,7 +480,7 @@ export const jaCities = [
     "country": "Czechia"
   },
   {
-    "city": "Jaragu\u00e1",
+    "city": "Jaragua",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -475,6 +500,11 @@ export const jaCities = [
     "country": "Mexico"
   },
   {
+    "city": "Janakammapeta",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Jaro",
     "state": "Leyte",
     "country": "Philippines"
@@ -490,14 +520,24 @@ export const jaCities = [
     "country": "Cuba"
   },
   {
+    "city": "Jajpur",
+    "state": "Odisha",
+    "country": "India"
+  },
+  {
     "city": "Jambughoda",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Jardin\u00f3polis",
+    "city": "Jardinopolis",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
+  },
+  {
+    "city": "Jaltipan de Morelos",
+    "state": "Veracruz",
+    "country": "Mexico"
   },
   {
     "city": "Jayamkondacholapuram",
@@ -510,9 +550,19 @@ export const jaCities = [
     "country": "Pakistan"
   },
   {
+    "city": "Janjgir",
+    "state": "Chhatt\u012bsgarh",
+    "country": "India"
+  },
+  {
     "city": "Jambe",
     "state": "Jawa Barat",
     "country": "Indonesia"
+  },
+  {
+    "city": "Jarvenpaa",
+    "state": "Uusimaa",
+    "country": "Finland"
   },
   {
     "city": "Jalalabad",
@@ -520,12 +570,12 @@ export const jaCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Jayr\u016bd",
+    "city": "Jayrud",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
   },
   {
-    "city": "Jacar\u00e8zinho",
+    "city": "Jacarezinho",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -540,7 +590,7 @@ export const jaCities = [
     "country": "Mexico"
   },
   {
-    "city": "Jacund\u00e1",
+    "city": "Jacunda",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -550,7 +600,12 @@ export const jaCities = [
     "country": "India"
   },
   {
-    "city": "Jagd\u012bspur",
+    "city": "Jale",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Jagdispur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -560,12 +615,12 @@ export const jaCities = [
     "country": "Mexico"
   },
   {
-    "city": "Jaros\u0142aw",
+    "city": "Jaroslaw",
     "state": "Podkarpackie",
     "country": "Poland"
   },
   {
-    "city": "Jal\u0101rpet",
+    "city": "Jalarpet",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -575,7 +630,7 @@ export const jaCities = [
     "country": "Philippines"
   },
   {
-    "city": "Jaguaria\u00edva",
+    "city": "Jaguariaiva",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -590,7 +645,12 @@ export const jaCities = [
     "country": "Philippines"
   },
   {
-    "city": "Jas\u0142o",
+    "city": "Jamkhed",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
+    "city": "Jaslo",
     "state": "Podkarpackie",
     "country": "Poland"
   },
@@ -620,6 +680,11 @@ export const jaCities = [
     "country": "Brazil"
   },
   {
+    "city": "Jasim",
+    "state": "Dar\u2018\u0101",
+    "country": "Syria"
+  },
+  {
     "city": "Jalpatagua",
     "state": "Jutiapa",
     "country": "Guatemala"
@@ -635,17 +700,22 @@ export const jaCities = [
     "country": "Brazil"
   },
   {
-    "city": "Jam\u0101lpur",
+    "city": "Jamalpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Jalawl\u0101\u2019",
+    "city": "Jalawla'",
     "state": "Diy\u0101l\u00e1",
     "country": "Iraq"
   },
   {
-    "city": "Ja\u2018\u0101r",
+    "city": "Jamai",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Ja`ar",
     "state": "Abyan",
     "country": "Yemen"
   },
@@ -665,7 +735,7 @@ export const jaCities = [
     "country": "Brazil"
   },
   {
-    "city": "Jaramij\u00f3",
+    "city": "Jaramijo",
     "state": "Manab\u00ed",
     "country": "Ecuador"
   },
@@ -695,7 +765,7 @@ export const jaCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Jaguar\u00e3o",
+    "city": "Jaguarao",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -710,14 +780,24 @@ export const jaCities = [
     "country": "Mexico"
   },
   {
+    "city": "Jaszbereny",
+    "state": "J\u00e1sz-Nagykun-Szolnok",
+    "country": "Hungary"
+  },
+  {
     "city": "Jaynagar-Majilpur",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Jard\u00edn Am\u00e9rica",
+    "city": "Jardin America",
     "state": "Misiones",
     "country": "Argentina"
+  },
+  {
+    "city": "Jafarabad",
+    "state": "Gujar\u0101t",
+    "country": "India"
   },
   {
     "city": "Jabonga",
@@ -730,7 +810,7 @@ export const jaCities = [
     "country": "Mexico"
   },
   {
-    "city": "Jacar\u00e9",
+    "city": "Jacare",
     "state": "Esp\u00edrito Santo",
     "country": "Brazil"
   },
@@ -775,9 +855,14 @@ export const jaCities = [
     "country": "Nepal"
   },
   {
-    "city": "Jarqo\u2018rg\u2018on",
+    "city": "Jarqo`rg`on",
     "state": "Surxondaryo",
     "country": "Uzbekistan"
+  },
+  {
+    "city": "Jawad",
+    "state": "Madhya Pradesh",
+    "country": "India"
   },
   {
     "city": "Jafaro",
@@ -810,12 +895,12 @@ export const jaCities = [
     "country": "Kyrgyzstan"
   },
   {
-    "city": "Jat\u0101ra",
+    "city": "Jatara",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Jar\u0101j\u016bs",
+    "city": "Jarajus",
     "state": "Qin\u0101",
     "country": "Egypt"
   },
@@ -835,9 +920,24 @@ export const jaCities = [
     "country": "Bangladesh"
   },
   {
-    "city": "Jagal\u016br",
+    "city": "Jambai",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Jajarm",
+    "state": "Khor\u0101s\u0101n-e Shom\u0101l\u012b",
+    "country": "Iran"
+  },
+  {
+    "city": "Jagalur",
     "state": "Karn\u0101taka",
     "country": "India"
+  },
+  {
+    "city": "Jamsa",
+    "state": "Keski-Suomi",
+    "country": "Finland"
   },
   {
     "city": "Jakobstad",
@@ -850,7 +950,7 @@ export const jaCities = [
     "country": "Mexico"
   },
   {
-    "city": "Jaic\u00f3s",
+    "city": "Jaicos",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
@@ -865,7 +965,7 @@ export const jaCities = [
     "country": "India"
   },
   {
-    "city": "Jalakand\u0101puram",
+    "city": "Jalakandapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -890,7 +990,7 @@ export const jaCities = [
     "country": "United States"
   },
   {
-    "city": "Jawkati\u0101",
+    "city": "Jawkatia",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -900,9 +1000,19 @@ export const jaCities = [
     "country": "Brazil"
   },
   {
+    "city": "Jayal",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
     "city": "Japaratuba",
     "state": "Sergipe",
     "country": "Brazil"
+  },
+  {
+    "city": "Jask",
+    "state": "Hormozg\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Janakkala",
@@ -910,7 +1020,7 @@ export const jaCities = [
     "country": "Finland"
   },
   {
-    "city": "Jalpa de M\u00e9ndez",
+    "city": "Jalpa de Mendez",
     "state": "Tabasco",
     "country": "Mexico"
   },
@@ -920,7 +1030,7 @@ export const jaCities = [
     "country": "United States"
   },
   {
-    "city": "Jambal\u00f3",
+    "city": "Jambalo",
     "state": "Cauca",
     "country": "Colombia"
   },
@@ -930,7 +1040,7 @@ export const jaCities = [
     "country": "India"
   },
   {
-    "city": "Jal\u0101lpur",
+    "city": "Jalalpur",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -940,7 +1050,7 @@ export const jaCities = [
     "country": "India"
   },
   {
-    "city": "Jakkamp\u0101laiyam",
+    "city": "Jakkampalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -950,8 +1060,13 @@ export const jaCities = [
     "country": "Brazil"
   },
   {
-    "city": "Jal\u0101l\u0101b\u0101d",
+    "city": "Jalalabad",
     "state": "Uttar Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Jawalgeri",
+    "state": "Karn\u0101taka",
     "country": "India"
   },
   {
@@ -960,7 +1075,7 @@ export const jaCities = [
     "country": "United States"
   },
   {
-    "city": "Jata\u00faba",
+    "city": "Jatauba",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -970,7 +1085,7 @@ export const jaCities = [
     "country": "India"
   },
   {
-    "city": "Jam\u0101lpur",
+    "city": "Jamalpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -985,12 +1100,12 @@ export const jaCities = [
     "country": "Dominican Republic"
   },
   {
-    "city": "Jang\u012bd",
+    "city": "Jangid",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Jaguapit\u00e3",
+    "city": "Jaguapita",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -1015,7 +1130,7 @@ export const jaCities = [
     "country": "United States"
   },
   {
-    "city": "Jacara\u00fa",
+    "city": "Jacarau",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -1045,7 +1160,7 @@ export const jaCities = [
     "country": "Belgium"
   },
   {
-    "city": "Jard\u00edn",
+    "city": "Jardin",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -1060,8 +1175,18 @@ export const jaCities = [
     "country": "Iran"
   },
   {
+    "city": "Janapadu",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Jamira",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Jalhalli",
+    "state": "Karn\u0101taka",
     "country": "India"
   },
   {
@@ -1075,12 +1200,12 @@ export const jaCities = [
     "country": "India"
   },
   {
-    "city": "Japoat\u00e3",
+    "city": "Japoata",
     "state": "Sergipe",
     "country": "Brazil"
   },
   {
-    "city": "Jan\u0101i",
+    "city": "Janai",
     "state": "West Bengal",
     "country": "India"
   },
@@ -1090,7 +1215,12 @@ export const jaCities = [
     "country": "India"
   },
   {
-    "city": "Jarom\u011b\u0159",
+    "city": "Jami",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Jaromer",
     "state": "Kr\u00e1lov\u00e9hradeck\u00fd Kraj",
     "country": "Czechia"
   },
@@ -1103,6 +1233,11 @@ export const jaCities = [
     "city": "Jaidte Lbatma",
     "state": "Marrakech-Safi",
     "country": "Morocco"
+  },
+  {
+    "city": "Jankinagar",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Jacala",
@@ -1125,7 +1260,7 @@ export const jaCities = [
     "country": "India"
   },
   {
-    "city": "Jaday\u0101mp\u0101laiyam",
+    "city": "Jadayampalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1135,7 +1270,7 @@ export const jaCities = [
     "country": "Mexico"
   },
   {
-    "city": "Jata\u00eczinho",
+    "city": "Jataizinho",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -1145,7 +1280,7 @@ export const jaCities = [
     "country": "Somalia"
   },
   {
-    "city": "Jaitw\u0101r",
+    "city": "Jaitwar",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1155,12 +1290,12 @@ export const jaCities = [
     "country": "United States"
   },
   {
-    "city": "Jac\u00f3",
+    "city": "Jaco",
     "state": "Puntarenas",
     "country": "Costa Rica"
   },
   {
-    "city": "Jardim do Serid\u00f3",
+    "city": "Jardim do Serido",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
   },
@@ -1170,7 +1305,7 @@ export const jaCities = [
     "country": "Kyrgyzstan"
   },
   {
-    "city": "Jar\u0101bulus",
+    "city": "Jarabulus",
     "state": "\u1e28alab",
     "country": "Syria"
   },
@@ -1185,9 +1320,14 @@ export const jaCities = [
     "country": "India"
   },
   {
-    "city": "Jan\u00f3w Lubelski",
+    "city": "Janow Lubelski",
     "state": "Lubelskie",
     "country": "Poland"
+  },
+  {
+    "city": "Jadopur Shukul",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Jamaat Shaim",
@@ -1195,7 +1335,7 @@ export const jaCities = [
     "country": "Morocco"
   },
   {
-    "city": "Jagd\u012bshpur",
+    "city": "Jagdishpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1215,7 +1355,7 @@ export const jaCities = [
     "country": "Brazil"
   },
   {
-    "city": "Jagann\u0101thpur",
+    "city": "Jagannathpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1225,7 +1365,7 @@ export const jaCities = [
     "country": "India"
   },
   {
-    "city": "Jarjan\u0101z",
+    "city": "Jarjanaz",
     "state": "Idlib",
     "country": "Syria"
   },
@@ -1253,6 +1393,11 @@ export const jaCities = [
     "city": "Jaguari",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
+  },
+  {
+    "city": "Jalihalli",
+    "state": "Karn\u0101taka",
+    "country": "India"
   },
   {
     "city": "Jaguaribara",
@@ -1285,8 +1430,13 @@ export const jaCities = [
     "country": "Brazil"
   },
   {
-    "city": "Jandi\u0101la",
+    "city": "Jandiala",
     "state": "Punjab",
+    "country": "India"
+  },
+  {
+    "city": "Jadupatti",
+    "state": "Bih\u0101r",
     "country": "India"
   },
   {
@@ -1305,7 +1455,7 @@ export const jaCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Jal\u0101lpur",
+    "city": "Jalalpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1335,7 +1485,7 @@ export const jaCities = [
     "country": "India"
   },
   {
-    "city": "Jan\u0101pul",
+    "city": "Janapul",
     "state": "West Bengal",
     "country": "India"
   },
@@ -1345,17 +1495,17 @@ export const jaCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Jaw\u0101sa",
+    "city": "Jawasa",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Jamun\u0101mukh",
+    "city": "Jamunamukh",
     "state": "Assam",
     "country": "India"
   },
   {
-    "city": "Ja\u2018far\u012byeh",
+    "city": "Ja`fariyeh",
     "state": "Qom",
     "country": "Iran"
   },
@@ -1365,12 +1515,22 @@ export const jaCities = [
     "country": "France"
   },
   {
-    "city": "Jah\u0101ng\u012brpur S\u0101lkhani",
+    "city": "Jaffar Khanpet",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Jahangirpur Salkhani",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Janda\u00edra",
+    "city": "Janpur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Jandaira",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -1378,6 +1538,11 @@ export const jaCities = [
     "city": "Jackson",
     "state": "Pennsylvania",
     "country": "United States"
+  },
+  {
+    "city": "Jajireddigudem",
+    "state": "Telang\u0101na",
+    "country": "India"
   },
   {
     "city": "Japaratinga",
@@ -1395,12 +1560,12 @@ export const jaCities = [
     "country": "India"
   },
   {
-    "city": "Jagann\u0101dapuram",
+    "city": "Jagannadapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Japur\u00e1",
+    "city": "Japura",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -1410,12 +1575,17 @@ export const jaCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Janu\u00e1rio Cicco",
+    "city": "Jamunia",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Januario Cicco",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
   },
   {
-    "city": "Janhap\u0101ra",
+    "city": "Janhapara",
     "state": "Odisha",
     "country": "India"
   },
@@ -1430,7 +1600,7 @@ export const jaCities = [
     "country": "India"
   },
   {
-    "city": "Japur\u00e1",
+    "city": "Japura",
     "state": "Amazonas",
     "country": "Brazil"
   },
@@ -1450,7 +1620,7 @@ export const jaCities = [
     "country": "United States"
   },
   {
-    "city": "Jal\u0101lkhera",
+    "city": "Jalalkhera",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -1465,7 +1635,7 @@ export const jaCities = [
     "country": "India"
   },
   {
-    "city": "Jagann\u0101thpur",
+    "city": "Jagannathpur",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -1480,7 +1650,7 @@ export const jaCities = [
     "country": "India"
   },
   {
-    "city": "Janz\u00e9",
+    "city": "Janze",
     "state": "Bretagne",
     "country": "France"
   },
@@ -1500,7 +1670,7 @@ export const jaCities = [
     "country": "Gambia, The"
   },
   {
-    "city": "Jaqu\u00e9",
+    "city": "Jaque",
     "state": "Dari\u00e9n",
     "country": "Panama"
   },

@@ -20,7 +20,7 @@ export const huCities = [
     "country": "China"
   },
   {
-    "city": "Huai\u2019an",
+    "city": "Huai'an",
     "state": "Jiangsu",
     "country": "China"
   },
@@ -85,7 +85,7 @@ export const huCities = [
     "country": "Angola"
   },
   {
-    "city": "Hu\u1ebf",
+    "city": "Hue",
     "state": "Th\u1eeba Thi\u00ean-Hu\u1ebf",
     "country": "Vietnam"
   },
@@ -175,9 +175,14 @@ export const huCities = [
     "country": "United States"
   },
   {
-    "city": "Hu\u00e1nuco",
+    "city": "Huanuco",
     "state": "Hu\u00e1nuco",
     "country": "Peru"
+  },
+  {
+    "city": "Huich'on",
+    "state": "Chagang",
+    "country": "Korea, North"
   },
   {
     "city": "Huddersfield",
@@ -188,6 +193,11 @@ export const huCities = [
     "city": "Huaycan",
     "state": "Lima",
     "country": "Peru"
+  },
+  {
+    "city": "Hung Yen",
+    "state": "H\u01b0ng Y\u00ean",
+    "country": "Vietnam"
   },
   {
     "city": "Huelva",
@@ -215,6 +225,11 @@ export const huCities = [
     "country": "Taiwan"
   },
   {
+    "city": "Huong Thuy",
+    "state": "Th\u1eeba Thi\u00ean-Hu\u1ebf",
+    "country": "Vietnam"
+  },
+  {
     "city": "Humpata",
     "state": "Hu\u00edla",
     "country": "Angola"
@@ -238,6 +253,11 @@ export const huCities = [
     "city": "Huebampo",
     "state": "Sonora",
     "country": "Mexico"
+  },
+  {
+    "city": "Huong Tra",
+    "state": "Th\u1eeba Thi\u00ean-Hu\u1ebf",
+    "country": "Vietnam"
   },
   {
     "city": "Huanchaco",
@@ -275,6 +295,11 @@ export const huCities = [
     "country": "United States"
   },
   {
+    "city": "Hurth",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
     "city": "Huatusco",
     "state": "Veracruz",
     "country": "Mexico"
@@ -305,12 +330,12 @@ export const huCities = [
     "country": "Mexico"
   },
   {
-    "city": "Huns\u016br",
+    "city": "Hunsur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Humait\u00e1",
+    "city": "Humaita",
     "state": "Amazonas",
     "country": "Brazil"
   },
@@ -390,6 +415,11 @@ export const huCities = [
     "country": "United States"
   },
   {
+    "city": "Huckelhoven",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
     "city": "Huizen",
     "state": "Noord-Holland",
     "country": "Netherlands"
@@ -430,12 +460,12 @@ export const huCities = [
     "country": "China"
   },
   {
-    "city": "Huz\u016br\u0101b\u0101d",
+    "city": "Huzurabad",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Huz\u016brnagar",
+    "city": "Huzurnagar",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -455,7 +485,7 @@ export const huCities = [
     "country": "Mexico"
   },
   {
-    "city": "Humenn\u00e9",
+    "city": "Humenne",
     "state": "Pre\u0161ov",
     "country": "Slovakia"
   },
@@ -465,7 +495,7 @@ export const huCities = [
     "country": "China"
   },
   {
-    "city": "Husain\u0101b\u0101d",
+    "city": "Husainabad",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -510,6 +540,11 @@ export const huCities = [
     "country": "Netherlands"
   },
   {
+    "city": "Hukumati Baghran",
+    "state": "Helmand",
+    "country": "Afghanistan"
+  },
+  {
     "city": "Huaquechula",
     "state": "Puebla",
     "country": "Mexico"
@@ -525,7 +560,7 @@ export const huCities = [
     "country": "United States"
   },
   {
-    "city": "Hu\u015fi",
+    "city": "Husi",
     "state": "Vaslui",
     "country": "Romania"
   },
@@ -535,7 +570,7 @@ export const huCities = [
     "country": "India"
   },
   {
-    "city": "Hunucm\u00e1",
+    "city": "Hunucma",
     "state": "Yucat\u00e1n",
     "country": "Mexico"
   },
@@ -595,12 +630,12 @@ export const huCities = [
     "country": "China"
   },
   {
-    "city": "Huej\u00facar",
+    "city": "Huejucar",
     "state": "Jalisco",
     "country": "Mexico"
   },
   {
-    "city": "Husn\u0101b\u0101d",
+    "city": "Husnabad",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -625,7 +660,7 @@ export const huCities = [
     "country": "United States"
   },
   {
-    "city": "Hu\u00e9rcal-Overa",
+    "city": "Huercal-Overa",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -640,7 +675,7 @@ export const huCities = [
     "country": "India"
   },
   {
-    "city": "Huan\u00edmaro",
+    "city": "Huanimaro",
     "state": "Guanajuato",
     "country": "Mexico"
   },
@@ -680,12 +715,17 @@ export const huCities = [
     "country": "China"
   },
   {
+    "city": "Hun",
+    "state": "Al Jufrah",
+    "country": "Libya"
+  },
+  {
     "city": "Huehuetla",
     "state": "Puebla",
     "country": "Mexico"
   },
   {
-    "city": "Hu\u00e9rcal de Almer\u00eda",
+    "city": "Huercal de Almeria",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -693,6 +733,11 @@ export const huCities = [
     "city": "Huntington",
     "state": "Indiana",
     "country": "United States"
+  },
+  {
+    "city": "Hunfeld",
+    "state": "Hesse",
+    "country": "Germany"
   },
   {
     "city": "Huruta",
@@ -720,9 +765,19 @@ export const huCities = [
     "country": "Germany"
   },
   {
+    "city": "Huong Canh",
+    "state": "V\u0129nh Ph\u00fac",
+    "country": "Vietnam"
+  },
+  {
     "city": "Huarmey",
     "state": "Ancash",
     "country": "Peru"
+  },
+  {
+    "city": "Huyuk",
+    "state": "Konya",
+    "country": "Turkey"
   },
   {
     "city": "Hugo",
@@ -760,9 +815,14 @@ export const huCities = [
     "country": "China"
   },
   {
-    "city": "Huit\u00e1n",
+    "city": "Huitan",
     "state": "Quetzaltenango",
     "country": "Guatemala"
+  },
+  {
+    "city": "Huckeswagen",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
   },
   {
     "city": "Huixcolotla",
@@ -785,12 +845,12 @@ export const huCities = [
     "country": "United States"
   },
   {
-    "city": "Huiz\u00facar",
+    "city": "Huizucar",
     "state": "La Libertad",
     "country": "El Salvador"
   },
   {
-    "city": "Huliy\u0101r",
+    "city": "Huliyar",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -813,6 +873,16 @@ export const huCities = [
     "city": "Huangyadong",
     "state": "Shanxi",
     "country": "China"
+  },
+  {
+    "city": "Hunxe",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
+    "city": "Hullhorst",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
   },
   {
     "city": "Hulkoti",
@@ -855,7 +925,7 @@ export const huCities = [
     "country": "Thailand"
   },
   {
-    "city": "Hu\u00e9tor Vega",
+    "city": "Huetor Vega",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -865,9 +935,14 @@ export const huCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Huit\u00e9",
+    "city": "Huite",
     "state": "Zacapa",
     "country": "Guatemala"
+  },
+  {
+    "city": "Hukumati Gizab",
+    "state": "D\u0101ykund\u012b",
+    "country": "Afghanistan"
   },
   {
     "city": "Huvin Hippargi",
@@ -905,7 +980,7 @@ export const huCities = [
     "country": "United States"
   },
   {
-    "city": "Hu\u00e9tor-T\u00e1jar",
+    "city": "Huetor-Tajar",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -935,7 +1010,7 @@ export const huCities = [
     "country": "Belgium"
   },
   {
-    "city": "Humleb\u00e6k",
+    "city": "Humlebaek",
     "state": "Hovedstaden",
     "country": "Denmark"
   },
@@ -960,12 +1035,12 @@ export const huCities = [
     "country": "Chile"
   },
   {
-    "city": "Huinca Renanc\u00f3",
+    "city": "Huinca Renanco",
     "state": "C\u00f3rdoba",
     "country": "Argentina"
   },
   {
-    "city": "Huala\u00f1e",
+    "city": "Hualane",
     "state": "Maule",
     "country": "Chile"
   },
@@ -995,6 +1070,11 @@ export const huCities = [
     "country": "Chile"
   },
   {
+    "city": "Hurtgenwald",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
     "city": "Hunduan",
     "state": "Ifugao",
     "country": "Philippines"
@@ -1005,7 +1085,12 @@ export const huCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Hualaihu\u00e9",
+    "city": "Hunenberg",
+    "state": "Zug",
+    "country": "Switzerland"
+  },
+  {
+    "city": "Hualaihue",
     "state": "Los Lagos",
     "country": "Chile"
   },
@@ -1033,6 +1118,11 @@ export const huCities = [
     "city": "Huinan",
     "state": "Jilin",
     "country": "China"
+  },
+  {
+    "city": "Husavik",
+    "state": "H\u00fasav\u00edk",
+    "country": "Faroe Islands"
   },
   {
     "city": "Hubli",

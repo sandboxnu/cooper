@@ -1,6 +1,6 @@
 export const flCities = [
   {
-    "city": "Florian\u00f3polis",
+    "city": "Florianopolis",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -85,7 +85,7 @@ export const flCities = [
     "country": "United States"
   },
   {
-    "city": "Flore\u015fti",
+    "city": "Floresti",
     "state": "Cluj",
     "country": "Romania"
   },
@@ -140,7 +140,7 @@ export const flCities = [
     "country": "Colombia"
   },
   {
-    "city": "Fl\u00e9malle-Haute",
+    "city": "Flemalle-Haute",
     "state": "Wallonia",
     "country": "Belgium"
   },
@@ -175,7 +175,7 @@ export const flCities = [
     "country": "Brazil"
   },
   {
-    "city": "Fl\u00f6rsheim",
+    "city": "Florsheim",
     "state": "Hesse",
     "country": "Germany"
   },
@@ -205,7 +205,7 @@ export const flCities = [
     "country": "France"
   },
   {
-    "city": "Fl\u00f3rina",
+    "city": "Florina",
     "state": "Dytik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
@@ -215,7 +215,7 @@ export const flCities = [
     "country": "United States"
   },
   {
-    "city": "Fl\u00e9ron",
+    "city": "Fleron",
     "state": "Wallonia",
     "country": "Belgium"
   },
@@ -240,12 +240,12 @@ export const flCities = [
     "country": "France"
   },
   {
-    "city": "Fleury-M\u00e9rogis",
+    "city": "Fleury-Merogis",
     "state": "\u00cele-de-France",
     "country": "France"
   },
   {
-    "city": "Flores de Goi\u00e1s",
+    "city": "Flores de Goias",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -275,7 +275,7 @@ export const flCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Flore\u015fti",
+    "city": "Floresti",
     "state": "Flore\u015fti",
     "country": "Moldova"
   },
@@ -285,7 +285,7 @@ export const flCities = [
     "country": "France"
   },
   {
-    "city": "Florest\u00f3polis",
+    "city": "Florestopolis",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -305,7 +305,7 @@ export const flCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Fl\u0103m\u00e2nzi",
+    "city": "Flamanzi",
     "state": "Boto\u015fani",
     "country": "Romania"
   },
@@ -320,7 +320,7 @@ export const flCities = [
     "country": "Switzerland"
   },
   {
-    "city": "Fl\u00f6ha",
+    "city": "Floha",
     "state": "Saxony",
     "country": "Germany"
   },
@@ -340,7 +340,7 @@ export const flCities = [
     "country": "United States"
   },
   {
-    "city": "Flor\u00e2nia",
+    "city": "Florania",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
   },
@@ -375,7 +375,7 @@ export const flCities = [
     "country": "Australia"
   },
   {
-    "city": "Flor\u00f8",
+    "city": "Floro",
     "state": "Vestland",
     "country": "Norway"
   },

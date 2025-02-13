@@ -1,6 +1,6 @@
 export const rzCities = [
   {
-    "city": "Rzesz\u00f3w",
+    "city": "Rzeszow",
     "state": "Podkarpackie",
     "country": "Poland"
   },

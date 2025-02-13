@@ -1,5 +1,10 @@
 export const agCities = [
   {
+    "city": "Agra",
+    "state": "Uttar Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Aguascalientes",
     "state": "Aguascalientes",
     "country": "Mexico"
@@ -30,6 +35,16 @@ export const agCities = [
     "country": "Japan"
   },
   {
+    "city": "Agri",
+    "state": "A\u011fr\u0131",
+    "country": "Turkey"
+  },
+  {
+    "city": "Agcabadi",
+    "state": "A\u011fcab\u0259di",
+    "country": "Azerbaijan"
+  },
+  {
     "city": "Agboville",
     "state": "Lagunes",
     "country": "C\u00f4te d\u2019Ivoire"
@@ -50,17 +65,22 @@ export const agCities = [
     "country": "Mexico"
   },
   {
+    "city": "Agios Dimitrios",
+    "state": "Attik\u00ed",
+    "country": "Greece"
+  },
+  {
     "city": "Agoo",
     "state": "La Union",
     "country": "Philippines"
   },
   {
-    "city": "Ag\u00eda Paraskev\u00ed",
+    "city": "Agia Paraskevi",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
   {
-    "city": "Aguacat\u00e1n",
+    "city": "Aguacatan",
     "state": "Huehuetenango",
     "country": "Guatemala"
   },
@@ -80,14 +100,19 @@ export const agCities = [
     "country": "Panama"
   },
   {
-    "city": "Agr\u00ednio",
+    "city": "Agrinio",
     "state": "Dytik\u00ed Ell\u00e1da",
     "country": "Greece"
   },
   {
-    "city": "Agust\u00edn Codazzi",
+    "city": "Agustin Codazzi",
     "state": "Cesar",
     "country": "Colombia"
+  },
+  {
+    "city": "Agueda",
+    "state": "Aveiro",
+    "country": "Portugal"
   },
   {
     "city": "Aguilar",
@@ -98,6 +123,11 @@ export const agCities = [
     "city": "Aguazul",
     "state": "Casanare",
     "country": "Colombia"
+  },
+  {
+    "city": "Aguas Belas",
+    "state": "Pernambuco",
+    "country": "Brazil"
   },
   {
     "city": "Agar",
@@ -120,6 +150,11 @@ export const agCities = [
     "country": "Brazil"
   },
   {
+    "city": "Aguilas",
+    "state": "Murcia",
+    "country": "Spain"
+  },
+  {
     "city": "Agogo",
     "state": "Ashanti",
     "country": "Ghana"
@@ -135,9 +170,14 @@ export const agCities = [
     "country": "Morocco"
   },
   {
-    "city": "Agua\u00ed",
+    "city": "Aguai",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
+  },
+  {
+    "city": "Agioi Anargyroi",
+    "state": "Attik\u00ed",
+    "country": "Greece"
   },
   {
     "city": "Agen",
@@ -170,6 +210,11 @@ export const agCities = [
     "country": "Philippines"
   },
   {
+    "city": "Agdas",
+    "state": "A\u011fda\u015f",
+    "country": "Azerbaijan"
+  },
+  {
     "city": "Agde",
     "state": "Occitanie",
     "country": "France"
@@ -185,9 +230,29 @@ export const agCities = [
     "country": "Japan"
   },
   {
-    "city": "Ag\u00eda Varv\u00e1ra",
+    "city": "Aguas Santas",
+    "state": "Porto",
+    "country": "Portugal"
+  },
+  {
+    "city": "Agios Nikolaos",
+    "state": "Kr\u00edti",
+    "country": "Greece"
+  },
+  {
+    "city": "Agia Varvara",
     "state": "Attik\u00ed",
     "country": "Greece"
+  },
+  {
+    "city": "Agua Preta",
+    "state": "Pernambuco",
+    "country": "Brazil"
+  },
+  {
+    "city": "Agaro",
+    "state": "Orom\u012bya",
+    "country": "Ethiopia"
   },
   {
     "city": "Agrestina",
@@ -225,6 +290,16 @@ export const agCities = [
     "country": "Costa Rica"
   },
   {
+    "city": "Agsu",
+    "state": "A\u011fsu",
+    "country": "Azerbaijan"
+  },
+  {
+    "city": "Agstafa",
+    "state": "A\u011fstafa",
+    "country": "Azerbaijan"
+  },
+  {
     "city": "Agoura Hills",
     "state": "California",
     "country": "United States"
@@ -235,9 +310,24 @@ export const agCities = [
     "country": "Russia"
   },
   {
+    "city": "Aguas Formosas",
+    "state": "Minas Gerais",
+    "country": "Brazil"
+  },
+  {
+    "city": "Agua Branca",
+    "state": "Alagoas",
+    "country": "Brazil"
+  },
+  {
     "city": "Agarpur",
     "state": "Bih\u0101r",
     "country": "India"
+  },
+  {
+    "city": "Agua Azul do Norte",
+    "state": "Par\u00e1",
+    "country": "Brazil"
   },
   {
     "city": "Agliana",
@@ -245,14 +335,29 @@ export const agCities = [
     "country": "Italy"
   },
   {
+    "city": "Aguas de Lindoia",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
+  },
+  {
     "city": "Agua Blanca",
     "state": "Jutiapa",
     "country": "Guatemala"
   },
   {
+    "city": "Agua Branca",
+    "state": "Piau\u00ed",
+    "country": "Brazil"
+  },
+  {
     "city": "Agaram",
     "state": "Tamil N\u0101du",
     "country": "India"
+  },
+  {
+    "city": "Agua Clara",
+    "state": "Mato Grosso do Sul",
+    "country": "Brazil"
   },
   {
     "city": "Agourai",
@@ -263,6 +368,16 @@ export const agCities = [
     "city": "Aguadulce",
     "state": "Andalusia",
     "country": "Spain"
+  },
+  {
+    "city": "Agiripalle",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Agios Ioannis Rentis",
+    "state": "Attik\u00ed",
+    "country": "Greece"
   },
   {
     "city": "Agudo",
@@ -283,6 +398,26 @@ export const agCities = [
     "city": "Agidel",
     "state": "Bashkortostan",
     "country": "Russia"
+  },
+  {
+    "city": "Agios Athanasios",
+    "state": "Lemes\u00f3s",
+    "country": "Cyprus"
+  },
+  {
+    "city": "Agua Boa",
+    "state": "Minas Gerais",
+    "country": "Brazil"
+  },
+  {
+    "city": "Agua Fria",
+    "state": "Bahia",
+    "country": "Brazil"
+  },
+  {
+    "city": "Aguas Vermelhas",
+    "state": "Minas Gerais",
+    "country": "Brazil"
   },
   {
     "city": "Aginiparru",
@@ -330,7 +465,7 @@ export const agCities = [
     "country": "Russia"
   },
   {
-    "city": "Agam\u00e9",
+    "city": "Agame",
     "state": "Couffo",
     "country": "Benin"
   },
@@ -355,7 +490,7 @@ export const agCities = [
     "country": "Cuba"
   },
   {
-    "city": "Aghbalou n\u2019Kerdous",
+    "city": "Aghbalou n'Kerdous",
     "state": "Dr\u00e2a-Tafilalet",
     "country": "Morocco"
   },
@@ -385,9 +520,24 @@ export const agCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Agou\u00e9",
+    "city": "Agoue",
     "state": "Mono",
     "country": "Benin"
+  },
+  {
+    "city": "Aguia Branca",
+    "state": "Esp\u00edrito Santo",
+    "country": "Brazil"
+  },
+  {
+    "city": "Agua Branca",
+    "state": "Para\u00edba",
+    "country": "Brazil"
+  },
+  {
+    "city": "Agadallanka",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Agadir Melloul",
@@ -395,9 +545,24 @@ export const agCities = [
     "country": "Morocco"
   },
   {
+    "city": "Aglasun",
+    "state": "Burdur",
+    "country": "Turkey"
+  },
+  {
     "city": "Aguelhok",
     "state": "Kidal",
     "country": "Mali"
+  },
+  {
+    "city": "Agdam",
+    "state": "A\u011fdam",
+    "country": "Azerbaijan"
+  },
+  {
+    "city": "Agdam",
+    "state": "Tovuz",
+    "country": "Azerbaijan"
   },
   {
     "city": "Agapa",

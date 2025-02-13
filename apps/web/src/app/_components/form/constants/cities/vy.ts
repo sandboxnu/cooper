@@ -5,6 +5,11 @@ export const vyCities = [
     "country": "Russia"
   },
   {
+    "city": "Vyronas",
+    "state": "Attik\u00ed",
+    "country": "Greece"
+  },
+  {
     "city": "Vyksa",
     "state": "Nizhegorodskaya Oblast\u2019",
     "country": "Russia"
@@ -15,12 +20,12 @@ export const vyCities = [
     "country": "Russia"
   },
   {
-    "city": "Vy\u0101ra",
+    "city": "Vyara",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Vyshniy Voloch\u00ebk",
+    "city": "Vyshniy Volochek",
     "state": "Tverskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -50,7 +55,7 @@ export const vyCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Vy\u0161kov",
+    "city": "Vyskov",
     "state": "Jihomoravsk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -65,7 +70,7 @@ export const vyCities = [
     "country": "Russia"
   },
   {
-    "city": "Vysok\u00e9 M\u00fdto",
+    "city": "Vysoke Myto",
     "state": "Pardubick\u00fd Kraj",
     "country": "Czechia"
   },

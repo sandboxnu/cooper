@@ -25,7 +25,7 @@ export const khCities = [
     "country": "Sudan"
   },
   {
-    "city": "Kh\u016djand",
+    "city": "Khujand",
     "state": "Sughd",
     "country": "Tajikistan"
   },
@@ -45,12 +45,12 @@ export const khCities = [
     "country": "South Africa"
   },
   {
-    "city": "Khorram\u0101b\u0101d",
+    "city": "Khorramabad",
     "state": "Lorest\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Kh\u0101n\u0101pur",
+    "city": "Khanapur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -85,17 +85,17 @@ export const khCities = [
     "country": "Russia"
   },
   {
-    "city": "Khomeyn\u012b Shahr",
+    "city": "Khomeyni Shahr",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Kh\u00e9nifra",
+    "city": "Khenifra",
     "state": "B\u00e9ni Mellal-Kh\u00e9nifra",
     "country": "Morocco"
   },
   {
-    "city": "Khat\u012bma",
+    "city": "Khatima",
     "state": "Uttar\u0101khand",
     "country": "India"
   },
@@ -115,7 +115,7 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Kh\u0101n Y\u016bnis",
+    "city": "Khan Yunis",
     "state": NaN,
     "country": "Gaza Strip"
   },
@@ -145,12 +145,12 @@ export const khCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Kh\u014dst",
+    "city": "Khost",
     "state": "Kh\u014dst",
     "country": "Afghanistan"
   },
   {
-    "city": "Khairpur Mir\u2019s",
+    "city": "Khairpur Mir's",
     "state": "Sindh",
     "country": "Pakistan"
   },
@@ -215,22 +215,22 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Khambh\u0101liya",
+    "city": "Khambhaliya",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Kham\u012bs Mushay\u0163",
+    "city": "Khamis Mushayt",
     "state": "\u2018As\u012br",
     "country": "Saudi Arabia"
   },
   {
-    "city": "Khambh\u0101t",
+    "city": "Khambhat",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Khowr\u0101sg\u0101n",
+    "city": "Khowrasgan",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
@@ -245,7 +245,7 @@ export const khCities = [
     "country": "Algeria"
   },
   {
-    "city": "Kham\u0101non Kal\u0101n",
+    "city": "Khamanon Kalan",
     "state": "Punjab",
     "country": "India"
   },
@@ -275,7 +275,7 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Khulay\u015f",
+    "city": "Khulays",
     "state": "Makkah al Mukarramah",
     "country": "Saudi Arabia"
   },
@@ -290,12 +290,12 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Khand\u0101la",
+    "city": "Khandala",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
   {
-    "city": "Kh\u0101sh",
+    "city": "Khash",
     "state": "S\u012bst\u0101n va Bal\u016bchest\u0101n",
     "country": "Iran"
   },
@@ -305,7 +305,7 @@ export const khCities = [
     "country": "Thailand"
   },
   {
-    "city": "Kh\u0101n Shaykh\u016bn",
+    "city": "Khan Shaykhun",
     "state": "Idlib",
     "country": "Syria"
   },
@@ -330,7 +330,7 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Khair\u0101b\u0101d",
+    "city": "Khairabad",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -340,7 +340,7 @@ export const khCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Khawr Fakk\u0101n",
+    "city": "Khawr Fakkan",
     "state": "Ash Sh\u0101riqah",
     "country": "United Arab Emirates"
   },
@@ -355,17 +355,17 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Khowrm\u016bj",
+    "city": "Khowrmuj",
     "state": "B\u016bshehr",
     "country": "Iran"
   },
   {
-    "city": "Kh\u0101chrod",
+    "city": "Khachrod",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Khalkh\u0101l",
+    "city": "Khalkhal",
     "state": "Ardab\u012bl",
     "country": "Iran"
   },
@@ -385,7 +385,7 @@ export const khCities = [
     "country": "Algeria"
   },
   {
-    "city": "Khod\u0101bandeh",
+    "city": "Khodabandeh",
     "state": "Zanj\u0101n",
     "country": "Iran"
   },
@@ -395,12 +395,12 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Khv\u0101f",
+    "city": "Khvaf",
     "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
     "country": "Iran"
   },
   {
-    "city": "Kh\u0101nah S\u016br",
+    "city": "Khanah Sur",
     "state": "N\u012bnaw\u00e1",
     "country": "Iraq"
   },
@@ -430,7 +430,7 @@ export const khCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Kh\u0101tegaon",
+    "city": "Khategaon",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -445,12 +445,12 @@ export const khCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Kh\u0101n\u0101b\u0101d",
+    "city": "Khanabad",
     "state": "Kunduz",
     "country": "Afghanistan"
   },
   {
-    "city": "Kh\u0101\u0303db\u0101ri\u0307\u0304",
+    "city": "Khadbari",
     "state": NaN,
     "country": "Nepal"
   },
@@ -460,12 +460,12 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Khiria Jh\u0101nsi",
+    "city": "Khiria Jhansi",
     "state": "Uttar Pradesh",
     "country": "India"
   },
   {
-    "city": "Khal\u0101ri",
+    "city": "Khalari",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -475,7 +475,7 @@ export const khCities = [
     "country": "Georgia"
   },
   {
-    "city": "Khajur\u0101ho",
+    "city": "Khajuraho",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -490,17 +490,17 @@ export const khCities = [
     "country": "Algeria"
   },
   {
-    "city": "Kh\u0101rupatia",
+    "city": "Kharupatia",
     "state": "Assam",
     "country": "India"
   },
   {
-    "city": "Khirkiy\u0101n",
+    "city": "Khirkiyan",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Khair\u0101 Tol\u0101",
+    "city": "Khaira Tola",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -515,7 +515,7 @@ export const khCities = [
     "country": "Russia"
   },
   {
-    "city": "Khe\u00efredine",
+    "city": "Kheiredine",
     "state": "Mostaganem",
     "country": "Algeria"
   },
@@ -545,17 +545,17 @@ export const khCities = [
     "country": "Russia"
   },
   {
-    "city": "Khromta\u016b",
+    "city": "Khromtau",
     "state": "Aqt\u00f6be",
     "country": "Kazakhstan"
   },
   {
-    "city": "Khv\u0101ns\u0101r",
+    "city": "Khvansar",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Khowrz\u016bq",
+    "city": "Khowrzuq",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
@@ -565,7 +565,7 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Kher\u0101lu",
+    "city": "Kheralu",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -590,7 +590,7 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Kher\u0101meh",
+    "city": "Kherameh",
     "state": "F\u0101rs",
     "country": "Iran"
   },
@@ -605,22 +605,22 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Kha\u015fab",
+    "city": "Khasab",
     "state": "Musandam",
     "country": "Oman"
   },
   {
-    "city": "Kharhi\u0101l",
+    "city": "Kharhial",
     "state": "Odisha",
     "country": "India"
   },
   {
-    "city": "Khut\u0101ha",
+    "city": "Khutaha",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Kh\u0101npur",
+    "city": "Khanpur",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -635,12 +635,12 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Khani\u0101dh\u0101na",
+    "city": "Khaniadhana",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Kharg\u0101pur",
+    "city": "Khargapur",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -655,7 +655,7 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Khirbat Ghaz\u0101lah",
+    "city": "Khirbat Ghazalah",
     "state": "Dar\u2018\u0101",
     "country": "Syria"
   },
@@ -700,7 +700,7 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Kh\u0101ndh\u0101r",
+    "city": "Khandhar",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -725,12 +725,12 @@ export const khCities = [
     "country": "Vietnam"
   },
   {
-    "city": "Kherg\u0101m",
+    "city": "Khergam",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Khmis Sidi al \u2019Aydi",
+    "city": "Khmis Sidi al 'Aydi",
     "state": "Casablanca-Settat",
     "country": "Morocco"
   },
@@ -745,12 +745,12 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Kharv-e Sofl\u00e1",
+    "city": "Kharv-e Sofla",
     "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
     "country": "Iran"
   },
   {
-    "city": "Kh\u0101n\u0101pur",
+    "city": "Khanapur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -765,7 +765,7 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Khom\u0101m",
+    "city": "Khomam",
     "state": "G\u012bl\u0101n",
     "country": "Iran"
   },
@@ -780,7 +780,7 @@ export const khCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Kharak Kal\u0101n",
+    "city": "Kharak Kalan",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -810,12 +810,12 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Kh\u0101npur",
+    "city": "Khanpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Kh\u0101nda",
+    "city": "Khanda",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -830,17 +830,17 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Kh\u0101naq\u012bn",
+    "city": "Khanaqin",
     "state": "Diy\u0101l\u00e1",
     "country": "Iraq"
   },
   {
-    "city": "Kh\u0101ns\u0101hibpuram",
+    "city": "Khansahibpuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Khiml\u0101sa",
+    "city": "Khimlasa",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -850,27 +850,27 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Khorram\u0101b\u0101d",
+    "city": "Khorramabad",
     "state": "M\u0101zandar\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Kh\u0101ng\u0101on",
+    "city": "Khangaon",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Khargr\u0101m",
+    "city": "Khargram",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Kh\u0101njah\u0101npur",
+    "city": "Khanjahanpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Kh\u0101n Beb\u012bn",
+    "city": "Khan Bebin",
     "state": "Golest\u0101n",
     "country": "Iran"
   },
@@ -885,7 +885,7 @@ export const khCities = [
     "country": "Thailand"
   },
   {
-    "city": "Kha\u0163\u0163\u0101b",
+    "city": "Khattab",
     "state": "\u1e28am\u0101h",
     "country": "Syria"
   },
@@ -910,7 +910,7 @@ export const khCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Khokri Kal\u0101n",
+    "city": "Khokri Kalan",
     "state": "Punjab",
     "country": "India"
   },
@@ -930,7 +930,7 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Khair Kh\u0101n",
+    "city": "Khair Khan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -945,27 +945,27 @@ export const khCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Kh\u0101npur",
+    "city": "Khanpur",
     "state": "Uttar Pradesh",
     "country": "India"
   },
   {
-    "city": "Kh\u0101ndsa",
+    "city": "Khandsa",
     "state": "Hary\u0101na",
     "country": "India"
   },
   {
-    "city": "Khur\u0101n Milik",
+    "city": "Khuran Milik",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Kh\u0101pdeh",
+    "city": "Khapdeh",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Khari\u0101l",
+    "city": "Kharial",
     "state": "Punjab",
     "country": "India"
   },
@@ -980,12 +980,12 @@ export const khCities = [
     "country": "Iran"
   },
   {
-    "city": "Khund\u0101wandpur",
+    "city": "Khundawandpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Kh\u0101spur",
+    "city": "Khaspur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -995,17 +995,17 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Kh\u0101wad",
+    "city": "Khawad",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Kh\u0101npur Khairanti",
+    "city": "Khanpur Khairanti",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Khar\u012b",
+    "city": "Khari",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
@@ -1020,7 +1020,7 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Khand\u0101ich",
+    "city": "Khandaich",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1045,17 +1045,17 @@ export const khCities = [
     "country": "Russia"
   },
   {
-    "city": "Kh\u0101sbalanda",
+    "city": "Khasbalanda",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Khiri\u0101w\u0101n",
+    "city": "Khiriawan",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Khars\u0101w\u0101n",
+    "city": "Kharsawan",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -1065,7 +1065,7 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Khor\u0101g\u0101chhi",
+    "city": "Khoragachhi",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1090,7 +1090,7 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Kh\u0101n\u0101pur",
+    "city": "Khanapur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1115,7 +1115,7 @@ export const khCities = [
     "country": "India"
   },
   {
-    "city": "Khutha Baijn\u0101th",
+    "city": "Khutha Baijnath",
     "state": "Bih\u0101r",
     "country": "India"
   },

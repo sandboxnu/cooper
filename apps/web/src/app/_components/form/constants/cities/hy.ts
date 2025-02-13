@@ -1,6 +1,6 @@
 export const hyCities = [
   {
-    "city": "Hyder\u0101b\u0101d",
+    "city": "Hyderabad",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -15,12 +15,12 @@ export const hyCities = [
     "country": "Korea, North"
   },
   {
-    "city": "Hy\u016bga",
+    "city": "Hyuga",
     "state": "Miyazaki",
     "country": "Japan"
   },
   {
-    "city": "Hy\u00e8res",
+    "city": "Hyeres",
     "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
     "country": "France"
   },
@@ -30,7 +30,7 @@ export const hyCities = [
     "country": "Congo (Kinshasa)"
   },
   {
-    "city": "Hyvink\u00e4\u00e4",
+    "city": "Hyvinkaa",
     "state": "Uusimaa",
     "country": "Finland"
   },

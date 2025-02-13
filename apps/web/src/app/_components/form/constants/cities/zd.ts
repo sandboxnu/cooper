@@ -5,9 +5,14 @@ export const zdCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Zdu\u0144ska Wola",
+    "city": "Zdunska Wola",
     "state": "\u0141\u00f3dzkie",
     "country": "Poland"
+  },
+  {
+    "city": "Zd'ar nad Sazavou",
+    "state": "Vyso\u010dina",
+    "country": "Czechia"
   },
   {
     "city": "Zdzieszowice",

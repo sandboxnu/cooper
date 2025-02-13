@@ -20,12 +20,12 @@ export const ukCities = [
     "country": "Japan"
   },
   {
-    "city": "Ukk\u0101yapalle",
+    "city": "Ukkayapalle",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Ukmerg\u0117",
+    "city": "Ukmerge",
     "state": "Ukmerg\u0117",
     "country": "Lithuania"
   },
@@ -50,12 +50,12 @@ export const ukCities = [
     "country": "India"
   },
   {
-    "city": "Ukw\u0101",
+    "city": "Ukwa",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Ukh\u0101i Purb\u0101ri Patti",
+    "city": "Ukhai Purbari Patti",
     "state": "Bih\u0101r",
     "country": "India"
   }

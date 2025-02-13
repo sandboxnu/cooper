@@ -50,6 +50,11 @@ export const caCities = [
     "country": "Philippines"
   },
   {
+    "city": "Can Tho",
+    "state": "C\u1ea7n Th\u01a1",
+    "country": "Vietnam"
+  },
+  {
     "city": "Campinas",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
@@ -58,6 +63,11 @@ export const caCities = [
     "city": "Cazenga",
     "state": "Luanda",
     "country": "Angola"
+  },
+  {
+    "city": "Cankaya",
+    "state": "Ankara",
+    "country": "Turkey"
   },
   {
     "city": "Cartagena",
@@ -70,7 +80,7 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Canc\u00fan",
+    "city": "Cancun",
     "state": "Quintana Roo",
     "country": "Mexico"
   },
@@ -135,7 +145,7 @@ export const caCities = [
     "country": "Peru"
   },
   {
-    "city": "Carapicu\u00edba",
+    "city": "Carapicuiba",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -190,7 +200,7 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Camp\u012bernagar",
+    "city": "Campiernagar",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -200,12 +210,17 @@ export const caCities = [
     "country": "Philippines"
   },
   {
-    "city": "Camag\u00fcey",
+    "city": "Camaguey",
     "state": "Camag\u00fcey",
     "country": "Cuba"
   },
   {
-    "city": "Cama\u00e7ari",
+    "city": "Ca Mau",
+    "state": "C\u00e0 Mau",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Camacari",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -235,12 +250,12 @@ export const caCities = [
     "country": "India"
   },
   {
-    "city": "Carlos Manuel de C\u00e9spedes",
+    "city": "Carlos Manuel de Cespedes",
     "state": "Camag\u00fcey",
     "country": "Cuba"
   },
   {
-    "city": "Capiat\u00e1",
+    "city": "Capiata",
     "state": "Central",
     "country": "Paraguay"
   },
@@ -260,7 +275,7 @@ export const caCities = [
     "country": "Portugal"
   },
   {
-    "city": "Cao L\u00e3nh",
+    "city": "Cao Lanh",
     "state": "\u0110\u1ed3ng Th\u00e1p",
     "country": "Vietnam"
   },
@@ -275,7 +290,7 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Cap-Ha\u00eftien",
+    "city": "Cap-Haitien",
     "state": "Nord",
     "country": "Haiti"
   },
@@ -300,7 +315,7 @@ export const caCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Castell\u00f3n de la Plana",
+    "city": "Castellon de la Plana",
     "state": "Valencia",
     "country": "Spain"
   },
@@ -315,7 +330,7 @@ export const caCities = [
     "country": "United States"
   },
   {
-    "city": "Car\u00fapano",
+    "city": "Carupano",
     "state": "Sucre",
     "country": "Venezuela"
   },
@@ -370,6 +385,11 @@ export const caCities = [
     "country": "Philippines"
   },
   {
+    "city": "Cam Pha",
+    "state": "Qu\u1ea3ng Ninh",
+    "country": "Vietnam"
+  },
+  {
     "city": "Camarajibe",
     "state": "Pernambuco",
     "country": "Brazil"
@@ -420,6 +440,11 @@ export const caCities = [
     "country": "Puerto Rico"
   },
   {
+    "city": "Carsamba",
+    "state": "Samsun",
+    "country": "Turkey"
+  },
+  {
     "city": "Cambridge",
     "state": "Ontario",
     "country": "Canada"
@@ -450,7 +475,7 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Camet\u00e1",
+    "city": "Cameta",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -458,6 +483,11 @@ export const caCities = [
     "city": "Carrollton",
     "state": "Texas",
     "country": "United States"
+  },
+  {
+    "city": "Cayirova",
+    "state": "Kocaeli",
+    "country": "Turkey"
   },
   {
     "city": "Catabola",
@@ -475,7 +505,7 @@ export const caCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Cai L\u1eady",
+    "city": "Cai Lay",
     "state": "Ti\u1ec1n Giang",
     "country": "Vietnam"
   },
@@ -525,7 +555,7 @@ export const caCities = [
     "country": "United States"
   },
   {
-    "city": "Catal\u00e3o",
+    "city": "Catalao",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -533,6 +563,11 @@ export const caCities = [
     "city": "Carora",
     "state": "Lara",
     "country": "Venezuela"
+  },
+  {
+    "city": "Cadiz",
+    "state": "Andalusia",
+    "country": "Spain"
   },
   {
     "city": "Cawayan",
@@ -550,7 +585,7 @@ export const caCities = [
     "country": "Argentina"
   },
   {
-    "city": "Camb\u00e9",
+    "city": "Cambe",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -565,7 +600,7 @@ export const caCities = [
     "country": "Philippines"
   },
   {
-    "city": "Cambori\u00fa",
+    "city": "Camboriu",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -590,7 +625,7 @@ export const caCities = [
     "country": "United States"
   },
   {
-    "city": "Campo Mour\u00e3o",
+    "city": "Campo Mourao",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -608,6 +643,11 @@ export const caCities = [
     "city": "Caotun",
     "state": "Nantou",
     "country": "Taiwan"
+  },
+  {
+    "city": "Caceres",
+    "state": "Extremadura",
+    "country": "Spain"
   },
   {
     "city": "Caseros",
@@ -630,7 +670,12 @@ export const caCities = [
     "country": "Canada"
   },
   {
-    "city": "Ca\u00e7apava",
+    "city": "Caycuma",
+    "state": "Zonguldak",
+    "country": "Turkey"
+  },
+  {
+    "city": "Cacapava",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -645,6 +690,11 @@ export const caCities = [
     "country": "Angola"
   },
   {
+    "city": "Canakkale",
+    "state": "\u00c7anakkale",
+    "country": "Turkey"
+  },
+  {
     "city": "Caucasia",
     "state": "Antioquia",
     "country": "Colombia"
@@ -653,6 +703,11 @@ export const caCities = [
     "city": "Cantaura",
     "state": "Anzo\u00e1tegui",
     "country": "Venezuela"
+  },
+  {
+    "city": "Caceres",
+    "state": "Mato Grosso",
+    "country": "Brazil"
   },
   {
     "city": "Caracase",
@@ -693,6 +748,11 @@ export const caCities = [
     "city": "Campana",
     "state": "Buenos Aires",
     "country": "Argentina"
+  },
+  {
+    "city": "Cardenas",
+    "state": "Matanzas",
+    "country": "Cuba"
   },
   {
     "city": "Cabiao",
@@ -745,7 +805,7 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ca\u00e7ador",
+    "city": "Cacador",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -780,7 +840,7 @@ export const caCities = [
     "country": "Peru"
   },
   {
-    "city": "Cadereyta Jim\u00e9nez",
+    "city": "Cadereyta Jimenez",
     "state": "Nuevo Le\u00f3n",
     "country": "Mexico"
   },
@@ -795,7 +855,7 @@ export const caCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Canind\u00e9",
+    "city": "Caninde",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -820,7 +880,7 @@ export const caCities = [
     "country": "Puerto Rico"
   },
   {
-    "city": "Cao B\u1eb1ng",
+    "city": "Cao Bang",
     "state": "Cao B\u1eb1ng",
     "country": "Vietnam"
   },
@@ -828,6 +888,11 @@ export const caCities = [
     "city": "Cannes",
     "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
     "country": "France"
+  },
+  {
+    "city": "Catalca",
+    "state": "\u0130stanbul",
+    "country": "Turkey"
   },
   {
     "city": "Caserta",
@@ -865,6 +930,11 @@ export const caCities = [
     "country": "Philippines"
   },
   {
+    "city": "Cacak",
+    "state": "\u010ca\u010dak",
+    "country": "Serbia"
+  },
+  {
     "city": "Carpi",
     "state": "Emilia-Romagna",
     "country": "Italy"
@@ -890,7 +960,7 @@ export const caCities = [
     "country": "United States"
   },
   {
-    "city": "Calarc\u00e1",
+    "city": "Calarca",
     "state": "Quind\u00edo",
     "country": "Colombia"
   },
@@ -995,7 +1065,7 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Cap\u00e3o da Canoa",
+    "city": "Capao da Canoa",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -1003,6 +1073,11 @@ export const caCities = [
     "city": "Cajazeiras",
     "state": "Para\u00edba",
     "country": "Brazil"
+  },
+  {
+    "city": "Caldiran",
+    "state": "Van",
+    "country": "Turkey"
   },
   {
     "city": "Campo Bom",
@@ -1025,12 +1100,12 @@ export const caCities = [
     "country": "Colombia"
   },
   {
-    "city": "Car\u00e0zinho",
+    "city": "Carazinho",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
   {
-    "city": "Camaqu\u00e3",
+    "city": "Camaqua",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -1040,7 +1115,7 @@ export const caCities = [
     "country": "Haiti"
   },
   {
-    "city": "Camot\u00e1n",
+    "city": "Camotan",
     "state": "Chiquimula",
     "country": "Guatemala"
   },
@@ -1070,7 +1145,7 @@ export const caCities = [
     "country": "United States"
   },
   {
-    "city": "Caic\u00f3",
+    "city": "Caico",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
   },
@@ -1125,7 +1200,12 @@ export const caCities = [
     "country": "United States"
   },
   {
-    "city": "Camajuan\u00ed",
+    "city": "Calarasi",
+    "state": "C\u0103l\u0103ra\u015fi",
+    "country": "Romania"
+  },
+  {
+    "city": "Camajuani",
     "state": "Villa Clara",
     "country": "Cuba"
   },
@@ -1135,7 +1215,7 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Caacup\u00e9",
+    "city": "Caacupe",
     "state": "Cordillera",
     "country": "Paraguay"
   },
@@ -1170,7 +1250,7 @@ export const caCities = [
     "country": "Philippines"
   },
   {
-    "city": "Capit\u00e3o Po\u00e7o",
+    "city": "Capitao Poco",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -1180,7 +1260,7 @@ export const caCities = [
     "country": "China"
   },
   {
-    "city": "Cajic\u00e1",
+    "city": "Cajica",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
@@ -1220,7 +1300,7 @@ export const caCities = [
     "country": "Angola"
   },
   {
-    "city": "Caetit\u00e9",
+    "city": "Caetite",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -1245,7 +1325,7 @@ export const caCities = [
     "country": "Philippines"
   },
   {
-    "city": "Campos do Jord\u00e3o",
+    "city": "Campos do Jordao",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -1260,12 +1340,12 @@ export const caCities = [
     "country": "United States"
   },
   {
-    "city": "Cava de\u2019 Tirreni",
+    "city": "Cava de' Tirreni",
     "state": "Campania",
     "country": "Italy"
   },
   {
-    "city": "Cabre\u00fava",
+    "city": "Cabreuva",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -1275,7 +1355,7 @@ export const caCities = [
     "country": "Philippines"
   },
   {
-    "city": "Cangu\u00e7u",
+    "city": "Cangucu",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -1300,6 +1380,11 @@ export const caCities = [
     "country": "Venezuela"
   },
   {
+    "city": "Can",
+    "state": "\u00c7anakkale",
+    "country": "Turkey"
+  },
+  {
     "city": "Carepa",
     "state": "Antioquia",
     "country": "Colombia"
@@ -1315,7 +1400,7 @@ export const caCities = [
     "country": "Italy"
   },
   {
-    "city": "Cap\u00e3o Bonito",
+    "city": "Capao Bonito",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -1395,7 +1480,7 @@ export const caCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Caet\u00e9",
+    "city": "Caete",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1413,6 +1498,11 @@ export const caCities = [
     "city": "Cayambe",
     "state": "Pichincha",
     "country": "Ecuador"
+  },
+  {
+    "city": "Cayeli",
+    "state": "Rize",
+    "country": "Turkey"
   },
   {
     "city": "Cateel",
@@ -1460,6 +1550,11 @@ export const caCities = [
     "country": "Philippines"
   },
   {
+    "city": "Caceres",
+    "state": "Antioquia",
+    "country": "Colombia"
+  },
+  {
     "city": "Campechuela",
     "state": "Granma",
     "country": "Cuba"
@@ -1495,7 +1590,7 @@ export const caCities = [
     "country": "Italy"
   },
   {
-    "city": "Cant\u00f9",
+    "city": "Cantu",
     "state": "Lombardy",
     "country": "Italy"
   },
@@ -1530,7 +1625,7 @@ export const caCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Caman\u00e1",
+    "city": "Camana",
     "state": "Arequipa",
     "country": "Peru"
   },
@@ -1550,7 +1645,7 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Cajib\u00edo",
+    "city": "Cajibio",
     "state": "Cauca",
     "country": "Colombia"
   },
@@ -1560,7 +1655,7 @@ export const caCities = [
     "country": "United States"
   },
   {
-    "city": "Caibari\u00e9n",
+    "city": "Caibarien",
     "state": "Villa Clara",
     "country": "Cuba"
   },
@@ -1585,7 +1680,7 @@ export const caCities = [
     "country": "Mexico"
   },
   {
-    "city": "Cansan\u00e7\u00e3o",
+    "city": "Cansancao",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -1660,12 +1755,17 @@ export const caCities = [
     "country": "United States"
   },
   {
+    "city": "Camara de Lobos",
+    "state": "Madeira",
+    "country": "Portugal"
+  },
+  {
     "city": "Casiguran",
     "state": "Sorsogon",
     "country": "Philippines"
   },
   {
-    "city": "Cartagena del Chair\u00e1",
+    "city": "Cartagena del Chaira",
     "state": "Caquet\u00e1",
     "country": "Colombia"
   },
@@ -1710,17 +1810,17 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Cativ\u00e1",
+    "city": "Cativa",
     "state": "Col\u00f3n",
     "country": "Panama"
   },
   {
-    "city": "Ca\u00f1ete",
+    "city": "Canete",
     "state": "Biob\u00edo",
     "country": "Chile"
   },
   {
-    "city": "Canicatt\u00ec",
+    "city": "Canicatti",
     "state": "Sicilia",
     "country": "Italy"
   },
@@ -1795,7 +1895,7 @@ export const caCities = [
     "country": "Italy"
   },
   {
-    "city": "Carapegu\u00e1",
+    "city": "Carapegua",
     "state": "Paraguar\u00ed",
     "country": "Paraguay"
   },
@@ -1810,7 +1910,7 @@ export const caCities = [
     "country": "Venezuela"
   },
   {
-    "city": "Ca\u00e7apava do Sul",
+    "city": "Cacapava do Sul",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -1850,12 +1950,12 @@ export const caCities = [
     "country": "United States"
   },
   {
-    "city": "Cabaigu\u00e1n",
+    "city": "Cabaiguan",
     "state": "Sancti Sp\u00edritus",
     "country": "Cuba"
   },
   {
-    "city": "Ca\u00f1uelas",
+    "city": "Canuelas",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -1895,6 +1995,16 @@ export const caCities = [
     "country": "Spain"
   },
   {
+    "city": "Cay",
+    "state": "Afyonkarahisar",
+    "country": "Turkey"
+  },
+  {
+    "city": "Candido Mota",
+    "state": "S\u00e3o Paulo",
+    "country": "Brazil"
+  },
+  {
     "city": "Carangola",
     "state": "Minas Gerais",
     "country": "Brazil"
@@ -1910,7 +2020,7 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Careiro da V\u00e1rzea",
+    "city": "Careiro da Varzea",
     "state": "Amazonas",
     "country": "Brazil"
   },
@@ -1935,7 +2045,7 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Catol\u00e9 do Rocha",
+    "city": "Catole do Rocha",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -1945,7 +2055,7 @@ export const caCities = [
     "country": "Spain"
   },
   {
-    "city": "Carap\u00f3",
+    "city": "Carapo",
     "state": "Mato Grosso do Sul",
     "country": "Brazil"
   },
@@ -1970,7 +2080,7 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Cabrob\u00f3",
+    "city": "Cabrobo",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -2010,7 +2120,7 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Cambu\u00ed",
+    "city": "Cambui",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -2045,12 +2155,12 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Capit\u00e1n Berm\u00fadez",
+    "city": "Capitan Bermudez",
     "state": "Santa Fe",
     "country": "Argentina"
   },
   {
-    "city": "Ca\u00f1ada de G\u00f3mez",
+    "city": "Canada de Gomez",
     "state": "Santa Fe",
     "country": "Argentina"
   },
@@ -2070,12 +2180,17 @@ export const caCities = [
     "country": "Mozambique"
   },
   {
-    "city": "Carmo do Parana\u00edba",
+    "city": "Carmo do Paranaiba",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
   {
-    "city": "Candel\u00e1ria",
+    "city": "Campina",
+    "state": "Prahova",
+    "country": "Romania"
+  },
+  {
+    "city": "Candelaria",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -2085,7 +2200,7 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Caet\u00e9s",
+    "city": "Caetes",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -2115,6 +2230,11 @@ export const caCities = [
     "country": "Italy"
   },
   {
+    "city": "Cartama",
+    "state": "Andalusia",
+    "country": "Spain"
+  },
+  {
     "city": "Caucete",
     "state": "San Juan",
     "country": "Argentina"
@@ -2135,9 +2255,14 @@ export const caCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Cabric\u00e1n",
+    "city": "Cabrican",
     "state": "Quetzaltenango",
     "country": "Guatemala"
+  },
+  {
+    "city": "Capljina",
+    "state": "Bosnia and Herzegovina, Federation of",
+    "country": "Bosnia and Herzegovina"
   },
   {
     "city": "Cabangan",
@@ -2165,12 +2290,17 @@ export const caCities = [
     "country": "Chile"
   },
   {
+    "city": "Campulung",
+    "state": "Arge\u015f",
+    "country": "Romania"
+  },
+  {
     "city": "Caracal",
     "state": "Olt",
     "country": "Romania"
   },
   {
-    "city": "Casta\u00f1os",
+    "city": "Castanos",
     "state": "Coahuila",
     "country": "Mexico"
   },
@@ -2185,17 +2315,22 @@ export const caCities = [
     "country": "Argentina"
   },
   {
+    "city": "Cakovec",
+    "state": "Me\u0111imurska \u017dupanija",
+    "country": "Croatia"
+  },
+  {
     "city": "Catamayo",
     "state": "Loja",
     "country": "Ecuador"
   },
   {
-    "city": "Cati\u00f3",
+    "city": "Catio",
     "state": "Tombali",
     "country": "Guinea-Bissau"
   },
   {
-    "city": "Canind\u00e9 de S\u00e3o Francisco",
+    "city": "Caninde de Sao Francisco",
     "state": "Sergipe",
     "country": "Brazil"
   },
@@ -2220,7 +2355,7 @@ export const caCities = [
     "country": "United States"
   },
   {
-    "city": "Cap\u00e3o do Le\u00e3o",
+    "city": "Capao do Leao",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -2240,7 +2375,7 @@ export const caCities = [
     "country": "United States"
   },
   {
-    "city": "Cariria\u00e7u",
+    "city": "Caririacu",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -2250,9 +2385,14 @@ export const caCities = [
     "country": "Italy"
   },
   {
-    "city": "Ca\u00f1as",
+    "city": "Canas",
     "state": "Guanacaste",
     "country": "Costa Rica"
+  },
+  {
+    "city": "Cankiri",
+    "state": "\u00c7ank\u0131r\u0131",
+    "country": "Turkey"
   },
   {
     "city": "Campos Gerais",
@@ -2285,6 +2425,11 @@ export const caCities = [
     "country": "Spain"
   },
   {
+    "city": "Calilabad",
+    "state": "C\u0259lilabad",
+    "country": "Azerbaijan"
+  },
+  {
     "city": "Canarana I",
     "state": "Mato Grosso",
     "country": "Brazil"
@@ -2308,6 +2453,11 @@ export const caCities = [
     "city": "Camillus",
     "state": "New York",
     "country": "United States"
+  },
+  {
+    "city": "Candido Sales",
+    "state": "Bahia",
+    "country": "Brazil"
   },
   {
     "city": "Camalaniugan",
@@ -2440,7 +2590,7 @@ export const caCities = [
     "country": "Philippines"
   },
   {
-    "city": "Caazap\u00e1",
+    "city": "Caazapa",
     "state": "Caazap\u00e1",
     "country": "Paraguay"
   },
@@ -2460,12 +2610,12 @@ export const caCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Car\u00e1s",
+    "city": "Caras",
     "state": "Ancash",
     "country": "Peru"
   },
   {
-    "city": "Caranda\u00ed",
+    "city": "Carandai",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -2500,9 +2650,19 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Cani\u00e7o",
+    "city": "Canico",
     "state": "Madeira",
     "country": "Portugal"
+  },
+  {
+    "city": "Caglayancerit",
+    "state": "Kahramanmara\u015f",
+    "country": "Turkey"
+  },
+  {
+    "city": "Cadca",
+    "state": "\u017dilina",
+    "country": "Slovakia"
   },
   {
     "city": "Capinzal",
@@ -2515,7 +2675,7 @@ export const caCities = [
     "country": "Philippines"
   },
   {
-    "city": "Carambe\u00ed",
+    "city": "Carambei",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -2535,7 +2695,7 @@ export const caCities = [
     "country": "Philippines"
   },
   {
-    "city": "Cambar\u00e1",
+    "city": "Cambara",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -2565,7 +2725,7 @@ export const caCities = [
     "country": "United States"
   },
   {
-    "city": "Cata\u00f1o",
+    "city": "Catano",
     "state": "Puerto Rico",
     "country": "Puerto Rico"
   },
@@ -2580,7 +2740,7 @@ export const caCities = [
     "country": "Canada"
   },
   {
-    "city": "Camilo Ponce Enr\u00edquez",
+    "city": "Camilo Ponce Enriquez",
     "state": "Azuay",
     "country": "Ecuador"
   },
@@ -2610,7 +2770,7 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Cacul\u00e9",
+    "city": "Cacule",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -2620,7 +2780,7 @@ export const caCities = [
     "country": "Switzerland"
   },
   {
-    "city": "Cayo Mamb\u00ed",
+    "city": "Cayo Mambi",
     "state": "Holgu\u00edn",
     "country": "Cuba"
   },
@@ -2655,7 +2815,7 @@ export const caCities = [
     "country": "Philippines"
   },
   {
-    "city": "Caransebe\u015f",
+    "city": "Caransebes",
     "state": "Cara\u015f-Severin",
     "country": "Romania"
   },
@@ -2685,7 +2845,7 @@ export const caCities = [
     "country": "Italy"
   },
   {
-    "city": "Cac\u00e9m",
+    "city": "Cacem",
     "state": "Lisboa",
     "country": "Portugal"
   },
@@ -2700,7 +2860,7 @@ export const caCities = [
     "country": "United States"
   },
   {
-    "city": "Caapor\u00e3",
+    "city": "Caapora",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -2725,7 +2885,7 @@ export const caCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Cassil\u00e2ndia",
+    "city": "Cassilandia",
     "state": "Mato Grosso do Sul",
     "country": "Brazil"
   },
@@ -2735,7 +2895,7 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Caracara\u00ed",
+    "city": "Caracarai",
     "state": "Roraima",
     "country": "Brazil"
   },
@@ -2770,6 +2930,11 @@ export const caCities = [
     "country": "Brazil"
   },
   {
+    "city": "Campia Turzii",
+    "state": "Cluj",
+    "country": "Romania"
+  },
+  {
     "city": "Caravelas",
     "state": "Bahia",
     "country": "Brazil"
@@ -2800,6 +2965,11 @@ export const caCities = [
     "country": "Portugal"
   },
   {
+    "city": "Candido Mendes",
+    "state": "Maranh\u00e3o",
+    "country": "Brazil"
+  },
+  {
     "city": "Cahors",
     "state": "Occitanie",
     "country": "France"
@@ -2823,6 +2993,11 @@ export const caCities = [
     "city": "Calceta",
     "state": "Manab\u00ed",
     "country": "Ecuador"
+  },
+  {
+    "city": "Cardenas",
+    "state": "San Luis Potos\u00ed",
+    "country": "Mexico"
   },
   {
     "city": "Carira",
@@ -2870,7 +3045,7 @@ export const caCities = [
     "country": "Mexico"
   },
   {
-    "city": "Castelo do Piau\u00ed",
+    "city": "Castelo do Piaui",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
@@ -2880,7 +3055,7 @@ export const caCities = [
     "country": "Spain"
   },
   {
-    "city": "Cara\u00fabas",
+    "city": "Caraubas",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
   },
@@ -2890,7 +3065,7 @@ export const caCities = [
     "country": "Philippines"
   },
   {
-    "city": "Cara\u00ed",
+    "city": "Carai",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -2935,7 +3110,7 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Cajol\u00e1",
+    "city": "Cajola",
     "state": "Quetzaltenango",
     "country": "Guatemala"
   },
@@ -2945,7 +3120,7 @@ export const caCities = [
     "country": "Italy"
   },
   {
-    "city": "Cassano d\u2019Adda",
+    "city": "Cassano d'Adda",
     "state": "Lombardy",
     "country": "Italy"
   },
@@ -2955,7 +3130,7 @@ export const caCities = [
     "country": "Philippines"
   },
   {
-    "city": "Cacahoat\u00e1n",
+    "city": "Cacahoatan",
     "state": "Chiapas",
     "country": "Mexico"
   },
@@ -2975,7 +3150,7 @@ export const caCities = [
     "country": "China"
   },
   {
-    "city": "Cafel\u00e2ndia",
+    "city": "Cafelandia",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -3015,7 +3190,7 @@ export const caCities = [
     "country": "New Zealand"
   },
   {
-    "city": "Carna\u00edba",
+    "city": "Carnaiba",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -3028,6 +3203,11 @@ export const caCities = [
     "city": "Carlos Chagas",
     "state": "Minas Gerais",
     "country": "Brazil"
+  },
+  {
+    "city": "Catak",
+    "state": "Van",
+    "country": "Turkey"
   },
   {
     "city": "Castel Maggiore",
@@ -3060,7 +3240,7 @@ export const caCities = [
     "country": "United States"
   },
   {
-    "city": "Carri\u00e8res-sous-Poissy",
+    "city": "Carrieres-sous-Poissy",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -3110,12 +3290,17 @@ export const caCities = [
     "country": "United States"
   },
   {
+    "city": "Cal",
+    "state": "Denizli",
+    "country": "Turkey"
+  },
+  {
     "city": "Cary",
     "state": "Illinois",
     "country": "United States"
   },
   {
-    "city": "Carm\u00f3polis de Minas",
+    "city": "Carmopolis de Minas",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -3145,7 +3330,7 @@ export const caCities = [
     "country": "United States"
   },
   {
-    "city": "Carir\u00e9",
+    "city": "Carire",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -3160,7 +3345,12 @@ export const caCities = [
     "country": "Philippines"
   },
   {
-    "city": "Cafel\u00e2ndia",
+    "city": "Cameli",
+    "state": "Denizli",
+    "country": "Turkey"
+  },
+  {
+    "city": "Cafelandia",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -3170,7 +3360,7 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Camocim de S\u00e3o F\u00e9lix",
+    "city": "Camocim de Sao Felix",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -3178,6 +3368,11 @@ export const caCities = [
     "city": "Calayan",
     "state": "Cagayan",
     "country": "Philippines"
+  },
+  {
+    "city": "Cat",
+    "state": "Erzurum",
+    "country": "Turkey"
   },
   {
     "city": "Cajamarca",
@@ -3225,7 +3420,12 @@ export const caCities = [
     "country": "Mexico"
   },
   {
-    "city": "Ca\u00f1on City",
+    "city": "Cassia",
+    "state": "Minas Gerais",
+    "country": "Brazil"
+  },
+  {
+    "city": "Canon City",
     "state": "Colorado",
     "country": "United States"
   },
@@ -3235,12 +3435,17 @@ export const caCities = [
     "country": "Spain"
   },
   {
+    "city": "Caqueza",
+    "state": "Cundinamarca",
+    "country": "Colombia"
+  },
+  {
     "city": "Carlentini",
     "state": "Sicilia",
     "country": "Italy"
   },
   {
-    "city": "Cari\u00fas",
+    "city": "Carius",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -3250,7 +3455,7 @@ export const caCities = [
     "country": "Italy"
   },
   {
-    "city": "Carl\u00f3polis",
+    "city": "Carlopolis",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -3280,7 +3485,7 @@ export const caCities = [
     "country": "United States"
   },
   {
-    "city": "Cabaceiras do Paragua\u00e7u",
+    "city": "Cabaceiras do Paraguacu",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -3290,7 +3495,7 @@ export const caCities = [
     "country": "Italy"
   },
   {
-    "city": "Caiap\u00f4nia",
+    "city": "Caiaponia",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -3300,7 +3505,7 @@ export const caCities = [
     "country": "Italy"
   },
   {
-    "city": "Cayetano Germos\u00e9n",
+    "city": "Cayetano Germosen",
     "state": "Cibao Norte",
     "country": "Dominican Republic"
   },
@@ -3315,14 +3520,24 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Carcara\u00f1\u00e1",
+    "city": "Carsibasi",
+    "state": "Trabzon",
+    "country": "Turkey"
+  },
+  {
+    "city": "Carcarana",
     "state": "Santa Fe",
     "country": "Argentina"
   },
   {
-    "city": "Carhu\u00e9",
+    "city": "Carhue",
     "state": "Buenos Aires",
     "country": "Argentina"
+  },
+  {
+    "city": "Caykara",
+    "state": "Trabzon",
+    "country": "Turkey"
   },
   {
     "city": "Castellaneta",
@@ -3405,6 +3620,11 @@ export const caCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Campulung Moldovenesc",
+    "state": "Suceava",
+    "country": "Romania"
+  },
+  {
     "city": "Capilla de Guadalupe",
     "state": "Jalisco",
     "country": "Mexico"
@@ -3465,7 +3685,7 @@ export const caCities = [
     "country": "Italy"
   },
   {
-    "city": "Carri\u00e8res-sur-Seine",
+    "city": "Carrieres-sur-Seine",
     "state": "\u00cele-de-France",
     "country": "France"
   },
@@ -3500,7 +3720,7 @@ export const caCities = [
     "country": "Italy"
   },
   {
-    "city": "Cand\u00f3i",
+    "city": "Candoi",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -3510,12 +3730,17 @@ export const caCities = [
     "country": "Italy"
   },
   {
-    "city": "Calkin\u00ed",
+    "city": "Catalpinar",
+    "state": "Ordu",
+    "country": "Turkey"
+  },
+  {
+    "city": "Calkini",
     "state": "Campeche",
     "country": "Mexico"
   },
   {
-    "city": "Casta\u00f1uelas",
+    "city": "Castanuelas",
     "state": "Cibao Noroeste",
     "country": "Dominican Republic"
   },
@@ -3530,9 +3755,14 @@ export const caCities = [
     "country": "Dominican Republic"
   },
   {
-    "city": "Caba\u00f1as",
+    "city": "Cabanas",
     "state": "Zacapa",
     "country": "Guatemala"
+  },
+  {
+    "city": "Candido de Abreu",
+    "state": "Paran\u00e1",
+    "country": "Brazil"
   },
   {
     "city": "Carmen de Areco",
@@ -3540,7 +3770,7 @@ export const caCities = [
     "country": "Argentina"
   },
   {
-    "city": "Capin\u00f3polis",
+    "city": "Capinopolis",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -3563,6 +3793,11 @@ export const caCities = [
     "city": "Cabarete",
     "state": "Cibao Norte",
     "country": "Dominican Republic"
+  },
+  {
+    "city": "Cajetina",
+    "state": "\u010cajetina",
+    "country": "Serbia"
   },
   {
     "city": "Cadaval",
@@ -3600,7 +3835,7 @@ export const caCities = [
     "country": "Puerto Rico"
   },
   {
-    "city": "Capit\u00e3o En\u00e9as",
+    "city": "Capitao Eneas",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -3625,7 +3860,7 @@ export const caCities = [
     "country": "France"
   },
   {
-    "city": "Cassina de\u2019 Pecchi",
+    "city": "Cassina de' Pecchi",
     "state": "Lombardy",
     "country": "Italy"
   },
@@ -3645,12 +3880,17 @@ export const caCities = [
     "country": "United States"
   },
   {
+    "city": "Caybasi",
+    "state": "Ordu",
+    "country": "Turkey"
+  },
+  {
     "city": "Caselle Torinese",
     "state": "Piedmont",
     "country": "Italy"
   },
   {
-    "city": "Carm\u00f3polis",
+    "city": "Carmopolis",
     "state": "Sergipe",
     "country": "Brazil"
   },
@@ -3670,7 +3910,7 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ca\u00e7u",
+    "city": "Cacu",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -3700,12 +3940,12 @@ export const caCities = [
     "country": "Colombia"
   },
   {
-    "city": "Ca\u00f1asgordas",
+    "city": "Canasgordas",
     "state": "Antioquia",
     "country": "Colombia"
   },
   {
-    "city": "Camapu\u00e3",
+    "city": "Camapua",
     "state": "Mato Grosso do Sul",
     "country": "Brazil"
   },
@@ -3718,6 +3958,11 @@ export const caCities = [
     "city": "Calolziocorte",
     "state": "Lombardy",
     "country": "Italy"
+  },
+  {
+    "city": "Cayiralan",
+    "state": "Yozgat",
+    "country": "Turkey"
   },
   {
     "city": "Calderara di Reno",
@@ -3785,6 +4030,11 @@ export const caCities = [
     "country": "Italy"
   },
   {
+    "city": "Camardi",
+    "state": "Ni\u011fde",
+    "country": "Turkey"
+  },
+  {
     "city": "Carpinteria",
     "state": "California",
     "country": "United States"
@@ -3820,9 +4070,14 @@ export const caCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Caldeir\u00e3o Grande",
+    "city": "Caldeirao Grande",
     "state": "Bahia",
     "country": "Brazil"
+  },
+  {
+    "city": "Cavdir",
+    "state": "Burdur",
+    "country": "Turkey"
   },
   {
     "city": "Cambridge",
@@ -3835,7 +4090,7 @@ export const caCities = [
     "country": "Ireland"
   },
   {
-    "city": "Capo d\u2019Orlando",
+    "city": "Capo d'Orlando",
     "state": "Sicilia",
     "country": "Italy"
   },
@@ -3880,6 +4135,11 @@ export const caCities = [
     "country": "Italy"
   },
   {
+    "city": "Causeni",
+    "state": "C\u0103u\u015feni",
+    "country": "Moldova"
+  },
+  {
     "city": "Calcinato",
     "state": "Lombardy",
     "country": "Italy"
@@ -3915,12 +4175,12 @@ export const caCities = [
     "country": "Italy"
   },
   {
-    "city": "Canill\u00e1",
+    "city": "Canilla",
     "state": "Quich\u00e9",
     "country": "Guatemala"
   },
   {
-    "city": "Cai\u00f3",
+    "city": "Caio",
     "state": "Cacheu",
     "country": "Guinea-Bissau"
   },
@@ -3970,7 +4230,7 @@ export const caCities = [
     "country": "Italy"
   },
   {
-    "city": "Can\u00f3vanas",
+    "city": "Canovanas",
     "state": "Puerto Rico",
     "country": "Puerto Rico"
   },
@@ -4005,7 +4265,7 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Canan\u00e9ia",
+    "city": "Cananeia",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -4030,7 +4290,7 @@ export const caCities = [
     "country": "Colombia"
   },
   {
-    "city": "Ca\u00f1o Martin Pe\u00f1a",
+    "city": "Cano Martin Pena",
     "state": "Puerto Rico",
     "country": "Puerto Rico"
   },
@@ -4038,6 +4298,11 @@ export const caCities = [
     "city": "Cachoeira de Minas",
     "state": "Minas Gerais",
     "country": "Brazil"
+  },
+  {
+    "city": "Camas",
+    "state": "Ordu",
+    "country": "Turkey"
   },
   {
     "city": "Camposampiero",
@@ -4090,7 +4355,7 @@ export const caCities = [
     "country": "Colombia"
   },
   {
-    "city": "Castell\u00f3 de Ampurias",
+    "city": "Castello de Ampurias",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -4140,7 +4405,7 @@ export const caCities = [
     "country": "Canada"
   },
   {
-    "city": "Caetan\u00f3polis",
+    "city": "Caetanopolis",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -4150,7 +4415,7 @@ export const caCities = [
     "country": "United States"
   },
   {
-    "city": "Casi\u00e8r",
+    "city": "Casier",
     "state": "Veneto",
     "country": "Italy"
   },
@@ -4205,12 +4470,12 @@ export const caCities = [
     "country": "Italy"
   },
   {
-    "city": "Capit\u00e1n Bado",
+    "city": "Capitan Bado",
     "state": "Amambay",
     "country": "Paraguay"
   },
   {
-    "city": "Capit\u00e1n Sarmiento",
+    "city": "Capitan Sarmiento",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -4285,12 +4550,12 @@ export const caCities = [
     "country": "Italy"
   },
   {
-    "city": "Capit\u00e3o de Campos",
+    "city": "Capitao de Campos",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
   {
-    "city": "Cal\u00e7ado",
+    "city": "Calcado",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -4303,6 +4568,11 @@ export const caCities = [
     "city": "Carmo da Mata",
     "state": "Minas Gerais",
     "country": "Brazil"
+  },
+  {
+    "city": "Cachira",
+    "state": "Norte de Santander",
+    "country": "Colombia"
   },
   {
     "city": "Cabanillas del Campo",
@@ -4340,9 +4610,14 @@ export const caCities = [
     "country": "France"
   },
   {
-    "city": "Cass\u00e1 de la Selva",
+    "city": "Cassa de la Selva",
     "state": "Catalonia",
     "country": "Spain"
+  },
+  {
+    "city": "Calarasi",
+    "state": "C\u0103l\u0103ra\u015fi",
+    "country": "Moldova"
   },
   {
     "city": "Castano Primo",
@@ -4405,12 +4680,12 @@ export const caCities = [
     "country": "Italy"
   },
   {
-    "city": "Cal\u00e7oene",
+    "city": "Calcoene",
     "state": "Amap\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Can\u00e1polis",
+    "city": "Canapolis",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -4440,6 +4715,11 @@ export const caCities = [
     "country": "Brazil"
   },
   {
+    "city": "Caslav",
+    "state": "St\u0159edo\u010desk\u00fd Kraj",
+    "country": "Czechia"
+  },
+  {
     "city": "Catanduvas",
     "state": "Paran\u00e1",
     "country": "Brazil"
@@ -4455,12 +4735,12 @@ export const caCities = [
     "country": "United States"
   },
   {
-    "city": "Ca\u00e9m",
+    "city": "Caem",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Capit\u00f3lio",
+    "city": "Capitolio",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -4470,7 +4750,7 @@ export const caCities = [
     "country": "United States"
   },
   {
-    "city": "Canatl\u00e1n",
+    "city": "Canatlan",
     "state": "Durango",
     "country": "Mexico"
   },
@@ -4490,7 +4770,7 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Caparrap\u00ed",
+    "city": "Caparrapi",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
@@ -4500,7 +4780,7 @@ export const caCities = [
     "country": "Italy"
   },
   {
-    "city": "Castelnovo ne\u2019 Monti",
+    "city": "Castelnovo ne' Monti",
     "state": "Emilia-Romagna",
     "country": "Italy"
   },
@@ -4520,7 +4800,7 @@ export const caCities = [
     "country": "Brazil"
   },
   {
-    "city": "Can\u00e1polis",
+    "city": "Canapolis",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -4528,6 +4808,11 @@ export const caCities = [
     "city": "Campo Redondo",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
+  },
+  {
+    "city": "Canta",
+    "state": "\u0130stanbul",
+    "country": "Turkey"
   },
   {
     "city": "Carencro",
@@ -4570,12 +4855,12 @@ export const caCities = [
     "country": "Puerto Rico"
   },
   {
-    "city": "Caudebec-l\u00e8s-Elbeuf",
+    "city": "Caudebec-les-Elbeuf",
     "state": "Normandie",
     "country": "France"
   },
   {
-    "city": "Cajapi\u00f3",
+    "city": "Cajapio",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
   },
@@ -4595,14 +4880,19 @@ export const caCities = [
     "country": "United States"
   },
   {
-    "city": "Caba\u00f1aquinta",
+    "city": "Cabanaquinta",
     "state": "Asturias",
     "country": "Spain"
   },
   {
-    "city": "Cabri\u00e8s",
+    "city": "Cabries",
     "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
     "country": "France"
+  },
+  {
+    "city": "Calan",
+    "state": "Hunedoara",
+    "country": "Romania"
   },
   {
     "city": "Castlegar",
@@ -4635,7 +4925,7 @@ export const caCities = [
     "country": "Australia"
   },
   {
-    "city": "Cara\u00edbas",
+    "city": "Caraibas",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -4680,6 +4970,11 @@ export const caCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Camoluk",
+    "state": "Giresun",
+    "country": "Turkey"
+  },
+  {
     "city": "Calca",
     "state": "Cusco",
     "country": "Peru"
@@ -4705,7 +5000,7 @@ export const caCities = [
     "country": "United States"
   },
   {
-    "city": "Campo Er\u00ea",
+    "city": "Campo Ere",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -4735,7 +5030,7 @@ export const caCities = [
     "country": "Costa Rica"
   },
   {
-    "city": "Capit\u00e1n Mauricio Jos\u00e9 Troche",
+    "city": "Capitan Mauricio Jose Troche",
     "state": "Guair\u00e1",
     "country": "Paraguay"
   },
@@ -4755,7 +5050,7 @@ export const caCities = [
     "country": "Italy"
   },
   {
-    "city": "Car\u00e1cuaro",
+    "city": "Caracuaro",
     "state": "Michoac\u00e1n",
     "country": "Mexico"
   },
@@ -4800,7 +5095,7 @@ export const caCities = [
     "country": "Spain"
   },
   {
-    "city": "Capilla del Se\u00f1or",
+    "city": "Capilla del Senor",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -4835,7 +5130,7 @@ export const caCities = [
     "country": "Chile"
   },
   {
-    "city": "Cachoeira dos \u00cdndios",
+    "city": "Cachoeira dos Indios",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -4890,6 +5185,11 @@ export const caCities = [
     "country": "Italy"
   },
   {
+    "city": "Cayirli",
+    "state": "Erzincan",
+    "country": "Turkey"
+  },
+  {
     "city": "Caxias",
     "state": "Lisboa",
     "country": "Portugal"
@@ -4920,7 +5220,7 @@ export const caCities = [
     "country": "United States"
   },
   {
-    "city": "Carmen de Apical\u00e1",
+    "city": "Carmen de Apicala",
     "state": "Tolima",
     "country": "Colombia"
   },
@@ -4955,12 +5255,17 @@ export const caCities = [
     "country": "Italy"
   },
   {
+    "city": "Cabras",
+    "state": "Sardegna",
+    "country": "Italy"
+  },
+  {
     "city": "Carlosama",
     "state": "Nari\u00f1o",
     "country": "Colombia"
   },
   {
-    "city": "Calif\u00f3rnia",
+    "city": "California",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -4970,12 +5275,17 @@ export const caCities = [
     "country": "Italy"
   },
   {
+    "city": "Camliyayla",
+    "state": "Mersin",
+    "country": "Turkey"
+  },
+  {
     "city": "Castellabate",
     "state": "Campania",
     "country": "Italy"
   },
   {
-    "city": "Catu\u00edpe",
+    "city": "Catuipe",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -5035,6 +5345,11 @@ export const caCities = [
     "country": "South Africa"
   },
   {
+    "city": "Cabrayil",
+    "state": "C\u0259bray\u0131l",
+    "country": "Azerbaijan"
+  },
+  {
     "city": "Cacheu",
     "state": "Cacheu",
     "country": "Guinea-Bissau"
@@ -5055,7 +5370,7 @@ export const caCities = [
     "country": "Bolivia"
   },
   {
-    "city": "Calheta de S\u00e3o Miguel",
+    "city": "Calheta de Sao Miguel",
     "state": "S\u00e3o Miguel",
     "country": "Cabo Verde"
   },
@@ -5080,7 +5395,7 @@ export const caCities = [
     "country": "Luxembourg"
   },
   {
-    "city": "Capit\u00e1n Pablo Lagerenza",
+    "city": "Capitan Pablo Lagerenza",
     "state": "Alto Paraguay",
     "country": "Paraguay"
   },

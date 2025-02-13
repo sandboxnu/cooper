@@ -15,7 +15,7 @@ export const biCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Bil\u0101spur",
+    "city": "Bilaspur",
     "state": "Chhatt\u012bsgarh",
     "country": "India"
   },
@@ -25,7 +25,7 @@ export const biCities = [
     "country": "Kyrgyzstan"
   },
   {
-    "city": "Bi\u00ean H\u00f2a",
+    "city": "Bien Hoa",
     "state": "\u0110\u1ed3ng Nai",
     "country": "Vietnam"
   },
@@ -40,12 +40,17 @@ export const biCities = [
     "country": "Spain"
   },
   {
-    "city": "Biht\u0101",
+    "city": "Bihta",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Bib\u0101",
+    "city": "Bikaner",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
+    "city": "Biba",
     "state": "Ban\u012b Suwayf",
     "country": "Egypt"
   },
@@ -55,7 +60,7 @@ export const biCities = [
     "country": "Guinea-Bissau"
   },
   {
-    "city": "Bi\u00f1an",
+    "city": "Binan",
     "state": "Laguna",
     "country": "Philippines"
   },
@@ -65,12 +70,12 @@ export const biCities = [
     "country": "Germany"
   },
   {
-    "city": "Birkat as Sab\u2018",
+    "city": "Birkat as Sab`",
     "state": "Al Min\u016bf\u012byah",
     "country": "Egypt"
   },
   {
-    "city": "Bij\u0101pur",
+    "city": "Bijapur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -90,12 +95,12 @@ export const biCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Bih\u0101r",
+    "city": "Bihar",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Bia\u0142ystok",
+    "city": "Bialystok",
     "state": "Podlaskie",
     "country": "Poland"
   },
@@ -110,12 +115,12 @@ export const biCities = [
     "country": "Central African Republic"
   },
   {
-    "city": "Bir\u0101\u1e6dnagar",
+    "city": "Biratnagar",
     "state": "Province Number One",
     "country": "Nepal"
   },
   {
-    "city": "Biyal\u0101",
+    "city": "Biyala",
     "state": "Kafr ash Shaykh",
     "country": "Egypt"
   },
@@ -140,6 +145,11 @@ export const biCities = [
     "country": "C\u00f4te d\u2019Ivoire"
   },
   {
+    "city": "Birjand",
+    "state": "Khor\u0101s\u0101n-e Jon\u016bb\u012b",
+    "country": "Iran"
+  },
+  {
     "city": "Biysk",
     "state": "Altayskiy Kray",
     "country": "Russia"
@@ -155,17 +165,22 @@ export const biCities = [
     "country": "Nigeria"
   },
   {
+    "city": "Bidar",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
     "city": "Bir el Djir",
     "state": "Oran",
     "country": "Algeria"
   },
   {
-    "city": "Bielsko-Bia\u0142a",
+    "city": "Bielsko-Biala",
     "state": "\u015al\u0105skie",
     "country": "Poland"
   },
   {
-    "city": "Bing\u00f6l",
+    "city": "Bingol",
     "state": "Bing\u00f6l",
     "country": "Turkey"
   },
@@ -180,6 +195,11 @@ export const biCities = [
     "country": "United States"
   },
   {
+    "city": "Bir",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
     "city": "Birkenhead",
     "state": "Wirral",
     "country": "United Kingdom"
@@ -190,12 +210,12 @@ export const biCities = [
     "country": "Egypt"
   },
   {
-    "city": "Birga\u00f1j",
+    "city": "Birganj",
     "state": NaN,
     "country": "Nepal"
   },
   {
-    "city": "Bib\u00e9mi",
+    "city": "Bibemi",
     "state": "Nord",
     "country": "Cameroon"
   },
@@ -240,9 +260,24 @@ export const biCities = [
     "country": "Nigeria"
   },
   {
+    "city": "Binh Hoa",
+    "state": "B\u00ecnh D\u01b0\u01a1ng",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Binh Long",
+    "state": "B\u00ecnh Ph\u01b0\u1edbc",
+    "country": "Vietnam"
+  },
+  {
     "city": "Biak",
     "state": "Papua",
     "country": "Indonesia"
+  },
+  {
+    "city": "Bim Son",
+    "state": "Thanh H\u00f3a",
+    "country": "Vietnam"
   },
   {
     "city": "Bismarck",
@@ -265,7 +300,7 @@ export const biCities = [
     "country": "Turkey"
   },
   {
-    "city": "Bi\u2019r al \u2018Abd",
+    "city": "Bi'r al `Abd",
     "state": "Sham\u0101l S\u012bn\u0101\u2019",
     "country": "Egypt"
   },
@@ -285,7 +320,7 @@ export const biCities = [
     "country": "Turkey"
   },
   {
-    "city": "Bistri\u0163a",
+    "city": "Bistrita",
     "state": "Bistri\u0163a-N\u0103s\u0103ud",
     "country": "Romania"
   },
@@ -315,7 +350,7 @@ export const biCities = [
     "country": "Philippines"
   },
   {
-    "city": "Bil\u0101ra",
+    "city": "Bilara",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -325,7 +360,7 @@ export const biCities = [
     "country": "India"
   },
   {
-    "city": "Bigua\u00e7u",
+    "city": "Biguacu",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -350,13 +385,18 @@ export const biCities = [
     "country": "Congo (Kinshasa)"
   },
   {
-    "city": "Binn\u0101guri",
+    "city": "Binnaguri",
     "state": "West Bengal",
     "country": "India"
   },
   {
     "city": "Bilimora",
     "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
+    "city": "Bimgal",
+    "state": "Telang\u0101na",
     "country": "India"
   },
   {
@@ -375,17 +415,17 @@ export const biCities = [
     "country": "Philippines"
   },
   {
-    "city": "Biha\u0107",
+    "city": "Bihac",
     "state": "Bosnia and Herzegovina, Federation of",
     "country": "Bosnia and Herzegovina"
   },
   {
-    "city": "Bisw\u0101n",
+    "city": "Biswan",
     "state": "Uttar Pradesh",
     "country": "India"
   },
   {
-    "city": "Bia\u0142a Podlaska",
+    "city": "Biala Podlaska",
     "state": "Lubelskie",
     "country": "Poland"
   },
@@ -403,6 +443,11 @@ export const biCities = [
     "city": "Bir Ali Ben Khalifa",
     "state": "Sfax",
     "country": "Tunisia"
+  },
+  {
+    "city": "Bijar",
+    "state": "Kordest\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Bisceglie",
@@ -430,7 +475,7 @@ export const biCities = [
     "country": "India"
   },
   {
-    "city": "Bigadi\u00e7",
+    "city": "Bigadic",
     "state": "Bal\u0131kesir",
     "country": "Turkey"
   },
@@ -460,12 +505,12 @@ export const biCities = [
     "country": "Zimbabwe"
   },
   {
-    "city": "Bih\u0101t",
+    "city": "Bihat",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Bir\u0101k",
+    "city": "Birak",
     "state": "W\u0101d\u012b ash Sh\u0101\u0163i\u2019",
     "country": "Libya"
   },
@@ -475,7 +520,7 @@ export const biCities = [
     "country": "China"
   },
   {
-    "city": "Bil\u0259c\u0259ri",
+    "city": "Bilacari",
     "state": "Bak\u0131",
     "country": "Azerbaijan"
   },
@@ -500,7 +545,7 @@ export const biCities = [
     "country": "United States"
   },
   {
-    "city": "Bil\u0101sip\u0101ra",
+    "city": "Bilasipara",
     "state": "Assam",
     "country": "India"
   },
@@ -525,7 +570,7 @@ export const biCities = [
     "country": "Germany"
   },
   {
-    "city": "Bin\u0259q\u0259di",
+    "city": "Binaqadi",
     "state": "Bak\u0131",
     "country": "Azerbaijan"
   },
@@ -535,7 +580,7 @@ export const biCities = [
     "country": "India"
   },
   {
-    "city": "Bind\u00e9",
+    "city": "Binde",
     "state": "Centre-Sud",
     "country": "Burkina Faso"
   },
@@ -595,7 +640,7 @@ export const biCities = [
     "country": "Algeria"
   },
   {
-    "city": "Bir\u016br",
+    "city": "Birur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -610,7 +655,7 @@ export const biCities = [
     "country": "United States"
   },
   {
-    "city": "Bin-Houy\u00e9",
+    "city": "Bin-Houye",
     "state": "Montagnes",
     "country": "C\u00f4te d\u2019Ivoire"
   },
@@ -645,7 +690,7 @@ export const biCities = [
     "country": "Philippines"
   },
   {
-    "city": "Bin\u0259",
+    "city": "Bina",
     "state": "Bak\u0131",
     "country": "Azerbaijan"
   },
@@ -655,7 +700,7 @@ export const biCities = [
     "country": "Germany"
   },
   {
-    "city": "Bijbi\u0101ra",
+    "city": "Bijbiara",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
@@ -685,7 +730,7 @@ export const biCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Bi\u0142goraj",
+    "city": "Bilgoraj",
     "state": "Lubelskie",
     "country": "Poland"
   },
@@ -720,7 +765,7 @@ export const biCities = [
     "country": "Malta"
   },
   {
-    "city": "Bij\u0101war",
+    "city": "Bijawar",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -735,12 +780,22 @@ export const biCities = [
     "country": "India"
   },
   {
+    "city": "Birpur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Bishopbriggs",
     "state": "East Dunbartonshire",
     "country": "United Kingdom"
   },
   {
-    "city": "Bia\u0142ogard",
+    "city": "Binh Hoa",
+    "state": "B\u00ecnh D\u01b0\u01a1ng",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Bialogard",
     "state": "Zachodniopomorskie",
     "country": "Poland"
   },
@@ -785,7 +840,7 @@ export const biCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Birker\u00f8d",
+    "city": "Birkerod",
     "state": "Hovedstaden",
     "country": "Denmark"
   },
@@ -800,7 +855,12 @@ export const biCities = [
     "country": "Philippines"
   },
   {
-    "city": "Bil\u0259suvar",
+    "city": "Birpur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Bilasuvar",
     "state": "Bil\u0259suvar",
     "country": "Azerbaijan"
   },
@@ -830,7 +890,7 @@ export const biCities = [
     "country": "Algeria"
   },
   {
-    "city": "Bieru\u0144",
+    "city": "Bierun",
     "state": "\u015al\u0105skie",
     "country": "Poland"
   },
@@ -850,9 +910,14 @@ export const biCities = [
     "country": "Argentina"
   },
   {
-    "city": "Bieru\u0144 Stary",
+    "city": "Bierun Stary",
     "state": "\u015al\u0105skie",
     "country": "Poland"
+  },
+  {
+    "city": "Birpur",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Birnagar",
@@ -880,6 +945,16 @@ export const biCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Binh Minh",
+    "state": "V\u0129nh Long",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Bidestan",
+    "state": "Qazv\u012bn",
+    "country": "Iran"
+  },
+  {
     "city": "Biro",
     "state": "Borgou",
     "country": "Benin"
@@ -895,12 +970,12 @@ export const biCities = [
     "country": "Philippines"
   },
   {
-    "city": "Bist\u0101ria",
+    "city": "Bistaria",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Biyahm\u016b",
+    "city": "Biyahmu",
     "state": "Al Fayy\u016bm",
     "country": "Egypt"
   },
@@ -938,6 +1013,11 @@ export const biCities = [
     "city": "Bikou",
     "state": "Gansu",
     "country": "China"
+  },
+  {
+    "city": "Bileh Savar",
+    "state": "Ardab\u012bl",
+    "country": "Iran"
   },
   {
     "city": "Bingawan",
@@ -980,7 +1060,7 @@ export const biCities = [
     "country": "India"
   },
   {
-    "city": "Billap\u0101du",
+    "city": "Billapadu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -990,7 +1070,7 @@ export const biCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Biatorb\u00e1gy",
+    "city": "Biatorbagy",
     "state": "Pest",
     "country": "Hungary"
   },
@@ -1020,6 +1100,11 @@ export const biCities = [
     "country": "Ukraine"
   },
   {
+    "city": "Bilina",
+    "state": "\u00dasteck\u00fd Kraj",
+    "country": "Czechia"
+  },
+  {
     "city": "Bijaipur",
     "state": "Madhya Pradesh",
     "country": "India"
@@ -1035,12 +1120,12 @@ export const biCities = [
     "country": "France"
   },
   {
-    "city": "Bihpuri\u0101gaon",
+    "city": "Bihpuriagaon",
     "state": "Assam",
     "country": "India"
   },
   {
-    "city": "Bia\u0142y Kamie\u0144",
+    "city": "Bialy Kamien",
     "state": "Dolno\u015bl\u0105skie",
     "country": "Poland"
   },
@@ -1050,7 +1135,7 @@ export const biCities = [
     "country": "India"
   },
   {
-    "city": "Birq\u0101sh",
+    "city": "Birqash",
     "state": "Al J\u012bzah",
     "country": "Egypt"
   },
@@ -1070,7 +1155,7 @@ export const biCities = [
     "country": "Sierra Leone"
   },
   {
-    "city": "Bill\u00e8re",
+    "city": "Billere",
     "state": "Nouvelle-Aquitaine",
     "country": "France"
   },
@@ -1120,7 +1205,7 @@ export const biCities = [
     "country": "Montenegro"
   },
   {
-    "city": "Bih\u0101r\u012bganj",
+    "city": "Bihariganj",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1160,12 +1245,12 @@ export const biCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Bird\u0101ban",
+    "city": "Birdaban",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Bishn\u0101h",
+    "city": "Bishnah",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
@@ -1175,7 +1260,7 @@ export const biCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Bissor\u00e3",
+    "city": "Bissora",
     "state": "Oio",
     "country": "Guinea-Bissau"
   },
@@ -1195,12 +1280,17 @@ export const biCities = [
     "country": "Chad"
   },
   {
+    "city": "Bibipet",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
     "city": "Bibbiena",
     "state": "Tuscany",
     "country": "Italy"
   },
   {
-    "city": "Bikn\u016br",
+    "city": "Biknur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1215,7 +1305,7 @@ export const biCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Bith\u0101n",
+    "city": "Bithan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1280,12 +1370,17 @@ export const biCities = [
     "country": "Algeria"
   },
   {
-    "city": "Bishunpur Hak\u012bm\u0101b\u0101d",
+    "city": "Birpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Bist\u0101n",
+    "city": "Bishunpur Hakimabad",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Bistan",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1295,7 +1390,7 @@ export const biCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Bile\u0107a",
+    "city": "Bileca",
     "state": "Srpska, Republika",
     "country": "Bosnia and Herzegovina"
   },
@@ -1325,7 +1420,7 @@ export const biCities = [
     "country": "Angola"
   },
   {
-    "city": "Bir\u017eai",
+    "city": "Birzai",
     "state": "Bir\u017eai",
     "country": "Lithuania"
   },
@@ -1380,7 +1475,7 @@ export const biCities = [
     "country": "Germany"
   },
   {
-    "city": "Bin\u00e9far",
+    "city": "Binefar",
     "state": "Aragon",
     "country": "Spain"
   },
@@ -1430,12 +1525,17 @@ export const biCities = [
     "country": "Germany"
   },
   {
+    "city": "Birpur Barapatti Pindraun",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Biei",
     "state": "Hokkaid\u014d",
     "country": "Japan"
   },
   {
-    "city": "Bir\u017cebbu\u0121a",
+    "city": "Birzebbuga",
     "state": "Bir\u017cebbu\u0121a",
     "country": "Malta"
   },
@@ -1445,7 +1545,7 @@ export const biCities = [
     "country": "India"
   },
   {
-    "city": "Bil\u0101spur",
+    "city": "Bilaspur",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -1475,6 +1575,11 @@ export const biCities = [
     "country": "India"
   },
   {
+    "city": "Bike",
+    "state": "Sumal\u0113",
+    "country": "Ethiopia"
+  },
+  {
     "city": "Binisalem",
     "state": "Balearic Islands",
     "country": "Spain"
@@ -1500,13 +1605,23 @@ export const biCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Bim\u0101w\u0101n",
+    "city": "Bimawan",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
     "city": "Bikkatti",
     "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Bidkhun",
+    "state": "B\u016bshehr",
+    "country": "Iran"
+  },
+  {
+    "city": "Birpur",
+    "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
   {
@@ -1525,7 +1640,7 @@ export const biCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Bikrampur B\u0101nde",
+    "city": "Bikrampur Bande",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1580,7 +1695,12 @@ export const biCities = [
     "country": "Russia"
   },
   {
-    "city": "Bir\u0161tonas",
+    "city": "Bir Mogrein",
+    "state": "Tiris Zemmour",
+    "country": "Mauritania"
+  },
+  {
+    "city": "Birstonas",
     "state": "Bir\u0161tonas",
     "country": "Lithuania"
   },

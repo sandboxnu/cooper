@@ -30,7 +30,7 @@ export const kwCities = [
     "country": "Australia"
   },
   {
-    "city": "Kw\u012bh\u0101",
+    "city": "Kwiha",
     "state": "Tigray",
     "country": "Ethiopia"
   },

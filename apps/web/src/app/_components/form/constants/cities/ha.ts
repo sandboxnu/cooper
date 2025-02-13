@@ -65,7 +65,12 @@ export const haCities = [
     "country": "China"
   },
   {
-    "city": "Haldw\u0101ni",
+    "city": "Haora",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
+    "city": "Haldwani",
     "state": "Uttar\u0101khand",
     "country": "India"
   },
@@ -75,7 +80,7 @@ export const haCities = [
     "country": "United States"
   },
   {
-    "city": "Hai\u2019an",
+    "city": "Hai'an",
     "state": "Jiangsu",
     "country": "China"
   },
@@ -90,7 +95,7 @@ export const haCities = [
     "country": "Japan"
   },
   {
-    "city": "Hamh\u016dng",
+    "city": "Hamhung",
     "state": "Hamnam",
     "country": "Korea, North"
   },
@@ -100,17 +105,27 @@ export const haCities = [
     "country": "Canada"
   },
   {
+    "city": "Hamah",
+    "state": "\u1e28am\u0101h",
+    "country": "Syria"
+  },
+  {
+    "city": "Halwan",
+    "state": "Al Q\u0101hirah",
+    "country": "Egypt"
+  },
+  {
     "city": "Haifa",
     "state": "Haifa",
     "country": "Israel"
   },
   {
-    "city": "Hachi\u014dji",
+    "city": "Hachioji",
     "state": "T\u014dky\u014d",
     "country": "Japan"
   },
   {
-    "city": "Hamad\u0101n",
+    "city": "Hamadan",
     "state": "Hamad\u0101n",
     "country": "Iran"
   },
@@ -118,6 +133,11 @@ export const haCities = [
     "city": "Hannover",
     "state": "Lower Saxony",
     "country": "Germany"
+  },
+  {
+    "city": "Hai Duong",
+    "state": "H\u1ea3i D\u01b0\u01a1ng",
+    "country": "Vietnam"
   },
   {
     "city": "Harrisburg",
@@ -145,6 +165,11 @@ export const haCities = [
     "country": "China"
   },
   {
+    "city": "Hafr al Batin",
+    "state": "Ash Sharq\u012byah",
+    "country": "Saudi Arabia"
+  },
+  {
     "city": "Hatay",
     "state": "Hatay",
     "country": "Turkey"
@@ -155,7 +180,17 @@ export const haCities = [
     "country": "China"
   },
   {
-    "city": "Handw\u0101ra",
+    "city": "Hapur",
+    "state": "Uttar Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Ha'il",
+    "state": "\u1e28\u0101\u2019il",
+    "country": "Saudi Arabia"
+  },
+  {
+    "city": "Handwara",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
@@ -180,7 +215,7 @@ export const haCities = [
     "country": "Korea, North"
   },
   {
-    "city": "Haridw\u0101r",
+    "city": "Haridwar",
     "state": "Uttar\u0101khand",
     "country": "India"
   },
@@ -188,6 +223,11 @@ export const haCities = [
     "city": "Hachinohe",
     "state": "Aomori",
     "country": "Japan"
+  },
+  {
+    "city": "Ha Tinh",
+    "state": "H\u00e0 T\u0129nh",
+    "country": "Vietnam"
   },
   {
     "city": "Haldia",
@@ -225,7 +265,12 @@ export const haCities = [
     "country": "Kenya"
   },
   {
-    "city": "Har\u012bpur",
+    "city": "Ha Long",
+    "state": "Qu\u1ea3ng Ninh",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Haripur",
     "state": "Punjab",
     "country": "India"
   },
@@ -260,7 +305,17 @@ export const haCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Haz\u0101rib\u0101gh",
+    "city": "Hajipur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Habra",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
+    "city": "Hazaribagh",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -285,7 +340,7 @@ export const haCities = [
     "country": "India"
   },
   {
-    "city": "Hanum\u0101ngarh",
+    "city": "Hanumangarh",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -295,8 +350,13 @@ export const haCities = [
     "country": "Ethiopia"
   },
   {
-    "city": "Hardo\u012b",
+    "city": "Hardoi",
     "state": "Uttar Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Halisahar",
+    "state": "West Bengal",
     "country": "India"
   },
   {
@@ -318,6 +378,11 @@ export const haCities = [
     "city": "Hatsukaichi",
     "state": "Hiroshima",
     "country": "Japan"
+  },
+  {
+    "city": "Harad",
+    "state": "Ash Sharq\u012byah",
+    "country": "Saudi Arabia"
   },
   {
     "city": "Handeni",
@@ -410,6 +475,11 @@ export const haCities = [
     "country": "United States"
   },
   {
+    "city": "Hansi",
+    "state": "Hary\u0101na",
+    "country": "India"
+  },
+  {
     "city": "Hamakita",
     "state": "Shizuoka",
     "country": "Japan"
@@ -420,7 +490,7 @@ export const haCities = [
     "country": "Algeria"
   },
   {
-    "city": "Harda Kh\u0101s",
+    "city": "Harda Khas",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -445,7 +515,7 @@ export const haCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Hann\u014d",
+    "city": "Hanno",
     "state": "Saitama",
     "country": "Japan"
   },
@@ -475,6 +545,11 @@ export const haCities = [
     "country": "United States"
   },
   {
+    "city": "Haveri",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
     "city": "Harrogate",
     "state": "North Yorkshire",
     "country": "United Kingdom"
@@ -490,7 +565,7 @@ export const haCities = [
     "country": "Sweden"
   },
   {
-    "city": "Hav\u00ed\u0159ov",
+    "city": "Havirov",
     "state": "Moravskoslezsk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -498,6 +573,11 @@ export const haCities = [
     "city": "Hanford",
     "state": "California",
     "country": "United States"
+  },
+  {
+    "city": "Hameenlinna",
+    "state": "Kanta-H\u00e4me",
+    "country": "Finland"
   },
   {
     "city": "Haverhill",
@@ -520,6 +600,11 @@ export const haCities = [
     "country": "Algeria"
   },
   {
+    "city": "Halabjah",
+    "state": "As Sulaym\u0101n\u012byah",
+    "country": "Iraq"
+  },
+  {
     "city": "Hamilton",
     "state": "Ohio",
     "country": "United States"
@@ -540,7 +625,7 @@ export const haCities = [
     "country": "Japan"
   },
   {
-    "city": "Hatogaya-honch\u014d",
+    "city": "Hatogaya-honcho",
     "state": "Saitama",
     "country": "Japan"
   },
@@ -570,7 +655,7 @@ export const haCities = [
     "country": "Turkey"
   },
   {
-    "city": "Hastin\u0101pur",
+    "city": "Hastinapur",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -600,6 +685,11 @@ export const haCities = [
     "country": "Iran"
   },
   {
+    "city": "Ha Giang",
+    "state": "H\u00e0 Giang",
+    "country": "Vietnam"
+  },
+  {
     "city": "Hacienda Heights",
     "state": "California",
     "country": "United States"
@@ -615,7 +705,7 @@ export const haCities = [
     "country": "Germany"
   },
   {
-    "city": "Hany\u016b",
+    "city": "Hanyu",
     "state": "Saitama",
     "country": "Japan"
   },
@@ -650,7 +740,7 @@ export const haCities = [
     "country": "Philippines"
   },
   {
-    "city": "Haskah M\u0113nah",
+    "city": "Haskah Menah",
     "state": "Nangarh\u0101r",
     "country": "Afghanistan"
   },
@@ -690,9 +780,19 @@ export const haCities = [
     "country": "Netherlands"
   },
   {
+    "city": "Hagere Hiywet",
+    "state": "Orom\u012bya",
+    "country": "Ethiopia"
+  },
+  {
     "city": "Hagaribommanahalli",
     "state": "Karn\u0101taka",
     "country": "India"
+  },
+  {
+    "city": "Ha Tien",
+    "state": "Ki\u1ebfn Giang",
+    "country": "Vietnam"
   },
   {
     "city": "Haeryong",
@@ -700,9 +800,24 @@ export const haCities = [
     "country": "Korea, South"
   },
   {
+    "city": "Hajjah",
+    "state": "\u1e28ajjah",
+    "country": "Yemen"
+  },
+  {
+    "city": "Hadithah",
+    "state": "Al Anb\u0101r",
+    "country": "Iraq"
+  },
+  {
     "city": "Halle-Neustadt",
     "state": "Saxony-Anhalt",
     "country": "Germany"
+  },
+  {
+    "city": "Harasta",
+    "state": "R\u012bf Dimashq",
+    "country": "Syria"
   },
   {
     "city": "Haymana",
@@ -735,7 +850,7 @@ export const haCities = [
     "country": "Norway"
   },
   {
-    "city": "Hars\u012bn",
+    "city": "Harsin",
     "state": "Kerm\u0101nsh\u0101h",
     "country": "Iran"
   },
@@ -760,6 +875,11 @@ export const haCities = [
     "country": "Turkey"
   },
   {
+    "city": "Halol",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
     "city": "Hallandale Beach",
     "state": "Florida",
     "country": "United States"
@@ -780,7 +900,7 @@ export const haCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Hail\u0101k\u0101ndi",
+    "city": "Hailakandi",
     "state": "Assam",
     "country": "India"
   },
@@ -800,7 +920,7 @@ export const haCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Haj\u012bn",
+    "city": "Hajin",
     "state": "Dayr az Zawr",
     "country": "Syria"
   },
@@ -810,7 +930,7 @@ export const haCities = [
     "country": "Argentina"
   },
   {
-    "city": "Hanum\u0101nnagar",
+    "city": "Hanumannagar",
     "state": NaN,
     "country": "Nepal"
   },
@@ -835,7 +955,7 @@ export const haCities = [
     "country": "France"
   },
   {
-    "city": "Ham\u012brpur",
+    "city": "Hamirpur",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -875,6 +995,11 @@ export const haCities = [
     "country": "United States"
   },
   {
+    "city": "Hangal",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
     "city": "Hampden",
     "state": "Pennsylvania",
     "country": "United States"
@@ -900,7 +1025,7 @@ export const haCities = [
     "country": "Norway"
   },
   {
-    "city": "Hafnarfj\u00f6r\u00f0ur",
+    "city": "Hafnarfjordhur",
     "state": "Hafnarfj\u00f6r\u00f0ur",
     "country": "Iceland"
   },
@@ -935,9 +1060,14 @@ export const haCities = [
     "country": "United States"
   },
   {
-    "city": "Hajd\u00fab\u00f6sz\u00f6rm\u00e9ny",
+    "city": "Hajduboszormeny",
     "state": "Hajd\u00fa-Bihar",
     "country": "Hungary"
+  },
+  {
+    "city": "Hawtat Sudayr",
+    "state": "Ar Riy\u0101\u1e11",
+    "country": "Saudi Arabia"
   },
   {
     "city": "Hajira",
@@ -975,8 +1105,18 @@ export const haCities = [
     "country": "Germany"
   },
   {
-    "city": "Har\u016br",
+    "city": "Harir",
+    "state": "Arb\u012bl",
+    "country": "Iraq"
+  },
+  {
+    "city": "Harur",
     "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Hajipur",
+    "state": "Punjab",
     "country": "India"
   },
   {
@@ -1005,12 +1145,12 @@ export const haCities = [
     "country": "Turkey"
   },
   {
-    "city": "Hac\u0131qabul",
+    "city": "Haciqabul",
     "state": "Hac\u0131qabul",
     "country": "Azerbaijan"
   },
   {
-    "city": "Haliy\u0101l",
+    "city": "Haliyal",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1065,7 +1205,7 @@ export const haCities = [
     "country": "United States"
   },
   {
-    "city": "Hask\u00f6y",
+    "city": "Haskoy",
     "state": "Mu\u015f",
     "country": "Turkey"
   },
@@ -1073,6 +1213,11 @@ export const haCities = [
     "city": "Haisyn",
     "state": "Vinnytska Oblast",
     "country": "Ukraine"
+  },
+  {
+    "city": "Haql",
+    "state": "Al Jawf",
+    "country": "Saudi Arabia"
   },
   {
     "city": "Haiwei",
@@ -1130,7 +1275,7 @@ export const haCities = [
     "country": "Colombia"
   },
   {
-    "city": "Had\u017ei\u0107i",
+    "city": "Hadzici",
     "state": "Bosnia and Herzegovina, Federation of",
     "country": "Bosnia and Herzegovina"
   },
@@ -1140,17 +1285,17 @@ export const haCities = [
     "country": "Japan"
   },
   {
-    "city": "Hannoversch M\u00fcnden",
+    "city": "Hannoversch Munden",
     "state": "Lower Saxony",
     "country": "Germany"
   },
   {
-    "city": "Hajd\u00faszoboszl\u00f3",
+    "city": "Hajduszoboszlo",
     "state": "Hajd\u00fa-Bihar",
     "country": "Hungary"
   },
   {
-    "city": "Havl\u00ed\u010dk\u016dv Brod",
+    "city": "Havlickuv Brod",
     "state": "Vyso\u010dina",
     "country": "Czechia"
   },
@@ -1205,9 +1350,19 @@ export const haCities = [
     "country": "United States"
   },
   {
-    "city": "Hac\u0131 Zeynalabdin",
+    "city": "Hamidiyeh",
+    "state": "Kh\u016bzest\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Haci Zeynalabdin",
     "state": "Sumqay\u0131t",
     "country": "Azerbaijan"
+  },
+  {
+    "city": "Harim",
+    "state": "Idlib",
+    "country": "Syria"
   },
   {
     "city": "Hayesville",
@@ -1235,7 +1390,7 @@ export const haCities = [
     "country": "United States"
   },
   {
-    "city": "Hafshej\u0101n",
+    "city": "Hafshejan",
     "state": "Chah\u0101r Ma\u1e29\u0101l va Bakht\u012b\u0101r\u012b",
     "country": "Iran"
   },
@@ -1265,6 +1420,11 @@ export const haCities = [
     "country": "Norway"
   },
   {
+    "city": "Harohalli",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
     "city": "Halluin",
     "state": "Hauts-de-France",
     "country": "France"
@@ -1285,7 +1445,7 @@ export const haCities = [
     "country": "India"
   },
   {
-    "city": "Hashtr\u016bd",
+    "city": "Hashtrud",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Sharq\u012b",
     "country": "Iran"
   },
@@ -1305,12 +1465,12 @@ export const haCities = [
     "country": "United States"
   },
   {
-    "city": "Ha\u00dfloch",
+    "city": "Hassloch",
     "state": "Rhineland-Palatinate",
     "country": "Germany"
   },
   {
-    "city": "Harp\u0101lpur",
+    "city": "Harpalpur",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -1360,7 +1520,7 @@ export const haCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Hajn\u00f3wka",
+    "city": "Hajnowka",
     "state": "Podlaskie",
     "country": "Poland"
   },
@@ -1430,6 +1590,16 @@ export const haCities = [
     "country": "United States"
   },
   {
+    "city": "Harnosand",
+    "state": "V\u00e4sternorrland",
+    "country": "Sweden"
+  },
+  {
+    "city": "Hassleholm",
+    "state": "Sk\u00e5ne",
+    "country": "Sweden"
+  },
+  {
     "city": "Haaltert",
     "state": "Flanders",
     "country": "Belgium"
@@ -1438,6 +1608,11 @@ export const haCities = [
     "city": "Hardinxveld-Giessendam",
     "state": "Zuid-Holland",
     "country": "Netherlands"
+  },
+  {
+    "city": "Harij",
+    "state": "Gujar\u0101t",
+    "country": "India"
   },
   {
     "city": "Hampton",
@@ -1470,7 +1645,7 @@ export const haCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Harin\u0101kunda",
+    "city": "Harinakunda",
     "state": "Khulna",
     "country": "Bangladesh"
   },
@@ -1510,6 +1685,11 @@ export const haCities = [
     "country": "United States"
   },
   {
+    "city": "Havi Bhauar",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Haji Shah",
     "state": "Punjab",
     "country": "Pakistan"
@@ -1545,12 +1725,12 @@ export const haCities = [
     "country": "United States"
   },
   {
-    "city": "Hajd\u00fan\u00e1n\u00e1s",
+    "city": "Hajdunanas",
     "state": "Hajd\u00fa-Bihar",
     "country": "Hungary"
   },
   {
-    "city": "Handlov\u00e1",
+    "city": "Handlova",
     "state": "Nitra",
     "country": "Slovakia"
   },
@@ -1563,6 +1743,11 @@ export const haCities = [
     "city": "Hazro",
     "state": "Diyarbak\u0131r",
     "country": "Turkey"
+  },
+  {
+    "city": "Hammam al `Alil",
+    "state": "N\u012bnaw\u00e1",
+    "country": "Iraq"
   },
   {
     "city": "Hayange",
@@ -1580,7 +1765,7 @@ export const haCities = [
     "country": "Morocco"
   },
   {
-    "city": "Hammam M\u2019Ba\u00efls",
+    "city": "Hammam M'Bails",
     "state": "Guelma",
     "country": "Algeria"
   },
@@ -1635,7 +1820,7 @@ export const haCities = [
     "country": "Sweden"
   },
   {
-    "city": "Hath\u012baundha",
+    "city": "Hathiaundha",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1660,7 +1845,12 @@ export const haCities = [
     "country": "United States"
   },
   {
-    "city": "Hanams\u0101gar",
+    "city": "Harohalli",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Hanamsagar",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1675,7 +1865,7 @@ export const haCities = [
     "country": "Japan"
   },
   {
-    "city": "Hariharp\u0101ra",
+    "city": "Hariharpara",
     "state": "West Bengal",
     "country": "India"
   },
@@ -1725,7 +1915,7 @@ export const haCities = [
     "country": "United States"
   },
   {
-    "city": "Halw\u0101ra",
+    "city": "Halwara",
     "state": "Punjab",
     "country": "India"
   },
@@ -1745,12 +1935,12 @@ export const haCities = [
     "country": "United States"
   },
   {
-    "city": "Hald\u012bb\u0101ri",
+    "city": "Haldibari",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Harg\u0101w\u0101n",
+    "city": "Hargawan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1790,7 +1980,7 @@ export const haCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Hajd\u00fas\u00e1mson",
+    "city": "Hajdusamson",
     "state": "Hajd\u00fa-Bihar",
     "country": "Hungary"
   },
@@ -1810,7 +2000,7 @@ export const haCities = [
     "country": "India"
   },
   {
-    "city": "Ha\u00dffurt",
+    "city": "Hassfurt",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -1830,7 +2020,7 @@ export const haCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Hasel\u00fcnne",
+    "city": "Haselunne",
     "state": "Lower Saxony",
     "country": "Germany"
   },
@@ -1855,7 +2045,7 @@ export const haCities = [
     "country": "Japan"
   },
   {
-    "city": "Han\u0131m\u00e7iftli\u011fi",
+    "city": "Hanimciftligi",
     "state": "Malatya",
     "country": "Turkey"
   },
@@ -1863,6 +2053,11 @@ export const haCities = [
     "city": "Hashikami",
     "state": "Aomori",
     "country": "Japan"
+  },
+  {
+    "city": "Hajan",
+    "state": "Jammu and Kashm\u012br",
+    "country": "India"
   },
   {
     "city": "Harrison",
@@ -1880,7 +2075,7 @@ export const haCities = [
     "country": "United States"
   },
   {
-    "city": "Hajd\u00fahadh\u00e1z",
+    "city": "Hajduhadhaz",
     "state": "Hajd\u00fa-Bihar",
     "country": "Hungary"
   },
@@ -1893,6 +2088,11 @@ export const haCities = [
     "city": "Hawaiian Paradise Park",
     "state": "Hawaii",
     "country": "United States"
+  },
+  {
+    "city": "Harmah",
+    "state": "Ar Riy\u0101\u1e11",
+    "country": "Saudi Arabia"
   },
   {
     "city": "Harrison",
@@ -1915,7 +2115,7 @@ export const haCities = [
     "country": "India"
   },
   {
-    "city": "Hac\u0131lar",
+    "city": "Hacilar",
     "state": "Kayseri",
     "country": "Turkey"
   },
@@ -1940,6 +2140,11 @@ export const haCities = [
     "country": "Germany"
   },
   {
+    "city": "Hawsh al Bahdaliyah",
+    "state": "R\u012bf Dimashq",
+    "country": "Syria"
+  },
+  {
     "city": "Harnes",
     "state": "Hauts-de-France",
     "country": "France"
@@ -1955,7 +2160,7 @@ export const haCities = [
     "country": "Denmark"
   },
   {
-    "city": "Hathw\u0101n",
+    "city": "Hathwan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1985,7 +2190,7 @@ export const haCities = [
     "country": "Germany"
   },
   {
-    "city": "Han\u016br",
+    "city": "Hanur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -2010,7 +2215,7 @@ export const haCities = [
     "country": "United States"
   },
   {
-    "city": "Hasro\u00fbn",
+    "city": "Hasroun",
     "state": "Liban-Nord",
     "country": "Lebanon"
   },
@@ -2030,6 +2235,11 @@ export const haCities = [
     "country": "Turkey"
   },
   {
+    "city": "Hatod",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Harrislee",
     "state": "Schleswig-Holstein",
     "country": "Germany"
@@ -2040,7 +2250,7 @@ export const haCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Hal\u00e1sztelek",
+    "city": "Halasztelek",
     "state": "Pest",
     "country": "Hungary"
   },
@@ -2075,7 +2285,7 @@ export const haCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Hardiy\u0101",
+    "city": "Hardiya",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2100,7 +2310,7 @@ export const haCities = [
     "country": "United States"
   },
   {
-    "city": "Hals\u016br",
+    "city": "Halsur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -2108,6 +2318,11 @@ export const haCities = [
     "city": "Haradok",
     "state": "Vitsyebskaya Voblasts\u2019",
     "country": "Belarus"
+  },
+  {
+    "city": "Hang Tram",
+    "state": "H\u00f2a B\u00ecnh",
+    "country": "Vietnam"
   },
   {
     "city": "Harsum",
@@ -2130,7 +2345,7 @@ export const haCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Halav\u0101galu",
+    "city": "Halavagalu",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -2160,7 +2375,7 @@ export const haCities = [
     "country": "Germany"
   },
   {
-    "city": "Hamad\u0101nak",
+    "city": "Hamadanak",
     "state": "Tehr\u0101n",
     "country": "Iran"
   },
@@ -2190,14 +2405,24 @@ export const haCities = [
     "country": "Germany"
   },
   {
-    "city": "Hatw\u0101ns",
+    "city": "Hatwans",
     "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Hathidah Buzurg",
+    "state": "Bih\u0101r",
     "country": "India"
   },
   {
     "city": "Haigerloch",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
+  },
+  {
+    "city": "Hasseh",
+    "state": "E\u015ffah\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Hamilton Township",
@@ -2230,7 +2455,7 @@ export const haCities = [
     "country": "India"
   },
   {
-    "city": "Hamb\u00fchren",
+    "city": "Hambuhren",
     "state": "Lower Saxony",
     "country": "Germany"
   },
@@ -2245,7 +2470,7 @@ export const haCities = [
     "country": "United States"
   },
   {
-    "city": "Hajeb el A\u00efoun",
+    "city": "Hajeb el Aioun",
     "state": "Kairouan",
     "country": "Tunisia"
   },
@@ -2265,7 +2490,7 @@ export const haCities = [
     "country": "South Africa"
   },
   {
-    "city": "Hach\u012br\u016bd",
+    "city": "Hachirud",
     "state": "M\u0101zandar\u0101n",
     "country": "Iran"
   },
@@ -2275,12 +2500,17 @@ export const haCities = [
     "country": "China"
   },
   {
+    "city": "Harlau",
+    "state": "Ia\u015fi",
+    "country": "Romania"
+  },
+  {
     "city": "Harsola",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Hari\u0101na",
+    "city": "Hariana",
     "state": "Punjab",
     "country": "India"
   },
@@ -2290,12 +2520,17 @@ export const haCities = [
     "country": "Ukraine"
   },
   {
+    "city": "Hameenkyro",
+    "state": "Pirkanmaa",
+    "country": "Finland"
+  },
+  {
     "city": "Halfway",
     "state": "Maryland",
     "country": "United States"
   },
   {
-    "city": "Halg\u016br",
+    "city": "Halgur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -2320,13 +2555,18 @@ export const haCities = [
     "country": "United States"
   },
   {
-    "city": "Havan\u016br",
+    "city": "Havanur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Hard\u0101s Bigha",
+    "city": "Hardas Bigha",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Hajipur",
+    "state": "Jh\u0101rkhand",
     "country": "India"
   },
   {
@@ -2365,6 +2605,11 @@ export const haCities = [
     "country": "United States"
   },
   {
+    "city": "Hansa",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Haapsalu",
     "state": "Haapsalu",
     "country": "Estonia"
@@ -2375,22 +2620,22 @@ export const haCities = [
     "country": "New Zealand"
   },
   {
-    "city": "Hacar\u00ed",
+    "city": "Hacari",
     "state": "Norte de Santander",
     "country": "Colombia"
   },
   {
-    "city": "Hadi\u0101ya",
+    "city": "Hadiaya",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Haraiy\u0101",
+    "city": "Haraiya",
     "state": NaN,
     "country": "Nepal"
   },
   {
-    "city": "Haraiy\u0101",
+    "city": "Haraiya",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2405,7 +2650,7 @@ export const haCities = [
     "country": "India"
   },
   {
-    "city": "Har\u012bpur",
+    "city": "Haripur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2413,6 +2658,11 @@ export const haCities = [
     "city": "Hartland",
     "state": "Wisconsin",
     "country": "United States"
+  },
+  {
+    "city": "Has",
+    "state": "Idlib",
+    "country": "Syria"
   },
   {
     "city": "Harding",
@@ -2425,12 +2675,12 @@ export const haCities = [
     "country": "Belgium"
   },
   {
-    "city": "Harl\u0101khi",
+    "city": "Harlakhi",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Halach\u00f3",
+    "city": "Halacho",
     "state": "Yucat\u00e1n",
     "country": "Mexico"
   },
@@ -2450,7 +2700,7 @@ export const haCities = [
     "country": "India"
   },
   {
-    "city": "Ham\u012bra",
+    "city": "Hamira",
     "state": "Punjab",
     "country": "India"
   },
@@ -2498,6 +2748,11 @@ export const haCities = [
     "city": "Haiku-Pauwela",
     "state": "Hawaii",
     "country": "United States"
+  },
+  {
+    "city": "Hamrun",
+    "state": "\u0126amrun",
+    "country": "Malta"
   },
   {
     "city": "Harbatpur",
@@ -2560,8 +2815,13 @@ export const haCities = [
     "country": "United States"
   },
   {
-    "city": "Hatti Matt\u016br",
+    "city": "Hatti Mattur",
     "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Harua",
+    "state": "West Bengal",
     "country": "India"
   },
   {
@@ -2595,12 +2855,12 @@ export const haCities = [
     "country": "Germany"
   },
   {
-    "city": "Hams\u0101varam",
+    "city": "Hamsavaram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Ha\u0163eg",
+    "city": "Hateg",
     "state": "Hunedoara",
     "country": "Romania"
   },
@@ -2625,6 +2885,11 @@ export const haCities = [
     "country": "India"
   },
   {
+    "city": "Harsova",
+    "state": "Constan\u0163a",
+    "country": "Romania"
+  },
+  {
     "city": "Hamlin",
     "state": "New York",
     "country": "United States"
@@ -2635,12 +2900,17 @@ export const haCities = [
     "country": "Turkey"
   },
   {
-    "city": "Har\u012bke",
+    "city": "Harike",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Hakubach\u014d",
+    "city": "Halawah",
+    "state": "\u2018Ajl\u016bn",
+    "country": "Jordan"
+  },
+  {
+    "city": "Hakubacho",
     "state": "Nagano",
     "country": "Japan"
   },
@@ -2650,7 +2920,12 @@ export const haCities = [
     "country": "United States"
   },
   {
-    "city": "Hathi\u0101k\u0101n",
+    "city": "Hathiakan",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Hata",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2660,7 +2935,7 @@ export const haCities = [
     "country": "Germany"
   },
   {
-    "city": "Hale Dy\u0101mavvanahalli",
+    "city": "Hale Dyamavvanahalli",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -2670,12 +2945,22 @@ export const haCities = [
     "country": "India"
   },
   {
+    "city": "Hadibu",
+    "state": "Arkhab\u012bl Suqu\u0163r\u00e1",
+    "country": "Yemen"
+  },
+  {
     "city": "Hanko",
     "state": "Uusimaa",
     "country": "Finland"
   },
   {
-    "city": "Hausj\u00e4rvi",
+    "city": "Hathapur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Hausjarvi",
     "state": "Kanta-H\u00e4me",
     "country": "Finland"
   },
@@ -2695,7 +2980,7 @@ export const haCities = [
     "country": "Australia"
   },
   {
-    "city": "Hag\u00e5t\u00f1a",
+    "city": "Hagta",
     "state": NaN,
     "country": "Guam"
   },
@@ -2715,7 +3000,7 @@ export const haCities = [
     "country": "New Zealand"
   },
   {
-    "city": "Haym\u0101\u2019",
+    "city": "Hayma'",
     "state": "Al Wus\u0163\u00e1",
     "country": "Oman"
   },

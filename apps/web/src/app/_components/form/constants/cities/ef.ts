@@ -5,7 +5,7 @@ export const efCities = [
     "country": "Ghana"
   },
   {
-    "city": "Efkarp\u00eda",
+    "city": "Efkarpia",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },

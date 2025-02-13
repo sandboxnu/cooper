@@ -1,11 +1,11 @@
 export const kfCities = [
   {
-    "city": "Kfar Kidd\u00e9",
+    "city": "Kfar Kidde",
     "state": "Mont-Liban",
     "country": "Lebanon"
   },
   {
-    "city": "Kfar Aab\u00eeda",
+    "city": "Kfar Aabida",
     "state": "Liban-Nord",
     "country": "Lebanon"
   }

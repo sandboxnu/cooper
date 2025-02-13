@@ -25,7 +25,7 @@ export const maCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Ma\u2019anshan",
+    "city": "Ma'anshan",
     "state": "Anhui",
     "country": "China"
   },
@@ -35,7 +35,7 @@ export const maCities = [
     "country": "Brazil"
   },
   {
-    "city": "Masqa\u0163",
+    "city": "Masqat",
     "state": "Masqa\u0163",
     "country": "Oman"
   },
@@ -90,12 +90,17 @@ export const maCities = [
     "country": "Mozambique"
   },
   {
+    "city": "Malaga",
+    "state": "Andalusia",
+    "country": "Spain"
+  },
+  {
     "city": "Marrakech",
     "state": "Marrakech-Safi",
     "country": "Morocco"
   },
   {
-    "city": "Macei\u00f3",
+    "city": "Maceio",
     "state": "Alagoas",
     "country": "Brazil"
   },
@@ -160,17 +165,17 @@ export const maCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Maip\u00fa",
+    "city": "Maipu",
     "state": "Regi\u00f3n Metropolitana",
     "country": "Chile"
   },
   {
-    "city": "Matur\u00edn",
+    "city": "Maturin",
     "state": "Monagas",
     "country": "Venezuela"
   },
   {
-    "city": "Macap\u00e1",
+    "city": "Macapa",
     "state": "Amap\u00e1",
     "country": "Brazil"
   },
@@ -180,7 +185,7 @@ export const maCities = [
     "country": "Japan"
   },
   {
-    "city": "Mazatl\u00e1n",
+    "city": "Mazatlan",
     "state": "Sinaloa",
     "country": "Mexico"
   },
@@ -190,7 +195,12 @@ export const maCities = [
     "country": "Japan"
   },
   {
-    "city": "Maz\u0101r-e Shar\u012bf",
+    "city": "Malegaon",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
+    "city": "Mazar-e Sharif",
     "state": "Balkh",
     "country": "Afghanistan"
   },
@@ -245,7 +255,7 @@ export const maCities = [
     "country": "Philippines"
   },
   {
-    "city": "Mau\u00e1",
+    "city": "Maua",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -255,7 +265,7 @@ export const maCities = [
     "country": "Russia"
   },
   {
-    "city": "Maring\u00e1",
+    "city": "Maringa",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -295,6 +305,11 @@ export const maCities = [
     "country": "New Zealand"
   },
   {
+    "city": "Maler Kotla",
+    "state": "Punjab",
+    "country": "India"
+  },
+  {
     "city": "Malakwal",
     "state": "Punjab",
     "country": "Pakistan"
@@ -305,7 +320,7 @@ export const maCities = [
     "country": "Philippines"
   },
   {
-    "city": "Malm\u00f6",
+    "city": "Malmo",
     "state": "Sk\u00e5ne",
     "country": "Sweden"
   },
@@ -365,7 +380,7 @@ export const maCities = [
     "country": "Ecuador"
   },
   {
-    "city": "Mal\u0101rd",
+    "city": "Malard",
     "state": "Tehr\u0101n",
     "country": "Iran"
   },
@@ -395,7 +410,7 @@ export const maCities = [
     "country": "Niger"
   },
   {
-    "city": "Marab\u00e1",
+    "city": "Maraba",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -410,7 +425,7 @@ export const maCities = [
     "country": "Ecuador"
   },
   {
-    "city": "Malk\u0101jgiri",
+    "city": "Malkajgiri",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -430,7 +445,7 @@ export const maCities = [
     "country": "China"
   },
   {
-    "city": "Maca\u00e9",
+    "city": "Macae",
     "state": "Rio de Janeiro",
     "country": "Brazil"
   },
@@ -450,7 +465,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mar\u00edlia",
+    "city": "Marilia",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -465,17 +480,17 @@ export const maCities = [
     "country": "Japan"
   },
   {
-    "city": "Maracana\u00fa",
+    "city": "Maracanau",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Mamb\u00e9r\u00e9",
+    "city": "Mambere",
     "state": "Nana-Mamb\u00e9r\u00e9",
     "country": "Central African Republic"
   },
   {
-    "city": "Machil\u012bpatnam",
+    "city": "Machilipatnam",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -485,7 +500,7 @@ export const maCities = [
     "country": "Iran"
   },
   {
-    "city": "Mag\u00e9",
+    "city": "Mage",
     "state": "Rio de Janeiro",
     "country": "Brazil"
   },
@@ -495,12 +510,12 @@ export const maCities = [
     "country": "Germany"
   },
   {
-    "city": "Marg\u2018ilon",
+    "city": "Marg`ilon",
     "state": "Farg\u2018ona",
     "country": "Uzbekistan"
   },
   {
-    "city": "Ma\u0163ra\u1e29",
+    "city": "Matrah",
     "state": "Masqa\u0163",
     "country": "Oman"
   },
@@ -510,7 +525,7 @@ export const maCities = [
     "country": "C\u00f4te d\u2019Ivoire"
   },
   {
-    "city": "Mallaw\u012b",
+    "city": "Mallawi",
     "state": "Al Miny\u0101",
     "country": "Egypt"
   },
@@ -518,6 +533,11 @@ export const maCities = [
     "city": "Marawi City",
     "state": "Lanao del Sur",
     "country": "Philippines"
+  },
+  {
+    "city": "Maldah",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Mandi Burewala",
@@ -540,7 +560,7 @@ export const maCities = [
     "country": "Cameroon"
   },
   {
-    "city": "Mai\u2019Adua",
+    "city": "Mai'Adua",
     "state": "Katsina",
     "country": "Nigeria"
   },
@@ -555,7 +575,7 @@ export const maCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Maric\u00e1",
+    "city": "Marica",
     "state": "Rio de Janeiro",
     "country": "Brazil"
   },
@@ -585,12 +605,12 @@ export const maCities = [
     "country": "Philippines"
   },
   {
-    "city": "Mahb\u016bbnagar",
+    "city": "Mahbubnagar",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Mahes\u0101na",
+    "city": "Mahesana",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -600,7 +620,7 @@ export const maCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Mah\u0101d",
+    "city": "Mahad",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -630,7 +650,7 @@ export const maCities = [
     "country": "Portugal"
   },
   {
-    "city": "Mar\u0101gheh",
+    "city": "Maragheh",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Sharq\u012b",
     "country": "Iran"
   },
@@ -645,7 +665,7 @@ export const maCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Mal\u0101yer",
+    "city": "Malayer",
     "state": "Hamad\u0101n",
     "country": "Iran"
   },
@@ -660,7 +680,7 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Mah\u0101b\u0101d",
+    "city": "Mahabad",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Gharb\u012b",
     "country": "Iran"
   },
@@ -675,7 +695,7 @@ export const maCities = [
     "country": "Benin"
   },
   {
-    "city": "Malk\u0101pur",
+    "city": "Malkapur",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -725,7 +745,7 @@ export const maCities = [
     "country": "Spain"
   },
   {
-    "city": "Mad\u012bnat as S\u0101dis min Ukt\u016bbar",
+    "city": "Madinat as Sadis min Uktubar",
     "state": "Al J\u012bzah",
     "country": "Egypt"
   },
@@ -750,7 +770,7 @@ export const maCities = [
     "country": "Philippines"
   },
   {
-    "city": "Ma\u012bmanah",
+    "city": "Maimanah",
     "state": "F\u0101ry\u0101b",
     "country": "Afghanistan"
   },
@@ -815,7 +835,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mar\u012bv\u0101n",
+    "city": "Marivan",
     "state": "Kordest\u0101n",
     "country": "Iran"
   },
@@ -875,7 +895,7 @@ export const maCities = [
     "country": "Zambia"
   },
   {
-    "city": "Matar\u00f3",
+    "city": "Mataro",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -895,7 +915,7 @@ export const maCities = [
     "country": "Philippines"
   },
   {
-    "city": "Magangu\u00e9",
+    "city": "Magangue",
     "state": "Bol\u00edvar",
     "country": "Colombia"
   },
@@ -960,7 +980,7 @@ export const maCities = [
     "country": "Kenya"
   },
   {
-    "city": "Mat\u00e9ri",
+    "city": "Materi",
     "state": "Atacora",
     "country": "Benin"
   },
@@ -985,7 +1005,7 @@ export const maCities = [
     "country": "Colombia"
   },
   {
-    "city": "Mah\u0101samund",
+    "city": "Mahasamund",
     "state": "Chhatt\u012bsgarh",
     "country": "India"
   },
@@ -1005,17 +1025,17 @@ export const maCities = [
     "country": "Uganda"
   },
   {
-    "city": "Mart\u00ednez de la Torre",
+    "city": "Martinez de la Torre",
     "state": "Veracruz",
     "country": "Mexico"
   },
   {
-    "city": "Mancher\u0101l",
+    "city": "Mancheral",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Malacat\u00e1n",
+    "city": "Malacatan",
     "state": "San Marcos",
     "country": "Guatemala"
   },
@@ -1030,7 +1050,7 @@ export const maCities = [
     "country": "Mozambique"
   },
   {
-    "city": "Ma\u0163r\u016b\u1e29",
+    "city": "Matruh",
     "state": "Ma\u0163r\u016b\u1e29",
     "country": "Egypt"
   },
@@ -1055,12 +1075,12 @@ export const maCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Maip\u00fa",
+    "city": "Maipu",
     "state": "Mendoza",
     "country": "Argentina"
   },
   {
-    "city": "Malu\u00f1gun",
+    "city": "Malungun",
     "state": "Sarangani",
     "country": "Philippines"
   },
@@ -1075,7 +1095,7 @@ export const maCities = [
     "country": "Brazil"
   },
   {
-    "city": "Makr\u0101na",
+    "city": "Makrana",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -1090,7 +1110,7 @@ export const maCities = [
     "country": "Uganda"
   },
   {
-    "city": "Mayar\u00ed",
+    "city": "Mayari",
     "state": "Holgu\u00edn",
     "country": "Cuba"
   },
@@ -1100,7 +1120,7 @@ export const maCities = [
     "country": "Mexico"
   },
   {
-    "city": "Masjed Soleym\u0101n",
+    "city": "Masjed Soleyman",
     "state": "Kh\u016bzest\u0101n",
     "country": "Iran"
   },
@@ -1145,12 +1165,12 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mairipor\u00e3",
+    "city": "Mairipora",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Mayag\u00fcez",
+    "city": "Mayaguez",
     "state": "Puerto Rico",
     "country": "Puerto Rico"
   },
@@ -1165,7 +1185,12 @@ export const maCities = [
     "country": "Venezuela"
   },
   {
-    "city": "Manhua\u00e7u",
+    "city": "Mandvi",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
+    "city": "Manhuacu",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1190,7 +1215,7 @@ export const maCities = [
     "country": "Malaysia"
   },
   {
-    "city": "Ma\u2018arrat an Nu\u2018m\u0101n",
+    "city": "Ma`arrat an Nu`man",
     "state": "Idlib",
     "country": "Syria"
   },
@@ -1210,7 +1235,7 @@ export const maCities = [
     "country": "Philippines"
   },
   {
-    "city": "Maiquet\u00eda",
+    "city": "Maiquetia",
     "state": "La Guaira",
     "country": "Venezuela"
   },
@@ -1240,12 +1265,17 @@ export const maCities = [
     "country": "Cameroon"
   },
   {
+    "city": "Madaba",
+    "state": "M\u0101dab\u0101",
+    "country": "Jordan"
+  },
+  {
     "city": "Marl",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
   },
   {
-    "city": "Mat\u00e3o",
+    "city": "Matao",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -1260,17 +1290,22 @@ export const maCities = [
     "country": "Guatemala"
   },
   {
+    "city": "Mansa",
+    "state": "Punjab",
+    "country": "India"
+  },
+  {
     "city": "Mabinay",
     "state": "Negros Oriental",
     "country": "Philippines"
   },
   {
-    "city": "Manfal\u016b\u0163",
+    "city": "Manfalut",
     "state": "Asy\u016b\u0163",
     "country": "Egypt"
   },
   {
-    "city": "Maca\u00edba",
+    "city": "Macaiba",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
   },
@@ -1280,7 +1315,7 @@ export const maCities = [
     "country": "Philippines"
   },
   {
-    "city": "Mann\u0101rgudi",
+    "city": "Mannargudi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1295,17 +1330,17 @@ export const maCities = [
     "country": "Philippines"
   },
   {
-    "city": "Maravat\u00edo de Ocampo",
+    "city": "Maravatio de Ocampo",
     "state": "Michoac\u00e1n",
     "country": "Mexico"
   },
   {
-    "city": "Manm\u0101d",
+    "city": "Manmad",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
   {
-    "city": "Masall\u0101tah",
+    "city": "Masallatah",
     "state": "Al Marqab",
     "country": "Libya"
   },
@@ -1325,7 +1360,7 @@ export const maCities = [
     "country": "Philippines"
   },
   {
-    "city": "Mad\u012bnat as S\u0101d\u0101t",
+    "city": "Madinat as Sadat",
     "state": "Al Bu\u1e29ayrah",
     "country": "Egypt"
   },
@@ -1380,7 +1415,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Magh\u0101ghah",
+    "city": "Maghaghah",
     "state": "Al Miny\u0101",
     "country": "Egypt"
   },
@@ -1425,12 +1460,17 @@ export const maCities = [
     "country": "Spain"
   },
   {
-    "city": "Maro\u00fasi",
+    "city": "Marousi",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
   {
-    "city": "Mandl\u0101",
+    "city": "Manikganj",
+    "state": "Dhaka",
+    "country": "Bangladesh"
+  },
+  {
+    "city": "Mandla",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1438,6 +1478,11 @@ export const maCities = [
     "city": "Mamoudzou",
     "state": NaN,
     "country": "Mayotte"
+  },
+  {
+    "city": "Markapur",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Mauban",
@@ -1500,7 +1545,7 @@ export const maCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Mart\u00ednez",
+    "city": "Martinez",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -1550,6 +1595,11 @@ export const maCities = [
     "country": "Italy"
   },
   {
+    "city": "Mahdasht",
+    "state": "Tehr\u0101n",
+    "country": "Iran"
+  },
+  {
     "city": "Manicaragua",
     "state": "Villa Clara",
     "country": "Cuba"
@@ -1575,7 +1625,7 @@ export const maCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Mau\u00e9s",
+    "city": "Maues",
     "state": "Amazonas",
     "country": "Brazil"
   },
@@ -1590,7 +1640,7 @@ export const maCities = [
     "country": "Philippines"
   },
   {
-    "city": "Manhi\u00e7a",
+    "city": "Manhica",
     "state": "Maputo",
     "country": "Mozambique"
   },
@@ -1615,7 +1665,7 @@ export const maCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Ma\u2019erkang",
+    "city": "Ma'erkang",
     "state": "Sichuan",
     "country": "China"
   },
@@ -1648,6 +1698,11 @@ export const maCities = [
     "city": "Mali",
     "state": "Yunnan",
     "country": "China"
+  },
+  {
+    "city": "Macherla",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Maun",
@@ -1695,6 +1750,11 @@ export const maCities = [
     "country": "India"
   },
   {
+    "city": "Mangrol",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
     "city": "Manapla",
     "state": "Negros Occidental",
     "country": "Philippines"
@@ -1715,7 +1775,7 @@ export const maCities = [
     "country": "Argentina"
   },
   {
-    "city": "Manicor\u00e9",
+    "city": "Manicore",
     "state": "Amazonas",
     "country": "Brazil"
   },
@@ -1725,7 +1785,7 @@ export const maCities = [
     "country": "Italy"
   },
   {
-    "city": "Mans\u0101la",
+    "city": "Mansala",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1740,7 +1800,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Marechal C\u00e2ndido Rondon",
+    "city": "Marechal Candido Rondon",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -1760,7 +1820,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mandi Dabw\u0101li",
+    "city": "Mandi Dabwali",
     "state": "Punjab",
     "country": "India"
   },
@@ -1775,7 +1835,7 @@ export const maCities = [
     "country": "Turkey"
   },
   {
-    "city": "Mad\u012bnat \u1e28amad",
+    "city": "Madinat Hamad",
     "state": "Ash Sham\u0101l\u012byah",
     "country": "Bahrain"
   },
@@ -1790,7 +1850,7 @@ export const maCities = [
     "country": "Brazil"
   },
   {
-    "city": "Mandam\u0101ri",
+    "city": "Mandamari",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1835,7 +1895,7 @@ export const maCities = [
     "country": "Philippines"
   },
   {
-    "city": "Mahmud\u0101b\u0101d",
+    "city": "Mahmudabad",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -1845,12 +1905,12 @@ export const maCities = [
     "country": "Haiti"
   },
   {
-    "city": "Ma\u1e29m\u016bd-e R\u0101q\u012b",
+    "city": "Mahmud-e Raqi",
     "state": "K\u0101p\u012bs\u0101",
     "country": "Afghanistan"
   },
   {
-    "city": "Ma\u2018\u0101n",
+    "city": "Ma`an",
     "state": "Ma\u2018\u0101n",
     "country": "Jordan"
   },
@@ -1860,9 +1920,14 @@ export const maCities = [
     "country": "Italy"
   },
   {
-    "city": "Mar\u00eda la Baja",
+    "city": "Maria la Baja",
     "state": "Bol\u00edvar",
     "country": "Colombia"
+  },
+  {
+    "city": "Majalgaon",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
   },
   {
     "city": "Mailiao",
@@ -1890,7 +1955,7 @@ export const maCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Mangalap\u0101di",
+    "city": "Mangalapadi",
     "state": "Kerala",
     "country": "India"
   },
@@ -1925,17 +1990,17 @@ export const maCities = [
     "country": "Guatemala"
   },
   {
-    "city": "Manapp\u0101rai",
+    "city": "Manapparai",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Mattan\u016br",
+    "city": "Mattanur",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Ma\u0163\u0101y",
+    "city": "Matay",
     "state": "Al Miny\u0101",
     "country": "Egypt"
   },
@@ -1943,6 +2008,11 @@ export const maCities = [
     "city": "Martina Franca",
     "state": "Puglia",
     "country": "Italy"
+  },
+  {
+    "city": "Manvi",
+    "state": "Karn\u0101taka",
+    "country": "India"
   },
   {
     "city": "Manacor",
@@ -2000,7 +2070,7 @@ export const maCities = [
     "country": "Brazil"
   },
   {
-    "city": "Mah\u0101lingpur",
+    "city": "Mahalingpur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -2065,17 +2135,17 @@ export const maCities = [
     "country": "Philippines"
   },
   {
-    "city": "Ma\u015fta\u011fa",
+    "city": "Mastaga",
     "state": "Bak\u0131",
     "country": "Azerbaijan"
   },
   {
-    "city": "Ma\u1e29all\u0101t",
+    "city": "Mahallat",
     "state": "Markaz\u012b",
     "country": "Iran"
   },
   {
-    "city": "Ma\u00efssade",
+    "city": "Maissade",
     "state": "Centre",
     "country": "Haiti"
   },
@@ -2090,7 +2160,7 @@ export const maCities = [
     "country": "Japan"
   },
   {
-    "city": "Mahb\u016bb\u0101b\u0101d",
+    "city": "Mahbubabad",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -2100,12 +2170,12 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Machal\u00ed",
+    "city": "Machali",
     "state": "Libertador General Bernardo O\u2019Higgins",
     "country": "Chile"
   },
   {
-    "city": "Mata de S\u00e3o Jo\u00e3o",
+    "city": "Mata de Sao Joao",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -2150,7 +2220,7 @@ export const maCities = [
     "country": "Philippines"
   },
   {
-    "city": "Maca\u00fabas",
+    "city": "Macaubas",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -2185,7 +2255,7 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Maulavi B\u0101z\u0101r",
+    "city": "Maulavi Bazar",
     "state": "Sylhet",
     "country": "Bangladesh"
   },
@@ -2205,7 +2275,7 @@ export const maCities = [
     "country": "Brazil"
   },
   {
-    "city": "Matigu\u00e1s",
+    "city": "Matiguas",
     "state": "Matagalpa",
     "country": "Nicaragua"
   },
@@ -2250,6 +2320,11 @@ export const maCities = [
     "country": "Italy"
   },
   {
+    "city": "Marakkara",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
     "city": "Magburaka",
     "state": "Northern",
     "country": "Sierra Leone"
@@ -2275,7 +2350,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mayyan\u0101d",
+    "city": "Mayyanad",
     "state": "Kerala",
     "country": "India"
   },
@@ -2285,12 +2360,12 @@ export const maCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Mad\u012bnat \u2018\u012as\u00e1",
+    "city": "Madinat `Isa",
     "state": "Al Jan\u016bb\u012byah",
     "country": "Bahrain"
   },
   {
-    "city": "Mat\u00edas Romero",
+    "city": "Matias Romero",
     "state": "Oaxaca",
     "country": "Mexico"
   },
@@ -2390,7 +2465,7 @@ export const maCities = [
     "country": "Philippines"
   },
   {
-    "city": "Mah\u0101deopur",
+    "city": "Mahadeopur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -2460,7 +2535,7 @@ export const maCities = [
     "country": "Costa Rica"
   },
   {
-    "city": "Massap\u00ea",
+    "city": "Massape",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -2475,7 +2550,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Ma\u2018arratmi\u015fr\u012bn",
+    "city": "Ma`arratmisrin",
     "state": "Idlib",
     "country": "Syria"
   },
@@ -2510,7 +2585,7 @@ export const maCities = [
     "country": "Congo (Kinshasa)"
   },
   {
-    "city": "Ma\u015fy\u0101f",
+    "city": "Masyaf",
     "state": "\u1e28am\u0101h",
     "country": "Syria"
   },
@@ -2540,12 +2615,12 @@ export const maCities = [
     "country": "Italy"
   },
   {
-    "city": "Mah\u0113",
+    "city": "Mahe",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Marijampol\u0117",
+    "city": "Marijampole",
     "state": "Marijampol\u0117",
     "country": "Lithuania"
   },
@@ -2580,7 +2655,7 @@ export const maCities = [
     "country": "Cameroon"
   },
   {
-    "city": "Maz\u0131da\u011f\u0131",
+    "city": "Mazidagi",
     "state": "Mardin",
     "country": "Turkey"
   },
@@ -2608,6 +2683,11 @@ export const maCities = [
     "city": "Masasi",
     "state": "Mtwara",
     "country": "Tanzania"
+  },
+  {
+    "city": "Malpura",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
   },
   {
     "city": "Marion",
@@ -2665,7 +2745,12 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Ma\u012bd\u0101n Shahr",
+    "city": "Marancheri",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Maidan Shahr",
     "state": "Wardak",
     "country": "Afghanistan"
   },
@@ -2695,7 +2780,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mann\u0101rakk\u0101t",
+    "city": "Mannarakkat",
     "state": "Kerala",
     "country": "India"
   },
@@ -2705,7 +2790,12 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Maruthar\u014dd",
+    "city": "Manamadurai",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Marutharod",
     "state": "Kerala",
     "country": "India"
   },
@@ -2715,14 +2805,19 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Mazarr\u00f3n",
+    "city": "Mazarron",
     "state": "Murcia",
     "country": "Spain"
   },
   {
-    "city": "Madakalav\u0101ripalli",
+    "city": "Madakalavaripalli",
     "state": "Andhra Pradesh",
     "country": "India"
+  },
+  {
+    "city": "Macon",
+    "state": "Bourgogne-Franche-Comt\u00e9",
+    "country": "France"
   },
   {
     "city": "Majagual",
@@ -2790,7 +2885,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Ma\u017eeikiai",
+    "city": "Mazeikiai",
     "state": "Ma\u017eeikiai",
     "country": "Lithuania"
   },
@@ -2830,12 +2925,17 @@ export const maCities = [
     "country": "Tunisia"
   },
   {
+    "city": "Manwat",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
     "city": "Massantola",
     "state": "Koulikoro",
     "country": "Mali"
   },
   {
-    "city": "Mad\u012bnat al \u1e28abb\u0101n\u012byah",
+    "city": "Madinat al Habbaniyah",
     "state": "Al Anb\u0101r",
     "country": "Iraq"
   },
@@ -2850,7 +2950,7 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Mat\u00f5es",
+    "city": "Matoes",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
@@ -2865,7 +2965,7 @@ export const maCities = [
     "country": "Lesotho"
   },
   {
-    "city": "Mang\u016br",
+    "city": "Mangur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -2905,7 +3005,7 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Maur Kal\u0101n",
+    "city": "Maur Kalan",
     "state": "Punjab",
     "country": "India"
   },
@@ -2945,7 +3045,7 @@ export const maCities = [
     "country": "Russia"
   },
   {
-    "city": "Mandagua\u00e7u",
+    "city": "Mandaguacu",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -2965,7 +3065,7 @@ export const maCities = [
     "country": "Philippines"
   },
   {
-    "city": "Ma\u1e29allat Damanah",
+    "city": "Mahallat Damanah",
     "state": "Ad Daqahl\u012byah",
     "country": "Egypt"
   },
@@ -2985,12 +3085,17 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mahemd\u0101v\u0101d",
+    "city": "Manavadar",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Mattath\u016br",
+    "city": "Mahemdavad",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
+    "city": "Mattathur",
     "state": "Kerala",
     "country": "India"
   },
@@ -3005,7 +3110,7 @@ export const maCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Main\u0101guri",
+    "city": "Mainaguri",
     "state": "West Bengal",
     "country": "India"
   },
@@ -3025,8 +3130,13 @@ export const maCities = [
     "country": "Mexico"
   },
   {
-    "city": "Man\u0101war",
+    "city": "Manawar",
     "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Mansa",
+    "state": "Gujar\u0101t",
     "country": "India"
   },
   {
@@ -3045,6 +3155,11 @@ export const maCities = [
     "country": "Philippines"
   },
   {
+    "city": "Margram",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Mahugaon",
     "state": "Madhya Pradesh",
     "country": "India"
@@ -3060,13 +3175,18 @@ export const maCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Mal\u00e8me Hodar",
+    "city": "Maleme Hodar",
     "state": "Kaffrine",
     "country": "Senegal"
   },
   {
     "city": "Masabdisa",
     "state": "Assam",
+    "country": "India"
+  },
+  {
+    "city": "Magadi",
+    "state": "Karn\u0101taka",
     "country": "India"
   },
   {
@@ -3080,12 +3200,12 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mah\u00f3n",
+    "city": "Mahon",
     "state": "Balearic Islands",
     "country": "Spain"
   },
   {
-    "city": "Mandal\u012b",
+    "city": "Mandali",
     "state": "Diy\u0101l\u00e1",
     "country": "Iraq"
   },
@@ -3120,7 +3240,7 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Mann\u0101rgudi",
+    "city": "Mannargudi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3170,7 +3290,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mad\u012bnat Z\u0101yid",
+    "city": "Madinat Zayid",
     "state": "Ab\u016b Z\u0327aby",
     "country": "United Arab Emirates"
   },
@@ -3195,7 +3315,7 @@ export const maCities = [
     "country": "Bangladesh"
   },
   {
-    "city": "Manat\u00ed",
+    "city": "Manati",
     "state": "Las Tunas",
     "country": "Cuba"
   },
@@ -3240,12 +3360,12 @@ export const maCities = [
     "country": "Japan"
   },
   {
-    "city": "Mah\u0101r\u0101jpur",
+    "city": "Maharajpur",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Mannanch\u014dri",
+    "city": "Mannanchori",
     "state": "Kerala",
     "country": "India"
   },
@@ -3260,7 +3380,7 @@ export const maCities = [
     "country": "Brazil"
   },
   {
-    "city": "Massam\u00e1",
+    "city": "Massama",
     "state": "Lisboa",
     "country": "Portugal"
   },
@@ -3305,12 +3425,17 @@ export const maCities = [
     "country": "Philippines"
   },
   {
-    "city": "Malarg\u00fce",
+    "city": "Mattul",
+    "state": "Puducherry",
+    "country": "India"
+  },
+  {
+    "city": "Malargue",
     "state": "Mendoza",
     "country": "Argentina"
   },
   {
-    "city": "Marac\u00e1s",
+    "city": "Maracas",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -3350,7 +3475,7 @@ export const maCities = [
     "country": "Brazil"
   },
   {
-    "city": "Malek\u0101n",
+    "city": "Malekan",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Sharq\u012b",
     "country": "Iran"
   },
@@ -3370,12 +3495,22 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Malebenn\u016br",
+    "city": "Marsta",
+    "state": "Stockholm",
+    "country": "Sweden"
+  },
+  {
+    "city": "Malebennur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Marcos Ju\u00e1rez",
+    "city": "Madhura",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Marcos Juarez",
     "state": "C\u00f3rdoba",
     "country": "Argentina"
   },
@@ -3435,17 +3570,22 @@ export const maCities = [
     "country": "Philippines"
   },
   {
+    "city": "Mamidalapadu",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Manjacaze",
     "state": "Gaza",
     "country": "Mozambique"
   },
   {
-    "city": "Manih\u0101ri",
+    "city": "Manihari",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Ma\u00e7ka",
+    "city": "Macka",
     "state": "Trabzon",
     "country": "Turkey"
   },
@@ -3455,7 +3595,7 @@ export const maCities = [
     "country": "Philippines"
   },
   {
-    "city": "Man\u0101sa",
+    "city": "Manasa",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -3495,6 +3635,11 @@ export const maCities = [
     "country": "India"
   },
   {
+    "city": "Mavelikara",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
     "city": "Mauganj",
     "state": "Madhya Pradesh",
     "country": "India"
@@ -3515,7 +3660,7 @@ export const maCities = [
     "country": "Philippines"
   },
   {
-    "city": "Mank\u0101char",
+    "city": "Mankachar",
     "state": "Assam",
     "country": "India"
   },
@@ -3560,7 +3705,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mannachchanell\u016br",
+    "city": "Mannachchanellur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3570,12 +3715,12 @@ export const maCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Marmara Ere\u011flisi",
+    "city": "Marmara Ereglisi",
     "state": "Tekirda\u011f",
     "country": "Turkey"
   },
   {
-    "city": "Maracan\u00e3",
+    "city": "Maracana",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -3605,7 +3750,7 @@ export const maCities = [
     "country": "China"
   },
   {
-    "city": "Mar de Aj\u00f3",
+    "city": "Mar de Ajo",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -3650,7 +3795,7 @@ export const maCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Mala\u1e45gaw\u0101",
+    "city": "Malangawa",
     "state": NaN,
     "country": "Nepal"
   },
@@ -3665,9 +3810,19 @@ export const maCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Malanv\u0101di",
+    "city": "Madha",
+    "state": "Hary\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Malanvadi",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
+  },
+  {
+    "city": "Mardakan",
+    "state": "Bak\u0131",
+    "country": "Azerbaijan"
   },
   {
     "city": "Marneuli",
@@ -3675,12 +3830,12 @@ export const maCities = [
     "country": "Georgia"
   },
   {
-    "city": "Martin\u00f3polis",
+    "city": "Martinopolis",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Mad\u016bru",
+    "city": "Maduru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -3690,7 +3845,7 @@ export const maCities = [
     "country": "Niger"
   },
   {
-    "city": "Ma\u2018bar",
+    "city": "Ma`bar",
     "state": "Dham\u0101r",
     "country": "Yemen"
   },
@@ -3715,7 +3870,7 @@ export const maCities = [
     "country": "Philippines"
   },
   {
-    "city": "Mahd\u012bshahr",
+    "city": "Mahdishahr",
     "state": "Semn\u0101n",
     "country": "Iran"
   },
@@ -3725,7 +3880,7 @@ export const maCities = [
     "country": "Spain"
   },
   {
-    "city": "Mah\u0101r\u0101jgani",
+    "city": "Maharajgani",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -3740,12 +3895,12 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "May\u0101ng Imph\u0101l",
+    "city": "Mayang Imphal",
     "state": "Manipur",
     "country": "India"
   },
   {
-    "city": "Mar\u00edn",
+    "city": "Marin",
     "state": "Galicia",
     "country": "Spain"
   },
@@ -3805,6 +3960,11 @@ export const maCities = [
     "country": "Mexico"
   },
   {
+    "city": "Matabhanga",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Macaparana",
     "state": "Pernambuco",
     "country": "Brazil"
@@ -3825,7 +3985,7 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Makhm\u016br",
+    "city": "Makhmur",
     "state": "Arb\u012bl",
     "country": "Iraq"
   },
@@ -3850,7 +4010,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Ma\u2018alot Tarsh\u012b\u1e25\u0101",
+    "city": "Ma`alot Tarshiha",
     "state": "Northern",
     "country": "Israel"
   },
@@ -3905,7 +4065,7 @@ export const maCities = [
     "country": "Philippines"
   },
   {
-    "city": "Mand\u0101wa",
+    "city": "Mandawa",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -3925,7 +4085,7 @@ export const maCities = [
     "country": "Cuba"
   },
   {
-    "city": "Manamb\u016br",
+    "city": "Manambur",
     "state": "Kerala",
     "country": "India"
   },
@@ -4000,7 +4160,7 @@ export const maCities = [
     "country": "Belgium"
   },
   {
-    "city": "Mah\u0101debnagar",
+    "city": "Mahadebnagar",
     "state": "West Bengal",
     "country": "India"
   },
@@ -4095,12 +4255,12 @@ export const maCities = [
     "country": "Argentina"
   },
   {
-    "city": "Mazag\u00e3o",
+    "city": "Mazagao",
     "state": "Amap\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Mak\u00f3",
+    "city": "Mako",
     "state": "Csongr\u00e1d-Csan\u00e1d",
     "country": "Hungary"
   },
@@ -4120,6 +4280,11 @@ export const maCities = [
     "country": "Brazil"
   },
   {
+    "city": "Mangrol",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
     "city": "Machico",
     "state": "Madeira",
     "country": "Portugal"
@@ -4130,7 +4295,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Ma\u2019m\u016bn\u012byeh",
+    "city": "Ma'muniyeh",
     "state": "Markaz\u012b",
     "country": "Iran"
   },
@@ -4165,7 +4330,7 @@ export const maCities = [
     "country": "Japan"
   },
   {
-    "city": "Mart\u00ed",
+    "city": "Marti",
     "state": "Matanzas",
     "country": "Cuba"
   },
@@ -4185,7 +4350,12 @@ export const maCities = [
     "country": "France"
   },
   {
-    "city": "Madakas\u012bra",
+    "city": "Madakasira",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Maruturu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -4230,7 +4400,7 @@ export const maCities = [
     "country": "Spain"
   },
   {
-    "city": "Maraca\u00e7um\u00e9",
+    "city": "Maracacume",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
@@ -4245,7 +4415,12 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Mangghysta\u016b",
+    "city": "Manjhi",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Mangghystau",
     "state": "Mangghysta\u016b",
     "country": "Kazakhstan"
   },
@@ -4260,7 +4435,7 @@ export const maCities = [
     "country": "Comoros"
   },
   {
-    "city": "Mari\u0101ni",
+    "city": "Mariani",
     "state": "Assam",
     "country": "India"
   },
@@ -4280,12 +4455,17 @@ export const maCities = [
     "country": "Thailand"
   },
   {
+    "city": "Mantsala",
+    "state": "Uusimaa",
+    "country": "Finland"
+  },
+  {
     "city": "Marquette",
     "state": "Michigan",
     "country": "United States"
   },
   {
-    "city": "Mara\u00fa",
+    "city": "Marau",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -4340,7 +4520,7 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Mar\u2019\u2019ina Horka",
+    "city": "Mar''ina Horka",
     "state": "Minskaya Voblasts\u2019",
     "country": "Belarus"
   },
@@ -4385,7 +4565,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Marjamp\u0101d",
+    "city": "Marjampad",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -4410,6 +4590,11 @@ export const maCities = [
     "country": "United States"
   },
   {
+    "city": "Malaga",
+    "state": "Santander",
+    "country": "Colombia"
+  },
+  {
     "city": "Masterton",
     "state": "Wellington",
     "country": "New Zealand"
@@ -4420,7 +4605,7 @@ export const maCities = [
     "country": "Japan"
   },
   {
-    "city": "Mann\u016br",
+    "city": "Mannur",
     "state": "Kerala",
     "country": "India"
   },
@@ -4445,7 +4630,7 @@ export const maCities = [
     "country": "Germany"
   },
   {
-    "city": "Ma\u1e29m\u016bd\u0101b\u0101d Nem\u016bneh",
+    "city": "Mahmudabad Nemuneh",
     "state": "Qazv\u012bn",
     "country": "Iran"
   },
@@ -4455,7 +4640,12 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mahin\u0101w\u0101n",
+    "city": "Marahra",
+    "state": "Uttar Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Mahinawan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -4475,9 +4665,14 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mah\u0101jer\u0101n-e Kamar",
+    "city": "Mahajeran-e Kamar",
     "state": "Markaz\u012b",
     "country": "Iran"
+  },
+  {
+    "city": "Mancio Lima",
+    "state": "Acre",
+    "country": "Brazil"
   },
   {
     "city": "Marechal Taumaturgo",
@@ -4520,7 +4715,12 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mart\u00edn Coronado",
+    "city": "Mavinpalli",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Martin Coronado",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -4533,6 +4733,11 @@ export const maCities = [
     "city": "Malanday",
     "state": "Valenzuela",
     "country": "Philippines"
+  },
+  {
+    "city": "Manjha",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Mao",
@@ -4595,7 +4800,7 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Mar\u0101nchi",
+    "city": "Maranchi",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -4615,9 +4820,14 @@ export const maCities = [
     "country": "Gambia, The"
   },
   {
-    "city": "Maim\u00f3n",
+    "city": "Maimon",
     "state": "Cibao Sur",
     "country": "Dominican Republic"
+  },
+  {
+    "city": "Manikkal",
+    "state": "Kerala",
+    "country": "India"
   },
   {
     "city": "Manakayi",
@@ -4635,7 +4845,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Matip\u00f3",
+    "city": "Matipo",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -4645,7 +4855,7 @@ export const maCities = [
     "country": "Brazil"
   },
   {
-    "city": "Matel\u00e2ndia",
+    "city": "Matelandia",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -4665,7 +4875,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mathur\u0101pur",
+    "city": "Mathurapur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -4682,6 +4892,11 @@ export const maCities = [
   {
     "city": "Mahiari",
     "state": "West Bengal",
+    "country": "India"
+  },
+  {
+    "city": "Manikpur",
+    "state": "Bih\u0101r",
     "country": "India"
   },
   {
@@ -4760,7 +4975,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mab\u00e9hiri",
+    "city": "Mabehiri",
     "state": "Bas-Sassandra",
     "country": "C\u00f4te d\u2019Ivoire"
   },
@@ -4770,7 +4985,7 @@ export const maCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Mart\u016bru",
+    "city": "Marturu",
     "state": "Kerala",
     "country": "India"
   },
@@ -4800,6 +5015,11 @@ export const maCities = [
     "country": "India"
   },
   {
+    "city": "Mahis",
+    "state": "Al Balq\u0101\u2019",
+    "country": "Jordan"
+  },
+  {
     "city": "Manzanares",
     "state": "Castille-La Mancha",
     "country": "Spain"
@@ -4810,7 +5030,7 @@ export const maCities = [
     "country": "Brazil"
   },
   {
-    "city": "Marip\u0101d",
+    "city": "Maripad",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -4818,6 +5038,11 @@ export const maCities = [
     "city": "Mairi",
     "state": "Bahia",
     "country": "Brazil"
+  },
+  {
+    "city": "Manullahpatti",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Marcon",
@@ -4845,7 +5070,7 @@ export const maCities = [
     "country": "Philippines"
   },
   {
-    "city": "Man\u012bn",
+    "city": "Manin",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
   },
@@ -4858,6 +5083,16 @@ export const maCities = [
     "city": "Marche-en-Famenne",
     "state": "Wallonia",
     "country": "Belgium"
+  },
+  {
+    "city": "Mandvi",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
+    "city": "Martahalli",
+    "state": "Karn\u0101taka",
+    "country": "India"
   },
   {
     "city": "Mareth",
@@ -4875,7 +5110,7 @@ export const maCities = [
     "country": "Senegal"
   },
   {
-    "city": "Mann\u014d",
+    "city": "Manno",
     "state": "Kagawa",
     "country": "Japan"
   },
@@ -4925,7 +5160,7 @@ export const maCities = [
     "country": "Uganda"
   },
   {
-    "city": "Maj\u012btha",
+    "city": "Majitha",
     "state": "Punjab",
     "country": "India"
   },
@@ -4952,6 +5187,11 @@ export const maCities = [
   {
     "city": "Mannukara",
     "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Mavalli",
+    "state": "Karn\u0101taka",
     "country": "India"
   },
   {
@@ -4990,9 +5230,24 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mass\u00e9",
+    "city": "Malancha",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
+    "city": "Mari`",
+    "state": "\u1e28alab",
+    "country": "Syria"
+  },
+  {
+    "city": "Masse",
     "state": "Plateau",
     "country": "Benin"
+  },
+  {
+    "city": "Majra",
+    "state": "Hary\u0101na",
+    "country": "India"
   },
   {
     "city": "Marion",
@@ -5015,7 +5270,7 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Mak\u012bnsk",
+    "city": "Makinsk",
     "state": "Aqmola",
     "country": "Kazakhstan"
   },
@@ -5035,7 +5290,7 @@ export const maCities = [
     "country": "Spain"
   },
   {
-    "city": "Ma\u015f\u012bf Sarsink",
+    "city": "Masif Sarsink",
     "state": "Dah\u016bk",
     "country": "Iraq"
   },
@@ -5095,7 +5350,7 @@ export const maCities = [
     "country": "Bolivia"
   },
   {
-    "city": "Mann\u016br",
+    "city": "Mannur",
     "state": "Kerala",
     "country": "India"
   },
@@ -5115,12 +5370,17 @@ export const maCities = [
     "country": "Italy"
   },
   {
-    "city": "Mah\u0101landi",
+    "city": "Mahalandi",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Madukk\u016br",
+    "city": "Malhipur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Madukkur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -5145,17 +5405,17 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Mafun\u00e9",
+    "city": "Mafune",
     "state": "S\u00e9gou",
     "country": "Mali"
   },
   {
-    "city": "Markranst\u00e4dt",
+    "city": "Markranstadt",
     "state": "Saxony",
     "country": "Germany"
   },
   {
-    "city": "Math Lohiy\u0101r",
+    "city": "Math Lohiyar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -5175,7 +5435,12 @@ export const maCities = [
     "country": "Germany"
   },
   {
-    "city": "Mayil\u016br",
+    "city": "Marupe",
+    "state": "M\u0101rupe",
+    "country": "Latvia"
+  },
+  {
+    "city": "Mayilur",
     "state": "Kerala",
     "country": "India"
   },
@@ -5185,7 +5450,7 @@ export const maCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Marah\u014dm",
+    "city": "Marahom",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
@@ -5280,12 +5545,12 @@ export const maCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Man\u016bj\u0101n",
+    "city": "Manujan",
     "state": "Kerm\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Manj\u012bl",
+    "city": "Manjil",
     "state": "G\u012bl\u0101n",
     "country": "Iran"
   },
@@ -5300,7 +5565,7 @@ export const maCities = [
     "country": "China"
   },
   {
-    "city": "Maull\u00edn",
+    "city": "Maullin",
     "state": "Los Lagos",
     "country": "Chile"
   },
@@ -5315,7 +5580,7 @@ export const maCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Maur\u0101nw\u0101n",
+    "city": "Mauranwan",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -5355,6 +5620,11 @@ export const maCities = [
     "country": "Philippines"
   },
   {
+    "city": "Mateszalka",
+    "state": "Szabolcs-Szatm\u00e1r-Bereg",
+    "country": "Hungary"
+  },
+  {
     "city": "Manor",
     "state": "Texas",
     "country": "United States"
@@ -5375,12 +5645,17 @@ export const maCities = [
     "country": "Australia"
   },
   {
+    "city": "Matar",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
     "city": "Mantua",
     "state": "New Jersey",
     "country": "United States"
   },
   {
-    "city": "Mangaw\u0101n",
+    "city": "Mangawan",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -5400,7 +5675,7 @@ export const maCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Mall\u0101puram",
+    "city": "Mallapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -5440,7 +5715,7 @@ export const maCities = [
     "country": "Burkina Faso"
   },
   {
-    "city": "Markgr\u00f6ningen",
+    "city": "Markgroningen",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
@@ -5465,7 +5740,12 @@ export const maCities = [
     "country": "Uganda"
   },
   {
-    "city": "Majhgaw\u0101n",
+    "city": "Majhgawan",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Mandleshwar",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -5500,7 +5780,7 @@ export const maCities = [
     "country": "Kazakhstan"
   },
   {
-    "city": "Masall\u0131",
+    "city": "Masalli",
     "state": "Masall\u0131",
     "country": "Azerbaijan"
   },
@@ -5518,6 +5798,11 @@ export const maCities = [
     "city": "Mahatsinjo",
     "state": "Mahajanga",
     "country": "Madagascar"
+  },
+  {
+    "city": "Manantheri",
+    "state": "Kerala",
+    "country": "India"
   },
   {
     "city": "Malvik",
@@ -5565,6 +5850,11 @@ export const maCities = [
     "country": "Madagascar"
   },
   {
+    "city": "Magurele",
+    "state": "Ilfov",
+    "country": "Romania"
+  },
+  {
     "city": "Majia",
     "state": "Gansu",
     "country": "China"
@@ -5585,12 +5875,17 @@ export const maCities = [
     "country": "Italy"
   },
   {
+    "city": "Mangoli",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
     "city": "Manoharpur",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
   {
-    "city": "Mann\u016br",
+    "city": "Mannur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -5600,7 +5895,7 @@ export const maCities = [
     "country": "Brazil"
   },
   {
-    "city": "Maria da F\u00e9",
+    "city": "Maria da Fe",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -5710,12 +6005,12 @@ export const maCities = [
     "country": "Italy"
   },
   {
-    "city": "Mansid\u00e3o",
+    "city": "Mansidao",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Maraca\u00ed",
+    "city": "Maracai",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -5725,7 +6020,7 @@ export const maCities = [
     "country": "Gabon"
   },
   {
-    "city": "Mati\u00e7an",
+    "city": "Matican",
     "state": "Prishtin\u00eb",
     "country": "Kosovo"
   },
@@ -5740,6 +6035,11 @@ export const maCities = [
     "country": "Germany"
   },
   {
+    "city": "Mandalgarh",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
     "city": "Mayrtup",
     "state": "Chechnya",
     "country": "Russia"
@@ -5750,22 +6050,22 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Magalh\u00e3es de Almeida",
+    "city": "Magalhaes de Almeida",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
   {
-    "city": "Mad\u0101npur",
+    "city": "Madanpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Mari\u00e1nsk\u00e9 L\u00e1zn\u011b",
+    "city": "Marianske Lazne",
     "state": "Karlovarsk\u00fd Kraj",
     "country": "Czechia"
   },
   {
-    "city": "Manav\u0101lakurichi",
+    "city": "Manavalakurichi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -5830,7 +6130,7 @@ export const maCities = [
     "country": "Italy"
   },
   {
-    "city": "Manten\u00f3polis",
+    "city": "Mantenopolis",
     "state": "Esp\u00edrito Santo",
     "country": "Brazil"
   },
@@ -5865,7 +6165,7 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Marud\u016br",
+    "city": "Marudur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -5875,12 +6175,12 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Manat\u00ed",
+    "city": "Manati",
     "state": "Atl\u00e1ntico",
     "country": "Colombia"
   },
   {
-    "city": "Mambor\u00ea",
+    "city": "Mambore",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -5910,12 +6210,12 @@ export const maCities = [
     "country": "South Africa"
   },
   {
-    "city": "Mangal\u0101puram",
+    "city": "Mangalapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Marung\u016br",
+    "city": "Marungur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -5935,12 +6235,12 @@ export const maCities = [
     "country": "Croatia"
   },
   {
-    "city": "Man\u00ed",
+    "city": "Mani",
     "state": "Casanare",
     "country": "Colombia"
   },
   {
-    "city": "Manivilund\u0101n",
+    "city": "Manivilundan",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -5950,7 +6250,17 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mathur\u0101pur",
+    "city": "Mathurapur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Marathalli",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Manikpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -5970,12 +6280,12 @@ export const maCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Maqs\u016bda",
+    "city": "Maqsuda",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Mazatl\u00e1n Villa de Flores",
+    "city": "Mazatlan Villa de Flores",
     "state": "Oaxaca",
     "country": "Mexico"
   },
@@ -6060,7 +6370,12 @@ export const maCities = [
     "country": "France"
   },
   {
-    "city": "Mans\u0101pur",
+    "city": "Mandra",
+    "state": "Attik\u00ed",
+    "country": "Greece"
+  },
+  {
+    "city": "Mansapur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -6070,7 +6385,7 @@ export const maCities = [
     "country": "Belarus"
   },
   {
-    "city": "Mall\u0101pur",
+    "city": "Mallapur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -6085,7 +6400,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mah\u0101r\u0101jpur",
+    "city": "Maharajpur",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -6095,12 +6410,12 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Maj\u0101rh\u0101t",
+    "city": "Majarhat",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Mah\u0101baleshwar",
+    "city": "Mahabaleshwar",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -6112,6 +6427,16 @@ export const maCities = [
   {
     "city": "Mahtha",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Madugula",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Manakondur",
+    "state": "Telang\u0101na",
     "country": "India"
   },
   {
@@ -6130,7 +6455,7 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Malm\u00e9dy",
+    "city": "Malmedy",
     "state": "Wallonia",
     "country": "Belgium"
   },
@@ -6145,7 +6470,7 @@ export const maCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Maxcan\u00fa",
+    "city": "Maxcanu",
     "state": "Yucat\u00e1n",
     "country": "Mexico"
   },
@@ -6160,7 +6485,7 @@ export const maCities = [
     "country": "Philippines"
   },
   {
-    "city": "Mahu\u0101kher\u0101ganj",
+    "city": "Mahuakheraganj",
     "state": "Uttar\u0101khand",
     "country": "India"
   },
@@ -6170,7 +6495,7 @@ export const maCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Mandr\u0101mo",
+    "city": "Mandramo",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -6195,6 +6520,11 @@ export const maCities = [
     "country": "India"
   },
   {
+    "city": "Mayamankurichchi",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Marabella",
     "state": "San Fernando",
     "country": "Trinidad and Tobago"
@@ -6215,7 +6545,7 @@ export const maCities = [
     "country": "South Africa"
   },
   {
-    "city": "Macar\u00e1",
+    "city": "Macara",
     "state": "Loja",
     "country": "Ecuador"
   },
@@ -6235,7 +6565,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Magl\u00f3d",
+    "city": "Maglod",
     "state": "Pest",
     "country": "Hungary"
   },
@@ -6250,7 +6580,7 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Maraiy\u016br",
+    "city": "Maraiyur",
     "state": "Kerala",
     "country": "India"
   },
@@ -6260,7 +6590,7 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Mandalgov\u012d",
+    "city": "Mandalgovi",
     "state": "Dundgov\u012d",
     "country": "Mongolia"
   },
@@ -6305,7 +6635,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Maxh\u00fctte-Haidhof",
+    "city": "Maxhutte-Haidhof",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -6325,7 +6655,7 @@ export const maCities = [
     "country": "Argentina"
   },
   {
-    "city": "Mat\u0101la",
+    "city": "Matala",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -6340,8 +6670,13 @@ export const maCities = [
     "country": "Malta"
   },
   {
-    "city": "Mangarw\u0101ra",
+    "city": "Mangarwara",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Mandu",
+    "state": "Jh\u0101rkhand",
     "country": "India"
   },
   {
@@ -6358,6 +6693,11 @@ export const maCities = [
     "city": "Mayate",
     "state": "Marrakech-Safi",
     "country": "Morocco"
+  },
+  {
+    "city": "Manegaon",
+    "state": "Madhya Pradesh",
+    "country": "India"
   },
   {
     "city": "Mattenhof",
@@ -6400,7 +6740,7 @@ export const maCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Madina do Bo\u00e9",
+    "city": "Madina do Boe",
     "state": "Gab\u00fa",
     "country": "Guinea-Bissau"
   },
@@ -6417,6 +6757,11 @@ export const maCities = [
   {
     "city": "Marauatpur",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Malthone",
+    "state": "Madhya Pradesh",
     "country": "India"
   },
   {
@@ -6450,12 +6795,12 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mamq\u0101n",
+    "city": "Mamqan",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Sharq\u012b",
     "country": "Iran"
   },
   {
-    "city": "Mayil\u0101di",
+    "city": "Mayiladi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -6480,7 +6825,7 @@ export const maCities = [
     "country": "China"
   },
   {
-    "city": "Maizi\u00e8res-l\u00e8s-Metz",
+    "city": "Maizieres-les-Metz",
     "state": "Grand Est",
     "country": "France"
   },
@@ -6510,12 +6855,12 @@ export const maCities = [
     "country": "Peru"
   },
   {
-    "city": "Malk\u0101",
+    "city": "Malka",
     "state": "Irbid",
     "country": "Jordan"
   },
   {
-    "city": "Mali\u0101l",
+    "city": "Malial",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -6528,6 +6873,11 @@ export const maCities = [
     "city": "Marotta",
     "state": "Marche",
     "country": "Italy"
+  },
+  {
+    "city": "Mahta",
+    "state": "Punjab",
+    "country": "India"
   },
   {
     "city": "Mala Vyska",
@@ -6575,12 +6925,12 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Malo Crni\u0107e",
+    "city": "Malo Crnice",
     "state": "Malo Crni\u0107e",
     "country": "Serbia"
   },
   {
-    "city": "Mah\u0101gama",
+    "city": "Mahagama",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -6620,9 +6970,19 @@ export const maCities = [
     "country": "Brazil"
   },
   {
+    "city": "Mashyal",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
     "city": "Masinigudi",
     "state": "Tamil N\u0101du",
     "country": "India"
+  },
+  {
+    "city": "Marasesti",
+    "state": "Vrancea",
+    "country": "Romania"
   },
   {
     "city": "Majanji",
@@ -6640,14 +7000,19 @@ export const maCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Malkan\u016br",
+    "city": "Malkanur",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Makhm\u0101lpur",
+    "city": "Makhmalpur",
     "state": "Jh\u0101rkhand",
     "country": "India"
+  },
+  {
+    "city": "Mannedorf",
+    "state": "Z\u00fcrich",
+    "country": "Switzerland"
   },
   {
     "city": "Mannarai",
@@ -6655,7 +7020,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Marquette-l\u00e8s-Lille",
+    "city": "Marquette-les-Lille",
     "state": "Hauts-de-France",
     "country": "France"
   },
@@ -6675,17 +7040,17 @@ export const maCities = [
     "country": "Italy"
   },
   {
-    "city": "Mangalm\u00e9",
+    "city": "Mangalme",
     "state": "Gu\u00e9ra",
     "country": "Chad"
   },
   {
-    "city": "May\u016breswar",
+    "city": "Mayureswar",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Manat\u00ed",
+    "city": "Manati",
     "state": "Puerto Rico",
     "country": "Puerto Rico"
   },
@@ -6695,7 +7060,7 @@ export const maCities = [
     "country": "Japan"
   },
   {
-    "city": "Maril\u00e2ndia",
+    "city": "Marilandia",
     "state": "Esp\u00edrito Santo",
     "country": "Brazil"
   },
@@ -6705,7 +7070,7 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Mah\u012bn",
+    "city": "Mahin",
     "state": "\u1e28im\u015f",
     "country": "Syria"
   },
@@ -6718,6 +7083,11 @@ export const maCities = [
     "city": "Mandal",
     "state": "Agder",
     "country": "Norway"
+  },
+  {
+    "city": "Madhopur",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Magnolia",
@@ -6780,7 +7150,7 @@ export const maCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Mah\u0101d",
+    "city": "Mahad",
     "state": "N\u012bnaw\u00e1",
     "country": "Iraq"
   },
@@ -6790,12 +7160,17 @@ export const maCities = [
     "country": "Italy"
   },
   {
-    "city": "Ma\u2019ai",
+    "city": "Ma'ai",
     "state": "Gansu",
     "country": "China"
   },
   {
-    "city": "Mana\u00edra",
+    "city": "Mansinghpur Bijrauli",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Manaira",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -6805,17 +7180,17 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Masakkavundanchettip\u0101laiyam",
+    "city": "Masakkavundanchettipalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Matias Ol\u00edmpio",
+    "city": "Matias Olimpio",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
   {
-    "city": "Mahm\u016bda",
+    "city": "Mahmuda",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -6860,12 +7235,12 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Mary\u0101naj",
+    "city": "Maryanaj",
     "state": "Hamad\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Martin\u00f3pole",
+    "city": "Martinopole",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -6883,6 +7258,11 @@ export const maCities = [
     "city": "Matomou",
     "state": "S\u00e9gou",
     "country": "Mali"
+  },
+  {
+    "city": "Mangobandar",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Marreddipalli",
@@ -6905,7 +7285,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Marud\u016br",
+    "city": "Marudur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -6935,7 +7315,7 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Matsuda-s\u014dry\u014d",
+    "city": "Matsuda-soryo",
     "state": "Kanagawa",
     "country": "Japan"
   },
@@ -6975,7 +7355,7 @@ export const maCities = [
     "country": "Russia"
   },
   {
-    "city": "Maida Babhang\u0101w\u0101n",
+    "city": "Maida Babhangawan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -6983,6 +7363,11 @@ export const maCities = [
     "city": "Martensville",
     "state": "Saskatchewan",
     "country": "Canada"
+  },
+  {
+    "city": "Mancora",
+    "state": "Piura",
+    "country": "Peru"
   },
   {
     "city": "Mathila",
@@ -7035,6 +7420,11 @@ export const maCities = [
     "country": "Madagascar"
   },
   {
+    "city": "Machalpur",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Marlton",
     "state": "New Jersey",
     "country": "United States"
@@ -7045,14 +7435,44 @@ export const maCities = [
     "country": "Uganda"
   },
   {
+    "city": "Madhopur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Matsavaram",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Madhopur Hazari",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Mankur",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Mallan",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Mar\u00eda Pinto",
+    "city": "Maruteru",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Maria Pinto",
     "state": "Regi\u00f3n Metropolitana",
     "country": "Chile"
+  },
+  {
+    "city": "Manikpur",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Magas",
@@ -7065,12 +7485,12 @@ export const maCities = [
     "country": "Brazil"
   },
   {
-    "city": "Mauril\u00e2ndia",
+    "city": "Maurilandia",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
   {
-    "city": "Ma\u2018rab\u0101",
+    "city": "Ma`raba",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
   },
@@ -7085,17 +7505,22 @@ export const maCities = [
     "country": "United States"
   },
   {
+    "city": "Mali",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Maxaranguape",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
   },
   {
-    "city": "Maheshr\u0101m",
+    "city": "Maheshram",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Maraw\u012b",
+    "city": "Marawi",
     "state": "Northern",
     "country": "Sudan"
   },
@@ -7125,7 +7550,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mangl\u016br",
+    "city": "Manglur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -7140,7 +7565,7 @@ export const maCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Mashhad R\u012bzeh",
+    "city": "Mashhad Rizeh",
     "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
     "country": "Iran"
   },
@@ -7153,6 +7578,11 @@ export const maCities = [
     "city": "Marieville",
     "state": "Quebec",
     "country": "Canada"
+  },
+  {
+    "city": "Malinagar",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Mazamet",
@@ -7175,7 +7605,7 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Mah\u0101r\u0101japuram",
+    "city": "Maharajapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -7185,7 +7615,7 @@ export const maCities = [
     "country": "Benin"
   },
   {
-    "city": "Manahari\u0307\u0304",
+    "city": "Manahari",
     "state": NaN,
     "country": "Nepal"
   },
@@ -7225,7 +7655,7 @@ export const maCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Matagu\u00e1",
+    "city": "Matagua",
     "state": "Villa Clara",
     "country": "Cuba"
   },
@@ -7245,7 +7675,7 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Ma\u1e29ajjah",
+    "city": "Mahajjah",
     "state": "Dar\u2018\u0101",
     "country": "Syria"
   },
@@ -7255,7 +7685,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Ma\u1e29alleh-ye Sh\u012br\u012bn\u016b",
+    "city": "Mahalleh-ye Shirinu",
     "state": "B\u016bshehr",
     "country": "Iran"
   },
@@ -7268,6 +7698,11 @@ export const maCities = [
     "city": "Marly",
     "state": "Grand Est",
     "country": "France"
+  },
+  {
+    "city": "Mamobihat",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Makale",
@@ -7285,7 +7720,7 @@ export const maCities = [
     "country": "Germany"
   },
   {
-    "city": "Max\u00e9ville",
+    "city": "Maxeville",
     "state": "Grand Est",
     "country": "France"
   },
@@ -7320,12 +7755,12 @@ export const maCities = [
     "country": "Colombia"
   },
   {
-    "city": "Mahis\u0101nrh",
+    "city": "Mahisanrh",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Majhgaw\u0101n",
+    "city": "Majhgawan",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -7350,6 +7785,11 @@ export const maCities = [
     "country": "Ukraine"
   },
   {
+    "city": "Manushmuria",
+    "state": "Jh\u0101rkhand",
+    "country": "India"
+  },
+  {
     "city": "Mae O",
     "state": "Chiang Rai",
     "country": "Thailand"
@@ -7370,12 +7810,12 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Manal\u016brpettai",
+    "city": "Manalurpettai",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Mah\u012bn\u0101thpur",
+    "city": "Mahinathpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -7395,7 +7835,7 @@ export const maCities = [
     "country": "Thailand"
   },
   {
-    "city": "Malh\u0101rgarh",
+    "city": "Malhargarh",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -7410,9 +7850,24 @@ export const maCities = [
     "country": "India"
   },
   {
+    "city": "Makhar",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Manrar",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Masku",
     "state": "Varsinais-Suomi",
     "country": "Finland"
+  },
+  {
+    "city": "Madari Hat",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Masar",
@@ -7440,7 +7895,7 @@ export const maCities = [
     "country": "Thailand"
   },
   {
-    "city": "Malia\u00f1o",
+    "city": "Maliano",
     "state": "Cantabria",
     "country": "Spain"
   },
@@ -7453,6 +7908,11 @@ export const maCities = [
     "city": "Mahomet",
     "state": "Illinois",
     "country": "United States"
+  },
+  {
+    "city": "Mama Khel",
+    "state": "Nangarh\u0101r",
+    "country": "Afghanistan"
   },
   {
     "city": "Maravilha",
@@ -7470,6 +7930,11 @@ export const maCities = [
     "country": "India"
   },
   {
+    "city": "Manbazar",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Madhura",
     "state": "Bih\u0101r",
     "country": "India"
@@ -7480,7 +7945,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mangr\u0101w\u0101n",
+    "city": "Mangrawan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -7500,7 +7965,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Malaim\u0101chchampatti",
+    "city": "Malaimachchampatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -7545,7 +8010,7 @@ export const maCities = [
     "country": "Iran"
   },
   {
-    "city": "Ma\u1e11\u0101y\u0101",
+    "city": "Madaya",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
   },
@@ -7555,12 +8020,12 @@ export const maCities = [
     "country": "Brazil"
   },
   {
-    "city": "Mah\u0101lgaon",
+    "city": "Mahalgaon",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Mallapp\u0101di",
+    "city": "Mallappadi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -7580,7 +8045,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mariy\u0101dau",
+    "city": "Mariyadau",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -7605,7 +8070,7 @@ export const maCities = [
     "country": "South Africa"
   },
   {
-    "city": "Majhariy\u0101",
+    "city": "Majhariya",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -7625,9 +8090,29 @@ export const maCities = [
     "country": "Spain"
   },
   {
+    "city": "Matar",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
     "city": "Magalia",
     "state": "California",
     "country": "United States"
+  },
+  {
+    "city": "Madhopur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Mamidipalli",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Mamidipalli",
+    "state": "Telang\u0101na",
+    "country": "India"
   },
   {
     "city": "Maidencreek",
@@ -7635,7 +8120,12 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Mak\u00f3w Mazowiecki",
+    "city": "Madepalli",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Makow Mazowiecki",
     "state": "Mazowieckie",
     "country": "Poland"
   },
@@ -7660,12 +8150,17 @@ export const maCities = [
     "country": "Italy"
   },
   {
+    "city": "Malingaon",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Malalbergo",
     "state": "Emilia-Romagna",
     "country": "Italy"
   },
   {
-    "city": "Maser\u00e0 di Padova",
+    "city": "Masera di Padova",
     "state": "Veneto",
     "country": "Italy"
   },
@@ -7700,7 +8195,7 @@ export const maCities = [
     "country": "Germany"
   },
   {
-    "city": "Mar\u0101i Kal\u0101n",
+    "city": "Marai Kalan",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -7710,7 +8205,12 @@ export const maCities = [
     "country": "France"
   },
   {
-    "city": "Mamn\u016br",
+    "city": "Manoke",
+    "state": "Punjab",
+    "country": "India"
+  },
+  {
+    "city": "Mamnur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -7720,13 +8220,23 @@ export const maCities = [
     "country": "Timor-Leste"
   },
   {
-    "city": "Mand\u012bshah",
+    "city": "Mali",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Mandishah",
     "state": "Al J\u012bzah",
     "country": "Egypt"
   },
   {
-    "city": "Madhur\u0101pur",
+    "city": "Madhurapur",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Madhavaram",
+    "state": "Andhra Pradesh",
     "country": "India"
   },
   {
@@ -7770,7 +8280,7 @@ export const maCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Marca\u00e7\u00e3o",
+    "city": "Marcacao",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -7780,7 +8290,17 @@ export const maCities = [
     "country": "India"
   },
   {
+    "city": "Malior",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Mangalpur Gudaria",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Maldah",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -7790,7 +8310,7 @@ export const maCities = [
     "country": "Kazakhstan"
   },
   {
-    "city": "Madd\u016br",
+    "city": "Maddur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -7805,7 +8325,7 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Majhariy\u0101 Sheikh",
+    "city": "Majhariya Sheikh",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -7815,12 +8335,12 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mall\u0101ram",
+    "city": "Mallaram",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Maip\u00fa",
+    "city": "Maipu",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -7830,22 +8350,22 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Mandalav\u0101di",
+    "city": "Mandalavadi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Malang\u0101m",
+    "city": "Malangam",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
   {
-    "city": "Madn\u016br",
+    "city": "Madnur",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Madan\u0101ncheri",
+    "city": "Madanancheri",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -7865,7 +8385,7 @@ export const maCities = [
     "country": "Austria"
   },
   {
-    "city": "Mah\u0101gaon",
+    "city": "Mahagaon",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -7873,6 +8393,16 @@ export const maCities = [
     "city": "Mahela",
     "state": "Toamasina",
     "country": "Madagascar"
+  },
+  {
+    "city": "Mansong",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
+    "city": "Malipakar",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Madhuban",
@@ -7915,6 +8445,11 @@ export const maCities = [
     "country": "United States"
   },
   {
+    "city": "Malaimarpuram",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Maiquinique",
     "state": "Bahia",
     "country": "Brazil"
@@ -7925,7 +8460,7 @@ export const maCities = [
     "country": "India"
   },
   {
-    "city": "Margny-l\u00e8s-Compi\u00e8gne",
+    "city": "Margny-les-Compiegne",
     "state": "Hauts-de-France",
     "country": "France"
   },
@@ -7935,12 +8470,17 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Maril\u00e2ndia do Sul",
+    "city": "Malov",
+    "state": "Hovedstaden",
+    "country": "Denmark"
+  },
+  {
+    "city": "Marilandia do Sul",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Mar\u0101veh Tappeh",
+    "city": "Maraveh Tappeh",
     "state": "Golest\u0101n",
     "country": "Iran"
   },
@@ -7965,7 +8505,7 @@ export const maCities = [
     "country": "United States"
   },
   {
-    "city": "Madd\u016br",
+    "city": "Maddur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -7980,7 +8520,17 @@ export const maCities = [
     "country": "Italy"
   },
   {
-    "city": "Maul\u00e9on",
+    "city": "Magam",
+    "state": "Jammu and Kashm\u012br",
+    "country": "India"
+  },
+  {
+    "city": "Manpur",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Mauleon",
     "state": "Nouvelle-Aquitaine",
     "country": "France"
   },
@@ -7995,7 +8545,7 @@ export const maCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Marcol\u00e2ndia",
+    "city": "Marcolandia",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
@@ -8045,7 +8595,7 @@ export const maCities = [
     "country": "Thailand"
   },
   {
-    "city": "Maltah\u00f6he",
+    "city": "Maltahohe",
     "state": "Hardap",
     "country": "Namibia"
   },
@@ -8060,7 +8610,7 @@ export const maCities = [
     "country": "Botswana"
   },
   {
-    "city": "Mamush\u00eb",
+    "city": "Mamushe",
     "state": "Mamush\u00eb",
     "country": "Kosovo"
   },
@@ -8070,7 +8620,7 @@ export const maCities = [
     "country": "Guinea"
   },
   {
-    "city": "Mali I\u0111o\u0161",
+    "city": "Mali Idos",
     "state": "Mali I\u0111o\u0161",
     "country": "Serbia"
   },
@@ -8120,7 +8670,7 @@ export const maCities = [
     "country": "Malta"
   },
   {
-    "city": "Malishev\u00eb",
+    "city": "Malisheve",
     "state": "Malishev\u00eb",
     "country": "Kosovo"
   },
@@ -8140,12 +8690,12 @@ export const maCities = [
     "country": "Guyana"
   },
   {
-    "city": "Mariscal Jos\u00e9 F\u00e9lix Estigarribia",
+    "city": "Mariscal Jose Felix Estigarribia",
     "state": "Boquer\u00f3n",
     "country": "Paraguay"
   },
   {
-    "city": "Mar\u0101dah",
+    "city": "Maradah",
     "state": "Al W\u0101\u1e29\u0101t",
     "country": "Libya"
   },
@@ -8170,7 +8720,7 @@ export const maCities = [
     "country": "Guyana"
   },
   {
-    "city": "Mazat\u00e1n",
+    "city": "Mazatan",
     "state": "Sonora",
     "country": "Mexico"
   },
@@ -8190,7 +8740,7 @@ export const maCities = [
     "country": "Mozambique"
   },
   {
-    "city": "Maj\u0161perk",
+    "city": "Majsperk",
     "state": "Maj\u0161perk",
     "country": "Slovenia"
   },
@@ -8215,7 +8765,7 @@ export const maCities = [
     "country": "North Macedonia"
   },
   {
-    "city": "Mad\u012bnat ash Sham\u0101l",
+    "city": "Madinat ash Shamal",
     "state": "Ash Sham\u0101l",
     "country": "Qatar"
   },

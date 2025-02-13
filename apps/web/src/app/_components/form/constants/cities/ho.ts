@@ -25,12 +25,12 @@ export const hoCities = [
     "country": "Syria"
   },
   {
-    "city": "Honch\u014d",
+    "city": "Honcho",
     "state": "Chiba",
     "country": "Japan"
   },
   {
-    "city": "Homyel\u2019",
+    "city": "Homyel'",
     "state": "Homyel\u2019skaya Voblasts\u2019",
     "country": "Belarus"
   },
@@ -45,7 +45,7 @@ export const hoCities = [
     "country": "China"
   },
   {
-    "city": "Holgu\u00edn",
+    "city": "Holguin",
     "state": "Holgu\u00edn",
     "country": "Cuba"
   },
@@ -55,7 +55,7 @@ export const hoCities = [
     "country": "United States"
   },
   {
-    "city": "Hos\u016br",
+    "city": "Hosur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -65,7 +65,7 @@ export const hoCities = [
     "country": "China"
   },
   {
-    "city": "Hong\u2019an",
+    "city": "Hong'an",
     "state": "Heilongjiang",
     "country": "China"
   },
@@ -80,7 +80,7 @@ export const hoCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Hortol\u00e2ndia",
+    "city": "Hortolandia",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -100,7 +100,7 @@ export const hoCities = [
     "country": "Israel"
   },
   {
-    "city": "Hosa\u2019ina",
+    "city": "Hosa'ina",
     "state": "YeDebub Bih\u0113roch Bih\u0113reseboch na Hizboch",
     "country": "Ethiopia"
   },
@@ -110,7 +110,7 @@ export const hoCities = [
     "country": "Belarus"
   },
   {
-    "city": "Hoery\u014fng",
+    "city": "Hoeryong",
     "state": "Hambuk",
     "country": "Korea, North"
   },
@@ -120,12 +120,17 @@ export const hoCities = [
     "country": "United States"
   },
   {
+    "city": "Hoa Thanh",
+    "state": "T\u00e2y Ninh",
+    "country": "Vietnam"
+  },
+  {
     "city": "Houma",
     "state": "Louisiana",
     "country": "United States"
   },
   {
-    "city": "Hoshang\u0101b\u0101d",
+    "city": "Hoshangabad",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -140,8 +145,23 @@ export const hoCities = [
     "country": "Uganda"
   },
   {
-    "city": "Honch\u014d",
+    "city": "Hoi An",
+    "state": "Qu\u1ea3ng Nam",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Hoa Binh",
+    "state": "H\u00f2a B\u00ecnh",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Honcho",
     "state": "Saitama",
+    "country": "Japan"
+  },
+  {
+    "city": "Hofu",
+    "state": "Yamaguchi",
     "country": "Japan"
   },
   {
@@ -160,9 +180,19 @@ export const hoCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Hoyacho",
+    "state": "T\u014dky\u014d",
+    "country": "Japan"
+  },
+  {
     "city": "Houzhuang",
     "state": "Shanxi",
     "country": "China"
+  },
+  {
+    "city": "Hong Ngu",
+    "state": "\u0110\u1ed3ng Th\u00e1p",
+    "country": "Vietnam"
   },
   {
     "city": "Hoover",
@@ -175,9 +205,14 @@ export const hoCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Hound\u00e9",
+    "city": "Hounde",
     "state": "Hauts-Bassins",
     "country": "Burkina Faso"
+  },
+  {
+    "city": "Hovsan",
+    "state": "Bak\u0131",
+    "country": "Azerbaijan"
   },
   {
     "city": "Honiara",
@@ -195,7 +230,7 @@ export const hoCities = [
     "country": "United States"
   },
   {
-    "city": "Honj\u014d",
+    "city": "Honjo",
     "state": "Saitama",
     "country": "Japan"
   },
@@ -295,7 +330,7 @@ export const hoCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Homn\u0101b\u0101d",
+    "city": "Homnabad",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -303,6 +338,11 @@ export const hoCities = [
     "city": "Hoskote",
     "state": "Karn\u0101taka",
     "country": "India"
+  },
+  {
+    "city": "Horsholm",
+    "state": "Hovedstaden",
+    "country": "Denmark"
   },
   {
     "city": "Hof",
@@ -350,6 +390,16 @@ export const hoCities = [
     "country": "United States"
   },
   {
+    "city": "Hodmezovasarhely",
+    "state": "H\u00f3dmez\u0151v\u00e1s\u00e1rhely",
+    "country": "Hungary"
+  },
+  {
+    "city": "Ho Nai",
+    "state": "\u0110\u1ed3ng Nai",
+    "country": "Vietnam"
+  },
+  {
     "city": "Hoboken",
     "state": "Flanders",
     "country": "Belgium"
@@ -390,7 +440,7 @@ export const hoCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Hoj\u0101i",
+    "city": "Hojai",
     "state": "Assam",
     "country": "India"
   },
@@ -450,7 +500,7 @@ export const hoCities = [
     "country": "United States"
   },
   {
-    "city": "Holb\u00e6k",
+    "city": "Holbaek",
     "state": "Sj\u00e6lland",
     "country": "Denmark"
   },
@@ -470,7 +520,12 @@ export const hoCities = [
     "country": "Belarus"
   },
   {
-    "city": "Honch\u014d",
+    "city": "Hoxter",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
+    "city": "Honcho",
     "state": "Hokkaid\u014d",
     "country": "Japan"
   },
@@ -535,7 +590,7 @@ export const hoCities = [
     "country": "Colombia"
   },
   {
-    "city": "Hodon\u00edn",
+    "city": "Hodonin",
     "state": "Jihomoravsk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -545,7 +600,7 @@ export const hoCities = [
     "country": "China"
   },
   {
-    "city": "Hon\u0101var",
+    "city": "Honavar",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -625,13 +680,23 @@ export const hoCities = [
     "country": "Belgium"
   },
   {
-    "city": "Honn\u0101li",
+    "city": "Horstel",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
+    "city": "Honnali",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
     "city": "Horten",
     "state": "Vestfold og Telemark",
+    "country": "Norway"
+  },
+  {
+    "city": "Hoyland",
+    "state": "Rogaland",
     "country": "Norway"
   },
   {
@@ -770,6 +835,16 @@ export const hoCities = [
     "country": "United States"
   },
   {
+    "city": "Honefoss",
+    "state": "Viken",
+    "country": "Norway"
+  },
+  {
+    "city": "Hovelhof",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
     "city": "Horodok",
     "state": "Khmelnytska Oblast",
     "country": "Ukraine"
@@ -788,6 +863,11 @@ export const hoCities = [
     "city": "Horodok",
     "state": "Lvivska Oblast",
     "country": "Ukraine"
+  },
+  {
+    "city": "Hoganas",
+    "state": "Sk\u00e5ne",
+    "country": "Sweden"
   },
   {
     "city": "Hongsi",
@@ -860,9 +940,19 @@ export const hoCities = [
     "country": "Japan"
   },
   {
+    "city": "Hochstadt an der Aisch",
+    "state": "Bavaria",
+    "country": "Germany"
+  },
+  {
     "city": "Hockessin",
     "state": "Delaware",
     "country": "United States"
+  },
+  {
+    "city": "Hoa Thuong",
+    "state": "Th\u00e1i Nguy\u00ean",
+    "country": "Vietnam"
   },
   {
     "city": "Horodyshche",
@@ -885,6 +975,11 @@ export const hoCities = [
     "country": "United States"
   },
   {
+    "city": "Hosbach",
+    "state": "Bavaria",
+    "country": "Germany"
+  },
+  {
     "city": "Horst",
     "state": "Limburg",
     "country": "Netherlands"
@@ -893,6 +988,11 @@ export const hoCities = [
     "city": "Holborn",
     "state": "Camden",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Hoor",
+    "state": "Sk\u00e5ne",
+    "country": "Sweden"
   },
   {
     "city": "Holly Hill",
@@ -935,6 +1035,11 @@ export const hoCities = [
     "country": "Denmark"
   },
   {
+    "city": "Hodatsushimizu",
+    "state": "Ishikawa",
+    "country": "Japan"
+  },
+  {
     "city": "Honeygo",
     "state": "Maryland",
     "country": "United States"
@@ -965,14 +1070,24 @@ export const hoCities = [
     "country": "Austria"
   },
   {
-    "city": "Hole\u0161ov",
+    "city": "Holesov",
     "state": "Zl\u00ednsk\u00fd Kraj",
     "country": "Czechia"
+  },
+  {
+    "city": "Hoenheim",
+    "state": "Grand Est",
+    "country": "France"
   },
   {
     "city": "Holyhead",
     "state": "Isle of Anglesey",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Hohenkirchen-Siegertsbrunn",
+    "state": "Bavaria",
+    "country": "Germany"
   },
   {
     "city": "Holbrook",
@@ -990,7 +1105,7 @@ export const hoCities = [
     "country": "Puerto Rico"
   },
   {
-    "city": "Hol\u00ed\u010d",
+    "city": "Holic",
     "state": "Trnava",
     "country": "Slovakia"
   },
@@ -1010,7 +1125,7 @@ export const hoCities = [
     "country": "United States"
   },
   {
-    "city": "Honw\u0101da",
+    "city": "Honwada",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1030,9 +1145,19 @@ export const hoCities = [
     "country": "India"
   },
   {
+    "city": "Hollviken",
+    "state": "Sk\u00e5ne",
+    "country": "Sweden"
+  },
+  {
     "city": "Hoogland",
     "state": "Utrecht",
     "country": "Netherlands"
+  },
+  {
+    "city": "Hoki",
+    "state": "Tottori",
+    "country": "Japan"
   },
   {
     "city": "Holbeach",
@@ -1043,6 +1168,11 @@ export const hoCities = [
     "city": "Hoek van Holland",
     "state": "Zuid-Holland",
     "country": "Netherlands"
+  },
+  {
+    "city": "Hochst im Odenwald",
+    "state": "Hesse",
+    "country": "Germany"
   },
   {
     "city": "Hopetown",
@@ -1095,7 +1225,7 @@ export const hoCities = [
     "country": "Belgium"
   },
   {
-    "city": "Honw\u0101da",
+    "city": "Honwada",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1115,6 +1245,11 @@ export const hoCities = [
     "country": "Switzerland"
   },
   {
+    "city": "Honow",
+    "state": "Brandenburg",
+    "country": "Germany"
+  },
+  {
     "city": "Hoeselt",
     "state": "Flanders",
     "country": "Belgium"
@@ -1125,12 +1260,22 @@ export const hoCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Hochberg",
+    "state": "Bavaria",
+    "country": "Germany"
+  },
+  {
     "city": "Hohenhameln",
     "state": "Lower Saxony",
     "country": "Germany"
   },
   {
-    "city": "Hohenm\u00f6lsen",
+    "city": "Hohr-Grenzhausen",
+    "state": "Rhineland-Palatinate",
+    "country": "Germany"
+  },
+  {
+    "city": "Hohenmolsen",
     "state": "Saxony-Anhalt",
     "country": "Germany"
   },
@@ -1143,6 +1288,11 @@ export const hoCities = [
     "city": "Honganur",
     "state": "Karn\u0101taka",
     "country": "India"
+  },
+  {
+    "city": "Horr-e Riahi",
+    "state": "Kh\u016bzest\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Hostivice",
@@ -1165,7 +1315,7 @@ export const hoCities = [
     "country": "United States"
   },
   {
-    "city": "Hos\u016bru",
+    "city": "Hosuru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1200,6 +1350,11 @@ export const hoCities = [
     "country": "Switzerland"
   },
   {
+    "city": "Hoshoot",
+    "state": "Bayan-\u00d6lgiy",
+    "country": "Mongolia"
+  },
+  {
     "city": "Hoquiam",
     "state": "Washington",
     "country": "United States"
@@ -1220,7 +1375,7 @@ export const hoCities = [
     "country": "India"
   },
   {
-    "city": "Ho\u0159ice",
+    "city": "Horice",
     "state": "Kr\u00e1lov\u00e9hradeck\u00fd Kraj",
     "country": "Czechia"
   },
@@ -1245,6 +1400,11 @@ export const hoCities = [
     "country": "New Zealand"
   },
   {
+    "city": "Hofn",
+    "state": "Sveitarf\u00e9lagi\u00f0 Hornafj\u00f6r\u00f0ur",
+    "country": "Iceland"
+  },
+  {
     "city": "Horjul",
     "state": "Horjul",
     "country": "Slovenia"
@@ -1255,7 +1415,7 @@ export const hoCities = [
     "country": "Papua New Guinea"
   },
   {
-    "city": "Hodo\u0161",
+    "city": "Hodos",
     "state": "Hodo\u0161",
     "country": "Slovenia"
   },

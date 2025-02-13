@@ -25,7 +25,7 @@ export const irCities = [
     "country": "United States"
   },
   {
-    "city": "Ir\u00e1kleio",
+    "city": "Irakleio",
     "state": "Kr\u00edti",
     "country": "Greece"
   },
@@ -45,12 +45,17 @@ export const irCities = [
     "country": "Philippines"
   },
   {
-    "city": "Irec\u00ea",
+    "city": "Iranshahr",
+    "state": "S\u012bst\u0101n va Bal\u016bchest\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Irece",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Ir\u00fan",
+    "city": "Irun",
     "state": "Basque Country",
     "country": "Spain"
   },
@@ -80,7 +85,7 @@ export const irCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Irinj\u0101lakuda",
+    "city": "Irinjalakuda",
     "state": "Kerala",
     "country": "India"
   },
@@ -90,7 +95,7 @@ export const irCities = [
     "country": "United States"
   },
   {
-    "city": "Ir\u00e1kleio",
+    "city": "Irakleio",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -120,7 +125,7 @@ export const irCities = [
     "country": "Brazil"
   },
   {
-    "city": "Irar\u00e1",
+    "city": "Irara",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -135,7 +140,7 @@ export const irCities = [
     "country": "Kyrgyzstan"
   },
   {
-    "city": "Irug\u016br",
+    "city": "Irugur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -145,7 +150,7 @@ export const irCities = [
     "country": "India"
   },
   {
-    "city": "Irau\u00e7uba",
+    "city": "Iraucuba",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -155,7 +160,7 @@ export const irCities = [
     "country": "Brazil"
   },
   {
-    "city": "Iracem\u00e1polis",
+    "city": "Iracemapolis",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -165,7 +170,7 @@ export const irCities = [
     "country": "India"
   },
   {
-    "city": "Ir\u00e1kleia",
+    "city": "Irakleia",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
@@ -190,7 +195,7 @@ export const irCities = [
     "country": "India"
   },
   {
-    "city": "Irikk\u016br",
+    "city": "Irikkur",
     "state": "Kerala",
     "country": "India"
   },
@@ -230,12 +235,12 @@ export const irCities = [
     "country": "United States"
   },
   {
-    "city": "Irine\u00f3polis",
+    "city": "Irineopolis",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
   {
-    "city": "Iraiy\u016br",
+    "city": "Iraiyur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -245,7 +250,7 @@ export const irCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Irungal\u016br",
+    "city": "Irungalur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },

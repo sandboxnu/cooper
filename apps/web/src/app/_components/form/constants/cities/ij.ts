@@ -5,7 +5,7 @@ export const ijCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Iju\u00ed",
+    "city": "Ijui",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },

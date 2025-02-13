@@ -25,12 +25,12 @@ export const kiCities = [
     "country": "Iraq"
   },
   {
-    "city": "Kibanseke Premi\u00e8re",
+    "city": "Kibanseke Premiere",
     "state": "Kinshasa",
     "country": "Congo (Kinshasa)"
   },
   {
-    "city": "Kitaky\u016bsh\u016b",
+    "city": "Kitakyushu",
     "state": "Fukuoka",
     "country": "Japan"
   },
@@ -105,6 +105,11 @@ export const kiCities = [
     "country": "Tanzania"
   },
   {
+    "city": "Kiziltepe",
+    "state": "Mardin",
+    "country": "Turkey"
+  },
+  {
     "city": "Kiel",
     "state": "Schleswig-Holstein",
     "country": "Germany"
@@ -120,12 +125,12 @@ export const kiCities = [
     "country": "India"
   },
   {
-    "city": "Kir\u0101tot",
+    "city": "Kiratot",
     "state": "Him\u0101chal Pradesh",
     "country": "India"
   },
   {
-    "city": "Kinh M\u00f4n",
+    "city": "Kinh Mon",
     "state": "H\u1ea3i D\u01b0\u01a1ng",
     "country": "Vietnam"
   },
@@ -133,6 +138,11 @@ export const kiCities = [
     "city": "Kishiwada",
     "state": "\u014csaka",
     "country": "Japan"
+  },
+  {
+    "city": "Kirikkale",
+    "state": "K\u0131r\u0131kkale",
+    "country": "Turkey"
   },
   {
     "city": "Kielce",
@@ -168,6 +178,11 @@ export const kiCities = [
     "city": "Kitenkela",
     "state": "Kajiado",
     "country": "Kenya"
+  },
+  {
+    "city": "Kirsehir",
+    "state": "K\u0131r\u015fehir",
+    "country": "Turkey"
   },
   {
     "city": "Kiambu",
@@ -215,6 +230,11 @@ export const kiCities = [
     "country": "Kenya"
   },
   {
+    "city": "Kirikhan",
+    "state": "Hatay",
+    "country": "Turkey"
+  },
+  {
     "city": "Kisii",
     "state": "Kisii",
     "country": "Kenya"
@@ -235,7 +255,7 @@ export const kiCities = [
     "country": "India"
   },
   {
-    "city": "Kiry\u016b",
+    "city": "Kiryu",
     "state": "Gunma",
     "country": "Japan"
   },
@@ -260,7 +280,7 @@ export const kiCities = [
     "country": "United States"
   },
   {
-    "city": "Kisel\u00ebvsk",
+    "city": "Kiselevsk",
     "state": "Kemerovskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -275,7 +295,7 @@ export const kiCities = [
     "country": "Japan"
   },
   {
-    "city": "Kitak\u014driyamach\u014d",
+    "city": "Kitakoriyamacho",
     "state": "Nara",
     "country": "Japan"
   },
@@ -288,6 +308,11 @@ export const kiCities = [
     "city": "Kimitsu",
     "state": "Chiba",
     "country": "Japan"
+  },
+  {
+    "city": "Kirklareli",
+    "state": "K\u0131rklareli",
+    "country": "Turkey"
   },
   {
     "city": "Kizugawa",
@@ -310,7 +335,7 @@ export const kiCities = [
     "country": "Japan"
   },
   {
-    "city": "Kird\u0101sah",
+    "city": "Kirdasah",
     "state": "Al J\u012bzah",
     "country": "Egypt"
   },
@@ -365,6 +390,11 @@ export const kiCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Kizilpinar",
+    "state": "Tekirda\u011f",
+    "country": "Turkey"
+  },
+  {
     "city": "Kitaotao",
     "state": "Bukidnon",
     "country": "Philippines"
@@ -375,7 +405,7 @@ export const kiCities = [
     "country": "Russia"
   },
   {
-    "city": "Kizhake Ch\u0101lakudi",
+    "city": "Kizhake Chalakudi",
     "state": "Kerala",
     "country": "India"
   },
@@ -390,12 +420,17 @@ export const kiCities = [
     "country": "Russia"
   },
   {
+    "city": "Kilvisharam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Kirkcaldy",
     "state": "Fife",
     "country": "United Kingdom"
   },
   {
-    "city": "Kifisi\u00e1",
+    "city": "Kifisia",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -450,7 +485,7 @@ export const kiCities = [
     "country": "Turkey"
   },
   {
-    "city": "Kikuy\u014d",
+    "city": "Kikuyo",
     "state": "Kumamoto",
     "country": "Japan"
   },
@@ -465,7 +500,7 @@ export const kiCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "King\u2019s Lynn",
+    "city": "King's Lynn",
     "state": "Norfolk",
     "country": "United Kingdom"
   },
@@ -500,6 +535,21 @@ export const kiCities = [
     "country": "Finland"
   },
   {
+    "city": "Kilakkarai",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Kish",
+    "state": "Hormozg\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Kirkagac",
+    "state": "Manisa",
+    "country": "Turkey"
+  },
+  {
     "city": "Kizilyurt",
     "state": "Dagestan",
     "country": "Russia"
@@ -510,7 +560,7 @@ export const kiCities = [
     "country": "India"
   },
   {
-    "city": "Kishmat Dhanb\u0101ri",
+    "city": "Kishmat Dhanbari",
     "state": "Dhaka",
     "country": "Bangladesh"
   },
@@ -530,7 +580,7 @@ export const kiCities = [
     "country": "United States"
   },
   {
-    "city": "Kita Chauh\u0101ttar",
+    "city": "Kita Chauhattar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -550,7 +600,7 @@ export const kiCities = [
     "country": "United States"
   },
   {
-    "city": "Kifr\u012b",
+    "city": "Kifri",
     "state": "Diy\u0101l\u00e1",
     "country": "Iraq"
   },
@@ -575,6 +625,11 @@ export const kiCities = [
     "country": "Tanzania"
   },
   {
+    "city": "Kinik",
+    "state": "\u0130zmir",
+    "country": "Turkey"
+  },
+  {
     "city": "Kitaakita",
     "state": "Akita",
     "country": "Japan"
@@ -590,7 +645,7 @@ export const kiCities = [
     "country": "Kenya"
   },
   {
-    "city": "Kiskunf\u00e9legyh\u00e1za",
+    "city": "Kiskunfelegyhaza",
     "state": "B\u00e1cs-Kiskun",
     "country": "Hungary"
   },
@@ -600,7 +655,7 @@ export const kiCities = [
     "country": "Serbia"
   },
   {
-    "city": "Kizhakk\u014dtt",
+    "city": "Kizhakkott",
     "state": "Kerala",
     "country": "India"
   },
@@ -623,6 +678,11 @@ export const kiCities = [
     "city": "Kimbe",
     "state": "West New Britain",
     "country": "Papua New Guinea"
+  },
+  {
+    "city": "Kizilcahamam",
+    "state": "Ankara",
+    "country": "Turkey"
   },
   {
     "city": "Kiruna",
@@ -665,6 +725,11 @@ export const kiCities = [
     "country": "Russia"
   },
   {
+    "city": "Kiranur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Kirkby in Ashfield",
     "state": "Nottinghamshire",
     "country": "United Kingdom"
@@ -700,7 +765,7 @@ export const kiCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Ki\u00ean L\u01b0\u01a1ng",
+    "city": "Kien Luong",
     "state": "Ki\u1ebfn Giang",
     "country": "Vietnam"
   },
@@ -725,7 +790,7 @@ export const kiCities = [
     "country": "Germany"
   },
   {
-    "city": "Kilk\u00eds",
+    "city": "Kilkis",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
@@ -765,7 +830,7 @@ export const kiCities = [
     "country": "Uganda"
   },
   {
-    "city": "Kizhakkeman\u0101d",
+    "city": "Kizhakkemanad",
     "state": "Kerala",
     "country": "India"
   },
@@ -790,7 +855,7 @@ export const kiCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Kizh\u0101tt\u016br",
+    "city": "Kizhattur",
     "state": "Kerala",
     "country": "India"
   },
@@ -843,6 +908,11 @@ export const kiCities = [
     "city": "Kinzau-Vuete",
     "state": "Kongo Central",
     "country": "Congo (Kinshasa)"
+  },
+  {
+    "city": "Kilmangalam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Kingsland",
@@ -905,7 +975,7 @@ export const kiCities = [
     "country": "Japan"
   },
   {
-    "city": "Kinel\u2019-Cherkassy",
+    "city": "Kinel'-Cherkassy",
     "state": "Samarskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -955,17 +1025,17 @@ export const kiCities = [
     "country": "Germany"
   },
   {
-    "city": "Kitt\u016br",
+    "city": "Kittur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Kizh\u016br",
+    "city": "Kizhur",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Kishund\u0101spur",
+    "city": "Kishundaspur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -995,7 +1065,7 @@ export const kiCities = [
     "country": "Mali"
   },
   {
-    "city": "Kisv\u00e1rda",
+    "city": "Kisvarda",
     "state": "Szabolcs-Szatm\u00e1r-Bereg",
     "country": "Hungary"
   },
@@ -1025,7 +1095,7 @@ export const kiCities = [
     "country": "Japan"
   },
   {
-    "city": "Kizhariy\u016br",
+    "city": "Kizhariyur",
     "state": "Kerala",
     "country": "India"
   },
@@ -1033,6 +1103,11 @@ export const kiCities = [
     "city": "Kidbrooke",
     "state": "Greenwich",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Kilattingal",
+    "state": "Kerala",
+    "country": "India"
   },
   {
     "city": "Kisanuki",
@@ -1045,7 +1120,12 @@ export const kiCities = [
     "country": "Philippines"
   },
   {
-    "city": "Kishanpur Ratw\u0101ra",
+    "city": "Kiashahr",
+    "state": "G\u012bl\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Kishanpur Ratwara",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1095,7 +1175,7 @@ export const kiCities = [
     "country": "Finland"
   },
   {
-    "city": "Kisk\u0151r\u00f6s",
+    "city": "Kiskoros",
     "state": "B\u00e1cs-Kiskun",
     "country": "Hungary"
   },
@@ -1135,7 +1215,7 @@ export const kiCities = [
     "country": "United States"
   },
   {
-    "city": "Kirchheim bei M\u00fcnchen",
+    "city": "Kirchheim bei Munchen",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -1163,6 +1243,11 @@ export const kiCities = [
     "city": "Kinkala",
     "state": "Pool",
     "country": "Congo (Brazzaville)"
+  },
+  {
+    "city": "Kirippatti",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Kirikera",
@@ -1240,6 +1325,11 @@ export const kiCities = [
     "country": "Russia"
   },
   {
+    "city": "Kilkottai",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Kisara",
     "state": "Telang\u0101na",
     "country": "India"
@@ -1250,7 +1340,7 @@ export const kiCities = [
     "country": "Uganda"
   },
   {
-    "city": "Kiratpur R\u0101j\u0101r\u0101m",
+    "city": "Kiratpur Rajaram",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1260,12 +1350,17 @@ export const kiCities = [
     "country": "Germany"
   },
   {
+    "city": "Kilrajakularaman",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Kingri",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Kivist\u00f6",
+    "city": "Kivisto",
     "state": "Uusimaa",
     "country": "Finland"
   },
@@ -1290,17 +1385,17 @@ export const kiCities = [
     "country": "Congo (Kinshasa)"
   },
   {
-    "city": "Kie\u0142cz\u00f3w",
+    "city": "Kielczow",
     "state": "Dolno\u015bl\u0105skie",
     "country": "Poland"
   },
   {
-    "city": "Ki\u1ebfn Giang",
+    "city": "Kien Giang",
     "state": "Qu\u1ea3ng B\u00ecnh",
     "country": "Vietnam"
   },
   {
-    "city": "Kibich\u016b\u014d",
+    "city": "Kibichuo",
     "state": "Okayama",
     "country": "Japan"
   },
@@ -1315,7 +1410,7 @@ export const kiCities = [
     "country": "Australia"
   },
   {
-    "city": "Kih\u014d",
+    "city": "Kiho",
     "state": "Mie",
     "country": "Japan"
   },
@@ -1335,9 +1430,19 @@ export const kiCities = [
     "country": "Germany"
   },
   {
+    "city": "Kilminnal",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Kirchzarten",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
+  },
+  {
+    "city": "Kiramangalam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Kilkunda",
@@ -1365,7 +1470,7 @@ export const kiCities = [
     "country": "Senegal"
   },
   {
-    "city": "Kis\u00fajsz\u00e1ll\u00e1s",
+    "city": "Kisujszallas",
     "state": "J\u00e1sz-Nagykun-Szolnok",
     "country": "Hungary"
   },
@@ -1373,6 +1478,11 @@ export const kiCities = [
     "city": "Kirundo",
     "state": "Kirundo",
     "country": "Burundi"
+  },
+  {
+    "city": "Kil Perambalur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Kingaroy",
@@ -1390,7 +1500,7 @@ export const kiCities = [
     "country": "India"
   },
   {
-    "city": "Kin\u0101l\u016br",
+    "city": "Kinalur",
     "state": "Kerala",
     "country": "India"
   },
@@ -1400,13 +1510,18 @@ export const kiCities = [
     "country": "United States"
   },
   {
-    "city": "Ki\u00e1to",
+    "city": "Kiato",
     "state": "Pelop\u00f3nnisos",
     "country": "Greece"
   },
   {
-    "city": "Kinh\u0101lu",
+    "city": "Kinhalu",
     "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Kil Valur",
+    "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
@@ -1425,12 +1540,12 @@ export const kiCities = [
     "country": "Finland"
   },
   {
-    "city": "Kishanp\u016bra Kal\u0101n",
+    "city": "Kishanpura Kalan",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Kirlamp\u016bdi",
+    "city": "Kirlampudi",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1440,12 +1555,12 @@ export const kiCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Kirang\u016br",
+    "city": "Kirangur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Ki\u00dflegg",
+    "city": "Kisslegg",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
@@ -1455,7 +1570,7 @@ export const kiCities = [
     "country": "India"
   },
   {
-    "city": "Kiskunlach\u00e1za",
+    "city": "Kiskunlachaza",
     "state": "Pest",
     "country": "Hungary"
   },
@@ -1470,12 +1585,12 @@ export const kiCities = [
     "country": "Russia"
   },
   {
-    "city": "Kil\u0101nkundal",
+    "city": "Kilankundal",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Kishtw\u0101r",
+    "city": "Kishtwar",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
@@ -1485,7 +1600,7 @@ export const kiCities = [
     "country": "Switzerland"
   },
   {
-    "city": "Kirr\u0101yach",
+    "city": "Kirrayach",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1498,6 +1613,16 @@ export const kiCities = [
     "city": "Kilcock",
     "state": "Kildare",
     "country": "Ireland"
+  },
+  {
+    "city": "Kilakkurichchi",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Kizilcasar",
+    "state": "Ankara",
+    "country": "Turkey"
   },
   {
     "city": "Kirk of Shotts",
@@ -1520,7 +1645,7 @@ export const kiCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Ki\u010devo",
+    "city": "Kicevo",
     "state": "Ki\u010devo",
     "country": "North Macedonia"
   },
@@ -1540,7 +1665,7 @@ export const kiCities = [
     "country": "Australia"
   },
   {
-    "city": "Kishkenek\u00f6l",
+    "city": "Kishkenekol",
     "state": "North Kazakhstan",
     "country": "Kazakhstan"
   },
@@ -1570,7 +1695,7 @@ export const kiCities = [
     "country": "Australia"
   },
   {
-    "city": "Kidri\u010devo",
+    "city": "Kidricevo",
     "state": "Kidri\u010devo",
     "country": "Slovenia"
   },

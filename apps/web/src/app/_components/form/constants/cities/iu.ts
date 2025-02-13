@@ -1,6 +1,11 @@
 export const iuCities = [
   {
-    "city": "Iui\u00fa",
+    "city": "Iuna",
+    "state": "Esp\u00edrito Santo",
+    "country": "Brazil"
+  },
+  {
+    "city": "Iuiu",
     "state": "Bahia",
     "country": "Brazil"
   }

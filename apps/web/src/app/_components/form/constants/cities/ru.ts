@@ -1,6 +1,6 @@
 export const ruCities = [
   {
-    "city": "Rui\u2019an",
+    "city": "Rui'an",
     "state": "Zhejiang",
     "country": "China"
   },
@@ -40,7 +40,7 @@ export const ruCities = [
     "country": "Russia"
   },
   {
-    "city": "Ruda \u015al\u0105ska",
+    "city": "Ruda Slaska",
     "state": "\u015al\u0105skie",
     "country": "Poland"
   },
@@ -60,7 +60,7 @@ export const ruCities = [
     "country": "Venezuela"
   },
   {
-    "city": "Rub\u00ed",
+    "city": "Rubi",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -83,6 +83,11 @@ export const ruCities = [
     "city": "Rugby",
     "state": "Warwickshire",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Russelsheim",
+    "state": "Hesse",
+    "country": "Germany"
   },
   {
     "city": "Rundu",
@@ -145,6 +150,11 @@ export const ruCities = [
     "country": "Rwanda"
   },
   {
+    "city": "Rudsar",
+    "state": "G\u012bl\u0101n",
+    "country": "Iran"
+  },
+  {
     "city": "Rusape",
     "state": "Manicaland",
     "country": "Zimbabwe"
@@ -158,6 +168,11 @@ export const ruCities = [
     "city": "Rumonge",
     "state": "Rumonge",
     "country": "Burundi"
+  },
+  {
+    "city": "Rudarpur",
+    "state": "Uttar Pradesh",
+    "country": "India"
   },
   {
     "city": "Rubino",
@@ -205,12 +220,17 @@ export const ruCities = [
     "country": "United States"
   },
   {
+    "city": "Rudehen",
+    "state": "Tehr\u0101n",
+    "country": "Iran"
+  },
+  {
     "city": "Ruy Barbosa",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Ru\u017eomberok",
+    "city": "Ruzomberok",
     "state": "\u017dilina",
     "country": "Slovakia"
   },
@@ -320,6 +340,11 @@ export const ruCities = [
     "country": "United States"
   },
   {
+    "city": "Rupbas",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
     "city": "Rumst",
     "state": "Flanders",
     "country": "Belgium"
@@ -335,7 +360,7 @@ export const ruCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Rukh\u0101e",
+    "city": "Rukhae",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -345,7 +370,7 @@ export const ruCities = [
     "country": "Russia"
   },
   {
-    "city": "Rudr\u016br",
+    "city": "Rudrur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -353,6 +378,11 @@ export const ruCities = [
     "city": "Russi",
     "state": "Emilia-Romagna",
     "country": "Italy"
+  },
+  {
+    "city": "Ruti",
+    "state": "Z\u00fcrich",
+    "country": "Switzerland"
   },
   {
     "city": "Rutherford",
@@ -365,7 +395,7 @@ export const ruCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Rudr\u0101ngi",
+    "city": "Rudrangi",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -382,6 +412,11 @@ export const ruCities = [
   {
     "city": "Rutesheim",
     "state": "Baden-W\u00fcrttemberg",
+    "country": "Germany"
+  },
+  {
+    "city": "Ruthen",
+    "state": "North Rhine-Westphalia",
     "country": "Germany"
   },
   {
@@ -420,9 +455,14 @@ export const ruCities = [
     "country": "Brazil"
   },
   {
-    "city": "Rup\u0101na",
+    "city": "Rupana",
     "state": "Punjab",
     "country": "India"
+  },
+  {
+    "city": "Rudesheim am Rhein",
+    "state": "Hesse",
+    "country": "Germany"
   },
   {
     "city": "Ruoqiang",
@@ -455,7 +495,7 @@ export const ruCities = [
     "country": "Austria"
   },
   {
-    "city": "Rudrapray\u0101g",
+    "city": "Rudraprayag",
     "state": "Uttar\u0101khand",
     "country": "India"
   },
@@ -495,7 +535,7 @@ export const ruCities = [
     "country": "Burundi"
   },
   {
-    "city": "Ru\u0161e",
+    "city": "Ruse",
     "state": "Ru\u0161e",
     "country": "Slovenia"
   },

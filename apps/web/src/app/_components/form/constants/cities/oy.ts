@@ -40,9 +40,19 @@ export const oyCities = [
     "country": "Japan"
   },
   {
+    "city": "Oyodo",
+    "state": "Nara",
+    "country": "Japan"
+  },
+  {
     "city": "Oyten",
     "state": "Lower Saxony",
     "country": "Germany"
+  },
+  {
+    "city": "Oyamazaki",
+    "state": "Ky\u014dto",
+    "country": "Japan"
   },
   {
     "city": "Oyam",
@@ -50,7 +60,7 @@ export const oyCities = [
     "country": "Uganda"
   },
   {
-    "city": "Oy\u00f3n",
+    "city": "Oyon",
     "state": "Lima",
     "country": "Peru"
   },

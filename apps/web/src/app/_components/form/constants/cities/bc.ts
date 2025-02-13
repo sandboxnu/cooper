@@ -1,6 +1,6 @@
 export const bcCities = [
   {
-    "city": "Bcharr\u00e9",
+    "city": "Bcharre",
     "state": "Liban-Nord",
     "country": "Lebanon"
   }

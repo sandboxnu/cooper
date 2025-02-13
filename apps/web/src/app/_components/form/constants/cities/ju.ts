@@ -1,6 +1,6 @@
 export const juCities = [
   {
-    "city": "Ju\u00e1rez",
+    "city": "Juarez",
     "state": "Chihuahua",
     "country": "Mexico"
   },
@@ -20,9 +20,14 @@ export const juCities = [
     "country": "South Sudan"
   },
   {
-    "city": "Jundia\u00ed",
+    "city": "Jundiai",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
+  },
+  {
+    "city": "Junagadh",
+    "state": "Gujar\u0101t",
+    "country": "India"
   },
   {
     "city": "Juazeiro do Norte",
@@ -33,6 +38,11 @@ export const juCities = [
     "city": "Juliaca",
     "state": "Puno",
     "country": "Peru"
+  },
+  {
+    "city": "Junagarh",
+    "state": "Odisha",
+    "country": "India"
   },
   {
     "city": "Juazeiro",
@@ -60,12 +70,12 @@ export const juCities = [
     "country": "China"
   },
   {
-    "city": "Jumri Tilaiy\u0101",
+    "city": "Jumri Tilaiya",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
   {
-    "city": "Jun\u00edn",
+    "city": "Junin",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -75,12 +85,12 @@ export const juCities = [
     "country": "Mexico"
   },
   {
-    "city": "Juchit\u00e1n de Zaragoza",
+    "city": "Juchitan de Zaragoza",
     "state": "Oaxaca",
     "country": "Mexico"
   },
   {
-    "city": "Juana D\u00edaz",
+    "city": "Juana Diaz",
     "state": "Puerto Rico",
     "country": "Puerto Rico"
   },
@@ -90,7 +100,7 @@ export const juCities = [
     "country": "United States"
   },
   {
-    "city": "Juanju\u00ed",
+    "city": "Juanjui",
     "state": "San Mart\u00edn",
     "country": "Peru"
   },
@@ -100,12 +110,17 @@ export const juCities = [
     "country": "Nicaragua"
   },
   {
+    "city": "Jurmala",
+    "state": "J\u016brmala",
+    "country": "Latvia"
+  },
+  {
     "city": "Juruti",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Ju\u00edna",
+    "city": "Juina",
     "state": "Mato Grosso",
     "country": "Brazil"
   },
@@ -115,7 +130,7 @@ export const juCities = [
     "country": "India"
   },
   {
-    "city": "Juan Rodr\u00edguez Clara",
+    "city": "Juan Rodriguez Clara",
     "state": "Veracruz",
     "country": "Mexico"
   },
@@ -130,12 +145,17 @@ export const juCities = [
     "country": "Brazil"
   },
   {
+    "city": "Julich",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
     "city": "Juneau",
     "state": "Alaska",
     "country": "United States"
   },
   {
-    "city": "Juanacatl\u00e1n",
+    "city": "Juanacatlan",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -170,7 +190,7 @@ export const juCities = [
     "country": "Spain"
   },
   {
-    "city": "Juta\u00ed",
+    "city": "Jutai",
     "state": "Amazonas",
     "country": "Brazil"
   },
@@ -180,12 +200,17 @@ export const juCities = [
     "country": "Brazil"
   },
   {
-    "city": "Juay\u00faa",
+    "city": "Juayua",
     "state": "Sonsonate",
     "country": "El Salvador"
   },
   {
-    "city": "Juc\u00e1s",
+    "city": "Juchen",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
+    "city": "Jucas",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -200,12 +225,12 @@ export const juCities = [
     "country": "United States"
   },
   {
-    "city": "Junn\u0101rdev",
+    "city": "Junnardev",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Jugi\u0101l",
+    "city": "Jugial",
     "state": "Punjab",
     "country": "India"
   },
@@ -215,7 +240,7 @@ export const juCities = [
     "country": "Peru"
   },
   {
-    "city": "Junqueir\u00f3polis",
+    "city": "Junqueiropolis",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -225,7 +250,7 @@ export const juCities = [
     "country": "Brazil"
   },
   {
-    "city": "Juqui\u00e1",
+    "city": "Juquia",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -238,6 +263,11 @@ export const juCities = [
     "city": "Juvisy-sur-Orge",
     "state": "\u00cele-de-France",
     "country": "France"
+  },
+  {
+    "city": "Julio de Castilhos",
+    "state": "Rio Grande do Sul",
+    "country": "Brazil"
   },
   {
     "city": "Jucurutu",
@@ -260,7 +290,7 @@ export const juCities = [
     "country": "Brazil"
   },
   {
-    "city": "Jur\u0101wanpur Kar\u0101ri",
+    "city": "Jurawanpur Karari",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -305,7 +335,7 @@ export const juCities = [
     "country": "Brazil"
   },
   {
-    "city": "Jucuar\u00e1n",
+    "city": "Jucuaran",
     "state": "Usulut\u00e1n",
     "country": "El Salvador"
   },
@@ -313,6 +343,11 @@ export const juCities = [
     "city": "Jupiter Farms",
     "state": "Florida",
     "country": "United States"
+  },
+  {
+    "city": "Jula Buzarg",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
   },
   {
     "city": "Juan de Herrera",
@@ -330,9 +365,14 @@ export const juCities = [
     "country": "France"
   },
   {
-    "city": "Jun\u00edn de los Andes",
+    "city": "Junin de los Andes",
     "state": "Neuqu\u00e9n",
     "country": "Argentina"
+  },
+  {
+    "city": "Juterbog",
+    "state": "Brandenburg",
+    "country": "Germany"
   },
   {
     "city": "Justice",
@@ -360,12 +400,12 @@ export const juCities = [
     "country": "Brazil"
   },
   {
-    "city": "Jun\u00edn",
+    "city": "Junin",
     "state": "Jun\u00edn",
     "country": "Peru"
   },
   {
-    "city": "Juru\u00e1",
+    "city": "Jurua",
     "state": "Amazonas",
     "country": "Brazil"
   },
@@ -395,7 +435,7 @@ export const juCities = [
     "country": "Brazil"
   },
   {
-    "city": "Jucuru\u00e7u",
+    "city": "Jucurucu",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -405,7 +445,12 @@ export const juCities = [
     "country": "Belgium"
   },
   {
-    "city": "Juml\u0101",
+    "city": "Juraqan",
+    "state": "Hamad\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Jumla",
     "state": NaN,
     "country": "Nepal"
   },
@@ -415,12 +460,12 @@ export const juCities = [
     "country": "Puerto Rico"
   },
   {
-    "city": "Jun\u00edn",
+    "city": "Junin",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
   {
-    "city": "Jujh\u0101rpur",
+    "city": "Jujharpur",
     "state": "West Bengal",
     "country": "India"
   },
@@ -430,12 +475,12 @@ export const juCities = [
     "country": "Kosovo"
   },
   {
-    "city": "Jurad\u00f3",
+    "city": "Jurado",
     "state": "Choc\u00f3",
     "country": "Colombia"
   },
   {
-    "city": "Jur\u0161inci",
+    "city": "Jursinci",
     "state": "Jur\u0161inci",
     "country": "Slovenia"
   },

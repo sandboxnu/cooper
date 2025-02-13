@@ -1,6 +1,6 @@
 export const hjCities = [
   {
-    "city": "Hj\u00f8rring",
+    "city": "Hjorring",
     "state": "Nordjylland",
     "country": "Denmark"
   }

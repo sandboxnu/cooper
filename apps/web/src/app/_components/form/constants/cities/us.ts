@@ -5,9 +5,19 @@ export const usCities = [
     "country": "Colombia"
   },
   {
+    "city": "Usak",
+    "state": "U\u015fak",
+    "country": "Turkey"
+  },
+  {
     "city": "Ussuriysk",
     "state": "Primorskiy Kray",
     "country": "Russia"
+  },
+  {
+    "city": "Usti nad Labem",
+    "state": "\u00dasteck\u00fd Kraj",
+    "country": "Czechia"
   },
   {
     "city": "Ushiku",
@@ -15,12 +25,12 @@ export const usCities = [
     "country": "Japan"
   },
   {
-    "city": "Ust\u2019-Ilimsk",
+    "city": "Ust'-Ilimsk",
     "state": "Irkutskaya Oblast\u2019",
     "country": "Russia"
   },
   {
-    "city": "Usol\u2019ye-Sibirskoye",
+    "city": "Usol'ye-Sibirskoye",
     "state": "Irkutskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -30,12 +40,12 @@ export const usCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Uspant\u00e1n",
+    "city": "Uspantan",
     "state": "Quich\u00e9",
     "country": "Guatemala"
   },
   {
-    "city": "Usulut\u00e1n",
+    "city": "Usulutan",
     "state": "Usulut\u00e1n",
     "country": "El Salvador"
   },
@@ -55,7 +65,7 @@ export const usCities = [
     "country": "Japan"
   },
   {
-    "city": "Ust\u2019-Kut",
+    "city": "Ust'-Kut",
     "state": "Irkutskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -80,9 +90,14 @@ export const usCities = [
     "country": "India"
   },
   {
-    "city": "Ust\u2019-Dzheguta",
+    "city": "Ust'-Dzheguta",
     "state": "Karachayevo-Cherkesiya",
     "country": "Russia"
+  },
+  {
+    "city": "Ushtobe",
+    "state": "Zhetis\u016b",
+    "country": "Kazakhstan"
   },
   {
     "city": "Usia",
@@ -90,7 +105,7 @@ export const usCities = [
     "country": "India"
   },
   {
-    "city": "Ust\u2019-Katav",
+    "city": "Ust'-Katav",
     "state": "Chelyabinskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -100,7 +115,7 @@ export const usCities = [
     "country": "Russia"
   },
   {
-    "city": "Usm\u0101npur",
+    "city": "Usmanpur",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -110,9 +125,14 @@ export const usCities = [
     "country": "India"
   },
   {
-    "city": "Ustro\u0144",
+    "city": "Ustron",
     "state": "\u015al\u0105skie",
     "country": "Poland"
+  },
+  {
+    "city": "Usharal",
+    "state": "Zhetis\u016b",
+    "country": "Kazakhstan"
   },
   {
     "city": "Usuda",
@@ -125,7 +145,7 @@ export const usCities = [
     "country": "Germany"
   },
   {
-    "city": "Ust\u2019-Ordynskiy",
+    "city": "Ust'-Ordynskiy",
     "state": "Irkutskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -140,17 +160,22 @@ export const usCities = [
     "country": "Germany"
   },
   {
-    "city": "Usumatl\u00e1n",
+    "city": "Usti nad Orlici",
+    "state": "Pardubick\u00fd Kraj",
+    "country": "Czechia"
+  },
+  {
+    "city": "Usumatlan",
     "state": "Zacapa",
     "country": "Guatemala"
   },
   {
-    "city": "Usm\u0101npur",
+    "city": "Usmanpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Usupp\u016br",
+    "city": "Usuppur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -170,7 +195,7 @@ export const usCities = [
     "country": "France"
   },
   {
-    "city": "Ust\u2019-Nera",
+    "city": "Ust'-Nera",
     "state": "Sakha (Yakutiya)",
     "country": "Russia"
   },
@@ -195,12 +220,12 @@ export const usCities = [
     "country": "Russia"
   },
   {
-    "city": "Usiacur\u00ed",
+    "city": "Usiacuri",
     "state": "Atl\u00e1ntico",
     "country": "Colombia"
   },
   {
-    "city": "Ust\u2019-Kamchatsk",
+    "city": "Ust'-Kamchatsk",
     "state": "Kamchatskiy Kray",
     "country": "Russia"
   },
@@ -210,22 +235,22 @@ export const usCities = [
     "country": "Argentina"
   },
   {
-    "city": "Ust\u2019-Maya",
+    "city": "Ust'-Maya",
     "state": "Sakha (Yakutiya)",
     "country": "Russia"
   },
   {
-    "city": "Ust\u2019-Kuyga",
+    "city": "Ust'-Kuyga",
     "state": "Sakha (Yakutiya)",
     "country": "Russia"
   },
   {
-    "city": "Ust\u2019-Nyukzha",
+    "city": "Ust'-Nyukzha",
     "state": "Amurskaya Oblast\u2019",
     "country": "Russia"
   },
   {
-    "city": "Ust\u2019-Olen\u00ebk",
+    "city": "Ust'-Olenek",
     "state": "Sakha (Yakutiya)",
     "country": "Russia"
   },

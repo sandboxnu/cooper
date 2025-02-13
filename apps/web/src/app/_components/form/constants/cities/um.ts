@@ -20,7 +20,7 @@ export const umCities = [
     "country": "Brazil"
   },
   {
-    "city": "Umm Qa\u015fr",
+    "city": "Umm Qasr",
     "state": "Al Ba\u015frah",
     "country": "Iraq"
   },
@@ -35,7 +35,7 @@ export const umCities = [
     "country": "Philippines"
   },
   {
-    "city": "Ume\u00e5",
+    "city": "Umea",
     "state": "V\u00e4sterbotten",
     "country": "Sweden"
   },
@@ -55,12 +55,12 @@ export const umCities = [
     "country": "Sudan"
   },
   {
-    "city": "Umm el Fa\u1e25m",
+    "city": "Umm el Fahm",
     "state": "Haifa",
     "country": "Israel"
   },
   {
-    "city": "Umm Qur\u016bn",
+    "city": "Umm Qurun",
     "state": "Ar Rayy\u0101n",
     "country": "Qatar"
   },
@@ -70,7 +70,7 @@ export const umCities = [
     "country": "India"
   },
   {
-    "city": "Um\u00e1n",
+    "city": "Uman",
     "state": "Yucat\u00e1n",
     "country": "Mexico"
   },
@@ -110,7 +110,7 @@ export const umCities = [
     "country": "India"
   },
   {
-    "city": "Umarg\u0101m",
+    "city": "Umargam",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -125,12 +125,12 @@ export const umCities = [
     "country": "South Africa"
   },
   {
-    "city": "Umba\u00faba",
+    "city": "Umbauba",
     "state": "Sergipe",
     "country": "Brazil"
   },
   {
-    "city": "Umr\u0101pur",
+    "city": "Umrapur",
     "state": "West Bengal",
     "country": "India"
   },
@@ -140,7 +140,7 @@ export const umCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ummann\u016br",
+    "city": "Ummannur",
     "state": "Kerala",
     "country": "India"
   },
@@ -180,6 +180,11 @@ export const umCities = [
     "country": "India"
   },
   {
+    "city": "Umbita",
+    "state": "Boyac\u00e1",
+    "country": "Colombia"
+  },
+  {
     "city": "Umarizal",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
@@ -205,12 +210,12 @@ export const umCities = [
     "country": "Russia"
   },
   {
-    "city": "Umm al \u2018Ab\u012bd",
+    "city": "Umm al `Abid",
     "state": "W\u0101d\u012b ash Sh\u0101\u0163i\u2019",
     "country": "Libya"
   },
   {
-    "city": "Umm \u015eal\u0101l \u2018Al\u012b",
+    "city": "Umm Salal `Ali",
     "state": "Umm \u015eal\u0101l",
     "country": "Qatar"
   }

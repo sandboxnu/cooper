@@ -45,12 +45,12 @@ export const tyCities = [
     "country": "Russia"
   },
   {
-    "city": "Ty\u00e8l\u00e8",
+    "city": "Tyele",
     "state": "Koulikoro",
     "country": "Mali"
   },
   {
-    "city": "Ty\u0101gadurgam",
+    "city": "Tyagadurgam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -65,12 +65,17 @@ export const tyCities = [
     "country": "United States"
   },
   {
-    "city": "Tysv\u00e6r",
+    "city": "Tysvaer",
     "state": "Rogaland",
     "country": "Norway"
   },
   {
-    "city": "Ty\u0101magondal",
+    "city": "Tyrnavos",
+    "state": "Thessal\u00eda",
+    "country": "Greece"
+  },
+  {
+    "city": "Tyamagondal",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -80,7 +85,7 @@ export const tyCities = [
     "country": "Russia"
   },
   {
-    "city": "Tymp\u00e1ki",
+    "city": "Tympaki",
     "state": "Kr\u00edti",
     "country": "Greece"
   },

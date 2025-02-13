@@ -45,7 +45,7 @@ export const beCities = [
     "country": "China"
   },
   {
-    "city": "Bel\u00e9m",
+    "city": "Belem",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -150,7 +150,7 @@ export const beCities = [
     "country": "Russia"
   },
   {
-    "city": "Beylikd\u00fcz\u00fc",
+    "city": "Beylikduzu",
     "state": "\u0130stanbul",
     "country": "Turkey"
   },
@@ -195,9 +195,14 @@ export const beCities = [
     "country": "India"
   },
   {
-    "city": "Ben\u00e9 Beraq",
+    "city": "Bene Beraq",
     "state": "Tel Aviv",
     "country": "Israel"
+  },
+  {
+    "city": "Beni Mellal",
+    "state": "B\u00e9ni Mellal-Kh\u00e9nifra",
+    "country": "Morocco"
   },
   {
     "city": "Bethelsdorp",
@@ -210,8 +215,13 @@ export const beCities = [
     "country": "Argentina"
   },
   {
-    "city": "Beja\u00efa",
+    "city": "Bejaia",
     "state": "Beja\u00efa",
+    "country": "Algeria"
+  },
+  {
+    "city": "Bechar",
+    "state": "B\u00e9char",
     "country": "Algeria"
   },
   {
@@ -220,12 +230,12 @@ export const beCities = [
     "country": "South Africa"
   },
   {
-    "city": "Bet\u016bl Baz\u0101r",
+    "city": "Betul Bazar",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Be\u0101war",
+    "city": "Beawar",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -255,12 +265,17 @@ export const beCities = [
     "country": "United States"
   },
   {
-    "city": "Bento Gon\u00e7alves",
+    "city": "Ben Tre",
+    "state": "B\u1ebfn Tre",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Bento Goncalves",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
   {
-    "city": "Behbah\u0101n",
+    "city": "Behbahan",
     "state": "Kh\u016bzest\u0101n",
     "country": "Iran"
   },
@@ -275,7 +290,7 @@ export const beCities = [
     "country": "Italy"
   },
   {
-    "city": "Besan\u00e7on",
+    "city": "Besancon",
     "state": "Bourgogne-Franche-Comt\u00e9",
     "country": "France"
   },
@@ -303,6 +318,11 @@ export const beCities = [
     "city": "Bernal",
     "state": "Buenos Aires",
     "country": "Argentina"
+  },
+  {
+    "city": "Beja",
+    "state": "B\u00e9ja",
+    "country": "Tunisia"
   },
   {
     "city": "Berkane",
@@ -370,6 +390,11 @@ export const beCities = [
     "country": "Uzbekistan"
   },
   {
+    "city": "Beziers",
+    "state": "Occitanie",
+    "country": "France"
+  },
+  {
     "city": "Ben Gardane",
     "state": "M\u00e9denine",
     "country": "Tunisia"
@@ -390,7 +415,7 @@ export const beCities = [
     "country": "Brazil"
   },
   {
-    "city": "Berb\u00e9rati",
+    "city": "Berberati",
     "state": "Mamb\u00e9r\u00e9-Kad\u00e9\u00ef",
     "country": "Central African Republic"
   },
@@ -405,7 +430,7 @@ export const beCities = [
     "country": "Moldova"
   },
   {
-    "city": "Benalm\u00e1dena",
+    "city": "Benalmadena",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -415,7 +440,7 @@ export const beCities = [
     "country": "Canada"
   },
   {
-    "city": "Bey\u015fehir",
+    "city": "Beysehir",
     "state": "Konya",
     "country": "Turkey"
   },
@@ -520,7 +545,7 @@ export const beCities = [
     "country": "South Africa"
   },
   {
-    "city": "Bellad\u00e8re",
+    "city": "Belladere",
     "state": "Centre",
     "country": "Haiti"
   },
@@ -545,7 +570,7 @@ export const beCities = [
     "country": "Italy"
   },
   {
-    "city": "Ber\u00ebzovskiy",
+    "city": "Berezovskiy",
     "state": "Sverdlovskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -600,7 +625,17 @@ export const beCities = [
     "country": "India"
   },
   {
-    "city": "Bel\u00e9n de Escobar",
+    "city": "Bedzin",
+    "state": "\u015al\u0105skie",
+    "country": "Poland"
+  },
+  {
+    "city": "Bekescsaba",
+    "state": "B\u00e9k\u00e9s",
+    "country": "Hungary"
+  },
+  {
+    "city": "Belen de Escobar",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -610,7 +645,7 @@ export const beCities = [
     "country": "United States"
   },
   {
-    "city": "Be\u0142chat\u00f3w",
+    "city": "Belchatow",
     "state": "\u0141\u00f3dzkie",
     "country": "Poland"
   },
@@ -670,7 +705,7 @@ export const beCities = [
     "country": "Morocco"
   },
   {
-    "city": "Beypazar\u0131",
+    "city": "Beypazari",
     "state": "Ankara",
     "country": "Turkey"
   },
@@ -690,7 +725,7 @@ export const beCities = [
     "country": "United States"
   },
   {
-    "city": "Ber\u00ebzovskiy",
+    "city": "Berezovskiy",
     "state": "Kemerovskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -760,7 +795,7 @@ export const beCities = [
     "country": "Zimbabwe"
   },
   {
-    "city": "Berub\u0101ri",
+    "city": "Berubari",
     "state": "West Bengal",
     "country": "India"
   },
@@ -775,7 +810,7 @@ export const beCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Beyne\u016b",
+    "city": "Beyneu",
     "state": "Mangghysta\u016b",
     "country": "Kazakhstan"
   },
@@ -820,7 +855,7 @@ export const beCities = [
     "country": "Brazil"
   },
   {
-    "city": "Be\u010dej",
+    "city": "Becej",
     "state": "Be\u010dej",
     "country": "Serbia"
   },
@@ -860,12 +895,12 @@ export const beCities = [
     "country": "United States"
   },
   {
-    "city": "Belalc\u00e1zar",
+    "city": "Belalcazar",
     "state": "Cauca",
     "country": "Colombia"
   },
   {
-    "city": "Ben\u0101pol",
+    "city": "Benapol",
     "state": "Khulna",
     "country": "Bangladesh"
   },
@@ -880,7 +915,7 @@ export const beCities = [
     "country": "China"
   },
   {
-    "city": "Berrioz\u00e1bal",
+    "city": "Berriozabal",
     "state": "Chiapas",
     "country": "Mexico"
   },
@@ -905,7 +940,7 @@ export const beCities = [
     "country": "United States"
   },
   {
-    "city": "Bed\u0113sa",
+    "city": "Bedesa",
     "state": "YeDebub Bih\u0113roch Bih\u0113reseboch na Hizboch",
     "country": "Ethiopia"
   },
@@ -915,7 +950,7 @@ export const beCities = [
     "country": "United States"
   },
   {
-    "city": "Bela Vista de Goi\u00e1s",
+    "city": "Bela Vista de Goias",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -1020,7 +1055,7 @@ export const beCities = [
     "country": "China"
   },
   {
-    "city": "Bemb\u00e8r\u00e8k\u00e8",
+    "city": "Bembereke",
     "state": "Borgou",
     "country": "Benin"
   },
@@ -1040,7 +1075,12 @@ export const beCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Be\u015firi",
+    "city": "Begles",
+    "state": "Nouvelle-Aquitaine",
+    "country": "France"
+  },
+  {
+    "city": "Besiri",
     "state": "Batman",
     "country": "Turkey"
   },
@@ -1065,12 +1105,12 @@ export const beCities = [
     "country": "Algeria"
   },
   {
-    "city": "Bent Jba\u00efl",
+    "city": "Bent Jbail",
     "state": "Nabat\u00eey\u00e9",
     "country": "Lebanon"
   },
   {
-    "city": "Be\u2019er Ya\u2018aqov",
+    "city": "Be'er Ya`aqov",
     "state": "Central",
     "country": "Israel"
   },
@@ -1095,7 +1135,7 @@ export const beCities = [
     "country": "China"
   },
   {
-    "city": "Beld\u0101nga",
+    "city": "Beldanga",
     "state": "West Bengal",
     "country": "India"
   },
@@ -1110,7 +1150,7 @@ export const beCities = [
     "country": "Argentina"
   },
   {
-    "city": "Benicarl\u00f3",
+    "city": "Benicarlo",
     "state": "Valencia",
     "country": "Spain"
   },
@@ -1175,12 +1215,17 @@ export const beCities = [
     "country": "United States"
   },
   {
+    "city": "Betera",
+    "state": "Valencia",
+    "country": "Spain"
+  },
+  {
     "city": "Betong",
     "state": "Yala",
     "country": "Thailand"
   },
   {
-    "city": "Beoh\u0101ri",
+    "city": "Beohari",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1205,12 +1250,17 @@ export const beCities = [
     "country": "United States"
   },
   {
+    "city": "Bema",
+    "state": "Kayes",
+    "country": "Mali"
+  },
+  {
     "city": "Belvidere",
     "state": "Illinois",
     "country": "United States"
   },
   {
-    "city": "Bel\u00e9n de Umbr\u00eda",
+    "city": "Belen de Umbria",
     "state": "Risaralda",
     "country": "Colombia"
   },
@@ -1218,6 +1268,11 @@ export const beCities = [
     "city": "Beersel",
     "state": "Flanders",
     "country": "Belgium"
+  },
+  {
+    "city": "Bethune",
+    "state": "Hauts-de-France",
+    "country": "France"
   },
   {
     "city": "Beifan",
@@ -1315,9 +1370,14 @@ export const beCities = [
     "country": "China"
   },
   {
-    "city": "Be\u015fikd\u00fcz\u00fc",
+    "city": "Besikduzu",
     "state": "Trabzon",
     "country": "Turkey"
+  },
+  {
+    "city": "Belabo",
+    "state": "Est",
+    "country": "Cameroon"
   },
   {
     "city": "Betsizaraina",
@@ -1338,6 +1398,11 @@ export const beCities = [
     "city": "Bemanonga",
     "state": "Toliara",
     "country": "Madagascar"
+  },
+  {
+    "city": "Beguedo",
+    "state": "Centre-Est",
+    "country": "Burkina Faso"
   },
   {
     "city": "Belper",
@@ -1425,7 +1490,7 @@ export const beCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Bel\u016br",
+    "city": "Belur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1465,7 +1530,7 @@ export const beCities = [
     "country": "United States"
   },
   {
-    "city": "Bequim\u00e3o",
+    "city": "Bequimao",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
@@ -1475,7 +1540,7 @@ export const beCities = [
     "country": "Russia"
   },
   {
-    "city": "Bedel\u0113",
+    "city": "Bedele",
     "state": "Orom\u012bya",
     "country": "Ethiopia"
   },
@@ -1485,7 +1550,7 @@ export const beCities = [
     "country": "Canada"
   },
   {
-    "city": "Bella Uni\u00f3n",
+    "city": "Bella Union",
     "state": "Artigas",
     "country": "Uruguay"
   },
@@ -1515,7 +1580,7 @@ export const beCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Ben \u2019Akno\u00fbn",
+    "city": "Ben 'Aknoun",
     "state": "Tipaza",
     "country": "Algeria"
   },
@@ -1560,12 +1625,12 @@ export const beCities = [
     "country": "Brazil"
   },
   {
-    "city": "Bel\u00e9m de S\u00e3o Francisco",
+    "city": "Belem de Sao Francisco",
     "state": "Pernambuco",
     "country": "Brazil"
   },
   {
-    "city": "Belooz\u00ebrskiy",
+    "city": "Beloozerskiy",
     "state": "Moskovskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -1575,12 +1640,12 @@ export const beCities = [
     "country": "Algeria"
   },
   {
-    "city": "Bet She\u2019an",
+    "city": "Bet She'an",
     "state": "Northern",
     "country": "Israel"
   },
   {
-    "city": "Bed\u0113sa",
+    "city": "Bedesa",
     "state": "Orom\u012bya",
     "country": "Ethiopia"
   },
@@ -1630,9 +1695,14 @@ export const beCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Berl\u00edn",
+    "city": "Berlin",
     "state": "Usulut\u00e1n",
     "country": "El Salvador"
+  },
+  {
+    "city": "Bekes",
+    "state": "B\u00e9k\u00e9s",
+    "country": "Hungary"
   },
   {
     "city": "Bechem",
@@ -1650,7 +1720,7 @@ export const beCities = [
     "country": "Germany"
   },
   {
-    "city": "Benito Ju\u00e1rez",
+    "city": "Benito Juarez",
     "state": "Veracruz",
     "country": "Mexico"
   },
@@ -1700,7 +1770,7 @@ export const beCities = [
     "country": "Germany"
   },
   {
-    "city": "Bel\u0101koba",
+    "city": "Belakoba",
     "state": "West Bengal",
     "country": "India"
   },
@@ -1755,9 +1825,14 @@ export const beCities = [
     "country": "Spain"
   },
   {
-    "city": "Bene\u0161ov",
+    "city": "Benesov",
     "state": "St\u0159edo\u010desk\u00fd Kraj",
     "country": "Czechia"
+  },
+  {
+    "city": "Bedigoazon",
+    "state": "Montagnes",
+    "country": "C\u00f4te d\u2019Ivoire"
   },
   {
     "city": "Belaya Glina",
@@ -1770,7 +1845,7 @@ export const beCities = [
     "country": "Taiwan"
   },
   {
-    "city": "Bek\u2019oj\u012b",
+    "city": "Bek'oji",
     "state": "Orom\u012bya",
     "country": "Ethiopia"
   },
@@ -1790,12 +1865,12 @@ export const beCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Bel\u00e9n",
+    "city": "Belen",
     "state": "Rivas",
     "country": "Nicaragua"
   },
   {
-    "city": "Bel\u00e9m",
+    "city": "Belem",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -1805,7 +1880,7 @@ export const beCities = [
     "country": "Algeria"
   },
   {
-    "city": "Benjam\u00edn Aceval",
+    "city": "Benjamin Aceval",
     "state": "Presidente Hayes",
     "country": "Paraguay"
   },
@@ -1850,7 +1925,7 @@ export const beCities = [
     "country": "United States"
   },
   {
-    "city": "Benet\u00faser",
+    "city": "Benetuser",
     "state": "Valencia",
     "country": "Spain"
   },
@@ -1915,14 +1990,19 @@ export const beCities = [
     "country": "United States"
   },
   {
-    "city": "Bel\u0101ri",
+    "city": "Belari",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Beld\u0101nga",
+    "city": "Beldanga",
     "state": "Jh\u0101rkhand",
     "country": "India"
+  },
+  {
+    "city": "Beterou",
+    "state": "Borgou",
+    "country": "Benin"
   },
   {
     "city": "Bellavista",
@@ -1995,7 +2075,7 @@ export const beCities = [
     "country": "United States"
   },
   {
-    "city": "Bela Vista do Para\u00edso",
+    "city": "Bela Vista do Paraiso",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -2013,6 +2093,11 @@ export const beCities = [
     "city": "Belokurikha",
     "state": "Altayskiy Kray",
     "country": "Russia"
+  },
+  {
+    "city": "Bere",
+    "state": "Tandjil\u00e9",
+    "country": "Chad"
   },
   {
     "city": "Bellaa",
@@ -2035,7 +2120,7 @@ export const beCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Benito Ju\u00e1rez",
+    "city": "Benito Juarez",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -2095,7 +2180,12 @@ export const beCities = [
     "country": "Morocco"
   },
   {
-    "city": "Beretty\u00f3\u00fajfalu",
+    "city": "Beylul",
+    "state": "Debubawi K\u2019eyy\u012dh\u0323 Bah\u0323ri",
+    "country": "Eritrea"
+  },
+  {
+    "city": "Berettyoujfalu",
     "state": "Hajd\u00fa-Bihar",
     "country": "Hungary"
   },
@@ -2160,17 +2250,17 @@ export const beCities = [
     "country": "South Africa"
   },
   {
-    "city": "Belw\u0101ra",
+    "city": "Belwara",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Belsandi T\u0101ra",
+    "city": "Belsandi Tara",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Berre-l\u2019\u00c9tang",
+    "city": "Berre-l'Etang",
     "state": "Provence-Alpes-C\u00f4te d\u2019Azur",
     "country": "France"
   },
@@ -2230,6 +2320,11 @@ export const beCities = [
     "country": "United States"
   },
   {
+    "city": "Becancour",
+    "state": "Quebec",
+    "country": "Canada"
+  },
+  {
     "city": "Bexley",
     "state": "Ohio",
     "country": "United States"
@@ -2250,7 +2345,7 @@ export const beCities = [
     "country": "India"
   },
   {
-    "city": "Bes\u0101rh",
+    "city": "Besarh",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2295,7 +2390,7 @@ export const beCities = [
     "country": "Algeria"
   },
   {
-    "city": "Bel\u00ebv",
+    "city": "Belev",
     "state": "Tul\u2019skaya Oblast\u2019",
     "country": "Russia"
   },
@@ -2410,7 +2505,7 @@ export const beCities = [
     "country": "India"
   },
   {
-    "city": "Beyda\u011f",
+    "city": "Beydag",
     "state": "Kayseri",
     "country": "Turkey"
   },
@@ -2425,12 +2520,17 @@ export const beCities = [
     "country": "Spain"
   },
   {
-    "city": "Beyl\u0259qan",
+    "city": "Bejar",
+    "state": "Castille-Leon",
+    "country": "Spain"
+  },
+  {
+    "city": "Beylaqan",
     "state": "Beyl\u0259qan",
     "country": "Azerbaijan"
   },
   {
-    "city": "Bel\u00e9n",
+    "city": "Belen",
     "state": "Catamarca",
     "country": "Argentina"
   },
@@ -2500,7 +2600,7 @@ export const beCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Benifay\u00f3",
+    "city": "Benifayo",
     "state": "Valencia",
     "country": "Spain"
   },
@@ -2515,7 +2615,12 @@ export const beCities = [
     "country": "Italy"
   },
   {
-    "city": "Bel\u016br",
+    "city": "Bena",
+    "state": "Boucle du Mouhoun",
+    "country": "Burkina Faso"
+  },
+  {
+    "city": "Belur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2590,7 +2695,7 @@ export const beCities = [
     "country": "France"
   },
   {
-    "city": "Bel\u00e9n",
+    "city": "Belen",
     "state": "Concepci\u00f3n",
     "country": "Paraguay"
   },
@@ -2610,12 +2715,12 @@ export const beCities = [
     "country": "Romania"
   },
   {
-    "city": "Beniaj\u00e1n",
+    "city": "Beniajan",
     "state": "Murcia",
     "country": "Spain"
   },
   {
-    "city": "Bet\u00e2nia",
+    "city": "Betania",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -2650,7 +2755,7 @@ export const beCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Bel\u00e9n de los Andaqu\u00edes",
+    "city": "Belen de los Andaquies",
     "state": "Caquet\u00e1",
     "country": "Colombia"
   },
@@ -2705,7 +2810,7 @@ export const beCities = [
     "country": "Argentina"
   },
   {
-    "city": "Beni Abb\u00e8s",
+    "city": "Beni Abbes",
     "state": "B\u00e9ni Abb\u00e8s",
     "country": "Algeria"
   },
@@ -2780,7 +2885,7 @@ export const beCities = [
     "country": "United States"
   },
   {
-    "city": "Bel\u0101o",
+    "city": "Belao",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2790,7 +2895,7 @@ export const beCities = [
     "country": "Russia"
   },
   {
-    "city": "Bel\u00e9m de Maria",
+    "city": "Belem de Maria",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -2865,7 +2970,7 @@ export const beCities = [
     "country": "India"
   },
   {
-    "city": "Begow\u0101l",
+    "city": "Begowal",
     "state": "Punjab",
     "country": "India"
   },
@@ -2885,12 +2990,12 @@ export const beCities = [
     "country": "India"
   },
   {
-    "city": "Benem\u00e9rito",
+    "city": "Benemerito",
     "state": "Chiapas",
     "country": "Mexico"
   },
   {
-    "city": "Belp\u0101ra",
+    "city": "Belpara",
     "state": "Odisha",
     "country": "India"
   },
@@ -2930,7 +3035,7 @@ export const beCities = [
     "country": "India"
   },
   {
-    "city": "Ben N\u2019Choud",
+    "city": "Ben N'Choud",
     "state": "Boumerdes",
     "country": "Algeria"
   },
@@ -2975,6 +3080,11 @@ export const beCities = [
     "country": "Russia"
   },
   {
+    "city": "Berikai",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Berezivka",
     "state": "Odeska Oblast",
     "country": "Ukraine"
@@ -2995,7 +3105,7 @@ export const beCities = [
     "country": "United States"
   },
   {
-    "city": "Beiu\u015f",
+    "city": "Beius",
     "state": "Bihor",
     "country": "Romania"
   },
@@ -3005,7 +3115,7 @@ export const beCities = [
     "country": "India"
   },
   {
-    "city": "Belalc\u00e1zar",
+    "city": "Belalcazar",
     "state": "Caldas",
     "country": "Colombia"
   },
@@ -3020,7 +3130,7 @@ export const beCities = [
     "country": "India"
   },
   {
-    "city": "Bendrahall\u012b",
+    "city": "Bendrahalli",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3095,12 +3205,12 @@ export const beCities = [
     "country": "United States"
   },
   {
-    "city": "Bendap\u016bdi",
+    "city": "Bendapudi",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Benahav\u00eds",
+    "city": "Benahavis",
     "state": "Andalusia",
     "country": "Spain"
   },
@@ -3120,7 +3230,7 @@ export const beCities = [
     "country": "France"
   },
   {
-    "city": "Belakv\u0101di",
+    "city": "Belakvadi",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -3163,6 +3273,11 @@ export const beCities = [
     "city": "Berching",
     "state": "Bavaria",
     "country": "Germany"
+  },
+  {
+    "city": "Beregadougou",
+    "state": "Cascades",
+    "country": "Burkina Faso"
   },
   {
     "city": "Beckwith",
@@ -3225,7 +3340,7 @@ export const beCities = [
     "country": "Italy"
   },
   {
-    "city": "Beli\u0161\u0107e",
+    "city": "Belisce",
     "state": "Osje\u010dko-Baranjska \u017dupanija",
     "country": "Croatia"
   },
@@ -3240,12 +3355,12 @@ export const beCities = [
     "country": "France"
   },
   {
-    "city": "Bersenbr\u00fcck",
+    "city": "Bersenbruck",
     "state": "Lower Saxony",
     "country": "Germany"
   },
   {
-    "city": "Bernol\u00e1kovo",
+    "city": "Bernolakovo",
     "state": "Bratislava",
     "country": "Slovakia"
   },
@@ -3255,7 +3370,7 @@ export const beCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Beloz\u00ebrsk",
+    "city": "Belozersk",
     "state": "Vologodskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -3315,7 +3430,7 @@ export const beCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Beo\u010din",
+    "city": "Beocin",
     "state": "Beo\u010din",
     "country": "Serbia"
   },
@@ -3325,7 +3440,7 @@ export const beCities = [
     "country": "South Sudan"
   },
   {
-    "city": "Best\u00f6be",
+    "city": "Bestobe",
     "state": "Aqmola",
     "country": "Kazakhstan"
   },
@@ -3380,7 +3495,7 @@ export const beCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Bel\u010di\u0161ta",
+    "city": "Belcista",
     "state": "Debarca",
     "country": "North Macedonia"
   },

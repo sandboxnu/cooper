@@ -5,7 +5,7 @@ export const sfCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Sf\u00e2ntu-Gheorghe",
+    "city": "Sfantu-Gheorghe",
     "state": "Covasna",
     "country": "Romania"
   },

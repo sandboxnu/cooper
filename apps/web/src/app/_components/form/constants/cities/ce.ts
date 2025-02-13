@@ -25,6 +25,11 @@ export const ceCities = [
     "country": "Australia"
   },
   {
+    "city": "Cekme",
+    "state": "\u0130stanbul",
+    "country": "Turkey"
+  },
+  {
     "city": "Centurion",
     "state": "Gauteng",
     "country": "South Africa"
@@ -38,6 +43,11 @@ export const ceCities = [
     "city": "Cedar Rapids",
     "state": "Iowa",
     "country": "United States"
+  },
+  {
+    "city": "Cerkezkoy",
+    "state": "Tekirda\u011f",
+    "country": "Turkey"
   },
   {
     "city": "Ceyhan",
@@ -60,22 +70,27 @@ export const ceCities = [
     "country": "United States"
   },
   {
+    "city": "Ceske Budejovice",
+    "state": "Jiho\u010desk\u00fd Kraj",
+    "country": "Czechia"
+  },
+  {
     "city": "Cesena",
     "state": "Emilia-Romagna",
     "country": "Italy"
   },
   {
-    "city": "Ceret\u00e9",
+    "city": "Cerete",
     "state": "C\u00f3rdoba",
     "country": "Colombia"
   },
   {
-    "city": "Ceylanp\u0131nar",
+    "city": "Ceylanpinar",
     "state": "\u015eanl\u0131urfa",
     "country": "Turkey"
   },
   {
-    "city": "Cear\u00e1-Mirim",
+    "city": "Ceara-Mirim",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
   },
@@ -100,7 +115,7 @@ export const ceCities = [
     "country": "France"
   },
   {
-    "city": "Cede\u00f1o",
+    "city": "Cedeno",
     "state": "Bol\u00edvar",
     "country": "Venezuela"
   },
@@ -118,6 +133,11 @@ export const ceCities = [
     "city": "Cerca la Source",
     "state": "Centre",
     "country": "Haiti"
+  },
+  {
+    "city": "Cermik",
+    "state": "Diyarbak\u0131r",
+    "country": "Turkey"
   },
   {
     "city": "Ceel Dheere",
@@ -150,6 +170,11 @@ export const ceCities = [
     "country": "Philippines"
   },
   {
+    "city": "Cesme",
+    "state": "\u0130zmir",
+    "country": "Turkey"
+  },
+  {
     "city": "Cedar Falls",
     "state": "Iowa",
     "country": "United States"
@@ -170,12 +195,17 @@ export const ceCities = [
     "country": "Italy"
   },
   {
+    "city": "Ceska Lipa",
+    "state": "Libereck\u00fd Kraj",
+    "country": "Czechia"
+  },
+  {
     "city": "Central Islip",
     "state": "New York",
     "country": "United States"
   },
   {
-    "city": "Cegl\u00e9d",
+    "city": "Cegled",
     "state": "Pest",
     "country": "Hungary"
   },
@@ -230,7 +260,7 @@ export const ceCities = [
     "country": "Italy"
   },
   {
-    "city": "Celend\u00edn",
+    "city": "Celendin",
     "state": "Cajamarca",
     "country": "Peru"
   },
@@ -258,6 +288,11 @@ export const ceCities = [
     "city": "Cerro Azul",
     "state": "Veracruz",
     "country": "Mexico"
+  },
+  {
+    "city": "Cesky Tesin",
+    "state": "Moravskoslezsk\u00fd Kraj",
+    "country": "Czechia"
   },
   {
     "city": "Central Falls",
@@ -300,6 +335,11 @@ export const ceCities = [
     "country": "Portugal"
   },
   {
+    "city": "Cekerek",
+    "state": "Yozgat",
+    "country": "Turkey"
+  },
+  {
     "city": "Cervantes",
     "state": "Ilocos Sur",
     "country": "Philippines"
@@ -315,9 +355,14 @@ export const ceCities = [
     "country": "United States"
   },
   {
-    "city": "Cerqueira C\u00e9sar",
+    "city": "Cerqueira Cesar",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
+  },
+  {
+    "city": "Cerkes",
+    "state": "\u00c7ank\u0131r\u0131",
+    "country": "Turkey"
   },
   {
     "city": "Ceglie Messapico",
@@ -330,7 +375,7 @@ export const ceCities = [
     "country": "United States"
   },
   {
-    "city": "Ces\u00e1rio Lange",
+    "city": "Cesario Lange",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -340,12 +385,12 @@ export const ceCities = [
     "country": "United States"
   },
   {
-    "city": "Cenov\u00ed",
+    "city": "Cenovi",
     "state": "Cibao Nordeste",
     "country": "Dominican Republic"
   },
   {
-    "city": "Cesson-S\u00e9vign\u00e9",
+    "city": "Cesson-Sevigne",
     "state": "Bretagne",
     "country": "France"
   },
@@ -385,7 +430,7 @@ export const ceCities = [
     "country": "United States"
   },
   {
-    "city": "Cead\u00eer-Lunga",
+    "city": "Ceadir-Lunga",
     "state": "G\u0103g\u0103uzia",
     "country": "Moldova"
   },
@@ -398,6 +443,11 @@ export const ceCities = [
     "city": "Center Point",
     "state": "Alabama",
     "country": "United States"
+  },
+  {
+    "city": "Cerro Azul",
+    "state": "Paran\u00e1",
+    "country": "Brazil"
   },
   {
     "city": "Cerejeiras",
@@ -415,12 +465,17 @@ export const ceCities = [
     "country": "Italy"
   },
   {
+    "city": "Ceska Trebova",
+    "state": "Pardubick\u00fd Kraj",
+    "country": "Czechia"
+  },
+  {
     "city": "Cessnock",
     "state": "New South Wales",
     "country": "Australia"
   },
   {
-    "city": "Cernavod\u0103",
+    "city": "Cernavoda",
     "state": "Ialomi\u0163a",
     "country": "Romania"
   },
@@ -435,6 +490,11 @@ export const ceCities = [
     "country": "Mexico"
   },
   {
+    "city": "Cesis",
+    "state": "C\u0113sis",
+    "country": "Latvia"
+  },
+  {
     "city": "Cecil",
     "state": "Pennsylvania",
     "country": "United States"
@@ -445,7 +505,7 @@ export const ceCities = [
     "country": "Argentina"
   },
   {
-    "city": "Ceheg\u00edn",
+    "city": "Cehegin",
     "state": "Murcia",
     "country": "Spain"
   },
@@ -455,7 +515,7 @@ export const ceCities = [
     "country": "United States"
   },
   {
-    "city": "Cefal\u00f9",
+    "city": "Cefalu",
     "state": "Sicilia",
     "country": "Italy"
   },
@@ -463,6 +523,11 @@ export const ceCities = [
     "city": "Central Elgin",
     "state": "Ontario",
     "country": "Canada"
+  },
+  {
+    "city": "Cerro Largo",
+    "state": "Rio Grande do Sul",
+    "country": "Brazil"
   },
   {
     "city": "Cervignano del Friuli",
@@ -478,6 +543,11 @@ export const ceCities = [
     "city": "Ceyu",
     "state": "Hebei",
     "country": "China"
+  },
+  {
+    "city": "Cesky Krumlov",
+    "state": "Jiho\u010desk\u00fd Kraj",
+    "country": "Czechia"
   },
   {
     "city": "Ceuti",
@@ -498,6 +568,11 @@ export const ceCities = [
     "city": "Cetinje",
     "state": "Cetinje",
     "country": "Montenegro"
+  },
+  {
+    "city": "Celakovice",
+    "state": "St\u0159edo\u010desk\u00fd Kraj",
+    "country": "Czechia"
   },
   {
     "city": "Cedarburg",
@@ -540,7 +615,12 @@ export const ceCities = [
     "country": "France"
   },
   {
-    "city": "Cerro Cor\u00e1",
+    "city": "Ceu Azul",
+    "state": "Paran\u00e1",
+    "country": "Brazil"
+  },
+  {
+    "city": "Cerro Cora",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
   },
@@ -555,7 +635,7 @@ export const ceCities = [
     "country": "Italy"
   },
   {
-    "city": "Centen\u00e1rio do Sul",
+    "city": "Centenario do Sul",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -568,6 +648,11 @@ export const ceCities = [
     "city": "Cedro",
     "state": "Pernambuco",
     "country": "Brazil"
+  },
+  {
+    "city": "Celic",
+    "state": "Bosnia and Herzegovina, Federation of",
+    "country": "Bosnia and Herzegovina"
   },
   {
     "city": "Cedral",
@@ -590,14 +675,24 @@ export const ceCities = [
     "country": "United States"
   },
   {
+    "city": "Celtik",
+    "state": "Konya",
+    "country": "Turkey"
+  },
+  {
     "city": "Cedar Hills",
     "state": "Utah",
     "country": "United States"
   },
   {
-    "city": "Celld\u00f6m\u00f6lk",
+    "city": "Celldomolk",
     "state": "Vas",
     "country": "Hungary"
+  },
+  {
+    "city": "Cepin",
+    "state": "Osje\u010dko-Baranjska \u017dupanija",
+    "country": "Croatia"
   },
   {
     "city": "Cesa",
@@ -605,7 +700,7 @@ export const ceCities = [
     "country": "Italy"
   },
   {
-    "city": "Cervell\u00f3",
+    "city": "Cervello",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -625,6 +720,11 @@ export const ceCities = [
     "country": "Italy"
   },
   {
+    "city": "Cerro Grande",
+    "state": "Rio Grande do Sul",
+    "country": "Brazil"
+  },
+  {
     "city": "Cedar Hills",
     "state": "Oregon",
     "country": "United States"
@@ -633,6 +733,11 @@ export const ceCities = [
     "city": "Ceelbuur",
     "state": "Galguduud",
     "country": "Somalia"
+  },
+  {
+    "city": "Cebazat",
+    "state": "Auvergne-Rh\u00f4ne-Alpes",
+    "country": "France"
   },
   {
     "city": "Cerknica",
@@ -660,7 +765,12 @@ export const ceCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Centar \u017dupa",
+    "city": "Celeken",
+    "state": "Balkan",
+    "country": "Turkmenistan"
+  },
+  {
+    "city": "Centar Zupa",
     "state": "Centar \u017dupa",
     "country": "North Macedonia"
   },

@@ -10,7 +10,12 @@ export const atCities = [
     "country": "Greece"
   },
   {
-    "city": "Attiecoub\u00e9",
+    "city": "At Ta'if",
+    "state": "Makkah al Mukarramah",
+    "country": "Saudi Arabia"
+  },
+  {
+    "city": "Attiecoube",
     "state": "Abidjan",
     "country": "C\u00f4te d\u2019Ivoire"
   },
@@ -20,12 +25,12 @@ export const atCities = [
     "country": "China"
   },
   {
-    "city": "Atsugich\u014d",
+    "city": "Atsugicho",
     "state": "Kanagawa",
     "country": "Japan"
   },
   {
-    "city": "At T\u0101j\u012b",
+    "city": "At Taji",
     "state": "Baghd\u0101d",
     "country": "Iraq"
   },
@@ -45,7 +50,7 @@ export const atCities = [
     "country": "Brazil"
   },
   {
-    "city": "Atyra\u016b",
+    "city": "Atyrau",
     "state": "Atyra\u016b",
     "country": "Kazakhstan"
   },
@@ -65,7 +70,7 @@ export const atCities = [
     "country": "United States"
   },
   {
-    "city": "Atakpam\u00e9",
+    "city": "Atakpame",
     "state": "Plateaux",
     "country": "Togo"
   },
@@ -110,7 +115,7 @@ export const atCities = [
     "country": "Mexico"
   },
   {
-    "city": "Athi\u00e9m\u00e9",
+    "city": "Athieme",
     "state": "Mono",
     "country": "Benin"
   },
@@ -120,7 +125,7 @@ export const atCities = [
     "country": "India"
   },
   {
-    "city": "At Taw\u0101h\u012b",
+    "city": "At Tawahi",
     "state": "\u2018Adan",
     "country": "Yemen"
   },
@@ -140,7 +145,7 @@ export const atCities = [
     "country": "Mexico"
   },
   {
-    "city": "Atmak\u016br",
+    "city": "Atmakur",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -175,6 +180,11 @@ export const atCities = [
     "country": "France"
   },
   {
+    "city": "At Turrah",
+    "state": "Irbid",
+    "country": "Jordan"
+  },
+  {
     "city": "Atami",
     "state": "Shizuoka",
     "country": "Japan"
@@ -198,6 +208,11 @@ export const atCities = [
     "city": "Atbasar",
     "state": "Aqmola",
     "country": "Kazakhstan"
+  },
+  {
+    "city": "Atmakur",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Ath",
@@ -260,6 +275,11 @@ export const atCities = [
     "country": "Mexico"
   },
   {
+    "city": "At Tafilah",
+    "state": "A\u0163 \u0162af\u012blah",
+    "country": "Jordan"
+  },
+  {
     "city": "Ataco",
     "state": "Tolima",
     "country": "Colombia"
@@ -285,7 +305,7 @@ export const atCities = [
     "country": "Chad"
   },
   {
-    "city": "Atoyac de \u00c1lvarez",
+    "city": "Atoyac de Alvarez",
     "state": "Guerrero",
     "country": "Mexico"
   },
@@ -305,7 +325,7 @@ export const atCities = [
     "country": "Mexico"
   },
   {
-    "city": "Atas\u016b",
+    "city": "Atasu",
     "state": "Ulyta\u016b",
     "country": "Kazakhstan"
   },
@@ -330,7 +350,7 @@ export const atCities = [
     "country": "Ecuador"
   },
   {
-    "city": "Ath\u0101r",
+    "city": "Athar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -345,7 +365,7 @@ export const atCities = [
     "country": "India"
   },
   {
-    "city": "Att\u016br",
+    "city": "Attur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -355,7 +375,7 @@ export const atCities = [
     "country": "Brazil"
   },
   {
-    "city": "Atyr\u00e1",
+    "city": "Atyra",
     "state": "Cordillera",
     "country": "Paraguay"
   },
@@ -375,7 +395,7 @@ export const atCities = [
     "country": "India"
   },
   {
-    "city": "Atal\u00e9ia",
+    "city": "Ataleia",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -385,7 +405,7 @@ export const atCities = [
     "country": "India"
   },
   {
-    "city": "Atom\u00e9-Av\u00e9gam\u00e9",
+    "city": "Atome-Avegame",
     "state": "Couffo",
     "country": "Benin"
   },
@@ -395,17 +415,27 @@ export const atCities = [
     "country": "United States"
   },
   {
+    "city": "Atmakuru",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Athens",
     "state": "Texas",
     "country": "United States"
   },
   {
-    "city": "Attan\u016br",
+    "city": "At Tur",
+    "state": "Jan\u016bb S\u012bn\u0101\u2019",
+    "country": "Egypt"
+  },
+  {
+    "city": "Attanur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Atm\u0101k\u016br",
+    "city": "Atmakur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -415,8 +445,13 @@ export const atCities = [
     "country": "United States"
   },
   {
-    "city": "Atm\u0101k\u016br",
+    "city": "Atmakur",
     "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Atharga",
+    "state": "Karn\u0101taka",
     "country": "India"
   },
   {
@@ -480,7 +515,12 @@ export const atCities = [
     "country": "India"
   },
   {
-    "city": "At\u0101ri",
+    "city": "Atturkuppam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Atari",
     "state": "Punjab",
     "country": "India"
   },

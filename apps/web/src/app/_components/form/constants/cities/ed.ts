@@ -70,7 +70,7 @@ export const edCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Ed\u00e9a",
+    "city": "Edea",
     "state": "Littoral",
     "country": "Cameroon"
   },
@@ -105,7 +105,7 @@ export const edCities = [
     "country": "United States"
   },
   {
-    "city": "Edassh\u0113ri",
+    "city": "Edassheri",
     "state": "Kerala",
     "country": "India"
   },
@@ -160,17 +160,22 @@ export const edCities = [
     "country": "Netherlands"
   },
   {
+    "city": "Edessa",
+    "state": "Kentrik\u00ed Makedon\u00eda",
+    "country": "Greece"
+  },
+  {
     "city": "Edmundston",
     "state": "New Brunswick",
     "country": "Canada"
   },
   {
-    "city": "Edakkazhiy\u016br",
+    "city": "Edakkazhiyur",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Edine\u0163",
+    "city": "Edinet",
     "state": "Edine\u0163",
     "country": "Moldova"
   },
@@ -220,7 +225,7 @@ export const edCities = [
     "country": "India"
   },
   {
-    "city": "Ed\u00e9ia",
+    "city": "Edeia",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -235,7 +240,7 @@ export const edCities = [
     "country": "Eritrea"
   },
   {
-    "city": "Edlap\u0101du",
+    "city": "Edlapadu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -245,12 +250,12 @@ export const edCities = [
     "country": "United States"
   },
   {
-    "city": "Ed D\u00e2mo\u00fbr",
+    "city": "Ed Damour",
     "state": "Mont-Liban",
     "country": "Lebanon"
   },
   {
-    "city": "Edel\u00e9ny",
+    "city": "Edeleny",
     "state": "Borsod-Aba\u00faj-Zempl\u00e9n",
     "country": "Hungary"
   },
@@ -270,7 +275,7 @@ export const edCities = [
     "country": "United States"
   },
   {
-    "city": "Eduttav\u0101ynattam",
+    "city": "Eduttavaynattam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },

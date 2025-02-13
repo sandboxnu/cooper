@@ -10,7 +10,7 @@ export const ucCities = [
     "country": "Angola"
   },
   {
-    "city": "Uchq\u016drghon Shahri",
+    "city": "Uchqurghon Shahri",
     "state": "Namangan",
     "country": "Uzbekistan"
   },
@@ -75,7 +75,7 @@ export const ucCities = [
     "country": "Brazil"
   },
   {
-    "city": "Uchtepa Qishlog\u2019i",
+    "city": "Uchtepa Qishlog'i",
     "state": "Jizzax",
     "country": "Uzbekistan"
   },

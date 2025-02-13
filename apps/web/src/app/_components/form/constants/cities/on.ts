@@ -35,6 +35,11 @@ export const onCities = [
     "country": "Angola"
   },
   {
+    "city": "Onojo",
+    "state": "Fukuoka",
+    "country": "Japan"
+  },
+  {
     "city": "Ongjang",
     "state": "Hwangnam",
     "country": "Korea, North"
@@ -50,7 +55,7 @@ export const onCities = [
     "country": "Spain"
   },
   {
-    "city": "One\u015fti",
+    "city": "Onesti",
     "state": "Bac\u0103u",
     "country": "Romania"
   },
@@ -60,7 +65,12 @@ export const onCities = [
     "country": "Japan"
   },
   {
-    "city": "Ondokuzmay\u0131s",
+    "city": "Ono",
+    "state": "Fukui",
+    "country": "Japan"
+  },
+  {
+    "city": "Ondokuzmayis",
     "state": "Samsun",
     "country": "Turkey"
   },
@@ -68,6 +78,11 @@ export const onCities = [
     "city": "Onda",
     "state": "Valencia",
     "country": "Spain"
+  },
+  {
+    "city": "Ono",
+    "state": "Gifu",
+    "country": "Japan"
   },
   {
     "city": "Ondangwa",
@@ -78,6 +93,11 @@ export const onCities = [
     "city": "Onondaga",
     "state": "New York",
     "country": "United States"
+  },
+  {
+    "city": "Ondorhaan",
+    "state": "Hentiy",
+    "country": "Mongolia"
   },
   {
     "city": "Onega",
@@ -130,6 +150,11 @@ export const onCities = [
     "country": "United States"
   },
   {
+    "city": "Onate",
+    "state": "Basque Country",
+    "country": "Spain"
+  },
+  {
     "city": "Onoto",
     "state": "Anzo\u00e1tegui",
     "country": "Venezuela"
@@ -153,6 +178,11 @@ export const onCities = [
     "city": "Oneida",
     "state": "New York",
     "country": "United States"
+  },
+  {
+    "city": "Onan",
+    "state": "Shimane",
+    "country": "Japan"
   },
   {
     "city": "Onchan",

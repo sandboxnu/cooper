@@ -35,12 +35,17 @@ export const zaCities = [
     "country": "Spain"
   },
   {
+    "city": "Zahedan",
+    "state": "S\u012bst\u0101n va Bal\u016bchest\u0101n",
+    "country": "Iran"
+  },
+  {
     "city": "Zaria",
     "state": "Kaduna",
     "country": "Nigeria"
   },
   {
-    "city": "Zanj\u0101n",
+    "city": "Zanjan",
     "state": "Zanj\u0101n",
     "country": "Iran"
   },
@@ -58,6 +63,11 @@ export const zaCities = [
     "city": "Zamora",
     "state": "Michoac\u00e1n",
     "country": "Mexico"
+  },
+  {
+    "city": "Zakhu",
+    "state": "Dah\u016bk",
+    "country": "Iraq"
   },
   {
     "city": "Zaranj",
@@ -80,6 +90,11 @@ export const zaCities = [
     "country": "Nigeria"
   },
   {
+    "city": "Zabol",
+    "state": "S\u012bst\u0101n va Bal\u016bchest\u0101n",
+    "country": "Iran"
+  },
+  {
     "city": "Zafarwal",
     "state": "Punjab",
     "country": "Pakistan"
@@ -100,9 +115,14 @@ export const zaCities = [
     "country": "Mexico"
   },
   {
-    "city": "Zahl\u00e9",
+    "city": "Zahle",
     "state": "B\u00e9qaa",
     "country": "Lebanon"
+  },
+  {
+    "city": "Zarate",
+    "state": "Buenos Aires",
+    "country": "Argentina"
   },
   {
     "city": "Zarzis",
@@ -155,7 +175,7 @@ export const zaCities = [
     "country": "Venezuela"
   },
   {
-    "city": "Zamo\u015b\u0107",
+    "city": "Zamosc",
     "state": "Lubelskie",
     "country": "Poland"
   },
@@ -165,12 +185,12 @@ export const zaCities = [
     "country": "Spain"
   },
   {
-    "city": "Zahir\u0101b\u0101d",
+    "city": "Zahirabad",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Zarr\u012bn Shahr",
+    "city": "Zarrin Shahr",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
@@ -190,17 +210,17 @@ export const zaCities = [
     "country": "Philippines"
   },
   {
-    "city": "Zal\u0103u",
+    "city": "Zalau",
     "state": "S\u0103laj",
     "country": "Romania"
   },
   {
-    "city": "Zang\u0101reddig\u016bdem",
+    "city": "Zangareddigudem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Zab\u012bd",
+    "city": "Zabid",
     "state": "Al \u1e28udaydah",
     "country": "Yemen"
   },
@@ -210,7 +230,7 @@ export const zaCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Zaje\u010dar",
+    "city": "Zajecar",
     "state": "Zaje\u010dar",
     "country": "Serbia"
   },
@@ -230,9 +250,19 @@ export const zaCities = [
     "country": "Russia"
   },
   {
-    "city": "Zamalk\u0101",
+    "city": "Zamalka",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
+  },
+  {
+    "city": "Zabki",
+    "state": "Mazowieckie",
+    "country": "Poland"
+  },
+  {
+    "city": "Zakynthos",
+    "state": "Ion\u00eda N\u00edsia",
+    "country": "Greece"
   },
   {
     "city": "Zainsk",
@@ -260,7 +290,7 @@ export const zaCities = [
     "country": "Russia"
   },
   {
-    "city": "Zacualtip\u00e1n",
+    "city": "Zacualtipan",
     "state": "Hidalgo",
     "country": "Mexico"
   },
@@ -270,7 +300,12 @@ export const zaCities = [
     "country": "Mexico"
   },
   {
-    "city": "Za\u00efo",
+    "city": "Zary",
+    "state": "Lubuskie",
+    "country": "Poland"
+  },
+  {
+    "city": "Zaio",
     "state": "Oriental",
     "country": "Morocco"
   },
@@ -285,17 +320,17 @@ export const zaCities = [
     "country": "India"
   },
   {
-    "city": "Zacatl\u00e1n",
+    "city": "Zacatlan",
     "state": "Puebla",
     "country": "Mexico"
   },
   {
-    "city": "Zam\u0101nia",
+    "city": "Zamania",
     "state": "Uttar Pradesh",
     "country": "India"
   },
   {
-    "city": "Zarq\u0101n",
+    "city": "Zarqan",
     "state": "F\u0101rs",
     "country": "Iran"
   },
@@ -370,7 +405,7 @@ export const zaCities = [
     "country": "Poland"
   },
   {
-    "city": "Zawyat ech Che\u00efkh",
+    "city": "Zawyat ech Cheikh",
     "state": "B\u00e9ni Mellal-Kh\u00e9nifra",
     "country": "Morocco"
   },
@@ -385,7 +420,12 @@ export const zaCities = [
     "country": "United States"
   },
   {
-    "city": "Zapre\u0161i\u0107",
+    "city": "Zagan",
+    "state": "Lubuskie",
+    "country": "Poland"
+  },
+  {
+    "city": "Zapresic",
     "state": "Zagreba\u010dka \u017dupanija",
     "country": "Croatia"
   },
@@ -395,7 +435,7 @@ export const zaCities = [
     "country": "Colombia"
   },
   {
-    "city": "Zawyat an Nwa\u00e7er",
+    "city": "Zawyat an Nwacer",
     "state": "Casablanca-Settat",
     "country": "Morocco"
   },
@@ -420,17 +460,22 @@ export const zaCities = [
     "country": "Turkey"
   },
   {
-    "city": "Zabr\u00e9",
+    "city": "Zabre",
     "state": "Centre-Est",
     "country": "Burkina Faso"
   },
   {
-    "city": "Zanti\u00e9bougou",
+    "city": "Zantiebougou",
     "state": "Sikasso",
     "country": "Mali"
   },
   {
-    "city": "Zambr\u00f3w",
+    "city": "Zarnesti",
+    "state": "Bra\u015fov",
+    "country": "Romania"
+  },
+  {
+    "city": "Zambrow",
     "state": "Podlaskie",
     "country": "Poland"
   },
@@ -445,14 +490,24 @@ export const zaCities = [
     "country": "Tunisia"
   },
   {
+    "city": "Zawiyat Razin",
+    "state": "Al Min\u016bf\u012byah",
+    "country": "Egypt"
+  },
+  {
     "city": "Zachary",
     "state": "Louisiana",
     "country": "United States"
   },
   {
-    "city": "Zaou\u00efa A\u00eft Ishak",
+    "city": "Zaouia Ait Ishak",
     "state": "B\u00e9ni Mellal-Kh\u00e9nifra",
     "country": "Morocco"
+  },
+  {
+    "city": "Zatec",
+    "state": "\u00dasteck\u00fd Kraj",
+    "country": "Czechia"
   },
   {
     "city": "Zahana",
@@ -465,17 +520,22 @@ export const zaCities = [
     "country": "Costa Rica"
   },
   {
+    "city": "Zakiyah",
+    "state": "R\u012bf Dimashq",
+    "country": "Syria"
+  },
+  {
     "city": "Zagarolo",
     "state": "Lazio",
     "country": "Italy"
   },
   {
-    "city": "Zapotl\u00e1n del Rey",
+    "city": "Zapotlan del Rey",
     "state": "Jalisco",
     "country": "Mexico"
   },
   {
-    "city": "Zal\u0163an",
+    "city": "Zaltan",
     "state": "An Nuq\u0101\u0163 al Khams",
     "country": "Libya"
   },
@@ -505,19 +565,29 @@ export const zaCities = [
     "country": "Spain"
   },
   {
-    "city": "Zapotl\u00e1n de Ju\u00e1rez",
+    "city": "Zapotlan de Juarez",
     "state": "Hidalgo",
     "country": "Mexico"
   },
   {
-    "city": "Za\u1e5fah Sharan",
+    "city": "Zarah Sharan",
     "state": "Pakt\u012bk\u0101",
     "country": "Afghanistan"
+  },
+  {
+    "city": "Zabbar",
+    "state": "\u017babbar",
+    "country": "Malta"
   },
   {
     "city": "Zacualpan",
     "state": "M\u00e9xico",
     "country": "Mexico"
+  },
+  {
+    "city": "Zabkowice Slaskie",
+    "state": "Dolno\u015bl\u0105skie",
+    "country": "Poland"
   },
   {
     "city": "Zaysan",
@@ -540,9 +610,14 @@ export const zaCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Zargh\u016bn Shahr",
+    "city": "Zarghun Shahr",
     "state": "Pakt\u012bk\u0101",
     "country": "Afghanistan"
+  },
+  {
+    "city": "Zabreh",
+    "state": "Olomouck\u00fd Kraj",
+    "country": "Czechia"
   },
   {
     "city": "Zawodzie",
@@ -575,7 +650,12 @@ export const zaCities = [
     "country": "India"
   },
   {
-    "city": "Za\u014d",
+    "city": "Zaboli",
+    "state": "S\u012bst\u0101n va Bal\u016bchest\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Zao",
     "state": "Miyagi",
     "country": "Japan"
   },
@@ -583,6 +663,11 @@ export const zaCities = [
     "city": "Zayukovo",
     "state": "Kabardino-Balkariya",
     "country": "Russia"
+  },
+  {
+    "city": "Zarach",
+    "state": "Yazd",
+    "country": "Iran"
   },
   {
     "city": "Zaoqiao",
@@ -620,7 +705,7 @@ export const zaCities = [
     "country": "Russia"
   },
   {
-    "city": "Zafar\u0101b\u0101d",
+    "city": "Zafarabad",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -630,27 +715,32 @@ export const zaCities = [
     "country": "Russia"
   },
   {
-    "city": "Zapotitl\u00e1n",
+    "city": "Zapotitlan",
     "state": "Jutiapa",
     "country": "Guatemala"
   },
   {
-    "city": "Zawyat Ahan\u00e7al",
+    "city": "Zawyat Ahancal",
     "state": "B\u00e9ni Mellal-Kh\u00e9nifra",
     "country": "Morocco"
   },
   {
-    "city": "Zaoz\u00ebrnyy",
+    "city": "Zawal",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
+    "city": "Zaozernyy",
     "state": "Krasnoyarskiy Kray",
     "country": "Russia"
   },
   {
-    "city": "Za\u0142\u0119\u017ce",
+    "city": "Zaleze",
     "state": "\u015al\u0105skie",
     "country": "Poland"
   },
   {
-    "city": "Za\u2019roura",
+    "city": "Za'roura",
     "state": "Tanger-T\u00e9touan-Al Hoce\u00efma",
     "country": "Morocco"
   },
@@ -660,7 +750,7 @@ export const zaCities = [
     "country": "Russia"
   },
   {
-    "city": "Zani\u00e9na",
+    "city": "Zaniena",
     "state": "Sikasso",
     "country": "Mali"
   },
@@ -673,6 +763,16 @@ export const zaCities = [
     "city": "Zaruma",
     "state": "El Oro",
     "country": "Ecuador"
+  },
+  {
+    "city": "Zavora",
+    "state": "Inhambane",
+    "country": "Mozambique"
+  },
+  {
+    "city": "Zahed Shahr",
+    "state": "F\u0101rs",
+    "country": "Iran"
   },
   {
     "city": "Zafargarh",
@@ -705,6 +805,11 @@ export const zaCities = [
     "country": "Russia"
   },
   {
+    "city": "Zabalj",
+    "state": "\u017dabalj",
+    "country": "Serbia"
+  },
+  {
     "city": "Zarbdor Shaharchasi",
     "state": "Jizzax",
     "country": "Uzbekistan"
@@ -715,7 +820,7 @@ export const zaCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Zach\u00e1ro",
+    "city": "Zacharo",
     "state": "Dytik\u00ed Ell\u00e1da",
     "country": "Greece"
   },
@@ -750,6 +855,11 @@ export const zaCities = [
     "country": "Netherlands"
   },
   {
+    "city": "Zardab",
+    "state": "Z\u0259rdab",
+    "country": "Azerbaijan"
+  },
+  {
     "city": "Zambezi",
     "state": "North-Western",
     "country": "Zambia"
@@ -765,7 +875,27 @@ export const zaCities = [
     "country": "Lithuania"
   },
   {
-    "city": "Zavr\u010d",
+    "city": "Zalec",
+    "state": "\u017dalec",
+    "country": "Slovenia"
+  },
+  {
+    "city": "Zabljak",
+    "state": "\u017dabljak",
+    "country": "Montenegro"
+  },
+  {
+    "city": "Zagubica",
+    "state": "\u017dagubica",
+    "country": "Serbia"
+  },
+  {
+    "city": "Zabari",
+    "state": "\u017dabari",
+    "country": "Serbia"
+  },
+  {
+    "city": "Zavrc",
     "state": "Zavr\u010d",
     "country": "Slovenia"
   }

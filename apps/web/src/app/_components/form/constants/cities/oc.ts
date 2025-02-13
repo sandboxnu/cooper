@@ -15,12 +15,12 @@ export const ocCities = [
     "country": "Venezuela"
   },
   {
-    "city": "Oca\u00f1a",
+    "city": "Ocana",
     "state": "Norte de Santander",
     "country": "Colombia"
   },
   {
-    "city": "Ocotl\u00e1n",
+    "city": "Ocotlan",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -75,12 +75,12 @@ export const ocCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ocatl\u00e1n",
+    "city": "Ocatlan",
     "state": "Tlaxcala",
     "country": "Mexico"
   },
   {
-    "city": "Ocotl\u00e1n de Morelos",
+    "city": "Ocotlan de Morelos",
     "state": "Oaxaca",
     "country": "Mexico"
   },
@@ -135,22 +135,22 @@ export const ocCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Och\u00ebr",
+    "city": "Ocher",
     "state": "Permskiy Kray",
     "country": "Russia"
   },
   {
-    "city": "Oca\u00f1a",
+    "city": "Ocana",
     "state": "Castille-La Mancha",
     "country": "Spain"
   },
   {
-    "city": "Oc\u00f3s",
+    "city": "Ocos",
     "state": "San Marcos",
     "country": "Guatemala"
   },
   {
-    "city": "Ocna Mure\u015f",
+    "city": "Ocna Mures",
     "state": "Alba",
     "country": "Romania"
   },
@@ -175,12 +175,17 @@ export const ocCities = [
     "country": "United States"
   },
   {
+    "city": "Ocsa",
+    "state": "Pest",
+    "country": "Hungary"
+  },
+  {
     "city": "Ochsenhausen",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
   {
-    "city": "Ocni\u0163a",
+    "city": "Ocnita",
     "state": "Ocni\u0163a",
     "country": "Moldova"
   }

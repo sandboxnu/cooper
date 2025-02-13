@@ -1,6 +1,6 @@
 export const gdCities = [
   {
-    "city": "Gda\u0144sk",
+    "city": "Gdansk",
     "state": "Pomorskie",
     "country": "Poland"
   },

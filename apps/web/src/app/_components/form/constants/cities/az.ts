@@ -1,6 +1,6 @@
 export const azCities = [
   {
-    "city": "Az Zarq\u0101\u2019",
+    "city": "Az Zarqa'",
     "state": "Az Zarq\u0101\u2019",
     "country": "Jordan"
   },
@@ -10,17 +10,17 @@ export const azCities = [
     "country": "Iraq"
   },
   {
-    "city": "Az Zaq\u0101z\u012bq",
+    "city": "Az Zaqaziq",
     "state": "Ash Sharq\u012byah",
     "country": "Egypt"
   },
   {
-    "city": "Az Z\u0101w\u012byah",
+    "city": "Az Zawiyah",
     "state": "Az Z\u0101wiyah",
     "country": "Libya"
   },
   {
-    "city": "Az Zulf\u012b",
+    "city": "Az Zulfi",
     "state": "Ar Riy\u0101\u1e11",
     "country": "Saudi Arabia"
   },
@@ -45,7 +45,7 @@ export const azCities = [
     "country": "Russia"
   },
   {
-    "city": "Az Zubayd\u012byah",
+    "city": "Az Zubaydiyah",
     "state": "W\u0101si\u0163",
     "country": "Iraq"
   },
@@ -70,12 +70,12 @@ export const azCities = [
     "country": "United States"
   },
   {
-    "city": "Azn\u0101",
+    "city": "Azna",
     "state": "Lorest\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Azhikk\u014dd",
+    "city": "Azhikkod",
     "state": "Kerala",
     "country": "India"
   },
@@ -83,6 +83,16 @@ export const azCities = [
     "city": "Azhikkal",
     "state": "Kerala",
     "country": "India"
+  },
+  {
+    "city": "Azarshahr",
+    "state": "\u0100z\u0304arb\u0101yj\u0101n-e Sharq\u012b",
+    "country": "Iran"
+  },
+  {
+    "city": "Azadshahr",
+    "state": "Golest\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Azemmour",
@@ -100,7 +110,7 @@ export const azCities = [
     "country": "Italy"
   },
   {
-    "city": "Az\u0327 Z\u0327\u0101hir\u012byah",
+    "city": "Az Zahiriyah",
     "state": NaN,
     "country": "West Bank"
   },
@@ -125,12 +135,17 @@ export const azCities = [
     "country": "Algeria"
   },
   {
-    "city": "Az\u00e1ngaro",
+    "city": "Azezo",
+    "state": "\u0100mara",
+    "country": "Ethiopia"
+  },
+  {
+    "city": "Azangaro",
     "state": "Puno",
     "country": "Peru"
   },
   {
-    "city": "Az Zabad\u0101n\u012b",
+    "city": "Az Zabadani",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
   },
@@ -140,12 +155,12 @@ export const azCities = [
     "country": "Honduras"
   },
   {
-    "city": "Az Zuw\u0101ydah",
+    "city": "Az Zuwaydah",
     "state": NaN,
     "country": "Gaza Strip"
   },
   {
-    "city": "Azov\u00e9",
+    "city": "Azove",
     "state": "Couffo",
     "country": "Benin"
   },
@@ -155,7 +170,7 @@ export const azCities = [
     "country": "Portugal"
   },
   {
-    "city": "Az Zuwayt\u012bnah",
+    "city": "Az Zuwaytinah",
     "state": "Bangh\u0101z\u012b",
     "country": "Libya"
   },
@@ -165,7 +180,7 @@ export const azCities = [
     "country": "Honduras"
   },
   {
-    "city": "Azaouriss\u00e8",
+    "city": "Azaourisse",
     "state": "Ou\u00e9m\u00e9",
     "country": "Benin"
   },
@@ -175,12 +190,12 @@ export const azCities = [
     "country": "Algeria"
   },
   {
-    "city": "Az Zayd\u012byah",
+    "city": "Az Zaydiyah",
     "state": "Al \u1e28udaydah",
     "country": "Yemen"
   },
   {
-    "city": "Az Zint\u0101n",
+    "city": "Az Zintan",
     "state": "Al Jabal al Gharb\u012b",
     "country": "Libya"
   },
@@ -210,17 +225,22 @@ export const azCities = [
     "country": "Spain"
   },
   {
-    "city": "Az\u012bzpur Ch\u0101nde",
+    "city": "Azamnagar",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Azandar\u012b\u0101n",
+    "city": "Azizpur Chande",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Azandarian",
     "state": "Hamad\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Az\u0327 Z\u0327a\u2018\u0101yin",
+    "city": "Az Za`ayin",
     "state": "Az\u0327 Z\u0327a\u2018\u0101yin",
     "country": "Qatar"
   }

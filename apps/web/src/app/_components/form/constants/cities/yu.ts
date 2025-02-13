@@ -60,7 +60,7 @@ export const yuCities = [
     "country": "China"
   },
   {
-    "city": "Yukar\u0131karaman",
+    "city": "Yukarikaraman",
     "state": "Antalya",
     "country": "Turkey"
   },
@@ -78,6 +78,11 @@ export const yuCities = [
     "city": "Yueqing",
     "state": "Zhejiang",
     "country": "China"
+  },
+  {
+    "city": "Yuregir",
+    "state": "Adana",
+    "country": "Turkey"
   },
   {
     "city": "Yunzhong",
@@ -110,6 +115,11 @@ export const yuCities = [
     "country": "Taiwan"
   },
   {
+    "city": "Yuksekova",
+    "state": "Hakk\u00e2ri",
+    "country": "Turkey"
+  },
+  {
     "city": "Yulu",
     "state": "Guangdong",
     "country": "China"
@@ -130,7 +140,7 @@ export const yuCities = [
     "country": "Russia"
   },
   {
-    "city": "Yurihonj\u014d",
+    "city": "Yurihonjo",
     "state": "Akita",
     "country": "Japan"
   },
@@ -168,6 +178,11 @@ export const yuCities = [
     "city": "Yucaipa",
     "state": "California",
     "country": "United States"
+  },
+  {
+    "city": "Yuki",
+    "state": "Ibaraki",
+    "country": "Japan"
   },
   {
     "city": "Yumbe",
@@ -290,7 +305,7 @@ export const yuCities = [
     "country": "Turkey"
   },
   {
-    "city": "Yur\u2019yev-Pol\u2019skiy",
+    "city": "Yur'yev-Pol'skiy",
     "state": "Vladimirskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -305,7 +320,7 @@ export const yuCities = [
     "country": "China"
   },
   {
-    "city": "Yumurtal\u0131k",
+    "city": "Yumurtalik",
     "state": "Adana",
     "country": "Turkey"
   },
@@ -340,7 +355,7 @@ export const yuCities = [
     "country": "Taiwan"
   },
   {
-    "city": "Yuscar\u00e1n",
+    "city": "Yuscaran",
     "state": "El Para\u00edso",
     "country": "Honduras"
   },

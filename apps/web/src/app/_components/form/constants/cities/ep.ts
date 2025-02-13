@@ -5,9 +5,19 @@ export const epCities = [
     "country": "Nigeria"
   },
   {
+    "city": "Epinay-sur-Seine",
+    "state": "\u00cele-de-France",
+    "country": "France"
+  },
+  {
     "city": "Epe",
     "state": "Gelderland",
     "country": "Netherlands"
+  },
+  {
+    "city": "Epinal",
+    "state": "Grand Est",
+    "country": "France"
   },
   {
     "city": "Epsom",
@@ -18,6 +28,11 @@ export const epCities = [
     "city": "Eppingen",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
+  },
+  {
+    "city": "Epernay",
+    "state": "Grand Est",
+    "country": "France"
   },
   {
     "city": "Epitacio Huerta",
@@ -50,6 +65,11 @@ export const epCities = [
     "country": "United States"
   },
   {
+    "city": "Epinay-sous-Senart",
+    "state": "\u00cele-de-France",
+    "country": "France"
+  },
+  {
     "city": "Epazoyucan",
     "state": "Hidalgo",
     "country": "Mexico"
@@ -60,7 +80,12 @@ export const epCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Epanom\u00ed",
+    "city": "Epinay-sur-Orge",
+    "state": "\u00cele-de-France",
+    "country": "France"
+  },
+  {
+    "city": "Epanomi",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },

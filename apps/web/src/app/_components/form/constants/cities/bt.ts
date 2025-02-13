@@ -1,6 +1,6 @@
 export const btCities = [
   {
-    "city": "Bteghr\u00eene",
+    "city": "Bteghrine",
     "state": "Mont-Liban",
     "country": "Lebanon"
   }

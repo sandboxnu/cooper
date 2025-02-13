@@ -15,12 +15,12 @@ export const amCities = [
     "country": "India"
   },
   {
-    "city": "Amr\u0101vati",
+    "city": "Amravati",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
   {
-    "city": "Ambatt\u016br",
+    "city": "Ambattur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -40,7 +40,12 @@ export const amCities = [
     "country": "Brazil"
   },
   {
-    "city": "Amb\u0101la",
+    "city": "Amol",
+    "state": "M\u0101zandar\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Ambala",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -70,12 +75,12 @@ export const amCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Ambik\u0101pur",
+    "city": "Ambikapur",
     "state": "Chhatt\u012bsgarh",
     "country": "India"
   },
   {
-    "city": "Amatitl\u00e1n",
+    "city": "Amatitlan",
     "state": "Guatemala",
     "country": "Guatemala"
   },
@@ -105,7 +110,7 @@ export const amCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Amar\u0101vati",
+    "city": "Amaravati",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -130,7 +135,7 @@ export const amCities = [
     "country": "Japan"
   },
   {
-    "city": "Amb\u0101jog\u0101i",
+    "city": "Ambajogai",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -175,7 +180,7 @@ export const amCities = [
     "country": "Portugal"
   },
   {
-    "city": "Amal\u0101puram",
+    "city": "Amalapuram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -225,7 +230,7 @@ export const amCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Amb\u0101samudram",
+    "city": "Ambasamudram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -275,12 +280,12 @@ export const amCities = [
     "country": "Russia"
   },
   {
-    "city": "Amud\u0101lavalasa",
+    "city": "Amudalavalasa",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Amamba\u00ed",
+    "city": "Amambai",
     "state": "Mato Grosso do Sul",
     "country": "Brazil"
   },
@@ -300,7 +305,7 @@ export const amCities = [
     "country": "Chad"
   },
   {
-    "city": "Am\u00e9rico Brasiliense",
+    "city": "Americo Brasiliense",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -320,7 +325,7 @@ export const amCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Amarante do Maranh\u00e3o",
+    "city": "Amarante do Maranhao",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
@@ -340,7 +345,7 @@ export const amCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Ampel\u00f3kipoi",
+    "city": "Ampelokipoi",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
@@ -360,7 +365,7 @@ export const amCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Am\u00e9s",
+    "city": "Ames",
     "state": "Galicia",
     "country": "Spain"
   },
@@ -375,7 +380,7 @@ export const amCities = [
     "country": "Mexico"
   },
   {
-    "city": "Amecameca de Ju\u00e1rez",
+    "city": "Amecameca de Juarez",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
@@ -385,7 +390,7 @@ export const amCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Amag\u00e1",
+    "city": "Amaga",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -410,7 +415,7 @@ export const amCities = [
     "country": "Philippines"
   },
   {
-    "city": "Amali\u00e1da",
+    "city": "Amaliada",
     "state": "Dytik\u00ed Ell\u00e1da",
     "country": "Greece"
   },
@@ -418,6 +423,11 @@ export const amCities = [
     "city": "Ambatolampy",
     "state": "Antananarivo",
     "country": "Madagascar"
+  },
+  {
+    "city": "Amircan",
+    "state": "Bak\u0131",
+    "country": "Azerbaijan"
   },
   {
     "city": "Ambohijanahary",
@@ -455,6 +465,11 @@ export const amCities = [
     "country": "Mexico"
   },
   {
+    "city": "Amangal",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
     "city": "Ambinanisakana",
     "state": "Toamasina",
     "country": "Madagascar"
@@ -485,7 +500,7 @@ export const amCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Amat\u00e1n",
+    "city": "Amatan",
     "state": "Chiapas",
     "country": "Mexico"
   },
@@ -600,7 +615,7 @@ export const amCities = [
     "country": "United States"
   },
   {
-    "city": "Amarp\u0101tan",
+    "city": "Amarpatan",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -618,6 +633,11 @@ export const amCities = [
     "city": "Ambinanindrano",
     "state": "Fianarantsoa",
     "country": "Madagascar"
+  },
+  {
+    "city": "Amodei",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Ambalavato",
@@ -675,7 +695,7 @@ export const amCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Amp\u00e8re",
+    "city": "Ampere",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -683,6 +703,11 @@ export const amCities = [
     "city": "Amorebieta",
     "state": "Basque Country",
     "country": "Spain"
+  },
+  {
+    "city": "Amta",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Amboanana",
@@ -735,7 +760,7 @@ export const amCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Amm\u0101pettai",
+    "city": "Ammapettai",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -755,7 +780,7 @@ export const amCities = [
     "country": "Angola"
   },
   {
-    "city": "Amb\u0101la",
+    "city": "Ambala",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -785,7 +810,7 @@ export const amCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Am\u012bnpur",
+    "city": "Aminpur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -815,7 +840,7 @@ export const amCities = [
     "country": "Brazil"
   },
   {
-    "city": "Amfiloch\u00eda",
+    "city": "Amfilochia",
     "state": "Dytik\u00ed Ell\u00e1da",
     "country": "Greece"
   },
@@ -860,7 +885,7 @@ export const amCities = [
     "country": "India"
   },
   {
-    "city": "Ambar\u00e8s-et-Lagrave",
+    "city": "Ambares-et-Lagrave",
     "state": "Nouvelle-Aquitaine",
     "country": "France"
   },
@@ -910,7 +935,7 @@ export const amCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Amarw\u0101ra",
+    "city": "Amarwara",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -935,17 +960,17 @@ export const amCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Amatit\u00e1n",
+    "city": "Amatitan",
     "state": "Jalisco",
     "country": "Mexico"
   },
   {
-    "city": "Am\u0101nganj",
+    "city": "Amanganj",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Am\u00e9rica Dourada",
+    "city": "America Dourada",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -995,17 +1020,17 @@ export const amCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Amirl\u012b",
+    "city": "Amirli",
     "state": "\u015eal\u0101\u1e29 ad D\u012bn",
     "country": "Iraq"
   },
   {
-    "city": "Amm\u016br",
+    "city": "Ammur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Amb\u00e9rieu-en-Bugey",
+    "city": "Amberieu-en-Bugey",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
@@ -1035,7 +1060,7 @@ export const amCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Am\u0101ri",
+    "city": "Amari",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1070,7 +1095,7 @@ export const amCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Am\u0101ha",
+    "city": "Amaha",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1085,7 +1110,7 @@ export const amCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Amr\u0101b\u0101d",
+    "city": "Amrabad",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1095,7 +1120,7 @@ export const amCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Am\u012bngarh",
+    "city": "Amingarh",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1105,7 +1130,7 @@ export const amCities = [
     "country": "Switzerland"
   },
   {
-    "city": "Amar\u0101vati",
+    "city": "Amaravati",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1245,7 +1270,7 @@ export const amCities = [
     "country": "France"
   },
   {
-    "city": "Amarw\u0101 Khurd",
+    "city": "Amarwa Khurd",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -1285,7 +1310,7 @@ export const amCities = [
     "country": "United States"
   },
   {
-    "city": "Ammav\u0101rikuppam",
+    "city": "Ammavarikuppam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1295,7 +1320,7 @@ export const amCities = [
     "country": "South Africa"
   },
   {
-    "city": "Amm\u0101pettai",
+    "city": "Ammapettai",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1335,12 +1360,12 @@ export const amCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Amar\u0101puuram",
+    "city": "Amarapuuram",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Amb\u0101tturai",
+    "city": "Ambatturai",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1385,7 +1410,7 @@ export const amCities = [
     "country": "India"
   },
   {
-    "city": "Ambinanin\u2019i Sakaleona",
+    "city": "Ambinanin'i Sakaleona",
     "state": "Fianarantsoa",
     "country": "Madagascar"
   },
@@ -1445,12 +1470,12 @@ export const amCities = [
     "country": "India"
   },
   {
-    "city": "Amn\u00e9ville",
+    "city": "Amneville",
     "state": "Grand Est",
     "country": "France"
   },
   {
-    "city": "Amatur\u00e1",
+    "city": "Amatura",
     "state": "Amazonas",
     "country": "Brazil"
   },
@@ -1480,7 +1505,7 @@ export const amCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Am\u0101yan",
+    "city": "Amayan",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1510,7 +1535,7 @@ export const amCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Ambalan\u016br",
+    "city": "Ambalanur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1530,12 +1555,12 @@ export const amCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Amwa Majh\u0101r",
+    "city": "Amwa Majhar",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Amio\u00fbn",
+    "city": "Amioun",
     "state": "Liban-Nord",
     "country": "Lebanon"
   },
@@ -1655,7 +1680,7 @@ export const amCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Amjh\u0101r",
+    "city": "Amjhar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1685,7 +1710,7 @@ export const amCities = [
     "country": "Morocco"
   },
   {
-    "city": "Amatl\u00e1n de los Reyes",
+    "city": "Amatlan de los Reyes",
     "state": "Veracruz",
     "country": "Mexico"
   },
@@ -1693,6 +1718,11 @@ export const amCities = [
     "city": "Ambara",
     "state": "Madhya Pradesh",
     "country": "India"
+  },
+  {
+    "city": "Amal",
+    "state": "V\u00e4stra G\u00f6taland",
+    "country": "Sweden"
   },
   {
     "city": "Ampasimpotsy-Gara",
@@ -1740,7 +1770,7 @@ export const amCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Ambinanin\u2019 Andravory",
+    "city": "Ambinanin' Andravory",
     "state": "Antsiranana",
     "country": "Madagascar"
   },
@@ -1785,7 +1815,7 @@ export const amCities = [
     "country": "India"
   },
   {
-    "city": "Ami\u0101w\u0101r",
+    "city": "Amiawar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1805,7 +1835,12 @@ export const amCities = [
     "country": "India"
   },
   {
-    "city": "Amap\u00e1",
+    "city": "Amudalapalle",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Amapa",
     "state": "Amap\u00e1",
     "country": "Brazil"
   },

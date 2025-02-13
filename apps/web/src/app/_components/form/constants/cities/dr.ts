@@ -60,7 +60,7 @@ export const drCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Dr\u00e1ma",
+    "city": "Drama",
     "state": "Anatolik\u00ed Makedon\u00eda kai Thr\u00e1ki",
     "country": "Greece"
   },
@@ -145,7 +145,7 @@ export const drCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Dr\u0101s",
+    "city": "Dras",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
@@ -155,7 +155,7 @@ export const drCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Dra\u010devo",
+    "city": "Dracevo",
     "state": "Skopje",
     "country": "North Macedonia"
   },
@@ -175,7 +175,7 @@ export const drCities = [
     "country": "Germany"
   },
   {
-    "city": "Dr\u0103g\u0103\u015fani",
+    "city": "Dragasani",
     "state": "V\u00e2lcea",
     "country": "Romania"
   },
@@ -190,7 +190,7 @@ export const drCities = [
     "country": "Morocco"
   },
   {
-    "city": "Drapets\u00f3na",
+    "city": "Drapetsona",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -200,7 +200,7 @@ export const drCities = [
     "country": "United States"
   },
   {
-    "city": "Dr\u00f8bak",
+    "city": "Drobak",
     "state": "Viken",
     "country": "Norway"
   },
@@ -225,7 +225,7 @@ export const drCities = [
     "country": "Australia"
   },
   {
-    "city": "Drag\u00f8r",
+    "city": "Dragor",
     "state": "Hovedstaden",
     "country": "Denmark"
   },
@@ -260,12 +260,12 @@ export const drCities = [
     "country": "Poland"
   },
   {
-    "city": "Dr\u0103g\u0103ne\u015fti-Olt",
+    "city": "Draganesti-Olt",
     "state": "Olt",
     "country": "Romania"
   },
   {
-    "city": "Dr\u0101ksh\u0101r\u0101ma",
+    "city": "Draksharama",
     "state": "Andhra Pradesh",
     "country": "India"
   },

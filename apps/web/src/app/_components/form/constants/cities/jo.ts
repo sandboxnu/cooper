@@ -10,7 +10,7 @@ export const joCities = [
     "country": "India"
   },
   {
-    "city": "Jo\u00e3o Pessoa",
+    "city": "Joao Pessoa",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -30,17 +30,22 @@ export const joCities = [
     "country": "Malaysia"
   },
   {
-    "city": "Jos\u00e9 C. Paz",
+    "city": "Jose C. Paz",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
   {
-    "city": "Jos\u00e9 Mar\u00eda Ezeiza",
+    "city": "Joetsu",
+    "state": "Niigata",
+    "country": "Japan"
+  },
+  {
+    "city": "Jose Maria Ezeiza",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
   {
-    "city": "Jorh\u0101t",
+    "city": "Jorhat",
     "state": "Assam",
     "country": "India"
   },
@@ -60,12 +65,17 @@ export const joCities = [
     "country": "United States"
   },
   {
+    "city": "Jonkoping",
+    "state": "J\u00f6nk\u00f6ping",
+    "country": "Sweden"
+  },
+  {
     "city": "Joyabaj",
     "state": "Quich\u00e9",
     "country": "Guatemala"
   },
   {
-    "city": "Jo\u00fcni\u00e9",
+    "city": "Jounie",
     "state": "Mont-Liban",
     "country": "Lebanon"
   },
@@ -85,7 +95,7 @@ export const joCities = [
     "country": "United States"
   },
   {
-    "city": "Jocot\u00e1n",
+    "city": "Jocotan",
     "state": "Chiquimula",
     "country": "Guatemala"
   },
@@ -95,7 +105,7 @@ export const joCities = [
     "country": "Finland"
   },
   {
-    "city": "Jo\u00e3o Monlevade",
+    "city": "Joao Monlevade",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -105,14 +115,24 @@ export const joCities = [
     "country": "Philippines"
   },
   {
-    "city": "Jocotitl\u00e1n",
+    "city": "Joyo",
+    "state": "Ky\u014dto",
+    "country": "Japan"
+  },
+  {
+    "city": "Jocotitlan",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
   {
-    "city": "Jose Pa\u00f1ganiban",
+    "city": "Jose Panganiban",
     "state": "Camarines Norte",
     "country": "Philippines"
+  },
+  {
+    "city": "Joso",
+    "state": "Ibaraki",
+    "country": "Japan"
   },
   {
     "city": "Jovellanos",
@@ -125,7 +145,7 @@ export const joCities = [
     "country": "Canada"
   },
   {
-    "city": "Josh\u012bmath",
+    "city": "Joshimath",
     "state": "Uttar\u0101khand",
     "country": "India"
   },
@@ -135,7 +155,7 @@ export const joCities = [
     "country": "Cuba"
   },
   {
-    "city": "Jo\u00e3o Pinheiro",
+    "city": "Joao Pinheiro",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -155,7 +175,7 @@ export const joCities = [
     "country": "India"
   },
   {
-    "city": "Jos\u00e9 de Freitas",
+    "city": "Jose de Freitas",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
@@ -165,7 +185,7 @@ export const joCities = [
     "country": "Mexico"
   },
   {
-    "city": "Jos\u00e9 M\u00e1rmol",
+    "city": "Jose Marmol",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -180,17 +200,17 @@ export const joCities = [
     "country": "India"
   },
   {
-    "city": "Jou\u00e9-l\u00e9s-Tours",
+    "city": "Joue-les-Tours",
     "state": "Centre-Val de Loire",
     "country": "France"
   },
   {
-    "city": "Jos\u00e9 Bonif\u00e1cio",
+    "city": "Jose Bonifacio",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Jo\u00e3o C\u00e2mara",
+    "city": "Joao Camara",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
   },
@@ -200,7 +220,7 @@ export const joCities = [
     "country": "Mexico"
   },
   {
-    "city": "Joa\u00e7aba",
+    "city": "Joacaba",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -215,7 +235,7 @@ export const joCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Jo\u00e3o Alfredo",
+    "city": "Joao Alfredo",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -230,7 +250,7 @@ export const joCities = [
     "country": "India"
   },
   {
-    "city": "Jo\u00e3o Lisboa",
+    "city": "Joao Lisboa",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
@@ -250,9 +270,14 @@ export const joCities = [
     "country": "India"
   },
   {
-    "city": "Joaqu\u00edn V. Gonz\u00e1lez",
+    "city": "Joaquin V. Gonzalez",
     "state": "Salta",
     "country": "Argentina"
+  },
+  {
+    "city": "Jozefow",
+    "state": "Mazowieckie",
+    "country": "Poland"
   },
   {
     "city": "Joinville-le-Pont",
@@ -260,7 +285,7 @@ export const joCities = [
     "country": "France"
   },
   {
-    "city": "Jos\u00e9 Cardel",
+    "city": "Jose Cardel",
     "state": "Veracruz",
     "country": "Mexico"
   },
@@ -305,7 +330,7 @@ export const joCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Jo\u00e3o Neiva",
+    "city": "Joao Neiva",
     "state": "Esp\u00edrito Santo",
     "country": "Brazil"
   },
@@ -315,17 +340,22 @@ export const joCities = [
     "country": "United States"
   },
   {
-    "city": "Joa\u00edma",
+    "city": "Joaima",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
   {
-    "city": "Joubb Jann\u00eene",
+    "city": "Jozefoslaw",
+    "state": "Mazowieckie",
+    "country": "Poland"
+  },
+  {
+    "city": "Joubb Jannine",
     "state": "B\u00e9qaa",
     "country": "Lebanon"
   },
   {
-    "city": "Jori Kal\u0101n",
+    "city": "Jori Kalan",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -360,7 +390,7 @@ export const joCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Joan\u00f3polis",
+    "city": "Joanopolis",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -375,14 +405,19 @@ export const joCities = [
     "country": "Philippines"
   },
   {
-    "city": "Joaquim T\u00e1vora",
+    "city": "Joaquim Tavora",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Jos\u00e9 Mar\u00eda Morelos",
+    "city": "Jose Maria Morelos",
     "state": "Quintana Roo",
     "country": "Mexico"
+  },
+  {
+    "city": "Jodar",
+    "state": "Andalusia",
+    "country": "Spain"
   },
   {
     "city": "Joquicingo",
@@ -390,12 +425,17 @@ export const joCities = [
     "country": "Mexico"
   },
   {
+    "city": "Johvi",
+    "state": "J\u00f5hvi",
+    "country": "Estonia"
+  },
+  {
     "city": "Joutseno",
     "state": "Etel\u00e4-Karjala",
     "country": "Finland"
   },
   {
-    "city": "Jord\u00e2nia",
+    "city": "Jordania",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -405,7 +445,7 @@ export const joCities = [
     "country": "Sweden"
   },
   {
-    "city": "Jomasho\u2018y",
+    "city": "Jomasho`y",
     "state": "Namangan",
     "country": "Uzbekistan"
   },
@@ -415,7 +455,7 @@ export const joCities = [
     "country": "El Salvador"
   },
   {
-    "city": "Joght\u0101y",
+    "city": "Joghtay",
     "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
     "country": "Iran"
   },
@@ -430,7 +470,7 @@ export const joCities = [
     "country": "India"
   },
   {
-    "city": "Jogi\u0101ra",
+    "city": "Jogiara",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -440,7 +480,7 @@ export const joCities = [
     "country": "India"
   },
   {
-    "city": "Jolf\u0101",
+    "city": "Jolfa",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Sharq\u012b",
     "country": "Iran"
   },
@@ -450,17 +490,22 @@ export const joCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Joni\u0161kis",
+    "city": "Joniskis",
     "state": "Joni\u0161kis",
     "country": "Lithuania"
   },
   {
-    "city": "Jos\u00e9 Batlle y Ord\u00f3\u00f1ez",
+    "city": "Jogeva",
+    "state": "J\u00f5geva",
+    "country": "Estonia"
+  },
+  {
+    "city": "Jose Batlle y Ordonez",
     "state": "Lavalleja",
     "country": "Uruguay"
   },
   {
-    "city": "Jo\u00e3o Teves",
+    "city": "Joao Teves",
     "state": "S\u00e3o Louren\u00e7o dos \u00d3rg\u00e3os",
     "country": "Cabo Verde"
   }

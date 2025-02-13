@@ -1,11 +1,11 @@
 export const ypCities = [
   {
-    "city": "Ypan\u00e9",
+    "city": "Ypane",
     "state": "Central",
     "country": "Paraguay"
   },
   {
-    "city": "Ypacara\u00ed",
+    "city": "Ypacarai",
     "state": "Central",
     "country": "Paraguay"
   },
@@ -15,7 +15,7 @@ export const ypCities = [
     "country": "United States"
   },
   {
-    "city": "Ypejh\u00fa",
+    "city": "Ypejhu",
     "state": "Canindey\u00fa",
     "country": "Paraguay"
   }

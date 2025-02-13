@@ -13,5 +13,10 @@ export const znCities = [
     "city": "Znamianka",
     "state": "Kirovohradska Oblast",
     "country": "Ukraine"
+  },
+  {
+    "city": "Znin",
+    "state": "Kujawsko-Pomorskie",
+    "country": "Poland"
   }
 ]

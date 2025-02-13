@@ -100,7 +100,7 @@ export const spCities = [
     "country": "United States"
   },
   {
-    "city": "Spassk-Dal\u2019niy",
+    "city": "Spassk-Dal'niy",
     "state": "Primorskiy Kray",
     "country": "Russia"
   },
@@ -115,7 +115,7 @@ export const spCities = [
     "country": "Italy"
   },
   {
-    "city": "Spi\u0161sk\u00e1 Nov\u00e1 Ves",
+    "city": "Spisska Nova Ves",
     "state": "Ko\u0161ice",
     "country": "Slovakia"
   },
@@ -175,7 +175,7 @@ export const spCities = [
     "country": "United States"
   },
   {
-    "city": "Sprockh\u00f6vel",
+    "city": "Sprockhovel",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
   },
@@ -235,7 +235,7 @@ export const spCities = [
     "country": "United States"
   },
   {
-    "city": "Sp\u00e1rti",
+    "city": "Sparti",
     "state": "Pelop\u00f3nnisos",
     "country": "Greece"
   },
@@ -385,7 +385,7 @@ export const spCities = [
     "country": "United States"
   },
   {
-    "city": "Sp\u00e1ta",
+    "city": "Spata",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -405,7 +405,7 @@ export const spCities = [
     "country": "United States"
   },
   {
-    "city": "Spodnje Ho\u010de",
+    "city": "Spodnje Hoce",
     "state": "Ho\u010de-Slivnica",
     "country": "Slovenia"
   },

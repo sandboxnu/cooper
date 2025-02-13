@@ -40,7 +40,7 @@ export const upCities = [
     "country": "Venezuela"
   },
   {
-    "city": "Upplands V\u00e4sby",
+    "city": "Upplands Vasby",
     "state": "Stockholm",
     "country": "Sweden"
   },
@@ -155,7 +155,7 @@ export const upCities = [
     "country": "India"
   },
   {
-    "city": "Upp\u0101da",
+    "city": "Uppada",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -180,7 +180,7 @@ export const upCities = [
     "country": "India"
   },
   {
-    "city": "Upp\u016br",
+    "city": "Uppur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -190,7 +190,7 @@ export const upCities = [
     "country": "India"
   },
   {
-    "city": "Uppalap\u0101du",
+    "city": "Uppalapadu",
     "state": "Andhra Pradesh",
     "country": "India"
   },

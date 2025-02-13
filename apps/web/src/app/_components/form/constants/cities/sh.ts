@@ -80,7 +80,7 @@ export const shCities = [
     "country": "China"
   },
   {
-    "city": "Sh\u012br\u0101z",
+    "city": "Shiraz",
     "state": "F\u0101rs",
     "country": "Iran"
   },
@@ -115,7 +115,7 @@ export const shCities = [
     "country": "China"
   },
   {
-    "city": "Shubr\u0101 al Khaymah",
+    "city": "Shubra al Khaymah",
     "state": "Al Qaly\u016bb\u012byah",
     "country": "Egypt"
   },
@@ -130,7 +130,7 @@ export const shCities = [
     "country": "China"
   },
   {
-    "city": "Sh\u012bshgarh",
+    "city": "Shishgarh",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -185,7 +185,7 @@ export const shCities = [
     "country": "Malaysia"
   },
   {
-    "city": "Shib\u012bn al Qan\u0101\u0163ir",
+    "city": "Shibin al Qanatir",
     "state": "Al Qaly\u016bb\u012byah",
     "country": "Egypt"
   },
@@ -215,12 +215,12 @@ export const shCities = [
     "country": "Japan"
   },
   {
-    "city": "Shor\u0101pur",
+    "city": "Shorapur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Shashemen\u0113",
+    "city": "Shashemene",
     "state": "Orom\u012bya",
     "country": "Ethiopia"
   },
@@ -240,7 +240,7 @@ export const shCities = [
     "country": "Japan"
   },
   {
-    "city": "Sh\u0101hj\u0101npur",
+    "city": "Shahjanpur",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -255,7 +255,7 @@ export const shCities = [
     "country": "India"
   },
   {
-    "city": "Shahr\u012b\u0101r",
+    "city": "Shahriar",
     "state": "Tehr\u0101n",
     "country": "Iran"
   },
@@ -265,7 +265,7 @@ export const shCities = [
     "country": "Iran"
   },
   {
-    "city": "Shubr\u0101kh\u012bt",
+    "city": "Shubrakhit",
     "state": "Al Bu\u1e29ayrah",
     "country": "Egypt"
   },
@@ -280,7 +280,7 @@ export const shCities = [
     "country": "China"
   },
   {
-    "city": "Shib\u012bn al Kawm",
+    "city": "Shibin al Kawm",
     "state": "Al Min\u016bf\u012byah",
     "country": "Egypt"
   },
@@ -315,7 +315,7 @@ export const shCities = [
     "country": "Iran"
   },
   {
-    "city": "Shr\u012br\u0101mpur",
+    "city": "Shrirampur",
     "state": "West Bengal",
     "country": "India"
   },
@@ -325,12 +325,12 @@ export const shCities = [
     "country": "India"
   },
   {
-    "city": "Shibirgh\u0101n",
+    "city": "Shibirghan",
     "state": "Jowzj\u0101n",
     "country": "Afghanistan"
   },
   {
-    "city": "Sh\u0101h\u012bn Shahr",
+    "city": "Shahin Shahr",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
@@ -340,12 +340,12 @@ export const shCities = [
     "country": "Canada"
   },
   {
-    "city": "Sh\u0101ntipur",
+    "city": "Shantipur",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Sh\u0101hr\u016bd",
+    "city": "Shahrud",
     "state": "Semn\u0101n",
     "country": "Iran"
   },
@@ -360,7 +360,7 @@ export const shCities = [
     "country": "China"
   },
   {
-    "city": "Sh\u016bnan",
+    "city": "Shunan",
     "state": "Yamaguchi",
     "country": "Japan"
   },
@@ -370,7 +370,7 @@ export const shCities = [
     "country": "China"
   },
   {
-    "city": "Shahre\u1e95\u0101",
+    "city": "Shahreza",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
@@ -405,12 +405,12 @@ export const shCities = [
     "country": "India"
   },
   {
-    "city": "Shkod\u00ebr",
+    "city": "Shkoder",
     "state": "Shkod\u00ebr",
     "country": "Albania"
   },
   {
-    "city": "Shuj\u0101lpur",
+    "city": "Shujalpur",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -425,7 +425,7 @@ export const shCities = [
     "country": "China"
   },
   {
-    "city": "Shikoh\u0101b\u0101d",
+    "city": "Shikohabad",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -435,7 +435,7 @@ export const shCities = [
     "country": "Tanzania"
   },
   {
-    "city": "Sh\u0101mli",
+    "city": "Shamli",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -450,7 +450,7 @@ export const shCities = [
     "country": "Japan"
   },
   {
-    "city": "Sh\u016bshtar",
+    "city": "Shushtar",
     "state": "Kh\u016bzest\u0101n",
     "country": "Iran"
   },
@@ -465,7 +465,7 @@ export const shCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Shir\u0113",
+    "city": "Shire",
     "state": "Tigray",
     "country": "Ethiopia"
   },
@@ -500,7 +500,7 @@ export const shCities = [
     "country": "India"
   },
   {
-    "city": "Shch\u00ebkino",
+    "city": "Shchekino",
     "state": "Tul\u2019skaya Oblast\u2019",
     "country": "Russia"
   },
@@ -510,7 +510,7 @@ export const shCities = [
     "country": "China"
   },
   {
-    "city": "Shar\u016brah",
+    "city": "Sharurah",
     "state": "Najr\u0101n",
     "country": "Saudi Arabia"
   },
@@ -520,12 +520,12 @@ export const shCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Sh\u012brv\u0101n",
+    "city": "Shirvan",
     "state": "Khor\u0101s\u0101n-e Shom\u0101l\u012b",
     "country": "Iran"
   },
   {
-    "city": "Shikokuch\u016b\u014d",
+    "city": "Shikokuchuo",
     "state": "Ehime",
     "country": "Japan"
   },
@@ -540,7 +540,7 @@ export const shCities = [
     "country": "China"
   },
   {
-    "city": "Sh\u016bsh",
+    "city": "Shush",
     "state": "Kh\u016bzest\u0101n",
     "country": "Iran"
   },
@@ -555,7 +555,7 @@ export const shCities = [
     "country": "Japan"
   },
   {
-    "city": "Sh\u0101j\u0101pur",
+    "city": "Shajapur",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -680,7 +680,7 @@ export const shCities = [
     "country": "Sudan"
   },
   {
-    "city": "Shij\u014dnawate",
+    "city": "Shijonawate",
     "state": "\u014csaka",
     "country": "Japan"
   },
@@ -695,7 +695,7 @@ export const shCities = [
     "country": "China"
   },
   {
-    "city": "Sh\u0101hpur",
+    "city": "Shahpur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -715,7 +715,7 @@ export const shCities = [
     "country": "Bangladesh"
   },
   {
-    "city": "Shahr-e B\u0101bak",
+    "city": "Shahr-e Babak",
     "state": "Kerm\u0101n",
     "country": "Iran"
   },
@@ -745,7 +745,7 @@ export const shCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Shimotsuch\u014d-kominami",
+    "city": "Shimotsucho-kominami",
     "state": "Wakayama",
     "country": "Japan"
   },
@@ -785,12 +785,12 @@ export const shCities = [
     "country": "China"
   },
   {
-    "city": "Shch\u016bch\u012bnsk",
+    "city": "Shchuchinsk",
     "state": "Aqmola",
     "country": "Kazakhstan"
   },
   {
-    "city": "Sha\u1e29\u1e29\u0101t",
+    "city": "Shahhat",
     "state": "Al Jabal al Akh\u1e11ar",
     "country": "Libya"
   },
@@ -825,12 +825,12 @@ export const shCities = [
     "country": "Japan"
   },
   {
-    "city": "Sh\u014dran\u016br",
+    "city": "Shoranur",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Shin\u0101\u015f",
+    "city": "Shinas",
     "state": "Sham\u0101l al B\u0101\u0163inah",
     "country": "Oman"
   },
@@ -860,12 +860,12 @@ export const shCities = [
     "country": "China"
   },
   {
-    "city": "Sh\u0101deg\u0101n",
+    "city": "Shadegan",
     "state": "Kh\u016bzest\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Shefar\u2018am",
+    "city": "Shefar`am",
     "state": "Northern",
     "country": "Israel"
   },
@@ -900,7 +900,7 @@ export const shCities = [
     "country": "China"
   },
   {
-    "city": "Shergh\u0101ti",
+    "city": "Sherghati",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -925,7 +925,7 @@ export const shCities = [
     "country": "China"
   },
   {
-    "city": "Shankarpur Khaw\u0101s",
+    "city": "Shankarpur Khawas",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -935,12 +935,12 @@ export const shCities = [
     "country": "Taiwan"
   },
   {
-    "city": "Shambhun\u0101th",
+    "city": "Shambhunath",
     "state": "Madhesh",
     "country": "Nepal"
   },
   {
-    "city": "Shakht\u012bnsk",
+    "city": "Shakhtinsk",
     "state": "Qaraghandy",
     "country": "Kazakhstan"
   },
@@ -975,12 +975,12 @@ export const shCities = [
     "country": "China"
   },
   {
-    "city": "Shaqr\u0101\u2019",
+    "city": "Shaqra'",
     "state": "Ar Riy\u0101\u1e11",
     "country": "Saudi Arabia"
   },
   {
-    "city": "Sh\u016b",
+    "city": "Shu",
     "state": "Zhambyl",
     "country": "Kazakhstan"
   },
@@ -990,7 +990,7 @@ export const shCities = [
     "country": "China"
   },
   {
-    "city": "Sh\u012by\u0101li",
+    "city": "Shiyali",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1005,17 +1005,17 @@ export const shCities = [
     "country": "China"
   },
   {
-    "city": "Shinj\u014d",
+    "city": "Shinjo",
     "state": "Yamagata",
     "country": "Japan"
   },
   {
-    "city": "Sh\u0101h\u012bn Dezh",
+    "city": "Shahin Dezh",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Gharb\u012b",
     "country": "Iran"
   },
   {
-    "city": "Shis\u014d",
+    "city": "Shiso",
     "state": "Hy\u014dgo",
     "country": "Japan"
   },
@@ -1030,7 +1030,7 @@ export const shCities = [
     "country": "Russia"
   },
   {
-    "city": "Sh\u014dbara",
+    "city": "Shobara",
     "state": "Hiroshima",
     "country": "Japan"
   },
@@ -1045,7 +1045,7 @@ export const shCities = [
     "country": "Japan"
   },
   {
-    "city": "Shanaw\u0101n",
+    "city": "Shanawan",
     "state": "Al Min\u016bf\u012byah",
     "country": "Egypt"
   },
@@ -1055,12 +1055,12 @@ export const shCities = [
     "country": "Russia"
   },
   {
-    "city": "Shams\u0101b\u0101d",
+    "city": "Shamsabad",
     "state": "Uttar Pradesh",
     "country": "India"
   },
   {
-    "city": "Shik\u0101rp\u016br",
+    "city": "Shikarpur",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -1070,7 +1070,7 @@ export const shCities = [
     "country": "Japan"
   },
   {
-    "city": "Shing\u016b",
+    "city": "Shingu",
     "state": "Fukuoka",
     "country": "Japan"
   },
@@ -1090,7 +1090,7 @@ export const shCities = [
     "country": "United States"
   },
   {
-    "city": "Shams\u0101b\u0101d",
+    "city": "Shamsabad",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1115,7 +1115,7 @@ export const shCities = [
     "country": "India"
   },
   {
-    "city": "Shimizuch\u014d",
+    "city": "Shimizucho",
     "state": "Shizuoka",
     "country": "Japan"
   },
@@ -1125,7 +1125,7 @@ export const shCities = [
     "country": "China"
   },
   {
-    "city": "Shik\u0101rpur",
+    "city": "Shikarpur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1155,7 +1155,7 @@ export const shCities = [
     "country": "Australia"
   },
   {
-    "city": "Shr\u012bgonda",
+    "city": "Shrigonda",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -1165,7 +1165,7 @@ export const shCities = [
     "country": "India"
   },
   {
-    "city": "Sh\u0101hpura",
+    "city": "Shahpura",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -1225,12 +1225,12 @@ export const shCities = [
     "country": "United States"
   },
   {
-    "city": "Shak\u012bso",
+    "city": "Shakiso",
     "state": "Orom\u012bya",
     "country": "Ethiopia"
   },
   {
-    "city": "Sh\u0101hpura",
+    "city": "Shahpura",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -1265,7 +1265,7 @@ export const shCities = [
     "country": "China"
   },
   {
-    "city": "Shing\u016b",
+    "city": "Shingu",
     "state": "Mie",
     "country": "Japan"
   },
@@ -1300,7 +1300,7 @@ export const shCities = [
     "country": "China"
   },
   {
-    "city": "Sh\u0101hganj",
+    "city": "Shahganj",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -1320,27 +1320,27 @@ export const shCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Sh\u0101hedshahr",
+    "city": "Shahedshahr",
     "state": "Tehr\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Show\u0163",
+    "city": "Showt",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Gharb\u012b",
     "country": "Iran"
   },
   {
-    "city": "Shr\u012brangapattana",
+    "city": "Shrirangapattana",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Sho\u2018rchi",
+    "city": "Sho`rchi",
     "state": "Surxondaryo",
     "country": "Uzbekistan"
   },
   {
-    "city": "Shaql\u0101wah",
+    "city": "Shaqlawah",
     "state": "Arb\u012bl",
     "country": "Iraq"
   },
@@ -1360,7 +1360,7 @@ export const shCities = [
     "country": "India"
   },
   {
-    "city": "Sheghn\u0101n",
+    "city": "Sheghnan",
     "state": "Badakhsh\u0101n",
     "country": "Afghanistan"
   },
@@ -1370,7 +1370,7 @@ export const shCities = [
     "country": "Russia"
   },
   {
-    "city": "Sh\u0101hpur",
+    "city": "Shahpur",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1385,12 +1385,12 @@ export const shCities = [
     "country": "United States"
   },
   {
-    "city": "Shams\u0101b\u0101d",
+    "city": "Shamsabad",
     "state": "Uttar Pradesh",
     "country": "India"
   },
   {
-    "city": "Sheyb\u0101n",
+    "city": "Sheyban",
     "state": "Kh\u016bzest\u0101n",
     "country": "Iran"
   },
@@ -1420,7 +1420,7 @@ export const shCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Sh\u0101r\u016bnah",
+    "city": "Sharunah",
     "state": "Al Miny\u0101",
     "country": "Egypt"
   },
@@ -1460,7 +1460,7 @@ export const shCities = [
     "country": "United States"
   },
   {
-    "city": "Sh\u0101hb\u0101zpur",
+    "city": "Shahbazpur",
     "state": "Chattogram",
     "country": "Bangladesh"
   },
@@ -1470,7 +1470,7 @@ export const shCities = [
     "country": "India"
   },
   {
-    "city": "Sh\u0101zand",
+    "city": "Shazand",
     "state": "Markaz\u012b",
     "country": "Iran"
   },
@@ -1480,7 +1480,7 @@ export const shCities = [
     "country": "Kyrgyzstan"
   },
   {
-    "city": "Sh\u014dwa",
+    "city": "Showa",
     "state": "Yamanashi",
     "country": "Japan"
   },
@@ -1505,7 +1505,7 @@ export const shCities = [
     "country": "Japan"
   },
   {
-    "city": "Sh\u0101mgarh",
+    "city": "Shamgarh",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1520,12 +1520,12 @@ export const shCities = [
     "country": "Russia"
   },
   {
-    "city": "Shri Mah\u0101v\u012brji",
+    "city": "Shri Mahavirji",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
   {
-    "city": "Sh\u014dnai",
+    "city": "Shonai",
     "state": "Yamagata",
     "country": "Japan"
   },
@@ -1535,12 +1535,12 @@ export const shCities = [
     "country": "Japan"
   },
   {
-    "city": "Sh\u012br\u016bru",
+    "city": "Shiruru",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Shinj\u014d",
+    "city": "Shinjo",
     "state": "Nara",
     "country": "Japan"
   },
@@ -1560,7 +1560,7 @@ export const shCities = [
     "country": "United States"
   },
   {
-    "city": "Shemona\u012bkha",
+    "city": "Shemonaikha",
     "state": "East Kazakhstan",
     "country": "Kazakhstan"
   },
@@ -1570,12 +1570,12 @@ export const shCities = [
     "country": "Japan"
   },
   {
-    "city": "Sh\u0101hgarh",
+    "city": "Shahgarh",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Sh\u0101hpur",
+    "city": "Shahpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1660,7 +1660,7 @@ export const shCities = [
     "country": "Japan"
   },
   {
-    "city": "Shir\u0101li",
+    "city": "Shirali",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1685,7 +1685,7 @@ export const shCities = [
     "country": "India"
   },
   {
-    "city": "Shin-Kamigot\u014d",
+    "city": "Shin-Kamigoto",
     "state": "Nagasaki",
     "country": "Japan"
   },
@@ -1720,22 +1720,22 @@ export const shCities = [
     "country": "Taiwan"
   },
   {
-    "city": "Shankar Saraiy\u0101",
+    "city": "Shankar Saraiya",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Shing\u016bch\u014d-shing\u016b",
+    "city": "Shingucho-shingu",
     "state": "Hy\u014dgo",
     "country": "Japan"
   },
   {
-    "city": "Sh\u0101hkot",
+    "city": "Shahkot",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Shahb\u0101",
+    "city": "Shahba",
     "state": "As Suwayd\u0101\u2019",
     "country": "Syria"
   },
@@ -1775,12 +1775,12 @@ export const shCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Sh\u0101hpur",
+    "city": "Shahpur",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Sh\u0101hpura",
+    "city": "Shahpura",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1815,7 +1815,7 @@ export const shCities = [
     "country": "Russia"
   },
   {
-    "city": "Sh\u0101l",
+    "city": "Shal",
     "state": "Qazv\u012bn",
     "country": "Iran"
   },
@@ -1885,7 +1885,7 @@ export const shCities = [
     "country": "Hong Kong"
   },
   {
-    "city": "Shatr\u0101na",
+    "city": "Shatrana",
     "state": "Punjab",
     "country": "India"
   },
@@ -1910,7 +1910,7 @@ export const shCities = [
     "country": "Japan"
   },
   {
-    "city": "Shint\u014d",
+    "city": "Shinto",
     "state": "Gunma",
     "country": "Japan"
   },
@@ -1935,7 +1935,7 @@ export const shCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Sh\u0101nd\u012bz",
+    "city": "Shandiz",
     "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
     "country": "Iran"
   },
@@ -1945,7 +1945,7 @@ export const shCities = [
     "country": "United States"
   },
   {
-    "city": "Sht\u00ebrpc\u00eb",
+    "city": "Shterpce",
     "state": "Sht\u00ebrpc\u00eb",
     "country": "Kosovo"
   },
@@ -1960,7 +1960,7 @@ export const shCities = [
     "country": "United States"
   },
   {
-    "city": "Sh\u014ddoshima",
+    "city": "Shodoshima",
     "state": "Kagawa",
     "country": "Japan"
   },
@@ -1990,7 +1990,7 @@ export const shCities = [
     "country": "Kazakhstan"
   },
   {
-    "city": "Shib\u0101m",
+    "city": "Shibam",
     "state": "\u1e28a\u1e11ramawt",
     "country": "Yemen"
   },
@@ -2015,22 +2015,22 @@ export const shCities = [
     "country": "United States"
   },
   {
-    "city": "Sh\u012bn\u012bl\u0113",
+    "city": "Shinile",
     "state": "Sumal\u0113",
     "country": "Ethiopia"
   },
   {
-    "city": "Shit\u0101b Di\u0101ra",
+    "city": "Shitab Diara",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Shahr-e Her\u0101t",
+    "city": "Shahr-e Herat",
     "state": "Yazd",
     "country": "Iran"
   },
   {
-    "city": "Sh\u012bn",
+    "city": "Shin",
     "state": "\u1e28im\u015f",
     "country": "Syria"
   },
@@ -2070,7 +2070,7 @@ export const shCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Sh\u0101hpura",
+    "city": "Shahpura",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -2085,7 +2085,7 @@ export const shCities = [
     "country": "India"
   },
   {
-    "city": "Shams\u0101b\u0101d",
+    "city": "Shamsabad",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -2100,7 +2100,7 @@ export const shCities = [
     "country": "Kyrgyzstan"
   },
   {
-    "city": "Shiotach\u014d-matsusaki",
+    "city": "Shiotacho-matsusaki",
     "state": "Saga",
     "country": "Japan"
   },
@@ -2135,7 +2135,7 @@ export const shCities = [
     "country": "China"
   },
   {
-    "city": "Sh\u0101hpur Baghauni",
+    "city": "Shahpur Baghauni",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2150,7 +2150,7 @@ export const shCities = [
     "country": "Burma"
   },
   {
-    "city": "Sh\u0101hpur",
+    "city": "Shahpur",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -2160,7 +2160,7 @@ export const shCities = [
     "country": "United States"
   },
   {
-    "city": "Shahm\u012brz\u0101d",
+    "city": "Shahmirzad",
     "state": "Semn\u0101n",
     "country": "Iran"
   },
@@ -2195,7 +2195,7 @@ export const shCities = [
     "country": "Russia"
   },
   {
-    "city": "Sh\u014d\u014d",
+    "city": "Shoo",
     "state": "Okayama",
     "country": "Japan"
   },
@@ -2205,7 +2205,7 @@ export const shCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Shams\u0101b\u0101d",
+    "city": "Shamsabad",
     "state": "Kh\u016bzest\u0101n",
     "country": "Iran"
   },
@@ -2215,17 +2215,17 @@ export const shCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Sharg\u2018un",
+    "city": "Sharg`un",
     "state": "Surxondaryo",
     "country": "Uzbekistan"
   },
   {
-    "city": "Sh\u016drobod",
+    "city": "Shurobod",
     "state": "Khatlon",
     "country": "Tajikistan"
   },
   {
-    "city": "Sh\u0101mpur",
+    "city": "Shampur",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -2255,7 +2255,7 @@ export const shCities = [
     "country": "United States"
   },
   {
-    "city": "Shahrak-e Enqel\u0101b",
+    "city": "Shahrak-e Enqelab",
     "state": "Tehr\u0101n",
     "country": "Iran"
   },
@@ -2270,7 +2270,7 @@ export const shCities = [
     "country": "Japan"
   },
   {
-    "city": "Shahm\u012brpet",
+    "city": "Shahmirpet",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -2295,12 +2295,12 @@ export const shCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Sh\u0101hpur Chaumukhi",
+    "city": "Shahpur Chaumukhi",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Sh\u0101hpur Undi",
+    "city": "Shahpur Undi",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2320,7 +2320,7 @@ export const shCities = [
     "country": "India"
   },
   {
-    "city": "Sh\u0101hz\u0101dpur",
+    "city": "Shahzadpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2330,7 +2330,7 @@ export const shCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Sh\u0101hganj",
+    "city": "Shahganj",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -2350,7 +2350,7 @@ export const shCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Shahrak-e Ja\u2018far\u012byeh",
+    "city": "Shahrak-e Ja`fariyeh",
     "state": "Tehr\u0101n",
     "country": "Iran"
   },
@@ -2360,7 +2360,7 @@ export const shCities = [
     "country": "Russia"
   },
   {
-    "city": "Shahr-e Majles\u012b",
+    "city": "Shahr-e Majlesi",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
@@ -2375,7 +2375,7 @@ export const shCities = [
     "country": "United States"
   },
   {
-    "city": "Shanh\u016br",
+    "city": "Shanhur",
     "state": "Qin\u0101",
     "country": "Egypt"
   },
@@ -2385,7 +2385,7 @@ export const shCities = [
     "country": "Japan"
   },
   {
-    "city": "Shend\u0113",
+    "city": "Shende",
     "state": "\u0100mara",
     "country": "Ethiopia"
   },
@@ -2425,7 +2425,7 @@ export const shCities = [
     "country": "United States"
   },
   {
-    "city": "Shahr-e P\u012br",
+    "city": "Shahr-e Pir",
     "state": "F\u0101rs",
     "country": "Iran"
   },
@@ -2445,7 +2445,7 @@ export const shCities = [
     "country": "Kyrgyzstan"
   },
   {
-    "city": "Shahrak-e P\u0101rs",
+    "city": "Shahrak-e Pars",
     "state": "Tehr\u0101n",
     "country": "Iran"
   },
@@ -2455,7 +2455,7 @@ export const shCities = [
     "country": "India"
   },
   {
-    "city": "Shidd\u0101p\u016br",
+    "city": "Shiddapur",
     "state": "Karn\u0101taka",
     "country": "India"
   },

@@ -1,5 +1,10 @@
 export const urCities = [
   {
+    "city": "Urumqi",
+    "state": "Xinjiang",
+    "country": "China"
+  },
+  {
     "city": "Uruapan",
     "state": "Michoac\u00e1n",
     "country": "Mexico"
@@ -50,7 +55,7 @@ export const urCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Urun-Isl\u0101mpur",
+    "city": "Urun-Islampur",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -85,12 +90,12 @@ export const urCities = [
     "country": "United States"
   },
   {
-    "city": "Uruar\u00e1",
+    "city": "Uruara",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Urua\u00e7u",
+    "city": "Uruacu",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -110,7 +115,7 @@ export const urCities = [
     "country": "United States"
   },
   {
-    "city": "Ure\u00f1a",
+    "city": "Urena",
     "state": "T\u00e1chira",
     "country": "Venezuela"
   },
@@ -125,6 +130,11 @@ export const urCities = [
     "country": "India"
   },
   {
+    "city": "Urgup",
+    "state": "Nev\u015fehir",
+    "country": "Turkey"
+  },
+  {
     "city": "Urbano Santos",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
@@ -135,12 +145,17 @@ export const urCities = [
     "country": "India"
   },
   {
+    "city": "Ursulo Galvan",
+    "state": "Veracruz",
+    "country": "Mexico"
+  },
+  {
     "city": "Ureshinomachi-shimojuku",
     "state": "Saga",
     "country": "Japan"
   },
   {
-    "city": "Uru\u00e7u\u00ed",
+    "city": "Urucui",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
@@ -150,7 +165,7 @@ export const urCities = [
     "country": "Brazil"
   },
   {
-    "city": "Uru\u00e7uca",
+    "city": "Urucuca",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -175,7 +190,7 @@ export const urCities = [
     "country": "Colombia"
   },
   {
-    "city": "Urucar\u00e1",
+    "city": "Urucara",
     "state": "Amazonas",
     "country": "Brazil"
   },
@@ -200,7 +215,7 @@ export const urCities = [
     "country": "Brazil"
   },
   {
-    "city": "Urup\u00eas",
+    "city": "Urupes",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -225,6 +240,11 @@ export const urCities = [
     "country": "United States"
   },
   {
+    "city": "Urtaowul",
+    "state": "Toshkent",
+    "country": "Uzbekistan"
+  },
+  {
     "city": "Uren",
     "state": "Nizhegorodskaya Oblast\u2019",
     "country": "Russia"
@@ -245,7 +265,7 @@ export const urCities = [
     "country": "Brazil"
   },
   {
-    "city": "Urop\u00e1",
+    "city": "Uropa",
     "state": "Rond\u00f4nia",
     "country": "Brazil"
   },
@@ -255,7 +275,7 @@ export const urCities = [
     "country": "Peru"
   },
   {
-    "city": "Uruc\u00e2nia",
+    "city": "Urucania",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -265,12 +285,12 @@ export const urCities = [
     "country": "France"
   },
   {
-    "city": "Ura\u00ed",
+    "city": "Urai",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Urla\u0163i",
+    "city": "Urlati",
     "state": "Prahova",
     "country": "Romania"
   },
@@ -290,7 +310,7 @@ export const urCities = [
     "country": "Switzerland"
   },
   {
-    "city": "Url\u0101ha",
+    "city": "Urlaha",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -300,7 +320,7 @@ export const urCities = [
     "country": "Venezuela"
   },
   {
-    "city": "Urang\u0101npatti",
+    "city": "Uranganpatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -310,7 +330,7 @@ export const urCities = [
     "country": "Germany"
   },
   {
-    "city": "Urp\u0101ar",
+    "city": "Urpaar",
     "state": "Punjab",
     "country": "India"
   },
@@ -320,7 +340,7 @@ export const urCities = [
     "country": "Argentina"
   },
   {
-    "city": "Ur\u00e2nia",
+    "city": "Urania",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },

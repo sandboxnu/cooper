@@ -5,7 +5,7 @@ export const kyCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Ky\u014dto",
+    "city": "Kyoto",
     "state": "Ky\u014dto",
     "country": "Japan"
   },
@@ -15,7 +15,7 @@ export const kyCities = [
     "country": "Burma"
   },
   {
-    "city": "Ky\u014fngju",
+    "city": "Kyongju",
     "state": "Gyeongbuk",
     "country": "Korea, South"
   },
@@ -25,12 +25,17 @@ export const kyCities = [
     "country": "Burma"
   },
   {
+    "city": "Ky Anh",
+    "state": "H\u00e0 T\u0129nh",
+    "country": "Vietnam"
+  },
+  {
     "city": "Kyzyl",
     "state": "Tyva",
     "country": "Russia"
   },
   {
-    "city": "Ky\u014dtanabe",
+    "city": "Kyotanabe",
     "state": "Ky\u014dto",
     "country": "Japan"
   },
@@ -45,7 +50,7 @@ export const kyCities = [
     "country": "Kyrgyzstan"
   },
   {
-    "city": "Ky\u014dtango",
+    "city": "Kyotango",
     "state": "Ky\u014dto",
     "country": "Japan"
   },
@@ -105,7 +110,7 @@ export const kyCities = [
     "country": "Russia"
   },
   {
-    "city": "Kyab\u00e9",
+    "city": "Kyabe",
     "state": "Moyen-Chari",
     "country": "Chad"
   },
@@ -125,7 +130,7 @@ export const kyCities = [
     "country": "Burma"
   },
   {
-    "city": "Kysuck\u00e9 Nov\u00e9 Mesto",
+    "city": "Kysucke Nove Mesto",
     "state": "\u017dilina",
     "country": "Slovakia"
   },
@@ -140,7 +145,7 @@ export const kyCities = [
     "country": "Uganda"
   },
   {
-    "city": "Ky\u014dtamba",
+    "city": "Kyotamba",
     "state": "Ky\u014dto",
     "country": "Japan"
   },

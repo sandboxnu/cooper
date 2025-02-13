@@ -1,6 +1,6 @@
 export const taCities = [
   {
-    "city": "Tai\u2019an",
+    "city": "Tai'an",
     "state": "Shandong",
     "country": "China"
   },
@@ -55,7 +55,7 @@ export const taCities = [
     "country": "Taiwan"
   },
   {
-    "city": "Tabr\u012bz",
+    "city": "Tabriz",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Sharq\u012b",
     "country": "Iran"
   },
@@ -95,7 +95,7 @@ export const taCities = [
     "country": "Philippines"
   },
   {
-    "city": "Tab\u016bk",
+    "city": "Tabuk",
     "state": "Tab\u016bk",
     "country": "Saudi Arabia"
   },
@@ -105,7 +105,12 @@ export const taCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Ta\u2018izz",
+    "city": "Tan An",
+    "state": "H\u1ed3 Ch\u00ed Minh",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Ta`izz",
     "state": "Ta\u2018izz",
     "country": "Yemen"
   },
@@ -120,6 +125,11 @@ export const taCities = [
     "country": "Angola"
   },
   {
+    "city": "Tan Uyen",
+    "state": "B\u00ecnh D\u01b0\u01a1ng",
+    "country": "Vietnam"
+  },
+  {
     "city": "Tanbei",
     "state": "Henan",
     "country": "China"
@@ -130,14 +140,29 @@ export const taCities = [
     "country": "Taiwan"
   },
   {
+    "city": "Tanta",
+    "state": "Al Gharb\u012byah",
+    "country": "Egypt"
+  },
+  {
     "city": "Takamatsu",
     "state": "Kagawa",
     "country": "Japan"
   },
   {
-    "city": "Tal\u0101",
+    "city": "Tala",
     "state": "Al Min\u016bf\u012byah",
     "country": "Egypt"
+  },
+  {
+    "city": "Talkha",
+    "state": "Ad Daqahl\u012byah",
+    "country": "Egypt"
+  },
+  {
+    "city": "Tangail",
+    "state": "Dhaka",
+    "country": "Bangladesh"
   },
   {
     "city": "Taytay",
@@ -165,7 +190,7 @@ export const taCities = [
     "country": "Japan"
   },
   {
-    "city": "Tanch\u2019\u014fn",
+    "city": "Tanch'on",
     "state": "Hamnam",
     "country": "Korea, North"
   },
@@ -185,7 +210,7 @@ export const taCities = [
     "country": "Morocco"
   },
   {
-    "city": "Taubat\u00e9",
+    "city": "Taubate",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -215,7 +240,7 @@ export const taCities = [
     "country": "Peru"
   },
   {
-    "city": "Tabo\u00e3o da Serra",
+    "city": "Taboao da Serra",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -228,6 +253,11 @@ export const taCities = [
     "city": "Taunggyi",
     "state": "Shan State",
     "country": "Burma"
+  },
+  {
+    "city": "Taluqan",
+    "state": "Takh\u0101r",
+    "country": "Afghanistan"
   },
   {
     "city": "Talisay",
@@ -295,7 +325,12 @@ export const taCities = [
     "country": "Mexico"
   },
   {
-    "city": "Tait\u014d",
+    "city": "Tan An",
+    "state": "Long An",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Taito",
     "state": "T\u014dky\u014d",
     "country": "Japan"
   },
@@ -365,6 +400,11 @@ export const taCities = [
     "country": "China"
   },
   {
+    "city": "Tan Phu",
+    "state": "\u0110\u1ed3ng Nai",
+    "country": "Vietnam"
+  },
+  {
     "city": "Tauranga",
     "state": "Bay of Plenty",
     "country": "New Zealand"
@@ -395,6 +435,11 @@ export const taCities = [
     "country": "Burma"
   },
   {
+    "city": "Tan Chau",
+    "state": "An Giang",
+    "country": "Vietnam"
+  },
+  {
     "city": "Tabaco",
     "state": "Albay",
     "country": "Philippines"
@@ -410,9 +455,14 @@ export const taCities = [
     "country": "Spain"
   },
   {
-    "city": "Talaiv\u0101sal",
+    "city": "Talaivasal",
     "state": "Tamil N\u0101du",
     "country": "India"
+  },
+  {
+    "city": "Tay Ninh",
+    "state": "T\u00e2y Ninh",
+    "country": "Vietnam"
   },
   {
     "city": "Tando Allahyar",
@@ -440,7 +490,12 @@ export const taCities = [
     "country": "Kazakhstan"
   },
   {
-    "city": "Tam K\u1ef3",
+    "city": "Tariba",
+    "state": "T\u00e1chira",
+    "country": "Venezuela"
+  },
+  {
+    "city": "Tam Ky",
     "state": "Qu\u1ea3ng Nam",
     "country": "Vietnam"
   },
@@ -460,9 +515,14 @@ export const taCities = [
     "country": "Korea, South"
   },
   {
-    "city": "Tatu\u00ed",
+    "city": "Tatui",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
+  },
+  {
+    "city": "Targu-Mures",
+    "state": "Mure\u015f",
+    "country": "Romania"
   },
   {
     "city": "Tarogong",
@@ -510,17 +570,22 @@ export const taCities = [
     "country": "Burma"
   },
   {
+    "city": "Tadpatri",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Tajimi",
     "state": "Gifu",
     "country": "Japan"
   },
   {
-    "city": "Tarn\u00f3w",
+    "city": "Tarnow",
     "state": "Ma\u0142opolskie",
     "country": "Poland"
   },
   {
-    "city": "Tar\u012bm",
+    "city": "Tarim",
     "state": "\u1e28a\u1e11ramawt",
     "country": "Yemen"
   },
@@ -530,9 +595,14 @@ export const taCities = [
     "country": "Philippines"
   },
   {
-    "city": "Tam \u0110i\u1ec7p",
+    "city": "Tam Diep",
     "state": "Ninh B\u00ecnh",
     "country": "Vietnam"
+  },
+  {
+    "city": "Tadepallegudem",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Tanga",
@@ -545,7 +615,7 @@ export const taCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Tav\u015fanl\u0131",
+    "city": "Tavsanli",
     "state": "K\u00fctahya",
     "country": "Turkey"
   },
@@ -605,7 +675,12 @@ export const taCities = [
     "country": "China"
   },
   {
-    "city": "Takasagoch\u014d-takasemachi",
+    "city": "Tartus",
+    "state": "\u0162ar\u0163\u016bs",
+    "country": "Syria"
+  },
+  {
+    "city": "Takasagocho-takasemachi",
     "state": "Hy\u014dgo",
     "country": "Japan"
   },
@@ -655,7 +730,7 @@ export const taCities = [
     "country": "Philippines"
   },
   {
-    "city": "Tacan\u00e1",
+    "city": "Tacana",
     "state": "San Marcos",
     "country": "Guatemala"
   },
@@ -675,12 +750,17 @@ export const taCities = [
     "country": "Philippines"
   },
   {
+    "city": "Takestan",
+    "state": "Qazv\u012bn",
+    "country": "Iran"
+  },
+  {
     "city": "Taroudannt",
     "state": "Souss-Massa",
     "country": "Morocco"
   },
   {
-    "city": "Tall \u2018Afar",
+    "city": "Tall `Afar",
     "state": "N\u012bnaw\u00e1",
     "country": "Iraq"
   },
@@ -695,7 +775,7 @@ export const taCities = [
     "country": "Algeria"
   },
   {
-    "city": "Tanashich\u014d",
+    "city": "Tanashicho",
     "state": "T\u014dky\u014d",
     "country": "Japan"
   },
@@ -710,7 +790,7 @@ export const taCities = [
     "country": "Philippines"
   },
   {
-    "city": "Tac\u00e1mbaro de Codallos",
+    "city": "Tacambaro de Codallos",
     "state": "Michoac\u00e1n",
     "country": "Mexico"
   },
@@ -720,7 +800,7 @@ export const taCities = [
     "country": "China"
   },
   {
-    "city": "Tangui\u00e9ta",
+    "city": "Tanguieta",
     "state": "Atacora",
     "country": "Benin"
   },
@@ -730,7 +810,7 @@ export const taCities = [
     "country": "Japan"
   },
   {
-    "city": "Tatsunoch\u014d-tominaga",
+    "city": "Tatsunocho-tominaga",
     "state": "Hy\u014dgo",
     "country": "Japan"
   },
@@ -740,9 +820,14 @@ export const taCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Tarn T\u0101ran",
+    "city": "Tarn Taran",
     "state": "Punjab",
     "country": "India"
+  },
+  {
+    "city": "Targu Jiu",
+    "state": "Gorj",
+    "country": "Romania"
   },
   {
     "city": "Tan-Tan",
@@ -755,7 +840,7 @@ export const taCities = [
     "country": "Sri Lanka"
   },
   {
-    "city": "Tar\u012bn K\u014d\u1e6f",
+    "city": "Tarin Kot",
     "state": "Uruzg\u0101n",
     "country": "Afghanistan"
   },
@@ -768,6 +853,11 @@ export const taCities = [
     "city": "Talibon",
     "state": "Bohol",
     "country": "Philippines"
+  },
+  {
+    "city": "Tandur",
+    "state": "Telang\u0101na",
+    "country": "India"
   },
   {
     "city": "Tamana",
@@ -800,18 +890,33 @@ export const taCities = [
     "country": "Brazil"
   },
   {
+    "city": "Targoviste",
+    "state": "D\u00e2mbovi\u0163a",
+    "country": "Romania"
+  },
+  {
     "city": "Taman Johor Jaya",
     "state": "Johor",
     "country": "Malaysia"
   },
   {
-    "city": "Tatab\u00e1nya",
+    "city": "Tatabanya",
     "state": "Kom\u00e1rom-Esztergom",
     "country": "Hungary"
   },
   {
-    "city": "Taml\u016bk",
+    "city": "Taby",
+    "state": "Stockholm",
+    "country": "Sweden"
+  },
+  {
+    "city": "Tamluk",
     "state": "West Bengal",
+    "country": "India"
+  },
+  {
+    "city": "Tadepalle",
+    "state": "Andhra Pradesh",
     "country": "India"
   },
   {
@@ -830,12 +935,17 @@ export const taCities = [
     "country": "United States"
   },
   {
+    "city": "Tan Phuoc Khanh",
+    "state": "B\u00ecnh D\u01b0\u01a1ng",
+    "country": "Vietnam"
+  },
+  {
     "city": "Tandag",
     "state": "Surigao del Sur",
     "country": "Philippines"
   },
   {
-    "city": "Tagaj\u014d",
+    "city": "Tagajo",
     "state": "Miyagi",
     "country": "Japan"
   },
@@ -845,12 +955,12 @@ export const taCities = [
     "country": "Philippines"
   },
   {
-    "city": "Tarnowskie G\u00f3ry",
+    "city": "Tarnowskie Gory",
     "state": "\u015al\u0105skie",
     "country": "Poland"
   },
   {
-    "city": "Tau\u00e1",
+    "city": "Taua",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -900,7 +1010,12 @@ export const taCities = [
     "country": "Chile"
   },
   {
-    "city": "Talegaon D\u0101bh\u0101de",
+    "city": "Taybad",
+    "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
+    "country": "Iran"
+  },
+  {
+    "city": "Talegaon Dabhade",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -930,7 +1045,12 @@ export const taCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Tacuaremb\u00f3",
+    "city": "Tasgaon",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
+    "city": "Tacuarembo",
     "state": "Tacuaremb\u00f3",
     "country": "Uruguay"
   },
@@ -970,7 +1090,7 @@ export const taCities = [
     "country": "Brazil"
   },
   {
-    "city": "Taxco de Alarc\u00f3n",
+    "city": "Taxco de Alarcon",
     "state": "Guerrero",
     "country": "Mexico"
   },
@@ -1015,9 +1135,14 @@ export const taCities = [
     "country": "India"
   },
   {
-    "city": "Takeoch\u014d-takeo",
+    "city": "Takeocho-takeo",
     "state": "Saga",
     "country": "Japan"
+  },
+  {
+    "city": "Tajura'",
+    "state": "\u0162ar\u0101bulus",
+    "country": "Libya"
   },
   {
     "city": "Takahama",
@@ -1050,7 +1175,7 @@ export const taCities = [
     "country": "Japan"
   },
   {
-    "city": "Tallb\u012bsah",
+    "city": "Tallbisah",
     "state": "\u1e28im\u015f",
     "country": "Syria"
   },
@@ -1115,7 +1240,7 @@ export const taCities = [
     "country": "France"
   },
   {
-    "city": "Tak\u0101b",
+    "city": "Takab",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Gharb\u012b",
     "country": "Iran"
   },
@@ -1125,7 +1250,7 @@ export const taCities = [
     "country": "Burkina Faso"
   },
   {
-    "city": "Tarauac\u00e1",
+    "city": "Tarauaca",
     "state": "Acre",
     "country": "Brazil"
   },
@@ -1135,7 +1260,7 @@ export const taCities = [
     "country": "Japan"
   },
   {
-    "city": "Taniyama-ch\u016b\u014d",
+    "city": "Taniyama-chuo",
     "state": "Kagoshima",
     "country": "Japan"
   },
@@ -1153,6 +1278,11 @@ export const taCities = [
     "city": "Tadjenanet",
     "state": "Mila",
     "country": "Algeria"
+  },
+  {
+    "city": "Tadif",
+    "state": "\u1e28alab",
+    "country": "Syria"
   },
   {
     "city": "Tavas",
@@ -1195,6 +1325,11 @@ export const taCities = [
     "country": "India"
   },
   {
+    "city": "Talcher",
+    "state": "Odisha",
+    "country": "India"
+  },
+  {
     "city": "Talas",
     "state": "Talas",
     "country": "Kyrgyzstan"
@@ -1210,6 +1345,11 @@ export const taCities = [
     "country": "China"
   },
   {
+    "city": "Tazah Khurmatu",
+    "state": "Kark\u016bk",
+    "country": "Iraq"
+  },
+  {
     "city": "Tago",
     "state": "Surigao del Sur",
     "country": "Philippines"
@@ -1220,7 +1360,12 @@ export const taCities = [
     "country": "Philippines"
   },
   {
-    "city": "Taf\u00ed Viejo",
+    "city": "Tabas",
+    "state": "Khor\u0101s\u0101n-e Jon\u016bb\u012b",
+    "country": "Iran"
+  },
+  {
+    "city": "Tafi Viejo",
     "state": "Tucum\u00e1n",
     "country": "Argentina"
   },
@@ -1235,7 +1380,7 @@ export const taCities = [
     "country": "Japan"
   },
   {
-    "city": "Taraz\u00e1",
+    "city": "Taraza",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -1245,7 +1390,7 @@ export const taCities = [
     "country": "Japan"
   },
   {
-    "city": "Ta\u015fk\u00f6pr\u00fc",
+    "city": "Taskopru",
     "state": "Kastamonu",
     "country": "Turkey"
   },
@@ -1253,6 +1398,11 @@ export const taCities = [
     "city": "Taibao",
     "state": "Chiayi",
     "country": "Taiwan"
+  },
+  {
+    "city": "Taki",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Tayasan",
@@ -1310,12 +1460,12 @@ export const taCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Tam Hi\u1ec7p",
+    "city": "Tam Hiep",
     "state": "\u0110\u1ed3ng Nai",
     "country": "Vietnam"
   },
   {
-    "city": "Tamu\u00edn",
+    "city": "Tamuin",
     "state": "San Luis Potos\u00ed",
     "country": "Mexico"
   },
@@ -1330,12 +1480,17 @@ export const taCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Tanganc\u00edcuaro de Arista",
+    "city": "Tangancicuaro de Arista",
     "state": "Michoac\u00e1n",
     "country": "Mexico"
   },
   {
-    "city": "Tall Sal\u1e29ab",
+    "city": "Tazhakara",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Tall Salhab",
     "state": "\u1e28am\u0101h",
     "country": "Syria"
   },
@@ -1350,7 +1505,7 @@ export const taCities = [
     "country": "Ghana"
   },
   {
-    "city": "Tamb\u00e9",
+    "city": "Tambe",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -1363,6 +1518,11 @@ export const taCities = [
     "city": "Tandubas",
     "state": "Tawi-Tawi",
     "country": "Philippines"
+  },
+  {
+    "city": "Tabor",
+    "state": "Jiho\u010desk\u00fd Kraj",
+    "country": "Czechia"
   },
   {
     "city": "Talayan",
@@ -1415,9 +1575,19 @@ export const taCities = [
     "country": "Burma"
   },
   {
+    "city": "Taranagar",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
     "city": "Tattamangalam",
     "state": "Kerala",
     "country": "India"
+  },
+  {
+    "city": "Tafas",
+    "state": "Dar\u2018\u0101",
+    "country": "Syria"
   },
   {
     "city": "Tamparan",
@@ -1430,12 +1600,12 @@ export const taCities = [
     "country": "China"
   },
   {
-    "city": "Tanc\u00edtaro",
+    "city": "Tancitaro",
     "state": "Michoac\u00e1n",
     "country": "Mexico"
   },
   {
-    "city": "Tangu\u00e1",
+    "city": "Tangua",
     "state": "Rio de Janeiro",
     "country": "Brazil"
   },
@@ -1470,12 +1640,17 @@ export const taCities = [
     "country": "China"
   },
   {
-    "city": "Talakk\u0101d",
+    "city": "Talakkad",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Ta\u015fova",
+    "city": "Taramangalam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Tasova",
     "state": "Amasya",
     "country": "Turkey"
   },
@@ -1485,7 +1660,7 @@ export const taCities = [
     "country": "El Salvador"
   },
   {
-    "city": "Talw\u0101ra",
+    "city": "Talwara",
     "state": "Punjab",
     "country": "India"
   },
@@ -1545,7 +1720,7 @@ export const taCities = [
     "country": "Burma"
   },
   {
-    "city": "Tar\u0101na",
+    "city": "Tarana",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1585,7 +1760,7 @@ export const taCities = [
     "country": "Brazil"
   },
   {
-    "city": "Tangut\u016bru",
+    "city": "Tanguturu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1620,7 +1795,7 @@ export const taCities = [
     "country": "Colombia"
   },
   {
-    "city": "Tall Rif\u2018at",
+    "city": "Tall Rif`at",
     "state": "\u1e28alab",
     "country": "Syria"
   },
@@ -1650,7 +1825,7 @@ export const taCities = [
     "country": "Morocco"
   },
   {
-    "city": "Tal\u0101ja",
+    "city": "Talaja",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -1658,6 +1833,16 @@ export const taCities = [
     "city": "Tarui",
     "state": "Gifu",
     "country": "Japan"
+  },
+  {
+    "city": "Tamarakulam",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Talikota",
+    "state": "Karn\u0101taka",
+    "country": "India"
   },
   {
     "city": "Tavira",
@@ -1705,7 +1890,7 @@ export const taCities = [
     "country": "Brazil"
   },
   {
-    "city": "Tall Shih\u0101b",
+    "city": "Tall Shihab",
     "state": "Dar\u2018\u0101",
     "country": "Syria"
   },
@@ -1745,7 +1930,7 @@ export const taCities = [
     "country": "Brazil"
   },
   {
-    "city": "Tamah\u00fa",
+    "city": "Tamahu",
     "state": "Alta Verapaz",
     "country": "Guatemala"
   },
@@ -1758,6 +1943,11 @@ export const taCities = [
     "city": "Tadjmout",
     "state": "Laghouat",
     "country": "Algeria"
+  },
+  {
+    "city": "Tayyibat al Imam",
+    "state": "\u1e28am\u0101h",
+    "country": "Syria"
   },
   {
     "city": "Tangcun",
@@ -1805,7 +1995,7 @@ export const taCities = [
     "country": "Russia"
   },
   {
-    "city": "Tamandar\u00e9",
+    "city": "Tamandare",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -1835,7 +2025,7 @@ export const taCities = [
     "country": "United States"
   },
   {
-    "city": "Tadma\u00eft",
+    "city": "Tadmait",
     "state": "Boumerdes",
     "country": "Algeria"
   },
@@ -1865,7 +2055,7 @@ export const taCities = [
     "country": "China"
   },
   {
-    "city": "Taulah\u0101",
+    "city": "Taulaha",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1885,7 +2075,7 @@ export const taCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Talwandi S\u0101bo",
+    "city": "Talwandi Sabo",
     "state": "Punjab",
     "country": "India"
   },
@@ -1925,12 +2115,12 @@ export const taCities = [
     "country": "Russia"
   },
   {
-    "city": "Tamba\u00fa",
+    "city": "Tambau",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Taurag\u0117",
+    "city": "Taurage",
     "state": "Taurag\u0117",
     "country": "Lithuania"
   },
@@ -1940,17 +2130,32 @@ export const taCities = [
     "country": "Mexico"
   },
   {
+    "city": "Tadikombu",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Tabount",
     "state": "Dr\u00e2a-Tafilalet",
     "country": "Morocco"
   },
   {
-    "city": "Tanha\u00e7u",
+    "city": "Tanhacu",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Ta\u015fl\u0131\u00e7ay",
+    "city": "Tarnaveni",
+    "state": "Mure\u015f",
+    "country": "Romania"
+  },
+  {
+    "city": "Tan Phong",
+    "state": "Thanh H\u00f3a",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Taslicay",
     "state": "A\u011fr\u0131",
     "country": "Turkey"
   },
@@ -1960,12 +2165,12 @@ export const taCities = [
     "country": "Algeria"
   },
   {
-    "city": "Ta\u00efbet",
+    "city": "Taibet",
     "state": "Ouargla",
     "country": "Algeria"
   },
   {
-    "city": "Talay\u0101zham",
+    "city": "Talayazham",
     "state": "Kerala",
     "country": "India"
   },
@@ -1990,7 +2195,7 @@ export const taCities = [
     "country": "Japan"
   },
   {
-    "city": "Tapau\u00e1",
+    "city": "Tapaua",
     "state": "Amazonas",
     "country": "Brazil"
   },
@@ -2010,7 +2215,7 @@ export const taCities = [
     "country": "China"
   },
   {
-    "city": "Tash-K\u00f6m\u00fcr",
+    "city": "Tash-Komur",
     "state": "Jalal-Abad",
     "country": "Kyrgyzstan"
   },
@@ -2030,7 +2235,7 @@ export const taCities = [
     "country": "China"
   },
   {
-    "city": "Tanbaichich\u014d",
+    "city": "Tanbaichicho",
     "state": "Nara",
     "country": "Japan"
   },
@@ -2050,7 +2255,7 @@ export const taCities = [
     "country": "Thailand"
   },
   {
-    "city": "Tad\u00f3",
+    "city": "Tado",
     "state": "Choc\u00f3",
     "country": "Colombia"
   },
@@ -2080,6 +2285,11 @@ export const taCities = [
     "country": "Cabo Verde"
   },
   {
+    "city": "Tadikonda",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Tatsuno",
     "state": "Nagano",
     "country": "Japan"
@@ -2095,7 +2305,7 @@ export const taCities = [
     "country": "United States"
   },
   {
-    "city": "Tai\u00f3",
+    "city": "Taio",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -2110,6 +2320,16 @@ export const taCities = [
     "country": "South Africa"
   },
   {
+    "city": "Tarrega",
+    "state": "Catalonia",
+    "country": "Spain"
+  },
+  {
+    "city": "Taqah",
+    "state": "Z\u0327uf\u0101r",
+    "country": "Oman"
+  },
+  {
     "city": "Taku",
     "state": "Saga",
     "country": "Japan"
@@ -2120,24 +2340,34 @@ export const taCities = [
     "country": "Germany"
   },
   {
-    "city": "Tapero\u00e1",
+    "city": "Taperoa",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Tank\u0101ra",
+    "city": "Targu Neamt",
+    "state": "Neam\u0163",
+    "country": "Romania"
+  },
+  {
+    "city": "Tankara",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Tall Qa\u015fab",
+    "city": "Tall Qasab",
     "state": "N\u012bnaw\u00e1",
     "country": "Iraq"
   },
   {
-    "city": "Tall \u2018Aran",
+    "city": "Tall `Aran",
     "state": "\u1e28alab",
     "country": "Syria"
+  },
+  {
+    "city": "Tabara Arriba",
+    "state": "Valdesia",
+    "country": "Dominican Republic"
   },
   {
     "city": "Tak",
@@ -2185,13 +2415,23 @@ export const taCities = [
     "country": "Morocco"
   },
   {
-    "city": "Taxtako\u2018pir",
+    "city": "Taxtako`pir",
     "state": "Qoraqalpog\u2018iston",
     "country": "Uzbekistan"
   },
   {
+    "city": "Tadigadapa",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Takhatgarh",
     "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
+    "city": "Tawargeri",
+    "state": "Karn\u0101taka",
     "country": "India"
   },
   {
@@ -2200,7 +2440,7 @@ export const taCities = [
     "country": "Japan"
   },
   {
-    "city": "Tant\u00e9ga",
+    "city": "Tantega",
     "state": "Atacora",
     "country": "Benin"
   },
@@ -2230,12 +2470,17 @@ export const taCities = [
     "country": "China"
   },
   {
-    "city": "Taishach\u014d-kizukikita",
+    "city": "Taishacho-kizukikita",
     "state": "Shimane",
     "country": "Japan"
   },
   {
-    "city": "Tadikalap\u016bdi",
+    "city": "Targu Secuiesc",
+    "state": "Covasna",
+    "country": "Romania"
+  },
+  {
+    "city": "Tadikalapudi",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2270,7 +2515,7 @@ export const taCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Tas\u012bl",
+    "city": "Tasil",
     "state": "Dar\u2018\u0101",
     "country": "Syria"
   },
@@ -2305,7 +2550,7 @@ export const taCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Tapiramut\u00e1",
+    "city": "Tapiramuta",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -2320,12 +2565,12 @@ export const taCities = [
     "country": "India"
   },
   {
-    "city": "Taranc\u00f3n",
+    "city": "Tarancon",
     "state": "Castille-La Mancha",
     "country": "Spain"
   },
   {
-    "city": "Tar\u016br",
+    "city": "Tarur",
     "state": "Kerala",
     "country": "India"
   },
@@ -2340,7 +2585,7 @@ export const taCities = [
     "country": "Mexico"
   },
   {
-    "city": "Tapero\u00e1",
+    "city": "Taperoa",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -2355,7 +2600,7 @@ export const taCities = [
     "country": "Papua New Guinea"
   },
   {
-    "city": "Talain\u0101yar Agrah\u0101ram",
+    "city": "Talainayar Agraharam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2370,7 +2615,12 @@ export const taCities = [
     "country": "Morocco"
   },
   {
-    "city": "Ta\u015fucu",
+    "city": "Tamesis",
+    "state": "Antioquia",
+    "country": "Colombia"
+  },
+  {
+    "city": "Tasucu",
     "state": "Mersin",
     "country": "Turkey"
   },
@@ -2385,7 +2635,7 @@ export const taCities = [
     "country": "Philippines"
   },
   {
-    "city": "Tabhka Kh\u0101s",
+    "city": "Tabhka Khas",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2415,12 +2665,17 @@ export const taCities = [
     "country": "Mexico"
   },
   {
+    "city": "Tavros",
+    "state": "Attik\u00ed",
+    "country": "Greece"
+  },
+  {
     "city": "Tabant",
     "state": "B\u00e9ni Mellal-Kh\u00e9nifra",
     "country": "Morocco"
   },
   {
-    "city": "Tarum\u00e3",
+    "city": "Taruma",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -2440,7 +2695,7 @@ export const taCities = [
     "country": "Italy"
   },
   {
-    "city": "Tall Abya\u1e11",
+    "city": "Tall Abyad",
     "state": "Ar Raqqah",
     "country": "Syria"
   },
@@ -2515,12 +2770,22 @@ export const taCities = [
     "country": "India"
   },
   {
+    "city": "Talbahat",
+    "state": "Uttar Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Taki",
     "state": "Mie",
     "country": "Japan"
   },
   {
-    "city": "Tam\u0101r",
+    "city": "Tan Van",
+    "state": "B\u00ecnh D\u01b0\u01a1ng",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Tamar",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -2545,7 +2810,7 @@ export const taCities = [
     "country": "Algeria"
   },
   {
-    "city": "Tall Ban\u0101t",
+    "city": "Tall Banat",
     "state": "N\u012bnaw\u00e1",
     "country": "Iraq"
   },
@@ -2558,6 +2823,11 @@ export const taCities = [
     "city": "Tarhzout",
     "state": "El Oued",
     "country": "Algeria"
+  },
+  {
+    "city": "Tati",
+    "state": "Jh\u0101rkhand",
+    "country": "India"
   },
   {
     "city": "Taphan Hin",
@@ -2585,7 +2855,7 @@ export const taCities = [
     "country": "Czechia"
   },
   {
-    "city": "Tampamol\u00f3n Corona",
+    "city": "Tampamolon Corona",
     "state": "San Luis Potos\u00ed",
     "country": "Mexico"
   },
@@ -2595,7 +2865,7 @@ export const taCities = [
     "country": "Italy"
   },
   {
-    "city": "Tacaimb\u00f3",
+    "city": "Tacaimbo",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -2603,6 +2873,11 @@ export const taCities = [
     "city": "Taglio",
     "state": "Veneto",
     "country": "Italy"
+  },
+  {
+    "city": "Tamaraikkulam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Tarumizu",
@@ -2645,7 +2920,7 @@ export const taCities = [
     "country": "Morocco"
   },
   {
-    "city": "Tarh\u016bnah",
+    "city": "Tarhunah",
     "state": "\u0162ar\u0101bulus",
     "country": "Libya"
   },
@@ -2695,7 +2970,7 @@ export const taCities = [
     "country": "Russia"
   },
   {
-    "city": "Tagua\u00ed",
+    "city": "Taguai",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -2718,6 +2993,11 @@ export const taCities = [
     "city": "Tagoloan",
     "state": "Lanao del Sur",
     "country": "Philippines"
+  },
+  {
+    "city": "Tartar",
+    "state": "T\u0259rt\u0259r",
+    "country": "Azerbaijan"
   },
   {
     "city": "Taiynsha",
@@ -2745,6 +3025,11 @@ export const taCities = [
     "country": "Chile"
   },
   {
+    "city": "Tabua",
+    "state": "Coimbra",
+    "country": "Portugal"
+  },
+  {
     "city": "Tall Dhahab",
     "state": "\u1e28im\u015f",
     "country": "Syria"
@@ -2760,7 +3045,12 @@ export const taCities = [
     "country": "Brazil"
   },
   {
-    "city": "Tach\u00e9",
+    "city": "Taran",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Tache",
     "state": "Manitoba",
     "country": "Canada"
   },
@@ -2795,7 +3085,7 @@ export const taCities = [
     "country": "Morocco"
   },
   {
-    "city": "Talak\u0101d",
+    "city": "Talakad",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -2805,12 +3095,12 @@ export const taCities = [
     "country": "Algeria"
   },
   {
-    "city": "Tadapuramb\u0101kkam",
+    "city": "Tadapurambakkam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Ta\u00efneste",
+    "city": "Taineste",
     "state": "F\u00e8s-Mekn\u00e8s",
     "country": "Morocco"
   },
@@ -2840,7 +3130,7 @@ export const taCities = [
     "country": "Italy"
   },
   {
-    "city": "Tabapu\u00e3",
+    "city": "Tabapua",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -2848,6 +3138,16 @@ export const taCities = [
     "city": "Taylorville",
     "state": "Illinois",
     "country": "United States"
+  },
+  {
+    "city": "Tazhakudi",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Tamba",
+    "state": "Karn\u0101taka",
+    "country": "India"
   },
   {
     "city": "Talupula",
@@ -2858,6 +3158,16 @@ export const taCities = [
     "city": "Tagami",
     "state": "Niigata",
     "country": "Japan"
+  },
+  {
+    "city": "Tadepalle",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Targu Lapus",
+    "state": "Maramure\u015f",
+    "country": "Romania"
   },
   {
     "city": "Tambaga",
@@ -2875,17 +3185,17 @@ export const taCities = [
     "country": "Morocco"
   },
   {
-    "city": "Tarr\u00e1",
+    "city": "Tarra",
     "state": "Norte de Santander",
     "country": "Colombia"
   },
   {
-    "city": "Tarw\u0101ra",
+    "city": "Tarwara",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Tanipp\u0101di",
+    "city": "Tanippadi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2940,7 +3250,12 @@ export const taCities = [
     "country": "Morocco"
   },
   {
-    "city": "Tangerh\u00fctte",
+    "city": "Talsur",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
+    "city": "Tangerhutte",
     "state": "Saxony-Anhalt",
     "country": "Germany"
   },
@@ -2950,7 +3265,7 @@ export const taCities = [
     "country": "Morocco"
   },
   {
-    "city": "Tarazona de Arag\u00f3n",
+    "city": "Tarazona de Aragon",
     "state": "Aragon",
     "country": "Spain"
   },
@@ -2958,6 +3273,16 @@ export const taCities = [
     "city": "Tarabha",
     "state": "Odisha",
     "country": "India"
+  },
+  {
+    "city": "Tamarankottai",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Tarnok",
+    "state": "Pest",
+    "country": "Hungary"
   },
   {
     "city": "Taormina",
@@ -2975,6 +3300,11 @@ export const taCities = [
     "country": "Benin"
   },
   {
+    "city": "Targu Ocna",
+    "state": "Bac\u0103u",
+    "country": "Romania"
+  },
+  {
     "city": "Tavriisk",
     "state": "Khersonska Oblast",
     "country": "Ukraine"
@@ -2985,7 +3315,7 @@ export const taCities = [
     "country": "Russia"
   },
   {
-    "city": "Tangerm\u00fcnde",
+    "city": "Tangermunde",
     "state": "Saxony-Anhalt",
     "country": "Germany"
   },
@@ -2993,6 +3323,11 @@ export const taCities = [
     "city": "Tabubil",
     "state": "Western",
     "country": "Papua New Guinea"
+  },
+  {
+    "city": "Tarar",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Tanggemu Nongchang",
@@ -3020,7 +3355,7 @@ export const taCities = [
     "country": "Japan"
   },
   {
-    "city": "Taiy\u016br",
+    "city": "Taiyur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3055,9 +3390,19 @@ export const taCities = [
     "country": "India"
   },
   {
+    "city": "Tan Son",
+    "state": "B\u1eafc Giang",
+    "country": "Vietnam"
+  },
+  {
     "city": "Tamzoura",
     "state": "A\u00efn Temouchent",
     "country": "Algeria"
+  },
+  {
+    "city": "Talkhvoncheh",
+    "state": "E\u015ffah\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Tanichchiyam",
@@ -3092,6 +3437,16 @@ export const taCities = [
   {
     "city": "Tadhwa Nandpur",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Targu Frumos",
+    "state": "Ia\u015fi",
+    "country": "Romania"
+  },
+  {
+    "city": "Talavadi",
+    "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
@@ -3140,7 +3495,7 @@ export const taCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Tandar\u0101mpattu",
+    "city": "Tandarampattu",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -3160,7 +3515,7 @@ export const taCities = [
     "country": "India"
   },
   {
-    "city": "Taraw\u0101n",
+    "city": "Tarawan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -3195,6 +3550,16 @@ export const taCities = [
     "country": "Russia"
   },
   {
+    "city": "Tala",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Tajpur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Tandrano",
     "state": "Toliara",
     "country": "Madagascar"
@@ -3215,7 +3580,7 @@ export const taCities = [
     "country": "Italy"
   },
   {
-    "city": "Tataltepec de Vald\u00e9s",
+    "city": "Tataltepec de Valdes",
     "state": "Oaxaca",
     "country": "Mexico"
   },
@@ -3223,6 +3588,11 @@ export const taCities = [
     "city": "Tasso Fragoso",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
+  },
+  {
+    "city": "Tamganj",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Takua Pa",
@@ -3250,7 +3620,7 @@ export const taCities = [
     "country": "Japan"
   },
   {
-    "city": "Ta\u015fkent",
+    "city": "Taskent",
     "state": "Konya",
     "country": "Turkey"
   },
@@ -3270,6 +3640,11 @@ export const taCities = [
     "country": "Armenia"
   },
   {
+    "city": "Tarazu",
+    "state": "Jammu and Kashm\u012br",
+    "country": "India"
+  },
+  {
     "city": "Tarxien",
     "state": "Tarxien",
     "country": "Malta"
@@ -3280,23 +3655,33 @@ export const taCities = [
     "country": "Algeria"
   },
   {
-    "city": "Tanmp\u00e8gr\u00e9",
+    "city": "Tanmpegre",
     "state": "Atacora",
     "country": "Benin"
   },
   {
-    "city": "Taki\u00e9ta",
+    "city": "Takieta",
     "state": "Zinder",
     "country": "Niger"
   },
   {
-    "city": "Taftan\u0101z",
+    "city": "Tadinada",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Taftanaz",
     "state": "Idlib",
     "country": "Syria"
   },
   {
-    "city": "Talwandi Chaudhri\u0101n",
+    "city": "Talwandi Chaudhrian",
     "state": "Punjab",
+    "country": "India"
+  },
+  {
+    "city": "Talakulam",
+    "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
@@ -3305,7 +3690,7 @@ export const taCities = [
     "country": "Japan"
   },
   {
-    "city": "Tar\u012bchar Kal\u0101n",
+    "city": "Tarichar Kalan",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -3340,7 +3725,7 @@ export const taCities = [
     "country": "Korea, North"
   },
   {
-    "city": "Ta\u2019 Xbiex",
+    "city": "Ta' Xbiex",
     "state": "Ta\u2019 Xbiex",
     "country": "Malta"
   },
@@ -3350,7 +3735,7 @@ export const taCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Tajarh\u012b",
+    "city": "Tajarhi",
     "state": "Murzuq",
     "country": "Libya"
   },

@@ -5,7 +5,7 @@ export const szCities = [
     "country": "Poland"
   },
   {
-    "city": "Sz\u00e9kesfeh\u00e9rv\u00e1r",
+    "city": "Szekesfehervar",
     "state": "Fej\u00e9r",
     "country": "Hungary"
   },
@@ -25,7 +25,7 @@ export const szCities = [
     "country": "Hungary"
   },
   {
-    "city": "Szigetszentmikl\u00f3s",
+    "city": "Szigetszentmiklos",
     "state": "Pest",
     "country": "Hungary"
   },
@@ -35,7 +35,7 @@ export const szCities = [
     "country": "Poland"
   },
   {
-    "city": "Szeksz\u00e1rd",
+    "city": "Szekszard",
     "state": "Tolna",
     "country": "Hungary"
   },
@@ -55,7 +55,7 @@ export const szCities = [
     "country": "Poland"
   },
   {
-    "city": "Szamotu\u0142y",
+    "city": "Szamotuly",
     "state": "Wielkopolskie",
     "country": "Poland"
   },
@@ -65,7 +65,7 @@ export const szCities = [
     "country": "Hungary"
   },
   {
-    "city": "Sz\u00e1zhalombatta",
+    "city": "Szazhalombatta",
     "state": "Pest",
     "country": "Hungary"
   },
@@ -80,12 +80,12 @@ export const szCities = [
     "country": "Poland"
   },
   {
-    "city": "Szyd\u0142owiec",
+    "city": "Szydlowiec",
     "state": "Mazowieckie",
     "country": "Poland"
   },
   {
-    "city": "Szigetv\u00e1r",
+    "city": "Szigetvar",
     "state": "Baranya",
     "country": "Hungary"
   },

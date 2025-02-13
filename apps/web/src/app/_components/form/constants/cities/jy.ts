@@ -1,11 +1,11 @@
 export const jyCities = [
   {
-    "city": "Jyv\u00e4skyl\u00e4",
+    "city": "Jyvaskyla",
     "state": "Keski-Suomi",
     "country": "Finland"
   },
   {
-    "city": "Jyv\u00e4skyl\u00e4n Maalaiskunta",
+    "city": "Jyvaskylan Maalaiskunta",
     "state": "Keski-Suomi",
     "country": "Finland"
   },

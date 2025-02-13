@@ -5,9 +5,24 @@ export const zlCities = [
     "country": "Russia"
   },
   {
-    "city": "Zl\u00edn",
+    "city": "Zlin",
     "state": "Zl\u00ednsk\u00fd Kraj",
     "country": "Czechia"
+  },
+  {
+    "city": "Zlotow",
+    "state": "Wielkopolskie",
+    "country": "Poland"
+  },
+  {
+    "city": "Zlotoryja",
+    "state": "Dolno\u015bl\u0105skie",
+    "country": "Poland"
+  },
+  {
+    "city": "Zlocieniec",
+    "state": "Zachodniopomorskie",
+    "country": "Poland"
   },
   {
     "city": "Zlatograd",
@@ -15,7 +30,7 @@ export const zlCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Zlat\u00e9 Moravce",
+    "city": "Zlate Moravce",
     "state": "Nitra",
     "country": "Slovakia"
   }

@@ -25,7 +25,7 @@ export const guCities = [
     "country": "China"
   },
   {
-    "city": "Guang\u2019an",
+    "city": "Guang'an",
     "state": "Sichuan",
     "country": "China"
   },
@@ -75,7 +75,7 @@ export const guCities = [
     "country": "China"
   },
   {
-    "city": "Guw\u0101h\u0101ti",
+    "city": "Guwahati",
     "state": "Assam",
     "country": "India"
   },
@@ -105,7 +105,7 @@ export const guCities = [
     "country": "China"
   },
   {
-    "city": "Gunt\u016br",
+    "city": "Guntur",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -135,7 +135,7 @@ export const guCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Gu\u00e9diawaye",
+    "city": "Guediawaye",
     "state": "Dakar",
     "country": "Senegal"
   },
@@ -145,12 +145,17 @@ export const guCities = [
     "country": "Mexico"
   },
   {
-    "city": "Guaruj\u00e1",
+    "city": "Guaruja",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Guant\u00e1namo",
+    "city": "Gungoren",
+    "state": "\u0130stanbul",
+    "country": "Turkey"
+  },
+  {
+    "city": "Guantanamo",
     "state": "Guant\u00e1namo",
     "country": "Cuba"
   },
@@ -160,7 +165,7 @@ export const guCities = [
     "country": "United States"
   },
   {
-    "city": "Gu\u00e9ck\u00e9dou",
+    "city": "Gueckedou",
     "state": "N\u2019Z\u00e9r\u00e9kor\u00e9",
     "country": "Guinea"
   },
@@ -220,7 +225,7 @@ export const guCities = [
     "country": "Spain"
   },
   {
-    "city": "Guimar\u00e3es",
+    "city": "Guimaraes",
     "state": "Braga",
     "country": "Portugal"
   },
@@ -285,12 +290,12 @@ export const guCities = [
     "country": "Brazil"
   },
   {
-    "city": "Gudiy\u0101ttam",
+    "city": "Gudiyattam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Gurd\u0101spur",
+    "city": "Gurdaspur",
     "state": "Punjab",
     "country": "India"
   },
@@ -300,7 +305,7 @@ export const guCities = [
     "country": "Algeria"
   },
   {
-    "city": "Guaratinguet\u00e1",
+    "city": "Guaratingueta",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -310,7 +315,7 @@ export const guCities = [
     "country": "Morocco"
   },
   {
-    "city": "Gudiv\u0101da",
+    "city": "Gudivada",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -325,17 +330,27 @@ export const guCities = [
     "country": "Philippines"
   },
   {
-    "city": "Gualeguaych\u00fa",
+    "city": "Gualeguaychu",
     "state": "Entre R\u00edos",
     "country": "Argentina"
   },
   {
-    "city": "Guihul\u00f1gan",
+    "city": "Guihulngan",
     "state": "Negros Oriental",
     "country": "Philippines"
   },
   {
-    "city": "Gua\u00edba",
+    "city": "Gursu",
+    "state": "Bursa",
+    "country": "Turkey"
+  },
+  {
+    "city": "Gutersloh",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
+    "city": "Guaiba",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -375,7 +390,12 @@ export const guCities = [
     "country": "Brazil"
   },
   {
-    "city": "Guml\u0101",
+    "city": "Gurgenpinari",
+    "state": "Bart\u0131n",
+    "country": "Turkey"
+  },
+  {
+    "city": "Gumla",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -383,6 +403,11 @@ export const guCities = [
     "city": "Guildford",
     "state": "Surrey",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Gudur",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Gumaca",
@@ -400,9 +425,14 @@ export const guCities = [
     "country": "China"
   },
   {
-    "city": "Guruv\u0101y\u016br",
+    "city": "Guruvayur",
     "state": "Kerala",
     "country": "India"
+  },
+  {
+    "city": "Guines",
+    "state": "Mayabeque",
+    "country": "Cuba"
   },
   {
     "city": "Guangping",
@@ -425,7 +455,7 @@ export const guCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Guam\u00fachil",
+    "city": "Guamuchil",
     "state": "Sinaloa",
     "country": "Mexico"
   },
@@ -445,6 +475,11 @@ export const guCities = [
     "country": "Philippines"
   },
   {
+    "city": "Guigue",
+    "state": "Carabobo",
+    "country": "Venezuela"
+  },
+  {
     "city": "Gunupur",
     "state": "Odisha",
     "country": "India"
@@ -460,7 +495,17 @@ export const guCities = [
     "country": "Brazil"
   },
   {
-    "city": "Gulariy\u0101",
+    "city": "Gumushane",
+    "state": "G\u00fcm\u00fc\u015fhane",
+    "country": "Turkey"
+  },
+  {
+    "city": "Gudalur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Gulariya",
     "state": NaN,
     "country": "Nepal"
   },
@@ -470,7 +515,7 @@ export const guCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Gus\u2019-Khrustal\u2019nyy",
+    "city": "Gus'-Khrustal'nyy",
     "state": "Vladimirskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -505,7 +550,7 @@ export const guCities = [
     "country": "Colombia"
   },
   {
-    "city": "Guaxup\u00e9",
+    "city": "Guaxupe",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -515,7 +560,7 @@ export const guCities = [
     "country": "China"
   },
   {
-    "city": "Gual\u00e1n",
+    "city": "Gualan",
     "state": "Zacapa",
     "country": "Guatemala"
   },
@@ -533,6 +578,11 @@ export const guCities = [
     "city": "Gumia",
     "state": "Jh\u0101rkhand",
     "country": "India"
+  },
+  {
+    "city": "Guroymak",
+    "state": "Bitlis",
+    "country": "Turkey"
   },
   {
     "city": "Guaramirim",
@@ -585,7 +635,7 @@ export const guCities = [
     "country": "Brazil"
   },
   {
-    "city": "Gu\u00e1cimo",
+    "city": "Guacimo",
     "state": "Lim\u00f3n",
     "country": "Costa Rica"
   },
@@ -600,12 +650,12 @@ export const guCities = [
     "country": "Brazil"
   },
   {
-    "city": "Guajar\u00e1-Mirim",
+    "city": "Guajara-Mirim",
     "state": "Rond\u00f4nia",
     "country": "Brazil"
   },
   {
-    "city": "Gua\u00edra",
+    "city": "Guaira",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -615,9 +665,14 @@ export const guCities = [
     "country": "Algeria"
   },
   {
-    "city": "Guj\u014d",
+    "city": "Gujo",
     "state": "Gifu",
     "country": "Japan"
+  },
+  {
+    "city": "Gudarah",
+    "state": "K\u0101bul",
+    "country": "Afghanistan"
   },
   {
     "city": "Gurais",
@@ -630,17 +685,27 @@ export const guCities = [
     "country": "Dominican Republic"
   },
   {
+    "city": "Guira de Melena",
+    "state": "Artemisa",
+    "country": "Cuba"
+  },
+  {
+    "city": "Guzelbahce",
+    "state": "\u0130zmir",
+    "country": "Turkey"
+  },
+  {
     "city": "Guilderland",
     "state": "New York",
     "country": "United States"
   },
   {
-    "city": "Gu\u00e1piles",
+    "city": "Guapiles",
     "state": "Lim\u00f3n",
     "country": "Costa Rica"
   },
   {
-    "city": "Gu\u00e1imaro",
+    "city": "Guaimaro",
     "state": "Camag\u00fcey",
     "country": "Cuba"
   },
@@ -650,7 +715,7 @@ export const guCities = [
     "country": "Philippines"
   },
   {
-    "city": "Guayaramer\u00edn",
+    "city": "Guayaramerin",
     "state": "El Beni",
     "country": "Bolivia"
   },
@@ -660,12 +725,17 @@ export const guCities = [
     "country": "Cuba"
   },
   {
-    "city": "Guacar\u00ed",
+    "city": "Gurpinar",
+    "state": "Van",
+    "country": "Turkey"
+  },
+  {
+    "city": "Guacari",
     "state": "Valle del Cauca",
     "country": "Colombia"
   },
   {
-    "city": "Guam\u00e1 Abajo",
+    "city": "Guama Abajo",
     "state": "Santiago de Cuba",
     "country": "Cuba"
   },
@@ -700,7 +770,7 @@ export const guCities = [
     "country": "China"
   },
   {
-    "city": "Guarambar\u00e9",
+    "city": "Guarambare",
     "state": "Central",
     "country": "Paraguay"
   },
@@ -715,22 +785,22 @@ export const guCities = [
     "country": "Brazil"
   },
   {
-    "city": "Guanh\u00e3es",
+    "city": "Guanhaes",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
   {
-    "city": "Gua\u00edra",
+    "city": "Guaira",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Guachav\u00e9s",
+    "city": "Guachaves",
     "state": "Nari\u00f1o",
     "country": "Colombia"
   },
   {
-    "city": "Gurup\u00e1",
+    "city": "Gurupa",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -760,6 +830,11 @@ export const guCities = [
     "country": "Taiwan"
   },
   {
+    "city": "Gustrow",
+    "state": "Mecklenburg-Western Pomerania",
+    "country": "Germany"
+  },
+  {
     "city": "Guyancourt",
     "state": "\u00cele-de-France",
     "country": "France"
@@ -768,6 +843,11 @@ export const guCities = [
     "city": "Guotang",
     "state": "Guangdong",
     "country": "China"
+  },
+  {
+    "city": "Gudalur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Gusev",
@@ -795,7 +875,12 @@ export const guCities = [
     "country": "Honduras"
   },
   {
-    "city": "Gua\u00e7u\u00ed",
+    "city": "Gulnar",
+    "state": "Mersin",
+    "country": "Turkey"
+  },
+  {
+    "city": "Guacui",
     "state": "Esp\u00edrito Santo",
     "country": "Brazil"
   },
@@ -820,32 +905,37 @@ export const guCities = [
     "country": "Taiwan"
   },
   {
-    "city": "Gursar\u0101i",
+    "city": "Gursarai",
     "state": "Uttar Pradesh",
     "country": "India"
   },
   {
-    "city": "Gundlup\u0113t",
+    "city": "Gundlupet",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Guruz\u0101la",
+    "city": "Guruzala",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Gu\u00e9n\u00e9",
+    "city": "Guduru",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Guene",
     "state": "Atacora",
     "country": "Benin"
   },
   {
-    "city": "Gul\u0101m",
+    "city": "Gulam",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Guara\u00ed",
+    "city": "Guarai",
     "state": "Tocantins",
     "country": "Brazil"
   },
@@ -860,7 +950,7 @@ export const guCities = [
     "country": "Brazil"
   },
   {
-    "city": "Guap\u00ed",
+    "city": "Guapi",
     "state": "Cauca",
     "country": "Colombia"
   },
@@ -875,7 +965,7 @@ export const guCities = [
     "country": "Morocco"
   },
   {
-    "city": "Gusinooz\u00ebrsk",
+    "city": "Gusinoozersk",
     "state": "Buryatiya",
     "country": "Russia"
   },
@@ -895,22 +985,22 @@ export const guCities = [
     "country": "France"
   },
   {
-    "city": "Gurmatk\u0101l",
+    "city": "Gurmatkal",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Gu\u00e9rou",
+    "city": "Guerou",
     "state": "Assaba",
     "country": "Mauritania"
   },
   {
-    "city": "Gu\u00eda de Isora",
+    "city": "Guia de Isora",
     "state": "Canary Islands",
     "country": "Spain"
   },
   {
-    "city": "Guazacap\u00e1n",
+    "city": "Guazacapan",
     "state": "Santa Rosa",
     "country": "Guatemala"
   },
@@ -918,6 +1008,11 @@ export const guCities = [
     "city": "Gubbi",
     "state": "Karn\u0101taka",
     "country": "India"
+  },
+  {
+    "city": "Gumushacikoy",
+    "state": "Amasya",
+    "country": "Turkey"
   },
   {
     "city": "Guabo",
@@ -930,17 +1025,32 @@ export const guCities = [
     "country": "Russia"
   },
   {
+    "city": "Gulsehir",
+    "state": "Nev\u015fehir",
+    "country": "Turkey"
+  },
+  {
     "city": "Guipos",
     "state": "Zamboanga del Sur",
     "country": "Philippines"
   },
   {
-    "city": "Guapia\u00e7u",
+    "city": "Guapiacu",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Gummudip\u016bndi",
+    "city": "Guimar",
+    "state": "Canary Islands",
+    "country": "Spain"
+  },
+  {
+    "city": "Gunzburg",
+    "state": "Bavaria",
+    "country": "Germany"
+  },
+  {
+    "city": "Gummudipundi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -950,7 +1060,7 @@ export const guCities = [
     "country": "Venezuela"
   },
   {
-    "city": "Guar\u00e1",
+    "city": "Guara",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -970,7 +1080,7 @@ export const guCities = [
     "country": "Philippines"
   },
   {
-    "city": "Gu\u00e1cima",
+    "city": "Guacima",
     "state": "Alajuela",
     "country": "Costa Rica"
   },
@@ -980,7 +1090,7 @@ export const guCities = [
     "country": "China"
   },
   {
-    "city": "Guir\u00e9",
+    "city": "Guire",
     "state": "Koulikoro",
     "country": "Mali"
   },
@@ -995,12 +1105,17 @@ export const guCities = [
     "country": "China"
   },
   {
-    "city": "Guap\u00f3",
+    "city": "Guapo",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
   {
-    "city": "Guaran\u00e9sia",
+    "city": "Gulagac",
+    "state": "Aksaray",
+    "country": "Turkey"
+  },
+  {
+    "city": "Guaranesia",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1010,12 +1125,12 @@ export const guCities = [
     "country": "El Salvador"
   },
   {
-    "city": "Guru Har Sah\u0101i",
+    "city": "Guru Har Sahai",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Guare\u00ed",
+    "city": "Guarei",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -1070,7 +1185,7 @@ export const guCities = [
     "country": "Colombia"
   },
   {
-    "city": "Gunj\u0101palle",
+    "city": "Gunjapalle",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1095,7 +1210,7 @@ export const guCities = [
     "country": "Taiwan"
   },
   {
-    "city": "Gudipallip\u0101du",
+    "city": "Gudipallipadu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1145,7 +1260,7 @@ export const guCities = [
     "country": "Chad"
   },
   {
-    "city": "Gu\u00e9rande",
+    "city": "Guerande",
     "state": "Pays de la Loire",
     "country": "France"
   },
@@ -1165,7 +1280,7 @@ export const guCities = [
     "country": "Colombia"
   },
   {
-    "city": "Guinguin\u00e9o",
+    "city": "Guinguineo",
     "state": "Fatick",
     "country": "Senegal"
   },
@@ -1180,7 +1295,7 @@ export const guCities = [
     "country": "Algeria"
   },
   {
-    "city": "Guamar\u00e9",
+    "city": "Guamare",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
   },
@@ -1240,12 +1355,12 @@ export const guCities = [
     "country": "Italy"
   },
   {
-    "city": "Gurinh\u00e9m",
+    "city": "Gurinhem",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
   {
-    "city": "Gud\u016br",
+    "city": "Gudur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1260,12 +1375,17 @@ export const guCities = [
     "country": "Colombia"
   },
   {
-    "city": "Guap\u00e9",
+    "city": "Guape",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
   {
-    "city": "Guarania\u00e7u",
+    "city": "Gulcho",
+    "state": "Osh",
+    "country": "Kyrgyzstan"
+  },
+  {
+    "city": "Guaraniacu",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -1300,6 +1420,11 @@ export const guCities = [
     "country": "India"
   },
   {
+    "city": "Guclukonak",
+    "state": "\u015e\u0131rnak",
+    "country": "Turkey"
+  },
+  {
     "city": "Gurlapeta",
     "state": "Andhra Pradesh",
     "country": "India"
@@ -1310,7 +1435,7 @@ export const guCities = [
     "country": "India"
   },
   {
-    "city": "Gu\u00e9ret",
+    "city": "Gueret",
     "state": "Nouvelle-Aquitaine",
     "country": "France"
   },
@@ -1318,6 +1443,11 @@ export const guCities = [
     "city": "Guymon",
     "state": "Oklahoma",
     "country": "United States"
+  },
+  {
+    "city": "Gurgentepe",
+    "state": "Ordu",
+    "country": "Turkey"
   },
   {
     "city": "Gueltat Sidi Saad",
@@ -1330,12 +1460,12 @@ export const guCities = [
     "country": "Ghana"
   },
   {
-    "city": "Guruvar\u0101jukuppam",
+    "city": "Guruvarajukuppam",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Gu\u00e1tica",
+    "city": "Guatica",
     "state": "Risaralda",
     "country": "Colombia"
   },
@@ -1375,7 +1505,7 @@ export const guCities = [
     "country": "India"
   },
   {
-    "city": "Gu\u0101b\u0101ri",
+    "city": "Guabari",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1395,7 +1525,7 @@ export const guCities = [
     "country": "El Salvador"
   },
   {
-    "city": "Guai\u00e7ara",
+    "city": "Guaicara",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -1420,12 +1550,12 @@ export const guCities = [
     "country": "Benin"
   },
   {
-    "city": "Gundr\u0101jukuppam",
+    "city": "Gundrajukuppam",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Guachet\u00e1",
+    "city": "Guacheta",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
@@ -1470,7 +1600,7 @@ export const guCities = [
     "country": "Brazil"
   },
   {
-    "city": "Gu\u00e9oul",
+    "city": "Gueoul",
     "state": "Louga",
     "country": "Senegal"
   },
@@ -1500,6 +1630,16 @@ export const guCities = [
     "country": "Colombia"
   },
   {
+    "city": "Gulbaar",
+    "state": "Osh",
+    "country": "Kyrgyzstan"
+  },
+  {
+    "city": "Gurun",
+    "state": "Sivas",
+    "country": "Turkey"
+  },
+  {
     "city": "Gudibanda",
     "state": "Andhra Pradesh",
     "country": "India"
@@ -1510,7 +1650,7 @@ export const guCities = [
     "country": "India"
   },
   {
-    "city": "Guimar\u00e3es",
+    "city": "Guimaraes",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
@@ -1530,7 +1670,7 @@ export const guCities = [
     "country": "United States"
   },
   {
-    "city": "Gu\u00e9moukouraba",
+    "city": "Guemoukouraba",
     "state": "Kayes",
     "country": "Mali"
   },
@@ -1540,12 +1680,17 @@ export const guCities = [
     "country": "Germany"
   },
   {
+    "city": "Gulyam",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Gudgeri",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Gurwali\u0101 Bisw\u0101s",
+    "city": "Gurwalia Biswas",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1555,7 +1700,7 @@ export const guCities = [
     "country": "Brazil"
   },
   {
-    "city": "Guif\u00f5es",
+    "city": "Guifoes",
     "state": "Porto",
     "country": "Portugal"
   },
@@ -1570,7 +1715,27 @@ export const guCities = [
     "country": "Colombia"
   },
   {
-    "city": "Gudim\u016blakhandrika",
+    "city": "Gudalur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Guney",
+    "state": "Denizli",
+    "country": "Turkey"
+  },
+  {
+    "city": "Gumusova",
+    "state": "D\u00fczce",
+    "country": "Turkey"
+  },
+  {
+    "city": "Guneysinir",
+    "state": "Konya",
+    "country": "Turkey"
+  },
+  {
+    "city": "Gudimulakhandrika",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1578,6 +1743,11 @@ export const guCities = [
     "city": "Guntramsdorf",
     "state": "Nieder\u00f6sterreich",
     "country": "Austria"
+  },
+  {
+    "city": "Gudalur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Gualaquiza",
@@ -1590,7 +1760,7 @@ export const guCities = [
     "country": "Ecuador"
   },
   {
-    "city": "Guatap\u00e9",
+    "city": "Guatape",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -1610,7 +1780,7 @@ export const guCities = [
     "country": "France"
   },
   {
-    "city": "Gudl\u016bru",
+    "city": "Gudluru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1630,14 +1800,19 @@ export const guCities = [
     "country": "India"
   },
   {
-    "city": "Gudiv\u0101da",
+    "city": "Gudivada",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Gundum\u0101l",
+    "city": "Gundumal",
     "state": "Telang\u0101na",
     "country": "India"
+  },
+  {
+    "city": "Guneysu",
+    "state": "Rize",
+    "country": "Turkey"
   },
   {
     "city": "Guntapalli",
@@ -1660,7 +1835,7 @@ export const guCities = [
     "country": "Russia"
   },
   {
-    "city": "Gund\u016br",
+    "city": "Gundur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1698,5 +1873,10 @@ export const guCities = [
     "city": "Gusinje",
     "state": "Gusinje",
     "country": "Montenegro"
+  },
+  {
+    "city": "Gueppi",
+    "state": "Loreto",
+    "country": "Peru"
   }
 ]

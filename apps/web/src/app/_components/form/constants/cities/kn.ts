@@ -10,7 +10,7 @@ export const knCities = [
     "country": "South Africa"
   },
   {
-    "city": "Knur\u00f3w",
+    "city": "Knurow",
     "state": "\u015al\u0105skie",
     "country": "Poland"
   },
@@ -20,7 +20,7 @@ export const knCities = [
     "country": "Belgium"
   },
   {
-    "city": "Knja\u017eevac",
+    "city": "Knjazevac",
     "state": "Knja\u017eevac",
     "country": "Serbia"
   },
@@ -45,7 +45,7 @@ export const knCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Kni\u0107",
+    "city": "Knic",
     "state": "Kni\u0107",
     "country": "Serbia"
   },

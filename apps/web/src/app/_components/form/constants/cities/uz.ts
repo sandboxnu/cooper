@@ -5,14 +5,19 @@ export const uzCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Uzung\u00f6z",
+    "city": "Uzungoz",
     "state": "Bart\u0131n",
     "country": "Turkey"
   },
   {
-    "city": "Uzunk\u00f6pr\u00fc",
+    "city": "Uzunkopru",
     "state": "Edirne",
     "country": "Turkey"
+  },
+  {
+    "city": "Uzice",
+    "state": "U\u017eice",
+    "country": "Serbia"
   },
   {
     "city": "Uzlovaya",
@@ -28,6 +33,11 @@ export const uzCities = [
     "city": "Uzun",
     "state": "Surxondaryo",
     "country": "Uzbekistan"
+  },
+  {
+    "city": "Uzumlu",
+    "state": "Erzincan",
+    "country": "Turkey"
   },
   {
     "city": "Uzhur",

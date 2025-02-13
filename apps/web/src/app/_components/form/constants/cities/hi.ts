@@ -10,7 +10,7 @@ export const hiCities = [
     "country": "Japan"
   },
   {
-    "city": "Higashi-\u014dsaka",
+    "city": "Higashi-osaka",
     "state": "\u014csaka",
     "country": "Japan"
   },
@@ -30,7 +30,7 @@ export const hiCities = [
     "country": "Japan"
   },
   {
-    "city": "Hig\u00fcey",
+    "city": "Higuey",
     "state": "Yuma",
     "country": "Dominican Republic"
   },
@@ -110,7 +110,7 @@ export const hiCities = [
     "country": "Japan"
   },
   {
-    "city": "Higashi\u014dmi",
+    "city": "Higashiomi",
     "state": "Shiga",
     "country": "Japan"
   },
@@ -165,9 +165,14 @@ export const hiCities = [
     "country": "Japan"
   },
   {
-    "city": "Hihy\u0101",
+    "city": "Hihya",
     "state": "Ash Sharq\u012byah",
     "country": "Egypt"
+  },
+  {
+    "city": "Hit",
+    "state": "Al Anb\u0101r",
+    "country": "Iraq"
   },
   {
     "city": "Hilongos",
@@ -175,7 +180,7 @@ export const hiCities = [
     "country": "Philippines"
   },
   {
-    "city": "Hiriy\u016br",
+    "city": "Hiriyur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -265,6 +270,11 @@ export const hiCities = [
     "country": "Turkey"
   },
   {
+    "city": "Hidirbey",
+    "state": "Hatay",
+    "country": "Turkey"
+  },
+  {
     "city": "Higashimatsushima",
     "state": "Miyagi",
     "country": "Japan"
@@ -285,9 +295,14 @@ export const hiCities = [
     "country": "United States"
   },
   {
-    "city": "Hiller\u00f8d",
+    "city": "Hillerod",
     "state": "Hovedstaden",
     "country": "Denmark"
+  },
+  {
+    "city": "Hirakud",
+    "state": "Odisha",
+    "country": "India"
   },
   {
     "city": "Hinesville",
@@ -300,7 +315,7 @@ export const hiCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Hisu\u0101",
+    "city": "Hisua",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -315,7 +330,7 @@ export const hiCities = [
     "country": "Japan"
   },
   {
-    "city": "Hirakawach\u014d",
+    "city": "Hirakawacho",
     "state": "Aomori",
     "country": "Japan"
   },
@@ -350,7 +365,7 @@ export const hiCities = [
     "country": "Japan"
   },
   {
-    "city": "Hidrol\u00e2ndia",
+    "city": "Hidrolandia",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -375,7 +390,12 @@ export const hiCities = [
     "country": "Venezuela"
   },
   {
-    "city": "Hirr\u012byat Raznah",
+    "city": "Hinis",
+    "state": "Erzurum",
+    "country": "Turkey"
+  },
+  {
+    "city": "Hirriyat Raznah",
     "state": "Ash Sharq\u012byah",
     "country": "Egypt"
   },
@@ -420,7 +440,7 @@ export const hiCities = [
     "country": "Ethiopia"
   },
   {
-    "city": "Hireker\u016br",
+    "city": "Hirekerur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -445,7 +465,7 @@ export const hiCities = [
     "country": "Japan"
   },
   {
-    "city": "Hidalgotitl\u00e1n",
+    "city": "Hidalgotitlan",
     "state": "Veracruz",
     "country": "Mexico"
   },
@@ -465,7 +485,7 @@ export const hiCities = [
     "country": "Chile"
   },
   {
-    "city": "Hidrol\u00e2ndia",
+    "city": "Hidrolandia",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -488,6 +508,11 @@ export const hiCities = [
     "city": "High Blantyre",
     "state": "South Lanarkshire",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Hirna",
+    "state": "Orom\u012bya",
+    "country": "Ethiopia"
   },
   {
     "city": "Hillcrest Heights",
@@ -520,7 +545,7 @@ export const hiCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Hi\u1ec7p H\u00f2a",
+    "city": "Hiep Hoa",
     "state": "\u0110\u1ed3ng Nai",
     "country": "Vietnam"
   },
@@ -575,6 +600,11 @@ export const hiCities = [
     "country": "Germany"
   },
   {
+    "city": "Hidaj",
+    "state": "Zanj\u0101n",
+    "country": "Iran"
+  },
+  {
     "city": "Higashimiyoshi",
     "state": "Tokushima",
     "country": "Japan"
@@ -595,7 +625,7 @@ export const hiCities = [
     "country": "South Africa"
   },
   {
-    "city": "Hiss\u0101ramuruvani",
+    "city": "Hissaramuruvani",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -610,9 +640,14 @@ export const hiCities = [
     "country": "Germany"
   },
   {
-    "city": "Hisarc\u0131k",
+    "city": "Hisarcik",
     "state": "K\u00fctahya",
     "country": "Turkey"
+  },
+  {
+    "city": "Hincesti",
+    "state": "H\u00eence\u015fti",
+    "country": "Moldova"
   },
   {
     "city": "Highland City",
@@ -790,7 +825,7 @@ export const hiCities = [
     "country": "United States"
   },
   {
-    "city": "Hireh\u0101luhosahalli",
+    "city": "Hirehaluhosahalli",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -813,6 +848,11 @@ export const hiCities = [
     "city": "Highland Park",
     "state": "Texas",
     "country": "United States"
+  },
+  {
+    "city": "Hish",
+    "state": "Idlib",
+    "country": "Syria"
   },
   {
     "city": "Hirni",

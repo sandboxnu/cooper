@@ -1,6 +1,6 @@
 export const dwCities = [
   {
-    "city": "Dw\u0101rka",
+    "city": "Dwarka",
     "state": "Gujar\u0101t",
     "country": "India"
   }

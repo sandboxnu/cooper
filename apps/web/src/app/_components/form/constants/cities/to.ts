@@ -50,7 +50,7 @@ export const toCities = [
     "country": "Russia"
   },
   {
-    "city": "Tonal\u00e1",
+    "city": "Tonala",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -125,7 +125,7 @@ export const toCities = [
     "country": "Philippines"
   },
   {
-    "city": "Toru\u0144",
+    "city": "Torun",
     "state": "Kujawsko-Pomorskie",
     "country": "Poland"
   },
@@ -155,7 +155,7 @@ export const toCities = [
     "country": "China"
   },
   {
-    "city": "Torbal\u0131",
+    "city": "Torbali",
     "state": "\u0130zmir",
     "country": "Turkey"
   },
@@ -210,7 +210,7 @@ export const toCities = [
     "country": "Japan"
   },
   {
-    "city": "Torbat-e \u1e28eydar\u012byeh",
+    "city": "Torbat-e Heydariyeh",
     "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
     "country": "Iran"
   },
@@ -235,17 +235,22 @@ export const toCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Torrej\u00f3n de Ardoz",
+    "city": "Torrejon de Ardoz",
     "state": "Madrid",
     "country": "Spain"
   },
   {
-    "city": "Totonicap\u00e1n",
+    "city": "Totonicapan",
     "state": "Totonicap\u00e1n",
     "country": "Guatemala"
   },
   {
-    "city": "Tondabayashich\u014d",
+    "city": "Tokai",
+    "state": "Aichi",
+    "country": "Japan"
+  },
+  {
+    "city": "Tondabayashicho",
     "state": "\u014csaka",
     "country": "Japan"
   },
@@ -270,7 +275,7 @@ export const toCities = [
     "country": "Benin"
   },
   {
-    "city": "Torbat-e J\u0101m",
+    "city": "Torbat-e Jam",
     "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
     "country": "Iran"
   },
@@ -380,7 +385,7 @@ export const toCities = [
     "country": "Honduras"
   },
   {
-    "city": "Togoch\u2019al\u0113",
+    "city": "Togoch'ale",
     "state": "Sumal\u0113",
     "country": "Ethiopia"
   },
@@ -405,12 +410,17 @@ export const toCities = [
     "country": "Haiti"
   },
   {
-    "city": "Tom\u00e9-A\u00e7u",
+    "city": "Tome-Acu",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Torre\u00f3n",
+    "city": "Tolanaro",
+    "state": "Toliara",
+    "country": "Madagascar"
+  },
+  {
+    "city": "Torreon",
     "state": "Coahuila",
     "country": "Mexico"
   },
@@ -425,7 +435,7 @@ export const toCities = [
     "country": "Japan"
   },
   {
-    "city": "Toh\u0101na",
+    "city": "Tohana",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -435,7 +445,7 @@ export const toCities = [
     "country": "Japan"
   },
   {
-    "city": "Tomasz\u00f3w Mazowiecki",
+    "city": "Tomaszow Mazowiecki",
     "state": "\u0141\u00f3dzkie",
     "country": "Poland"
   },
@@ -445,12 +455,17 @@ export const toCities = [
     "country": "United States"
   },
   {
+    "city": "Togane",
+    "state": "Chiba",
+    "country": "Japan"
+  },
+  {
     "city": "Tokoname",
     "state": "Aichi",
     "country": "Japan"
   },
   {
-    "city": "Tonek\u0101bon",
+    "city": "Tonekabon",
     "state": "M\u0101zandar\u0101n",
     "country": "Iran"
   },
@@ -465,9 +480,19 @@ export const toCities = [
     "country": "C\u00f4te d\u2019Ivoire"
   },
   {
+    "city": "Tokamachi",
+    "state": "Niigata",
+    "country": "Japan"
+  },
+  {
     "city": "Tokmok",
     "state": "Ch\u00fcy",
     "country": "Kyrgyzstan"
+  },
+  {
+    "city": "Tonsberg",
+    "state": "Vestfold og Telemark",
+    "country": "Norway"
   },
   {
     "city": "Todupulai",
@@ -505,7 +530,7 @@ export const toCities = [
     "country": "Japan"
   },
   {
-    "city": "Tomb\u00f4co",
+    "city": "Tomboco",
     "state": "Zaire",
     "country": "Angola"
   },
@@ -525,12 +550,17 @@ export const toCities = [
     "country": "Sierra Leone"
   },
   {
+    "city": "Togo",
+    "state": "Aichi",
+    "country": "Japan"
+  },
+  {
     "city": "Toboso",
     "state": "Negros Occidental",
     "country": "Philippines"
   },
   {
-    "city": "Tom\u00e9",
+    "city": "Tome",
     "state": "Biob\u00edo",
     "country": "Chile"
   },
@@ -538,6 +568,11 @@ export const toCities = [
     "city": "Tororo",
     "state": "Tororo",
     "country": "Uganda"
+  },
+  {
+    "city": "Torres",
+    "state": "Rio Grande do Sul",
+    "country": "Brazil"
   },
   {
     "city": "Tolosa",
@@ -575,7 +610,7 @@ export const toCities = [
     "country": "Benin"
   },
   {
-    "city": "Todos Santos Cuchumat\u00e1n",
+    "city": "Todos Santos Cuchumatan",
     "state": "Huehuetenango",
     "country": "Guatemala"
   },
@@ -595,6 +630,11 @@ export const toCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Tokai",
+    "state": "Ibaraki",
+    "country": "Japan"
+  },
+  {
     "city": "Tosno",
     "state": "Leningradskaya Oblast\u2019",
     "country": "Russia"
@@ -605,7 +645,7 @@ export const toCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Tok\u0101r",
+    "city": "Tokar",
     "state": "Red Sea",
     "country": "Sudan"
   },
@@ -615,12 +655,12 @@ export const toCities = [
     "country": "Portugal"
   },
   {
-    "city": "Tocancip\u00e1",
+    "city": "Tocancipa",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
   {
-    "city": "Tomatl\u00e1n",
+    "city": "Tomatlan",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -645,7 +685,7 @@ export const toCities = [
     "country": "Japan"
   },
   {
-    "city": "Tonal\u00e1",
+    "city": "Tonala",
     "state": "Chiapas",
     "country": "Mexico"
   },
@@ -665,12 +705,17 @@ export const toCities = [
     "country": "C\u00f4te d\u2019Ivoire"
   },
   {
+    "city": "Toon",
+    "state": "Ehime",
+    "country": "Japan"
+  },
+  {
     "city": "Tobelo",
     "state": "Maluku Utara",
     "country": "Indonesia"
   },
   {
-    "city": "Toda Bh\u012bm",
+    "city": "Toda Bhim",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -700,7 +745,7 @@ export const toCities = [
     "country": "Belgium"
   },
   {
-    "city": "Torib\u00edo",
+    "city": "Toribio",
     "state": "Cauca",
     "country": "Colombia"
   },
@@ -710,7 +755,7 @@ export const toCities = [
     "country": "Philippines"
   },
   {
-    "city": "To\u2018raqo\u2018rg\u2018on",
+    "city": "To`raqo`rg`on",
     "state": "Namangan",
     "country": "Uzbekistan"
   },
@@ -728,6 +773,16 @@ export const toCities = [
     "city": "Tournefeuille",
     "state": "Occitanie",
     "country": "France"
+  },
+  {
+    "city": "Tonisvorst",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
+    "city": "Tomi",
+    "state": "Nagano",
+    "country": "Japan"
   },
   {
     "city": "Tocache Nuevo",
@@ -770,7 +825,7 @@ export const toCities = [
     "country": "China"
   },
   {
-    "city": "Togu\u00e9r\u00e9-Koumb\u00e9",
+    "city": "Toguere-Koumbe",
     "state": "Mopti",
     "country": "Mali"
   },
@@ -785,12 +840,22 @@ export const toCities = [
     "country": "Burkina Faso"
   },
   {
+    "city": "Tono",
+    "state": "Iwate",
+    "country": "Japan"
+  },
+  {
     "city": "Tosa",
     "state": "K\u014dchi",
     "country": "Japan"
   },
   {
-    "city": "Tougu\u00e9",
+    "city": "Toin",
+    "state": "Mie",
+    "country": "Japan"
+  },
+  {
+    "city": "Tougue",
     "state": "Lab\u00e9",
     "country": "Guinea"
   },
@@ -800,7 +865,7 @@ export const toCities = [
     "country": "Spain"
   },
   {
-    "city": "Topo\u013e\u010dany",
+    "city": "Topol'cany",
     "state": "Nitra",
     "country": "Slovakia"
   },
@@ -820,7 +885,7 @@ export const toCities = [
     "country": "India"
   },
   {
-    "city": "Tobat\u00ed",
+    "city": "Tobati",
     "state": "Cordillera",
     "country": "Paraguay"
   },
@@ -830,7 +895,7 @@ export const toCities = [
     "country": "Cameroon"
   },
   {
-    "city": "Tototl\u00e1n",
+    "city": "Tototlan",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -845,7 +910,7 @@ export const toCities = [
     "country": "Turkey"
   },
   {
-    "city": "Tocantin\u00f3polis",
+    "city": "Tocantinopolis",
     "state": "Tocantins",
     "country": "Brazil"
   },
@@ -875,7 +940,7 @@ export const toCities = [
     "country": "China"
   },
   {
-    "city": "Tong\u2019anyi",
+    "city": "Tong'anyi",
     "state": "Gansu",
     "country": "China"
   },
@@ -888,6 +953,11 @@ export const toCities = [
     "city": "Tongobory",
     "state": "Toliara",
     "country": "Madagascar"
+  },
+  {
+    "city": "Torqabeh",
+    "state": "Khor\u0101s\u0101n-e Ra\u1e95av\u012b",
+    "country": "Iran"
   },
   {
     "city": "Torrox",
@@ -930,7 +1000,7 @@ export const toCities = [
     "country": "Turkey"
   },
   {
-    "city": "Tol\u00fa Viejo",
+    "city": "Tolu Viejo",
     "state": "Sucre",
     "country": "Colombia"
   },
@@ -943,6 +1013,16 @@ export const toCities = [
     "city": "Torgau",
     "state": "Saxony",
     "country": "Germany"
+  },
+  {
+    "city": "Tole Bi",
+    "state": "Zhambyl",
+    "country": "Kazakhstan"
+  },
+  {
+    "city": "Torokszentmiklos",
+    "state": "J\u00e1sz-Nagykun-Szolnok",
+    "country": "Hungary"
   },
   {
     "city": "Tonantins",
@@ -965,7 +1045,7 @@ export const toCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Tomasz\u00f3w Lubelski",
+    "city": "Tomaszow Lubelski",
     "state": "Lubelskie",
     "country": "Poland"
   },
@@ -1020,12 +1100,12 @@ export const toCities = [
     "country": "Spain"
   },
   {
-    "city": "Tohou\u00e9",
+    "city": "Tohoue",
     "state": "Ou\u00e9m\u00e9",
     "country": "Benin"
   },
   {
-    "city": "Totor\u00f3",
+    "city": "Totoro",
     "state": "Cauca",
     "country": "Colombia"
   },
@@ -1045,7 +1125,7 @@ export const toCities = [
     "country": "Colombia"
   },
   {
-    "city": "Tol\u016bprpatti",
+    "city": "Toluprpatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1065,7 +1145,7 @@ export const toCities = [
     "country": "Philippines"
   },
   {
-    "city": "Tobr\u00e9",
+    "city": "Tobre",
     "state": "Atacora",
     "country": "Benin"
   },
@@ -1078,6 +1158,11 @@ export const toCities = [
     "city": "Torre Maggiore",
     "state": "Puglia",
     "country": "Italy"
+  },
+  {
+    "city": "Tohoku",
+    "state": "Aomori",
+    "country": "Japan"
   },
   {
     "city": "Toro",
@@ -1120,6 +1205,11 @@ export const toCities = [
     "country": "Benin"
   },
   {
+    "city": "Tobetsu",
+    "state": "Hokkaid\u014d",
+    "country": "Japan"
+  },
+  {
     "city": "Todmorden",
     "state": "Calderdale",
     "country": "United Kingdom"
@@ -1145,9 +1235,14 @@ export const toCities = [
     "country": "Japan"
   },
   {
-    "city": "Torell\u00f3",
+    "city": "Torello",
     "state": "Catalonia",
     "country": "Spain"
+  },
+  {
+    "city": "Torokbalint",
+    "state": "Pest",
+    "country": "Hungary"
   },
   {
     "city": "Tonya",
@@ -1190,7 +1285,7 @@ export const toCities = [
     "country": "Morocco"
   },
   {
-    "city": "Tomi\u00f1o",
+    "city": "Tomino",
     "state": "Galicia",
     "country": "Spain"
   },
@@ -1200,7 +1295,7 @@ export const toCities = [
     "country": "Turkey"
   },
   {
-    "city": "Toyloq Qishlog\u2019i",
+    "city": "Toyloq Qishlog'i",
     "state": "Samarqand",
     "country": "Uzbekistan"
   },
@@ -1213,6 +1308,11 @@ export const toCities = [
     "city": "Tovuz",
     "state": "Tovuz",
     "country": "Azerbaijan"
+  },
+  {
+    "city": "Torshavn",
+    "state": "T\u00f3rshavn",
+    "country": "Faroe Islands"
   },
   {
     "city": "Torredonjimeno",
@@ -1240,7 +1340,12 @@ export const toCities = [
     "country": "Benin"
   },
   {
-    "city": "Tonosh\u014d",
+    "city": "Tonosho",
+    "state": "Chiba",
+    "country": "Japan"
+  },
+  {
+    "city": "Tonosho",
     "state": "Kagawa",
     "country": "Japan"
   },
@@ -1255,7 +1360,7 @@ export const toCities = [
     "country": "United States"
   },
   {
-    "city": "Topli\u0163a",
+    "city": "Toplita",
     "state": "Harghita",
     "country": "Romania"
   },
@@ -1265,7 +1370,7 @@ export const toCities = [
     "country": "India"
   },
   {
-    "city": "Torroella de Montgr\u00ed",
+    "city": "Torroella de Montgri",
     "state": "Catalonia",
     "country": "Spain"
   },
@@ -1273,6 +1378,11 @@ export const toCities = [
     "city": "Tonyrefail",
     "state": "Rhondda Cynon Taff",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Tomuk",
+    "state": "Mersin",
+    "country": "Turkey"
   },
   {
     "city": "Toropets",
@@ -1335,9 +1445,14 @@ export const toCities = [
     "country": "United States"
   },
   {
-    "city": "Tourougoumb\u00e9",
+    "city": "Tourougoumbe",
     "state": "Kayes",
     "country": "Mali"
+  },
+  {
+    "city": "Tokol",
+    "state": "Pest",
+    "country": "Hungary"
   },
   {
     "city": "Tosagua",
@@ -1350,7 +1465,7 @@ export const toCities = [
     "country": "Morocco"
   },
   {
-    "city": "Tournon-sur-Rh\u00f4ne",
+    "city": "Tournon-sur-Rhone",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
@@ -1365,7 +1480,7 @@ export const toCities = [
     "country": "United States"
   },
   {
-    "city": "Tortol\u00ec",
+    "city": "Tortoli",
     "state": "Sardegna",
     "country": "Italy"
   },
@@ -1440,12 +1555,12 @@ export const toCities = [
     "country": "Mali"
   },
   {
-    "city": "Tokkav\u0101di",
+    "city": "Tokkavadi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Torrej\u00f3n de la Calzada",
+    "city": "Torrejon de la Calzada",
     "state": "Madrid",
     "country": "Spain"
   },
@@ -1505,6 +1620,11 @@ export const toCities = [
     "country": "United States"
   },
   {
+    "city": "Toging am Inn",
+    "state": "Bavaria",
+    "country": "Germany"
+  },
+  {
     "city": "Tocina",
     "state": "Andalusia",
     "country": "Spain"
@@ -1560,7 +1680,7 @@ export const toCities = [
     "country": "Mali"
   },
   {
-    "city": "Tov\u0101la",
+    "city": "Tovala",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1580,7 +1700,7 @@ export const toCities = [
     "country": "Niger"
   },
   {
-    "city": "Tome\u015fti",
+    "city": "Tomesti",
     "state": "Ia\u015fi",
     "country": "Romania"
   },
@@ -1645,7 +1765,7 @@ export const toCities = [
     "country": "Micronesia, Federated States of"
   },
   {
-    "city": "Tolt\u00e9n",
+    "city": "Tolten",
     "state": "Araucan\u00eda",
     "country": "Chile"
   },
@@ -1665,7 +1785,7 @@ export const toCities = [
     "country": "Chile"
   },
   {
-    "city": "Toma\u017e pri Ormo\u017eu",
+    "city": "Tomaz pri Ormozu",
     "state": "Sveti Toma\u017e",
     "country": "Slovenia"
   },

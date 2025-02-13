@@ -1,6 +1,6 @@
 export const unCities = [
   {
-    "city": "Unn\u0101o",
+    "city": "Unnao",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -10,12 +10,17 @@ export const unCities = [
     "country": "Indonesia"
   },
   {
+    "city": "Unye",
+    "state": "Ordu",
+    "country": "Turkey"
+  },
+  {
     "city": "Unwana",
     "state": "Abia",
     "country": "Nigeria"
   },
   {
-    "city": "Una\u00ed",
+    "city": "Unai",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -40,7 +45,7 @@ export const unCities = [
     "country": "United States"
   },
   {
-    "city": "Uni\u00e3o dos Palmares",
+    "city": "Uniao dos Palmares",
     "state": "Alagoas",
     "country": "Brazil"
   },
@@ -60,7 +65,7 @@ export const unCities = [
     "country": "United States"
   },
   {
-    "city": "Uni\u00e3o da Vit\u00f3ria",
+    "city": "Uniao da Vitoria",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -70,7 +75,7 @@ export const unCities = [
     "country": "United States"
   },
   {
-    "city": "Uni\u00e3o",
+    "city": "Uniao",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
@@ -85,7 +90,7 @@ export const unCities = [
     "country": "Japan"
   },
   {
-    "city": "Uni\u00f3n de Reyes",
+    "city": "Union de Reyes",
     "state": "Matanzas",
     "country": "Cuba"
   },
@@ -115,7 +120,7 @@ export const unCities = [
     "country": "Moldova"
   },
   {
-    "city": "Unterschlei\u00dfheim",
+    "city": "Unterschleissheim",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -180,7 +185,7 @@ export const unCities = [
     "country": "Brazil"
   },
   {
-    "city": "Uni\u00f3n de San Antonio",
+    "city": "Union de San Antonio",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -190,12 +195,12 @@ export const unCities = [
     "country": "India"
   },
   {
-    "city": "Ungut\u016bru",
+    "city": "Unguturu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Uni\u00f3n de Tula",
+    "city": "Union de Tula",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -205,7 +210,7 @@ export const unCities = [
     "country": "United States"
   },
   {
-    "city": "Undr\u0101javaram",
+    "city": "Undrajavaram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -215,17 +220,17 @@ export const unCities = [
     "country": "United States"
   },
   {
-    "city": "Ungu\u00eda",
+    "city": "Unguia",
     "state": "Choc\u00f3",
     "country": "Colombia"
   },
   {
-    "city": "Unebich\u014d",
+    "city": "Unebicho",
     "state": "Nara",
     "country": "Japan"
   },
   {
-    "city": "Unterf\u00f6hring",
+    "city": "Unterfohring",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -235,7 +240,7 @@ export const unCities = [
     "country": "United States"
   },
   {
-    "city": "Uni\u010dov",
+    "city": "Unicov",
     "state": "Olomouck\u00fd Kraj",
     "country": "Czechia"
   },
@@ -265,7 +270,7 @@ export const unCities = [
     "country": "United States"
   },
   {
-    "city": "Un\u0101o",
+    "city": "Unao",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -275,7 +280,12 @@ export const unCities = [
     "country": "Colombia"
   },
   {
-    "city": "Unter\u00e4geri",
+    "city": "Unagatla",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Unterageri",
     "state": "Zug",
     "country": "Switzerland"
   },
@@ -295,7 +305,7 @@ export const unCities = [
     "country": "Maldives"
   },
   {
-    "city": "Uni\u00f3n Choc\u00f3",
+    "city": "Union Choco",
     "state": "Ember\u00e1-Wounaan",
     "country": "Panama"
   }

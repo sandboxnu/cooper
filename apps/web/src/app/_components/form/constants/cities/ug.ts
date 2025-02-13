@@ -45,7 +45,7 @@ export const ugCities = [
     "country": "Russia"
   },
   {
-    "city": "Ugol\u2019nyye Kopi",
+    "city": "Ugol'nyye Kopi",
     "state": "Chukotskiy Avtonomnyy Okrug",
     "country": "Russia"
   }

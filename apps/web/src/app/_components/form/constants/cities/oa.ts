@@ -10,6 +10,11 @@ export const oaCities = [
     "country": "Mexico"
   },
   {
+    "city": "Oakashicho",
+    "state": "Hy\u014dgo",
+    "country": "Japan"
+  },
+  {
     "city": "Oakville",
     "state": "Ontario",
     "country": "Canada"
@@ -28,6 +33,11 @@ export const oaCities = [
     "city": "Oak Park",
     "state": "Illinois",
     "country": "United States"
+  },
+  {
+    "city": "Oamishirasato",
+    "state": "Chiba",
+    "country": "Japan"
   },
   {
     "city": "Oakland Park",
@@ -108,6 +118,11 @@ export const oaCities = [
     "city": "Oak Grove",
     "state": "Oregon",
     "country": "United States"
+  },
+  {
+    "city": "Oarai",
+    "state": "Ibaraki",
+    "country": "Japan"
   },
   {
     "city": "Oak Park",

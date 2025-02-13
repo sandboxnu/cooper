@@ -70,7 +70,7 @@ export const anCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "An N\u0101\u015fir\u012byah",
+    "city": "An Nasiriyah",
     "state": "Dh\u012b Q\u0101r",
     "country": "Iraq"
   },
@@ -95,7 +95,7 @@ export const anCities = [
     "country": "Philippines"
   },
   {
-    "city": "An\u00e1polis",
+    "city": "Anapolis",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -110,7 +110,7 @@ export const anCities = [
     "country": "Chile"
   },
   {
-    "city": "Ant\u00f3nio Enes",
+    "city": "Antonio Enes",
     "state": "Nampula",
     "country": "Mozambique"
   },
@@ -125,7 +125,7 @@ export const anCities = [
     "country": "United States"
   },
   {
-    "city": "An Nh\u01a1n",
+    "city": "An Nhon",
     "state": "B\u00ecnh \u0110\u1ecbnh",
     "country": "Vietnam"
   },
@@ -175,7 +175,7 @@ export const anCities = [
     "country": "Korea, South"
   },
   {
-    "city": "Anj\u014dmachi",
+    "city": "Anjomachi",
     "state": "Aichi",
     "country": "Japan"
   },
@@ -200,7 +200,7 @@ export const anCities = [
     "country": "Korea, South"
   },
   {
-    "city": "And\u012bmeshk",
+    "city": "Andimeshk",
     "state": "Kh\u016bzest\u0101n",
     "country": "Iran"
   },
@@ -213,6 +213,11 @@ export const anCities = [
     "city": "Angono",
     "state": "Rizal",
     "country": "Philippines"
+  },
+  {
+    "city": "Anand",
+    "state": "Gujar\u0101t",
+    "country": "India"
   },
   {
     "city": "Antsiranana",
@@ -235,7 +240,7 @@ export const anCities = [
     "country": "Burma"
   },
   {
-    "city": "An Nuh\u016bd",
+    "city": "An Nuhud",
     "state": "West Kordofan",
     "country": "Sudan"
   },
@@ -250,7 +255,7 @@ export const anCities = [
     "country": "Italy"
   },
   {
-    "city": "Anak\u0101palle",
+    "city": "Anakapalle",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -260,7 +265,7 @@ export const anCities = [
     "country": "United States"
   },
   {
-    "city": "An Kh\u00ea",
+    "city": "An Khe",
     "state": "Gia Lai",
     "country": "Vietnam"
   },
@@ -295,7 +300,7 @@ export const anCities = [
     "country": "France"
   },
   {
-    "city": "An Nu\u2018m\u0101n\u012byah",
+    "city": "An Nu`maniyah",
     "state": "W\u0101si\u0163",
     "country": "Iraq"
   },
@@ -345,7 +350,7 @@ export const anCities = [
     "country": "Sri Lanka"
   },
   {
-    "city": "Anse \u00e0 Galets",
+    "city": "Anse a Galets",
     "state": "Ouest",
     "country": "Haiti"
   },
@@ -400,7 +405,7 @@ export const anCities = [
     "country": "Madagascar"
   },
   {
-    "city": "An Nim\u0101\u015f",
+    "city": "An Nimas",
     "state": "\u2018As\u012br",
     "country": "Saudi Arabia"
   },
@@ -418,6 +423,11 @@ export const anCities = [
     "city": "Andover",
     "state": "Hampshire",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Anaiyur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Angol",
@@ -480,6 +490,11 @@ export const anCities = [
     "country": "Germany"
   },
   {
+    "city": "Angelholm",
+    "state": "Sk\u00e5ne",
+    "country": "Sweden"
+  },
+  {
     "city": "Anakaputtur",
     "state": "Tamil N\u0101du",
     "country": "India"
@@ -500,7 +515,7 @@ export const anCities = [
     "country": "France"
   },
   {
-    "city": "Angoul\u00eame",
+    "city": "Angouleme",
     "state": "Nouvelle-Aquitaine",
     "country": "France"
   },
@@ -540,7 +555,7 @@ export const anCities = [
     "country": "France"
   },
   {
-    "city": "Andkh\u014dy",
+    "city": "Andkhoy",
     "state": "F\u0101ry\u0101b",
     "country": "Afghanistan"
   },
@@ -560,7 +575,7 @@ export const anCities = [
     "country": "Colombia"
   },
   {
-    "city": "Anse d\u2019Hainault",
+    "city": "Anse d'Hainault",
     "state": "Grand\u2019Anse",
     "country": "Haiti"
   },
@@ -575,12 +590,12 @@ export const anCities = [
     "country": "Ghana"
   },
   {
-    "city": "And\u00fajar",
+    "city": "Andujar",
     "state": "Andalusia",
     "country": "Spain"
   },
   {
-    "city": "Angra do Hero\u00edsmo",
+    "city": "Angra do Heroismo",
     "state": "Azores",
     "country": "Portugal"
   },
@@ -590,7 +605,7 @@ export const anCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Anse-\u00e0-Veau",
+    "city": "Anse-a-Veau",
     "state": "Nippes",
     "country": "Haiti"
   },
@@ -615,22 +630,27 @@ export const anCities = [
     "country": "India"
   },
   {
-    "city": "Antiguo Cuscatl\u00e1n",
+    "city": "Antiguo Cuscatlan",
     "state": "La Libertad",
     "country": "El Salvador"
   },
   {
-    "city": "Angam\u0101li",
+    "city": "Ano Liosia",
+    "state": "Attik\u00ed",
+    "country": "Greece"
+  },
+  {
+    "city": "Angamali",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "An\u2019gang",
+    "city": "An'gang",
     "state": "Gyeongbuk",
     "country": "Korea, South"
   },
   {
-    "city": "And\u0131r\u0131n",
+    "city": "Andirin",
     "state": "Kahramanmara\u015f",
     "country": "Turkey"
   },
@@ -675,7 +695,7 @@ export const anCities = [
     "country": "Germany"
   },
   {
-    "city": "Anse-\u00e0-Foleur",
+    "city": "Anse-a-Foleur",
     "state": "Nord-Ouest",
     "country": "Haiti"
   },
@@ -685,7 +705,7 @@ export const anCities = [
     "country": "India"
   },
   {
-    "city": "Anse \u00e0 Pitre",
+    "city": "Anse a Pitre",
     "state": "Sud-Est",
     "country": "Haiti"
   },
@@ -693,6 +713,11 @@ export const anCities = [
     "city": "Andranomanelatra",
     "state": "Antananarivo",
     "country": "Madagascar"
+  },
+  {
+    "city": "Anew",
+    "state": "Ahal",
+    "country": "Turkmenistan"
   },
   {
     "city": "Anchieta",
@@ -705,7 +730,7 @@ export const anCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Anc\u00f3n",
+    "city": "Ancon",
     "state": "Panam\u00e1",
     "country": "Panama"
   },
@@ -730,7 +755,7 @@ export const anCities = [
     "country": "Madagascar"
   },
   {
-    "city": "An\u00e9ho",
+    "city": "Aneho",
     "state": "Maritime",
     "country": "Togo"
   },
@@ -745,7 +770,7 @@ export const anCities = [
     "country": "India"
   },
   {
-    "city": "Anaj\u00e1s",
+    "city": "Anajas",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -780,7 +805,7 @@ export const anCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Anag\u00e9",
+    "city": "Anage",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -800,7 +825,7 @@ export const anCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Andhra Th\u0101rhi",
+    "city": "Andhra Tharhi",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -815,7 +840,7 @@ export const anCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Anast\u00e1cio",
+    "city": "Anastacio",
     "state": "Mato Grosso do Sul",
     "country": "Brazil"
   },
@@ -830,12 +855,12 @@ export const anCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Ann\u016br",
+    "city": "Annur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "An\u016bpshahr",
+    "city": "Anupshahr",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -843,6 +868,11 @@ export const anCities = [
     "city": "Antanimasaka",
     "state": "Mahajanga",
     "country": "Madagascar"
+  },
+  {
+    "city": "Anatuya",
+    "state": "Santiago del Estero",
+    "country": "Argentina"
   },
   {
     "city": "Anjarkandi",
@@ -885,7 +915,7 @@ export const anCities = [
     "country": "Andorra"
   },
   {
-    "city": "Ankireddikuntap\u0101lem",
+    "city": "Ankireddikuntapalem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -920,8 +950,18 @@ export const anCities = [
     "country": "India"
   },
   {
-    "city": "An\u016bppur",
+    "city": "Anuppur",
     "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Ano Syros",
+    "state": "N\u00f3tio Aiga\u00edo",
+    "country": "Greece"
+  },
+  {
+    "city": "Andippatti",
+    "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
@@ -985,12 +1025,12 @@ export const anCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "And\u0101l",
+    "city": "Andal",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Andir\u00e1",
+    "city": "Andira",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -1020,7 +1060,7 @@ export const anCities = [
     "country": "Germany"
   },
   {
-    "city": "Andrych\u00f3w",
+    "city": "Andrychow",
     "state": "Ma\u0142opolskie",
     "country": "Poland"
   },
@@ -1040,7 +1080,7 @@ export const anCities = [
     "country": "United States"
   },
   {
-    "city": "Anzo\u00e1tegui",
+    "city": "Anzoategui",
     "state": "Tolima",
     "country": "Colombia"
   },
@@ -1050,7 +1090,7 @@ export const anCities = [
     "country": "Madagascar"
   },
   {
-    "city": "And\u00e9ranboukan",
+    "city": "Anderanboukan",
     "state": "Gao",
     "country": "Mali"
   },
@@ -1080,7 +1120,7 @@ export const anCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Andaluc\u00eda",
+    "city": "Andalucia",
     "state": "Valle del Cauca",
     "country": "Colombia"
   },
@@ -1135,7 +1175,7 @@ export const anCities = [
     "country": "United States"
   },
   {
-    "city": "Anant\u0101v\u016br",
+    "city": "Anantavur",
     "state": "Kerala",
     "country": "India"
   },
@@ -1190,17 +1230,22 @@ export const anCities = [
     "country": "France"
   },
   {
+    "city": "Anisoc",
+    "state": "Wele-Nzas",
+    "country": "Equatorial Guinea"
+  },
+  {
     "city": "Antanambao Mahatsara",
     "state": "Toamasina",
     "country": "Madagascar"
   },
   {
-    "city": "Anor\u00ed",
+    "city": "Anori",
     "state": "Antioquia",
     "country": "Colombia"
   },
   {
-    "city": "Angara-D\u00e9bou",
+    "city": "Angara-Debou",
     "state": "Atacora",
     "country": "Benin"
   },
@@ -1285,7 +1330,7 @@ export const anCities = [
     "country": "Russia"
   },
   {
-    "city": "An\u0101r",
+    "city": "Anar",
     "state": "Kerm\u0101n",
     "country": "Iran"
   },
@@ -1385,12 +1430,17 @@ export const anCities = [
     "country": "Philippines"
   },
   {
+    "city": "Andipalaiyam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Anta",
     "state": "Aveiro",
     "country": "Portugal"
   },
   {
-    "city": "And\u016brkonam",
+    "city": "Andurkonam",
     "state": "Kerala",
     "country": "India"
   },
@@ -1420,7 +1470,7 @@ export const anCities = [
     "country": "Spain"
   },
   {
-    "city": "Anamor\u00f3s",
+    "city": "Anamoros",
     "state": "La Uni\u00f3n",
     "country": "El Salvador"
   },
@@ -1455,7 +1505,7 @@ export const anCities = [
     "country": "Japan"
   },
   {
-    "city": "Anantar\u0101zupeta",
+    "city": "Anantarazupeta",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1465,12 +1515,12 @@ export const anCities = [
     "country": "Brazil"
   },
   {
-    "city": "Antarvedip\u0101lem",
+    "city": "Antarvedipalem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Andalgal\u00e1",
+    "city": "Andalgala",
     "state": "Catamarca",
     "country": "Argentina"
   },
@@ -1490,7 +1540,7 @@ export const anCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Ann\u0101ram",
+    "city": "Annaram",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1510,7 +1560,7 @@ export const anCities = [
     "country": "Brazil"
   },
   {
-    "city": "Angerm\u00fcnde",
+    "city": "Angermunde",
     "state": "Brandenburg",
     "country": "Germany"
   },
@@ -1535,7 +1585,7 @@ export const anCities = [
     "country": "United States"
   },
   {
-    "city": "Ann\u0101malainagar",
+    "city": "Annamalainagar",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1545,12 +1595,12 @@ export const anCities = [
     "country": "Thailand"
   },
   {
-    "city": "Andr\u00e9sy",
+    "city": "Andresy",
     "state": "\u00cele-de-France",
     "country": "France"
   },
   {
-    "city": "Andara\u00ed",
+    "city": "Andarai",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -1595,17 +1645,17 @@ export const anCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Anand\u0101puram",
+    "city": "Anandapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Ant\u00f4nio Prado",
+    "city": "Antonio Prado",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
   {
-    "city": "An Th\u00e0nh B",
+    "city": "An Thanh B",
     "state": "B\u1ebfn Tre",
     "country": "Vietnam"
   },
@@ -1635,7 +1685,7 @@ export const anCities = [
     "country": "United States"
   },
   {
-    "city": "Ang\u0101dikkal Tekkekara",
+    "city": "Angadikkal Tekkekara",
     "state": "Kerala",
     "country": "India"
   },
@@ -1660,7 +1710,7 @@ export const anCities = [
     "country": "Guyana"
   },
   {
-    "city": "Anzola dell\u2019Emilia",
+    "city": "Anzola dell'Emilia",
     "state": "Emilia-Romagna",
     "country": "Italy"
   },
@@ -1745,7 +1795,7 @@ export const anCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Andrel\u00e2ndia",
+    "city": "Andrelandia",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1760,17 +1810,22 @@ export const anCities = [
     "country": "Spain"
   },
   {
-    "city": "Annak\u0101ttum\u016bla",
+    "city": "Annakattumula",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "An Cabh\u00e1n",
+    "city": "An Cabhan",
     "state": "Cavan",
     "country": "Ireland"
   },
   {
-    "city": "Ansi\u00e3o",
+    "city": "Angel R. Cabada",
+    "state": "Veracruz",
+    "country": "Mexico"
+  },
+  {
+    "city": "Ansiao",
     "state": "Leiria",
     "country": "Portugal"
   },
@@ -1790,7 +1845,7 @@ export const anCities = [
     "country": "India"
   },
   {
-    "city": "Anatol\u00ed",
+    "city": "Anatoli",
     "state": "\u00cdpeiros",
     "country": "Greece"
   },
@@ -1815,22 +1870,22 @@ export const anCities = [
     "country": "Mexico"
   },
   {
-    "city": "Ant\u00f4nio Carlos",
+    "city": "Antonio Carlos",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
   {
-    "city": "Ant\u00f4nio Cardoso",
+    "city": "Antonio Cardoso",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "An Ph\u00fa",
+    "city": "An Phu",
     "state": "An Giang",
     "country": "Vietnam"
   },
   {
-    "city": "Ant\u00f4nio Carlos",
+    "city": "Antonio Carlos",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1920,6 +1975,11 @@ export const anCities = [
     "country": "India"
   },
   {
+    "city": "Anavatti",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
     "city": "Annoeullin",
     "state": "Hauts-de-France",
     "country": "France"
@@ -1975,12 +2035,12 @@ export const anCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Anr\u00f6chte",
+    "city": "Anrochte",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
   },
   {
-    "city": "Anan\u00e1s",
+    "city": "Ananas",
     "state": "Tocantins",
     "country": "Brazil"
   },
@@ -1990,7 +2050,7 @@ export const anCities = [
     "country": "Brazil"
   },
   {
-    "city": "Angw\u0101li",
+    "city": "Angwali",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -2075,17 +2135,17 @@ export const anCities = [
     "country": "France"
   },
   {
-    "city": "Anam\u00e3",
+    "city": "Anama",
     "state": "Amazonas",
     "country": "Brazil"
   },
   {
-    "city": "An\u00e1huac",
+    "city": "Anahuac",
     "state": "Chihuahua",
     "country": "Mexico"
   },
   {
-    "city": "Angalakud\u016bru Malepalle",
+    "city": "Angalakuduru Malepalle",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2115,7 +2175,12 @@ export const anCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Anan\u2019evo",
+    "city": "Anjukulippatti",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Anan'evo",
     "state": "Ysyk-K\u00f6l",
     "country": "Kyrgyzstan"
   },
@@ -2125,7 +2190,7 @@ export const anCities = [
     "country": "United States"
   },
   {
-    "city": "Anj\u0113halli",
+    "city": "Anjehalli",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2135,12 +2200,12 @@ export const anCities = [
     "country": "Australia"
   },
   {
-    "city": "An Ch\u00e2u",
+    "city": "An Chau",
     "state": "B\u1eafc Giang",
     "country": "Vietnam"
   },
   {
-    "city": "An\u00edsio de Abreu",
+    "city": "Anisio de Abreu",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
@@ -2160,7 +2225,12 @@ export const anCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Ant\u00f4nio Dias",
+    "city": "Anandpur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Antonio Dias",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -2170,17 +2240,17 @@ export const anCities = [
     "country": "Russia"
   },
   {
-    "city": "Anj\u016br",
+    "city": "Anjur",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Andr\u00e9 Fernandes",
+    "city": "Andre Fernandes",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
   {
-    "city": "Andiyappan\u016br",
+    "city": "Andiyappanur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2255,7 +2325,7 @@ export const anCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Angel\u00f3polis",
+    "city": "Angelopolis",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -2275,7 +2345,7 @@ export const anCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Angichettipp\u0101laiyam",
+    "city": "Angichettippalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2295,7 +2365,7 @@ export const anCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Anyk\u0161\u010diai",
+    "city": "Anyksciai",
     "state": "Anyk\u0161\u010diai",
     "country": "Lithuania"
   },
@@ -2305,7 +2375,7 @@ export const anCities = [
     "country": "India"
   },
   {
-    "city": "Anantas\u0101garam",
+    "city": "Anantasagaram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2345,7 +2415,7 @@ export const anCities = [
     "country": "Peru"
   },
   {
-    "city": "Anouv\u00f4ng",
+    "city": "Anouvong",
     "state": "Xais\u00f4mboun",
     "country": "Laos"
   }

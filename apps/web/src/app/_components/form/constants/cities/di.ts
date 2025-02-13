@@ -5,7 +5,7 @@ export const diCities = [
     "country": "China"
   },
   {
-    "city": "Diyarbak\u0131r",
+    "city": "Diyarbakir",
     "state": "Diyarbak\u0131r",
     "country": "Turkey"
   },
@@ -40,7 +40,7 @@ export const diCities = [
     "country": "China"
   },
   {
-    "city": "Divin\u00f3polis",
+    "city": "Divinopolis",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -60,7 +60,7 @@ export const diCities = [
     "country": "India"
   },
   {
-    "city": "Din\u0101jpur",
+    "city": "Dinajpur",
     "state": "Rangpur",
     "country": "Bangladesh"
   },
@@ -90,7 +90,12 @@ export const diCities = [
     "country": "India"
   },
   {
-    "city": "Dis\u016bq",
+    "city": "Dila",
+    "state": "YeDebub Bih\u0113roch Bih\u0113reseboch na Hizboch",
+    "country": "Ethiopia"
+  },
+  {
+    "city": "Disuq",
     "state": "Kafr ash Shaykh",
     "country": "Egypt"
   },
@@ -100,7 +105,12 @@ export const diCities = [
     "country": "Philippines"
   },
   {
-    "city": "Dim\u0101pur",
+    "city": "Disa",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
+    "city": "Dimapur",
     "state": "N\u0101g\u0101land",
     "country": "India"
   },
@@ -145,7 +155,12 @@ export const diCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Dias d\u2019\u00c1vila",
+    "city": "Di An",
+    "state": "B\u00ecnh D\u01b0\u01a1ng",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Dias d'Avila",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -153,6 +168,11 @@ export const diCities = [
     "city": "Dimbokro",
     "state": "Lacs",
     "country": "C\u00f4te d\u2019Ivoire"
+  },
+  {
+    "city": "Dien Bien Phu",
+    "state": "\u0110i\u1ec7n Bi\u00ean",
+    "country": "Vietnam"
   },
   {
     "city": "Dinslaken",
@@ -190,7 +210,7 @@ export const diCities = [
     "country": "Sri Lanka"
   },
   {
-    "city": "Dilovas\u0131",
+    "city": "Dilovasi",
     "state": "Kocaeli",
     "country": "Turkey"
   },
@@ -215,6 +235,11 @@ export const diCities = [
     "country": "Mali"
   },
   {
+    "city": "Dig",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
     "city": "Dikili",
     "state": "\u0130zmir",
     "country": "Turkey"
@@ -230,7 +255,7 @@ export const diCities = [
     "country": "Turkey"
   },
   {
-    "city": "Dild\u0101rnagar",
+    "city": "Dildarnagar",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -265,7 +290,12 @@ export const diCities = [
     "country": "Philippines"
   },
   {
-    "city": "Dighw\u0101ra",
+    "city": "Dinhata",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
+    "city": "Dighwara",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -305,6 +335,11 @@ export const diCities = [
     "country": "Mali"
   },
   {
+    "city": "Divandarreh",
+    "state": "Kordest\u0101n",
+    "country": "Iran"
+  },
+  {
     "city": "Didouche Mourad",
     "state": "Constantine",
     "country": "Algeria"
@@ -335,7 +370,7 @@ export const diCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Dialoub\u00e9",
+    "city": "Dialoube",
     "state": "Mopti",
     "country": "Mali"
   },
@@ -355,12 +390,12 @@ export const diCities = [
     "country": "Niger"
   },
   {
-    "city": "Di\u00e9ma",
+    "city": "Diema",
     "state": "Kayes",
     "country": "Mali"
   },
   {
-    "city": "Didi\u00e9ni",
+    "city": "Didieni",
     "state": "Koulikoro",
     "country": "Mali"
   },
@@ -375,7 +410,7 @@ export const diCities = [
     "country": "France"
   },
   {
-    "city": "Diangout\u00e9 Kamara",
+    "city": "Diangoute Kamara",
     "state": "Kayes",
     "country": "Mali"
   },
@@ -410,7 +445,12 @@ export const diCities = [
     "country": "South Africa"
   },
   {
-    "city": "Di\u00e9bougou",
+    "city": "Dinanagar",
+    "state": "Punjab",
+    "country": "India"
+  },
+  {
+    "city": "Diebougou",
     "state": "Sud-Ouest",
     "country": "Burkina Faso"
   },
@@ -560,7 +600,12 @@ export const diCities = [
     "country": "Mali"
   },
   {
-    "city": "Dian\u00f3polis",
+    "city": "Dizicheh",
+    "state": "E\u015ffah\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Dianopolis",
     "state": "Tocantins",
     "country": "Brazil"
   },
@@ -615,12 +660,12 @@ export const diCities = [
     "country": "India"
   },
   {
-    "city": "Divri\u011fi",
+    "city": "Divrigi",
     "state": "Sivas",
     "country": "Turkey"
   },
   {
-    "city": "Diabigu\u00e9",
+    "city": "Diabigue",
     "state": "Kayes",
     "country": "Mali"
   },
@@ -635,7 +680,7 @@ export const diCities = [
     "country": "China"
   },
   {
-    "city": "Dighirp\u0101r",
+    "city": "Dighirpar",
     "state": "West Bengal",
     "country": "India"
   },
@@ -645,7 +690,7 @@ export const diCities = [
     "country": "Cameroon"
   },
   {
-    "city": "Diafarab\u00e9",
+    "city": "Diafarabe",
     "state": "Mopti",
     "country": "Mali"
   },
@@ -670,7 +715,7 @@ export const diCities = [
     "country": "Luxembourg"
   },
   {
-    "city": "Dil\u0101rpur",
+    "city": "Dilarpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -685,7 +730,7 @@ export const diCities = [
     "country": "United States"
   },
   {
-    "city": "Dion\u00edsio Cerqueira",
+    "city": "Dionisio Cerqueira",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -705,12 +750,12 @@ export const diCities = [
     "country": "France"
   },
   {
-    "city": "Dinm\u0101npur",
+    "city": "Dinmanpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Di\u00e9ramana",
+    "city": "Dieramana",
     "state": "S\u00e9gou",
     "country": "Mali"
   },
@@ -725,7 +770,7 @@ export const diCities = [
     "country": "Chile"
   },
   {
-    "city": "Dia\u00ef Koura",
+    "city": "Diai Koura",
     "state": "Kayes",
     "country": "Mali"
   },
@@ -745,12 +790,12 @@ export const diCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Dinb\u00e9la",
+    "city": "Dinbela",
     "state": "Sikasso",
     "country": "Mali"
   },
   {
-    "city": "Dinshaw\u0101y",
+    "city": "Dinshaway",
     "state": "Al Min\u016bf\u012byah",
     "country": "Egypt"
   },
@@ -760,12 +805,12 @@ export const diCities = [
     "country": "Russia"
   },
   {
-    "city": "Dianguird\u00e9",
+    "city": "Dianguirde",
     "state": "Kayes",
     "country": "Mali"
   },
   {
-    "city": "Diank\u00e9",
+    "city": "Dianke",
     "state": "Tombouctou",
     "country": "Mali"
   },
@@ -775,7 +820,7 @@ export const diCities = [
     "country": "Ghana"
   },
   {
-    "city": "Di\u00e9li",
+    "city": "Dieli",
     "state": "S\u00e9gou",
     "country": "Mali"
   },
@@ -795,7 +840,7 @@ export const diCities = [
     "country": "Senegal"
   },
   {
-    "city": "Dinkelsb\u00fchl",
+    "city": "Dinkelsbuhl",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -805,32 +850,32 @@ export const diCities = [
     "country": "United States"
   },
   {
-    "city": "Dir\u00e9",
+    "city": "Dire",
     "state": "Tombouctou",
     "country": "Mali"
   },
   {
-    "city": "Distracci\u00f3n",
+    "city": "Distraccion",
     "state": "La Guajira",
     "country": "Colombia"
   },
   {
-    "city": "Dish\u0101shah",
+    "city": "Dishashah",
     "state": "Ban\u012b Suwayf",
     "country": "Egypt"
   },
   {
-    "city": "Din\u0101ra",
+    "city": "Dinara",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Diao\u2019ecun",
+    "city": "Diao'ecun",
     "state": "Hebei",
     "country": "China"
   },
   {
-    "city": "Di\u00f3sd",
+    "city": "Diosd",
     "state": "Pest",
     "country": "Hungary"
   },
@@ -845,7 +890,7 @@ export const diCities = [
     "country": "Germany"
   },
   {
-    "city": "Divinol\u00e2ndia",
+    "city": "Divinolandia",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -865,12 +910,12 @@ export const diCities = [
     "country": "Philippines"
   },
   {
-    "city": "Die\u00dfen am Ammersee",
+    "city": "Diessen am Ammersee",
     "state": "Bavaria",
     "country": "Germany"
   },
   {
-    "city": "Digh\u0101w\u0101ni",
+    "city": "Dighawani",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -885,7 +930,7 @@ export const diCities = [
     "country": "France"
   },
   {
-    "city": "Divis\u00f3polis",
+    "city": "Divisopolis",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -910,7 +955,7 @@ export const diCities = [
     "country": "India"
   },
   {
-    "city": "Diavat\u00e1",
+    "city": "Diavata",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
@@ -920,12 +965,12 @@ export const diCities = [
     "country": "Mali"
   },
   {
-    "city": "Din\u0101ra",
+    "city": "Dinara",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Dibr\u0101ghani",
+    "city": "Dibraghani",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -935,7 +980,7 @@ export const diCities = [
     "country": "United States"
   },
   {
-    "city": "Didym\u00f3teicho",
+    "city": "Didymoteicho",
     "state": "Anatolik\u00ed Makedon\u00eda kai Thr\u00e1ki",
     "country": "Greece"
   },
@@ -970,7 +1015,7 @@ export const diCities = [
     "country": "Mali"
   },
   {
-    "city": "Dil\u0101warpur",
+    "city": "Dilawarpur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1010,7 +1055,7 @@ export const diCities = [
     "country": "Malta"
   },
   {
-    "city": "Diva\u010da",
+    "city": "Divaca",
     "state": "Diva\u010da",
     "country": "Slovenia"
   },

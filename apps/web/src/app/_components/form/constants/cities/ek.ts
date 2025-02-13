@@ -5,7 +5,7 @@ export const ekCities = [
     "country": "Kazakhstan"
   },
   {
-    "city": "Ekp\u00e9",
+    "city": "Ekpe",
     "state": "Ou\u00e9m\u00e9",
     "country": "Benin"
   },
@@ -30,7 +30,7 @@ export const ekCities = [
     "country": "India"
   },
   {
-    "city": "Ekw\u0101ri",
+    "city": "Ekwari",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -40,7 +40,7 @@ export const ekCities = [
     "country": "India"
   },
   {
-    "city": "Eker\u00f6",
+    "city": "Ekero",
     "state": "Stockholm",
     "country": "Sweden"
   },
@@ -50,7 +50,7 @@ export const ekCities = [
     "country": "South Africa"
   },
   {
-    "city": "Ekin\u00f6z\u00fc",
+    "city": "Ekinozu",
     "state": "Kahramanmara\u015f",
     "country": "Turkey"
   },
@@ -60,7 +60,7 @@ export const ekCities = [
     "country": "India"
   },
   {
-    "city": "Eksj\u00f6",
+    "city": "Eksjo",
     "state": "J\u00f6nk\u00f6ping",
     "country": "Sweden"
   },
@@ -80,7 +80,7 @@ export const ekCities = [
     "country": "India"
   },
   {
-    "city": "Ekch\u0101ri",
+    "city": "Ekchari",
     "state": "Bih\u0101r",
     "country": "India"
   },

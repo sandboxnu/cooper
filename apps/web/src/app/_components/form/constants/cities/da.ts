@@ -85,7 +85,7 @@ export const daCities = [
     "country": "China"
   },
   {
-    "city": "Dasmari\u00f1as",
+    "city": "Dasmarinas",
     "state": "Cavite",
     "country": "Philippines"
   },
@@ -95,7 +95,7 @@ export const daCities = [
     "country": "United States"
   },
   {
-    "city": "Dayr\u016b\u0163",
+    "city": "Dayrut",
     "state": "Asy\u016b\u0163",
     "country": "Egypt"
   },
@@ -120,12 +120,22 @@ export const daCities = [
     "country": "C\u00f4te d\u2019Ivoire"
   },
   {
-    "city": "Da\u2019an",
+    "city": "Da'an",
     "state": "Jilin",
     "country": "China"
   },
   {
-    "city": "Dah\u016bk",
+    "city": "Da Lat",
+    "state": "L\u00e2m \u0110\u1ed3ng",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Dasarhalli",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Dahuk",
     "state": "Dah\u016bk",
     "country": "Iraq"
   },
@@ -150,7 +160,7 @@ export const daCities = [
     "country": "Syria"
   },
   {
-    "city": "Damanh\u016br",
+    "city": "Damanhur",
     "state": "Al Bu\u1e29ayrah",
     "country": "Egypt"
   },
@@ -160,7 +170,7 @@ export const daCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Da\u015foguz",
+    "city": "Dasoguz",
     "state": "Da\u015foguz",
     "country": "Turkmenistan"
   },
@@ -175,7 +185,7 @@ export const daCities = [
     "country": "Egypt"
   },
   {
-    "city": "Dam\u0101n",
+    "city": "Daman",
     "state": "D\u0101dra and Nagar Haveli and Dam\u0101n and Diu",
     "country": "India"
   },
@@ -235,7 +245,7 @@ export const daCities = [
     "country": "Burma"
   },
   {
-    "city": "Dar\u2018\u0101",
+    "city": "Dar`a",
     "state": "Dar\u2018\u0101",
     "country": "Syria"
   },
@@ -265,12 +275,12 @@ export const daCities = [
     "country": "Philippines"
   },
   {
-    "city": "Dal\u016bpura",
+    "city": "Dalupura",
     "state": "Delhi",
     "country": "India"
   },
   {
-    "city": "Dait\u014dch\u014d",
+    "city": "Daitocho",
     "state": "\u014csaka",
     "country": "Japan"
   },
@@ -278,6 +288,11 @@ export const daCities = [
     "city": "Darjeeling",
     "state": "West Bengal",
     "country": "India"
+  },
+  {
+    "city": "Dabrowa Gornicza",
+    "state": "\u015al\u0105skie",
+    "country": "Poland"
   },
   {
     "city": "Datu Odin Sinsuat",
@@ -290,7 +305,7 @@ export const daCities = [
     "country": "India"
   },
   {
-    "city": "Dassa-Zoum\u00e9",
+    "city": "Dassa-Zoume",
     "state": "Collines",
     "country": "Benin"
   },
@@ -345,7 +360,7 @@ export const daCities = [
     "country": "Libya"
   },
   {
-    "city": "Danl\u00ed",
+    "city": "Danli",
     "state": "El Para\u00edso",
     "country": "Honduras"
   },
@@ -360,17 +375,22 @@ export const daCities = [
     "country": "Philippines"
   },
   {
+    "city": "Darayya",
+    "state": "R\u012bf Dimashq",
+    "country": "Syria"
+  },
+  {
     "city": "David",
     "state": "Chiriqu\u00ed",
     "country": "Panama"
   },
   {
-    "city": "Dar el Be\u00efda",
+    "city": "Dar el Beida",
     "state": "Alger",
     "country": "Algeria"
   },
   {
-    "city": "Daheg\u0101m",
+    "city": "Dahegam",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -400,7 +420,7 @@ export const daCities = [
     "country": "Japan"
   },
   {
-    "city": "Dayr al Bala\u1e29",
+    "city": "Dayr al Balah",
     "state": NaN,
     "country": "Gaza Strip"
   },
@@ -470,7 +490,7 @@ export const daCities = [
     "country": "Benin"
   },
   {
-    "city": "Dalj\u0101",
+    "city": "Dalja",
     "state": "Al Miny\u0101",
     "country": "Egypt"
   },
@@ -478,6 +498,11 @@ export const daCities = [
     "city": "Date",
     "state": "Fukushima",
     "country": "Japan"
+  },
+  {
+    "city": "Damghan",
+    "state": "Semn\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Dapaong",
@@ -515,7 +540,7 @@ export const daCities = [
     "country": "India"
   },
   {
-    "city": "Dam\u0101vand",
+    "city": "Damavand",
     "state": "Tehr\u0101n",
     "country": "Iran"
   },
@@ -540,7 +565,7 @@ export const daCities = [
     "country": "China"
   },
   {
-    "city": "Dalli R\u0101jhara",
+    "city": "Dalli Rajhara",
     "state": "Chhatt\u012bsgarh",
     "country": "India"
   },
@@ -570,7 +595,7 @@ export const daCities = [
     "country": "China"
   },
   {
-    "city": "Dand\u00e9resso",
+    "city": "Danderesso",
     "state": "Sikasso",
     "country": "Mali"
   },
@@ -580,7 +605,7 @@ export const daCities = [
     "country": "Philippines"
   },
   {
-    "city": "Dayr Maw\u0101s",
+    "city": "Dayr Mawas",
     "state": "Al Miny\u0101",
     "country": "Egypt"
   },
@@ -600,7 +625,7 @@ export const daCities = [
     "country": "Guinea"
   },
   {
-    "city": "Dar\u0101w",
+    "city": "Daraw",
     "state": "Asw\u0101n",
     "country": "Egypt"
   },
@@ -617,6 +642,16 @@ export const daCities = [
   {
     "city": "Dargot",
     "state": "Him\u0101chal Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Dachepalle",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Dalkola",
+    "state": "West Bengal",
     "country": "India"
   },
   {
@@ -660,7 +695,7 @@ export const daCities = [
     "country": "Tunisia"
   },
   {
-    "city": "Dayr \u1e28\u0101fir",
+    "city": "Dayr Hafir",
     "state": "\u1e28alab",
     "country": "Syria"
   },
@@ -678,6 +713,11 @@ export const daCities = [
     "city": "Dabouziya",
     "state": "Casablanca-Settat",
     "country": "Morocco"
+  },
+  {
+    "city": "Dapoli",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
   },
   {
     "city": "Dakota Ridge",
@@ -698,6 +738,11 @@ export const daCities = [
     "city": "Datu Paglas",
     "state": "Maguindanao",
     "country": "Philippines"
+  },
+  {
+    "city": "Daganbhuiya",
+    "state": "Chattogram",
+    "country": "Bangladesh"
   },
   {
     "city": "Darsi",
@@ -790,7 +835,7 @@ export const daCities = [
     "country": "Russia"
   },
   {
-    "city": "Dayr Ab\u016b Sa\u2018\u012bd",
+    "city": "Dayr Abu Sa`id",
     "state": "Irbid",
     "country": "Jordan"
   },
@@ -820,7 +865,7 @@ export const daCities = [
     "country": "Morocco"
   },
   {
-    "city": "Dajab\u00f3n",
+    "city": "Dajabon",
     "state": "Cibao Noroeste",
     "country": "Dominican Republic"
   },
@@ -845,12 +890,12 @@ export const daCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Daulatkh\u0101n",
+    "city": "Daulatkhan",
     "state": "Barishal",
     "country": "Bangladesh"
   },
   {
-    "city": "Darge\u00e7it",
+    "city": "Dargecit",
     "state": "Mardin",
     "country": "Turkey"
   },
@@ -870,7 +915,7 @@ export const daCities = [
     "country": "Algeria"
   },
   {
-    "city": "Das\u016bya",
+    "city": "Dasuya",
     "state": "Punjab",
     "country": "India"
   },
@@ -895,7 +940,7 @@ export const daCities = [
     "country": "Burkina Faso"
   },
   {
-    "city": "Dat\u00e7a",
+    "city": "Datca",
     "state": "Mu\u011fla",
     "country": "Turkey"
   },
@@ -925,7 +970,7 @@ export const daCities = [
     "country": "Turkey"
   },
   {
-    "city": "Dak\u1e63i\u1e47k\u0101li\u0307\u0304",
+    "city": "Daksinkali",
     "state": NaN,
     "country": "Nepal"
   },
@@ -933,6 +978,11 @@ export const daCities = [
     "city": "Dabaga",
     "state": "Agadez",
     "country": "Niger"
+  },
+  {
+    "city": "Dakor",
+    "state": "Gujar\u0101t",
+    "country": "India"
   },
   {
     "city": "Dasungezhuang",
@@ -945,9 +995,19 @@ export const daCities = [
     "country": "Tajikistan"
   },
   {
+    "city": "Dakovo",
+    "state": "Osje\u010dko-Baranjska \u017dupanija",
+    "country": "Croatia"
+  },
+  {
     "city": "Davlekanovo",
     "state": "Bashkortostan",
     "country": "Russia"
+  },
+  {
+    "city": "Dank",
+    "state": "Az\u0327 Z\u0327\u0101hirah",
+    "country": "Oman"
   },
   {
     "city": "Dalmine",
@@ -960,12 +1020,17 @@ export const daCities = [
     "country": "Colombia"
   },
   {
-    "city": "Dammarie-l\u00e8-Lys",
+    "city": "Dafni",
+    "state": "Attik\u00ed",
+    "country": "Greece"
+  },
+  {
+    "city": "Dammarie-le-Lys",
     "state": "\u00cele-de-France",
     "country": "France"
   },
   {
-    "city": "Dal\u0101n",
+    "city": "Dalan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -980,7 +1045,7 @@ export const daCities = [
     "country": "China"
   },
   {
-    "city": "Dasn\u0101pur",
+    "city": "Dasnapur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -995,7 +1060,7 @@ export const daCities = [
     "country": "Iran"
   },
   {
-    "city": "Danw\u0101n",
+    "city": "Danwan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1045,7 +1110,7 @@ export const daCities = [
     "country": "Philippines"
   },
   {
-    "city": "Dayr Ab\u016b \u1e28innis",
+    "city": "Dayr Abu Hinnis",
     "state": "Al Miny\u0101",
     "country": "Egypt"
   },
@@ -1070,12 +1135,12 @@ export const daCities = [
     "country": "Russia"
   },
   {
-    "city": "Dadeldhur\u0101",
+    "city": "Dadeldhura",
     "state": NaN,
     "country": "Nepal"
   },
   {
-    "city": "Dary\u0101b\u0101d",
+    "city": "Daryabad",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -1150,7 +1215,7 @@ export const daCities = [
     "country": "Argentina"
   },
   {
-    "city": "Dahibh\u0101t M\u0101dhopur",
+    "city": "Dahibhat Madhopur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1160,12 +1225,12 @@ export const daCities = [
     "country": "China"
   },
   {
-    "city": "Dari\u00e9n",
+    "city": "Darien",
     "state": "Valle del Cauca",
     "country": "Colombia"
   },
   {
-    "city": "Dandu Mail\u0101ram",
+    "city": "Dandu Mailaram",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1185,7 +1250,7 @@ export const daCities = [
     "country": "India"
   },
   {
-    "city": "Damm\u0101j",
+    "city": "Dammaj",
     "state": "\u015ea\u2018dah",
     "country": "Yemen"
   },
@@ -1240,7 +1305,7 @@ export const daCities = [
     "country": "Russia"
   },
   {
-    "city": "Dah\u00e9",
+    "city": "Dahe",
     "state": "Mono",
     "country": "Benin"
   },
@@ -1250,7 +1315,7 @@ export const daCities = [
     "country": "India"
   },
   {
-    "city": "Dargah\u0101n",
+    "city": "Dargahan",
     "state": "Hormozg\u0101n",
     "country": "Iran"
   },
@@ -1260,7 +1325,7 @@ export const daCities = [
     "country": "India"
   },
   {
-    "city": "Dayr al Barsh\u0101",
+    "city": "Dayr al Barsha",
     "state": "Al Miny\u0101",
     "country": "Egypt"
   },
@@ -1280,12 +1345,12 @@ export const daCities = [
     "country": "India"
   },
   {
-    "city": "Dantew\u0101ra",
+    "city": "Dantewara",
     "state": "Chhatt\u012bsgarh",
     "country": "India"
   },
   {
-    "city": "Dani\u00eblskuil",
+    "city": "Danielskuil",
     "state": "Northern Cape",
     "country": "South Africa"
   },
@@ -1295,12 +1360,17 @@ export const daCities = [
     "country": "India"
   },
   {
+    "city": "Darat `Izzah",
+    "state": "\u1e28alab",
+    "country": "Syria"
+  },
+  {
     "city": "Dakit",
     "state": "Southern Leyte",
     "country": "Philippines"
   },
   {
-    "city": "Dah\u0101ria",
+    "city": "Daharia",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1325,9 +1395,14 @@ export const daCities = [
     "country": "China"
   },
   {
-    "city": "Dar\u0142owo",
+    "city": "Darlowo",
     "state": "Zachodniopomorskie",
     "country": "Poland"
+  },
+  {
+    "city": "Darmanesti",
+    "state": "Bac\u0103u",
+    "country": "Romania"
   },
   {
     "city": "Danga",
@@ -1340,7 +1415,12 @@ export const daCities = [
     "country": "Taiwan"
   },
   {
-    "city": "Day\u0101lpur S\u0101pha",
+    "city": "Darasuram",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Dayalpur Sapha",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1365,6 +1445,11 @@ export const daCities = [
     "country": "India"
   },
   {
+    "city": "Damarcherla",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
     "city": "Daharia",
     "state": "Bih\u0101r",
     "country": "India"
@@ -1380,12 +1465,12 @@ export const daCities = [
     "country": "Canada"
   },
   {
-    "city": "Dasraha Bhogr\u0101jpur",
+    "city": "Dasraha Bhograjpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Dagm\u0101ra",
+    "city": "Dagmara",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1420,7 +1505,12 @@ export const daCities = [
     "country": "India"
   },
   {
-    "city": "Dang\u2018ara",
+    "city": "Dabrowa Tarnowska",
+    "state": "Ma\u0142opolskie",
+    "country": "Poland"
+  },
+  {
+    "city": "Dang`ara",
     "state": "Farg\u2018ona",
     "country": "Uzbekistan"
   },
@@ -1435,12 +1525,12 @@ export const daCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Dammartin-en-Go\u00eble",
+    "city": "Dammartin-en-Goele",
     "state": "\u00cele-de-France",
     "country": "France"
   },
   {
-    "city": "Dati\u0101na",
+    "city": "Datiana",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1450,7 +1540,7 @@ export const daCities = [
     "country": "India"
   },
   {
-    "city": "Day\u0101lpur",
+    "city": "Dayalpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1465,7 +1555,7 @@ export const daCities = [
     "country": "Belgium"
   },
   {
-    "city": "Dayr \u2018A\u0163\u012byah",
+    "city": "Dayr `Atiyah",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
   },
@@ -1485,12 +1575,17 @@ export const daCities = [
     "country": "Mali"
   },
   {
-    "city": "Darmah\u0101",
+    "city": "Dario Meira",
+    "state": "Bahia",
+    "country": "Brazil"
+  },
+  {
+    "city": "Darmaha",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Dallgow-D\u00f6beritz",
+    "city": "Dallgow-Doberitz",
     "state": "Brandenburg",
     "country": "Germany"
   },
@@ -1505,7 +1600,7 @@ export const daCities = [
     "country": "United States"
   },
   {
-    "city": "Dakhr\u0101m",
+    "city": "Dakhram",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1515,7 +1610,7 @@ export const daCities = [
     "country": "Iran"
   },
   {
-    "city": "Dakh\u0101n",
+    "city": "Dakhan",
     "state": "Markaz\u012b",
     "country": "Iran"
   },
@@ -1530,7 +1625,7 @@ export const daCities = [
     "country": "India"
   },
   {
-    "city": "Da\u015fk\u0259s\u0259n",
+    "city": "Daskasan",
     "state": "Da\u015fk\u0259s\u0259n",
     "country": "Azerbaijan"
   },
@@ -1543,6 +1638,11 @@ export const daCities = [
     "city": "Darauli",
     "state": "Bih\u0101r",
     "country": "India"
+  },
+  {
+    "city": "Dali",
+    "state": "Lefkos\u00eda",
+    "country": "Cyprus"
   },
   {
     "city": "Da",
@@ -1560,7 +1660,12 @@ export const daCities = [
     "country": "Benin"
   },
   {
-    "city": "Dalg\u0101n",
+    "city": "Dabuleni",
+    "state": "Dolj",
+    "country": "Romania"
+  },
+  {
+    "city": "Dalgan",
     "state": "S\u012bst\u0101n va Bal\u016bchest\u0101n",
     "country": "Iran"
   },
@@ -1590,12 +1695,12 @@ export const daCities = [
     "country": "Croatia"
   },
   {
-    "city": "Dal\u0101warpur",
+    "city": "Dalawarpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Dagi\u0101p\u0101ra",
+    "city": "Dagiapara",
     "state": "Assam",
     "country": "India"
   },
@@ -1620,7 +1725,7 @@ export const daCities = [
     "country": "China"
   },
   {
-    "city": "Darn\u00e9tal",
+    "city": "Darnetal",
     "state": "Normandie",
     "country": "France"
   },
@@ -1655,12 +1760,17 @@ export const daCities = [
     "country": "India"
   },
   {
+    "city": "Dakpatthar",
+    "state": "Uttar\u0101khand",
+    "country": "India"
+  },
+  {
     "city": "Dabhaura",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Dagb\u00e9",
+    "city": "Dagbe",
     "state": "Ou\u00e9m\u00e9",
     "country": "Benin"
   },
@@ -1670,13 +1780,28 @@ export const daCities = [
     "country": "China"
   },
   {
-    "city": "Danau K\u00e4ndimarg",
+    "city": "Danesfahan",
+    "state": "Qazv\u012bn",
+    "country": "Iran"
+  },
+  {
+    "city": "Danau Kandimarg",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
   {
     "city": "Dahi",
     "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Damargidda",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Damu",
+    "state": "Bih\u0101r",
     "country": "India"
   },
   {
@@ -1695,8 +1820,18 @@ export const daCities = [
     "country": "India"
   },
   {
+    "city": "Davuluru",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Dasaut",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Daita",
+    "state": "West Bengal",
     "country": "India"
   },
   {
@@ -1710,7 +1845,7 @@ export const daCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Dalav\u0101ypattanam",
+    "city": "Dalavaypattanam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1720,9 +1855,14 @@ export const daCities = [
     "country": "China"
   },
   {
-    "city": "Dayr as Sanq\u016br\u012byah",
+    "city": "Dayr as Sanquriyah",
     "state": "Al Miny\u0101",
     "country": "Egypt"
+  },
+  {
+    "city": "Dara",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Dayton",
@@ -1735,9 +1875,19 @@ export const daCities = [
     "country": "France"
   },
   {
+    "city": "Damal",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Daping",
     "state": "Guangdong",
     "country": "China"
+  },
+  {
+    "city": "Dala",
+    "state": "Punjab",
+    "country": "India"
   },
   {
     "city": "Dachne",
@@ -1745,7 +1895,7 @@ export const daCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Dattap\u0101ra",
+    "city": "Dattapara",
     "state": "West Bengal",
     "country": "India"
   },
@@ -1793,6 +1943,16 @@ export const daCities = [
     "city": "Dalandzadgad",
     "state": "\u00d6mn\u00f6gov\u012d",
     "country": "Mongolia"
+  },
+  {
+    "city": "Da Nang",
+    "state": "\u0110\u00e0 N\u1eb5ng",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Davaci",
+    "state": "\u015eabran",
+    "country": "Azerbaijan"
   },
   {
     "city": "Dambai",

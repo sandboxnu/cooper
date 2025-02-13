@@ -25,7 +25,7 @@ export const meCities = [
     "country": "China"
   },
   {
-    "city": "Medell\u00edn",
+    "city": "Medellin",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -65,6 +65,11 @@ export const meCities = [
     "country": "China"
   },
   {
+    "city": "Merida",
+    "state": "Yucat\u00e1n",
+    "country": "Mexico"
+  },
+  {
     "city": "Meilan",
     "state": "Hainan",
     "country": "China"
@@ -80,7 +85,7 @@ export const meCities = [
     "country": "Turkey"
   },
   {
-    "city": "Mekn\u00e8s",
+    "city": "Meknes",
     "state": "F\u00e8s-Mekn\u00e8s",
     "country": "Morocco"
   },
@@ -120,6 +125,11 @@ export const meCities = [
     "country": "Japan"
   },
   {
+    "city": "Merida",
+    "state": "M\u00e9rida",
+    "country": "Venezuela"
+  },
+  {
     "city": "Mehrabpur",
     "state": "Sindh",
     "country": "Pakistan"
@@ -130,7 +140,7 @@ export const meCities = [
     "country": "Argentina"
   },
   {
-    "city": "Mel P\u0101laiyam",
+    "city": "Mel Palaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -170,7 +180,12 @@ export const meCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Medin\u012bpur",
+    "city": "Metouia",
+    "state": "Gab\u00e8s",
+    "country": "Tunisia"
+  },
+  {
+    "city": "Medinipur",
     "state": "West Bengal",
     "country": "India"
   },
@@ -195,7 +210,7 @@ export const meCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Mehtar L\u0101m",
+    "city": "Mehtar Lam",
     "state": "Laghm\u0101n",
     "country": "Afghanistan"
   },
@@ -208,6 +223,11 @@ export const meCities = [
     "city": "Metairie",
     "state": "Louisiana",
     "country": "United States"
+  },
+  {
+    "city": "Medea",
+    "state": "M\u00e9d\u00e9a",
+    "country": "Algeria"
   },
   {
     "city": "Medina Estates",
@@ -280,7 +300,7 @@ export const meCities = [
     "country": "Italy"
   },
   {
-    "city": "Mettup\u0101laiyam",
+    "city": "Mettupalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -315,7 +335,12 @@ export const meCities = [
     "country": "Algeria"
   },
   {
-    "city": "Meshg\u012bn Shahr",
+    "city": "Merignac",
+    "state": "Nouvelle-Aquitaine",
+    "country": "France"
+  },
+  {
+    "city": "Meshgin Shahr",
     "state": "Ardab\u012bl",
     "country": "Iran"
   },
@@ -355,7 +380,7 @@ export const meCities = [
     "country": "Argentina"
   },
   {
-    "city": "Meshk\u012bn Dasht",
+    "city": "Meshkin Dasht",
     "state": "Tehr\u0101n",
     "country": "Iran"
   },
@@ -385,7 +410,7 @@ export const meCities = [
     "country": "Algeria"
   },
   {
-    "city": "Mehn\u0101jpur",
+    "city": "Mehnajpur",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -395,7 +420,12 @@ export const meCities = [
     "country": "Philippines"
   },
   {
-    "city": "Metap\u00e1n",
+    "city": "Merida",
+    "state": "Extremadura",
+    "country": "Spain"
+  },
+  {
+    "city": "Metapan",
     "state": "Santa Ana",
     "country": "El Salvador"
   },
@@ -475,6 +505,11 @@ export const meCities = [
     "country": "Germany"
   },
   {
+    "city": "Mela Gudalur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Meudon",
     "state": "\u00cele-de-France",
     "country": "France"
@@ -505,7 +540,7 @@ export const meCities = [
     "country": "Belgium"
   },
   {
-    "city": "Mel\u016br",
+    "city": "Melur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -545,12 +580,12 @@ export const meCities = [
     "country": "Uruguay"
   },
   {
-    "city": "Mem\u0101ri",
+    "city": "Memari",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Me\u00efganga",
+    "city": "Meiganga",
     "state": "Adamaoua",
     "country": "Cameroon"
   },
@@ -640,7 +675,7 @@ export const meCities = [
     "country": "Colombia"
   },
   {
-    "city": "Mek\u2019\u012b",
+    "city": "Mek'i",
     "state": "Orom\u012bya",
     "country": "Ethiopia"
   },
@@ -675,7 +710,7 @@ export const meCities = [
     "country": "India"
   },
   {
-    "city": "Mel N\u0101riyappan\u016br",
+    "city": "Mel Nariyappanur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -685,7 +720,7 @@ export const meCities = [
     "country": "United States"
   },
   {
-    "city": "Mendez-Nu\u00f1ez",
+    "city": "Mendez-Nunez",
     "state": "Cavite",
     "country": "Philippines"
   },
@@ -735,7 +770,7 @@ export const meCities = [
     "country": "United States"
   },
   {
-    "city": "Messam\u00e9na",
+    "city": "Messamena",
     "state": "Est",
     "country": "Cameroon"
   },
@@ -770,7 +805,7 @@ export const meCities = [
     "country": "Germany"
   },
   {
-    "city": "Metam\u00f3rfosi",
+    "city": "Metamorfosi",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -780,12 +815,17 @@ export const meCities = [
     "country": "United States"
   },
   {
+    "city": "Megara",
+    "state": "Attik\u00ed",
+    "country": "Greece"
+  },
+  {
     "city": "Mehlville",
     "state": "Missouri",
     "country": "United States"
   },
   {
-    "city": "Mei\u00dfen",
+    "city": "Meissen",
     "state": "Saxony",
     "country": "Germany"
   },
@@ -815,7 +855,7 @@ export const meCities = [
     "country": "Mexico"
   },
   {
-    "city": "Melga\u00e7o",
+    "city": "Melgaco",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -830,9 +870,14 @@ export const meCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Mepp\u0101yy\u016br",
+    "city": "Meppayyur",
     "state": "Kerala",
     "country": "India"
+  },
+  {
+    "city": "Megrine",
+    "state": "Ben Arous",
+    "country": "Tunisia"
   },
   {
     "city": "Mel Bhuvanagiri",
@@ -865,7 +910,7 @@ export const meCities = [
     "country": "Russia"
   },
   {
-    "city": "Merk\u0101nam",
+    "city": "Merkanam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -925,7 +970,12 @@ export const meCities = [
     "country": "Italy"
   },
   {
-    "city": "Mel\u00edssia",
+    "city": "Mekhe",
+    "state": "Thi\u00e8s",
+    "country": "Senegal"
+  },
+  {
+    "city": "Melissia",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -1010,7 +1060,7 @@ export const meCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Metah\u0101ra",
+    "city": "Metahara",
     "state": "Orom\u012bya",
     "country": "Ethiopia"
   },
@@ -1023,6 +1073,11 @@ export const meCities = [
     "city": "Meinerzhagen",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
+  },
+  {
+    "city": "Menaka",
+    "state": "Gao",
+    "country": "Mali"
   },
   {
     "city": "Mesquite",
@@ -1043,6 +1098,11 @@ export const meCities = [
     "city": "Mealhada",
     "state": "Aveiro",
     "country": "Portugal"
+  },
+  {
+    "city": "Melnik",
+    "state": "St\u0159edo\u010desk\u00fd Kraj",
+    "country": "Czechia"
   },
   {
     "city": "Medina",
@@ -1165,7 +1225,7 @@ export const meCities = [
     "country": "Brazil"
   },
   {
-    "city": "Mehr\u0101n",
+    "city": "Mehran",
     "state": "\u012al\u0101m",
     "country": "Iran"
   },
@@ -1175,7 +1235,7 @@ export const meCities = [
     "country": "Mexico"
   },
   {
-    "city": "Mettupp\u0101laiyam",
+    "city": "Mettuppalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1250,17 +1310,17 @@ export const meCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Mecit\u00f6z\u00fc",
+    "city": "Mecitozu",
     "state": "\u00c7orum",
     "country": "Turkey"
   },
   {
-    "city": "Mez\u0151t\u00far",
+    "city": "Mezotur",
     "state": "J\u00e1sz-Nagykun-Szolnok",
     "country": "Hungary"
   },
   {
-    "city": "Mez\u0151k\u00f6vesd",
+    "city": "Mezokovesd",
     "state": "Borsod-Aba\u00faj-Zempl\u00e9n",
     "country": "Hungary"
   },
@@ -1295,7 +1355,7 @@ export const meCities = [
     "country": "United States"
   },
   {
-    "city": "Metkovi\u0107",
+    "city": "Metkovic",
     "state": "Dubrova\u010dko-Neretvanska \u017dupanija",
     "country": "Croatia"
   },
@@ -1360,6 +1420,11 @@ export const meCities = [
     "country": "Madagascar"
   },
   {
+    "city": "Mesa Geitonia",
+    "state": "Lemes\u00f3s",
+    "country": "Cyprus"
+  },
+  {
     "city": "Mercerville",
     "state": "New Jersey",
     "country": "United States"
@@ -1368,6 +1433,11 @@ export const meCities = [
     "city": "Medvezhyegorsk",
     "state": "Kareliya",
     "country": "Russia"
+  },
+  {
+    "city": "Meru",
+    "state": "Hauts-de-France",
+    "country": "France"
   },
   {
     "city": "Mers el Hadjad",
@@ -1380,9 +1450,14 @@ export const meCities = [
     "country": "Switzerland"
   },
   {
-    "city": "Mero\u0161ina",
+    "city": "Merosina",
     "state": "Mero\u0161ina",
     "country": "Serbia"
+  },
+  {
+    "city": "Meridjonou",
+    "state": "Ou\u00e9m\u00e9",
+    "country": "Benin"
   },
   {
     "city": "Melsungen",
@@ -1430,12 +1505,12 @@ export const meCities = [
     "country": "United States"
   },
   {
-    "city": "Medap\u0101du",
+    "city": "Medapadu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Mercedes Uma\u00f1a",
+    "city": "Mercedes Umana",
     "state": "Usulut\u00e1n",
     "country": "El Salvador"
   },
@@ -1460,7 +1535,7 @@ export const meCities = [
     "country": "United States"
   },
   {
-    "city": "Meri\u00e7",
+    "city": "Meric",
     "state": "Edirne",
     "country": "Turkey"
   },
@@ -1470,7 +1545,7 @@ export const meCities = [
     "country": "India"
   },
   {
-    "city": "Mesol\u00f3ngi",
+    "city": "Mesolongi",
     "state": "Dytik\u00ed Ell\u00e1da",
     "country": "Greece"
   },
@@ -1478,6 +1553,11 @@ export const meCities = [
     "city": "Mechtras",
     "state": "Tizi Ouzou",
     "country": "Algeria"
+  },
+  {
+    "city": "Meze",
+    "state": "Occitanie",
+    "country": "France"
   },
   {
     "city": "Melvindale",
@@ -1500,7 +1580,7 @@ export const meCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Mecatl\u00e1n",
+    "city": "Mecatlan",
     "state": "Veracruz",
     "country": "Mexico"
   },
@@ -1510,7 +1590,7 @@ export const meCities = [
     "country": "France"
   },
   {
-    "city": "Melav\u0101yi",
+    "city": "Melavayi",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1535,7 +1615,7 @@ export const meCities = [
     "country": "Germany"
   },
   {
-    "city": "Mettupp\u0101laiyam",
+    "city": "Mettuppalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1545,12 +1625,12 @@ export const meCities = [
     "country": "Germany"
   },
   {
-    "city": "Mehs\u0101ri",
+    "city": "Mehsari",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Mer\u0101l",
+    "city": "Meral",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -1580,7 +1660,7 @@ export const meCities = [
     "country": "Belgium"
   },
   {
-    "city": "Me\u00dfstetten",
+    "city": "Messstetten",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
@@ -1593,6 +1673,11 @@ export const meCities = [
     "city": "Mercogliano",
     "state": "Campania",
     "country": "Italy"
+  },
+  {
+    "city": "Mericourt",
+    "state": "Hauts-de-France",
+    "country": "France"
   },
   {
     "city": "Meghraj",
@@ -1623,6 +1708,16 @@ export const meCities = [
     "city": "Meaford",
     "state": "Ontario",
     "country": "Canada"
+  },
+  {
+    "city": "Medog",
+    "state": "Tibet",
+    "country": "China"
+  },
+  {
+    "city": "Memunda",
+    "state": "Kerala",
+    "country": "India"
   },
   {
     "city": "Mena",
@@ -1670,7 +1765,7 @@ export const meCities = [
     "country": "Italy"
   },
   {
-    "city": "Merc\u00eas",
+    "city": "Merces",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1725,14 +1820,19 @@ export const meCities = [
     "country": "Germany"
   },
   {
-    "city": "Mellie\u0127a",
+    "city": "Mellieha",
     "state": "Mellie\u0127a",
     "country": "Malta"
   },
   {
-    "city": "Mesr\u0101",
+    "city": "Mesra",
     "state": "Jh\u0101rkhand",
     "country": "India"
+  },
+  {
+    "city": "Mery-sur-Oise",
+    "state": "\u00cele-de-France",
+    "country": "France"
   },
   {
     "city": "Mengibar",
@@ -1745,7 +1845,7 @@ export const meCities = [
     "country": "India"
   },
   {
-    "city": "Mev\u0101ni",
+    "city": "Mevani",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1760,7 +1860,7 @@ export const meCities = [
     "country": "Germany"
   },
   {
-    "city": "Mess\u00edni",
+    "city": "Messini",
     "state": "Pelop\u00f3nnisos",
     "country": "Greece"
   },
@@ -1795,7 +1895,7 @@ export const meCities = [
     "country": "France"
   },
   {
-    "city": "Mez\u0151ber\u00e9ny",
+    "city": "Mezobereny",
     "state": "B\u00e9k\u00e9s",
     "country": "Hungary"
   },
@@ -1810,7 +1910,7 @@ export const meCities = [
     "country": "United States"
   },
   {
-    "city": "Mehd\u012bpur",
+    "city": "Mehdipur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1823,6 +1923,11 @@ export const meCities = [
     "city": "Mechanicsburg",
     "state": "Pennsylvania",
     "country": "United States"
+  },
+  {
+    "city": "Mega",
+    "state": "Orom\u012bya",
+    "country": "Ethiopia"
   },
   {
     "city": "Meadowbrook",
@@ -1845,7 +1950,7 @@ export const meCities = [
     "country": "Chile"
   },
   {
-    "city": "Melga\u00e7o",
+    "city": "Melgaco",
     "state": "Viana do Castelo",
     "country": "Portugal"
   },
@@ -1865,7 +1970,12 @@ export const meCities = [
     "country": "Italy"
   },
   {
-    "city": "Melpanaikk\u0101du",
+    "city": "Meridiala",
+    "state": "Sikasso",
+    "country": "Mali"
+  },
+  {
+    "city": "Melpanaikkadu",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1885,7 +1995,7 @@ export const meCities = [
     "country": "United States"
   },
   {
-    "city": "Me\u00dfkirch",
+    "city": "Messkirch",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
@@ -1925,12 +2035,12 @@ export const meCities = [
     "country": "South Sudan"
   },
   {
-    "city": "Medve\u0111a",
+    "city": "Medveda",
     "state": "Medve\u0111a",
     "country": "Serbia"
   },
   {
-    "city": "Menge\u0161",
+    "city": "Menges",
     "state": "Menge\u0161",
     "country": "Slovenia"
   },
@@ -1938,6 +2048,11 @@ export const meCities = [
     "city": "Medvode",
     "state": "Medvode",
     "country": "Slovenia"
+  },
+  {
+    "city": "Mekambo",
+    "state": "Ogoou\u00e9-Ivindo",
+    "country": "Gabon"
   },
   {
     "city": "Merimbula",
@@ -1955,7 +2070,7 @@ export const meCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Me\u017eica",
+    "city": "Mezica",
     "state": "Me\u017eica",
     "country": "Slovenia"
   },

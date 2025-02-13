@@ -20,7 +20,7 @@ export const yaCities = [
     "country": "China"
   },
   {
-    "city": "Yaound\u00e9",
+    "city": "Yaounde",
     "state": "Centre",
     "country": "Cameroon"
   },
@@ -30,7 +30,7 @@ export const yaCities = [
     "country": "China"
   },
   {
-    "city": "Yan\u2019an",
+    "city": "Yan'an",
     "state": "Shaanxi",
     "country": "China"
   },
@@ -75,7 +75,7 @@ export const yaCities = [
     "country": "Iran"
   },
   {
-    "city": "Yan\u2019an Beilu",
+    "city": "Yan'an Beilu",
     "state": "Xinjiang",
     "country": "China"
   },
@@ -120,7 +120,7 @@ export const yaCities = [
     "country": "Japan"
   },
   {
-    "city": "Yamun\u0101nagar",
+    "city": "Yamunanagar",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -165,9 +165,14 @@ export const yaCities = [
     "country": "China"
   },
   {
-    "city": "Yavatm\u0101l",
+    "city": "Yavatmal",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
+  },
+  {
+    "city": "Yasuj",
+    "state": "Kohg\u012bl\u016byeh va Bowyer A\u1e29mad",
+    "country": "Iran"
   },
   {
     "city": "Yacuiba",
@@ -175,7 +180,7 @@ export const yaCities = [
     "country": "Bolivia"
   },
   {
-    "city": "Yalamak\u016bru",
+    "city": "Yalamakuru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -195,7 +200,7 @@ export const yaCities = [
     "country": "China"
   },
   {
-    "city": "Yab\u0113lo",
+    "city": "Yabelo",
     "state": "Orom\u012bya",
     "country": "Ethiopia"
   },
@@ -255,7 +260,7 @@ export const yaCities = [
     "country": "West Bank"
   },
   {
-    "city": "Yangiy\u016dl",
+    "city": "Yangiyul",
     "state": "Toshkent",
     "country": "Uzbekistan"
   },
@@ -285,7 +290,7 @@ export const yaCities = [
     "country": "China"
   },
   {
-    "city": "Yamas\u00e1",
+    "city": "Yamasa",
     "state": "Higuamo",
     "country": "Dominican Republic"
   },
@@ -315,7 +320,7 @@ export const yaCities = [
     "country": "Japan"
   },
   {
-    "city": "Yabr\u016bd",
+    "city": "Yabrud",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
   },
@@ -325,7 +330,7 @@ export const yaCities = [
     "country": "China"
   },
   {
-    "city": "Yalva\u00e7",
+    "city": "Yalvac",
     "state": "Isparta",
     "country": "Turkey"
   },
@@ -335,7 +340,7 @@ export const yaCities = [
     "country": "South Sudan"
   },
   {
-    "city": "Yata\u011fan",
+    "city": "Yatagan",
     "state": "Mu\u011fla",
     "country": "Turkey"
   },
@@ -380,7 +385,7 @@ export const yaCities = [
     "country": "Colombia"
   },
   {
-    "city": "Yakac\u0131k",
+    "city": "Yakacik",
     "state": "Hatay",
     "country": "Turkey"
   },
@@ -395,7 +400,7 @@ export const yaCities = [
     "country": "China"
   },
   {
-    "city": "Yajal\u00f3n",
+    "city": "Yajalon",
     "state": "Chiapas",
     "country": "Mexico"
   },
@@ -430,12 +435,12 @@ export const yaCities = [
     "country": "C\u00f4te d\u2019Ivoire"
   },
   {
-    "city": "Yasugich\u014d",
+    "city": "Yasugicho",
     "state": "Shimane",
     "country": "Japan"
   },
   {
-    "city": "Yahyal\u0131",
+    "city": "Yahyali",
     "state": "Kayseri",
     "country": "Turkey"
   },
@@ -455,7 +460,7 @@ export const yaCities = [
     "country": "Congo (Kinshasa)"
   },
   {
-    "city": "Yaylada\u011f\u0131",
+    "city": "Yayladagi",
     "state": "Hatay",
     "country": "Turkey"
   },
@@ -470,7 +475,7 @@ export const yaCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Yar\u012bm",
+    "city": "Yarim",
     "state": "Ibb",
     "country": "Yemen"
   },
@@ -490,7 +495,7 @@ export const yaCities = [
     "country": "China"
   },
   {
-    "city": "Yaguar\u00f3n",
+    "city": "Yaguaron",
     "state": "Paraguar\u00ed",
     "country": "Paraguay"
   },
@@ -500,7 +505,7 @@ export const yaCities = [
     "country": "Japan"
   },
   {
-    "city": "Yah\u015fihan",
+    "city": "Yahsihan",
     "state": "K\u0131r\u0131kkale",
     "country": "Turkey"
   },
@@ -530,7 +535,7 @@ export const yaCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Yald\u0101",
+    "city": "Yalda",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
   },
@@ -585,12 +590,22 @@ export const yaCities = [
     "country": "Taiwan"
   },
   {
-    "city": "Yangi Marg\u2018ilon",
+    "city": "Yadiki",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Yangi Marg`ilon",
     "state": "Farg\u2018ona",
     "country": "Uzbekistan"
   },
   {
-    "city": "Yak\u0131nca",
+    "city": "Yasica Arriba",
+    "state": "Cibao Norte",
+    "country": "Dominican Republic"
+  },
+  {
+    "city": "Yakinca",
     "state": "Malatya",
     "country": "Turkey"
   },
@@ -605,7 +620,7 @@ export const yaCities = [
     "country": "China"
   },
   {
-    "city": "Yahualica de Gonz\u00e1lez Gallo",
+    "city": "Yahualica de Gonzalez Gallo",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -645,12 +660,12 @@ export const yaCities = [
     "country": "Japan"
   },
   {
-    "city": "Yanagawamachi-saiwaich\u014d",
+    "city": "Yanagawamachi-saiwaicho",
     "state": "Fukushima",
     "country": "Japan"
   },
   {
-    "city": "Yakkabog\u2018",
+    "city": "Yakkabog`",
     "state": "Qashqadaryo",
     "country": "Uzbekistan"
   },
@@ -685,7 +700,7 @@ export const yaCities = [
     "country": "India"
   },
   {
-    "city": "Yakac\u0131k",
+    "city": "Yakacik",
     "state": "\u0130stanbul",
     "country": "Turkey"
   },
@@ -710,7 +725,7 @@ export const yaCities = [
     "country": "Japan"
   },
   {
-    "city": "Ya\u011fl\u0131dere",
+    "city": "Yaglidere",
     "state": "Giresun",
     "country": "Turkey"
   },
@@ -720,7 +735,7 @@ export const yaCities = [
     "country": "China"
   },
   {
-    "city": "Ya\u2018bad",
+    "city": "Ya`bad",
     "state": NaN,
     "country": "West Bank"
   },
@@ -830,7 +845,7 @@ export const yaCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Yaz\u0131han",
+    "city": "Yazihan",
     "state": "Malatya",
     "country": "Turkey"
   },
@@ -845,7 +860,7 @@ export const yaCities = [
     "country": "Japan"
   },
   {
-    "city": "Yangiqo\u2018rg\u2018on",
+    "city": "Yangiqo`rg`on",
     "state": "Namangan",
     "country": "Uzbekistan"
   },
@@ -853,6 +868,11 @@ export const yaCities = [
     "city": "Yakymivka",
     "state": "Zaporizka Oblast",
     "country": "Ukraine"
+  },
+  {
+    "city": "Yalluru",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Yangirabot",
@@ -880,7 +900,7 @@ export const yaCities = [
     "country": "India"
   },
   {
-    "city": "Yacop\u00ed",
+    "city": "Yacopi",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
@@ -900,9 +920,19 @@ export const yaCities = [
     "country": "United States"
   },
   {
+    "city": "Yadavolu",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Yaotsu",
     "state": "Gifu",
     "country": "Japan"
+  },
+  {
+    "city": "Yadwad",
+    "state": "Karn\u0101taka",
+    "country": "India"
   },
   {
     "city": "Yamaguchi",
@@ -910,7 +940,7 @@ export const yaCities = [
     "country": "Japan"
   },
   {
-    "city": "Yaz\u0131konak",
+    "city": "Yazikonak",
     "state": "Elaz\u0131\u011f",
     "country": "Turkey"
   },
@@ -920,7 +950,7 @@ export const yaCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Yalag\u00fcina",
+    "city": "Yalaguina",
     "state": "Madriz",
     "country": "Nicaragua"
   },
@@ -945,12 +975,12 @@ export const yaCities = [
     "country": "United States"
   },
   {
-    "city": "Yaprakl\u0131",
+    "city": "Yaprakli",
     "state": "\u00c7ank\u0131r\u0131",
     "country": "Turkey"
   },
   {
-    "city": "Yaguar\u00e1",
+    "city": "Yaguara",
     "state": "Huila",
     "country": "Colombia"
   },
@@ -975,7 +1005,7 @@ export const yaCities = [
     "country": "Australia"
   },
   {
-    "city": "Yacimiento R\u00edo Turbio",
+    "city": "Yacimiento Rio Turbio",
     "state": "Santa Cruz",
     "country": "Argentina"
   },
@@ -990,7 +1020,7 @@ export const yaCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Yal\u00ed",
+    "city": "Yali",
     "state": "Antioquia",
     "country": "Colombia"
   },
@@ -1005,7 +1035,7 @@ export const yaCities = [
     "country": "India"
   },
   {
-    "city": "Yard\u0131ml\u0131",
+    "city": "Yardimli",
     "state": "Yard\u0131ml\u0131",
     "country": "Azerbaijan"
   },

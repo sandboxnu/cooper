@@ -115,7 +115,7 @@ export const lyCities = [
     "country": "United States"
   },
   {
-    "city": "Lys-l\u00e8s-Lannoy",
+    "city": "Lys-les-Lannoy",
     "state": "Hauts-de-France",
     "country": "France"
   },
@@ -175,7 +175,7 @@ export const lyCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Lyuboml\u2019",
+    "city": "Lyuboml'",
     "state": "Volynska Oblast",
     "country": "Ukraine"
   },
@@ -185,7 +185,7 @@ export const lyCities = [
     "country": "Denmark"
   },
   {
-    "city": "Lys\u00e1 nad Labem",
+    "city": "Lysa nad Labem",
     "state": "St\u0159edo\u010desk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -195,7 +195,7 @@ export const lyCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Lyk\u00f3vrysi",
+    "city": "Lykovrysi",
     "state": "Attik\u00ed",
     "country": "Greece"
   },

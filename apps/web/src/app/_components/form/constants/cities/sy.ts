@@ -25,7 +25,7 @@ export const syCities = [
     "country": "Russia"
   },
   {
-    "city": "Syki\u00e9s",
+    "city": "Sykies",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
@@ -100,7 +100,7 @@ export const syCities = [
     "country": "Russia"
   },
   {
-    "city": "Syc\u00f3w",
+    "city": "Sycow",
     "state": "Dolno\u015bl\u0105skie",
     "country": "Poland"
   },

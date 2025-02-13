@@ -35,7 +35,7 @@ export const mbCities = [
     "country": "Congo (Kinshasa)"
   },
   {
-    "city": "Mbak\u00e9",
+    "city": "Mbake",
     "state": "Diourbel",
     "country": "Senegal"
   },
@@ -70,7 +70,7 @@ export const mbCities = [
     "country": "Cameroon"
   },
   {
-    "city": "Mba\u00efki",
+    "city": "Mbaiki",
     "state": "Lobaye",
     "country": "Central African Republic"
   },
@@ -110,7 +110,7 @@ export const mbCities = [
     "country": "South Africa"
   },
   {
-    "city": "Mburucuy\u00e1",
+    "city": "Mburucuya",
     "state": "Corrientes",
     "country": "Argentina"
   },

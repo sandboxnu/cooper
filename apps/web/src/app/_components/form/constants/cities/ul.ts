@@ -15,7 +15,7 @@ export const ulCities = [
     "country": "Russia"
   },
   {
-    "city": "Ulh\u0101snagar",
+    "city": "Ulhasnagar",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -40,7 +40,7 @@ export const ulCities = [
     "country": "Germany"
   },
   {
-    "city": "Ull\u0101l",
+    "city": "Ullal",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -70,7 +70,7 @@ export const ulCities = [
     "country": "Mongolia"
   },
   {
-    "city": "Ulongu\u00e9",
+    "city": "Ulongue",
     "state": "Tete",
     "country": "Mozambique"
   },
@@ -80,7 +80,7 @@ export const ulCities = [
     "country": "Turkey"
   },
   {
-    "city": "Uluk\u0131\u015fla",
+    "city": "Ulukisla",
     "state": "Ni\u011fde",
     "country": "Turkey"
   },
@@ -135,6 +135,11 @@ export const ulCities = [
     "country": "United States"
   },
   {
+    "city": "Ullo",
+    "state": "Pest",
+    "country": "Hungary"
+  },
+  {
     "city": "Uludere",
     "state": "\u015e\u0131rnak",
     "country": "Turkey"
@@ -155,7 +160,7 @@ export const ulCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Ull\u016br",
+    "city": "Ullur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -170,7 +175,7 @@ export const ulCities = [
     "country": "Norway"
   },
   {
-    "city": "Ul\u0101tu",
+    "city": "Ulatu",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },

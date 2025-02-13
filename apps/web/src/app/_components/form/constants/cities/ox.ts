@@ -50,7 +50,7 @@ export const oxCities = [
     "country": "Peru"
   },
   {
-    "city": "Oxel\u00f6sund",
+    "city": "Oxelosund",
     "state": "S\u00f6dermanland",
     "country": "Sweden"
   },

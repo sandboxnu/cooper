@@ -1,6 +1,6 @@
 export const koCities = [
   {
-    "city": "Kolk\u0101ta",
+    "city": "Kolkata",
     "state": "West Bengal",
     "country": "India"
   },
@@ -18,6 +18,11 @@ export const koCities = [
     "city": "Kowloon",
     "state": NaN,
     "country": "Hong Kong"
+  },
+  {
+    "city": "Kobe",
+    "state": "Hy\u014dgo",
+    "country": "Japan"
   },
   {
     "city": "Kota",
@@ -40,9 +45,14 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kolh\u0101pur",
+    "city": "Kolhapur",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
+  },
+  {
+    "city": "Koto-ku",
+    "state": "T\u014dky\u014d",
+    "country": "Japan"
   },
   {
     "city": "Kota Bharu",
@@ -105,6 +115,11 @@ export const koCities = [
     "country": "Japan"
   },
   {
+    "city": "Kochi",
+    "state": "K\u014dchi",
+    "country": "Japan"
+  },
+  {
     "city": "Kot Radha Kishan",
     "state": "Punjab",
     "country": "Pakistan"
@@ -125,12 +140,12 @@ export const koCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Komsomol\u2019sk-na-Amure",
+    "city": "Komsomol'sk-na-Amure",
     "state": "Khabarovskiy Kray",
     "country": "Russia"
   },
   {
-    "city": "Ko\u0161ice",
+    "city": "Kosice",
     "state": "Ko\u0161ice",
     "country": "Slovakia"
   },
@@ -140,7 +155,7 @@ export const koCities = [
     "country": "Russia"
   },
   {
-    "city": "Korol\u00ebv",
+    "city": "Korolev",
     "state": "Moskovskaya Oblast\u2019",
     "country": "Russia"
   },
@@ -170,7 +185,12 @@ export const koCities = [
     "country": "Philippines"
   },
   {
-    "city": "Kotdw\u0101ra",
+    "city": "Kofu",
+    "state": "Yamanashi",
+    "country": "Japan"
+  },
+  {
+    "city": "Kotdwara",
     "state": "Uttar\u0101khand",
     "country": "India"
   },
@@ -178,6 +198,16 @@ export const koCities = [
     "city": "Kohat",
     "state": "Khyber Pakhtunkhwa",
     "country": "Pakistan"
+  },
+  {
+    "city": "Korfez",
+    "state": "Kocaeli",
+    "country": "Turkey"
+  },
+  {
+    "city": "Kokshetau",
+    "state": "Aqmola",
+    "country": "Kazakhstan"
   },
   {
     "city": "Koudougou",
@@ -205,7 +235,7 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kol\u0101r",
+    "city": "Kolar",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -265,6 +295,16 @@ export const koCities = [
     "country": "Pakistan"
   },
   {
+    "city": "Konosu",
+    "state": "Saitama",
+    "country": "Japan"
+  },
+  {
+    "city": "Koencho",
+    "state": "Hokkaid\u014d",
+    "country": "Japan"
+  },
+  {
     "city": "Kovilpatti",
     "state": "Tamil N\u0101du",
     "country": "India"
@@ -275,7 +315,7 @@ export const koCities = [
     "country": "Germany"
   },
   {
-    "city": "Kouand\u00e9",
+    "city": "Kouande",
     "state": "Atacora",
     "country": "Benin"
   },
@@ -305,12 +345,12 @@ export const koCities = [
     "country": "Congo (Kinshasa)"
   },
   {
-    "city": "Kouss\u00e9ri",
+    "city": "Kousseri",
     "state": "Extr\u00eame-Nord",
     "country": "Cameroon"
   },
   {
-    "city": "Koh\u012bma",
+    "city": "Kohima",
     "state": "N\u0101g\u0101land",
     "country": "India"
   },
@@ -325,9 +365,19 @@ export const koCities = [
     "country": "Turkmenistan"
   },
   {
-    "city": "Kot Kap\u016bra",
+    "city": "Konan",
+    "state": "Aichi",
+    "country": "Japan"
+  },
+  {
+    "city": "Kot Kapura",
     "state": "Punjab",
     "country": "India"
+  },
+  {
+    "city": "Koka",
+    "state": "Shiga",
+    "country": "Japan"
   },
   {
     "city": "Koidu-Bulma",
@@ -370,12 +420,12 @@ export const koCities = [
     "country": "China"
   },
   {
-    "city": "Kottag\u016bdem",
+    "city": "Kottagudem",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Koch Bih\u0101r",
+    "city": "Koch Bihar",
     "state": "West Bengal",
     "country": "India"
   },
@@ -400,7 +450,7 @@ export const koCities = [
     "country": "Benin"
   },
   {
-    "city": "Kodungall\u016br",
+    "city": "Kodungallur",
     "state": "Kerala",
     "country": "India"
   },
@@ -440,12 +490,12 @@ export const koCities = [
     "country": "Sri Lanka"
   },
   {
-    "city": "Kod\u0101d",
+    "city": "Kodad",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Korydall\u00f3s",
+    "city": "Korydallos",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -463,6 +513,11 @@ export const koCities = [
     "city": "Kolda",
     "state": "Kolda",
     "country": "Senegal"
+  },
+  {
+    "city": "Koshizuka",
+    "state": "Kumamoto",
+    "country": "Japan"
   },
   {
     "city": "Kotlas",
@@ -510,7 +565,7 @@ export const koCities = [
     "country": "Japan"
   },
   {
-    "city": "Kolondi\u00e9ba",
+    "city": "Kolondieba",
     "state": "Sikasso",
     "country": "Mali"
   },
@@ -520,12 +575,12 @@ export const koCities = [
     "country": "Japan"
   },
   {
-    "city": "Koth\u0101pet",
+    "city": "Kothapet",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Kolleg\u0101l",
+    "city": "Kollegal",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -545,7 +600,7 @@ export const koCities = [
     "country": "Japan"
   },
   {
-    "city": "Komotin\u00ed",
+    "city": "Komotini",
     "state": "Anatolik\u00ed Makedon\u00eda kai Thr\u00e1ki",
     "country": "Greece"
   },
@@ -560,7 +615,7 @@ export const koCities = [
     "country": "Belarus"
   },
   {
-    "city": "Kor\u0101put",
+    "city": "Koraput",
     "state": "Odisha",
     "country": "India"
   },
@@ -575,7 +630,7 @@ export const koCities = [
     "country": "Mali"
   },
   {
-    "city": "Kor\u00e7\u00eb",
+    "city": "Korce",
     "state": "Kor\u00e7\u00eb",
     "country": "Albania"
   },
@@ -615,17 +670,17 @@ export const koCities = [
     "country": "Russia"
   },
   {
-    "city": "Kour\u00e9",
+    "city": "Koure",
     "state": "Tillab\u00e9ri",
     "country": "Niger"
   },
   {
-    "city": "Koup\u00e9la",
+    "city": "Koupela",
     "state": "Centre-Est",
     "country": "Burkina Faso"
   },
   {
-    "city": "Ko\u0142obrzeg",
+    "city": "Kolobrzeg",
     "state": "Zachodniopomorskie",
     "country": "Poland"
   },
@@ -640,18 +695,28 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Koz\u00e1ni",
+    "city": "Kozani",
     "state": "Dytik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
   {
-    "city": "Kon\u0101rak",
+    "city": "Kottoppadam",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Konarak",
     "state": "S\u012bst\u0101n va Bal\u016bchest\u0101n",
     "country": "Iran"
   },
   {
     "city": "Kobayashi",
     "state": "Miyazaki",
+    "country": "Japan"
+  },
+  {
+    "city": "Kota",
+    "state": "Aichi",
     "country": "Japan"
   },
   {
@@ -670,7 +735,17 @@ export const koCities = [
     "country": "Russia"
   },
   {
-    "city": "Kod\u012bnar",
+    "city": "Koniz",
+    "state": "Bern",
+    "country": "Switzerland"
+  },
+  {
+    "city": "Konigswinter",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
+    "city": "Kodinar",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -690,9 +765,29 @@ export const koCities = [
     "country": "Chad"
   },
   {
-    "city": "Kovv\u016br",
+    "city": "Kopavogur",
+    "state": "K\u00f3pavogur",
+    "country": "Iceland"
+  },
+  {
+    "city": "Kovvur",
     "state": "Andhra Pradesh",
     "country": "India"
+  },
+  {
+    "city": "Koycegiz",
+    "state": "Mu\u011fla",
+    "country": "Turkey"
+  },
+  {
+    "city": "Konigs Wusterhausen",
+    "state": "Brandenburg",
+    "country": "Germany"
+  },
+  {
+    "city": "Koge",
+    "state": "Sj\u00e6lland",
+    "country": "Denmark"
   },
   {
     "city": "Konakovo",
@@ -715,7 +810,12 @@ export const koCities = [
     "country": "Mali"
   },
   {
-    "city": "Kodaik\u0101nal",
+    "city": "Koneurgench",
+    "state": "Da\u015foguz",
+    "country": "Turkmenistan"
+  },
+  {
+    "city": "Kodaikanal",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -725,9 +825,14 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Komatsushimach\u014d",
+    "city": "Komatsushimacho",
     "state": "Tokushima",
     "country": "Japan"
+  },
+  {
+    "city": "Kotah-ye `Ashro",
+    "state": "Wardak",
+    "country": "Afghanistan"
   },
   {
     "city": "Kolattupuzha",
@@ -770,9 +875,14 @@ export const koCities = [
     "country": "Serbia"
   },
   {
-    "city": "Kohtla-J\u00e4rve",
+    "city": "Kohtla-Jarve",
     "state": "Kohtla-J\u00e4rve",
     "country": "Estonia"
+  },
+  {
+    "city": "Koryo",
+    "state": "Nara",
+    "country": "Japan"
   },
   {
     "city": "Koh Kong",
@@ -790,7 +900,7 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kol\u00edn",
+    "city": "Kolin",
     "state": "St\u0159edo\u010desk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -800,7 +910,7 @@ export const koCities = [
     "country": "Niger"
   },
   {
-    "city": "Kom\u00e1rno",
+    "city": "Komarno",
     "state": "Nitra",
     "country": "Slovakia"
   },
@@ -810,7 +920,12 @@ export const koCities = [
     "country": "Mayotte"
   },
   {
-    "city": "Kov\u016br",
+    "city": "Konan",
+    "state": "K\u014dchi",
+    "country": "Japan"
+  },
+  {
+    "city": "Kovur",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -845,9 +960,14 @@ export const koCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Kons\u00e9gu\u00e9la",
+    "city": "Konseguela",
     "state": "Sikasso",
     "country": "Mali"
+  },
+  {
+    "city": "Korinthos",
+    "state": "Pelop\u00f3nnisos",
+    "country": "Greece"
   },
   {
     "city": "Kondopoga",
@@ -865,7 +985,7 @@ export const koCities = [
     "country": "Russia"
   },
   {
-    "city": "Kondarangi K\u012bran\u016br",
+    "city": "Kondarangi Kiranur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -880,12 +1000,12 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kott\u016bru",
+    "city": "Kotturu",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Kodayatt\u016br",
+    "city": "Kodayattur",
     "state": "Kerala",
     "country": "India"
   },
@@ -900,7 +1020,12 @@ export const koCities = [
     "country": "Russia"
   },
   {
-    "city": "Kozhinjamp\u0101ra",
+    "city": "Koshu",
+    "state": "Yamanashi",
+    "country": "Japan"
+  },
+  {
+    "city": "Kozhinjampara",
     "state": "Kerala",
     "country": "India"
   },
@@ -915,7 +1040,7 @@ export const koCities = [
     "country": "Croatia"
   },
   {
-    "city": "Ko\u010dani",
+    "city": "Kocani",
     "state": "Ko\u010dani",
     "country": "North Macedonia"
   },
@@ -923,6 +1048,16 @@ export const koCities = [
     "city": "Kolambugan",
     "state": "Lanao del Norte",
     "country": "Philippines"
+  },
+  {
+    "city": "Kosk",
+    "state": "Ayd\u0131n",
+    "country": "Turkey"
+  },
+  {
+    "city": "Konigsbrunn",
+    "state": "Bavaria",
+    "country": "Germany"
   },
   {
     "city": "Kotagiri",
@@ -940,7 +1075,7 @@ export const koCities = [
     "country": "Georgia"
   },
   {
-    "city": "Konn\u016br",
+    "city": "Konnur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -950,12 +1085,12 @@ export const koCities = [
     "country": "Turkey"
   },
   {
-    "city": "Koby\u0142ka",
+    "city": "Kobylka",
     "state": "Mazowieckie",
     "country": "Poland"
   },
   {
-    "city": "Koelw\u0101r",
+    "city": "Koelwar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1005,7 +1140,7 @@ export const koCities = [
     "country": "Taiwan"
   },
   {
-    "city": "Kovanc\u0131lar",
+    "city": "Kovancilar",
     "state": "Elaz\u0131\u011f",
     "country": "Turkey"
   },
@@ -1040,7 +1175,7 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kolori\u0101ng",
+    "city": "Koloriang",
     "state": "Arun\u0101chal Pradesh",
     "country": "India"
   },
@@ -1060,7 +1195,7 @@ export const koCities = [
     "country": "French Guiana"
   },
   {
-    "city": "Ko\u015bcian",
+    "city": "Koscian",
     "state": "Wielkopolskie",
     "country": "Poland"
   },
@@ -1075,7 +1210,7 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Ko\u015bcierzyna",
+    "city": "Koscierzyna",
     "state": "Pomorskie",
     "country": "Poland"
   },
@@ -1085,7 +1220,7 @@ export const koCities = [
     "country": "Germany"
   },
   {
-    "city": "Kott\u016bru",
+    "city": "Kotturu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1105,7 +1240,7 @@ export const koCities = [
     "country": "Mali"
   },
   {
-    "city": "Koussan\u00e9",
+    "city": "Koussane",
     "state": "Kayes",
     "country": "Mali"
   },
@@ -1120,7 +1255,7 @@ export const koCities = [
     "country": "Uganda"
   },
   {
-    "city": "Kodarm\u0101",
+    "city": "Kodarma",
     "state": "Jh\u0101rkhand",
     "country": "India"
   },
@@ -1130,7 +1265,7 @@ export const koCities = [
     "country": "Russia"
   },
   {
-    "city": "Kond\u0101zhi",
+    "city": "Kondazhi",
     "state": "Kerala",
     "country": "India"
   },
@@ -1140,7 +1275,7 @@ export const koCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Kondal\u0101mpatti",
+    "city": "Kondalampatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1165,22 +1300,22 @@ export const koCities = [
     "country": "Belgium"
   },
   {
-    "city": "Koml\u00f3",
+    "city": "Komlo",
     "state": "Baranya",
     "country": "Hungary"
   },
   {
-    "city": "Ko\u00e7arl\u0131",
+    "city": "Kocarli",
     "state": "Ayd\u0131n",
     "country": "Turkey"
   },
   {
-    "city": "Kozakai-ch\u014d",
+    "city": "Kozakai-cho",
     "state": "Aichi",
     "country": "Japan"
   },
   {
-    "city": "Kop\u0159ivnice",
+    "city": "Koprivnice",
     "state": "Moravskoslezsk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -1190,7 +1325,7 @@ export const koCities = [
     "country": "Senegal"
   },
   {
-    "city": "Kont\u00e9la",
+    "city": "Kontela",
     "state": "Kayes",
     "country": "Mali"
   },
@@ -1205,7 +1340,7 @@ export const koCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Koduvil\u0101rpatti",
+    "city": "Koduvilarpatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1225,12 +1360,12 @@ export const koCities = [
     "country": "Mali"
   },
   {
-    "city": "Ko\u0101th",
+    "city": "Koath",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Kol\u0101ras",
+    "city": "Kolaras",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1240,12 +1375,12 @@ export const koCities = [
     "country": "Russia"
   },
   {
-    "city": "Koip\u0101di",
+    "city": "Koipadi",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Ko\u0142o",
+    "city": "Kolo",
     "state": "Wielkopolskie",
     "country": "Poland"
   },
@@ -1265,22 +1400,22 @@ export const koCities = [
     "country": "Russia"
   },
   {
-    "city": "Kothan\u016bru",
+    "city": "Kothanuru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Korntal-M\u00fcnchingen",
+    "city": "Korntal-Munchingen",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
   {
-    "city": "Kosk\u0101pur",
+    "city": "Koskapur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Kolavall\u00far",
+    "city": "Kolavallur",
     "state": "Kerala",
     "country": "India"
   },
@@ -1295,12 +1430,12 @@ export const koCities = [
     "country": "Finland"
   },
   {
-    "city": "Kom\u00e1rom",
+    "city": "Komarom",
     "state": "Kom\u00e1rom-Esztergom",
     "country": "Hungary"
   },
   {
-    "city": "Kond\u016br",
+    "city": "Kondur",
     "state": "Kerala",
     "country": "India"
   },
@@ -1310,7 +1445,7 @@ export const koCities = [
     "country": "Greece"
   },
   {
-    "city": "Korop\u00ed",
+    "city": "Koropi",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -1320,7 +1455,7 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kov\u016br",
+    "city": "Kovur",
     "state": "Kerala",
     "country": "India"
   },
@@ -1340,7 +1475,7 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Konstantyn\u00f3w \u0141\u00f3dzki",
+    "city": "Konstantynow Lodzki",
     "state": "\u0141\u00f3dzkie",
     "country": "Poland"
   },
@@ -1348,6 +1483,11 @@ export const koCities = [
     "city": "Kolbermoor",
     "state": "Bavaria",
     "country": "Germany"
+  },
+  {
+    "city": "Kotekara",
+    "state": "Karn\u0101taka",
+    "country": "India"
   },
   {
     "city": "Korsimoro",
@@ -1365,7 +1505,7 @@ export const koCities = [
     "country": "Russia"
   },
   {
-    "city": "Koporo-K\u00e9ni\u00e9-na",
+    "city": "Koporo-Kenie-na",
     "state": "Mopti",
     "country": "Mali"
   },
@@ -1375,7 +1515,7 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kotanch\u0113ri",
+    "city": "Kotancheri",
     "state": "Kerala",
     "country": "India"
   },
@@ -1395,7 +1535,7 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Ko\u0144skie",
+    "city": "Konskie",
     "state": "\u015awi\u0119tokrzyskie",
     "country": "Poland"
   },
@@ -1410,7 +1550,7 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kott\u00e1 Kalidindi",
+    "city": "Kotta Kalidindi",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1430,7 +1570,7 @@ export const koCities = [
     "country": "Norway"
   },
   {
-    "city": "Konakl\u0131",
+    "city": "Konakli",
     "state": "Antalya",
     "country": "Turkey"
   },
@@ -1440,22 +1580,27 @@ export const koCities = [
     "country": "Mali"
   },
   {
-    "city": "Kostrzyn nad Odr\u0105",
+    "city": "Kostrzyn nad Odra",
     "state": "Lubuskie",
     "country": "Poland"
   },
   {
-    "city": "Kodiy\u0113ri",
+    "city": "Koping",
+    "state": "V\u00e4stmanland",
+    "country": "Sweden"
+  },
+  {
+    "city": "Kodiyeri",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Kori\u0101patti",
+    "city": "Koriapatti",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Kolokond\u00e9",
+    "city": "Kolokonde",
     "state": "Donga",
     "country": "Benin"
   },
@@ -1480,6 +1625,11 @@ export const koCities = [
     "country": "India"
   },
   {
+    "city": "Koroth",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
     "city": "Kombai",
     "state": "Tamil N\u0101du",
     "country": "India"
@@ -1498,6 +1648,11 @@ export const koCities = [
     "city": "Kodikulam",
     "state": "Tamil N\u0101du",
     "country": "India"
+  },
+  {
+    "city": "Konigstein im Taunus",
+    "state": "Hesse",
+    "country": "Germany"
   },
   {
     "city": "Konodimini",
@@ -1530,6 +1685,11 @@ export const koCities = [
     "country": "Poland"
   },
   {
+    "city": "Koprukoy",
+    "state": "Erzurum",
+    "country": "Turkey"
+  },
+  {
     "city": "Kotoura",
     "state": "Tottori",
     "country": "Japan"
@@ -1540,7 +1700,7 @@ export const koCities = [
     "country": "Russia"
   },
   {
-    "city": "Koll\u016bru",
+    "city": "Kolluru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1548,6 +1708,11 @@ export const koCities = [
     "city": "Koulamoutou",
     "state": "Ogoou\u00e9-Lolo",
     "country": "Gabon"
+  },
+  {
+    "city": "Konigslutter am Elm",
+    "state": "Lower Saxony",
+    "country": "Germany"
   },
   {
     "city": "Kodikkulam",
@@ -1560,7 +1725,7 @@ export const koCities = [
     "country": "Russia"
   },
   {
-    "city": "Kolakal\u016bru",
+    "city": "Kolakaluru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1570,12 +1735,12 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kot Bh\u0101i",
+    "city": "Kot Bhai",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Kocak\u00f6y",
+    "city": "Kocakoy",
     "state": "Diyarbak\u0131r",
     "country": "Turkey"
   },
@@ -1590,12 +1755,12 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Koh\u012br",
+    "city": "Kohir",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Kon\u0101rka",
+    "city": "Konarka",
     "state": "Odisha",
     "country": "India"
   },
@@ -1615,7 +1780,7 @@ export const koCities = [
     "country": "Russia"
   },
   {
-    "city": "Kouma\u00efra",
+    "city": "Koumaira",
     "state": "Tombouctou",
     "country": "Mali"
   },
@@ -1630,7 +1795,12 @@ export const koCities = [
     "country": "Mali"
   },
   {
-    "city": "Kod\u0101ngipatti",
+    "city": "Koteshwar",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Kodangipatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1640,12 +1810,12 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kolw\u0101ra",
+    "city": "Kolwara",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Kors\u00f8r",
+    "city": "Korsor",
     "state": "Sj\u00e6lland",
     "country": "Denmark"
   },
@@ -1660,6 +1830,11 @@ export const koCities = [
     "country": "India"
   },
   {
+    "city": "Kodanad",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
     "city": "Kouroussa",
     "state": "Kankan",
     "country": "Guinea"
@@ -1670,7 +1845,7 @@ export const koCities = [
     "country": "Mali"
   },
   {
-    "city": "Kottaiy\u016br",
+    "city": "Kottaiyur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1695,7 +1870,7 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kovil\u016br",
+    "city": "Kovilur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1715,7 +1890,7 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kotg\u012br",
+    "city": "Kotgir",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1730,7 +1905,7 @@ export const koCities = [
     "country": "Montenegro"
   },
   {
-    "city": "Kofel\u0113",
+    "city": "Kofele",
     "state": "Orom\u012bya",
     "country": "Ethiopia"
   },
@@ -1745,7 +1920,7 @@ export const koCities = [
     "country": "Poland"
   },
   {
-    "city": "Kott\u0101ram",
+    "city": "Kottaram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1775,14 +1950,19 @@ export const koCities = [
     "country": "Benin"
   },
   {
-    "city": "Kolappal\u016br",
+    "city": "Kolappalur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Koch\u0142owice",
+    "city": "Kochlowice",
     "state": "\u015al\u0105skie",
     "country": "Poland"
+  },
+  {
+    "city": "Koprubasi",
+    "state": "Manisa",
+    "country": "Turkey"
   },
   {
     "city": "Kotturu",
@@ -1805,7 +1985,7 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kotw\u0101patti R\u0101mpur",
+    "city": "Kotwapatti Rampur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1820,7 +2000,7 @@ export const koCities = [
     "country": "Poland"
   },
   {
-    "city": "Kolatt\u016br",
+    "city": "Kolattur",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1830,7 +2010,7 @@ export const koCities = [
     "country": "Poland"
   },
   {
-    "city": "Kosk\u0101pur",
+    "city": "Koskapur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1845,7 +2025,7 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kolanp\u0101k",
+    "city": "Kolanpak",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -1855,12 +2035,22 @@ export const koCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Kottagudi Muttan\u0101d",
+    "city": "Kottagudi Muttanad",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Kosjeri\u0107",
+    "city": "Kottaya",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Kok-Janggak",
+    "state": "Jalal-Abad",
+    "country": "Kyrgyzstan"
+  },
+  {
+    "city": "Kosjeric",
     "state": "Kosjeri\u0107",
     "country": "Serbia"
   },
@@ -1880,7 +2070,7 @@ export const koCities = [
     "country": "Benin"
   },
   {
-    "city": "Kon\u0101je",
+    "city": "Konaje",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1900,12 +2090,12 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kotha Gur\u016b",
+    "city": "Kotha Guru",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Kornep\u0101du",
+    "city": "Kornepadu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1915,12 +2105,17 @@ export const koCities = [
     "country": "India"
   },
   {
+    "city": "Koszeg",
+    "state": "Vas",
+    "country": "Hungary"
+  },
+  {
     "city": "Kotra",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Koln\u0101d",
+    "city": "Kolnad",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1935,7 +2130,7 @@ export const koCities = [
     "country": "Japan"
   },
   {
-    "city": "Kondh\u0101li",
+    "city": "Kondhali",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -1955,7 +2150,7 @@ export const koCities = [
     "country": "Kyrgyzstan"
   },
   {
-    "city": "Kov\u016brupalli",
+    "city": "Kovurupalli",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1980,7 +2175,7 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Konn\u016br",
+    "city": "Konnur",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1990,7 +2185,7 @@ export const koCities = [
     "country": "Germany"
   },
   {
-    "city": "Konen Agrah\u0101r",
+    "city": "Konen Agrahar",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -2020,12 +2215,12 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kodmi\u0101l",
+    "city": "Kodmial",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Kothri Kal\u0101n",
+    "city": "Kothri Kalan",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -2040,7 +2235,7 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kongan\u0101puram",
+    "city": "Konganapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2050,12 +2245,12 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kol\u00e1rovo",
+    "city": "Kolarovo",
     "state": "Nitra",
     "country": "Slovakia"
   },
   {
-    "city": "Kopp\u0101ka",
+    "city": "Koppaka",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2080,7 +2275,7 @@ export const koCities = [
     "country": "South Africa"
   },
   {
-    "city": "Kod\u016bru",
+    "city": "Koduru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2090,9 +2285,19 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Konkav\u0101ripalle",
+    "city": "Konkavaripalle",
     "state": "Andhra Pradesh",
     "country": "India"
+  },
+  {
+    "city": "Kormend",
+    "state": "Vas",
+    "country": "Hungary"
+  },
+  {
+    "city": "Konigsbach-Stein",
+    "state": "Baden-W\u00fcrttemberg",
+    "country": "Germany"
   },
   {
     "city": "Koila Dewa",
@@ -2105,7 +2310,7 @@ export const koCities = [
     "country": "Poland"
   },
   {
-    "city": "Kottap\u0101lem",
+    "city": "Kottapalem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2130,12 +2335,12 @@ export const koCities = [
     "country": "Poland"
   },
   {
-    "city": "Kondakindi Agrah\u0101ram",
+    "city": "Kondakindi Agraharam",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Korosav\u0101da",
+    "city": "Korosavada",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2190,12 +2395,22 @@ export const koCities = [
     "country": "Morocco"
   },
   {
+    "city": "Koflach",
+    "state": "Steiermark",
+    "country": "Austria"
+  },
+  {
+    "city": "Kosching",
+    "state": "Bavaria",
+    "country": "Germany"
+  },
+  {
     "city": "Kobeliaky",
     "state": "Poltavska Oblast",
     "country": "Ukraine"
   },
   {
-    "city": "Kokilad\u0101nga",
+    "city": "Kokiladanga",
     "state": "Assam",
     "country": "India"
   },
@@ -2205,7 +2420,7 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kostrzy\u0144",
+    "city": "Kostrzyn",
     "state": "Wielkopolskie",
     "country": "Poland"
   },
@@ -2213,6 +2428,11 @@ export const koCities = [
     "city": "Kouarfa",
     "state": "Atacora",
     "country": "Benin"
+  },
+  {
+    "city": "Kongen",
+    "state": "Baden-W\u00fcrttemberg",
+    "country": "Germany"
   },
   {
     "city": "Kominato",
@@ -2230,7 +2450,7 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Koln\u016br",
+    "city": "Kolnur",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -2260,7 +2480,7 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kochg\u0101w\u0101n",
+    "city": "Kochgawan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -2275,12 +2495,12 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kouf\u00e1lia",
+    "city": "Koufalia",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
   {
-    "city": "Komm\u016bru",
+    "city": "Kommuru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2288,6 +2508,11 @@ export const koCities = [
     "city": "Kovilpatti",
     "state": "Tamil N\u0101du",
     "country": "India"
+  },
+  {
+    "city": "Kose",
+    "state": "G\u00fcm\u00fc\u015fhane",
+    "country": "Turkey"
   },
   {
     "city": "Kolkwitz",
@@ -2310,7 +2535,7 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kondayamp\u0101laiyam",
+    "city": "Kondayampalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -2325,7 +2550,7 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kond\u016bru",
+    "city": "Konduru",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2345,17 +2570,17 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kottap\u0101lem",
+    "city": "Kottapalem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Koila Belw\u0101",
+    "city": "Koila Belwa",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Ko\u017cuch\u00f3w",
+    "city": "Kozuchow",
     "state": "Lubuskie",
     "country": "Poland"
   },
@@ -2370,7 +2595,7 @@ export const koCities = [
     "country": "Thailand"
   },
   {
-    "city": "Kotabomm\u0101li",
+    "city": "Kotabommali",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2385,7 +2610,7 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kodavatip\u016bdi",
+    "city": "Kodavatipudi",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -2395,7 +2620,7 @@ export const koCities = [
     "country": "Belgium"
   },
   {
-    "city": "Kom\u012bj\u0101n",
+    "city": "Komijan",
     "state": "Markaz\u012b",
     "country": "Iran"
   },
@@ -2420,12 +2645,12 @@ export const koCities = [
     "country": "India"
   },
   {
-    "city": "Kott\u016br",
+    "city": "Kottur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Ko\u015bcielisko",
+    "city": "Koscielisko",
     "state": "Ma\u0142opolskie",
     "country": "Poland"
   },
@@ -2460,17 +2685,17 @@ export const koCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Kond R\u016bd",
+    "city": "Kond Rud",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Sharq\u012b",
     "country": "Iran"
   },
   {
-    "city": "Ko\u010devje",
+    "city": "Kocevje",
     "state": "Ko\u010devje",
     "country": "Slovenia"
   },
   {
-    "city": "Kon\u00e9",
+    "city": "Kone",
     "state": "Province Nord",
     "country": "New Caledonia"
   },
@@ -2485,7 +2710,7 @@ export const koCities = [
     "country": "Micronesia, Federated States of"
   },
   {
-    "city": "Kova\u010dica",
+    "city": "Kovacica",
     "state": "Kova\u010dica",
     "country": "Serbia"
   },
@@ -2495,7 +2720,7 @@ export const koCities = [
     "country": "South Africa"
   },
   {
-    "city": "Kola\u0161in",
+    "city": "Kolasin",
     "state": "Kola\u0161in",
     "country": "Montenegro"
   },
@@ -2510,7 +2735,7 @@ export const koCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Kon\u010de",
+    "city": "Konce",
     "state": "Kon\u010de",
     "country": "North Macedonia"
   },

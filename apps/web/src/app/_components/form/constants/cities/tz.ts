@@ -5,7 +5,7 @@ export const tzCities = [
     "country": "South Africa"
   },
   {
-    "city": "Tzintzuntz\u00e1n",
+    "city": "Tzintzuntzan",
     "state": "Michoac\u00e1n",
     "country": "Mexico"
   },

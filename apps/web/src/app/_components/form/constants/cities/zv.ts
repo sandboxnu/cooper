@@ -30,7 +30,7 @@ export const zvCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Zve\u00e7an",
+    "city": "Zvecan",
     "state": "Zve\u00e7an",
     "country": "Kosovo"
   },
@@ -40,7 +40,7 @@ export const zvCities = [
     "country": "Russia"
   },
   {
-    "city": "Zv\u00ebzdnyy",
+    "city": "Zvezdnyy",
     "state": "Chukotskiy Avtonomnyy Okrug",
     "country": "Russia"
   }

@@ -5,6 +5,16 @@ export const uiCities = [
     "country": "Korea, South"
   },
   {
+    "city": "Uige",
+    "state": "U\u00edge",
+    "country": "Angola"
+  },
+  {
+    "city": "Uiwang",
+    "state": "Gyeonggi",
+    "country": "Korea, South"
+  },
+  {
     "city": "Uitenhage",
     "state": "Eastern Cape",
     "country": "South Africa"
@@ -15,7 +25,7 @@ export const uiCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Uira\u00fana",
+    "city": "Uirauna",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -25,7 +35,7 @@ export const uiCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Uiba\u00ed",
+    "city": "Uibai",
     "state": "Bahia",
     "country": "Brazil"
   }

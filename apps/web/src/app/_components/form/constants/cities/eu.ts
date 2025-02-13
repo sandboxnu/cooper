@@ -5,7 +5,7 @@ export const euCities = [
     "country": "United States"
   },
   {
-    "city": "Euri\u00e1polis",
+    "city": "Euriapolis",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -30,7 +30,7 @@ export const euCities = [
     "country": "United States"
   },
   {
-    "city": "Eus\u00e9bio",
+    "city": "Eusebio",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -70,7 +70,7 @@ export const euCities = [
     "country": "United States"
   },
   {
-    "city": "Eugen\u00f3polis",
+    "city": "Eugenopolis",
     "state": "Minas Gerais",
     "country": "Brazil"
   },

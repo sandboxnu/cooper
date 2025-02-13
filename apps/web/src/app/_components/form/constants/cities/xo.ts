@@ -1,6 +1,6 @@
 export const xoCities = [
   {
-    "city": "Xo\u2018jayli Shahri",
+    "city": "Xo`jayli Shahri",
     "state": "Qoraqalpog\u2018iston",
     "country": "Uzbekistan"
   },
@@ -30,7 +30,7 @@ export const xoCities = [
     "country": "Mexico"
   },
   {
-    "city": "Xo\u2018jaobod",
+    "city": "Xo`jaobod",
     "state": "Andijon",
     "country": "Uzbekistan"
   },
@@ -40,12 +40,12 @@ export const xoCities = [
     "country": "Mexico"
   },
   {
-    "city": "Xocav\u0259nd",
+    "city": "Xocavand",
     "state": "Xocav\u0259nd",
     "country": "Azerbaijan"
   },
   {
-    "city": "Xocal\u0131",
+    "city": "Xocali",
     "state": "Xocal\u0131",
     "country": "Azerbaijan"
   }

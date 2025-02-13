@@ -85,7 +85,7 @@ export const fiCities = [
     "country": "Cameroon"
   },
   {
-    "city": "Fich\u0113",
+    "city": "Fiche",
     "state": "Orom\u012bya",
     "country": "Ethiopia"
   },
@@ -160,7 +160,7 @@ export const fiCities = [
     "country": "Paraguay"
   },
   {
-    "city": "Filad\u00e9lfia",
+    "city": "Filadelfia",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -173,6 +173,11 @@ export const fiCities = [
     "city": "Figline Valdarno",
     "state": "Tuscany",
     "country": "Italy"
+  },
+  {
+    "city": "Findikli",
+    "state": "Rize",
+    "country": "Turkey"
   },
   {
     "city": "Finnentrop",
@@ -210,7 +215,7 @@ export const fiCities = [
     "country": "Germany"
   },
   {
-    "city": "Filia\u015fi",
+    "city": "Filiasi",
     "state": "Dolj",
     "country": "Romania"
   },
@@ -220,7 +225,7 @@ export const fiCities = [
     "country": "Italy"
   },
   {
-    "city": "Fiorenzuola d\u2019Arda",
+    "city": "Fiorenzuola d'Arda",
     "state": "Emilia-Romagna",
     "country": "Italy"
   },
@@ -255,7 +260,7 @@ export const fiCities = [
     "country": "United States"
   },
   {
-    "city": "Finsp\u00e5ng",
+    "city": "Finspang",
     "state": "\u00d6sterg\u00f6tland",
     "country": "Sweden"
   },
@@ -273,6 +278,11 @@ export const fiCities = [
     "city": "Finale Ligure",
     "state": "Liguria",
     "country": "Italy"
+  },
+  {
+    "city": "Finch'a'a",
+    "state": "Orom\u012bya",
+    "country": "Ethiopia"
   },
   {
     "city": "Firoza",
@@ -295,7 +305,7 @@ export const fiCities = [
     "country": "Sweden"
   },
   {
-    "city": "Firmin\u00f3polis",
+    "city": "Firminopolis",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -305,12 +315,17 @@ export const fiCities = [
     "country": "Benin"
   },
   {
+    "city": "Filippoi",
+    "state": "Anatolik\u00ed Makedon\u00eda kai Thr\u00e1ki",
+    "country": "Greece"
+  },
+  {
     "city": "Fiuggi",
     "state": "Lazio",
     "country": "Italy"
   },
   {
-    "city": "Fi\u013eakovo",
+    "city": "Fil'akovo",
     "state": "Bansk\u00e1 Bystrica",
     "country": "Slovakia"
   },

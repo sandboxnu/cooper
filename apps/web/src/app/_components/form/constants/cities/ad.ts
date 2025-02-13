@@ -15,7 +15,7 @@ export const adCities = [
     "country": "Australia"
   },
   {
-    "city": "Ad Damm\u0101m",
+    "city": "Ad Dammam",
     "state": "Ash Sharq\u012byah",
     "country": "Saudi Arabia"
   },
@@ -35,12 +35,12 @@ export const adCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Ad D\u012bw\u0101n\u012byah",
+    "city": "Ad Diwaniyah",
     "state": "Al Q\u0101dis\u012byah",
     "country": "Iraq"
   },
   {
-    "city": "Ad\u0131yaman",
+    "city": "Adiyaman",
     "state": "Ad\u0131yaman",
     "country": "Turkey"
   },
@@ -50,7 +50,12 @@ export const adCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Adzop\u00e9",
+    "city": "Adoni",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Adzope",
     "state": "Lagunes",
     "country": "C\u00f4te d\u2019Ivoire"
   },
@@ -60,12 +65,17 @@ export const adCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Adil\u0101b\u0101d",
+    "city": "Adilabad",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Adjaou\u00e8r\u00e8",
+    "city": "Adigrat",
+    "state": "Tigray",
+    "country": "Ethiopia"
+  },
+  {
+    "city": "Adjaouere",
     "state": "Plateau",
     "country": "Benin"
   },
@@ -88,6 +98,16 @@ export const adCities = [
     "city": "Ad Diwem",
     "state": "White Nile",
     "country": "Sudan"
+  },
+  {
+    "city": "Adwa",
+    "state": "Tigray",
+    "country": "Ethiopia"
+  },
+  {
+    "city": "Adigala",
+    "state": "Sumal\u0113",
+    "country": "Ethiopia"
   },
   {
     "city": "Ad Darb",
@@ -160,14 +180,39 @@ export const adCities = [
     "country": "Spain"
   },
   {
-    "city": "Adalh\u0101t",
+    "city": "Adis Zemen",
+    "state": "\u0100mara",
+    "country": "Ethiopia"
+  },
+  {
+    "city": "Adalhat",
     "state": "Uttar Pradesh",
     "country": "India"
+  },
+  {
+    "city": "Adampur",
+    "state": "Punjab",
+    "country": "India"
+  },
+  {
+    "city": "Ad Dabyah",
+    "state": "A\u1e11 \u1e10\u0101li\u2018",
+    "country": "Yemen"
+  },
+  {
+    "city": "Ad Dali`",
+    "state": "A\u1e11 \u1e10\u0101li\u2018",
+    "country": "Yemen"
   },
   {
     "city": "Adigaratti",
     "state": "Tamil N\u0101du",
     "country": "India"
+  },
+  {
+    "city": "Adet",
+    "state": "\u0100mara",
+    "country": "Ethiopia"
   },
   {
     "city": "Adrian",
@@ -180,7 +225,7 @@ export const adCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Ad Dir\u2018\u012byah",
+    "city": "Ad Dir`iyah",
     "state": "Ar Riy\u0101\u1e11",
     "country": "Saudi Arabia"
   },
@@ -195,7 +240,7 @@ export const adCities = [
     "country": "Italy"
   },
   {
-    "city": "Ad Dir\u0101z",
+    "city": "Ad Diraz",
     "state": "Ash Sham\u0101l\u012byah",
     "country": "Bahrain"
   },
@@ -205,12 +250,17 @@ export const adCities = [
     "country": "United States"
   },
   {
+    "city": "Ad Dulu`iyah",
+    "state": "\u015eal\u0101\u1e29 ad D\u012bn",
+    "country": "Iraq"
+  },
+  {
     "city": "Adelphi",
     "state": "Maryland",
     "country": "United States"
   },
   {
-    "city": "Ad D\u012bs",
+    "city": "Ad Dis",
     "state": "\u1e28a\u1e11ramawt",
     "country": "Yemen"
   },
@@ -225,7 +275,7 @@ export const adCities = [
     "country": "Italy"
   },
   {
-    "city": "Adjahom\u00e9",
+    "city": "Adjahome",
     "state": "Couffo",
     "country": "Benin"
   },
@@ -255,6 +305,11 @@ export const adCities = [
     "country": "Romania"
   },
   {
+    "city": "Adra",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Adams",
     "state": "Pennsylvania",
     "country": "United States"
@@ -265,22 +320,32 @@ export const adCities = [
     "country": "Algeria"
   },
   {
+    "city": "Ad Dab`ah",
+    "state": "Ma\u0163r\u016b\u1e29",
+    "country": "Egypt"
+  },
+  {
     "city": "Adustina",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Adakplam\u00e9",
+    "city": "Adakplame",
     "state": "Plateau",
     "country": "Benin"
   },
   {
-    "city": "Adh Dhakh\u012brah",
+    "city": "Adh Dhakhirah",
     "state": "Al Khawr wa adh Dhakh\u012brah",
     "country": "Qatar"
   },
   {
-    "city": "Ad Durayk\u012bsh",
+    "city": "Adis `Alem",
+    "state": "Orom\u012bya",
+    "country": "Ethiopia"
+  },
+  {
+    "city": "Ad Duraykish",
     "state": "\u0162ar\u0163\u016bs",
     "country": "Syria"
   },
@@ -300,7 +365,7 @@ export const adCities = [
     "country": "India"
   },
   {
-    "city": "Adr\u00e9",
+    "city": "Adre",
     "state": "Ouadda\u00ef",
     "country": "Chad"
   },
@@ -315,6 +380,11 @@ export const adCities = [
     "country": "India"
   },
   {
+    "city": "Aduru",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
     "city": "Adjala-Tosorontio",
     "state": "Ontario",
     "country": "Canada"
@@ -325,7 +395,7 @@ export const adCities = [
     "country": "Germany"
   },
   {
-    "city": "Adda-Dou\u00e9ni",
+    "city": "Adda-Doueni",
     "state": "Anjouan",
     "country": "Comoros"
   },
@@ -350,7 +420,7 @@ export const adCities = [
     "country": "India"
   },
   {
-    "city": "Adigapp\u0101di",
+    "city": "Adigappadi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -370,7 +440,12 @@ export const adCities = [
     "country": "India"
   },
   {
-    "city": "Adolfo Gonz\u00e1les Chaves",
+    "city": "Adivala",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Adolfo Gonzales Chaves",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -380,7 +455,7 @@ export const adCities = [
     "country": "Germany"
   },
   {
-    "city": "Adakl\u0131",
+    "city": "Adakli",
     "state": "Bing\u00f6l",
     "country": "Turkey"
   },
@@ -388,6 +463,11 @@ export const adCities = [
     "city": "Adjido",
     "state": "Zou",
     "country": "Benin"
+  },
+  {
+    "city": "Adami Tulu",
+    "state": "Orom\u012bya",
+    "country": "Ethiopia"
   },
   {
     "city": "Adigoppula",
@@ -410,9 +490,14 @@ export const adCities = [
     "country": "Turkey"
   },
   {
-    "city": "Ad Darb\u0101s\u012byah",
+    "city": "Ad Darbasiyah",
     "state": "Al \u1e28asakah",
     "country": "Syria"
+  },
+  {
+    "city": "Adazi",
+    "state": "\u0100da\u017ei",
+    "country": "Latvia"
   },
   {
     "city": "Adelaide River",

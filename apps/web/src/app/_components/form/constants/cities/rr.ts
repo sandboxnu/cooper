@@ -1,6 +1,6 @@
 export const rrCities = [
   {
-    "city": "Rr\u00ebshen",
+    "city": "Rreshen",
     "state": "Lezh\u00eb",
     "country": "Albania"
   }

@@ -15,12 +15,12 @@ export const axCities = [
     "country": "Mexico"
   },
   {
-    "city": "Axix\u00e1",
+    "city": "Axixa",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
   {
-    "city": "Axix\u00e1 do Tocantins",
+    "city": "Axixa do Tocantins",
     "state": "Tocantins",
     "country": "Brazil"
   }

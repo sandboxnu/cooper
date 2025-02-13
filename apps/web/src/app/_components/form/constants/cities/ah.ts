@@ -5,7 +5,7 @@ export const ahCities = [
     "country": "India"
   },
   {
-    "city": "Ahv\u0101z",
+    "city": "Ahvaz",
     "state": "Kh\u016bzest\u0101n",
     "country": "Iran"
   },
@@ -25,7 +25,7 @@ export const ahCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Ahuachap\u00e1n",
+    "city": "Ahuachapan",
     "state": "Ahuachap\u00e1n",
     "country": "El Salvador"
   },
@@ -65,12 +65,12 @@ export const ahCities = [
     "country": "Germany"
   },
   {
-    "city": "Ahmer el \u2019A\u00efn",
+    "city": "Ahmer el 'Ain",
     "state": "Tipaza",
     "country": "Algeria"
   },
   {
-    "city": "Ahmad\u0101b\u0101d",
+    "city": "Ahmadabad",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -100,7 +100,7 @@ export const ahCities = [
     "country": "Iran"
   },
   {
-    "city": "Ahigb\u00e9 Koffikro",
+    "city": "Ahigbe Koffikro",
     "state": "Como\u00e9",
     "country": "C\u00f4te d\u2019Ivoire"
   },
@@ -120,7 +120,7 @@ export const ahCities = [
     "country": "Morocco"
   },
   {
-    "city": "Ahirauliy\u0101",
+    "city": "Ahirauliya",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -135,9 +135,24 @@ export const ahCities = [
     "country": "Morocco"
   },
   {
+    "city": "Ahmadli",
+    "state": "Bak\u0131",
+    "country": "Azerbaijan"
+  },
+  {
     "city": "Ahogbeya",
     "state": "Couffo",
     "country": "Benin"
+  },
+  {
+    "city": "Ahiro",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Ahus",
+    "state": "Sk\u00e5ne",
+    "country": "Sweden"
   },
   {
     "city": "Ahmadpur",

@@ -1,6 +1,6 @@
 export const bhCities = [
   {
-    "city": "Bhop\u0101l",
+    "city": "Bhopal",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -20,12 +20,12 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bh\u0101ngar",
+    "city": "Bhangar",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Bh\u0101vnagar",
+    "city": "Bhavnagar",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -35,17 +35,17 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bh\u012blw\u0101ra",
+    "city": "Bhilwara",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
   {
-    "city": "Bh\u0101galpur",
+    "city": "Bhagalpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Bh\u0101tp\u0101ra",
+    "city": "Bhatpara",
     "state": "West Bengal",
     "country": "India"
   },
@@ -75,12 +75,12 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bhadr\u0101vati",
+    "city": "Bhadravati",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Bhiw\u0101ni",
+    "city": "Bhiwani",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -90,32 +90,32 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bhus\u0101val",
+    "city": "Bhusaval",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
   {
-    "city": "Bhach\u0101u",
+    "city": "Bhachau",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Bhar\u016bch",
+    "city": "Bharuch",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Bh\u0101lswa Jahangirpur",
+    "city": "Bhalswa Jahangirpur",
     "state": "Delhi",
     "country": "India"
   },
   {
-    "city": "Bh\u0101nd\u0101ria",
+    "city": "Bhandaria",
     "state": "Barishal",
     "country": "Bangladesh"
   },
   {
-    "city": "Bh\u012bmavaram",
+    "city": "Bhimavaram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -150,7 +150,7 @@ export const bhCities = [
     "country": "Bangladesh"
   },
   {
-    "city": "Bhaw\u0101nipatna",
+    "city": "Bhawanipatna",
     "state": "Odisha",
     "country": "India"
   },
@@ -165,12 +165,12 @@ export const bhCities = [
     "country": "Nepal"
   },
   {
-    "city": "Bhadarw\u0101h",
+    "city": "Bhadarwah",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
   {
-    "city": "Bhair\u0101haw\u0101",
+    "city": "Bhairahawa",
     "state": "Lumbin\u012b",
     "country": "Nepal"
   },
@@ -180,12 +180,12 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bh\u012bmunipatnam",
+    "city": "Bhimunipatnam",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Bhong\u012br",
+    "city": "Bhongir",
     "state": "Telang\u0101na",
     "country": "India"
   },
@@ -195,22 +195,22 @@ export const bhCities = [
     "country": "Nepal"
   },
   {
-    "city": "Bhav\u0101ni",
+    "city": "Bhavani",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Bhaw\u0101n\u012bpur R\u0101jdh\u0101m",
+    "city": "Bhawanipur Rajdham",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Bhadr\u0101chalam",
+    "city": "Bhadrachalam",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Bhattu Kol\u0101n",
+    "city": "Bhattu Kolan",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -230,17 +230,17 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bh\u0101lki",
+    "city": "Bhalki",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Bh\u0101yala",
+    "city": "Bhayala",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Bh\u0101rella",
+    "city": "Bharella",
     "state": "Chattogram",
     "country": "Bangladesh"
   },
@@ -260,7 +260,7 @@ export const bhCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Bh\u0101nder",
+    "city": "Bhander",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -270,37 +270,37 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bhir\u0101ha",
+    "city": "Bhiraha",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Bhad\u0101s",
+    "city": "Bhadas",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Bhaw\u0101n\u012bgarh",
+    "city": "Bhawanigarh",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Bhatpur\u012b",
+    "city": "Bhatpuri",
     "state": "Uttar\u0101khand",
     "country": "India"
   },
   {
-    "city": "Bh\u0101nvad",
+    "city": "Bhanvad",
     "state": "Gujar\u0101t",
     "country": "India"
   },
   {
-    "city": "Bh\u0101npura",
+    "city": "Bhanpura",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Bhairi\u0307\u0304",
+    "city": "Bhairi",
     "state": NaN,
     "country": "Nepal"
   },
@@ -310,12 +310,12 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bhojpur Kad\u012bm",
+    "city": "Bhojpur Kadim",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Bhitarw\u0101r",
+    "city": "Bhitarwar",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -325,12 +325,12 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bhaluh\u0101r",
+    "city": "Bhaluhar",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Bhas\u0101war",
+    "city": "Bhasawar",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -340,7 +340,7 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bhojpur Jad\u012bd",
+    "city": "Bhojpur Jadid",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -350,7 +350,7 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bhaw\u0101n\u012bpur",
+    "city": "Bhawanipur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -360,7 +360,7 @@ export const bhCities = [
     "country": "Nepal"
   },
   {
-    "city": "Bh\u012bkhi",
+    "city": "Bhikhi",
     "state": "Punjab",
     "country": "India"
   },
@@ -370,12 +370,12 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bhagab\u0101npur",
+    "city": "Bhagabanpur",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Bhaw\u0101n\u012bpur",
+    "city": "Bhawanipur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -395,12 +395,12 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bharanik\u0101vu Tekku",
+    "city": "Bharanikavu Tekku",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Bhit Bhagw\u0101npur",
+    "city": "Bhit Bhagwanpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -410,12 +410,12 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bhagw\u0101ngola",
+    "city": "Bhagwangola",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Bh\u0101numukkala",
+    "city": "Bhanumukkala",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -435,12 +435,12 @@ export const bhCities = [
     "country": "Nepal"
   },
   {
-    "city": "Bh\u0101nukum\u0101ri",
+    "city": "Bhanukumari",
     "state": "West Bengal",
     "country": "India"
   },
   {
-    "city": "Bhulw\u0101l",
+    "city": "Bhulwal",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
@@ -450,7 +450,7 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bh\u012bmadolu",
+    "city": "Bhimadolu",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -465,7 +465,7 @@ export const bhCities = [
     "country": "Morocco"
   },
   {
-    "city": "Bhagw\u0101npur Khurd",
+    "city": "Bhagwanpur Khurd",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -485,7 +485,7 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bhais\u0101lotan",
+    "city": "Bhaisalotan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -495,17 +495,17 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bharwel\u012b",
+    "city": "Bharweli",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Bhair\u0101pura",
+    "city": "Bhairapura",
     "state": "Karn\u0101taka",
     "country": "India"
   },
   {
-    "city": "Bhagw\u0101npur Desua",
+    "city": "Bhagwanpur Desua",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -525,7 +525,7 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bhab\u0101nipur",
+    "city": "Bhabanipur",
     "state": "West Bengal",
     "country": "India"
   },
@@ -545,7 +545,7 @@ export const bhCities = [
     "country": "South Africa"
   },
   {
-    "city": "Bhand\u0101rso",
+    "city": "Bhandarso",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -565,12 +565,12 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bhaur\u0101dah",
+    "city": "Bhauradah",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Bh\u0101lpatti",
+    "city": "Bhalpatti",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -585,12 +585,12 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bhop\u0101lia",
+    "city": "Bhopalia",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Bhikkiwind Utt\u0101r",
+    "city": "Bhikkiwind Uttar",
     "state": "Punjab",
     "country": "India"
   },
@@ -600,7 +600,7 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bhaw\u0101n\u012bpur",
+    "city": "Bhawanipur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -620,17 +620,17 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bh\u0101gsar",
+    "city": "Bhagsar",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Bhaw\u0101nandpur",
+    "city": "Bhawanandpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Bhog\u0101puram",
+    "city": "Bhogapuram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -655,7 +655,7 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bhadw\u0101r",
+    "city": "Bhadwar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -665,12 +665,12 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bhatauli\u0101",
+    "city": "Bhataulia",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Bh\u0101saula D\u0101n\u0101pur",
+    "city": "Bhasaula Danapur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -685,7 +685,7 @@ export const bhCities = [
     "country": "India"
   },
   {
-    "city": "Bh\u0101nuvalli",
+    "city": "Bhanuvalli",
     "state": "Karn\u0101taka",
     "country": "India"
   },

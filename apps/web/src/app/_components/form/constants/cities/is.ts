@@ -25,6 +25,11 @@ export const isCities = [
     "country": "Turkey"
   },
   {
+    "city": "Iskenderun",
+    "state": "Hatay",
+    "country": "Turkey"
+  },
+  {
     "city": "Iseyin",
     "state": "Oyo",
     "country": "Nigeria"
@@ -70,7 +75,7 @@ export const isCities = [
     "country": "Japan"
   },
   {
-    "city": "Isl\u0101m\u0101b\u0101d",
+    "city": "Islamabad",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
@@ -95,7 +100,7 @@ export const isCities = [
     "country": "Japan"
   },
   {
-    "city": "Isn\u0101",
+    "city": "Isna",
     "state": "Qin\u0101",
     "country": "Egypt"
   },
@@ -103,6 +108,11 @@ export const isCities = [
     "city": "Issy-les-Moulineaux",
     "state": "\u00cele-de-France",
     "country": "France"
+  },
+  {
+    "city": "Islahiye",
+    "state": "Gaziantep",
+    "country": "Turkey"
   },
   {
     "city": "Istaravshan",
@@ -135,7 +145,7 @@ export const isCities = [
     "country": "Russia"
   },
   {
-    "city": "Isl\u0101mpur",
+    "city": "Islampur",
     "state": "West Bengal",
     "country": "India"
   },
@@ -180,7 +190,7 @@ export const isCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Isl\u0101mpur",
+    "city": "Islampur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -245,7 +255,7 @@ export const isCities = [
     "country": "Japan"
   },
   {
-    "city": "Isernhagen-S\u00fcd",
+    "city": "Isernhagen-Sud",
     "state": "Lower Saxony",
     "country": "Germany"
   },
@@ -273,6 +283,11 @@ export const isCities = [
     "city": "Isla-Cristina",
     "state": "Andalusia",
     "country": "Spain"
+  },
+  {
+    "city": "Ismayilli",
+    "state": "\u0130smay\u0131ll\u0131",
+    "country": "Azerbaijan"
   },
   {
     "city": "Isernia",
@@ -305,6 +320,11 @@ export const isCities = [
     "country": "Germany"
   },
   {
+    "city": "Iskilip",
+    "state": "\u00c7orum",
+    "country": "Turkey"
+  },
+  {
     "city": "Isola Capo Rizzuto",
     "state": "Calabria",
     "country": "Italy"
@@ -315,7 +335,7 @@ export const isCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Isl\u0101m Qal\u2018ah",
+    "city": "Islam Qal`ah",
     "state": "Her\u0101t",
     "country": "Afghanistan"
   },
@@ -330,7 +350,7 @@ export const isCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Ishidoriyach\u014d-eso",
+    "city": "Ishidoriyacho-eso",
     "state": "Iwate",
     "country": "Japan"
   },
@@ -340,12 +360,12 @@ export const isCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Isr\u0101in Kal\u0101n",
+    "city": "Israin Kalan",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Isl\u0101mpur",
+    "city": "Islampur",
     "state": "West Bengal",
     "country": "India"
   },
@@ -355,7 +375,7 @@ export const isCities = [
     "country": "France"
   },
   {
-    "city": "Isny im Allg\u00e4u",
+    "city": "Isny im Allgau",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
   },
@@ -363,6 +383,11 @@ export const isCities = [
     "city": "Isla Vista",
     "state": "California",
     "country": "United States"
+  },
+  {
+    "city": "Ispir",
+    "state": "Erzurum",
+    "country": "Turkey"
   },
   {
     "city": "Ishikawa",
@@ -375,7 +400,7 @@ export const isCities = [
     "country": "India"
   },
   {
-    "city": "Is\u0101garh",
+    "city": "Isagarh",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -395,7 +420,7 @@ export const isCities = [
     "country": "Mexico"
   },
   {
-    "city": "Isla Rat\u00f3n",
+    "city": "Isla Raton",
     "state": "Amazonas",
     "country": "Venezuela"
   },
@@ -405,7 +430,7 @@ export const isCities = [
     "country": "Germany"
   },
   {
-    "city": "Ishk\u0101shim",
+    "city": "Ishkashim",
     "state": "Badakhsh\u0101n",
     "country": "Afghanistan"
   },
@@ -425,7 +450,7 @@ export const isCities = [
     "country": "Madagascar"
   },
   {
-    "city": "Is\u0101pur",
+    "city": "Isapur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -435,7 +460,7 @@ export const isCities = [
     "country": "Italy"
   },
   {
-    "city": "Iskap\u0101lem",
+    "city": "Iskapalem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -475,7 +500,7 @@ export const isCities = [
     "country": "India"
   },
   {
-    "city": "Isr\u0101na",
+    "city": "Israna",
     "state": "Hary\u0101na",
     "country": "India"
   },
@@ -490,7 +515,7 @@ export const isCities = [
     "country": "Italy"
   },
   {
-    "city": "Iscuand\u00e9",
+    "city": "Iscuande",
     "state": "Nari\u00f1o",
     "country": "Colombia"
   },
@@ -508,6 +533,11 @@ export const isCities = [
     "city": "Isbergues",
     "state": "Hauts-de-France",
     "country": "France"
+  },
+  {
+    "city": "Isafjordhur",
+    "state": "\u00cdsafjar\u00f0arb\u00e6r",
+    "country": "Iceland"
   },
   {
     "city": "Isangel",

@@ -10,7 +10,7 @@ export const psCities = [
     "country": "Poland"
   },
   {
-    "city": "Psychik\u00f3",
+    "city": "Psychiko",
     "state": "Attik\u00ed",
     "country": "Greece"
   },

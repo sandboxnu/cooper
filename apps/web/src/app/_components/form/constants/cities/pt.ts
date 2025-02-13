@@ -1,6 +1,6 @@
 export const ptCities = [
   {
-    "city": "Ptolema\u1e2fda",
+    "city": "Ptolemaida",
     "state": "Dytik\u00ed Makedon\u00eda",
     "country": "Greece"
   },

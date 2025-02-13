@@ -45,6 +45,11 @@ export const piCities = [
     "country": "South Africa"
   },
   {
+    "city": "Pishbar",
+    "state": "Khor\u0101s\u0101n-e Jon\u016bb\u012b",
+    "country": "Iran"
+  },
+  {
     "city": "Pinghu",
     "state": "Zhejiang",
     "country": "China"
@@ -90,7 +95,7 @@ export const piCities = [
     "country": "Taiwan"
   },
   {
-    "city": "Pinar del R\u00edo",
+    "city": "Pinar del Rio",
     "state": "Pinar del R\u00edo",
     "country": "Cuba"
   },
@@ -98,6 +103,11 @@ export const piCities = [
     "city": "Pinrang",
     "state": "Sulawesi Selatan",
     "country": "Indonesia"
+  },
+  {
+    "city": "Pilibhit",
+    "state": "Uttar Pradesh",
+    "country": "India"
   },
   {
     "city": "Piedras Negras",
@@ -120,7 +130,7 @@ export const piCities = [
     "country": "South Africa"
   },
   {
-    "city": "Pite\u015fti",
+    "city": "Pitesti",
     "state": "Arge\u015f",
     "country": "Romania"
   },
@@ -170,6 +180,11 @@ export const piCities = [
     "country": "China"
   },
   {
+    "city": "Piranshahr",
+    "state": "\u0100z\u0304arb\u0101yj\u0101n-e Gharb\u012b",
+    "country": "Iran"
+  },
+  {
     "city": "Pinamalayan",
     "state": "Oriental Mindoro",
     "country": "Philippines"
@@ -210,7 +225,7 @@ export const piCities = [
     "country": "India"
   },
   {
-    "city": "Piatra Neam\u0163",
+    "city": "Piatra Neamt",
     "state": "Neam\u0163",
     "country": "Romania"
   },
@@ -235,12 +250,12 @@ export const piCities = [
     "country": "Philippines"
   },
   {
-    "city": "Pira\u00e7ununga",
+    "city": "Piracununga",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Pi\u0142a",
+    "city": "Pila",
     "state": "Wielkopolskie",
     "country": "Poland"
   },
@@ -250,7 +265,7 @@ export const piCities = [
     "country": "Philippines"
   },
   {
-    "city": "Piotrk\u00f3w Trybunalski",
+    "city": "Piotrkow Trybunalski",
     "state": "\u0141\u00f3dzkie",
     "country": "Poland"
   },
@@ -260,7 +275,7 @@ export const piCities = [
     "country": "Philippines"
   },
   {
-    "city": "Pidugur\u0101lla",
+    "city": "Piduguralla",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -270,7 +285,7 @@ export const piCities = [
     "country": "Brazil"
   },
   {
-    "city": "Piran\u00e9",
+    "city": "Pirane",
     "state": "Formosa",
     "country": "Argentina"
   },
@@ -290,12 +305,12 @@ export const piCities = [
     "country": "Bangladesh"
   },
   {
-    "city": "Pipari\u0101",
+    "city": "Piparia",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Ping\u2019an",
+    "city": "Ping'an",
     "state": "Qinghai",
     "country": "China"
   },
@@ -310,7 +325,7 @@ export const piCities = [
     "country": "Brazil"
   },
   {
-    "city": "Pithor\u0101garh",
+    "city": "Pithoragarh",
     "state": "Uttar\u0101khand",
     "country": "India"
   },
@@ -320,7 +335,7 @@ export const piCities = [
     "country": "Spain"
   },
   {
-    "city": "Pith\u0101puram",
+    "city": "Pithapuram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -345,7 +360,7 @@ export const piCities = [
     "country": "Mexico"
   },
   {
-    "city": "Piekary \u015al\u0105skie",
+    "city": "Piekary Slaskie",
     "state": "\u015al\u0105skie",
     "country": "Poland"
   },
@@ -380,7 +395,7 @@ export const piCities = [
     "country": "Philippines"
   },
   {
-    "city": "Piendam\u00f3",
+    "city": "Piendamo",
     "state": "Cauca",
     "country": "Colombia"
   },
@@ -395,8 +410,13 @@ export const piCities = [
     "country": "United States"
   },
   {
-    "city": "Pirth\u012bpur",
+    "city": "Pirthipur",
     "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Pileru",
+    "state": "Andhra Pradesh",
     "country": "India"
   },
   {
@@ -405,7 +425,7 @@ export const piCities = [
     "country": "United States"
   },
   {
-    "city": "Pie de Pat\u00f3",
+    "city": "Pie de Pato",
     "state": "Choc\u00f3",
     "country": "Colombia"
   },
@@ -415,7 +435,7 @@ export const piCities = [
     "country": "Germany"
   },
   {
-    "city": "Pil\u0101ni",
+    "city": "Pilani",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -465,7 +485,7 @@ export const piCities = [
     "country": "China"
   },
   {
-    "city": "Piu\u00ed",
+    "city": "Piui",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -475,7 +495,7 @@ export const piCities = [
     "country": "Italy"
   },
   {
-    "city": "Pih\u0101n\u012b",
+    "city": "Pihani",
     "state": "Uttar Pradesh",
     "country": "India"
   },
@@ -495,7 +515,7 @@ export const piCities = [
     "country": "Brazil"
   },
   {
-    "city": "Pil\u00e3o Arcado",
+    "city": "Pilao Arcado",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -555,7 +575,7 @@ export const piCities = [
     "country": "Italy"
   },
   {
-    "city": "Pindar\u00e9-Mirim",
+    "city": "Pindare-Mirim",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
@@ -563,6 +583,11 @@ export const piCities = [
     "city": "Pichanal",
     "state": "Salta",
     "country": "Argentina"
+  },
+  {
+    "city": "Pisek",
+    "state": "Jiho\u010desk\u00fd Kraj",
+    "country": "Czechia"
   },
   {
     "city": "Pittsford",
@@ -580,7 +605,7 @@ export const piCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Pinh\u00e3o",
+    "city": "Pinhao",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -590,7 +615,7 @@ export const piCities = [
     "country": "Brazil"
   },
   {
-    "city": "Pirakk\u0101d",
+    "city": "Pirakkad",
     "state": "Kerala",
     "country": "India"
   },
@@ -620,7 +645,7 @@ export const piCities = [
     "country": "China"
   },
   {
-    "city": "Pil\u00f3n",
+    "city": "Pilon",
     "state": "Granma",
     "country": "Cuba"
   },
@@ -645,7 +670,7 @@ export const piCities = [
     "country": "Philippines"
   },
   {
-    "city": "Pirap\u00f2zinho",
+    "city": "Pirapozinho",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -660,12 +685,12 @@ export const piCities = [
     "country": "Philippines"
   },
   {
-    "city": "Pira\u00ed",
+    "city": "Pirai",
     "state": "Rio de Janeiro",
     "country": "Brazil"
   },
   {
-    "city": "Pie\u0161\u0165any",
+    "city": "Piest'any",
     "state": "Trnava",
     "country": "Slovakia"
   },
@@ -675,12 +700,17 @@ export const piCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Pi\u00e7arras",
+    "city": "Picarras",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
   {
-    "city": "Piren\u00f3polis",
+    "city": "Pinarbasi",
+    "state": "Kayseri",
+    "country": "Turkey"
+  },
+  {
+    "city": "Pirenopolis",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
@@ -730,7 +760,7 @@ export const piCities = [
     "country": "Philippines"
   },
   {
-    "city": "Pindw\u0101ra",
+    "city": "Pindwara",
     "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
@@ -745,7 +775,7 @@ export const piCities = [
     "country": "China"
   },
   {
-    "city": "Pira\u00ed do Sul",
+    "city": "Pirai do Sul",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -765,7 +795,7 @@ export const piCities = [
     "country": "Burkina Faso"
   },
   {
-    "city": "Pite\u00e5",
+    "city": "Pitea",
     "state": "Norrbotten",
     "country": "Sweden"
   },
@@ -775,14 +805,19 @@ export const piCities = [
     "country": "Brazil"
   },
   {
-    "city": "Piravanth\u016br",
+    "city": "Piravanthur",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Piast\u00f3w",
+    "city": "Piastow",
     "state": "Mazowieckie",
     "country": "Poland"
+  },
+  {
+    "city": "Piritu",
+    "state": "Anzo\u00e1tegui",
+    "country": "Venezuela"
   },
   {
     "city": "Pickerington",
@@ -805,12 +840,12 @@ export const piCities = [
     "country": "Philippines"
   },
   {
-    "city": "Piraju\u00ed",
+    "city": "Pirajui",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Pi\u00fama",
+    "city": "Piuma",
     "state": "Esp\u00edrito Santo",
     "country": "Brazil"
   },
@@ -820,12 +855,17 @@ export const piCities = [
     "country": "Spain"
   },
   {
+    "city": "Pirmed",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
     "city": "Pingtan",
     "state": "Guangxi",
     "country": "China"
   },
   {
-    "city": "Pitrufqu\u00e9n",
+    "city": "Pitrufquen",
     "state": "Araucan\u00eda",
     "country": "Chile"
   },
@@ -840,7 +880,7 @@ export const piCities = [
     "country": "Brazil"
   },
   {
-    "city": "Pillaiy\u0101rkuppam",
+    "city": "Pillaiyarkuppam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -870,17 +910,17 @@ export const piCities = [
     "country": "United States"
   },
   {
-    "city": "Pi\u00f1an",
+    "city": "Pinan",
     "state": "Zamboanga del Norte",
     "country": "Philippines"
   },
   {
-    "city": "Pikal\u00ebvo",
+    "city": "Pikalevo",
     "state": "Leningradskaya Oblast\u2019",
     "country": "Russia"
   },
   {
-    "city": "Piat\u00e3",
+    "city": "Piata",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -893,6 +933,11 @@ export const piCities = [
     "city": "Piove di Sacco",
     "state": "Veneto",
     "country": "Italy"
+  },
+  {
+    "city": "Pirbahora",
+    "state": "Uttar Pradesh",
+    "country": "India"
   },
   {
     "city": "Piedade",
@@ -925,7 +970,7 @@ export const piCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Pindoba\u00e7u",
+    "city": "Pindobacu",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -950,7 +995,7 @@ export const piCities = [
     "country": "Colombia"
   },
   {
-    "city": "Pi\u00f1as",
+    "city": "Pinas",
     "state": "El Oro",
     "country": "Ecuador"
   },
@@ -960,7 +1005,7 @@ export const piCities = [
     "country": "Brazil"
   },
   {
-    "city": "Picu\u00ed",
+    "city": "Picui",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -975,7 +1020,7 @@ export const piCities = [
     "country": "Poland"
   },
   {
-    "city": "Pieks\u00e4m\u00e4ki",
+    "city": "Pieksamaki",
     "state": "Etel\u00e4-Savo",
     "country": "Finland"
   },
@@ -1030,7 +1075,7 @@ export const piCities = [
     "country": "Philippines"
   },
   {
-    "city": "Piray\u00fa",
+    "city": "Pirayu",
     "state": "Paraguar\u00ed",
     "country": "Paraguay"
   },
@@ -1080,7 +1125,7 @@ export const piCities = [
     "country": "Italy"
   },
   {
-    "city": "Piriy\u0101patna",
+    "city": "Piriyapatna",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -1095,12 +1140,12 @@ export const piCities = [
     "country": "Chile"
   },
   {
-    "city": "Pil\u0101ppulli",
+    "city": "Pilappulli",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Pianc\u00f3",
+    "city": "Pianco",
     "state": "Para\u00edba",
     "country": "Brazil"
   },
@@ -1110,7 +1155,7 @@ export const piCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Pielisj\u00e4rvi",
+    "city": "Pielisjarvi",
     "state": "Pohjois-Karjala",
     "country": "Finland"
   },
@@ -1120,17 +1165,17 @@ export const piCities = [
     "country": "India"
   },
   {
-    "city": "Pia\u00e7abu\u00e7u",
+    "city": "Piacabucu",
     "state": "Alagoas",
     "country": "Brazil"
   },
   {
-    "city": "Piji\u00f1o del Carmen",
+    "city": "Pijino del Carmen",
     "state": "Magdalena",
     "country": "Colombia"
   },
   {
-    "city": "Pipra Lat\u012bf",
+    "city": "Pipra Latif",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1155,7 +1200,7 @@ export const piCities = [
     "country": "Mexico"
   },
   {
-    "city": "Pimpalgaon R\u0101j\u0101",
+    "city": "Pimpalgaon Raja",
     "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
@@ -1185,7 +1230,7 @@ export const piCities = [
     "country": "Argentina"
   },
   {
-    "city": "Pinda\u00ed",
+    "city": "Pindai",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -1215,7 +1260,7 @@ export const piCities = [
     "country": "Brazil"
   },
   {
-    "city": "Pilisv\u00f6r\u00f6sv\u00e1r",
+    "city": "Pilisvorosvar",
     "state": "Pest",
     "country": "Hungary"
   },
@@ -1240,12 +1285,12 @@ export const piCities = [
     "country": "Spain"
   },
   {
-    "city": "Ping\u2019anbao",
+    "city": "Ping'anbao",
     "state": "Hebei",
     "country": "China"
   },
   {
-    "city": "Pig\u00fc\u00e9",
+    "city": "Pigue",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -1255,7 +1300,7 @@ export const piCities = [
     "country": "France"
   },
   {
-    "city": "Pi\u00ean",
+    "city": "Pien",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -1265,7 +1310,7 @@ export const piCities = [
     "country": "India"
   },
   {
-    "city": "Pirallah\u0131",
+    "city": "Pirallahi",
     "state": "Bak\u0131",
     "country": "Azerbaijan"
   },
@@ -1283,6 +1328,11 @@ export const piCities = [
     "city": "Pichilemu",
     "state": "Libertador General Bernardo O\u2019Higgins",
     "country": "Chile"
+  },
+  {
+    "city": "Pirnagar",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Pilich",
@@ -1320,7 +1370,7 @@ export const piCities = [
     "country": "Italy"
   },
   {
-    "city": "Pill\u0101nall\u016br",
+    "city": "Pillanallur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1330,7 +1380,7 @@ export const piCities = [
     "country": "South Africa"
   },
   {
-    "city": "Pittalav\u0101nip\u0101lem",
+    "city": "Pittalavanipalem",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1350,7 +1400,7 @@ export const piCities = [
     "country": "United States"
   },
   {
-    "city": "Pica\u00f1a",
+    "city": "Picana",
     "state": "Valencia",
     "country": "Spain"
   },
@@ -1360,7 +1410,7 @@ export const piCities = [
     "country": "Brazil"
   },
   {
-    "city": "Pira\u00faba",
+    "city": "Pirauba",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -1370,7 +1420,7 @@ export const piCities = [
     "country": "Italy"
   },
   {
-    "city": "Pipr\u0101hi",
+    "city": "Piprahi",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1383,6 +1433,11 @@ export const piCities = [
     "city": "Pike Creek Valley",
     "state": "Delaware",
     "country": "United States"
+  },
+  {
+    "city": "Pir Maker",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Pimenteiras",
@@ -1435,12 +1490,17 @@ export const piCities = [
     "country": "China"
   },
   {
-    "city": "Pira\u00ed do Norte",
+    "city": "Pirai do Norte",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Pipalraw\u0101n",
+    "city": "Pir Bakran",
+    "state": "E\u015ffah\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Pipalrawan",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1470,7 +1530,7 @@ export const piCities = [
     "country": "United States"
   },
   {
-    "city": "Pierre-B\u00e9nite",
+    "city": "Pierre-Benite",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
@@ -1505,7 +1565,7 @@ export const piCities = [
     "country": "Philippines"
   },
   {
-    "city": "Pipra Naurangi\u0101",
+    "city": "Pipra Naurangia",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1515,7 +1575,7 @@ export const piCities = [
     "country": "Philippines"
   },
   {
-    "city": "Pi\u0144cz\u00f3w",
+    "city": "Pinczow",
     "state": "\u015awi\u0119tokrzyskie",
     "country": "Poland"
   },
@@ -1550,6 +1610,11 @@ export const piCities = [
     "country": "India"
   },
   {
+    "city": "Pillaro",
+    "state": "Tungurahua",
+    "country": "Ecuador"
+  },
+  {
     "city": "Pisac",
     "state": "Cusco",
     "country": "Peru"
@@ -1560,7 +1625,7 @@ export const piCities = [
     "country": "United States"
   },
   {
-    "city": "Pipra Dew\u0101s",
+    "city": "Pipra Dewas",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1635,12 +1700,12 @@ export const piCities = [
     "country": "United States"
   },
   {
-    "city": "Pilik\u014ddu",
+    "city": "Pilikodu",
     "state": "Kerala",
     "country": "India"
   },
   {
-    "city": "Pirip\u00e1",
+    "city": "Piripa",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -1660,7 +1725,7 @@ export const piCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Piri\u00e1polis",
+    "city": "Piriapolis",
     "state": "Maldonado",
     "country": "Uruguay"
   },
@@ -1690,7 +1755,7 @@ export const piCities = [
     "country": "France"
   },
   {
-    "city": "Pinjranw\u0101n",
+    "city": "Pinjranwan",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1715,7 +1780,7 @@ export const piCities = [
     "country": "Eswatini"
   },
   {
-    "city": "Piet\u00e0",
+    "city": "Pieta",
     "state": "Piet\u00e0",
     "country": "Malta"
   },

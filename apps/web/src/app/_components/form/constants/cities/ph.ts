@@ -20,17 +20,17 @@ export const phCities = [
     "country": "Thailand"
   },
   {
-    "city": "Ph\u00fa Y\u00ean",
+    "city": "Phu Yen",
     "state": "Th\u00e1i Nguy\u00ean",
     "country": "Vietnam"
   },
   {
-    "city": "Phan Thi\u1ebft",
+    "city": "Phan Thiet",
     "state": "B\u00ecnh Thu\u1eadn",
     "country": "Vietnam"
   },
   {
-    "city": "Ph\u1ee7 T\u1eeb S\u01a1n",
+    "city": "Phu Tu Son",
     "state": "B\u1eafc Ninh",
     "country": "Vietnam"
   },
@@ -40,22 +40,22 @@ export const phCities = [
     "country": "India"
   },
   {
-    "city": "Phan Rang-Th\u00e1p Ch\u00e0m",
+    "city": "Phan Rang-Thap Cham",
     "state": "Ninh Thu\u1eadn",
     "country": "Vietnam"
   },
   {
-    "city": "Ph\u1ee7 L\u00fd",
+    "city": "Phu Ly",
     "state": "H\u00e0 Nam",
     "country": "Vietnam"
   },
   {
-    "city": "Phagw\u0101ra",
+    "city": "Phagwara",
     "state": "Punjab",
     "country": "India"
   },
   {
-    "city": "Ph\u00fa Th\u1ecd",
+    "city": "Phu Tho",
     "state": "Ph\u00fa Th\u1ecd",
     "country": "Vietnam"
   },
@@ -65,7 +65,7 @@ export const phCities = [
     "country": "India"
   },
   {
-    "city": "Ph\u00fac Y\u00ean",
+    "city": "Phuc Yen",
     "state": "V\u0129nh Ph\u00fac",
     "country": "Vietnam"
   },
@@ -85,7 +85,7 @@ export const phCities = [
     "country": "Thailand"
   },
   {
-    "city": "Ph\u00fa Qu\u1ed1c",
+    "city": "Phu Quoc",
     "state": "Ki\u1ebfn Giang",
     "country": "Vietnam"
   },
@@ -110,12 +110,12 @@ export const phCities = [
     "country": "India"
   },
   {
-    "city": "Phan R\u00ed C\u1eeda",
+    "city": "Phan Ri Cua",
     "state": "B\u00ecnh Thu\u1eadn",
     "country": "Vietnam"
   },
   {
-    "city": "Phulw\u0101ria",
+    "city": "Phulwaria",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -125,12 +125,12 @@ export const phCities = [
     "country": "United States"
   },
   {
-    "city": "Ph\u00f4nsavan",
+    "city": "Phonsavan",
     "state": "Xiangkhouang",
     "country": "Laos"
   },
   {
-    "city": "Phulb\u0101ni",
+    "city": "Phulbani",
     "state": "Odisha",
     "country": "India"
   },
@@ -150,7 +150,7 @@ export const phCities = [
     "country": "Thailand"
   },
   {
-    "city": "Ph\u00fa M\u1ef9",
+    "city": "Phu My",
     "state": "B\u00e0 R\u1ecba-V\u0169ng T\u00e0u",
     "country": "Vietnam"
   },
@@ -170,7 +170,7 @@ export const phCities = [
     "country": "Bangladesh"
   },
   {
-    "city": "Ph\u00f4ngsali",
+    "city": "Phongsali",
     "state": "Ph\u00f4ngsali",
     "country": "Laos"
   },
@@ -240,7 +240,7 @@ export const phCities = [
     "country": "United States"
   },
   {
-    "city": "Phulw\u0101r",
+    "city": "Phulwar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -270,7 +270,7 @@ export const phCities = [
     "country": "India"
   },
   {
-    "city": "Ph\u01b0\u1edbc Long",
+    "city": "Phuoc Long",
     "state": "B\u1ea1c Li\u00eau",
     "country": "Vietnam"
   },
@@ -280,17 +280,17 @@ export const phCities = [
     "country": "Thailand"
   },
   {
-    "city": "Phulpar\u0101s",
+    "city": "Phulparas",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Phulg\u0101chhi",
+    "city": "Phulgachhi",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Phar\u0101ha",
+    "city": "Pharaha",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -335,7 +335,7 @@ export const phCities = [
     "country": "Thailand"
   },
   {
-    "city": "Phulm\u0101lik",
+    "city": "Phulmalik",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -380,7 +380,7 @@ export const phCities = [
     "country": "Thailand"
   },
   {
-    "city": "Phopn\u0101r Kal\u0101n",
+    "city": "Phopnar Kalan",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -395,7 +395,7 @@ export const phCities = [
     "country": "Sint Maarten"
   },
   {
-    "city": "Ph\u00f4n-H\u00f4ng",
+    "city": "Phon-Hong",
     "state": "Viangchan",
     "country": "Laos"
   }

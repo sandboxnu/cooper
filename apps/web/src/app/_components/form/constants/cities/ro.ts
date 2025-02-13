@@ -65,7 +65,7 @@ export const roCities = [
     "country": "United States"
   },
   {
-    "city": "Rondon\u00f3polis",
+    "city": "Rondonopolis",
     "state": "Mato Grosso",
     "country": "Brazil"
   },
@@ -150,7 +150,7 @@ export const roCities = [
     "country": "Spain"
   },
   {
-    "city": "Rob\u0101\u0163 Kar\u012bm",
+    "city": "Robat Karim",
     "state": "Tehr\u0101n",
     "country": "Iran"
   },
@@ -215,7 +215,7 @@ export const roCities = [
     "country": "China"
   },
   {
-    "city": "Rol\u00e2ndia",
+    "city": "Rolandia",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -305,12 +305,17 @@ export const roCities = [
     "country": "Netherlands"
   },
   {
+    "city": "Rodos",
+    "state": "N\u00f3tio Aiga\u00edo",
+    "country": "Greece"
+  },
+  {
     "city": "Rolim de Moura",
     "state": "Rond\u00f4nia",
     "country": "Brazil"
   },
   {
-    "city": "Rosh Ha\u2018Ayin",
+    "city": "Rosh Ha`Ayin",
     "state": "Central",
     "country": "Israel"
   },
@@ -335,7 +340,7 @@ export const roCities = [
     "country": "New Zealand"
   },
   {
-    "city": "Rondon do Par\u00e1",
+    "city": "Rondon do Para",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -425,7 +430,7 @@ export const roCities = [
     "country": "United States"
   },
   {
-    "city": "Rob\u0113",
+    "city": "Robe",
     "state": "Orom\u012bya",
     "country": "Ethiopia"
   },
@@ -485,7 +490,7 @@ export const roCities = [
     "country": "United States"
   },
   {
-    "city": "Ros\u00e1rio",
+    "city": "Rosario",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
@@ -505,7 +510,7 @@ export const roCities = [
     "country": "India"
   },
   {
-    "city": "Ros\u00e1rio do Sul",
+    "city": "Rosario do Sul",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -550,7 +555,7 @@ export const roCities = [
     "country": "United States"
   },
   {
-    "city": "Romans-sur-Is\u00e8re",
+    "city": "Romans-sur-Isere",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
@@ -585,7 +590,7 @@ export const roCities = [
     "country": "Ecuador"
   },
   {
-    "city": "Rodolfo S\u00e1nchez Taboada",
+    "city": "Rodolfo Sanchez Taboada",
     "state": "Baja California",
     "country": "Mexico"
   },
@@ -608,6 +613,11 @@ export const roCities = [
     "city": "Rota",
     "state": "Andalusia",
     "country": "Spain"
+  },
+  {
+    "city": "Rosrath",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
   },
   {
     "city": "Roseaux",
@@ -740,12 +750,17 @@ export const roCities = [
     "country": "Nicaragua"
   },
   {
+    "city": "Royken",
+    "state": "Viken",
+    "country": "Norway"
+  },
+  {
     "city": "Roselle",
     "state": "New Jersey",
     "country": "United States"
   },
   {
-    "city": "Ro\u015fiori de Vede",
+    "city": "Rosiori de Vede",
     "state": "Teleorman",
     "country": "Romania"
   },
@@ -870,12 +885,12 @@ export const roCities = [
     "country": "United States"
   },
   {
-    "city": "Roh\u0101r",
+    "city": "Rohar",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Rosenda\u00ebl",
+    "city": "Rosendael",
     "state": "Hauts-de-France",
     "country": "France"
   },
@@ -890,7 +905,7 @@ export const roCities = [
     "country": "United States"
   },
   {
-    "city": "Ro\u017e\u0148ava",
+    "city": "Roznava",
     "state": "Ko\u0161ice",
     "country": "Slovakia"
   },
@@ -920,7 +935,7 @@ export const roCities = [
     "country": "Costa Rica"
   },
   {
-    "city": "Roche-\u00e0-Bateau",
+    "city": "Roche-a-Bateau",
     "state": "Sud",
     "country": "Haiti"
   },
@@ -935,12 +950,12 @@ export const roCities = [
     "country": "New Zealand"
   },
   {
-    "city": "Ro\u017enov pod Radho\u0161t\u011bm",
+    "city": "Roznov pod Radhostem",
     "state": "Zl\u00ednsk\u00fd Kraj",
     "country": "Czechia"
   },
   {
-    "city": "Ro\u015fu",
+    "city": "Rosu",
     "state": "Bucure\u015fti",
     "country": "Romania"
   },
@@ -955,7 +970,7 @@ export const roCities = [
     "country": "United States"
   },
   {
-    "city": "Ros\u00e1rio Oeste",
+    "city": "Rosario Oeste",
     "state": "Mato Grosso",
     "country": "Brazil"
   },
@@ -1005,7 +1020,7 @@ export const roCities = [
     "country": "Dominica"
   },
   {
-    "city": "Ros\u00e0",
+    "city": "Rosa",
     "state": "Veneto",
     "country": "Italy"
   },
@@ -1050,7 +1065,7 @@ export const roCities = [
     "country": "Uzbekistan"
   },
   {
-    "city": "Rold\u00e1n",
+    "city": "Roldan",
     "state": "Santa Fe",
     "country": "Argentina"
   },
@@ -1060,7 +1075,7 @@ export const roCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Rosem\u00e8re",
+    "city": "Rosemere",
     "state": "Quebec",
     "country": "Canada"
   },
@@ -1080,6 +1095,11 @@ export const roCities = [
     "country": "United States"
   },
   {
+    "city": "Ronne",
+    "state": "Hovedstaden",
+    "country": "Denmark"
+  },
+  {
     "city": "Roncq",
     "state": "Hauts-de-France",
     "country": "France"
@@ -1090,7 +1110,7 @@ export const roCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Rostam\u0101b\u0101d",
+    "city": "Rostamabad",
     "state": "G\u012bl\u0101n",
     "country": "Iran"
   },
@@ -1105,7 +1125,7 @@ export const roCities = [
     "country": "Canada"
   },
   {
-    "city": "Ro\u017eaje",
+    "city": "Rozaje",
     "state": "Ro\u017eaje",
     "country": "Montenegro"
   },
@@ -1135,8 +1155,13 @@ export const roCities = [
     "country": "United States"
   },
   {
-    "city": "Rosbach vor der H\u00f6he",
+    "city": "Rosbach vor der Hohe",
     "state": "Hesse",
+    "country": "Germany"
+  },
+  {
+    "city": "Rodental",
+    "state": "Bavaria",
     "country": "Germany"
   },
   {
@@ -1155,7 +1180,7 @@ export const roCities = [
     "country": "Croatia"
   },
   {
-    "city": "Ro\u00dfdorf",
+    "city": "Rossdorf",
     "state": "Hesse",
     "country": "Germany"
   },
@@ -1203,6 +1228,11 @@ export const roCities = [
     "city": "Rong Kwang",
     "state": "Phrae",
     "country": "Thailand"
+  },
+  {
+    "city": "Rothenbach an der Pegnitz",
+    "state": "Bavaria",
+    "country": "Germany"
   },
   {
     "city": "Rozhyshche",
@@ -1265,17 +1295,17 @@ export const roCities = [
     "country": "United States"
   },
   {
-    "city": "Rostam Kol\u0101",
+    "city": "Rostam Kola",
     "state": "M\u0101zandar\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Roki\u0161kis",
+    "city": "Rokiskis",
     "state": "Roki\u0161kis",
     "country": "Lithuania"
   },
   {
-    "city": "Ross-B\u00e9tio",
+    "city": "Ross-Betio",
     "state": "Saint-Louis",
     "country": "Senegal"
   },
@@ -1330,7 +1360,7 @@ export const roCities = [
     "country": "India"
   },
   {
-    "city": "Rogo\u017ano",
+    "city": "Rogozno",
     "state": "Wielkopolskie",
     "country": "Poland"
   },
@@ -1345,7 +1375,7 @@ export const roCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Roque P\u00e9rez",
+    "city": "Roque Perez",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -1440,12 +1470,12 @@ export const roCities = [
     "country": "Japan"
   },
   {
-    "city": "Robor\u00e9",
+    "city": "Robore",
     "state": "Santa Cruz",
     "country": "Bolivia"
   },
   {
-    "city": "Ro\u00dftal",
+    "city": "Rosstal",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -1465,7 +1495,12 @@ export const roCities = [
     "country": "United States"
   },
   {
-    "city": "Roche-la-Moli\u00e8re",
+    "city": "Rodinghausen",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
+  },
+  {
+    "city": "Roche-la-Moliere",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
   },
@@ -1515,7 +1550,7 @@ export const roCities = [
     "country": "Uruguay"
   },
   {
-    "city": "Ros\u00e1rio do Catete",
+    "city": "Rosario do Catete",
     "state": "Sergipe",
     "country": "Brazil"
   },
@@ -1620,7 +1655,7 @@ export const roCities = [
     "country": "Germany"
   },
   {
-    "city": "Ros Com\u00e1in",
+    "city": "Ros Comain",
     "state": "Roscommon",
     "country": "Ireland"
   },
@@ -1630,12 +1665,12 @@ export const roCities = [
     "country": "Australia"
   },
   {
-    "city": "Roga\u0161ka Slatina",
+    "city": "Rogaska Slatina",
     "state": "Roga\u0161ka Slatina",
     "country": "Slovenia"
   },
   {
-    "city": "Roat\u00e1n",
+    "city": "Roatan",
     "state": "Islas de la Bah\u00eda",
     "country": "Honduras"
   },
@@ -1645,7 +1680,12 @@ export const roCities = [
     "country": "Liberia"
   },
   {
-    "city": "Roga\u0161ovci",
+    "city": "Rorvik",
+    "state": "Tr\u00f8ndelag",
+    "country": "Norway"
+  },
+  {
+    "city": "Rogasovci",
     "state": "Roga\u0161ovci",
     "country": "Slovenia"
   },
@@ -1665,7 +1705,7 @@ export const roCities = [
     "country": "French Guiana"
   },
   {
-    "city": "Ropa\u017ei",
+    "city": "Ropazi",
     "state": "Ropa\u017ei",
     "country": "Latvia"
   },
@@ -1675,7 +1715,7 @@ export const roCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Rostu\u0161a",
+    "city": "Rostusa",
     "state": "Mavrovo i Rostu\u0161e",
     "country": "North Macedonia"
   },

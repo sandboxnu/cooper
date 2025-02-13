@@ -25,7 +25,7 @@ export const glCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Glazou\u00e9",
+    "city": "Glazoue",
     "state": "Collines",
     "country": "Benin"
   },
@@ -40,7 +40,7 @@ export const glCities = [
     "country": "Russia"
   },
   {
-    "city": "Glyf\u00e1da",
+    "city": "Glyfada",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -63,6 +63,11 @@ export const glCities = [
     "city": "Gloucester",
     "state": "New Jersey",
     "country": "United States"
+  },
+  {
+    "city": "Glogow",
+    "state": "Dolno\u015bl\u0105skie",
+    "country": "Poland"
   },
   {
     "city": "Gllogovc",
@@ -115,7 +120,7 @@ export const glCities = [
     "country": "United States"
   },
   {
-    "city": "Gl\u00f3ria do Goit\u00e1",
+    "city": "Gloria do Goita",
     "state": "Pernambuco",
     "country": "Brazil"
   },
@@ -200,7 +205,7 @@ export const glCities = [
     "country": "United States"
   },
   {
-    "city": "Gl\u00f3ria",
+    "city": "Gloria",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -240,9 +245,19 @@ export const glCities = [
     "country": "United States"
   },
   {
+    "city": "Glowno",
+    "state": "\u0141\u00f3dzkie",
+    "country": "Poland"
+  },
+  {
     "city": "Glendale",
     "state": "Wisconsin",
     "country": "United States"
+  },
+  {
+    "city": "Glucholazy",
+    "state": "Opolskie",
+    "country": "Poland"
   },
   {
     "city": "Gland",
@@ -253,6 +268,11 @@ export const glCities = [
     "city": "Gladenbach",
     "state": "Hesse",
     "country": "Germany"
+  },
+  {
+    "city": "Glubczyce",
+    "state": "Opolskie",
+    "country": "Poland"
   },
   {
     "city": "Glen Rock",
@@ -270,7 +290,7 @@ export const glCities = [
     "country": "United States"
   },
   {
-    "city": "Glyk\u00e1 Ner\u00e1",
+    "city": "Glyka Nera",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
@@ -280,7 +300,7 @@ export const glCities = [
     "country": "United States"
   },
   {
-    "city": "Gl\u00fcckstadt",
+    "city": "Gluckstadt",
     "state": "Schleswig-Holstein",
     "country": "Germany"
   },
@@ -288,6 +308,11 @@ export const glCities = [
     "city": "Gleisdorf",
     "state": "Steiermark",
     "country": "Austria"
+  },
+  {
+    "city": "Glogow Malopolski",
+    "state": "Podkarpackie",
+    "country": "Poland"
   },
   {
     "city": "Glenwood Springs",

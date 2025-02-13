@@ -10,7 +10,7 @@ export const qaCities = [
     "country": "Kazakhstan"
   },
   {
-    "city": "Qazv\u012bn",
+    "city": "Qazvin",
     "state": "Qazv\u012bn",
     "country": "Iran"
   },
@@ -25,17 +25,22 @@ export const qaCities = [
     "country": "Uzbekistan"
   },
   {
+    "city": "Qa'em Shahr",
+    "state": "M\u0101zandar\u0101n",
+    "country": "Iran"
+  },
+  {
     "city": "Qarchak",
     "state": "Tehr\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Qal\u2018at B\u012bshah",
+    "city": "Qal`at Bishah",
     "state": "\u2018As\u012br",
     "country": "Saudi Arabia"
   },
   {
-    "city": "Qaly\u016bb",
+    "city": "Qalyub",
     "state": "Al Qaly\u016bb\u012byah",
     "country": "Egypt"
   },
@@ -45,12 +50,12 @@ export const qaCities = [
     "country": "Syria"
   },
   {
-    "city": "Qal\u2018at Sukkar",
+    "city": "Qal`at Sukkar",
     "state": "Dh\u012b Q\u0101r",
     "country": "Iraq"
   },
   {
-    "city": "Qara\u00e7uxur",
+    "city": "Qaracuxur",
     "state": "Bak\u0131",
     "country": "Azerbaijan"
   },
@@ -60,7 +65,7 @@ export const qaCities = [
     "country": "China"
   },
   {
-    "city": "Qal\u2018ah-ye Now",
+    "city": "Qal`ah-ye Now",
     "state": "B\u0101dgh\u012bs",
     "country": "Afghanistan"
   },
@@ -75,17 +80,17 @@ export const qaCities = [
     "country": "China"
   },
   {
-    "city": "Qalq\u012blyah",
+    "city": "Qalqilyah",
     "state": NaN,
     "country": "West Bank"
   },
   {
-    "city": "Qabb Eli\u00e2s",
+    "city": "Qabb Elias",
     "state": "B\u00e9qaa",
     "country": "Lebanon"
   },
   {
-    "city": "Qal\u0101t",
+    "city": "Qalat",
     "state": "Z\u0101bul",
     "country": "Afghanistan"
   },
@@ -100,9 +105,19 @@ export const qaCities = [
     "country": "Kazakhstan"
   },
   {
+    "city": "Qa'en",
+    "state": "Khor\u0101s\u0101n-e Jon\u016bb\u012b",
+    "country": "Iran"
+  },
+  {
     "city": "Qapshaghay",
     "state": "Almaty",
     "country": "Kazakhstan"
+  },
+  {
+    "city": "Qadian",
+    "state": "Punjab",
+    "country": "India"
   },
   {
     "city": "Qaratog",
@@ -110,7 +125,7 @@ export const qaCities = [
     "country": "Tajikistan"
   },
   {
-    "city": "Qal\u0101dizay",
+    "city": "Qaladizay",
     "state": "As Sulaym\u0101n\u012byah",
     "country": "Iraq"
   },
@@ -120,37 +135,47 @@ export const qaCities = [
     "country": "Azerbaijan"
   },
   {
-    "city": "Qa\u015fr al Qarab\u016bll\u012b",
+    "city": "Qasr al Qarabulli",
     "state": "\u0162ar\u0101bulus",
     "country": "Libya"
   },
   {
-    "city": "Qadsayy\u0101",
+    "city": "Qadsayya",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
   },
   {
-    "city": "Qarata\u016b",
+    "city": "Qara",
+    "state": "Al Jawf",
+    "country": "Saudi Arabia"
+  },
+  {
+    "city": "Qaratau",
     "state": "Zhambyl",
     "country": "Kazakhstan"
   },
   {
-    "city": "Qahder\u012bj\u0101n",
+    "city": "Qahderijan",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Qarah \u1e94\u012b\u0101\u2019 od D\u012bn",
+    "city": "Qa'emiyeh",
+    "state": "F\u0101rs",
+    "country": "Iran"
+  },
+  {
+    "city": "Qarah Zia' od Din",
     "state": "\u0100z\u0304arb\u0101yj\u0101n-e Gharb\u012b",
     "country": "Iran"
   },
   {
-    "city": "Qah\u0101",
+    "city": "Qaha",
     "state": "Al Qaly\u016bb\u012byah",
     "country": "Egypt"
   },
   {
-    "city": "Qab\u0101\u0163\u012byah",
+    "city": "Qabatiyah",
     "state": NaN,
     "country": "West Bank"
   },
@@ -160,7 +185,7 @@ export const qaCities = [
     "country": "Pakistan"
   },
   {
-    "city": "Qa\u0163an\u0101",
+    "city": "Qatana",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
   },
@@ -175,7 +200,12 @@ export const qaCities = [
     "country": "China"
   },
   {
-    "city": "Qal\u2019acha",
+    "city": "Qadirganj",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Qal'acha",
     "state": "Sughd",
     "country": "Tajikistan"
   },
@@ -195,32 +225,32 @@ export const qaCities = [
     "country": "Somalia"
   },
   {
-    "city": "Qaryat al Q\u012b\u2018\u0101n",
+    "city": "Qaryat al Qi`an",
     "state": "N\u0101l\u016bt",
     "country": "Libya"
   },
   {
-    "city": "Qa\u015fr-e Sh\u012br\u012bn",
+    "city": "Qasr-e Shirin",
     "state": "Kerm\u0101nsh\u0101h",
     "country": "Iran"
   },
   {
-    "city": "Qatl\u016bpur",
+    "city": "Qatlupur",
     "state": "Delhi",
     "country": "India"
   },
   {
-    "city": "Qal\u2018ah-ye Z\u0101l",
+    "city": "Qal`ah-ye Zal",
     "state": "Kunduz",
     "country": "Afghanistan"
   },
   {
-    "city": "Qal\u2019at Mgouna",
+    "city": "Qal'at Mgouna",
     "state": "Dr\u00e2a-Tafilalet",
     "country": "Morocco"
   },
   {
-    "city": "Qarq\u012bn",
+    "city": "Qarqin",
     "state": "Jowzj\u0101n",
     "country": "Afghanistan"
   },
@@ -235,7 +265,7 @@ export const qaCities = [
     "country": "Azerbaijan"
   },
   {
-    "city": "Qaryat Sul\u016bq",
+    "city": "Qaryat Suluq",
     "state": "Bangh\u0101z\u012b",
     "country": "Libya"
   },
@@ -245,17 +275,17 @@ export const qaCities = [
     "country": "Kazakhstan"
   },
   {
-    "city": "Qant\u012br",
+    "city": "Qantir",
     "state": "Ash Sharq\u012byah",
     "country": "Egypt"
   },
   {
-    "city": "Qal\u2018eh Ganj",
+    "city": "Qal`eh Ganj",
     "state": "Kerm\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Qal\u2018at al Ma\u1e11\u012bq",
+    "city": "Qal`at al Madiq",
     "state": "\u1e28am\u0101h",
     "country": "Syria"
   },
@@ -265,7 +295,12 @@ export const qaCities = [
     "country": "Azerbaijan"
   },
   {
-    "city": "Qa\u015fr-e Qand",
+    "city": "Qarah",
+    "state": "R\u012bf Dimashq",
+    "country": "Syria"
+  },
+  {
+    "city": "Qasr-e Qand",
     "state": "S\u012bst\u0101n va Bal\u016bchest\u0101n",
     "country": "Iran"
   },
@@ -275,34 +310,49 @@ export const qaCities = [
     "country": "Azerbaijan"
   },
   {
-    "city": "Qal\u2018at an Nakhl",
+    "city": "Qal`at an Nakhl",
     "state": "Sham\u0101l S\u012bn\u0101\u2019",
     "country": "Egypt"
   },
   {
-    "city": "Qa\u015fr-e Qomsheh",
+    "city": "Qasr-e Qomsheh",
     "state": "F\u0101rs",
     "country": "Iran"
   },
   {
-    "city": "Qal\u2018eh Chan\u2018\u0101n",
+    "city": "Qal`eh Chan`an",
     "state": "Kh\u016bzest\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Qam\u012bnis",
+    "city": "Qaminis",
     "state": "Bangh\u0101z\u012b",
     "country": "Libya"
   },
   {
-    "city": "Qal\u2018eh Tall",
+    "city": "Qal`eh Tall",
     "state": "Kh\u016bzest\u0101n",
     "country": "Iran"
   },
   {
-    "city": "Qanliko\u2018l",
+    "city": "Qari Kola-ye Arateh",
+    "state": "M\u0101zandar\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Qanliko`l",
     "state": "Qoraqalpog\u2018iston",
     "country": "Uzbekistan"
+  },
+  {
+    "city": "Qana",
+    "state": "Liban-Sud",
+    "country": "Lebanon"
+  },
+  {
+    "city": "Qazigund",
+    "state": "Jammu and Kashm\u012br",
+    "country": "India"
   },
   {
     "city": "Qarabalyq",
@@ -310,7 +360,7 @@ export const qaCities = [
     "country": "Kazakhstan"
   },
   {
-    "city": "Qahj\u0101varest\u0101n",
+    "city": "Qahjavarestan",
     "state": "E\u015ffah\u0101n",
     "country": "Iran"
   },
@@ -335,7 +385,7 @@ export const qaCities = [
     "country": "Kazakhstan"
   },
   {
-    "city": "Qa\u015fr al Far\u0101firah",
+    "city": "Qasr al Farafirah",
     "state": "Al W\u0101d\u012b al Jad\u012bd",
     "country": "Egypt"
   },
@@ -360,8 +410,13 @@ export const qaCities = [
     "country": "Greenland"
   },
   {
-    "city": "Qacha\u2019s Nek",
+    "city": "Qacha's Nek",
     "state": "Qacha\u2019s Nek",
     "country": "Lesotho"
+  },
+  {
+    "city": "Qabala",
+    "state": "Q\u0259b\u0259l\u0259",
+    "country": "Azerbaijan"
   }
 ]

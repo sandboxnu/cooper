@@ -5,12 +5,12 @@ export const tvCities = [
     "country": "Russia"
   },
   {
-    "city": "Tvrdo\u0161\u00edn",
+    "city": "Tvrdosin",
     "state": "\u017dilina",
     "country": "Slovakia"
   },
   {
-    "city": "Tv\u00f8royri",
+    "city": "Tvoroyri",
     "state": "Tv\u00f8royri",
     "country": "Faroe Islands"
   }

@@ -10,7 +10,7 @@ export const oeCities = [
     "country": "Brazil"
   },
   {
-    "city": "Oeiras do Par\u00e1",
+    "city": "Oeiras do Para",
     "state": "Par\u00e1",
     "country": "Brazil"
   },

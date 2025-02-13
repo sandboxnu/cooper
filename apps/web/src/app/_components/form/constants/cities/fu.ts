@@ -40,7 +40,7 @@ export const fuCities = [
     "country": "China"
   },
   {
-    "city": "Fu\u2019an",
+    "city": "Fu'an",
     "state": "Fujian",
     "country": "China"
   },
@@ -80,7 +80,7 @@ export const fuCities = [
     "country": "Japan"
   },
   {
-    "city": "Fuch\u016b",
+    "city": "Fuchu",
     "state": "T\u014dky\u014d",
     "country": "Japan"
   },
@@ -100,7 +100,7 @@ export const fuCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Fusagasug\u00e1",
+    "city": "Fusagasuga",
     "state": "Cundinamarca",
     "country": "Colombia"
   },
@@ -120,9 +120,14 @@ export const fuCities = [
     "country": "United States"
   },
   {
-    "city": "Fukayach\u014d",
+    "city": "Fukayacho",
     "state": "Saitama",
     "country": "Japan"
+  },
+  {
+    "city": "Furth",
+    "state": "Bavaria",
+    "country": "Germany"
   },
   {
     "city": "Fuyuan",
@@ -135,7 +140,7 @@ export const fuCities = [
     "country": "China"
   },
   {
-    "city": "Fulg\u0101zi",
+    "city": "Fulgazi",
     "state": "Chattogram",
     "country": "Bangladesh"
   },
@@ -160,7 +165,7 @@ export const fuCities = [
     "country": "Colombia"
   },
   {
-    "city": "Fundaci\u00f3n",
+    "city": "Fundacion",
     "state": "Magdalena",
     "country": "Colombia"
   },
@@ -230,7 +235,7 @@ export const fuCities = [
     "country": "Japan"
   },
   {
-    "city": "Fuch\u016b",
+    "city": "Fuchu",
     "state": "Hiroshima",
     "country": "Japan"
   },
@@ -250,12 +255,17 @@ export const fuCities = [
     "country": "Japan"
   },
   {
-    "city": "Fush\u00eb Kosov\u00eb",
+    "city": "Fushe Kosove",
     "state": "Fush\u00eb Kosov\u00eb",
     "country": "Kosovo"
   },
   {
-    "city": "Fuch\u016bch\u014d",
+    "city": "Furstenfeldbruck",
+    "state": "Bavaria",
+    "country": "Germany"
+  },
+  {
+    "city": "Fuchucho",
     "state": "Hiroshima",
     "country": "Japan"
   },
@@ -265,7 +275,7 @@ export const fuCities = [
     "country": "United States"
   },
   {
-    "city": "Fus\u014d",
+    "city": "Fuso",
     "state": "Aichi",
     "country": "Japan"
   },
@@ -280,6 +290,11 @@ export const fuCities = [
     "country": "Russia"
   },
   {
+    "city": "Furstenwalde",
+    "state": "Brandenburg",
+    "country": "Germany"
+  },
+  {
     "city": "Fucheng",
     "state": "Gansu",
     "country": "China"
@@ -290,9 +305,14 @@ export const fuCities = [
     "country": "Portugal"
   },
   {
-    "city": "Fund\u00e3o",
+    "city": "Fundao",
     "state": "Castelo Branco",
     "country": "Portugal"
+  },
+  {
+    "city": "Fuman",
+    "state": "G\u012bl\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Fujikawaguchiko",
@@ -350,7 +370,7 @@ export const fuCities = [
     "country": "Serbia"
   },
   {
-    "city": "Fush\u00eb-Kruj\u00eb",
+    "city": "Fushe-Kruje",
     "state": "Durr\u00ebs",
     "country": "Albania"
   },
@@ -360,12 +380,12 @@ export const fuCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Fuente-\u00c1lamo de Murcia",
+    "city": "Fuente-Alamo de Murcia",
     "state": "Murcia",
     "country": "Spain"
   },
   {
-    "city": "Fund\u00e3o",
+    "city": "Fundao",
     "state": "Esp\u00edrito Santo",
     "country": "Brazil"
   },
@@ -390,7 +410,12 @@ export const fuCities = [
     "country": "United States"
   },
   {
-    "city": "Funyan B\u012bra",
+    "city": "Fussen",
+    "state": "Bavaria",
+    "country": "Germany"
+  },
+  {
+    "city": "Funyan Bira",
     "state": "Orom\u012bya",
     "country": "Ethiopia"
   },
@@ -450,6 +475,11 @@ export const fuCities = [
     "country": "United States"
   },
   {
+    "city": "Furth",
+    "state": "Hesse",
+    "country": "Germany"
+  },
+  {
     "city": "Fujino",
     "state": "Kanagawa",
     "country": "Japan"
@@ -475,12 +505,17 @@ export const fuCities = [
     "country": "United States"
   },
   {
+    "city": "Furstenau",
+    "state": "Lower Saxony",
+    "country": "Germany"
+  },
+  {
     "city": "Fuli",
     "state": "Hualien",
     "country": "Taiwan"
   },
   {
-    "city": "Fujisawach\u014d-niinuma",
+    "city": "Fujisawacho-niinuma",
     "state": "Iwate",
     "country": "Japan"
   },
@@ -495,7 +530,7 @@ export const fuCities = [
     "country": "Germany"
   },
   {
-    "city": "Fuldabr\u00fcck",
+    "city": "Fuldabruck",
     "state": "Hesse",
     "country": "Germany"
   },
@@ -503,6 +538,11 @@ export const fuCities = [
     "city": "Fully",
     "state": "Valais",
     "country": "Switzerland"
+  },
+  {
+    "city": "Furstenfeld",
+    "state": "Steiermark",
+    "country": "Austria"
   },
   {
     "city": "Funafuti",
@@ -530,7 +570,12 @@ export const fuCities = [
     "country": "China"
   },
   {
-    "city": "Fuglafj\u00f8r\u00f0ur",
+    "city": "Fuzuli",
+    "state": "F\u00fczuli",
+    "country": "Azerbaijan"
+  },
+  {
+    "city": "Fuglafjordhur",
     "state": "Fuglafjar\u00f0ur",
     "country": "Faroe Islands"
   }

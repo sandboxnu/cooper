@@ -60,7 +60,7 @@ export const smCities = [
     "country": "United States"
   },
   {
-    "city": "Sm\u00f8rumnedre",
+    "city": "Smorumnedre",
     "state": "Hovedstaden",
     "country": "Denmark"
   },
@@ -100,7 +100,7 @@ export const smCities = [
     "country": "United States"
   },
   {
-    "city": "Smi\u017eany",
+    "city": "Smizany",
     "state": "Ko\u0161ice",
     "country": "Slovakia"
   },
@@ -118,5 +118,25 @@ export const smCities = [
     "city": "Smithton",
     "state": "Tasmania",
     "country": "Australia"
+  },
+  {
+    "city": "Smarje",
+    "state": "\u0160marje pri Jel\u0161ah",
+    "country": "Slovenia"
+  },
+  {
+    "city": "Smartno",
+    "state": "\u0160martno pri Litiji",
+    "country": "Slovenia"
+  },
+  {
+    "city": "Smartno",
+    "state": "\u0160martno ob Paki",
+    "country": "Slovenia"
+  },
+  {
+    "city": "Smarjeske Toplice",
+    "state": "\u0160marje\u0161ke Toplice",
+    "country": "Slovenia"
   }
 ]

@@ -25,7 +25,7 @@ export const icCities = [
     "country": "Japan"
   },
   {
-    "city": "Ich\u2019\u014fn",
+    "city": "Ich'on",
     "state": "Gyeonggi",
     "country": "Korea, South"
   },
@@ -35,12 +35,17 @@ export const icCities = [
     "country": "Japan"
   },
   {
-    "city": "Ic\u00f3",
+    "city": "Ico",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Ichch\u0101puram",
+    "city": "Icara",
+    "state": "Santa Catarina",
+    "country": "Brazil"
+  },
+  {
+    "city": "Ichchapuram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -60,7 +65,7 @@ export const icCities = [
     "country": "Spain"
   },
   {
-    "city": "Icapu\u00ed",
+    "city": "Icapui",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -90,7 +95,7 @@ export const icCities = [
     "country": "Japan"
   },
   {
-    "city": "Ichh\u0101pur",
+    "city": "Ichhapur",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -130,7 +135,7 @@ export const icCities = [
     "country": "Germany"
   },
   {
-    "city": "Icara\u00edma",
+    "city": "Icaraima",
     "state": "Paran\u00e1",
     "country": "Brazil"
   }

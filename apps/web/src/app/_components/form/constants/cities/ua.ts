@@ -10,7 +10,7 @@ export const uaCities = [
     "country": "Somalia"
   },
   {
-    "city": "Uau\u00e1",
+    "city": "Uaua",
     "state": "Bahia",
     "country": "Brazil"
   },

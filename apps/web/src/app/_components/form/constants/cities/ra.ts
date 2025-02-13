@@ -10,9 +10,24 @@ export const raCities = [
     "country": "Pakistan"
   },
   {
+    "city": "Rajkot",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
+    "city": "Rajshahi",
+    "state": "R\u0101jsh\u0101hi",
+    "country": "Bangladesh"
+  },
+  {
     "city": "Raleigh",
     "state": "North Carolina",
     "country": "United States"
+  },
+  {
+    "city": "Ranchi",
+    "state": "Jh\u0101rkhand",
+    "country": "India"
   },
   {
     "city": "Rangapukur",
@@ -45,13 +60,23 @@ export const raCities = [
     "country": "Pakistan"
   },
   {
+    "city": "Rajahmundry",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Randburg",
     "state": "Gauteng",
     "country": "South Africa"
   },
   {
-    "city": "Ratn\u0101giri",
+    "city": "Ratnagiri",
     "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
+    "city": "Rampur",
+    "state": "Uttar Pradesh",
     "country": "India"
   },
   {
@@ -60,8 +85,43 @@ export const raCities = [
     "country": "Bangladesh"
   },
   {
-    "city": "Ratl\u0101m",
+    "city": "Ratlam",
     "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Raniyah",
+    "state": "As Sulaym\u0101n\u012byah",
+    "country": "Iraq"
+  },
+  {
+    "city": "Rapar",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
+    "city": "Rach Gia",
+    "state": "Ki\u1ebfn Giang",
+    "country": "Vietnam"
+  },
+  {
+    "city": "Ras el-Barr",
+    "state": "Ad Daqahl\u012byah",
+    "country": "Egypt"
+  },
+  {
+    "city": "Ramnagar",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Ramgundam",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Raichur",
+    "state": "Karn\u0101taka",
     "country": "India"
   },
   {
@@ -70,9 +130,19 @@ export const raCities = [
     "country": "Chile"
   },
   {
+    "city": "Raisinghnagar",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
     "city": "Ratodero",
     "state": "Sindh",
     "country": "Pakistan"
+  },
+  {
+    "city": "Raniwara Kalan",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
   },
   {
     "city": "Radom",
@@ -80,13 +150,33 @@ export const raCities = [
     "country": "Poland"
   },
   {
+    "city": "Rani",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
     "city": "Rajin",
     "state": "Ras\u014fn",
     "country": "Korea, North"
   },
   {
+    "city": "Rae Bareli",
+    "state": "Uttar Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Rajendranagar",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
     "city": "Ratanpur",
     "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
+    "city": "Raiganj",
+    "state": "West Bengal",
     "country": "India"
   },
   {
@@ -100,7 +190,7 @@ export const raCities = [
     "country": "United States"
   },
   {
-    "city": "Rafa\u1e29",
+    "city": "Rafah",
     "state": NaN,
     "country": "Gaza Strip"
   },
@@ -110,9 +200,14 @@ export const raCities = [
     "country": "Sri Lanka"
   },
   {
-    "city": "Rafsanj\u0101n",
+    "city": "Rafsanjan",
     "state": "Kerm\u0101n",
     "country": "Iran"
+  },
+  {
+    "city": "Rajapalaiyam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Ramat Gan",
@@ -155,7 +250,7 @@ export const raCities = [
     "country": "United States"
   },
   {
-    "city": "Ramos Mej\u00eda",
+    "city": "Ramos Mejia",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -165,7 +260,7 @@ export const raCities = [
     "country": "Russia"
   },
   {
-    "city": "Ra\u2019s al Khaymah",
+    "city": "Ra's al Khaymah",
     "state": "Ra\u2019s al Khaymah",
     "country": "United Arab Emirates"
   },
@@ -180,17 +275,37 @@ export const raCities = [
     "country": "Indonesia"
   },
   {
+    "city": "Rajpura",
+    "state": "Punjab",
+    "country": "India"
+  },
+  {
+    "city": "Ranibennur",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
     "city": "Raba",
     "state": "Nusa Tenggara Barat",
     "country": "Indonesia"
   },
   {
-    "city": "Ra\u2019s Gh\u0101rib",
+    "city": "Raneswar",
+    "state": "Jh\u0101rkhand",
+    "country": "India"
+  },
+  {
+    "city": "Ra's Gharib",
     "state": "Al Ba\u1e29r al A\u1e29mar",
     "country": "Egypt"
   },
   {
-    "city": "Rad\u00e8s",
+    "city": "Ramnagar",
+    "state": "Uttar\u0101khand",
+    "country": "India"
+  },
+  {
+    "city": "Rades",
     "state": "Ben Arous",
     "country": "Tunisia"
   },
@@ -200,9 +315,14 @@ export const raCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Raw\u0101nduz",
+    "city": "Rawanduz",
     "state": "Arb\u012bl",
     "country": "Iraq"
+  },
+  {
+    "city": "Ramnicu Valcea",
+    "state": "V\u00e2lcea",
+    "country": "Romania"
   },
   {
     "city": "Rafaela",
@@ -215,6 +335,21 @@ export const raCities = [
     "country": "Malaysia"
   },
   {
+    "city": "Rayachoti",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Ramagiri Udayagiri",
+    "state": "Odisha",
+    "country": "India"
+  },
+  {
+    "city": "Rasipuram",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Rapid City",
     "state": "South Dakota",
     "country": "United States"
@@ -225,12 +360,12 @@ export const raCities = [
     "country": "Germany"
   },
   {
-    "city": "Raf\u1e29\u0101",
+    "city": "Rafha",
     "state": "Al \u1e28ud\u016bd ash Sham\u0101l\u012byah",
     "country": "Saudi Arabia"
   },
   {
-    "city": "Rafa\u1e29",
+    "city": "Rafah",
     "state": "Sham\u0101l S\u012bn\u0101\u2019",
     "country": "Egypt"
   },
@@ -245,7 +380,7 @@ export const raCities = [
     "country": "United States"
   },
   {
-    "city": "Ra\u2019s al Khafj\u012b",
+    "city": "Ra's al Khafji",
     "state": "Ash Sharq\u012byah",
     "country": "Saudi Arabia"
   },
@@ -255,7 +390,17 @@ export const raCities = [
     "country": "Israel"
   },
   {
-    "city": "Ra\u2018ananna",
+    "city": "Ranaghat",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
+    "city": "Ramhormoz",
+    "state": "Kh\u016bzest\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Ra`ananna",
     "state": "Central",
     "country": "Israel"
   },
@@ -263,6 +408,16 @@ export const raCities = [
     "city": "Ragusa",
     "state": "Sicilia",
     "country": "Italy"
+  },
+  {
+    "city": "Rayadrug",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Rayagada",
+    "state": "Odisha",
+    "country": "India"
   },
   {
     "city": "Ratangarh",
@@ -285,9 +440,19 @@ export const raCities = [
     "country": "Nepal"
   },
   {
+    "city": "Rajsamand",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
     "city": "Ramos Arizpe",
     "state": "Coahuila",
     "country": "Mexico"
+  },
+  {
+    "city": "Rath",
+    "state": "Uttar Pradesh",
+    "country": "India"
   },
   {
     "city": "Rahat",
@@ -300,9 +465,19 @@ export const raCities = [
     "country": "Denmark"
   },
   {
+    "city": "Ranipet",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Ras Tanura",
     "state": "Ash Sharq\u012byah",
     "country": "Saudi Arabia"
+  },
+  {
+    "city": "Raghogarh",
+    "state": "Madhya Pradesh",
+    "country": "India"
   },
   {
     "city": "Rayong",
@@ -310,9 +485,24 @@ export const raCities = [
     "country": "Thailand"
   },
   {
+    "city": "Ramanathapuram",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Razampeta",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Ragay",
     "state": "Camarines Sur",
     "country": "Philippines"
+  },
+  {
+    "city": "Rajgarh",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
   },
   {
     "city": "Raharpur",
@@ -323,6 +513,11 @@ export const raCities = [
     "city": "Rass el Djebel",
     "state": "Bizerte",
     "country": "Tunisia"
+  },
+  {
+    "city": "Rampur Hat",
+    "state": "West Bengal",
+    "country": "India"
   },
   {
     "city": "Ramon",
@@ -350,9 +545,19 @@ export const raCities = [
     "country": "Pakistan"
   },
   {
+    "city": "Rahuri",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
     "city": "Ravensburg",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
+  },
+  {
+    "city": "Ras el Oued",
+    "state": "Bordj Bou Arr\u00e9ridj",
+    "country": "Algeria"
   },
   {
     "city": "Rastatt",
@@ -360,7 +565,7 @@ export const raCities = [
     "country": "Germany"
   },
   {
-    "city": "Racib\u00f3rz",
+    "city": "Raciborz",
     "state": "\u015al\u0105skie",
     "country": "Poland"
   },
@@ -368,6 +573,11 @@ export const raCities = [
     "city": "Ranchuelo",
     "state": "Villa Clara",
     "country": "Cuba"
+  },
+  {
+    "city": "Ramnagar",
+    "state": "Uttar Pradesh",
+    "country": "India"
   },
   {
     "city": "Rancho Santa Margarita",
@@ -380,7 +590,17 @@ export const raCities = [
     "country": "Israel"
   },
   {
-    "city": "Rad\u0101\u2018",
+    "city": "Ranavav",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
+    "city": "Rajgarh",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Rada`",
     "state": "Al Bay\u1e11\u0101\u2019",
     "country": "Yemen"
   },
@@ -395,9 +615,24 @@ export const raCities = [
     "country": "Bulgaria"
   },
   {
+    "city": "Rameswaram",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Radomsko",
     "state": "\u0141\u00f3dzkie",
     "country": "Poland"
+  },
+  {
+    "city": "Rapur",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Rajaldesar",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
   },
   {
     "city": "Raisen",
@@ -408,6 +643,11 @@ export const raCities = [
     "city": "Rasskazovo",
     "state": "Tambovskaya Oblast\u2019",
     "country": "Russia"
+  },
+  {
+    "city": "Ramachandrapuram",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Raduzhnyy",
@@ -425,8 +665,18 @@ export const raCities = [
     "country": "United States"
   },
   {
+    "city": "Rajgir",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Rajaori",
     "state": "Jammu and Kashm\u012br",
+    "country": "India"
+  },
+  {
+    "city": "Ramganj Mandi",
+    "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
   {
@@ -435,7 +685,7 @@ export const raCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Raxruh\u00e1",
+    "city": "Raxruha",
     "state": "Alta Verapaz",
     "country": "Guatemala"
   },
@@ -443,6 +693,16 @@ export const raCities = [
     "city": "Ranipur",
     "state": "Sindh",
     "country": "Pakistan"
+  },
+  {
+    "city": "Rajgarh",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Ramdurg",
+    "state": "Karn\u0101taka",
+    "country": "India"
   },
   {
     "city": "Rauma",
@@ -455,9 +715,24 @@ export const raCities = [
     "country": "West Bank"
   },
   {
+    "city": "Rajula",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
     "city": "Raalte",
     "state": "Overijssel",
     "country": "Netherlands"
+  },
+  {
+    "city": "Rani",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Rawatbhata",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
   },
   {
     "city": "Ratia",
@@ -480,6 +755,11 @@ export const raCities = [
     "country": "Philippines"
   },
   {
+    "city": "Ramsar",
+    "state": "M\u0101zandar\u0101n",
+    "country": "Iran"
+  },
+  {
     "city": "Rafiganj",
     "state": "Bih\u0101r",
     "country": "India"
@@ -488,6 +768,11 @@ export const raCities = [
     "city": "Ratnapur",
     "state": NaN,
     "country": "Nepal"
+  },
+  {
+    "city": "Rawatsar",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
   },
   {
     "city": "Randolph",
@@ -510,6 +795,11 @@ export const raCities = [
     "country": "United States"
   },
   {
+    "city": "Radhanpur",
+    "state": "Gujar\u0101t",
+    "country": "India"
+  },
+  {
     "city": "Radolfzell am Bodensee",
     "state": "Baden-W\u00fcrttemberg",
     "country": "Germany"
@@ -520,8 +810,18 @@ export const raCities = [
     "country": "Belarus"
   },
   {
-    "city": "Rah\u012bmpur",
+    "city": "Rahatgarh",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Rahimpur",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Ranpur",
+    "state": "Gujar\u0101t",
     "country": "India"
   },
   {
@@ -540,6 +840,11 @@ export const raCities = [
     "country": "Indonesia"
   },
   {
+    "city": "Ramnicu Sarat",
+    "state": "Buz\u0103u",
+    "country": "Romania"
+  },
+  {
     "city": "Raytown",
     "state": "Missouri",
     "country": "United States"
@@ -550,19 +855,34 @@ export const raCities = [
     "country": "United States"
   },
   {
-    "city": "Ra\u2019s al \u2018Ayn",
+    "city": "Rarott",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Ra's al `Ayn",
     "state": "Al \u1e28asakah",
     "country": "Syria"
   },
   {
-    "city": "Rasr\u0101",
+    "city": "Rasra",
     "state": "Uttar Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Raghopur",
+    "state": "Bih\u0101r",
     "country": "India"
   },
   {
     "city": "Rapallo",
     "state": "Liguria",
     "country": "Italy"
+  },
+  {
+    "city": "Raikot",
+    "state": "Punjab",
+    "country": "India"
   },
   {
     "city": "Rancharia",
@@ -580,6 +900,11 @@ export const raCities = [
     "country": "Finland"
   },
   {
+    "city": "Ramanayyapeta",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Ramsey",
     "state": "Minnesota",
     "country": "United States"
@@ -595,6 +920,11 @@ export const raCities = [
     "country": "India"
   },
   {
+    "city": "Rayamangalam",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
     "city": "Ramon Magsaysay",
     "state": "Zamboanga del Sur",
     "country": "Philippines"
@@ -605,6 +935,11 @@ export const raCities = [
     "country": "Indonesia"
   },
   {
+    "city": "Raver",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
     "city": "Rapperswil-Jona",
     "state": "Sankt Gallen",
     "country": "Switzerland"
@@ -613,6 +948,11 @@ export const raCities = [
     "city": "Rambouillet",
     "state": "\u00cele-de-France",
     "country": "France"
+  },
+  {
+    "city": "Rajgarh",
+    "state": "R\u0101jasth\u0101n",
+    "country": "India"
   },
   {
     "city": "Ratau",
@@ -630,7 +970,7 @@ export const raCities = [
     "country": "India"
   },
   {
-    "city": "Rasi\u0101ri",
+    "city": "Rasiari",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -640,7 +980,17 @@ export const raCities = [
     "country": "Nicaragua"
   },
   {
-    "city": "Raghun\u0101thpur",
+    "city": "Rampur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Raman",
+    "state": "Punjab",
+    "country": "India"
+  },
+  {
+    "city": "Raghunathpur",
     "state": "West Bengal",
     "country": "India"
   },
@@ -655,17 +1005,32 @@ export const raCities = [
     "country": "Finland"
   },
   {
-    "city": "Raj\u0101kheri",
+    "city": "Rania",
+    "state": "Hary\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Rajakheri",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Rang\u0101p\u0101ra",
+    "city": "Ramshir",
+    "state": "Kh\u016bzest\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Rangapara",
     "state": "Assam",
     "country": "India"
   },
   {
-    "city": "Ra\u0161ka",
+    "city": "Raghopur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Raska",
     "state": "Ra\u0161ka",
     "country": "Serbia"
   },
@@ -680,7 +1045,12 @@ export const raCities = [
     "country": "Germany"
   },
   {
-    "city": "Rav\u0101nsar",
+    "city": "Ramdiri",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Ravansar",
     "state": "Kerm\u0101nsh\u0101h",
     "country": "Iran"
   },
@@ -688,6 +1058,11 @@ export const raCities = [
     "city": "Ramain",
     "state": "Lanao del Sur",
     "country": "Philippines"
+  },
+  {
+    "city": "Radauti",
+    "state": "Suceava",
+    "country": "Romania"
   },
   {
     "city": "Raisio",
@@ -701,6 +1076,11 @@ export const raCities = [
   },
   {
     "city": "Rajpur",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Rampura",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -750,6 +1130,16 @@ export const raCities = [
     "country": "Philippines"
   },
   {
+    "city": "Ravar",
+    "state": "Kerm\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Raman Mandi",
+    "state": "Punjab",
+    "country": "India"
+  },
+  {
     "city": "Rancho San Diego",
     "state": "California",
     "country": "United States"
@@ -765,7 +1155,17 @@ export const raCities = [
     "country": "United States"
   },
   {
+    "city": "Ramantali",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
     "city": "Rajauli",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Raja Pakar",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -775,14 +1175,29 @@ export const raCities = [
     "country": "Philippines"
   },
   {
+    "city": "Ratu",
+    "state": "Jh\u0101rkhand",
+    "country": "India"
+  },
+  {
     "city": "Raksaha",
     "state": "Uttar Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Ramnagar Farsahi",
+    "state": "Bih\u0101r",
     "country": "India"
   },
   {
     "city": "Rawicz",
     "state": "Wielkopolskie",
     "country": "Poland"
+  },
+  {
+    "city": "Raipura",
+    "state": "Jammu and Kashm\u012br",
+    "country": "India"
   },
   {
     "city": "Rantabe",
@@ -800,8 +1215,23 @@ export const raCities = [
     "country": "India"
   },
   {
+    "city": "Rawah",
+    "state": "Al Anb\u0101r",
+    "country": "Iraq"
+  },
+  {
+    "city": "Ramjibanpur",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Rajaudha",
     "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Ramchandrapur",
+    "state": "West Bengal",
     "country": "India"
   },
   {
@@ -840,7 +1270,7 @@ export const raCities = [
     "country": "Germany"
   },
   {
-    "city": "Ranb\u012brsinghpura",
+    "city": "Ranbirsinghpura",
     "state": "Jammu and Kashm\u012br",
     "country": "India"
   },
@@ -850,13 +1280,33 @@ export const raCities = [
     "country": "United Kingdom"
   },
   {
+    "city": "Rampur",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Ranquitte",
     "state": "Nord",
     "country": "Haiti"
   },
   {
-    "city": "Rais\u0101ri",
+    "city": "Raisari",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Rampur",
+    "state": "Odisha",
+    "country": "India"
+  },
+  {
+    "city": "Rampur Tilak",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Rajmahal",
+    "state": "West Bengal",
     "country": "India"
   },
   {
@@ -870,13 +1320,18 @@ export const raCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Raghun\u0101thpur",
+    "city": "Raghunathpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Raghun\u0101thpur",
+    "city": "Raghunathpur",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Rayappanpatti",
+    "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
@@ -905,12 +1360,27 @@ export const raCities = [
     "country": "India"
   },
   {
+    "city": "Ramachandrapuran",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Ramayampet",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Rampur Jalalpur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Ratba",
     "state": "F\u00e8s-Mekn\u00e8s",
     "country": "Morocco"
   },
   {
-    "city": "Ram\u00f3n Santana",
+    "city": "Ramon Santana",
     "state": "Higuamo",
     "country": "Dominican Republic"
   },
@@ -920,9 +1390,29 @@ export const raCities = [
     "country": "Germany"
   },
   {
+    "city": "Rasivarai Tottam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Rajbalhai",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
+    "city": "Rajnagar",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Rawa Mazowiecka",
     "state": "\u0141\u00f3dzkie",
     "country": "Poland"
+  },
+  {
+    "city": "Raikal",
+    "state": "Telang\u0101na",
+    "country": "India"
   },
   {
     "city": "Radford",
@@ -935,7 +1425,7 @@ export const raCities = [
     "country": "Brazil"
   },
   {
-    "city": "Radzionk\u00f3w Nowy",
+    "city": "Radzionkow Nowy",
     "state": "\u015al\u0105skie",
     "country": "Poland"
   },
@@ -945,9 +1435,19 @@ export const raCities = [
     "country": "Indonesia"
   },
   {
+    "city": "Ramnagar",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Ranong",
     "state": "Ranong",
     "country": "Thailand"
+  },
+  {
+    "city": "Ramewadi",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
   },
   {
     "city": "Ranohira",
@@ -955,9 +1455,29 @@ export const raCities = [
     "country": "Madagascar"
   },
   {
+    "city": "Rahon",
+    "state": "Punjab",
+    "country": "India"
+  },
+  {
+    "city": "Rani Shakarpura",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Raiganj Bazar",
+    "state": "Uttar Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Ras el Oued",
     "state": "F\u00e8s-Mekn\u00e8s",
     "country": "Morocco"
+  },
+  {
+    "city": "Rasnov",
+    "state": "Bra\u015fov",
+    "country": "Romania"
   },
   {
     "city": "Ras El Oued",
@@ -975,12 +1495,17 @@ export const raCities = [
     "country": "Portugal"
   },
   {
+    "city": "Rajapur",
+    "state": "Uttar Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Rakvere",
     "state": "Rakvere",
     "country": "Estonia"
   },
   {
-    "city": "Rakovn\u00edk",
+    "city": "Rakovnik",
     "state": "St\u0159edo\u010desk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -995,9 +1520,19 @@ export const raCities = [
     "country": "India"
   },
   {
+    "city": "Rajgadh",
+    "state": NaN,
+    "country": "Nepal"
+  },
+  {
     "city": "Ratekau",
     "state": "Schleswig-Holstein",
     "country": "Germany"
+  },
+  {
+    "city": "Ratan",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Raynham",
@@ -1005,7 +1540,7 @@ export const raCities = [
     "country": "United States"
   },
   {
-    "city": "Radvili\u0161kis",
+    "city": "Radviliskis",
     "state": "Radvili\u0161kis",
     "country": "Lithuania"
   },
@@ -1015,9 +1550,19 @@ export const raCities = [
     "country": "India"
   },
   {
+    "city": "Ras Baalbek",
+    "state": "Baalbek-Hermel",
+    "country": "Lebanon"
+  },
+  {
     "city": "Ramainandro",
     "state": "Antananarivo",
     "country": "Madagascar"
+  },
+  {
+    "city": "Ramechhap",
+    "state": NaN,
+    "country": "Nepal"
   },
   {
     "city": "Ramonville-Saint-Agne",
@@ -1030,7 +1575,7 @@ export const raCities = [
     "country": "Belgium"
   },
   {
-    "city": "Radzy\u0144 Podlaski",
+    "city": "Radzyn Podlaski",
     "state": "Lubelskie",
     "country": "Poland"
   },
@@ -1070,6 +1615,11 @@ export const raCities = [
     "country": "Iran"
   },
   {
+    "city": "Raje",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Raghudebbati",
     "state": "West Bengal",
     "country": "India"
@@ -1080,7 +1630,22 @@ export const raCities = [
     "country": "India"
   },
   {
-    "city": "Rafa\u00ef",
+    "city": "Rajim",
+    "state": "Chhatt\u012bsgarh",
+    "country": "India"
+  },
+  {
+    "city": "Ranapur",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Rajasur",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Rafai",
     "state": "Mbomou",
     "country": "Central African Republic"
   },
@@ -1090,9 +1655,29 @@ export const raCities = [
     "country": "Yemen"
   },
   {
+    "city": "Rajnagar",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Radomyshl",
     "state": "Zhytomyrska Oblast",
     "country": "Ukraine"
+  },
+  {
+    "city": "Rayapalle",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Razole",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Raquira",
+    "state": "Boyac\u00e1",
+    "country": "Colombia"
   },
   {
     "city": "Rahui",
@@ -1100,19 +1685,34 @@ export const raCities = [
     "country": "India"
   },
   {
-    "city": "Ratn\u0101puram",
+    "city": "Rajpur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Ratnapuram",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Raghun\u0101thpur",
+    "city": "Raghunathpur",
     "state": "Bih\u0101r",
     "country": "India"
+  },
+  {
+    "city": "Rabor",
+    "state": "Kerm\u0101n",
+    "country": "Iran"
   },
   {
     "city": "Radomir",
     "state": "Pernik",
     "country": "Bulgaria"
+  },
+  {
+    "city": "Rajupalem",
+    "state": "Andhra Pradesh",
+    "country": "India"
   },
   {
     "city": "Rabot",
@@ -1121,6 +1721,11 @@ export const raCities = [
   },
   {
     "city": "Rasauli",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Rampur Shamchand",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1135,6 +1740,11 @@ export const raCities = [
     "country": "Australia"
   },
   {
+    "city": "Rampurwa",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Rantoul",
     "state": "Illinois",
     "country": "United States"
@@ -1143,6 +1753,11 @@ export const raCities = [
     "city": "Raamsdonksveer",
     "state": "Noord-Brabant",
     "country": "Netherlands"
+  },
+  {
+    "city": "Ranranagudipeta",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Razlog",
@@ -1160,13 +1775,23 @@ export const raCities = [
     "country": "Lesotho"
   },
   {
-    "city": "Raf\u00edna",
+    "city": "Rafina",
     "state": "Attik\u00ed",
     "country": "Greece"
   },
   {
     "city": "Raipur",
     "state": "R\u0101jasth\u0101n",
+    "country": "India"
+  },
+  {
+    "city": "Raghopur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Rampur Kudarkatti",
+    "state": "Bih\u0101r",
     "country": "India"
   },
   {
@@ -1180,9 +1805,19 @@ export const raCities = [
     "country": "Italy"
   },
   {
+    "city": "Ramachandrapuram",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Rapho",
     "state": "Pennsylvania",
     "country": "United States"
+  },
+  {
+    "city": "Rasingapuram",
+    "state": "Tamil N\u0101du",
+    "country": "India"
   },
   {
     "city": "Rankweil",
@@ -1200,8 +1835,13 @@ export const raCities = [
     "country": "India"
   },
   {
-    "city": "Ras\u016blpur",
+    "city": "Rasulpur",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Rajaram",
+    "state": "Telang\u0101na",
     "country": "India"
   },
   {
@@ -1225,6 +1865,11 @@ export const raCities = [
     "country": "Germany"
   },
   {
+    "city": "Rayavaram",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Ramena",
     "state": "Antsiranana",
     "country": "Madagascar"
@@ -1245,7 +1890,7 @@ export const raCities = [
     "country": "Malta"
   },
   {
-    "city": "Ra\u010da",
+    "city": "Raca",
     "state": "Ra\u010da",
     "country": "Serbia"
   },
@@ -1255,12 +1900,22 @@ export const raCities = [
     "country": "Argentina"
   },
   {
+    "city": "Raibari Mahuawa",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Ravenna",
     "state": "Ohio",
     "country": "United States"
   },
   {
-    "city": "Rahi\u0101r Kunchi",
+    "city": "Rahiar Kunchi",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Ranti",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1275,9 +1930,34 @@ export const raCities = [
     "country": "United States"
   },
   {
+    "city": "Ramanayakkanpalaiyam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Rackeve",
+    "state": "Pest",
+    "country": "Hungary"
+  },
+  {
     "city": "Ranomafana",
     "state": "Toliara",
     "country": "Madagascar"
+  },
+  {
+    "city": "Ramabhadrapuram",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Rambilli",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Ramchandarpur",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Rainhill",
@@ -1285,7 +1965,17 @@ export const raCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Ravutulap\u016bdi",
+    "city": "Rajghat Garail",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Rampur Kalan",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Ravutulapudi",
     "state": "Andhra Pradesh",
     "country": "India"
   },
@@ -1300,6 +1990,16 @@ export const raCities = [
     "country": "Italy"
   },
   {
+    "city": "Raybag",
+    "state": "Karn\u0101taka",
+    "country": "India"
+  },
+  {
+    "city": "Rajanagaram",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Raeren",
     "state": "Wallonia",
     "country": "Belgium"
@@ -1310,7 +2010,17 @@ export const raCities = [
     "country": "United States"
   },
   {
-    "city": "Raghun\u0101thpur",
+    "city": "Ramareddi",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Ranko",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Raghunathpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1325,12 +2035,22 @@ export const raCities = [
     "country": "Lesotho"
   },
   {
+    "city": "Rajapur",
+    "state": "Mah\u0101r\u0101shtra",
+    "country": "India"
+  },
+  {
+    "city": "Rajpur Kalan",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Rawdon",
     "state": "Quebec",
     "country": "Canada"
   },
   {
-    "city": "Raghun\u0101thpur",
+    "city": "Raghunathpur",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1350,6 +2070,11 @@ export const raCities = [
     "country": "Argentina"
   },
   {
+    "city": "Ramchandrapur",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Raymondville",
     "state": "Texas",
     "country": "United States"
@@ -1365,7 +2090,12 @@ export const raCities = [
     "country": "India"
   },
   {
-    "city": "Raibh\u012br",
+    "city": "Rayen",
+    "state": "Kerm\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Raibhir",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1373,6 +2103,11 @@ export const raCities = [
     "city": "Ramacca",
     "state": "Sicilia",
     "country": "Italy"
+  },
+  {
+    "city": "Ramannapeta",
+    "state": "Telang\u0101na",
+    "country": "India"
   },
   {
     "city": "Radyvyliv",
@@ -1390,9 +2125,24 @@ export const raCities = [
     "country": "United States"
   },
   {
-    "city": "Raghun\u0101thpur",
+    "city": "Raparla",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Rasak",
+    "state": "S\u012bst\u0101n va Bal\u016bchest\u0101n",
+    "country": "Iran"
+  },
+  {
+    "city": "Raghunathpur",
     "state": "Bih\u0101r",
     "country": "India"
+  },
+  {
+    "city": "Rath To",
+    "state": "Meath",
+    "country": "Ireland"
   },
   {
     "city": "Radlett",
@@ -1405,17 +2155,27 @@ export const raCities = [
     "country": "India"
   },
   {
-    "city": "Ramiriqu\u00ed",
+    "city": "Ramiriqui",
     "state": "Boyac\u00e1",
     "country": "Colombia"
   },
   {
-    "city": "Rakhw\u0101ri",
+    "city": "Ras el Metn",
+    "state": "Mont-Liban",
+    "country": "Lebanon"
+  },
+  {
+    "city": "Ramamangalam",
+    "state": "Kerala",
+    "country": "India"
+  },
+  {
+    "city": "Rakhwari",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Rangam\u0101ti",
+    "city": "Rangamati",
     "state": "West Bengal",
     "country": "India"
   },
@@ -1428,6 +2188,11 @@ export const raCities = [
     "city": "Rasht",
     "state": "Nohiyahoi Tobei Jumhur\u00ed",
     "country": "Tajikistan"
+  },
+  {
+    "city": "Ramnagar Bankat",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Radekhiv",
@@ -1445,9 +2210,19 @@ export const raCities = [
     "country": "India"
   },
   {
+    "city": "Rampur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Ranomafana",
     "state": "Fianarantsoa",
     "country": "Madagascar"
+  },
+  {
+    "city": "Rampura",
+    "state": "Karn\u0101taka",
+    "country": "India"
   },
   {
     "city": "Raseiniai",
@@ -1458,6 +2233,11 @@ export const raCities = [
     "city": "Racconigi",
     "state": "Piedmont",
     "country": "Italy"
+  },
+  {
+    "city": "Rampur",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Ratnahalli",
@@ -1480,8 +2260,28 @@ export const raCities = [
     "country": "Chile"
   },
   {
+    "city": "Ramasingavaram",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Rampur Rajwa",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
     "city": "Raun",
     "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Rampur Parhat",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Ranigaon",
+    "state": "R\u0101jasth\u0101n",
     "country": "India"
   },
   {
@@ -1490,13 +2290,18 @@ export const raCities = [
     "country": "Canada"
   },
   {
-    "city": "Rafelbu\u00f1ol",
+    "city": "Rafelbunol",
     "state": "Valencia",
     "country": "Spain"
   },
   {
     "city": "Raitar",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Rasol",
+    "state": "Odisha",
     "country": "India"
   },
   {
@@ -1510,18 +2315,33 @@ export const raCities = [
     "country": "India"
   },
   {
+    "city": "Ramkali",
+    "state": "West Bengal",
+    "country": "India"
+  },
+  {
     "city": "Raunds",
     "state": "Northamptonshire",
     "country": "United Kingdom"
   },
   {
-    "city": "Rang\u0101puram",
+    "city": "Rangapuram",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
     "city": "Ralla",
     "state": "Punjab",
+    "country": "India"
+  },
+  {
+    "city": "Rajapudi",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Rampur",
+    "state": "Bih\u0101r",
     "country": "India"
   },
   {
@@ -1540,7 +2360,17 @@ export const raCities = [
     "country": "India"
   },
   {
-    "city": "Ra\u017eanj",
+    "city": "Ramayipatti",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
+    "city": "Rajepur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Razanj",
     "state": "Ra\u017eanj",
     "country": "Serbia"
   },
@@ -1553,6 +2383,11 @@ export const raCities = [
     "city": "Rada Tilly",
     "state": "Chubut",
     "country": "Argentina"
+  },
+  {
+    "city": "Rampur Khajuriya",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Rafard",
@@ -1570,6 +2405,26 @@ export const raCities = [
     "country": "Tajikistan"
   },
   {
+    "city": "Rajod",
+    "state": "Madhya Pradesh",
+    "country": "India"
+  },
+  {
+    "city": "Ramnagar",
+    "state": "Jammu and Kashm\u012br",
+    "country": "India"
+  },
+  {
+    "city": "Ramgarha",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Ramapattanam",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Rabo de Peixe",
     "state": "Azores",
     "country": "Portugal"
@@ -1580,7 +2435,12 @@ export const raCities = [
     "country": "India"
   },
   {
-    "city": "Rangv\u0101sa",
+    "city": "Ramgarh",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Rangvasa",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -1592,6 +2452,16 @@ export const raCities = [
   {
     "city": "Rautara",
     "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Rampatti",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Rani Sawargaon",
+    "state": "Mah\u0101r\u0101shtra",
     "country": "India"
   },
   {
@@ -1610,6 +2480,11 @@ export const raCities = [
     "country": "Germany"
   },
   {
+    "city": "Ragampet",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
     "city": "Raia",
     "state": "Goa",
     "country": "India"
@@ -1620,19 +2495,34 @@ export const raCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Rangw\u0101sa",
+    "city": "Rangwasa",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Ray\u00f3n",
+    "city": "Rajhanpur",
+    "state": "Bih\u0101r",
+    "country": "India"
+  },
+  {
+    "city": "Raiparthi",
+    "state": "Telang\u0101na",
+    "country": "India"
+  },
+  {
+    "city": "Rayon",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
   {
-    "city": "Rava-Rus\u2019ka",
+    "city": "Rava-Rus'ka",
     "state": "Lvivska Oblast",
     "country": "Ukraine"
+  },
+  {
+    "city": "Rani Sagar",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Raonta",
@@ -1640,9 +2530,14 @@ export const raCities = [
     "country": "India"
   },
   {
-    "city": "Ra\u2019s al Ma\u2018arrah",
+    "city": "Ra's al Ma`arrah",
     "state": "R\u012bf Dimashq",
     "country": "Syria"
+  },
+  {
+    "city": "Rampatti",
+    "state": "Bih\u0101r",
+    "country": "India"
   },
   {
     "city": "Rakai",
@@ -1650,7 +2545,7 @@ export const raCities = [
     "country": "Uganda"
   },
   {
-    "city": "Ravne na Koro\u0161kem",
+    "city": "Ravne na Koroskem",
     "state": "Ravne na Koro\u0161kem",
     "country": "Slovenia"
   },
@@ -1675,7 +2570,7 @@ export const raCities = [
     "country": "Estonia"
   },
   {
-    "city": "Radovi\u0161",
+    "city": "Radovis",
     "state": "Radovi\u0161",
     "country": "North Macedonia"
   },
@@ -1685,7 +2580,7 @@ export const raCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Ra\u010de",
+    "city": "Race",
     "state": "Ra\u010de-Fram",
     "country": "Slovenia"
   },
@@ -1695,7 +2590,7 @@ export const raCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Rade\u010de",
+    "city": "Radece",
     "state": "Rade\u010de",
     "country": "Slovenia"
   },
@@ -1710,7 +2605,7 @@ export const raCities = [
     "country": "Australia"
   },
   {
-    "city": "Razkri\u017eje",
+    "city": "Razkrizje",
     "state": "Razkri\u017eje",
     "country": "Slovenia"
   },

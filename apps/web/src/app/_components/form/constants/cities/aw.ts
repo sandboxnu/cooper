@@ -5,9 +5,19 @@ export const awCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Aws\u012bm",
+    "city": "Awsim",
     "state": "Al J\u012bzah",
     "country": "Egypt"
+  },
+  {
+    "city": "Awasa",
+    "state": "YeDebub Bih\u0113roch Bih\u0113reseboch na Hizboch",
+    "country": "Ethiopia"
+  },
+  {
+    "city": "Aware",
+    "state": "Sumal\u0113",
+    "country": "Ethiopia"
   },
   {
     "city": "Aw Dheegle",
@@ -25,7 +35,7 @@ export const awCities = [
     "country": "Japan"
   },
   {
-    "city": "Awb\u0101r\u012b",
+    "city": "Awbari",
     "state": "W\u0101d\u012b al \u1e28ay\u0101t",
     "country": "Libya"
   },
@@ -55,9 +65,14 @@ export const awCities = [
     "country": "India"
   },
   {
-    "city": "Aw\u0101nkh",
+    "city": "Awankh",
     "state": "Punjab",
     "country": "India"
+  },
+  {
+    "city": "Awash",
+    "state": "\u0100far",
+    "country": "Ethiopia"
   },
   {
     "city": "Awfouss",

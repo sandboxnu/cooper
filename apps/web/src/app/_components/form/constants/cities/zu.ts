@@ -10,7 +10,12 @@ export const zuCities = [
     "country": "China"
   },
   {
-    "city": "Zuw\u0101rah",
+    "city": "Zurich",
+    "state": "Z\u00fcrich",
+    "country": "Switzerland"
+  },
+  {
+    "city": "Zuwarah",
     "state": "An Nuq\u0101\u0163 al Khams",
     "country": "Libya"
   },
@@ -55,7 +60,7 @@ export const zuCities = [
     "country": "China"
   },
   {
-    "city": "Zumpango del R\u00edo",
+    "city": "Zumpango del Rio",
     "state": "Guerrero",
     "country": "Mexico"
   },
@@ -70,7 +75,7 @@ export const zuCities = [
     "country": "India"
   },
   {
-    "city": "Zurb\u0101\u0163\u012byah",
+    "city": "Zurbatiyah",
     "state": "W\u0101si\u0163",
     "country": "Iraq"
   },
@@ -78,6 +83,11 @@ export const zuCities = [
     "city": "Zundert",
     "state": "Noord-Brabant",
     "country": "Netherlands"
+  },
+  {
+    "city": "Zulpich",
+    "state": "North Rhine-Westphalia",
+    "country": "Germany"
   },
   {
     "city": "Zuidhorn",
@@ -120,6 +130,11 @@ export const zuCities = [
     "country": "Ecuador"
   },
   {
+    "city": "Zurrieq",
+    "state": "\u017burrieq",
+    "country": "Malta"
+  },
+  {
     "city": "Zuyevka",
     "state": "Kirovskaya Oblast\u2019",
     "country": "Russia"
@@ -135,9 +150,14 @@ export const zuCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Zum\u00e1rraga",
+    "city": "Zumarraga",
     "state": "Basque Country",
     "country": "Spain"
+  },
+  {
+    "city": "Zupanja",
+    "state": "Vukovarsko-Srijemska \u017dupanija",
+    "country": "Croatia"
   },
   {
     "city": "Zunilito",
@@ -150,8 +170,23 @@ export const zuCities = [
     "country": "Switzerland"
   },
   {
+    "city": "Zulakallu",
+    "state": "Andhra Pradesh",
+    "country": "India"
+  },
+  {
     "city": "Zuera",
     "state": "Aragon",
     "country": "Spain"
+  },
+  {
+    "city": "Zuromin",
+    "state": "Mazowieckie",
+    "country": "Poland"
+  },
+  {
+    "city": "Zuzemberk",
+    "state": "\u017du\u017eemberk",
+    "country": "Slovenia"
   }
 ]

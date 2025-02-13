@@ -25,12 +25,17 @@ export const teCities = [
     "country": "China"
   },
   {
-    "city": "Tenk\u0101si",
+    "city": "Tenkasi",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Tec\u00e1mac",
+    "city": "Tetouan",
+    "state": "Tanger-T\u00e9touan-Al Hoce\u00efma",
+    "country": "Morocco"
+  },
+  {
+    "city": "Tecamac",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
@@ -40,7 +45,7 @@ export const teCities = [
     "country": "Mexico"
   },
   {
-    "city": "Tehuac\u00e1n",
+    "city": "Tehuacan",
     "state": "Puebla",
     "country": "Mexico"
   },
@@ -75,12 +80,17 @@ export const teCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Tekirda\u011f",
+    "city": "Tekirdag",
     "state": "Tekirda\u011f",
     "country": "Turkey"
   },
   {
-    "city": "Temirta\u016b",
+    "city": "Tebessa",
+    "state": "T\u00e9bessa",
+    "country": "Algeria"
+  },
+  {
+    "city": "Temirtau",
     "state": "Qaraghandy",
     "country": "Kazakhstan"
   },
@@ -95,12 +105,12 @@ export const teCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Ten\u0101li",
+    "city": "Tenali",
     "state": "Andhra Pradesh",
     "country": "India"
   },
   {
-    "city": "Teres\u00f3polis",
+    "city": "Teresopolis",
     "state": "Rio de Janeiro",
     "country": "Brazil"
   },
@@ -125,7 +135,7 @@ export const teCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Tepatitl\u00e1n de Morelos",
+    "city": "Tepatitlan de Morelos",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -135,7 +145,7 @@ export const teCities = [
     "country": "Indonesia"
   },
   {
-    "city": "Te\u00f3filo Otoni",
+    "city": "Teofilo Otoni",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -160,7 +170,7 @@ export const teCities = [
     "country": "Canada"
   },
   {
-    "city": "Tecom\u00e1n",
+    "city": "Tecoman",
     "state": "Colima",
     "country": "Mexico"
   },
@@ -170,7 +180,7 @@ export const teCities = [
     "country": "Mexico"
   },
   {
-    "city": "Tecp\u00e1n Guatemala",
+    "city": "Tecpan Guatemala",
     "state": "Chimaltenango",
     "country": "Guatemala"
   },
@@ -260,12 +270,12 @@ export const teCities = [
     "country": "Lesotho"
   },
   {
-    "city": "Tel\u00eamaco Borba",
+    "city": "Telemaco Borba",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Tef\u00e9",
+    "city": "Tefe",
     "state": "Amazonas",
     "country": "Brazil"
   },
@@ -280,7 +290,7 @@ export const teCities = [
     "country": "Mexico"
   },
   {
-    "city": "Tepotzotl\u00e1n",
+    "city": "Tepotzotlan",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
@@ -305,7 +315,7 @@ export const teCities = [
     "country": "Mexico"
   },
   {
-    "city": "Tend\u014d",
+    "city": "Tendo",
     "state": "Yamagata",
     "country": "Japan"
   },
@@ -340,7 +350,7 @@ export const teCities = [
     "country": "United States"
   },
   {
-    "city": "Tekkek\u00f6y",
+    "city": "Tekkekoy",
     "state": "Samsun",
     "country": "Turkey"
   },
@@ -390,7 +400,7 @@ export const teCities = [
     "country": "Italy"
   },
   {
-    "city": "Te\u0161anj",
+    "city": "Tesanj",
     "state": "Bosnia and Herzegovina, Federation of",
     "country": "Bosnia and Herzegovina"
   },
@@ -450,6 +460,11 @@ export const teCities = [
     "country": "United States"
   },
   {
+    "city": "Tenes",
+    "state": "Chlef",
+    "country": "Algeria"
+  },
+  {
     "city": "Tebesbest",
     "state": "Ouargla",
     "country": "Algeria"
@@ -460,7 +475,7 @@ export const teCities = [
     "country": "Mexico"
   },
   {
-    "city": "Tepeji del R\u00edo de Ocampo",
+    "city": "Tepeji del Rio de Ocampo",
     "state": "Hidalgo",
     "country": "Mexico"
   },
@@ -470,7 +485,7 @@ export const teCities = [
     "country": "China"
   },
   {
-    "city": "Tekkebh\u0101gam",
+    "city": "Tekkebhagam",
     "state": "Kerala",
     "country": "India"
   },
@@ -485,7 +500,7 @@ export const teCities = [
     "country": "Romania"
   },
   {
-    "city": "Teut\u00f4nia",
+    "city": "Teutonia",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -495,7 +510,7 @@ export const teCities = [
     "country": "Italy"
   },
   {
-    "city": "Termas de R\u00edo Hondo",
+    "city": "Termas de Rio Hondo",
     "state": "Santiago del Estero",
     "country": "Argentina"
   },
@@ -505,7 +520,7 @@ export const teCities = [
     "country": "Russia"
   },
   {
-    "city": "Tekk\u0113kara Kizhakku",
+    "city": "Tekkekara Kizhakku",
     "state": "Kerala",
     "country": "India"
   },
@@ -540,9 +555,14 @@ export const teCities = [
     "country": "Mexico"
   },
   {
-    "city": "Temascaltepec de Gonz\u00e1lez",
+    "city": "Temascaltepec de Gonzalez",
     "state": "M\u00e9xico",
     "country": "Mexico"
+  },
+  {
+    "city": "Telimele",
+    "state": "Kindia",
+    "country": "Guinea"
   },
   {
     "city": "Tena",
@@ -595,7 +615,7 @@ export const teCities = [
     "country": "Chile"
   },
   {
-    "city": "Tepehuac\u00e1n de Guerrero",
+    "city": "Tepehuacan de Guerrero",
     "state": "Hidalgo",
     "country": "Mexico"
   },
@@ -640,7 +660,7 @@ export const teCities = [
     "country": "United States"
   },
   {
-    "city": "Terd\u0101l",
+    "city": "Terdal",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -650,7 +670,7 @@ export const teCities = [
     "country": "Turkey"
   },
   {
-    "city": "Teniente Primero Manuel Irala Fern\u00e1ndez",
+    "city": "Teniente Primero Manuel Irala Fernandez",
     "state": "Presidente Hayes",
     "country": "Paraguay"
   },
@@ -673,6 +693,11 @@ export const teCities = [
     "city": "Ternate",
     "state": "Cavite",
     "country": "Philippines"
+  },
+  {
+    "city": "Telagh",
+    "state": "Sidi Bel Abb\u00e8s",
+    "country": "Algeria"
   },
   {
     "city": "Tegina",
@@ -720,7 +745,7 @@ export const teCities = [
     "country": "Nicaragua"
   },
   {
-    "city": "Tek\u0101ri",
+    "city": "Tekari",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -735,7 +760,7 @@ export const teCities = [
     "country": "Mexico"
   },
   {
-    "city": "Tel\u0161iai",
+    "city": "Telsiai",
     "state": "Tel\u0161iai",
     "country": "Lithuania"
   },
@@ -765,7 +790,7 @@ export const teCities = [
     "country": "Mexico"
   },
   {
-    "city": "Tepexi de Rodr\u00edguez",
+    "city": "Tepexi de Rodriguez",
     "state": "Puebla",
     "country": "Mexico"
   },
@@ -775,7 +800,7 @@ export const teCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Teculut\u00e1n",
+    "city": "Teculutan",
     "state": "Zacapa",
     "country": "Guatemala"
   },
@@ -835,12 +860,12 @@ export const teCities = [
     "country": "India"
   },
   {
-    "city": "Tev\u0101ram",
+    "city": "Tevaram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Texcaltitl\u00e1n",
+    "city": "Texcaltitlan",
     "state": "M\u00e9xico",
     "country": "Mexico"
   },
@@ -865,7 +890,7 @@ export const teCities = [
     "country": "Belgium"
   },
   {
-    "city": "Terra Roxa d\u2019Oeste",
+    "city": "Terra Roxa d'Oeste",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
@@ -900,7 +925,7 @@ export const teCities = [
     "country": "Mexico"
   },
   {
-    "city": "Tecolotl\u00e1n",
+    "city": "Tecolotlan",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -910,7 +935,7 @@ export const teCities = [
     "country": "Italy"
   },
   {
-    "city": "Teju\u00e7uoca",
+    "city": "Tejucuoca",
     "state": "Cear\u00e1",
     "country": "Brazil"
   },
@@ -925,7 +950,7 @@ export const teCities = [
     "country": "India"
   },
   {
-    "city": "Tengampud\u016br",
+    "city": "Tengampudur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -960,6 +985,11 @@ export const teCities = [
     "country": "United States"
   },
   {
+    "city": "Tekkampatti",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Telua",
     "state": "Bih\u0101r",
     "country": "India"
@@ -980,7 +1010,7 @@ export const teCities = [
     "country": "Brazil"
   },
   {
-    "city": "Tend\u016bkheda",
+    "city": "Tendukheda",
     "state": "Madhya Pradesh",
     "country": "India"
   },
@@ -992,6 +1022,11 @@ export const teCities = [
   {
     "city": "Tepetzintla",
     "state": "Veracruz",
+    "country": "Mexico"
+  },
+  {
+    "city": "Tecpan de Galeana",
+    "state": "Guerrero",
     "country": "Mexico"
   },
   {
@@ -1030,12 +1065,12 @@ export const teCities = [
     "country": "Colombia"
   },
   {
-    "city": "Terkuveng\u0101nall\u016br",
+    "city": "Terkuvenganallur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Tepoztl\u00e1n",
+    "city": "Tepoztlan",
     "state": "Morelos",
     "country": "Mexico"
   },
@@ -1085,7 +1120,7 @@ export const teCities = [
     "country": "Italy"
   },
   {
-    "city": "Tet\u0101ri",
+    "city": "Tetari",
     "state": "Bih\u0101r",
     "country": "India"
   },
@@ -1145,12 +1180,12 @@ export const teCities = [
     "country": "Spain"
   },
   {
-    "city": "Tend\u016bkheda",
+    "city": "Tendukheda",
     "state": "Madhya Pradesh",
     "country": "India"
   },
   {
-    "city": "Tenamb\u0101kkam",
+    "city": "Tenambakkam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1170,7 +1205,7 @@ export const teCities = [
     "country": "Brazil"
   },
   {
-    "city": "Tempoal de S\u00e1nchez",
+    "city": "Tempoal de Sanchez",
     "state": "Veracruz",
     "country": "Mexico"
   },
@@ -1195,7 +1230,7 @@ export const teCities = [
     "country": "Italy"
   },
   {
-    "city": "Tectit\u00e1n",
+    "city": "Tectitan",
     "state": "Huehuetenango",
     "country": "Guatemala"
   },
@@ -1213,6 +1248,11 @@ export const teCities = [
     "city": "Teniet el Abed",
     "state": "Batna",
     "country": "Algeria"
+  },
+  {
+    "city": "Tenenkou",
+    "state": "Mopti",
+    "country": "Mali"
   },
   {
     "city": "Teano",
@@ -1235,17 +1275,17 @@ export const teCities = [
     "country": "Mexico"
   },
   {
-    "city": "Terku Valliy\u016br",
+    "city": "Terku Valliyur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Tezoatl\u00e1n de Segura y Luna",
+    "city": "Tezoatlan de Segura y Luna",
     "state": "Oaxaca",
     "country": "Mexico"
   },
   {
-    "city": "Tekkumb\u0101gam",
+    "city": "Tekkumbagam",
     "state": "Kerala",
     "country": "India"
   },
@@ -1280,7 +1320,7 @@ export const teCities = [
     "country": "Mexico"
   },
   {
-    "city": "Tekk\u0101tt\u016br",
+    "city": "Tekkattur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1310,7 +1350,7 @@ export const teCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Teocuitatl\u00e1n de Corona",
+    "city": "Teocuitatlan de Corona",
     "state": "Jalisco",
     "country": "Mexico"
   },
@@ -1325,7 +1365,7 @@ export const teCities = [
     "country": "Colombia"
   },
   {
-    "city": "Tekk\u0113kara",
+    "city": "Tekkekara",
     "state": "Kerala",
     "country": "India"
   },
@@ -1345,7 +1385,7 @@ export const teCities = [
     "country": "Turkey"
   },
   {
-    "city": "Tetela del Volc\u00e1n",
+    "city": "Tetela del Volcan",
     "state": "Morelos",
     "country": "Mexico"
   },
@@ -1355,7 +1395,7 @@ export const teCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Teln\u0101l",
+    "city": "Telnal",
     "state": "Gujar\u0101t",
     "country": "India"
   },
@@ -1380,7 +1420,7 @@ export const teCities = [
     "country": "Mexico"
   },
   {
-    "city": "Terku Narippaiy\u016br",
+    "city": "Terku Narippaiyur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1400,12 +1440,12 @@ export const teCities = [
     "country": "Italy"
   },
   {
-    "city": "Tell\u0101r",
+    "city": "Tellar",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Tepetl\u00e1n",
+    "city": "Tepetlan",
     "state": "Veracruz",
     "country": "Mexico"
   },
@@ -1415,7 +1455,7 @@ export const teCities = [
     "country": "Brazil"
   },
   {
-    "city": "Tepperum\u0101lnall\u016br",
+    "city": "Tepperumalnallur",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -1475,7 +1515,7 @@ export const teCities = [
     "country": "India"
   },
   {
-    "city": "Tepechitl\u00e1n",
+    "city": "Tepechitlan",
     "state": "Zacatecas",
     "country": "Mexico"
   },
@@ -1515,7 +1555,7 @@ export const teCities = [
     "country": "United States"
   },
   {
-    "city": "Teotitl\u00e1n",
+    "city": "Teotitlan",
     "state": "Oaxaca",
     "country": "Mexico"
   },
@@ -1535,12 +1575,12 @@ export const teCities = [
     "country": "India"
   },
   {
-    "city": "Telene\u015fti",
+    "city": "Telenesti",
     "state": "Telene\u015fti",
     "country": "Moldova"
   },
   {
-    "city": "Tepelen\u00eb",
+    "city": "Tepelene",
     "state": "Gjirokast\u00ebr",
     "country": "Albania"
   },

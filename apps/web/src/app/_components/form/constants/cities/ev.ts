@@ -10,14 +10,34 @@ export const evCities = [
     "country": "United States"
   },
   {
+    "city": "Evosmos",
+    "state": "Kentrik\u00ed Makedon\u00eda",
+    "country": "Greece"
+  },
+  {
     "city": "Evanston",
     "state": "Illinois",
     "country": "United States"
   },
   {
+    "city": "Evry",
+    "state": "\u00cele-de-France",
+    "country": "France"
+  },
+  {
+    "city": "Evora",
+    "state": "\u00c9vora",
+    "country": "Portugal"
+  },
+  {
     "city": "Everett",
     "state": "Massachusetts",
     "country": "United States"
+  },
+  {
+    "city": "Evreux",
+    "state": "Normandie",
+    "country": "France"
   },
   {
     "city": "Evesham",
@@ -93,6 +113,11 @@ export const evCities = [
     "city": "Everswinkel",
     "state": "North Rhine-Westphalia",
     "country": "Germany"
+  },
+  {
+    "city": "Evian-les-Bains",
+    "state": "Auvergne-Rh\u00f4ne-Alpes",
+    "country": "France"
   },
   {
     "city": "Evergreen",

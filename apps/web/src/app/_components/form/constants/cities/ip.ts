@@ -55,12 +55,12 @@ export const ipCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Ipir\u00e1",
+    "city": "Ipira",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Ipia\u00fa",
+    "city": "Ipiau",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -70,12 +70,12 @@ export const ipCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ipor\u00e1",
+    "city": "Ipora",
     "state": "Goi\u00e1s",
     "country": "Brazil"
   },
   {
-    "city": "Iper\u00f3",
+    "city": "Ipero",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -83,6 +83,11 @@ export const ipCities = [
     "city": "Ipubi",
     "state": "Pernambuco",
     "country": "Brazil"
+  },
+  {
+    "city": "Ipsala",
+    "state": "Edirne",
+    "country": "Turkey"
   },
   {
     "city": "Ipu",
@@ -120,17 +125,17 @@ export const ipCities = [
     "country": "Central African Republic"
   },
   {
-    "city": "Ipor\u00e3",
+    "city": "Ipora",
     "state": "Paran\u00e1",
     "country": "Brazil"
   },
   {
-    "city": "Ipu\u00e3",
+    "city": "Ipua",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
   {
-    "city": "Ipau\u00e7u",
+    "city": "Ipaucu",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -140,7 +145,7 @@ export const ipCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ipangua\u00e7u",
+    "city": "Ipanguacu",
     "state": "Rio Grande do Norte",
     "country": "Brazil"
   },
@@ -150,7 +155,7 @@ export const ipCities = [
     "country": "United States"
   },
   {
-    "city": "Ipecaet\u00e1",
+    "city": "Ipecaeta",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -170,17 +175,17 @@ export const ipCities = [
     "country": "Brazil"
   },
   {
-    "city": "Ippag\u016bdem",
+    "city": "Ippagudem",
     "state": "Telang\u0101na",
     "country": "India"
   },
   {
-    "city": "Ipiranga do Piau\u00ed",
+    "city": "Ipiranga do Piaui",
     "state": "Piau\u00ed",
     "country": "Brazil"
   },
   {
-    "city": "Ipui\u00fana",
+    "city": "Ipuiuna",
     "state": "Minas Gerais",
     "country": "Brazil"
   }

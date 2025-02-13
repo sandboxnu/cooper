@@ -5,7 +5,7 @@ export const mrCities = [
     "country": "Morocco"
   },
   {
-    "city": "Mr\u0105gowo",
+    "city": "Mragowo",
     "state": "Warmi\u0144sko-Mazurskie",
     "country": "Poland"
   },

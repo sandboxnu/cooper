@@ -1,6 +1,6 @@
 export const yhCities = [
   {
-    "city": "Yh\u00fa",
+    "city": "Yhu",
     "state": "Caaguaz\u00fa",
     "country": "Paraguay"
   }

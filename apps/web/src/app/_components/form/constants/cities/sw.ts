@@ -15,9 +15,29 @@ export const swCities = [
     "country": "Ghana"
   },
   {
+    "city": "Swidnica",
+    "state": "Dolno\u015bl\u0105skie",
+    "country": "Poland"
+  },
+  {
+    "city": "Swietochlowice",
+    "state": "\u015al\u0105skie",
+    "country": "Poland"
+  },
+  {
     "city": "Swords",
     "state": "Fingal",
     "country": "Ireland"
+  },
+  {
+    "city": "Swinoujscie",
+    "state": "Zachodniopomorskie",
+    "country": "Poland"
+  },
+  {
+    "city": "Swidnik",
+    "state": "Lubelskie",
+    "country": "Poland"
   },
   {
     "city": "Swadlincote",
@@ -30,7 +50,7 @@ export const swCities = [
     "country": "Namibia"
   },
   {
-    "city": "Swarz\u0119dz",
+    "city": "Swarzedz",
     "state": "Wielkopolskie",
     "country": "Poland"
   },
@@ -40,9 +60,24 @@ export const swCities = [
     "country": "United States"
   },
   {
+    "city": "Swiecie",
+    "state": "Kujawsko-Pomorskie",
+    "country": "Poland"
+  },
+  {
     "city": "Swinton",
     "state": "Salford",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Swiebodzice",
+    "state": "Dolno\u015bl\u0105skie",
+    "country": "Poland"
+  },
+  {
+    "city": "Swiedbodzin",
+    "state": "Lubuskie",
+    "country": "Poland"
   },
   {
     "city": "Sweetwater",
@@ -78,6 +113,11 @@ export const swCities = [
     "city": "Swallownest",
     "state": "Rotherham",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Swidwin",
+    "state": "Zachodniopomorskie",
+    "country": "Poland"
   },
   {
     "city": "Swansea",
@@ -120,7 +160,7 @@ export const swCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Sw\u0101mimalai",
+    "city": "Swamimalai",
     "state": "Tamil N\u0101du",
     "country": "India"
   },

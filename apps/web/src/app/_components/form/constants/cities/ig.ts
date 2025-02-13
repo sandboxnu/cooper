@@ -1,6 +1,6 @@
 export const igCities = [
   {
-    "city": "Igua\u00e7u",
+    "city": "Iguacu",
     "state": "Rio de Janeiro",
     "country": "Brazil"
   },
@@ -8,6 +8,11 @@ export const igCities = [
     "city": "Iguala de la Independencia",
     "state": "Guerrero",
     "country": "Mexico"
+  },
+  {
+    "city": "Igdir",
+    "state": "I\u011fd\u0131r",
+    "country": "Turkey"
   },
   {
     "city": "Igboho",
@@ -35,7 +40,7 @@ export const igCities = [
     "country": "Nigeria"
   },
   {
-    "city": "Igarap\u00e9-Miri",
+    "city": "Igarape-Miri",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -45,7 +50,7 @@ export const igCities = [
     "country": "Uganda"
   },
   {
-    "city": "Igarap\u00e9",
+    "city": "Igarape",
     "state": "Minas Gerais",
     "country": "Brazil"
   },
@@ -55,7 +60,7 @@ export const igCities = [
     "country": "Spain"
   },
   {
-    "city": "Igarap\u00e9-A\u00e7u",
+    "city": "Igarape-Acu",
     "state": "Par\u00e1",
     "country": "Brazil"
   },
@@ -100,7 +105,7 @@ export const igCities = [
     "country": "Italy"
   },
   {
-    "city": "Igara\u00e7u do Tiet\u00ea",
+    "city": "Igaracu do Tiete",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -110,7 +115,7 @@ export const igCities = [
     "country": "Brazil"
   },
   {
-    "city": "Igua\u00ed",
+    "city": "Iguai",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -130,12 +135,12 @@ export const igCities = [
     "country": "Russia"
   },
   {
-    "city": "Igapor\u00e3",
+    "city": "Igapora",
     "state": "Bahia",
     "country": "Brazil"
   },
   {
-    "city": "Ighrem n\u2019Ougdal",
+    "city": "Ighrem n'Ougdal",
     "state": "Dr\u00e2a-Tafilalet",
     "country": "Morocco"
   },
@@ -145,7 +150,7 @@ export const igCities = [
     "country": "Brazil"
   },
   {
-    "city": "Igrapi\u00fana",
+    "city": "Igrapiuna",
     "state": "Bahia",
     "country": "Brazil"
   },
@@ -160,7 +165,7 @@ export const igCities = [
     "country": "Brazil"
   },
   {
-    "city": "Igarap\u00e9 Grande",
+    "city": "Igarape Grande",
     "state": "Maranh\u00e3o",
     "country": "Brazil"
   },
@@ -175,7 +180,7 @@ export const igCities = [
     "country": "Russia"
   },
   {
-    "city": "Igarat\u00e1",
+    "city": "Igarata",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },

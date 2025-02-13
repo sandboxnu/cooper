@@ -1,6 +1,6 @@
 export const sjCities = [
   {
-    "city": "Sj\u00f6bo",
+    "city": "Sjobo",
     "state": "Sk\u00e5ne",
     "country": "Sweden"
   },

@@ -35,12 +35,12 @@ export const ndCities = [
     "country": "Rwanda"
   },
   {
-    "city": "Nd\u00e9l\u00e9",
+    "city": "Ndele",
     "state": "Bamingui-Bangoran",
     "country": "Central African Republic"
   },
   {
-    "city": "Ndend\u00e9",
+    "city": "Ndende",
     "state": "Ngouni\u00e9",
     "country": "Gabon"
   }

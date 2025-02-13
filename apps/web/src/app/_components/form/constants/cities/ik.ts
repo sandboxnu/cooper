@@ -85,12 +85,17 @@ export const ikCities = [
     "country": "Denmark"
   },
   {
-    "city": "Ikhl\u0101spur",
+    "city": "Ikizce",
+    "state": "Ordu",
+    "country": "Turkey"
+  },
+  {
+    "city": "Ikhlaspur",
     "state": "Bih\u0101r",
     "country": "India"
   },
   {
-    "city": "Ikk\u0101du",
+    "city": "Ikkadu",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -100,7 +105,7 @@ export const ikCities = [
     "country": "Russia"
   },
   {
-    "city": "Ikkarai Boluv\u0101mpatti",
+    "city": "Ikkarai Boluvampatti",
     "state": "Tamil N\u0101du",
     "country": "India"
   },

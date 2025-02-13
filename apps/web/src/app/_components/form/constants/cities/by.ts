@@ -20,7 +20,7 @@ export const byCities = [
     "country": "Rwanda"
   },
   {
-    "city": "By\u0101dgi",
+    "city": "Byadgi",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -40,7 +40,7 @@ export const byCities = [
     "country": "Bulgaria"
   },
   {
-    "city": "Byt\u00f3w",
+    "city": "Bytow",
     "state": "Pomorskie",
     "country": "Poland"
   },
@@ -50,7 +50,7 @@ export const byCities = [
     "country": "Belarus"
   },
   {
-    "city": "By\u0101hatti",
+    "city": "Byahatti",
     "state": "Karn\u0101taka",
     "country": "India"
   },
@@ -60,7 +60,7 @@ export const byCities = [
     "country": "United States"
   },
   {
-    "city": "Byt\u010da",
+    "city": "Bytca",
     "state": "\u017dilina",
     "country": "Slovakia"
   },
@@ -90,7 +90,7 @@ export const byCities = [
     "country": "Armenia"
   },
   {
-    "city": "Bystrzyca K\u0142odzka",
+    "city": "Bystrzyca Klodzka",
     "state": "Dolno\u015bl\u0105skie",
     "country": "Poland"
   },

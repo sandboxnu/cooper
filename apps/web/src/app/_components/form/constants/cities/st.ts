@@ -160,7 +160,7 @@ export const stCities = [
     "country": "Canada"
   },
   {
-    "city": "Stargard Szczeci\u0144ski",
+    "city": "Stargard Szczecinski",
     "state": "Zachodniopomorskie",
     "country": "Poland"
   },
@@ -260,7 +260,7 @@ export const stCities = [
     "country": "Kazakhstan"
   },
   {
-    "city": "Starogard Gda\u0144ski",
+    "city": "Starogard Gdanski",
     "state": "Pomorskie",
     "country": "Poland"
   },
@@ -275,7 +275,7 @@ export const stCities = [
     "country": "United States"
   },
   {
-    "city": "Stavro\u00fapoli",
+    "city": "Stavroupoli",
     "state": "Kentrik\u00ed Makedon\u00eda",
     "country": "Greece"
   },
@@ -283,6 +283,11 @@ export const stCities = [
     "city": "St. Thomas",
     "state": "Ontario",
     "country": "Canada"
+  },
+  {
+    "city": "Stip",
+    "state": "\u0160tip",
+    "country": "North Macedonia"
   },
   {
     "city": "Strezhevoy",
@@ -315,7 +320,7 @@ export const stCities = [
     "country": "Algeria"
   },
   {
-    "city": "Str\u00e4ngn\u00e4s",
+    "city": "Strangnas",
     "state": "S\u00f6dermanland",
     "country": "Sweden"
   },
@@ -470,7 +475,7 @@ export const stCities = [
     "country": "South Africa"
   },
   {
-    "city": "Stj\u00f8rdal",
+    "city": "Stjordal",
     "state": "Tr\u00f8ndelag",
     "country": "Norway"
   },
@@ -480,7 +485,7 @@ export const stCities = [
     "country": "Russia"
   },
   {
-    "city": "Sta\u00dffurt",
+    "city": "Stassfurt",
     "state": "Saxony-Anhalt",
     "country": "Germany"
   },
@@ -650,7 +655,7 @@ export const stCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Stra\u015feni",
+    "city": "Straseni",
     "state": "Str\u0103\u015feni",
     "country": "Moldova"
   },
@@ -805,7 +810,7 @@ export const stCities = [
     "country": "United States"
   },
   {
-    "city": "Star\u00e1 \u013dubov\u0148a",
+    "city": "Stara L'ubovna",
     "state": "Pre\u0161ov",
     "country": "Slovakia"
   },
@@ -855,7 +860,7 @@ export const stCities = [
     "country": "Canada"
   },
   {
-    "city": "Stein bei N\u00fcrnberg",
+    "city": "Stein bei Nurnberg",
     "state": "Bavaria",
     "country": "Germany"
   },
@@ -865,7 +870,7 @@ export const stCities = [
     "country": "Ukraine"
   },
   {
-    "city": "St\u00e4fa",
+    "city": "Stafa",
     "state": "Z\u00fcrich",
     "country": "Switzerland"
   },
@@ -875,7 +880,7 @@ export const stCities = [
     "country": "Canada"
   },
   {
-    "city": "Stasz\u00f3w",
+    "city": "Staszow",
     "state": "\u015awi\u0119tokrzyskie",
     "country": "Poland"
   },
@@ -945,12 +950,17 @@ export const stCities = [
     "country": "United States"
   },
   {
+    "city": "Sternberk",
+    "state": "Olomouck\u00fd Kraj",
+    "country": "Czechia"
+  },
+  {
     "city": "Stoughton",
     "state": "Wisconsin",
     "country": "United States"
   },
   {
-    "city": "Stj\u00f8rdalshalsen",
+    "city": "Stjordalshalsen",
     "state": "Tr\u00f8ndelag",
     "country": "Norway"
   },
@@ -1165,7 +1175,7 @@ export const stCities = [
     "country": "Germany"
   },
   {
-    "city": "Steinau an der Stra\u00dfe",
+    "city": "Steinau an der Strasse",
     "state": "Hesse",
     "country": "Germany"
   },
@@ -1210,7 +1220,7 @@ export const stCities = [
     "country": "Sweden"
   },
   {
-    "city": "Strzelce Kraje\u0144skie",
+    "city": "Strzelce Krajenskie",
     "state": "Lubuskie",
     "country": "Poland"
   },
@@ -1228,6 +1238,11 @@ export const stCities = [
     "city": "Sturbridge",
     "state": "Massachusetts",
     "country": "United States"
+  },
+  {
+    "city": "Sturovo",
+    "state": "Nitra",
+    "country": "Slovakia"
   },
   {
     "city": "Stonegate",
@@ -1260,7 +1275,7 @@ export const stCities = [
     "country": "United States"
   },
   {
-    "city": "Stud\u00e9nka",
+    "city": "Studenka",
     "state": "Moravskoslezsk\u00fd Kraj",
     "country": "Czechia"
   },
@@ -1275,7 +1290,7 @@ export const stCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "St\u00f8vring",
+    "city": "Stovring",
     "state": "Nordjylland",
     "country": "Denmark"
   },
@@ -1330,17 +1345,17 @@ export const stCities = [
     "country": "United States"
   },
   {
-    "city": "Stary S\u0105cz",
+    "city": "Stary Sacz",
     "state": "Ma\u0142opolskie",
     "country": "Poland"
   },
   {
-    "city": "Star\u00e1 Tur\u00e1",
+    "city": "Stara Tura",
     "state": "Nitra",
     "country": "Slovakia"
   },
   {
-    "city": "St\u0103uceni",
+    "city": "Stauceni",
     "state": "Chi\u015fin\u0103u",
     "country": "Moldova"
   },
@@ -1353,6 +1368,11 @@ export const stCities = [
     "city": "Stansted Mountfitchet",
     "state": "Essex",
     "country": "United Kingdom"
+  },
+  {
+    "city": "Steti",
+    "state": "\u00dasteck\u00fd Kraj",
+    "country": "Czechia"
   },
   {
     "city": "Staufenberg",
@@ -1370,6 +1390,11 @@ export const stCities = [
     "country": "Switzerland"
   },
   {
+    "city": "Stefan Voda",
+    "state": "\u015etefan Vod\u0103",
+    "country": "Moldova"
+  },
+  {
     "city": "Stratford",
     "state": "Taranaki",
     "country": "New Zealand"
@@ -1380,12 +1405,17 @@ export const stCities = [
     "country": "Australia"
   },
   {
+    "city": "Store",
+    "state": "\u0160tore",
+    "country": "Slovenia"
+  },
+  {
     "city": "Stanley",
     "state": NaN,
     "country": "Falkland Islands (Islas Malvinas)"
   },
   {
-    "city": "Stra\u017ea",
+    "city": "Straza",
     "state": "Stra\u017ea",
     "country": "Slovenia"
   },
@@ -1400,12 +1430,12 @@ export const stCities = [
     "country": "Slovenia"
   },
   {
-    "city": "Star\u0161e",
+    "city": "Starse",
     "state": "Star\u0161e",
     "country": "Slovenia"
   },
   {
-    "city": "Staro Nagori\u010dane",
+    "city": "Staro Nagoricane",
     "state": "Staro Nagori\u010dane",
     "country": "North Macedonia"
   },
@@ -1415,7 +1445,7 @@ export const stCities = [
     "country": "North Macedonia"
   },
   {
-    "city": "Studeni\u010dani",
+    "city": "Studenicani",
     "state": "Studeni\u010dani",
     "country": "North Macedonia"
   },

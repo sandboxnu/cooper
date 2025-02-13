@@ -120,7 +120,7 @@ export const geCities = [
     "country": "United States"
   },
   {
-    "city": "General Rodr\u00edguez",
+    "city": "General Rodriguez",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -190,7 +190,7 @@ export const geCities = [
     "country": "Canada"
   },
   {
-    "city": "General Mart\u00edn Miguel de G\u00fcemes",
+    "city": "General Martin Miguel de Guemes",
     "state": "Salta",
     "country": "Argentina"
   },
@@ -230,7 +230,7 @@ export const geCities = [
     "country": "United States"
   },
   {
-    "city": "Gen\u00e7",
+    "city": "Genc",
     "state": "Bing\u00f6l",
     "country": "Turkey"
   },
@@ -240,7 +240,7 @@ export const geCities = [
     "country": "United States"
   },
   {
-    "city": "Ger\u0101sh",
+    "city": "Gerash",
     "state": "F\u0101rs",
     "country": "Iran"
   },
@@ -280,12 +280,12 @@ export const geCities = [
     "country": "Germany"
   },
   {
-    "city": "Georgsmarienh\u00fctte",
+    "city": "Georgsmarienhutte",
     "state": "Lower Saxony",
     "country": "Germany"
   },
   {
-    "city": "General Jos\u00e9 de San Mart\u00edn",
+    "city": "General Jose de San Martin",
     "state": "Chaco",
     "country": "Argentina"
   },
@@ -295,12 +295,17 @@ export const geCities = [
     "country": "Germany"
   },
   {
+    "city": "Gerakas",
+    "state": "Attik\u00ed",
+    "country": "Greece"
+  },
+  {
     "city": "General Alvear",
     "state": "Mendoza",
     "country": "Argentina"
   },
   {
-    "city": "Germ\u012b",
+    "city": "Germi",
     "state": "Ardab\u012bl",
     "country": "Iran"
   },
@@ -310,12 +315,12 @@ export const geCities = [
     "country": "Germany"
   },
   {
-    "city": "Geva\u015f",
+    "city": "Gevas",
     "state": "Van",
     "country": "Turkey"
   },
   {
-    "city": "General San Mart\u00edn",
+    "city": "General San Martin",
     "state": "Buenos Aires",
     "country": "Argentina"
   },
@@ -385,7 +390,7 @@ export const geCities = [
     "country": "Turkey"
   },
   {
-    "city": "General P\u00e1nfilo Natera",
+    "city": "General Panfilo Natera",
     "state": "Zacatecas",
     "country": "Mexico"
   },
@@ -450,7 +455,7 @@ export const geCities = [
     "country": "France"
   },
   {
-    "city": "Gerd Far\u0101marz Sh\u0101hed\u012byeh",
+    "city": "Gerd Faramarz Shahediyeh",
     "state": "Yazd",
     "country": "Iran"
   },
@@ -485,7 +490,7 @@ export const geCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Get\u00falio Vargas",
+    "city": "Getulio Vargas",
     "state": "Rio Grande do Sul",
     "country": "Brazil"
   },
@@ -560,7 +565,7 @@ export const geCities = [
     "country": "Argentina"
   },
   {
-    "city": "Germas\u00f3geia",
+    "city": "Germasogeia",
     "state": "Lemes\u00f3s",
     "country": "Cyprus"
   },
@@ -693,6 +698,11 @@ export const geCities = [
     "city": "Gerzat",
     "state": "Auvergne-Rh\u00f4ne-Alpes",
     "country": "France"
+  },
+  {
+    "city": "Genova",
+    "state": "Nari\u00f1o",
+    "country": "Colombia"
   },
   {
     "city": "George Mason",

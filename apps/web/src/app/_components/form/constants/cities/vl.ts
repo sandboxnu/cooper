@@ -15,7 +15,7 @@ export const vlCities = [
     "country": "Russia"
   },
   {
-    "city": "Vlor\u00eb",
+    "city": "Vlore",
     "state": "Vlor\u00eb",
     "country": "Albania"
   },
@@ -40,7 +40,7 @@ export const vlCities = [
     "country": "Netherlands"
   },
   {
-    "city": "Vladi\u010din Han",
+    "city": "Vladicin Han",
     "state": "Vladi\u010din Han",
     "country": "Serbia"
   },
@@ -65,7 +65,7 @@ export const vlCities = [
     "country": "Bosnia and Herzegovina"
   },
   {
-    "city": "Vla\u0161im",
+    "city": "Vlasim",
     "state": "St\u0159edo\u010desk\u00fd Kraj",
     "country": "Czechia"
   },

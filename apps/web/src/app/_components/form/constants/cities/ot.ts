@@ -5,6 +5,21 @@ export const otCities = [
     "country": "Canada"
   },
   {
+    "city": "Ota-ku",
+    "state": "T\u014dky\u014d",
+    "country": "Japan"
+  },
+  {
+    "city": "Otsu",
+    "state": "Shiga",
+    "country": "Japan"
+  },
+  {
+    "city": "Ota",
+    "state": "Gunma",
+    "country": "Japan"
+  },
+  {
     "city": "Otaru",
     "state": "Hokkaid\u014d",
     "country": "Japan"
@@ -15,12 +30,17 @@ export const otCities = [
     "country": "Philippines"
   },
   {
+    "city": "Otawara",
+    "state": "Tochigi",
+    "country": "Japan"
+  },
+  {
     "city": "Otukpo",
     "state": "Benue",
     "country": "Nigeria"
   },
   {
-    "city": "Ottapp\u0101lam",
+    "city": "Ottappalam",
     "state": "Kerala",
     "country": "India"
   },
@@ -43,6 +63,11 @@ export const otCities = [
     "city": "Otavalo",
     "state": "Imbabura",
     "country": "Ecuador"
+  },
+  {
+    "city": "Otake",
+    "state": "Hiroshima",
+    "country": "Japan"
   },
   {
     "city": "Otradnoye",
@@ -75,6 +100,11 @@ export const otCities = [
     "country": "Germany"
   },
   {
+    "city": "Otsuki",
+    "state": "Yamanashi",
+    "country": "Japan"
+  },
+  {
     "city": "Otopeni",
     "state": "Ilfov",
     "country": "Romania"
@@ -105,7 +135,7 @@ export const otCities = [
     "country": "Czechia"
   },
   {
-    "city": "Otac\u00edlio Costa",
+    "city": "Otacilio Costa",
     "state": "Santa Catarina",
     "country": "Brazil"
   },
@@ -115,7 +145,7 @@ export const otCities = [
     "country": "Mexico"
   },
   {
-    "city": "Ott\u016br",
+    "city": "Ottur",
     "state": "Kerala",
     "country": "India"
   },
@@ -135,7 +165,7 @@ export const otCities = [
     "country": "United Kingdom"
   },
   {
-    "city": "Ottaikk\u0101lmantapam",
+    "city": "Ottaikkalmantapam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -145,12 +175,17 @@ export const otCities = [
     "country": "United States"
   },
   {
+    "city": "Otsuchi",
+    "state": "Iwate",
+    "country": "Japan"
+  },
+  {
     "city": "Ottendorf-Okrilla",
     "state": "Saxony",
     "country": "Germany"
   },
   {
-    "city": "Ottappid\u0101ram",
+    "city": "Ottappidaram",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -160,9 +195,14 @@ export const otCities = [
     "country": "Mexico"
   },
   {
-    "city": "Ottapp\u0101rai",
+    "city": "Ottapparai",
     "state": "Tamil N\u0101du",
     "country": "India"
+  },
+  {
+    "city": "Otaki",
+    "state": "Chiba",
+    "country": "Japan"
   },
   {
     "city": "Ottobeuren",

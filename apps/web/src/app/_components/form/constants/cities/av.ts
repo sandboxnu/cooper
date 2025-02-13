@@ -1,6 +1,6 @@
 export const avCities = [
   {
-    "city": "Avc\u0131lar",
+    "city": "Avcilar",
     "state": "\u0130stanbul",
     "country": "Turkey"
   },
@@ -10,12 +10,17 @@ export const avCities = [
     "country": "Portugal"
   },
   {
+    "city": "Avadi",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Avrankou",
     "state": "Ou\u00e9m\u00e9",
     "country": "Benin"
   },
   {
-    "city": "Avar\u00e9",
+    "city": "Avare",
     "state": "S\u00e3o Paulo",
     "country": "Brazil"
   },
@@ -35,14 +40,19 @@ export const avCities = [
     "country": "Portugal"
   },
   {
-    "city": "Avil\u00e9s",
+    "city": "Aviles",
     "state": "Asturias",
     "country": "Spain"
   },
   {
-    "city": "Avaniy\u0101puram",
+    "city": "Avaniyapuram",
     "state": "Tamil N\u0101du",
     "country": "India"
+  },
+  {
+    "city": "Avila",
+    "state": "Castille-Leon",
+    "country": "Spain"
   },
   {
     "city": "Avellino",
@@ -135,12 +145,12 @@ export const avCities = [
     "country": "Turkey"
   },
   {
-    "city": "Avrill\u00e9",
+    "city": "Avrille",
     "state": "Pays de la Loire",
     "country": "France"
   },
   {
-    "city": "Avalp\u016bndurai",
+    "city": "Avalpundurai",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -155,7 +165,7 @@ export const avCities = [
     "country": "France"
   },
   {
-    "city": "Aval\u0113palli",
+    "city": "Avalepalli",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
@@ -190,6 +200,11 @@ export const avCities = [
     "country": "Sweden"
   },
   {
+    "city": "Avadattur",
+    "state": "Tamil N\u0101du",
+    "country": "India"
+  },
+  {
     "city": "Avelino Lopes",
     "state": "Piau\u00ed",
     "country": "Brazil"
@@ -220,12 +235,12 @@ export const avCities = [
     "country": "United States"
   },
   {
-    "city": "Aval\u016brpet",
+    "city": "Avalurpet",
     "state": "Tamil N\u0101du",
     "country": "India"
   },
   {
-    "city": "Avan\u0101ship\u0101laiyam",
+    "city": "Avanashipalaiyam",
     "state": "Tamil N\u0101du",
     "country": "India"
   },

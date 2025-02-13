@@ -20,7 +20,7 @@ export const dzCities = [
     "country": "Ukraine"
   },
   {
-    "city": "Dzier\u017coni\u00f3w",
+    "city": "Dzierzoniow",
     "state": "Dolno\u015bl\u0105skie",
     "country": "Poland"
   },
@@ -30,17 +30,17 @@ export const dzCities = [
     "country": "Belarus"
   },
   {
-    "city": "Dzia\u0142dowo",
+    "city": "Dzialdowo",
     "state": "Warmi\u0144sko-Mazurskie",
     "country": "Poland"
   },
   {
-    "city": "Dz\u00fc\u00fcnharaa",
+    "city": "Dzuunharaa",
     "state": "Selenge",
     "country": "Mongolia"
   },
   {
-    "city": "Dzitbalch\u00e9",
+    "city": "Dzitbalche",
     "state": "Campeche",
     "country": "Mexico"
   },
