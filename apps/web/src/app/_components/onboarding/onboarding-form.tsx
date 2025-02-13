@@ -112,7 +112,7 @@ export function OnboardingForm({
           onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-col space-y-6"
         >
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
             <FormField
               control={form.control}
               name="firstName"
@@ -130,7 +130,7 @@ export function OnboardingForm({
               control={form.control}
               name="lastName"
               render={({ field }) => (
-                <FormItem className="max-w-72">
+                <FormItem className="max-w-72 lg:ml-2">
                   <FormLabel required>Last Name</FormLabel>
                   <FormControl>
                     <Input placeholder="Last" {...field} />
@@ -153,7 +153,7 @@ export function OnboardingForm({
               </FormItem>
             )}
           />
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4">
             <FormField
               control={form.control}
               name="major"
@@ -175,6 +175,7 @@ export function OnboardingForm({
                       );
                       form.setValue("major", currentValue);
                     }}
+                    triggerClassName="max-w-72"
                   />
                 </FormItem>
               )}
