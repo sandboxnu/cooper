@@ -1,30 +1,22 @@
 "use client";
 
-import type { inferRouterOutputs } from "@trpc/server";
 import Image from "next/image";
 
-import type { AppRouter } from "@cooper/api";
-import type {
-  ReviewType,
-  RoleType,
-  WorkEnvironmentType,
-} from "@cooper/db/schema";
+import type { RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
 import { api } from "~/trpc/react";
-import { listBenefits } from "~/utils/reviewsAggregationHelpers";
-import { prettyWorkEnviornment } from "~/utils/stringHelpers";
 import { ReviewCard } from "./review-card";
 import { ReviewCardStars } from "./review-card-stars";
 
-const InterviewDifficulty = [
-  { des: "Very Easy", color: "text-[#4bc92e]" },
-  { des: "Easy", color: "text-[#09b52b]" },
-  { des: "Neither Easy Nor Difficult", color: "text-cooper-blue-400" },
-  { des: "Difficult", color: "text-[#f27c38]" },
-  { des: "Very Difficult", color: "text-[#f52536]" },
-];
+// const InterviewDifficulty = [
+//   { des: "Very Easy", color: "text-[#4bc92e]" },
+//   { des: "Easy", color: "text-[#09b52b]" },
+//   { des: "Neither Easy Nor Difficult", color: "text-cooper-blue-400" },
+//   { des: "Difficult", color: "text-[#f27c38]" },
+//   { des: "Very Difficult", color: "text-[#f52536]" },
+// ];
 
 const yellowStar = (
   <svg
@@ -135,7 +127,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                   (() => {
                     const totalPay = reviews.data.reduce(
                       (sum, review) =>
-                        sum + parseFloat(review.hourlyPay || "0"),
+                        sum + parseFloat(review.hourlyPay ?? "0"),
                       0.0,
                     );
                     const averagePay = totalPay / reviews.data.length;
@@ -172,53 +164,6 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                     );
                   })()}
               </CardContent>
-              {/* <CardContent className="grid gap-2 justify-end">
-              {reviews.isSuccess && reviews.data.length > 0 && (() => {
-              const totalInterviewDifficulty = reviews.data.reduce((sum, review) => sum + review.interviewDifficulty, 0);
-              const averageInterviewDifficulty = (totalInterviewDifficulty / reviews.data.length);
-              return (
-                <>
-                  <div className="flex align-center gap-2">
-                  Interview Difficulty
-                </div>
-                <div className="flex align-center gap-2">
-                  {averageInterviewDifficulty}
-                </div>
-              </>
-              );
-            })()}
-            </CardContent> */}
-            </div>
-          </Card>
-
-          <Card className="mx-auto w-[94%] rounded-3xl bg-cooper-gray-200">
-            <div className="align-center flex">
-              {/* <CardContent className="pt-2 grid grid-cols-3 mx-auto h-full w-full">
-              <div>
-                Drug Test {reviewObj.drugTest}
-              </div>
-              <div>
-                Federal holidays {reviewObj.federalHolidays}
-              </div>
-              <div>
-                Free merch {reviewObj.freeMerch}
-              </div>
-              <div>
-                Overtime {reviewObj.overtimeNormal}
-              </div>
-              <div>
-                Lunch provided {reviewObj.freeLunch}
-              </div>
-              <div>
-                Other benefits {reviewObj.otherBenefits}
-              </div>
-              <div>
-                PTO {reviewObj.pto}
-              </div>
-              <div>
-                Transportation {reviewObj.freeTransport}
-              </div>
-            </CardContent> */}
             </div>
           </Card>
 

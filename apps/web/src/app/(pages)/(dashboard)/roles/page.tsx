@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { z } from "zod";
 
 import type {
-  ReviewType,
   RoleType,
   WorkEnvironmentType,
   WorkTermType,
@@ -15,10 +14,8 @@ import { useToast } from "@cooper/ui/hooks/use-toast";
 
 import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
-import { ReviewCard } from "~/app/_components/reviews/review-card";
 import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
 import { RoleInfo } from "~/app/_components/reviews/role-info";
-import SearchFilter from "~/app/_components/search/search-filter";
 import { api } from "~/trpc/react";
 
 export default function Roles({

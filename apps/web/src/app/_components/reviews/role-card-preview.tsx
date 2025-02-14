@@ -1,20 +1,10 @@
 "use client";
 
-import Image from "next/image";
-
-import type { ReviewType, RoleType } from "@cooper/db/schema";
+import type { RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@cooper/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
-import { ReviewCardStars } from "~/app/_components/reviews/review-card-stars";
 import { api } from "~/trpc/react";
-import { truncateText } from "~/utils/stringHelpers";
 
 interface RoleCardPreviewProps {
   className?: string;
