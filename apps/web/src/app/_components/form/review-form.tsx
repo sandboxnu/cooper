@@ -13,6 +13,7 @@ import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 import { Form } from "@cooper/ui/form";
+import { useToast } from "@cooper/ui/hooks/use-toast";
 import { CheckIcon } from "@cooper/ui/icons";
 
 import {
@@ -23,6 +24,7 @@ import {
 } from "~/app/_components/form/sections";
 import { SubmissionConfirmation } from "~/app/_components/form/submission-confirmation";
 import { api } from "~/trpc/react";
+import { SubmissionFailure } from "./submission-failure";
 
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
@@ -262,20 +264,46 @@ export function ReviewForm(props: ReviewFormProps) {
     scroll.scrollToTop({ duration: 250, smooth: true });
   };
 
-  const mutation = api.review.create.useMutation();
+  const [validForm, setValidForm] = useState(true); //wait where do i put these
+  const { toast } = useToast();                     //like at the tipity top?
 
-  function onSubmit(values: z.infer<ReviewFormType>) {
-    mutation.mutate({
-      roleId: props.roleId,
-      profileId: props.profileId,
-      companyId: props.company.id,
-      ...values,
-    });
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const mutation = api.review.create.useMutation({
+    onError: (error) => {
+      setValidForm(false);
+      setErrorMessage(error.message || "An unknown error occurred.");
+  
+      toast({
+        title: "Submission Error",
+        description: (error && error.message) ? error.message : "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
+
+  
+
+  async function onSubmit(values: z.infer<ReviewFormType>) {
+    try {
+      await mutation.mutateAsync({
+        roleId: props.roleId,
+        profileId: props.profileId,
+        companyId: props.company?.id ?? "",
+        ...values,
+      });
+    } catch (error) {
+      console.error("Mutation failed:", error);
+    }
   }
 
   if (currentStep === steps.length + 1) {
-    // Also check if the mutation is successful before displaying this. Otherwise, show a loading spinner.
-    return <SubmissionConfirmation />;
+    if (validForm) {
+      return <SubmissionConfirmation />;
+    } else {
+      return <SubmissionFailure message={errorMessage || undefined} />;
+    }
   }
 
   if (currentStep === 0) {
