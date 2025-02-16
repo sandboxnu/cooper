@@ -23,7 +23,7 @@ export const Select: React.FC<SelectProps> = ({
         )}
         {...props}
       >
-        {placeholder && <option value="">{placeholder}</option>}
+        {placeholder && <option className="place">{placeholder}</option>}
         {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
