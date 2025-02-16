@@ -15,6 +15,7 @@ import {
 } from "~/app/_components/themed/onboarding/form";
 import { Input } from "~/app/_components/themed/onboarding/input";
 import { api } from "~/trpc/react";
+import ComboBox from "../combo-box";
 import { Select } from "../themed/onboarding/select";
 import { majors, monthOptions } from "./constants";
 import { BrowseAroundPrompt } from "./post-onboarding/browse-around-prompt";
@@ -66,6 +67,7 @@ export function OnboardingForm({
 }: OnboardingFormProps) {
   const [cooped, setCooped] = useState<boolean | undefined>(undefined);
   const profile = api.profile.create.useMutation();
+  const [majorLabel, setMajorLabel] = useState<string>("");
 
   const names = (session.user.name ?? " ").split(" ");
 
@@ -110,7 +112,7 @@ export function OnboardingForm({
           onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-col space-y-6"
         >
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
             <FormField
               control={form.control}
               name="firstName"
@@ -128,7 +130,7 @@ export function OnboardingForm({
               control={form.control}
               name="lastName"
               render={({ field }) => (
-                <FormItem className="max-w-72">
+                <FormItem className="max-w-72 lg:ml-2">
                   <FormLabel required>Last Name</FormLabel>
                   <FormControl>
                     <Input placeholder="Last" {...field} />
@@ -151,28 +153,34 @@ export function OnboardingForm({
               </FormItem>
             )}
           />
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4">
             <FormField
               control={form.control}
               name="major"
-              render={({ field }) => (
+              render={() => (
                 <FormItem className="max-w-72">
-                  <FormLabel required>Major</FormLabel>
-                  <FormControl>
-                    <Select
-                      placeholder="Major"
-                      options={majors.map((major) => ({
-                        value: major,
-                        label: major,
-                      }))}
-                      className="min-w-full"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
+                  <FormLabel>Major</FormLabel>
+                  <ComboBox
+                    defaultLabel={majorLabel || "Select major..."}
+                    searchPlaceholder="Search major..."
+                    searchEmpty="No major found."
+                    valuesAndLabels={majors.map((major) => ({
+                      value: major,
+                      label: major,
+                    }))}
+                    currLabel={majorLabel}
+                    onSelect={(currentValue) => {
+                      setMajorLabel(
+                        currentValue === majorLabel ? "" : currentValue,
+                      );
+                      form.setValue("major", currentValue);
+                    }}
+                    triggerClassName="max-w-72"
+                  />
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
               name="minor"

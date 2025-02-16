@@ -25,6 +25,7 @@ interface ComboBoxProps {
   valuesAndLabels: ComboBoxOption<string>[];
   currLabel: string;
   onSelect: (option: string) => void;
+  triggerClassName?: string;
 }
 
 /**
@@ -39,17 +40,24 @@ export default function ComboBox({
   valuesAndLabels,
   currLabel,
   onSelect,
+  triggerClassName,
 }: ComboBoxProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Popover open={isOpen} onOpenChange={setIsOpen}>
-      <PopoverTrigger asChild className="min-w-[400px]">
+      <PopoverTrigger
+        asChild
+        className={cn(
+          "w-[400px] overflow-hidden file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+          triggerClassName,
+        )}
+      >
         <Button
           variant="outline"
           role="combobox"
           aria-expanded={isOpen}
-          className="w-[180px] justify-between"
+          className="justify-between"
         >
           {defaultLabel}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
