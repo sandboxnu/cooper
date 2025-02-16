@@ -8,6 +8,7 @@ import { cn } from "@cooper/ui";
 
 import { NewReviewDialog } from "~/app/_components/reviews/new-review-dialogue";
 import { altivoFont } from "~/app/styles/font";
+import { api } from "~/trpc/react";
 import CooperLogo from "./cooper-logo";
 
 interface HeaderProps {
@@ -21,6 +22,20 @@ interface HeaderProps {
  */
 export default function Header({ session, auth }: HeaderProps) {
   const pathname = usePathname();
+
+  const profile = api.profile.getCurrentUser.useQuery(undefined, {
+    refetchOnWindowFocus: false,
+  });
+  const profileId = profile.data?.id;
+
+  const reviews = api.review.getByProfile.useQuery(
+    { id: profileId ?? "" },
+    {
+      enabled: !!profileId,
+    },
+  );
+
+  const showButton = !!profileId && (reviews.data?.length ?? 0) < 5;
 
   const outerWidth = "w-40";
 
@@ -72,8 +87,7 @@ export default function Header({ session, auth }: HeaderProps) {
           outerWidth,
         )}
       >
-        {/* TODO: only show this if the user is below the max number of reviews allowed */}
-        {session && <NewReviewDialog />}
+        {session && showButton && <NewReviewDialog />}
         {auth}
       </div>
     </header>

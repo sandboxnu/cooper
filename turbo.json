@@ -51,7 +51,7 @@
     },
     "migrate": {
       "cache": false,
-      "interactive": true
+      "interactive": false
     },
     "studio": {
       "cache": false,

@@ -2,6 +2,10 @@
 
 Cooper is a tool for Northeastern students to both submit reviews of their co-ops and filter through reviews of co-ops left by other students.
 
+## The Cooper Docs
+
+Read our docs [cooper-docs-sandboxneu.vercel.app](https://cooper-docs-sandboxneu.vercel.app/) !
+
 ## Features
 
 - [Next.js](https://nextjs.org/) - Web development framework
