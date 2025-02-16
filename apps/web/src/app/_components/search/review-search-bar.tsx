@@ -27,7 +27,7 @@ interface SearchBarProps {
  * @param param0 Cycle and Term to be set as default values for their respective dropdowns
  * @returns A search bar which is connected to a parent 'useForm'
  */
-export function SearchBar({ cycle, term }: SearchBarProps) {
+export function ReviewSearchBar({ cycle, term }: SearchBarProps) {
   const form = useFormContext();
 
   const [selectedCycle, setSelectedCycle] = useState<string | undefined>(cycle);
@@ -43,7 +43,7 @@ export function SearchBar({ cycle, term }: SearchBarProps) {
             <FormControl>
               <Input
                 {...field}
-                className="h-14 rounded-b-none rounded-t-lg border border-[#e2e8f0] pl-4 text-lg active:ring-0 lg:rounded-l-lg lg:rounded-r-none"
+                className="h-14 rounded-b-none rounded-t-lg border-2 border-cooper-blue-700 pl-4 text-lg active:ring-0 lg:rounded-l-lg lg:rounded-r-none"
                 placeholder="Search"
               />
             </FormControl>
@@ -66,7 +66,7 @@ export function SearchBar({ cycle, term }: SearchBarProps) {
                 }}
                 value={selectedCycle}
               >
-                <SelectTrigger className="h-14 rounded-none rounded-bl border border-t-0 border-[#e2e8f0] text-lg ring-0 focus:border-2 focus:ring-0 active:ring-0 lg:rounded-none lg:border-b lg:border-l-0 lg:border-r-0 lg:border-t">
+                <SelectTrigger className="h-14 rounded-none rounded-bl border-2 border-t-0 border-cooper-blue-700 text-lg ring-0 focus:border-2 focus:ring-0 active:ring-0 lg:rounded-none lg:border-b-2 lg:border-l-0 lg:border-r-0 lg:border-t-2">
                   <SelectValue placeholder="Cycle" />
                 </SelectTrigger>
                 <SelectContent>
@@ -101,7 +101,7 @@ export function SearchBar({ cycle, term }: SearchBarProps) {
                 }}
                 value={selectedTerm}
               >
-                <SelectTrigger className="h-14 rounded-none border border-l-0 border-t-0 border-[#e2e8f0] text-lg placeholder:opacity-50 focus:border-2 focus:ring-0 active:ring-0 lg:rounded-l-none lg:rounded-r-none lg:border-l lg:border-r-0 lg:border-t">
+                <SelectTrigger className="h-14 rounded-none border-2 border-l-0 border-t-0 border-cooper-blue-700 text-lg placeholder:opacity-50 focus:border-2 focus:ring-0 active:ring-0 lg:rounded-l-none lg:rounded-r-none lg:border-l-2 lg:border-r-0 lg:border-t-2">
                   <SelectValue placeholder="Work Term" />
                 </SelectTrigger>
                 <SelectContent>
@@ -121,7 +121,7 @@ export function SearchBar({ cycle, term }: SearchBarProps) {
         )}
       />
       <Button
-        className="col-span-2 h-14 rounded-none rounded-br border border-l-0 border-t-0 border-[#e2e8f0] bg-white p-0 text-lg hover:bg-cooper-blue-200 focus:border-2 focus:ring-0 active:ring-0 lg:col-span-1 lg:rounded-l-none lg:rounded-r-lg lg:border-l lg:border-t"
+        className="col-span-2 h-14 rounded-none rounded-br border-2 border-l-0 border-t-0 border-cooper-blue-700 bg-white p-0 text-lg hover:bg-cooper-blue-200 focus:border-2 focus:ring-0 active:ring-0 lg:col-span-1 lg:rounded-l-none lg:rounded-r-lg lg:border-l-2 lg:border-t-2"
         type="submit"
       >
         <svg
