@@ -12,13 +12,6 @@ import { RoleInfo } from "~/app/_components/reviews/role-info";
 import { api } from "~/trpc/react";
 
 export default function Roles() {
-//   {
-//   // searchParams,
-// }: {
-//   // searchParams?: {
-//   //   search?: string;
-//   // };
-// }
   const roles = api.role.list.useQuery();
 
   const [selectedRole, setSelectedRole] = useState<RoleType | undefined>(
