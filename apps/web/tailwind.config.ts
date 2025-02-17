@@ -23,6 +23,7 @@ export default {
       colors: {
         "cooper-gray-100": "#F9F9F9",
         "cooper-gray-200": "#F7F7F7",
+        "cooper-gray-400": "#5A5A5A",
         "cooper-blue-800": "#5A9478",
         "cooper-blue-700": "#1D679C",
         "cooper-blue-600": "#436F8E",
