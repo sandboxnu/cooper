@@ -36,7 +36,7 @@ export const Rating = forwardRef<HTMLInputElement, RatingProps>(
                 "size-20",
                 i < hoveredIndex || i < +getValues(name)
                   ? "fill-cooper-yellow-500"
-                  : "fill-cooper-gray-100",
+                  : "fill-cooper-gray-200",
                 "pr-2 hover:cursor-pointer",
               )}
               onMouseEnter={() => setHoveredIndex(i + 1)}
