@@ -249,9 +249,17 @@ export function ReviewForm(props: ReviewFormProps) {
   );
 
   const canReviewForTerm = (): boolean => {
-    console.log("reviews", reviews.data);
+    if (!reviews.data) return false; 
+    
+    const currentTerm = form.getValues("workTerm"); 
+    const currentYear = form.getValues("workYear");
 
-    return false;
+    const reviewsForCurrentTerm = reviews.data.filter(
+      review => String(review.workTerm) === currentTerm
+      && review.workYear === Number(currentYear)
+    );
+  
+    return reviewsForCurrentTerm.length < 2;
   };
 
   const next = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
