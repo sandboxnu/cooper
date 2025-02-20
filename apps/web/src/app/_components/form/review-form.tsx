@@ -229,8 +229,30 @@ export function ReviewForm(props: ReviewFormProps) {
   });
 
   const [currentStep, setCurrentStep] = useState<number>(0);
+  const [validForm, setValidForm] = useState(true);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const { toast } = useToast();
 
   type FieldName = keyof z.infer<typeof formSchema>;
+
+  const profile = api.profile.getCurrentUser.useQuery(undefined, {
+    refetchOnWindowFocus: false,
+  });
+  const profileId = profile.data?.id;
+
+  const reviews = api.review.getByProfile.useQuery(
+    { id: profileId ?? "" },
+    {
+      enabled: !!profileId,
+    },
+  );
+
+  const canReviewForTerm = (): boolean => {
+    console.log("reviews", reviews.data);
+
+    return false;
+  };
 
   const next = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
@@ -240,6 +262,11 @@ export function ReviewForm(props: ReviewFormProps) {
     });
 
     if (!output) {
+      return;
+    }
+
+    if (currentStep === 1 && !canReviewForTerm()) {
+      alert("You have already submitted too many reviews for this term!");
       return;
     }
 
@@ -264,33 +291,25 @@ export function ReviewForm(props: ReviewFormProps) {
     scroll.scrollToTop({ duration: 250, smooth: true });
   };
 
-  const [validForm, setValidForm] = useState(true); //wait where do i put these
-  const { toast } = useToast();                     //like at the tipity top?
-
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
-
   const mutation = api.review.create.useMutation({
     onError: (error) => {
       setValidForm(false);
       setErrorMessage(error.message || "An unknown error occurred.");
-  
+
       toast({
         title: "Submission Error",
-        description: (error && error.message) ? error.message : "Something went wrong. Please try again.",
+        description: error.message || "Something went wrong. Please try again.",
         variant: "destructive",
       });
     },
   });
-
-
-  
 
   async function onSubmit(values: z.infer<ReviewFormType>) {
     try {
       await mutation.mutateAsync({
         roleId: props.roleId,
         profileId: props.profileId,
-        companyId: props.company?.id ?? "",
+        companyId: props.company.id,
         ...values,
       });
     } catch (error) {
@@ -302,7 +321,7 @@ export function ReviewForm(props: ReviewFormProps) {
     if (validForm) {
       return <SubmissionConfirmation />;
     } else {
-      return <SubmissionFailure message={errorMessage || undefined} />;
+      return <SubmissionFailure message={errorMessage ?? undefined} />;
     }
   }
 
