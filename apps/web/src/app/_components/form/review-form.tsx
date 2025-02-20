@@ -249,16 +249,17 @@ export function ReviewForm(props: ReviewFormProps) {
   );
 
   const canReviewForTerm = (): boolean => {
-    if (!reviews.data) return false; 
-    
-    const currentTerm = form.getValues("workTerm"); 
+    if (!reviews.data) return false;
+
+    const currentTerm = form.getValues("workTerm");
     const currentYear = form.getValues("workYear");
 
     const reviewsForCurrentTerm = reviews.data.filter(
-      review => String(review.workTerm) === currentTerm
-      && review.workYear === Number(currentYear)
+      (review) =>
+        String(review.workTerm) === currentTerm &&
+        review.workYear === Number(currentYear),
     );
-  
+
     return reviewsForCurrentTerm.length < 2;
   };
 
