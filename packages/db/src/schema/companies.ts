@@ -1,6 +1,7 @@
 import { relations, sql } from "drizzle-orm";
 import {
   decimal,
+  integer,
   pgTable,
   text,
   timestamp,
@@ -26,6 +27,7 @@ export const Company = pgTable("company", {
   averageSupervisorRating: decimal("averageSupervisorRating"),
   averageInterviewRating: decimal("averageInterviewRating"),
   averageInterviewDifficulty: decimal("averageInterviewDifficulty"),
+  totalReviews: integer("totalReviews"),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt", {
     mode: "date",
@@ -45,12 +47,13 @@ export const CreateCompanySchema = createInsertSchema(Company, {
   description: z.string().optional(),
   industry: z.nativeEnum(Industry),
   location: z.string(),
-  averageHourlyPay: z.number(),
-  averageOverallRating: z.number(),
-  averageCultureRating: z.number(),
-  averageSupervisorRating: z.number(),
-  averageInterviewRating: z.number(),
-  averageInterviewDifficulty: z.number(),
+  averageHourlyPay: z.string(),
+  averageOverallRating: z.string(),
+  averageCultureRating: z.string(),
+  averageSupervisorRating: z.string(),
+  averageInterviewRating: z.string(),
+  averageInterviewDifficulty: z.string(),
+  totalReviews: z.number(),
 }).omit({
   id: true,
   createdAt: true,
