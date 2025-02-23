@@ -28,7 +28,7 @@ export default function Roles() {
     <>
       {roles.isSuccess && roles.data.length > 0 && (
         <div className="flex h-[100dvh] w-[95%] gap-4 divide-x divide-[#474747] pl-4 pr-4 lg:w-[95%]">
-          <div className="w-[28%] gap-3 overflow-scroll">
+          <div className="w-[28%] gap-3 overflow-auto">
             {roles.data.map((role, i) => {
               return (
                 <div key={role.id} onClick={() => setSelectedRole(role)}>
@@ -45,7 +45,7 @@ export default function Roles() {
               );
             })}
           </div>
-          <div className="col-span-3 w-[72%] overflow-scroll p-1">
+          <div className="col-span-3 w-[72%] overflow-auto p-1">
             {roles.data.length > 0 && roles.data[0] && (
               <RoleInfo roleObj={selectedRole ?? roles.data[0]} />
             )}
