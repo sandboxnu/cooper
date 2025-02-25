@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 
+import type { LocationType } from "@cooper/db/schema";
 import {
   FormControl,
   FormField,
@@ -14,6 +15,7 @@ import { Textarea } from "@cooper/ui/textarea";
 import type { ComboBoxOption } from "~/app/_components/combo-box";
 import ComboBox from "~/app/_components/combo-box";
 import { FormSection } from "~/app/_components/form/form-section";
+import { api } from "~/trpc/server";
 
 /**
  * ReviewSection component renders form fields for writing a co-op review.
@@ -25,25 +27,20 @@ export function ReviewSection({ textColor }: { textColor: string }) {
   const [locationLabel, setLocationLabel] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-  useEffect(() => {
-    if (searchTerm.length === 2) {
+  useEffect(async () => {
+    if (searchTerm.length === 2 || searchTerm.length === 3) {
       const prefix = searchTerm.toLowerCase();
-      const moduleName = `${prefix}Cities`;
 
-      import(`../constants/cities/${prefix}`)
-        .then((module) => {
-          const cities = module[moduleName];
-          const flattenedNames = cities.map(
-            (location: { city: string; state: string; country: string }) => ({
-              value: location.city,
-              label: `${location.city}, ${location.state}, ${location.country}`,
-            }),
-          );
-          setLocations(flattenedNames);
-        })
-        .catch((error) => {
-          console.error(`Error loading module for prefix ${prefix}:`, error);
-        });
+      const locationsToUpdate = await api.location.getByPrefix({ prefix });
+
+      if (locationsToUpdate.isSuccess && locationsToUpdate.data) {
+        setLocations(
+          locationsToUpdate.map((location: LocationType) => ({
+            value: location.id,
+            label: location.city,
+          })),
+        );
+      }
     }
   }, [searchTerm]);
 
