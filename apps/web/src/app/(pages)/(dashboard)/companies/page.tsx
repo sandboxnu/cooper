@@ -1,4 +1,5 @@
 import { unstable_noStore as noStore } from "next/cache";
+import { usePathname, useRouter } from "next/navigation";
 
 import NoResults from "~/app/_components/no-results";
 import { RoleReviewCard } from "~/app/_components/reviews/role-review-card";
@@ -16,6 +17,12 @@ export default async function Companies() {
     return roles;
   }
 
+  const router = useRouter();
+
+  const handleRoleSelect = (roleId: string) => {
+    router.push(`/companies/company?id=${roleId}`);
+  };
+
   const roles = await getRoles();
 
   return (
@@ -25,7 +32,16 @@ export default async function Companies() {
         <div className="mb-8 grid h-[70dvh] w-3/4 grid-cols-1 gap-4 overflow-y-scroll md:grid-cols-2 xl:grid-cols-3">
           {roles.map((role) => {
             return (
-              <RoleReviewCard key={role.id} roleObj={role} className="mb-4" />
+              <div
+                key={role.id}
+                onClick={() => handleRoleSelect(role.id)}
+                className="cursor-pointer"
+              >
+                <RoleReviewCard roleObj={role} className="mb-4" />
+              </div>
+
+              // <RoleReviewCard key={role.id}
+              // roleObj={role} className="mb-4" />
             );
           })}
         </div>
