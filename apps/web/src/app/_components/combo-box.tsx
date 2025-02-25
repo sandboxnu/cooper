@@ -26,6 +26,7 @@ interface ComboBoxProps {
   valuesAndLabels: ComboBoxOption<string>[];
   currLabel: string;
   onSelect: (option: string) => void;
+  triggerClassName?: string;
   onChange?: (value: string) => void;
   variant?: "default" | "form";
 }
@@ -42,6 +43,7 @@ export default function ComboBox({
   valuesAndLabels,
   currLabel,
   onSelect,
+  triggerClassName,
   onChange,
   variant,
 }: ComboBoxProps) {
@@ -54,14 +56,20 @@ export default function ComboBox({
 
   return (
     <Popover open={isOpen} onOpenChange={setIsOpen}>
-      <PopoverTrigger asChild className="min-w-[400px]">
+      <PopoverTrigger
+        asChild
+        className={cn(
+          "w-[400px] overflow-hidden file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+          triggerClassName,
+        )}
+      >
         <Button
           variant="outline"
           role="combobox"
           aria-expanded={isOpen}
           className={cn(
             styleVariant,
-            "w-[180px] justify-between overflow-hidden text-ellipsis text-nowrap",
+            "justify-between overflow-hidden text-ellipsis text-nowrap",
           )}
         >
           <span className="overflow-hidden text-ellipsis whitespace-nowrap">

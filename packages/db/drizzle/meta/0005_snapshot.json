@@ -1,6 +1,6 @@
 {
-  "id": "b20b1281-840d-4c06-9e85-7d149ee467ac",
-  "prevId": "14a8a6c9-4bc5-4e75-beb7-deee59110a92",
+  "id": "8c23acb3-2c81-4141-a602-68b595688adf",
+  "prevId": "b20b1281-840d-4c06-9e85-7d149ee467ac",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -163,6 +163,12 @@
         "averageInterviewDifficulty": {
           "name": "averageInterviewDifficulty",
           "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "totalReviews": {
+          "name": "totalReviews",
+          "type": "integer",
           "primaryKey": false,
           "notNull": false
         },
@@ -616,6 +622,12 @@
         "averageInterviewDifficulty": {
           "name": "averageInterviewDifficulty",
           "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "totalReviews": {
+          "name": "totalReviews",
+          "type": "integer",
           "primaryKey": false,
           "notNull": false
         },

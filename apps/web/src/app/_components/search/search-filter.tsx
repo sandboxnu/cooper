@@ -9,7 +9,8 @@ import { z } from "zod";
 import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
 import { Form } from "@cooper/ui/form";
 
-import { SearchBar } from "~/app/_components/search/search-bar";
+import { ReviewSearchBar } from "~/app/_components/search/review-search-bar";
+import { SimpleSearchBar } from "./simple-search-bar";
 
 const formSchema = z.object({
   searchText: z.string(),
@@ -32,6 +33,7 @@ interface SearchFilterProps {
   cycle?: "FALL" | "SPRING" | "SUMMER";
   term?: "INPERSON" | "HYBRID" | "REMOTE";
   alternatePathname?: string;
+  searchType?: "REVIEWS" | "SIMPLE";
 }
 
 /**
@@ -45,6 +47,7 @@ export default function SearchFilter({
   cycle,
   term,
   alternatePathname,
+  searchType = "SIMPLE",
 }: SearchFilterProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -88,7 +91,10 @@ export default function SearchFilter({
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-[100vw]">
         <div className="flex justify-center">
-          <SearchBar cycle={cycle} term={term} />
+          {searchType === "SIMPLE" && <SimpleSearchBar />}
+          {searchType === "REVIEWS" && (
+            <ReviewSearchBar cycle={cycle} term={term} />
+          )}
         </div>
       </form>
     </Form>
