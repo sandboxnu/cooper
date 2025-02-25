@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="flex h-20 w-full grid-cols-2 items-center justify-between border-t border-t-[#919191] bg-white px-4">
+    <footer className="flex min-h-20 w-full grid-cols-2 items-center justify-between border-t border-t-[#919191] bg-white px-4">
       <Link
         href="https://github.com/sandboxnu/cooper"
         target="_blank"

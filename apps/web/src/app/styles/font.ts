@@ -1,39 +1,24 @@
 import localFont from "next/font/local";
 
-export const altivoFont = localFont({
+export const hankenGroteskFont = localFont({
   src: [
     {
-      path: "./../../../public/fonts/AltivoRegular.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "./../../../public/fonts/AltivoMedium.otf",
-      weight: "600",
-      style: "normal",
-    },
-  ],
-});
-
-export const bentonSansFont = localFont({
-  src: [
-    {
-      path: "./../../../public/fonts/BentonSansBook.otf",
+      path: "./../../../public/fonts/hanken-grotesk/HankenGrotesk-Light.ttf",
       weight: "200",
       style: "normal",
     },
     {
-      path: "./../../../public/fonts/BentonSansRegular.otf",
+      path: "./../../../public/fonts/hanken-grotesk/HankenGrotesk-Regular.ttf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./../../../public/fonts/BentonSansMedium.otf",
+      path: "./../../../public/fonts/hanken-grotesk/HankenGrotesk-Medium.ttf",
       weight: "600",
       style: "normal",
     },
     {
-      path: "./../../../public/fonts/BentonSansBold.otf",
+      path: "./../../../public/fonts/hanken-grotesk/HankenGrotesk-Bold.ttf",
       weight: "800",
       style: "normal",
     },
