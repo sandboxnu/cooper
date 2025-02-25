@@ -12,8 +12,10 @@ export const Location = pgTable("location", {
   country: varchar("country").notNull(),
 });
 
+export type LocationType = typeof Location.$inferSelect;
+
 export const LocationReviews = relations(Location, ({ many }) => ({
-    companies: many(Company),
+  companies: many(Company),
 }));
 
 export const CreateLocationSchema = createInsertSchema(Location, {
