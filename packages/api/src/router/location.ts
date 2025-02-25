@@ -1,7 +1,11 @@
+
+import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
-import { protectedProcedure, publicProcedure } from "../trpc";
 import { asc } from "@cooper/db";
+import { CreateLocationSchema, Location} from "@cooper/db/schema";
+
+import { protectedProcedure, publicProcedure } from "../trpc";
 
 // doesn't work yet bc the schema is on my other laptop :D
 export const locationRouter = {
