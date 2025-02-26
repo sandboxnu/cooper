@@ -11,6 +11,7 @@ import {
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
+import { Location } from "./locations";
 import { Industry } from "./misc";
 import { Review } from "./reviews";
 import { Role } from "./roles";
@@ -40,6 +41,7 @@ export type CompanyType = typeof Company.$inferSelect;
 export const CompanyRelations = relations(Company, ({ many }) => ({
   roles: many(Role),
   reviews: many(Review),
+  locations: many(Location),
 }));
 
 export const CreateCompanySchema = createInsertSchema(Company, {
