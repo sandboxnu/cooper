@@ -4,7 +4,7 @@ import { MessageSquare } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="flex h-20 w-full grid-cols-2 flex-col items-center justify-between border-t border-t-[#919191] bg-white px-4 md:flex-row">
+    <footer className="flex w-full grid-cols-2 flex-col items-center justify-between gap-2 border-t border-t-[#919191] bg-white p-4 md:flex-row">
       <Link
         href="https://github.com/sandboxnu/cooper"
         target="_blank"
@@ -19,8 +19,12 @@ export default function Footer() {
         />
         <h2 className="text-xl font-semibold">Checkout cooper on GitHub</h2>
       </Link>
-      <div className="flex flex-col items-center md:flex-row md:gap-6">
-        <Link href="____" target="_blank" className="flex items-center gap-2">
+      <div className="flex flex-col items-center gap-2 md:flex-row md:gap-6">
+        <Link
+          href="https://docs.google.com/forms/d/e/1FAIpQLSf-ZvpyBawT5LlMho7X4oNZ0Z_1M-o6cXLJjB5uJiNAvvnkfw/viewform?usp=dialog"
+          target="_blank"
+          className="flex items-center gap-2"
+        >
           <MessageSquare size={20} />
           <h2 className="text-lg font-semibold">
             Submit Feedback or Bug Reports!
