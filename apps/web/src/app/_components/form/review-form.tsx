@@ -13,6 +13,7 @@ import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 import { Form } from "@cooper/ui/form";
+import { useToast } from "@cooper/ui/hooks/use-toast";
 import { CheckIcon } from "@cooper/ui/icons";
 
 import {
@@ -23,6 +24,7 @@ import {
 } from "~/app/_components/form/sections";
 import { SubmissionConfirmation } from "~/app/_components/form/submission-confirmation";
 import { api } from "~/trpc/react";
+import { SubmissionFailure } from "./submission-failure";
 
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
@@ -227,8 +229,39 @@ export function ReviewForm(props: ReviewFormProps) {
   });
 
   const [currentStep, setCurrentStep] = useState<number>(0);
+  const [validForm, setValidForm] = useState(true);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const { toast } = useToast();
 
   type FieldName = keyof z.infer<typeof formSchema>;
+
+  const profile = api.profile.getCurrentUser.useQuery(undefined, {
+    refetchOnWindowFocus: false,
+  });
+  const profileId = profile.data?.id;
+
+  const reviews = api.review.getByProfile.useQuery(
+    { id: profileId ?? "" },
+    {
+      enabled: !!profileId,
+    },
+  );
+
+  const canReviewForTerm = (): boolean => {
+    if (!reviews.data) return false;
+
+    const currentTerm = form.getValues("workTerm");
+    const currentYear = form.getValues("workYear");
+
+    const reviewsForCurrentTerm = reviews.data.filter(
+      (review) =>
+        String(review.workTerm) === currentTerm &&
+        review.workYear === Number(currentYear),
+    );
+
+    return reviewsForCurrentTerm.length < 2;
+  };
 
   const next = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
@@ -238,6 +271,11 @@ export function ReviewForm(props: ReviewFormProps) {
     });
 
     if (!output) {
+      return;
+    }
+
+    if (currentStep === 1 && !canReviewForTerm()) {
+      alert("You have already submitted too many reviews for this term!");
       return;
     }
 
@@ -262,20 +300,38 @@ export function ReviewForm(props: ReviewFormProps) {
     scroll.scrollToTop({ duration: 250, smooth: true });
   };
 
-  const mutation = api.review.create.useMutation();
+  const mutation = api.review.create.useMutation({
+    onError: (error) => {
+      setValidForm(false);
+      setErrorMessage(error.message || "An unknown error occurred.");
 
-  function onSubmit(values: z.infer<ReviewFormType>) {
-    mutation.mutate({
-      roleId: props.roleId,
-      profileId: props.profileId,
-      companyId: props.company.id,
-      ...values,
-    });
+      toast({
+        title: "Submission Error",
+        description: error.message || "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  async function onSubmit(values: z.infer<ReviewFormType>) {
+    try {
+      await mutation.mutateAsync({
+        roleId: props.roleId,
+        profileId: props.profileId,
+        companyId: props.company.id,
+        ...values,
+      });
+    } catch (error) {
+      console.error("Mutation failed:", error);
+    }
   }
 
   if (currentStep === steps.length + 1) {
-    // Also check if the mutation is successful before displaying this. Otherwise, show a loading spinner.
-    return <SubmissionConfirmation />;
+    if (validForm) {
+      return <SubmissionConfirmation />;
+    } else {
+      return <SubmissionFailure message={errorMessage ?? undefined} />;
+    }
   }
 
   if (currentStep === 0) {
