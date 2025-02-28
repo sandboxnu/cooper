@@ -27,13 +27,13 @@ export function ReviewSection({ textColor }: { textColor: string }) {
   const [locationLabel, setLocationLabel] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-  useEffect(async () => {
-    if (searchTerm.length === 2 || searchTerm.length === 3) {
-      const prefix = searchTerm.toLowerCase();
+  useEffect(() => {
+    const fetchLocations = async () => {
+      if (searchTerm.length === 2 || searchTerm.length === 3) {
+        const prefix = searchTerm.toLowerCase();
 
-      const locationsToUpdate = await api.location.getByPrefix({ prefix });
+        const locationsToUpdate = await api.location.getByPrefix({ prefix });
 
-      if (locationsToUpdate.isSuccess && locationsToUpdate.data) {
         setLocations(
           locationsToUpdate.map((location: LocationType) => ({
             value: location.id,
@@ -41,7 +41,9 @@ export function ReviewSection({ textColor }: { textColor: string }) {
           })),
         );
       }
-    }
+    };
+
+    fetchLocations();
   }, [searchTerm]);
 
   return (
