@@ -15,6 +15,11 @@ import { Button } from "@cooper/ui/button";
 import { Form } from "@cooper/ui/form";
 import { useToast } from "@cooper/ui/hooks/use-toast";
 import { CheckIcon } from "@cooper/ui/icons";
+import { drizzle } from "drizzle-orm/vercel-postgres";
+import { sql } from "@vercel/postgres";
+
+
+import * as schema from "../../../../../../packages/db/src/schema";
 
 import {
   CompanyDetailsSection,

@@ -87,13 +87,6 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
             {reviews.isSuccess &&
               reviews.data.length > 0 &&
               (() => {
-                const totalRating = reviews.data.reduce(
-                  (sum, review) => sum + review.overallRating,
-                  0,
-                );
-                const averageRating = (
-                  totalRating / reviews.data.length
-                ).toFixed(1);
 
                 return (
                   <div className="align-center flex gap-2 text-cooper-gray-400">
@@ -103,7 +96,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                       width={20}
                       height={20}
                     />
-                    {averageRating} ({reviews.data.length} reviews)
+                    {role.data?.averageOverallRating} ({reviews.data.length} reviews)
                   </div>
                 );
               })()}
@@ -118,18 +111,12 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                 {reviews.isSuccess &&
                   reviews.data.length > 0 &&
                   (() => {
-                    const totalPay = reviews.data.reduce(
-                      (sum, review) =>
-                        sum + parseFloat(review.hourlyPay ?? "0"),
-                      0.0,
-                    );
-                    const averagePay = totalPay / reviews.data.length;
 
                     return (
                       <>
                         <div className="align-center flex gap-2">Pay Range</div>
                         <div className="align-center flex gap-2">
-                          ${Math.round(averagePay * 100) / 100.0}/hr
+                          ${Math.round(Number(role.data?.averageHourlyPay) * 100) / 100.0}/hr
                         </div>
                       </>
                     );
@@ -139,19 +126,13 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                 {reviews.isSuccess &&
                   reviews.data.length > 0 &&
                   (() => {
-                    const totalInterviewDifficulty = reviews.data.reduce(
-                      (sum, review) => sum + review.interviewDifficulty,
-                      0,
-                    );
-                    const averageInterviewDifficulty =
-                      totalInterviewDifficulty / reviews.data.length;
                     return (
                       <>
                         <div className="align-center flex gap-2">
                           Interview Difficulty
                         </div>
                         <div className="align-center flex gap-2">
-                          {Math.round(averageInterviewDifficulty * 100) / 100.0}
+                          {Math.round(Number(role.data?.averageInterviewDifficulty) * 100) / 100.0}
                         </div>
                       </>
                     );
@@ -167,17 +148,11 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                 {reviews.isSuccess &&
                   reviews.data.length > 0 &&
                   (() => {
-                    const totalCultureRating = reviews.data.reduce(
-                      (sum, review) => sum + review.cultureRating,
-                      0,
-                    );
-                    const averageCultureRating =
-                      totalCultureRating / reviews.data.length;
                     return (
                       <>
                         <div>
                           <h3>Company Culture</h3>
-                          <ReviewCardStars numStars={averageCultureRating} />
+                          <ReviewCardStars numStars={Number(role.data?.averageCultureRating)} />
                         </div>
                       </>
                     );
@@ -185,17 +160,11 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                 {reviews.isSuccess &&
                   reviews.data.length > 0 &&
                   (() => {
-                    const totalSupervisorRating = reviews.data.reduce(
-                      (sum, review) => sum + review.supervisorRating,
-                      0,
-                    );
-                    const averageSupervisorRating =
-                      totalSupervisorRating / reviews.data.length;
                     return (
                       <>
                         <div>
                           <h3>Supervisor</h3>
-                          <ReviewCardStars numStars={averageSupervisorRating} />
+                          <ReviewCardStars numStars={Number(role.data?.averageSupervisorRating)} />
                         </div>
                       </>
                     );
@@ -203,17 +172,11 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                 {reviews.isSuccess &&
                   reviews.data.length > 0 &&
                   (() => {
-                    const totalInterviewRating = reviews.data.reduce(
-                      (sum, review) => sum + review.interviewRating,
-                      0,
-                    );
-                    const averageInterviewRating =
-                      totalInterviewRating / reviews.data.length;
                     return (
                       <>
                         <div>
                           <h3>Interview Rating</h3>
-                          <ReviewCardStars numStars={averageInterviewRating} />
+                          <ReviewCardStars numStars={Number(role.data?.averageInterviewRating)} />
                         </div>
                       </>
                     );
