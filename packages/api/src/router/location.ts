@@ -6,7 +6,6 @@ import { CreateLocationSchema, Location } from "@cooper/db/schema";
 
 import { protectedProcedure, publicProcedure } from "../trpc";
 
-// doesn't work yet bc the schema is on my other laptop :D
 export const locationRouter = {
   list: publicProcedure.query(({ ctx }) => {
     return ctx.db.query.Location.findMany({

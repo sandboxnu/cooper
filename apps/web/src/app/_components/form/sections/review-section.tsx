@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 
@@ -15,7 +17,7 @@ import { Textarea } from "@cooper/ui/textarea";
 import type { ComboBoxOption } from "~/app/_components/combo-box";
 import ComboBox from "~/app/_components/combo-box";
 import { FormSection } from "~/app/_components/form/form-section";
-import { api } from "~/trpc/server";
+import { api } from "~/trpc/react";
 
 /**
  * ReviewSection component renders form fields for writing a co-op review.
@@ -27,24 +29,26 @@ export function ReviewSection({ textColor }: { textColor: string }) {
   const [locationLabel, setLocationLabel] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
 
+  const prefix =
+    searchTerm.length === 2 || searchTerm.length === 3
+      ? searchTerm.toLowerCase()
+      : "";
+
+  const locationsToUpdate = api.location.getByPrefix.useQuery(
+    { prefix },
+    { enabled: !!prefix },
+  );
+
   useEffect(() => {
-    const fetchLocations = async () => {
-      if (searchTerm.length === 2 || searchTerm.length === 3) {
-        const prefix = searchTerm.toLowerCase();
-
-        const locationsToUpdate = await api.location.getByPrefix({ prefix });
-
-        setLocations(
-          locationsToUpdate.map((location: LocationType) => ({
-            value: location.id,
-            label: location.city,
-          })),
-        );
-      }
-    };
-
-    fetchLocations();
-  }, [searchTerm]);
+    if (locationsToUpdate.isSuccess && locationsToUpdate.data) {
+      setLocations(
+        locationsToUpdate.data.map((location: LocationType) => ({
+          value: location.id,
+          label: location.city,
+        })),
+      );
+    }
+  }, [locationsToUpdate.isSuccess, locationsToUpdate.data]);
 
   return (
     <FormSection title="Review" className={textColor}>
