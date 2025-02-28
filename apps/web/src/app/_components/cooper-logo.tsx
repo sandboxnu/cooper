@@ -7,9 +7,9 @@ interface CooperLogoProps {
 export default function CooperLogo({ width }: CooperLogoProps) {
   return (
     <Image
-      src="/svg/hidingLogo.svg"
-      width={width ?? 137}
-      height={width ? width / 2.28 : 60} // 2.28 is the approximate ratio in the hidingLogo.svg file
+      src="/svg/logoOutline.svg"
+      width={width ?? 80}
+      height={width ? width / 1.17 : 70}
       alt="Logo Picture"
     />
   );
