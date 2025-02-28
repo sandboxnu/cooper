@@ -4,8 +4,9 @@ import { auth } from "@cooper/auth";
 
 import Header from "~/app/_components/header";
 import LoginButton from "./auth/login-button";
-import LogoutButton from "./auth/logout-button";
 import Footer from "./footer";
+import ProfileButton from "./profile/profile-button";
+import SearchFilter from "./search/search-filter";
 
 /**
  * This should be used when placing content under the header, standardizes how children are placed under a header.
@@ -18,16 +19,21 @@ export default async function HeaderLayout({
   children: ReactNode;
 }) {
   const session = await auth();
-  const button = session ? <LogoutButton /> : <LoginButton />;
+  const button = session ? (
+    <ProfileButton session={session} />
+  ) : (
+    <LoginButton />
+  );
 
   return (
-    <div className="flex min-h-screen flex-col justify-between">
-      <div>
-        <Header session={session} auth={button} />
-        <article className="mt-16 flex w-[100vw] flex-col items-center justify-center gap-16">
-          {children}
-        </article>
-      </div>
+    <div className="flex h-screen flex-col justify-between">
+      <Header auth={button} />
+      <article className="mt-4 flex h-[92dvh] w-screen flex-col items-center justify-center">
+        <div className="m-4 mt-0 flex h-[6dvh] justify-center lg:hidden">
+          <SearchFilter searchClassName="w-screen px-4" />
+        </div>
+        {children}
+      </article>
       <Footer />
     </div>
   );
