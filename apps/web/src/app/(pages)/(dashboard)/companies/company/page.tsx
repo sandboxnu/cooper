@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 
 import { cn } from "@cooper/ui";
@@ -27,26 +28,13 @@ export default function Company() {
         {/* Company Header */}
         <div className="mb-6 flex items-center justify-between">
           <div className="flex items-center">
-            <div className="mr-3 flex h-12 w-12 items-center justify-center rounded-md bg-gray-800">
-              <svg
-                className="h-6 w-8"
-                viewBox="0 0 48 36"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M24 11C27.5 11 34 12.5 34 18C34 23.5 28 24 24 24C20 24 14 23.5 14 18C14 12.5 20.5 11 24 11Z"
-                  fill="#FF9900"
-                />
-                <path
-                  d="M38 22C38 22 42 25 42 29C42 33 36 35 34 35C32 35 32 34 32 33C32 32 37 31 37 28C37 25 38 22 38 22Z"
-                  fill="#FF9900"
-                />
-                <path
-                  d="M10 22C10 22 6 25 6 29C6 33 12 35 14 35C16 35 16 34 16 33C16 32 11 31 11 28C11 25 10 22 10 22Z"
-                  fill="#FF9900"
-                />
-              </svg>
+            <div className="mr-3 flex h-12 w-12 items-center justify-center rounded-md">
+              <Image
+                src={`https://logo.clearbit.com/${company.data?.name.replace(/\s/g, "")}.com`}
+                width={75}
+                height={75}
+                alt={`Logo of ${company.data?.name}`}
+              />
             </div>
             <div>
               <h1 className="text-xl font-bold">{company.data?.name}</h1>
