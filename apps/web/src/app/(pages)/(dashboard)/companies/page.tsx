@@ -2,9 +2,9 @@
 
 import { useRouter } from "next/navigation";
 
+import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
 import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
-import { CompanyCardPreview } from "~/app/_components/reviews/company-card-preview";
 import { api } from "~/trpc/react";
 
 export default function Companies() {
