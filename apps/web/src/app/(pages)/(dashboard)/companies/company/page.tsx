@@ -27,21 +27,22 @@ export default function Company() {
   return (
     <>
       {company.isSuccess ? (
-        <div className="mx-auto h-[86dvh] w-full max-w-4xl gap-4 font-sans">
-          <div className="mb-6 flex items-center justify-between">
+        <div className="mx-auto h-[86dvh] w-full max-w-[66dvw] gap-4 font-sans">
+          <div className="mb-6 mt-6 flex items-center justify-between">
             <div className="flex items-center">
-              <div className="mr-3 flex h-12 w-12 items-center justify-center rounded-md">
+              <div className="mr-3 flex h-16 w-16 items-center justify-center">
                 <Image
                   src={`https://logo.clearbit.com/${company.data?.name.replace(/\s/g, "")}.com`}
-                  width={75}
-                  height={75}
+                  width={80}
+                  height={80}
                   alt={`Logo of ${company.data?.name}`}
+                  className="rounded-md"
                 />
               </div>
               <div>
-                <h1 className="text-xl font-bold">{company.data?.name}</h1>
-                <p className="text-sm text-gray-600">
-                  Co-op · {company.data?.industry}
+                <h1 className="text-4xl font-bold">{company.data?.name}</h1>
+                <p className="text-lg text-gray-600">
+                  Co-op · {company.data?.industry.toLowerCase()}
                 </p>
               </div>
             </div>
@@ -68,9 +69,11 @@ export default function Company() {
             <CompanyReview companyObj={company.data} />
           </div>
 
-          <p>Job Postings</p>
+          <div className="my-8 border-t border-black"></div>
+
+          <h2 className="mb-4 text-2xl">Job Postings</h2>
           {roles.isSuccess && roles.data.length > 0 ? (
-            <div className="mb-8 grid h-[40dvh] w-full grid-cols-1 gap-3 overflow-auto p-1 md:grid-cols-2 xl:grid-cols-3">
+            <div className="mb-8 grid h-[30dvh] w-full grid-cols-1 gap-3 overflow-auto p-1 md:grid-cols-2 xl:grid-cols-3">
               {roles.data.map((role) => {
                 return (
                   <div key={role.id} className="p-2">

@@ -22,7 +22,7 @@ export function CompanyCardPreview({
   return (
     <Card
       className={cn(
-        "flex h-[26rem] w-[100%] flex-col justify-between overflow-hidden rounded-3xl",
+        "flex h-[26rem] w-[100%] flex-col justify-between overflow-hidden rounded-3xl border-black",
         className,
       )}
     >

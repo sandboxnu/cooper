@@ -15,7 +15,7 @@ export default function Companies() {
   return (
     <>
       {companies.isSuccess && companies.data.length > 0 ? (
-        <div className="mb-8 grid h-[70dvh] w-3/4 grid-cols-1 gap-4 overflow-y-scroll md:grid-cols-2 xl:grid-cols-3">
+        <div className="mb-8 mt-6 grid h-[86dvh] w-3/4 grid-cols-1 gap-4 overflow-y-scroll md:grid-cols-2 xl:grid-cols-3">
           {companies.data.map((company) => (
             <div
               key={company.id}

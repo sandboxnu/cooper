@@ -29,8 +29,9 @@ export function CompanyReview({ companyObj }: CompanyReviewProps) {
       <CardContent className="pt-6">
         <div className="mb-6 flex items-start">
           <div className="mr-6">
-            <h2 className="text-4xl font-bold">
-              {Number(companyObj?.averageOverallRating ?? 0).toFixed(1)}
+            <h2 className="mb-4 mt-2 text-5xl">
+              5.0
+              {/* {Number(companyObj?.averageOverallRating ?? 0).toFixed(1)} */}
             </h2>
             <div className="my-1 flex">
               <ReviewCardStars
