@@ -25,6 +25,7 @@ export function RoleCardPreview({
   // ===== ROLE DATA ===== //
   const role = api.role.getById.useQuery({ id: reviewObj.id });
   const reviews = api.review.getByRole.useQuery({ id: reviewObj.id });
+  const averages = api.role.getAverageById.useQuery({roleId: role.data?.id || ""})
 
   return (
     <Card
@@ -73,7 +74,7 @@ export function RoleCardPreview({
                     width={20}
                     height={20}
                   />
-                  {role.data?.averageOverallRating} ({reviews.data.length} reviews)
+                  {Math.round(Number(averages.data?.averageOverallRating) * 100 ) / 100} ({reviews.data.length} reviews)
                 </div>
               );
             })()}
