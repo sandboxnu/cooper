@@ -26,7 +26,7 @@ export function RoleCardPreview({
   const role = api.role.getById.useQuery({ id: reviewObj.id });
   const reviews = api.review.getByRole.useQuery({ id: reviewObj.id });
   const averages = api.role.getAverageById.useQuery({
-    roleId: role.data?.id || "",
+    roleId: role.data?.id ?? "",
   });
 
   return (
