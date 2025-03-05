@@ -3,7 +3,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { sql } from "@vercel/postgres";
 import dayjs from "dayjs";
+import { drizzle } from "drizzle-orm/vercel-postgres";
 import { useForm } from "react-hook-form";
 import { animateScroll as scroll } from "react-scroll";
 import { z } from "zod";
@@ -15,11 +17,6 @@ import { Button } from "@cooper/ui/button";
 import { Form } from "@cooper/ui/form";
 import { useToast } from "@cooper/ui/hooks/use-toast";
 import { CheckIcon } from "@cooper/ui/icons";
-import { drizzle } from "drizzle-orm/vercel-postgres";
-import { sql } from "@vercel/postgres";
-
-
-import * as schema from "../../../../../../packages/db/src/schema";
 
 import {
   CompanyDetailsSection,
@@ -29,6 +26,7 @@ import {
 } from "~/app/_components/form/sections";
 import { SubmissionConfirmation } from "~/app/_components/form/submission-confirmation";
 import { api } from "~/trpc/react";
+import * as schema from "../../../../../../packages/db/src/schema";
 import { SubmissionFailure } from "./submission-failure";
 
 const formSchema = z.object({

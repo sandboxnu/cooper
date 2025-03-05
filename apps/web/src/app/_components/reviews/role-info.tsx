@@ -33,7 +33,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
 
   // ===== ROLE DATA ===== //
   const companyData = companyQuery.data;
-  const averages = api.role.getAverageById.useQuery({roleId: roleObj.id})
+  const averages = api.role.getAverageById.useQuery({ roleId: roleObj.id });
 
   return (
     <Card
@@ -86,7 +86,6 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
             {reviews.isSuccess &&
               reviews.data.length > 0 &&
               (() => {
-
                 return (
                   <div className="align-center flex gap-2 text-cooper-gray-400">
                     <Image
@@ -95,7 +94,10 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                       width={20}
                       height={20}
                     />
-                    {Math.round(Number(averages.data?.averageOverallRating) * 100 ) / 100} ({reviews.data.length} reviews)
+                    {Math.round(
+                      Number(averages.data?.averageOverallRating) * 100,
+                    ) / 100}{" "}
+                    ({reviews.data.length} reviews)
                   </div>
                 );
               })()}
@@ -110,12 +112,15 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                 {reviews.isSuccess &&
                   reviews.data.length > 0 &&
                   (() => {
-
                     return (
                       <>
                         <div className="align-center flex gap-2">Pay Range</div>
                         <div className="align-center flex gap-2">
-                          ${Math.round(Number(averages.data?.averageHourlyPay) * 100) / 100.0}/hr
+                          $
+                          {Math.round(
+                            Number(averages.data?.averageHourlyPay) * 100,
+                          ) / 100.0}
+                          /hr
                         </div>
                       </>
                     );
@@ -131,7 +136,10 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                           Interview Difficulty
                         </div>
                         <div className="align-center flex gap-2">
-                          {Math.round(Number(averages.data?.averageInterviewDifficulty) * 100) / 100.0}
+                          {Math.round(
+                            Number(averages.data?.averageInterviewDifficulty) *
+                              100,
+                          ) / 100.0}
                         </div>
                       </>
                     );
@@ -151,7 +159,11 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                       <>
                         <div>
                           <h3>Company Culture</h3>
-                          <ReviewCardStars numStars={Number(averages.data?.averageCultureRating)} />
+                          <ReviewCardStars
+                            numStars={Number(
+                              averages.data?.averageCultureRating,
+                            )}
+                          />
                         </div>
                       </>
                     );
@@ -163,7 +175,11 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                       <>
                         <div>
                           <h3>Supervisor</h3>
-                          <ReviewCardStars numStars={Number(averages.data?.averageSupervisorRating)} />
+                          <ReviewCardStars
+                            numStars={Number(
+                              averages.data?.averageSupervisorRating,
+                            )}
+                          />
                         </div>
                       </>
                     );
@@ -175,7 +191,11 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                       <>
                         <div>
                           <h3>Interview Rating</h3>
-                          <ReviewCardStars numStars={Number(averages.data?.averageInterviewRating)} />
+                          <ReviewCardStars
+                            numStars={Number(
+                              averages.data?.averageInterviewRating,
+                            )}
+                          />
                         </div>
                       </>
                     );
