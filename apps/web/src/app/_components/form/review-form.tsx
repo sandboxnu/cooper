@@ -249,7 +249,7 @@ export function ReviewForm(props: ReviewFormProps) {
   );
 
   const canReviewForTerm = (): boolean => {
-    if (!reviews.data) return false;
+    if (!reviews.data) return true;
 
     const currentTerm = form.getValues("workTerm");
     const currentYear = form.getValues("workYear");
@@ -275,6 +275,7 @@ export function ReviewForm(props: ReviewFormProps) {
     }
 
     if (currentStep === 1 && !canReviewForTerm()) {
+      console.log(currentStep, !canReviewForTerm());
       alert("You have already submitted too many reviews for this term!");
       return;
     }
@@ -336,14 +337,21 @@ export function ReviewForm(props: ReviewFormProps) {
 
   if (currentStep === 0) {
     return (
-      <div className="flex flex-col">
-        <div className="z-10 -mb-4 h-4 w-full rounded-t-xl bg-cooper-blue-700" />
-        <div className="flex h-[80vh] w-full items-center justify-center rounded-xl bg-white pl-24 pr-4 text-cooper-blue-600">
-          <div className="flex w-1/2 flex-col space-y-6">
-            <h1 className="text-4xl font-semibold text-cooper-blue-700">
+      <div className="flex h-fit flex-col items-center">
+        <Image
+          src="/svg/hidingLogo.svg"
+          alt="Co-op Review Logo"
+          width={400}
+          height={100}
+          className="max-w-full xl:hidden"
+        />
+        <div className="z-10 -mb-4 h-4 w-full rounded-t-lg bg-cooper-blue-700" />
+        <div className="flex w-full items-center justify-center rounded-lg bg-white px-4 py-16 text-center text-cooper-blue-600 outline outline-2 outline-cooper-blue-700 md:py-20 xl:pl-24 xl:text-start">
+          <div className="flex flex-col items-center space-y-6 xl:items-start">
+            <h1 className="text-2xl font-bold text-cooper-blue-700 md:text-4xl">
               Submit a Co-op Review!
             </h1>
-            <p className="text-2xl text-cooper-blue-700">
+            <p className="text-lg text-cooper-blue-700 md:text-2xl">
               Thank you for taking the time to leave a review of your co-op
               experience! Join others in the Northeastern community and help
               people like yourself make the right career decision.
@@ -362,6 +370,7 @@ export function ReviewForm(props: ReviewFormProps) {
             alt="Co-op Review Logo"
             width={650}
             height={650}
+            className="hidden max-w-full xl:block"
           />
         </div>
       </div>
@@ -373,46 +382,73 @@ export function ReviewForm(props: ReviewFormProps) {
     const grayText = "text-gray-400";
 
     return (
-      <div className="flex justify-between">
-        {steps.map((progress, index) => (
-          <div className="flex flex-col items-center space-y-4" key={index}>
-            {currentStep > index + 1 ? (
-              <div
-                className={cn(
-                  "flex h-12 w-12 items-center justify-center rounded-full",
-                  progress.bgColor,
-                )}
-              >
-                <CheckIcon className="h-12 w-12 font-bold text-white" />
-              </div>
-            ) : (
-              <div
-                className={cn(
-                  "flex h-12 w-12 items-center justify-center rounded-full border-[3px]",
-                  currentStep > index ? progress.borderColor : grayBorder,
-                )}
-              >
-                <h1
+      <>
+        <div className="hidden justify-between md:flex">
+          {steps.map((progress, index) => (
+            <div className="flex flex-col items-center space-y-4" key={index}>
+              {currentStep > index + 1 ? (
+                <div
                   className={cn(
-                    "text-xl font-semibold",
-                    currentStep > index ? progress.textColor : grayText,
+                    "flex h-12 w-12 items-center justify-center rounded-full",
+                    progress.bgColor,
                   )}
                 >
-                  {index + 1}
-                </h1>
-              </div>
+                  <CheckIcon className="h-12 w-12 font-bold text-white" />
+                </div>
+              ) : (
+                <div
+                  className={cn(
+                    "flex h-12 w-12 items-center justify-center rounded-full border-[3px]",
+                    currentStep > index ? progress.borderColor : grayBorder,
+                  )}
+                >
+                  <h1
+                    className={cn(
+                      "text-xl font-semibold",
+                      currentStep > index ? progress.textColor : grayText,
+                    )}
+                  >
+                    {index + 1}
+                  </h1>
+                </div>
+              )}
+              <p
+                className={cn(
+                  "text-lg font-semibold",
+                  currentStep > index ? progress.textColor : grayText,
+                )}
+              >
+                {progress.label}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-0 flex flex-col items-center justify-center space-y-4 md:hidden">
+          <div
+            className={cn(
+              "flex h-12 w-12 items-center justify-center rounded-full border-[3px]",
+              steps[currentStep - 1]?.borderColor,
             )}
-            <p
+          >
+            <h1
               className={cn(
-                "text-lg font-semibold",
-                currentStep > index ? progress.textColor : grayText,
+                "text-xl font-semibold",
+                steps[currentStep - 1]?.textColor,
               )}
             >
-              {progress.label}
-            </p>
+              {currentStep}
+            </h1>
           </div>
-        ))}
-      </div>
+          <p
+            className={cn(
+              "text-lg font-semibold",
+              steps[currentStep - 1]?.textColor,
+            )}
+          >
+            {steps[currentStep - 1]?.label}
+          </p>
+        </div>
+      </>
     );
   }
 
@@ -420,7 +456,7 @@ export function ReviewForm(props: ReviewFormProps) {
     <Form {...form}>
       <form
         className={cn(
-          "space-y-8 rounded-2xl border-t-[16px] bg-white px-32 py-16",
+          "space-y-8 rounded-2xl border-2 border-t-[16px] bg-white px-8 pb-8 md:px-32 md:pt-16",
           steps[currentStep - 1]?.borderColor,
         )}
       >
@@ -444,7 +480,7 @@ export function ReviewForm(props: ReviewFormProps) {
           />
         )}
         {currentStep >= 1 && currentStep <= steps.length && (
-          <div className="flex justify-end space-x-4">
+          <div className="flex justify-between space-x-4 md:justify-end">
             <Button
               variant="outline"
               onClick={prev}
@@ -453,7 +489,7 @@ export function ReviewForm(props: ReviewFormProps) {
               Previous
             </Button>
             <Button onClick={next}>
-              {currentStep == steps.length ? "Submit" : "Save and continue"}
+              {currentStep == steps.length ? "Submit" : "Next"}
             </Button>
           </div>
         )}
