@@ -1,0 +1,25 @@
+{
+  "name": "@cooper/scraper",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "company_data": "npx ts-node src/levels_company_data.ts",
+    "company_name": "npx ts-node src/levels_company_names.ts"
+  },
+  "dependencies": {
+    "puppeteer": "^24.3.1"
+  },
+  "devDependencies": {
+    "@cooper/eslint-config": "workspace:*",
+    "@cooper/prettier-config": "workspace:*",
+    "@cooper/tsconfig": "workspace:*",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:"
+  },
+  "prettier": "@cooper/prettier-config"
+}
