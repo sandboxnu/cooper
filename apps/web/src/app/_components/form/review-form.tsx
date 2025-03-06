@@ -275,7 +275,6 @@ export function ReviewForm(props: ReviewFormProps) {
     }
 
     if (currentStep === 1 && !canReviewForTerm()) {
-      console.log(currentStep, !canReviewForTerm());
       alert("You have already submitted too many reviews for this term!");
       return;
     }

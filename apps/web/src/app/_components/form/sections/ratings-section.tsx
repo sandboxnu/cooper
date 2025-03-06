@@ -91,33 +91,33 @@ export function RatingsSection({ textColor }: { textColor: string }) {
                 onValueChange={field.onChange}
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 defaultValue={field.value}
-                className="flex w-full flex-col justify-between space-y-3 text-center sm:flex-row sm:space-y-0"
+                className="flex w-full flex-col space-y-3 text-center sm:flex-row sm:justify-between sm:space-y-0"
               >
-                <FormItem className="flex flex-col items-center space-x-2 space-y-2">
+                <FormItem className="flex items-center space-x-4 space-y-0 sm:flex-col sm:space-x-2 sm:space-y-2">
                   <FormControl>
                     <RadioGroupItem value="1" checked={field.value === "1"} />
                   </FormControl>
                   <FormLabel>Very easy</FormLabel>
                 </FormItem>
-                <FormItem className="flex flex-col items-center space-x-2 space-y-2">
+                <FormItem className="flex items-center space-x-4 space-y-0 sm:flex-col sm:space-x-2 sm:space-y-2">
                   <FormControl>
                     <RadioGroupItem value="2" checked={field.value === "2"} />
                   </FormControl>
                   <FormLabel>Easy</FormLabel>
                 </FormItem>
-                <FormItem className="flex flex-col items-center space-x-2 space-y-2">
+                <FormItem className="flex items-center space-x-4 space-y-0 sm:flex-col sm:space-x-2 sm:space-y-2">
                   <FormControl>
                     <RadioGroupItem value="3" checked={field.value === "3"} />
                   </FormControl>
                   <FormLabel>Neither easy nor difficult</FormLabel>
                 </FormItem>
-                <FormItem className="flex flex-col items-center space-x-2 space-y-2">
+                <FormItem className="flex items-center space-x-4 space-y-0 sm:flex-col sm:space-x-2 sm:space-y-2">
                   <FormControl>
                     <RadioGroupItem value="4" checked={field.value === "4"} />
                   </FormControl>
                   <FormLabel>Difficult</FormLabel>
                 </FormItem>
-                <FormItem className="flex flex-col items-center space-x-2 space-y-2">
+                <FormItem className="flex items-center space-x-4 space-y-0 sm:flex-col sm:space-x-2 sm:space-y-2">
                   <FormControl>
                     <RadioGroupItem value="5" checked={field.value === "5"} />
                   </FormControl>
