@@ -54,7 +54,7 @@ export const roleRouter = {
         where: eq(Review.roleId, input.roleId),
       });
 
-      const calcAvg = async (field: keyof ReviewType) => {
+      const calcAvg = (field: keyof ReviewType) => {
         return totalReviews > 0
           ? reviews.reduce((sum, review) => sum + Number(review[field]), 0) /
               totalReviews

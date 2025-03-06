@@ -51,7 +51,7 @@ export const companyRouter = {
         where: eq(Review.companyId, input.companyId),
       });
 
-      const calcAvg = async (field: keyof ReviewType) => {
+      const calcAvg = (field: keyof ReviewType) => {
         return totalReviews > 0
           ? reviews.reduce((sum, review) => sum + Number(review[field]), 0) /
               totalReviews
