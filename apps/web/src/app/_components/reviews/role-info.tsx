@@ -7,6 +7,7 @@ import { cn } from "@cooper/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
 import { api } from "~/trpc/react";
+import { NewReviewDialog } from "./new-review-dialogue";
 import { ReviewCard } from "./review-card";
 import { ReviewCardStars } from "./review-card-stars";
 
@@ -42,6 +43,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
         className,
       )}
     >
+      <NewReviewDialog />
       <div>
         <div className="flex w-full items-center justify-between">
           <CardHeader className="pb-3">

@@ -51,7 +51,7 @@ export function ReviewSection({ textColor }: { textColor: string }) {
           control={form.control}
           name="location"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="flex flex-col justify-end">
               <FormLabel>Location</FormLabel>
               <FormControl>
                 <Input {...field} />
