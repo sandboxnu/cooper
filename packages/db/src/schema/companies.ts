@@ -1,13 +1,5 @@
 import { relations, sql } from "drizzle-orm";
-import {
-  decimal,
-  integer,
-  pgTable,
-  text,
-  timestamp,
-  uuid,
-  varchar,
-} from "drizzle-orm/pg-core";
+import { pgTable, text, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -21,13 +13,6 @@ export const Company = pgTable("company", {
   description: text("description"),
   industry: varchar("industry").notNull(),
   location: varchar("location").notNull(),
-  averageHourlyPay: decimal("averageHourlyPay"),
-  averageOverallRating: decimal("averageOverallRating"),
-  averageCultureRating: decimal("averageCultureRating"),
-  averageSupervisorRating: decimal("averageSupervisorRating"),
-  averageInterviewRating: decimal("averageInterviewRating"),
-  averageInterviewDifficulty: decimal("averageInterviewDifficulty"),
-  totalReviews: integer("totalReviews"),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt", {
     mode: "date",
@@ -47,13 +32,6 @@ export const CreateCompanySchema = createInsertSchema(Company, {
   description: z.string().optional(),
   industry: z.nativeEnum(Industry),
   location: z.string(),
-  averageHourlyPay: z.string(),
-  averageOverallRating: z.string(),
-  averageCultureRating: z.string(),
-  averageSupervisorRating: z.string(),
-  averageInterviewRating: z.string(),
-  averageInterviewDifficulty: z.string(),
-  totalReviews: z.number(),
 }).omit({
   id: true,
   createdAt: true,
