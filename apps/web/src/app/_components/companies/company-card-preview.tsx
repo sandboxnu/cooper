@@ -45,10 +45,10 @@ export function CompanyCardPreview({
           <div className="m-4 flex items-center space-x-8">
             <div className="flex flex-col text-sm">
               <h4 className="font-semibold">Industry</h4>
-              <p>{companyObj.industry}</p>
+              <p>{companyObj.industry.toLowerCase()}</p>
             </div>
             <div className="flex flex-col text-sm">
-              <h4 className="font-semibold">DNE</h4>
+              <h4 className="font-semibold">Location</h4>
               <p>{companyObj.location}</p>
             </div>
           </div>
