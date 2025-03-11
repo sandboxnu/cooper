@@ -7,6 +7,7 @@ import { cn } from "@cooper/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
 import { api } from "~/trpc/react";
+import InfoCard from "./info-card";
 import { NewReviewDialog } from "./new-review-dialogue";
 import { ReviewCard } from "./review-card";
 import { ReviewCardStars } from "./review-card-stars";
@@ -39,7 +40,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
   return (
     <Card
       className={cn(
-        "flex h-fit w-[100%] flex-col justify-between overflow-hidden rounded-2xl border-none",
+        "flex h-fit w-[100%] flex-col justify-between overflow-hidden scroll-smooth rounded-2xl border-none",
         className,
       )}
     >
@@ -99,11 +100,47 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                     {Math.round(
                       Number(averages.data?.averageOverallRating) * 100,
                     ) / 100}{" "}
-                    ({reviews.data.length} reviews)
+                    ({reviews.data.length} review
+                    {reviews.data.length !== 1 && "s"})
                   </div>
                 );
               })()}
           </CardContent>
+        </div>
+        <div className="w-[100%]] flex justify-between">
+          <div className="grid w-[80%] grid-cols-2 gap-4 pl-6">
+            <div className="h-full" id="job-description">
+              <InfoCard title={"Job Description"}>
+                <div>{roleObj.description}</div>
+              </InfoCard>
+            </div>
+            {companyData && (
+              <div className="h-full" id="company">
+                <InfoCard title={`About ${companyData.name}`}>
+                  <div className="flex gap-4">
+                    <Image
+                      src={`https://logo.clearbit.com/${companyData.name.replace(/\s/g, "")}.com`}
+                      width={80}
+                      height={80}
+                      alt={`Logo of ${companyData.name}`}
+                      className="rounded-xl border"
+                    />
+                    {companyData.description}
+                  </div>
+                </InfoCard>
+              </div>
+            )}
+            <div className="col-span-2" id="on-the-job">
+              <InfoCard title={"On the job"}>
+                <div></div>
+              </InfoCard>
+            </div>
+          </div>
+          <div className="flex flex-col">
+            <a href="#job-description">Job Description</a>
+            <a href="#company">Company</a>
+            <a href="#on-the-job">On the job</a>
+          </div>
         </div>
 
         <div className="space-y-4">
