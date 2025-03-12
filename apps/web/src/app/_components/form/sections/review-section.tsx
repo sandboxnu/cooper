@@ -24,7 +24,7 @@ import { api } from "~/trpc/react";
  */
 export function ReviewSection({ textColor }: { textColor: string }) {
   const form = useFormContext();
-  
+
   const [locationLabel, setLocationLabel] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [prefix, setPrefix] = useState<string>("");
