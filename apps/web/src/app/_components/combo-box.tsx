@@ -11,7 +11,6 @@ import {
   CommandItem,
   CommandList,
 } from "@cooper/ui/command";
-import { FormLabel } from "@cooper/ui/form";
 import { Popover, PopoverContent, PopoverTrigger } from "@cooper/ui/popover";
 
 export interface ComboBoxOption<T> {
@@ -69,7 +68,7 @@ export default function ComboBox({
           aria-expanded={isOpen}
           className={cn(
             styleVariant,
-            "justify-between overflow-hidden text-ellipsis text-nowrap",
+            "w-[400px] justify-between overflow-hidden text-ellipsis text-nowrap",
           )}
         >
           <span className="overflow-hidden text-ellipsis whitespace-nowrap">
