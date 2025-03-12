@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 
-import type { LocationType } from "@cooper/db/schema";
 import {
   FormControl,
   FormField,
@@ -14,7 +13,6 @@ import {
 import { Input } from "@cooper/ui/input";
 import { Textarea } from "@cooper/ui/textarea";
 
-import type { ComboBoxOption } from "~/app/_components/combo-box";
 import ComboBox from "~/app/_components/combo-box";
 import { FormSection } from "~/app/_components/form/form-section";
 import { api } from "~/trpc/react";

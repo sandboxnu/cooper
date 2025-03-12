@@ -3,6 +3,7 @@
 import type { ReviewType } from "@cooper/db/schema";
 import { Card, CardContent } from "@cooper/ui/card";
 
+import { api } from "~/trpc/react";
 import { ReviewCardStars } from "./review-card-stars";
 
 // const InterviewDifficulty = [
@@ -19,6 +20,21 @@ interface ReviewCardProps {
 }
 
 export function ReviewCard({ reviewObj }: ReviewCardProps) {
+  // ===== LOCATION DATA ===== //
+  const locationName = (reviewObj: ReviewType) => {
+    if (reviewObj.locationId) {
+      const { data: location } = api.location.getById.useQuery({
+        id: reviewObj.locationId,
+      });
+      return location
+        ? location.city +
+            (location.state ? `, ${location.state}` : "") +
+            ", " +
+            location.country
+        : "N/A";
+    }
+  };
+
   return (
     <Card className="mx-auto w-[94%]">
       <div className="flex pt-5">
@@ -29,10 +45,10 @@ export function ReviewCard({ reviewObj }: ReviewCardProps) {
             </div>
             <div className="align-center flex gap-2 pt-2">
               <span
-                className={`${reviewObj.location ? "visibility: visible" : "visibility: hidden"}`}
+                className={`${locationName(reviewObj) ? "visibility: visible" : "visibility: hidden"}`}
               >
                 {" "}
-                {reviewObj.location} •
+                {locationName(reviewObj)} •
               </span>
               <span>{reviewObj.workTerm}</span>
             </div>

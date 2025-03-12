@@ -47,6 +47,21 @@ export async function RoleReviewCard({
 
   if (!company) return null;
 
+  // ===== LOCATION DATA ===== //
+  const locationName = async (locationId: string) => {
+    if (locationId) {
+      const location = await api.location.getById({
+        id: locationId,
+      });
+      return location
+        ? location.city +
+            (location.state ? `, ${location.state}` : "") +
+            ", " +
+            location.country
+        : "N/A";
+    }
+  };
+
   return (
     <Card
       className={cn(
@@ -79,7 +94,7 @@ export async function RoleReviewCard({
           <div className="m-4 flex items-center space-x-8">
             <div className="flex flex-col text-sm">
               <h4 className="font-semibold">Location</h4>
-              <p>{company.location}</p>
+              <p>{locationName(company.location)}</p>
             </div>
             <div className="flex flex-col text-sm">
               <h4 className="font-semibold">Work Model</h4>

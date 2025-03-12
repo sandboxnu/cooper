@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import type { RoleType } from "@cooper/db/schema";
+import type { ReviewType, RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
@@ -35,6 +35,21 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
   const role = api.role.getById.useQuery({ id: roleObj.id });
 
   const companyData = companyQuery.data;
+
+  // ===== LOCATION DATA ===== //
+  const locationName = (reviewObj: ReviewType) => {
+    if (reviewObj.locationId) {
+      const { data: location } = api.location.getById.useQuery({
+        id: reviewObj.locationId,
+      });
+      return location
+        ? location.city +
+            (location.state ? `, ${location.state}` : "") +
+            ", " +
+            location.country
+        : "N/A";
+    }
+  };
 
   return (
     <Card
@@ -71,13 +86,15 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                   <span>{companyData?.name}</span>
                   {reviews.isSuccess && reviews.data.length > 0 && (
                     <span
-                      className={`${reviews.data[0]?.location ? "visibility: visible" : "visibility: hidden"}`}
+                      className={`${(reviews.data[0] ? locationName(reviews.data[0]) : "") ? "visibility: visible" : "visibility: hidden"}`}
                     >
                       •
                     </span>
                   )}
                   {reviews.isSuccess && reviews.data.length > 0 && (
-                    <span>{reviews.data[0]?.location}</span>
+                    <span>
+                      {reviews.data[0] ? locationName(reviews.data[0]) : ""}
+                    </span>
                   )}
                 </div>
               </div>
