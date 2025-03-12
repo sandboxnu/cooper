@@ -84,25 +84,34 @@ export function ReviewSection({ textColor }: { textColor: string }) {
       <div className="flex justify-between space-x-2">
         <FormField
           control={form.control}
-          name="location"
+          name="locationId"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Location</FormLabel>
-              <ComboBox
-                variant="form"
-                defaultLabel={locationLabel || "Select location..."}
-                searchPlaceholder="Search location..."
-                searchEmpty="No location found."
-                valuesAndLabels={locationValuesAndLabels}
-                currLabel={locationLabel}
-                onChange={(value) => {
-                  setSearchTerm(value);
-                }}
-                onSelect={(currentValue) => {
-                  setLocationLabel(currentValue);
-                  field.onChange(currentValue);
-                }}
-              />
+              <FormControl>
+                <ComboBox
+                  variant="form"
+                  defaultLabel={locationLabel || "Select location..."}
+                  searchPlaceholder="Search location..."
+                  searchEmpty="No location found."
+                  valuesAndLabels={locationValuesAndLabels}
+                  currLabel={locationLabel}
+                  onChange={(value) => {
+                    setSearchTerm(value);
+                  }}
+                  onSelect={(currentValue) => {
+                    setLocationLabel(
+                      currentValue === locationLabel ? "" : currentValue,
+                    );
+                    field.onChange(
+                      locationValuesAndLabels.find(
+                        (location) => location.label === currentValue,
+                      )?.value,
+                    );
+                    console.log(field.value);
+                  }}
+                />
+              </FormControl>
             </FormItem>
           )}
         ></FormField>
