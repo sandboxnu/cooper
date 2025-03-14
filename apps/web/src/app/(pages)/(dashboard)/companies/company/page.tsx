@@ -20,10 +20,6 @@ export default function Company() {
   const company = api.company.getById.useQuery({ id: companyID ?? "" });
   const roles = api.role.getByCompany.useQuery({ companyId: companyID ?? "" });
 
-  useEffect(() => {
-    console.log("Company ID:", companyID); // Debugging: Check if id is retrieved correctly
-  }, [companyID]);
-
   return (
     <>
       {company.isSuccess ? (
