@@ -55,15 +55,13 @@ export default async function Page({
     }
 
     return (
-      <div className="min-h-screen bg-cooper-blue-200">
-        <div className="mx-auto w-full px-4 py-16">
-          <div className="mx-auto max-w-6xl">
-            <ReviewForm
-              company={company}
-              roleId={role.id}
-              profileId={profile.id}
-            />
-          </div>
+      <div className="flex min-h-screen items-center bg-cooper-blue-200">
+        <div className="mx-auto w-full max-w-6xl px-4 py-16">
+          <ReviewForm
+            company={company}
+            roleId={role.id}
+            profileId={profile.id}
+          />
         </div>
       </div>
     );
