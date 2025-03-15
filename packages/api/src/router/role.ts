@@ -1,23 +1,32 @@
 import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
-import { desc, eq } from "@cooper/db";
+import { asc, desc, eq } from "@cooper/db";
 import { CreateRoleSchema, Review, ReviewType, Role } from "@cooper/db/schema";
 
-import { protectedProcedure, publicProcedure } from "../trpc";
+import { protectedProcedure, sortableProcedure, publicProcedure } from "../trpc";
+
+const ordering = {
+  "default": desc(Role.id),
+  "rating": desc(Role.createdAt),
+  "newest": desc(Role.createdAt),
+  "oldest": asc(Role.createdAt),
+}
+
 
 export const roleRouter = {
-  list: publicProcedure.query(({ ctx }) => {
+  list: sortableProcedure.query(({ ctx }) => {
     return ctx.db.query.Role.findMany({
-      orderBy: desc(Role.id),
+      orderBy: ordering[ctx.sortBy || "default"],
     });
   }),
 
-  getByTitle: publicProcedure
+  getByTitle: sortableProcedure
     .input(z.object({ title: z.string() }))
     .query(({ ctx, input }) => {
       return ctx.db.query.Role.findMany({
         where: eq(Role.title, input.title),
+        orderBy: ordering[ctx.sortBy || "default"],
       });
     }),
 
@@ -29,11 +38,12 @@ export const roleRouter = {
       });
     }),
 
-  getByCompany: publicProcedure
+  getByCompany: sortableProcedure
     .input(z.object({ companyId: z.string() }))
     .query(({ ctx, input }) => {
       return ctx.db.query.Role.findMany({
         where: eq(Role.companyId, input.companyId),
+        orderBy: ordering[ctx.sortBy || "default"],
       });
     }),
 
@@ -47,11 +57,12 @@ export const roleRouter = {
     return ctx.db.delete(Role).where(eq(Role.id, input));
   }),
 
-  getAverageById: publicProcedure
+  getAverageById: sortableProcedure
     .input(z.object({ roleId: z.string() }))
     .query(async ({ ctx, input }) => {
       const reviews = await ctx.db.query.Review.findMany({
         where: eq(Review.roleId, input.roleId),
+        orderBy: ordering[ctx.sortBy || "default"],
       });
 
       const calcAvg = (field: keyof ReviewType) => {
