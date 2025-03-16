@@ -2,30 +2,18 @@ import Image from "next/image";
 
 import type { CompanyType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@cooper/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
+
+import { prettyDescription } from "~/utils/stringHelpers";
 
 interface CompanyCardPreviewProps {
   className?: string;
   companyObj: CompanyType;
 }
 
-export function CompanyCardPreview({
-  className,
-  companyObj,
-}: CompanyCardPreviewProps) {
+export function CompanyCardPreview({ companyObj }: CompanyCardPreviewProps) {
   return (
-    <Card
-      className={cn(
-        "flex h-[26rem] w-[100%] flex-col justify-between overflow-hidden rounded-3xl border-black",
-        className,
-      )}
-    >
+    <Card className="flex h-[26rem] w-[100%] flex-col justify-between overflow-hidden rounded-3xl border-black">
       <div>
         <CardHeader className="pb-3">
           <div className="flex items-center justify-start space-x-4">
@@ -53,13 +41,12 @@ export function CompanyCardPreview({
             </div>
           </div>
           <div className="m-4 flex items-center space-x-4">
-            <p className="text-sm">{companyObj.description}</p>
+            <p className="text-sm">
+              {prettyDescription(companyObj.description)}
+            </p>
           </div>
         </CardContent>
       </div>
-      <CardFooter className="items-end justify-end text-xs">
-        {(companyObj.totalReviews ?? 0) + " Reviews"}
-      </CardFooter>
     </Card>
   );
 }

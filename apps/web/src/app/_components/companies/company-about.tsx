@@ -10,8 +10,8 @@ interface CompanyAboutProps {
 
 export function CompanyAbout({ companyObj }: CompanyAboutProps) {
   return (
-    <Card className="w-full max-w-lg rounded-xl outline outline-[1px] outline-[#474747]">
-      <CardHeader className="border-b border-[#474747] bg-[#F7F7F7] pb-3">
+    <Card className="w-full max-w-lg rounded-xl border-gray-300 outline outline-1 outline-[#474747]">
+      <CardHeader className="flex h-6 justify-center border-b border-[#474747] bg-[#F7F7F7]">
         <CardTitle className="text-base font-medium text-gray-800">
           About {companyObj?.name}
         </CardTitle>

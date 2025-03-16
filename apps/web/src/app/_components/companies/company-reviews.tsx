@@ -3,6 +3,7 @@
 import type { CompanyType } from "@cooper/db/schema";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
+import { api } from "~/trpc/react";
 import { ReviewCardStars } from "../reviews/review-card-stars";
 
 interface CompanyReviewProps {
@@ -11,12 +12,25 @@ interface CompanyReviewProps {
 }
 
 export function CompanyReview({ companyObj }: CompanyReviewProps) {
+  const avg = api.company.getAverageById.useQuery({
+    companyId: companyObj?.id ?? "",
+  });
+
   const ratings = [
     { stars: 5, percentage: 75 },
     { stars: 4, percentage: 15 },
     { stars: 3, percentage: 6 },
     { stars: 2, percentage: 3 },
     { stars: 1, percentage: 1 },
+  ];
+
+  const starColors = [
+    "#FFE0A9",
+    "#FFE0A9",
+    "#FFD589",
+    "#FFCC71",
+    "#FFC04F",
+    "#FFA400",
   ];
 
   return (
@@ -29,19 +43,19 @@ export function CompanyReview({ companyObj }: CompanyReviewProps) {
       <CardContent className="pt-6">
         <div className="mb-6 flex items-start">
           <div className="mr-6">
+            <p className="text-gray-500">Overall Rating:</p>
             <h2 className="mb-4 mt-2 text-5xl">
-              5.0
-              {/* {Number(companyObj?.averageOverallRating ?? 0).toFixed(1)} */}
+              {avg.data?.averageOverallRating.toFixed(1)}
             </h2>
             <div className="my-1 flex">
               <ReviewCardStars
-                numStars={4}
+                numStars={Number(avg.data?.averageOverallRating.toFixed(0))}
                 // numStars={Number(companyObj?.averageOverallRating)}
               />
             </div>
-            <p className="text-xs text-gray-500">
+            {/* <p className="text-xs text-gray-500">
               Based on {companyObj?.totalReviews ?? 0} reviews
-            </p>
+            </p> */}
           </div>
 
           <div className="flex-1 space-y-2 pt-1">
@@ -62,8 +76,11 @@ export function CompanyReview({ companyObj }: CompanyReviewProps) {
                 </span>
                 <div className="ml-1 h-2 flex-1 rounded-full bg-gray-200">
                   <div
-                    className="h-full rounded-full bg-yellow-400"
-                    style={{ width: `${rating.percentage}%` }}
+                    className="h-full rounded-full"
+                    style={{
+                      width: `${rating.percentage}%`,
+                      backgroundColor: starColors[rating.stars],
+                    }}
                   ></div>
                 </div>
               </div>
