@@ -181,4 +181,4 @@ function saveResults(
   console.log(`Company details saved to ${filePath}`);
 }
 
-scrapeCompanyDetails("Okta");
+scrapeCompanyDetails();
