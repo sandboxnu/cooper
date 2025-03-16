@@ -13,6 +13,7 @@ import {
   Location,
   LocationType,
 } from "./schema/locations";
+import { CompaniesToLocations } from "./schema/companiesToLocations";
 import { Industry, WorkEnvironment, WorkTerm } from "./schema/misc";
 import { CreateProfileSchema, Profile } from "./schema/profiles";
 import { CreateReviewSchema, Review } from "./schema/reviews";
@@ -30,6 +31,7 @@ export {
   Role,
   User,
   Location,
+  CompaniesToLocations,
   CreateCompanySchema,
   CreateProfileSchema,
   CreateReviewSchema,

@@ -4,6 +4,7 @@ import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
 import { Company } from "./companies";
+import { CompaniesToLocations } from "./companiesToLocations";
 import { Review } from "./reviews";
 
 export const Location = pgTable("location", {
@@ -16,7 +17,7 @@ export const Location = pgTable("location", {
 export type LocationType = typeof Location.$inferSelect;
 
 export const LocationReviews = relations(Location, ({ many }) => ({
-  companies: many(Company),
+  CompaniesToLocations: many(CompaniesToLocations),
   reviews: many(Review),
 }));
 

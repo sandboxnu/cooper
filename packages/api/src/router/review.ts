@@ -1,10 +1,15 @@
 import type { TRPCRouterRecord } from "@trpc/server";
 import { TRPCError } from "@trpc/server";
 import Fuse from "fuse.js";
+import { a } from "vitest/dist/chunks/suite.BMWOKiTe.js";
 import { z } from "zod";
 
 import { and, desc, eq } from "@cooper/db";
-import { CreateReviewSchema, Review } from "@cooper/db/schema";
+import {
+  CompaniesToLocations,
+  CreateReviewSchema,
+  Review,
+} from "@cooper/db/schema";
 
 import { protectedProcedure, publicProcedure } from "../trpc";
 
@@ -100,6 +105,23 @@ export const reviewRouter = {
           message: "You can only leave 2 reviews per cycle",
         });
       }
+
+      // Check if a CompaniesToLocations object already exists with the given companyId and locationId
+      const existingRelation =
+        await ctx.db.query.CompaniesToLocations.findFirst({
+          where: and(
+            eq(CompaniesToLocations.companyId, input.companyId),
+            eq(CompaniesToLocations.locationId, input.locationId ?? ""),
+          ),
+        });
+
+      if (!existingRelation) {
+        await ctx.db.insert(CompaniesToLocations).values({
+          locationId: input.locationId ?? "",
+          companyId: input.companyId,
+        });
+      }
+
       return ctx.db.insert(Review).values(input);
     }),
 

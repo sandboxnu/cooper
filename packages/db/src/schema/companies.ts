@@ -11,6 +11,7 @@ import {
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
+import { CompaniesToLocations } from "./companiesToLocations";
 import { Location } from "./locations";
 import { Industry } from "./misc";
 import { Review } from "./reviews";
@@ -21,7 +22,6 @@ export const Company = pgTable("company", {
   name: varchar("name").notNull(),
   description: text("description"),
   industry: varchar("industry").notNull(),
-  location: varchar("location"),
   averageHourlyPay: decimal("averageHourlyPay"),
   averageOverallRating: decimal("averageOverallRating"),
   averageCultureRating: decimal("averageCultureRating"),
@@ -41,14 +41,13 @@ export type CompanyType = typeof Company.$inferSelect;
 export const CompanyRelations = relations(Company, ({ many }) => ({
   roles: many(Role),
   reviews: many(Review),
-  locations: many(Location),
+  CompaniesToLocations: many(CompaniesToLocations),
 }));
 
 export const CreateCompanySchema = createInsertSchema(Company, {
   name: z.string(),
   description: z.string().optional(),
   industry: z.nativeEnum(Industry),
-  location: z.string().optional,
   averageHourlyPay: z.string(),
   averageOverallRating: z.string(),
   averageCultureRating: z.string(),
