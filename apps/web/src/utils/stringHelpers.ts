@@ -1,4 +1,4 @@
-import type { IndustryType, WorkEnvironmentType } from "@cooper/db/schema";
+import type { WorkEnvironmentType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 
 export function truncateText(text: string, length: number): string {
@@ -20,7 +20,7 @@ export function prettyWorkEnviornment(workEnviornment: WorkEnvironmentType) {
 
 export function prettyDescription(
   description?: string | null,
-  maxLength: number = 200,
+  maxLength = 200,
 ) {
   if (!description) return ""; // Handle undefined or empty descriptions
 

@@ -2,11 +2,12 @@ import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
 import { desc, eq } from "@cooper/db";
+import type {
+  ReviewType} from "@cooper/db/schema";
 import {
   Company,
   CreateCompanySchema,
-  Review,
-  ReviewType,
+  Review
 } from "@cooper/db/schema";
 
 import { protectedProcedure, publicProcedure } from "../trpc";

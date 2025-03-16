@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import type { CompanyType } from "@cooper/db/schema";
-import { cn } from "@cooper/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
 import { prettyDescription } from "~/utils/stringHelpers";
