@@ -1,5 +1,7 @@
 import { relations } from "drizzle-orm";
 import { pgTable, primaryKey, varchar } from "drizzle-orm/pg-core";
+import { createInsertSchema } from "drizzle-zod";
+import { z } from "zod";
 
 import { Company } from "./companies";
 import { Location } from "./locations";
@@ -31,4 +33,12 @@ export const CompaniesToLocationsRelations = relations(
       references: [Location.id],
     }),
   }),
+);
+
+export const CreateCompanyToLocationSchema = createInsertSchema(
+  CompaniesToLocations,
+  {
+    companyId: z.string(),
+    locationId: z.string(),
+  },
 );

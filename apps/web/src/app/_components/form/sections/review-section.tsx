@@ -108,7 +108,6 @@ export function ReviewSection({ textColor }: { textColor: string }) {
                         (location) => location.label === currentValue,
                       )?.value,
                     );
-                    console.log(field.value);
                   }}
                 />
               </FormControl>
