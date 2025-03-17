@@ -26,7 +26,9 @@ export type CompanyType = typeof Company.$inferSelect;
 export const CompanyRelations = relations(Company, ({ many }) => ({
   roles: many(Role),
   reviews: many(Review),
-  CompaniesToLocations: many(CompaniesToLocations),
+  locations: many(CompaniesToLocations, {
+    relationName: "companyToLocation",
+  }),
 }));
 
 export const CreateCompanySchema = createInsertSchema(Company, {
