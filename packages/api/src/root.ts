@@ -1,10 +1,10 @@
 import {
   authRouter,
   companyRouter,
+  locationRouter,
   profileRouter,
   reviewRouter,
   roleRouter,
-  locationRouter,
 } from "./router";
 import { createTRPCRouter } from "./trpc";
 
