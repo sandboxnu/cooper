@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import type { LocationType, RoleType } from "@cooper/db/schema";
+import type { RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import {
   Card,
