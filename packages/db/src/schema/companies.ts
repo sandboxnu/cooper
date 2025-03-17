@@ -13,6 +13,7 @@ export const Company = pgTable("company", {
   name: varchar("name").notNull(),
   description: text("description"),
   industry: varchar("industry").notNull(),
+  website: varchar("website"),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt", {
     mode: "date",
@@ -32,6 +33,7 @@ export const CreateCompanySchema = createInsertSchema(Company, {
   name: z.string(),
   description: z.string().optional(),
   industry: z.nativeEnum(Industry),
+  website: z.string().optional(),
 }).omit({
   id: true,
   createdAt: true,
