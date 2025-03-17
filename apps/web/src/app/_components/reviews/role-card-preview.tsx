@@ -25,6 +25,9 @@ export function RoleCardPreview({
   // ===== ROLE DATA ===== //
   const role = api.role.getById.useQuery({ id: reviewObj.id });
   const reviews = api.review.getByRole.useQuery({ id: reviewObj.id });
+  const averages = api.role.getAverageById.useQuery({
+    roleId: role.data?.id ?? "",
+  });
 
   // ===== LOCATION DATA ===== //
   const locationName = (reviewObj: ReviewType) => {
@@ -82,14 +85,6 @@ export function RoleCardPreview({
           {reviews.isSuccess &&
             reviews.data.length > 0 &&
             (() => {
-              const totalRating = reviews.data.reduce(
-                (sum, review) => sum + review.overallRating,
-                0,
-              );
-              const averageRating = (totalRating / reviews.data.length).toFixed(
-                1,
-              );
-
               return (
                 <div className="align-center flex gap-2 text-cooper-gray-400">
                   <Image
@@ -98,7 +93,10 @@ export function RoleCardPreview({
                     width={20}
                     height={20}
                   />
-                  {averageRating} ({reviews.data.length} reviews)
+                  {Math.round(
+                    Number(averages.data?.averageOverallRating) * 100,
+                  ) / 100}{" "}
+                  ({reviews.data.length} reviews)
                 </div>
               );
             })()}

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { cn } from "@cooper/ui";
 
-import { bentonSansFont } from "~/app/styles/font";
+import { hankenGroteskFont } from "~/app/styles/font";
 import { TRPCReactProvider } from "~/trpc/react";
 
 import "~/app/styles/globals.css";
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html
-      className={bentonSansFont.variable}
+      className={hankenGroteskFont.variable}
       lang="en"
       suppressHydrationWarning
     >

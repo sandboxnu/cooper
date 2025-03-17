@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
+import { cn } from "@cooper/ui";
 import { Form } from "@cooper/ui/form";
 
 import { ReviewSearchBar } from "~/app/_components/search/review-search-bar";
@@ -33,6 +34,7 @@ interface SearchFilterProps {
   cycle?: "FALL" | "SPRING" | "SUMMER";
   term?: "INPERSON" | "HYBRID" | "REMOTE";
   alternatePathname?: string;
+  searchClassName?: string;
   searchType?: "REVIEWS" | "SIMPLE";
 }
 
@@ -47,6 +49,7 @@ export default function SearchFilter({
   cycle,
   term,
   alternatePathname,
+  searchClassName,
   searchType = "SIMPLE",
 }: SearchFilterProps) {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -89,8 +92,11 @@ export default function SearchFilter({
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-[100vw]">
-        <div className="flex justify-center">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className={cn("w-[100vw]", searchClassName)}
+      >
+        <div className={cn("flex justify-center")}>
           {searchType === "SIMPLE" && <SimpleSearchBar />}
           {searchType === "REVIEWS" && (
             <ReviewSearchBar cycle={cycle} term={term} />
