@@ -30,19 +30,20 @@ export function RoleCardPreview({
   });
 
   // ===== LOCATION DATA ===== //
-  const locationName = (reviewObj: ReviewType) => {
-    if (reviewObj.locationId) {
-      const { data: location } = api.location.getById.useQuery({
-        id: reviewObj.locationId,
-      });
-      return location
-        ? location.city +
-            (location.state ? `, ${location.state}` : "") +
-            ", " +
-            location.country
-        : "N/A";
-    }
-  };
+  // TODO: Fix this
+  // const locationName = (reviewObj: ReviewType) => {
+  //   if (reviewObj.locationId) {
+  //     const { data: location } = api.location.getById.useQuery({
+  //       id: reviewObj.locationId,
+  //     });
+  //     return location
+  //       ? location.city +
+  //           (location.state ? `, ${location.state}` : "") +
+  //           ", " +
+  //           location.country
+  //       : "N/A";
+  //   }
+  // };
 
   return (
     <Card
@@ -65,16 +66,16 @@ export function RoleCardPreview({
               </CardTitle>
               <div className="align-center flex gap-2 text-cooper-gray-400">
                 <span>{company.data?.name}</span>
-                {reviews.isSuccess && reviews.data.length > 0 && (
+                {/* {reviews.isSuccess && reviews.data.length > 0 && (
                   <span
                     className={`${(reviews.data[0] ? locationName(reviews.data[0]) : "") ? "visibility: visible" : "visibility: hidden"}`}
                   >
                     •
                   </span>
-                )}
+                )} */}
                 {reviews.isSuccess && reviews.data.length > 0 && (
                   <span>
-                    {reviews.data[0] ? locationName(reviews.data[0]) : ""}
+                    {/* {reviews.data[0] ? locationName(reviews.data[0]) : ""} */}
                   </span>
                 )}
               </div>
