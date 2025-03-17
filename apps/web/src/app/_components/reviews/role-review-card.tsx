@@ -52,13 +52,12 @@ export async function RoleReviewCard({
 
   // ===== LOCATION DATA ===== //
   const locationName = async (location: LocationType) => {
-      return location
-        ? location.city +
-            (location.state ? `, ${location.state}` : "") +
-            ", " +
-            location.country
-        : "N/A";
-    }
+    return location
+      ? location.city +
+          (location.state ? `, ${location.state}` : "") +
+          ", " +
+          location.country
+      : "N/A";
   };
 
   return (
@@ -93,7 +92,7 @@ export async function RoleReviewCard({
           <div className="m-4 flex items-center space-x-8">
             <div className="flex flex-col text-sm">
               <h4 className="font-semibold">Location</h4>
-              <p>{locations.map(location => locationName(location))}</p>
+              <p>{locations.map((location) => locationName(location))}</p>
             </div>
             <div className="flex flex-col text-sm">
               <h4 className="font-semibold">Work Model</h4>
