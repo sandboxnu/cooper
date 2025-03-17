@@ -4,7 +4,6 @@ import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
 import { CompaniesToLocations } from "./companiesToLocations";
-import { Location } from "./locations";
 import { Industry } from "./misc";
 import { Review } from "./reviews";
 import { Role } from "./roles";

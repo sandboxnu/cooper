@@ -3,7 +3,6 @@ import { pgTable, uuid, varchar } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-import { Company } from "./companies";
 import { CompaniesToLocations } from "./companiesToLocations";
 import { Review } from "./reviews";
 
