@@ -36,9 +36,6 @@ export async function RoleReviewCard({
   const company = await api.company.getById({ id: roleObj.companyId });
   const roleDescription = truncateText(roleObj.description ?? "", 150);
   const positionDate: string = formatDate(company?.createdAt);
-  const locations = await api.company.getLocationsById({
-    id: roleObj.companyId,
-  });
 
   // ===== REVIEW DATA ===== //
   const reviews = await api.review.getByRole({ id: roleObj.id });
@@ -49,16 +46,6 @@ export async function RoleReviewCard({
   const averageStars = averageStarRating(reviews);
 
   if (!company) return null;
-
-  // ===== LOCATION DATA ===== //
-  const locationName = async (location: LocationType) => {
-    return location
-      ? location.city +
-          (location.state ? `, ${location.state}` : "") +
-          ", " +
-          location.country
-      : "N/A";
-  };
 
   return (
     <Card
@@ -92,7 +79,7 @@ export async function RoleReviewCard({
           <div className="m-4 flex items-center space-x-8">
             <div className="flex flex-col text-sm">
               <h4 className="font-semibold">Location</h4>
-              <p>{locations.map((location) => locationName(location))}</p>
+              <p>TODO: locations</p>
             </div>
             <div className="flex flex-col text-sm">
               <h4 className="font-semibold">Work Model</h4>
