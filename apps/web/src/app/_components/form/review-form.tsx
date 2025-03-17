@@ -93,7 +93,7 @@ const formSchema = z.object({
     .min(8, {
       message: "The review must be at least 8 characters.",
     }),
-  location: z.string().optional(),
+  locationId: z.string().optional(),
   hourlyPay: z.coerce
     .number()
     .positive()
@@ -166,7 +166,7 @@ const steps: {
   },
   {
     label: "Review",
-    fields: ["reviewHeadline", "textReview", "location", "hourlyPay"],
+    fields: ["reviewHeadline", "textReview", "locationId", "hourlyPay"],
     borderColor: "border-cooper-green-500",
     textColor: "text-cooper-green-500",
     bgColor: "bg-cooper-green-500",
@@ -214,7 +214,7 @@ export function ReviewForm(props: ReviewFormProps) {
       interviewReview: "",
       reviewHeadline: "",
       textReview: "",
-      location: "",
+      locationId: "",
       hourlyPay: "",
       workEnvironment: undefined,
       drugTest: undefined,
@@ -280,6 +280,8 @@ export function ReviewForm(props: ReviewFormProps) {
     }
 
     // FIXME: Fix the scrolling eslint issue
+
+    console.log(form.getValues());
 
     if (currentStep <= steps.length) {
       if (currentStep === steps.length) {

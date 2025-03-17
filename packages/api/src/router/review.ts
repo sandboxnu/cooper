@@ -1,7 +1,6 @@
 import type { TRPCRouterRecord } from "@trpc/server";
 import { TRPCError } from "@trpc/server";
 import Fuse from "fuse.js";
-import { a } from "vitest/dist/chunks/suite.BMWOKiTe.js";
 import { z } from "zod";
 
 import { and, desc, eq } from "@cooper/db";
@@ -106,6 +105,8 @@ export const reviewRouter = {
         });
       }
 
+      console.log("input", input);
+
       // Check if a CompaniesToLocations object already exists with the given companyId and locationId
       const existingRelation =
         await ctx.db.query.CompaniesToLocations.findFirst({
@@ -114,6 +115,8 @@ export const reviewRouter = {
             eq(CompaniesToLocations.locationId, input.locationId ?? ""),
           ),
         });
+
+      console.log("existing relation", existingRelation);
 
       if (!existingRelation) {
         await ctx.db.insert(CompaniesToLocations).values({
