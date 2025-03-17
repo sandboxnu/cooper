@@ -1,6 +1,7 @@
 import Image from "next/image";
 
-import { Session, signOut } from "@cooper/auth";
+import type { Session } from "@cooper/auth";
+import { signOut } from "@cooper/auth";
 
 interface ProfileButtonProps {
   session: Session;
