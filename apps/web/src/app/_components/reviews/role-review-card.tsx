@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import type { RoleType } from "@cooper/db/schema";
+import type { LocationType, RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import {
   Card,
@@ -36,6 +36,9 @@ export async function RoleReviewCard({
   const company = await api.company.getById({ id: roleObj.companyId });
   const roleDescription = truncateText(roleObj.description ?? "", 150);
   const positionDate: string = formatDate(company?.createdAt);
+  const locations = await api.company.getLocationsById({
+    id: roleObj.companyId,
+  });
 
   // ===== REVIEW DATA ===== //
   const reviews = await api.review.getByRole({ id: roleObj.id });
@@ -48,11 +51,7 @@ export async function RoleReviewCard({
   if (!company) return null;
 
   // ===== LOCATION DATA ===== //
-  const locationName = async (locationId: string) => {
-    if (locationId) {
-      const location = await api.location.getById({
-        id: locationId,
-      });
+  const locationName = async (location: LocationType) => {
       return location
         ? location.city +
             (location.state ? `, ${location.state}` : "") +
@@ -94,7 +93,7 @@ export async function RoleReviewCard({
           <div className="m-4 flex items-center space-x-8">
             <div className="flex flex-col text-sm">
               <h4 className="font-semibold">Location</h4>
-              <p>{locationName(company.location)}</p>
+              <p>{locations.map(location => locationName(location))}</p>
             </div>
             <div className="flex flex-col text-sm">
               <h4 className="font-semibold">Work Model</h4>

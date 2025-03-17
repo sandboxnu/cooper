@@ -33,7 +33,7 @@ export function ReviewSection({ textColor }: { textColor: string }) {
     if (newPrefix && newPrefix !== prefix) {
       setPrefix(newPrefix);
     }
-  }, [searchTerm]);
+  }, [prefix, searchTerm]);
 
   const locationsToUpdate = api.location.getByPrefix.useQuery(
     { prefix },
@@ -91,8 +91,8 @@ export function ReviewSection({ textColor }: { textColor: string }) {
               <FormControl>
                 <ComboBox
                   variant="form"
-                  defaultLabel={locationLabel || "Select location..."}
-                  searchPlaceholder="Search location..."
+                  defaultLabel={locationLabel || "Type to begin..."}
+                  searchPlaceholder="Type to begin..."
                   searchEmpty="No location found."
                   valuesAndLabels={locationValuesAndLabels}
                   currLabel={locationLabel}

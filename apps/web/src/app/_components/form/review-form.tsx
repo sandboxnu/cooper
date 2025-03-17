@@ -281,8 +281,6 @@ export function ReviewForm(props: ReviewFormProps) {
 
     // FIXME: Fix the scrolling eslint issue
 
-    console.log(form.getValues());
-
     if (currentStep <= steps.length) {
       if (currentStep === steps.length) {
         await form.handleSubmit(onSubmit)();
