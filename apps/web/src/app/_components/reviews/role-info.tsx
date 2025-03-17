@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import type { ReviewType, RoleType } from "@cooper/db/schema";
+import type { RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
