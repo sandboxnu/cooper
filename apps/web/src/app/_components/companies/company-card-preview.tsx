@@ -36,7 +36,7 @@ export function CompanyCardPreview({ companyObj }: CompanyCardPreviewProps) {
             </div>
             <div className="flex flex-col text-sm">
               <h4 className="font-semibold">Location</h4>
-              <p>{companyObj.location}</p>
+              <p>TODO: companies</p>
             </div>
           </div>
           <div className="m-4 flex items-center space-x-4">

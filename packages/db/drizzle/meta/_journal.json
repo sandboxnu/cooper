@@ -43,6 +43,34 @@
       "when": 1740174136288,
       "tag": "0005_loving_cable",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1740510786190,
+      "tag": "0006_fantastic_inertia",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1741905390092,
+      "tag": "0007_real_katie_power",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1742153448737,
+      "tag": "0008_curvy_meltdown",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1742175981028,
+      "tag": "0009_solid_blackheart",
+      "breakpoints": true
     }
   ]
 }

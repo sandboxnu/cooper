@@ -13,6 +13,7 @@ import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
 import { Company } from "./companies";
+import { Location } from "./locations";
 import { WorkEnvironment, WorkTerm } from "./misc";
 import { Profile } from "./profiles";
 import { Role } from "./roles";
@@ -29,7 +30,7 @@ export const Review = pgTable("review", {
   interviewReview: text("interviewReview"),
   reviewHeadline: varchar("reviewHeadline").notNull(),
   textReview: text("textReview").notNull(),
-  location: varchar("location"),
+  locationId: varchar("locationId"),
   hourlyPay: decimal("hourlyPay"),
   workEnvironment: varchar("workEnvironment").notNull(),
   drugTest: boolean("drugTest").notNull(),
@@ -65,6 +66,10 @@ export const ReviewRelations = relations(Review, ({ one }) => ({
     fields: [Review.companyId],
     references: [Company.id],
   }),
+  location: one(Location, {
+    fields: [Review.locationId],
+    references: [Location.id],
+  }),
 }));
 
 export const CreateReviewSchema = createInsertSchema(Review, {
@@ -78,7 +83,7 @@ export const CreateReviewSchema = createInsertSchema(Review, {
   interviewReview: z.string().optional(),
   reviewHeadline: z.string(),
   textReview: z.string(),
-  location: z.string().optional(),
+  locationId: z.string().optional(),
   hourlyPay: z.string().optional(),
   workEnvironment: z.nativeEnum(WorkEnvironment),
   drugTest: z.boolean(),
