@@ -1,8 +1,9 @@
 import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
+import type { ReviewType } from "@cooper/db/schema";
 import { asc, desc, eq } from "@cooper/db";
-import { CreateRoleSchema, Review, ReviewType, Role } from "@cooper/db/schema";
+import { CreateRoleSchema, Review, Role } from "@cooper/db/schema";
 
 import { protectedProcedure, sortableProcedure, publicProcedure } from "../trpc";
 
