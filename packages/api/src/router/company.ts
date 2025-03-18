@@ -49,7 +49,12 @@ export const companyRouter = {
   create: protectedProcedure
     .input(CreateCompanySchema)
     .mutation(({ ctx, input }) => {
-      return ctx.db.insert(Company).values(input);
+      if (input.website) {
+        return ctx.db.insert(Company).values(input);
+      }
+      return ctx.db
+        .insert(Company)
+        .values({ ...input, website: `${input.name}.com` });
     }),
 
   delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {

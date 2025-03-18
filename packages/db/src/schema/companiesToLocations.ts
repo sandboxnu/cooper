@@ -1,5 +1,5 @@
 import { relations } from "drizzle-orm";
-import { pgTable, primaryKey, varchar } from "drizzle-orm/pg-core";
+import { pgTable, primaryKey, uuid } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -9,10 +9,10 @@ import { Location } from "./locations";
 export const CompaniesToLocations = pgTable(
   "companies_to_locations",
   {
-    companyId: varchar("company_id")
+    companyId: uuid("companyId")
       .notNull()
       .references(() => Company.id),
-    locationId: varchar("location_id")
+    locationId: uuid("locationId")
       .notNull()
       .references(() => Location.id),
   },

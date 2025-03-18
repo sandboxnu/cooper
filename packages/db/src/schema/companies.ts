@@ -13,6 +13,7 @@ export const Company = pgTable("company", {
   name: varchar("name").notNull(),
   description: text("description"),
   industry: varchar("industry").notNull(),
+  website: varchar("website"),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt", {
     mode: "date",
@@ -25,13 +26,16 @@ export type CompanyType = typeof Company.$inferSelect;
 export const CompanyRelations = relations(Company, ({ many }) => ({
   roles: many(Role),
   reviews: many(Review),
-  CompaniesToLocations: many(CompaniesToLocations),
+  locations: many(CompaniesToLocations, {
+    relationName: "companyToLocation",
+  }),
 }));
 
 export const CreateCompanySchema = createInsertSchema(Company, {
   name: z.string(),
   description: z.string().optional(),
   industry: z.nativeEnum(Industry),
+  website: z.string().optional(),
 }).omit({
   id: true,
   createdAt: true,
