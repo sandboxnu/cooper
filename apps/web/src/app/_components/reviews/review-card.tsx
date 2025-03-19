@@ -36,7 +36,7 @@ export function ReviewCard({ reviewObj }: ReviewCardProps) {
   };
 
   return (
-    <Card className="mx-auto w-[94%]">
+    <Card className="mx-auto w-[100%]">
       <div className="flex pt-5">
         <Card className="w-25% border-none shadow-none">
           <CardContent>
