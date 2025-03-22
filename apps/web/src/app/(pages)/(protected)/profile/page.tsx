@@ -1,8 +1,6 @@
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
-import { ReviewType } from "@cooper/db/schema";
-
 import HeaderLayout from "~/app/_components/header-layout";
 import { NewReviewDialog } from "~/app/_components/reviews/new-review-dialogue";
 import { ReviewCard } from "~/app/_components/reviews/review-card";
@@ -16,16 +14,13 @@ export default async function Profile() {
     redirect("/");
   }
 
-  const reviews = profile
-    ? await api.review.getByProfile({ id: profile.id })
-    : [];
-  ``;
+  const reviews = await api.review.getByProfile({ id: profile.id });
 
   return (
     <HeaderLayout>
       <div className="mx-4 mt-4 flex h-full flex-col gap-8 overflow-auto">
         <div className="flex items-end justify-start gap-4">
-          {session.user ? (
+          {session.user.image ? (
             <Image
               src={session.user.image}
               width="72"
