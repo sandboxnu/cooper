@@ -20,23 +20,13 @@ export default async function Profile() {
     <HeaderLayout>
       <div className="mx-4 mt-4 flex h-full flex-col gap-8 overflow-auto">
         <div className="flex items-end justify-start gap-4">
-          {session.user.image ? (
-            <Image
-              src={session.user.image}
-              width="72"
-              height="72"
-              alt="Logout"
-              className="rounded-full"
-            />
-          ) : (
-            <Image
-              src={"/svg/defaultProfile.svg"}
-              width="72"
-              height="72"
-              alt="Logout"
-              className="rounded-full"
-            />
-          )}
+          <Image
+            src={session.user.image ?? "/svg/defaultProfile.svg"}
+            width="72"
+            height="72"
+            alt="Logout"
+            className="rounded-full"
+          />
           <div className="text-start">
             <h1 className="text-2xl font-bold">
               {profile.firstName} {profile.lastName}
