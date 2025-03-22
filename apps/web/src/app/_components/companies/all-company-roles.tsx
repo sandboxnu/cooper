@@ -1,3 +1,5 @@
+import { useRouter } from "next/navigation";
+
 import { cn } from "@cooper/ui";
 
 import { api } from "~/trpc/react";
@@ -11,6 +13,7 @@ interface RenderAllRolesProps {
 
 export default function RenderAllRoles({ company }: RenderAllRolesProps) {
   const roles = api.role.getByCompany.useQuery({ companyId: company ?? "" });
+  const router = useRouter();
 
   return (
     <>
@@ -19,7 +22,11 @@ export default function RenderAllRoles({ company }: RenderAllRolesProps) {
         <div className="mb-8 grid h-[30dvh] w-full grid-cols-1 gap-3 p-1 md:grid-cols-2 xl:grid-cols-3">
           {roles.data.map((role) => {
             return (
-              <div key={role.id} className="p-2">
+              <div
+                key={role.id}
+                className="p-2"
+                onClick={() => router.push(`/role?id=${role.id}`)}
+              >
                 <RoleCardPreview
                   reviewObj={role}
                   className={cn("mb-4 hover:bg-cooper-gray-100")}
