@@ -7,11 +7,11 @@ import { cn } from "@cooper/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
 import { api } from "~/trpc/react";
+import StarGraph from "../shared/star-graph";
 import BarGraph from "./bar-graph";
 import InfoCard from "./info-card";
 import { NewReviewDialog } from "./new-review-dialogue";
 import { ReviewCard } from "./review-card";
-import { ReviewCardStars } from "./review-card-stars";
 import RoundBarGraph from "./round-bar-graph";
 
 // const InterviewDifficulty = [
@@ -30,8 +30,20 @@ interface RoleCardProps {
 export function RoleInfo({ className, roleObj }: RoleCardProps) {
   const reviews = api.review.getByRole.useQuery({ id: roleObj.id });
 
+  const totalReviews = reviews.data ? reviews.data.length : 0;
+
+  const ratings = [5, 4, 3, 2, 1].map((star) => {
+    const count =
+      reviews.data?.filter(
+        (r) => r.overallRating.toFixed(0) === star.toString(),
+      ).length ?? 0;
+    const percentage =
+      totalReviews > 0 ? Math.round((count / totalReviews) * 100) : 0;
+    return { stars: star, percentage };
+  });
+
   const companyQuery = api.company.getById.useQuery(
-    { id: reviews.data?.[0]?.companyId ?? "" },
+    { id: roleObj.companyId },
     { enabled: !!reviews.data?.[0]?.companyId },
   );
 
@@ -135,7 +147,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                       width={80}
                       height={80}
                       alt={`Logo of ${companyData.name}`}
-                      className="rounded-xl border"
+                      className="max-h-[80px] max-w-[80px] rounded-xl border"
                     />
                     {companyData.description}
                   </div>
@@ -267,6 +279,15 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
               <InfoCard title="Reviews">
                 {reviews.isSuccess && reviews.data.length > 0 && (
                   <div className="flex flex-col gap-5">
+                    <div className="w-[60%]">
+                      <StarGraph
+                        ratings={ratings}
+                        averageOverallRating={
+                          averages.data?.averageOverallRating ?? 0
+                        }
+                      />
+                    </div>
+
                     {reviews.data.map((review) => {
                       return <ReviewCard reviewObj={review} />;
                     })}
