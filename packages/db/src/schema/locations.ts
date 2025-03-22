@@ -16,9 +16,7 @@ export const Location = pgTable("location", {
 export type LocationType = typeof Location.$inferSelect;
 
 export const LocationRelations = relations(Location, ({ many }) => ({
-  companies: many(CompaniesToLocations, {
-    relationName: "companyToLocation",
-  }),
+  companies_to_locations: many(CompaniesToLocations),
   reviews: many(Review),
 }));
 
