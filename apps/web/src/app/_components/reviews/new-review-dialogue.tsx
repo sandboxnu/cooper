@@ -18,12 +18,16 @@ import type { ComboBoxOption } from "~/app/_components/combo-box";
 import ComboBox from "~/app/_components/combo-box";
 import { api } from "~/trpc/react";
 
+interface NewReviewDialogProps {
+  trigger?: React.ReactNode;
+}
+
 /**
  * General "+ New Review"
  *
  * @returns A "+ New Review" button that prompts users for a company + role before redirecting to the review form.
  */
-export function NewReviewDialog() {
+export function NewReviewDialog({ trigger }: NewReviewDialogProps) {
   const router = useRouter();
   // State for the company combo box
   const [companyLabel, setCompanyLabel] = useState<string>("");
@@ -72,9 +76,15 @@ export function NewReviewDialog() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="h-9 rounded-full border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-4 py-3 text-sm font-semibold text-white hover:border-cooper-yellow-300 hover:bg-cooper-yellow-300">
-          + New Review
-        </Button>
+        {trigger ? (
+          <Button className="m-0 -mt-2 border-none bg-white p-0 text-3xl font-thin text-black outline-none hover:bg-white">
+            {trigger}
+          </Button>
+        ) : (
+          <Button className="h-9 rounded-full border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-4 py-3 text-sm font-semibold text-white hover:border-cooper-yellow-300 hover:bg-cooper-yellow-300">
+            + New Review
+          </Button>
+        )}
       </DialogTrigger>
       <DialogContent className="bg-white sm:max-w-[500px]">
         <DialogHeader>
