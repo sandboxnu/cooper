@@ -1,6 +1,4 @@
-import { notFound, redirect } from "next/navigation";
-
-import { auth } from "@cooper/auth";
+import { notFound } from "next/navigation";
 
 import { ReviewForm } from "~/app/_components/form/review-form";
 import { api } from "~/trpc/server";
@@ -12,13 +10,6 @@ export default async function Page({
     id?: string;
   };
 }) {
-  // Ensure user is authenticated
-  const session = await auth();
-
-  if (!session) {
-    redirect("/");
-  }
-
   // Ensure role ID is provided
   if (!searchParams?.id) {
     notFound();

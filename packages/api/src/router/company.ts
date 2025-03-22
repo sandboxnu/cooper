@@ -1,12 +1,14 @@
 import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
+import type { ReviewType } from "@cooper/db/schema";
 import { desc, eq } from "@cooper/db";
 import {
+  CompaniesToLocations,
   Company,
   CreateCompanySchema,
+  Location,
   Review,
-  ReviewType,
 } from "@cooper/db/schema";
 
 import { protectedProcedure, publicProcedure } from "../trpc";
@@ -34,10 +36,25 @@ export const companyRouter = {
       });
     }),
 
+  getLocationsById: publicProcedure
+    .input(z.object({ id: z.string() }))
+    .query(({ ctx, input }) => {
+      return ctx.db
+        .select()
+        .from(CompaniesToLocations)
+        .innerJoin(Location, eq(CompaniesToLocations.locationId, Location.id))
+        .where(eq(CompaniesToLocations.companyId, input.id));
+    }),
+
   create: protectedProcedure
     .input(CreateCompanySchema)
     .mutation(({ ctx, input }) => {
-      return ctx.db.insert(Company).values(input);
+      if (input.website) {
+        return ctx.db.insert(Company).values(input);
+      }
+      return ctx.db
+        .insert(Company)
+        .values({ ...input, website: `${input.name}.com` });
     }),
 
   delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
