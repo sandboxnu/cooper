@@ -26,12 +26,8 @@ export default function StarGraph({
         <div className="my-1 flex">
           <ReviewCardStars
             numStars={parseInt(averageOverallRating.toFixed(0))}
-            // numStars={Number(companyObj?.averageOverallRating)}
           />
         </div>
-        {/* <p className="text-xs text-gray-500">
-                  Based on {companyObj?.totalReviews ?? 0} reviews
-                </p> */}
       </div>
 
       <div className="flex-1 space-y-2 pt-1">

@@ -7,6 +7,7 @@ import { cn } from "@cooper/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
 import { api } from "~/trpc/react";
+import { calculateRatings } from "~/utils/reviewCountByStars";
 import StarGraph from "../shared/star-graph";
 import BarGraph from "./bar-graph";
 import InfoCard from "./info-card";
@@ -30,17 +31,7 @@ interface RoleCardProps {
 export function RoleInfo({ className, roleObj }: RoleCardProps) {
   const reviews = api.review.getByRole.useQuery({ id: roleObj.id });
 
-  const totalReviews = reviews.data ? reviews.data.length : 0;
-
-  const ratings = [5, 4, 3, 2, 1].map((star) => {
-    const count =
-      reviews.data?.filter(
-        (r) => r.overallRating.toFixed(0) === star.toString(),
-      ).length ?? 0;
-    const percentage =
-      totalReviews > 0 ? Math.round((count / totalReviews) * 100) : 0;
-    return { stars: star, percentage };
-  });
+  const ratings = calculateRatings(reviews.data ?? []);
 
   const companyQuery = api.company.getById.useQuery(
     { id: roleObj.companyId },
@@ -77,7 +68,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                   width={80}
                   height={80}
                   alt={`Logo of ${companyData.name}`}
-                  className="rounded-xl border"
+                  className="h-20 w-20 rounded-xl border"
                 />
               ) : (
                 <div className="h-20 w-20 rounded-xl border bg-cooper-blue-200"></div>
@@ -147,7 +138,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                       width={80}
                       height={80}
                       alt={`Logo of ${companyData.name}`}
-                      className="max-h-[80px] max-w-[80px] rounded-xl border"
+                      className="h-20 w-20 rounded-xl border"
                     />
                     {companyData.description}
                   </div>
