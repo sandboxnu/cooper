@@ -119,13 +119,14 @@ export const protectedProcedure = t.procedure.use(({ ctx, next }) => {
   });
 });
 
-export const sortableProcedure = t.procedure.use(({ ctx, next }, sortBy?: "default" | "rating" | "newest" | "oldest") => {
-  return next({
-    ctx: {
-      // infers the `session` as non-nullable
-      session: { ...ctx.session },
-      sortBy
-    },
-  });
-});
-
+export const sortableProcedure = t.procedure.use(
+  ({ ctx, next }, sortBy?: "default" | "rating" | "newest" | "oldest") => {
+    return next({
+      ctx: {
+        // infers the `session` as non-nullable
+        session: { ...ctx.session },
+        sortBy,
+      },
+    });
+  },
+);

@@ -5,18 +5,42 @@ import type { ReviewType } from "@cooper/db/schema";
 import { asc, desc, eq } from "@cooper/db";
 import { CreateRoleSchema, Review, Role } from "@cooper/db/schema";
 
-import { protectedProcedure, sortableProcedure, publicProcedure } from "../trpc";
+import {
+  protectedProcedure,
+  sortableProcedure,
+  publicProcedure,
+} from "../trpc";
 
 const ordering = {
-  "default": desc(Role.id),
-  "rating": desc(Role.createdAt),
-  "newest": desc(Role.createdAt),
-  "oldest": asc(Role.createdAt),
-}
-
+  default: desc(Role.id),
+  newest: desc(Role.createdAt),
+  oldest: asc(Role.createdAt),
+};
 
 export const roleRouter = {
-  list: sortableProcedure.query(({ ctx }) => {
+  list: sortableProcedure.query(async ({ ctx }) => {
+    if (ctx.sortBy === "rating") {
+      const roles = await ctx.db.query.Role.findMany();
+
+      const rolesWithRatings = await Promise.all(
+        roles.map(async (role) => {
+          const reviews = await ctx.db.query.Review.findMany({
+            where: eq(Review.roleId, role.id),
+          });
+          const avgRating =
+            reviews.length > 0
+              ? reviews.reduce(
+                  (sum, review) => sum + Number(review.overallRating),
+                  0,
+                ) / reviews.length
+              : 0;
+          return { role, avgRating };
+        }),
+      );
+      return rolesWithRatings
+        .sort((a, b) => b.avgRating - a.avgRating)
+        .map(({ role }) => role);
+    }
     return ctx.db.query.Role.findMany({
       orderBy: ordering[ctx.sortBy || "default"],
     });
@@ -24,7 +48,30 @@ export const roleRouter = {
 
   getByTitle: sortableProcedure
     .input(z.object({ title: z.string() }))
-    .query(({ ctx, input }) => {
+    .query(async ({ ctx, input }) => {
+      if (ctx.sortBy === "rating") {
+        const roles = await ctx.db.query.Role.findMany({
+          where: eq(Role.title, input.title),
+        });
+        const rolesWithRatings = await Promise.all(
+          roles.map(async (role) => {
+            const reviews = await ctx.db.query.Review.findMany({
+              where: eq(Review.roleId, role.id),
+            });
+            const avgRating =
+              reviews.length > 0
+                ? reviews.reduce(
+                    (sum, review) => sum + Number(review.overallRating),
+                    0,
+                  ) / reviews.length
+                : 0;
+            return { role, avgRating };
+          }),
+        );
+        return rolesWithRatings
+          .sort((a, b) => b.avgRating - a.avgRating)
+          .map(({ role }) => role);
+      }
       return ctx.db.query.Role.findMany({
         where: eq(Role.title, input.title),
         orderBy: ordering[ctx.sortBy || "default"],
@@ -41,7 +88,30 @@ export const roleRouter = {
 
   getByCompany: sortableProcedure
     .input(z.object({ companyId: z.string() }))
-    .query(({ ctx, input }) => {
+    .query(async ({ ctx, input }) => {
+      if (ctx.sortBy === "rating") {
+        const roles = await ctx.db.query.Role.findMany({
+          where: eq(Role.companyId, input.companyId),
+        });
+        const rolesWithRatings = await Promise.all(
+          roles.map(async (role) => {
+            const reviews = await ctx.db.query.Review.findMany({
+              where: eq(Review.roleId, role.id),
+            });
+            const avgRating =
+              reviews.length > 0
+                ? reviews.reduce(
+                    (sum, review) => sum + Number(review.overallRating),
+                    0,
+                  ) / reviews.length
+                : 0;
+            return { role, avgRating };
+          }),
+        );
+        return rolesWithRatings
+          .sort((a, b) => b.avgRating - a.avgRating)
+          .map(({ role }) => role);
+      }
       return ctx.db.query.Role.findMany({
         where: eq(Role.companyId, input.companyId),
         orderBy: ordering[ctx.sortBy || "default"],
@@ -61,6 +131,29 @@ export const roleRouter = {
   getAverageById: sortableProcedure
     .input(z.object({ roleId: z.string() }))
     .query(async ({ ctx, input }) => {
+      if (ctx.sortBy === "rating") {
+        const roles = await ctx.db.query.Role.findMany({
+          where: eq(Role.id, input.roleId),
+        });
+        const rolesWithRatings = await Promise.all(
+          roles.map(async (role) => {
+            const reviews = await ctx.db.query.Review.findMany({
+              where: eq(Review.roleId, role.id),
+            });
+            const avgRating =
+              reviews.length > 0
+                ? reviews.reduce(
+                    (sum, review) => sum + Number(review.overallRating),
+                    0,
+                  ) / reviews.length
+                : 0;
+            return { role, avgRating };
+          }),
+        );
+        return rolesWithRatings
+          .sort((a, b) => b.avgRating - a.avgRating)
+          .map(({ role }) => role);
+      }
       const reviews = await ctx.db.query.Review.findMany({
         where: eq(Review.roleId, input.roleId),
         orderBy: ordering[ctx.sortBy || "default"],
