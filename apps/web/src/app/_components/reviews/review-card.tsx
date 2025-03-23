@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReviewType } from "@cooper/db/schema";
+import { cn } from "@cooper/ui";
 import { Card, CardContent } from "@cooper/ui/card";
 
 import { api } from "~/trpc/react";
@@ -19,7 +20,7 @@ interface ReviewCardProps {
   reviewObj: ReviewType;
 }
 
-export function ReviewCard({ reviewObj }: ReviewCardProps) {
+export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
   // ===== LOCATION DATA ===== //
   const locationName = (reviewObj: ReviewType) => {
     if (reviewObj.locationId) {
@@ -36,12 +37,12 @@ export function ReviewCard({ reviewObj }: ReviewCardProps) {
   };
 
   return (
-    <Card className="mx-auto w-[94%]">
+    <Card className={cn("mx-auto w-[100%]", className)}>
       <div className="flex pt-5">
         <Card className="w-25% border-none shadow-none">
           <CardContent>
             <div className="pt-2">
-              <ReviewCardStars numStars={reviewObj.overallRating} />
+              <ReviewCardStars numStars={5} />
             </div>
             <div className="align-center flex gap-2 pt-2">
               <span

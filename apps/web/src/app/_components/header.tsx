@@ -56,7 +56,7 @@ export default function Header({ auth }: HeaderProps) {
         <Link href="/">
           <h2
             className={cn(
-              !pathname.includes("companies") &&
+              pathname.length === 1 &&
                 "text-cooper-blue-600 underline underline-offset-8",
             )}
           >

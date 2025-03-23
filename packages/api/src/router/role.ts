@@ -73,6 +73,13 @@ export const roleRouter = {
           : 0;
       };
 
+      const calcPercentage = (field: keyof ReviewType): number => {
+        return totalReviews > 0
+          ? reviews.filter((review) => review[field] === true).length /
+              totalReviews
+          : 0;
+      };
+
       const totalReviews = reviews.length;
 
       const averageOverallRating = calcAvg("overallRating");
@@ -82,6 +89,21 @@ export const roleRouter = {
       const averageSupervisorRating = calcAvg("supervisorRating");
       const averageInterviewRating = calcAvg("interviewRating");
 
+      const federalHolidays = calcPercentage("federalHolidays");
+      const drugTest = calcPercentage("drugTest");
+      const freeLunch = calcPercentage("freeLunch");
+      const freeMerch = calcPercentage("freeMerch");
+      const freeTransportation = calcPercentage("freeTransport");
+      const overtimeNormal = calcPercentage("overtimeNormal");
+      const pto = calcPercentage("pto");
+
+      const minPay = Math.min(
+        ...reviews.map((review) => Number(review.hourlyPay)),
+      );
+      const maxPay = Math.max(
+        ...reviews.map((review) => Number(review.hourlyPay)),
+      );
+
       return {
         averageOverallRating: averageOverallRating,
         averageHourlyPay: averageHourlyPay,
@@ -89,6 +111,15 @@ export const roleRouter = {
         averageCultureRating: averageCultureRating,
         averageSupervisorRating: averageSupervisorRating,
         averageInterviewRating: averageInterviewRating,
+        federalHolidays: federalHolidays,
+        drugTest: drugTest,
+        freeLunch: freeLunch,
+        freeMerch: freeMerch,
+        freeTransportation: freeTransportation,
+        overtimeNormal: overtimeNormal,
+        pto: pto,
+        minPay: minPay,
+        maxPay: maxPay,
       };
     }),
 } satisfies TRPCRouterRecord;
