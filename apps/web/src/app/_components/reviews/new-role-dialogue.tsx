@@ -1,3 +1,8 @@
+import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+
 import { Button } from "@cooper/ui/button";
 import {
   Dialog,
@@ -8,18 +13,66 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@cooper/ui/dialog";
+import { Form, FormControl, FormField, FormItem } from "@cooper/ui/form";
+import { useToast } from "@cooper/ui/hooks/use-toast";
 import { Input } from "@cooper/ui/input";
 import { Label } from "@cooper/ui/label";
 import { Textarea } from "@cooper/ui/textarea";
 
 import { api } from "~/trpc/react";
 
+const roleSchema = z.object({
+  title: z.string({ required_error: "You need to enter a role title." }),
+  description: z.string(),
+  companyId: z.string(),
+});
+
+export type RoleRequestType = typeof roleSchema;
+
 interface NewRoleDialogProps {
   companyId: string;
 }
 
 export default function NewRoleDialog({ companyId }: NewRoleDialogProps) {
+  const [isSuccess, setIsSuccess] = useState(false);
   const company = api.company.getById.useQuery({ id: companyId });
+  const [roleName, setRoleName] = useState("");
+  const form = useForm<z.infer<RoleRequestType>>({
+    resolver: zodResolver(roleSchema),
+    defaultValues: {
+      title: "",
+      description: "",
+      companyId: companyId,
+    },
+  });
+
+  const { toast } = useToast();
+
+  const mutation = api.role.create.useMutation({
+    onSuccess: () => {
+      setIsSuccess(true);
+      setRoleName(form.getValues().title);
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
+    },
+    onError: (error) => {
+      toast({
+        title: "Submission Error",
+        description: error.message || "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  async function onSubmit(values: z.infer<RoleRequestType>) {
+    try {
+      await mutation.mutateAsync(values);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <Dialog>
@@ -29,37 +82,65 @@ export default function NewRoleDialog({ companyId }: NewRoleDialogProps) {
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="bg-white w-full">
-        <DialogHeader>
-          <DialogTitle>Create New Role</DialogTitle>
-          <DialogDescription>
-            Request a new role for {company.data?.name}
-          </DialogDescription>
-        </DialogHeader>
-        <form
-          onSubmit={(event) => {
-            event.preventDefault();
-          }}
-        >
-          <div className="flex flex-col gap-4 py-4">
-            <div>
-              <Label>Role Name</Label>
-              <Input type="string" variant="dialogue" />
-            </div>
-            <div>
-              <Label>Description</Label>
-              <Textarea variant="dialogue" />
-            </div>
+      <DialogContent className="w-full bg-white">
+        {isSuccess ? (
+          <div className="flex flex-col items-center justify-center gap-4 py-8">
+            <h2 className="text-xl font-semibold text-cooper-green-500">
+              Success!
+            </h2>
+            <p className="text-center text-gray-600">
+              The {roleName} co-op has been successfully added to{" "}
+              {company.data?.name}.
+            </p>
           </div>
-        </form>
-        <DialogFooter>
-          <Button
-            type="submit"
-            className="border-none bg-cooper-blue-400 text-white hover:bg-cooper-blue-600"
-          >
-            Submit
-          </Button>
-        </DialogFooter>
+        ) : (
+          <>
+            <DialogHeader>
+              <DialogTitle>Create New Role</DialogTitle>
+              <DialogDescription>
+                Request a new role for {company.data?.name}
+              </DialogDescription>
+            </DialogHeader>
+
+            <Form {...form}>
+              <div className="flex flex-col gap-4 py-4">
+                <FormField
+                  control={form.control}
+                  name="title"
+                  render={({ field }) => (
+                    <FormItem>
+                      <Label>Role Name</Label>
+                      <FormControl>
+                        <Input type="string" variant="dialogue" {...field} />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="description"
+                  render={({ field }) => (
+                    <FormItem>
+                      <Label>Description</Label>
+                      <FormControl>
+                        <Textarea variant="dialogue" {...field} />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+              </div>
+            </Form>
+            <DialogFooter>
+              <Button
+                type="submit"
+                className="border-none bg-cooper-blue-400 text-white hover:bg-cooper-blue-600"
+                onClick={form.handleSubmit(onSubmit)}
+              >
+                Submit
+              </Button>
+            </DialogFooter>
+          </>
+        )}
       </DialogContent>
     </Dialog>
   );
