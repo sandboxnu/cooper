@@ -55,7 +55,7 @@ export default function NewRoleDialog({ companyId }: NewRoleDialogProps) {
 
       setTimeout(() => {
         window.location.reload();
-      }, 1500);
+      }, 1000);
     },
     onError: (error) => {
       toast({
