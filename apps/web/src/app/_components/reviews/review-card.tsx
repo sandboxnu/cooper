@@ -2,11 +2,15 @@
 
 import Image from "next/image";
 
-import type { ReviewType } from "@cooper/db/schema";
+import type { ReviewType, WorkEnvironmentType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Card, CardContent } from "@cooper/ui/card";
 
-import { api } from "~/trpc/react";
+import { locationName } from "~/utils/locationHelpers";
+import {
+  abbreviatedWorkTerm,
+  prettyWorkEnviornment,
+} from "~/utils/stringHelpers";
 import { ReviewCardStars } from "./review-card-stars";
 
 // const InterviewDifficulty = [
@@ -24,44 +28,6 @@ interface ReviewCardProps {
 
 export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
   // ===== LOCATION DATA ===== //
-  const locationName = (reviewObj: ReviewType) => {
-    if (reviewObj.locationId) {
-      const { data: location } = api.location.getById.useQuery({
-        id: reviewObj.locationId,
-      });
-      return location
-        ? location.city +
-            (location.state ? `, ${location.state}` : "") +
-            (location.state ? "" : `, ${location.country}`)
-        : "N/A";
-    }
-  };
-
-  const workTerm = (reviewObj: ReviewType) => {
-    if (reviewObj.workTerm == "SPRING") {
-      return "Spr";
-    }
-    if (reviewObj.workTerm == "SUMMER") {
-      return "Sum";
-    }
-    if (reviewObj.workTerm == "FALL") {
-      return "Fall";
-    }
-    return "N/A";
-  };
-
-  const workEnv = (reviewObj: ReviewType) => {
-    if (reviewObj.workEnvironment == "HYBRID") {
-      return "Hybrid";
-    }
-    if (reviewObj.workEnvironment == "REMOTE") {
-      return "Remote";
-    }
-    if (reviewObj.workEnvironment == "INPERSON") {
-      return "In Person";
-    }
-    return "N/A";
-  };
 
   return (
     <Card
@@ -84,7 +50,7 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
                   {locationName(reviewObj)} •
                 </span>
                 <span>
-                  {workTerm(reviewObj)} {reviewObj.workYear}
+                  {abbreviatedWorkTerm(reviewObj.workTerm)} {reviewObj.workYear}
                 </span>
               </div>
             </div>
@@ -109,7 +75,12 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
             <div className="flex justify-between text-sm">
               <div className="flex gap-6">
                 <div>Position type: Co-op</div>
-                <div>Work model: {workEnv(reviewObj)}</div>
+                <div>
+                  Work model:{" "}
+                  {prettyWorkEnviornment(
+                    reviewObj.workEnvironment as WorkEnvironmentType,
+                  )}
+                </div>
                 <div>Pay: ${reviewObj.hourlyPay} / hr</div>
               </div>
 
