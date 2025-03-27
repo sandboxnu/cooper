@@ -2,7 +2,7 @@ import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
 import type { ReviewType } from "@cooper/db/schema";
-import { asc, desc, eq } from "@cooper/db";
+import { asc, desc, eq, sql } from "@cooper/db";
 import { CreateRoleSchema, Review, Role } from "@cooper/db/schema";
 
 import {
@@ -20,27 +20,26 @@ const ordering = {
 export const roleRouter = {
   list: sortableProcedure.query(async ({ ctx }) => {
     if (ctx.sortBy === "rating") {
-      const roles = await ctx.db.query.Role.findMany();
-
-      const rolesWithRatings = await Promise.all(
-        roles.map(async (role) => {
-          const reviews = await ctx.db.query.Review.findMany({
-            where: eq(Review.roleId, role.id),
-          });
-          const avgRating =
-            reviews.length > 0
-              ? reviews.reduce(
-                  (sum, review) => sum + Number(review.overallRating),
-                  0,
-                ) / reviews.length
-              : 0;
-          return { role, avgRating };
-        }),
-      );
-      return rolesWithRatings
-        .sort((a, b) => b.avgRating - a.avgRating)
-        .map(({ role }) => role);
+      const rolesWithRatings = await ctx.db.execute(sql`
+        SELECT 
+          ${Role}.*, 
+          COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
+        FROM ${Role}
+        LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+        GROUP BY ${Role.id}
+        ORDER BY avg_rating DESC
+      `);
+  
+      return rolesWithRatings.rows.map((role: any) => ({
+        id: role.id,
+        title: role.title,
+        description: role.description,
+        companyId: role.companyid, 
+        createdAt: role.created_at,
+        updatedAt: role.updatedat
+      }));
     }
+  
     return ctx.db.query.Role.findMany({
       orderBy: ordering[ctx.sortBy],
     });
@@ -50,27 +49,25 @@ export const roleRouter = {
     .input(z.object({ title: z.string() }))
     .query(async ({ ctx, input }) => {
       if (ctx.sortBy === "rating") {
-        const roles = await ctx.db.query.Role.findMany({
-          where: eq(Role.title, input.title),
-        });
-        const rolesWithRatings = await Promise.all(
-          roles.map(async (role) => {
-            const reviews = await ctx.db.query.Review.findMany({
-              where: eq(Review.roleId, role.id),
-            });
-            const avgRating =
-              reviews.length > 0
-                ? reviews.reduce(
-                    (sum, review) => sum + Number(review.overallRating),
-                    0,
-                  ) / reviews.length
-                : 0;
-            return { role, avgRating };
-          }),
-        );
-        return rolesWithRatings
-          .sort((a, b) => b.avgRating - a.avgRating)
-          .map(({ role }) => role);
+        const rolesWithRatings = await ctx.db.execute(sql`
+          SELECT 
+            ${Role}.*, 
+            COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
+          FROM ${Role}
+          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          WHERE ${Role.title} = ${input.title}
+          GROUP BY ${Role.id}
+          ORDER BY avg_rating DESC
+        `);
+      
+        return rolesWithRatings.rows.map((role: any) => ({
+          id: role.id,
+          title: role.title,
+          description: role.description,
+          companyId: role.companyid,
+          createdAt: role.created_at,
+          updatedAt: role.updatedat
+        }));
       }
       return ctx.db.query.Role.findMany({
         where: eq(Role.title, input.title),
@@ -90,27 +87,25 @@ export const roleRouter = {
     .input(z.object({ companyId: z.string() }))
     .query(async ({ ctx, input }) => {
       if (ctx.sortBy === "rating") {
-        const roles = await ctx.db.query.Role.findMany({
-          where: eq(Role.companyId, input.companyId),
-        });
-        const rolesWithRatings = await Promise.all(
-          roles.map(async (role) => {
-            const reviews = await ctx.db.query.Review.findMany({
-              where: eq(Review.roleId, role.id),
-            });
-            const avgRating =
-              reviews.length > 0
-                ? reviews.reduce(
-                    (sum, review) => sum + Number(review.overallRating),
-                    0,
-                  ) / reviews.length
-                : 0;
-            return { role, avgRating };
-          }),
-        );
-        return rolesWithRatings
-          .sort((a, b) => b.avgRating - a.avgRating)
-          .map(({ role }) => role);
+        const rolesWithRatings = await ctx.db.execute(sql`
+          SELECT 
+            ${Role}.*, 
+            COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
+          FROM ${Role}
+          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          WHERE ${Role.companyId} = ${input.companyId}
+          GROUP BY ${Role.id}
+          ORDER BY avg_rating DESC
+        `);
+      
+        return rolesWithRatings.rows.map((role: any) => ({
+          id: role.id,
+          title: role.title,
+          description: role.description,
+          companyId: role.companyid,
+          createdAt: role.created_at,
+          updatedAt: role.updatedat
+        }));
       }
       return ctx.db.query.Role.findMany({
         where: eq(Role.companyId, input.companyId),
@@ -132,27 +127,25 @@ export const roleRouter = {
     .input(z.object({ roleId: z.string() }))
     .query(async ({ ctx, input }) => {
       if (ctx.sortBy === "rating") {
-        const roles = await ctx.db.query.Role.findMany({
-          where: eq(Role.id, input.roleId),
-        });
-        const rolesWithRatings = await Promise.all(
-          roles.map(async (role) => {
-            const reviews = await ctx.db.query.Review.findMany({
-              where: eq(Review.roleId, role.id),
-            });
-            const avgRating =
-              reviews.length > 0
-                ? reviews.reduce(
-                    (sum, review) => sum + Number(review.overallRating),
-                    0,
-                  ) / reviews.length
-                : 0;
-            return { role, avgRating };
-          }),
-        );
-        return rolesWithRatings
-          .sort((a, b) => b.avgRating - a.avgRating)
-          .map(({ role }) => role);
+        const rolesWithRatings = await ctx.db.execute(sql`
+          SELECT 
+            ${Role}.*, 
+            COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
+          FROM ${Role}
+          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          WHERE ${Role.id} = ${input.roleId}
+          GROUP BY ${Role.id}
+          ORDER BY avg_rating DESC
+        `);
+      
+        return rolesWithRatings.rows.map((role: any) => ({
+          id: role.id,
+          title: role.title,
+          description: role.description,
+          companyId: role.companyid,
+          createdAt: role.created_at,
+          updatedAt: role.updatedat
+        }));
       }
       const reviews = await ctx.db.query.Review.findMany({
         where: eq(Review.roleId, input.roleId),
