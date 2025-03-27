@@ -2,16 +2,30 @@ import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
 import { desc, eq } from "@cooper/db";
-import { Company, CreateCompanySchema } from "@cooper/db/schema";
+import { Company, CompanyType, CreateCompanySchema } from "@cooper/db/schema";
 
 import { protectedProcedure, publicProcedure } from "../trpc";
+import { performFuseSearch } from "../utils/fuzzyHelper";
 
 export const companyRouter = {
-  list: publicProcedure.query(({ ctx }) => {
-    return ctx.db.query.Company.findMany({
-      orderBy: desc(Company.id),
-    });
-  }),
+  list: publicProcedure
+    .input(
+      z.object({
+        search: z.string().optional(),
+      }),
+    )
+    .query(async ({ ctx, input }) => {
+      const companies = await ctx.db.query.Company.findMany({
+        orderBy: desc(Company.id),
+      });
+
+      const fuseOptions = ["name", "industry", "description"];
+      return performFuseSearch<CompanyType>(
+        companies,
+        fuseOptions,
+        input.search,
+      );
+    }),
 
   getByName: publicProcedure
     .input(z.object({ name: z.string() }))

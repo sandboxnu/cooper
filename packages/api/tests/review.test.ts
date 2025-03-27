@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/unbound-method */
 import { beforeEach, describe, expect, test, vi } from "vitest";
 
 import type { Session } from "@cooper/auth";

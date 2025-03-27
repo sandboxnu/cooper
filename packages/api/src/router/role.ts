@@ -2,16 +2,31 @@ import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
 import { desc, eq } from "@cooper/db";
-import { CreateRoleSchema, Role } from "@cooper/db/schema";
+import { CreateRoleSchema, Role, RoleType } from "@cooper/db/schema";
 
 import { protectedProcedure, publicProcedure } from "../trpc";
+import { performFuseSearch } from "../utils/fuzzyHelper";
 
-export const roleRouter = {
-  list: publicProcedure.query(({ ctx }) => {
-    return ctx.db.query.Role.findMany({
-      orderBy: desc(Role.id),
-    });
-  }),
+
+export const roleRouter = { 
+  list: publicProcedure
+   .input(
+        z.object({
+          search: z.string().optional(),
+        }),
+      )
+      .query(async ({ ctx, input }) => {
+        const roles = await ctx.db.query.Role.findMany({
+          orderBy: desc(Role.id),
+        });
+  
+        const fuseOptions = ["title", "description"];
+        return performFuseSearch<RoleType>(
+          roles,
+          fuseOptions,
+          input.search,
+        );
+      }),
 
   getByTitle: publicProcedure
     .input(z.object({ title: z.string() }))

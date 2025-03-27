@@ -34,6 +34,7 @@ export const reviewRouter = {
         where: conditions.length > 0 ? and(...conditions) : undefined,
       });
 
+      
       if (!input.search) {
         return reviews;
       }
