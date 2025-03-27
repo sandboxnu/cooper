@@ -268,6 +268,11 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
             </div>
             <div className="col-span-2" id="reviews">
               <InfoCard title="Reviews">
+                {reviews.isSuccess && reviews.data.length === 0 && (
+                  <div className="flex h-full w-full items-center justify-center text-[#5a5a5a]">
+                    No reviews yet!
+                  </div>
+                )}
                 {reviews.isSuccess && reviews.data.length > 0 && (
                   <div className="flex flex-col gap-5">
                     <div className="w-[60%]">
