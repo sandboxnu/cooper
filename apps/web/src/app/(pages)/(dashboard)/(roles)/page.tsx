@@ -44,11 +44,18 @@ export default function Roles() {
           <div className="w-[28%] gap-3 overflow-auto p-1">
             <div className="text-right">
               <DropdownMenu>
-                <DropdownMenuTrigger className="pb-2">
-                  Filter By <ChevronDown className="inline" />
+                <DropdownMenuTrigger className="pb-2 text-md">
+                  Sort By <span className="underline">{selectedFilter}</span>
+                  <ChevronDown className="inline" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <DropdownMenuLabel className="text-center flex flex-col">
+                    <Button
+                      className={buttonStyle}
+                      onClick={() => setSelectedFilter("default")}
+                    >
+                      Default
+                    </Button>
                     <Button
                       className={buttonStyle}
                       onClick={() => setSelectedFilter("newest")}

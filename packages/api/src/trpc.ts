@@ -132,7 +132,7 @@ export const sortableProcedure = t.procedure
       ctx: {
         // infers the `session` as non-nullable
         session: { ...ctx.session },
-        sortBy: input?.sortBy || "default",
+        sortBy: input?.sortBy ?? "default",
       },
     });
   });
