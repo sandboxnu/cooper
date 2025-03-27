@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import type { RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
@@ -17,12 +17,6 @@ export default function Roles() {
   const [selectedRole, setSelectedRole] = useState<RoleType | undefined>(
     roles.isSuccess ? roles.data[0] : undefined,
   );
-
-  useEffect(() => {
-    if (roles.isSuccess) {
-      setSelectedRole(roles.data[0]);
-    }
-  }, [roles.isSuccess, roles.data]);
 
   return (
     <>
