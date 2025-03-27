@@ -42,7 +42,7 @@ export const roleRouter = {
         .map(({ role }) => role);
     }
     return ctx.db.query.Role.findMany({
-      orderBy: ordering[ctx.sortBy || "default"],
+      orderBy: ordering[ctx.sortBy],
     });
   }),
 
@@ -74,7 +74,7 @@ export const roleRouter = {
       }
       return ctx.db.query.Role.findMany({
         where: eq(Role.title, input.title),
-        orderBy: ordering[ctx.sortBy || "default"],
+        orderBy: ordering[ctx.sortBy],
       });
     }),
 
@@ -114,7 +114,7 @@ export const roleRouter = {
       }
       return ctx.db.query.Role.findMany({
         where: eq(Role.companyId, input.companyId),
-        orderBy: ordering[ctx.sortBy || "default"],
+        orderBy: ordering[ctx.sortBy],
       });
     }),
 
@@ -156,7 +156,7 @@ export const roleRouter = {
       }
       const reviews = await ctx.db.query.Review.findMany({
         where: eq(Review.roleId, input.roleId),
-        orderBy: ordering[ctx.sortBy || "default"],
+        orderBy: ordering[ctx.sortBy],
       });
 
       const calcAvg = (field: keyof ReviewType) => {

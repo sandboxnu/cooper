@@ -8,7 +8,7 @@
  */
 import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
-import { ZodError } from "zod";
+import { z, ZodError } from "zod";
 
 import type { Session } from "@cooper/auth";
 import { auth, validateToken } from "@cooper/auth";
@@ -119,14 +119,20 @@ export const protectedProcedure = t.procedure.use(({ ctx, next }) => {
   });
 });
 
-export const sortableProcedure = t.procedure.use(
-  ({ ctx, next }, sortBy?: "default" | "rating" | "newest" | "oldest") => {
+export const sortableProcedure = t.procedure
+  .input(
+    z
+      .object({
+        sortBy: z.enum(["default", "rating", "newest", "oldest"]).optional(),
+      })
+      .optional(),
+  )
+  .use(({ ctx, input, next }) => {
     return next({
       ctx: {
         // infers the `session` as non-nullable
         session: { ...ctx.session },
-        sortBy,
+        sortBy: input?.sortBy || "default",
       },
     });
-  },
-);
+  });
