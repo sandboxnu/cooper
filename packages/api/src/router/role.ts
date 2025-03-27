@@ -30,13 +30,14 @@ export const roleRouter = {
         ORDER BY avg_rating DESC
       `);
   
+      console.log("roles with ratings", rolesWithRatings)
       return rolesWithRatings.rows.map((role: any) => ({
         id: role.id,
         title: role.title,
         description: role.description,
-        companyId: role.companyid, 
-        createdAt: role.created_at,
-        updatedAt: role.updatedat
+        companyId: role.companyId, 
+        createdAt: role.createdAt,
+        updatedAt: role.updatedAt
       }));
     }
   
@@ -64,9 +65,9 @@ export const roleRouter = {
           id: role.id,
           title: role.title,
           description: role.description,
-          companyId: role.companyid,
-          createdAt: role.created_at,
-          updatedAt: role.updatedat
+          companyId: role.companyId,
+          createdAt: role.createdAt,
+          updatedAt: role.updatedAt
         }));
       }
       return ctx.db.query.Role.findMany({
@@ -102,9 +103,9 @@ export const roleRouter = {
           id: role.id,
           title: role.title,
           description: role.description,
-          companyId: role.companyid,
-          createdAt: role.created_at,
-          updatedAt: role.updatedat
+          companyId: role.companyId,
+          createdAt: role.createdAt,
+          updatedAt: role.updatedAt
         }));
       }
       return ctx.db.query.Role.findMany({
@@ -142,9 +143,9 @@ export const roleRouter = {
           id: role.id,
           title: role.title,
           description: role.description,
-          companyId: role.companyid,
-          createdAt: role.created_at,
-          updatedAt: role.updatedat
+          companyId: role.companyId,
+          createdAt: role.createdAt,
+          updatedAt: role.updatedAt
         }));
       }
       const reviews = await ctx.db.query.Review.findMany({
