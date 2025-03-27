@@ -126,13 +126,15 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
           <div className="grid w-[80%] grid-cols-2 gap-5 pl-6">
             <div className="h-full" id="job-description">
               <InfoCard title={"Job Description"}>
-                <div className="text-[#5a5a5a]">{roleObj.description}</div>
+                <div className="flex flex-wrap text-wrap pr-4 text-[#5a5a5a]">
+                  {roleObj.description}
+                </div>
               </InfoCard>
             </div>
             {companyData && (
               <div className="h-full" id="company">
                 <InfoCard title={`About ${companyData.name}`}>
-                  <div className="flex gap-4 text-[#5a5a5a]">
+                  <div className="flex flex-wrap gap-4 text-wrap text-[#5a5a5a]">
                     <Image
                       src={`https://logo.clearbit.com/${companyData.name.replace(/\s/g, "")}.com`}
                       width={80}
@@ -194,7 +196,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
             {averages.data && (
               <div className="col-span-2" id="pay">
                 <InfoCard title={"Pay"}>
-                  <div className="flex justify-between">
+                  <div className="flex flex-wrap justify-between">
                     <div className="flex w-[30%] flex-col gap-5">
                       <div className="text-[#5a5a5a]">Pay range</div>
                       <div className="pl-1 text-4xl text-[#141414]">
@@ -251,7 +253,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
             <div className="col-span-2" id="interview">
               <InfoCard title="Interview">
                 {averages.data && (
-                  <div className="flex gap-10">
+                  <div className="flex gap-10 flex-wrap">
                     <BarGraph
                       title="Interview rating"
                       value={averages.data.averageInterviewRating}
