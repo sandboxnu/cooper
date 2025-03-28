@@ -1,5 +1,10 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
+import { api } from "~/trpc/react";
 import NewRoleDialog from "./new-role-dialogue";
 
 interface NewRoleCardProps {
@@ -7,6 +12,14 @@ interface NewRoleCardProps {
 }
 
 export default function NewRoleCard({ companyId }: NewRoleCardProps) {
+  const [authorized, setAuthorized] = useState(false);
+  const { data: session } = api.auth.getSession.useQuery();
+  console.log("session: ", session);
+
+  useEffect(() => {
+    setAuthorized(!!session);
+  }, [setAuthorized, session]);
+
   return (
     <Card
       className={
@@ -14,12 +27,12 @@ export default function NewRoleCard({ companyId }: NewRoleCardProps) {
       }
     >
       <CardHeader className="mt-1.5 pb-3">
-        <CardTitle className="text-md flex items-center justify-start gap-3 space-x-4 md:text-xl">
-          Don't see your role?
+        <CardTitle className="text-md flex items-center justify-center gap-3 space-x-4 md:text-xl">
+          {authorized ? "Don't see your role?" : "Sign in to create a new role"}
         </CardTitle>
       </CardHeader>
       <CardContent className="mb-1.5 grid gap-2">
-        <NewRoleDialog companyId={companyId} />
+        <NewRoleDialog disabled={!authorized} companyId={companyId} />
       </CardContent>
     </Card>
   );

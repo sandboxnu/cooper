@@ -4,6 +4,7 @@ import { api } from "~/trpc/react";
 import LoadingResults from "../loading-results";
 import NewRoleCard from "../reviews/new-role-card";
 import { RoleCardPreview } from "../reviews/role-card-preview";
+import { useEffect, useState } from "react";
 
 interface RenderAllRolesProps {
   company: string | null;
@@ -11,6 +12,13 @@ interface RenderAllRolesProps {
 
 export default function RenderAllRoles({ company }: RenderAllRolesProps) {
   const roles = api.role.getByCompany.useQuery({ companyId: company ?? "" });
+  const [authorized, setAuthorized] = useState(false);
+  const { data: session } = api.auth.getSession.useQuery();
+  console.log("session: ", session);
+
+  useEffect(() => {
+    setAuthorized(!!session);
+  }, [setAuthorized, session]);
 
   return (
     <>
@@ -19,7 +27,7 @@ export default function RenderAllRoles({ company }: RenderAllRolesProps) {
         <LoadingResults />
       ) : (
         <div className="mb-8 grid h-[30dvh] w-full grid-cols-1 gap-3 p-1 md:grid-cols-2 xl:grid-cols-3">
-          {roles.isSuccess && roles.data.length > 0 ? (
+          {roles.isSuccess && roles.data.length > 0 && (
             <>
               {roles.data.map((role) => {
                 return (
@@ -32,12 +40,12 @@ export default function RenderAllRoles({ company }: RenderAllRolesProps) {
                 );
               })}
             </>
-          ) : null}
-          {company ? (
+          )}
+          {company && (
             <div className="p-2">
-              <NewRoleCard companyId={company} />
+              <NewRoleCard companyId={company} authorized={authorized} />
             </div>
-          ) : null}
+          )}
         </div>
       )}
     </>
