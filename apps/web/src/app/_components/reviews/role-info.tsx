@@ -163,7 +163,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                     <div className="flex flex-wrap gap-x-6">
                       {perks &&
                         Object.entries(perks).map(
-                          ([perk, value]: [string, any]) => (
+                          ([perk, value]: [string, number]) => (
                             <div
                               key={perk}
                               className={`flex items-center gap-2 ${value > 0.5 ? "text-[#141414]" : "text-[#7d7d7d]"}`}

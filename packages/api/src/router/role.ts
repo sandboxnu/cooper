@@ -127,7 +127,7 @@ export const roleRouter = {
     .query(async ({ ctx, input }) => {
       let reviews = await ctx.db.query.Review.findMany({
         where: eq(Review.roleId, input.roleId),
-        orderBy: ordering["default"],
+        orderBy: ordering.default,
       });
       if (ctx.sortBy === "rating") {
         const rolesWithRatings = await ctx.db.execute(sql`
