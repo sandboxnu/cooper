@@ -88,12 +88,7 @@ export const roleRouter = {
         `);
 
         return rolesWithRatings.rows.map((role) => ({
-          id: role.id,
-          title: role.title,
-          description: role.description,
-          companyId: role.companyId,
-          createdAt: role.createdAt,
-          updatedAt: role.updatedAt,
+          ...(role as RoleType),
         }));
       }
       return ctx.db.query.Role.findMany({
