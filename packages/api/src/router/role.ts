@@ -167,12 +167,12 @@ export const roleRouter = {
       const overtimeNormal = calcPercentage("overtimeNormal");
       const pto = calcPercentage("pto");
 
-      const minPay = Math.min(
+      const minPay = totalReviews !== 0 ? Math.min(
         ...reviews.map((review) => Number(review.hourlyPay)),
-      );
-      const maxPay = Math.max(
+      ) : 0;
+      const maxPay = totalReviews !== 0 ? Math.max(
         ...reviews.map((review) => Number(review.hourlyPay)),
-      );
+      ) : 0;
 
       return {
         averageOverallRating: averageOverallRating,
