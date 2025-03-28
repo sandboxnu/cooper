@@ -162,30 +162,32 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                     />
                     <div className="flex flex-wrap gap-x-6">
                       {perks &&
-                        Object.entries(perks).map(([perk, value]: [string, any]) => (
-                          <div
-                            key={perk}
-                            className={`flex items-center gap-2 ${value > 0.5 ? "text-[#141414]" : "text-[#7d7d7d]"}`}
-                          >
-                            {value > 0.5 ? (
-                              <Image
-                                src="svg/perkCheck.svg"
-                                alt="check mark"
-                                width={12}
-                                height={9}
-                              />
-                            ) : (
-                              <Image
-                                src="svg/perkCross.svg"
-                                alt="x mark"
-                                height={11}
-                                width={11}
-                              />
-                            )}
+                        Object.entries(perks).map(
+                          ([perk, value]: [string, any]) => (
+                            <div
+                              key={perk}
+                              className={`flex items-center gap-2 ${value > 0.5 ? "text-[#141414]" : "text-[#7d7d7d]"}`}
+                            >
+                              {value > 0.5 ? (
+                                <Image
+                                  src="svg/perkCheck.svg"
+                                  alt="check mark"
+                                  width={12}
+                                  height={9}
+                                />
+                              ) : (
+                                <Image
+                                  src="svg/perkCross.svg"
+                                  alt="x mark"
+                                  height={11}
+                                  width={11}
+                                />
+                              )}
 
-                            {perk}
-                          </div>
-                        ))}
+                              {perk}
+                            </div>
+                          ),
+                        )}
                     </div>
                   </div>
                 )}

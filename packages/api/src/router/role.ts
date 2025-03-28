@@ -29,18 +29,17 @@ export const roleRouter = {
         GROUP BY ${Role.id}
         ORDER BY avg_rating DESC
       `);
-  
-      console.log("roles with ratings", rolesWithRatings)
-      return rolesWithRatings.rows.map((role: any) => ({
+
+      return rolesWithRatings.rows.map((role) => ({
         id: role.id,
         title: role.title,
         description: role.description,
-        companyId: role.companyId, 
+        companyId: role.companyId,
         createdAt: role.createdAt,
-        updatedAt: role.updatedAt
+        updatedAt: role.updatedAt,
       }));
     }
-  
+
     return ctx.db.query.Role.findMany({
       orderBy: ordering[ctx.sortBy],
     });
@@ -51,8 +50,8 @@ export const roleRouter = {
     .query(async ({ ctx, input }) => {
       if (ctx.sortBy === "rating") {
         const rolesWithRatings = await ctx.db.execute(sql`
-          SELECT 
-            ${Role}.*, 
+          SELECT
+            ${Role}.*,
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Role}
           LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
@@ -60,14 +59,13 @@ export const roleRouter = {
           GROUP BY ${Role.id}
           ORDER BY avg_rating DESC
         `);
-      
-        return rolesWithRatings.rows.map((role: any) => ({
+        return rolesWithRatings.rows.map((role) => ({
           id: role.id,
           title: role.title,
           description: role.description,
           companyId: role.companyId,
           createdAt: role.createdAt,
-          updatedAt: role.updatedAt
+          updatedAt: role.updatedAt,
         }));
       }
       return ctx.db.query.Role.findMany({
@@ -98,14 +96,14 @@ export const roleRouter = {
           GROUP BY ${Role.id}
           ORDER BY avg_rating DESC
         `);
-      
-        return rolesWithRatings.rows.map((role: any) => ({
+
+        return rolesWithRatings.rows.map((role) => ({
           id: role.id,
           title: role.title,
           description: role.description,
           companyId: role.companyId,
           createdAt: role.createdAt,
-          updatedAt: role.updatedAt
+          updatedAt: role.updatedAt,
         }));
       }
       return ctx.db.query.Role.findMany({
@@ -127,6 +125,10 @@ export const roleRouter = {
   getAverageById: sortableProcedure
     .input(z.object({ roleId: z.string() }))
     .query(async ({ ctx, input }) => {
+      let reviews = await ctx.db.query.Review.findMany({
+        where: eq(Review.roleId, input.roleId),
+        orderBy: ordering["default"],
+      });
       if (ctx.sortBy === "rating") {
         const rolesWithRatings = await ctx.db.execute(sql`
           SELECT 
@@ -138,20 +140,16 @@ export const roleRouter = {
           GROUP BY ${Role.id}
           ORDER BY avg_rating DESC
         `);
-      
-        return rolesWithRatings.rows.map((role: any) => ({
-          id: role.id,
-          title: role.title,
-          description: role.description,
-          companyId: role.companyId,
-          createdAt: role.createdAt,
-          updatedAt: role.updatedAt
+
+        reviews = rolesWithRatings.rows.map((role) => ({
+          ...(role as ReviewType),
         }));
+      } else {
+        reviews = await ctx.db.query.Review.findMany({
+          where: eq(Review.roleId, input.roleId),
+          orderBy: ordering[ctx.sortBy],
+        });
       }
-      const reviews = await ctx.db.query.Review.findMany({
-        where: eq(Review.roleId, input.roleId),
-        orderBy: ordering[ctx.sortBy],
-      });
 
       const calcAvg = (field: keyof ReviewType) => {
         return totalReviews > 0
