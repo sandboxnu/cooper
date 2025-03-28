@@ -7,8 +7,8 @@ import { CreateRoleSchema, Review, Role } from "@cooper/db/schema";
 
 import {
   protectedProcedure,
-  sortableProcedure,
   publicProcedure,
+  sortableProcedure,
 } from "../trpc";
 
 const ordering = {
@@ -167,12 +167,14 @@ export const roleRouter = {
       const overtimeNormal = calcPercentage("overtimeNormal");
       const pto = calcPercentage("pto");
 
-      const minPay = totalReviews !== 0 ? Math.min(
-        ...reviews.map((review) => Number(review.hourlyPay)),
-      ) : 0;
-      const maxPay = totalReviews !== 0 ? Math.max(
-        ...reviews.map((review) => Number(review.hourlyPay)),
-      ) : 0;
+      const minPay =
+        totalReviews !== 0
+          ? Math.min(...reviews.map((review) => Number(review.hourlyPay)))
+          : 0;
+      const maxPay =
+        totalReviews !== 0
+          ? Math.max(...reviews.map((review) => Number(review.hourlyPay)))
+          : 0;
 
       return {
         averageOverallRating: averageOverallRating,
