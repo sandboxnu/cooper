@@ -1,7 +1,7 @@
 import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
-import type { ReviewType } from "@cooper/db/schema";
+import type { ReviewType, RoleType } from "@cooper/db/schema";
 import { asc, desc, eq, sql } from "@cooper/db";
 import { CreateRoleSchema, Review, Role } from "@cooper/db/schema";
 
@@ -31,12 +31,7 @@ export const roleRouter = {
       `);
 
       return rolesWithRatings.rows.map((role) => ({
-        id: role.id,
-        title: role.title,
-        description: role.description,
-        companyId: role.companyId,
-        createdAt: role.createdAt,
-        updatedAt: role.updatedAt,
+        ...(role as RoleType),
       }));
     }
 
@@ -60,12 +55,7 @@ export const roleRouter = {
           ORDER BY avg_rating DESC
         `);
         return rolesWithRatings.rows.map((role) => ({
-          id: role.id,
-          title: role.title,
-          description: role.description,
-          companyId: role.companyId,
-          createdAt: role.createdAt,
-          updatedAt: role.updatedAt,
+          ...(role as RoleType),
         }));
       }
       return ctx.db.query.Role.findMany({
