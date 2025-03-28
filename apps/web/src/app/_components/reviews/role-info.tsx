@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import type { RoleType } from "@cooper/db/schema";
+import type { ReviewType, RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
@@ -162,30 +162,32 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                     />
                     <div className="flex flex-wrap gap-x-6">
                       {perks &&
-                        Object.entries(perks).map(([perk, value]) => (
-                          <div
-                            key={perk}
-                            className={`flex items-center gap-2 ${value > 0.5 ? "text-[#141414]" : "text-[#7d7d7d]"}`}
-                          >
-                            {value > 0.5 ? (
-                              <Image
-                                src="svg/perkCheck.svg"
-                                alt="check mark"
-                                width={12}
-                                height={9}
-                              />
-                            ) : (
-                              <Image
-                                src="svg/perkCross.svg"
-                                alt="x mark"
-                                height={11}
-                                width={11}
-                              />
-                            )}
+                        Object.entries(perks).map(
+                          ([perk, value]: [string, number]) => (
+                            <div
+                              key={perk}
+                              className={`flex items-center gap-2 ${value > 0.5 ? "text-[#141414]" : "text-[#7d7d7d]"}`}
+                            >
+                              {value > 0.5 ? (
+                                <Image
+                                  src="svg/perkCheck.svg"
+                                  alt="check mark"
+                                  width={12}
+                                  height={9}
+                                />
+                              ) : (
+                                <Image
+                                  src="svg/perkCross.svg"
+                                  alt="x mark"
+                                  height={11}
+                                  width={11}
+                                />
+                              )}
 
-                            {perk}
-                          </div>
-                        ))}
+                              {perk}
+                            </div>
+                          ),
+                        )}
                     </div>
                   </div>
                 )}
@@ -279,7 +281,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                       />
                     </div>
 
-                    {reviews.data.map((review) => {
+                    {reviews.data.map((review: ReviewType) => {
                       return <ReviewCard reviewObj={review} />;
                     })}
                   </div>
