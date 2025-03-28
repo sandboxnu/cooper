@@ -5,29 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1721689713508,
-      "tag": "0000_charming_taskmaster",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1724351117174,
-      "tag": "0001_absent_layla_miller",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1725313563377,
-      "tag": "0002_remarkable_ulik",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1738615935097,
-      "tag": "0003_yielding_triton",
+      "when": 1742239526673,
+      "tag": "0000_sloppy_smiling_tiger",
       "breakpoints": true
     }
   ]

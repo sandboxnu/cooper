@@ -2,13 +2,18 @@
 
 import Image from "next/image";
 
-import type { RoleType } from "@cooper/db/schema";
+import type { ReviewType, RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
 import { api } from "~/trpc/react";
+import { calculateRatings } from "~/utils/reviewCountByStars";
+import StarGraph from "../shared/star-graph";
+import BarGraph from "./bar-graph";
+import InfoCard from "./info-card";
+import { NewReviewDialog } from "./new-review-dialogue";
 import { ReviewCard } from "./review-card";
-import { ReviewCardStars } from "./review-card-stars";
+import RoundBarGraph from "./round-bar-graph";
 
 // const InterviewDifficulty = [
 //   { des: "Very Easy", color: "text-[#4bc92e]" },
@@ -26,23 +31,33 @@ interface RoleCardProps {
 export function RoleInfo({ className, roleObj }: RoleCardProps) {
   const reviews = api.review.getByRole.useQuery({ id: roleObj.id });
 
+  const ratings = calculateRatings(reviews.data ?? []);
+
   const companyQuery = api.company.getById.useQuery(
-    { id: reviews.data?.[0]?.companyId ?? "" },
+    { id: roleObj.companyId },
     { enabled: !!reviews.data?.[0]?.companyId },
   );
 
   // ===== ROLE DATA ===== //
-  const role = api.role.getById.useQuery({ id: roleObj.id });
-
   const companyData = companyQuery.data;
+  const averages = api.role.getAverageById.useQuery({ roleId: roleObj.id });
+
+  const perks = averages.data && {
+    "Federal holidays off": averages.data.federalHolidays,
+    "Drug test": averages.data.drugTest,
+    "Lunch provided": averages.data.freeLunch,
+    "Free merch": averages.data.freeMerch,
+    "Transportation covered": averages.data.freeTransportation,
+  };
 
   return (
     <Card
       className={cn(
-        "flex h-fit w-[100%] flex-col justify-between overflow-hidden rounded-2xl border-none",
+        "flex h-fit w-[100%] flex-col justify-between overflow-hidden scroll-smooth rounded-2xl border-none",
         className,
       )}
     >
+      <NewReviewDialog />
       <div>
         <div className="flex w-full items-center justify-between">
           <CardHeader className="pb-3">
@@ -53,7 +68,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                   width={80}
                   height={80}
                   alt={`Logo of ${companyData.name}`}
-                  className="rounded-xl border"
+                  className="h-20 w-20 rounded-xl border"
                 />
               ) : (
                 <div className="h-20 w-20 rounded-xl border bg-cooper-blue-200"></div>
@@ -61,7 +76,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
               <div className="h-20">
                 <CardTitle className="text-2xl">
                   <div className="text-md flex items-center gap-3 md:text-xl">
-                    <div>{role.data?.title}</div>
+                    <div>{roleObj.title}</div>
                     <div className="text-sm font-normal text-cooper-gray-400">
                       Co-op
                     </div>
@@ -69,15 +84,17 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                 </CardTitle>
                 <div className="align-center flex gap-2 text-cooper-gray-400">
                   <span>{companyData?.name}</span>
-                  {reviews.isSuccess && reviews.data.length > 0 && (
+                  {/* {reviews.isSuccess && reviews.data.length > 0 && (
                     <span
-                      className={`${reviews.data[0]?.location ? "visibility: visible" : "visibility: hidden"}`}
+                      className={`${(reviews.data[0] ? locationName(reviews.data[0]) : "") ? "visibility: visible" : "visibility: hidden"}`}
                     >
                       •
                     </span>
-                  )}
+                  )} */}
                   {reviews.isSuccess && reviews.data.length > 0 && (
-                    <span>{reviews.data[0]?.location}</span>
+                    <span>
+                      {/* {reviews.data[0] ? locationName(reviews.data[0]) : ""} */}
+                    </span>
                   )}
                 </div>
               </div>
@@ -87,14 +104,6 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
             {reviews.isSuccess &&
               reviews.data.length > 0 &&
               (() => {
-                const totalRating = reviews.data.reduce(
-                  (sum, review) => sum + review.overallRating,
-                  0,
-                );
-                const averageRating = (
-                  totalRating / reviews.data.length
-                ).toFixed(1);
-
                 return (
                   <div className="align-center flex gap-2 text-cooper-gray-400">
                     <Image
@@ -103,133 +112,198 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                       width={20}
                       height={20}
                     />
-                    {averageRating} ({reviews.data.length} reviews)
+                    {Math.round(
+                      Number(averages.data?.averageOverallRating) * 100,
+                    ) / 100}{" "}
+                    ({reviews.data.length} review
+                    {reviews.data.length !== 1 && "s"})
                   </div>
                 );
               })()}
           </CardContent>
         </div>
-
-        <div className="space-y-4">
-          <Card className="mx-auto w-[94%] rounded-3xl bg-cooper-gray-200">
-            <CardHeader>About the Job</CardHeader>
-            <div className="align-center flex">
-              <CardContent className="grid justify-end gap-2">
-                {reviews.isSuccess &&
-                  reviews.data.length > 0 &&
-                  (() => {
-                    const totalPay = reviews.data.reduce(
-                      (sum, review) =>
-                        sum + parseFloat(review.hourlyPay ?? "0"),
-                      0.0,
-                    );
-                    const averagePay = totalPay / reviews.data.length;
-
-                    return (
-                      <>
-                        <div className="align-center flex gap-2">Pay Range</div>
-                        <div className="align-center flex gap-2">
-                          ${Math.round(averagePay * 100) / 100.0}/hr
-                        </div>
-                      </>
-                    );
-                  })()}
-              </CardContent>
-              <CardContent className="grid justify-end gap-2">
-                {reviews.isSuccess &&
-                  reviews.data.length > 0 &&
-                  (() => {
-                    const totalInterviewDifficulty = reviews.data.reduce(
-                      (sum, review) => sum + review.interviewDifficulty,
-                      0,
-                    );
-                    const averageInterviewDifficulty =
-                      totalInterviewDifficulty / reviews.data.length;
-                    return (
-                      <>
-                        <div className="align-center flex gap-2">
-                          Interview Difficulty
-                        </div>
-                        <div className="align-center flex gap-2">
-                          {Math.round(averageInterviewDifficulty * 100) / 100.0}
-                        </div>
-                      </>
-                    );
-                  })()}
-              </CardContent>
+        <div className="mt-4 flex w-[100%] justify-between">
+          <div className="grid w-[80%] grid-cols-2 gap-5 pl-6">
+            <div className="h-full" id="job-description">
+              <InfoCard title={"Job Description"}>
+                <div className="flex pr-4 text-[#5a5a5a]">
+                  {roleObj.description}
+                </div>
+              </InfoCard>
             </div>
-          </Card>
-
-          <Card className="mx-auto w-[94%] rounded-3xl">
-            <CardContent>
-              <h2 className="mb-1 mt-3 text-xl font-semibold">Ratings</h2>
-              <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
-                {reviews.isSuccess &&
-                  reviews.data.length > 0 &&
-                  (() => {
-                    const totalCultureRating = reviews.data.reduce(
-                      (sum, review) => sum + review.cultureRating,
-                      0,
-                    );
-                    const averageCultureRating =
-                      totalCultureRating / reviews.data.length;
-                    return (
-                      <>
-                        <div>
-                          <h3>Company Culture</h3>
-                          <ReviewCardStars numStars={averageCultureRating} />
-                        </div>
-                      </>
-                    );
-                  })()}
-                {reviews.isSuccess &&
-                  reviews.data.length > 0 &&
-                  (() => {
-                    const totalSupervisorRating = reviews.data.reduce(
-                      (sum, review) => sum + review.supervisorRating,
-                      0,
-                    );
-                    const averageSupervisorRating =
-                      totalSupervisorRating / reviews.data.length;
-                    return (
-                      <>
-                        <div>
-                          <h3>Supervisor</h3>
-                          <ReviewCardStars numStars={averageSupervisorRating} />
-                        </div>
-                      </>
-                    );
-                  })()}
-                {reviews.isSuccess &&
-                  reviews.data.length > 0 &&
-                  (() => {
-                    const totalInterviewRating = reviews.data.reduce(
-                      (sum, review) => sum + review.interviewRating,
-                      0,
-                    );
-                    const averageInterviewRating =
-                      totalInterviewRating / reviews.data.length;
-                    return (
-                      <>
-                        <div>
-                          <h3>Interview Rating</h3>
-                          <ReviewCardStars numStars={averageInterviewRating} />
-                        </div>
-                      </>
-                    );
-                  })()}
+            {companyData && (
+              <div className="h-full" id="company">
+                <InfoCard title={`About ${companyData.name}`}>
+                  <div className="flex gap-4 text-wrap text-[#5a5a5a]">
+                    <Image
+                      src={`https://logo.clearbit.com/${companyData.name.replace(/\s/g, "")}.com`}
+                      width={80}
+                      height={80}
+                      alt={`Logo of ${companyData.name}`}
+                      className="h-20 w-20 rounded-xl border"
+                    />
+                    {companyData.description}
+                  </div>
+                </InfoCard>
               </div>
-            </CardContent>
-          </Card>
-          {reviews.isSuccess && reviews.data.length > 0 && (
-            <div>
-              <div className="pl-6">Reviews:</div>
+            )}
 
-              {reviews.data.map((review) => {
-                return <ReviewCard reviewObj={review} />;
-              })}
+            <div className="col-span-2" id="on-the-job">
+              <InfoCard title={"On the job"}>
+                {averages.data && (
+                  <div className="flex gap-10">
+                    <BarGraph
+                      title={"Company culture rating"}
+                      maxValue={5}
+                      value={averages.data.averageCultureRating}
+                    />
+                    <BarGraph
+                      title={"Supervisor rating"}
+                      maxValue={5}
+                      value={averages.data.averageSupervisorRating}
+                    />
+                    <div className="flex flex-wrap gap-x-6">
+                      {perks &&
+                        Object.entries(perks).map(
+                          ([perk, value]: [string, number]) => (
+                            <div
+                              key={perk}
+                              className={`flex items-center gap-2 ${value > 0.5 ? "text-[#141414]" : "text-[#7d7d7d]"}`}
+                            >
+                              {value > 0.5 ? (
+                                <Image
+                                  src="svg/perkCheck.svg"
+                                  alt="check mark"
+                                  width={12}
+                                  height={9}
+                                />
+                              ) : (
+                                <Image
+                                  src="svg/perkCross.svg"
+                                  alt="x mark"
+                                  height={11}
+                                  width={11}
+                                />
+                              )}
+
+                              {perk}
+                            </div>
+                          ),
+                        )}
+                    </div>
+                  </div>
+                )}
+              </InfoCard>
             </div>
-          )}
+            {averages.data && (
+              <div className="col-span-2" id="pay">
+                <InfoCard title={"Pay"}>
+                  <div className="flex flex-wrap justify-between">
+                    <div className="flex w-[30%] flex-col gap-5">
+                      <div className="text-[#5a5a5a]">Pay range</div>
+                      <div className="pl-1 text-4xl text-[#141414]">
+                        ${averages.data.minPay}-{averages.data.maxPay} / hr
+                      </div>
+                      <RoundBarGraph
+                        maxValue={Math.max(averages.data.maxPay, 45)}
+                        minValue={Math.min(averages.data.minPay, 15)}
+                        lowValue={averages.data.minPay}
+                        highValue={averages.data.maxPay}
+                      />
+                    </div>
+                    <div className="flex w-[30%] flex-col gap-5">
+                      <div className="text-[#5a5a5a]">Overtime work</div>
+                      <div className="flex items-center gap-2 pl-1">
+                        <div className="text-4xl text-[#141414]">
+                          {Number(averages.data.overtimeNormal.toPrecision(2)) *
+                            100}
+                          %
+                        </div>
+                        <div className="flex flex-wrap text-sm text-[#141414]">
+                          said working overtime was normal
+                        </div>
+                      </div>
+                      <RoundBarGraph
+                        maxValue={100}
+                        highValue={
+                          Number(averages.data.overtimeNormal.toPrecision(2)) *
+                          100
+                        }
+                      />
+                    </div>
+                    <div className="flex w-[30%] flex-col gap-5">
+                      <div className="text-[#5a5a5a]">Paid time off (PTO)</div>
+                      <div className="flex items-center gap-2 pl-1">
+                        <div className="text-4xl text-[#141414]">
+                          {Number(averages.data.pto.toPrecision(2)) * 100}%
+                        </div>
+                        <div className="flex flex-wrap text-sm text-[#141414]">
+                          received PTO
+                        </div>
+                      </div>
+                      <RoundBarGraph
+                        maxValue={100}
+                        highValue={
+                          Number(averages.data.pto.toPrecision(2)) * 100
+                        }
+                      />
+                    </div>
+                  </div>
+                </InfoCard>
+              </div>
+            )}
+            <div className="col-span-2" id="interview">
+              <InfoCard title="Interview">
+                {averages.data && (
+                  <div className="flex flex-wrap gap-10">
+                    <BarGraph
+                      title="Interview rating"
+                      value={averages.data.averageInterviewRating}
+                      maxValue={5}
+                    />
+                    <BarGraph
+                      title="Interview difficulty"
+                      value={averages.data.averageInterviewDifficulty}
+                      maxValue={5}
+                    />
+                  </div>
+                )}
+              </InfoCard>
+            </div>
+            <div className="col-span-2" id="reviews">
+              <InfoCard title="Reviews">
+                {reviews.isSuccess && reviews.data.length === 0 && (
+                  <div className="flex h-full w-full items-center justify-center text-[#5a5a5a]">
+                    No reviews yet!
+                  </div>
+                )}
+                {reviews.isSuccess && reviews.data.length > 0 && (
+                  <div className="flex flex-col gap-5">
+                    <div className="w-[60%]">
+                      <StarGraph
+                        ratings={ratings}
+                        averageOverallRating={
+                          averages.data?.averageOverallRating ?? 0
+                        }
+                      />
+                    </div>
+
+                    {reviews.data.map((review: ReviewType) => {
+                      return <ReviewCard reviewObj={review} />;
+                    })}
+                  </div>
+                )}
+              </InfoCard>
+            </div>
+          </div>
+          <div className="flex w-[15%] flex-col gap-3 text-[#5a5a5a]">
+            <a href="#job-description">Job Description</a>
+            <a href="#company">Company</a>
+            <a href="#on-the-job">On the job</a>
+            <a href="#pay">Pay</a>
+            <a href="#interview">Interview</a>
+            <a href="#reviews">Reviews</a>
+          </div>
         </div>
       </div>
     </Card>

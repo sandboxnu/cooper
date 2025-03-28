@@ -25,6 +25,25 @@ export function RoleCardPreview({
   // ===== ROLE DATA ===== //
   const role = api.role.getById.useQuery({ id: reviewObj.id });
   const reviews = api.review.getByRole.useQuery({ id: reviewObj.id });
+  const averages = api.role.getAverageById.useQuery({
+    roleId: role.data?.id ?? "",
+  });
+
+  // ===== LOCATION DATA ===== //
+  // TODO: Fix this
+  // const locationName = (reviewObj: ReviewType) => {
+  //   if (reviewObj.locationId) {
+  //     const { data: location } = api.location.getById.useQuery({
+  //       id: reviewObj.locationId,
+  //     });
+  //     return location
+  //       ? location.city +
+  //           (location.state ? `, ${location.state}` : "") +
+  //           ", " +
+  //           location.country
+  //       : "N/A";
+  //   }
+  // };
 
   return (
     <Card
@@ -47,15 +66,17 @@ export function RoleCardPreview({
               </CardTitle>
               <div className="align-center flex gap-2 text-cooper-gray-400">
                 <span>{company.data?.name}</span>
-                {reviews.isSuccess && reviews.data.length > 0 && (
+                {/* {reviews.isSuccess && reviews.data.length > 0 && (
                   <span
-                    className={`${reviews.data[0]?.location ? "visibility: visible" : "visibility: hidden"}`}
+                    className={`${(reviews.data[0] ? locationName(reviews.data[0]) : "") ? "visibility: visible" : "visibility: hidden"}`}
                   >
                     •
                   </span>
-                )}
+                )} */}
                 {reviews.isSuccess && reviews.data.length > 0 && (
-                  <span>{reviews.data[0]?.location}</span>
+                  <span>
+                    {/* {reviews.data[0] ? locationName(reviews.data[0]) : ""} */}
+                  </span>
                 )}
               </div>
             </div>
@@ -65,14 +86,6 @@ export function RoleCardPreview({
           {reviews.isSuccess &&
             reviews.data.length > 0 &&
             (() => {
-              const totalRating = reviews.data.reduce(
-                (sum, review) => sum + review.overallRating,
-                0,
-              );
-              const averageRating = (totalRating / reviews.data.length).toFixed(
-                1,
-              );
-
               return (
                 <div className="align-center flex gap-2 text-cooper-gray-400">
                   <Image
@@ -81,7 +94,10 @@ export function RoleCardPreview({
                     width={20}
                     height={20}
                   />
-                  {averageRating} ({reviews.data.length} reviews)
+                  {Math.round(
+                    Number(averages.data?.averageOverallRating) * 100,
+                  ) / 100}{" "}
+                  ({reviews.data.length} reviews)
                 </div>
               );
             })()}

@@ -3,6 +3,7 @@ import { pgTable, text, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
+import { CompaniesToLocations } from "./companiesToLocations";
 import { Industry } from "./misc";
 import { Review } from "./reviews";
 import { Role } from "./roles";
@@ -12,7 +13,7 @@ export const Company = pgTable("company", {
   name: varchar("name").notNull(),
   description: text("description"),
   industry: varchar("industry").notNull(),
-  location: varchar("location").notNull(),
+  website: varchar("website"),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt", {
     mode: "date",
@@ -25,13 +26,16 @@ export type CompanyType = typeof Company.$inferSelect;
 export const CompanyRelations = relations(Company, ({ many }) => ({
   roles: many(Role),
   reviews: many(Review),
+  companies_to_locations: many(CompaniesToLocations),
 }));
 
 export const CreateCompanySchema = createInsertSchema(Company, {
   name: z.string(),
   description: z.string().optional(),
   industry: z.nativeEnum(Industry),
-  location: z.string(),
-}) satisfies z.ZodType<
-  Omit<typeof Company.$inferInsert, "id" | "createdAt" | "updatedAt">
->;
+  website: z.string().optional(),
+}).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
