@@ -7,8 +7,8 @@ import { CreateRoleSchema, Review, Role } from "@cooper/db/schema";
 
 import {
   protectedProcedure,
-  sortableProcedure,
   publicProcedure,
+  sortableProcedure,
 } from "../trpc";
 import { performFuseSearch } from "../utils/fuzzyHelper";
 
@@ -19,9 +19,15 @@ const ordering = {
 };
 
 export const roleRouter = {
-  list: sortableProcedure.query(async ({ ctx }) => {
-    if (ctx.sortBy === "rating") {
-      const rolesWithRatings = await ctx.db.execute(sql`
+  list: sortableProcedure
+    .input(
+      z.object({
+        search: z.string().optional(),
+      }),
+    )
+    .query(async ({ ctx, input }) => {
+      if (ctx.sortBy === "rating") {
+        const rolesWithRatings = await ctx.db.execute(sql`
         SELECT 
           ${Role}.*, 
           COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
@@ -30,30 +36,22 @@ export const roleRouter = {
         GROUP BY ${Role.id}
         ORDER BY avg_rating DESC
       `);
-      
-      const roles = rolesWithRatings.rows.map((role) => ({
-        ...(role as RoleType),
-      }));
-      
+
+        const roles = rolesWithRatings.rows.map((role) => ({
+          ...(role as RoleType),
+        }));
+
+        const fuseOptions = ["title", "description"];
+        return performFuseSearch<RoleType>(roles, fuseOptions, input.search);
+      }
+
+      const roles = await ctx.db.query.Role.findMany({
+        orderBy: ordering[ctx.sortBy],
+      });
+
       const fuseOptions = ["title", "description"];
-      return performFuseSearch<RoleType>(
-        roles,
-        fuseOptions,
-        input.search,
-      );
-    }
-    
-    const roles = await ctx.db.query.Role.findMany({
-      orderBy: ordering[ctx.sortBy],
-    });
-  
-    const fuseOptions = ["title", "description"];
-    return performFuseSearch<RoleType>(
-      roles,
-      fuseOptions,
-      input.search,
-    );
-  }),
+      return performFuseSearch<RoleType>(roles, fuseOptions, input.search);
+    }),
 
   getByTitle: sortableProcedure
     .input(z.object({ title: z.string() }))
@@ -182,12 +180,14 @@ export const roleRouter = {
       const overtimeNormal = calcPercentage("overtimeNormal");
       const pto = calcPercentage("pto");
 
-      const minPay = totalReviews !== 0 ? Math.min(
-        ...reviews.map((review) => Number(review.hourlyPay)),
-      ) : 0;
-      const maxPay = totalReviews !== 0 ? Math.max(
-        ...reviews.map((review) => Number(review.hourlyPay)),
-      ) : 0;
+      const minPay =
+        totalReviews !== 0
+          ? Math.min(...reviews.map((review) => Number(review.hourlyPay)))
+          : 0;
+      const maxPay =
+        totalReviews !== 0
+          ? Math.max(...reviews.map((review) => Number(review.hourlyPay)))
+          : 0;
 
       return {
         averageOverallRating: averageOverallRating,
