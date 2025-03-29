@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 
-import { RoleType } from "@cooper/db/schema";
+import type { RoleType } from "@cooper/db/schema";
 
 import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
