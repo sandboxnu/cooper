@@ -16,11 +16,10 @@ const CollapsableInfoCard: React.FC<CollapsableInfoCardProps> = ({
     <div className="flex h-full flex-col rounded-xl border border-black bg-white duration-300">
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className={`flex w-full items-center justify-between border-b bg-gray-50 p-4 font-medium transition-colors hover:bg-gray-100 ${
+        className={`flex w-full items-center gap-2 border-b bg-gray-50 p-4 font-medium transition-colors hover:bg-gray-100 ${
           isExpanded ? "rounded-t-xl border-black" : "rounded-xl"
         }`}
       >
-        <span>{title}</span>
         <svg
           className={`h-5 w-5 transform transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
           fill="none"
@@ -34,6 +33,7 @@ const CollapsableInfoCard: React.FC<CollapsableInfoCardProps> = ({
             d="M19 9l-7 7-7-7"
           />
         </svg>
+        <span>{title}</span>
       </button>
       <div
         className={`overflow-hidden transition-all duration-200 ease-in-out ${
