@@ -10,6 +10,7 @@ import { api } from "~/trpc/react";
 import { calculateRatings } from "~/utils/reviewCountByStars";
 import StarGraph from "../shared/star-graph";
 import BarGraph from "./bar-graph";
+import CollapsableInfoCard from "./collapsable-info";
 import InfoCard from "./info-card";
 import { NewReviewDialog } from "./new-review-dialogue";
 import { ReviewCard } from "./review-card";
@@ -149,7 +150,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
             )}
 
             <div className="col-span-2" id="on-the-job">
-              <InfoCard title={"On the job"}>
+              <CollapsableInfoCard title={"On the job"}>
                 {averages.data && (
                   <div className="flex gap-10">
                     <BarGraph
@@ -193,11 +194,11 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                     </div>
                   </div>
                 )}
-              </InfoCard>
+              </CollapsableInfoCard>
             </div>
             {averages.data && (
               <div className="col-span-2" id="pay">
-                <InfoCard title={"Pay"}>
+                <CollapsableInfoCard title={"Pay"}>
                   <div className="flex flex-wrap justify-between">
                     <div className="flex w-[30%] flex-col gap-5">
                       <div className="text-[#5a5a5a]">Pay range</div>
@@ -249,11 +250,11 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                       />
                     </div>
                   </div>
-                </InfoCard>
+                </CollapsableInfoCard>
               </div>
             )}
             <div className="col-span-2" id="interview">
-              <InfoCard title="Interview">
+              <CollapsableInfoCard title="Interview">
                 {averages.data && (
                   <div className="flex flex-wrap gap-10">
                     <BarGraph
@@ -268,10 +269,10 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                     />
                   </div>
                 )}
-              </InfoCard>
+              </CollapsableInfoCard>
             </div>
             <div className="col-span-2" id="reviews">
-              <InfoCard title="Reviews">
+              <CollapsableInfoCard title="Reviews">
                 {reviews.isSuccess && reviews.data.length === 0 && (
                   <div className="flex h-full w-full items-center justify-center text-[#5a5a5a]">
                     No reviews yet!
@@ -293,7 +294,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                     })}
                   </div>
                 )}
-              </InfoCard>
+              </CollapsableInfoCard>
             </div>
           </div>
           <div className="flex w-[15%] flex-col gap-3 text-[#5a5a5a]">
