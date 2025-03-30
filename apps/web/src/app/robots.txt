@@ -1,58 +1,48 @@
-# <AI bots>
-
-# GPTBot is OpenAI's web crawler
-User-agent: GPTBot
-Disallow: /
-
-# Google Bard & Gemini
-User-agent: Google-Extended
-Disallow: /
-
-# ChatGPT-User is OpenAI's web crawler
-User-agent: ChatGPT-User
-Disallow: /
-
-# Common Crawl bot
-User-agent: CCBot
-Disallow: /
-
-# PiplBot is PiplBot's web crawler
-User-agent: PiplBot
-Disallow: /
-
-# anthropic-ai is Anthropic's web crawler
+User-agent: AI2Bot
+User-agent: Ai2Bot-Dolma
+User-agent: Amazonbot
 User-agent: anthropic-ai
-Disallow: /
-
-# Claude-Web is Claude's web crawler
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: Brightbot 1.0
+User-agent: Bytespider
+User-agent: CCBot
+User-agent: ChatGPT-User
 User-agent: Claude-Web
-Disallow: /
-
-# TurnitinBot is Turnitin's web crawler
-User-agent: TurnitinBot
-Disallow: /
-
-# PetalBot is Petal's web crawler
-User-agent: PetalBot
-Disallow: /
-
-# MoodleBot is Moodl's web crawler
-User-agent: MoodleBot
-Disallow: /
-
-# magpie-crawler is Brandwatch.com's web crawler
-User-agent: magpie-crawler
-Disallow: /
-
-# Meta 
-User-agent: meta-externalagent
-Disallow: /
-
-# </AI bots>
-
+User-agent: ClaudeBot
+User-agent: cohere-ai
+User-agent: cohere-training-data-crawler
+User-agent: Crawlspace
+User-agent: Diffbot
+User-agent: DuckAssistBot
+User-agent: FacebookBot
+User-agent: FriendlyCrawler
+User-agent: Google-Extended
+User-agent: GoogleOther
+User-agent: GoogleOther-Image
+User-agent: GoogleOther-Video
+User-agent: GPTBot
+User-agent: iaskspider/2.0
+User-agent: ICC-Crawler
 User-agent: ImagesiftBot
-Disallow: /
-
-# DotBot is OpenSiteExplorer's web crawler
-User-agent: DotBot
+User-agent: img2dataset
+User-agent: ISSCyberRiskCrawler
+User-agent: Kangaroo Bot
+User-agent: Meta-ExternalAgent
+User-agent: Meta-ExternalFetcher
+User-agent: OAI-SearchBot
+User-agent: omgili
+User-agent: omgilibot
+User-agent: PanguBot
+User-agent: PerplexityBot
+User-agent: Perplexity‑User
+User-agent: PetalBot
+User-agent: Scrapy
+User-agent: SemrushBot-OCOB
+User-agent: SemrushBot-SWA
+User-agent: Sidetrade indexer bot
+User-agent: Timpibot
+User-agent: VelenPublicWebCrawler
+User-agent: Webzio-Extended
+User-agent: YouBot
 Disallow: /
