@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { auth } from "@cooper/auth";
 import { Button } from "@cooper/ui/button";
 import {
   Dialog,
@@ -13,22 +14,30 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@cooper/ui/dialog";
-import { Form, FormControl, FormField, FormItem } from "@cooper/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@cooper/ui/form";
 import { useToast } from "@cooper/ui/hooks/use-toast";
 import { Input } from "@cooper/ui/input";
 import { Label } from "@cooper/ui/label";
 import { Textarea } from "@cooper/ui/textarea";
 
 import { api } from "~/trpc/react";
-import { auth } from "@cooper/auth";
 
 const roleSchema = z.object({
-  title: z
-    .string({ required_error: "You need to enter a role title." })
+  title: z.string({ required_error: "You need to enter a role title." }),
+  description: z
+    .string()
     .min(10, {
-      message: "The review must be at least 8 characters.",
+      message: "The review must be at least 10 characters.",
+    })
+    .max(500, {
+      message: "The description must be at most 500 characters.",
     }),
-  description: z.string(),
   companyId: z.string(),
 });
 
@@ -39,7 +48,10 @@ interface NewRoleDialogProps {
   disabled?: boolean;
 }
 
-export default function NewRoleDialog({ companyId, disabled }: NewRoleDialogProps) {
+export default function NewRoleDialog({
+  companyId,
+  disabled,
+}: NewRoleDialogProps) {
   const [isSuccess, setIsSuccess] = useState(false);
   const company = api.company.getById.useQuery({ id: companyId });
   const [roleName, setRoleName] = useState("");
@@ -74,18 +86,37 @@ export default function NewRoleDialog({ companyId, disabled }: NewRoleDialogProp
 
   async function onSubmit(values: z.infer<RoleRequestType>) {
     try {
+      const result = await form.trigger(["title", "description"], {
+        shouldFocus: true,
+      });
+
+      if (!result) {
+        return;
+      }
+
       await mutation.mutateAsync(values);
     } catch (error) {
       console.error(error);
     }
   }
 
+  // async function onSubmit(values: z.infer<RoleRequestType>) {
+  //   try {
+  //     await mutation.mutateAsync(values);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
+
   const titleWithoutCoop = roleName.replace(/co-op/gi, "").trim();
 
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button disabled={disabled} className="h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-4 py-3 text-sm font-semibold text-white hover:border-cooper-yellow-300 hover:bg-cooper-yellow-300">
+        <Button
+          disabled={disabled}
+          className="h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-4 py-3 text-sm font-semibold text-white hover:border-cooper-yellow-300 hover:bg-cooper-yellow-300"
+        >
           + Create New Role
         </Button>
       </DialogTrigger>
@@ -121,6 +152,7 @@ export default function NewRoleDialog({ companyId, disabled }: NewRoleDialogProp
                       <FormControl>
                         <Input type="string" variant="dialogue" {...field} />
                       </FormControl>
+                      <FormMessage className="text-sm" />
                     </FormItem>
                   )}
                 />
@@ -133,6 +165,7 @@ export default function NewRoleDialog({ companyId, disabled }: NewRoleDialogProp
                       <FormControl>
                         <Textarea variant="dialogue" {...field} />
                       </FormControl>
+                      <FormMessage className="text-sm" />
                     </FormItem>
                   )}
                 />
@@ -143,6 +176,7 @@ export default function NewRoleDialog({ companyId, disabled }: NewRoleDialogProp
                 type="submit"
                 className="border-none bg-cooper-blue-400 text-white hover:bg-cooper-blue-600"
                 onClick={form.handleSubmit(onSubmit)}
+                disabled={!form.formState.isValid}
               >
                 Submit
               </Button>
