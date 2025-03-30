@@ -100,14 +100,6 @@ export default function NewRoleDialog({
     }
   }
 
-  // async function onSubmit(values: z.infer<RoleRequestType>) {
-  //   try {
-  //     await mutation.mutateAsync(values);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
-
   const titleWithoutCoop = roleName.replace(/co-op/gi, "").trim();
 
   return (
