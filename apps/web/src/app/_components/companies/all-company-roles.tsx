@@ -4,7 +4,6 @@ import { api } from "~/trpc/react";
 import LoadingResults from "../loading-results";
 import NewRoleCard from "../reviews/new-role-card";
 import { RoleCardPreview } from "../reviews/role-card-preview";
-import { useEffect, useState } from "react";
 
 interface RenderAllRolesProps {
   company: string | null;
@@ -12,13 +11,6 @@ interface RenderAllRolesProps {
 
 export default function RenderAllRoles({ company }: RenderAllRolesProps) {
   const roles = api.role.getByCompany.useQuery({ companyId: company ?? "" });
-  const [authorized, setAuthorized] = useState(false);
-  const { data: session } = api.auth.getSession.useQuery();
-  console.log("session: ", session);
-
-  useEffect(() => {
-    setAuthorized(!!session);
-  }, [setAuthorized, session]);
 
   return (
     <>
@@ -43,7 +35,7 @@ export default function RenderAllRoles({ company }: RenderAllRolesProps) {
           )}
           {company && (
             <div className="p-2">
-              <NewRoleCard companyId={company} authorized={authorized} />
+              <NewRoleCard companyId={company} />
             </div>
           )}
         </div>
