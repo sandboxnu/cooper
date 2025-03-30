@@ -14,7 +14,6 @@ interface NewRoleCardProps {
 export default function NewRoleCard({ companyId }: NewRoleCardProps) {
   const [authorized, setAuthorized] = useState(false);
   const { data: session } = api.auth.getSession.useQuery();
-  console.log("session: ", session);
 
   useEffect(() => {
     setAuthorized(!!session);
