@@ -25,19 +25,19 @@ export default function RenderAllRoles({ company }: RenderAllRolesProps) {
           {roles.isSuccess && roles.data.length > 0 && (
             <>
               {roles.data.map((role) => {
-            return (
-              <div
-                key={role.id}
-                className="p-2"
-                onClick={() => router.push(`/role?id=${role.id}`)}
-              >
-                <RoleCardPreview
-                  reviewObj={role}
-                  className={cn("mb-4 hover:bg-cooper-gray-100")}
-                />
-              </div>
-            );
-          })}
+                return (
+                  <div
+                    key={role.id}
+                    className="p-2"
+                    onClick={() => router.push(`/role?id=${role.id}`)}
+                  >
+                    <RoleCardPreview
+                      reviewObj={role}
+                      className={cn("mb-4 hover:bg-cooper-gray-100")}
+                    />
+                  </div>
+                );
+              })}
             </>
           )}
           {company && (
