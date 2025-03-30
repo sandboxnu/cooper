@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import type { RoleType } from "@cooper/db/schema";
+import type { ReviewType, RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
@@ -126,13 +126,15 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
           <div className="grid w-[80%] grid-cols-2 gap-5 pl-6">
             <div className="h-full" id="job-description">
               <InfoCard title={"Job Description"}>
-                <div className="text-[#5a5a5a]">{roleObj.description}</div>
+                <div className="flex pr-4 text-[#5a5a5a]">
+                  {roleObj.description}
+                </div>
               </InfoCard>
             </div>
             {companyData && (
               <div className="h-full" id="company">
                 <InfoCard title={`About ${companyData.name}`}>
-                  <div className="flex gap-4 text-[#5a5a5a]">
+                  <div className="flex gap-4 text-wrap text-[#5a5a5a]">
                     <Image
                       src={`https://logo.clearbit.com/${companyData.name.replace(/\s/g, "")}.com`}
                       width={80}
@@ -162,30 +164,32 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                     />
                     <div className="flex flex-wrap gap-x-6">
                       {perks &&
-                        Object.entries(perks).map(([perk, value]) => (
-                          <div
-                            key={perk}
-                            className={`flex items-center gap-2 ${value > 0.5 ? "text-[#141414]" : "text-[#7d7d7d]"}`}
-                          >
-                            {value > 0.5 ? (
-                              <Image
-                                src="svg/perkCheck.svg"
-                                alt="check mark"
-                                width={12}
-                                height={9}
-                              />
-                            ) : (
-                              <Image
-                                src="svg/perkCross.svg"
-                                alt="x mark"
-                                height={11}
-                                width={11}
-                              />
-                            )}
+                        Object.entries(perks).map(
+                          ([perk, value]: [string, number]) => (
+                            <div
+                              key={perk}
+                              className={`flex items-center gap-2 ${value > 0.5 ? "text-[#141414]" : "text-[#7d7d7d]"}`}
+                            >
+                              {value > 0.5 ? (
+                                <Image
+                                  src="svg/perkCheck.svg"
+                                  alt="check mark"
+                                  width={12}
+                                  height={9}
+                                />
+                              ) : (
+                                <Image
+                                  src="svg/perkCross.svg"
+                                  alt="x mark"
+                                  height={11}
+                                  width={11}
+                                />
+                              )}
 
-                            {perk}
-                          </div>
-                        ))}
+                              {perk}
+                            </div>
+                          ),
+                        )}
                     </div>
                   </div>
                 )}
@@ -194,7 +198,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
             {averages.data && (
               <div className="col-span-2" id="pay">
                 <InfoCard title={"Pay"}>
-                  <div className="flex justify-between">
+                  <div className="flex flex-wrap justify-between">
                     <div className="flex w-[30%] flex-col gap-5">
                       <div className="text-[#5a5a5a]">Pay range</div>
                       <div className="pl-1 text-4xl text-[#141414]">
@@ -251,7 +255,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
             <div className="col-span-2" id="interview">
               <InfoCard title="Interview">
                 {averages.data && (
-                  <div className="flex gap-10">
+                  <div className="flex flex-wrap gap-10">
                     <BarGraph
                       title="Interview rating"
                       value={averages.data.averageInterviewRating}
@@ -268,6 +272,11 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
             </div>
             <div className="col-span-2" id="reviews">
               <InfoCard title="Reviews">
+                {reviews.isSuccess && reviews.data.length === 0 && (
+                  <div className="flex h-full w-full items-center justify-center text-[#5a5a5a]">
+                    No reviews yet!
+                  </div>
+                )}
                 {reviews.isSuccess && reviews.data.length > 0 && (
                   <div className="flex flex-col gap-5">
                     <div className="w-[60%]">
@@ -279,7 +288,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                       />
                     </div>
 
-                    {reviews.data.map((review) => {
+                    {reviews.data.map((review: ReviewType) => {
                       return <ReviewCard reviewObj={review} />;
                     })}
                   </div>
