@@ -28,7 +28,11 @@ import { Textarea } from "@cooper/ui/textarea";
 import { api } from "~/trpc/react";
 
 const roleSchema = z.object({
-  title: z.string({ required_error: "You need to enter a role title." }),
+  title: z
+    .string({ required_error: "You need to enter a role title." })
+    .min(5, {
+      message: "The role title must be at least 5 characters.",
+    }),
   description: z
     .string()
     .min(10, {
