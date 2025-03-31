@@ -35,6 +35,7 @@ export default function Roles() {
     <>
       {roles.isSuccess && roles.data.length > 0 && (
         <div className="flex h-[86dvh] w-full divide-x-[0.75px] divide-cooper-gray-300 lg:h-[92dvh]">
+          {/* TODO: Confirm what background color we want to use here with the designers */}
           <div className="w-[28%] gap-3 overflow-auto bg-cooper-gray-100 p-5">
             <div className="text-right">
               <DropdownMenu>
