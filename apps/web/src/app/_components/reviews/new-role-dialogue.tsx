@@ -107,7 +107,7 @@ export default function NewRoleDialog({
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
+      <DialogTrigger className="rounded-lg" asChild>
         <Button
           disabled={disabled}
           className="h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-4 py-3 text-sm font-semibold text-white hover:border-cooper-yellow-300 hover:bg-cooper-yellow-300"

@@ -61,11 +61,11 @@ export default function Company() {
             <CompanyReview companyObj={company.data} />
           </div>
 
-          <div className="my-8 border-t border-black"></div>
+          <div className="my-8 border-t border-cooper-gray-400"></div>
           <RenderAllRoles company={companyID} />
         </div>
       ) : (
-        <NoResults />
+        <NoResults className="h-full" />
       )}
     </>
   );
