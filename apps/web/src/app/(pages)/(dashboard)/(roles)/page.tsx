@@ -1,23 +1,23 @@
 "use client";
 
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 import type { RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
-
-import LoadingResults from "~/app/_components/loading-results";
-import NoResults from "~/app/_components/no-results";
-import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
-import { RoleInfo } from "~/app/_components/reviews/role-info";
-import { api } from "~/trpc/react";
+import { Button } from "@cooper/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@cooper/ui/dropdown-menu";
-import { Button } from "@cooper/ui/button";
-import { ChevronDown } from "lucide-react";
+
+import LoadingResults from "~/app/_components/loading-results";
+import NoResults from "~/app/_components/no-results";
+import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
+import { RoleInfo } from "~/app/_components/reviews/role-info";
+import { api } from "~/trpc/react";
 
 export default function Roles() {
   const [selectedFilter, setSelectedFilter] = useState<
@@ -34,16 +34,16 @@ export default function Roles() {
   return (
     <>
       {roles.isSuccess && roles.data.length > 0 && (
-        <div className="flex h-[86dvh] w-full gap-4 divide-x divide-[#474747] pl-4 lg:h-[92dvh] ">
+        <div className="flex h-[86dvh] w-full gap-4 divide-x divide-[#474747] pl-4 lg:h-[92dvh]">
           <div className="w-[28%] gap-3 overflow-auto p-1">
             <div className="text-right">
               <DropdownMenu>
-                <DropdownMenuTrigger className="pb-2 text-md">
+                <DropdownMenuTrigger className="text-md pb-2">
                   Sort By <span className="underline">{selectedFilter}</span>
                   <ChevronDown className="inline" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  <DropdownMenuLabel className="text-center flex flex-col">
+                  <DropdownMenuLabel className="flex flex-col text-center">
                     <Button
                       className={buttonStyle}
                       onClick={() => setSelectedFilter("default")}
