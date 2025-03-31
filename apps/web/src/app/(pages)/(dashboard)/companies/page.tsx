@@ -8,7 +8,7 @@ import NoResults from "~/app/_components/no-results";
 import { api } from "~/trpc/react";
 
 export default function Companies() {
-  const companies = api.company.list.useQuery();
+  const companies = api.company.list.useQuery({});
 
   const router = useRouter();
 
