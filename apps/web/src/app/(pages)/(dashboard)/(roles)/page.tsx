@@ -34,7 +34,7 @@ export default function Roles() {
   return (
     <>
       {roles.isSuccess && roles.data.length > 0 && (
-        <div className="flex h-[86dvh] w-full gap-4 divide-x divide-[#474747] pl-4 lg:h-[92dvh]">
+        <div className="flex h-[86dvh] w-full gap-4 divide-x-[0.75px] divide-cooper-gray-300 pl-4 lg:h-[92dvh]">
           <div className="w-[28%] gap-3 overflow-auto p-1">
             <div className="text-right">
               <DropdownMenu>
@@ -80,8 +80,9 @@ export default function Roles() {
                     className={cn(
                       "mb-4 hover:bg-cooper-gray-100",
                       selectedRole
-                        ? selectedRole.id === role.id && "bg-cooper-gray-200"
-                        : !i && "bg-cooper-gray-200",
+                        ? selectedRole.id === role.id &&
+                            "bg-cooper-gray-200 hover:bg-cooper-gray-200"
+                        : !i && "bg-cooper-gray-200 hover:bg-cooper-gray-200",
                     )}
                   />
                 </div>
@@ -95,8 +96,10 @@ export default function Roles() {
           </div>
         </div>
       )}
-      {roles.isSuccess && roles.data.length === 0 && <NoResults />}
-      {roles.isPending && <LoadingResults />}
+      {roles.isSuccess && roles.data.length === 0 && (
+        <NoResults className="h-full" />
+      )}
+      {roles.isPending && <LoadingResults className="h-full" />}
     </>
   );
 }

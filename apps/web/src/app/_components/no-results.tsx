@@ -2,11 +2,12 @@
 
 import { usePathname, useRouter } from "next/navigation";
 
+import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 
 import CooperLogo from "./cooper-logo";
 
-export default function NoResults() {
+export default function NoResults({ className }: { className?: string }) {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -15,10 +16,15 @@ export default function NoResults() {
   }
 
   return (
-    <section className="flex h-[30dvh] w-full flex-col items-center justify-center">
+    <section
+      className={cn(
+        "flex h-[30dvh] w-full flex-col items-center justify-center",
+        className,
+      )}
+    >
       <CooperLogo width={200} />
       <div className="flex flex-col items-center rounded-lg border-2 border-cooper-blue-600 px-16 pb-4 pt-6 text-xl font-bold">
-        <h2 className="text-cooper-blue-700">No Results Found</h2>
+        <h2 className="text-cooper-blue-600">No Results Found</h2>
         <Button
           type="button"
           variant="ghost"

@@ -24,7 +24,7 @@ export default function BarGraph({
       <div className="flex items-center gap-4">
         <div className="relative h-14 w-36 border border-black bg-white">
           <div
-            className={`absolute left-0 top-0 h-full border-black bg-cooper-blue-400 ${fillPercentage !== 100 && fillPercentage !== 0 && "border-r"}`}
+            className={`absolute left-0 top-0 h-full border-black bg-cooper-blue-600 ${fillPercentage !== 100 && fillPercentage !== 0 && "border-r"}`}
             style={{ width: `${fillPercentage}%` }}
           />
 

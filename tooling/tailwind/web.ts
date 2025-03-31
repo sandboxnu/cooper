@@ -20,18 +20,23 @@ export default {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
       colors: {
-        "cooper-gray-100": "#DDE8F0",
-        "cooper-gray-200": "#64748B",
-        "cooper-gray-300": "#E6E6E6",
-        "cooper-gray-400": "#949494",
-        "cooper-blue-800": "#5A9478",
-        "cooper-blue-700": "#1D679C",
-        "cooper-blue-600": "#436F8E",
-        "cooper-blue-400": "#5E8BAB",
+        // Cooper Gray
+        "cooper-gray-400": "#5A5A5A",
+        "cooper-gray-300": "#474747",
+        "cooper-gray-200": "#E0E0E0",
+        "cooper-gray-100": "#F7F7F7",
+
+        // Cooper Blue
+        "cooper-blue-800": "#1B67E0",
+        "cooper-blue-600": "#72A0E8",
         "cooper-blue-200": "#DEEAF8",
-        "cooper-yellow-300": "#FFBF47",
-        "cooper-yellow-500": "#FFA400",
+
+        // Cooper "Yellow"
         "cooper-yellow-600": "#AFA800",
+        "cooper-yellow-500": "#FF9900",
+        "cooper-yellow-300": "#FFBF47",
+
+        // Deprecated Colors
         "cooper-pink-500": "#EA8FBA",
         "cooper-green-500": "#619518",
         "cooper-red-500": "#F05833",

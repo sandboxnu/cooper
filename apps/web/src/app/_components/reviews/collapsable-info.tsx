@@ -13,11 +13,11 @@ const CollapsableInfoCard: React.FC<CollapsableInfoCardProps> = ({
   const [isExpanded, setIsExpanded] = useState(true);
 
   return (
-    <div className="flex h-full flex-col rounded-xl border border-black bg-white duration-300">
+    <div className="flex h-full flex-col rounded-xl border-[0.75px] border-cooper-gray-400 bg-white duration-300">
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className={`flex w-full items-center gap-2 border-b bg-gray-50 p-4 font-medium transition-colors hover:bg-gray-100 ${
-          isExpanded ? "rounded-t-xl border-black" : "rounded-xl"
+        className={`flex w-full items-center gap-2 border-b-[0.75px] bg-gray-50 p-4 font-medium transition-colors hover:bg-gray-100 ${
+          isExpanded ? "rounded-t-xl border-cooper-gray-400" : "rounded-xl"
         }`}
       >
         <svg

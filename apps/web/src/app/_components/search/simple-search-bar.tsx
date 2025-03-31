@@ -17,11 +17,11 @@ export function SimpleSearchBar() {
   const form = useFormContext();
 
   const newLocal =
-    "h-12 border-2 border-l-0 border-cooper-blue-700 text-lg text-cooper-blue-600 placeholder:text-cooper-blue-400 rounded-r-lg rounded-l-none";
+    "h-12 border-2 border-l-0 border-cooper-blue-800 text-lg text-cooper-blue-600 placeholder:text-cooper-blue-600 rounded-r-lg rounded-l-none";
   return (
     <div className="flex w-full rounded-lg">
       <Button
-        className="h-12 rounded-l-lg rounded-r-none border-l-2 border-r-0 border-t-2 border-cooper-blue-700 bg-white p-0 px-2 text-lg hover:bg-cooper-blue-200 focus:border-r-0 focus:ring-0 active:ring-0"
+        className="h-12 rounded-l-lg rounded-r-none border-l-2 border-r-0 border-t-2 border-cooper-blue-800 bg-white p-0 px-2 text-lg hover:bg-cooper-blue-200 focus:border-r-0 focus:ring-0 active:ring-0"
         type="submit"
       >
         <Image
