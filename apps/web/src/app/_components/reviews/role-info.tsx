@@ -45,7 +45,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
   return (
     <div
       className={cn(
-        "flex h-fit w-[100%] flex-col justify-between overflow-hidden scroll-smooth rounded-2xl border-none",
+        "flex h-fit w-[100%] flex-col justify-between scroll-smooth rounded-2xl border-none",
         className,
       )}
     >
@@ -284,7 +284,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
             </CollapsableInfoCard>
           </div>
         </div>
-        <div className="flex w-[15%] flex-col gap-3 text-[#5a5a5a]">
+        <div className="sticky top-10 flex h-fit w-[15%] flex-col gap-3 text-[#5a5a5a]">
           <a href="#job-description">Job Description</a>
           <a href="#company">Company</a>
           <a href="#on-the-job">On the job</a>

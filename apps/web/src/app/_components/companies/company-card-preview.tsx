@@ -12,7 +12,7 @@ interface CompanyCardPreviewProps {
 
 export function CompanyCardPreview({ companyObj }: CompanyCardPreviewProps) {
   return (
-    <Card className="flex h-[26rem] w-[100%] flex-col justify-between overflow-hidden rounded-3xl border-black">
+    <Card className="flex h-[26rem] w-[100%] flex-col justify-between overflow-hidden rounded-3xl border-[0.75px] border-cooper-gray-400">
       <div>
         <CardHeader className="pb-3">
           <div className="flex items-center justify-start space-x-4">

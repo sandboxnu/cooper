@@ -23,7 +23,7 @@ export default function Header({ auth }: HeaderProps) {
   const outerWidth = "min-w-40";
 
   return (
-    <header className="flex h-[8dvh] min-h-20 w-full items-center justify-between gap-4 bg-cooper-gray-100 outline outline-[0.75px] outline-cooper-gray-400">
+    <header className="z-10 flex h-[8dvh] min-h-20 w-full items-center justify-between gap-4 bg-cooper-gray-100 outline outline-[0.75px] outline-cooper-gray-400">
       {/* Logo + Cooper */}
       <div>
         <Link
@@ -43,31 +43,31 @@ export default function Header({ auth }: HeaderProps) {
         <SearchFilter searchClassName="max-w-[50vw]" />
       </div>
 
-      <div className="mr-6 flex flex-shrink grid-cols-2 items-center justify-start gap-8">
-        <Link href="/">
-          <h2
-            className={cn(
-              pathname.length === 1 &&
-                "text-cooper-blue-600 underline underline-offset-8",
-            )}
-          >
-            Jobs
-          </h2>
-        </Link>
-        <Link href="/companies">
-          <h2
-            className={cn(
-              pathname.includes("companies") &&
-                "text-cooper-blue-600 underline underline-offset-8",
-            )}
-          >
-            Companies
-          </h2>
-        </Link>
-        <div className="flex gap-2">
+      <div className="mr-6 flex flex-shrink grid-cols-2 items-center justify-start gap-6">
+        <div className="flex items-center justify-start gap-8">
+          <Link href="/">
+            <h2
+              className={cn(
+                pathname.length === 1 &&
+                  "text-cooper-blue-800 underline underline-offset-8",
+              )}
+            >
+              Jobs
+            </h2>
+          </Link>
+          <Link href="/companies">
+            <h2
+              className={cn(
+                pathname.includes("companies") &&
+                  "text-cooper-blue-800 underline underline-offset-8",
+              )}
+            >
+              Companies
+            </h2>
+          </Link>
           <NewReviewDialog />
-          {auth}
         </div>
+        {auth}
       </div>
     </header>
   );
