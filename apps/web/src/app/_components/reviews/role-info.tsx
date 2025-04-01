@@ -193,8 +193,8 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
             <div className="col-span-2" id="pay">
               <CollapsableInfoCard title={"Pay"}>
                 <div className="flex flex-wrap justify-between">
-                  <div className="flex w-[30%] flex-col gap-5">
-                    <div className="text-[#5a5a5a]">Pay range</div>
+                  <div className="flex w-[30%] flex-col justify-between gap-5">
+                    <div className="text-cooper-gray-400">Pay range</div>
                     <div className="pl-1 text-4xl text-[#141414]">
                       ${averages.data.minPay}-{averages.data.maxPay} / hr
                     </div>
@@ -205,8 +205,8 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                       highValue={averages.data.maxPay}
                     />
                   </div>
-                  <div className="flex w-[30%] flex-col gap-5">
-                    <div className="text-[#5a5a5a]">Overtime work</div>
+                  <div className="flex w-[30%] flex-col justify-between gap-5">
+                    <div className="text-cooper-gray-400">Overtime work</div>
                     <div className="flex items-center gap-2 pl-1">
                       <div className="text-4xl text-[#141414]">
                         {Number(averages.data.overtimeNormal.toPrecision(2)) *
@@ -225,8 +225,10 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                       }
                     />
                   </div>
-                  <div className="flex w-[30%] flex-col gap-5">
-                    <div className="text-[#5a5a5a]">Paid time off (PTO)</div>
+                  <div className="flex w-[30%] flex-col justify-between gap-5">
+                    <div className="text-cooper-gray-400">
+                      Paid time off (PTO)
+                    </div>
                     <div className="flex items-center gap-2 pl-1">
                       <div className="text-4xl text-[#141414]">
                         {Number(averages.data.pto.toPrecision(2)) * 100}%
