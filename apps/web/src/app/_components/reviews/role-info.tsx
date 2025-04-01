@@ -7,6 +7,7 @@ import { cn } from "@cooper/ui";
 import { CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
 import { api } from "~/trpc/react";
+import { locationName, prettyLocationName } from "~/utils/locationHelpers";
 import { calculateRatings } from "~/utils/reviewCountByStars";
 import StarGraph from "../shared/star-graph";
 import BarGraph from "./bar-graph";
@@ -22,6 +23,15 @@ interface RoleCardProps {
 
 export function RoleInfo({ className, roleObj }: RoleCardProps) {
   const reviews = api.review.getByRole.useQuery({ id: roleObj.id });
+
+  const firstLocationId = reviews.data?.[0]?.locationId;
+
+  const location = api.location.getById.useQuery(
+    { id: firstLocationId ?? "" },
+    {
+      enabled: !!firstLocationId,
+    },
+  );
 
   const ratings = calculateRatings(reviews.data ?? []);
 
@@ -58,12 +68,12 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                 width={80}
                 height={80}
                 alt={`Logo of ${companyData.name}`}
-                className="h-20 w-20 rounded-xl border"
+                className="h-20 w-20 rounded-xl"
               />
             ) : (
               <div className="h-20 w-20 rounded-xl border bg-cooper-blue-200"></div>
             )}
-            <div className="h-20">
+            <div className="flex h-20 flex-col justify-center">
               <CardTitle className="text-2xl">
                 <div className="text-md flex items-center gap-3 md:text-xl">
                   <div>{roleObj.title}</div>
@@ -74,17 +84,11 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
               </CardTitle>
               <div className="align-center flex gap-2 text-cooper-gray-400">
                 <span>{companyData?.name}</span>
-                {/* {reviews.isSuccess && reviews.data.length > 0 && (
-                    <span
-                      className={`${(reviews.data[0] ? locationName(reviews.data[0]) : "") ? "visibility: visible" : "visibility: hidden"}`}
-                    >
-                      •
-                    </span>
-                  )} */}
-                {reviews.isSuccess && reviews.data.length > 0 && (
-                  <span>
-                    {/* {reviews.data[0] ? locationName(reviews.data[0]) : ""} */}
-                  </span>
+                {location.isSuccess && location.data && (
+                  <>
+                    <span>•</span>
+                    <span>{prettyLocationName(location.data)}</span>
+                  </>
                 )}
               </div>
             </div>
