@@ -82,7 +82,7 @@ export default function Roles() {
               return (
                 <div key={role.id} onClick={() => setSelectedRole(role)}>
                   <RoleCardPreview
-                    reviewObj={role}
+                    roleObj={role}
                     className={cn(
                       "mb-4 hover:bg-cooper-gray-100",
                       selectedRole

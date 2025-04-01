@@ -7,43 +7,33 @@ import { cn } from "@cooper/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
 import { api } from "~/trpc/react";
+import { prettyLocationName } from "~/utils/locationHelpers";
 
 interface RoleCardPreviewProps {
   className?: string;
-  reviewObj: RoleType;
+  roleObj: RoleType;
 }
 
-export function RoleCardPreview({
-  className,
-  reviewObj,
-}: RoleCardPreviewProps) {
+export function RoleCardPreview({ className, roleObj }: RoleCardPreviewProps) {
   // ===== COMPANY DATA ===== //
   const company = api.company.getById.useQuery({
-    id: reviewObj.companyId,
+    id: roleObj.companyId,
   });
 
   // ===== ROLE DATA ===== //
-  const role = api.role.getById.useQuery({ id: reviewObj.id });
-  const reviews = api.review.getByRole.useQuery({ id: reviewObj.id });
+  const role = api.role.getById.useQuery({ id: roleObj.id });
+  const reviews = api.review.getByRole.useQuery({ id: roleObj.id });
   const averages = api.role.getAverageById.useQuery({
     roleId: role.data?.id ?? "",
   });
 
-  // ===== LOCATION DATA ===== //
-  // TODO: Fix this
-  // const locationName = (reviewObj: ReviewType) => {
-  //   if (reviewObj.locationId) {
-  //     const { data: location } = api.location.getById.useQuery({
-  //       id: reviewObj.locationId,
-  //     });
-  //     return location
-  //       ? location.city +
-  //           (location.state ? `, ${location.state}` : "") +
-  //           ", " +
-  //           location.country
-  //       : "N/A";
-  //   }
-  // };
+  const firstLocationId = reviews.data?.[0]?.locationId;
+  const location = api.location.getById.useQuery(
+    { id: firstLocationId ?? "" },
+    {
+      enabled: !!firstLocationId,
+    },
+  );
 
   return (
     <Card
@@ -66,17 +56,11 @@ export function RoleCardPreview({
               </CardTitle>
               <div className="align-center flex gap-2 text-cooper-gray-400">
                 <span>{company.data?.name}</span>
-                {/* {reviews.isSuccess && reviews.data.length > 0 && (
-                  <span
-                    className={`${(reviews.data[0] ? locationName(reviews.data[0]) : "") ? "visibility: visible" : "visibility: hidden"}`}
-                  >
-                    •
-                  </span>
-                )} */}
-                {reviews.isSuccess && reviews.data.length > 0 && (
-                  <span>
-                    {/* {reviews.data[0] ? locationName(reviews.data[0]) : ""} */}
-                  </span>
+                {location.isSuccess && location.data && (
+                  <>
+                    <span>•</span>
+                    <span>{prettyLocationName(location.data)}</span>
+                  </>
                 )}
               </div>
             </div>
