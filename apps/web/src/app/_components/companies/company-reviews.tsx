@@ -4,6 +4,7 @@ import type { CompanyType } from "@cooper/db/schema";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
 import { api } from "~/trpc/react";
+import { calculateRatings } from "~/utils/reviewCountByStars";
 import StarGraph from "../shared/star-graph";
 
 interface CompanyReviewProps {
@@ -16,13 +17,11 @@ export function CompanyReview({ companyObj }: CompanyReviewProps) {
     companyId: companyObj?.id ?? "",
   });
 
-  const ratings = [
-    { stars: 5, percentage: 75 },
-    { stars: 4, percentage: 15 },
-    { stars: 3, percentage: 6 },
-    { stars: 2, percentage: 3 },
-    { stars: 1, percentage: 1 },
-  ];
+  const reviews = api.review.getByCompany.useQuery({
+    id: companyObj?.id ?? "",
+  });
+
+  const ratings = calculateRatings(reviews.data ?? []);
 
   return (
     <Card className="w-full max-w-lg rounded-lg border-[0.75px] border-cooper-gray-400">
