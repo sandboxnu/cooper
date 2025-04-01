@@ -28,8 +28,8 @@ export default {
         "cooper-gray-100": "#F9F9F9",
 
         // Cooper Blue
-        "cooper-blue-800": "#1B67E0",
-        "cooper-blue-600": "#72A0E8",
+        "cooper-blue-800": "#1250B3",
+        "cooper-blue-600": "#5682E0",
         "cooper-blue-200": "#DEEAF8",
 
         // Cooper "Yellow"
