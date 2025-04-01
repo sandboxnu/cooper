@@ -34,7 +34,7 @@ export default {
         // Cooper "Yellow"
         "cooper-yellow-600": "#AFA800",
         "cooper-yellow-500": "#FF9900",
-        "cooper-yellow-300": "#FFBF47",
+        "cooper-yellow-300": "#FFB545",
 
         // Deprecated Colors
         "cooper-pink-500": "#EA8FBA",
