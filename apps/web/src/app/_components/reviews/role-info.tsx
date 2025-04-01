@@ -7,7 +7,7 @@ import { cn } from "@cooper/ui";
 import { CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
 import { api } from "~/trpc/react";
-import { locationName, prettyLocationName } from "~/utils/locationHelpers";
+import { prettyLocationName } from "~/utils/locationHelpers";
 import { calculateRatings } from "~/utils/reviewCountByStars";
 import StarGraph from "../shared/star-graph";
 import BarGraph from "./bar-graph";
