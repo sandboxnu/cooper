@@ -3,14 +3,20 @@ import { TRPCError } from "@trpc/server";
 import Fuse from "fuse.js";
 import { z } from "zod";
 
-import { and, desc, eq } from "@cooper/db";
+import { and, desc, eq, inArray } from "@cooper/db";
 import {
   CompaniesToLocations,
+  Company,
   CreateReviewSchema,
   Review,
+  ReviewType,
 } from "@cooper/db/schema";
 
-import { protectedProcedure, publicProcedure } from "../trpc";
+import {
+  protectedProcedure,
+  publicProcedure,
+  sortableProcedure,
+} from "../trpc";
 
 export const reviewRouter = {
   list: publicProcedure
@@ -127,4 +133,83 @@ export const reviewRouter = {
   delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
     return ctx.db.delete(Review).where(eq(Review.id, input));
   }),
+
+  getAverageByIndustry: sortableProcedure
+    .input(z.object({ industry: z.string() }))
+    .query(async ({ ctx, input }) => {
+      if (ctx.res) {
+        ctx.res.headers.set(
+          "Cache-Control",
+          "public, s-maxage=60, stale-while-revalidate=300",
+        );
+      }
+
+      const companies = await ctx.db.query.Company.findMany({
+        where: eq(Company.industry, input.industry),
+      });
+
+      const companyIds = companies.map((company) => company.id);
+
+      const reviews = await ctx.db.query.Review.findMany({
+        where: inArray(Review.companyId, companyIds),
+      });
+
+      const calcAvg = (field: keyof ReviewType) => {
+        return totalReviews > 0
+          ? reviews.reduce((sum, review) => sum + Number(review[field]), 0) /
+              totalReviews
+          : 0;
+      };
+
+      const calcPercentage = (field: keyof ReviewType): number => {
+        return totalReviews > 0
+          ? reviews.filter((review) => review[field] === true).length /
+              totalReviews
+          : 0;
+      };
+
+      const totalReviews = reviews.length;
+
+      const averageOverallRating = calcAvg("overallRating");
+      const averageHourlyPay = calcAvg("hourlyPay");
+      const averageInterviewDifficulty = calcAvg("interviewDifficulty");
+      const averageCultureRating = calcAvg("cultureRating");
+      const averageSupervisorRating = calcAvg("supervisorRating");
+      const averageInterviewRating = calcAvg("interviewRating");
+
+      const federalHolidays = calcPercentage("federalHolidays");
+      const drugTest = calcPercentage("drugTest");
+      const freeLunch = calcPercentage("freeLunch");
+      const freeMerch = calcPercentage("freeMerch");
+      const freeTransportation = calcPercentage("freeTransport");
+      const overtimeNormal = calcPercentage("overtimeNormal");
+      const pto = calcPercentage("pto");
+
+      const minPay =
+        totalReviews !== 0
+          ? Math.min(...reviews.map((review) => Number(review.hourlyPay)))
+          : 0;
+      const maxPay =
+        totalReviews !== 0
+          ? Math.max(...reviews.map((review) => Number(review.hourlyPay)))
+          : 0;
+
+      return {
+        averageOverallRating: averageOverallRating,
+        averageHourlyPay: averageHourlyPay,
+        averageInterviewDifficulty: averageInterviewDifficulty,
+        averageCultureRating: averageCultureRating,
+        averageSupervisorRating: averageSupervisorRating,
+        averageInterviewRating: averageInterviewRating,
+        federalHolidays: federalHolidays,
+        drugTest: drugTest,
+        freeLunch: freeLunch,
+        freeMerch: freeMerch,
+        freeTransportation: freeTransportation,
+        overtimeNormal: overtimeNormal,
+        pto: pto,
+        minPay: minPay,
+        maxPay: maxPay,
+      };
+    }),
 } satisfies TRPCRouterRecord;
