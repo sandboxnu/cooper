@@ -1,7 +1,7 @@
 name: Migration
 
 on:
-  push:
+  pull_request:
     branches: ["main"]
 
 concurrency:
@@ -12,7 +12,7 @@ jobs:
   migrate:
     runs-on: ubuntu-latest
     env:
-      POSTGRES_URL: ${{ secrets.POSTGRES_URL }}
+      POSTGRES_URL: ${{ secrets.POSTGRES_URL_STAGING }}
     steps:
       - uses: actions/checkout@v4
 
@@ -21,16 +21,3 @@ jobs:
 
       - name: Migrate
         run: pnpm db:migrate
-
-    migrate-staging:
-      runs-on: ubuntu-latest
-      env:
-        POSTGRES_URL: ${{ secrets.POSTGRES_URL_STAGING }}
-      steps:
-        - uses: actions/checkout@v4
-
-        - name: Setup
-          uses: ./tooling/github/setup
-
-        - name: Migrate Staging
-          run: pnpm db:migrate
