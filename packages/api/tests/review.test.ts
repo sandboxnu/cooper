@@ -11,7 +11,6 @@ import { Company, Review } from "@cooper/db/schema";
 import { appRouter } from "../src/root";
 import { createCallerFactory, createTRPCContext } from "../src/trpc";
 import { data } from "./mocks/review";
-import { reviewRouter } from "../src/router";
 
 vi.mock("@cooper/db/client", () => ({
   db: {
