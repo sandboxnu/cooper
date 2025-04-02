@@ -126,7 +126,7 @@ export default function NewRoleDialog({
           + Create New Role
         </Button>
       </DialogTrigger>
-      {createdRolesCount && createdRolesCount > 3 ? (
+      {createdRolesCount && createdRolesCount >= 4 ? (
         <DialogContent className="w-full bg-white py-14">
           <DialogTitle>Sorry, you can only create up to 4 roles!</DialogTitle>
         </DialogContent>
