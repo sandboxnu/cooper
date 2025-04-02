@@ -140,7 +140,7 @@ export const reviewRouter = {
       if (ctx.res) {
         ctx.res.headers.set(
           "Cache-Control",
-          "public, max-age=28800, s-maxage=28800, stale-while-revalidate=600"
+          "public, max-age=28800, s-maxage=28800, stale-while-revalidate=600",
         );
       }
 
