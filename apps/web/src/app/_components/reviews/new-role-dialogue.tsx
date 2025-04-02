@@ -126,7 +126,7 @@ export default function NewRoleDialog({
           + Create New Role
         </Button>
       </DialogTrigger>
-      {createdRolesCount && createdRolesCount >= 4 ? (
+      {createdRolesCount && createdRolesCount > 3 ? (
         <DialogContent className="w-full bg-white py-14">
           <DialogTitle>Sorry, you can only create up to 4 roles!</DialogTitle>
         </DialogContent>
@@ -184,7 +184,7 @@ export default function NewRoleDialog({
               <DialogFooter>
                 <Button
                   type="submit"
-                  className="border-none bg-cooper-blue-400 text-white hover:bg-cooper-blue-600"
+                  className="bg-cooper-blue-400 border-none text-white hover:bg-cooper-blue-600"
                   onClick={form.handleSubmit(onSubmit)}
                   disabled={!form.formState.isValid}
                 >
