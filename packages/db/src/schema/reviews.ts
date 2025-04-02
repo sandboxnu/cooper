@@ -16,8 +16,8 @@ import { Company } from "./companies";
 import { Location } from "./locations";
 import { WorkEnvironment, WorkTerm } from "./misc";
 import { Profile } from "./profiles";
+import { ProfilesToReviews } from "./profliesToReviews";
 import { Role } from "./roles";
-import { UsersToReviews } from "./usersToReviews";
 
 export const Review = pgTable("review", {
   id: uuid("id").notNull().primaryKey().defaultRandom(),
@@ -71,7 +71,7 @@ export const ReviewRelations = relations(Review, ({ one, many }) => ({
     fields: [Review.locationId],
     references: [Location.id],
   }),
-  users_to_reviews: many(UsersToReviews),
+  profiles_to_reviews: many(ProfilesToReviews),
 }));
 
 export const CreateReviewSchema = createInsertSchema(Review, {

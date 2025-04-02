@@ -3,9 +3,6 @@ import { pgTable, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
 
 import { Account } from "./accounts";
 import { Profile } from "./profiles";
-import { UsersToCompanies } from "./usersToCompanies";
-import { UsersToReviews } from "./usersToReviews";
-import { UsersToRoles } from "./usersToRoles";
 
 export const User = pgTable("user", {
   id: uuid("id").notNull().primaryKey().defaultRandom(),
@@ -24,7 +21,4 @@ export const UserRelations = relations(User, ({ one, many }) => ({
     fields: [User.id],
     references: [Profile.userId],
   }),
-  users_to_companies: many(UsersToCompanies),
-  users_to_reviews: many(UsersToReviews),
-  users_to_roles: many(UsersToRoles),
 }));

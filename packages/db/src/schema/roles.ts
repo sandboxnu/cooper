@@ -4,8 +4,8 @@ import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
 import { Company } from "./companies";
+import { ProfilesToRoles } from "./profilesToRoles";
 import { Review } from "./reviews";
-import { UsersToRoles } from "./usersToRoles";
 
 export const Role = pgTable("role", {
   id: uuid("id").notNull().primaryKey().defaultRandom(),
@@ -27,7 +27,7 @@ export const RoleRelations = relations(Role, ({ one, many }) => ({
     references: [Company.id],
   }),
   reviews: many(Review),
-  users_to_roles: many(UsersToRoles),
+  profiles_to_roles: many(ProfilesToRoles),
 }));
 
 export const CreateRoleSchema = createInsertSchema(Role, {
