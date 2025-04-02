@@ -1,0 +1,1 @@
+ALTER TABLE "role" ADD COLUMN "createdBy" varchar NOT NULL;

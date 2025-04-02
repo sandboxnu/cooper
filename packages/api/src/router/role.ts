@@ -107,6 +107,14 @@ export const roleRouter = {
     return ctx.db.delete(Role).where(eq(Role.id, input));
   }),
 
+  getByCreatedBy: sortableProcedure
+    .input(z.object({ createdBy: z.string() }))
+    .query(async ({ ctx, input }) => {
+      return ctx.db.query.Role.findMany({
+        where: eq(Role.createdBy, input.createdBy),
+      });
+    }),
+
   getAverageById: sortableProcedure
     .input(z.object({ roleId: z.string() }))
     .query(async ({ ctx, input }) => {
