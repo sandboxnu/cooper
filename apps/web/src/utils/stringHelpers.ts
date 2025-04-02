@@ -7,6 +7,19 @@ export function truncateText(text: string, length: number): string {
     : text;
 }
 
+export function abbreviatedWorkTerm(workTerm: string) {
+  switch (workTerm) {
+    case "SPRING":
+      return "Spr";
+    case "SUMMER":
+      return "Sum";
+    case "FALL":
+      return "Fall";
+    default:
+      return workTerm;
+  }
+}
+
 export function prettyWorkEnviornment(workEnviornment: WorkEnvironmentType) {
   switch (workEnviornment) {
     case "HYBRID":
