@@ -17,6 +17,7 @@ import { Location } from "./locations";
 import { WorkEnvironment, WorkTerm } from "./misc";
 import { Profile } from "./profiles";
 import { Role } from "./roles";
+import { UsersToReviews } from "./usersToReviews";
 
 export const Review = pgTable("review", {
   id: uuid("id").notNull().primaryKey().defaultRandom(),
@@ -53,7 +54,7 @@ export const Review = pgTable("review", {
 
 export type ReviewType = typeof Review.$inferSelect;
 
-export const ReviewRelations = relations(Review, ({ one }) => ({
+export const ReviewRelations = relations(Review, ({ one, many }) => ({
   role: one(Role, {
     fields: [Review.roleId],
     references: [Role.id],
@@ -70,6 +71,7 @@ export const ReviewRelations = relations(Review, ({ one }) => ({
     fields: [Review.locationId],
     references: [Location.id],
   }),
+  users_to_reviews: many(UsersToReviews),
 }));
 
 export const CreateReviewSchema = createInsertSchema(Review, {

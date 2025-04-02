@@ -5,6 +5,7 @@ import { z } from "zod";
 
 import { Company } from "./companies";
 import { Review } from "./reviews";
+import { UsersToRoles } from "./usersToRoles";
 
 export const Role = pgTable("role", {
   id: uuid("id").notNull().primaryKey().defaultRandom(),
@@ -26,6 +27,7 @@ export const RoleRelations = relations(Role, ({ one, many }) => ({
     references: [Company.id],
   }),
   reviews: many(Review),
+  users_to_roles: many(UsersToRoles),
 }));
 
 export const CreateRoleSchema = createInsertSchema(Role, {

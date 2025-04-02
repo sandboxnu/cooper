@@ -7,6 +7,7 @@ import { CompaniesToLocations } from "./companiesToLocations";
 import { Industry } from "./misc";
 import { Review } from "./reviews";
 import { Role } from "./roles";
+import { UsersToCompanies } from "./usersToCompanies";
 
 export const Company = pgTable("company", {
   id: uuid("id").notNull().primaryKey().defaultRandom(),
@@ -27,6 +28,7 @@ export const CompanyRelations = relations(Company, ({ many }) => ({
   roles: many(Role),
   reviews: many(Review),
   companies_to_locations: many(CompaniesToLocations),
+  users_to_companies: many(UsersToCompanies),
 }));
 
 export const CreateCompanySchema = createInsertSchema(Company, {
