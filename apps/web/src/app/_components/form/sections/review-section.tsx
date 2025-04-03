@@ -53,6 +53,24 @@ export function ReviewSection({ textColor }: { textColor: string }) {
       })
     : [];
 
+  const { data: locationByIdData } = api.location.getById.useQuery(
+    { id: `${form.getValues("locationId")}` },
+    { enabled: !!form.getValues("locationId") },
+  );
+
+  useEffect(() => {
+    // ensures that location name persists across form states
+    if (!locationLabel && locationByIdData) {
+      const locationName =
+        locationByIdData.city +
+        (locationByIdData.state ? `, ${locationByIdData.state}` : "") +
+        ", " +
+        locationByIdData.country;
+      setLocationLabel(locationName);
+      setSearchTerm(locationName.slice(0, 3));
+    }
+  }, [locationByIdData, locationLabel]);
+
   return (
     <FormSection title="Review" className={textColor}>
       <FormField
@@ -90,6 +108,7 @@ export function ReviewSection({ textColor }: { textColor: string }) {
               <FormLabel>Location</FormLabel>
               <FormControl>
                 <ComboBox
+                  {...field}
                   variant="form"
                   defaultLabel={locationLabel || "Type to begin..."}
                   searchPlaceholder="Type to begin..."
@@ -100,9 +119,7 @@ export function ReviewSection({ textColor }: { textColor: string }) {
                     setSearchTerm(value);
                   }}
                   onSelect={(currentValue) => {
-                    setLocationLabel(
-                      currentValue === locationLabel ? "" : currentValue,
-                    );
+                    setLocationLabel(currentValue);
                     field.onChange(
                       locationValuesAndLabels.find(
                         (location) => location.label === currentValue,
