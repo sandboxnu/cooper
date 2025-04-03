@@ -40,6 +40,7 @@ const isomorphicGetSession = async (headers: Headers) => {
 export const createTRPCContext = async (opts: {
   headers: Headers;
   session: Session | null;
+  res?: Response;
 }) => {
   const authToken = opts.headers.get("Authorization") ?? null;
   const session = await isomorphicGetSession(opts.headers);
@@ -51,6 +52,7 @@ export const createTRPCContext = async (opts: {
     session,
     db,
     token: authToken,
+    res: opts.res,
   };
 };
 
