@@ -15,6 +15,13 @@
       "when": 1743552656900,
       "tag": "0001_petite_white_tiger",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1743719701762,
+      "tag": "0002_closed_black_crow",
+      "breakpoints": true
     }
   ]
 }
