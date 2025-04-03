@@ -4,6 +4,7 @@ import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
 import { Company } from "./companies";
+import { ProfilesToRoles } from "./profilesToRoles";
 import { Review } from "./reviews";
 import { User } from "./users";
 
@@ -28,6 +29,7 @@ export const RoleRelations = relations(Role, ({ one, many }) => ({
     references: [Company.id],
   }),
   reviews: many(Review),
+  profiles_to_roles: many(ProfilesToRoles),
   createdBy: one(User, {
     fields: [Role.createdBy],
     references: [User.id],
