@@ -1,4 +1,5 @@
 import type { TRPCRouterRecord } from "@trpc/server";
+import { Filter } from "bad-words";
 import { z } from "zod";
 
 import type { ReviewType, RoleType } from "@cooper/db/schema";
@@ -100,7 +101,13 @@ export const roleRouter = {
   create: protectedProcedure
     .input(CreateRoleSchema)
     .mutation(({ ctx, input }) => {
-      return ctx.db.insert(Role).values(input);
+      const filter = new Filter();
+      const cleanInput = {
+        ...input,
+        title: filter.clean(input.title),
+        description: filter.clean(input.description ?? ""),
+      };
+      return ctx.db.insert(Role).values(cleanInput);
     }),
 
   delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
