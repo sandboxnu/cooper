@@ -64,9 +64,11 @@ export default function NewRoleDialog({
   const profileId = profile?.id;
 
   const createdRoles =
-    profileId &&
-    api.role.getByCreatedBy.useQuery({ createdBy: profileId }).data;
-  const createdRolesCount = createdRoles?.length;
+    api.role.getByCreatedBy.useQuery(
+      { createdBy: profileId ?? "" },
+      { enabled: !!profileId },
+    ).data ?? [];
+  const createdRolesCount = createdRoles.length;
 
   const form = useForm<z.infer<RoleRequestType>>({
     resolver: zodResolver(roleSchema),
@@ -184,7 +186,7 @@ export default function NewRoleDialog({
               <DialogFooter>
                 <Button
                   type="submit"
-                  className="bg-cooper-blue-400 border-none text-white hover:bg-cooper-blue-600"
+                  className="border-none bg-cooper-blue-400 text-white hover:bg-cooper-blue-600"
                   onClick={form.handleSubmit(onSubmit)}
                   disabled={!form.formState.isValid}
                 >
