@@ -33,7 +33,7 @@ export function NewReviewDialog({ trigger }: NewReviewDialogProps) {
   // State for the company combo box
   const [companyLabel, setCompanyLabel] = useState<string>("");
 
-  const companies = api.company.list.useQuery();
+  const companies = api.company.list.useQuery({});
   const companyValuesAndLabels = companies.data
     ? companies.data.map((company) => {
         return {
@@ -46,7 +46,7 @@ export function NewReviewDialog({ trigger }: NewReviewDialogProps) {
   // State for the role combo box
   const [roleLabel, setRoleLabel] = useState<string>("");
 
-  const roles = api.role.list.useQuery();
+  const roles = api.role.list.useQuery({});
   const [roleValuesAndLabels, setRoleValuesAndLabels] = useState<
     ComboBoxOption<string>[]
   >([]);
