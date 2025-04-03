@@ -23,7 +23,7 @@ export default function Header({ auth }: HeaderProps) {
   const outerWidth = "min-w-40";
 
   return (
-    <header className="z-10 flex h-[8dvh] min-h-20 w-full items-center justify-between gap-4 bg-cooper-gray-100 outline outline-[0.75px] outline-cooper-gray-400">
+    <header className="z-10 flex h-[8dvh] min-h-20 w-full items-center justify-between gap-4 outline outline-[1.5px] outline-cooper-blue-600">
       {/* Logo + Cooper */}
       <div>
         <Link
