@@ -16,6 +16,7 @@ import { Company } from "./companies";
 import { Location } from "./locations";
 import { WorkEnvironment, WorkTerm } from "./misc";
 import { Profile } from "./profiles";
+import { ProfilesToReviews } from "./profliesToReviews";
 import { Role } from "./roles";
 
 export const Review = pgTable("review", {
@@ -53,7 +54,7 @@ export const Review = pgTable("review", {
 
 export type ReviewType = typeof Review.$inferSelect;
 
-export const ReviewRelations = relations(Review, ({ one }) => ({
+export const ReviewRelations = relations(Review, ({ one, many }) => ({
   role: one(Role, {
     fields: [Review.roleId],
     references: [Role.id],
@@ -70,6 +71,7 @@ export const ReviewRelations = relations(Review, ({ one }) => ({
     fields: [Review.locationId],
     references: [Location.id],
   }),
+  profiles_to_reviews: many(ProfilesToReviews),
 }));
 
 export const CreateReviewSchema = createInsertSchema(Review, {
