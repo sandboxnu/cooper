@@ -13,26 +13,16 @@ import {
 } from "~/utils/stringHelpers";
 import { ReviewCardStars } from "./review-card-stars";
 
-// const InterviewDifficulty = [
-//   { des: "Very Easy", color: "text-[#4bc92e]" },
-//   { des: "Easy", color: "text-[#09b52b]" },
-//   { des: "Neither Easy Nor Difficult", color: "text-cooper-blue-400" },
-//   { des: "Difficult", color: "text-[#f27c38]" },
-//   { des: "Very Difficult", color: "text-[#f52536]" },
-// ];
-
 interface ReviewCardProps {
   className?: string;
   reviewObj: ReviewType;
 }
 
 export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
-  // ===== LOCATION DATA ===== //
-
   return (
     <Card
       className={cn(
-        "mx-auto min-h-40 w-[100%] border border-neutral-900 bg-cooper-gray-200",
+        "mx-auto min-h-40 w-[100%] border-[0.75px] border-cooper-gray-400 bg-cooper-gray-100",
         className,
       )}
     >

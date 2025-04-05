@@ -22,7 +22,7 @@ export default function RoundBarGraph({
   return (
     <div className="relative h-5 w-full rounded-[10px] border border-black bg-white">
       <div
-        className={`absolute left-0 top-0 h-full rounded-[10px] border-black bg-cooper-blue-400 ${lowValue !== minValue && "border-l"} ${highValue !== maxValue && highValue !== minValue && "border-r"}`}
+        className={`absolute left-0 top-0 h-full rounded-[10px] border-black bg-cooper-blue-600 ${lowValue !== minValue && "border-l"} ${highValue !== maxValue && highValue !== minValue && "border-r"}`}
         style={{ width: `${fillPercentage}%`, left: `${leftPos}%` }}
       />
       {lowIndustryAvg && (
