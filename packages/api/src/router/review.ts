@@ -1,5 +1,6 @@
 import type { TRPCRouterRecord } from "@trpc/server";
 import { TRPCError } from "@trpc/server";
+import { Filter } from "bad-words";
 import Fuse from "fuse.js";
 import { z } from "zod";
 
@@ -90,8 +91,23 @@ export const reviewRouter = {
           message: "You must be logged in to leave a review",
         });
       }
+
+      // Initialize bad words filter
+      const filter = new Filter();
+
+      // Create a clean version of the input with filtered strings
+      const cleanInput = {
+        ...input,
+        reviewHeadline: filter.clean(input.reviewHeadline),
+        textReview: filter.clean(input.textReview),
+        // Keep non-string fields as they are
+        profileId: input.profileId,
+        interviewReview: filter.clean(input.interviewReview ?? ""),
+      };
+
+      // Rest of the validation logic
       const reviews = await ctx.db.query.Review.findMany({
-        where: eq(Review.profileId, input.profileId),
+        where: eq(Review.profileId, cleanInput.profileId),
       });
       if (reviews.length >= 5) {
         throw new TRPCError({
@@ -101,8 +117,8 @@ export const reviewRouter = {
       }
       const reviewsInSameCycle = reviews.filter(
         (review) =>
-          review.workTerm === input.workTerm &&
-          review.workYear === input.workYear,
+          review.workTerm === cleanInput.workTerm &&
+          review.workYear === cleanInput.workYear,
       );
       if (reviewsInSameCycle.length >= 2) {
         throw new TRPCError({
@@ -110,7 +126,7 @@ export const reviewRouter = {
           message: "You can only leave 2 reviews per cycle",
         });
       }
-
+      
       // Check if a CompaniesToLocations object already exists with the given companyId and locationId
       if (input.locationId) {
         const existingRelation =
@@ -129,7 +145,7 @@ export const reviewRouter = {
         }
       }
 
-      return ctx.db.insert(Review).values(input);
+      return ctx.db.insert(Review).values(cleanInput);
     }),
 
   delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
