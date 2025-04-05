@@ -3,7 +3,7 @@
  */
 export function FormCard({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-col space-y-12 rounded-xl bg-white">
+    <div className="flex flex-col space-y-12 rounded-lg bg-white">
       {children}
     </div>
   );
