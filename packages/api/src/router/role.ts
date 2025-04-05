@@ -3,7 +3,7 @@ import { z } from "zod";
 
 import type { ReviewType, RoleType } from "@cooper/db/schema";
 import { asc, desc, eq, sql } from "@cooper/db";
-import { CreateRoleSchema, Review, Role } from "@cooper/db/schema";
+import { Company, CreateRoleSchema, Review, Role } from "@cooper/db/schema";
 
 import {
   protectedProcedure,
@@ -48,6 +48,13 @@ export const roleRouter = {
       const roles = await ctx.db.query.Role.findMany({
         orderBy: ordering[ctx.sortBy],
       });
+
+      // const rolesWithCompany = await ctx.db.query.Role.findMany({
+      //   orderBy: ordering[ctx.sortBy],
+      //   with: { company: true },
+      // });
+
+      // console.log(rolesWithCompany);
 
       const fuseOptions = ["title", "description"];
       return performFuseSearch<RoleType>(roles, fuseOptions, input.search);

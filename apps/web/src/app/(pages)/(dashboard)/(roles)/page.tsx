@@ -22,13 +22,15 @@ import { api } from "~/trpc/react";
 
 export default function Roles() {
   const searchParams = useSearchParams();
-  const searchValue = searchParams.get("search") || ""; // Get search query from URL
-
+  const searchValue = searchParams.get("search") ?? ""; // Get search query from URL
 
   const [selectedFilter, setSelectedFilter] = useState<
     "default" | "rating" | "newest" | "oldest" | undefined
   >("default");
-  const roles = api.role.list.useQuery({ sortBy: selectedFilter, search: searchValue });
+  const roles = api.role.list.useQuery({
+    sortBy: selectedFilter,
+    search: searchValue,
+  });
   const buttonStyle =
     "bg-white hover:bg-cooper-gray-200 border-white text-black p-2";
 
