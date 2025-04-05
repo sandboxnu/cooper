@@ -1,7 +1,6 @@
 version: "3.8"
 
 services:
-  # FIXME: This currently does not work with the Drizzle migrations
   postgres:
     image: postgres
     restart: always
@@ -13,5 +12,18 @@ services:
       - postgres:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+
+  pg_proxy:
+    image: ghcr.io/neondatabase/wsproxy:latest
+    depends_on:
+      - postgres
+    environment:
+      APPEND_PORT: "postgres:5432"
+      ALLOW_ADDR_REGEX: ".*"
+      LOG_TRAFFIC: "true"
+      DISABLE_TLS: "true"
+    ports:
+      - "5433:80"
+
 volumes:
   postgres:
