@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 
 import type { RoleType } from "@cooper/db/schema";
@@ -20,10 +21,17 @@ import { RoleInfo } from "~/app/_components/reviews/role-info";
 import { api } from "~/trpc/react";
 
 export default function Roles() {
+  const searchParams = useSearchParams();
+  const searchValue = searchParams.get("search") ?? ""; // Get search query from URL
+
   const [selectedFilter, setSelectedFilter] = useState<
     "default" | "rating" | "newest" | "oldest" | undefined
   >("default");
-  const roles = api.role.list.useQuery({ sortBy: selectedFilter });
+  const roles = api.role.list.useQuery({
+    sortBy: selectedFilter,
+    search: searchValue,
+  });
+
   const buttonStyle =
     "bg-white hover:bg-cooper-gray-200 border-white text-black p-2";
 

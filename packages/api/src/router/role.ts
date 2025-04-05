@@ -26,6 +26,7 @@ export const roleRouter = {
       }),
     )
     .query(async ({ ctx, input }) => {
+      let roles: RoleType[] = [];
       if (ctx.sortBy === "rating") {
         const rolesWithRatings = await ctx.db.execute(sql`
         SELECT 
@@ -37,20 +38,40 @@ export const roleRouter = {
         ORDER BY avg_rating DESC
       `);
 
-        const roles = rolesWithRatings.rows.map((role) => ({
+        roles = rolesWithRatings.rows.map((role) => ({
           ...(role as RoleType),
         }));
-
-        const fuseOptions = ["title", "description"];
-        return performFuseSearch<RoleType>(roles, fuseOptions, input.search);
+      } else {
+        roles = await ctx.db.query.Role.findMany({
+          orderBy: ordering[ctx.sortBy],
+        });
       }
 
-      const roles = await ctx.db.query.Role.findMany({
-        orderBy: ordering[ctx.sortBy],
+      // Extract unique company IDs
+      const companyIds = [...new Set(roles.map((role) => role.companyId))];
+
+      // Fetch companies that match the extracted company IDs
+      const companies = await ctx.db.query.Company.findMany({
+        where: (company, { inArray }) => inArray(company.id, companyIds),
       });
 
-      const fuseOptions = ["title", "description"];
-      return performFuseSearch<RoleType>(roles, fuseOptions, input.search);
+      const rolesWithCompanies = roles.map((role) => {
+        const company = companies.find((c) => c.id === role.companyId);
+        return {
+          ...role,
+          companyName: company?.name ?? "",
+        };
+      });
+
+      const fuseOptions = ["title", "description", "companyName"];
+
+      const searchedRoles = performFuseSearch<
+        RoleType & { companyName: string }
+      >(rolesWithCompanies, fuseOptions, input.search);
+
+      return searchedRoles.map((role) => ({
+        ...(role as RoleType),
+      }));
     }),
 
   getByTitle: sortableProcedure
