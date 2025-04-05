@@ -12,11 +12,9 @@ export default function Companies() {
   const searchParams = useSearchParams();
   const searchValue = searchParams.get("search") ?? ""; // Get search query from URL
 
-
   const companies = api.company.list.useQuery({
     search: searchValue,
   });
-
 
   const router = useRouter();
 
