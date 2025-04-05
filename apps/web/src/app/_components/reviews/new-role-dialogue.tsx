@@ -120,7 +120,7 @@ export default function NewRoleDialog({
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
+      <DialogTrigger className="rounded-lg" asChild>
         <Button
           disabled={disabled}
           className="h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-4 py-3 text-sm font-semibold text-white hover:border-cooper-yellow-300 hover:bg-cooper-yellow-300"
@@ -186,7 +186,7 @@ export default function NewRoleDialog({
               <DialogFooter>
                 <Button
                   type="submit"
-                  className="border-none bg-cooper-blue-400 text-white hover:bg-cooper-blue-600"
+                  className="border-none bg-cooper-yellow-500 text-white hover:bg-cooper-yellow-300"
                   onClick={form.handleSubmit(onSubmit)}
                   disabled={!form.formState.isValid}
                 >

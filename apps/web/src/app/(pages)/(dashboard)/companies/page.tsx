@@ -27,9 +27,9 @@ export default function Companies() {
           ))}
         </div>
       ) : companies.isSuccess && companies.data.length === 0 ? (
-        <NoResults />
+        <NoResults className="h-full" />
       ) : companies.isPending ? (
-        <LoadingResults />
+        <LoadingResults className="h-full" />
       ) : null}
     </>
   );
