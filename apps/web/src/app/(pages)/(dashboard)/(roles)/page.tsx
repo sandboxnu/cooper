@@ -31,6 +31,7 @@ export default function Roles() {
     sortBy: selectedFilter,
     search: searchValue,
   });
+  
   const buttonStyle =
     "bg-white hover:bg-cooper-gray-200 border-white text-black p-2";
 
