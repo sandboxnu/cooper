@@ -3,13 +3,13 @@ import { TRPCError } from "@trpc/server";
 import Fuse from "fuse.js";
 import { z } from "zod";
 
+import type { ReviewType } from "@cooper/db/schema";
 import { and, desc, eq, inArray } from "@cooper/db";
 import {
   CompaniesToLocations,
   Company,
   CreateReviewSchema,
   Review,
-  ReviewType,
 } from "@cooper/db/schema";
 
 import {
@@ -120,9 +120,9 @@ export const reviewRouter = {
           ),
         });
 
-      if (!existingRelation) {
+      if (!existingRelation && input.locationId) {
         await ctx.db.insert(CompaniesToLocations).values({
-          locationId: input.locationId ?? "",
+          locationId: input.locationId,
           companyId: input.companyId,
         });
       }
