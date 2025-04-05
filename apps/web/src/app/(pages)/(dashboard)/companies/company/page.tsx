@@ -22,13 +22,13 @@ export default function Company() {
         <div className="mx-auto h-[86dvh] w-full max-w-[66dvw] justify-center gap-4 overflow-auto font-sans">
           <div className="mb-6 mt-6 flex items-center justify-between">
             <div className="flex items-center">
-              <div className="mr-3 flex h-16 w-16 items-center justify-center">
+              <div className="mr-3 flex items-center justify-center">
                 <Image
-                  src={`https://logo.clearbit.com/${company.data?.name.replace(/\s/g, "")}.com`}
+                  src={`https://logo.clearbit.com/${company.data?.website}`}
                   width={80}
                   height={80}
                   alt={`Logo of ${company.data?.name}`}
-                  className="rounded-md"
+                  className="h-20 w-20 rounded-md"
                 />
               </div>
               <div>
