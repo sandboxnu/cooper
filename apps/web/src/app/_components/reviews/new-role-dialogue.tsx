@@ -186,7 +186,7 @@ export default function NewRoleDialog({
               <DialogFooter>
                 <Button
                   type="submit"
-                  className="border-none bg-cooper-blue-400 text-white hover:bg-cooper-blue-600"
+                  className="border-none bg-cooper-yellow-500 text-white hover:bg-cooper-yellow-300"
                   onClick={form.handleSubmit(onSubmit)}
                   disabled={!form.formState.isValid}
                 >

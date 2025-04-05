@@ -112,19 +112,21 @@ export const reviewRouter = {
       }
 
       // Check if a CompaniesToLocations object already exists with the given companyId and locationId
-      const existingRelation =
-        await ctx.db.query.CompaniesToLocations.findFirst({
-          where: and(
-            eq(CompaniesToLocations.companyId, input.companyId),
-            eq(CompaniesToLocations.locationId, input.locationId ?? ""),
-          ),
-        });
+      if (input.locationId) {
+        const existingRelation =
+          await ctx.db.query.CompaniesToLocations.findFirst({
+            where: and(
+              eq(CompaniesToLocations.companyId, input.companyId),
+              eq(CompaniesToLocations.locationId, input.locationId ?? ""),
+            ),
+          });
 
-      if (!existingRelation && input.locationId) {
-        await ctx.db.insert(CompaniesToLocations).values({
-          locationId: input.locationId,
-          companyId: input.companyId,
-        });
+        if (!existingRelation) {
+          await ctx.db.insert(CompaniesToLocations).values({
+            locationId: input.locationId,
+            companyId: input.companyId,
+          });
+        }
       }
 
       return ctx.db.insert(Review).values(input);
