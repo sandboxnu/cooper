@@ -10,13 +10,13 @@ interface CompanyAboutProps {
 
 export function CompanyAbout({ companyObj }: CompanyAboutProps) {
   return (
-    <Card className="w-full max-w-lg rounded-xl border-gray-300 outline outline-1 outline-[#474747]">
-      <CardHeader className="flex h-6 justify-center border-b border-[#474747] bg-[#F7F7F7]">
+    <Card className="mx-1 w-full max-w-lg rounded-lg border-[0.75px] border-cooper-gray-400">
+      <CardHeader className="flex h-6 justify-center rounded-t-lg border-b-[0.75px] border-cooper-gray-400 bg-cooper-gray-100">
         <CardTitle className="text-base font-medium text-gray-800">
           About {companyObj?.name}
         </CardTitle>
       </CardHeader>
-      <CardContent className="pt-6">
+      <CardContent className="rounded-b-lg pt-6">
         <div className="mb-6 flex items-start">
           <p>{companyObj?.description}</p>
         </div>

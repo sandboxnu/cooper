@@ -56,16 +56,16 @@ export default function Company() {
             </button>
           </div>
 
-          <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-[2fr_3fr]">
+          <div className="mb-6 grid grid-cols-1 gap-4 px-1 md:grid-cols-[2fr_3fr]">
             <CompanyAbout companyObj={company.data} />
             <CompanyReview companyObj={company.data} />
           </div>
 
-          <div className="my-8 border-t border-black"></div>
+          <div className="my-8 border-t border-cooper-gray-400"></div>
           <RenderAllRoles company={companyID} />
         </div>
       ) : (
-        <NoResults />
+        <NoResults className="h-full" />
       )}
     </>
   );
