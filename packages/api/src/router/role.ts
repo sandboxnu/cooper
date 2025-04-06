@@ -1,4 +1,5 @@
 import type { TRPCRouterRecord } from "@trpc/server";
+import { TRPCError } from "@trpc/server";
 import { Filter } from "bad-words";
 import { z } from "zod";
 
@@ -102,6 +103,19 @@ export const roleRouter = {
     .input(CreateRoleSchema)
     .mutation(({ ctx, input }) => {
       const filter = new Filter();
+
+      if (filter.isProfane(input.title)) {
+        throw new TRPCError({
+          code: "PRECONDITION_FAILED",
+          message: "Title cannot contain profane words",
+        });
+      } else if (filter.isProfane(input.description ?? "")) {
+        throw new TRPCError({
+          code: "PRECONDITION_FAILED",
+          message: "Description cannot contain profane words",
+        });
+      }
+
       const cleanInput = {
         ...input,
         title: filter.clean(input.title),

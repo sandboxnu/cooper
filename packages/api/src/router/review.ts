@@ -95,6 +95,23 @@ export const reviewRouter = {
       // Initialize bad words filter
       const filter = new Filter();
 
+      if (filter.isProfane(input.reviewHeadline)) {
+        throw new TRPCError({
+          code: "PRECONDITION_FAILED",
+          message: "Review headline cannot contain profane words",
+        });
+      } else if (filter.isProfane(input.textReview)) {
+        throw new TRPCError({
+          code: "PRECONDITION_FAILED",
+          message: "Review text cannot contain profane words",
+        });
+      } else if (filter.isProfane(input.interviewReview ?? "")) {
+        throw new TRPCError({
+          code: "PRECONDITION_FAILED",
+          message: "Interview review cannot contain profane words",
+        });
+      }
+
       // Create a clean version of the input with filtered strings
       const cleanInput = {
         ...input,
