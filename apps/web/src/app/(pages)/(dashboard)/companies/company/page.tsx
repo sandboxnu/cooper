@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
 import { useSearchParams } from "next/navigation";
+
+import Logo from "@cooper/ui/logo";
 
 import RenderAllRoles from "~/app/_components/companies/all-company-roles";
 import { CompanyAbout } from "~/app/_components/companies/company-about";
@@ -16,12 +16,6 @@ export default function Company() {
   const companyID = searchParams.get("id");
 
   const company = api.company.getById.useQuery({ id: companyID ?? "" });
-  const rawWebsite = company.data?.website;
-  const website =
-    rawWebsite && rawWebsite !== ""
-      ? rawWebsite.replace(/^(https?:\/\/)/, "")
-      : `${company.data?.name.replace(/\s/g, "")}.com`;
-  const [imageError, setImageError] = useState(false);
 
   return (
     <>
@@ -30,20 +24,7 @@ export default function Company() {
           <div className="mb-6 mt-6 flex items-center justify-between">
             <div className="flex items-center">
               <div className="mr-3 flex h-16 w-16 items-center justify-center">
-                {imageError ? (
-                  <div className="flex aspect-square h-16 w-16 items-center justify-center rounded-md bg-cooper-gray-200 text-4xl font-bold text-white">
-                    {company.data?.name.charAt(0)}
-                  </div>
-                ) : (
-                  <Image
-                    src={`https://img.logo.dev/${website}?token=pk_DNxGM2gHTjiLU3p79GX79A`}
-                    width={80}
-                    height={80}
-                    alt={`Logo of ${company.data?.name}`}
-                    className="rounded-md"
-                    onError={() => setImageError(true)}
-                  />
-                )}
+                {company.data && <Logo company={company.data} size="small" />}
               </div>
               <div>
                 <h1 className="text-4xl font-bold">{company.data?.name}</h1>

@@ -1,8 +1,6 @@
-import { useState } from "react";
-import Image from "next/image";
-
 import type { CompanyType } from "@cooper/db/schema";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
+import Logo from "@cooper/ui/logo";
 
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
@@ -18,32 +16,12 @@ export function CompanyCardPreview({ companyObj }: CompanyCardPreviewProps) {
     companyId: companyObj.id,
   });
 
-  const rawWebsite = companyObj.website;
-  const website =
-    rawWebsite && rawWebsite !== ""
-      ? rawWebsite.replace(/^(https?:\/\/)/, "")
-      : `${companyObj.name.replace(/\s/g, "")}.com`;
-  const [imageError, setImageError] = useState(false);
-
   return (
     <Card className="flex h-[26rem] w-[100%] flex-col justify-between overflow-hidden rounded-lg border-[0.75px] border-cooper-gray-400">
       <div>
         <CardHeader className="pb-3">
           <div className="flex items-center justify-start space-x-4">
-            {imageError ? (
-              <div className="flex aspect-square h-16 w-16 items-center justify-center rounded-md bg-cooper-gray-200 text-4xl font-bold text-white">
-                {companyObj.name.charAt(0)}
-              </div>
-            ) : (
-              <Image
-                src={`https://img.logo.dev/${website}?token=pk_DNxGM2gHTjiLU3p79GX79A`}
-                width={75}
-                height={75}
-                alt={`Logo of ${companyObj.name}`}
-                className="h-20 w-20 rounded-lg"
-                onError={() => setImageError(true)}
-              />
-            )}
+            <Logo company={companyObj} />
             <div>
               <CardTitle className="text-xl">{companyObj.name}</CardTitle>
             </div>
