@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Filter } from "bad-words";
 import dayjs from "dayjs";
 import { useForm } from "react-hook-form";
 import { animateScroll as scroll } from "react-scroll";
@@ -26,6 +27,7 @@ import { SubmissionConfirmation } from "~/app/_components/form/submission-confir
 import { api } from "~/trpc/react";
 import { SubmissionFailure } from "./submission-failure";
 
+const filter = new Filter();
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
     required_error: "You need to select a co-op cycle.",
@@ -78,13 +80,21 @@ const formSchema = z.object({
     })
     .min(1)
     .max(5),
-  interviewReview: z.string().optional(),
+  interviewReview: z
+    .string()
+    .optional()
+    .refine((val) => !filter.isProfane(val ?? ""), {
+      message: "The interview review cannot contain profane words.",
+    }),
   reviewHeadline: z
     .string({
       required_error: "You need to enter a Review Headline.",
     })
     .min(8, {
       message: "The review headline must be at least 8 characters.",
+    })
+    .refine((val) => !filter.isProfane(val), {
+      message: "The review headline cannot contain profane words.",
     }),
   textReview: z
     .string({
@@ -92,6 +102,9 @@ const formSchema = z.object({
     })
     .min(8, {
       message: "The review must be at least 8 characters.",
+    })
+    .refine((val) => !filter.isProfane(val), {
+      message: "The review cannot contain profane words.",
     }),
   locationId: z.string().optional(),
   hourlyPay: z.coerce
