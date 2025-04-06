@@ -143,7 +143,7 @@ export const reviewRouter = {
           message: "You can only leave 2 reviews per cycle",
         });
       }
-      
+
       // Check if a CompaniesToLocations object already exists with the given companyId and locationId
       if (input.locationId) {
         const existingRelation =
