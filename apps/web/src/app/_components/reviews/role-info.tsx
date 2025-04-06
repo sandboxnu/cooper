@@ -64,7 +64,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
           <div className="flex items-center justify-start space-x-4">
             {companyData ? (
               <Image
-                src={`https://img.logo.dev/${companyData.name.replace(/\s/g, "")}.com?token=pk_DNxGM2gHTjiLU3p79GX79A`}
+                src={`https://img.logo.dev/${companyData.website}?token=pk_DNxGM2gHTjiLU3p79GX79A`}
                 width={80}
                 height={80}
                 alt={`Logo of ${companyData.name}`}
@@ -130,7 +130,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
               <InfoCard title={`About ${companyData.name}`}>
                 <div className="flex gap-4 overflow-scroll text-[#5a5a5a]">
                   <Image
-                    src={`https://img.logo.dev/${companyData.name.replace(/\s/g, "")}.com?token=pk_DNxGM2gHTjiLU3p79GX79A`}
+                    src={`https://img.logo.dev/${companyData.website}?token=pk_DNxGM2gHTjiLU3p79GX79A`}
                     width={80}
                     height={80}
                     alt={`Logo of ${companyData.name}`}
