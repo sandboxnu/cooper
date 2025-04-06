@@ -23,7 +23,7 @@ export function CompanyCardPreview({ companyObj }: CompanyCardPreviewProps) {
         <CardHeader className="pb-3">
           <div className="flex items-center justify-start space-x-4">
             <Image
-              src={`https://logo.clearbit.com/${companyObj.website}`}
+              src={`https://logo.clearbit.com/${companyObj.name.replace(/\s/g, "")}.com`}
               width={75}
               height={75}
               alt={`Logo of ${companyObj.name}`}
