@@ -21,7 +21,7 @@ export function CompanyCardPreview({ companyObj }: CompanyCardPreviewProps) {
   const rawWebsite = companyObj.website;
   const website =
     rawWebsite && rawWebsite !== ""
-      ? rawWebsite
+      ? rawWebsite.replace(/^(https?:\/\/)/, "")
       : `${companyObj.name.replace(/\s/g, "")}.com`;
   const [imageError, setImageError] = useState(false);
 

@@ -19,7 +19,7 @@ export default function Company() {
   const rawWebsite = company.data?.website;
   const website =
     rawWebsite && rawWebsite !== ""
-      ? rawWebsite
+      ? rawWebsite.replace(/^(https?:\/\/)/, "")
       : `${company.data?.name.replace(/\s/g, "")}.com`;
   const [imageError, setImageError] = useState(false);
 

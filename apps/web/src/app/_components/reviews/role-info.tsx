@@ -56,7 +56,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
   const rawWebsite = companyData?.website;
   const website =
     rawWebsite && rawWebsite !== ""
-      ? rawWebsite
+      ? rawWebsite.replace(/^(https?:\/\/)/, "")
       : `${companyData?.name.replace(/\s/g, "")}.com`;
   const [imageError, setImageError] = useState(false);
   const companyLogo = imageError ? (
