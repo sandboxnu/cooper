@@ -24,7 +24,7 @@ export default function Company() {
             <div className="flex items-center">
               <div className="mr-3 flex h-16 w-16 items-center justify-center">
                 <Image
-                  src={`https://logo.clearbit.com/${company.data?.name.replace(/\s/g, "")}.com`}
+                  src={`https://img.logo.dev/${company.data?.name.replace(/\s/g, "")}.com`}
                   width={80}
                   height={80}
                   alt={`Logo of ${company.data?.name}`}
