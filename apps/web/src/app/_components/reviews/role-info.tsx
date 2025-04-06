@@ -55,7 +55,9 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
 
   const rawWebsite = companyData?.website;
   const website =
-    rawWebsite && rawWebsite !== "" ? rawWebsite : `${companyData?.name}.com`;
+    rawWebsite && rawWebsite !== ""
+      ? rawWebsite
+      : `${companyData?.name.replace(/\s/g, "")}.com`;
   const [imageError, setImageError] = useState(false);
   const companyLogo = imageError ? (
     <div className="flex aspect-square h-16 w-16 items-center justify-center rounded-md bg-cooper-gray-200 text-4xl font-bold text-white">

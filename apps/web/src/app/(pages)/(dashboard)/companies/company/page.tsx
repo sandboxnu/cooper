@@ -18,7 +18,9 @@ export default function Company() {
   const company = api.company.getById.useQuery({ id: companyID ?? "" });
   const rawWebsite = company.data?.website;
   const website =
-    rawWebsite && rawWebsite !== "" ? rawWebsite : `${company.data?.name}.com`;
+    rawWebsite && rawWebsite !== ""
+      ? rawWebsite
+      : `${company.data?.name.replace(/\s/g, "")}.com`;
   const [imageError, setImageError] = useState(false);
 
   return (
