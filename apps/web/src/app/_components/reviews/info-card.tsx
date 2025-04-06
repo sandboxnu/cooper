@@ -8,11 +8,11 @@ interface InfoCardProps {
 
 const InfoCard: React.FC<InfoCardProps> = ({ title, children }) => {
   return (
-    <div className="flex h-full flex-col rounded-lg border border-black">
-      <div className="flex items-center rounded-t-lg border-b border-black bg-cooper-gray-200 p-3 pl-6">
+    <div className="flex h-full flex-col rounded-lg border-[0.75px] border-cooper-gray-400">
+      <div className="flex items-center rounded-t-lg border-b-[0.75px] border-cooper-gray-400 bg-gray-50 p-3 pl-6">
         {title}
       </div>
-      <div className="flex-grow p-6">{children}</div>
+      <div className="flex-grow rounded-lg bg-white p-6">{children}</div>
     </div>
   );
 };

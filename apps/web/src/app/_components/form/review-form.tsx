@@ -357,13 +357,13 @@ export function ReviewForm(props: ReviewFormProps) {
           height={100}
           className="max-w-full xl:hidden"
         />
-        <div className="z-10 -mb-4 h-4 w-full rounded-t-lg bg-cooper-blue-700" />
-        <div className="flex w-full items-center justify-center rounded-lg bg-white px-4 py-16 text-center text-cooper-blue-600 outline outline-2 outline-cooper-blue-700 md:py-20 xl:pl-24 xl:text-start">
+        <div className="z-10 -mb-4 h-4 w-full rounded-t-lg bg-cooper-blue-600" />
+        <div className="flex w-full items-center justify-center rounded-lg bg-white px-4 py-16 text-center text-cooper-blue-600 outline outline-2 outline-cooper-blue-600 md:py-20 xl:pl-24 xl:text-start">
           <div className="flex flex-col items-center space-y-6 xl:items-start">
-            <h1 className="text-2xl font-bold text-cooper-blue-700 md:text-4xl">
+            <h1 className="text-2xl font-bold text-cooper-blue-600 md:text-4xl">
               Submit a Co-op Review!
             </h1>
-            <p className="text-lg text-cooper-blue-700 md:text-2xl">
+            <p className="text-lg text-cooper-blue-600 md:text-2xl">
               Thank you for taking the time to leave a review of your co-op
               experience! Join others in the Northeastern community and help
               people like yourself make the right career decision.

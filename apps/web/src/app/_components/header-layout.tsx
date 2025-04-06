@@ -28,9 +28,9 @@ export default async function HeaderLayout({
   return (
     <div className="flex h-screen flex-col justify-between">
       <Header auth={button} />
-      <article className="mt-4 flex h-screen w-screen flex-col items-center justify-start">
-        <div className="m-4 mt-0 flex h-[6dvh] justify-center lg:hidden">
-          <SearchFilter searchClassName="w-screen px-4" />
+      <article className="flex h-screen w-screen flex-col items-center justify-start">
+        <div className="mx-0 mt-2 flex h-[6dvh] justify-center xl:mt-0 xl:hidden">
+          <SearchFilter searchClassName="w-screen px-4 mb-2" />
         </div>
         {children}
       </article>

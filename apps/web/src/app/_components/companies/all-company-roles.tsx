@@ -32,7 +32,7 @@ export default function RenderAllRoles({ company }: RenderAllRolesProps) {
                     onClick={() => router.push(`/role?id=${role.id}`)}
                   >
                     <RoleCardPreview
-                      reviewObj={role}
+                      roleObj={role}
                       className={cn("mb-4 hover:bg-cooper-gray-100")}
                     />
                   </div>

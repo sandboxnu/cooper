@@ -8,7 +8,7 @@ import NoResults from "~/app/_components/no-results";
 import { api } from "~/trpc/react";
 
 export default function Companies() {
-  const companies = api.company.list.useQuery();
+  const companies = api.company.list.useQuery({});
 
   const router = useRouter();
 
@@ -27,9 +27,9 @@ export default function Companies() {
           ))}
         </div>
       ) : companies.isSuccess && companies.data.length === 0 ? (
-        <NoResults />
+        <NoResults className="h-full" />
       ) : companies.isPending ? (
-        <LoadingResults />
+        <LoadingResults className="h-full" />
       ) : null}
     </>
   );

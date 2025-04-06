@@ -12,6 +12,7 @@ import {
   publicProcedure,
   sortableProcedure,
 } from "../trpc";
+import { performFuseSearch } from "../utils/fuzzyHelper";
 
 const ordering = {
   default: desc(Role.id),
@@ -20,9 +21,15 @@ const ordering = {
 };
 
 export const roleRouter = {
-  list: sortableProcedure.query(async ({ ctx }) => {
-    if (ctx.sortBy === "rating") {
-      const rolesWithRatings = await ctx.db.execute(sql`
+  list: sortableProcedure
+    .input(
+      z.object({
+        search: z.string().optional(),
+      }),
+    )
+    .query(async ({ ctx, input }) => {
+      if (ctx.sortBy === "rating") {
+        const rolesWithRatings = await ctx.db.execute(sql`
         SELECT 
           ${Role}.*, 
           COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
@@ -32,15 +39,21 @@ export const roleRouter = {
         ORDER BY avg_rating DESC
       `);
 
-      return rolesWithRatings.rows.map((role) => ({
-        ...(role as RoleType),
-      }));
-    }
+        const roles = rolesWithRatings.rows.map((role) => ({
+          ...(role as RoleType),
+        }));
 
-    return ctx.db.query.Role.findMany({
-      orderBy: ordering[ctx.sortBy],
-    });
-  }),
+        const fuseOptions = ["title", "description"];
+        return performFuseSearch<RoleType>(roles, fuseOptions, input.search);
+      }
+
+      const roles = await ctx.db.query.Role.findMany({
+        orderBy: ordering[ctx.sortBy],
+      });
+
+      const fuseOptions = ["title", "description"];
+      return performFuseSearch<RoleType>(roles, fuseOptions, input.search);
+    }),
 
   getByTitle: sortableProcedure
     .input(z.object({ title: z.string() }))
@@ -127,6 +140,14 @@ export const roleRouter = {
   delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
     return ctx.db.delete(Role).where(eq(Role.id, input));
   }),
+
+  getByCreatedBy: sortableProcedure
+    .input(z.object({ createdBy: z.string() }))
+    .query(async ({ ctx, input }) => {
+      return ctx.db.query.Role.findMany({
+        where: eq(Role.createdBy, input.createdBy),
+      });
+    }),
 
   getAverageById: sortableProcedure
     .input(z.object({ roleId: z.string() }))
