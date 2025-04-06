@@ -2,11 +2,12 @@ import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
 import type { CompanyType, ReviewType } from "@cooper/db/schema";
-import { desc, eq } from "@cooper/db";
+import { and, desc, eq, SQLWrapper } from "@cooper/db";
 import {
   CompaniesToLocations,
   Company,
   CreateCompanySchema,
+  Industry,
   Location,
   Review,
 } from "@cooper/db/schema";
@@ -19,11 +20,30 @@ export const companyRouter = {
     .input(
       z.object({
         search: z.string().optional(),
+        options: z
+        .object({
+          industry: z.enum(Object.values(Industry) as [string, ...string[]]).optional(),
+          location: z.object({
+            id: z.string(),
+            city: z.string(),
+            state: z.string().nullable(),
+            country: z.string()
+          }).optional(),
+        })
+        .optional(),
       }),
     )
     .query(async ({ ctx, input }) => {
+      const { options } = input;
+      
+      const conditions = [
+        options?.industry && eq(Company.industry, options.industry),
+        options?.location && eq(CompaniesToLocations.locationId, options.location.id),
+      ].filter(Boolean) as SQLWrapper[];
+
       const companies = await ctx.db.query.Company.findMany({
         orderBy: desc(Company.id),
+        where: conditions.length > 0 ? and(...conditions) : undefined,
       });
 
       const fuseOptions = ["name", "industry", "description"];
