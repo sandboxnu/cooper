@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import type { ReviewType, RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
@@ -55,7 +56,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
   return (
     <div
       className={cn(
-        "flex h-fit w-[100%] flex-col justify-between scroll-smooth rounded-2xl border-none",
+        "flex h-fit w-[100%] flex-col justify-between scroll-smooth rounded-lg border-none",
         className,
       )}
     >
@@ -68,10 +69,10 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                 width={80}
                 height={80}
                 alt={`Logo of ${companyData.name}`}
-                className="h-20 w-20 rounded-xl"
+                className="h-20 w-20 rounded-lg"
               />
             ) : (
-              <div className="h-20 w-20 rounded-xl border bg-cooper-blue-200"></div>
+              <div className="h-20 w-20 rounded-lg border bg-cooper-blue-200"></div>
             )}
             <div className="flex h-20 flex-col justify-center">
               <CardTitle className="text-2xl">
@@ -120,7 +121,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
         <div className="grid w-[80%] grid-cols-2 gap-5 pl-6">
           <div className="h-full" id="job-description">
             <InfoCard title={"Job Description"}>
-              <div className="flex pr-4 text-[#5a5a5a]">
+              <div className="flex h-40 overflow-scroll pr-4 text-[#5a5a5a]">
                 {roleObj.description}
               </div>
             </InfoCard>
@@ -128,15 +129,17 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
           {companyData && (
             <div className="h-full" id="company">
               <InfoCard title={`About ${companyData.name}`}>
-                <div className="flex gap-4 text-wrap text-[#5a5a5a]">
+                <div className="flex gap-4 overflow-scroll text-[#5a5a5a]">
                   <Image
                     src={`https://logo.clearbit.com/${companyData.name.replace(/\s/g, "")}.com`}
                     width={80}
                     height={80}
                     alt={`Logo of ${companyData.name}`}
-                    className="h-20 w-20 rounded-xl border"
+                    className="h-20 w-20 rounded-lg"
                   />
-                  {companyData.description}
+                  <p className="h-40 overflow-scroll">
+                    {companyData.description}
+                  </p>
                 </div>
               </InfoCard>
             </div>
@@ -267,8 +270,14 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
           <div className="col-span-2" id="reviews">
             <CollapsableInfoCard title="Reviews">
               {reviews.isSuccess && reviews.data.length === 0 && (
-                <div className="flex h-full w-full items-center justify-center text-[#5a5a5a]">
-                  No reviews yet!
+                <div className="flex h-full w-full flex-col items-center justify-center text-[#5a5a5a]">
+                  <p>No reviews yet</p>
+                  <Link
+                    href={`/review?id=${roleObj.id}`}
+                    className="ml-2 underline"
+                  >
+                    Add one!
+                  </Link>
                 </div>
               )}
               {reviews.isSuccess && reviews.data.length > 0 && (
