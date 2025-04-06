@@ -3,6 +3,7 @@
 import { IndustryType, LocationType } from "@cooper/db/schema";
 import { useRouter } from "next/navigation";
 
+
 import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
 import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
@@ -15,6 +16,7 @@ export default function Companies({
   searchParams?: {
     industry?: IndustryType;
     location?: string;
+    search?: string;
   };
 }) {
   const companies = api.company.list.useQuery({
@@ -22,6 +24,7 @@ export default function Companies({
       industry: searchParams?.industry,
       location: searchParams?.location,
     },
+    search: searchParams?.search
   });
 
   const locationQuery = api.location.getById.useQuery(
@@ -68,9 +71,9 @@ export default function Companies({
           ))}
         </div>
       ) : companies.isSuccess && companies.data.length === 0 ? (
-        <NoResults />
+        <NoResults className="h-full" />
       ) : companies.isPending ? (
-        <LoadingResults />
+        <LoadingResults className="h-full" />
       ) : null}
     </div>
   );

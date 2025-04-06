@@ -1,4 +1,4 @@
-import type { ReviewType } from "@cooper/db/schema";
+import type { LocationType, ReviewType } from "@cooper/db/schema";
 
 import { api } from "~/trpc/react";
 
@@ -13,6 +13,14 @@ export const locationName = (reviewObj: ReviewType) => {
           (location.state ? "" : `, ${location.country}`)
       : "N/A";
   }
+};
+
+export const prettyLocationName = (location: LocationType) => {
+  return (
+    location.city +
+    (location.state ? `, ${location.state}` : "") +
+    (location.state ? "" : `, ${location.country}`)
+  );
 };
 
 export const abbreviatedStateName = (state: string) => {

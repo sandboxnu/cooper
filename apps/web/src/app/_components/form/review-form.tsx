@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Filter } from "bad-words";
 import dayjs from "dayjs";
 import { useForm } from "react-hook-form";
 import { animateScroll as scroll } from "react-scroll";
@@ -26,6 +27,7 @@ import { SubmissionConfirmation } from "~/app/_components/form/submission-confir
 import { api } from "~/trpc/react";
 import { SubmissionFailure } from "./submission-failure";
 
+const filter = new Filter();
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
     required_error: "You need to select a co-op cycle.",
@@ -78,13 +80,21 @@ const formSchema = z.object({
     })
     .min(1)
     .max(5),
-  interviewReview: z.string().optional(),
+  interviewReview: z
+    .string()
+    .optional()
+    .refine((val) => !filter.isProfane(val ?? ""), {
+      message: "The interview review cannot contain profane words.",
+    }),
   reviewHeadline: z
     .string({
       required_error: "You need to enter a Review Headline.",
     })
     .min(8, {
       message: "The review headline must be at least 8 characters.",
+    })
+    .refine((val) => !filter.isProfane(val), {
+      message: "The review headline cannot contain profane words.",
     }),
   textReview: z
     .string({
@@ -92,6 +102,9 @@ const formSchema = z.object({
     })
     .min(8, {
       message: "The review must be at least 8 characters.",
+    })
+    .refine((val) => !filter.isProfane(val), {
+      message: "The review cannot contain profane words.",
     }),
   locationId: z.string().optional(),
   hourlyPay: z.coerce
@@ -344,13 +357,13 @@ export function ReviewForm(props: ReviewFormProps) {
           height={100}
           className="max-w-full xl:hidden"
         />
-        <div className="z-10 -mb-4 h-4 w-full rounded-t-lg bg-cooper-blue-700" />
-        <div className="flex w-full items-center justify-center rounded-lg bg-white px-4 py-16 text-center text-cooper-blue-600 outline outline-2 outline-cooper-blue-700 md:py-20 xl:pl-24 xl:text-start">
+        <div className="z-10 -mb-4 h-4 w-full rounded-t-lg bg-cooper-blue-600" />
+        <div className="flex w-full items-center justify-center rounded-lg bg-white px-4 py-16 text-center text-cooper-blue-600 outline outline-2 outline-cooper-blue-600 md:py-20 xl:pl-24 xl:text-start">
           <div className="flex flex-col items-center space-y-6 xl:items-start">
-            <h1 className="text-2xl font-bold text-cooper-blue-700 md:text-4xl">
+            <h1 className="text-2xl font-bold text-cooper-blue-600 md:text-4xl">
               Submit a Co-op Review!
             </h1>
-            <p className="text-lg text-cooper-blue-700 md:text-2xl">
+            <p className="text-lg text-cooper-blue-600 md:text-2xl">
               Thank you for taking the time to leave a review of your co-op
               experience! Join others in the Northeastern community and help
               people like yourself make the right career decision.
@@ -455,7 +468,7 @@ export function ReviewForm(props: ReviewFormProps) {
     <Form {...form}>
       <form
         className={cn(
-          "space-y-8 rounded-2xl border-2 border-t-[16px] bg-white px-8 pb-8 md:px-32 md:pt-16",
+          "space-y-8 rounded-lg border-2 border-t-[16px] bg-white px-8 pb-8 md:px-32 md:pt-16",
           steps[currentStep - 1]?.borderColor,
         )}
       >

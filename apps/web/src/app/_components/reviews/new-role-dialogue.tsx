@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Filter } from "bad-words";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -27,11 +28,15 @@ import { Textarea } from "@cooper/ui/textarea";
 
 import { api } from "~/trpc/react";
 
+const filter = new Filter();
 const roleSchema = z.object({
   title: z
     .string({ required_error: "You need to enter a role title." })
     .min(5, {
       message: "The role title must be at least 5 characters.",
+    })
+    .refine((val) => !filter.isProfane(val), {
+      message: "The title cannot contain profane words.",
     }),
   description: z
     .string()
@@ -40,6 +45,9 @@ const roleSchema = z.object({
     })
     .max(500, {
       message: "The description must be at most 500 characters.",
+    })
+    .refine((val) => !filter.isProfane(val), {
+      message: "The description cannot contain profane words.",
     }),
   companyId: z.string(),
   createdBy: z.string(),
@@ -120,7 +128,7 @@ export default function NewRoleDialog({
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
+      <DialogTrigger className="rounded-lg" asChild>
         <Button
           disabled={disabled}
           className="h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-4 py-3 text-sm font-semibold text-white hover:border-cooper-yellow-300 hover:bg-cooper-yellow-300"
@@ -186,7 +194,7 @@ export default function NewRoleDialog({
               <DialogFooter>
                 <Button
                   type="submit"
-                  className="border-none bg-cooper-blue-400 text-white hover:bg-cooper-blue-600"
+                  className="border-none bg-cooper-yellow-500 text-white hover:bg-cooper-yellow-300"
                   onClick={form.handleSubmit(onSubmit)}
                   disabled={!form.formState.isValid}
                 >
