@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import type { ReviewType, RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
@@ -269,8 +270,14 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
           <div className="col-span-2" id="reviews">
             <CollapsableInfoCard title="Reviews">
               {reviews.isSuccess && reviews.data.length === 0 && (
-                <div className="flex h-full w-full items-center justify-center text-[#5a5a5a]">
-                  No reviews yet!
+                <div className="flex h-full w-full flex-col items-center justify-center text-[#5a5a5a]">
+                  <p>No reviews yet</p>
+                  <Link
+                    href={`/review?id=${roleObj.id}`}
+                    className="ml-2 underline"
+                  >
+                    Add one!
+                  </Link>
                 </div>
               )}
               {reviews.isSuccess && reviews.data.length > 0 && (
