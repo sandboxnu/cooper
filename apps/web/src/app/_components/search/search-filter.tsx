@@ -75,7 +75,7 @@ export default function SearchFilter({
   const createQueryString = useCallback(
     ({ searchText, searchCycle, searchTerm, searchIndustry, searchLocation }: z.infer<typeof formSchema>) => {
       // Initialize URLSearchParams with the required searchText
-      const params = new URLSearchParams({ search: searchText });
+      const params = new URLSearchParams();
 
       // Conditionally add searchCycle and searchTerm if they have values
       if (searchCycle) {
@@ -93,7 +93,7 @@ export default function SearchFilter({
 
       return params.toString(); // Returns a query string, e.g., "search=yo&cycle=SPRING"
     },
-    [],
+    [searchType],
   );
 
   function onSubmit(values: z.infer<typeof formSchema>) {
@@ -116,7 +116,9 @@ export default function SearchFilter({
             <ReviewSearchBar cycle={cycle} term={term} />
           )}
           {searchType === "COMPANIES" && (
-            <CompanySearchBar />
+            <CompanySearchBar 
+            industry={industry} 
+            location={location}/>
           )}
         </div>
       </form>

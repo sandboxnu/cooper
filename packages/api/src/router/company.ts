@@ -23,12 +23,7 @@ export const companyRouter = {
         options: z
         .object({
           industry: z.enum(Object.values(Industry) as [string, ...string[]]).optional(),
-          location: z.object({
-            id: z.string(),
-            city: z.string(),
-            state: z.string().nullable(),
-            country: z.string()
-          }).optional(),
+          location: z.string().optional(),
         })
         .optional(),
       }),
@@ -38,7 +33,7 @@ export const companyRouter = {
       
       const conditions = [
         options?.industry && eq(Company.industry, options.industry),
-        options?.location && eq(CompaniesToLocations.locationId, options.location.id),
+        options?.location && eq(CompaniesToLocations.locationId, options.location),
       ].filter(Boolean) as SQLWrapper[];
 
       const companies = await ctx.db.query.Company.findMany({

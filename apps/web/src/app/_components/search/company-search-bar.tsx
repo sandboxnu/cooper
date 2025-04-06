@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 
 import { Button } from "@cooper/ui/button";
@@ -28,12 +28,6 @@ export function CompanySearchBar({ industry, location }: SearchBarProps) {
   const [selectedLocation, setSelectedLocation] = useState<string | undefined>(location?.city);
   const { data: locations = [] } = api.location.list.useQuery();
 
-  const handleFilterChange = () => {
-    form.handleSubmit((data) => {
-      // The form will be submitted automatically due to the SearchFilter's onSubmit handler
-    })();
-  };
-
   return (
     <div className="flex flex-row w-full justify-between items-center">
       <div className="text-[30px] justify-left">Browse Companies</div>
@@ -51,7 +45,6 @@ export function CompanySearchBar({ industry, location }: SearchBarProps) {
                     field.name,
                     value === "INDUSTRY" ? undefined : value,
                   );
-                  handleFilterChange(); 
                 }}
                 value={selectedIndustry}
               >
@@ -87,7 +80,6 @@ export function CompanySearchBar({ industry, location }: SearchBarProps) {
                     field.name,
                     value === "LOCATION" ? undefined : value,
                   );
-                  handleFilterChange(); 
                 }}
                 value={selectedLocation}
               >
@@ -112,12 +104,17 @@ export function CompanySearchBar({ industry, location }: SearchBarProps) {
       />
       <Button
         className="bg-white hover:bg-white hover:text-[#9A9A9A] border-white text-black"
+        type="submit"
+      >
+        Search
+      </Button>
+      <Button
+        className="bg-white hover:bg-white hover:text-[#9A9A9A] border-white text-black"
         onClick={() => {
           setSelectedIndustry("INDUSTRY")
           setSelectedLocation("LOCATION")
           form.setValue("searchIndustry", undefined);
           form.setValue("searchLocation", undefined);
-          handleFilterChange();
         }}
       >
         Clear

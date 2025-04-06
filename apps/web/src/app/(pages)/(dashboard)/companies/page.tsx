@@ -14,7 +14,7 @@ export default function Companies({
 }: {
   searchParams?: {
     industry?: IndustryType;
-    location?: LocationType;
+    location?: string;
   };
 }) {
   const companies = api.company.list.useQuery({
@@ -24,16 +24,37 @@ export default function Companies({
     },
   });
 
+  const locationQuery = api.location.getById.useQuery(
+    { id: searchParams?.location ?? '' },
+    { enabled: !!searchParams?.location }
+  );
+
   const router = useRouter();
 
   return (
     <div className="w-[95%] justify-center">
-    <SearchFilter searchType="COMPANIES"industry={searchParams?.industry}
-        location={searchParams?.location} />
+    <SearchFilter searchType="COMPANIES" industry={searchParams?.industry}
+        location={locationQuery.data} />
     <hr className="my-4 border-t border-[#9A9A9A] w-full" />  
     <div className="text-[26px]">
-      {searchParams?.industry ? `${searchParams.industry} Companies` : "Companies"} in {searchParams?.location?.city}{searchParams?.location?.state ? `, ${searchParams.location.state}` : ""}
-    </div>
+    {searchParams?.industry ? (
+    <>
+      <span className="font-bold">{searchParams.industry.charAt(0) + searchParams.industry.slice(1).toLowerCase()}</span> Companies
+    </>
+  ) : "Companies"}
+  {locationQuery.data && (
+    <>
+      {" in "}
+      <span className="font-bold">
+        {locationQuery.data.city}
+        {locationQuery.data.state ? `, ${locationQuery.data.state}` : ''}
+      </span>
+    </>
+  )}
+      </div>
+      <div className="text-cooper-gray-400">
+        {companies.data?.length || 0} results
+      </div>
       {companies.isSuccess && companies.data.length > 0 ? (
         <div className="mb-8 mt-6 grid h-[86dvh] grid-cols-1 gap-4 overflow-y-auto md:grid-cols-2 xl:grid-cols-3 ">
           {companies.data.map((company) => (
