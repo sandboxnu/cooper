@@ -66,7 +66,7 @@ async function getCompanyNames(): Promise<string[]> {
         .filter((name) => name);
     });
 
-    newCompanies.forEach((name) => companyNames.add(name));
+    newCompanies.forEach((name: string) => companyNames.add(name));
   }
 
   await browser.close();
