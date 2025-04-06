@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 
 import type { ReviewType, RoleType } from "@cooper/db/schema";
@@ -52,6 +53,25 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
     "Transportation covered": averages.data.freeTransportation,
   };
 
+  const rawWebsite = companyData?.website;
+  const website =
+    rawWebsite && rawWebsite !== "" ? rawWebsite : `${companyData?.name}.com`;
+  const [imageError, setImageError] = useState(false);
+  const companyLogo = imageError ? (
+    <div className="flex aspect-square h-16 w-16 items-center justify-center rounded-md bg-cooper-gray-200 text-4xl font-bold text-white">
+      {companyData?.name.charAt(0)}
+    </div>
+  ) : (
+    <Image
+      src={`https://img.logo.dev/${website}?token=pk_DNxGM2gHTjiLU3p79GX79A`}
+      width={80}
+      height={80}
+      alt={`Logo of ${companyData?.name}`}
+      className="h-20 w-20 rounded-lg"
+      onError={() => setImageError(true)}
+    />
+  );
+
   return (
     <div
       className={cn(
@@ -63,13 +83,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
         <CardHeader className="pb-3">
           <div className="flex items-center justify-start space-x-4">
             {companyData ? (
-              <Image
-                src={`https://img.logo.dev/${companyData.website}?token=pk_DNxGM2gHTjiLU3p79GX79A`}
-                width={80}
-                height={80}
-                alt={`Logo of ${companyData.name}`}
-                className="h-20 w-20 rounded-lg"
-              />
+              companyLogo
             ) : (
               <div className="h-20 w-20 rounded-lg border bg-cooper-blue-200"></div>
             )}
@@ -129,13 +143,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
             <div className="h-full" id="company">
               <InfoCard title={`About ${companyData.name}`}>
                 <div className="flex gap-4 overflow-scroll text-[#5a5a5a]">
-                  <Image
-                    src={`https://img.logo.dev/${companyData.website}?token=pk_DNxGM2gHTjiLU3p79GX79A`}
-                    width={80}
-                    height={80}
-                    alt={`Logo of ${companyData.name}`}
-                    className="h-20 w-20 rounded-lg"
-                  />
+                  {companyLogo}
                   <p className="h-40 overflow-scroll">
                     {companyData.description}
                   </p>
