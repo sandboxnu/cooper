@@ -18,7 +18,7 @@ export function CompanyCardPreview({ companyObj }: CompanyCardPreviewProps) {
   });
 
   return (
-    <Card className="flex h-[26rem] w-[100%] flex-col justify-between overflow-hidden rounded-3xl border-[0.75px] border-cooper-gray-400">
+    <Card className="flex h-[26rem] w-[100%] flex-col justify-between overflow-hidden rounded-lg border-[0.75px] border-cooper-gray-400">
       <div>
         <CardHeader className="pb-3">
           <div className="flex items-center justify-start space-x-4">
@@ -27,7 +27,7 @@ export function CompanyCardPreview({ companyObj }: CompanyCardPreviewProps) {
               width={75}
               height={75}
               alt={`Logo of ${companyObj.name}`}
-              className="rounded-2xl border"
+              className="h-20 w-20 rounded-lg"
             />
             <div>
               <CardTitle className="text-xl">{companyObj.name}</CardTitle>
