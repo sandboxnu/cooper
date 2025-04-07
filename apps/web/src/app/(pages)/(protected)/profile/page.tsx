@@ -2,7 +2,7 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 
 import HeaderLayout from "~/app/_components/header-layout";
-import { NewReviewDialog } from "~/app/_components/reviews/new-review-dialogue";
+import { NewReviewDialog } from "~/app/_components/reviews/new-review/new-review-dialogue";
 import { ReviewCard } from "~/app/_components/reviews/review-card";
 import { api } from "~/trpc/server";
 
