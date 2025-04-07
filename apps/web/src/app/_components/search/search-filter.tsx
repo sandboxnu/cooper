@@ -6,12 +6,18 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
+import {
+  IndustryType,
+  LocationType,
+  WorkEnvironment,
+  WorkTerm,
+} from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Form } from "@cooper/ui/form";
 
 import { ReviewSearchBar } from "~/app/_components/search/review-search-bar";
 import { SimpleSearchBar } from "./simple-search-bar";
+import { CompanySearchBar } from "./company-search-bar";
 
 const formSchema = z.object({
   searchText: z.string(),
@@ -25,6 +31,8 @@ const formSchema = z.object({
       message: "Invalid cycle type",
     })
     .optional(),
+  searchIndustry: z.string().optional(),
+  searchLocation: z.string().optional(),
 });
 
 export type SearchFilterFormType = typeof formSchema;
@@ -35,7 +43,9 @@ interface SearchFilterProps {
   term?: "INPERSON" | "HYBRID" | "REMOTE";
   alternatePathname?: string;
   searchClassName?: string;
-  searchType?: "REVIEWS" | "SIMPLE";
+  searchType?: "REVIEWS" | "SIMPLE" | "COMPANIES";
+  industry?: IndustryType;
+  location?: LocationType;
 }
 
 /**
@@ -51,6 +61,8 @@ export default function SearchFilter({
   alternatePathname,
   searchClassName,
   searchType = "SIMPLE",
+  industry,
+  location,
 }: SearchFilterProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -65,9 +77,9 @@ export default function SearchFilter({
   const pathName = usePathname();
 
   const createQueryString = useCallback(
-    ({ searchText, searchCycle, searchTerm }: z.infer<typeof formSchema>) => {
+    ({ searchCycle, searchTerm }: z.infer<typeof formSchema>) => {
       // Initialize URLSearchParams with the required searchText
-      const params = new URLSearchParams({ search: searchText });
+      const params = new URLSearchParams();
 
       // Conditionally add searchCycle and searchTerm if they have values
       if (searchCycle) {
@@ -77,9 +89,9 @@ export default function SearchFilter({
         params.set("term", searchTerm);
       }
 
-      return params.toString(); // Returns a query string, e.g., "search=yo&cycle=SPRING"
+      return params.toString();
     },
-    [],
+    [searchType],
   );
 
   function onSubmit(values: z.infer<typeof formSchema>) {
@@ -92,14 +104,14 @@ export default function SearchFilter({
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className={cn("w-[100vw]", searchClassName)}
-      >
+      <form onSubmit={form.handleSubmit(onSubmit)} className={searchClassName}>
         <div className={cn("flex justify-center")}>
           {searchType === "SIMPLE" && <SimpleSearchBar />}
           {searchType === "REVIEWS" && (
             <ReviewSearchBar cycle={cycle} term={term} />
+          )}
+          {searchType === "COMPANIES" && (
+            <CompanySearchBar industry={industry} location={location} />
           )}
         </div>
       </form>
