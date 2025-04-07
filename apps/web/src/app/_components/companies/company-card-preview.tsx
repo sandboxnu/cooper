@@ -1,7 +1,6 @@
-import Image from "next/image";
-
 import type { CompanyType } from "@cooper/db/schema";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
+import Logo from "@cooper/ui/logo";
 
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
@@ -22,13 +21,7 @@ export function CompanyCardPreview({ companyObj }: CompanyCardPreviewProps) {
       <div>
         <CardHeader className="pb-3">
           <div className="flex items-center justify-start space-x-4">
-            <Image
-              src={`https://logo.clearbit.com/${companyObj.name.replace(/\s/g, "")}.com`}
-              width={75}
-              height={75}
-              alt={`Logo of ${companyObj.name}`}
-              className="h-20 w-20 rounded-lg"
-            />
+            <Logo company={companyObj} />
             <div>
               <CardTitle className="text-xl">{companyObj.name}</CardTitle>
             </div>
