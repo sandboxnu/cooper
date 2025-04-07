@@ -18,7 +18,7 @@ export default async function Profile() {
 
   return (
     <HeaderLayout>
-      <div className="mx-4 mt-4 flex h-full flex-col gap-8 overflow-auto">
+      <div className="mx-4 mt-4 flex h-full flex-col gap-8 overflow-y-auto">
         <div className="flex items-end justify-start gap-4">
           <Image
             src={session.user.image ?? "/svg/defaultProfile.svg"}

@@ -1,8 +1,6 @@
 "use client";
 
-import { create } from "domain";
-import { useEffect, useState } from "react";
-import Image from "next/image";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Filter } from "bad-words";
@@ -24,6 +22,7 @@ import { FormControl, FormField, FormItem, FormMessage } from "@cooper/ui/form";
 import { toast } from "@cooper/ui/hooks/use-toast";
 import { Input } from "@cooper/ui/input";
 import { Label } from "@cooper/ui/label";
+import Logo from "@cooper/ui/logo";
 import { Textarea } from "@cooper/ui/textarea";
 
 import type { RoleRequestType } from "./new-role-dialogue";
@@ -77,7 +76,6 @@ export function NewReviewDialog({ trigger }: NewReviewDialogProps) {
   const [selectedRoleId, setSelectedRoleId] = useState<string | undefined>();
   const [creatingNewRole, setCreatingNewRole] = useState<boolean>(false);
 
-  const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const companies = api.company.list.useQuery(
@@ -115,15 +113,14 @@ export function NewReviewDialog({ trigger }: NewReviewDialogProps) {
   });
 
   const newRoleMutation = api.role.create.useMutation({
-    onSuccess: () => {
-      setIsSuccess(true);
-    },
     onError: (error) => {
+      console.error("Mutation error:", error);
       toast({
         title: "Submission Error",
         description: error.message || "Something went wrong. Please try again.",
         variant: "destructive",
       });
+      setIsLoading(false);
     },
   });
 
@@ -132,33 +129,19 @@ export function NewReviewDialog({ trigger }: NewReviewDialogProps) {
     setSelectedCompanyId(newId);
   }
 
-  async function handleSubmitNewRole(values: z.infer<RoleRequestType>) {
-    if (!selectedCompanyId) {
-      return;
-    }
-
-    const newRoles = await newRoleMutation.mutateAsync({
-      ...values,
-      companyId: selectedCompanyId,
-      createdBy: profileId ?? "",
-    });
-
-    if (newRoles[0]) {
-      router.push("/review?id=" + newRoles[0].id);
-    } else {
-      setIsLoading(false);
-    }
-  }
-
   async function handleSubmit() {
     if (selectedRoleId) {
       router.push("/review?id=" + selectedRoleId);
+      return;
     }
 
-    if (creatingNewRole) {
+    if (creatingNewRole && selectedCompanyId) {
+      console.log("Creating new role...");
       const res = await newRoleForm.trigger(["title", "description"], {
         shouldFocus: true,
       });
+
+      console.log("Validation Result", res);
 
       if (!res) {
         return;
@@ -166,7 +149,26 @@ export function NewReviewDialog({ trigger }: NewReviewDialogProps) {
 
       setIsLoading(true);
 
-      await newRoleForm.handleSubmit(handleSubmitNewRole)();
+      console.log("Finished validation, loading now true");
+
+      try {
+        console.log("Submitting new role...", newRoleForm.getValues());
+        const newRoles = await newRoleMutation.mutateAsync({
+          ...newRoleForm.getValues(),
+          companyId: selectedCompanyId,
+          createdBy: profileId ?? "",
+        });
+
+        if (newRoles[0]) {
+          router.push("/review?id=" + newRoles[0].id);
+        } else {
+          console.warn("No roles returned from mutation");
+          setIsLoading(false);
+        }
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        setIsLoading(false);
+      }
     }
   }
 
@@ -187,7 +189,7 @@ export function NewReviewDialog({ trigger }: NewReviewDialogProps) {
           </Button>
         )}
       </DialogTrigger>
-      <DialogContent className="max-h-[80dvh] w-[80dvw] overflow-scroll bg-white">
+      <DialogContent className="max-h-[80dvh] w-[80dvw] overflow-y-scroll bg-white">
         <DialogHeader>
           <DialogTitle className="text-cooper-gray-900 flex flex-col items-center justify-between text-2xl font-semibold md:flex-row md:gap-12">
             New Review
@@ -250,13 +252,7 @@ export function NewReviewDialog({ trigger }: NewReviewDialogProps) {
                           setSelectedRoleId(undefined);
                         }}
                       >
-                        <Image
-                          src={`https://logo.clearbit.com/${company.name.replace(/\s/g, "")}.com`}
-                          width={64}
-                          height={64}
-                          alt={`Logo of ${company.name}`}
-                          className="h-16 w-16 rounded-lg"
-                        />
+                        <Logo company={company} />
                         <h2 className="text-lg font-semibold">
                           {company.name}
                         </h2>
@@ -396,7 +392,7 @@ export function NewReviewDialog({ trigger }: NewReviewDialogProps) {
             }
             onClick={handleSubmit}
           >
-            Start Review
+            {isLoading ? "Loading..." : "Start Review"}
           </Button>
         </DialogFooter>
       </DialogContent>

@@ -114,7 +114,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
         <div className="grid w-[80%] grid-cols-2 gap-5 pl-6">
           <div className="h-full" id="job-description">
             <InfoCard title={"Job Description"}>
-              <div className="flex h-40 overflow-scroll pr-4 text-[#5a5a5a]">
+              <div className="flex h-40 overflow-y-scroll pr-4 text-[#5a5a5a]">
                 {roleObj.description}
               </div>
             </InfoCard>
@@ -122,9 +122,9 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
           {companyData && (
             <div className="h-full" id="company">
               <InfoCard title={`About ${companyData.name}`}>
-                <div className="flex gap-4 overflow-scroll text-[#5a5a5a]">
+                <div className="flex gap-4 text-[#5a5a5a]">
                   <Logo company={companyData} />
-                  <p className="h-40 overflow-scroll">
+                  <p className="h-40 overflow-y-scroll">
                     {companyData.description}
                   </p>
                 </div>

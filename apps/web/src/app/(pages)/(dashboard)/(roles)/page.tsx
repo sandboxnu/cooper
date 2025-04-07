@@ -44,7 +44,7 @@ export default function Roles() {
       {roles.isSuccess && roles.data.length > 0 && (
         <div className="flex h-[86dvh] w-full lg:h-[92dvh]">
           {/* TODO: Confirm what background color we want to use here with the designers */}
-          <div className="w-[28%] gap-3 overflow-auto rounded-tr-lg border-r-[0.75px] border-t-[0.75px] border-cooper-gray-300 bg-cooper-gray-100 p-5 xl:rounded-none">
+          <div className="w-[28%] gap-3 overflow-y-auto rounded-tr-lg border-r-[0.75px] border-t-[0.75px] border-cooper-gray-300 bg-cooper-gray-100 p-5 xl:rounded-none">
             <div className="text-right">
               <DropdownMenu>
                 <DropdownMenuTrigger className="text-md mb-2">
@@ -103,7 +103,7 @@ export default function Roles() {
               );
             })}
           </div>
-          <div className="col-span-3 w-[72%] overflow-auto p-1">
+          <div className="col-span-3 w-[72%] overflow-y-auto p-1">
             {roles.data.length > 0 && roles.data[0] && (
               <RoleInfo roleObj={selectedRole ?? roles.data[0]} />
             )}

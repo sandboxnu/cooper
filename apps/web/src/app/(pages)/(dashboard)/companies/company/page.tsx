@@ -20,7 +20,7 @@ export default function Company() {
   return (
     <>
       {company.isSuccess ? (
-        <div className="mx-auto h-[86dvh] w-full max-w-[66dvw] justify-center gap-4 overflow-auto font-sans">
+        <div className="mx-auto h-[86dvh] w-full max-w-[66dvw] justify-center gap-4 overflow-y-auto font-sans">
           <div className="mb-6 mt-6 flex items-center justify-between">
             <div className="flex items-center">
               <div className="mr-3 flex h-16 w-16 items-center justify-center">
