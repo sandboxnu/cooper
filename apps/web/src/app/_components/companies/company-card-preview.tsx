@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import type { CompanyType } from "@cooper/db/schema";
+import { cn } from "@cooper/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
 import { api } from "~/trpc/react";
@@ -12,13 +13,21 @@ interface CompanyCardPreviewProps {
   companyObj: CompanyType;
 }
 
-export function CompanyCardPreview({ companyObj }: CompanyCardPreviewProps) {
+export function CompanyCardPreview({
+  companyObj,
+  className,
+}: CompanyCardPreviewProps) {
   const locations = api.companyToLocation.getLocationsByCompanyId.useQuery({
     companyId: companyObj.id,
   });
 
   return (
-    <Card className="flex h-[26rem] w-[100%] flex-col justify-between overflow-hidden rounded-lg border-[0.75px] border-cooper-gray-400">
+    <Card
+      className={cn(
+        "flex h-[26rem] w-[100%] flex-col justify-between overflow-hidden rounded-lg border-[0.75px] border-cooper-gray-400",
+        className,
+      )}
+    >
       <div>
         <CardHeader className="pb-3">
           <div className="flex items-center justify-start space-x-4">

@@ -159,9 +159,9 @@ const steps: {
   {
     label: "Co-op Cycle",
     fields: ["workTerm", "workYear"],
-    borderColor: "border-cooper-yellow-500",
-    textColor: "text-cooper-yellow-500",
-    bgColor: "bg-cooper-yellow-500",
+    borderColor: "border-cooper-blue-800",
+    textColor: "text-cooper-gray-400",
+    bgColor: "bg-cooper-blue-800",
   },
   {
     label: "Ratings",
@@ -173,16 +173,16 @@ const steps: {
       "interviewDifficulty",
       "interviewReview",
     ],
-    borderColor: "border-cooper-yellow-600",
-    textColor: "text-cooper-yellow-600",
-    bgColor: "bg-cooper-yellow-600",
+    borderColor: "border-cooper-blue-800",
+    textColor: "text-cooper-gray-400",
+    bgColor: "bg-cooper-blue-800",
   },
   {
     label: "Review",
     fields: ["reviewHeadline", "textReview", "locationId", "hourlyPay"],
-    borderColor: "border-cooper-green-500",
-    textColor: "text-cooper-green-500",
-    bgColor: "bg-cooper-green-500",
+    borderColor: "border-cooper-blue-800",
+    textColor: "text-cooper-gray-400",
+    bgColor: "bg-cooper-blue-800",
   },
   {
     label: "Company Details",
@@ -198,7 +198,7 @@ const steps: {
       "otherBenefits",
     ],
     borderColor: "border-cooper-blue-800",
-    textColor: "text-cooper-blue-800",
+    textColor: "text-cooper-gray-400",
     bgColor: "bg-cooper-blue-800",
   },
 ];
@@ -357,13 +357,13 @@ export function ReviewForm(props: ReviewFormProps) {
           height={100}
           className="max-w-full xl:hidden"
         />
-        <div className="z-10 -mb-4 h-4 w-full rounded-t-lg bg-cooper-blue-600" />
-        <div className="flex w-full items-center justify-center rounded-lg bg-white px-4 py-16 text-center text-cooper-blue-600 outline outline-2 outline-cooper-blue-600 md:py-20 xl:pl-24 xl:text-start">
+        <div className="z-10 -mb-4 h-4 w-full rounded-t-lg bg-cooper-blue-800" />
+        <div className="flex w-full items-center justify-center rounded-lg bg-white px-4 py-16 text-center text-cooper-gray-400 outline outline-2 outline-cooper-blue-800 md:py-20 xl:pl-24 xl:text-start">
           <div className="flex flex-col items-center space-y-6 xl:items-start">
-            <h1 className="text-2xl font-bold text-cooper-blue-600 md:text-4xl">
+            <h1 className="border-cooper-gray-300 text-2xl font-bold md:text-4xl">
               Submit a Co-op Review!
             </h1>
-            <p className="text-lg text-cooper-blue-600 md:text-2xl">
+            <p className="border-cooper-gray-300 text-lg md:text-2xl">
               Thank you for taking the time to leave a review of your co-op
               experience! Join others in the Northeastern community and help
               people like yourself make the right career decision.

@@ -2,7 +2,7 @@ import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
 import type { CompanyType, ReviewType } from "@cooper/db/schema";
-import { asc, desc, eq, sql } from "@cooper/db";
+import { asc, desc, eq, like, sql } from "@cooper/db";
 import {
   CompaniesToLocations,
   Company,
@@ -29,6 +29,7 @@ export const companyRouter = {
     .input(
       z.object({
         search: z.string().optional(),
+        prefix: z.string().optional(),
         limit: z.number().optional().default(30),
       }),
     )
@@ -40,6 +41,7 @@ export const companyRouter = {
           COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
         FROM ${Company}
         LEFT JOIN ${Review} ON ${Review.companyId}::uuid = ${Company.id}
+        WHERE ${Company.name} ILIKE ${input.prefix ?? ""} || '%'
         GROUP BY ${Company.id}
         ORDER BY avg_rating DESC
       `);
@@ -58,6 +60,7 @@ export const companyRouter = {
 
       const companies = await ctx.db.query.Company.findMany({
         orderBy: ordering[ctx.sortBy],
+        where: like(Company.name, `${input.prefix}%`),
       });
 
       const fuseOptions = ["name", "description"];
