@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-import { CompanyType } from "../../db/src/schema/companies";
+import type { CompanyType } from "../../db/src/schema/companies";
 
 interface ILogoProps {
   company: CompanyType;
