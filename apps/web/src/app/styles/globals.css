@@ -16,8 +16,8 @@ html {
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: '#1250B3';
-    --primary-foreground: '#1250B3';
+    --primary: "#1250B3";
+    --primary-foreground: "#1250B3";
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
@@ -31,7 +31,7 @@ html {
     --ring: 222.2 84% 4.9%;
     --radius: 0.5rem;
   }
-  
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
@@ -59,7 +59,7 @@ html {
   * {
     @apply border-border;
   }
-  
+
   body {
     @apply bg-background text-foreground;
   }
