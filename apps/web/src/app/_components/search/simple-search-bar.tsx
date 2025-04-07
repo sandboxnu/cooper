@@ -19,7 +19,7 @@ export function SimpleSearchBar() {
   const newLocal =
     "h-12 border border-l-0 border-cooper-blue-800 text-lg text-cooper-blue-600 placeholder:text-cooper-blue-600 rounded-r-lg rounded-l-none";
   return (
-    <div className="flex w-full rounded-lg w-[700px]">
+    <div className="flex w-full rounded-lg w-full">
       <Button
         className="h-12 rounded-l-lg rounded-r-none border border-l border-r-0 border-t border-cooper-blue-800 bg-white p-0 px-2 text-lg hover:bg-cooper-blue-200 focus:border-r-0 focus:ring-0 active:ring-0"
         type="submit"

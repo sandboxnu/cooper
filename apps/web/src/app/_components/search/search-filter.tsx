@@ -104,7 +104,10 @@ export default function SearchFilter({
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className={searchClassName}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className={cn("w-[90vw]", searchClassName)}
+      >
         <div className={cn("flex justify-center")}>
           {searchType === "SIMPLE" && <SimpleSearchBar />}
           {searchType === "REVIEWS" && (
