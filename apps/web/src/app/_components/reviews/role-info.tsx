@@ -1,11 +1,10 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 
 import type { ReviewType, RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
+import Logo from "@cooper/ui/logo";
 
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
@@ -64,13 +63,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
         <CardHeader className="pb-3">
           <div className="flex items-center justify-start space-x-4">
             {companyData ? (
-              <Image
-                src={`https://logo.clearbit.com/${companyData.name.replace(/\s/g, "")}.com`}
-                width={80}
-                height={80}
-                alt={`Logo of ${companyData.name}`}
-                className="h-20 w-20 rounded-lg"
-              />
+              <Logo company={companyData} />
             ) : (
               <div className="h-20 w-20 rounded-lg border bg-cooper-blue-200"></div>
             )}
@@ -130,13 +123,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
             <div className="h-full" id="company">
               <InfoCard title={`About ${companyData.name}`}>
                 <div className="flex gap-4 overflow-scroll text-[#5a5a5a]">
-                  <Image
-                    src={`https://logo.clearbit.com/${companyData.name.replace(/\s/g, "")}.com`}
-                    width={80}
-                    height={80}
-                    alt={`Logo of ${companyData.name}`}
-                    className="h-20 w-20 rounded-lg"
-                  />
+                  <Logo company={companyData} />
                   <p className="h-40 overflow-scroll">
                     {companyData.description}
                   </p>
