@@ -5,7 +5,7 @@ import { Filter } from "bad-words";
 import { Form, FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { CompanyType, RoleType } from "@cooper/db/schema";
+import type { CompanyType, RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 import { DialogFooter } from "@cooper/ui/dialog";
@@ -16,8 +16,8 @@ import { Label } from "@cooper/ui/label";
 import Logo from "@cooper/ui/logo";
 import { Textarea } from "@cooper/ui/textarea";
 
+import type { RoleRequestType } from "../new-role-dialogue";
 import { api } from "~/trpc/react";
-import { RoleRequestType } from "../new-role-dialogue";
 
 const filter = new Filter();
 const roleSchema = z.object({

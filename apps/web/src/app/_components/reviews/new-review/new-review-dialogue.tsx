@@ -15,6 +15,7 @@ import {
 
 import { api } from "~/trpc/react";
 import ExistingCompanyContent from "./existing-company-content";
+import NewCompanyContent from "./new-company-content";
 
 interface NewReviewDialogProps {
   trigger?: React.ReactNode;
@@ -76,18 +77,20 @@ export function NewReviewDialog({ trigger }: NewReviewDialogProps) {
               >
                 Existing Company
               </Button>
-              <Button
-                variant="link"
-                className={cn(
-                  "mr-2 px-0 py-0 text-cooper-gray-300 hover:no-underline md:text-lg",
-                  companyMode === "new" && "underline hover:underline",
-                )}
-                onClick={() => {
-                  setCompanyMode("new");
-                }}
-              >
-                New Company
-              </Button>
+              {createdRolesCount < 4 && (
+                <Button
+                  variant="link"
+                  className={cn(
+                    "mr-2 px-0 py-0 text-cooper-gray-300 hover:no-underline md:text-lg",
+                    companyMode === "new" && "underline hover:underline",
+                  )}
+                  onClick={() => {
+                    setCompanyMode("new");
+                  }}
+                >
+                  New Company
+                </Button>
+              )}
             </div>
           </DialogTitle>
         </DialogHeader>
@@ -96,6 +99,9 @@ export function NewReviewDialog({ trigger }: NewReviewDialogProps) {
             createdRolesCount={createdRolesCount}
             profileId={profileId}
           />
+        )}
+        {companyMode === "new" && createdRolesCount < 4 && (
+          <NewCompanyContent profileId={profileId} />
         )}
       </DialogContent>
     </Dialog>
