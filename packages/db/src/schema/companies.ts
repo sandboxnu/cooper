@@ -1,4 +1,3 @@
-import { Filter } from "bad-words";
 import { relations, sql } from "drizzle-orm";
 import { pgTable, text, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
