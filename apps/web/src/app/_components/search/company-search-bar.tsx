@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 
 import { Button } from "@cooper/ui/button";
-import { FormControl, FormField, FormItem, FormLabel } from "@cooper/ui/form";
+import { FormControl, FormField, FormItem } from "@cooper/ui/form";
 import { useCallback } from "react";
 import {
   Select,
