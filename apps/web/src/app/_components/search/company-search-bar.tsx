@@ -92,9 +92,9 @@ export function CompanySearchBar({ industry, location }: SearchBarProps) {
   );
 
   return (
-    <div className="flex flex-row w-full justify-between items-center pt-4">
+    <div className="flex flex-row w-full justify-between items-center pt-4 ">
       <div className="text-[30px] justify-left">Browse Companies</div>
-      <div className="flex flex-row gap-6 min-w-0">
+      <div className="flex flex-row gap-6 min-w-0 items-center">
         <FormField
           control={form.control}
           name="searchIndustry"
@@ -110,8 +110,14 @@ export function CompanySearchBar({ industry, location }: SearchBarProps) {
                   }}
                   value={selectedIndustry}
                 >
-                  <SelectTrigger className="h-12 w-[340px] rounded-none border-2 border-l-0 border-t-0 border-[#9A9A9A] text-lg placeholder:opacity-50 focus:ring-0 active:ring-0 lg:rounded-md lg:border-2">
-                    <SelectValue placeholder="Industry" />
+                  <SelectTrigger
+                    className={`h-12 w-[21rem] ${selectedIndustry === "INDUSTRY" ? "text-cooper-gray-400" : "text-black"} rounded-none border-[0.75px] border-l-0 border-t-0 border-cooper-gray-400 text-lg placeholder:opacity-50 focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:outline-none lg:rounded-md lg:border-[0.75px]`}
+                  >
+                    <span
+                      className={`overflow-hidden text-lg whitespace-nowrap ${selectedIndustry === "INDUSTRY" ? "text-cooper-gray-400" : "text-gray"}`}
+                    >
+                      <SelectValue placeholder="Industry" />
+                    </span>
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
@@ -166,7 +172,7 @@ export function CompanySearchBar({ industry, location }: SearchBarProps) {
           )}
         />
         <Button
-          className="bg-white hover:bg-white hover:text-[#9A9A9A] border-white text-black"
+          className="bg-white hover:bg-white hover:text-[#9A9A9A] border-white text-cooper-gray-400 p-0"
           onClick={() => {
             setSelectedIndustry("INDUSTRY");
             setLocationLabel("");

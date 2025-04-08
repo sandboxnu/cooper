@@ -52,7 +52,7 @@ export default function ComboBox({
     variant === "form"
       ? "flex h-16 w-full rounded-md border-[3px] border-cooper-blue-600 bg-white px-3 py-2 text-xl font-normal ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
       : variant === "filtering"
-        ? "w-[340px] h-12 rounded-none border-2 border-l-0 border-t-0 border-[#9A9A9A] text-lg placeholder:opacity-50 focus:ring-0 active:ring-0 lg:rounded-md lg:border-2 py-0"
+        ? "w-[21rem] h-12 rounded-none border-[0.75px] border-l-0 border-t-0 border-cooper-gray-400 text-lg placeholder:opacity-50 focus:ring-0 active:ring-0 lg:rounded-md lg:border-[0.75px] py-0"
         : "h-8 py-0";
 
   return (
@@ -75,7 +75,9 @@ export default function ComboBox({
             variant !== "filtering" ? "w-[400px]" : "",
           )}
         >
-          <span className="overflow-hidden text-ellipsis whitespace-nowrap">
+          <span
+            className={`overflow-hidden text-lg whitespace-nowrap ${defaultLabel === "Location" ? "text-cooper-gray-400" : "text-gray"}`}
+          >
             {defaultLabel}
           </span>
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />

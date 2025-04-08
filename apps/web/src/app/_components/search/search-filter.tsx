@@ -106,7 +106,11 @@ export default function SearchFilter({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className={cn("w-[90vw]", searchClassName)}
+        className={cn(
+          "w-[98vw]",
+          searchType === "COMPANIES" && "w-full",
+          searchClassName,
+        )}
       >
         <div className={cn("flex justify-center")}>
           {searchType === "SIMPLE" && <SimpleSearchBar />}
