@@ -76,7 +76,7 @@ export default function ComboBox({
           )}
         >
           <span
-            className={`overflow-hidden text-lg whitespace-nowrap ${defaultLabel === "Location" ? "text-cooper-gray-400" : "text-gray"}`}
+            className={`overflow-hidden text-lg whitespace-nowrap ${defaultLabel === "Location" ? "text-cooper-gray-400" : "text-gray font-normal"}`}
           >
             {defaultLabel}
           </span>

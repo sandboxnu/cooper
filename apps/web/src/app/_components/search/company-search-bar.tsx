@@ -111,7 +111,7 @@ export function CompanySearchBar({ industry, location }: SearchBarProps) {
                   value={selectedIndustry}
                 >
                   <SelectTrigger
-                    className={`h-12 w-[21rem] ${selectedIndustry === "INDUSTRY" ? "text-cooper-gray-400" : "text-black"} rounded-none border-[0.75px] border-l-0 border-t-0 border-cooper-gray-400 text-lg placeholder:opacity-50 focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:outline-none lg:rounded-md lg:border-[0.75px]`}
+                    className={`h-12 w-[21rem] ${selectedIndustry === "INDUSTRY" ? "text-cooper-gray-400" : "text-gray font-normal "} rounded-none border-[0.75px] border-l-0 focus:ring-offset-0 border-t-0 border-cooper-gray-400 text-lg placeholder:opacity-50 focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:outline-none focus-visible:ring-offset-0 lg:rounded-md lg:border-[0.75px]`}
                   >
                     <span
                       className={`overflow-hidden text-lg whitespace-nowrap ${selectedIndustry === "INDUSTRY" ? "text-cooper-gray-400" : "text-gray"}`}
