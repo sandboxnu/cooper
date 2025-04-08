@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 
 import { Button } from "@cooper/ui/button";
-import { FormControl, FormField, FormItem } from "@cooper/ui/form";
+import { FormControl, FormField, FormItem, FormLabel } from "@cooper/ui/form";
 import { useCallback } from "react";
 import {
   Select,
@@ -18,6 +18,7 @@ import type { IndustryType, LocationType } from "@cooper/db/schema";
 import { api } from "~/trpc/react";
 import { usePathname, useRouter } from "next/navigation";
 import { z } from "zod";
+import ComboBox from "../combo-box";
 
 interface SearchBarProps {
   industry?: IndustryType;
@@ -39,10 +40,37 @@ export function CompanySearchBar({ industry, location }: SearchBarProps) {
   const [selectedIndustry, setSelectedIndustry] = useState<string | undefined>(
     industry,
   );
-  const [selectedLocation, setSelectedLocation] = useState<string | undefined>(
-    location?.city,
+
+  const [locationLabel, setLocationLabel] = useState<string>(
+    location ? `${location.city}, ${location.state}` : "Location",
   );
-  const { data: locations = [] } = api.location.list.useQuery();
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [prefix, setPrefix] = useState<string>("");
+
+  useEffect(() => {
+    const newPrefix =
+      searchTerm.length === 3 ? searchTerm.slice(0, 3).toLowerCase() : null;
+    if (newPrefix && newPrefix !== prefix) {
+      setPrefix(newPrefix);
+    }
+  }, [prefix, searchTerm]);
+  const locationsToUpdate = api.location.getByPrefix.useQuery(
+    { prefix },
+    { enabled: searchTerm.length === 3 },
+  );
+
+  const locationValuesAndLabels = locationsToUpdate.data
+    ? locationsToUpdate.data.map((location) => {
+        return {
+          value: location.id,
+          label:
+            location.city +
+            (location.state ? `, ${location.state}` : "") +
+            ", " +
+            location.country,
+        };
+      })
+    : [];
 
   const onSubmit = (data: FormSchema) => {
     router.push(pathName + "?" + createQueryString(data));
@@ -109,32 +137,30 @@ export function CompanySearchBar({ industry, location }: SearchBarProps) {
           render={({ field }) => (
             <FormItem className="col-span-5 lg:col-span-2">
               <FormControl>
-                <Select
-                  onValueChange={(value) => {
-                    setSelectedLocation(value);
-                    const finalValue = value === "LOCATION" ? undefined : value;
+                <ComboBox
+                  {...field}
+                  variant="filtering"
+                  defaultLabel={locationLabel || "Location"}
+                  searchPlaceholder="Type to begin..."
+                  searchEmpty="No location found."
+                  valuesAndLabels={locationValuesAndLabels}
+                  currLabel={locationLabel}
+                  onChange={(value) => {
+                    setSearchTerm(value);
+                  }}
+                  onSelect={(currentValue) => {
+                    setLocationLabel(currentValue);
+                    const selectedLoc = locationsToUpdate.data?.find(
+                      (loc) =>
+                        `${loc.city}${loc.state ? `, ${loc.state}` : ""}${loc.country ? `, ${loc.country}` : ""}` ===
+                        currentValue,
+                    );
+                    const finalValue =
+                      currentValue === "LOCATION" ? undefined : selectedLoc?.id;
                     setValue(field.name, finalValue);
                     void handleSubmit(onSubmit)();
                   }}
-                  value={selectedLocation}
-                >
-                  <SelectTrigger className="h-12 w-[340px] rounded-none border-2 border-l-0 border-t-0 border-[#9A9A9A] text-lg placeholder:opacity-50 focus:ring-0 active:ring-0 lg:rounded-md lg:border-2">
-                    <SelectValue placeholder="Location" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectGroup>
-                      <SelectItem className="font-bold" value="LOCATION">
-                        Location
-                      </SelectItem>
-                      <SelectSeparator />
-                      {locations.map((location: LocationType) => (
-                        <SelectItem key={location.id} value={location.id}>
-                          {location.city + ", " + location.state}
-                        </SelectItem>
-                      ))}
-                    </SelectGroup>
-                  </SelectContent>
-                </Select>
+                />
               </FormControl>
             </FormItem>
           )}
@@ -143,7 +169,7 @@ export function CompanySearchBar({ industry, location }: SearchBarProps) {
           className="bg-white hover:bg-white hover:text-[#9A9A9A] border-white text-black"
           onClick={() => {
             setSelectedIndustry("INDUSTRY");
-            setSelectedLocation("LOCATION");
+            setLocationLabel("");
             form.setValue("searchIndustry", undefined);
             form.setValue("searchLocation", undefined);
           }}

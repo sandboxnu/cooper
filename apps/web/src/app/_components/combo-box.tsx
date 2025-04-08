@@ -27,7 +27,7 @@ interface ComboBoxProps {
   onSelect: (option: string) => void;
   triggerClassName?: string;
   onChange?: (value: string) => void;
-  variant?: "default" | "form";
+  variant?: "default" | "form" | "filtering";
 }
 
 /**
@@ -51,15 +51,18 @@ export default function ComboBox({
   const styleVariant =
     variant === "form"
       ? "flex h-16 w-full rounded-md border-[3px] border-cooper-blue-600 bg-white px-3 py-2 text-xl font-normal ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-      : "";
+      : variant === "filtering"
+        ? "w-[340px] h-12 rounded-none border-2 border-l-0 border-t-0 border-[#9A9A9A] text-lg placeholder:opacity-50 focus:ring-0 active:ring-0 lg:rounded-md lg:border-2 py-0"
+        : "h-8 py-0";
 
   return (
     <Popover open={isOpen} onOpenChange={setIsOpen}>
       <PopoverTrigger
         asChild
         className={cn(
-          "w-[400px] overflow-hidden file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+          "overflow-hidden file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
           triggerClassName,
+          variant !== "filtering" ? "w-[400px]" : "",
         )}
       >
         <Button
@@ -68,7 +71,8 @@ export default function ComboBox({
           aria-expanded={isOpen}
           className={cn(
             styleVariant,
-            "w-[400px] justify-between overflow-hidden text-ellipsis text-nowrap",
+            "justify-between overflow-hidden text-ellipsis text-nowrap h-12 py-0 min-h-0",
+            variant !== "filtering" ? "w-[400px]" : "",
           )}
         >
           <span className="overflow-hidden text-ellipsis whitespace-nowrap">
