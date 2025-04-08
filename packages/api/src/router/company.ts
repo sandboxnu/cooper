@@ -1,8 +1,8 @@
 import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
-import type { ReviewType } from "@cooper/db/schema";
-import { desc, eq } from "@cooper/db";
+import type { CompanyType, ReviewType } from "@cooper/db/schema";
+import { asc, desc, eq, sql } from "@cooper/db";
 import {
   CompaniesToLocations,
   Company,
@@ -11,14 +11,62 @@ import {
   Review,
 } from "@cooper/db/schema";
 
-import { protectedProcedure, publicProcedure } from "../trpc";
+import {
+  protectedProcedure,
+  publicProcedure,
+  sortableProcedure,
+} from "../trpc";
+import { performFuseSearch } from "../utils/fuzzyHelper";
+
+const ordering = {
+  default: desc(Company.id),
+  newest: desc(Company.createdAt),
+  oldest: asc(Company.createdAt),
+};
 
 export const companyRouter = {
-  list: publicProcedure.query(({ ctx }) => {
-    return ctx.db.query.Company.findMany({
-      orderBy: desc(Company.id),
-    });
-  }),
+  list: sortableProcedure
+    .input(
+      z.object({
+        search: z.string().optional(),
+        limit: z.number().optional().default(30),
+      }),
+    )
+    .query(async ({ ctx, input }) => {
+      if (ctx.sortBy === "rating" || ctx.sortBy === "default") {
+        const companiesWithRatings = await ctx.db.execute(sql`
+        SELECT 
+          ${Company}.*, 
+          COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
+        FROM ${Company}
+        LEFT JOIN ${Review} ON ${Review.companyId}::uuid = ${Company.id}
+        GROUP BY ${Company.id}
+        ORDER BY avg_rating DESC
+      `);
+
+        const companies = companiesWithRatings.rows.map((role) => ({
+          ...(role as CompanyType),
+        }));
+
+        const fuseOptions = ["name", "description"];
+        return performFuseSearch<CompanyType>(
+          companies,
+          fuseOptions,
+          input.search,
+        ).slice(0, input.limit);
+      }
+
+      const companies = await ctx.db.query.Company.findMany({
+        orderBy: ordering[ctx.sortBy],
+      });
+
+      const fuseOptions = ["name", "description"];
+      return performFuseSearch<CompanyType>(
+        companies,
+        fuseOptions,
+        input.search,
+      ).slice(0, input.limit);
+    }),
 
   getByName: publicProcedure
     .input(z.object({ name: z.string() }))

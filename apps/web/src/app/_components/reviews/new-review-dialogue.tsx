@@ -29,10 +29,11 @@ interface NewReviewDialogProps {
  */
 export function NewReviewDialog({ trigger }: NewReviewDialogProps) {
   const router = useRouter();
+  const session = api.auth.getSession.useQuery();
   // State for the company combo box
   const [companyLabel, setCompanyLabel] = useState<string>("");
 
-  const companies = api.company.list.useQuery();
+  const companies = api.company.list.useQuery({});
   const companyValuesAndLabels = companies.data
     ? companies.data.map((company) => {
         return {
@@ -45,7 +46,7 @@ export function NewReviewDialog({ trigger }: NewReviewDialogProps) {
   // State for the role combo box
   const [roleLabel, setRoleLabel] = useState<string>("");
 
-  const roles = api.role.list.useQuery();
+  const roles = api.role.list.useQuery({});
   const [roleValuesAndLabels, setRoleValuesAndLabels] = useState<
     ComboBoxOption<string>[]
   >([]);
@@ -73,6 +74,10 @@ export function NewReviewDialog({ trigger }: NewReviewDialogProps) {
     setRoleValuesAndLabels(filteredRoleValuesAndLabels);
   }
 
+  if (!session.isSuccess && !session.data) {
+    return;
+  }
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -81,7 +86,7 @@ export function NewReviewDialog({ trigger }: NewReviewDialogProps) {
             {trigger}
           </Button>
         ) : (
-          <Button className="h-9 rounded-full border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-4 py-3 text-sm font-semibold text-white hover:border-cooper-yellow-300 hover:bg-cooper-yellow-300">
+          <Button className="h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-4 py-3 text-sm font-semibold text-white hover:border-cooper-yellow-300 hover:bg-cooper-yellow-300">
             + New Review
           </Button>
         )}
@@ -136,7 +141,7 @@ export function NewReviewDialog({ trigger }: NewReviewDialogProps) {
           <DialogFooter>
             <Button
               type="submit"
-              className="border-none bg-cooper-blue-400 text-white hover:bg-cooper-blue-600"
+              className="border-none bg-cooper-blue-600 text-white hover:bg-cooper-blue-600"
               disabled={!roleLabel}
             >
               Next

@@ -1,9 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { ChevronDown } from "lucide-react";
 
 import type { RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
+import { Button } from "@cooper/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+} from "@cooper/ui/dropdown-menu";
 
 import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
@@ -12,33 +21,82 @@ import { RoleInfo } from "~/app/_components/reviews/role-info";
 import { api } from "~/trpc/react";
 
 export default function Roles() {
-  const roles = api.role.list.useQuery();
+  const searchParams = useSearchParams();
+  const searchValue = searchParams.get("search") ?? ""; // Get search query from URL
+
+  const [selectedFilter, setSelectedFilter] = useState<
+    "default" | "rating" | "newest" | "oldest" | undefined
+  >("default");
+  const roles = api.role.list.useQuery({
+    sortBy: selectedFilter,
+    search: searchValue,
+  });
+
+  const buttonStyle =
+    "bg-white hover:bg-cooper-gray-200 border-white text-black p-2";
 
   const [selectedRole, setSelectedRole] = useState<RoleType | undefined>(
     roles.isSuccess ? roles.data[0] : undefined,
   );
 
-  useEffect(() => {
-    if (roles.isSuccess) {
-      setSelectedRole(roles.data[0]);
-    }
-  }, [roles.isSuccess, roles.data]);
-
   return (
     <>
       {roles.isSuccess && roles.data.length > 0 && (
-        <div className="flex h-[86dvh] w-full gap-4 divide-x divide-[#474747] pl-4 lg:h-[92dvh]">
-          <div className="w-[28%] gap-3 overflow-auto p-1">
+        <div className="flex h-[86dvh] w-full lg:h-[92dvh]">
+          {/* TODO: Confirm what background color we want to use here with the designers */}
+          <div className="w-[28%] gap-3 overflow-auto rounded-tr-lg border-r-[0.75px] border-t-[0.75px] border-cooper-gray-300 bg-cooper-gray-100 p-5 xl:rounded-none">
+            <div className="text-right">
+              <DropdownMenu>
+                <DropdownMenuTrigger className="text-md mb-2">
+                  Sort By{" "}
+                  <span className="underline">
+                    {selectedFilter &&
+                      selectedFilter.charAt(0).toUpperCase() +
+                        selectedFilter.slice(1)}
+                  </span>
+                  <ChevronDown className="inline" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuLabel className="flex flex-col text-center">
+                    <Button
+                      className={buttonStyle}
+                      onClick={() => setSelectedFilter("default")}
+                    >
+                      Default
+                    </Button>
+                    <Button
+                      className={buttonStyle}
+                      onClick={() => setSelectedFilter("newest")}
+                    >
+                      Newest
+                    </Button>
+                    <Button
+                      className={buttonStyle}
+                      onClick={() => setSelectedFilter("oldest")}
+                    >
+                      Oldest
+                    </Button>
+                    <Button
+                      className={buttonStyle}
+                      onClick={() => setSelectedFilter("rating")}
+                    >
+                      Rating
+                    </Button>
+                  </DropdownMenuLabel>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
             {roles.data.map((role, i) => {
               return (
                 <div key={role.id} onClick={() => setSelectedRole(role)}>
                   <RoleCardPreview
-                    reviewObj={role}
+                    roleObj={role}
                     className={cn(
                       "mb-4 hover:bg-cooper-gray-100",
                       selectedRole
-                        ? selectedRole.id === role.id && "bg-cooper-gray-200"
-                        : !i && "bg-cooper-gray-200",
+                        ? selectedRole.id === role.id &&
+                            "bg-cooper-gray-200 hover:bg-cooper-gray-200"
+                        : !i && "bg-cooper-gray-200 hover:bg-cooper-gray-200",
                     )}
                   />
                 </div>
@@ -52,8 +110,10 @@ export default function Roles() {
           </div>
         </div>
       )}
-      {roles.isSuccess && roles.data.length === 0 && <NoResults />}
-      {roles.isPending && <LoadingResults />}
+      {roles.isSuccess && roles.data.length === 0 && (
+        <NoResults className="h-full" />
+      )}
+      {roles.isPending && <LoadingResults className="h-full" />}
     </>
   );
 }

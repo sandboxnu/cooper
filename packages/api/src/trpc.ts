@@ -8,7 +8,7 @@
  */
 import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
-import { ZodError } from "zod";
+import { z, ZodError } from "zod";
 
 import type { Session } from "@cooper/auth";
 import { auth, validateToken } from "@cooper/auth";
@@ -40,6 +40,7 @@ const isomorphicGetSession = async (headers: Headers) => {
 export const createTRPCContext = async (opts: {
   headers: Headers;
   session: Session | null;
+  res?: Response;
 }) => {
   const authToken = opts.headers.get("Authorization") ?? null;
   const session = await isomorphicGetSession(opts.headers);
@@ -51,6 +52,7 @@ export const createTRPCContext = async (opts: {
     session,
     db,
     token: authToken,
+    res: opts.res,
   };
 };
 
@@ -118,3 +120,21 @@ export const protectedProcedure = t.procedure.use(({ ctx, next }) => {
     },
   });
 });
+
+export const sortableProcedure = t.procedure
+  .input(
+    z
+      .object({
+        sortBy: z.enum(["default", "rating", "newest", "oldest"]).optional(),
+      })
+      .optional(),
+  )
+  .use(({ ctx, input, next }) => {
+    return next({
+      ctx: {
+        // infers the `session` as non-nullable
+        session: { ...ctx.session },
+        sortBy: input?.sortBy ?? "default",
+      },
+    });
+  });

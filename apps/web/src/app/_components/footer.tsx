@@ -30,8 +30,8 @@ export default function Footer() {
             Submit Feedback or Bug Reports!
           </h2>
         </Link>
-        <a href="https://clearbit.com" target="_blank" className="italic">
-          Logos provided by Clearbit
+        <a href="https://logo.dev" target="_blank" className="italic">
+          Logos provided by Logo.dev
         </a>
       </div>
     </footer>

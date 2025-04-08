@@ -1,16 +1,23 @@
 import type { TRPCRouterRecord } from "@trpc/server";
 import { TRPCError } from "@trpc/server";
+import { Filter } from "bad-words";
 import Fuse from "fuse.js";
 import { z } from "zod";
 
-import { and, desc, eq } from "@cooper/db";
+import type { ReviewType } from "@cooper/db/schema";
+import { and, desc, eq, inArray } from "@cooper/db";
 import {
   CompaniesToLocations,
+  Company,
   CreateReviewSchema,
   Review,
 } from "@cooper/db/schema";
 
-import { protectedProcedure, publicProcedure } from "../trpc";
+import {
+  protectedProcedure,
+  publicProcedure,
+  sortableProcedure,
+} from "../trpc";
 
 export const reviewRouter = {
   list: publicProcedure
@@ -84,8 +91,40 @@ export const reviewRouter = {
           message: "You must be logged in to leave a review",
         });
       }
+
+      // Initialize bad words filter
+      const filter = new Filter();
+
+      if (filter.isProfane(input.reviewHeadline)) {
+        throw new TRPCError({
+          code: "PRECONDITION_FAILED",
+          message: "Review headline cannot contain profane words",
+        });
+      } else if (filter.isProfane(input.textReview)) {
+        throw new TRPCError({
+          code: "PRECONDITION_FAILED",
+          message: "Review text cannot contain profane words",
+        });
+      } else if (filter.isProfane(input.interviewReview ?? "")) {
+        throw new TRPCError({
+          code: "PRECONDITION_FAILED",
+          message: "Interview review cannot contain profane words",
+        });
+      }
+
+      // Create a clean version of the input with filtered strings
+      const cleanInput = {
+        ...input,
+        reviewHeadline: filter.clean(input.reviewHeadline),
+        textReview: filter.clean(input.textReview),
+        // Keep non-string fields as they are
+        profileId: input.profileId,
+        interviewReview: filter.clean(input.interviewReview ?? ""),
+      };
+
+      // Rest of the validation logic
       const reviews = await ctx.db.query.Review.findMany({
-        where: eq(Review.profileId, input.profileId),
+        where: eq(Review.profileId, cleanInput.profileId),
       });
       if (reviews.length >= 5) {
         throw new TRPCError({
@@ -95,8 +134,8 @@ export const reviewRouter = {
       }
       const reviewsInSameCycle = reviews.filter(
         (review) =>
-          review.workTerm === input.workTerm &&
-          review.workYear === input.workYear,
+          review.workTerm === cleanInput.workTerm &&
+          review.workYear === cleanInput.workYear,
       );
       if (reviewsInSameCycle.length >= 2) {
         throw new TRPCError({
@@ -106,25 +145,106 @@ export const reviewRouter = {
       }
 
       // Check if a CompaniesToLocations object already exists with the given companyId and locationId
-      const existingRelation =
-        await ctx.db.query.CompaniesToLocations.findFirst({
-          where: and(
-            eq(CompaniesToLocations.companyId, input.companyId),
-            eq(CompaniesToLocations.locationId, input.locationId ?? ""),
-          ),
-        });
+      if (input.locationId) {
+        const existingRelation =
+          await ctx.db.query.CompaniesToLocations.findFirst({
+            where: and(
+              eq(CompaniesToLocations.companyId, input.companyId),
+              eq(CompaniesToLocations.locationId, input.locationId ?? ""),
+            ),
+          });
 
-      if (!existingRelation) {
-        await ctx.db.insert(CompaniesToLocations).values({
-          locationId: input.locationId ?? "",
-          companyId: input.companyId,
-        });
+        if (!existingRelation) {
+          await ctx.db.insert(CompaniesToLocations).values({
+            locationId: input.locationId,
+            companyId: input.companyId,
+          });
+        }
       }
 
-      return ctx.db.insert(Review).values(input);
+      return ctx.db.insert(Review).values(cleanInput);
     }),
 
   delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
     return ctx.db.delete(Review).where(eq(Review.id, input));
   }),
+
+  getAverageByIndustry: sortableProcedure
+    .input(z.object({ industry: z.string() }))
+    .query(async ({ ctx, input }) => {
+      if (ctx.res) {
+        ctx.res.headers.set(
+          "Cache-Control",
+          "public, max-age=28800, s-maxage=28800, stale-while-revalidate=600",
+        );
+      }
+
+      const companies = await ctx.db.query.Company.findMany({
+        where: eq(Company.industry, input.industry),
+      });
+
+      const companyIds = companies.map((company) => company.id);
+
+      const reviews = await ctx.db.query.Review.findMany({
+        where: inArray(Review.companyId, companyIds),
+      });
+
+      const calcAvg = (field: keyof ReviewType) => {
+        return totalReviews > 0
+          ? reviews.reduce((sum, review) => sum + Number(review[field]), 0) /
+              totalReviews
+          : 0;
+      };
+
+      const calcPercentage = (field: keyof ReviewType): number => {
+        return totalReviews > 0
+          ? reviews.filter((review) => review[field] === true).length /
+              totalReviews
+          : 0;
+      };
+
+      const totalReviews = reviews.length;
+
+      const averageOverallRating = calcAvg("overallRating");
+      const averageHourlyPay = calcAvg("hourlyPay");
+      const averageInterviewDifficulty = calcAvg("interviewDifficulty");
+      const averageCultureRating = calcAvg("cultureRating");
+      const averageSupervisorRating = calcAvg("supervisorRating");
+      const averageInterviewRating = calcAvg("interviewRating");
+
+      const federalHolidays = calcPercentage("federalHolidays");
+      const drugTest = calcPercentage("drugTest");
+      const freeLunch = calcPercentage("freeLunch");
+      const freeMerch = calcPercentage("freeMerch");
+      const freeTransportation = calcPercentage("freeTransport");
+      const overtimeNormal = calcPercentage("overtimeNormal");
+      const pto = calcPercentage("pto");
+
+      const minPay =
+        totalReviews !== 0
+          ? Math.min(...reviews.map((review) => Number(review.hourlyPay)))
+          : 0;
+      const maxPay =
+        totalReviews !== 0
+          ? Math.max(...reviews.map((review) => Number(review.hourlyPay)))
+          : 0;
+
+      return {
+        averageOverallRating: averageOverallRating,
+        averageHourlyPay: averageHourlyPay,
+        averageInterviewDifficulty: averageInterviewDifficulty,
+        averageCultureRating: averageCultureRating,
+        averageSupervisorRating: averageSupervisorRating,
+        averageInterviewRating: averageInterviewRating,
+        federalHolidays: federalHolidays,
+        drugTest: drugTest,
+        freeLunch: freeLunch,
+        freeMerch: freeMerch,
+        freeTransportation: freeTransportation,
+        overtimeNormal: overtimeNormal,
+        pto: pto,
+        minPay: minPay,
+        maxPay: maxPay,
+      };
+    }),
 } satisfies TRPCRouterRecord;

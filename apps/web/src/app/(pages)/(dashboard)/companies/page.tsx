@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
 import LoadingResults from "~/app/_components/loading-results";
@@ -8,7 +8,12 @@ import NoResults from "~/app/_components/no-results";
 import { api } from "~/trpc/react";
 
 export default function Companies() {
-  const companies = api.company.list.useQuery();
+  const searchParams = useSearchParams();
+  const searchValue = searchParams.get("search") ?? ""; // Get search query from URL
+
+  const companies = api.company.list.useQuery({
+    search: searchValue,
+  });
 
   const router = useRouter();
 
@@ -27,9 +32,9 @@ export default function Companies() {
           ))}
         </div>
       ) : companies.isSuccess && companies.data.length === 0 ? (
-        <NoResults />
+        <NoResults className="h-full" />
       ) : companies.isPending ? (
-        <LoadingResults />
+        <LoadingResults className="h-full" />
       ) : null}
     </>
   );

@@ -1,7 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { useSearchParams } from "next/navigation";
+
+import Logo from "@cooper/ui/logo";
 
 import RenderAllRoles from "~/app/_components/companies/all-company-roles";
 import { CompanyAbout } from "~/app/_components/companies/company-about";
@@ -23,13 +24,7 @@ export default function Company() {
           <div className="mb-6 mt-6 flex items-center justify-between">
             <div className="flex items-center">
               <div className="mr-3 flex h-16 w-16 items-center justify-center">
-                <Image
-                  src={`https://logo.clearbit.com/${company.data?.name.replace(/\s/g, "")}.com`}
-                  width={80}
-                  height={80}
-                  alt={`Logo of ${company.data?.name}`}
-                  className="rounded-md"
-                />
+                {company.data && <Logo company={company.data} size="small" />}
               </div>
               <div>
                 <h1 className="text-4xl font-bold">{company.data?.name}</h1>
@@ -61,11 +56,11 @@ export default function Company() {
             <CompanyReview companyObj={company.data} />
           </div>
 
-          <div className="my-8 border-t border-black"></div>
+          <div className="my-8 border-t border-cooper-gray-400"></div>
           <RenderAllRoles company={companyID} />
         </div>
       ) : (
-        <NoResults />
+        <NoResults className="h-full" />
       )}
     </>
   );
