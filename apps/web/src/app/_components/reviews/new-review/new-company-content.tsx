@@ -5,14 +5,12 @@ import { Filter } from "bad-words";
 import { Form, FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { CompanyType } from "@cooper/db/schema";
 import { Button } from "@cooper/ui/button";
 import { DialogFooter } from "@cooper/ui/dialog";
 import { FormControl, FormField, FormItem, FormMessage } from "@cooper/ui/form";
 import { toast } from "@cooper/ui/hooks/use-toast";
 import { Input } from "@cooper/ui/input";
 import { Label } from "@cooper/ui/label";
-import Logo from "@cooper/ui/logo";
 import { Textarea } from "@cooper/ui/textarea";
 
 import { api } from "~/trpc/react";

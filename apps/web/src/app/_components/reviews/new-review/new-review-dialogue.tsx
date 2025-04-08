@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
