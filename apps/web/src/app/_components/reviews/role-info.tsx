@@ -121,7 +121,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
         <div className="grid w-[80%] grid-cols-2 gap-5 pl-6">
           <div className="h-full" id="job-description">
             <InfoCard title={"Job Description"}>
-              <div className="flex h-40 overflow-scroll pr-4 text-[#5a5a5a]">
+              <div className="flex h-40 overflow-auto pr-4 text-[#5a5a5a]">
                 {roleObj.description}
               </div>
             </InfoCard>
@@ -129,7 +129,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
           {companyData && (
             <div className="h-full" id="company">
               <InfoCard title={`About ${companyData.name}`}>
-                <div className="flex gap-4 overflow-scroll text-[#5a5a5a]">
+                <div className="flex gap-4 overflow-auto text-[#5a5a5a]">
                   <Image
                     src={`https://logo.clearbit.com/${companyData.name.replace(/\s/g, "")}.com`}
                     width={80}
@@ -137,7 +137,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                     alt={`Logo of ${companyData.name}`}
                     className="h-20 w-20 rounded-lg"
                   />
-                  <p className="h-40 overflow-scroll">
+                  <p className="h-40 overflow-auto">
                     {companyData.description}
                   </p>
                 </div>
