@@ -237,22 +237,34 @@ export default function ExistingCompanyContent({
                   </div>
                 )}
                 {roles.isSuccess &&
-                  roles.data.length === 0 &&
-                  createdRolesCount < 4 && (
-                    <div
-                      className={cn(
-                        "flex flex-col items-center justify-center rounded-lg border border-cooper-gray-300 p-2 hover:cursor-pointer",
-                        creatingNewRole && "bg-cooper-blue-200",
-                      )}
-                      onClick={() => {
-                        setCreatingNewRole(true);
-                        setSelectedRoleId(undefined);
-                      }}
-                    >
-                      <h2 className="text-lg">Don't see your role?</h2>
-                      <p className="text-md">Add a New One</p>
-                    </div>
-                  )}
+                roles.data.length === 0 &&
+                createdRolesCount < 4 ? (
+                  <div
+                    className={cn(
+                      "flex flex-col items-center justify-center rounded-lg border border-cooper-gray-300 p-2 hover:cursor-pointer",
+                      creatingNewRole && "bg-cooper-blue-200",
+                    )}
+                    onClick={() => {
+                      setCreatingNewRole(true);
+                      setSelectedRoleId(undefined);
+                    }}
+                  >
+                    <h2 className="text-lg">Don't see your role?</h2>
+                    <p className="text-md">Add a New One</p>
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center justify-center rounded-lg border border-cooper-gray-300 p-2">
+                    <h2 className="text-center text-lg">
+                      You have already created the maximum number of roles.
+                    </h2>
+                    <p className="text-md">
+                      Thank you for contributing to{" "}
+                      <span className="font-bold text-cooper-blue-800">
+                        cooper!
+                      </span>
+                    </p>
+                  </div>
+                )}
               </div>
             </article>
             {/* Create New Role Section */}

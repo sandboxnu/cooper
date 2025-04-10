@@ -52,6 +52,15 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
     "Transportation covered": averages.data.freeTransportation,
   };
 
+  // ====== Ensure User Is Logged In + Hasn't Made Too Many Reviews ====== //
+  const { data: profile } = api.profile.getCurrentUser.useQuery();
+  const profileId = profile?.id;
+
+  const usersReviews = api.review.getByProfile.useQuery(
+    { id: profileId ?? "" },
+    { enabled: !!profileId },
+  );
+
   return (
     <div
       className={cn(
@@ -259,12 +268,14 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
               {reviews.isSuccess && reviews.data.length === 0 && (
                 <div className="flex h-full w-full flex-col items-center justify-center text-[#5a5a5a]">
                   <p>No reviews yet</p>
-                  <Link
-                    href={`/review?id=${roleObj.id}`}
-                    className="ml-2 underline"
-                  >
-                    Add one!
-                  </Link>
+                  {usersReviews.isSuccess && usersReviews.data.length < 5 && (
+                    <Link
+                      href={`/review?id=${roleObj.id}`}
+                      className="ml-2 underline"
+                    >
+                      Add one!
+                    </Link>
+                  )}
                 </div>
               )}
               {reviews.isSuccess && reviews.data.length > 0 && (
