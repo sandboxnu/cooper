@@ -144,6 +144,22 @@ export default function ExistingCompanyContent({
     }
   }
 
+  const createNewRoleButton = (
+    <div
+      className={cn(
+        "flex flex-col items-center justify-center rounded-lg border border-cooper-gray-300 p-2 hover:cursor-pointer",
+        creatingNewRole && "bg-cooper-blue-200",
+      )}
+      onClick={() => {
+        setCreatingNewRole(true);
+        setSelectedRoleId(undefined);
+      }}
+    >
+      <h2 className="text-lg">Don't see your role?</h2>
+      <p className="text-md">Add a New One</p>
+    </div>
+  );
+
   return (
     <>
       <div className="flex flex-col gap-4">
@@ -214,21 +230,7 @@ export default function ExistingCompanyContent({
                         <p className="text-md">{role.description}</p>
                       </div>
                     ))}
-                    {createdRolesCount < 4 && (
-                      <div
-                        className={cn(
-                          "flex flex-col items-center justify-center rounded-lg border border-cooper-gray-300 p-2 hover:cursor-pointer",
-                          creatingNewRole && "bg-cooper-blue-200",
-                        )}
-                        onClick={() => {
-                          setCreatingNewRole(true);
-                          setSelectedRoleId(undefined);
-                        }}
-                      >
-                        <h2 className="text-lg">Don't see your role?</h2>
-                        <p className="text-md">Add a New One</p>
-                      </div>
-                    )}
+                    {createdRolesCount < 4 && createNewRoleButton}
                   </>
                 )}
                 {roles.isPending && (
@@ -236,23 +238,11 @@ export default function ExistingCompanyContent({
                     <h2 className="text-lg italic">Loading...</h2>
                   </div>
                 )}
-                {roles.isSuccess &&
-                roles.data.length === 0 &&
-                createdRolesCount < 4 ? (
-                  <div
-                    className={cn(
-                      "flex flex-col items-center justify-center rounded-lg border border-cooper-gray-300 p-2 hover:cursor-pointer",
-                      creatingNewRole && "bg-cooper-blue-200",
-                    )}
-                    onClick={() => {
-                      setCreatingNewRole(true);
-                      setSelectedRoleId(undefined);
-                    }}
-                  >
-                    <h2 className="text-lg">Don't see your role?</h2>
-                    <p className="text-md">Add a New One</p>
-                  </div>
-                ) : (
+                {createdRolesCount < 4 &&
+                  roles.isSuccess &&
+                  roles.data.length === 0 &&
+                  createNewRoleButton}
+                {createdRolesCount >= 4 && (
                   <div className="flex flex-col items-center justify-center rounded-lg border border-cooper-gray-300 p-2">
                     <h2 className="text-center text-lg">
                       You have already created the maximum number of roles.
