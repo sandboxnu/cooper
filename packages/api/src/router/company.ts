@@ -3,12 +3,14 @@ import { TRPCError } from "@trpc/server";
 import { Filter } from "bad-words";
 import { z } from "zod";
 
+import type { SQL, SQLWrapper } from "@cooper/db";
 import type { CompanyType, ReviewType } from "@cooper/db/schema";
-import { asc, desc, eq, like, sql } from "@cooper/db";
+import { and, asc, desc, eq, like, sql } from "@cooper/db";
 import {
   CompaniesToLocations,
   Company,
   CreateCompanySchema,
+  Industry,
   Location,
   Review,
   Role,
@@ -33,18 +35,45 @@ export const companyRouter = {
       z.object({
         search: z.string().optional(),
         prefix: z.string().optional(),
+        options: z
+          .object({
+            industry: z
+              .enum(Object.values(Industry) as [string, ...string[]])
+              .optional(),
+            location: z.string().optional(),
+          })
+          .optional(),
         limit: z.number().optional().default(30),
       }),
     )
     .query(async ({ ctx, input }) => {
       if (ctx.sortBy === "rating" || ctx.sortBy === "default") {
+        const filters: SQL[] = [];
+
+        if (input.options?.industry) {
+          filters.push(sql`${Company.industry} = ${input.options.industry}`);
+        }
+
+        if (input.options?.location) {
+          filters.push(sql`${Company.id} IN (
+            SELECT ${CompaniesToLocations.companyId}
+            FROM ${CompaniesToLocations}
+            WHERE ${CompaniesToLocations.locationId} = ${input.options.location}
+          )`);
+        }
+
+        const whereClause =
+          filters.length > 0
+            ? sql`WHERE ${sql.join(filters, sql` AND ${Company.name} ILIKE ${input.prefix ?? ""} || '%'`)}`
+            : sql`WHERE ${Company.name} ILIKE ${input.prefix ?? ""} || '%'`;
+
         const companiesWithRatings = await ctx.db.execute(sql`
         SELECT 
           ${Company}.*, 
           COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
         FROM ${Company}
         LEFT JOIN ${Review} ON ${Review.companyId}::uuid = ${Company.id}
-        WHERE ${Company.name} ILIKE ${input.prefix ?? ""} || '%'
+        ${whereClause}
         GROUP BY ${Company.id}
         ORDER BY avg_rating DESC
       `);
@@ -61,9 +90,16 @@ export const companyRouter = {
         ).slice(0, input.limit);
       }
 
+      const conditions = [
+        input.options?.industry && eq(Company.industry, input.options.industry),
+        input.options?.location &&
+          eq(CompaniesToLocations.locationId, input.options.location),
+        like(Company.name, `${input.prefix}%`),
+      ].filter(Boolean) as SQLWrapper[];
+
       const companies = await ctx.db.query.Company.findMany({
         orderBy: ordering[ctx.sortBy],
-        where: like(Company.name, `${input.prefix}%`),
+        where: conditions.length > 0 ? and(...conditions) : undefined,
       });
 
       const fuseOptions = ["name", "description"];
