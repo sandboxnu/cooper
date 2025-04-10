@@ -30,7 +30,7 @@ export default function Header({ auth }: HeaderProps) {
           href="/"
           className={cn("flex w-fit items-center justify-center", outerWidth)}
         >
-          <div className="z-0 mx-4 hidden min-w-[80px] items-end sm:flex">
+          <div className="z-0 mx-4 flex min-w-[80px] items-end">
             <CooperLogo />
           </div>
           <h1 className="text-3xl font-bold text-cooper-blue-800 xl:text-4xl">
@@ -43,7 +43,7 @@ export default function Header({ auth }: HeaderProps) {
         <SearchFilter searchClassName="max-w-[50vw]" />
       </div>
 
-      <div className="mr-6 flex flex-shrink grid-cols-2 items-center justify-start gap-6">
+      <div className="mr-6 flex flex-shrink grid-cols-2 items-center justify-start gap-6 max-sm:hidden">
         <div className="flex items-center justify-start gap-8">
           <Link href="/">
             <h2
