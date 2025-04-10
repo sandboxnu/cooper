@@ -52,6 +52,15 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
     "Transportation covered": averages.data.freeTransportation,
   };
 
+  // ====== Ensure User Is Logged In + Hasn't Made Too Many Reviews ====== //
+  const { data: profile } = api.profile.getCurrentUser.useQuery();
+  const profileId = profile?.id;
+
+  const usersReviews = api.review.getByProfile.useQuery(
+    { id: profileId ?? "" },
+    { enabled: !!profileId },
+  );
+
   return (
     <div
       className={cn(
@@ -114,7 +123,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
         <div className="grid w-[80%] grid-cols-2 gap-5 pl-6">
           <div className="h-full" id="job-description">
             <InfoCard title={"Job Description"}>
-              <div className="flex h-40 overflow-scroll pr-4 text-[#5a5a5a]">
+              <div className="flex h-40 overflow-y-scroll pr-4 text-[#5a5a5a]">
                 {roleObj.description}
               </div>
             </InfoCard>
@@ -122,9 +131,9 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
           {companyData && (
             <div className="h-full" id="company">
               <InfoCard title={`About ${companyData.name}`}>
-                <div className="flex gap-4 overflow-scroll text-[#5a5a5a]">
+                <div className="flex gap-4 text-[#5a5a5a]">
                   <Logo company={companyData} />
-                  <p className="h-40 overflow-scroll">
+                  <p className="h-40 overflow-y-scroll">
                     {companyData.description}
                   </p>
                 </div>
@@ -259,12 +268,14 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
               {reviews.isSuccess && reviews.data.length === 0 && (
                 <div className="flex h-full w-full flex-col items-center justify-center text-[#5a5a5a]">
                   <p>No reviews yet</p>
-                  <Link
-                    href={`/review?id=${roleObj.id}`}
-                    className="ml-2 underline"
-                  >
-                    Add one!
-                  </Link>
+                  {usersReviews.isSuccess && usersReviews.data.length < 5 && (
+                    <Link
+                      href={`/review?id=${roleObj.id}`}
+                      className="ml-2 underline"
+                    >
+                      Add one!
+                    </Link>
+                  )}
                 </div>
               )}
               {reviews.isSuccess && reviews.data.length > 0 && (

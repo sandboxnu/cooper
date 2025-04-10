@@ -16,8 +16,8 @@ import { cn } from "@cooper/ui";
 import { Form } from "@cooper/ui/form";
 
 import { ReviewSearchBar } from "~/app/_components/search/review-search-bar";
-import { SimpleSearchBar } from "./simple-search-bar";
 import { CompanySearchBar } from "./company-search-bar";
+import { SimpleSearchBar } from "./simple-search-bar";
 
 const formSchema = z.object({
   searchText: z.string(),
@@ -77,9 +77,15 @@ export default function SearchFilter({
   const pathName = usePathname();
 
   const createQueryString = useCallback(
-    ({ searchCycle, searchTerm }: z.infer<typeof formSchema>) => {
+    ({
+      searchCycle,
+      searchTerm,
+      searchText,
+      searchIndustry,
+      searchLocation,
+    }: z.infer<typeof formSchema>) => {
       // Initialize URLSearchParams with the required searchText
-      const params = new URLSearchParams();
+      const params = new URLSearchParams(window.location.search);
 
       // Conditionally add searchCycle and searchTerm if they have values
       if (searchCycle) {
@@ -88,10 +94,19 @@ export default function SearchFilter({
       if (searchTerm) {
         params.set("term", searchTerm);
       }
+      if (searchText) {
+        params.set("search", searchText);
+      }
+      if (searchIndustry) {
+        params.set("industry", searchIndustry);
+      }
+      if (searchLocation) {
+        params.set("location", searchLocation);
+      }
 
       return params.toString();
     },
-    [searchType],
+    [],
   );
 
   function onSubmit(values: z.infer<typeof formSchema>) {

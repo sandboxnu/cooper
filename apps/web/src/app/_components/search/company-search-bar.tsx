@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { useFormContext } from "react-hook-form";
+import { z } from "zod";
 
+import type { IndustryType, LocationType } from "@cooper/db/schema";
+import { Industry } from "@cooper/db/schema";
 import { Button } from "@cooper/ui/button";
 import { FormControl, FormField, FormItem } from "@cooper/ui/form";
-import { useCallback } from "react";
 import {
   Select,
   SelectContent,
@@ -13,11 +16,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@cooper/ui/select";
-import { Industry } from "@cooper/db/schema";
-import type { IndustryType, LocationType } from "@cooper/db/schema";
+
 import { api } from "~/trpc/react";
-import { usePathname, useRouter } from "next/navigation";
-import { z } from "zod";
 import ComboBox from "../combo-box";
 
 interface SearchBarProps {
@@ -78,23 +78,29 @@ export function CompanySearchBar({ industry, location }: SearchBarProps) {
 
   const createQueryString = useCallback(
     ({ searchIndustry, searchLocation }: FormSchema) => {
-      const params = new URLSearchParams();
+      const currentParams = new URLSearchParams(window.location.search);
+      // Update the query parameters with the new values
       if (searchIndustry) {
-        params.set("industry", searchIndustry);
-      }
-      if (searchLocation) {
-        params.set("location", searchLocation);
+        currentParams.set("industry", searchIndustry);
+      } else {
+        currentParams.delete("industry");
       }
 
-      return params.toString();
+      if (searchLocation) {
+        currentParams.set("location", searchLocation);
+      } else {
+        currentParams.delete("location");
+      }
+
+      return currentParams.toString();
     },
     [],
   );
 
   return (
-    <div className="flex flex-row w-full justify-between items-center pt-4 ">
-      <div className="text-[30px] justify-left">Browse Companies</div>
-      <div className="flex flex-row gap-6 min-w-0 items-center">
+    <div className="flex w-full flex-row items-center justify-between pt-4">
+      <div className="justify-left text-[30px]">Browse Companies</div>
+      <div className="flex min-w-0 flex-row items-center gap-6">
         <FormField
           control={form.control}
           name="searchIndustry"
@@ -111,10 +117,10 @@ export function CompanySearchBar({ industry, location }: SearchBarProps) {
                   value={selectedIndustry}
                 >
                   <SelectTrigger
-                    className={`h-12 w-[21rem] ${selectedIndustry === "INDUSTRY" ? "text-cooper-gray-400" : "text-gray font-normal "} rounded-none border-[0.75px] border-l-0 focus:ring-offset-0 border-t-0 border-cooper-gray-400 text-lg placeholder:opacity-50 focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:outline-none focus-visible:ring-offset-0 lg:rounded-md lg:border-[0.75px]`}
+                    className={`h-12 w-[21rem] ${selectedIndustry === "INDUSTRY" ? "text-cooper-gray-400" : "text-gray font-normal"} rounded-none border-[0.75px] border-l-0 border-t-0 border-cooper-gray-400 text-lg placeholder:opacity-50 focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 lg:rounded-md lg:border-[0.75px]`}
                   >
                     <span
-                      className={`overflow-hidden text-lg whitespace-nowrap ${selectedIndustry === "INDUSTRY" ? "text-cooper-gray-400" : "text-gray"}`}
+                      className={`overflow-hidden whitespace-nowrap text-lg ${selectedIndustry === "INDUSTRY" ? "text-cooper-gray-400" : "text-gray"}`}
                     >
                       <SelectValue placeholder="Industry" />
                     </span>
@@ -172,7 +178,7 @@ export function CompanySearchBar({ industry, location }: SearchBarProps) {
           )}
         />
         <Button
-          className="bg-white hover:bg-white hover:text-[#9A9A9A] border-white text-cooper-gray-400 p-0"
+          className="border-white bg-white p-0 text-cooper-gray-400 hover:bg-white hover:text-[#9A9A9A]"
           onClick={() => {
             setSelectedIndustry("INDUSTRY");
             setLocationLabel("");
