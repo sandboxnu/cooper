@@ -94,9 +94,8 @@ export default function SearchFilter({
       if (searchTerm) {
         params.set("term", searchTerm);
       }
-      if (searchText) {
-        params.set("search", searchText);
-      }
+      params.set("search", searchText);
+
       if (searchIndustry) {
         params.set("industry", searchIndustry);
       }
