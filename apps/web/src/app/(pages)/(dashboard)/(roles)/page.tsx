@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 
@@ -62,7 +62,7 @@ export default function Roles() {
     if (selectedRole) {
       router.replace(`/?id=${selectedRole.id}`);
     }
-  }, [selectedRole]);
+  }, [selectedRole, router]);
 
   return (
     <>
