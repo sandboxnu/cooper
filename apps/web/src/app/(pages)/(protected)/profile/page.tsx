@@ -100,7 +100,7 @@ export default async function Profile() {
 
         <section>
           <h2 className="mb-2 text-2xl">Saved Companies</h2>
-          <div className="flex flex-col gap-4">
+          <div className="mx-1 flex flex-col gap-4">
             {favoriteCompanies.length > 0 ? (
               favoriteCompanies
                 .filter(
@@ -118,7 +118,7 @@ export default async function Profile() {
 
         <section>
           <h2 className="mb-2 text-2xl">Saved Roles</h2>
-          <div className="flex flex-col gap-4">
+          <div className="mx-1 flex flex-col gap-4">
             {favoriteRoles.length > 0 ? (
               favoriteRoles
                 .filter(
