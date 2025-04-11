@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 
 import type { RoleType } from "@cooper/db/schema";
@@ -22,7 +22,9 @@ import { api } from "~/trpc/react";
 
 export default function Roles() {
   const searchParams = useSearchParams();
+  const queryParam = searchParams.get("id") ?? null;
   const searchValue = searchParams.get("search") ?? ""; // Get search query from URL
+  const router = useRouter();
 
   const [selectedFilter, setSelectedFilter] = useState<
     "default" | "rating" | "newest" | "oldest" | undefined
@@ -35,9 +37,32 @@ export default function Roles() {
   const buttonStyle =
     "bg-white hover:bg-cooper-gray-200 border-white text-black p-2";
 
-  const [selectedRole, setSelectedRole] = useState<RoleType | undefined>(
-    roles.isSuccess ? roles.data[0] : undefined,
-  );
+  const defaultRole = useMemo(() => {
+    if (roles.isSuccess) {
+      const role = roles.data.find((role) => role.id === queryParam);
+      if (role) {
+        return role;
+      } else if (roles.data.length > 0) {
+        return roles.data[0];
+      }
+    }
+  }, [roles.isSuccess, roles.data, queryParam]);
+
+  const [selectedRole, setSelectedRole] = useState<RoleType | undefined>();
+
+  useEffect(() => {
+    // initializes the selectedRole to either the role provided by the query params or the first in the role data
+    if (defaultRole) {
+      setSelectedRole(defaultRole);
+    }
+  }, [defaultRole]);
+
+  useEffect(() => {
+    // updates the URL when a role is changed
+    if (selectedRole) {
+      router.replace(`/?id=${selectedRole.id}`);
+    }
+  }, [selectedRole]);
 
   return (
     <>
