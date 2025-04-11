@@ -8,6 +8,7 @@ import RenderAllRoles from "~/app/_components/companies/all-company-roles";
 import { CompanyAbout } from "~/app/_components/companies/company-about";
 import { CompanyReview } from "~/app/_components/companies/company-reviews";
 import NoResults from "~/app/_components/no-results";
+import { FavoriteButton } from "~/app/_components/shared/favorite-button";
 import { api } from "~/trpc/react";
 import { prettyIndustry } from "~/utils/stringHelpers";
 
@@ -33,22 +34,9 @@ export default function Company() {
                 </p>
               </div>
             </div>
-            <button className="text-gray-600">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
-                />
-              </svg>
-            </button>
+            {company.data && (
+              <FavoriteButton objId={company.data.id} objType="company" />
+            )}
           </div>
 
           <div className="mb-6 grid grid-cols-1 gap-4 px-1 md:grid-cols-[2fr_3fr]">
