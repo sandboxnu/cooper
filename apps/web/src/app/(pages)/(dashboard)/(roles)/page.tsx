@@ -59,7 +59,7 @@ export default function Roles() {
 
   useEffect(() => {
     // updates the URL when a role is changed
-    if (selectedRole) {
+    if (selectedRole && queryParam !== selectedRole.id) {
       router.replace(`/?id=${selectedRole.id}`);
     }
   }, [selectedRole, router]);
