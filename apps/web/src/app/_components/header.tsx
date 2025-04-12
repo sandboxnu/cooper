@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@cooper/ui";
 
 import CooperLogo from "./cooper-logo";
-import { NewReviewDialog } from "./reviews/new-review-dialogue";
+import { NewReviewDialog } from "./reviews/new-review/new-review-dialogue";
 import SearchFilter from "./search/search-filter";
 
 interface HeaderProps {
