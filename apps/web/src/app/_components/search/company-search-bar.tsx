@@ -18,7 +18,6 @@ import {
 } from "@cooper/ui/select";
 
 import { api } from "~/trpc/react";
-import ComboBox from "../combo-box";
 import LocationBox from "../location";
 
 interface SearchBarProps {
@@ -57,7 +56,7 @@ export function CompanySearchBar({ industry, location }: SearchBarProps) {
   }, [prefix, searchTerm]);
   const locationsToUpdate = api.location.getByPrefix.useQuery(
     { prefix },
-    { enabled: searchTerm.length === 3 },
+    { enabled: searchTerm.length === 3 && prefix.length === 3 },
   );
 
   const locationValuesAndLabels = locationsToUpdate.data
@@ -144,9 +143,17 @@ export function CompanySearchBar({ industry, location }: SearchBarProps) {
             </FormItem>
           )}
         />
-        <LocationBox searchBar={true} form={form} locationLabel={locationLabel} setSearchTerm={setSearchTerm} 
-        locationValuesAndLabels={locationValuesAndLabels} setLocationLabel={setLocationLabel} locationsToUpdate={locationsToUpdate}
-        setValue={setValue} handleSubmit={handleSubmit} onSubmit={onSubmit}
+        <LocationBox
+          searchBar={true}
+          form={form}
+          locationLabel={locationLabel}
+          setSearchTerm={setSearchTerm}
+          locationValuesAndLabels={locationValuesAndLabels}
+          setLocationLabel={setLocationLabel}
+          locationsToUpdate={locationsToUpdate}
+          setValue={setValue}
+          handleSubmit={handleSubmit}
+          onSubmit={onSubmit}
         />
         <Button
           className="border-white bg-white p-0 text-cooper-gray-400 hover:bg-white hover:text-[#9A9A9A]"

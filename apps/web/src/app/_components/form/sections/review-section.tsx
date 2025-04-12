@@ -101,8 +101,13 @@ export function ReviewSection({ textColor }: { textColor: string }) {
         )}
       />
       <div className="flex justify-between space-x-2">
-      <LocationBox searchBar={false} form={form} locationLabel={locationLabel} setSearchTerm={setSearchTerm} 
-        locationValuesAndLabels={locationValuesAndLabels} setLocationLabel={setLocationLabel} 
+        <LocationBox
+          searchBar={false}
+          form={form}
+          locationLabel={locationLabel}
+          setSearchTerm={setSearchTerm}
+          locationValuesAndLabels={locationValuesAndLabels}
+          setLocationLabel={setLocationLabel}
         />
         <FormField
           control={form.control}

@@ -5,7 +5,11 @@ import {
   FormLabel,
 } from "node_modules/@cooper/ui/src/form";
 import ComboBox from "./combo-box";
-import { FieldValues, UseFormHandleSubmit, UseFormReturn } from "react-hook-form";
+import {
+  FieldValues,
+  UseFormHandleSubmit,
+  UseFormReturn,
+} from "react-hook-form";
 import { api } from "~/trpc/react";
 import { z } from "zod";
 import type { LocationType } from "@cooper/db/schema";
@@ -15,7 +19,6 @@ const _formSchema = z.object({
   searchLocation: z.string().optional(),
 });
 type FormSchema = z.infer<typeof _formSchema>;
-
 
 export default function LocationBox({
   searchBar,
@@ -27,7 +30,7 @@ export default function LocationBox({
   locationsToUpdate,
   setValue,
   handleSubmit,
-  onSubmit
+  onSubmit,
 }: {
   searchBar: boolean;
   form: UseFormReturn<FieldValues, any, undefined>;
@@ -36,12 +39,12 @@ export default function LocationBox({
   locationValuesAndLabels: {
     value: string;
     label: string;
-}[];
+  }[];
   setLocationLabel: (currentValue: string) => void;
   locationsToUpdate?: { data?: LocationType[] };
   setValue?: (name: string, finalValue: string) => void;
   handleSubmit?: UseFormHandleSubmit<FieldValues, undefined>;
-  onSubmit?: (data: FormSchema) => void
+  onSubmit?: (data: FormSchema) => void;
 }) {
   return (
     <FormField
@@ -78,7 +81,12 @@ export default function LocationBox({
                   );
                   const finalValue =
                     currentValue === "LOCATION" ? undefined : selectedLoc?.id;
-                  if (setValue && handleSubmit && finalValue !== undefined && onSubmit) {
+                  if (
+                    setValue &&
+                    handleSubmit &&
+                    finalValue !== undefined &&
+                    onSubmit
+                  ) {
                     setValue(field.name, finalValue);
                     void handleSubmit(onSubmit)();
                   }
