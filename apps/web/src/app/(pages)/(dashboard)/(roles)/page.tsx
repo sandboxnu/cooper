@@ -62,7 +62,7 @@ export default function Roles() {
     if (selectedRole && queryParam !== selectedRole.id) {
       router.replace(`/?id=${selectedRole.id}`);
     }
-  }, [selectedRole, router]);
+  }, [selectedRole, router, queryParam]);
 
   return (
     <>
