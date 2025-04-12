@@ -18,9 +18,9 @@ export default function Company() {
   const company = api.company.getById.useQuery({ id: companyID ?? "" });
 
   return (
-    <>
+    <section className="w-full overflow-y-auto">
       {company.isSuccess ? (
-        <div className="mx-auto h-[86dvh] w-full max-w-[66dvw] justify-center gap-4 overflow-y-auto font-sans">
+        <div className="mx-auto h-[86dvh] max-w-[66dvw] justify-center gap-4 font-sans">
           <div className="mb-6 mt-6 flex items-center justify-between">
             <div className="flex items-center">
               <div className="mr-3 flex h-16 w-16 items-center justify-center">
@@ -62,6 +62,6 @@ export default function Company() {
       ) : (
         <NoResults className="h-full" />
       )}
-    </>
+    </section>
   );
 }

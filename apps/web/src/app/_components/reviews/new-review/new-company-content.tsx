@@ -210,7 +210,7 @@ export default function NewCompanyContent({
                       <Select
                         placeholder="Select an industry"
                         options={industryOptions}
-                        className="min-w-full border"
+                        className="min-w-full max-w-fit border"
                         {...field}
                       />
                     </FormControl>
