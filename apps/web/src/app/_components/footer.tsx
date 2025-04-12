@@ -4,11 +4,11 @@ import { MessageSquare } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="flex w-full grid-cols-2 flex-col items-center justify-between gap-2 border-t border-t-[#919191] bg-white p-4 md:flex-row">
+    <footer className="pd-3 flex w-full grid-cols-2 flex-col items-center justify-between gap-2 border-t border-t-[#919191] bg-white md:flex-row md:p-4">
       <Link
         href="https://github.com/sandboxnu/cooper"
         target="_blank"
-        className="flex items-center gap-2"
+        className="mt-1 flex items-center gap-2"
       >
         <Image
           src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
@@ -17,7 +17,9 @@ export default function Footer() {
           alt="Github Logo"
           className="mt-[-0.25rem]"
         />
-        <h2 className="text-xl font-semibold">Checkout cooper on GitHub</h2>
+        <h2 className="text-md font-semibold md:text-xl">
+          Checkout cooper on GitHub
+        </h2>
       </Link>
       <div className="flex flex-col items-center gap-2 md:flex-row md:gap-6">
         <Link
@@ -26,11 +28,15 @@ export default function Footer() {
           className="flex items-center gap-2"
         >
           <MessageSquare size={20} />
-          <h2 className="text-lg font-semibold">
+          <h2 className="text-sm font-semibold md:text-lg">
             Submit Feedback or Bug Reports!
           </h2>
         </Link>
-        <a href="https://logo.dev" target="_blank" className="italic">
+        <a
+          href="https://logo.dev"
+          target="_blank"
+          className="text-sm italic md:text-xl"
+        >
           Logos provided by Logo.dev
         </a>
       </div>
