@@ -1,15 +1,19 @@
 import type { TRPCRouterRecord } from "@trpc/server";
+import { TRPCError } from "@trpc/server";
+import { Filter } from "bad-words";
 import { z } from "zod";
 
+import type { SQL, SQLWrapper } from "@cooper/db";
 import type { CompanyType, ReviewType } from "@cooper/db/schema";
-import { SQL, SQLWrapper, and, asc, desc, eq, sql } from "@cooper/db";
+import { and, asc, desc, eq, like, sql } from "@cooper/db";
 import {
   CompaniesToLocations,
   Company,
   CreateCompanySchema,
-  Location,
   Industry,
+  Location,
   Review,
+  Role,
 } from "@cooper/db/schema";
 
 import {
@@ -30,6 +34,7 @@ export const companyRouter = {
     .input(
       z.object({
         search: z.string().optional(),
+        prefix: z.string().optional(),
         options: z
           .object({
             industry: z
@@ -59,8 +64,8 @@ export const companyRouter = {
 
         const whereClause =
           filters.length > 0
-            ? sql`WHERE ${sql.join(filters, sql` AND `)}`
-            : sql``;
+            ? sql`WHERE ${sql.join(filters, sql` AND ${Company.name} ILIKE ${input.prefix ?? ""} || '%'`)}`
+            : sql`WHERE ${Company.name} ILIKE ${input.prefix ?? ""} || '%'`;
 
         const companiesWithRatings = await ctx.db.execute(sql`
         SELECT 
@@ -71,7 +76,6 @@ export const companyRouter = {
         ${whereClause}
         GROUP BY ${Company.id}
         ORDER BY avg_rating DESC
-        LIMIT ${input.limit}
       `);
 
         const companies = companiesWithRatings.rows.map((role) => ({
@@ -90,6 +94,7 @@ export const companyRouter = {
         input.options?.industry && eq(Company.industry, input.options.industry),
         input.options?.location &&
           eq(CompaniesToLocations.locationId, input.options.location),
+        like(Company.name, `${input.prefix}%`),
       ].filter(Boolean) as SQLWrapper[];
 
       const companies = await ctx.db.query.Company.findMany({
@@ -145,6 +150,104 @@ export const companyRouter = {
   delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
     return ctx.db.delete(Company).where(eq(Company.id, input));
   }),
+
+  createWithRole: protectedProcedure
+    .input(
+      z.object({
+        companyName: z
+          .string({ required_error: "Company name is required" })
+          .min(3)
+          .max(50),
+        description: z
+          .string({ required_error: "Description is required" })
+          .min(10)
+          .max(500),
+        industry: z.string({ required_error: "Industry is required" }),
+        website: z
+          .string({ required_error: "Website is required" })
+          .url()
+          .optional(),
+        roleTitle: z
+          .string({ required_error: "Role title is required" })
+          .min(3)
+          .max(50),
+        roleDescription: z
+          .string({ required_error: "Role description is required" })
+          .min(10)
+          .max(500),
+        createdBy: z.string(),
+      }),
+    )
+    .mutation(async ({ ctx, input }) => {
+      const filter = new Filter();
+
+      if (filter.isProfane(input.companyName)) {
+        throw new TRPCError({
+          code: "PRECONDITION_FAILED",
+          message: "Company name cannot contain profane words",
+        });
+      }
+
+      if (filter.isProfane(input.description)) {
+        throw new TRPCError({
+          code: "PRECONDITION_FAILED",
+          message: "Description cannot contain profane words",
+        });
+      }
+
+      if (filter.isProfane(input.roleTitle)) {
+        throw new TRPCError({
+          code: "PRECONDITION_FAILED",
+          message: "Role title cannot contain profane words",
+        });
+      }
+
+      if (filter.isProfane(input.roleDescription)) {
+        throw new TRPCError({
+          code: "PRECONDITION_FAILED",
+          message: "Role description cannot contain profane words",
+        });
+      }
+
+      const companyValues = {
+        name: input.companyName,
+        description: input.description,
+        industry: input.industry,
+        website: input.website ?? `${input.companyName}.com`,
+      };
+
+      const companies = await ctx.db
+        .insert(Company)
+        .values(companyValues)
+        .returning();
+      const companyId = companies[0]?.id;
+
+      if (!companyId) {
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: "Review headline cannot contain profane words",
+        });
+      }
+
+      const roleValues = {
+        title: input.roleTitle,
+        description: input.roleDescription,
+        companyId: companyId,
+        createdBy: input.createdBy,
+      };
+
+      const roles = await ctx.db.insert(Role).values(roleValues).returning();
+      const roleId = roles[0]?.id;
+
+      if (!roleId) {
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: "Role creation failed",
+        });
+      }
+
+      return roleId;
+    }),
 
   getAverageById: publicProcedure
     .input(z.object({ companyId: z.string() }))

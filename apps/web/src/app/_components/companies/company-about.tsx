@@ -16,7 +16,7 @@ export function CompanyAbout({ companyObj }: CompanyAboutProps) {
           About {companyObj?.name}
         </CardTitle>
       </CardHeader>
-      <CardContent className="h-40 overflow-scroll rounded-b-lg pt-6">
+      <CardContent className="h-40 overflow-y-scroll rounded-b-lg pt-6">
         <p>{companyObj?.description}</p>
       </CardContent>
     </Card>
