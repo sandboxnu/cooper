@@ -1,12 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 
 import type { ReviewType, WorkEnvironmentType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Card, CardContent } from "@cooper/ui/card";
-import { useToast } from "@cooper/ui/hooks/use-toast";
 
 import { api } from "~/trpc/react";
 import { locationName } from "~/utils/locationHelpers";
