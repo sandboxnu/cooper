@@ -13,7 +13,6 @@ import {
 import { Input } from "@cooper/ui/input";
 import { Textarea } from "@cooper/ui/textarea";
 
-import ComboBox from "~/app/_components/combo-box";
 import { FormSection } from "~/app/_components/form/form-section";
 import { api } from "~/trpc/react";
 import LocationBox from "../../location";

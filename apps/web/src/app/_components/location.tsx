@@ -10,7 +10,6 @@ import {
   UseFormHandleSubmit,
   UseFormReturn,
 } from "react-hook-form";
-import { api } from "~/trpc/react";
 import { z } from "zod";
 import type { LocationType } from "@cooper/db/schema";
 
@@ -33,7 +32,7 @@ export default function LocationBox({
   onSubmit,
 }: {
   searchBar: boolean;
-  form: UseFormReturn<FieldValues, any, undefined>;
+  form: UseFormReturn<FieldValues>;
   locationLabel: string;
   setSearchTerm: (value: string) => void;
   locationValuesAndLabels: {
