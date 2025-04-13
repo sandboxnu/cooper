@@ -17,7 +17,7 @@ export default function StarGraph({
   ];
 
   return (
-    <div className="mb-6 flex items-start">
+    <div className="mb-6 flex flex-wrap items-start md:flex-nowrap">
       <div className="mr-6">
         <p className="text-gray-500">Overall Rating:</p>
         <h2 className="mb-4 mt-2 text-5xl">
@@ -30,7 +30,7 @@ export default function StarGraph({
         </div>
       </div>
 
-      <div className="flex-1 space-y-2 pt-1">
+      <div className="mt-4 w-full min-w-24 max-w-64 space-y-2 pt-1 md:mt-0">
         {ratings.map((rating) => (
           <div key={rating.stars} className="flex items-center">
             <span className="flex w-8 items-center">

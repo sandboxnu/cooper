@@ -99,7 +99,7 @@ export function ReviewSection({ textColor }: { textColor: string }) {
           </FormItem>
         )}
       />
-      <div className="flex justify-between space-x-2">
+      <div className="flex flex-col justify-between overflow-hidden md:flex-row md:space-x-2">
         <LocationBox
           searchBar={false}
           form={form}

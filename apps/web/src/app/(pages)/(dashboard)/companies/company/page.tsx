@@ -18,10 +18,10 @@ export default function Company() {
   const company = api.company.getById.useQuery({ id: companyID ?? "" });
 
   return (
-    <>
+    <section className="w-full overflow-y-auto">
       {company.isSuccess ? (
-        <div className="mx-auto h-[86dvh] w-full max-w-[66dvw] justify-center gap-4 overflow-y-auto font-sans">
-          <div className="mb-6 mt-6 flex items-center justify-between">
+        <div className="mx-4 h-[86dvh] justify-center gap-4 font-sans md:mx-auto md:max-w-[66dvw]">
+          <div className="mx-2 mb-6 mt-6 flex items-center justify-between">
             <div className="flex items-center">
               <div className="mr-3 flex h-16 w-16 items-center justify-center">
                 {company.data && <Logo company={company.data} size="small" />}
@@ -51,7 +51,7 @@ export default function Company() {
             </button>
           </div>
 
-          <div className="mb-6 grid grid-cols-1 gap-4 px-1 md:grid-cols-[2fr_3fr]">
+          <div className="mb-6 grid grid-cols-1 gap-2 px-1 md:grid-cols-[2fr_3fr] md:gap-4">
             <CompanyAbout companyObj={company.data} />
             <CompanyReview companyObj={company.data} />
           </div>
@@ -62,6 +62,6 @@ export default function Company() {
       ) : (
         <NoResults className="h-full" />
       )}
-    </>
+    </section>
   );
 }

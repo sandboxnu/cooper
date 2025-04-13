@@ -1,17 +1,19 @@
+import type {
+  FieldValues,
+  UseFormHandleSubmit,
+  UseFormReturn,
+} from "react-hook-form";
 import {
   FormControl,
   FormField,
   FormItem,
   FormLabel,
 } from "node_modules/@cooper/ui/src/form";
-import ComboBox from "./combo-box";
-import {
-  FieldValues,
-  UseFormHandleSubmit,
-  UseFormReturn,
-} from "react-hook-form";
 import { z } from "zod";
+
 import type { LocationType } from "@cooper/db/schema";
+
+import ComboBox from "./combo-box";
 
 const _formSchema = z.object({
   searchIndustry: z.string().optional(),

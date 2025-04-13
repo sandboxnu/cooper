@@ -21,7 +21,7 @@ export default function RenderAllRoles({ company }: RenderAllRolesProps) {
       {roles.isPending ? (
         <LoadingResults />
       ) : (
-        <div className="mb-8 grid h-[30dvh] w-full grid-cols-1 gap-3 p-1 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mb-8 grid h-[30dvh] w-full grid-cols-1 gap-3 p-1 md:grid-cols-2">
           {roles.isSuccess && roles.data.length > 0 && (
             <>
               {roles.data.map((role) => {
