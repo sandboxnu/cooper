@@ -34,8 +34,8 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
         className,
       )}
     >
-      <div className="flex w-full pt-5">
-        <div className="h-40 w-[35%]">
+      <div className="flex w-full flex-wrap pt-5">
+        <div className="h-40 w-full sm:w-[35%]">
           <CardContent className="flex h-full flex-col justify-between pr-0">
             <div>
               <div className="pt-2">
@@ -60,20 +60,19 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
                   day: "numeric",
                 })}
               </div>
-              <div className="flex items-center gap-2 text-sm">
-                Posted by: Anonymous{" "}
+              <div className="flex flex-wrap items-center gap-2 text-sm">
+                Posted by: Anonymous
                 <div className="cursor-pointer text-sm font-black">?</div>
               </div>
             </div>
           </CardContent>
         </div>
-        <div className="w-[65%]">
-          <CardContent className="flex h-full flex-col justify-between gap-4 pl-0">
+        <div className="w-full sm:w-[65%]">
+          <CardContent className="flex h-full flex-col justify-between gap-4 pl-4 sm:pl-0">
             <div className="flex flex-row justify-between">
               <div className="pt-1">{reviewObj.textReview}</div>
               {isAuthor && <DeleteReviewDialog reviewId={reviewObj.id} />}
             </div>
-
             <div className="flex justify-between text-sm">
               <div className="flex gap-6">
                 <div>Position type: Co-op</div>

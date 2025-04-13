@@ -13,7 +13,7 @@ export const monthOptions = [
   { value: "12", label: "December" },
 ];
 
-export const industryOptions = [
+export const industryOptions: { value: string; label: string }[] = [
   { value: "TECHNOLOGY", label: "Technology" },
   { value: "HEALTHCARE", label: "Healthcare" },
   { value: "FINANCE", label: "Finance" },

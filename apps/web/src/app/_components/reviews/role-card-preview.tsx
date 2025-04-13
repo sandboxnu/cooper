@@ -54,7 +54,7 @@ export function RoleCardPreview({ className, roleObj }: RoleCardPreviewProps) {
                   </div>
                 </div>
               </CardTitle>
-              <div className="align-center flex gap-2 text-cooper-gray-400">
+              <div className="align-center flex flex-wrap gap-2 text-cooper-gray-400">
                 <span>{company.data?.name}</span>
                 {location.isSuccess && location.data && (
                   <>

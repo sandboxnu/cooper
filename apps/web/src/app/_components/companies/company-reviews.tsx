@@ -24,7 +24,7 @@ export function CompanyReview({ companyObj }: CompanyReviewProps) {
   const ratings = calculateRatings(reviews.data ?? []);
 
   return (
-    <Card className="w-full max-w-lg rounded-lg border-[0.75px] border-cooper-gray-400">
+    <Card className="mx-1 w-full max-w-lg rounded-lg border-[0.75px] border-cooper-gray-400">
       <CardHeader className="flex h-6 justify-center rounded-t-lg border-b-[0.75px] border-cooper-gray-400 bg-cooper-gray-100">
         <CardTitle className="text-base font-medium text-gray-800">
           Reviews
