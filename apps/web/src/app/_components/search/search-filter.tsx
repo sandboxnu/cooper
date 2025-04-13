@@ -84,10 +84,6 @@ export default function SearchFilter({
     }: z.infer<typeof searchFormSchema>) => {
       // Initialize URLSearchParams with the required searchText
       const params = new URLSearchParams(window.location.search);
-      console.log("before", params.toString());
-      console.log("searchText", searchText);
-      console.log("searchIndustry", searchIndustry);
-      console.log("searchLocation", searchLocation);
 
       // Conditionally add searchCycle and searchTerm if they have values
       if (searchCycle !== undefined) {
@@ -113,8 +109,6 @@ export default function SearchFilter({
       } else {
         params.delete("location");
       }
-
-      console.log("after", params.toString());
 
       return params.toString();
     },

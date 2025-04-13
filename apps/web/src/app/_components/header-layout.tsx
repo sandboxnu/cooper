@@ -26,7 +26,7 @@ export default async function HeaderLayout({
   );
 
   return (
-    <div className="flex h-screen flex-col justify-between">
+    <div className="flex min-h-screen flex-col justify-between">
       <Header auth={button} />
       <article className="flex h-screen flex-col items-center justify-start">
         <div className="mx-0 mt-2 flex min-h-fit justify-center xl:mt-0 xl:hidden">

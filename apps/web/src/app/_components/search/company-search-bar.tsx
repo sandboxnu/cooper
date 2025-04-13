@@ -119,32 +119,34 @@ export function CompanySearchBar({
             </FormItem>
           )}
         />
-        <LocationBox
-          searchBar={true}
-          form={form}
-          locationLabel={locationLabel}
-          setSearchTerm={setSearchTerm}
-          locationValuesAndLabels={locationValuesAndLabels}
-          setLocationLabel={setLocationLabel}
-          locationsToUpdate={locationsToUpdate}
-          setValue={(name, value) =>
-            setValue(name as keyof z.infer<typeof searchFormSchema>, value)
-          }
-          handleSubmit={handleSubmit}
-          onSubmit={onSubmit}
-        />
-        <Button
-          className="border-white bg-white p-0 text-cooper-gray-400 hover:bg-white hover:text-[#9A9A9A]"
-          onClick={() => {
-            setSelectedIndustry("INDUSTRY");
-            setLocationLabel("");
-            form.setValue("searchIndustry", undefined);
-            form.setValue("searchLocation", undefined);
-            onSubmit({});
-          }}
-        >
-          Clear
-        </Button>
+        <div className="flex items-center gap-2">
+          <LocationBox
+            searchBar={true}
+            form={form}
+            locationLabel={locationLabel}
+            setSearchTerm={setSearchTerm}
+            locationValuesAndLabels={locationValuesAndLabels}
+            setLocationLabel={setLocationLabel}
+            locationsToUpdate={locationsToUpdate}
+            setValue={(name, value) =>
+              setValue(name as keyof z.infer<typeof searchFormSchema>, value)
+            }
+            handleSubmit={handleSubmit}
+            onSubmit={onSubmit}
+          />
+          <Button
+            className="border-white bg-white p-0 text-cooper-gray-400 hover:bg-white hover:text-[#9A9A9A]"
+            onClick={() => {
+              setSelectedIndustry("INDUSTRY");
+              setLocationLabel("");
+              form.setValue("searchIndustry", undefined);
+              form.setValue("searchLocation", undefined);
+              onSubmit({});
+            }}
+          >
+            Clear
+          </Button>
+        </div>
       </div>
     </div>
   );

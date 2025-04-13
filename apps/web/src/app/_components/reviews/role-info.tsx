@@ -296,7 +296,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                 </div>
               )}
               {reviews.isSuccess && reviews.data.length > 0 && (
-                <div className="flex flex-col gap-5">
+                <div className="flex min-h-fit flex-col gap-5">
                   <div className="w-[60%]">
                     <StarGraph
                       ratings={ratings}
