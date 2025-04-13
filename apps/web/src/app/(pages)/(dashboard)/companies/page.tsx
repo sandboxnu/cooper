@@ -1,7 +1,9 @@
 "use client";
 
-import { IndustryType } from "@cooper/db/schema";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
+
+import { IndustryType } from "@cooper/db/schema";
 
 import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
 import LoadingResults from "~/app/_components/loading-results";
@@ -18,13 +20,30 @@ export default function Companies({
     search?: string;
   };
 }) {
-  const companies = api.company.list.useQuery({
-    options: {
-      industry: searchParams?.industry,
-      location: searchParams?.location,
-    },
-    search: searchParams?.search,
-  });
+  const [page, setPage] = useState<number>(0);
+
+  const { data, fetchNextPage, isSuccess, isPending } =
+    api.company.list.useInfiniteQuery(
+      {
+        options: {
+          industry: searchParams?.industry,
+          location: searchParams?.location,
+        },
+        search: searchParams?.search,
+      },
+      {
+        getNextPageParam: (lastPage) => lastPage.nextCursor,
+      },
+    );
+
+  const handleFetchNextPage = () => {
+    fetchNextPage();
+    setPage((prev) => prev + 1);
+  };
+
+  const handleFetchPreviousPage = () => {
+    setPage((prev) => prev - 1);
+  };
 
   const locationQuery = api.location.getById.useQuery(
     { id: searchParams?.location ?? "" },
@@ -32,6 +51,7 @@ export default function Companies({
   );
 
   const router = useRouter();
+  const currentPageCompanies = data?.pages[page]?.items ?? [];
 
   return (
     <div className="w-[95%] justify-center">
@@ -40,7 +60,7 @@ export default function Companies({
         industry={searchParams?.industry}
         location={locationQuery.data}
       />
-      <hr className="my-4 border-t border-[#9A9A9A] w-full" />
+      <hr className="my-4 w-full border-t border-[#9A9A9A]" />
       <div className="text-[26px]">
         {searchParams?.industry ? (
           <>
@@ -64,11 +84,11 @@ export default function Companies({
         )}
       </div>
       <div className="text-cooper-gray-400">
-        {companies.data?.length ?? 0} results
+        {currentPageCompanies.length} results
       </div>
-      {companies.isSuccess && companies.data.length > 0 ? (
-        <div className="mb-8 mt-6 grid h-[86dvh] grid-cols-1 gap-4 overflow-y-auto md:grid-cols-2 xl:grid-cols-3 ">
-          {companies.data.map((company) => (
+      {isSuccess && currentPageCompanies.length > 0 ? (
+        <div className="mb-8 mt-6 grid h-[86dvh] grid-cols-1 gap-4 overflow-y-auto md:grid-cols-2 xl:grid-cols-3">
+          {currentPageCompanies.map((company) => (
             <div
               key={company.id}
               className="cursor-pointer"
@@ -78,9 +98,9 @@ export default function Companies({
             </div>
           ))}
         </div>
-      ) : companies.isSuccess && companies.data.length === 0 ? (
+      ) : isSuccess && currentPageCompanies.length === 0 ? (
         <NoResults className="h-full" />
-      ) : companies.isPending ? (
+      ) : isPending ? (
         <LoadingResults className="h-full" />
       ) : null}
     </div>

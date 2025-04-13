@@ -43,10 +43,14 @@ export const companyRouter = {
             location: z.string().optional(),
           })
           .optional(),
-        limit: z.number().optional().default(30),
+        limit: z.number().default(30).optional(),
+        cursor: z.string().nullish(),
       }),
     )
     .query(async ({ ctx, input }) => {
+      const limit = input.limit ?? 30;
+      const cursor = input.cursor;
+
       if (ctx.sortBy === "rating" || ctx.sortBy === "default") {
         const filters: SQL[] = [];
 
@@ -56,10 +60,10 @@ export const companyRouter = {
 
         if (input.options?.location) {
           filters.push(sql`${Company.id} IN (
-            SELECT ${CompaniesToLocations.companyId}
-            FROM ${CompaniesToLocations}
-            WHERE ${CompaniesToLocations.locationId} = ${input.options.location}
-          )`);
+          SELECT ${CompaniesToLocations.companyId}
+          FROM ${CompaniesToLocations}
+          WHERE ${CompaniesToLocations.locationId} = ${input.options.location}  
+        )`);
         }
 
         const whereClause =
@@ -68,26 +72,38 @@ export const companyRouter = {
             : sql`WHERE ${Company.name} ILIKE ${input.prefix ?? ""} || '%'`;
 
         const companiesWithRatings = await ctx.db.execute(sql`
-        SELECT 
-          ${Company}.*, 
-          COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
-        FROM ${Company}
-        LEFT JOIN ${Review} ON ${Review.companyId}::uuid = ${Company.id}
-        ${whereClause}
-        GROUP BY ${Company.id}
-        ORDER BY avg_rating DESC
-      `);
+      SELECT 
+        ${Company}.*, 
+        COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
+      FROM ${Company}
+      LEFT JOIN ${Review} ON ${Review.companyId}::uuid = ${Company.id}
+      ${whereClause}
+      ${cursor ? sql`AND ${Company.id} > ${cursor}` : sql``}
+      GROUP BY ${Company.id}
+      ORDER BY avg_rating DESC
+      LIMIT ${limit + 1}
+    `);
 
         const companies = companiesWithRatings.rows.map((role) => ({
           ...(role as CompanyType),
         }));
 
         const fuseOptions = ["name", "description"];
-        return performFuseSearch<CompanyType>(
+        const filteredCompanies = performFuseSearch<CompanyType>(
           companies,
           fuseOptions,
           input.search,
-        ).slice(0, input.limit);
+        );
+
+        const hasNextPage = filteredCompanies.length > limit;
+        const paginatedCompanies = filteredCompanies.slice(0, limit);
+
+        return {
+          items: paginatedCompanies,
+          nextCursor: hasNextPage
+            ? paginatedCompanies[paginatedCompanies.length - 1]?.id
+            : null,
+        };
       }
 
       const conditions = [
@@ -95,19 +111,31 @@ export const companyRouter = {
         input.options?.location &&
           eq(CompaniesToLocations.locationId, input.options.location),
         like(Company.name, `${input.prefix}%`),
+        cursor && sql`${Company.id} > ${cursor}`,
       ].filter(Boolean) as SQLWrapper[];
 
       const companies = await ctx.db.query.Company.findMany({
         orderBy: ordering[ctx.sortBy],
         where: conditions.length > 0 ? and(...conditions) : undefined,
+        limit: limit + 1,
       });
 
       const fuseOptions = ["name", "description"];
-      return performFuseSearch<CompanyType>(
+      const filteredCompanies = performFuseSearch<CompanyType>(
         companies,
         fuseOptions,
         input.search,
-      ).slice(0, input.limit);
+      );
+
+      const hasNextPage = filteredCompanies.length > limit;
+      const paginatedCompanies = filteredCompanies.slice(0, limit);
+
+      return {
+        items: paginatedCompanies,
+        nextCursor: hasNextPage
+          ? paginatedCompanies[paginatedCompanies.length - 1]?.id
+          : null,
+      };
     }),
 
   getByName: publicProcedure

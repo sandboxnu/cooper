@@ -121,6 +121,13 @@ export const protectedProcedure = t.procedure.use(({ ctx, next }) => {
   });
 });
 
+/**
+ * Sortable procedure
+ *
+ * This is a custom procedure that adds a `sortBy` parameter to the context.
+ *
+ * @see https://trpc.io/docs/procedures
+ */
 export const sortableProcedure = t.procedure
   .input(
     z
