@@ -10,7 +10,7 @@ export default function LoginButton() {
           "use server";
           await signIn("google", { redirectTo: "/" });
         }}
-        className="pt-2"
+        className="-pb-2 pt-2"
       >
         <Image
           src="/svg/defaultProfile.svg"
