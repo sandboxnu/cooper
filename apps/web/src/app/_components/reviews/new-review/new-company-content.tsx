@@ -164,7 +164,7 @@ export default function NewCompanyContent({
                 render={({ field }) => (
                   <FormItem>
                     <Label>
-                      Role Description{" "}
+                      Company Description{" "}
                       {newCompanyAndRoleForm.watch("companyName") && (
                         <a
                           className="cursor-pointer text-sm font-black"
