@@ -54,7 +54,7 @@ export function DeleteReviewDialog({ reviewId }: DeleteReviewDialogProps) {
           <Trash2 className="h-4 w-4 text-cooper-gray-400" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="w-full max-w-md bg-white py-16">
+      <DialogContent className="w-full max-w-md bg-white pb-12">
         <DialogHeader className="space-y-4 text-center">
           <DialogTitle className="text-2xl font-semibold">
             Delete Review
