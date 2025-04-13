@@ -51,7 +51,9 @@ export default function Companies({
   );
 
   const router = useRouter();
-  const currentPageCompanies = data?.pages[page]?.items ?? [];
+
+  const currentPageCompanies =
+    data?.pages.slice(0, page + 1).flatMap((page) => page.items) ?? [];
 
   return (
     <div className="w-[95%] justify-center">
