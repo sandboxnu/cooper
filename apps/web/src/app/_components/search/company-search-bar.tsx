@@ -72,41 +72,44 @@ export function CompanySearchBar({
     : [];
 
   return (
-    <>
-      <div className="flex w-full flex-col justify-between pt-4 lg:flex-row lg:items-center">
-        <div className="justify-left text-2xl xl:text-[30px]">
-          Browse Companies
-        </div>
-        <div className="flex flex-col gap-6 p-1 md:flex-row md:items-center">
-          <FormField
-            control={form.control}
-            name="searchIndustry"
-            render={({ field }) => (
-              <FormItem className="col-span-5 lg:col-span-2">
-                <FormControl>
-                  <Select
-                    onValueChange={(value) => {
-                      setSelectedIndustry(value);
-                      const finalValue =
-                        value === "INDUSTRY" ? undefined : value;
-                      setValue(field.name, finalValue);
-                      void handleSubmit(onSubmit)();
-                    }}
-                    value={selectedIndustry}
+    <div className="flex w-full flex-col justify-between pt-4 lg:flex-row lg:items-center">
+      <div className="justify-left text-2xl xl:text-[30px]">
+        Browse Companies
+      </div>
+      <div className="flex flex-col gap-6 p-1 md:flex-row md:items-center">
+        <FormField
+          control={form.control}
+          name="searchIndustry"
+          render={({ field }) => (
+            <FormItem className="col-span-5 lg:col-span-2">
+              <FormControl>
+                <Select
+                  onValueChange={(value) => {
+                    setSelectedIndustry(value);
+                    const finalValue = value === "INDUSTRY" ? undefined : value;
+                    setValue(field.name, finalValue);
+                    void handleSubmit(onSubmit)();
+                  }}
+                  value={selectedIndustry}
+                >
+                  <SelectTrigger
+                    className={`h-12 w-48 md:w-[21rem] ${selectedIndustry === "INDUSTRY" ? "text-cooper-gray-400" : "text-gray font-normal"} rounded-lg border-[0.75px] border-cooper-gray-400 text-lg placeholder:opacity-50 focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0`}
                   >
-                    <SelectTrigger
-                      className={`h-12 w-48 md:w-[21rem] ${selectedIndustry === "INDUSTRY" ? "text-cooper-gray-400" : "text-gray font-normal"} rounded-lg border-[0.75px] border-cooper-gray-400 text-lg placeholder:opacity-50 focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0`}
+                    <span
+                      className={`overflow-hidden whitespace-nowrap text-lg ${selectedIndustry === "INDUSTRY" ? "text-cooper-gray-400" : "text-gray"}`}
                     >
-                      <span
-                        className={`overflow-hidden whitespace-nowrap text-lg ${selectedIndustry === "INDUSTRY" ? "text-cooper-gray-400" : "text-gray"}`}
-                      >
-                        <SelectValue placeholder="Industry" />
-                      </span>
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectGroup>
-                        <SelectItem className="font-bold" value="INDUSTRY">
-                          Industry
+                      <SelectValue placeholder="Industry" />
+                    </span>
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectItem className="font-bold" value="INDUSTRY">
+                        Industry
+                      </SelectItem>
+                      <SelectSeparator />
+                      {Object.entries(Industry).map(([key, value]) => (
+                        <SelectItem key={value} value={value}>
+                          {key.charAt(0) + key.slice(1).toLowerCase()}
                         </SelectItem>
                       ))}
                     </SelectGroup>
@@ -124,7 +127,9 @@ export function CompanySearchBar({
           locationValuesAndLabels={locationValuesAndLabels}
           setLocationLabel={setLocationLabel}
           locationsToUpdate={locationsToUpdate}
-          setValue={setValue}
+          setValue={(name, value) =>
+            setValue(name as keyof z.infer<typeof searchFormSchema>, value)
+          }
           handleSubmit={handleSubmit}
           onSubmit={onSubmit}
         />
@@ -141,6 +146,6 @@ export function CompanySearchBar({
           Clear
         </Button>
       </div>
-    </>
+    </div>
   );
 }
