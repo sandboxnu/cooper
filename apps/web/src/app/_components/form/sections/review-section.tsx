@@ -13,9 +13,9 @@ import {
 import { Input } from "@cooper/ui/input";
 import { Textarea } from "@cooper/ui/textarea";
 
-import ComboBox from "~/app/_components/combo-box";
 import { FormSection } from "~/app/_components/form/form-section";
 import { api } from "~/trpc/react";
+import LocationBox from "../../location";
 
 /**
  * ReviewSection component renders form fields for writing a co-op review.
@@ -100,37 +100,14 @@ export function ReviewSection({ textColor }: { textColor: string }) {
         )}
       />
       <div className="flex justify-between space-x-2">
-        <FormField
-          control={form.control}
-          name="locationId"
-          render={({ field }) => (
-            <FormItem className="flex flex-col justify-end">
-              <FormLabel>Location</FormLabel>
-              <FormControl>
-                <ComboBox
-                  {...field}
-                  variant="form"
-                  defaultLabel={locationLabel || "Type to begin..."}
-                  searchPlaceholder="Type to begin..."
-                  searchEmpty="No location found."
-                  valuesAndLabels={locationValuesAndLabels}
-                  currLabel={locationLabel}
-                  onChange={(value) => {
-                    setSearchTerm(value);
-                  }}
-                  onSelect={(currentValue) => {
-                    setLocationLabel(currentValue);
-                    field.onChange(
-                      locationValuesAndLabels.find(
-                        (location) => location.label === currentValue,
-                      )?.value,
-                    );
-                  }}
-                />
-              </FormControl>
-            </FormItem>
-          )}
-        ></FormField>
+        <LocationBox
+          searchBar={false}
+          form={form}
+          locationLabel={locationLabel}
+          setSearchTerm={setSearchTerm}
+          locationValuesAndLabels={locationValuesAndLabels}
+          setLocationLabel={setLocationLabel}
+        />
         <FormField
           control={form.control}
           name="hourlyPay"
