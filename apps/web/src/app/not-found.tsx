@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import HeaderLayout from "~/app/_components/header-layout";
+import HeaderLayout from "~/app/_components/header/header-layout";
 import BackButton from "./_components/back-button";
 
 export default function NotFound() {
