@@ -8,7 +8,6 @@ import { TRPCReactProvider } from "~/trpc/react";
 import "~/app/styles/globals.css";
 
 import { env } from "~/env";
-import { ScreenSizeIndicator } from "./_components/screen-size-indicator";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -38,7 +37,6 @@ export default function RootLayout(props: { children: React.ReactNode }) {
           "min-h-screen bg-background font-sans text-foreground antialiased",
         )}
       >
-        <ScreenSizeIndicator />
         <TRPCReactProvider>{props.children}</TRPCReactProvider>
       </body>
     </html>
