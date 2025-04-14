@@ -22,7 +22,7 @@ export default function Companies({
 }) {
   const [page, setPage] = useState<number>(0);
 
-  const { data, fetchNextPage, isSuccess, isPending } =
+  const { data, fetchNextPage, isSuccess, isPending, hasNextPage } =
     api.company.list.useInfiniteQuery(
       {
         options: {
@@ -36,13 +36,11 @@ export default function Companies({
       },
     );
 
-  const handleFetchNextPage = () => {
-    fetchNextPage();
-    setPage((prev) => prev + 1);
-  };
-
-  const handleFetchPreviousPage = () => {
-    setPage((prev) => prev - 1);
+  const handleFetchNextPage = async () => {
+    if (hasNextPage) {
+      await fetchNextPage();
+      setPage((prev) => prev + 1);
+    }
   };
 
   const locationQuery = api.location.getById.useQuery(
@@ -100,7 +98,7 @@ export default function Companies({
             </div>
           ))}
         </div>
-      ) : isSuccess && currentPageCompanies.length === 0 ? (
+      ) : !hasNextPage && isSuccess && currentPageCompanies.length === 0 ? (
         <NoResults className="h-full" />
       ) : isPending ? (
         <LoadingResults className="h-full" />
