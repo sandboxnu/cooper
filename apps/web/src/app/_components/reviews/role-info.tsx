@@ -194,7 +194,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                 <div className="flex flex-wrap justify-between">
                   <div className="flex w-[30%] flex-col gap-5">
                     <div className="text-cooper-gray-400">Pay range</div>
-                    {averages.data.minPay === averages.data.maxPay ? (
+                    {averages.data.minPay !== averages.data.maxPay ? (
                       <div className="flex flex-col gap-5">
                         <div className="pl-1 text-4xl text-[#141414]">
                           ${averages.data.minPay}-{averages.data.maxPay} / hr
