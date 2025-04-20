@@ -1,7 +1,8 @@
 "use client";
 
-import { IndustryType } from "@cooper/db/schema";
 import { useRouter } from "next/navigation";
+
+import type { IndustryType } from "@cooper/db/schema";
 
 import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
 import LoadingResults from "~/app/_components/loading-results";
@@ -40,7 +41,7 @@ export default function Companies({
         industry={searchParams?.industry}
         location={locationQuery.data}
       />
-      <hr className="my-4 border-t border-[#9A9A9A] w-full" />
+      <hr className="my-4 w-full border-t border-[#9A9A9A]" />
       <div className="text-[26px]">
         {searchParams?.industry ? (
           <>
@@ -67,7 +68,7 @@ export default function Companies({
         {companies.data?.length ?? 0} results
       </div>
       {companies.isSuccess && companies.data.length > 0 ? (
-        <div className="mb-8 mt-6 grid h-[86dvh] grid-cols-1 gap-4 overflow-y-auto md:grid-cols-2 xl:grid-cols-3 ">
+        <div className="mb-8 grid h-[70dvh] grid-cols-1 gap-4 overflow-y-auto md:mt-6 md:h-[75dvh] md:grid-cols-2 xl:grid-cols-3">
           {companies.data.map((company) => (
             <div
               key={company.id}

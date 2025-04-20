@@ -19,9 +19,10 @@ import RoundBarGraph from "./round-bar-graph";
 interface RoleCardProps {
   className?: string;
   roleObj: RoleType;
+  onBack?: () => void;
 }
 
-export function RoleInfo({ className, roleObj }: RoleCardProps) {
+export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
   const reviews = api.review.getByRole.useQuery({ id: roleObj.id });
 
   const firstLocationId = reviews.data?.[0]?.locationId;
@@ -68,8 +69,24 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
         className,
       )}
     >
-      <div className="flex w-full items-center justify-between">
-        <CardHeader className="pb-3">
+      {onBack && (
+        <svg
+          width="14"
+          height="12"
+          viewBox="0 0 14 12"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="m-4 block min-w-3 md:hidden"
+          onClick={onBack}
+        >
+          <path
+            d="M13.41 10.59L12 12L6 6L12 0L13.41 1.41L8.83 6L13.41 10.59ZM7.41 10.59L6 12L0 6L6 0L7.41 1.41L2.83 6L7.41 10.59Z"
+            fill="#5A5A5A"
+          />
+        </svg>
+      )}
+      <div className="flex w-full flex-wrap items-center justify-between">
+        <CardHeader className="mx-0 pb-3">
           <div className="flex items-center justify-start space-x-4">
             {companyData ? (
               <Logo company={companyData} />
@@ -77,21 +94,18 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
               <div className="h-20 w-20 rounded-lg border bg-cooper-blue-200"></div>
             )}
             <div className="flex h-20 flex-col justify-center">
-              <CardTitle className="text-2xl">
-                <div className="text-md flex items-center gap-3 md:text-xl">
+              <CardTitle>
+                <div className="flex items-center gap-3 text-lg md:text-2xl">
                   <div>{roleObj.title}</div>
-                  <div className="text-sm font-normal text-cooper-gray-400">
+                  <div className="hidden text-sm font-normal text-cooper-gray-400 sm:block">
                     Co-op
                   </div>
                 </div>
               </CardTitle>
               <div className="align-center flex gap-2 text-cooper-gray-400">
-                <span>{companyData?.name}</span>
+                {companyData?.name}
                 {location.isSuccess && location.data && (
-                  <>
-                    <span>•</span>
-                    <span>{prettyLocationName(location.data)}</span>
-                  </>
+                  <> • {prettyLocationName(location.data)}</>
                 )}
               </div>
             </div>
@@ -120,20 +134,20 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
         </CardContent>
       </div>
       <div className="mt-4 flex w-[100%] justify-between">
-        <div className="grid w-[80%] grid-cols-2 gap-5 pl-6">
-          <div className="h-full" id="job-description">
+        <div className="grid w-full grid-cols-2 gap-5 px-3 lg:w-[80%] lg:pl-6 lg:pr-0">
+          <div className="col-span-2 h-full md:col-span-1" id="job-description">
             <InfoCard title={"Job Description"}>
-              <div className="flex h-40 overflow-y-scroll pr-4 text-[#5a5a5a]">
+              <div className="flex h-28 overflow-y-auto pr-4 text-[#5a5a5a] md:h-40">
                 {roleObj.description}
               </div>
             </InfoCard>
           </div>
           {companyData && (
-            <div className="h-full" id="company">
+            <div className="col-span-2 h-full md:col-span-1" id="company">
               <InfoCard title={`About ${companyData.name}`}>
                 <div className="flex gap-4 text-[#5a5a5a]">
                   <Logo company={companyData} />
-                  <p className="h-40 overflow-y-scroll">
+                  <p className="h-28 overflow-y-auto md:h-40">
                     {companyData.description}
                   </p>
                 </div>
@@ -144,17 +158,20 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
           <div className="col-span-2" id="on-the-job">
             <CollapsableInfoCard title={"On the job"}>
               {averages.data && (
-                <div className="flex gap-10">
-                  <BarGraph
-                    title={"Company culture rating"}
-                    maxValue={5}
-                    value={averages.data.averageCultureRating}
-                  />
-                  <BarGraph
-                    title={"Supervisor rating"}
-                    maxValue={5}
-                    value={averages.data.averageSupervisorRating}
-                  />
+                <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
+                  <div className="flex flex-wrap gap-10 lg:flex-nowrap">
+                    <BarGraph
+                      title={"Company culture rating"}
+                      maxValue={5}
+                      value={averages.data.averageCultureRating}
+                    />
+                    <BarGraph
+                      title={"Supervisor rating"}
+                      maxValue={5}
+                      value={averages.data.averageSupervisorRating}
+                    />
+                  </div>
+
                   <div className="flex flex-wrap gap-x-6">
                     {perks &&
                       Object.entries(perks).map(
@@ -191,8 +208,8 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
           {averages.data && (
             <div className="col-span-2" id="pay">
               <CollapsableInfoCard title={"Pay"}>
-                <div className="flex flex-wrap justify-between">
-                  <div className="flex w-[30%] flex-col gap-5">
+                <div className="flex flex-col justify-between gap-3 md:flex-row">
+                  <div className="flex flex-col justify-between gap-2 md:w-[30%] md:gap-5">
                     <div className="text-cooper-gray-400">Pay range</div>
                     {averages.data.minPay !== averages.data.maxPay ? (
                       <div className="flex flex-col gap-5">
@@ -212,7 +229,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                       </div>
                     )}
                   </div>
-                  <div className="flex w-[30%] flex-col justify-between gap-5">
+                  <div className="flex flex-col justify-between gap-2 md:w-[30%] md:gap-5">
                     <div className="text-cooper-gray-400">Overtime work</div>
                     <div className="flex items-center gap-2 pl-1">
                       <div className="text-4xl text-[#141414]">
@@ -232,7 +249,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                       }
                     />
                   </div>
-                  <div className="flex w-[30%] flex-col justify-between gap-5">
+                  <div className="flex flex-col justify-between gap-2 md:w-[30%] md:gap-5">
                     <div className="text-cooper-gray-400">
                       Paid time off (PTO)
                     </div>
@@ -287,7 +304,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
                 </div>
               )}
               {reviews.isSuccess && reviews.data.length > 0 && (
-                <div className="flex flex-col gap-5">
+                <div className="flex min-h-fit flex-col gap-5">
                   <div className="w-[60%]">
                     <StarGraph
                       ratings={ratings}
@@ -305,7 +322,7 @@ export function RoleInfo({ className, roleObj }: RoleCardProps) {
             </CollapsableInfoCard>
           </div>
         </div>
-        <div className="sticky top-10 flex h-fit w-[15%] flex-col gap-3 text-[#5a5a5a]">
+        <div className="sticky top-10 hidden h-fit w-[15%] flex-col gap-3 text-[#5a5a5a] lg:flex">
           <a href="#job-description">Job Description</a>
           <a href="#company">Company</a>
           <a href="#on-the-job">On the job</a>

@@ -91,7 +91,7 @@ export function RatingsSection({ textColor }: { textColor: string }) {
                 onValueChange={field.onChange}
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 defaultValue={field.value}
-                className="flex w-full flex-col space-y-3 text-center sm:flex-row sm:justify-between sm:space-y-0"
+                className="flex w-full flex-col space-y-3 text-start sm:flex-row sm:justify-between sm:space-y-0 sm:text-center"
               >
                 <FormItem className="flex items-center space-x-4 space-y-0 sm:flex-col sm:space-x-2 sm:space-y-2">
                   <FormControl>

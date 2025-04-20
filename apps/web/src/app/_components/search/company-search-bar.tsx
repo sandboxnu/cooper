@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import type { SubmitHandler } from "react-hook-form";
+import type { z } from "zod";
+import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
-import { z } from "zod";
 
 import type { IndustryType, LocationType } from "@cooper/db/schema";
 import { Industry } from "@cooper/db/schema";
@@ -17,25 +17,23 @@ import {
   SelectValue,
 } from "@cooper/ui/select";
 
+import type { searchFormSchema } from "./search-filter";
 import { api } from "~/trpc/react";
-import ComboBox from "../combo-box";
+import LocationBox from "../location";
 
 interface SearchBarProps {
   industry?: IndustryType;
   location?: LocationType;
+  onSubmit: SubmitHandler<z.infer<typeof searchFormSchema>>;
 }
 
-const _formSchema = z.object({
-  searchIndustry: z.string().optional(),
-  searchLocation: z.string().optional(),
-});
-type FormSchema = z.infer<typeof _formSchema>;
-
-export function CompanySearchBar({ industry, location }: SearchBarProps) {
-  const form = useFormContext();
+export function CompanySearchBar({
+  industry,
+  location,
+  onSubmit,
+}: SearchBarProps) {
+  const form = useFormContext<z.infer<typeof searchFormSchema>>();
   const { handleSubmit, setValue } = form;
-  const router = useRouter();
-  const pathName = usePathname();
 
   const [selectedIndustry, setSelectedIndustry] = useState<string | undefined>(
     industry,
@@ -54,9 +52,10 @@ export function CompanySearchBar({ industry, location }: SearchBarProps) {
       setPrefix(newPrefix);
     }
   }, [prefix, searchTerm]);
+
   const locationsToUpdate = api.location.getByPrefix.useQuery(
     { prefix },
-    { enabled: searchTerm.length === 3 },
+    { enabled: searchTerm.length === 3 && prefix.length === 3 },
   );
 
   const locationValuesAndLabels = locationsToUpdate.data
@@ -72,35 +71,12 @@ export function CompanySearchBar({ industry, location }: SearchBarProps) {
       })
     : [];
 
-  const onSubmit = (data: FormSchema) => {
-    router.push(pathName + "?" + createQueryString(data));
-  };
-
-  const createQueryString = useCallback(
-    ({ searchIndustry, searchLocation }: FormSchema) => {
-      const currentParams = new URLSearchParams(window.location.search);
-      // Update the query parameters with the new values
-      if (searchIndustry) {
-        currentParams.set("industry", searchIndustry);
-      } else {
-        currentParams.delete("industry");
-      }
-
-      if (searchLocation) {
-        currentParams.set("location", searchLocation);
-      } else {
-        currentParams.delete("location");
-      }
-
-      return currentParams.toString();
-    },
-    [],
-  );
-
   return (
-    <div className="flex w-full flex-row items-center justify-between pt-4">
-      <div className="justify-left text-[30px]">Browse Companies</div>
-      <div className="flex min-w-0 flex-row items-center gap-6">
+    <div className="flex w-full flex-col justify-between pt-4 lg:flex-row lg:items-center">
+      <div className="justify-left text-2xl xl:text-[30px]">
+        Browse Companies
+      </div>
+      <div className="flex flex-col gap-6 p-1 md:flex-row md:items-center">
         <FormField
           control={form.control}
           name="searchIndustry"
@@ -117,7 +93,7 @@ export function CompanySearchBar({ industry, location }: SearchBarProps) {
                   value={selectedIndustry}
                 >
                   <SelectTrigger
-                    className={`h-12 w-[21rem] ${selectedIndustry === "INDUSTRY" ? "text-cooper-gray-400" : "text-gray font-normal"} rounded-none border-[0.75px] border-l-0 border-t-0 border-cooper-gray-400 text-lg placeholder:opacity-50 focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 lg:rounded-md lg:border-[0.75px]`}
+                    className={`h-12 w-48 md:w-[21rem] ${selectedIndustry === "INDUSTRY" ? "text-cooper-gray-400" : "text-gray font-normal"} rounded-lg border-[0.75px] border-cooper-gray-400 text-lg placeholder:opacity-50 focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0`}
                   >
                     <span
                       className={`overflow-hidden whitespace-nowrap text-lg ${selectedIndustry === "INDUSTRY" ? "text-cooper-gray-400" : "text-gray"}`}
@@ -143,51 +119,34 @@ export function CompanySearchBar({ industry, location }: SearchBarProps) {
             </FormItem>
           )}
         />
-        <FormField
-          control={form.control}
-          name="searchLocation"
-          render={({ field }) => (
-            <FormItem className="col-span-5 lg:col-span-2">
-              <FormControl>
-                <ComboBox
-                  {...field}
-                  variant="filtering"
-                  defaultLabel={locationLabel || "Location"}
-                  searchPlaceholder="Type to begin..."
-                  searchEmpty="No location found."
-                  valuesAndLabels={locationValuesAndLabels}
-                  currLabel={locationLabel}
-                  onChange={(value) => {
-                    setSearchTerm(value);
-                  }}
-                  onSelect={(currentValue) => {
-                    setLocationLabel(currentValue);
-                    const selectedLoc = locationsToUpdate.data?.find(
-                      (loc) =>
-                        `${loc.city}${loc.state ? `, ${loc.state}` : ""}${loc.country ? `, ${loc.country}` : ""}` ===
-                        currentValue,
-                    );
-                    const finalValue =
-                      currentValue === "LOCATION" ? undefined : selectedLoc?.id;
-                    setValue(field.name, finalValue);
-                    void handleSubmit(onSubmit)();
-                  }}
-                />
-              </FormControl>
-            </FormItem>
-          )}
-        />
-        <Button
-          className="border-white bg-white p-0 text-cooper-gray-400 hover:bg-white hover:text-[#9A9A9A]"
-          onClick={() => {
-            setSelectedIndustry("INDUSTRY");
-            setLocationLabel("");
-            form.setValue("searchIndustry", undefined);
-            form.setValue("searchLocation", undefined);
-          }}
-        >
-          Clear
-        </Button>
+        <div className="flex items-center gap-2">
+          <LocationBox
+            searchBar={true}
+            form={form}
+            locationLabel={locationLabel}
+            setSearchTerm={setSearchTerm}
+            locationValuesAndLabels={locationValuesAndLabels}
+            setLocationLabel={setLocationLabel}
+            locationsToUpdate={locationsToUpdate}
+            setValue={(name, value) =>
+              setValue(name as keyof z.infer<typeof searchFormSchema>, value)
+            }
+            handleSubmit={handleSubmit}
+            onSubmit={onSubmit}
+          />
+          <Button
+            className="border-white bg-white p-0 text-cooper-gray-400 hover:bg-white hover:text-[#9A9A9A]"
+            onClick={() => {
+              setSelectedIndustry("INDUSTRY");
+              setLocationLabel("");
+              form.setValue("searchIndustry", undefined);
+              form.setValue("searchLocation", undefined);
+              onSubmit({});
+            }}
+          >
+            Clear
+          </Button>
+        </div>
       </div>
     </div>
   );

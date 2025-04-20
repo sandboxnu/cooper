@@ -6,12 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import {
-  IndustryType,
-  LocationType,
-  WorkEnvironment,
-  WorkTerm,
-} from "@cooper/db/schema";
+import type { IndustryType, LocationType } from "@cooper/db/schema";
+import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Form } from "@cooper/ui/form";
 
@@ -19,8 +15,8 @@ import { ReviewSearchBar } from "~/app/_components/search/review-search-bar";
 import { CompanySearchBar } from "./company-search-bar";
 import { SimpleSearchBar } from "./simple-search-bar";
 
-const formSchema = z.object({
-  searchText: z.string(),
+export const searchFormSchema = z.object({
+  searchText: z.string().optional(),
   searchCycle: z
     .nativeEnum(WorkTerm, {
       message: "Invalid cycle type",
@@ -35,7 +31,7 @@ const formSchema = z.object({
   searchLocation: z.string().optional(),
 });
 
-export type SearchFilterFormType = typeof formSchema;
+export type SearchFilterFormType = typeof searchFormSchema;
 
 interface SearchFilterProps {
   search?: string;
@@ -64,12 +60,14 @@ export default function SearchFilter({
   industry,
   location,
 }: SearchFilterProps) {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof searchFormSchema>>({
+    resolver: zodResolver(searchFormSchema),
     defaultValues: {
-      searchText: search ?? "",
+      searchText: search,
       searchCycle: cycle,
       searchTerm: term,
+      searchIndustry: industry,
+      searchLocation: location?.id,
     },
   });
 
@@ -83,24 +81,33 @@ export default function SearchFilter({
       searchText,
       searchIndustry,
       searchLocation,
-    }: z.infer<typeof formSchema>) => {
+    }: z.infer<typeof searchFormSchema>) => {
       // Initialize URLSearchParams with the required searchText
       const params = new URLSearchParams(window.location.search);
 
       // Conditionally add searchCycle and searchTerm if they have values
-      if (searchCycle) {
+      if (searchCycle !== undefined) {
         params.set("cycle", searchCycle);
       }
-      if (searchTerm) {
+      if (searchTerm !== undefined) {
         params.set("term", searchTerm);
       }
-      params.set("search", searchText);
 
-      if (searchIndustry) {
-        params.set("industry", searchIndustry);
+      if (searchText !== undefined) {
+        params.set("search", searchText);
+      } else if (!params.get("search")) {
+        params.delete("search");
       }
-      if (searchLocation) {
+
+      if (searchIndustry !== undefined) {
+        params.set("industry", searchIndustry);
+      } else {
+        params.delete("industry");
+      }
+      if (searchLocation !== undefined) {
         params.set("location", searchLocation);
+      } else {
+        params.delete("location");
       }
 
       return params.toString();
@@ -108,7 +115,7 @@ export default function SearchFilter({
     [],
   );
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: z.infer<typeof searchFormSchema>) {
     if (alternatePathname) {
       router.push(alternatePathname + "?" + createQueryString(values));
     } else {
@@ -132,7 +139,11 @@ export default function SearchFilter({
             <ReviewSearchBar cycle={cycle} term={term} />
           )}
           {searchType === "COMPANIES" && (
-            <CompanySearchBar industry={industry} location={location} />
+            <CompanySearchBar
+              industry={industry}
+              location={location}
+              onSubmit={onSubmit}
+            />
           )}
         </div>
       </form>
