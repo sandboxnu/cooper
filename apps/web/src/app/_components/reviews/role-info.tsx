@@ -76,7 +76,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
           viewBox="0 0 14 12"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="m-4 block min-w-3 md:hidden"
+          className="m-4 block min-w-3 md:hidden hover:cursor-pointer"
           onClick={onBack}
         >
           <path
@@ -296,7 +296,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                 </div>
               )}
               {reviews.isSuccess && reviews.data.length > 0 && (
-                <div className="flex min-h-fit flex-col gap-5">
+                <div className="flex h-full flex-col gap-5">
                   <div className="w-[60%]">
                     <StarGraph
                       ratings={ratings}
