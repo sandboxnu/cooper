@@ -35,55 +35,61 @@ export default function Companies({
   const router = useRouter();
 
   return (
-    <div className="w-[95%] justify-center">
+    <div className="w-[95%] justify-center overflow-y-auto md:overflow-y-clip">
       <SearchFilter
         searchType="COMPANIES"
         industry={searchParams?.industry}
         location={locationQuery.data}
       />
-      <hr className="my-4 w-full border-t border-[#9A9A9A]" />
-      <div className="text-[26px]">
-        {searchParams?.industry ? (
-          <>
-            <span className="font-bold">
-              {searchParams.industry.charAt(0) +
-                searchParams.industry.slice(1).toLowerCase()}
-            </span>{" "}
-            Companies
-          </>
-        ) : (
-          "Companies"
-        )}
-        {locationQuery.data && (
-          <>
-            {" in "}
-            <span className="font-bold">
-              {locationQuery.data.city}
-              {locationQuery.data.state ? `, ${locationQuery.data.state}` : ""}
-            </span>
-          </>
-        )}
+      <hr className="mt-4 w-full border-t border-[#9A9A9A]" />
+      <div className="md:overflow-y-auto">
+        <p className="text-[26px] mt-2">
+          {searchParams?.industry ? (
+            <>
+              <span className="font-bold">
+                {searchParams.industry.charAt(0) +
+                  searchParams.industry.slice(1).toLowerCase()}
+              </span>{" "}
+              Companies
+            </>
+          ) : (
+            "Companies"
+          )}
+          {locationQuery.data && (
+            <>
+              {" in "}
+              <span className="font-bold">
+                {locationQuery.data.city}
+                {locationQuery.data.state
+                  ? `, ${locationQuery.data.state}`
+                  : ""}
+              </span>
+            </>
+          )}
+        </p>
+        <p className="text-cooper-gray-400">
+          {companies.data?.length ?? 0} results
+        </p>
+        {companies.isSuccess && companies.data.length > 0 ? (
+          <div className="mb-8 grid h-[70dvh] grid-cols-1 gap-4 md:mt-6 md:h-[75dvh] md:grid-cols-2 xl:grid-cols-3">
+            {companies.data.map((company) => (
+              <div
+                key={company.id}
+                className="cursor-pointer"
+                onClick={() =>
+                  router.push(`/companies/company?id=${company.id}`)
+                }
+              >
+                <CompanyCardPreview companyObj={company} className="mb-4" />
+              </div>
+            ))}
+          </div>
+        ) : companies.isSuccess && companies.data.length === 0 ? (
+          <NoResults className="h-[70dvh] md:h-[75dvh]" />
+        ) : companies.isPending ? (
+          <LoadingResults className="h-[70dvh] md:h-[75dvh]" />
+        ) : null}
       </div>
-      <div className="text-cooper-gray-400">
-        {companies.data?.length ?? 0} results
-      </div>
-      {companies.isSuccess && companies.data.length > 0 ? (
-        <div className="mb-8 grid h-[70dvh] grid-cols-1 gap-4 overflow-y-auto md:mt-6 md:h-[75dvh] md:grid-cols-2 xl:grid-cols-3">
-          {companies.data.map((company) => (
-            <div
-              key={company.id}
-              className="cursor-pointer"
-              onClick={() => router.push(`/companies/company?id=${company.id}`)}
-            >
-              <CompanyCardPreview companyObj={company} className="mb-4" />
-            </div>
-          ))}
-        </div>
-      ) : companies.isSuccess && companies.data.length === 0 ? (
-        <NoResults className="h-full" />
-      ) : companies.isPending ? (
-        <LoadingResults className="h-full" />
-      ) : null}
     </div>
   );
 }

@@ -9,6 +9,7 @@ interface MobileHeaderButtonProps {
   href?: string;
   iconSrc?: string;
   label?: string;
+  onClick?: () => void;
   children?: React.ReactNode;
 }
 
@@ -16,6 +17,7 @@ export default function MobileHeaderButton({
   href,
   iconSrc,
   label = "",
+  onClick,
   children,
 }: MobileHeaderButtonProps) {
   const path = usePathname();
@@ -42,7 +44,13 @@ export default function MobileHeaderButton({
           className="absolute -top-6 z-10 -translate-y-2"
         />
       )}
-      {href ? <Link href={href}>{button}</Link> : button}
+      {href ? (
+        <Link href={href} onClick={onClick}>
+          {button}
+        </Link>
+      ) : (
+        button
+      )}
     </div>
   );
 }

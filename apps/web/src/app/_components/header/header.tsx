@@ -53,15 +53,19 @@ export default function Header({ auth }: HeaderProps) {
             href="/"
             iconSrc="/svg/apartment.svg"
             label="Jobs"
+            onClick={() => setIsOpen(false)}
           />
           <MobileHeaderButton
             href="/companies"
             iconSrc="/svg/work.svg"
             label="Companies"
+            onClick={() => setIsOpen(false)}
           />
           {/* this auth looks weird when it's logged out, but it's the night before showcase
           so can't do much abt it lmao */}
-          <MobileHeaderButton label="Profile">{auth}</MobileHeaderButton>
+          <MobileHeaderButton label="Profile" onClick={() => setIsOpen(false)}>
+            {auth}
+          </MobileHeaderButton>
         </div>
       </header>
     );
