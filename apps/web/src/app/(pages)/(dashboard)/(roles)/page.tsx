@@ -161,9 +161,9 @@ export default function Roles() {
         </div>
       )}
       {roles.isSuccess && roles.data.length === 0 && (
-        <NoResults className="h-full" />
+        <NoResults className="h-[84dvh]" />
       )}
-      {roles.isPending && <LoadingResults className="h-full" />}
+      {roles.isPending && <LoadingResults className="h-[84dvh]" />}
     </>
   );
 }
