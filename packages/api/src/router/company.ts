@@ -47,7 +47,7 @@ export const companyRouter = {
       }),
     )
     .query(async ({ ctx, input }) => {
-      if (ctx.sortBy === "rating" || ctx.sortBy === "default") {  
+      if (ctx.sortBy === "rating" || ctx.sortBy === "default") {
         const filters: SQL[] = [];
 
         if (input.options?.industry) {
