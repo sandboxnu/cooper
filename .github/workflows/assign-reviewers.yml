@@ -1,0 +1,50 @@
+name: Assign Reviewers
+on:
+  pull_request:
+    types: [opened, ready_for_review]
+
+jobs:
+  assign-reviewers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Assign reviewers
+        id: assign
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require("fs");
+            const statsPath = ".github/reviewer-stats.json";
+
+            let stats = JSON.parse(fs.readFileSync(statsPath, "utf8"));
+
+            function pickLeastAssigned(groupStats) {
+              const minCount = Math.min(...Object.values(groupStats));
+              const candidates = Object.keys(groupStats).filter(user => groupStats[user] === minCount);
+              return candidates[Math.floor(Math.random() * candidates.length)];
+            }
+
+            const reviewerA = pickLeastAssigned(stats.groupA);
+            const reviewerB = pickLeastAssigned(stats.groupB);
+
+            // Update counts
+            stats.groupA[reviewerA]++;
+            stats.groupB[reviewerB]++;
+
+            fs.writeFileSync(statsPath, JSON.stringify(stats, null, 2));
+
+            await github.rest.pulls.requestReviewers({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+              reviewers: [reviewerA, reviewerB]
+            });
+
+      - name: Commit updated stats
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update reviewer stats"
+          file_pattern: .github/reviewer-stats.json
