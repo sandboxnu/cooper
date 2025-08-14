@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true # keep token for pushing
 
       - name: Assign reviewers
         id: assign
@@ -27,14 +29,16 @@ jobs:
               return candidates[Math.floor(Math.random() * candidates.length)];
             }
 
-            const reviewerA = pickLeastAssigned(stats.groupA);
-            const reviewerB = pickLeastAssigned(stats.groupB);
+            const reviewerA = pickLeastAssigned(stats["cooper-leads"]);
+            const reviewerB = pickLeastAssigned(stats.devs);
 
             // Update counts
-            stats.groupA[reviewerA]++;
-            stats.groupB[reviewerB]++;
+            stats["cooper-leads"][reviewerA]++;
+            stats.devs[reviewerB]++;
 
             fs.writeFileSync(statsPath, JSON.stringify(stats, null, 2));
+
+            console.log(`Assigning reviewers: ${reviewerA} and ${reviewerB}`);
 
             await github.rest.pulls.requestReviewers({
               owner: context.repo.owner,
@@ -44,7 +48,9 @@ jobs:
             });
 
       - name: Commit updated stats
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Update reviewer stats"
-          file_pattern: .github/reviewer-stats.json
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/reviewer-stats.json
+          git commit -m "Update reviewer stats" || echo "No changes to commit"
+          git push
