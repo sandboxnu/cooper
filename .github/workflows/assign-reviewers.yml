@@ -12,7 +12,7 @@ jobs:
         with:
           persist-credentials: true # keep token for pushing
 
-      - name: Assign reviewers
+       - name: Assign reviewers
         id: assign
         uses: actions/github-script@v7
         with:
@@ -20,17 +20,23 @@ jobs:
           script: |
             const fs = require("fs");
             const statsPath = ".github/reviewer-stats.json";
+            const prAuthor = context.payload.pull_request.user.login;
 
             let stats = JSON.parse(fs.readFileSync(statsPath, "utf8"));
 
-            function pickLeastAssigned(groupStats) {
-              const minCount = Math.min(...Object.values(groupStats));
-              const candidates = Object.keys(groupStats).filter(user => groupStats[user] === minCount);
+            function pickLeastAssigned(groupStats, exclude) {
+              // Filter out the PR author
+              const filtered = Object.fromEntries(
+                Object.entries(groupStats).filter(([user]) => user !== exclude)
+              );
+
+              const minCount = Math.min(...Object.values(filtered));
+              const candidates = Object.keys(filtered).filter(user => filtered[user] === minCount);
               return candidates[Math.floor(Math.random() * candidates.length)];
             }
 
-            const reviewerA = pickLeastAssigned(stats["cooper-leads"]);
-            const reviewerB = pickLeastAssigned(stats.devs);
+            const reviewerA = pickLeastAssigned(stats.cooper-leads, prAuthor);
+            const reviewerB = pickLeastAssigned(stats.devs, prAuthor);
 
             // Update counts
             stats["cooper-leads"][reviewerA]++;
