@@ -7,42 +7,20 @@ jobs:
   assign-reviewers:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-        with:
-          persist-credentials: true # keep token for pushing
-
-       - name: Assign reviewers
-        id: assign
+      - name: Assign reviewers
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const fs = require("fs");
-            const statsPath = ".github/reviewer-stats.json";
-            const prAuthor = context.payload.pull_request.user.login;
+            const groupA = ["tracyyh", "gpalmer27"];
+            const groupB = ["suxls", "mattrwang", "songmichael11"];
 
-            let stats = JSON.parse(fs.readFileSync(statsPath, "utf8"));
-
-            function pickLeastAssigned(groupStats, exclude) {
-              // Filter out the PR author
-              const filtered = Object.fromEntries(
-                Object.entries(groupStats).filter(([user]) => user !== exclude)
-              );
-
-              const minCount = Math.min(...Object.values(filtered));
-              const candidates = Object.keys(filtered).filter(user => filtered[user] === minCount);
-              return candidates[Math.floor(Math.random() * candidates.length)];
+            function pickRandom(arr) {
+              return arr[Math.floor(Math.random() * arr.length)];
             }
 
-            const reviewerA = pickLeastAssigned(stats.cooper-leads, prAuthor);
-            const reviewerB = pickLeastAssigned(stats.devs, prAuthor);
-
-            // Update counts
-            stats["cooper-leads"][reviewerA]++;
-            stats.devs[reviewerB]++;
-
-            fs.writeFileSync(statsPath, JSON.stringify(stats, null, 2));
+            const reviewerA = pickRandom(groupA);
+            const reviewerB = pickRandom(groupB);
 
             console.log(`Assigning reviewers: ${reviewerA} and ${reviewerB}`);
 
@@ -52,11 +30,3 @@ jobs:
               pull_number: context.payload.pull_request.number,
               reviewers: [reviewerA, reviewerB]
             });
-
-      - name: Commit updated stats
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .github/reviewer-stats.json
-          git commit -m "Update reviewer stats" || echo "No changes to commit"
-          git push
