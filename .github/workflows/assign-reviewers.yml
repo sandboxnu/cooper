@@ -14,19 +14,23 @@ jobs:
           script: |
             const groupA = ["tracyyh", "gpalmer27"];
             const groupB = ["suxls", "mattrwang", "songmichael11"];
+            const prAuthor = context.payload.pull_request.user.login;
 
             function pickRandom(arr) {
               return arr[Math.floor(Math.random() * arr.length)];
             }
 
-            const reviewerA = pickRandom(groupA);
-            const reviewerB = pickRandom(groupB);
+            // Filter out PR author from each group
+            const filteredA = groupA.filter(user => user !== prAuthor);
+            const filteredB = groupB.filter(user => user !== prAuthor);
 
-            console.log(`Assigning reviewers: ${reviewerA} and ${reviewerB}`);
+            // Pick reviewers only from filtered lists
+            const reviewerA = pickRandom(filteredA);
+            const reviewerB = pickRandom(filteredB);
 
             await github.rest.pulls.requestReviewers({
               owner: context.repo.owner,
               repo: context.repo.repo,
               pull_number: context.payload.pull_request.number,
-              reviewers: [reviewerA, reviewerB]
+              reviewers: [reviewerA, reviewerB].filter(Boolean)
             });
