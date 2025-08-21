@@ -1,80 +1,106 @@
-// /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-// /* eslint-disable @typescript-eslint/unbound-method */
-// import { beforeEach, describe, expect, test, vi } from "vitest";
+import { beforeEach, describe, expect, test, vi } from "vitest";
 
-import { describe, expect, test } from "vitest";
+import type { Session } from "@cooper/auth";
+import type { CompanyType, ReviewType } from "@cooper/db/schema";
+import { and, eq, inArray } from "@cooper/db";
+import { db } from "@cooper/db/client";
+import { Company, Review } from "@cooper/db/schema";
 
-// import type { Session } from "@cooper/auth";
-// import type { CompanyType } from "@cooper/db/schema";
-// import { and, eq } from "@cooper/db";
-// import { db } from "@cooper/db/client";
-// import { Company } from "@cooper/db/schema";
+import { appRouter } from "../src/root";
+import { createCallerFactory, createTRPCContext } from "../src/trpc";
+import { data } from "./mocks/review";
 
-// import { appRouter } from "../src/root";
-// import { createCallerFactory, createTRPCContext } from "../src/trpc";
-// import { data } from "./mocks/company";
+const chain: any = {
+  from: vi.fn(() => chain),
+  innerJoin: vi.fn(() => chain),
+  where: vi.fn(() => chain),
+};
 
-// vi.mock("@cooper/db/client", () => ({
-//   db: {
-//     query: {
-//       Review: {
-//         findMany: vi.fn(),
-//       },
-//     },
-//   },
-// }));
+vi.mock("@cooper/db/client", () => ({
+  db: {
+    select: vi.fn(() => chain),
+    execute: vi.fn(),
+    query: {
+      Review: {
+        findMany: vi.fn(),
+        findFirst: vi.fn(),
+      },
+      Company: {
+        findMany: vi.fn(),
+        findFirst: vi.fn(),
+      },
+    },
+  },
+}));
 
-// vi.mock("@cooper/auth", () => ({
-//   auth: vi.fn(),
-// }));
+vi.mock("@cooper/auth", () => ({
+  auth: vi.fn(),
+}));
 
-// describe("Company Router", async () => {
-//   beforeEach(() => {
-//     vi.restoreAllMocks();
-//     vi.mocked(db.query.Company.findMany).mockResolvedValue(data as CompanyType[]);
-//   });
-
-//   const session: Session = {
-//     user: {
-//       id: "1",
-//     },
-//     expires: "1",
-//   };
-
-//   const ctx = await createTRPCContext({
-//     session,
-//     headers: new Headers(),
-//   });
-
-//   const caller = createCallerFactory(appRouter)(ctx);
-
-//   test("list endpoint returns all companies", async () => {
-//     const companies = await caller.review.list({});
-
-//     expect(companies).toEqual(data);
-
-//     expect(db.query.Review.findMany).toHaveBeenCalledWith({
-//       orderBy: expect.anything(),
-//       where: undefined,
-//     });
-//   });
-
-//   test("list endpoint with filtered companies", async () => {
-//     await caller.review.list({
-//         search: "kin"
-//     });
-
-//     expect(db.query.Review.findMany).toHaveBeenCalledWith({
-//       orderBy: expect.anything(),
-//       where: and(eq(Review.workTerm, "SPRING")),
-//     });
-//   });
-
-// });
-
-describe("Company Router", () => {
-  test("github action bandaage", () => {
-    expect(true).toBe(true);
+describe("Company Router", async () => {
+  beforeEach(() => {
+    vi.restoreAllMocks();
+    vi.mocked(db.query.Review.findMany).mockResolvedValue(data as ReviewType[]);
   });
-  // Add your tests here
+
+  const session: Session = {
+    user: {
+      id: "1",
+    },
+    expires: "1",
+  };
+
+  const ctx = await createTRPCContext({
+    session,
+    headers: new Headers(),
+  });
+
+  const caller = createCallerFactory(appRouter)(ctx);
+
+  // test("list endpoint returns companies", async () => {
+  //   const companies = await caller.company.list({});
+
+  //   expect(companies).toEqual(data);
+
+  //   expect(db.query.Company.findMany).toHaveBeenCalledWith({
+  //     orderBy: expect.anything(),
+  //     where: undefined,
+  //   });
+  // })
+
+  test("getByName endpoint returns company by name", async () => {
+    const companyName = "Test Company";
+    await caller.company.getByName({ name: companyName });
+
+    expect(db.query.Company.findFirst).toHaveBeenCalledWith({
+      where: eq(Company.name, companyName),
+    });
+  });
+
+  test("getById endpoint returns company by id", async () => {
+    const companyId = "123";
+    await caller.company.getById({ id: companyId });
+
+    expect(db.query.Company.findFirst).toHaveBeenCalledWith({
+      where: eq(Company.id, "123"),
+    });
+  });
+
+  // test("getLocationsById endpoint returns locations by company id", async () => {
+  //   const companyId = "123";
+  //   await caller.company.getLocationsById({ id: companyId });
+
+  //   expect(db.query.Company.findFirst).toHaveBeenCalledWith({
+  //     where: eq(Company.id, "123"),
+  //   });
+  // })
+
+  test("getAverageById endpoint returns average ratings by company id", async () => {
+    const companyId = "123";
+    await caller.company.getAverageById({ companyId });
+
+    expect(db.query.Review.findMany).toHaveBeenCalledWith({
+      where: eq(Review.companyId, companyId),
+    });
+  });
 });

@@ -103,6 +103,33 @@ describe("Review Router", async () => {
     });
   });
 
+  test("getByRole endpoint returns reviews by role", async () => {
+    const roleId = "role-123";
+    await caller.review.getByRole({ id: roleId });
+
+    expect(db.query.Review.findMany).toHaveBeenCalledWith({
+      where: eq(Review.roleId, "role-123"),
+    });
+  });
+
+  test("getByCompany endpoint returns reviews by company", async () => {
+    const companyId = "company-123";
+    await caller.review.getByCompany({ id: companyId });
+
+    expect(db.query.Review.findMany).toHaveBeenCalledWith({
+      where: eq(Review.companyId, "company-123"),
+    });
+  });
+
+  test("getByProfile endpoint returns reviews by profile", async () => {
+    const profileId = "profile-123";
+    await caller.review.getByProfile({ id: profileId });
+
+    expect(db.query.Review.findMany).toHaveBeenCalledWith({
+      where: eq(Review.profileId, "profile-123"),
+    });
+  });
+
   test("get average by industry", async () => {
     vi.resetAllMocks();
     const mockHeaders = new Headers();
