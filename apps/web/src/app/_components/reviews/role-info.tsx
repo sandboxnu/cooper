@@ -209,7 +209,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             <div className="col-span-2" id="pay">
               <CollapsableInfoCard title={"Pay"}>
                 <div className="flex flex-col justify-between gap-3 md:flex-row">
-                  <div className="flex flex-col justify-between gap-2 md:w-[30%] md:gap-5">
+                  <div className="flex flex-col gap-2 md:w-[30%] md:gap-5">
                     <div className="text-cooper-gray-400">Pay range</div>
                     {averages.data.minPay !== averages.data.maxPay ? (
                       <div className="flex flex-col gap-5">
