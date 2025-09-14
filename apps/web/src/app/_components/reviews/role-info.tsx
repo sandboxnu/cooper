@@ -134,7 +134,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
         </CardContent>
       </div>
       <div className="mt-4 flex w-[100%] justify-between">
-        <div className="grid w-full grid-cols-2 gap-5 px-3 lg:w-[80%] lg:pl-6 lg:pr-0">
+        <div className="grid w-full grid-cols-2 gap-5 px-3 lg:pl-6 lg:pr-6">
           <div className="col-span-2 h-full md:col-span-1" id="job-description">
             <InfoCard title={"Job Description"}>
               <div className="flex h-28 overflow-y-auto pr-4 text-[#5a5a5a] md:h-40">
@@ -314,14 +314,14 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             </CollapsableInfoCard>
           </div>
         </div>
-        <div className="sticky top-10 hidden h-fit w-[15%] flex-col gap-3 text-[#5a5a5a] lg:flex">
+        {/* <div className="sticky top-10 hidden h-fit w-[15%] flex-col gap-3 text-[#5a5a5a] lg:flex">
           <a href="#job-description">Job Description</a>
           <a href="#company">Company</a>
           <a href="#on-the-job">On the job</a>
           <a href="#pay">Pay</a>
           <a href="#interview">Interview</a>
           <a href="#reviews">Reviews</a>
-        </div>
+        </div> */}
       </div>
     </div>
   );
