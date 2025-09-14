@@ -60,7 +60,9 @@ export default function Roles() {
   useEffect(() => {
     // updates the URL when a role is changed
     if (selectedRole && queryParam !== selectedRole.id) {
-      router.replace(`/?id=${selectedRole.id}`);
+      const params = new URLSearchParams(window.location.search);
+      params.set("id", selectedRole.id);
+      router.replace(`/?${params.toString()}`);
     }
   }, [selectedRole, router, queryParam]);
 
@@ -161,9 +163,9 @@ export default function Roles() {
         </div>
       )}
       {roles.isSuccess && roles.data.length === 0 && (
-        <NoResults className="h-full" />
+        <NoResults className="h-[84dvh]" />
       )}
-      {roles.isPending && <LoadingResults className="h-full" />}
+      {roles.isPending && <LoadingResults className="h-[84dvh]" />}
     </>
   );
 }
