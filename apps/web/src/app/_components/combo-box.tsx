@@ -27,7 +27,7 @@ interface ComboBoxProps {
   onSelect: (option: string) => void;
   triggerClassName?: string;
   onChange?: (value: string) => void;
-  variant?: "default" | "form";
+  variant?: "default" | "form" | "filtering";
 }
 
 /**
@@ -50,16 +50,19 @@ export default function ComboBox({
 
   const styleVariant =
     variant === "form"
-      ? "flex h-16 w-full rounded-md border-[3px] border-cooper-blue-600 bg-white px-3 py-2 text-xl font-normal ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-      : "";
+      ? "flex h-16 w-full max-w-fit rounded-md border-[3px] border-cooper-blue-600 bg-white px-3 py-2 text-xl font-normal ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+      : variant === "filtering"
+        ? "w-36 md:w-[21rem] h-10 lg:h-12 border-cooper-gray-400 text-lg placeholder:opacity-50 focus:ring-0 active:ring-0 rounded-lg border-[0.75px] py-0"
+        : "h-8 py-0";
 
   return (
     <Popover open={isOpen} onOpenChange={setIsOpen}>
       <PopoverTrigger
         asChild
         className={cn(
-          "w-[400px] overflow-hidden file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+          "overflow-hidden file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
           triggerClassName,
+          variant !== "filtering" ? "w-[400px]" : "",
         )}
       >
         <Button
@@ -68,10 +71,13 @@ export default function ComboBox({
           aria-expanded={isOpen}
           className={cn(
             styleVariant,
-            "w-[400px] justify-between overflow-hidden text-ellipsis text-nowrap",
+            "h-12 min-h-0 justify-between overflow-hidden text-ellipsis text-nowrap py-0",
+            variant !== "filtering" ? "w-[400px]" : "",
           )}
         >
-          <span className="overflow-hidden text-ellipsis whitespace-nowrap">
+          <span
+            className={`overflow-hidden whitespace-nowrap text-lg ${defaultLabel === "Location" ? "text-cooper-gray-400" : "text-gray font-normal"}`}
+          >
             {defaultLabel}
           </span>
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />

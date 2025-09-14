@@ -155,7 +155,7 @@ export const roleRouter = {
         title: filter.clean(input.title),
         description: filter.clean(input.description ?? ""),
       };
-      return ctx.db.insert(Role).values(cleanInput);
+      return ctx.db.insert(Role).values(cleanInput).returning();
     }),
 
   delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {

@@ -6,11 +6,13 @@ import type { ReviewType, WorkEnvironmentType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Card, CardContent } from "@cooper/ui/card";
 
+import { api } from "~/trpc/react";
 import { locationName } from "~/utils/locationHelpers";
 import {
   abbreviatedWorkTerm,
   prettyWorkEnviornment,
 } from "~/utils/stringHelpers";
+import { DeleteReviewDialog } from "./delete-review-dialogue";
 import { ReviewCardStars } from "./review-card-stars";
 
 interface ReviewCardProps {
@@ -19,6 +21,12 @@ interface ReviewCardProps {
 }
 
 export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
+  // Get the current user's profile
+  const { data: currentProfile } = api.profile.getCurrentUser.useQuery();
+
+  // Check if the current user is the author of the review
+  const isAuthor = currentProfile?.id === reviewObj.profileId;
+
   return (
     <Card
       className={cn(
@@ -26,8 +34,8 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
         className,
       )}
     >
-      <div className="flex w-full pt-5">
-        <div className="h-40 w-[35%]">
+      <div className="flex w-full flex-wrap pt-5">
+        <div className="h-40 w-full sm:w-[35%]">
           <CardContent className="flex h-full flex-col justify-between pr-0">
             <div>
               <div className="pt-2">
@@ -52,16 +60,19 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
                   day: "numeric",
                 })}
               </div>
-              <div className="flex items-center gap-2 text-sm">
-                Posted by: Anonymous{" "}
+              <div className="flex flex-wrap items-center gap-2 text-sm">
+                Posted by: Anonymous
                 <div className="cursor-pointer text-sm font-black">?</div>
               </div>
             </div>
           </CardContent>
         </div>
-        <div className="w-[65%]">
-          <CardContent className="flex h-full flex-col justify-between gap-4 pl-0">
-            <div className="pt-1">{reviewObj.textReview}</div>
+        <div className="w-full sm:w-[65%]">
+          <CardContent className="flex h-full flex-col justify-between gap-4 pl-4 sm:pl-0">
+            <div className="flex flex-row justify-between">
+              <div className="pt-1">{reviewObj.textReview}</div>
+              {isAuthor && <DeleteReviewDialog reviewId={reviewObj.id} />}
+            </div>
             <div className="flex justify-between text-sm">
               <div className="flex gap-6">
                 <div>Position type: Co-op</div>

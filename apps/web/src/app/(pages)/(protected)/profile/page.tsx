@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
-import HeaderLayout from "~/app/_components/header-layout";
-import { NewReviewDialog } from "~/app/_components/reviews/new-review-dialogue";
+import HeaderLayout from "~/app/_components/header/header-layout";
+import { NewReviewDialog } from "~/app/_components/reviews/new-review/new-review-dialogue";
 import { ReviewCard } from "~/app/_components/reviews/review-card";
 import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
 import { api } from "~/trpc/server";
@@ -36,7 +36,7 @@ export default async function Profile() {
 
   return (
     <HeaderLayout>
-      <div className="mx-4 mt-4 flex h-full flex-col gap-8 overflow-auto">
+      <div className="mx-4 mt-4 flex h-full flex-col gap-8 overflow-y-auto md:max-w-[66%]">
         <div className="flex items-end justify-start gap-4">
           <Image
             src={session.user.image ?? "/svg/defaultProfile.svg"}

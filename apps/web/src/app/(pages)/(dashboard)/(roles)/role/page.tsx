@@ -18,8 +18,11 @@ export default function Role() {
   return (
     <>
       {role.isSuccess && (
-        <div className="col-span-3 w-[72%] overflow-auto p-1">
-          <RoleInfo roleObj={role.data as RoleType} />
+        <div className="flex w-full justify-center overflow-y-auto p-1">
+          <RoleInfo
+            roleObj={role.data as RoleType}
+            className="w-full md:w-[72%]"
+          />
         </div>
       )}
       {role.isPending && (

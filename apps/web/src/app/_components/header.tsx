@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@cooper/ui";
 
 import CooperLogo from "./cooper-logo";
-import { NewReviewDialog } from "./reviews/new-review-dialogue";
+import { NewReviewDialog } from "./reviews/new-review/new-review-dialogue";
 import SearchFilter from "./search/search-filter";
 
 interface HeaderProps {
@@ -23,7 +23,7 @@ export default function Header({ auth }: HeaderProps) {
   const outerWidth = "min-w-40";
 
   return (
-    <header className="z-10 flex h-[8dvh] min-h-20 w-full items-center justify-between gap-4 outline outline-[1.5px] outline-cooper-blue-600">
+    <header className="z-10 flex h-[8dvh] min-h-20 w-full items-center justify-between gap-4 overflow-scroll outline outline-[1.5px] outline-cooper-blue-600">
       {/* Logo + Cooper */}
       <div>
         <Link

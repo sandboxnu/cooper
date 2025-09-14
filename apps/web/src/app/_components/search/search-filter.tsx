@@ -6,15 +6,17 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import type { IndustryType, LocationType } from "@cooper/db/schema";
 import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Form } from "@cooper/ui/form";
 
 import { ReviewSearchBar } from "~/app/_components/search/review-search-bar";
+import { CompanySearchBar } from "./company-search-bar";
 import { SimpleSearchBar } from "./simple-search-bar";
 
-const formSchema = z.object({
-  searchText: z.string(),
+export const searchFormSchema = z.object({
+  searchText: z.string().optional(),
   searchCycle: z
     .nativeEnum(WorkTerm, {
       message: "Invalid cycle type",
@@ -25,9 +27,11 @@ const formSchema = z.object({
       message: "Invalid cycle type",
     })
     .optional(),
+  searchIndustry: z.string().optional(),
+  searchLocation: z.string().optional(),
 });
 
-export type SearchFilterFormType = typeof formSchema;
+export type SearchFilterFormType = typeof searchFormSchema;
 
 interface SearchFilterProps {
   search?: string;
@@ -35,7 +39,9 @@ interface SearchFilterProps {
   term?: "INPERSON" | "HYBRID" | "REMOTE";
   alternatePathname?: string;
   searchClassName?: string;
-  searchType?: "REVIEWS" | "SIMPLE";
+  searchType?: "REVIEWS" | "SIMPLE" | "COMPANIES";
+  industry?: IndustryType;
+  location?: LocationType;
 }
 
 /**
@@ -51,13 +57,17 @@ export default function SearchFilter({
   alternatePathname,
   searchClassName,
   searchType = "SIMPLE",
+  industry,
+  location,
 }: SearchFilterProps) {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof searchFormSchema>>({
+    resolver: zodResolver(searchFormSchema),
     defaultValues: {
-      searchText: search ?? "",
+      searchText: search,
       searchCycle: cycle,
       searchTerm: term,
+      searchIndustry: industry,
+      searchLocation: location?.id,
     },
   });
 
@@ -65,24 +75,47 @@ export default function SearchFilter({
   const pathName = usePathname();
 
   const createQueryString = useCallback(
-    ({ searchText, searchCycle, searchTerm }: z.infer<typeof formSchema>) => {
+    ({
+      searchCycle,
+      searchTerm,
+      searchText,
+      searchIndustry,
+      searchLocation,
+    }: z.infer<typeof searchFormSchema>) => {
       // Initialize URLSearchParams with the required searchText
-      const params = new URLSearchParams({ search: searchText });
+      const params = new URLSearchParams(window.location.search);
 
       // Conditionally add searchCycle and searchTerm if they have values
-      if (searchCycle) {
+      if (searchCycle !== undefined) {
         params.set("cycle", searchCycle);
       }
-      if (searchTerm) {
+      if (searchTerm !== undefined) {
         params.set("term", searchTerm);
       }
 
-      return params.toString(); // Returns a query string, e.g., "search=yo&cycle=SPRING"
+      if (searchText !== undefined) {
+        params.set("search", searchText);
+      } else if (!params.get("search")) {
+        params.delete("search");
+      }
+
+      if (searchIndustry !== undefined) {
+        params.set("industry", searchIndustry);
+      } else {
+        params.delete("industry");
+      }
+      if (searchLocation !== undefined) {
+        params.set("location", searchLocation);
+      } else {
+        params.delete("location");
+      }
+
+      return params.toString();
     },
     [],
   );
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: z.infer<typeof searchFormSchema>) {
     if (alternatePathname) {
       router.push(alternatePathname + "?" + createQueryString(values));
     } else {
@@ -94,12 +127,23 @@ export default function SearchFilter({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className={cn("w-[100vw]", searchClassName)}
+        className={cn(
+          "w-[98vw]",
+          searchType === "COMPANIES" && "w-full",
+          searchClassName,
+        )}
       >
         <div className={cn("flex justify-center")}>
           {searchType === "SIMPLE" && <SimpleSearchBar />}
           {searchType === "REVIEWS" && (
             <ReviewSearchBar cycle={cycle} term={term} />
+          )}
+          {searchType === "COMPANIES" && (
+            <CompanySearchBar
+              industry={industry}
+              location={location}
+              onSubmit={onSubmit}
+            />
           )}
         </div>
       </form>
