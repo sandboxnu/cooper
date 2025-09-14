@@ -27,10 +27,19 @@ export function useFavoriteToggle(objId: string, objType: ObjType) {
 
   const isFavorited =
     objType === "role"
-      ? list.some((r) => r.roleId === objId)
+      ? list.some(
+          (r): r is { roleId: string; profileId: string } =>
+            "roleId" in r && r.roleId === objId,
+        )
       : objType === "company"
-        ? list.some((c) => c.companyId === objId)
-        : list.some((r) => r.reviewId === objId);
+        ? list.some(
+            (c): c is { companyId: string; profileId: string } =>
+              "companyId" in c && c.companyId === objId,
+          )
+        : list.some(
+            (r): r is { reviewId: string; profileId: string } =>
+              "reviewId" in r && r.reviewId === objId,
+          );
 
   const invalidate = () => {
     const invalidateFn = {
