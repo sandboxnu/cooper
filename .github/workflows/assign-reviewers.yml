@@ -1,0 +1,36 @@
+name: Assign Reviewers
+on:
+  pull_request:
+    types: [opened, ready_for_review]
+
+jobs:
+  assign-reviewers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign reviewers
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const groupA = ["tracyyh", "gpalmer27"];
+            const groupB = ["suxls", "mattrwang", "songmichael11"];
+            const prAuthor = context.payload.pull_request.user.login;
+
+            function pickRandom(arr) {
+              return arr[Math.floor(Math.random() * arr.length)];
+            }
+
+            // Filter out PR author from each group
+            const filteredA = groupA.filter(user => user !== prAuthor);
+            const filteredB = groupB.filter(user => user !== prAuthor);
+
+            // Pick reviewers only from filtered lists
+            const reviewerA = pickRandom(filteredA);
+            const reviewerB = pickRandom(filteredB);
+
+            await github.rest.pulls.requestReviewers({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+              reviewers: [reviewerA, reviewerB].filter(Boolean)
+            });
