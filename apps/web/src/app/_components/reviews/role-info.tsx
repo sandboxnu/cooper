@@ -209,17 +209,25 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             <div className="col-span-2" id="pay">
               <CollapsableInfoCard title={"Pay"}>
                 <div className="flex flex-col justify-between gap-3 md:flex-row">
-                  <div className="flex flex-col justify-between gap-2 md:w-[30%] md:gap-5">
+                  <div className="flex flex-col gap-2 md:w-[30%] md:gap-5">
                     <div className="text-cooper-gray-400">Pay range</div>
-                    <div className="pl-1 text-4xl text-[#141414]">
-                      ${averages.data.minPay}-{averages.data.maxPay} / hr
-                    </div>
-                    <RoundBarGraph
-                      maxValue={Math.max(averages.data.maxPay, 45)}
-                      minValue={Math.min(averages.data.minPay, 15)}
-                      lowValue={averages.data.minPay}
-                      highValue={averages.data.maxPay}
-                    />
+                    {averages.data.minPay !== averages.data.maxPay ? (
+                      <div className="flex flex-col gap-5">
+                        <div className="pl-1 text-4xl text-[#141414]">
+                          ${averages.data.minPay}-{averages.data.maxPay} / hr
+                        </div>
+                        <RoundBarGraph
+                          maxValue={Math.max(averages.data.maxPay, 45)}
+                          minValue={Math.min(averages.data.minPay, 15)}
+                          lowValue={averages.data.minPay}
+                          highValue={averages.data.maxPay}
+                        />
+                      </div>
+                    ) : (
+                      <div className="pl-1 text-4xl text-[#141414]">
+                        ${averages.data.maxPay} / hr
+                      </div>
+                    )}
                   </div>
                   <div className="flex flex-col justify-between gap-2 md:w-[30%] md:gap-5">
                     <div className="text-cooper-gray-400">Overtime work</div>

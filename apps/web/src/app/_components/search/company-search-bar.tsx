@@ -76,7 +76,7 @@ export function CompanySearchBar({
       <div className="justify-left text-2xl xl:text-[30px]">
         Browse Companies
       </div>
-      <div className="flex flex-col gap-6 p-1 md:flex-row md:items-center">
+      <div className="flex flex-row gap-4 md:gap-6 p-1 md:items-center">
         <FormField
           control={form.control}
           name="searchIndustry"
@@ -93,7 +93,7 @@ export function CompanySearchBar({
                   value={selectedIndustry}
                 >
                   <SelectTrigger
-                    className={`h-12 w-48 md:w-[21rem] ${selectedIndustry === "INDUSTRY" ? "text-cooper-gray-400" : "text-gray font-normal"} rounded-lg border-[0.75px] border-cooper-gray-400 text-lg placeholder:opacity-50 focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0`}
+                    className={`h-12 w-36 md:w-[21rem] ${selectedIndustry === "INDUSTRY" ? "text-cooper-gray-400" : "text-gray font-normal"} rounded-lg border-[0.75px] border-cooper-gray-400 text-lg placeholder:opacity-50 focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0`}
                   >
                     <span
                       className={`overflow-hidden whitespace-nowrap text-lg ${selectedIndustry === "INDUSTRY" ? "text-cooper-gray-400" : "text-gray"}`}

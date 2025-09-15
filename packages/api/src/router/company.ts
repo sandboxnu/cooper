@@ -62,10 +62,12 @@ export const companyRouter = {
           )`);
         }
 
+        const nameFilter = sql`${Company.name} ILIKE ${input.prefix ?? ""} || '%'`;
+
         const whereClause =
           filters.length > 0
-            ? sql`WHERE ${sql.join(filters, sql` AND ${Company.name} ILIKE ${input.prefix ?? ""} || '%'`)}`
-            : sql`WHERE ${Company.name} ILIKE ${input.prefix ?? ""} || '%'`;
+            ? sql`WHERE ${sql.join(filters, sql` AND `)} AND ${nameFilter}`
+            : sql`WHERE ${nameFilter}`;
 
         const companiesWithRatings = await ctx.db.execute(sql`
         SELECT 
