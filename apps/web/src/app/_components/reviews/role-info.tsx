@@ -314,14 +314,6 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             </CollapsableInfoCard>
           </div>
         </div>
-        {/* <div className="sticky top-10 hidden h-fit w-[15%] flex-col gap-3 text-[#5a5a5a] lg:flex">
-          <a href="#job-description">Job Description</a>
-          <a href="#company">Company</a>
-          <a href="#on-the-job">On the job</a>
-          <a href="#pay">Pay</a>
-          <a href="#interview">Interview</a>
-          <a href="#reviews">Reviews</a>
-        </div> */}
       </div>
     </div>
   );
