@@ -248,5 +248,6 @@ export function useFavoriteToggle(objId: string, objType: ObjType) {
     isFavorited,
     toggle,
     isLoading: favoriteLists[objType].isLoading,
+    profileId,
   };
 }

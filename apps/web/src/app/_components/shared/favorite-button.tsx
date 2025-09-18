@@ -15,7 +15,9 @@ interface FavoriteButtonProps {
 }
 
 export function FavoriteButton({ objId, objType }: FavoriteButtonProps) {
-  const { isFavorited, toggle, isLoading } = useFavoriteToggle(objId, objType);
+  const { isFavorited, toggle, isLoading, profileId } = useFavoriteToggle(objId, objType);
+
+  if (!profileId) return null;
 
   return (
     <Image
