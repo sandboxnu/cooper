@@ -22,9 +22,6 @@ export default async function Profile() {
   const favoriteCompanyIds = await api.profile.listFavoriteCompanies({
     profileId: profile.id,
   });
-  const favoriteReviewIds = await api.profile.listFavoriteReviews({
-    profileId: profile.id,
-  });
 
   const favoriteRoles = await Promise.all(
     favoriteRoleIds.map((r) => api.role.getById({ id: r.roleId })),
