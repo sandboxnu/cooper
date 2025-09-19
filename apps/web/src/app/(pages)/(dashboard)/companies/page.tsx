@@ -35,7 +35,7 @@ export default function Companies({
   const router = useRouter();
 
   return (
-    <div className="w-[95%] justify-center overflow-y-auto max-h-[81.5dvh] md:max-h-[89.5dvh] md:overflow-y-clip">
+    <div className="w-[95%] justify-center flex flex-col overflow-y-auto max-h-[81.5dvh] md:max-h-[89.5dvh] md:overflow-y-clip">
       <SearchFilter
         searchType="COMPANIES"
         industry={searchParams?.industry}
