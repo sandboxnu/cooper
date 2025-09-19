@@ -1,0 +1,35 @@
+"use client";
+
+import Image from "next/image";
+
+import { useFavoriteToggle } from "./useFavoriteToggle";
+
+interface FavoriteButtonProps {
+  objId: string;
+  objType: "role" | "company";
+}
+
+interface FavoriteButtonProps {
+  objId: string;
+  objType: "role" | "company";
+}
+
+export function FavoriteButton({ objId, objType }: FavoriteButtonProps) {
+  const { isFavorited, toggle, isLoading, profileId } = useFavoriteToggle(
+    objId,
+    objType,
+  );
+
+  if (!profileId) return null;
+
+  return (
+    <Image
+      src={isFavorited ? "/svg/filledBookmark.svg" : "/svg/bookmark.svg"}
+      alt="Bookmark icon"
+      width={13}
+      height={19}
+      className={`cursor-pointer ${isLoading ? "opacity-50" : ""}`}
+      onClick={toggle}
+    />
+  );
+}

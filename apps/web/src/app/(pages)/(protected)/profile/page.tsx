@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import HeaderLayout from "~/app/_components/header/header-layout";
 import { NewReviewDialog } from "~/app/_components/reviews/new-review/new-review-dialogue";
 import { ReviewCard } from "~/app/_components/reviews/review-card";
+import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
 import { api } from "~/trpc/server";
 
 export default async function Profile() {
@@ -15,6 +16,20 @@ export default async function Profile() {
   }
 
   const reviews = await api.review.getByProfile({ id: profile.id });
+  const favoriteRoleIds = await api.profile.listFavoriteRoles({
+    profileId: profile.id,
+  });
+  const favoriteCompanyIds = await api.profile.listFavoriteCompanies({
+    profileId: profile.id,
+  });
+
+  const favoriteRoles = await Promise.all(
+    favoriteRoleIds.map((r) => api.role.getById({ id: r.roleId })),
+  );
+
+  const favoriteCompanies = await Promise.all(
+    favoriteCompanyIds.map((c) => api.company.getById({ id: c.companyId })),
+  );
 
   return (
     <HeaderLayout>
@@ -76,6 +91,40 @@ export default async function Profile() {
               <div className="flex w-full items-center justify-start gap-2 italic text-cooper-gray-400">
                 No Reviews Yet
               </div>
+            )}
+          </div>
+        </section>
+
+        <section>
+          <h2 className="mb-2 text-2xl">Saved Companies</h2>
+          <div className="mx-1 flex flex-col gap-4">
+            {favoriteCompanies.length > 0 ? (
+              favoriteCompanies
+                .filter(
+                  (company): company is NonNullable<typeof company> =>
+                    company !== undefined,
+                )
+                .map((company) => <p key={company.id}>{company.id}</p>)
+            ) : (
+              <p className="italic text-cooper-gray-400">
+                No saved companies yet.
+              </p>
+            )}
+          </div>
+        </section>
+
+        <section>
+          <h2 className="mb-2 text-2xl">Saved Roles</h2>
+          <div className="mx-1 flex flex-col gap-4">
+            {favoriteRoles.length > 0 ? (
+              favoriteRoles
+                .filter(
+                  (role): role is NonNullable<typeof role> =>
+                    role !== undefined,
+                )
+                .map((role) => <RoleCardPreview key={role.id} roleObj={role} />)
+            ) : (
+              <p className="italic text-cooper-gray-400">No saved roles yet.</p>
             )}
           </div>
         </section>

@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
+import { FavoriteButton } from "../shared/favorite-button";
 
 interface RoleCardPreviewProps {
   className?: string;
@@ -45,13 +46,16 @@ export function RoleCardPreview({ className, roleObj }: RoleCardPreviewProps) {
       <div>
         <CardHeader className="pb-3">
           <div className="flex items-center justify-start space-x-4">
-            <div>
+            <div className="w-full">
               <CardTitle>
-                <div className="text-md flex items-center gap-3 md:text-xl">
-                  <div>{role.data?.title}</div>
-                  <div className="text-sm font-normal text-cooper-gray-400">
-                    Co-op
+                <div className="text-md flex w-full items-center justify-between gap-3 md:text-xl">
+                  <div className="flex items-center gap-3">
+                    <div>{role.data?.title}</div>
+                    <div className="text-sm font-normal text-cooper-gray-400">
+                      Co-op
+                    </div>
                   </div>
+                  <FavoriteButton objId={roleObj.id} objType="role" />
                 </div>
               </CardTitle>
               <div className="align-center flex flex-wrap gap-2 text-cooper-gray-400">
