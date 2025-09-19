@@ -4,7 +4,6 @@ import { auth } from "@cooper/auth";
 
 import Header from "~/app/_components/header/header";
 import LoginButton from "../auth/login-button";
-import Footer from "../footer";
 import ProfileButton from "../profile/profile-button";
 import SearchFilter from "../search/search-filter";
 
