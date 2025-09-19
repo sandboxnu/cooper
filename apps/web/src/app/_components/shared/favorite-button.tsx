@@ -6,12 +6,12 @@ import { useFavoriteToggle } from "./useFavoriteToggle";
 
 interface FavoriteButtonProps {
   objId: string;
-  objType: "role" | "company" | "review";
+  objType: "role" | "company";
 }
 
 interface FavoriteButtonProps {
   objId: string;
-  objType: "role" | "company" | "review";
+  objType: "role" | "company";
 }
 
 export function FavoriteButton({ objId, objType }: FavoriteButtonProps) {

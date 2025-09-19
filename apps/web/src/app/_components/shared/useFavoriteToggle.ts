@@ -1,6 +1,6 @@
 import { api } from "~/trpc/react";
 
-type ObjType = "role" | "company" | "review";
+type ObjType = "role" | "company";
 
 export function useFavoriteToggle(objId: string, objType: ObjType) {
   const utils = api.useUtils();
@@ -17,10 +17,6 @@ export function useFavoriteToggle(objId: string, objType: ObjType) {
       { profileId },
       { enabled: !!profileId },
     ),
-    review: api.profile.listFavoriteReviews.useQuery(
-      { profileId },
-      { enabled: !!profileId },
-    ),
   };
 
   const list = favoriteLists[objType].data ?? [];
@@ -31,22 +27,15 @@ export function useFavoriteToggle(objId: string, objType: ObjType) {
           (r): r is { roleId: string; profileId: string } =>
             "roleId" in r && r.roleId === objId,
         )
-      : objType === "company"
-        ? list.some(
-            (c): c is { companyId: string; profileId: string } =>
-              "companyId" in c && c.companyId === objId,
-          )
-        : list.some(
-            (r): r is { reviewId: string; profileId: string } =>
-              "reviewId" in r && r.reviewId === objId,
-          );
-
+      : list.some(
+          (c): c is { companyId: string; profileId: string } =>
+            "companyId" in c && c.companyId === objId,
+        );
   const invalidate = () => {
     const invalidateFn = {
       role: () => utils.profile.listFavoriteRoles.invalidate({ profileId }),
       company: () =>
         utils.profile.listFavoriteCompanies.invalidate({ profileId }),
-      review: () => utils.profile.listFavoriteReviews.invalidate({ profileId }),
     };
     return invalidateFn[objType]();
   };
@@ -63,11 +52,6 @@ export function useFavoriteToggle(objId: string, objType: ObjType) {
         list: { profileId: string; companyId: string }[] | undefined,
       ) => { profileId: string; companyId: string }[] | undefined,
     ) => utils.profile.listFavoriteCompanies.setData({ profileId }, updateFn),
-    review: (
-      updateFn: (
-        list: { profileId: string; reviewId: string }[] | undefined,
-      ) => { profileId: string; reviewId: string }[] | undefined,
-    ) => utils.profile.listFavoriteReviews.setData({ profileId }, updateFn),
   };
 
   const getData = () => {
@@ -75,8 +59,6 @@ export function useFavoriteToggle(objId: string, objType: ObjType) {
       role: () => utils.profile.listFavoriteRoles.getData({ profileId }) ?? [],
       company: () =>
         utils.profile.listFavoriteCompanies.getData({ profileId }) ?? [],
-      review: () =>
-        utils.profile.listFavoriteReviews.getData({ profileId }) ?? [],
     };
     return getter[objType]();
   };
@@ -120,30 +102,6 @@ export function useFavoriteToggle(objId: string, objType: ObjType) {
               ? ctx.prev.filter(
                   (c): c is { companyId: string; profileId: string } =>
                     "companyId" in c,
-                )
-              : [],
-          );
-        }
-      },
-      onSettled: invalidate,
-    }),
-    review: api.profile.favoriteReview.useMutation({
-      onMutate: async () => {
-        await utils.profile.listFavoriteReviews.cancel({ profileId });
-        const prev = getData();
-        setData.review((old) => [
-          ...(old ?? []),
-          { profileId, reviewId: objId },
-        ]);
-        return { prev };
-      },
-      onError: (_err, _vars, ctx) => {
-        if (ctx?.prev) {
-          setData.review(() =>
-            Array.isArray(ctx.prev)
-              ? ctx.prev.filter(
-                  (r): r is { reviewId: string; profileId: string } =>
-                    "reviewId" in r,
                 )
               : [],
           );
@@ -198,29 +156,6 @@ export function useFavoriteToggle(objId: string, objType: ObjType) {
       },
       onSettled: invalidate,
     }),
-    review: api.profile.unfavoriteReview.useMutation({
-      onMutate: async () => {
-        await utils.profile.listFavoriteReviews.cancel({ profileId });
-        const prev = getData();
-        setData.review((old) =>
-          (old ?? []).filter((r) => r.reviewId !== objId),
-        );
-        return { prev };
-      },
-      onError: (_err, _vars, ctx) => {
-        if (ctx?.prev) {
-          setData.review(() =>
-            Array.isArray(ctx.prev)
-              ? ctx.prev.filter(
-                  (r): r is { reviewId: string; profileId: string } =>
-                    "reviewId" in r,
-                )
-              : [],
-          );
-        }
-      },
-      onSettled: invalidate,
-    }),
   };
 
   const toggle = () => {
@@ -228,18 +163,14 @@ export function useFavoriteToggle(objId: string, objType: ObjType) {
     if (isFavorited) {
       if (objType === "role") {
         unfavoriteMutations.role.mutate({ profileId, roleId: objId });
-      } else if (objType === "company") {
-        unfavoriteMutations.company.mutate({ profileId, companyId: objId });
       } else {
-        unfavoriteMutations.review.mutate({ profileId, reviewId: objId });
+        unfavoriteMutations.company.mutate({ profileId, companyId: objId });
       }
     } else {
       if (objType === "role") {
         favoriteMutations.role.mutate({ profileId, roleId: objId });
-      } else if (objType === "company") {
-        favoriteMutations.company.mutate({ profileId, companyId: objId });
       } else {
-        favoriteMutations.review.mutate({ profileId, reviewId: objId });
+        favoriteMutations.company.mutate({ profileId, companyId: objId });
       }
     }
   };
