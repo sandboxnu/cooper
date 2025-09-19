@@ -36,7 +36,6 @@ export default async function HeaderLayout({
           {children}
         </article>
       </div>
-      <Footer />
     </div>
   );
 }
