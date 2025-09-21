@@ -2,10 +2,11 @@ import type { CompanyType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 import Logo from "@cooper/ui/logo";
-
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { prettyDescription, prettyIndustry } from "~/utils/stringHelpers";
+import { FavoriteButton } from "../shared/favorite-button";
+import { useRouter } from "next/navigation";
 
 interface CompanyCardPreviewProps {
   className?: string;
@@ -20,20 +21,36 @@ export function CompanyCardPreview({
     companyId: companyObj.id,
   });
 
+  const router = useRouter();
+
+  const handleCardClick = () => {
+    router.push(`/companies/company?id=${companyObj.id}`);
+  };
+
   return (
     <Card
       className={cn(
-        "flex h-[26rem] w-[100%] flex-col justify-between overflow-hidden rounded-lg border-[0.75px] border-cooper-gray-400",
+        "flex h-[26rem] w-[100%] flex-col justify-between overflow-hidden rounded-lg border-[0.75px] border-cooper-gray-400 cursor-pointer",
         className,
       )}
+      onClick={handleCardClick}
     >
       <div>
         <CardHeader className="pb-3">
-          <div className="flex items-center justify-start space-x-4">
-            <Logo company={companyObj} />
-            <div>
-              <CardTitle className="text-xl">{companyObj.name}</CardTitle>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <Logo company={companyObj} />
+              <div>
+                <CardTitle className="text-xl">{companyObj.name}</CardTitle>
+              </div>
             </div>
+            <span
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+            >
+              <FavoriteButton objId={companyObj.id} objType="company" />
+            </span>
           </div>
         </CardHeader>
         <CardContent className="grid">
