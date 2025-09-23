@@ -30,7 +30,7 @@ export default function Roles() {
     "default" | "rating" | "newest" | "oldest" | undefined
   >("default");
   const [currentPage, setCurrentPage] = useState(1);
-  const rolesPerPage = 2;
+  const rolesPerPage = 10;
 
   const roles = api.role.list.useQuery({
     sortBy: selectedFilter,
