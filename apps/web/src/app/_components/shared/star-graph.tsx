@@ -25,7 +25,7 @@ export default function StarGraph({
         </h2>
         <div className="my-1 flex">
           <ReviewCardStars
-            numStars={parseInt(averageOverallRating.toFixed(0))}
+            numStars={parseFloat(averageOverallRating.toFixed(1))}
           />
         </div>
       </div>
