@@ -43,12 +43,7 @@ export default function Roles() {
     "bg-white hover:bg-cooper-gray-200 border-white text-black p-2";
 
   const defaultRole = useMemo(() => {
-    if (
-      roles.isSuccess &&
-      roles.data &&
-      "roles" in roles.data &&
-      roles.data.roles
-    ) {
+    if (roles.isSuccess && "roles" in roles.data) {
       const role = roles.data.roles.find((role) => role.id === queryParam);
       if (role) {
         return role;
@@ -95,9 +90,7 @@ export default function Roles() {
   return (
     <>
       {roles.isSuccess &&
-        roles.data &&
         "roles" in roles.data &&
-        roles.data.roles &&
         roles.data.roles.length > 0 && (
           <div className="flex h-[86dvh] w-full lg:h-[92dvh]">
             {/* RoleCardPreview List */}
@@ -149,8 +142,7 @@ export default function Roles() {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
-              {roles.data &&
-                "roles" in roles.data &&
+              {"roles" in roles.data &&
                 roles.data.roles.map((role, i) => {
                   return (
                     <div
@@ -193,9 +185,7 @@ export default function Roles() {
                 !showRoleInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
               )}
             >
-              {roles.data &&
-                "roles" in roles.data &&
-                roles.data.roles &&
+              {"roles" in roles.data &&
                 roles.data.roles.length > 0 &&
                 roles.data.roles[0] && (
                   <RoleInfo
@@ -207,9 +197,7 @@ export default function Roles() {
           </div>
         )}
       {roles.isSuccess &&
-        roles.data &&
         "roles" in roles.data &&
-        roles.data.roles &&
         roles.data.roles.length === 0 && <NoResults className="h-[84dvh]" />}
       {roles.isPending && <LoadingResults className="h-[84dvh]" />}
     </>
