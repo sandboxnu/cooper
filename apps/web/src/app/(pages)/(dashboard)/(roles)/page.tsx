@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 
 import type { RoleType } from "@cooper/db/schema";
-import { cn } from "@cooper/ui";
+import { cn, Pagination } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 import {
   DropdownMenu,
@@ -29,21 +29,31 @@ export default function Roles() {
   const [selectedFilter, setSelectedFilter] = useState<
     "default" | "rating" | "newest" | "oldest" | undefined
   >("default");
+  const [currentPage, setCurrentPage] = useState(1);
+  const rolesPerPage = 2;
+
   const roles = api.role.list.useQuery({
     sortBy: selectedFilter,
     search: searchValue,
+    limit: rolesPerPage,
+    offset: (currentPage - 1) * rolesPerPage,
   });
 
   const buttonStyle =
     "bg-white hover:bg-cooper-gray-200 border-white text-black p-2";
 
   const defaultRole = useMemo(() => {
-    if (roles.isSuccess) {
-      const role = roles.data.find((role) => role.id === queryParam);
+    if (
+      roles.isSuccess &&
+      roles.data &&
+      "roles" in roles.data &&
+      roles.data.roles
+    ) {
+      const role = roles.data.roles.find((role) => role.id === queryParam);
       if (role) {
         return role;
-      } else if (roles.data.length > 0) {
-        return roles.data[0];
+      } else if (roles.data.roles.length > 0) {
+        return roles.data.roles[0];
       }
     }
   }, [roles.isSuccess, roles.data, queryParam]);
@@ -68,103 +78,139 @@ export default function Roles() {
 
   const [showRoleInfo, setShowRoleInfo] = useState(false); // State for toggling views on mobile
 
+  // Reset to page 1 when filter or search changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedFilter, searchValue]);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  const totalPages =
+    roles.data && "totalCount" in roles.data && roles.data.totalCount
+      ? Math.ceil(roles.data.totalCount / rolesPerPage)
+      : 0;
+
   return (
     <>
-      {roles.isSuccess && roles.data.length > 0 && (
-        <div className="flex h-[86dvh] w-full lg:h-[92dvh]">
-          {/* RoleCardPreview List */}
-          <div
-            className={cn(
-              "w-full overflow-y-auto border-r-[0.75px] border-t-[0.75px] border-cooper-gray-300 bg-cooper-gray-100 p-5 md:rounded-tr-lg xl:rounded-none",
-              "md:w-[28%]", // Show as 28% width on md and above
-              showRoleInfo && "hidden md:block", // Hide on mobile if RoleInfo is visible
-            )}
-          >
-            <div className="text-right">
-              <DropdownMenu>
-                <DropdownMenuTrigger className="text-md mb-2">
-                  Sort By{" "}
-                  <span className="underline">
-                    {selectedFilter &&
-                      selectedFilter.charAt(0).toUpperCase() +
-                        selectedFilter.slice(1)}
-                  </span>
-                  <ChevronDown className="inline" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuLabel className="flex flex-col text-center">
-                    <Button
-                      className={buttonStyle}
-                      onClick={() => setSelectedFilter("default")}
+      {roles.isSuccess &&
+        roles.data &&
+        "roles" in roles.data &&
+        roles.data.roles &&
+        roles.data.roles.length > 0 && (
+          <div className="flex h-[86dvh] w-full lg:h-[92dvh]">
+            {/* RoleCardPreview List */}
+            <div
+              className={cn(
+                "w-full overflow-y-auto border-r-[0.75px] border-t-[0.75px] border-cooper-gray-300 bg-cooper-gray-100 p-5 md:rounded-tr-lg xl:rounded-none",
+                "md:w-[28%]", // Show as 28% width on md and above
+                showRoleInfo && "hidden md:block", // Hide on mobile if RoleInfo is visible
+              )}
+            >
+              <div className="text-right">
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="text-md mb-2">
+                    Sort By{" "}
+                    <span className="underline">
+                      {selectedFilter &&
+                        selectedFilter.charAt(0).toUpperCase() +
+                          selectedFilter.slice(1)}
+                    </span>
+                    <ChevronDown className="inline" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuLabel className="flex flex-col text-center">
+                      <Button
+                        className={buttonStyle}
+                        onClick={() => setSelectedFilter("default")}
+                      >
+                        Default
+                      </Button>
+                      <Button
+                        className={buttonStyle}
+                        onClick={() => setSelectedFilter("newest")}
+                      >
+                        Newest
+                      </Button>
+                      <Button
+                        className={buttonStyle}
+                        onClick={() => setSelectedFilter("oldest")}
+                      >
+                        Oldest
+                      </Button>
+                      <Button
+                        className={buttonStyle}
+                        onClick={() => setSelectedFilter("rating")}
+                      >
+                        Rating
+                      </Button>
+                    </DropdownMenuLabel>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+              {roles.data &&
+                "roles" in roles.data &&
+                roles.data.roles.map((role, i) => {
+                  return (
+                    <div
+                      key={role.id}
+                      onClick={() => {
+                        setSelectedRole(role);
+                        setShowRoleInfo(true); // Show RoleInfo on mobile
+                      }}
                     >
-                      Default
-                    </Button>
-                    <Button
-                      className={buttonStyle}
-                      onClick={() => setSelectedFilter("newest")}
-                    >
-                      Newest
-                    </Button>
-                    <Button
-                      className={buttonStyle}
-                      onClick={() => setSelectedFilter("oldest")}
-                    >
-                      Oldest
-                    </Button>
-                    <Button
-                      className={buttonStyle}
-                      onClick={() => setSelectedFilter("rating")}
-                    >
-                      Rating
-                    </Button>
-                  </DropdownMenuLabel>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
-            {roles.data.map((role, i) => {
-              return (
-                <div
-                  key={role.id}
-                  onClick={() => {
-                    setSelectedRole(role);
-                    setShowRoleInfo(true); // Show RoleInfo on mobile
-                  }}
-                >
-                  <RoleCardPreview
-                    roleObj={role}
-                    className={cn(
-                      "mb-4 hover:bg-cooper-gray-100",
-                      selectedRole
-                        ? selectedRole.id === role.id &&
-                            "bg-cooper-gray-200 hover:bg-cooper-gray-200"
-                        : !i && "bg-cooper-gray-200 hover:bg-cooper-gray-200",
-                    )}
-                  />
-                </div>
-              );
-            })}
-          </div>
+                      <RoleCardPreview
+                        roleObj={role}
+                        className={cn(
+                          "mb-4 hover:bg-cooper-gray-100",
+                          selectedRole
+                            ? selectedRole.id === role.id &&
+                                "bg-cooper-gray-200 hover:bg-cooper-gray-200"
+                            : !i &&
+                                "bg-cooper-gray-200 hover:bg-cooper-gray-200",
+                        )}
+                      />
+                    </div>
+                  );
+                })}
 
-          {/* RoleInfo */}
-          <div
-            className={cn(
-              "col-span-3 w-full overflow-y-auto p-1",
-              "md:w-[72%]", // Show as 72% width on md and above
-              !showRoleInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
-            )}
-          >
-            {roles.data.length > 0 && roles.data[0] && (
-              <RoleInfo
-                roleObj={selectedRole ?? roles.data[0]}
-                onBack={() => setShowRoleInfo(false)}
-              />
-            )}
+              {/* Pagination */}
+              <div className="mt-4">
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={handlePageChange}
+                />
+              </div>
+            </div>
+
+            {/* RoleInfo */}
+            <div
+              className={cn(
+                "col-span-3 w-full overflow-y-auto p-1",
+                "md:w-[72%]", // Show as 72% width on md and above
+                !showRoleInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
+              )}
+            >
+              {roles.data &&
+                "roles" in roles.data &&
+                roles.data.roles &&
+                roles.data.roles.length > 0 &&
+                roles.data.roles[0] && (
+                  <RoleInfo
+                    roleObj={selectedRole ?? roles.data.roles[0]}
+                    onBack={() => setShowRoleInfo(false)}
+                  />
+                )}
+            </div>
           </div>
-        </div>
-      )}
-      {roles.isSuccess && roles.data.length === 0 && (
-        <NoResults className="h-[84dvh]" />
-      )}
+        )}
+      {roles.isSuccess &&
+        roles.data &&
+        "roles" in roles.data &&
+        roles.data.roles &&
+        roles.data.roles.length === 0 && <NoResults className="h-[84dvh]" />}
       {roles.isPending && <LoadingResults className="h-[84dvh]" />}
     </>
   );
