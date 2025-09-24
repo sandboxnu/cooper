@@ -18,7 +18,7 @@ export default function Role() {
   return (
     <>
       {role.isSuccess && (
-        <div className="flex w-full justify-center overflow-y-auto p-1">
+        <div className="flex w-full justify-center max-h-[90-dvh] overflow-y-auto p-1">
           <RoleInfo
             roleObj={role.data as RoleType}
             className="w-full md:w-[72%]"

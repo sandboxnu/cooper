@@ -71,7 +71,7 @@ export default function Roles() {
   return (
     <>
       {roles.isSuccess && roles.data.length > 0 && (
-        <div className="flex h-[86dvh] w-full lg:h-[92dvh]">
+        <div className="flex h-[81.5dvh] max-h-full w-full lg:h-[90dvh]">
           {/* RoleCardPreview List */}
           <div
             className={cn(
