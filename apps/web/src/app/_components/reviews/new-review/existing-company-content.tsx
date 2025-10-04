@@ -90,7 +90,7 @@ export default function ExistingCompanyContent({
           includeScore: true,
         };
 
-        const fuse = new Fuse(roles.data || [], fuseOptions);
+        const fuse = new Fuse(roles.data, fuseOptions);
         const searchResults = fuse.search(val.trim().toLowerCase());
         const hasSimilarRole = searchResults.some(
           (result) => result.score !== undefined && result.score < 0.3,
