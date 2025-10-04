@@ -1,15 +1,32 @@
+import { cn } from "@cooper/ui";
 import Image from "next/image";
 import { redirect } from "next/navigation";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "node_modules/@cooper/ui/src/card";
+import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
 
 import HeaderLayout from "~/app/_components/header/header-layout";
+import ProfileTabs from "~/app/_components/profile/profile-tabs";
 import { NewReviewDialog } from "~/app/_components/reviews/new-review/new-review-dialogue";
 import { ReviewCard } from "~/app/_components/reviews/review-card";
 import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
 import { api } from "~/trpc/server";
 
-export default async function Profile() {
+type Props = {
+  searchParams:
+    | Promise<{ [key: string]: string | string[] | undefined }>
+    | undefined;
+};
+
+export default async function Profile({ searchParams }: Props) {
   const session = await api.auth.getSession();
   const profile = await api.profile.getCurrentUser();
+  const params = await searchParams;
+  const tab = params?.tab || "saved-roles";
 
   if (!session || !profile) {
     redirect("/");
@@ -33,7 +50,7 @@ export default async function Profile() {
 
   return (
     <HeaderLayout>
-      <div className="mx-4 mt-4 flex h-full flex-col gap-8 overflow-y-auto md:max-w-[66%] w-[45%]">
+      <div className="mx-4 mt-4 flex h-full flex-col gap-8 overflow-y-auto md:max-w-[66%] w-[66%]">
         <div className="flex items-end justify-start gap-4">
           <Image
             src={session.user.image ?? "/svg/defaultProfile.svg"}
@@ -47,87 +64,118 @@ export default async function Profile() {
               {profile.firstName} {profile.lastName}
             </h1>
             <h2 className="text-cooper-gray-400">
-              Northeastern Class of {profile.graduationYear}
+              Class of {profile.graduationYear}
             </h2>
           </div>
         </div>
-
-        <section>
-          <h2 className="mb-2 text-2xl">Account Information</h2>
-          <div className="flex flex-col gap-2">
-            <p className="grid grid-cols-5 border-b border-t border-cooper-gray-400 p-4">
-              <span className="col-span-2">Email</span>
-              <span className="col-span-3 font-bold">{session.user.email}</span>
-            </p>
-            <p className="grid grid-cols-5 border-b border-cooper-gray-400 p-4">
-              <span className="col-span-2">Major</span>
-              <span className="col-span-3 font-bold">{profile.major}</span>
-            </p>
-            {profile.minor && (
-              <p className="grid grid-cols-5 border-b border-cooper-gray-400 p-4">
-                <span className="col-span-2">Minor</span>
-                <span className="col-span-3 font-bold">{profile.minor}</span>
-              </p>
-            )}
-          </div>
-        </section>
-
-        <section>
-          <div className="flex items-center justify-between">
-            <h2 className="mb-2 flex text-2xl">My Reviews</h2>
-            <NewReviewDialog trigger={"+"} />
-          </div>
-
-          <div className="flex flex-col gap-4">
-            {reviews.length > 0 ? (
-              reviews.map((review) => (
-                <ReviewCard
-                  key={review.id}
-                  reviewObj={review}
-                  className="w-[100%]"
-                />
-              ))
-            ) : (
-              <div className="flex w-full items-center justify-start gap-2 italic text-cooper-gray-400">
-                No Reviews Yet
+        <Card>
+          <div>
+            <CardHeader className="pb-3">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-4">
+                  <div>
+                    <CardTitle className="text-xl">
+                      Account Information
+                    </CardTitle>
+                  </div>
+                </div>
               </div>
-            )}
+            </CardHeader>
+            <CardContent className="">
+              <div className="m-4 items-center grid grid-cols-3 grid-rows-2 gap-4">
+                <div className="flex flex-col text-sm">
+                  <h4 className="font-semibold">Name</h4>
+                  <p>
+                    {profile.firstName} {profile.lastName}
+                  </p>
+                </div>
+                <div className="flex flex-col text-sm">
+                  <h4 className="font-semibold">Email</h4>
+                  <p> {session.user.email} </p>
+                </div>
+                <div className="flex flex-col text-sm">
+                  <h4 className="font-semibold">Phone number</h4>
+                  <p> phone number goes here </p>
+                </div>
+                <div className="flex flex-col text-sm">
+                  <h4 className="font-semibold">College</h4>
+                  <p> college goes here </p>
+                </div>
+                <div className="flex flex-col text-sm">
+                  <h4 className="font-semibold">Major</h4>
+                  <p> {profile.major} </p>
+                </div>
+                <div className="flex flex-col text-sm">
+                  <h4 className="font-semibold">Joined</h4>
+                  <p> joined date </p>
+                </div>
+              </div>
+            </CardContent>
           </div>
-        </section>
+        </Card>
+        <ProfileTabs numReviews={reviews.length} />
+        {tab === "saved-roles" ? (
+          <section>
+            <h2 className="mb-2 text-2xl">Saved Roles</h2>
+            <div className="mx-1 flex-col gap-4 grid  grid-cols-3">
+              {favoriteRoles.length > 0 ? (
+                favoriteRoles
+                  .filter(
+                    (role): role is NonNullable<typeof role> =>
+                      role !== undefined,
+                  )
+                  .map((role) => (
+                    <RoleCardPreview key={role.id} roleObj={role} />
+                  ))
+              ) : (
+                <p className="italic text-cooper-gray-400">
+                  No saved roles yet.
+                </p>
+              )}
+            </div>
+          </section>
+        ) : tab === "saved-companies" ? (
+          <section>
+            <h2 className="mb-2 text-2xl">Saved Companies</h2>
+            <div className="mx-1 flex-col gap-4 grid grid-cols-3">
+              {favoriteCompanies.length > 0 ? (
+                favoriteCompanies
+                  .filter(
+                    (company): company is NonNullable<typeof company> =>
+                      company !== undefined,
+                  )
+                  .map((company) => <CompanyCardPreview companyObj={company} />)
+              ) : (
+                <p className="italic text-cooper-gray-400">
+                  No saved companies yet.
+                </p>
+              )}
+            </div>
+          </section>
+        ) : (
+          <section>
+            <div className="flex items-center justify-between">
+              <h2 className="mb-2 flex text-2xl">My Reviews</h2>
+              <NewReviewDialog trigger={"+"} />
+            </div>
 
-        <section>
-          <h2 className="mb-2 text-2xl">Saved Companies</h2>
-          <div className="mx-1 flex flex-col gap-4">
-            {favoriteCompanies.length > 0 ? (
-              favoriteCompanies
-                .filter(
-                  (company): company is NonNullable<typeof company> =>
-                    company !== undefined,
-                )
-                .map((company) => <p key={company.id}>{company.id}</p>)
-            ) : (
-              <p className="italic text-cooper-gray-400">
-                No saved companies yet.
-              </p>
-            )}
-          </div>
-        </section>
-
-        <section>
-          <h2 className="mb-2 text-2xl">Saved Roles</h2>
-          <div className="mx-1 flex flex-col gap-4">
-            {favoriteRoles.length > 0 ? (
-              favoriteRoles
-                .filter(
-                  (role): role is NonNullable<typeof role> =>
-                    role !== undefined,
-                )
-                .map((role) => <RoleCardPreview key={role.id} roleObj={role} />)
-            ) : (
-              <p className="italic text-cooper-gray-400">No saved roles yet.</p>
-            )}
-          </div>
-        </section>
+            <div className="flex flex-col gap-4">
+              {reviews.length > 0 ? (
+                reviews.map((review) => (
+                  <ReviewCard
+                    key={review.id}
+                    reviewObj={review}
+                    className="w-[100%]"
+                  />
+                ))
+              ) : (
+                <div className="flex w-full items-center justify-start gap-2 italic text-cooper-gray-400">
+                  No Reviews Yet
+                </div>
+              )}
+            </div>
+          </section>
+        )}
       </div>
     </HeaderLayout>
   );
