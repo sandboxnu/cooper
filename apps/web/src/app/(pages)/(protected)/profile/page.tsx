@@ -1,4 +1,3 @@
-import { cn } from "@cooper/ui";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import {
@@ -7,8 +6,6 @@ import {
   CardHeader,
   CardTitle,
 } from "node_modules/@cooper/ui/src/card";
-import { Input } from "node_modules/@cooper/ui/src/input";
-import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
 
 import HeaderLayout from "~/app/_components/header/header-layout";
 import FavoriteCompanySearch from "~/app/_components/profile/favorite-company-search";
@@ -16,7 +13,6 @@ import FavoriteRoleSearch from "~/app/_components/profile/favorite-role-search";
 import ProfileTabs from "~/app/_components/profile/profile-tabs";
 import { NewReviewDialog } from "~/app/_components/reviews/new-review/new-review-dialogue";
 import { ReviewCard } from "~/app/_components/reviews/review-card";
-import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
 import { api } from "~/trpc/server";
 
 type Props = {
