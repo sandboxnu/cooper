@@ -7,9 +7,12 @@ import {
   CardHeader,
   CardTitle,
 } from "node_modules/@cooper/ui/src/card";
+import { Input } from "node_modules/@cooper/ui/src/input";
 import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
 
 import HeaderLayout from "~/app/_components/header/header-layout";
+import FavoriteCompanySearch from "~/app/_components/profile/favorite-company-search";
+import FavoriteRoleSearch from "~/app/_components/profile/favorite-role-search";
 import ProfileTabs from "~/app/_components/profile/profile-tabs";
 import { NewReviewDialog } from "~/app/_components/reviews/new-review/new-review-dialogue";
 import { ReviewCard } from "~/app/_components/reviews/review-card";
@@ -81,7 +84,7 @@ export default async function Profile({ searchParams }: Props) {
                 </div>
               </div>
             </CardHeader>
-            <CardContent className="">
+            <CardContent className="pb-0">
               <div className="m-4 items-center grid grid-cols-3 grid-rows-2 gap-4">
                 <div className="flex flex-col text-sm">
                   <h4 className="font-semibold">Name</h4>
@@ -94,20 +97,8 @@ export default async function Profile({ searchParams }: Props) {
                   <p> {session.user.email} </p>
                 </div>
                 <div className="flex flex-col text-sm">
-                  <h4 className="font-semibold">Phone number</h4>
-                  <p> phone number goes here </p>
-                </div>
-                <div className="flex flex-col text-sm">
-                  <h4 className="font-semibold">College</h4>
-                  <p> college goes here </p>
-                </div>
-                <div className="flex flex-col text-sm">
                   <h4 className="font-semibold">Major</h4>
                   <p> {profile.major} </p>
-                </div>
-                <div className="flex flex-col text-sm">
-                  <h4 className="font-semibold">Joined</h4>
-                  <p> joined date </p>
                 </div>
               </div>
             </CardContent>
@@ -116,46 +107,15 @@ export default async function Profile({ searchParams }: Props) {
         <ProfileTabs numReviews={reviews.length} />
         {tab === "saved-roles" ? (
           <section>
-            <h2 className="mb-2 text-2xl">Saved Roles</h2>
-            <div className="mx-1 flex-col gap-4 grid  grid-cols-3">
-              {favoriteRoles.length > 0 ? (
-                favoriteRoles
-                  .filter(
-                    (role): role is NonNullable<typeof role> =>
-                      role !== undefined,
-                  )
-                  .map((role) => (
-                    <RoleCardPreview key={role.id} roleObj={role} />
-                  ))
-              ) : (
-                <p className="italic text-cooper-gray-400">
-                  No saved roles yet.
-                </p>
-              )}
-            </div>
+            <FavoriteRoleSearch favoriteRoles={favoriteRoles} />
           </section>
         ) : tab === "saved-companies" ? (
           <section>
-            <h2 className="mb-2 text-2xl">Saved Companies</h2>
-            <div className="mx-1 flex-col gap-4 grid grid-cols-3">
-              {favoriteCompanies.length > 0 ? (
-                favoriteCompanies
-                  .filter(
-                    (company): company is NonNullable<typeof company> =>
-                      company !== undefined,
-                  )
-                  .map((company) => <CompanyCardPreview companyObj={company} />)
-              ) : (
-                <p className="italic text-cooper-gray-400">
-                  No saved companies yet.
-                </p>
-              )}
-            </div>
+            <FavoriteCompanySearch favoriteCompanies={favoriteCompanies} />
           </section>
         ) : (
           <section>
-            <div className="flex items-center justify-between">
-              <h2 className="mb-2 flex text-2xl">My Reviews</h2>
+            <div className="flex items-center justify-end">
               <NewReviewDialog trigger={"+"} />
             </div>
 

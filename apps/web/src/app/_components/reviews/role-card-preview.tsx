@@ -39,7 +39,7 @@ export function RoleCardPreview({ className, roleObj }: RoleCardPreviewProps) {
   return (
     <Card
       className={cn(
-        "flex h-fit w-[100%] flex-col justify-between overflow-hidden rounded-lg outline outline-[0.75px] outline-cooper-gray-400",
+        "flex h-fit w-[100%] flex-col justify-between overflow-hidden rounded-lg outline outline-[0.75px] outline-cooper-gray-400 ",
         className,
       )}
     >
