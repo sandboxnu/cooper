@@ -60,10 +60,6 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
                   day: "numeric",
                 })}
               </div>
-              <div className="flex flex-wrap items-center gap-2 text-sm">
-                Posted by: Anonymous
-                <div className="cursor-pointer text-sm font-black">?</div>
-              </div>
             </div>
           </CardContent>
         </div>
