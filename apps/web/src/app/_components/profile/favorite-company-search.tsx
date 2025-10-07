@@ -26,7 +26,7 @@ export default function FavoriteCompanySearch({
           onChange={(e) => {
             setCompanyLabel(e.target.value);
           }}
-          className="w-full"
+          className="w-full !outline-[#EAEAEA] !border-none !shadow-none"
           placeholder="Search for a saved company..."
         />
       </article>

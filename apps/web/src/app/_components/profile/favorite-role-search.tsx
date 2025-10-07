@@ -34,7 +34,7 @@ export default function FavoriteRoleSearch({
             onChange={(e) => {
               setRoleLabel(e.target.value);
             }}
-            className="w-full"
+            className="w-full !outline-[#EAEAEA] !border-none !shadow-none"
             placeholder="Search for a saved role..."
           />
         </div>
