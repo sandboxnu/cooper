@@ -110,14 +110,17 @@ export default async function Profile({ searchParams }: Props) {
             </section>
           ) : (
             <section>
-              <div className="flex flex-row">
-                {reviews.length === 0 && (
-                  <div className="flex w-full items-center justify-start gap-2 italic text-cooper-gray-400">
+              <div className="flex flex-row items-center justify-between">
+                {reviews.length === 0 ? (
+                  <div className="italic text-cooper-gray-400">
                     No Reviews Yet
                   </div>
+                ) : (
+                  <div />
                 )}
-                <div className="flex items-center justify-end">
-                  <NewReviewDialog trigger={"+"} />
+
+                <div>
+                  <NewReviewDialog trigger="+" />
                 </div>
               </div>
 
