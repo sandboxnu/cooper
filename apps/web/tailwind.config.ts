@@ -19,6 +19,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        hanken: ['"Hanken Grotesk"', 'sans-serif'],
       },
       colors: {
         // Cooper Gray

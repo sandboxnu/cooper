@@ -47,8 +47,9 @@ export default async function Profile({ searchParams }: Props) {
 
   return (
     <HeaderLayout>
-      <div className="mx-4 mt-4 flex h-full flex-col gap-8 overflow-y-auto md:max-w-[66%] w-[66%]">
-        <div className="flex items-end justify-start gap-4">
+      <div className="bg-[#F7F6F2] w-full min-h-screen flex justify-center">
+      <div className="mx-4 mt-4 flex h-full flex-col gap-6 overflow-y-auto md:max-w-[66%] w-[66%] pt-4">
+        <div className="flex items-start justify-start gap-4">
           <Image
             src={session.user.image ?? "/svg/defaultProfile.svg"}
             width="72"
@@ -57,7 +58,7 @@ export default async function Profile({ searchParams }: Props) {
             className="rounded-full"
           />
           <div className="text-start">
-            <h1 className="text-2xl font-bold">
+            <h1 className="font-bold text-[26px] font-hanken">
               {profile.firstName} {profile.lastName}
             </h1>
             <h2 className="text-cooper-gray-400">
@@ -109,12 +110,17 @@ export default async function Profile({ searchParams }: Props) {
           </section>
         ) : (
           <section>
-            <div className="flex items-center justify-end">
-              <NewReviewDialog trigger={"+"} />
+            <div className="flex flex-row">
+            {reviews.length === 0 && <div className="flex w-full items-center justify-start gap-2 italic text-cooper-gray-400">
+                  No Reviews Yet
+                </div>}
+              <div className="flex items-center justify-end">
+                <NewReviewDialog trigger={"+"} />
+              </div>
             </div>
 
             <div className="flex flex-col gap-4">
-              {reviews.length > 0 ? (
+              {reviews.length > 0 && (
                 reviews.map((review) => (
                   <ReviewCard
                     key={review.id}
@@ -122,14 +128,11 @@ export default async function Profile({ searchParams }: Props) {
                     className="w-[100%]"
                   />
                 ))
-              ) : (
-                <div className="flex w-full items-center justify-start gap-2 italic text-cooper-gray-400">
-                  No Reviews Yet
-                </div>
-              )}
+              ) }
             </div>
           </section>
         )}
+      </div>
       </div>
     </HeaderLayout>
   );
