@@ -20,6 +20,18 @@ import { CreateReviewSchema, Review } from "./schema/reviews";
 import { CreateRoleSchema, Role } from "./schema/roles";
 import { Session } from "./schema/sessions";
 import { User } from "./schema/users";
+import {
+  ProfilesToRoles,
+  CreateProfileToRoleSchema,
+} from "./schema/profilesToRoles";
+import {
+  ProfilesToCompanies,
+  CreateProfileToCompanySchema,
+} from "./schema/profilesToCompanies";
+import {
+  ProfilesToReviews,
+  CreateProfileToReviewSchema,
+} from "./schema/profliesToReviews";
 
 export {
   Account,
@@ -32,9 +44,15 @@ export {
   User,
   Location,
   CompaniesToLocations,
+  ProfilesToRoles,
+  ProfilesToCompanies,
+  ProfilesToReviews,
   CreateCompanyToLocationSchema,
   CreateCompanySchema,
   CreateProfileSchema,
+  CreateProfileToRoleSchema,
+  CreateProfileToCompanySchema,
+  CreateProfileToReviewSchema,
   CreateReviewSchema,
   CreateRoleSchema,
   CreateLocationSchema,

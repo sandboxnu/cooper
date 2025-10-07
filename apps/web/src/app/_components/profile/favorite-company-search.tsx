@@ -10,6 +10,7 @@ export default function FavoriteCompanySearch({
   favoriteCompanies: (CompanyType | undefined)[];
 }) {
   const [companyLabel, setCompanyLabel] = useState<string>("");
+
   const prefixedCompanies = companyLabel
     ? favoriteCompanies.filter(
         (company) =>
