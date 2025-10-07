@@ -2,7 +2,6 @@
 
 import { cn } from "@cooper/ui";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
 
 export default function ProfileTabs({ numReviews }: { numReviews: number }) {
   const tabs = [
@@ -15,7 +14,7 @@ export default function ProfileTabs({ numReviews }: { numReviews: number }) {
   const router = useRouter();
   const pathname = usePathname();
 
-  const currentTab = searchParams.get("tab") || "saved-roles";
+  const currentTab = searchParams.get("tab") ?? "saved-roles";
 
   const createQueryString = (name: string, value: string) => {
     const params = new URLSearchParams(searchParams);

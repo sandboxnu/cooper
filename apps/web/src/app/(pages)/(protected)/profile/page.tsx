@@ -15,17 +15,15 @@ import { NewReviewDialog } from "~/app/_components/reviews/new-review/new-review
 import { ReviewCard } from "~/app/_components/reviews/review-card";
 import { api } from "~/trpc/server";
 
-type Props = {
-  searchParams:
-    | Promise<{ [key: string]: string | string[] | undefined }>
-    | undefined;
-};
+interface Props {
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+}
 
 export default async function Profile({ searchParams }: Props) {
   const session = await api.auth.getSession();
   const profile = await api.profile.getCurrentUser();
   const params = await searchParams;
-  const tab = params?.tab || "saved-roles";
+  const tab = params?.tab ?? "saved-roles";
 
   if (!session || !profile) {
     redirect("/");

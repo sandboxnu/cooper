@@ -17,9 +17,7 @@ export default function FavoriteRoleSearch({
     setCurrentPage(page);
   };
 
-  const totalPages = favoriteRoles
-    ? Math.ceil(favoriteRoles.length / rolesPerPage)
-    : 0;
+  const totalPages = Math.ceil(favoriteRoles.length / rolesPerPage);
   const prefixedRoles = roleLabel
     ? favoriteRoles.filter(
         (role) =>
