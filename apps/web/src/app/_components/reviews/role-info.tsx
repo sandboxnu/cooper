@@ -15,6 +15,7 @@ import CollapsableInfoCard from "./collapsable-info";
 import InfoCard from "./info-card";
 import { ReviewCard } from "./review-card";
 import RoundBarGraph from "./round-bar-graph";
+import { CompanyPopup } from "../companies/company-popup";
 
 interface RoleCardProps {
   className?: string;
@@ -89,7 +90,10 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
         <CardHeader className="mx-0 pb-3">
           <div className="flex items-center justify-start space-x-4">
             {companyData ? (
-              <Logo company={companyData} />
+              <CompanyPopup
+                trigger={<Logo company={companyData} />}
+                company={companyData}
+              />
             ) : (
               <div className="h-20 w-20 rounded-lg border bg-cooper-blue-200"></div>
             )}
