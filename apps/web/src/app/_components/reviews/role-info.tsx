@@ -331,14 +331,11 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <span className="text-sm text-cooper-gray-400">
-                      Filter by rating:
-                    </span>
                     <Select
                       value={ratingFilter}
                       onValueChange={setRatingFilter}
                     >
-                      <SelectTrigger className="w-[120px] focus:ring-1 focus:ring-cooper-gray-400 focus:ring-offset-0">
+                      <SelectTrigger className="w-[120px] border-[0.75px] border-cooper-gray-400 bg-cooper-gray-100 focus:ring-1 focus:ring-cooper-gray-400 focus:ring-offset-0">
                         <SelectValue placeholder="All ratings" />
                       </SelectTrigger>
                       <SelectContent>
@@ -350,6 +347,9 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                         <SelectItem value="1">1 star</SelectItem>
                       </SelectContent>
                     </Select>
+                    <span className="text-sm text-cooper-gray-400">
+                      Filter by rating
+                    </span>
                   </div>
 
                   {filteredReviews && filteredReviews.length > 0 ? (
