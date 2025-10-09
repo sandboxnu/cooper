@@ -1,10 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 import type { ReviewType, RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 import Logo from "@cooper/ui/logo";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@cooper/ui/select";
 
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
@@ -23,6 +31,7 @@ interface RoleCardProps {
 }
 
 export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
+  const [ratingFilter, setRatingFilter] = useState<string>("all");
   const reviews = api.review.getByRole.useQuery({ id: roleObj.id });
 
   const firstLocationId = reviews.data?.[0]?.locationId;
@@ -61,6 +70,13 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     { id: profileId ?? "" },
     { enabled: !!profileId },
   );
+
+  // Filter reviews based on selected rating
+  const filteredReviews = reviews.data?.filter((review) => {
+    if (ratingFilter === "all") return true;
+    const rating = Math.round(review.overallRating);
+    return rating === parseInt(ratingFilter);
+  });
 
   return (
     <div
@@ -314,9 +330,37 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                     />
                   </div>
 
-                  {reviews.data.map((review: ReviewType) => {
-                    return <ReviewCard reviewObj={review} key={review.id} />;
-                  })}
+                  <div className="flex items-center gap-3">
+                    <span className="text-sm text-cooper-gray-400">
+                      Filter by rating:
+                    </span>
+                    <Select
+                      value={ratingFilter}
+                      onValueChange={setRatingFilter}
+                    >
+                      <SelectTrigger className="w-[180px]">
+                        <SelectValue placeholder="All ratings" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all">All ratings</SelectItem>
+                        <SelectItem value="5">5 stars</SelectItem>
+                        <SelectItem value="4">4 stars</SelectItem>
+                        <SelectItem value="3">3 stars</SelectItem>
+                        <SelectItem value="2">2 stars</SelectItem>
+                        <SelectItem value="1">1 star</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {filteredReviews && filteredReviews.length > 0 ? (
+                    filteredReviews.map((review: ReviewType) => {
+                      return <ReviewCard reviewObj={review} key={review.id} />;
+                    })
+                  ) : (
+                    <div className="py-8 text-center text-cooper-gray-400">
+                      No reviews found for this rating.
+                    </div>
+                  )}
                 </div>
               )}
             </CollapsableInfoCard>
