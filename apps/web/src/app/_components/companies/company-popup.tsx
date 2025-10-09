@@ -1,8 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
-import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 import {
   Dialog,
@@ -60,7 +57,7 @@ export function CompanyPopup({ trigger, company }: CompanyPopupProps) {
           <div className="mx-2 mb-6 mt-6 flex items-center justify-between">
             <div className="flex items-center">
               <div className="mr-3 flex h-16 w-16 items-center justify-center">
-                {company && <Logo company={company} size="small" />}
+                <Logo company={company} size="small" />
               </div>
               <div>
                 <h1 className="text-4xl font-bold">{company.name}</h1>
@@ -69,7 +66,7 @@ export function CompanyPopup({ trigger, company }: CompanyPopupProps) {
                 </p>
               </div>
             </div>
-            {company && <FavoriteButton objId={company.id} objType="company" />}
+            <FavoriteButton objId={company.id} objType="company" />
           </div>
 
           <div className="mb-6 grid grid-cols-1 gap-2 px-1 md:grid-cols-[2fr_3fr] md:gap-4">
