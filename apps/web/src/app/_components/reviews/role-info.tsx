@@ -338,7 +338,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                       value={ratingFilter}
                       onValueChange={setRatingFilter}
                     >
-                      <SelectTrigger className="w-[180px]">
+                      <SelectTrigger className="w-[120px] focus:ring-1 focus:ring-cooper-gray-400 focus:ring-offset-0">
                         <SelectValue placeholder="All ratings" />
                       </SelectTrigger>
                       <SelectContent>
