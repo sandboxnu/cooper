@@ -92,7 +92,9 @@ export default function Roles() {
       {roles.isSuccess &&
         "roles" in roles.data &&
         roles.data.roles.length > 0 && (
-          <div className="flex h-[86dvh] w-full lg:h-[92dvh]">
+          <div className="flex h-[81.5dvh] w-full lg:h-[90dvh]">
+            {" "}
+            {/* hardcoded sad face */}
             {/* RoleCardPreview List */}
             <div
               className={cn(
@@ -176,7 +178,6 @@ export default function Roles() {
                 />
               </div>
             </div>
-
             {/* RoleInfo */}
             <div
               className={cn(

@@ -34,7 +34,6 @@ export default async function HeaderLayout({
           </div>
         </div>
         <article className="flex h-fit flex-col items-center justify-start xl:pt-[10dvh] pt-[18.5dvh]">
-          {/* ik this is hardcoded rn^^^ will fix after */}
           {children}
         </article>
       </div>
