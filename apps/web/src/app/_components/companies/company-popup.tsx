@@ -9,7 +9,6 @@ import {
   DialogTrigger,
 } from "@cooper/ui/dialog";
 
-import { api } from "~/trpc/react";
 import { CompanyType } from "@cooper/db/schema";
 import Logo from "node_modules/@cooper/ui/src/logo";
 import { prettyIndustry } from "~/utils/stringHelpers";
@@ -29,12 +28,6 @@ interface CompanyPopupProps {
  * @returns A "+ New Review" button that prompts users for a company + role before redirecting to the review form.
  */
 export function CompanyPopup({ trigger, company }: CompanyPopupProps) {
-  const session = api.auth.getSession.useQuery();
-
-  if (!session.isSuccess && !session.data) {
-    return;
-  }
-
   return (
     <Dialog>
       <DialogTrigger asChild>
