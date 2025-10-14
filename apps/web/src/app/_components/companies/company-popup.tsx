@@ -22,11 +22,6 @@ interface CompanyPopupProps {
   company: CompanyType;
 }
 
-/**
- * General "+ New Review"
- *
- * @returns A "+ New Review" button that prompts users for a company + role before redirecting to the review form.
- */
 export function CompanyPopup({ trigger, company }: CompanyPopupProps) {
   return (
     <Dialog>
@@ -36,10 +31,7 @@ export function CompanyPopup({ trigger, company }: CompanyPopupProps) {
             {trigger}
           </Button>
         ) : (
-          <Button className="h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white hover:border-cooper-yellow-300 hover:bg-cooper-yellow-300">
-            <span className="translate-y-[-2px] text-2xl md:hidden">+</span>
-            <span className="hidden md:inline">+ New Review</span>
-          </Button>
+          <div></div>
         )}
       </DialogTrigger>
       <DialogContent className="max-h-[80dvh] w-[48dvw] sm:max-w-none overflow-y-scroll bg-white">
