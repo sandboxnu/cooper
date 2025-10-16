@@ -10,7 +10,7 @@ import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 import { DialogFooter } from "@cooper/ui/dialog";
 import { FormControl, FormField, FormItem, FormMessage } from "@cooper/ui/form";
-import { toast } from "@cooper/ui/hooks/use-toast";
+import { useCustomToast } from "@cooper/ui/hooks/use-custom-toast";
 import { Input } from "@cooper/ui/input";
 import { Label } from "@cooper/ui/label";
 import Logo from "@cooper/ui/logo";
@@ -64,6 +64,8 @@ export default function ExistingCompanyContent({
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
+  const { toast } = useCustomToast();
+
   const companies = api.company.list.useQuery({
     prefix: companyLabel,
     limit: 4,
@@ -92,11 +94,8 @@ export default function ExistingCompanyContent({
   const newRoleMutation = api.role.create.useMutation({
     onError: (error) => {
       console.error("Mutation error:", error);
-      toast({
-        title: "Submission Error",
-        description: error.message || "Something went wrong. Please try again.",
-        variant: "destructive",
-      });
+      toast.error(error.message || "Something went wrong. Please try again.");
+
       setIsLoading(false);
     },
   });

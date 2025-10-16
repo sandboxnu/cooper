@@ -21,7 +21,7 @@ import {
   FormItem,
   FormMessage,
 } from "@cooper/ui/form";
-import { useToast } from "@cooper/ui/hooks/use-toast";
+import { useCustomToast } from "@cooper/ui/hooks/use-custom-toast";
 import { Input } from "@cooper/ui/input";
 import { Label } from "@cooper/ui/label";
 import { Textarea } from "@cooper/ui/textarea";
@@ -88,7 +88,7 @@ export default function NewRoleDialog({
     },
   });
 
-  const { toast } = useToast();
+  const { toast } = useCustomToast();
 
   const mutation = api.role.create.useMutation({
     onSuccess: () => {
@@ -100,11 +100,7 @@ export default function NewRoleDialog({
       }, 1000);
     },
     onError: (error) => {
-      toast({
-        title: "Submission Error",
-        description: error.message || "Something went wrong. Please try again.",
-        variant: "destructive",
-      });
+      toast.error(error.message || "Something went wrong. Please try again.");
     },
   });
 
