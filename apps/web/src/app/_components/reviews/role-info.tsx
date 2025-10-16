@@ -106,7 +106,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                   </div>
                 </div>
               </CardTitle>
-              <div className="align-center flex gap-2 text-cooper-gray-400 hover:underline">
+              <div className="align-center flex gap-2 text-cooper-gray-400">
                 {companyData?.name && (
                   <CompanyPopup
                     trigger={companyData.name}
