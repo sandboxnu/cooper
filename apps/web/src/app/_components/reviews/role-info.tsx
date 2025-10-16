@@ -106,8 +106,13 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                   </div>
                 </div>
               </CardTitle>
-              <div className="align-center flex gap-2 text-cooper-gray-400">
-                {companyData?.name}
+              <div className="align-center flex gap-2 text-cooper-gray-400 hover:underline">
+                {companyData?.name && (
+                  <CompanyPopup
+                    trigger={companyData.name}
+                    company={companyData}
+                  />
+                )}
                 {location.isSuccess && location.data && (
                   <> • {prettyLocationName(location.data)}</>
                 )}

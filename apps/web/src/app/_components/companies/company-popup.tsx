@@ -27,7 +27,7 @@ export function CompanyPopup({ trigger, company }: CompanyPopupProps) {
     <Dialog>
       <DialogTrigger asChild>
         {trigger ? (
-          <Button className="m-0 -mt-2 border-none bg-white p-0 text-3xl font-thin text-black outline-none hover:bg-white">
+          <Button className="m-0 -mt-2 border-none bg-white p-0  text-cooper-gray-400 text-md outline-none hover:bg-white ">
             {trigger}
           </Button>
         ) : (
