@@ -24,6 +24,7 @@ import InfoCard from "./info-card";
 import { ReviewCard } from "./review-card";
 import RoundBarGraph from "./round-bar-graph";
 import { CompanyPopup } from "../companies/company-popup";
+import ReviewSearchBar from "./review-search-bar";
 
 interface RoleCardProps {
   className?: string;
@@ -33,6 +34,7 @@ interface RoleCardProps {
 
 export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
   const [ratingFilter, setRatingFilter] = useState<string>("all");
+  const [searchTerm, setSearchTerm] = useState<string>("");
   const reviews = api.review.getByRole.useQuery({ id: roleObj.id });
 
   const firstLocationId = reviews.data?.[0]?.locationId;
@@ -72,11 +74,21 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     { enabled: !!profileId },
   );
 
-  // Filter reviews based on selected rating
+  // Filter reviews based on selected rating and search term
   const filteredReviews = reviews.data?.filter((review) => {
-    if (ratingFilter === "all") return true;
-    const rating = Math.round(review.overallRating);
-    return rating === parseInt(ratingFilter);
+    // Filter by rating
+    const ratingMatch =
+      ratingFilter === "all" ||
+      Math.round(review.overallRating) === parseInt(ratingFilter);
+
+    // Filter by search term
+    const searchMatch =
+      !searchTerm ||
+      review.reviewHeadline.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      review.textReview.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      review.interviewReview?.toLowerCase().includes(searchTerm.toLowerCase());
+
+    return ratingMatch && searchMatch;
   });
 
   return (
@@ -356,9 +368,11 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                         <SelectItem value="1">1 star</SelectItem>
                       </SelectContent>
                     </Select>
-                    <span className="text-sm text-cooper-gray-400">
-                      Filter by rating
-                    </span>
+                    <ReviewSearchBar
+                      searchTerm={searchTerm}
+                      onSearchChange={setSearchTerm}
+                      className="w-[300px]"
+                    />
                   </div>
 
                   {filteredReviews && filteredReviews.length > 0 ? (
@@ -367,7 +381,9 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                     })
                   ) : (
                     <div className="py-8 text-center text-cooper-gray-400">
-                      No reviews found for this rating.
+                      {searchTerm || ratingFilter !== "all"
+                        ? "No reviews found matching your search criteria."
+                        : "No reviews found for this rating."}
                     </div>
                   )}
                 </div>
