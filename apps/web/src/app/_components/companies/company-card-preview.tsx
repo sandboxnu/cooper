@@ -1,3 +1,4 @@
+"use client";
 import type { CompanyType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
@@ -30,7 +31,7 @@ export function CompanyCardPreview({
   return (
     <Card
       className={cn(
-        "flex h-[26rem] w-[100%] flex-col justify-between overflow-hidden rounded-lg border-[0.75px] border-cooper-gray-400 cursor-pointer",
+        "flex h-[20rem] w-[100%] flex-col justify-between overflow-hidden rounded-lg border-[0.75px] border-cooper-gray-400 cursor-pointer",
         className,
       )}
       onClick={handleCardClick}
@@ -68,7 +69,7 @@ export function CompanyCardPreview({
               </p>
             </div>
           </div>
-          <div className="m-4 flex items-center space-x-4">
+          <div className="m-4 flex items-center space-x-4 ">
             <p className="text-sm">
               {prettyDescription(companyObj.description)}
             </p>

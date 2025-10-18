@@ -64,3 +64,11 @@ html {
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+  font-family: "Hanken Grotesk";
+  src: url("/fonts/hanken-grotesk/HankenGrotesk-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
