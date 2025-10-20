@@ -25,6 +25,8 @@ export const roleRouter = {
     .input(
       z.object({
         search: z.string().optional(),
+        limit: z.number().optional().default(10),
+        offset: z.number().optional().default(0),
       }),
     )
     .query(async ({ ctx, input }) => {
@@ -71,9 +73,18 @@ export const roleRouter = {
         RoleType & { companyName: string }
       >(rolesWithCompanies, fuseOptions, input.search);
 
-      return searchedRoles.map((role) => ({
-        ...(role as RoleType),
-      }));
+      // Apply pagination
+      const paginatedRoles = searchedRoles.slice(
+        input.offset,
+        input.offset + input.limit,
+      );
+
+      return {
+        roles: paginatedRoles.map((role) => ({
+          ...(role as RoleType),
+        })),
+        totalCount: searchedRoles.length,
+      };
     }),
 
   getByTitle: sortableProcedure

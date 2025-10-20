@@ -9,3 +9,4 @@ export { CustomToaster } from "./custom-toaster";
 export { useCustomToast } from "./hooks/use-custom-toast";
 export { SuccessToast } from "./success-toast";
 export { ErrorToast } from "./error-toast";
+export { Pagination } from "./pagination";

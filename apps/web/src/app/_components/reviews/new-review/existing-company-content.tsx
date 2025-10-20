@@ -18,6 +18,7 @@ import { Textarea } from "@cooper/ui/textarea";
 
 import type { RoleRequestType } from "../new-role-dialogue";
 import { api } from "~/trpc/react";
+import Fuse from "fuse.js";
 
 const filter = new Filter();
 const roleSchema = z.object({
@@ -81,8 +82,31 @@ export default function ExistingCompanyContent({
     },
   );
 
+  const extendedRoleSchema = roleSchema.extend({
+    title: roleSchema.shape.title.refine(
+      (val) => {
+        if (!roles.data || !selectedCompanyId) return true;
+        const fuseOptions = {
+          keys: ["title"],
+          threshold: 0.3,
+          includeScore: true,
+        };
+
+        const fuse = new Fuse(roles.data, fuseOptions);
+        const searchResults = fuse.search(val.trim().toLowerCase());
+        const hasSimilarRole = searchResults.some(
+          (result) => result.score !== undefined && result.score < 0.3,
+        );
+        return !hasSimilarRole;
+      },
+      {
+        message: "A role with this title already exists for this company.",
+      },
+    ),
+  });
+
   const newRoleForm = useForm<z.infer<RoleRequestType>>({
-    resolver: zodResolver(roleSchema),
+    resolver: zodResolver(extendedRoleSchema),
     defaultValues: {
       title: "",
       description: "",
