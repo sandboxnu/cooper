@@ -10,32 +10,26 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@cooper/ui/dialog";
-import { useToast } from "@cooper/ui/hooks/use-toast";
 
 import { api } from "~/trpc/react";
+import { useCustomToast } from "@cooper/ui/hooks/use-custom-toast";
 
 interface DeleteReviewDialogProps {
   reviewId: string;
 }
 
 export function DeleteReviewDialog({ reviewId }: DeleteReviewDialogProps) {
-  const { toast } = useToast();
+  const { toast } = useCustomToast();
 
   const deleteReview = api.review.delete.useMutation({
     onSuccess: () => {
-      toast({
-        title: "Review deleted",
-        description: "Your review has been successfully deleted.",
-      });
+      toast.success("Your review has been successfully deleted.");
+
       // Refresh the page to update the UI
       window.location.reload();
     },
-    onError: (error) => {
-      toast({
-        title: "Error",
-        description: error.message || "Failed to delete review",
-        variant: "destructive",
-      });
+    onError: () => {
+      toast.error("Oops. Please try again.");
     },
   });
 
