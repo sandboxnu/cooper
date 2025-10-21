@@ -40,7 +40,7 @@ export default {
         "cooper-yellow-300": "#FFB545",
 
         // Cooper "Cream"
-        "cooper-cream-500": "#F1EFE6",
+        "cooper-cream-200": "#F1EFE6",
         "cooper-cream-100": "#F7F6F2",
 
         // Deprecated Colors
