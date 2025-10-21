@@ -66,7 +66,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
   return (
     <div
       className={cn(
-        "flex h-fit w-[100%] flex-col justify-between scroll-smooth rounded-lg border-none",
+        "flex h-fit w-[100%] flex-col justify-between scroll-smooth rounded-lg border-none pb-5",
         className,
       )}
     >
@@ -86,8 +86,8 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
           />
         </svg>
       )}
-      <div className="flex w-full flex-wrap items-center justify-between">
-        <CardHeader className="mx-0 pb-3">
+      <div className="flex w-full flex-wrap items-center justify-between lg:pl-6 lg:pr-6 py-5">
+        <CardHeader className="mx-0 ">
           <div className="flex items-center justify-start space-x-4">
             {companyData ? (
               <CompanyPopup
@@ -120,7 +120,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             </div>
           </div>
         </CardHeader>
-        <CardContent className="grid justify-end gap-2">
+        <CardContent className="grid  gap-2">
           {reviews.isSuccess &&
             reviews.data.length > 0 &&
             (() => {
@@ -132,9 +132,11 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                     width={20}
                     height={20}
                   />
-                  {Math.round(
-                    Number(averages.data?.averageOverallRating) * 100,
-                  ) / 100}{" "}
+                  <div>
+                    {Math.round(
+                      Number(averages.data?.averageOverallRating) * 100,
+                    ) / 100}
+                  </div>
                   ({reviews.data.length} review
                   {reviews.data.length !== 1 && "s"})
                 </div>
@@ -142,7 +144,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             })()}
         </CardContent>
       </div>
-      <div className="mt-4 flex w-[100%] justify-between">
+      <div className="flex w-[100%] justify-between">
         <div className="grid w-full grid-cols-2 gap-5 px-3 lg:pl-6 lg:pr-6">
           <div className="col-span-2 h-full md:col-span-1" id="job-description">
             <InfoCard title={"Job Description"}>

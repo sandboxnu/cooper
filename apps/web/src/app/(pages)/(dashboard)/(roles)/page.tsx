@@ -92,13 +92,13 @@ export default function Roles() {
       {roles.isSuccess &&
         "roles" in roles.data &&
         roles.data.roles.length > 0 && (
-          <div className="flex h-[81.5dvh] w-full lg:h-[90dvh]">
+          <div className="bg-cooper-cream-100 flex h-[81.5dvh] w-full lg:h-[90dvh]">
             {" "}
             {/* hardcoded sad face */}
             {/* RoleCardPreview List */}
             <div
               className={cn(
-                "w-full overflow-y-auto border-r-[0.75px] border-t-[0.75px] border-cooper-gray-300 bg-cooper-gray-100 p-5 md:rounded-tr-lg xl:rounded-none",
+                "w-full overflow-y-auto border-r-[0.75px] border-t-[0.75px] border-cooper-gray-300 bg-cooper-cream-100 p-5 md:rounded-tr-lg xl:rounded-none",
                 "md:w-[28%]", // Show as 28% width on md and above
                 showRoleInfo && "hidden md:block", // Hide on mobile if RoleInfo is visible
               )}
@@ -160,9 +160,9 @@ export default function Roles() {
                           "mb-4 hover:bg-cooper-gray-100",
                           selectedRole
                             ? selectedRole.id === role.id &&
-                                "bg-cooper-gray-200 hover:bg-cooper-gray-200"
+                                "bg-cooper-cream-500 hover:bg-cooper-gray-200"
                             : !i &&
-                                "bg-cooper-gray-200 hover:bg-cooper-gray-200",
+                                "bg-cooper-cream-500 hover:bg-cooper-gray-200",
                         )}
                       />
                     </div>
