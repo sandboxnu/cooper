@@ -66,7 +66,7 @@ export default function Companies({
           {companies.data?.length ?? 0} results
         </p>
         {companies.isSuccess && companies.data.length > 0 ? (
-          <div className="mb-8 grid h-[70dvh] grid-cols-1 gap-4 md:mt-6 md:h-[75dvh] md:grid-cols-2 xl:grid-cols-3">
+          <div className="mb-8 grid h-[70dvh] grid-cols-1 gap-4 md:mt-6 md:h-[75dvh] md:grid-cols-3 xl:grid-cols-5">
             {companies.data.map((company) => (
               <div key={company.id}>
                 <CompanyCardPreview companyObj={company} className="mb-4" />
