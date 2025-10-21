@@ -35,6 +35,9 @@ export function CompanyCardPreview({
     id: companyObj.id,
   });
 
+  const averageRating =
+    Math.round(Number(avg.data?.averageOverallRating) * 100) / 100;
+
   return (
     <Card
       className={cn(
@@ -74,23 +77,17 @@ export function CompanyCardPreview({
             </div>
           </CardHeader>
           <CardContent>
-            <div className="align-center flex gap-2 text-cooper-gray-400">
-              <Image
-                src="/svg/star.svg"
-                alt="Star icon"
-                width={20}
-                height={20}
-              />
-              <div>
-                {Math.round(Number(avg.data?.averageOverallRating) * 100) /
-                  100 ==
-                0
-                  ? "-"
-                  : Math.round(Number(avg.data?.averageOverallRating) * 100) /
-                    100}
+            {averageRating !== 0 && (
+              <div className="align-center flex gap-2 text-cooper-gray-400">
+                <Image
+                  src="/svg/star.svg"
+                  alt="Star icon"
+                  width={20}
+                  height={20}
+                />
+                <div>{averageRating}</div>({reviews.data?.length} reviews)
               </div>
-              ({reviews.data?.length} reviews)
-            </div>
+            )}
           </CardContent>
         </div>
         <FavoriteButton objId={companyObj.id} objType="company" />
