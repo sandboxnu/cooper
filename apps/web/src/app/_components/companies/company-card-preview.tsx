@@ -77,7 +77,7 @@ export function CompanyCardPreview({
             </div>
           </CardHeader>
           <CardContent>
-            {averageRating !== 0 && (
+            {averageRating !== 0 ? (
               <div className="align-center flex gap-2 text-cooper-gray-400">
                 <Image
                   src="/svg/star.svg"
@@ -87,6 +87,8 @@ export function CompanyCardPreview({
                 />
                 <div>{averageRating}</div>({reviews.data?.length} reviews)
               </div>
+            ) : (
+              <div className="text-cooper-gray-400">No ratings yet</div>
             )}
           </CardContent>
         </div>
