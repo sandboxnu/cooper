@@ -60,12 +60,14 @@ export function CompanyCardPreview({
                   </div>
                 </CardTitle>
                 <div className="align-center flex flex-wrap gap-2 text-cooper-gray-400">
-                  {locations.data?.length && locations.data[0]?.location && (
+                  {locations.data?.length && locations.data[0]?.location ? (
                     <>
                       <span>
                         {prettyLocationName(locations.data[0].location)}
                       </span>
                     </>
+                  ) : (
+                    <span>Location not specified</span>
                   )}
                 </div>
               </div>
@@ -80,7 +82,12 @@ export function CompanyCardPreview({
                 height={20}
               />
               <div>
-                {Math.round(Number(avg.data?.averageOverallRating) * 100) / 100}
+                {Math.round(Number(avg.data?.averageOverallRating) * 100) /
+                  100 ==
+                0
+                  ? "-"
+                  : Math.round(Number(avg.data?.averageOverallRating) * 100) /
+                    100}
               </div>
               ({reviews.data?.length} reviews)
             </div>
