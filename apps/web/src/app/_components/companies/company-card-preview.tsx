@@ -41,13 +41,13 @@ export function CompanyCardPreview({
   return (
     <Card
       className={cn(
-        "flex flex-col justify-between rounded-lg outline outline-[0.75px] outline-cooper-gray-150 w-full",
+        "flex flex-col justify-between rounded-lg outline outline-[0.75px] outline-cooper-gray-150 w-80",
         className,
       )}
       onClick={handleCardClick}
     >
       <div className="flex items-start justify-between">
-        <Logo company={companyObj} />
+        <Logo className="min-h-full w-auto" company={companyObj} />
         <div>
           <CardHeader className="pb-2">
             <div className="flex items-center justify-start">
@@ -79,13 +79,16 @@ export function CompanyCardPreview({
           <CardContent>
             {averageRating !== 0 ? (
               <div className="align-center flex gap-2 text-cooper-gray-400">
-                <Image
-                  src="/svg/star.svg"
-                  alt="Star icon"
-                  width={20}
-                  height={20}
-                />
-                <div>{averageRating}</div>({reviews.data?.length} reviews)
+                <div className=" flex gap-1">
+                  <Image
+                    src="/svg/star.svg"
+                    alt="Star icon"
+                    width={20}
+                    height={20}
+                  />
+                  <div>{averageRating}</div>
+                </div>
+                ({reviews.data?.length} reviews)
               </div>
             ) : (
               <div className="text-cooper-gray-400">No ratings yet</div>

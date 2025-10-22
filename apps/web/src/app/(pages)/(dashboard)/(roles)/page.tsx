@@ -160,9 +160,9 @@ export default function Roles() {
                           "mb-4 hover:bg-cooper-gray-100",
                           selectedRole
                             ? selectedRole.id === role.id &&
-                                "bg-cooper-cream-200 hover:bg-cooper-gray-200"
+                                "bg-cooper-cream-200 hover:bg-cooper-gray-200 border:cooper-gray-50"
                             : !i &&
-                                "bg-cooper-cream-200 hover:bg-cooper-gray-200",
+                                "bg-cooper-cream-200 hover:bg-cooper-gray-200 border:cooper-gray-50",
                         )}
                       />
                     </div>

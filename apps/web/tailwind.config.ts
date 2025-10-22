@@ -28,6 +28,7 @@ export default {
         "cooper-gray-200": "#E0E0E0",
         "cooper-gray-150": "#E7E7E7",
         "cooper-gray-100": "#F9F9F9",
+        "cooper-gray-50": "#EFEFEF",
 
         // Cooper Blue
         "cooper-blue-800": "#1250B3",

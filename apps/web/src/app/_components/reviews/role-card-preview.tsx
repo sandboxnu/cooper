@@ -76,16 +76,18 @@ export function RoleCardPreview({ className, roleObj }: RoleCardPreviewProps) {
               (() => {
                 return (
                   <div className="align-center flex gap-2 text-cooper-gray-400">
-                    <Image
-                      src="/svg/star.svg"
-                      alt="Star icon"
-                      width={20}
-                      height={20}
-                    />
-                    <div>
-                      {Math.round(
-                        Number(averages.data?.averageOverallRating) * 100,
-                      ) / 100}
+                    <div className="flex gap-1">
+                      <Image
+                        src="/svg/star.svg"
+                        alt="Star icon"
+                        width={20}
+                        height={20}
+                      />
+                      <div>
+                        {Math.round(
+                          Number(averages.data?.averageOverallRating) * 100,
+                        ) / 100}
+                      </div>
                     </div>
                     ({reviews.data.length} reviews)
                   </div>
