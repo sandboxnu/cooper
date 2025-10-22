@@ -95,7 +95,13 @@ export function CompanyCardPreview({
             )}
           </CardContent>
         </div>
-        <FavoriteButton objId={companyObj.id} objType="company" />
+        <span
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+        >
+          <FavoriteButton objId={companyObj.id} objType="company" />
+        </span>
       </div>
     </Card>
   );
