@@ -110,7 +110,7 @@ const formSchema = z.object({
   hourlyPay: z.coerce
     .number()
     .min(0, {
-      message: "Please enter hourly pay"
+      message: "Please enter hourly pay",
     })
     .transform((val) => (val ? val.toString() : null))
     .nullable()
