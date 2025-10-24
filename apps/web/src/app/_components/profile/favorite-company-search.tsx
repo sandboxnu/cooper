@@ -1,5 +1,5 @@
 "use client";
-import { CompanyType } from "@cooper/db/schema";
+import type { CompanyType } from "@cooper/db/schema";
 import { Input } from "../themed/onboarding/input";
 import { useState } from "react";
 import { CompanyCardPreview } from "../companies/company-card-preview";
