@@ -1,10 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 import type { ReviewType, RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 import Logo from "@cooper/ui/logo";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@cooper/ui/select";
 
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
@@ -16,6 +24,7 @@ import InfoCard from "./info-card";
 import { ReviewCard } from "./review-card";
 import RoundBarGraph from "./round-bar-graph";
 import { CompanyPopup } from "../companies/company-popup";
+import ReviewSearchBar from "./review-search-bar";
 
 interface RoleCardProps {
   className?: string;
@@ -24,6 +33,8 @@ interface RoleCardProps {
 }
 
 export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
+  const [ratingFilter, setRatingFilter] = useState<string>("all");
+  const [searchTerm, setSearchTerm] = useState<string>("");
   const reviews = api.review.getByRole.useQuery({ id: roleObj.id });
 
   const firstLocationId = reviews.data?.[0]?.locationId;
@@ -62,6 +73,23 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     { id: profileId ?? "" },
     { enabled: !!profileId },
   );
+
+  // Filter reviews based on selected rating and search term
+  const filteredReviews = reviews.data?.filter((review) => {
+    // Filter by rating
+    const ratingMatch =
+      ratingFilter === "all" ||
+      Math.round(review.overallRating) === parseInt(ratingFilter);
+
+    // Filter by search term
+    const searchMatch =
+      !searchTerm ||
+      review.reviewHeadline.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      review.textReview.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      review.interviewReview?.toLowerCase().includes(searchTerm.toLowerCase());
+
+    return ratingMatch && searchMatch;
+  });
 
   return (
     <div
@@ -325,9 +353,41 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                     />
                   </div>
 
-                  {reviews.data.map((review: ReviewType) => {
-                    return <ReviewCard reviewObj={review} key={review.id} />;
-                  })}
+                  <div className="flex items-center gap-3">
+                    <Select
+                      value={ratingFilter}
+                      onValueChange={setRatingFilter}
+                    >
+                      <SelectTrigger className="w-[120px] border-[0.75px] border-cooper-gray-400 bg-cooper-gray-100 focus:ring-1 focus:ring-cooper-gray-400 focus:ring-offset-0">
+                        <SelectValue placeholder="All ratings" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all">All ratings</SelectItem>
+                        <SelectItem value="5">5 stars</SelectItem>
+                        <SelectItem value="4">4 stars</SelectItem>
+                        <SelectItem value="3">3 stars</SelectItem>
+                        <SelectItem value="2">2 stars</SelectItem>
+                        <SelectItem value="1">1 star</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <ReviewSearchBar
+                      searchTerm={searchTerm}
+                      onSearchChange={setSearchTerm}
+                      className="w-[300px]"
+                    />
+                  </div>
+
+                  {filteredReviews && filteredReviews.length > 0 ? (
+                    filteredReviews.map((review: ReviewType) => {
+                      return <ReviewCard reviewObj={review} key={review.id} />;
+                    })
+                  ) : (
+                    <div className="py-8 text-center text-cooper-gray-400">
+                      {searchTerm || ratingFilter !== "all"
+                        ? "No reviews found matching your search criteria."
+                        : "No reviews found for this rating."}
+                    </div>
+                  )}
                 </div>
               )}
             </CollapsableInfoCard>
