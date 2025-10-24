@@ -47,7 +47,7 @@ export default async function Profile({ searchParams }: Props) {
 
   return (
     <HeaderLayout>
-      <div className="bg-[#F7F6F2] w-full min-h-screen flex justify-center">
+      <div className="bg-cooper-cream-100 w-full min-h-screen flex justify-center">
         <div className="mx-4 mt-4 flex h-full flex-col gap-6 overflow-y-auto md:max-w-[66%] w-[66%] pt-4">
           <div className="flex items-start justify-start gap-4">
             <Image

@@ -18,7 +18,7 @@ export const locationName = (reviewObj: ReviewType) => {
 export const prettyLocationName = (location: LocationType) => {
   return (
     location.city +
-    (location.state ? `, ${location.state}` : "") +
+    (location.state ? `, ${abbreviatedStateName(location.state)}` : "") +
     (location.state ? "" : `, ${location.country}`)
   );
 };
