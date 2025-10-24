@@ -17,7 +17,9 @@ interface ProfileButtonClientProps {
   session: Session;
 }
 
-export default function ProfileButtonClient({ session }: ProfileButtonClientProps) {
+export default function ProfileButtonClient({
+  session,
+}: ProfileButtonClientProps) {
   const linkElement = (
     <Image
       src={session.user.image ?? "/svg/defaultProfile.svg"}
@@ -39,9 +41,7 @@ export default function ProfileButtonClient({ session }: ProfileButtonClientProp
           <DropdownMenuSeparator />
           <DropdownMenuLabel className="text-center">
             <form>
-              <button formAction={handleSignOut}>
-                Log Out
-              </button>
+              <button formAction={handleSignOut}>Log Out</button>
             </form>
           </DropdownMenuLabel>
         </DropdownMenuContent>
