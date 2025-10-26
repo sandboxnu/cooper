@@ -55,6 +55,13 @@ export function CompanyCardPreview({
                 <CardTitle>
                   <div className="text-md flex w-full items-center justify-between gap-3 md:text-xl">
                     <div className="text-lg">{companyObj.name}</div>
+                    <span
+                      onClick={(e) => {
+                        e.stopPropagation();
+                      }}
+                    >
+                      <FavoriteButton objId={companyObj.id} objType="company" />
+                    </span>
                   </div>
                 </CardTitle>
                 <div className="align-center flex flex-wrap gap-2 text-cooper-gray-400">
@@ -90,13 +97,6 @@ export function CompanyCardPreview({
             )}
           </CardContent>
         </div>
-        <span
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-        >
-          <FavoriteButton objId={companyObj.id} objType="company" />
-        </span>
       </div>
     </Card>
   );
