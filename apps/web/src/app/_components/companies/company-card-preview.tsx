@@ -46,14 +46,14 @@ export function CompanyCardPreview({
       )}
       onClick={handleCardClick}
     >
-      <div className="flex items-start space-x-4">
-        <Logo className="min-h-full w-auto" company={companyObj} />
+      <div className="flex space-x-4">
+        <Logo company={companyObj} />
         <div className="w-full">
           <CardHeader className="pb-2">
             <div className="flex items-center justify-start">
               <div className="w-full">
                 <CardTitle>
-                  <div className="text-md flex w-full items-center justify-between gap-3 md:text-xl">
+                  <div className="text-md flex w-full items-start justify-between gap-3 md:text-xl">
                     <div className="text-lg">{companyObj.name}</div>
                     <span
                       onClick={(e) => {
