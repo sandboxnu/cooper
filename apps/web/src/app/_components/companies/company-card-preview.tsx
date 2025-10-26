@@ -46,7 +46,7 @@ export function CompanyCardPreview({
       )}
       onClick={handleCardClick}
     >
-      <div className="flex items-start justify-between">
+      <div className="flex items-start space-x-1">
         <div className="flex space-x-4">
           <Logo className="min-h-full w-auto" company={companyObj} />
           <div>
