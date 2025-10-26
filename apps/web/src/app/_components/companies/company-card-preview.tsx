@@ -47,48 +47,50 @@ export function CompanyCardPreview({
       onClick={handleCardClick}
     >
       <div className="flex items-start justify-between">
-        <Logo className="min-h-full w-auto" company={companyObj} />
-        <div>
-          <CardHeader className="pb-2">
-            <div className="flex items-center justify-start">
-              <div className="w-full">
-                <CardTitle>
-                  <div className="text-md flex w-full items-center justify-between gap-3 md:text-xl">
-                    <div className="text-lg">{companyObj.name}</div>
+        <div className="flex space-x-4">
+          <Logo className="min-h-full w-auto" company={companyObj} />
+          <div>
+            <CardHeader className="pb-2">
+              <div className="flex items-center justify-start">
+                <div className="w-full">
+                  <CardTitle>
+                    <div className="text-md flex w-full items-center justify-between gap-3 md:text-xl">
+                      <div className="text-lg">{companyObj.name}</div>
+                    </div>
+                  </CardTitle>
+                  <div className="align-center flex flex-wrap gap-2 text-cooper-gray-400">
+                    {locations.data?.length && locations.data[0]?.location ? (
+                      <>
+                        <span>
+                          {prettyLocationName(locations.data[0].location)}
+                        </span>
+                      </>
+                    ) : (
+                      <span>Location not specified</span>
+                    )}
                   </div>
-                </CardTitle>
-                <div className="align-center flex flex-wrap gap-2 text-cooper-gray-400">
-                  {locations.data?.length && locations.data[0]?.location ? (
-                    <>
-                      <span>
-                        {prettyLocationName(locations.data[0].location)}
-                      </span>
-                    </>
-                  ) : (
-                    <span>Location not specified</span>
-                  )}
                 </div>
               </div>
-            </div>
-          </CardHeader>
-          <CardContent>
-            {averageRating !== 0 ? (
-              <div className="align-center flex gap-2 text-cooper-gray-400">
-                <div className=" flex gap-1">
-                  <Image
-                    src="/svg/star.svg"
-                    alt="Star icon"
-                    width={20}
-                    height={20}
-                  />
-                  <div>{averageRating}</div>
+            </CardHeader>
+            <CardContent>
+              {averageRating !== 0 ? (
+                <div className="align-center flex gap-2 text-cooper-gray-400">
+                  <div className=" flex gap-1">
+                    <Image
+                      src="/svg/star.svg"
+                      alt="Star icon"
+                      width={20}
+                      height={20}
+                    />
+                    <div>{averageRating}</div>
+                  </div>
+                  ({reviews.data?.length} reviews)
                 </div>
-                ({reviews.data?.length} reviews)
-              </div>
-            ) : (
-              <div className="text-cooper-gray-400">No ratings yet</div>
-            )}
-          </CardContent>
+              ) : (
+                <div className="text-cooper-gray-400">No ratings yet</div>
+              )}
+            </CardContent>
+          </div>
         </div>
         <span
           onClick={(e) => {
