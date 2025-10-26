@@ -207,7 +207,6 @@ export default function Roles() {
                 />
               </div>
             </div>
-            {/* RoleInfo */}
             <div
               className={cn(
                 "col-span-3 w-full overflow-y-auto p-1",

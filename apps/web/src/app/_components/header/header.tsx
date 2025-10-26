@@ -94,26 +94,6 @@ export default function Header({ auth }: HeaderProps) {
 
       <div className="mr-6 hidden flex-shrink grid-cols-2 items-center justify-start gap-6 md:flex">
         <div className="flex items-center justify-start gap-8">
-          <Link href="/">
-            <h2
-              className={cn(
-                pathname.length === 1 &&
-                  "text-cooper-blue-800 underline underline-offset-8",
-              )}
-            >
-              Jobs
-            </h2>
-          </Link>
-          <Link href="/companies">
-            <h2
-              className={cn(
-                pathname.includes("companies") &&
-                  "text-cooper-blue-800 underline underline-offset-8",
-              )}
-            >
-              Companies
-            </h2>
-          </Link>
           <NewReviewDialog />
         </div>
         {auth}

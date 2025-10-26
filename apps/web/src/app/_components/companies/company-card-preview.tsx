@@ -41,7 +41,7 @@ export function CompanyCardPreview({
   return (
     <Card
       className={cn(
-        "flex flex-col justify-between rounded-lg outline outline-[0.75px] outline-cooper-gray-150 w-80",
+        "flex flex-col justify-between rounded-lg outline outline-[0.75px] outline-cooper-gray-150",
         className,
       )}
       onClick={handleCardClick}

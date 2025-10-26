@@ -56,9 +56,6 @@ export const roleAndCompanyRouter = {
         });
       }
 
-      // Extract unique company IDs
-      const companyIds = [...new Set(roles.map((role) => role.companyId))];
-
       let companies: CompanyType[] = [];
       if (ctx.sortBy === "rating") {
         const companiesWithRatings = await ctx.db.execute(sql`
@@ -66,7 +63,7 @@ export const roleAndCompanyRouter = {
             ${Company}.*, 
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Company}
-          LEFT JOIN ${Role} ON ${Role.companyId} = ${Company.id}
+          LEFT JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
           LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
           GROUP BY ${Company.id}
           ORDER BY avg_rating DESC
@@ -75,6 +72,7 @@ export const roleAndCompanyRouter = {
         companies = companiesWithRatings.rows.map((company) => ({
           ...(company as CompanyType),
         }));
+
       } else {
         companies = await ctx.db.query.Company.findMany({
           orderBy: companyOrdering[ctx.sortBy],

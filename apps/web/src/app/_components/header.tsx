@@ -55,16 +55,6 @@ export default function Header({ auth }: HeaderProps) {
               Jobs
             </h2>
           </Link>
-          <Link href="/companies">
-            <h2
-              className={cn(
-                pathname.includes("companies") &&
-                  "text-cooper-blue-800 underline underline-offset-8",
-              )}
-            >
-              Companies
-            </h2>
-          </Link>
           <NewReviewDialog />
         </div>
         {auth}
