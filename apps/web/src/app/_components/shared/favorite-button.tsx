@@ -21,15 +21,16 @@ export function FavoriteButton({ objId, objType }: FavoriteButtonProps) {
     objType,
   );
 
-    const [hover, setHover] = useState(false);
+  const [hover, setHover] = useState(false);
 
   if (!profileId) return null;
 
-  const src = hover && !isFavorited
-    ? "/svg/hoverBookmark.svg"
-    : isFavorited
-    ? "/svg/filledBookmark.svg"
-    : "/svg/bookmark.svg";
+  const src =
+    hover && !isFavorited
+      ? "/svg/hoverBookmark.svg"
+      : isFavorited
+        ? "/svg/filledBookmark.svg"
+        : "/svg/bookmark.svg";
 
   return (
     <Image
@@ -37,6 +38,7 @@ export function FavoriteButton({ objId, objType }: FavoriteButtonProps) {
       alt="Bookmark icon"
       width={13}
       height={19}
+      style={{ minWidth: "13px", minHeight: "19px" }}
       className={`cursor-pointer ${isLoading ? "opacity-50" : ""}`}
       onClick={toggle}
       onMouseEnter={() => setHover(true)}
