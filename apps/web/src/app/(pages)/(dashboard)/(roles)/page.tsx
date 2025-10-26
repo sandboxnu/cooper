@@ -57,6 +57,12 @@ export default function Roles() {
     }
   }, [rolesAndCompanies.isSuccess, rolesAndCompanies.data, queryParam]);
 
+  const isRole = (
+    item: RoleType | CompanyType,
+  ): item is RoleType & { type: "role" } => {
+    return "type" in item && item.type === "role";
+  };
+
   const [selectedItem, setSelectedItem] = useState<
     (RoleType | CompanyType) | undefined
   >();
@@ -152,51 +158,51 @@ export default function Roles() {
                 </DropdownMenu>
               </div>
               {rolesAndCompanies.data.items.map((item, i) => {
-                  if (item.type === "role") {
-                    return (
-                      <div
-                        key={item.id}
-                        onClick={() => {
-                          setSelectedItem(item);
-                          setShowRoleInfo(true); // Show RoleInfo on mobile
-                        }}
-                      >
-                        <RoleCardPreview
-                          roleObj={item}
-                          className={cn(
-                            "mb-4 hover:bg-cooper-gray-100",
-                            selectedItem
-                              ? selectedItem.id === item.id &&
-                                  "bg-cooper-cream-200 hover:bg-cooper-gray-200"
-                              : !i &&
-                                  "bg-cooper-cream-200 hover:bg-cooper-gray-200",
-                          )}
-                        />
-                      </div>
-                    );
-                  } else {
-                    return (
-                      <div
-                        key={item.id}
-                        onClick={() => {
-                          setSelectedItem(item);
-                        }}
-                      >
-                        <CompanyCardPreview
-                          companyObj={item}
-                          className={cn(
-                            "mb-4 hover:bg-cooper-gray-100",
-                            selectedItem
-                              ? selectedItem.id === item.id &&
-                                  "bg-cooper-gray-200 hover:bg-cooper-gray-200"
-                              : !i &&
-                                  "bg-cooper-gray-200 hover:bg-cooper-gray-200",
-                          )}
-                        />
-                      </div>
-                    );
-                  }
-                })}
+                if (item.type === "role") {
+                  return (
+                    <div
+                      key={item.id}
+                      onClick={() => {
+                        setSelectedItem(item);
+                        setShowRoleInfo(true); // Show RoleInfo on mobile
+                      }}
+                    >
+                      <RoleCardPreview
+                        roleObj={item}
+                        className={cn(
+                          "mb-4 hover:bg-cooper-gray-100",
+                          selectedItem
+                            ? selectedItem.id === item.id &&
+                                "bg-cooper-cream-200 hover:bg-cooper-gray-200"
+                            : !i &&
+                                "bg-cooper-cream-200 hover:bg-cooper-gray-200",
+                        )}
+                      />
+                    </div>
+                  );
+                } else {
+                  return (
+                    <div
+                      key={item.id}
+                      onClick={() => {
+                        setSelectedItem(item);
+                      }}
+                    >
+                      <CompanyCardPreview
+                        companyObj={item}
+                        className={cn(
+                          "mb-4 hover:bg-cooper-gray-100",
+                          selectedItem
+                            ? selectedItem.id === item.id &&
+                                "bg-cooper-gray-200 hover:bg-cooper-gray-200"
+                            : !i &&
+                                "bg-cooper-gray-200 hover:bg-cooper-gray-200",
+                        )}
+                      />
+                    </div>
+                  );
+                }
+              })}
 
               {/* Pagination */}
               <div className="mt-4">
@@ -215,14 +221,25 @@ export default function Roles() {
               )}
             >
               {rolesAndCompanies.data.items.length > 0 &&
-                rolesAndCompanies.data.items[0] && (
-                  (selectedItem ? (selectedItem as any).type === "role" : (rolesAndCompanies.data.items[0] as any).type === "role") ?  (<RoleInfo 
-                    roleObj={(selectedItem ?? rolesAndCompanies.data.items[0]) as RoleType}
+                rolesAndCompanies.data.items[0] &&
+                (isRole(selectedItem ?? rolesAndCompanies.data.items[0]) ? (
+                  <RoleInfo
+                    roleObj={
+                      (selectedItem ??
+                        rolesAndCompanies.data.items[0]) as RoleType
+                    }
                     onBack={() => setShowRoleInfo(false)}
-                  />):
-                (<div>
-                  <CompanyInfo companyObj={(selectedItem ?? rolesAndCompanies.data.items[0]) as CompanyType} /> </div>)
-                )}
+                  />
+                ) : (
+                  <div>
+                    <CompanyInfo
+                      companyObj={
+                        (selectedItem ??
+                          rolesAndCompanies.data.items[0]) as CompanyType
+                      }
+                    />{" "}
+                  </div>
+                ))}
             </div>
           </div>
         )}

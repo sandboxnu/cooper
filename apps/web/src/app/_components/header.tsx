@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 import { cn } from "@cooper/ui";
 
@@ -18,8 +17,6 @@ interface HeaderProps {
  * @returns The header component for the website
  */
 export default function Header({ auth }: HeaderProps) {
-  const pathname = usePathname();
-
   const outerWidth = "min-w-40";
 
   return (
@@ -45,16 +42,6 @@ export default function Header({ auth }: HeaderProps) {
 
       <div className="mr-6 flex flex-shrink grid-cols-2 items-center justify-start gap-6">
         <div className="flex items-center justify-start gap-8">
-          <Link href="/">
-            <h2
-              className={cn(
-                pathname.length === 1 &&
-                  "text-cooper-blue-800 underline underline-offset-8",
-              )}
-            >
-              Jobs
-            </h2>
-          </Link>
           <NewReviewDialog />
         </div>
         {auth}

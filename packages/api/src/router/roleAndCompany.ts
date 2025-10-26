@@ -1,17 +1,10 @@
-import type { TRPCRouterRecord } from "@trpc/server";
-import { TRPCError } from "@trpc/server";
-import { Filter } from "bad-words";
 import { z } from "zod";
 
-import type { CompanyType, ReviewType, RoleType } from "@cooper/db/schema";
-import { asc, desc, eq, sql } from "@cooper/db";
-import { CreateRoleSchema, Review, Role, Company } from "@cooper/db/schema";
+import type { CompanyType, RoleType } from "@cooper/db/schema";
+import { asc, desc, sql } from "@cooper/db";
+import { Review, Role, Company } from "@cooper/db/schema";
 
-import {
-  protectedProcedure,
-  publicProcedure,
-  sortableProcedure,
-} from "../trpc";
+import { sortableProcedure } from "../trpc";
 import { performFuseSearch } from "../utils/fuzzyHelper";
 const ordering = {
   default: desc(Role.id),
@@ -72,7 +65,6 @@ export const roleAndCompanyRouter = {
         companies = companiesWithRatings.rows.map((company) => ({
           ...(company as CompanyType),
         }));
-
       } else {
         companies = await ctx.db.query.Company.findMany({
           orderBy: companyOrdering[ctx.sortBy],

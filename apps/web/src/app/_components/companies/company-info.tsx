@@ -1,9 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
-
-import type { CompanyType, ReviewType, RoleType } from "@cooper/db/schema";
-import { cn } from "@cooper/ui";
-import { CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
+import type { CompanyType } from "@cooper/db/schema";
 import Logo from "@cooper/ui/logo";
 
 import { api } from "~/trpc/react";
@@ -14,11 +9,13 @@ import { CompanyReview } from "./company-reviews";
 import RenderAllRoles from "./all-company-roles";
 import NoResults from "../no-results";
 
-export default function CompanyInfo({ companyObj }: {companyObj : CompanyType}) {
-
-  const companyID = companyObj.id
-
-  const company = api.company.getById.useQuery({ id: companyID ?? "" });
+export default function CompanyInfo({
+  companyObj,
+}: {
+  companyObj: CompanyType;
+}) {
+  const companyID = companyObj.id;
+  const company = api.company.getById.useQuery({ id: companyID });
 
   return (
     <section className="w-full overflow-y-auto">
@@ -32,7 +29,7 @@ export default function CompanyInfo({ companyObj }: {companyObj : CompanyType}) 
               <div>
                 <h1 className="text-4xl font-bold">{company.data?.name}</h1>
                 <p className="text-lg text-gray-600">
-                  Co-op · {prettyIndustry(company.data?.industry)}
+                  {prettyIndustry(company.data?.industry)}
                 </p>
               </div>
             </div>
