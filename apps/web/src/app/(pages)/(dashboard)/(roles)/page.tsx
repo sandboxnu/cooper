@@ -20,6 +20,7 @@ import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
 import { RoleInfo } from "~/app/_components/reviews/role-info";
 import { api } from "~/trpc/react";
 import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
+import CompanyInfo from "~/app/_components/companies/company-info";
 
 export default function Roles() {
   const searchParams = useSearchParams();
@@ -46,7 +47,7 @@ export default function Roles() {
   const defaultItem = useMemo(() => {
     if (rolesAndCompanies.isSuccess) {
       const item = rolesAndCompanies.data.items.find(
-        (item) => item.id === queryParam,
+        (i) => i.id === queryParam,
       );
       if (item) {
         return item;
@@ -98,13 +99,13 @@ export default function Roles() {
     <>
       {rolesAndCompanies.isSuccess &&
         rolesAndCompanies.data.items.length > 0 && (
-          <div className="flex h-[81.5dvh] w-full lg:h-[90dvh]">
+          <div className="bg-cooper-cream-100 flex h-[81.5dvh] w-full lg:h-[90dvh]">
             {" "}
             {/* hardcoded sad face */}
             {/* RoleCardPreview List */}
             <div
               className={cn(
-                "w-full overflow-y-auto border-r-[0.75px] border-t-[0.75px] border-cooper-gray-300 bg-cooper-gray-100 p-5 md:rounded-tr-lg xl:rounded-none",
+                "w-full overflow-y-auto border-r-[0.75px] border-t-[0.75px] border-cooper-gray-300 bg-cooper-cream-100 p-5 md:rounded-tr-lg xl:rounded-none",
                 "md:w-[28%]", // Show as 28% width on md and above
                 showRoleInfo && "hidden md:block", // Hide on mobile if RoleInfo is visible
               )}
@@ -166,9 +167,9 @@ export default function Roles() {
                             "mb-4 hover:bg-cooper-gray-100",
                             selectedItem
                               ? selectedItem.id === item.id &&
-                                  "bg-cooper-gray-200 hover:bg-cooper-gray-200"
+                                  "bg-cooper-cream-200 hover:bg-cooper-gray-200"
                               : !i &&
-                                  "bg-cooper-gray-200 hover:bg-cooper-gray-200",
+                                  "bg-cooper-cream-200 hover:bg-cooper-gray-200",
                           )}
                         />
                       </div>
@@ -214,14 +215,15 @@ export default function Roles() {
                 !showRoleInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
               )}
             >
-              {/* {"roles" in rolesAndCompanies.data &&
-                rolesAndCompanies.data.items.length > 0 &&
+              {rolesAndCompanies.data.items.length > 0 &&
                 rolesAndCompanies.data.items[0] && (
-                  <RoleInfo 
-                    roleObj={selectedItem ?? rolesAndCompanies.data.items[0]}
+                  (selectedItem ? (selectedItem as any).type === "role" : (rolesAndCompanies.data.items[0] as any).type === "role") ?  (<RoleInfo 
+                    roleObj={(selectedItem ?? rolesAndCompanies.data.items[0]) as RoleType}
                     onBack={() => setShowRoleInfo(false)}
-                  />
-                )} */}
+                  />):
+                (<div>
+                  <CompanyInfo companyObj={(selectedItem ?? rolesAndCompanies.data.items[0]) as CompanyType} /> </div>)
+                )}
             </div>
           </div>
         )}

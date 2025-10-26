@@ -26,7 +26,9 @@ export default {
         "cooper-gray-400": "#5A5A5A",
         "cooper-gray-300": "#474747",
         "cooper-gray-200": "#E0E0E0",
+        "cooper-gray-150": "#E7E7E7",
         "cooper-gray-100": "#F9F9F9",
+        "cooper-gray-50": "#EFEFEF",
 
         // Cooper Blue
         "cooper-blue-800": "#1250B3",
@@ -37,6 +39,10 @@ export default {
         "cooper-yellow-600": "#AFA800",
         "cooper-yellow-500": "#FF9900",
         "cooper-yellow-300": "#FFB545",
+
+        // Cooper "Cream"
+        "cooper-cream-200": "#F1EFE6",
+        "cooper-cream-100": "#F7F6F2",
 
         // Deprecated Colors
         "cooper-pink-500": "#EA8FBA",
