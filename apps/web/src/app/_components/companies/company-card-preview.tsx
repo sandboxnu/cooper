@@ -41,25 +41,27 @@ export function CompanyCardPreview({
   return (
     <Card
       className={cn(
-        "flex flex-col justify-between rounded-lg outline outline-[0.75px] outline-cooper-gray-150 w-80",
+        "flex flex-col justify-between rounded-lg outline outline-[0.75px] outline-cooper-gray-150 w-80 h-fit",
         className,
       )}
       onClick={handleCardClick}
     >
-      <div className="flex items-start justify-between">
-        <Logo className="min-h-full w-auto" company={companyObj} />
-        <div>
+      <div className="flex space-x-4">
+        <Logo company={companyObj} />
+        <div className="w-full">
           <CardHeader className="pb-2">
             <div className="flex items-center justify-start">
               <div className="w-full">
                 <CardTitle>
-                  <div className="text-md flex w-full items-center justify-between gap-3 md:text-xl">
-                    <div className="flex items-center gap-3">
-                      <div className="text-lg">{companyObj.name}</div>
-                      <div className="text-sm font-normal text-cooper-gray-400">
-                        Co-op
-                      </div>
-                    </div>
+                  <div className="text-md flex w-full items-start justify-between gap-3 md:text-xl">
+                    <div className="text-lg">{companyObj.name}</div>
+                    <span
+                      onClick={(e) => {
+                        e.stopPropagation();
+                      }}
+                    >
+                      <FavoriteButton objId={companyObj.id} objType="company" />
+                    </span>
                   </div>
                 </CardTitle>
                 <div className="align-center flex flex-wrap gap-2 text-cooper-gray-400">
@@ -95,13 +97,6 @@ export function CompanyCardPreview({
             )}
           </CardContent>
         </div>
-        <span
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-        >
-          <FavoriteButton objId={companyObj.id} objType="company" />
-        </span>
       </div>
     </Card>
   );
