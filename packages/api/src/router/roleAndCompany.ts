@@ -85,7 +85,9 @@ export const roleAndCompanyRouter = {
         type: "company" as const,
       }));
 
-      const combinedItems = [...rolesWithCompanies, ...companiesWithType];
+      const combinedItems = input.search
+        ? [...companiesWithType, ...rolesWithCompanies]
+        : [...rolesWithCompanies, ...companiesWithType];
 
       const fuseOptions = ["title", "description", "companyName", "name"];
 
