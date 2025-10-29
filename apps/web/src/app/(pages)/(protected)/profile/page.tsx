@@ -6,6 +6,8 @@ import {
   CardHeader,
   CardTitle,
 } from "node_modules/@cooper/ui/src/card";
+import { Button } from "node_modules/@cooper/ui/src/button";
+import ProfileCardHeader from "~/app/_components/profile/profile-card-header";
 
 import HeaderLayout from "~/app/_components/header/header-layout";
 import FavoriteCompanySearch from "~/app/_components/profile/favorite-company-search";
@@ -66,39 +68,7 @@ export default async function Profile({ searchParams }: Props) {
               </h2>
             </div>
           </div>
-          <Card>
-            <div>
-              <CardHeader className="pb-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-4">
-                    <div>
-                      <CardTitle className="text-xl">
-                        Account Information
-                      </CardTitle>
-                    </div>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="pb-0">
-                <div className="m-4 items-center grid grid-cols-3 grid-rows-2 gap-4">
-                  <div className="flex flex-col text-sm">
-                    <h4 className="font-semibold">Name</h4>
-                    <p>
-                      {profile.firstName} {profile.lastName}
-                    </p>
-                  </div>
-                  <div className="flex flex-col text-sm">
-                    <h4 className="font-semibold">Email</h4>
-                    <p> {session.user.email} </p>
-                  </div>
-                  <div className="flex flex-col text-sm">
-                    <h4 className="font-semibold">Major</h4>
-                    <p> {profile.major} </p>
-                  </div>
-                </div>
-              </CardContent>
-            </div>
-          </Card>
+          <ProfileCardHeader profile={profile} email={session.user.email!} />
           <ProfileTabs numReviews={reviews.length} />
           {tab === "saved-roles" ? (
             <section>

@@ -56,3 +56,10 @@ export const CreateProfileSchema = createInsertSchema(Profile, {
   createdAt: true,
   updatedAt: true,
 });
+
+export const UpdateProfileNameMajorSchema = z.object({
+  id: z.string(),
+  firstName: z.string(),
+  lastName: z.string(),
+  major: z.string(),
+});
