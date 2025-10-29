@@ -14,7 +14,7 @@ import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 import { Form } from "@cooper/ui/form";
-import { useToast } from "@cooper/ui/hooks/use-toast";
+import { useCustomToast } from "@cooper/ui/hooks/use-custom-toast";
 import { CheckIcon } from "@cooper/ui/icons";
 
 import {
@@ -109,7 +109,9 @@ const formSchema = z.object({
   locationId: z.string().optional(),
   hourlyPay: z.coerce
     .number()
-    .positive()
+    .min(0, {
+      message: "Please enter hourly pay",
+    })
     .transform((val) => (val ? val.toString() : null))
     .nullable()
     .optional(),
@@ -245,7 +247,7 @@ export function ReviewForm(props: ReviewFormProps) {
   const [validForm, setValidForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const { toast } = useToast();
+  const { toast } = useCustomToast();
 
   type FieldName = keyof z.infer<typeof formSchema>;
 
@@ -318,11 +320,7 @@ export function ReviewForm(props: ReviewFormProps) {
       setValidForm(false);
       setErrorMessage(error.message || "An unknown error occurred.");
 
-      toast({
-        title: "Submission Error",
-        description: error.message || "Something went wrong. Please try again.",
-        variant: "destructive",
-      });
+      toast.error(error.message || "Something went wrong. Please try again.");
     },
   });
 

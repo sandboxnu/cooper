@@ -34,7 +34,7 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
         className,
       )}
     >
-      <div className="flex w-full flex-wrap pt-5">
+      <div className="flex w-full flex-wrap">
         <div className="h-40 w-full sm:w-[35%]">
           <CardContent className="flex h-full flex-col justify-between pr-0">
             <div>

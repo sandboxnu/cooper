@@ -1,9 +1,12 @@
+import { useCustomToast } from "@cooper/ui/hooks/use-custom-toast";
+
 import { api } from "~/trpc/react";
 
 type ObjType = "role" | "company";
 
 export function useFavoriteToggle(objId: string, objType: ObjType) {
   const utils = api.useUtils();
+  const { toast } = useCustomToast();
 
   const { data: profile } = api.profile.getCurrentUser.useQuery();
   const profileId = profile?.id ?? "";
@@ -71,6 +74,9 @@ export function useFavoriteToggle(objId: string, objType: ObjType) {
         setData.role((old) => [...(old ?? []), { profileId, roleId: objId }]);
         return { prev };
       },
+      onSuccess: () => {
+        toast.success("This role has been saved.");
+      },
       onError: (_err, _vars, ctx) => {
         if (ctx?.prev) {
           setData.role(() =>
@@ -82,6 +88,7 @@ export function useFavoriteToggle(objId: string, objType: ObjType) {
               : [],
           );
         }
+        toast.error("Oops. Please try again.");
       },
       onSettled: invalidate,
     }),
@@ -95,6 +102,9 @@ export function useFavoriteToggle(objId: string, objType: ObjType) {
         ]);
         return { prev };
       },
+      onSuccess: () => {
+        toast.success("This company has been saved.");
+      },
       onError: (_err, _vars, ctx) => {
         if (ctx?.prev) {
           setData.company(() =>
@@ -106,6 +116,7 @@ export function useFavoriteToggle(objId: string, objType: ObjType) {
               : [],
           );
         }
+        toast.error("Oops. Please try again.");
       },
       onSettled: invalidate,
     }),
@@ -119,6 +130,9 @@ export function useFavoriteToggle(objId: string, objType: ObjType) {
         setData.role((old) => (old ?? []).filter((r) => r.roleId !== objId));
         return { prev };
       },
+      onSuccess: () => {
+        toast.success("This role has been unsaved.");
+      },
       onError: (_err, _vars, ctx) => {
         if (ctx?.prev) {
           setData.role(() =>
@@ -130,6 +144,7 @@ export function useFavoriteToggle(objId: string, objType: ObjType) {
               : [],
           );
         }
+        toast.error("Oops. Please try again.");
       },
       onSettled: invalidate,
     }),
@@ -142,6 +157,9 @@ export function useFavoriteToggle(objId: string, objType: ObjType) {
         );
         return { prev };
       },
+      onSuccess: () => {
+        toast.success("This company has been unsaved.");
+      },
       onError: (_err, _vars, ctx) => {
         if (ctx?.prev) {
           setData.company(() =>
@@ -153,6 +171,7 @@ export function useFavoriteToggle(objId: string, objType: ObjType) {
               : [],
           );
         }
+        toast.error("Oops. Please try again.");
       },
       onSettled: invalidate,
     }),

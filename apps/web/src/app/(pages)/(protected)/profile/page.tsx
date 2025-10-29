@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import { redirect } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 import {
   Card,
   CardContent,
@@ -9,47 +13,92 @@ import {
 import { Button } from "node_modules/@cooper/ui/src/button";
 import ProfileCardHeader from "~/app/_components/profile/profile-card-header";
 
-import HeaderLayout from "~/app/_components/header/header-layout";
+import HeaderLayoutClient from "~/app/_components/header/header-layout-client";
 import FavoriteCompanySearch from "~/app/_components/profile/favorite-company-search";
 import FavoriteRoleSearch from "~/app/_components/profile/favorite-role-search";
 import ProfileTabs from "~/app/_components/profile/profile-tabs";
 import { NewReviewDialog } from "~/app/_components/reviews/new-review/new-review-dialogue";
 import { ReviewCard } from "~/app/_components/reviews/review-card";
-import { api } from "~/trpc/server";
+import { api } from "~/trpc/react";
 
-interface Props {
-  searchParams?: Promise<Record<string, string | string[] | undefined>>;
-}
+export default function Profile() {
+  const searchParams = useSearchParams();
+  const tab = searchParams.get("tab") ?? "saved-roles";
 
-export default async function Profile({ searchParams }: Props) {
-  const session = await api.auth.getSession();
-  const profile = await api.profile.getCurrentUser();
-  const params = await searchParams;
-  const tab = params?.tab ?? "saved-roles";
+  const {
+    data: session,
+    isLoading: sessionLoading,
+    error: sessionError,
+  } = api.auth.getSession.useQuery();
+  const {
+    data: profile,
+    isLoading: profileLoading,
+    error: profileError,
+  } = api.profile.getCurrentUser.useQuery();
 
-  if (!session || !profile) {
-    redirect("/");
+  useEffect(() => {
+    if (!sessionLoading && !profileLoading) {
+      if (!session || !profile) {
+        redirect("/");
+      }
+    }
+  }, [session, profile, sessionLoading, profileLoading]);
+
+  if (sessionError || profileError) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-lg text-red-600">
+          Error loading profile. Please try refreshing the page.
+        </div>
+      </div>
+    );
   }
 
-  const reviews = await api.review.getByProfile({ id: profile.id });
-  const favoriteRoleIds = await api.profile.listFavoriteRoles({
-    profileId: profile.id,
-  });
-  const favoriteCompanyIds = await api.profile.listFavoriteCompanies({
-    profileId: profile.id,
-  });
-
-  const favoriteRoles = await Promise.all(
-    favoriteRoleIds.map((r) => api.role.getById({ id: r.roleId })),
+  const { data: reviews = [] } = api.review.getByProfile.useQuery(
+    { id: profile?.id ?? "" },
+    { enabled: !!profile?.id },
   );
 
-  const favoriteCompanies = await Promise.all(
-    favoriteCompanyIds.map((c) => api.company.getById({ id: c.companyId })),
+  const { data: favoriteRoleIds = [] } = api.profile.listFavoriteRoles.useQuery(
+    { profileId: profile?.id ?? "" },
+    { enabled: !!profile?.id },
   );
+
+  const { data: favoriteCompanyIds = [] } =
+    api.profile.listFavoriteCompanies.useQuery(
+      { profileId: profile?.id ?? "" },
+      { enabled: !!profile?.id },
+    );
+
+  const favoriteRoleQueries = api.useQueries((t) =>
+    favoriteRoleIds.map((r) =>
+      t.role.getById({ id: r.roleId }, { enabled: !!r.roleId }),
+    ),
+  );
+
+  const favoriteCompanyQueries = api.useQueries((t) =>
+    favoriteCompanyIds.map((c) =>
+      t.company.getById({ id: c.companyId }, { enabled: !!c.companyId }),
+    ),
+  );
+
+  const favoriteRoles = favoriteRoleQueries
+    .filter((query) => query.data)
+    .map((query) => query.data)
+    .filter((data): data is NonNullable<typeof data> => !!data);
+
+  const favoriteCompanies = favoriteCompanyQueries
+    .filter((query) => query.data)
+    .map((query) => query.data)
+    .filter((data): data is NonNullable<typeof data> => !!data);
+
+  if (!session || !profile) {
+    return null;
+  }
 
   return (
-    <HeaderLayout>
-      <div className="bg-[#F7F6F2] w-full min-h-screen flex justify-center">
+    <HeaderLayoutClient>
+      <div className="bg-cooper-cream-100 w-full min-h-screen flex justify-center">
         <div className="mx-4 mt-4 flex h-full flex-col gap-6 overflow-y-auto md:max-w-[66%] w-[66%] pt-4">
           <div className="flex items-start justify-start gap-4">
             <Image
@@ -68,7 +117,39 @@ export default async function Profile({ searchParams }: Props) {
               </h2>
             </div>
           </div>
-          <ProfileCardHeader profile={profile} email={session.user.email!} />
+          <Card>
+            <div>
+              <CardHeader className="pb-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-4">
+                    <div>
+                      <CardTitle className="text-xl">
+                        Account Information
+                      </CardTitle>
+                    </div>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent className="pb-0">
+                <div className="m-4 items-center grid grid-cols-3 grid-rows-2 gap-4">
+                  <div className="flex flex-col text-sm">
+                    <h4 className="font-semibold">Name</h4>
+                    <p>
+                      {profile.firstName} {profile.lastName}
+                    </p>
+                  </div>
+                  <div className="flex flex-col text-sm">
+                    <h4 className="font-semibold">Email</h4>
+                    <p> {session.user.email} </p>
+                  </div>
+                  <div className="flex flex-col text-sm">
+                    <h4 className="font-semibold">Major</h4>
+                    <p> {profile.major} </p>
+                  </div>
+                </div>
+              </CardContent>
+            </div>
+          </Card>
           <ProfileTabs numReviews={reviews.length} />
           {tab === "saved-roles" ? (
             <section>
@@ -108,6 +189,6 @@ export default async function Profile({ searchParams }: Props) {
           )}
         </div>
       </div>
-    </HeaderLayout>
+    </HeaderLayoutClient>
   );
 }

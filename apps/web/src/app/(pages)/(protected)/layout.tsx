@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 import { auth } from "@cooper/auth";
-import { Toaster } from "@cooper/ui/toaster";
+import { CustomToaster } from "@cooper/ui";
 
 export default async function ProtectedLayour({
   children,
@@ -18,7 +18,7 @@ export default async function ProtectedLayour({
   return (
     <>
       {children}
-      <Toaster />
+      <CustomToaster />
     </>
   );
 }

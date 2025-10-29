@@ -8,7 +8,7 @@ import { z } from "zod";
 import { Button } from "@cooper/ui/button";
 import { DialogFooter } from "@cooper/ui/dialog";
 import { FormControl, FormField, FormItem, FormMessage } from "@cooper/ui/form";
-import { toast } from "@cooper/ui/hooks/use-toast";
+import { useCustomToast } from "@cooper/ui/hooks/use-custom-toast";
 import { Input } from "@cooper/ui/input";
 import { Label } from "@cooper/ui/label";
 import { Textarea } from "@cooper/ui/textarea";
@@ -73,6 +73,7 @@ export default function NewCompanyContent({
 }: NewCompanyContentProps) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { toast } = useCustomToast();
 
   const newCompanyAndRoleForm = useForm<
     z.infer<typeof CreateCompanyWithRoleSchema>
@@ -92,11 +93,8 @@ export default function NewCompanyContent({
   const newRoleAndCompanyMutation = api.company.createWithRole.useMutation({
     onError: (error) => {
       console.error("Mutation error:", error);
-      toast({
-        title: "Submission Error",
-        description: error.message || "Something went wrong. Please try again.",
-        variant: "destructive",
-      });
+      toast.error(error.message || "Something went wrong. Please try again.");
+
       setIsLoading(false);
     },
   });

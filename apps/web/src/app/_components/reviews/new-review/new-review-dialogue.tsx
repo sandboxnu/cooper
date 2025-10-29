@@ -50,7 +50,7 @@ export function NewReviewDialog({ trigger }: NewReviewDialogProps) {
     <Dialog>
       <DialogTrigger asChild>
         {trigger ? (
-          <Button className="m-0 -mt-2 border-none bg-[#F7F6F2] p-0 text-3xl font-thin text-black outline-none hover:bg-[#F7F6F2]">
+          <Button className="m-0 -mt-2 border-none bg-cooper-cream-100 p-0 text-3xl font-thin text-black outline-none hover:bg-cooper-cream-100">
             {trigger}
           </Button>
         ) : (
