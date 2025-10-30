@@ -54,7 +54,7 @@ export const profileRouter = {
   updateNameAndMajor: protectedProcedure
     .input(UpdateProfileNameMajorSchema)
     .mutation(async ({ ctx, input }) => {
-      await ctx.db
+      return ctx.db
         .update(Profile)
         .set({
           firstName: input.firstName,

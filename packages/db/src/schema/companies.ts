@@ -19,7 +19,7 @@ export const Company = pgTable("company", {
   updatedAt: timestamp("updatedAt", {
     mode: "date",
     withTimezone: true,
-  }).$onUpdateFn(() => sql`now()`),
+  }).$onUpdate(() => new Date()),
 });
 
 export type CompanyType = typeof Company.$inferSelect;
