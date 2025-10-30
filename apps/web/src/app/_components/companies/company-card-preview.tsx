@@ -6,7 +6,6 @@ import Logo from "@cooper/ui/logo";
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { FavoriteButton } from "../shared/favorite-button";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 interface CompanyCardPreviewProps {
@@ -22,12 +21,6 @@ export function CompanyCardPreview({
     companyId: companyObj.id,
   });
 
-  const router = useRouter();
-
-  const handleCardClick = () => {
-    router.push(`/companies/company?id=${companyObj.id}`);
-  };
-
   const avg = api.company.getAverageById.useQuery({
     companyId: companyObj.id,
   });
@@ -41,10 +34,9 @@ export function CompanyCardPreview({
   return (
     <Card
       className={cn(
-        "flex flex-col justify-between rounded-lg outline outline-[0.75px] outline-cooper-gray-150 w-80 h-fit",
+        "flex flex-col justify-between rounded-lg outline outline-[0.75px] outline-cooper-gray-150 h-fit",
         className,
       )}
-      onClick={handleCardClick}
     >
       <div className="flex space-x-4">
         <Logo company={companyObj} />

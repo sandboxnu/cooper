@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
@@ -22,7 +21,6 @@ interface HeaderProps {
  * @returns The header component for the website
  */
 export default function Header({ auth }: HeaderProps) {
-  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   const outerWidth = "min-w-40";
@@ -46,9 +44,6 @@ export default function Header({ auth }: HeaderProps) {
         </div>
 
         <div className="flex translate-y-8 justify-evenly">
-          {/* maybe abstract these buttons into a separate component, but 
-          i couldn't find a super clean way to do so due to the auth stuff.
-          maybe someone smarter can figure out if it ever comes up */}
           <MobileHeaderButton
             href="/"
             iconSrc="/svg/apartment.svg"
@@ -61,8 +56,6 @@ export default function Header({ auth }: HeaderProps) {
             label="Companies"
             onClick={() => setIsOpen(false)}
           />
-          {/* this auth looks weird when it's logged out, but it's the night before showcase
-          so can't do much abt it lmao */}
           <MobileHeaderButton label="Profile" onClick={() => setIsOpen(false)}>
             {auth}
           </MobileHeaderButton>
@@ -94,26 +87,6 @@ export default function Header({ auth }: HeaderProps) {
 
       <div className="mr-6 hidden flex-shrink grid-cols-2 items-center justify-start gap-6 md:flex">
         <div className="flex items-center justify-start gap-8">
-          <Link href="/">
-            <h2
-              className={cn(
-                pathname.length === 1 &&
-                  "text-cooper-blue-800 underline underline-offset-8",
-              )}
-            >
-              Jobs
-            </h2>
-          </Link>
-          <Link href="/companies">
-            <h2
-              className={cn(
-                pathname.includes("companies") &&
-                  "text-cooper-blue-800 underline underline-offset-8",
-              )}
-            >
-              Companies
-            </h2>
-          </Link>
           <NewReviewDialog />
         </div>
         {auth}
@@ -121,11 +94,7 @@ export default function Header({ auth }: HeaderProps) {
 
       {/* Mobile new review button and burger button */}
       <div className="justify-right mr-2 flex flex-shrink grid-cols-2 items-center gap-2 md:hidden">
-        {/* The new review dialog doesn't properly display in mobile version btw. ts pmo frfr icl twin */}
         <NewReviewDialog />
-        {/* was thinking of moving the hamburger menu open/close buttons into one component,
-        but I feel like their design is too different to justify doing that. lmk if you think 
-        we should tho and i can do that -michael */}
         <Button
           type="button"
           variant="ghost"

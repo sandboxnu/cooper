@@ -1,22 +1,21 @@
-"use client";
-
-import { useSearchParams } from "next/navigation";
-
+import type { CompanyType } from "@cooper/db/schema";
 import Logo from "@cooper/ui/logo";
 
-import RenderAllRoles from "~/app/_components/companies/all-company-roles";
-import { CompanyAbout } from "~/app/_components/companies/company-about";
-import { CompanyReview } from "~/app/_components/companies/company-reviews";
-import NoResults from "~/app/_components/no-results";
-import { FavoriteButton } from "~/app/_components/shared/favorite-button";
 import { api } from "~/trpc/react";
 import { prettyIndustry } from "~/utils/stringHelpers";
+import { FavoriteButton } from "../shared/favorite-button";
+import { CompanyAbout } from "./company-about";
+import { CompanyReview } from "./company-reviews";
+import RenderAllRoles from "./all-company-roles";
+import NoResults from "../no-results";
 
-export default function Company() {
-  const searchParams = useSearchParams();
-  const companyID = searchParams.get("id");
-
-  const company = api.company.getById.useQuery({ id: companyID ?? "" });
+export default function CompanyInfo({
+  companyObj,
+}: {
+  companyObj: CompanyType;
+}) {
+  const companyID = companyObj.id;
+  const company = api.company.getById.useQuery({ id: companyID });
 
   return (
     <section className="w-full overflow-y-auto">
@@ -30,7 +29,7 @@ export default function Company() {
               <div>
                 <h1 className="text-4xl font-bold">{company.data?.name}</h1>
                 <p className="text-lg text-gray-600">
-                  Co-op · {prettyIndustry(company.data?.industry)}
+                  {prettyIndustry(company.data?.industry)}
                 </p>
               </div>
             </div>
@@ -45,7 +44,7 @@ export default function Company() {
           </div>
 
           <div className="my-8 border-t border-cooper-gray-400"></div>
-          <RenderAllRoles company={companyID} />
+          <RenderAllRoles company={companyObj.id} />
         </div>
       ) : (
         <NoResults className="h-full" />
