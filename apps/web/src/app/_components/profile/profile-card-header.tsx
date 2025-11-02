@@ -9,7 +9,6 @@ import {
   CardTitle,
 } from "node_modules/@cooper/ui/src/card";
 import { api } from "~/trpc/react";
-import { useRouter } from "next/navigation";
 
 type ProfileCardHeaderProps = {
   profile: {
@@ -26,7 +25,6 @@ export default function ProfileCardHeader({
   profile,
   email,
 }: ProfileCardHeaderProps) {
-  const router = useRouter();
   const [editing, setEditing] = useState(false);
   const [firstName, setFirstName] = useState(profile.firstName ?? "");
   const [lastName, setLastName] = useState(profile.lastName ?? "");
@@ -35,7 +33,7 @@ export default function ProfileCardHeader({
   const update = api.profile.updateNameAndMajor.useMutation({
     onSuccess: () => {
       setEditing(false);
-      router.refresh();
+      window.location.reload();
     },
   });
 
@@ -50,7 +48,7 @@ export default function ProfileCardHeader({
           {!editing ? (
             <Button
               variant="outline"
-              className="py-2 text-sm h-[28px] w-[38px] border-gray-400 text-gray-400"
+              className="py-2 text-sm h-[28px] border w-[38px] border-gray-400 text-gray-400"
               onClick={() => setEditing(true)}
             >
               Edit
@@ -59,7 +57,7 @@ export default function ProfileCardHeader({
             <div className="flex gap-2">
               <Button
                 variant="outline"
-                className="py-2 text-sm h-[28px]"
+                className="py-2 border text-sm h-[28px]"
                 onClick={() => {
                   setFirstName(profile.firstName ?? "");
                   setLastName(profile.lastName ?? "");

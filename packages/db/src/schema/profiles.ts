@@ -25,7 +25,10 @@ export const Profile = pgTable("profile", {
   updatedAt: timestamp("updatedAt", {
     mode: "date",
     withTimezone: true,
-  }).$onUpdateFn(() => sql`now()`),
+  })
+    .defaultNow()
+    .$onUpdate(() => new Date())
+    .notNull(),
   userId: varchar("userId").notNull().unique(),
 });
 

@@ -4,13 +4,6 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "node_modules/@cooper/ui/src/card";
-import { Button } from "node_modules/@cooper/ui/src/button";
 import ProfileCardHeader from "~/app/_components/profile/profile-card-header";
 
 import HeaderLayoutClient from "~/app/_components/header/header-layout-client";
