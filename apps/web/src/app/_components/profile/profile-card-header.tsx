@@ -29,11 +29,12 @@ export default function ProfileCardHeader({
   const [firstName, setFirstName] = useState(profile.firstName ?? "");
   const [lastName, setLastName] = useState(profile.lastName ?? "");
   const [major, setMajor] = useState(profile.major ?? "");
+  const utils = api.useUtils();
 
   const update = api.profile.updateNameAndMajor.useMutation({
-    onSuccess: () => {
+    onSuccess: async () => {
+      await utils.profile.getCurrentUser.invalidate(); //to refresh user data after update
       setEditing(false);
-      window.location.reload();
     },
   });
 
