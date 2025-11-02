@@ -6,22 +6,23 @@ import { api } from "~/trpc/react";
 import LoadingResults from "../loading-results";
 import NewRoleCard from "../reviews/new-role-card";
 import { RoleCardPreview } from "../reviews/role-card-preview";
+import { CompanyType } from "@cooper/db/schema";
 
 interface RenderAllRolesProps {
-  company: string | null;
+  company: CompanyType | null;
 }
 
 export default function RenderAllRoles({ company }: RenderAllRolesProps) {
-  const roles = api.role.getByCompany.useQuery({ companyId: company ?? "" });
+  const roles = api.role.getByCompany.useQuery({ companyId: company?.id ?? "" });
   const router = useRouter();
 
   return (
     <>
-      <h2 className="mb-4 text-2xl">Job Postings</h2>
+      <h2 className="font-semibold pl-2">Roles at {company?.name} ({roles.data?.length})</h2>
       {roles.isPending ? (
         <LoadingResults />
       ) : (
-        <div className="mb-8 grid h-[30dvh] w-full grid-cols-1 gap-3 p-1 md:grid-cols-2">
+        <div className="mb-8 h-[30dvh] w-full p-1">
           {roles.isSuccess && roles.data.length > 0 && (
             <>
               {roles.data.map((role) => {
@@ -33,7 +34,7 @@ export default function RenderAllRoles({ company }: RenderAllRolesProps) {
                   >
                     <RoleCardPreview
                       roleObj={role}
-                      className={cn("mb-4 hover:bg-cooper-gray-100")}
+                      className={cn("bg-cooper-gray-100 hover:bg-cooper-gray-100")}
                     />
                   </div>
                 );
@@ -42,7 +43,7 @@ export default function RenderAllRoles({ company }: RenderAllRolesProps) {
           )}
           {company && (
             <div className="p-2">
-              <NewRoleCard companyId={company} />
+              <NewRoleCard companyId={company?.id} />
             </div>
           )}
         </div>

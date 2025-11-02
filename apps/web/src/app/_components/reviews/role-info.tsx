@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import type { ReviewType, RoleType } from "@cooper/db/schema";
+import { Location, type ReviewType, type RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 import Logo from "@cooper/ui/logo";
@@ -56,6 +56,41 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
   // ===== ROLE DATA ===== //
   const companyData = companyQuery.data;
   const averages = api.role.getAverageById.useQuery({ roleId: roleObj.id });
+  const roles = api.role.getByCompany.useQuery({ 
+    companyId: companyData?.id ?? "" 
+  }, { 
+    enabled: !!companyData?.id 
+  });
+  
+  const reviewQueries = api.useQueries((t) =>
+    (roles.data ?? []).map((role) =>
+      t.review.getByRole({ id: role.id })
+    )
+  );
+
+  const allCompanyReviews = reviewQueries
+    .flatMap((query) => query.data ?? []);
+  
+  const uniqueLocationIds = Array.from(
+    new Set(
+      allCompanyReviews
+        .map((review) => review.locationId)
+        .filter((id): id is string => !!id)
+    )
+  );
+
+  const locationQueries = api.useQueries((t) =>
+    uniqueLocationIds.map((id) =>
+      t.location.getById(
+        { id },
+        { enabled: !!id }
+      )
+    )
+  );
+
+  const finalLocations = locationQueries
+    .map((query) => query.data ? prettyLocationName(query.data) : null)
+    .filter((loc): loc is string => !!loc);
 
   const perks = averages.data && {
     "Federal holidays off": averages.data.federalHolidays,
@@ -121,6 +156,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
               <CompanyPopup
                 trigger={<Logo company={companyData} />}
                 company={companyData}
+                locations={finalLocations}
               />
             ) : (
               <div className="h-20 w-20 rounded-lg border bg-cooper-blue-200"></div>
@@ -139,6 +175,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                   <CompanyPopup
                     trigger={companyData.name}
                     company={companyData}
+                    locations={finalLocations}
                   />
                 )}
                 {location.isSuccess && location.data && (
