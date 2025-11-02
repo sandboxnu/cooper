@@ -110,7 +110,10 @@ export default function Profile() {
               </h2>
             </div>
           </div>
-          <ProfileCardHeader profile={profile} email={session.user.email!} />
+          <ProfileCardHeader
+            profile={profile}
+            email={session.user.email ?? ""}
+          />
           <ProfileTabs numReviews={reviews.length} />
           {tab === "saved-roles" ? (
             <section>

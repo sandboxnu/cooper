@@ -10,7 +10,7 @@ import {
 } from "node_modules/@cooper/ui/src/card";
 import { api } from "~/trpc/react";
 
-type ProfileCardHeaderProps = {
+interface ProfileCardHeaderProps {
   profile: {
     id: string;
     firstName: string;
@@ -19,15 +19,15 @@ type ProfileCardHeaderProps = {
     graduationYear: number | null;
   };
   email: string;
-};
+}
 
 export default function ProfileCardHeader({
   profile,
   email,
 }: ProfileCardHeaderProps) {
   const [editing, setEditing] = useState(false);
-  const [firstName, setFirstName] = useState(profile.firstName ?? "");
-  const [lastName, setLastName] = useState(profile.lastName ?? "");
+  const [firstName, setFirstName] = useState(profile.firstName);
+  const [lastName, setLastName] = useState(profile.lastName);
   const [major, setMajor] = useState(profile.major ?? "");
   const utils = api.useUtils();
 
@@ -60,8 +60,8 @@ export default function ProfileCardHeader({
                 variant="outline"
                 className="py-2 border text-sm h-[28px]"
                 onClick={() => {
-                  setFirstName(profile.firstName ?? "");
-                  setLastName(profile.lastName ?? "");
+                  setFirstName(profile.firstName);
+                  setLastName(profile.lastName);
                   setMajor(profile.major ?? "");
                   setEditing(false);
                 }}
@@ -173,9 +173,7 @@ export default function ProfileCardHeader({
         )}
 
         {update.error ? (
-          <div className="m-4 text-sm text-red-600">
-            {update.error.message ?? "Update failed"}
-          </div>
+          <div className="m-4 text-sm text-red-600">{update.error.message}</div>
         ) : null}
       </CardContent>
     </Card>
