@@ -56,40 +56,37 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
   // ===== ROLE DATA ===== //
   const companyData = companyQuery.data;
   const averages = api.role.getAverageById.useQuery({ roleId: roleObj.id });
-  const roles = api.role.getByCompany.useQuery({ 
-    companyId: companyData?.id ?? "" 
-  }, { 
-    enabled: !!companyData?.id 
-  });
-  
-  const reviewQueries = api.useQueries((t) =>
-    (roles.data ?? []).map((role) =>
-      t.review.getByRole({ id: role.id })
-    )
+  const roles = api.role.getByCompany.useQuery(
+    {
+      companyId: companyData?.id ?? "",
+    },
+    {
+      enabled: !!companyData?.id,
+    },
   );
 
-  const allCompanyReviews = reviewQueries
-    .flatMap((query) => query.data ?? []);
-  
+  const reviewQueries = api.useQueries((t) =>
+    (roles.data ?? []).map((role) => t.review.getByRole({ id: role.id })),
+  );
+
+  const allCompanyReviews = reviewQueries.flatMap((query) => query.data ?? []);
+
   const uniqueLocationIds = Array.from(
     new Set(
       allCompanyReviews
         .map((review) => review.locationId)
-        .filter((id): id is string => !!id)
-    )
+        .filter((id): id is string => !!id),
+    ),
   );
 
   const locationQueries = api.useQueries((t) =>
     uniqueLocationIds.map((id) =>
-      t.location.getById(
-        { id },
-        { enabled: !!id }
-      )
-    )
+      t.location.getById({ id }, { enabled: !!id }),
+    ),
   );
 
   const finalLocations = locationQueries
-    .map((query) => query.data ? prettyLocationName(query.data) : null)
+    .map((query) => (query.data ? prettyLocationName(query.data) : null))
     .filter((loc): loc is string => !!loc);
 
   const perks = averages.data && {

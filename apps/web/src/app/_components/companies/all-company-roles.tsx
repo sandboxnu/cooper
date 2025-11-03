@@ -13,12 +13,16 @@ interface RenderAllRolesProps {
 }
 
 export default function RenderAllRoles({ company }: RenderAllRolesProps) {
-  const roles = api.role.getByCompany.useQuery({ companyId: company?.id ?? "" });
+  const roles = api.role.getByCompany.useQuery({
+    companyId: company?.id ?? "",
+  });
   const router = useRouter();
 
   return (
     <>
-      <h2 className="font-semibold pl-2">Roles at {company?.name} ({roles.data?.length})</h2>
+      <h2 className="font-semibold pl-2">
+        Roles at {company?.name} ({roles.data?.length})
+      </h2>
       {roles.isPending ? (
         <LoadingResults />
       ) : (
@@ -34,7 +38,9 @@ export default function RenderAllRoles({ company }: RenderAllRolesProps) {
                   >
                     <RoleCardPreview
                       roleObj={role}
-                      className={cn("bg-cooper-gray-100 hover:bg-cooper-gray-100")}
+                      className={cn(
+                        "bg-cooper-gray-100 hover:bg-cooper-gray-100",
+                      )}
                     />
                   </div>
                 );

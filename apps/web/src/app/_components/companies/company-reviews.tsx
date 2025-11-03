@@ -24,8 +24,8 @@ export function CompanyReview({ companyObj }: CompanyReviewProps) {
   const ratings = calculateRatings(reviews.data ?? []);
 
   return (
-    <div className="mx-1 w-full max-w-lg ">
-      <div className="pt-6">
+    <div className="mx-1 w-full">
+      <div>
         <StarGraph
           ratings={ratings}
           averageOverallRating={avg.data?.averageOverallRating ?? 0}

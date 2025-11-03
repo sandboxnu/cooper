@@ -12,8 +12,8 @@ export function CompanyAbout({ companyObj }: CompanyAboutProps) {
   return (
     <div className="mx-1 w-full">
       <div className="text-base font-semibold text-gray-800 ">
-          About {companyObj?.name}
-        </div>
+        About {companyObj?.name}
+      </div>
       <div className="h-40 overflow-y-scroll rounded-b-lg pt-4">
         <p>{companyObj?.description}</p>
       </div>
