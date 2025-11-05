@@ -16,13 +16,28 @@ export default function CompanyStatistics({
   };
   const payRangeColors = ["#FFE4B3", "#C7E1F5", "#FCC9B8"];
 
-  const getPayColor = (pay: string) => {
-    const payValue = parseFloat(pay);
-    const rangeIndex = payRange.findIndex(
-      (range) => payValue >= range.min && payValue <= range.max,
-    );
-    return rangeIndex !== -1 ? payRangeColors[rangeIndex] : "#FFE4B3";
-  };
+  const payRangesWithData = payRange
+    .map((range, rangeIndex) => {
+      const statsInRange = payStats.filter((stat) => {
+        const payValue = parseFloat(stat.pay);
+        return payValue >= range.min && payValue <= range.max;
+      });
+
+      const count = statsInRange.reduce((sum, stat) => sum + stat.count, 0);
+      const percentage = statsInRange.reduce(
+        (sum, stat) => sum + stat.percentage,
+        0,
+      );
+
+      return {
+        range,
+        rangeIndex,
+        count,
+        percentage,
+        color: payRangeColors[rangeIndex],
+      };
+    })
+    .filter((item) => item.count > 0);
   return (
     <div className="flex flex-row justify-between w-full pt-4">
       <div className="w-[30%]">
@@ -73,41 +88,34 @@ export default function CompanyStatistics({
       <div className="w-[30%]">
         <p className="text-cooper-gray-400 pb-2">Pay</p>
         <div className="ml-1 h-7 flex-1 rounded-lg flex overflow-hidden">
-          {payStats.map((p) => (
+          {payRangesWithData.map((item) => (
             <div
-              key={p.pay}
+              key={item.range.min}
               className="h-full rounded-lg"
               style={{
-                width: `${p.percentage}%`,
-                backgroundColor: getPayColor(p.pay),
+                width: `${item.percentage}%`,
+                backgroundColor: item.color,
               }}
             />
           ))}
         </div>
 
-        {payRange.map((p, i) => {
-          const count = payStats
-            .filter((stat) => {
-              const payValue = parseFloat(stat.pay);
-              return payValue >= p.min && payValue <= p.max;
-            })
-            .reduce((sum, stat) => sum + stat.count, 0);
-
+        {payRangesWithData.map((item) => {
           return (
             <div
-              key={p.min}
+              key={item.range.min}
               className="flex flex-row items-center pt-2 justify-between"
             >
               <div className="flex flex-row items-center">
                 <div
                   className="w-3 h-3 rounded-full"
-                  style={{ backgroundColor: payRangeColors[i] }}
+                  style={{ backgroundColor: item.color }}
                 />
                 <div className="pl-2">
-                  ${p.min}-${p.max}/hr
+                  ${item.range.min}-${item.range.max}/hr
                 </div>
               </div>
-              <div className="pl-2">{count}</div>
+              <div className="pl-2">{item.count}</div>
             </div>
           );
         })}
