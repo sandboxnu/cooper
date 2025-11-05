@@ -1,11 +1,16 @@
 "use client";
 
 import type { CompanyType } from "@cooper/db/schema";
-import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
 import { api } from "~/trpc/react";
 import { calculateRatings } from "~/utils/reviewCountByStars";
 import StarGraph from "../shared/star-graph";
+import CompanyStatistics from "./company-statistics";
+import {
+  calculatePay,
+  calculatePayRange,
+  calculateWorkModels,
+} from "~/utils/companyStatistics";
 
 interface CompanyReviewProps {
   className?: string;
@@ -13,15 +18,26 @@ interface CompanyReviewProps {
 }
 
 export function CompanyReview({ companyObj }: CompanyReviewProps) {
-  const avg = api.company.getAverageById.useQuery({
-    companyId: companyObj?.id ?? "",
-  });
-
   const reviews = api.review.getByCompany.useQuery({
     id: companyObj?.id ?? "",
   });
 
+  const avg = api.company.getAverageById.useQuery({
+    companyId: companyObj?.id ?? "",
+  });
+
   const ratings = calculateRatings(reviews.data ?? []);
+  const workModels = calculateWorkModels(reviews.data ?? []);
+  const payStats = calculatePay(reviews.data ?? []);
+  const payRange = calculatePayRange(reviews.data ?? []);
+
+  const averages = api.review.list
+    .useQuery({})
+    .data?.map((review) => review.overallRating);
+  const cooperAvg: number =
+    (averages ?? []).reduce((accumulator, currentValue) => {
+      return accumulator + currentValue;
+    }, 0) / (reviews.data?.length ?? 1);
 
   return (
     <div className="mx-1 w-full">
@@ -29,6 +45,14 @@ export function CompanyReview({ companyObj }: CompanyReviewProps) {
         <StarGraph
           ratings={ratings}
           averageOverallRating={avg.data?.averageOverallRating ?? 0}
+          reviews={reviews.data?.length ?? 0}
+          cooperAvg={cooperAvg}
+        />
+        <CompanyStatistics
+          workModels={workModels}
+          reviews={reviews.data?.length ?? 0}
+          payStats={payStats}
+          payRange={payRange}
         />
       </div>
     </div>

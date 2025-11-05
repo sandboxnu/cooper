@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import { Location, type ReviewType, type RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 import Logo from "@cooper/ui/logo";
@@ -25,6 +24,7 @@ import { ReviewCard } from "./review-card";
 import RoundBarGraph from "./round-bar-graph";
 import { CompanyPopup } from "../companies/company-popup";
 import ReviewSearchBar from "./review-search-bar";
+import { ReviewType, RoleType } from "@cooper/db/schema";
 
 interface RoleCardProps {
   className?: string;
@@ -56,24 +56,18 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
   // ===== ROLE DATA ===== //
   const companyData = companyQuery.data;
   const averages = api.role.getAverageById.useQuery({ roleId: roleObj.id });
-  const roles = api.role.getByCompany.useQuery(
+  const companyReviews = api.review.getByCompany.useQuery(
     {
-      companyId: companyData?.id ?? "",
+      id: companyData?.id ?? "",
     },
     {
       enabled: !!companyData?.id,
     },
   );
 
-  const reviewQueries = api.useQueries((t) =>
-    (roles.data ?? []).map((role) => t.review.getByRole({ id: role.id })),
-  );
-
-  const allCompanyReviews = reviewQueries.flatMap((query) => query.data ?? []);
-
   const uniqueLocationIds = Array.from(
     new Set(
-      allCompanyReviews
+      (companyReviews.data ?? [])
         .map((review) => review.locationId)
         .filter((id): id is string => !!id),
     ),
@@ -88,6 +82,13 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
   const finalLocations = locationQueries
     .map((query) => (query.data ? prettyLocationName(query.data) : null))
     .filter((loc): loc is string => !!loc);
+
+  const avgs = api.review.list
+    .useQuery({})
+    .data?.map((review) => review.overallRating);
+  const cooperAvg: number = (avgs ?? []).reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+  }, 0);
 
   const perks = averages.data && {
     "Federal holidays off": averages.data.federalHolidays,
@@ -384,6 +385,8 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                       averageOverallRating={
                         averages.data?.averageOverallRating ?? 0
                       }
+                      reviews={companyReviews.data?.length ?? 0}
+                      cooperAvg={cooperAvg}
                     />
                   </div>
 

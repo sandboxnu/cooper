@@ -61,7 +61,7 @@ export function CompanyPopup({
           <FavoriteButton objId={company.id} objType="company" />
         </div>
         <div className="flex flex-row">
-          <div className="mx-4 h-[86dvh] w-[70%] gap-4 font-sans md:mx-auto md:max-w-[66dvw]">
+          <div className="mx-4 h-[86dvh] w-[70%] gap-4 font-sans md:mx-auto md:max-w-[66dvw] pr-4">
             <div className="mb-6 gap-2 px-1 md:gap-4">
               <CompanyReview companyObj={company} />
             </div>

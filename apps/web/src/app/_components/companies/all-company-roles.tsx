@@ -49,7 +49,7 @@ export default function RenderAllRoles({ company }: RenderAllRolesProps) {
           )}
           {company && (
             <div className="p-2">
-              <NewRoleCard companyId={company?.id} />
+              <NewRoleCard companyId={company.id} />
             </div>
           )}
         </div>
