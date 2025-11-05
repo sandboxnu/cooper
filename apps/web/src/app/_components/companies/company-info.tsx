@@ -44,7 +44,7 @@ export default function CompanyInfo({
           </div>
 
           <div className="my-8 border-t border-cooper-gray-400"></div>
-          <RenderAllRoles company={companyObj.id} />
+          <RenderAllRoles company={companyObj} />
         </div>
       ) : (
         <NoResults className="h-full" />
