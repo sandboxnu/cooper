@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Filter } from "bad-words";
+import Fuse from "fuse.js";
 import { Form, FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -18,7 +19,6 @@ import { Textarea } from "@cooper/ui/textarea";
 
 import type { RoleRequestType } from "../new-role-dialogue";
 import { api } from "~/trpc/react";
-import Fuse from "fuse.js";
 
 const filter = new Filter();
 const roleSchema = z.object({

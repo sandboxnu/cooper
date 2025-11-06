@@ -3,10 +3,10 @@
 import type { ReactNode } from "react";
 
 import Header from "~/app/_components/header/header";
+import { api } from "~/trpc/react";
 import LoginButtonClient from "../auth/login-button-client";
 import ProfileButtonClient from "../profile/profile-button-client";
 import SearchFilter from "../search/search-filter";
-import { api } from "~/trpc/react";
 
 /**
  * Client-side version of HeaderLayout for use in client components.
@@ -31,7 +31,7 @@ export default function HeaderLayoutClient({
               <SearchFilter searchClassName="px-4 mb-2" />
             </div>
           </div>
-          <article className="flex h-fit flex-col items-center justify-start xl:pt-[10dvh] pt-[18.5dvh]">
+          <article className="flex h-fit flex-col items-center justify-start pt-[18.5dvh] xl:pt-[10dvh]">
             {children}
           </article>
         </div>
@@ -54,7 +54,7 @@ export default function HeaderLayoutClient({
             <SearchFilter searchClassName="px-4 mb-2" />
           </div>
         </div>
-        <article className="flex h-fit flex-col items-center justify-start xl:pt-[10dvh] pt-[18.5dvh]">
+        <article className="flex h-fit flex-col items-center justify-start pt-[18.5dvh] xl:pt-[10dvh]">
           {children}
         </article>
       </div>

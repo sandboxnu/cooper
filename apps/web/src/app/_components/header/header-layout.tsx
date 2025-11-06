@@ -33,7 +33,7 @@ export default async function HeaderLayout({
             <SearchFilter searchClassName="px-4 mb-2" />
           </div>
         </div>
-        <article className="flex h-fit flex-col items-center justify-start xl:pt-[10dvh] pt-[18.5dvh]">
+        <article className="flex h-fit flex-col items-center justify-start pt-[18.5dvh] xl:pt-[10dvh]">
           {children}
         </article>
       </div>

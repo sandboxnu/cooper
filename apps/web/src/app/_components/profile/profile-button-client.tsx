@@ -11,6 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@cooper/ui/dropdown-menu";
+
 import { handleSignOut } from "../auth/actions";
 
 interface ProfileButtonClientProps {

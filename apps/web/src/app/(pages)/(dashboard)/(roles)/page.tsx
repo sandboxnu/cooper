@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 
@@ -14,13 +14,13 @@ import {
   DropdownMenuTrigger,
 } from "@cooper/ui/dropdown-menu";
 
+import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
+import CompanyInfo from "~/app/_components/companies/company-info";
 import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
 import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
 import { RoleInfo } from "~/app/_components/reviews/role-info";
 import { api } from "~/trpc/react";
-import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
-import CompanyInfo from "~/app/_components/companies/company-info";
 
 export default function Roles() {
   const searchParams = useSearchParams();
@@ -67,6 +67,8 @@ export default function Roles() {
     (RoleType | CompanyType) | undefined
   >();
 
+  const sidebarRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     // initializes the selectedRole to either the role provided by the query params or the first in the role data
     if (defaultItem) {
@@ -90,6 +92,22 @@ export default function Roles() {
     setCurrentPage(1);
   }, [selectedFilter, searchValue]);
 
+  // Scroll to top and select first item when page changes
+  useEffect(() => {
+    if (
+      rolesAndCompanies.isSuccess &&
+      rolesAndCompanies.data.items.length > 0
+    ) {
+      // Scroll sidebar to top
+      if (sidebarRef.current) {
+        sidebarRef.current.scrollTop = 0;
+      }
+      // Select first item on the new page
+      setSelectedItem(rolesAndCompanies.data.items[0]);
+      setShowRoleInfo(true);
+    }
+  }, [currentPage, rolesAndCompanies.isSuccess, rolesAndCompanies.data?.items]);
+
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
@@ -110,8 +128,9 @@ export default function Roles() {
             {/* hardcoded sad face */}
             {/* RoleCardPreview List */}
             <div
+              ref={sidebarRef}
               className={cn(
-                "w-full overflow-y-auto border-r-[0.75px] border-t-[0.75px] border-cooper-gray-300 bg-cooper-cream-100 p-5 md:rounded-tr-lg xl:rounded-none",
+                "bg-cooper-cream-100 w-full overflow-y-auto border-r-[0.75px] border-t-[0.75px] border-cooper-gray-300 p-5 md:rounded-tr-lg xl:rounded-none",
                 "md:w-[28%]", // Show as 28% width on md and above
                 showRoleInfo && "hidden md:block", // Hide on mobile if RoleInfo is visible
               )}

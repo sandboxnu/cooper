@@ -2,10 +2,11 @@ import { z } from "zod";
 
 import type { CompanyType, RoleType } from "@cooper/db/schema";
 import { asc, desc, sql } from "@cooper/db";
-import { Review, Role, Company } from "@cooper/db/schema";
+import { Company, Review, Role } from "@cooper/db/schema";
 
 import { sortableProcedure } from "../trpc";
 import { performFuseSearch } from "../utils/fuzzyHelper";
+
 const ordering = {
   default: desc(Role.id),
   newest: desc(Role.createdAt),
