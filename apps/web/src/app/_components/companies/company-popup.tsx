@@ -48,10 +48,10 @@ export function CompanyPopup({
               <Logo company={company} size="small" />
             </div>
             <div>
-              <h1 className="text-[18px] font-bold">{company.name}</h1>
+              <h1 className="text-[18px] font-medium">{company.name}</h1>
               <p className="text-lg text-gray-600">
                 {locations && locations.length > 1
-                  ? `${locations[0]} + ${locations.length - 1} ${locations.length - 1 === 1 ? "other" : "others"}`
+                  ? `${locations[0]} +${locations.length - 1} ${locations.length - 1 === 1 ? "other" : "others"}`
                   : locations && locations.length === 1
                     ? locations[0]
                     : null}

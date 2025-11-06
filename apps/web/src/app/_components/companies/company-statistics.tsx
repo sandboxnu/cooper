@@ -10,11 +10,15 @@ export default function CompanyStatistics({
   payRange: { label?: string; min: number; max: number }[];
 }) {
   const workModelColors: Record<string, string> = {
-    "In-person": "#FFE4B3",
-    Hybrid: "#C7E1F5",
-    Remote: "#FCC9B8",
+    "In-person": "cooper-yellow-200",
+    Hybrid: "cooper-blue-400",
+    Remote: "cooper-red-400",
   };
-  const payRangeColors = ["#FFE4B3", "#C7E1F5", "#FCC9B8"];
+  const payRangeColors = [
+    "cooper-yellow-200",
+    "cooper-blue-400",
+    "cooper-red-400",
+  ];
 
   const payRangesWithData = payRange
     .map((range, rangeIndex) => {
@@ -39,15 +43,15 @@ export default function CompanyStatistics({
     })
     .filter((item) => item.count > 0);
   return (
-    <div className="flex flex-row justify-between w-full pt-4">
+    <div className="flex flex-row justify-between w-full pt-4 text-cooper-gray-400">
       <div className="w-[30%]">
-        <p className="text-cooper-gray-400 pb-2">Job type</p>
-        <div className="ml-1 h-7 flex-1 rounded-lg bg-[#FFE4B3]" />
+        <p className="pb-2">Job type</p>
+        <div className="ml-1 h-7 flex-1 rounded-lg bg-cooper-yellow-200" />
         <div className="flex flex-row items-center pt-2 justify-between">
           <div className="flex flex-row items-center">
             <div
               className="w-3 h-3 rounded-full"
-              style={{ backgroundColor: "#FFE4B3" }}
+              style={{ backgroundColor: "cooper-yellow-200" }}
             />
             <div className="pl-2">Co-op</div>
           </div>
@@ -55,8 +59,8 @@ export default function CompanyStatistics({
         </div>
       </div>
       <div className="w-[30%]">
-        <p className="text-cooper-gray-400 pb-2">Work model</p>
-        <div className="ml-1 h-7 flex-1 rounded-lg flex overflow-hidden">
+        <p className="pb-2">Work model</p>
+        <div className="ml-1 h-7 flex-1 rounded-lg flex overflow-hidden gap-0.5">
           {workModels.map((model) => (
             <div
               key={model.name}
@@ -86,8 +90,8 @@ export default function CompanyStatistics({
         ))}
       </div>
       <div className="w-[30%]">
-        <p className="text-cooper-gray-400 pb-2">Pay</p>
-        <div className="ml-1 h-7 flex-1 rounded-lg flex overflow-hidden">
+        <p className="pb-2">Pay</p>
+        <div className="ml-1 h-7 flex-1 rounded-lg flex overflow-hidden gap-0.5">
           {payRangesWithData.map((item) => (
             <div
               key={item.range.min}

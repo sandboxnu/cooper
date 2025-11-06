@@ -20,7 +20,7 @@ export default function RenderAllRoles({ company }: RenderAllRolesProps) {
 
   return (
     <>
-      <h2 className="font-semibold pl-2">
+      <h2 className="font-bold pl-2 text-[#5A5A5A]">
         Roles at {company?.name} ({roles.data?.length})
       </h2>
       {roles.isPending ? (
