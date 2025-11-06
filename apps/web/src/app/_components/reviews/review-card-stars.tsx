@@ -38,10 +38,10 @@ export function ReviewCardStars({ numStars }: { numStars: number }) {
         <div key={index + "yellow star"}>{yellowStar}</div>
       ))}
       {fractionalStars > 0 && (
-        <div key="fraction" className="relative w-[19px] h-[17px]">
+        <div key="fraction" className="relative h-[17px] w-[19px]">
           {grayStar}
           <div
-            className="absolute top-0 left-0 h-full overflow-hidden"
+            className="absolute left-0 top-0 h-full overflow-hidden"
             style={{ width: `${fractionalStars * 100}%` }}
           >
             {yellowStar}

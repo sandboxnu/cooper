@@ -14,13 +14,13 @@ import {
   DropdownMenuTrigger,
 } from "@cooper/ui/dropdown-menu";
 
+import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
+import CompanyInfo from "~/app/_components/companies/company-info";
 import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
 import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
 import { RoleInfo } from "~/app/_components/reviews/role-info";
 import { api } from "~/trpc/react";
-import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
-import CompanyInfo from "~/app/_components/companies/company-info";
 
 export default function Roles() {
   const searchParams = useSearchParams();
@@ -130,7 +130,7 @@ export default function Roles() {
             <div
               ref={sidebarRef}
               className={cn(
-                "w-full overflow-y-auto border-r-[0.75px] border-t-[0.75px] border-cooper-gray-300 bg-cooper-cream-100 p-5 md:rounded-tr-lg xl:rounded-none",
+                "bg-cooper-cream-100 w-full overflow-y-auto border-r-[0.75px] border-t-[0.75px] border-cooper-gray-300 p-5 md:rounded-tr-lg xl:rounded-none",
                 "md:w-[28%]", // Show as 28% width on md and above
                 showRoleInfo && "hidden md:block", // Hide on mobile if RoleInfo is visible
               )}

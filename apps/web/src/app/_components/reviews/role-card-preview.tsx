@@ -39,11 +39,11 @@ export function RoleCardPreview({ className, roleObj }: RoleCardPreviewProps) {
   return (
     <Card
       className={cn(
-        "flex flex-col justify-between overflow-hidden rounded-lg outline outline-[0.75px] outline-cooper-gray-150 ",
+        "outline-cooper-gray-150 flex flex-col justify-between overflow-hidden rounded-lg outline outline-[0.75px]",
         className,
       )}
     >
-      <div className="flex justify-between items-start">
+      <div className="flex items-start justify-between">
         <div>
           <CardHeader className="pb-2">
             <div className="flex items-center justify-start space-x-4">

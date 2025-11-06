@@ -5,8 +5,8 @@ import {
   locationRouter,
   profileRouter,
   reviewRouter,
-  roleRouter,
   roleAndCompanyRouter,
+  roleRouter,
 } from "./router";
 import { createTRPCRouter } from "./trpc";
 

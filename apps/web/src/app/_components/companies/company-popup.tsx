@@ -1,5 +1,8 @@
 "use client";
 
+import Logo from "node_modules/@cooper/ui/src/logo";
+
+import { CompanyType } from "@cooper/db/schema";
 import { Button } from "@cooper/ui/button";
 import {
   Dialog,
@@ -9,13 +12,11 @@ import {
   DialogTrigger,
 } from "@cooper/ui/dialog";
 
-import { CompanyType } from "@cooper/db/schema";
-import Logo from "node_modules/@cooper/ui/src/logo";
 import { prettyIndustry } from "~/utils/stringHelpers";
 import { FavoriteButton } from "../shared/favorite-button";
+import RenderAllRoles from "./all-company-roles";
 import { CompanyAbout } from "./company-about";
 import { CompanyReview } from "./company-reviews";
-import RenderAllRoles from "./all-company-roles";
 
 interface CompanyPopupProps {
   trigger?: React.ReactNode;
@@ -27,14 +28,14 @@ export function CompanyPopup({ trigger, company }: CompanyPopupProps) {
     <Dialog>
       <DialogTrigger asChild>
         {trigger ? (
-          <Button className="m-0 -mt-2 border-none bg-cooper-cream-100 p-0  text-cooper-gray-400 text-md hover:underline outline-none hover:bg-cooper-cream-100">
+          <Button className="bg-cooper-cream-100 text-md hover:bg-cooper-cream-100 m-0 -mt-2 border-none p-0 text-cooper-gray-400 outline-none hover:underline">
             {trigger}
           </Button>
         ) : (
           <div></div>
         )}
       </DialogTrigger>
-      <DialogContent className="max-h-[80dvh] w-[48dvw] sm:max-w-none overflow-y-scroll bg-white">
+      <DialogContent className="max-h-[80dvh] w-[48dvw] overflow-y-scroll bg-white sm:max-w-none">
         <DialogHeader>
           <DialogTitle className="text-cooper-gray-900 flex flex-col items-center justify-between text-2xl font-semibold md:flex-row md:gap-12"></DialogTitle>
         </DialogHeader>
