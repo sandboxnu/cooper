@@ -9,11 +9,6 @@ export default function CompanyStatistics({
   reviews: number;
   payRange: { label?: string; min: number; max: number }[];
 }) {
-  const workModelColors: Record<string, string> = {
-    "In-person": "cooper-yellow-200",
-    Hybrid: "cooper-blue-400",
-    Remote: "cooper-red-400",
-  };
   const payRangeColors = [
     "cooper-yellow-200",
     "cooper-blue-400",
@@ -64,11 +59,14 @@ export default function CompanyStatistics({
           {workModels.map((model) => (
             <div
               key={model.name}
-              className="h-full rounded-lg"
-              style={{
-                width: `${model.percentage}%`,
-                backgroundColor: workModelColors[model.name],
-              }}
+              className={`h-full rounded-lg ${
+                model.name === "In-person"
+                  ? "bg-cooper-yellow-200"
+                  : model.name === "Hybrid"
+                    ? "bg-cooper-blue-400"
+                    : "bg-cooper-red-400"
+              }`}
+              style={{ width: `${model.percentage}%` }}
             />
           ))}
         </div>
@@ -80,8 +78,13 @@ export default function CompanyStatistics({
           >
             <div className="flex flex-row items-center">
               <div
-                className="w-3 h-3 rounded-full"
-                style={{ backgroundColor: workModelColors[workModel.name] }}
+                className={`w-3 h-3 rounded-full ${
+                  workModel.name === "In-person"
+                    ? "bg-cooper-yellow-200"
+                    : workModel.name === "Hybrid"
+                      ? "bg-cooper-blue-400"
+                      : "bg-cooper-red-400"
+                }`}
               />
               <div className="pl-2">{workModel.name}</div>
             </div>
@@ -95,7 +98,7 @@ export default function CompanyStatistics({
           {payRangesWithData.map((item) => (
             <div
               key={item.range.min}
-              className="h-full rounded-lg"
+              className={`h-full rounded-lg bg-${item.color}`}
               style={{
                 width: `${item.percentage}%`,
                 backgroundColor: item.color,
@@ -111,10 +114,7 @@ export default function CompanyStatistics({
               className="flex flex-row items-center pt-2 justify-between"
             >
               <div className="flex flex-row items-center">
-                <div
-                  className="w-3 h-3 rounded-full"
-                  style={{ backgroundColor: item.color }}
-                />
+                <div className={`w-3 h-3 rounded-full bg-${item.color}`} />
                 <div className="pl-2">
                   ${item.range.min}-${item.range.max}/hr
                 </div>
