@@ -33,11 +33,12 @@ export function CompanyReview({ companyObj }: CompanyReviewProps) {
 
   const averages = api.review.list
     .useQuery({})
-    .data?.map((review) => review.overallRating);
+    .data?.filter((r) => r.overallRating != 0)
+    .map((review) => review.overallRating);
   const cooperAvg: number =
     (averages ?? []).reduce((accumulator, currentValue) => {
       return accumulator + currentValue;
-    }, 0) / (reviews.data?.length ?? 1);
+    }, 0) / (averages?.length ?? 1);
 
   return (
     <div className="mx-1 w-full">
@@ -48,12 +49,14 @@ export function CompanyReview({ companyObj }: CompanyReviewProps) {
           reviews={reviews.data?.length ?? 0}
           cooperAvg={cooperAvg}
         />
-        <CompanyStatistics
-          workModels={workModels}
-          reviews={reviews.data?.length ?? 0}
-          payStats={payStats}
-          payRange={payRange}
-        />
+        {(reviews.data?.length ?? 0) > 0 && (
+          <CompanyStatistics
+            workModels={workModels}
+            reviews={reviews.data?.length ?? 0}
+            payStats={payStats}
+            payRange={payRange}
+          />
+        )}
       </div>
     </div>
   );
