@@ -101,9 +101,21 @@ export const roleAndCompanyRouter = {
         input.offset + input.limit,
       );
 
+      const totalRolesCount = searchedItems.filter(
+        (item): item is RoleType & { companyName: string; type: "role" } =>
+          item.type === "role",
+      ).length;
+
+      const totalCompanyCount = searchedItems.filter(
+        (item): item is CompanyType & { type: "company" } =>
+          item.type === "company",
+      ).length;
+
       return {
         items: paginatedItems,
         totalCount: searchedItems.length,
+        totalRolesCount,
+        totalCompanyCount,
       };
-    }),
+      }),
 };

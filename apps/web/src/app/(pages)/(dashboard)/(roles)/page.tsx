@@ -13,6 +13,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@cooper/ui/dropdown-menu";
+import { Chip } from "@cooper/ui/chip";
 
 import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
@@ -27,6 +28,10 @@ export default function Roles() {
   const queryParam = searchParams.get("id") ?? null;
   const searchValue = searchParams.get("search") ?? ""; // Get search query from URL
   const router = useRouter();
+
+  const [selectedType, setSelectedType] = useState<
+    "roles" | "companies" | "all"
+  >("all");
 
   const [selectedFilter, setSelectedFilter] = useState<
     "default" | "rating" | "newest" | "oldest" | undefined
@@ -156,9 +161,29 @@ export default function Roles() {
                     </DropdownMenuLabel>
                   </DropdownMenuContent>
                 </DropdownMenu>
+                <div className="flex gap-2 py-2">
+                  <Chip
+                    label="All"
+                    onClick={() => setSelectedType("all")}
+                    selected={selectedType === "all"}
+                  />
+                  <Chip
+                    onClick={() => setSelectedType("roles")}
+                    label={`Jobs (${rolesAndCompanies.data.totalRolesCount})`}
+                    selected={selectedType === "roles"}
+                  />
+                  <Chip
+                    onClick={() => setSelectedType("companies")}
+                    label={`Companies (${rolesAndCompanies.data.totalCompanyCount})`}
+                    selected={selectedType === "companies"}
+                  />
+                </div>
               </div>
               {rolesAndCompanies.data.items.map((item, i) => {
-                if (item.type === "role") {
+                if (
+                  item.type === "role" &&
+                  (selectedType === "roles" || selectedType === "all")
+                ) {
                   return (
                     <div
                       key={item.id}
@@ -180,7 +205,10 @@ export default function Roles() {
                       />
                     </div>
                   );
-                } else {
+                } else if (
+                  item.type === "company" &&
+                  (selectedType === "companies" || selectedType === "all")
+                ) {
                   return (
                     <div
                       key={item.id}
