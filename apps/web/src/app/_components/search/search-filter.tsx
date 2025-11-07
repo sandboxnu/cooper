@@ -128,7 +128,6 @@ export default function SearchFilter({
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         className={cn(
-          "w-[98vw]",
           searchType === "COMPANIES" && "w-full",
           searchClassName,
         )}
