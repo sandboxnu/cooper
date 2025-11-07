@@ -23,18 +23,16 @@ export default function StarGraph({
   return (
     <div>
       <p className="text-[#5A5A5A] font-semibold ">Overall rating</p>
-      <div className="mr-6 flex flex-row justify-between w-full items-start">
+      <div className="mr-6 flex flex-row justify-between w-full items-start text-cooper-gray-400">
         <div className="flex flex-col">
           <div className="flex flex-row gap-2 pt-4">
             <div className="text-5xl">{averageOverallRating.toFixed(1)}</div>
             <Image src="/svg/star.svg" alt="Star icon" width={28} height={28} />
           </div>
-          <div className="text-cooper-gray-400 pt-2">
+          <div className="pt-2">
             Based on {reviews} {reviews === 1 ? "review" : "reviews"}
           </div>
-          <div className="text-cooper-gray-400">
-            Cooper average: {cooperAvg}
-          </div>
+          <div>Cooper average: {cooperAvg}</div>
         </div>
         <div className="mt-4 w-full min-w-24 max-w-64  pt-1 md:mt-0">
           {ratings.map((rating) => (
@@ -51,7 +49,9 @@ export default function StarGraph({
                   }}
                 ></div>
               </div>
-              <div className="pl-2">{(rating.percentage / 100) * reviews}</div>
+              <div className="pl-2 text-xs">
+                {(rating.percentage / 100) * reviews}
+              </div>
             </div>
           ))}
         </div>

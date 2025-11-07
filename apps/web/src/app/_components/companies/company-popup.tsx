@@ -42,14 +42,14 @@ export function CompanyPopup({
         <DialogHeader>
           <DialogTitle className="text-cooper-gray-900 flex flex-col items-center justify-between text-2xl font-semibold md:flex-row md:gap-12"></DialogTitle>
         </DialogHeader>
-        <div className="mx-2 mb-5 mt-2 flex items-center justify-between">
-          <div className="flex items-center">
+        <div className="mx-2 mb-5 mt-2 flex items-start justify-between">
+          <div className="flex">
             <div className="mr-3 flex h-16 w-16 items-center justify-center">
               <Logo company={company} size="small" />
             </div>
             <div>
-              <h1 className="text-[18px] font-medium">{company.name}</h1>
-              <p className="text-lg text-gray-600">
+              <h1 className="text-lg font-medium">{company.name}</h1>
+              <p className="text-md text-gray-600">
                 {locations && locations.length > 1
                   ? `${locations[0]} +${locations.length - 1} ${locations.length - 1 === 1 ? "other" : "others"}`
                   : locations && locations.length === 1

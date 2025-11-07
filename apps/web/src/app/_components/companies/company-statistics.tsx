@@ -44,10 +44,7 @@ export default function CompanyStatistics({
         <div className="ml-1 h-7 flex-1 rounded-lg bg-cooper-yellow-200" />
         <div className="flex flex-row items-center pt-2 justify-between">
           <div className="flex flex-row items-center">
-            <div
-              className="w-3 h-3 rounded-full"
-              style={{ backgroundColor: "cooper-yellow-200" }}
-            />
+            <div className="w-3.5 h-3.5 rounded-full bg-cooper-yellow-200" />
             <div className="pl-2">Co-op</div>
           </div>
           <div className="pl-2">{reviews}</div>
@@ -78,7 +75,7 @@ export default function CompanyStatistics({
           >
             <div className="flex flex-row items-center">
               <div
-                className={`w-3 h-3 rounded-full ${
+                className={`w-3.5 h-3.5 rounded-full ${
                   workModel.name === "In-person"
                     ? "bg-cooper-yellow-200"
                     : workModel.name === "Hybrid"
@@ -114,7 +111,7 @@ export default function CompanyStatistics({
               className="flex flex-row items-center pt-2 justify-between"
             >
               <div className="flex flex-row items-center">
-                <div className={`w-3 h-3 rounded-full bg-${item.color}`} />
+                <div className={`w-3.5 h-3.5 rounded-full bg-${item.color}`} />
                 <div className="pl-2">
                   ${item.range.min}-${item.range.max}/hr
                 </div>

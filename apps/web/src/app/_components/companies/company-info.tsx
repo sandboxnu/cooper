@@ -48,14 +48,14 @@ export default function CompanyInfo({
     <section className="w-full overflow-y-auto">
       {company.isSuccess ? (
         <div className="mx-4 h-[86dvh] justify-center gap-4 font-sans md:mx-auto md:max-w-[66dvw]">
-          <div className="mx-2 mb-6 mt-6 flex items-center justify-between">
-            <div className="flex items-center">
+          <div className="mx-2 mb-6 mt-6 flex items-start justify-between">
+            <div className="flex">
               <div className="mr-3 flex h-16 w-16 items-center justify-center">
                 {company.data && <Logo company={company.data} size="small" />}
               </div>
               <div>
-                <h1 className="text-4xl font-bold">{company.data?.name}</h1>
-                <p className="text-lg text-gray-600">
+                <h1 className="text-lg font-semibold">{company.data?.name}</h1>
+                <p className="text-md text-gray-600">
                   {locations.length > 1
                     ? `${locations[0]} +${locations.length - 1} ${locations.length - 1 === 1 ? "other" : "others"}`
                     : locations.length === 1
