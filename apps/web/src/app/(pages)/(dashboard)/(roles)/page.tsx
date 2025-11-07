@@ -44,6 +44,7 @@ export default function Roles() {
     search: searchValue,
     limit: rolesAndCompaniesPerPage,
     offset: (currentPage - 1) * rolesAndCompaniesPerPage,
+    type: selectedType,
   });
 
   const buttonStyle =
@@ -98,20 +99,12 @@ export default function Roles() {
     setCurrentPage(1);
   }, [selectedFilter, searchValue, selectedType]);
 
-  const totalPages = useMemo(() => {
-    if (!rolesAndCompanies.data) return 0;
-
-    let filteredCount = rolesAndCompanies.data.totalCount;
-
-    // Adjust total count based on selected type
-    if (selectedType === "roles") {
-      filteredCount = rolesAndCompanies.data.totalRolesCount;
-    } else if (selectedType === "companies") {
-      filteredCount = rolesAndCompanies.data.totalCompanyCount;
-    }
-
-    return Math.ceil(filteredCount / rolesAndCompaniesPerPage);
-  }, [rolesAndCompanies.data, selectedType]);
+  const totalPages =
+    rolesAndCompanies.data &&
+    "totalCount" in rolesAndCompanies.data &&
+    rolesAndCompanies.data.totalCount
+      ? Math.ceil(rolesAndCompanies.data.totalCount / rolesAndCompaniesPerPage)
+      : 0;
 
   return (
     <>
@@ -187,10 +180,7 @@ export default function Roles() {
                 </div>
               </div>
               {rolesAndCompanies.data.items.map((item, i) => {
-                if (
-                  item.type === "role" &&
-                  (selectedType === "roles" || selectedType === "all")
-                ) {
+                if (item.type === "role") {
                   return (
                     <div
                       key={item.id}
@@ -212,10 +202,7 @@ export default function Roles() {
                       />
                     </div>
                   );
-                } else if (
-                  item.type === "company" &&
-                  (selectedType === "companies" || selectedType === "all")
-                ) {
+                } else {
                   return (
                     <div
                       key={item.id}
