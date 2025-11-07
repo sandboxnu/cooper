@@ -90,21 +90,28 @@ export default function Roles() {
 
   const [showRoleInfo, setShowRoleInfo] = useState(false); // State for toggling views on mobile
 
-  // Reset to page 1 when filter or search changes
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [selectedFilter, searchValue]);
-
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
 
-  const totalPages =
-    rolesAndCompanies.data &&
-    "totalCount" in rolesAndCompanies.data &&
-    rolesAndCompanies.data.totalCount
-      ? Math.ceil(rolesAndCompanies.data.totalCount / rolesAndCompaniesPerPage)
-      : 0;
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedFilter, searchValue, selectedType]);
+
+  const totalPages = useMemo(() => {
+    if (!rolesAndCompanies.data) return 0;
+
+    let filteredCount = rolesAndCompanies.data.totalCount;
+
+    // Adjust total count based on selected type
+    if (selectedType === "roles") {
+      filteredCount = rolesAndCompanies.data.totalRolesCount;
+    } else if (selectedType === "companies") {
+      filteredCount = rolesAndCompanies.data.totalCompanyCount;
+    }
+
+    return Math.ceil(filteredCount / rolesAndCompaniesPerPage);
+  }, [rolesAndCompanies.data, selectedType]);
 
   return (
     <>
