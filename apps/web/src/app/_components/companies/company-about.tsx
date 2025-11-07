@@ -9,11 +9,11 @@ interface CompanyAboutProps {
 
 export function CompanyAbout({ companyObj }: CompanyAboutProps) {
   return (
-    <div className="mx-1 w-full">
-      <div className="text-base font-semibold text-gray-800 ">
+    <div className="mx-1 w-full text-sm">
+      <div className=" font-bold text-cooper-gray-400 ">
         About {companyObj?.name}
       </div>
-      <div className="h-40 overflow-y-auto rounded-b-lg pt-2">
+      <div className="overflow-y-auto rounded-b-lg pt-2">
         <p>{companyObj?.description}</p>
       </div>
     </div>

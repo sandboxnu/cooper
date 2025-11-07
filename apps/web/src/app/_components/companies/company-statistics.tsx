@@ -41,7 +41,7 @@ export default function CompanyStatistics({
     <div className="flex flex-row justify-between w-full pt-4 text-cooper-gray-400">
       <div className="w-[30%]">
         <p className="pb-2">Job type</p>
-        <div className="ml-1 h-7 flex-1 rounded-lg bg-cooper-yellow-200" />
+        <div className="h-7 flex-1 rounded-lg bg-cooper-yellow-200" />
         <div className="flex flex-row items-center pt-2 justify-between">
           <div className="flex flex-row items-center">
             <div className="w-3.5 h-3.5 rounded-full bg-cooper-yellow-200" />
@@ -52,7 +52,7 @@ export default function CompanyStatistics({
       </div>
       <div className="w-[30%]">
         <p className="pb-2">Work model</p>
-        <div className="ml-1 h-7 flex-1 rounded-lg flex overflow-hidden gap-0.5">
+        <div className="h-7 flex-1 rounded-lg flex overflow-hidden gap-0.5">
           {workModels.map((model) => (
             <div
               key={model.name}
@@ -91,7 +91,7 @@ export default function CompanyStatistics({
       </div>
       <div className="w-[30%]">
         <p className="pb-2">Pay</p>
-        <div className="ml-1 h-7 flex-1 rounded-lg flex overflow-hidden gap-0.5">
+        <div className="h-7 flex-1 rounded-lg flex overflow-hidden gap-0.5">
           {payRangesWithData.map((item) => (
             <div
               key={item.range.min}

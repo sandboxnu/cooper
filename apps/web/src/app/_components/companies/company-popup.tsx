@@ -45,11 +45,11 @@ export function CompanyPopup({
         <div className="mx-2 mb-5 mt-2 flex items-start justify-between">
           <div className="flex">
             <div className="mr-3 flex h-16 w-16 items-center justify-center">
-              <Logo company={company} size="small" />
+              <Logo company={company} size="medium" />
             </div>
             <div>
               <h1 className="text-lg font-medium">{company.name}</h1>
-              <p className="text-md text-gray-600">
+              <p className="text-sm text-gray-600">
                 {locations && locations.length > 1
                   ? `${locations[0]} +${locations.length - 1} ${locations.length - 1 === 1 ? "other" : "others"}`
                   : locations && locations.length === 1
@@ -61,7 +61,7 @@ export function CompanyPopup({
           <FavoriteButton objId={company.id} objType="company" />
         </div>
         <div className="flex flex-row">
-          <div className="mx-4 h-[86dvh] w-[70%] gap-4 font-sans md:mx-auto md:max-w-[66dvw] pr-4">
+          <div className="mx-4 w-[70%] gap-4 font-sans md:mx-auto md:max-w-[66dvw] pr-4">
             <div className="mb-6 gap-2 px-1 md:gap-4">
               <CompanyReview companyObj={company} />
             </div>
