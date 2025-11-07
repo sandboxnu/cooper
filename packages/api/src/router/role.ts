@@ -119,6 +119,15 @@ export const roleRouter = {
       });
     }),
 
+  getManyByIds: publicProcedure
+    .input(z.object({ ids: z.array(z.string()).min(1) }))
+    .query(async ({ ctx, input }) => {
+      if (input.ids.length === 0) return [];
+      return ctx.db.query.Role.findMany({
+        where: (role, { inArray }) => inArray(role.id, input.ids),
+      });
+    }),
+
   getByCompany: sortableProcedure
     .input(z.object({ companyId: z.string() }))
     .query(async ({ ctx, input }) => {

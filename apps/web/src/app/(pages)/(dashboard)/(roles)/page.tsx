@@ -21,12 +21,18 @@ import { RoleInfo } from "~/app/_components/reviews/role-info";
 import { api } from "~/trpc/react";
 import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
 import CompanyInfo from "~/app/_components/companies/company-info";
+import {
+  CompareColumns,
+  CompareTopBar,
+} from "~/app/_components/compare/compare-ui";
+import { useCompare } from "~/app/_components/compare/compare-context";
 
 export default function Roles() {
   const searchParams = useSearchParams();
   const queryParam = searchParams.get("id") ?? null;
   const searchValue = searchParams.get("search") ?? ""; // Get search query from URL
   const router = useRouter();
+  const compare = useCompare();
 
   const [selectedFilter, setSelectedFilter] = useState<
     "default" | "rating" | "newest" | "oldest" | undefined
@@ -162,11 +168,56 @@ export default function Roles() {
                   return (
                     <div
                       key={item.id}
+                      draggable
+                      onDragStart={(e) => {
+                        e.dataTransfer.setData("text/plain", item.id);
+
+                        // Create a custom drag preview that looks like the role card
+                        const dragPreview = document.createElement("div");
+                        dragPreview.style.position = "absolute";
+                        dragPreview.style.top = "-1000px";
+                        dragPreview.style.width = "280px";
+                        dragPreview.style.padding = "12px";
+                        dragPreview.style.backgroundColor = "white";
+                        dragPreview.style.border = "1px solid #E5E5E5";
+                        dragPreview.style.borderRadius = "8px";
+                        dragPreview.style.boxShadow =
+                          "0 4px 12px rgba(0,0,0,0.15)";
+                        dragPreview.innerHTML = `
+                          <div style="font-size: 16px; font-weight: 600; color: #141414; margin-bottom: 4px;">
+                            ${item.title}
+                          </div>
+                          <div style="font-size: 13px; color: #5a5a5a;">
+                            Co-op
+                          </div>
+                        `;
+                        document.body.appendChild(dragPreview);
+                        e.dataTransfer.setDragImage(dragPreview, 140, 30);
+
+                        // Clean up after a short delay
+                        setTimeout(() => {
+                          document.body.removeChild(dragPreview);
+                        }, 0);
+                      }}
                       onClick={() => {
                         setSelectedItem(item);
                         setShowRoleInfo(true); // Show RoleInfo on mobile
                       }}
+                      className="relative"
                     >
+                      {/* Quick add to comparison for better discoverability */}
+                      {compare.isCompareMode && (
+                        <button
+                          aria-label="Add to comparison"
+                          className="absolute right-2 top-2 z-10 h-6 w-6 rounded-full border border-cooper-gray-300 bg-white text-sm text-[#5a5a5a] hover:bg-cooper-gray-100"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            compare.addRoleId(item.id);
+                          }}
+                        >
+                          +
+                        </button>
+                      )}
                       <RoleCardPreview
                         roleObj={item}
                         className={cn(
@@ -220,16 +271,43 @@ export default function Roles() {
                 !showRoleInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
               )}
             >
+              {rolesAndCompanies.data.items.length > 0 && (
+                <div className="flex w-full items-center justify-end px-3 py-2">
+                  <CompareTopBar
+                    anchorRoleId={
+                      isRole(
+                        (selectedItem ?? rolesAndCompanies.data.items[0]) as
+                          | RoleType
+                          | CompanyType,
+                      )
+                        ? (
+                            (selectedItem ??
+                              rolesAndCompanies.data.items[0]) as RoleType
+                          ).id
+                        : null
+                    }
+                  />
+                </div>
+              )}
               {rolesAndCompanies.data.items.length > 0 &&
                 rolesAndCompanies.data.items[0] &&
                 (isRole(selectedItem ?? rolesAndCompanies.data.items[0]) ? (
-                  <RoleInfo
-                    roleObj={
-                      (selectedItem ??
-                        rolesAndCompanies.data.items[0]) as RoleType
-                    }
-                    onBack={() => setShowRoleInfo(false)}
-                  />
+                  compare.isCompareMode ? (
+                    <CompareColumns
+                      anchorRole={
+                        (selectedItem ??
+                          rolesAndCompanies.data.items[0]) as RoleType
+                      }
+                    />
+                  ) : (
+                    <RoleInfo
+                      roleObj={
+                        (selectedItem ??
+                          rolesAndCompanies.data.items[0]) as RoleType
+                      }
+                      onBack={() => setShowRoleInfo(false)}
+                    />
+                  )
                 ) : (
                   <div>
                     <CompanyInfo
