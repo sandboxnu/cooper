@@ -66,7 +66,7 @@ export default function Header({ auth }: HeaderProps) {
         </div>
         <h1 className="text-2xl font-bold text-cooper-blue-800 ">Cooper</h1>
       </Link>
-      <div className="hidden flex-shrink grid-cols-2 items-center justify-start gap-6 md:flex">
+      <div className="hidden flex-shrink grid-cols-2 items-center justify-center gap-6 md:flex">
         <Link
           href="https://docs.google.com/forms/d/e/1FAIpQLSf-ZvpyBawT5LlMho7X4oNZ0Z_1M-o6cXLJjB5uJiNAvvnkfw/viewform?usp=dialog"
           target="_blank"
@@ -74,7 +74,7 @@ export default function Header({ auth }: HeaderProps) {
         >
           Submit Feedback or Bug Reports
         </Link>
-        <div className="flex items-center justify-start gap-8">
+        <div className="flex items-center gap-8">
           <NewReviewDialog />
         </div>
         {auth}
