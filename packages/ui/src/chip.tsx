@@ -16,9 +16,9 @@ const Chip = React.forwardRef<HTMLButtonElement, ChipProps>(
       <Button
         ref={ref}
         className={cn(
-          "rounded-lg px-4 py-2 text-sm border border-cooper-gray-150 text-cooper-gray-400 hover:bg-cooper-gray-150",
+          "rounded-lg px-4 py-2 text-sm border border-cooper-gray-150 text-cooper-gray-400 ",
           selected
-            ? "bg-cooper-cream-300 "
+            ? "bg-cooper-cream-300 hover:bg-cooper-cream-300"
             : "bg-white hover:bg-cooper-gray-150",
         )}
         onClick={onClick}
