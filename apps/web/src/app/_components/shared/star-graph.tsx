@@ -50,7 +50,7 @@ export default function StarGraph({
                 ></div>
               </div>
               <div className="pl-2 text-xs">
-                {(rating.percentage / 100) * reviews}
+                {Math.round((rating.percentage / 100) * reviews)}
               </div>
             </div>
           ))}

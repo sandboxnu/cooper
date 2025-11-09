@@ -36,9 +36,13 @@ export function CompanyReview({ companyObj }: CompanyReviewProps) {
     .data?.filter((r) => r.overallRating != 0)
     .map((review) => review.overallRating);
   const cooperAvg: number =
-    (averages ?? []).reduce((accumulator, currentValue) => {
-      return accumulator + currentValue;
-    }, 0) / (averages?.length ?? 1);
+    Math.round(
+      ((averages ?? []).reduce((accumulator, currentValue) => {
+        return accumulator + currentValue;
+      }, 0) /
+        (averages?.length ?? 1)) *
+        10,
+    ) / 10;
 
   return (
     <div className="mx-1 w-full">

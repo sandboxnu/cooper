@@ -86,9 +86,14 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
   const avgs = api.review.list
     .useQuery({})
     .data?.map((review) => review.overallRating);
-  const cooperAvg: number = (avgs ?? []).reduce((accumulator, currentValue) => {
-    return accumulator + currentValue;
-  }, 0);
+  const cooperAvg: number =
+    Math.round(
+      ((avgs ?? []).reduce((accumulator, currentValue) => {
+        return accumulator + currentValue;
+      }, 0) /
+        (avgs?.length ?? 1)) *
+        10,
+    ) / 10;
 
   const perks = averages.data && {
     "Federal holidays off": averages.data.federalHolidays,
@@ -385,7 +390,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                       averageOverallRating={
                         averages.data?.averageOverallRating ?? 0
                       }
-                      reviews={companyReviews.data?.length ?? 0}
+                      reviews={reviews.data?.length ?? 0}
                       cooperAvg={cooperAvg}
                     />
                   </div>
