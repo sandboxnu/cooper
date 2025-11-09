@@ -22,9 +22,7 @@ export default function StarGraph({
 
   return (
     <div>
-      <p className="text-[#5A5A5A] font-semibold text-sm pb-4">
-        Overall rating
-      </p>
+      <p className="text-[#5A5A5A] font-bold text-sm pb-4">Overall rating</p>
       <div className="mr-6 flex flex-row justify-between w-full items-start text-cooper-gray-400">
         <div className="flex flex-col">
           <div className="flex flex-row gap-2">

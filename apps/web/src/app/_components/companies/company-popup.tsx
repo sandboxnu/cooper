@@ -44,7 +44,7 @@ export function CompanyPopup({
         </DialogHeader>
         <div className="mx-2 mb-5 mt-2 flex items-start justify-between">
           <div className="flex">
-            <div className="mr-3 flex h-16 w-16 items-center justify-center">
+            <div className="mr-3 flex h-12 w-12 items-center justify-center">
               <Logo company={company} size="medium" />
             </div>
             <div>
