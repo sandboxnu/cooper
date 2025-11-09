@@ -390,7 +390,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                       averageOverallRating={
                         averages.data?.averageOverallRating ?? 0
                       }
-                      reviews={reviews.data?.length ?? 0}
+                      reviews={reviews.data.length }
                       cooperAvg={cooperAvg}
                     />
                   </div>
