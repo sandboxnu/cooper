@@ -13,6 +13,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@cooper/ui/dropdown-menu";
+import { Chip } from "@cooper/ui/chip";
 
 import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
@@ -29,6 +30,10 @@ export default function Roles() {
   const searchValue = searchParams.get("search") ?? ""; // Get search query from URL
   const router = useRouter();
 
+  const [selectedType, setSelectedType] = useState<
+    "roles" | "companies" | "all"
+  >("all");
+
   const [selectedFilter, setSelectedFilter] = useState<
     "default" | "rating" | "newest" | "oldest" | undefined
   >("default");
@@ -40,6 +45,7 @@ export default function Roles() {
     search: searchValue,
     limit: rolesAndCompaniesPerPage,
     offset: (currentPage - 1) * rolesAndCompaniesPerPage,
+    type: selectedType,
   });
 
   const buttonStyle =
@@ -86,14 +92,13 @@ export default function Roles() {
 
   const [showRoleInfo, setShowRoleInfo] = useState(false); // State for toggling views on mobile
 
-  // Reset to page 1 when filter or search changes
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [selectedFilter, searchValue]);
-
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedFilter, searchValue, selectedType]);
 
   const totalPages =
     rolesAndCompanies.data &&
@@ -158,6 +163,23 @@ export default function Roles() {
                     </DropdownMenuLabel>
                   </DropdownMenuContent>
                 </DropdownMenu>
+                <div className="flex gap-2 py-2">
+                  <Chip
+                    label="All"
+                    onClick={() => setSelectedType("all")}
+                    selected={selectedType === "all"}
+                  />
+                  <Chip
+                    onClick={() => setSelectedType("roles")}
+                    label={`Jobs (${rolesAndCompanies.data.totalRolesCount})`}
+                    selected={selectedType === "roles"}
+                  />
+                  <Chip
+                    onClick={() => setSelectedType("companies")}
+                    label={`Companies (${rolesAndCompanies.data.totalCompanyCount})`}
+                    selected={selectedType === "companies"}
+                  />
+                </div>
               </div>
               {rolesAndCompanies.data.items.map((item, i) => {
                 if (item.type === "role") {
