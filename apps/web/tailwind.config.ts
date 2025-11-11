@@ -23,6 +23,7 @@ export default {
       },
       colors: {
         // Cooper Gray
+        "cooper-gray-500": "#969696",
         "cooper-gray-400": "#5A5A5A",
         "cooper-gray-300": "#474747",
         "cooper-gray-250": "#535353",
@@ -39,7 +40,7 @@ export default {
         // Cooper "Yellow"
         "cooper-yellow-700": "#EC9F14",
         "cooper-yellow-600": "#AFA800",
-        "cooper-yellow-500": "#FF9900",
+        "cooper-yellow-500": "#FFA400",
         "cooper-yellow-300": "#FFB545",
 
         // Cooper "Cream"

@@ -24,7 +24,7 @@ export function SimpleSearchBar() {
             <FormControl>
               <Input
                 {...field}
-                className="rounded-[8px] border border-cooper-gray-150 bg-white text-sm placeholder:text-cooper-gray-400 focus:border-cooper-gray-200 focus:ring-0 py-2 px-4 h-9 max-w-80"
+                className="rounded-[8px] border border-cooper-gray-150 bg-white text-sm placeholder:text-cooper-gray-500 focus:border-cooper-gray-200 focus:ring-0 py-2 px-4 h-9"
                 placeholder="Search for a job, company, industry..."
               />
             </FormControl>

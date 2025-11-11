@@ -104,7 +104,7 @@ export default function Roles() {
 
   return (
     <>
-      <div className="px-5 py-4 border-b-[1px] bg-cooper-cream-100 border-cooper-gray-150 fixed w-full">
+      <div className="px-5 py-4 border-b-[1px] bg-cooper-cream-100 border-cooper-gray-150 fixed md:w-[28%] self-start">
         <SearchFilter />
       </div>
       {rolesAndCompanies.isSuccess &&
