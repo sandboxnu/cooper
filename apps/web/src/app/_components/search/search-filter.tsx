@@ -42,6 +42,7 @@ interface SearchFilterProps {
   searchType?: "REVIEWS" | "SIMPLE" | "COMPANIES";
   industry?: IndustryType;
   location?: LocationType;
+  className?: string;
 }
 
 /**
@@ -59,6 +60,7 @@ export default function SearchFilter({
   searchType = "SIMPLE",
   industry,
   location,
+  className,
 }: SearchFilterProps) {
   const form = useForm<z.infer<typeof searchFormSchema>>({
     resolver: zodResolver(searchFormSchema),
@@ -130,6 +132,7 @@ export default function SearchFilter({
         className={cn(
           searchType === "COMPANIES" && "w-full",
           searchClassName,
+          className,
         )}
       >
         <div className={cn("flex justify-center")}>
