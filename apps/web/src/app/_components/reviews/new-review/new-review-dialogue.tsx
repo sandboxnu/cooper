@@ -54,9 +54,9 @@ export function NewReviewDialog({ trigger }: NewReviewDialogProps) {
             {trigger}
           </Button>
         ) : (
-          <Button className="h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white hover:border-cooper-yellow-300 hover:bg-cooper-yellow-300">
+          <Button className="h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700">
             <span className="translate-y-[-2px] text-2xl md:hidden">+</span>
-            <span className="hidden md:inline">+ New Review</span>
+            <span className="hidden md:inline">+ ADD REVIEW</span>
           </Button>
         )}
       </DialogTrigger>
