@@ -1,11 +1,16 @@
 "use client";
 
 import type { CompanyType } from "@cooper/db/schema";
-import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
 import { api } from "~/trpc/react";
 import { calculateRatings } from "~/utils/reviewCountByStars";
 import StarGraph from "../shared/star-graph";
+import CompanyStatistics from "./company-statistics";
+import {
+  calculatePay,
+  calculatePayRange,
+  calculateWorkModels,
+} from "~/utils/companyStatistics";
 
 interface CompanyReviewProps {
   className?: string;
@@ -13,29 +18,50 @@ interface CompanyReviewProps {
 }
 
 export function CompanyReview({ companyObj }: CompanyReviewProps) {
-  const avg = api.company.getAverageById.useQuery({
-    companyId: companyObj?.id ?? "",
-  });
-
   const reviews = api.review.getByCompany.useQuery({
     id: companyObj?.id ?? "",
   });
 
+  const avg = api.company.getAverageById.useQuery({
+    companyId: companyObj?.id ?? "",
+  });
+
   const ratings = calculateRatings(reviews.data ?? []);
+  const workModels = calculateWorkModels(reviews.data ?? []);
+  const payStats = calculatePay(reviews.data ?? []);
+  const payRange = calculatePayRange(reviews.data ?? []);
+
+  const averages = api.review.list
+    .useQuery({})
+    .data?.filter((r) => r.overallRating != 0)
+    .map((review) => review.overallRating);
+  const cooperAvg: number =
+    Math.round(
+      ((averages ?? []).reduce((accumulator, currentValue) => {
+        return accumulator + currentValue;
+      }, 0) /
+        (averages?.length ?? 1)) *
+        10,
+    ) / 10;
 
   return (
-    <Card className="mx-1 w-full max-w-lg rounded-lg border-[0.75px] border-cooper-gray-400">
-      <CardHeader className="flex h-6 justify-center rounded-t-lg border-b-[0.75px] border-cooper-gray-400 bg-cooper-gray-100">
-        <CardTitle className="text-base font-medium text-gray-800">
-          Reviews
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="rounded-b-lg pt-6">
+    <div className="mx-1 w-full">
+      <div>
         <StarGraph
           ratings={ratings}
           averageOverallRating={avg.data?.averageOverallRating ?? 0}
+          reviews={reviews.data?.length ?? 0}
+          cooperAvg={cooperAvg}
         />
-      </CardContent>
-    </Card>
+        {(reviews.data?.length ?? 0) > 0 && (
+          <CompanyStatistics
+            workModels={workModels}
+            reviews={reviews.data?.length ?? 0}
+            payStats={payStats}
+            payRange={payRange}
+          />
+        )}
+      </div>
+    </div>
   );
 }
