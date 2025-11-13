@@ -25,7 +25,7 @@ export function CompanyCardPreview({
   const router = useRouter();
 
   const handleCardClick = () => {
-    router.push(`/companies/company?id=${companyObj.id}`);
+    router.push(`/companies/${encodeURIComponent(companyObj.name)}`);
   };
 
   const avg = api.company.getAverageById.useQuery({

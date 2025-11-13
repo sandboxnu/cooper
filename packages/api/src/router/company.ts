@@ -5,7 +5,7 @@ import { z } from "zod";
 
 import type { SQL, SQLWrapper } from "@cooper/db";
 import type { CompanyType, ReviewType } from "@cooper/db/schema";
-import { and, asc, desc, eq, like, sql } from "@cooper/db";
+import { and, asc, desc, eq, ilike, like, sql } from "@cooper/db";
 import {
   CompaniesToLocations,
   Company,
@@ -116,7 +116,7 @@ export const companyRouter = {
     .input(z.object({ name: z.string() }))
     .query(({ ctx, input }) => {
       return ctx.db.query.Company.findFirst({
-        where: eq(Company.name, input.name),
+        where: ilike(Company.name, input.name),
       });
     }),
 

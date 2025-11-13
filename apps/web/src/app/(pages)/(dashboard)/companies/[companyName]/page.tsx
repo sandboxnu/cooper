@@ -1,7 +1,5 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
-
 import Logo from "@cooper/ui/logo";
 
 import RenderAllRoles from "~/app/_components/companies/all-company-roles";
@@ -12,11 +10,13 @@ import { FavoriteButton } from "~/app/_components/shared/favorite-button";
 import { api } from "~/trpc/react";
 import { prettyIndustry } from "~/utils/stringHelpers";
 
-export default function Company() {
-  const searchParams = useSearchParams();
-  const companyID = searchParams.get("id");
-
-  const company = api.company.getById.useQuery({ id: companyID ?? "" });
+export default function Company({
+  params,
+}: {
+  params: { companyName: string };
+}) {
+  const decodedName = decodeURIComponent(params.companyName);
+  const company = api.company.getByName.useQuery({ name: decodedName });
 
   return (
     <section className="w-full overflow-y-auto">
@@ -45,7 +45,7 @@ export default function Company() {
           </div>
 
           <div className="my-8 border-t border-cooper-gray-400"></div>
-          <RenderAllRoles company={companyID} />
+          <RenderAllRoles company={company.data?.id ?? null} />
         </div>
       ) : (
         <NoResults className="h-full" />
