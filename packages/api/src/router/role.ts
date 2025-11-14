@@ -4,8 +4,8 @@ import { Filter } from "bad-words";
 import { z } from "zod";
 
 import type { ReviewType, RoleType } from "@cooper/db/schema";
-import { asc, desc, eq, sql } from "@cooper/db";
-import { CreateRoleSchema, Review, Role } from "@cooper/db/schema";
+import { and, asc, desc, eq, ilike, sql } from "@cooper/db";
+import { Company, CreateRoleSchema, Review, Role } from "@cooper/db/schema";
 
 import {
   protectedProcedure,
@@ -116,6 +116,23 @@ export const roleRouter = {
     .query(({ ctx, input }) => {
       return ctx.db.query.Role.findFirst({
         where: eq(Role.id, input.id),
+      });
+    }),
+
+  getByCompanyAndTitle: publicProcedure
+    .input(z.object({ companyName: z.string(), roleTitle: z.string() }))
+    .query(async ({ ctx, input }) => {
+      const company = await ctx.db.query.Company.findFirst({
+        where: ilike(Company.name, input.companyName),
+      });
+
+      if (!company) return null;
+
+      return ctx.db.query.Role.findFirst({
+        where: and(
+          eq(Role.companyId, company.id),
+          ilike(Role.title, input.roleTitle),
+        ),
       });
     }),
 

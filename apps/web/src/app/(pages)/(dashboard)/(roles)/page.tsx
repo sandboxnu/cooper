@@ -25,8 +25,8 @@ import CompanyInfo from "~/app/_components/companies/company-info";
 
 export default function Roles() {
   const searchParams = useSearchParams();
-  const queryParam = searchParams.get("id") ?? null;
   const companyParam = searchParams.get("company") ?? null;
+  const roleParam = searchParams.get("role") ?? null;
   const searchValue = searchParams.get("search") ?? ""; // Get search query from URL
   const router = useRouter();
 
@@ -53,34 +53,53 @@ export default function Roles() {
 
   const companyByName = api.company.getByName.useQuery(
     { name: companyParam ?? "" },
-    { enabled: !!companyParam },
+    { enabled: !!companyParam && !roleParam },
+  );
+
+  const roleByCompanyAndTitle = api.role.getByCompanyAndTitle.useQuery(
+    { companyName: companyParam ?? "", roleTitle: roleParam ?? "" },
+    { enabled: !!companyParam && !!roleParam },
   );
 
   const defaultItem = useMemo(() => {
-    // First check if we have a company from the URL params
-    if (companyParam && companyByName.isSuccess && companyByName.data) {
+    // First check if we have a role from the URL params
+    if (
+      companyParam &&
+      roleParam &&
+      roleByCompanyAndTitle.isSuccess &&
+      roleByCompanyAndTitle.data
+    ) {
+      return roleByCompanyAndTitle.data;
+    }
+
+    // Then check if we have a company from the URL params
+    if (
+      companyParam &&
+      !roleParam &&
+      companyByName.isSuccess &&
+      companyByName.data
+    ) {
       return companyByName.data;
     }
 
-    if (rolesAndCompanies.isSuccess) {
-      const item = rolesAndCompanies.data.items.find(
-        (i) => i.id === queryParam,
-      );
-      if (item) {
-        return item;
-      } else if (rolesAndCompanies.data.items.length > 0) {
+    // Default to first item in list only if no params are set
+    if (!companyParam && !roleParam && rolesAndCompanies.isSuccess) {
+      if (rolesAndCompanies.data.items.length > 0) {
         return rolesAndCompanies.data.items[0];
       }
     }
+
+    return undefined;
   }, [
     rolesAndCompanies.isSuccess,
     rolesAndCompanies.data,
-    queryParam,
     companyParam,
+    roleParam,
     companyByName.isSuccess,
     companyByName.data,
+    roleByCompanyAndTitle.isSuccess,
+    roleByCompanyAndTitle.data,
   ]);
-
   const isRole = (
     item: RoleType | CompanyType,
   ): item is RoleType & { type: "role" } => {
@@ -92,11 +111,11 @@ export default function Roles() {
   >();
 
   useEffect(() => {
-    // initializes the selectedRole to either the role provided by the query params or the first in the role data
-    if (defaultItem) {
+    // initializes the selectedItem from URL params or defaults to first item
+    if (defaultItem && !selectedItem) {
       setSelectedItem(defaultItem);
     }
-  }, [defaultItem]);
+  }, [defaultItem, selectedItem]);
 
   useEffect(() => {
     // updates the URL when a role or company is changed
@@ -104,24 +123,49 @@ export default function Roles() {
       const params = new URLSearchParams(window.location.search);
 
       if (isRole(selectedItem)) {
-        // For roles, use the id parameter
-        if (queryParam !== selectedItem.id) {
-          params.delete("company");
-          params.set("id", selectedItem.id);
+        // For roles, use company and role parameters
+        const roleItem = selectedItem as RoleType & { companyName?: string };
+        const companyName = roleItem.companyName ?? "";
+
+        if (
+          companyName &&
+          (companyParam !== companyName || roleParam !== roleItem.title)
+        ) {
+          // Preserve search param
+          const currentSearch = params.get("search");
+          params.delete("search");
+
+          params.set("company", encodeURIComponent(companyName));
+          params.set("role", encodeURIComponent(roleItem.title));
+
+          // Add search back at the end
+          if (currentSearch) {
+            params.set("search", currentSearch);
+          }
+
           router.push(`/?${params.toString()}`);
         }
       } else {
         // For companies, use the company parameter with the name
         const companyItem = selectedItem as CompanyType;
-        if (companyParam !== companyItem.name) {
-          params.delete("id");
+        if (companyParam !== companyItem.name || roleParam !== null) {
+          // Preserve search param
+          const currentSearch = params.get("search");
+          params.delete("search");
+
+          params.delete("role");
           params.set("company", encodeURIComponent(companyItem.name));
+
+          // Add search back at the end
+          if (currentSearch) {
+            params.set("search", currentSearch);
+          }
+
           router.push(`/?${params.toString()}`);
         }
       }
     }
-  }, [selectedItem, router, queryParam, companyParam, isRole]);
-
+  }, [selectedItem, router, companyParam, roleParam, isRole]);
   const [showRoleInfo, setShowRoleInfo] = useState(false); // State for toggling views on mobile
 
   const handlePageChange = (page: number) => {
