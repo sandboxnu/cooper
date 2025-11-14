@@ -23,13 +23,13 @@ import { api } from "~/trpc/react";
 import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
 import CompanyInfo from "~/app/_components/companies/company-info";
 
-// Helper function to create URL-friendly slugs
+// Helper function to create URL-friendly slugs (still needed for URL generation)
 const createSlug = (text: string): string => {
   return text
     .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, '') // Remove all non-alphanumeric characters except spaces and hyphens
-    .replace(/\s+/g, '-') // Replace spaces with hyphens
-    .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
+    .replace(/[^a-z0-9\s-]/g, "") // Remove all non-alphanumeric characters except spaces and hyphens
+    .replace(/\s+/g, "-") // Replace spaces with hyphens
+    .replace(/-+/g, "-") // Replace multiple hyphens with single hyphen
     .trim();
 };
 
@@ -58,38 +58,34 @@ export default function Roles() {
     type: selectedType,
   });
 
-  const buttonStyle =
-    "bg-white hover:bg-cooper-gray-200 border-white text-black p-2";
-
-  const companyByName = api.company.getByName.useQuery(
-    { name: companyParam ?? "" },
+  // Query for specific company or role based on URL params
+  const companyBySlug = api.company.getBySlug.useQuery(
+    { slug: companyParam ?? "" },
     { enabled: !!companyParam && !roleParam },
   );
 
-  const roleByCompanyAndTitle = api.role.getByCompanyAndTitle.useQuery(
-    { companyName: companyParam ?? "", roleTitle: roleParam ?? "" },
+  const roleBySlug = api.role.getByCompanySlugAndRoleSlug.useQuery(
+    { companySlug: companyParam ?? "", roleSlug: roleParam ?? "" },
     { enabled: !!companyParam && !!roleParam },
   );
 
+  const buttonStyle =
+    "bg-white hover:bg-cooper-gray-200 border-white text-black p-2";
+
   const defaultItem = useMemo(() => {
-    // First check if we have a role from the URL params
-    if (
-      companyParam &&
-      roleParam &&
-      roleByCompanyAndTitle.isSuccess &&
-      roleByCompanyAndTitle.data
-    ) {
-      return roleByCompanyAndTitle.data;
+    // If we have both company and role params, use the role query result
+    if (companyParam && roleParam && roleBySlug.isSuccess && roleBySlug.data) {
+      return { ...roleBySlug.data, type: "role" as const };
     }
 
-    // Then check if we have a company from the URL params
+    // If we have only company param, use the company query result
     if (
       companyParam &&
       !roleParam &&
-      companyByName.isSuccess &&
-      companyByName.data
+      companyBySlug.isSuccess &&
+      companyBySlug.data
     ) {
-      return companyByName.data;
+      return { ...companyBySlug.data, type: "company" as const };
     }
 
     // Default to first item in list only if no params are set
@@ -101,14 +97,14 @@ export default function Roles() {
 
     return undefined;
   }, [
-    rolesAndCompanies.isSuccess,
-    rolesAndCompanies.data,
     companyParam,
     roleParam,
-    companyByName.isSuccess,
-    companyByName.data,
-    roleByCompanyAndTitle.isSuccess,
-    roleByCompanyAndTitle.data,
+    roleBySlug.isSuccess,
+    roleBySlug.data,
+    companyBySlug.isSuccess,
+    companyBySlug.data,
+    rolesAndCompanies.isSuccess,
+    rolesAndCompanies.data,
   ]);
   const isRole = (
     item: RoleType | CompanyType,
@@ -136,17 +132,19 @@ export default function Roles() {
         // For roles, use company and role parameters
         const roleItem = selectedItem as RoleType & { companyName?: string };
         const companyName = roleItem.companyName ?? "";
+        const companySlug = createSlug(companyName);
+        const roleSlug = createSlug(roleItem.title);
 
         if (
           companyName &&
-          (companyParam !== companyName || roleParam !== roleItem.title)
+          (companyParam !== companySlug || roleParam !== roleSlug)
         ) {
           // Preserve search param
           const currentSearch = params.get("search");
           params.delete("search");
 
-          params.set("company", createSlug(companyName));
-          params.set("role", createSlug(roleItem.title));
+          params.set("company", companySlug);
+          params.set("role", roleSlug);
 
           // Add search back at the end
           if (currentSearch) {
@@ -158,13 +156,15 @@ export default function Roles() {
       } else {
         // For companies, use the company parameter with the name
         const companyItem = selectedItem as CompanyType;
-        if (companyParam !== companyItem.name || roleParam !== null) {
+        const companySlug = createSlug(companyItem.name);
+
+        if (companyParam !== companySlug || roleParam !== null) {
           // Preserve search param
           const currentSearch = params.get("search");
           params.delete("search");
 
           params.delete("role");
-          params.set("company", createSlug(companyItem.name));
+          params.set("company", companySlug);
 
           // Add search back at the end
           if (currentSearch) {

@@ -13,6 +13,7 @@ import {
   sortableProcedure,
 } from "../trpc";
 import { performFuseSearch } from "../utils/fuzzyHelper";
+import { createSlug, generateUniqueSlug } from "../utils/slugHelpers";
 
 const ordering = {
   default: desc(Role.id),
@@ -136,6 +137,26 @@ export const roleRouter = {
       });
     }),
 
+  getByCompanySlugAndRoleSlug: publicProcedure
+    .input(z.object({ companySlug: z.string(), roleSlug: z.string() }))
+    .query(async ({ ctx, input }) => {
+      const company = await ctx.db.query.Company.findFirst({
+        where: eq(Company.slug, input.companySlug),
+      });
+
+      if (!company) return null;
+
+      return ctx.db.query.Role.findFirst({
+        where: and(
+          eq(Role.companyId, company.id),
+          eq(Role.slug, input.roleSlug),
+        ),
+        with: {
+          company: true,
+        },
+      });
+    }),
+
   getByCompany: sortableProcedure
     .input(z.object({ companyId: z.string() }))
     .query(async ({ ctx, input }) => {
@@ -163,7 +184,7 @@ export const roleRouter = {
 
   create: protectedProcedure
     .input(CreateRoleSchema)
-    .mutation(({ ctx, input }) => {
+    .mutation(async ({ ctx, input }) => {
       const filter = new Filter();
 
       if (filter.isProfane(input.title)) {
@@ -183,7 +204,22 @@ export const roleRouter = {
         title: filter.clean(input.title),
         description: filter.clean(input.description ?? ""),
       };
-      return ctx.db.insert(Role).values(cleanInput).returning();
+
+      // Generate unique slug for role (only unique within the same company)
+      const baseSlug = createSlug(cleanInput.title);
+      const existingRoles = await ctx.db.query.Role.findMany({
+        where: (role, { eq }) => eq(role.companyId, cleanInput.companyId),
+        columns: { slug: true },
+      });
+      const existingSlugs = existingRoles
+        .map((r) => r.slug)
+        .filter((s): s is string => s !== null);
+      const uniqueSlug = generateUniqueSlug(baseSlug, existingSlugs);
+
+      return ctx.db
+        .insert(Role)
+        .values({ ...cleanInput, slug: uniqueSlug })
+        .returning();
     }),
 
   delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
