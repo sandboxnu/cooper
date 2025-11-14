@@ -23,6 +23,16 @@ import { api } from "~/trpc/react";
 import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
 import CompanyInfo from "~/app/_components/companies/company-info";
 
+// Helper function to create URL-friendly slugs
+const createSlug = (text: string): string => {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '') // Remove all non-alphanumeric characters except spaces and hyphens
+    .replace(/\s+/g, '-') // Replace spaces with hyphens
+    .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
+    .trim();
+};
+
 export default function Roles() {
   const searchParams = useSearchParams();
   const companyParam = searchParams.get("company") ?? null;
@@ -135,8 +145,8 @@ export default function Roles() {
           const currentSearch = params.get("search");
           params.delete("search");
 
-          params.set("company", encodeURIComponent(companyName));
-          params.set("role", encodeURIComponent(roleItem.title));
+          params.set("company", createSlug(companyName));
+          params.set("role", createSlug(roleItem.title));
 
           // Add search back at the end
           if (currentSearch) {
@@ -154,7 +164,7 @@ export default function Roles() {
           params.delete("search");
 
           params.delete("role");
-          params.set("company", encodeURIComponent(companyItem.name));
+          params.set("company", createSlug(companyItem.name));
 
           // Add search back at the end
           if (currentSearch) {
