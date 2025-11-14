@@ -277,9 +277,7 @@ export const companyRouter = {
         where: (role, { eq }) => eq(role.companyId, companyId),
         columns: { slug: true },
       });
-      const existingRoleSlugs = existingRoles
-        .map((r) => r.slug)
-        .filter((s): s is string => s !== null);
+      const existingRoleSlugs = existingRoles.map((r) => r.slug);
       const uniqueRoleSlug = generateUniqueSlug(
         roleBaseSlug,
         existingRoleSlugs,
