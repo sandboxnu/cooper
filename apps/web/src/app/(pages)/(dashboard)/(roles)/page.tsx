@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 
@@ -106,22 +106,22 @@ export default function Roles() {
     rolesAndCompanies.isSuccess,
     rolesAndCompanies.data,
   ]);
-  const isRole = (
-    item: RoleType | CompanyType,
-  ): item is RoleType & { type: "role" } => {
-    return "type" in item && item.type === "role";
-  };
+  const isRole = useCallback(
+    (item: RoleType | CompanyType): item is RoleType & { type: "role" } => {
+      return "type" in item && item.type === "role";
+    },
+    [],
+  );
 
   const [selectedItem, setSelectedItem] = useState<
     (RoleType | CompanyType) | undefined
   >();
 
   useEffect(() => {
-    // initializes the selectedItem from URL params or defaults to first item
-    if (defaultItem && !selectedItem) {
+    if (defaultItem) {
       setSelectedItem(defaultItem);
     }
-  }, [defaultItem, selectedItem]);
+  }, [defaultItem]);
 
   useEffect(() => {
     // updates the URL when a role or company is changed
@@ -130,10 +130,14 @@ export default function Roles() {
 
       if (isRole(selectedItem)) {
         // For roles, use company and role parameters
-        const roleItem = selectedItem as RoleType & { companyName?: string };
+        const roleItem = selectedItem as RoleType & {
+          companyName?: string;
+          slug?: string;
+          companySlug?: string;
+        };
         const companyName = roleItem.companyName ?? "";
-        const companySlug = createSlug(companyName);
-        const roleSlug = createSlug(roleItem.title);
+        const companySlug = roleItem.companySlug ?? createSlug(companyName);
+        const roleSlug = roleItem.slug;
 
         if (
           companyName &&
@@ -155,8 +159,8 @@ export default function Roles() {
         }
       } else {
         // For companies, use the company parameter with the name
-        const companyItem = selectedItem as CompanyType;
-        const companySlug = createSlug(companyItem.name);
+        const companyItem = selectedItem as CompanyType & { slug?: string };
+        const companySlug = companyItem.slug;
 
         if (companyParam !== companySlug || roleParam !== null) {
           // Preserve search param

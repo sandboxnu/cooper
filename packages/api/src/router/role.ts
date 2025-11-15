@@ -146,15 +146,21 @@ export const roleRouter = {
 
       if (!company) return null;
 
-      return ctx.db.query.Role.findFirst({
+      const role = await ctx.db.query.Role.findFirst({
         where: and(
           eq(Role.companyId, company.id),
           eq(Role.slug, input.roleSlug),
         ),
-        with: {
-          company: true,
-        },
       });
+
+      if (!role) return null;
+
+      // Return role with company name and slug included
+      return {
+        ...role,
+        companyName: company.name,
+        companySlug: company.slug,
+      };
     }),
 
   getByCompany: sortableProcedure
