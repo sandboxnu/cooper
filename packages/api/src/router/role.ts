@@ -211,9 +211,7 @@ export const roleRouter = {
         where: (role, { eq }) => eq(role.companyId, cleanInput.companyId),
         columns: { slug: true },
       });
-      const existingSlugs = existingRoles
-        .map((r) => r.slug)
-        .filter((s): s is string => s !== null);
+      const existingSlugs = existingRoles.map((r) => r.slug);
       const uniqueSlug = generateUniqueSlug(baseSlug, existingSlugs);
 
       return ctx.db
