@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 
@@ -50,23 +50,66 @@ export default function Roles() {
   const [currentPage, setCurrentPage] = useState(1);
   const rolesAndCompaniesPerPage = 10;
 
-  const rolesAndCompanies = api.roleAndCompany.list.useQuery({
-    sortBy: selectedFilter,
-    search: searchValue,
-    limit: rolesAndCompaniesPerPage,
-    offset: (currentPage - 1) * rolesAndCompaniesPerPage,
-    type: selectedType,
-  });
-
   // Query for specific company or role based on URL params
   const companyBySlug = api.company.getBySlug.useQuery(
     { slug: companyParam ?? "" },
-    { enabled: !!companyParam && !roleParam, retry: false, refetchOnWindowFocus: false },
+    {
+      enabled: !!companyParam && !roleParam,
+      retry: false,
+      refetchOnWindowFocus: false,
+    },
   );
 
   const roleBySlug = api.role.getByCompanySlugAndRoleSlug.useQuery(
     { companySlug: companyParam ?? "", roleSlug: roleParam ?? "" },
-    { enabled: !!companyParam && !!roleParam, retry: false, refetchOnWindowFocus: false },
+    {
+      enabled: !!companyParam && !!roleParam,
+      retry: false,
+      refetchOnWindowFocus: false,
+    },
+  );
+
+  // Query to get the page number for the selected item from URL
+  const pageNumberQuery = api.roleAndCompany.getPageNumber.useQuery(
+    {
+      itemId: roleBySlug.data?.id ?? companyBySlug.data?.id ?? "",
+      itemType: roleParam ? "role" : "company",
+      sortBy: selectedFilter ?? "default",
+      search: searchValue,
+      type: selectedType,
+      limit: rolesAndCompaniesPerPage,
+    },
+    {
+      enabled: (!!roleBySlug.data || !!companyBySlug.data) && !!companyParam,
+      retry: false,
+      refetchOnWindowFocus: false,
+    },
+  );
+
+  // Set the page when we get the page number from URL params
+  useEffect(() => {
+    if (pageNumberQuery.isSuccess && pageNumberQuery.data.found) {
+      setCurrentPage(pageNumberQuery.data.page);
+    }
+  }, [pageNumberQuery.isSuccess, pageNumberQuery.data]);
+
+  // Only fetch the main list after we have the correct page number (if coming from URL)
+  const shouldFetchList =
+    !companyParam || // No URL params, fetch normally
+    pageNumberQuery.isSuccess || // Have page number from URL
+    pageNumberQuery.isError; // Query failed, fall back to page 1
+
+  const rolesAndCompanies = api.roleAndCompany.list.useQuery(
+    {
+      sortBy: selectedFilter,
+      search: searchValue,
+      limit: rolesAndCompaniesPerPage,
+      offset: (currentPage - 1) * rolesAndCompaniesPerPage,
+      type: selectedType,
+    },
+    {
+      enabled: shouldFetchList,
+    },
   );
 
   const buttonStyle =
@@ -117,11 +160,41 @@ export default function Roles() {
     (RoleType | CompanyType) | undefined
   >();
 
+  // Ref to store card refs for scrolling
+  const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const hasScrolledToItem = useRef(false);
+
   useEffect(() => {
     if (defaultItem) {
       setSelectedItem(defaultItem);
     }
   }, [defaultItem]);
+
+  // Scroll to selected item only when coming from direct URL (not user clicks)
+  useEffect(() => {
+    if (
+      selectedItem &&
+      rolesAndCompanies.isSuccess &&
+      (companyParam || roleParam) &&
+      !hasScrolledToItem.current
+    ) {
+      const cardElement = cardRefs.current[selectedItem.id];
+      if (cardElement) {
+        cardElement.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+        hasScrolledToItem.current = true;
+      }
+    }
+  }, [selectedItem, rolesAndCompanies.isSuccess, companyParam, roleParam]);
+
+  // Reset scroll flag when URL params are cleared
+  useEffect(() => {
+    if (!companyParam && !roleParam) {
+      hasScrolledToItem.current = false;
+    }
+  }, [companyParam, roleParam]);
 
   useEffect(() => {
     // updates the URL when a role or company is changed
@@ -180,7 +253,14 @@ export default function Roles() {
         }
       }
     }
-  }, [selectedItem, router, companyParam, roleParam, isRole, rolesAndCompanies.isSuccess]);
+  }, [
+    selectedItem,
+    router,
+    companyParam,
+    roleParam,
+    isRole,
+    rolesAndCompanies.isSuccess,
+  ]);
   const [showRoleInfo, setShowRoleInfo] = useState(false); // State for toggling views on mobile
 
   const handlePageChange = (page: number) => {
@@ -188,7 +268,7 @@ export default function Roles() {
     // Clear URL params when changing pages
     const params = new URLSearchParams(window.location.search);
     const searchParam = params.get("search");
-    
+
     // Build new URL with only search param if it exists
     if (searchParam) {
       router.push(`/?search=${searchParam}`);
@@ -286,6 +366,9 @@ export default function Roles() {
                   return (
                     <div
                       key={item.id}
+                      ref={(el) => {
+                        cardRefs.current[item.id] = el;
+                      }}
                       onClick={() => {
                         setSelectedItem(item);
                         setShowRoleInfo(true); // Show RoleInfo on mobile
@@ -308,6 +391,9 @@ export default function Roles() {
                   return (
                     <div
                       key={item.id}
+                      ref={(el) => {
+                        cardRefs.current[item.id] = el;
+                      }}
                       onClick={(e) => {
                         e.preventDefault();
                         setSelectedItem(item);
