@@ -1,6 +1,7 @@
 "use client";
 
 import type { IndustryType } from "@cooper/db/schema";
+
 import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
 import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
@@ -38,7 +39,7 @@ export default function Companies({
       />
       <hr className="mt-4 w-full border-t border-[#9A9A9A]" />
       <div className="md:overflow-y-auto">
-        <p className="text-[26px] mt-2">
+        <p className="mt-2 text-[26px]">
           {searchParams?.industry ? (
             <>
               <span className="font-bold">

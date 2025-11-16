@@ -15,13 +15,14 @@ import {
 } from "@cooper/ui/dropdown-menu";
 import { Chip } from "@cooper/ui/chip";
 
+import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
+import CompanyInfo from "~/app/_components/companies/company-info";
 import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
 import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
 import { RoleInfo } from "~/app/_components/reviews/role-info";
 import { api } from "~/trpc/react";
-import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
-import CompanyInfo from "~/app/_components/companies/company-info";
+import SearchFilter from "~/app/_components/search/search-filter";
 
 // Helper function to create URL-friendly slugs (still needed for URL generation)
 const createSlug = (text: string): string => {
@@ -163,6 +164,7 @@ export default function Roles() {
   // Ref to store card refs for scrolling
   const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const hasScrolledToItem = useRef(false);
+  const sidebarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (defaultItem) {
@@ -263,6 +265,27 @@ export default function Roles() {
   ]);
   const [showRoleInfo, setShowRoleInfo] = useState(false); // State for toggling views on mobile
 
+  // Reset to page 1 when filter or search changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedFilter, searchValue]);
+
+  // Scroll to top and select first item when page changes
+  useEffect(() => {
+    if (
+      rolesAndCompanies.isSuccess &&
+      rolesAndCompanies.data.items.length > 0
+    ) {
+      // Scroll sidebar to top
+      if (sidebarRef.current) {
+        sidebarRef.current.scrollTop = 0;
+      }
+      // Select first item on the new page
+      setSelectedItem(rolesAndCompanies.data.items[0]);
+      setShowRoleInfo(true);
+    }
+  }, [currentPage, rolesAndCompanies.isSuccess, rolesAndCompanies.data?.items]);
+
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
     // Clear URL params when changing pages
@@ -290,15 +313,17 @@ export default function Roles() {
 
   return (
     <>
+      <div className="self-start border-b-[1px] bg-cooper-cream-100 border-cooper-gray-150 fixed w-full">
+        <SearchFilter className="px-5 py-4 md:w-[28%] w-full" />
+      </div>
       {rolesAndCompanies.isSuccess &&
         rolesAndCompanies.data.items.length > 0 && (
-          <div className="bg-cooper-cream-100 flex h-[81.5dvh] w-full lg:h-[90dvh]">
-            {" "}
-            {/* hardcoded sad face */}
+          <div className="bg-cooper-cream-100 flex w-full pt-[9.25dvh] h-[90dvh]">
             {/* RoleCardPreview List */}
             <div
+              ref={sidebarRef}
               className={cn(
-                "w-full overflow-y-auto border-r-[0.75px] border-t-[0.75px] border-cooper-gray-300 bg-cooper-cream-100 p-5 md:rounded-tr-lg xl:rounded-none",
+                "w-full border-r-[1px] border-cooper-gray-150 bg-cooper-cream-100 p-5  xl:rounded-none overflow-y-auto ",
                 "md:w-[28%]", // Show as 28% width on md and above
                 showRoleInfo && "hidden md:block", // Hide on mobile if RoleInfo is visible
               )}

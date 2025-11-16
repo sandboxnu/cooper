@@ -19,15 +19,15 @@ export default function ProfileButton({ session }: ProfileButtonProps) {
   const linkElement = (
     <Image
       src={session.user.image ?? "/svg/defaultProfile.svg"}
-      width="36"
-      height="36"
+      width="32"
+      height="32"
       alt="Logout"
-      className="rounded-full"
+      className="rounded-full hover:cursor-pointer"
     />
   );
 
   return (
-    <div className="flex h-[2.25rem] w-[2.25rem] items-center justify-center">
+    <div className="flex items-center justify-center">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>{linkElement}</DropdownMenuTrigger>
         <DropdownMenuContent>
