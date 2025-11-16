@@ -58,7 +58,7 @@ export default function ProfileCardHeader({
             <div className="flex gap-2">
               <Button
                 variant="outline"
-                className="py-2 border text-sm h-[28px]"
+                className="py-2 text-sm h-[28px] border w-[70px] border-gray-400 text-gray-400"
                 onClick={() => {
                   setFirstName(profile.firstName);
                   setLastName(profile.lastName);
@@ -70,7 +70,7 @@ export default function ProfileCardHeader({
                 Cancel
               </Button>
               <Button
-                className="py-2 text-sm h-[28px]"
+                className="py-2 text-sm h-[28px] border w-[38px]"
                 onClick={() =>
                   update.mutate({
                     id: profile.id,
