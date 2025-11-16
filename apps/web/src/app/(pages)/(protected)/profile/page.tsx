@@ -1,10 +1,14 @@
 "use client";
 
-import Image from "next/image";
-import { redirect } from "next/navigation";
-import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
-import ProfileCardHeader from "~/app/_components/profile/profile-card-header";
+import Image from "next/image";
+import { redirect, useSearchParams } from "next/navigation";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "node_modules/@cooper/ui/src/card";
 
 import HeaderLayoutClient from "~/app/_components/header/header-layout-client";
 import FavoriteCompanySearch from "~/app/_components/profile/favorite-company-search";
@@ -39,7 +43,7 @@ export default function Profile() {
 
   if (sessionError || profileError) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex min-h-screen items-center justify-center">
         <div className="text-lg text-red-600">
           Error loading profile. Please try refreshing the page.
         </div>
@@ -102,7 +106,7 @@ export default function Profile() {
               className="rounded-full"
             />
             <div className="text-start">
-              <h1 className="font-bold text-[26px] font-hanken">
+              <h1 className="font-hanken text-[26px] font-bold">
                 {profile.firstName} {profile.lastName}
               </h1>
               <h2 className="text-cooper-gray-400">
@@ -110,10 +114,39 @@ export default function Profile() {
               </h2>
             </div>
           </div>
-          <ProfileCardHeader
-            profile={profile}
-            email={session.user.email ?? ""}
-          />
+          <Card>
+            <div>
+              <CardHeader className="pb-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-4">
+                    <div>
+                      <CardTitle className="text-xl">
+                        Account Information
+                      </CardTitle>
+                    </div>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent className="pb-0">
+                <div className="m-4 grid grid-cols-3 grid-rows-2 items-center gap-4">
+                  <div className="flex flex-col text-sm">
+                    <h4 className="font-semibold">Name</h4>
+                    <p>
+                      {profile.firstName} {profile.lastName}
+                    </p>
+                  </div>
+                  <div className="flex flex-col text-sm">
+                    <h4 className="font-semibold">Email</h4>
+                    <p> {session.user.email} </p>
+                  </div>
+                  <div className="flex flex-col text-sm">
+                    <h4 className="font-semibold">Major</h4>
+                    <p> {profile.major} </p>
+                  </div>
+                </div>
+              </CardContent>
+            </div>
+          </Card>
           <ProfileTabs numReviews={reviews.length} />
           {tab === "saved-roles" ? (
             <section>

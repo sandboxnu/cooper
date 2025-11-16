@@ -4,8 +4,6 @@ import { z } from "zod";
 import { and, desc, eq } from "@cooper/db";
 import { CreateProfileSchema, Profile } from "@cooper/db/schema";
 
-import { UpdateProfileNameMajorSchema } from "../../../db/src/schema/profiles";
-
 import {
   CreateProfileToCompanySchema,
   ProfilesToCompanies,
@@ -50,19 +48,6 @@ export const profileRouter = {
   delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
     return ctx.db.delete(Profile).where(eq(Profile.id, input));
   }),
-
-  updateNameAndMajor: protectedProcedure
-    .input(UpdateProfileNameMajorSchema)
-    .mutation(async ({ ctx, input }) => {
-      return ctx.db
-        .update(Profile)
-        .set({
-          firstName: input.firstName,
-          lastName: input.lastName,
-          major: input.major,
-        })
-        .where(eq(Profile.id, input.id));
-    }),
 
   favoriteCompany: protectedProcedure
     .input(CreateProfileToCompanySchema)

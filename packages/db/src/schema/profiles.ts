@@ -1,4 +1,4 @@
-import { relations } from "drizzle-orm";
+import { relations, sql } from "drizzle-orm";
 import {
   integer,
   pgTable,
@@ -25,10 +25,7 @@ export const Profile = pgTable("profile", {
   updatedAt: timestamp("updatedAt", {
     mode: "date",
     withTimezone: true,
-  })
-    .defaultNow()
-    .$onUpdate(() => new Date())
-    .notNull(),
+  }).$onUpdateFn(() => sql`now()`),
   userId: varchar("userId").notNull().unique(),
 });
 
@@ -58,11 +55,4 @@ export const CreateProfileSchema = createInsertSchema(Profile, {
   id: true,
   createdAt: true,
   updatedAt: true,
-});
-
-export const UpdateProfileNameMajorSchema = z.object({
-  id: z.string(),
-  firstName: z.string(),
-  lastName: z.string(),
-  major: z.string(),
 });

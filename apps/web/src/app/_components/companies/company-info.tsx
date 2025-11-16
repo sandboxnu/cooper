@@ -3,9 +3,9 @@ import Logo from "@cooper/ui/logo";
 
 import { api } from "~/trpc/react";
 import { FavoriteButton } from "../shared/favorite-button";
+import RenderAllRoles from "./all-company-roles";
 import { CompanyAbout } from "./company-about";
 import { CompanyReview } from "./company-reviews";
-import RenderAllRoles from "./all-company-roles";
 import NoResults from "../no-results";
 import { prettyLocationName } from "~/utils/locationHelpers";
 

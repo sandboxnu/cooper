@@ -1,6 +1,6 @@
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
 import { cn } from "@cooper/ui";
 import { CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
@@ -16,14 +16,14 @@ import {
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { calculateRatings } from "~/utils/reviewCountByStars";
+import { CompanyPopup } from "../companies/company-popup";
 import StarGraph from "../shared/star-graph";
 import BarGraph from "./bar-graph";
 import CollapsableInfoCard from "./collapsable-info";
 import InfoCard from "./info-card";
 import { ReviewCard } from "./review-card";
-import RoundBarGraph from "./round-bar-graph";
-import { CompanyPopup } from "../companies/company-popup";
 import ReviewSearchBar from "./review-search-bar";
+import RoundBarGraph from "./round-bar-graph";
 import { ReviewType, RoleType } from "@cooper/db/schema";
 
 interface RoleCardProps {
@@ -143,7 +143,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
           viewBox="0 0 14 12"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="m-4 block min-w-3 md:hidden hover:cursor-pointer"
+          className="m-4 block min-w-3 hover:cursor-pointer md:hidden"
           onClick={onBack}
         >
           <path
@@ -152,8 +152,8 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
           />
         </svg>
       )}
-      <div className="flex w-full flex-wrap items-center justify-between lg:pl-6 lg:pr-6 py-5">
-        <CardHeader className="mx-0 ">
+      <div className="flex w-full flex-wrap items-center justify-between py-5 lg:pl-6 lg:pr-6">
+        <CardHeader className="mx-0">
           <div className="flex items-center justify-start space-x-4">
             {companyData ? (
               <CompanyPopup
@@ -188,7 +188,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             </div>
           </div>
         </CardHeader>
-        <CardContent className="grid  gap-2">
+        <CardContent className="grid gap-2">
           {reviews.isSuccess &&
             reviews.data.length > 0 &&
             (() => {

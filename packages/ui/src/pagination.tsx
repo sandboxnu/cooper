@@ -1,4 +1,5 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
+
 import { cn } from "./index";
 
 interface PaginationProps {
@@ -48,7 +49,7 @@ export function Pagination({
         <ChevronLeft className="h-4 w-4" />
       </button>
 
-      <span className="text-sm text-cooper-gray-600">
+      <span className="text-cooper-gray-600 text-sm">
         Page {currentPage} of {totalPages}
       </span>
 
