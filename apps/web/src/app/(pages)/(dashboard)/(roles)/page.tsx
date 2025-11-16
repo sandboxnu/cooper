@@ -270,11 +270,13 @@ export default function Roles() {
     setCurrentPage(1);
   }, [selectedFilter, searchValue]);
 
-  // Scroll to top and select first item when page changes
+  // Scroll to top and select first item when page changes (but not when coming from URL)
   useEffect(() => {
     if (
       rolesAndCompanies.isSuccess &&
-      rolesAndCompanies.data.items.length > 0
+      rolesAndCompanies.data.items.length > 0 &&
+      !companyParam && // Only auto-select if no URL params
+      !roleParam
     ) {
       // Scroll sidebar to top
       if (sidebarRef.current) {
@@ -284,7 +286,13 @@ export default function Roles() {
       setSelectedItem(rolesAndCompanies.data.items[0]);
       setShowRoleInfo(true);
     }
-  }, [currentPage, rolesAndCompanies.isSuccess, rolesAndCompanies.data?.items]);
+  }, [
+    currentPage,
+    rolesAndCompanies.isSuccess,
+    rolesAndCompanies.data?.items,
+    companyParam,
+    roleParam,
+  ]);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);

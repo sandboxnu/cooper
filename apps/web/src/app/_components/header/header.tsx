@@ -68,7 +68,14 @@ export default function Header({ auth }: HeaderProps) {
 
   return (
     <header className="z-10 flex w-full items-center justify-between px-6 py-4 outline outline-[1px] bg-cooper-cream-100 outline-cooper-gray-150">
-      <Link href="/" className={"flex items-center justify-center gap-3"}>
+      <Link
+        href="/"
+        onClick={(e) => {
+          e.preventDefault();
+          window.location.href = "/";
+        }}
+        className={"flex items-center justify-center gap-3"}
+      >
         <div className="z-0 flex max-w-[43px] items-end">
           <CooperLogo />
         </div>
