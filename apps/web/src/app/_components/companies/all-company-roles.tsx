@@ -19,7 +19,7 @@ export default function RenderAllRoles({ company }: RenderAllRolesProps) {
   const router = useRouter();
 
   return (
-    <div className="overflow-y-auto">
+    <div className="flex h-full flex-col overflow-y-auto">
       <h2 className="font-bold pl-2 text-[#5A5A5A]">
         Roles at {company?.name} ({roles.data?.length})
       </h2>
