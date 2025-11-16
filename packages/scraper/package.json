@@ -11,7 +11,7 @@
     "company_name": "npx ts-node src/levels_company_names.ts"
   },
   "dependencies": {
-    "puppeteer": "^24.3.1"
+    "puppeteer": "^24.15.0"
   },
   "devDependencies": {
     "@cooper/eslint-config": "workspace:*",
