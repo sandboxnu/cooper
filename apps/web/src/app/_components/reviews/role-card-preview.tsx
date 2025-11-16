@@ -89,7 +89,8 @@ export function RoleCardPreview({ className, roleObj }: RoleCardPreviewProps) {
                         ) / 100}
                       </div>
                     </div>
-                    ({reviews.data.length} reviews)
+                    ({reviews.data.length}{" "}
+                    {reviews.data.length === 1 ? "review" : "reviews"})
                   </div>
                 );
               })()}

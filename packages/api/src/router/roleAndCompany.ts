@@ -26,6 +26,7 @@ export const roleAndCompanyRouter = {
         search: z.string().optional(),
         limit: z.number().optional().default(10),
         offset: z.number().optional().default(0),
+        type: z.enum(["roles", "companies", "all"]).default("all"),
       }),
     )
     .query(async ({ ctx, input }) => {
@@ -90,12 +91,30 @@ export const roleAndCompanyRouter = {
         ? [...companiesWithType, ...rolesWithCompanies]
         : [...rolesWithCompanies, ...companiesWithType];
 
+      const totalRolesCount = combinedItems.filter(
+        (item): item is RoleType & { companyName: string; type: "role" } =>
+          item.type === "role",
+      ).length;
+
+      const totalCompanyCount = combinedItems.filter(
+        (item): item is CompanyType & { type: "company" } =>
+          item.type === "company",
+      ).length;
+
+      const filteredItems = combinedItems.filter((item) => {
+        return input.type === "roles"
+          ? item.type === "role"
+          : input.type === "companies"
+            ? item.type === "company"
+            : true;
+      });
+
       const fuseOptions = ["title", "description", "companyName", "name"];
 
       const searchedItems = performFuseSearch<
         | (RoleType & { companyName: string; type: "role" })
         | (CompanyType & { type: "company" })
-      >(combinedItems, fuseOptions, input.search);
+      >(filteredItems, fuseOptions, input.search);
 
       const paginatedItems = searchedItems.slice(
         input.offset,
@@ -105,6 +124,8 @@ export const roleAndCompanyRouter = {
       return {
         items: paginatedItems,
         totalCount: searchedItems.length,
+        totalRolesCount,
+        totalCompanyCount,
       };
     }),
 };

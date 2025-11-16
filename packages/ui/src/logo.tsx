@@ -9,7 +9,7 @@ import { cn } from ".";
 interface ILogoProps {
   className?: string;
   company: CompanyType;
-  size?: "small" | "default";
+  size?: "small" | "default" | "medium";
 }
 
 const Logo: React.FC<ILogoProps> = ({ company, size, className }) => {
@@ -35,7 +35,7 @@ const Logo: React.FC<ILogoProps> = ({ company, size, className }) => {
       height={80}
       alt={`Logo of ${company.name}`}
       className={cn(
-        `${size === "small" ? "" : "h-20 w-20"} rounded-lg`,
+        `${size === "small" ? "" : size === "medium" ? "h-50 w-50" : "h-20 w-20"} rounded-lg`,
         className,
       )}
       onError={() => setImageError(true)}

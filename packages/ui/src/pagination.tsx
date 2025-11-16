@@ -40,8 +40,9 @@ export function Pagination({
         onClick={handlePrevious}
         disabled={!canGoBack}
         className={cn(
-          "text-cooper-gray-600 hover:bg-cooper-gray-50 flex h-8 w-8 items-center justify-center rounded-md border border-cooper-gray-300 bg-white transition-colors",
-          !canGoBack && "cursor-not-allowed opacity-50",
+          "flex h-8 w-8 items-center justify-center rounded-md border border-cooper-gray-150 bg-white text-cooper-gray-600 transition-colors hover:bg-cooper-gray-50",
+          !canGoBack &&
+            "cursor-not-allowed bg-cooper-cream-300 hover:bg-cooper-cream-300 opacity-75",
         )}
         aria-label="Previous page"
       >
@@ -56,8 +57,9 @@ export function Pagination({
         onClick={handleNext}
         disabled={!canGoForward}
         className={cn(
-          "text-cooper-gray-600 hover:bg-cooper-gray-50 flex h-8 w-8 items-center justify-center rounded-md border border-cooper-gray-300 bg-white transition-colors",
-          !canGoForward && "cursor-not-allowed opacity-50",
+          "flex h-8 w-8 items-center justify-center rounded-md border border-cooper-gray-150 bg-white text-cooper-gray-600 transition-colors hover:bg-cooper-gray-50",
+          !canGoForward &&
+            "cursor-not-allowed bg-cooper-cream-300 hover:bg-cooper-cream-300 opacity-75",
         )}
         aria-label="Next page"
       >

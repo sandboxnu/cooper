@@ -13,6 +13,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@cooper/ui/dropdown-menu";
+import { Chip } from "@cooper/ui/chip";
 
 import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
 import CompanyInfo from "~/app/_components/companies/company-info";
@@ -21,12 +22,17 @@ import NoResults from "~/app/_components/no-results";
 import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
 import { RoleInfo } from "~/app/_components/reviews/role-info";
 import { api } from "~/trpc/react";
+import SearchFilter from "~/app/_components/search/search-filter";
 
 export default function Roles() {
   const searchParams = useSearchParams();
   const queryParam = searchParams.get("id") ?? null;
   const searchValue = searchParams.get("search") ?? ""; // Get search query from URL
   const router = useRouter();
+
+  const [selectedType, setSelectedType] = useState<
+    "roles" | "companies" | "all"
+  >("all");
 
   const [selectedFilter, setSelectedFilter] = useState<
     "default" | "rating" | "newest" | "oldest" | undefined
@@ -39,6 +45,7 @@ export default function Roles() {
     search: searchValue,
     limit: rolesAndCompaniesPerPage,
     offset: (currentPage - 1) * rolesAndCompaniesPerPage,
+    type: selectedType,
   });
 
   const buttonStyle =
@@ -112,6 +119,10 @@ export default function Roles() {
     setCurrentPage(page);
   };
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedFilter, searchValue, selectedType]);
+
   const totalPages =
     rolesAndCompanies.data &&
     "totalCount" in rolesAndCompanies.data &&
@@ -121,16 +132,17 @@ export default function Roles() {
 
   return (
     <>
+      <div className="self-start border-b-[1px] bg-cooper-cream-100 border-cooper-gray-150 fixed w-full">
+        <SearchFilter className="px-5 py-4 md:w-[28%] w-full" />
+      </div>
       {rolesAndCompanies.isSuccess &&
         rolesAndCompanies.data.items.length > 0 && (
-          <div className="bg-cooper-cream-100 flex h-[81.5dvh] w-full lg:h-[90dvh]">
-            {" "}
-            {/* hardcoded sad face */}
+          <div className="bg-cooper-cream-100 flex w-full pt-[9.25dvh] h-[90dvh]">
             {/* RoleCardPreview List */}
             <div
               ref={sidebarRef}
               className={cn(
-                "bg-cooper-cream-100 w-full overflow-y-auto border-r-[0.75px] border-t-[0.75px] border-cooper-gray-300 p-5 md:rounded-tr-lg xl:rounded-none",
+                "w-full border-r-[1px] border-cooper-gray-150 bg-cooper-cream-100 p-5  xl:rounded-none overflow-y-auto ",
                 "md:w-[28%]", // Show as 28% width on md and above
                 showRoleInfo && "hidden md:block", // Hide on mobile if RoleInfo is visible
               )}
@@ -175,6 +187,23 @@ export default function Roles() {
                     </DropdownMenuLabel>
                   </DropdownMenuContent>
                 </DropdownMenu>
+                <div className="flex gap-2 py-2">
+                  <Chip
+                    label="All"
+                    onClick={() => setSelectedType("all")}
+                    selected={selectedType === "all"}
+                  />
+                  <Chip
+                    onClick={() => setSelectedType("roles")}
+                    label={`Jobs (${rolesAndCompanies.data.totalRolesCount})`}
+                    selected={selectedType === "roles"}
+                  />
+                  <Chip
+                    onClick={() => setSelectedType("companies")}
+                    label={`Companies (${rolesAndCompanies.data.totalCompanyCount})`}
+                    selected={selectedType === "companies"}
+                  />
+                </div>
               </div>
               {rolesAndCompanies.data.items.map((item, i) => {
                 if (item.type === "role") {

@@ -85,7 +85,8 @@ export function CompanyCardPreview({
                   />
                   <div>{averageRating}</div>
                 </div>
-                ({reviews.data?.length} reviews)
+                ({reviews.data?.length}{" "}
+                {reviews.data?.length === 1 ? "review" : "reviews"})
               </div>
             ) : (
               <div className="text-cooper-gray-400">No ratings yet</div>

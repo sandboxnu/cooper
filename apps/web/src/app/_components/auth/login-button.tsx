@@ -1,25 +1,18 @@
-import Image from "next/image";
-
 import { signIn } from "@cooper/auth";
+import { Button } from "@cooper/ui/button";
 
 export default function LoginButton() {
   return (
-    <form>
-      <button
+    <form className="flex">
+      <Button
+        className="h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700"
         formAction={async () => {
           "use server";
           await signIn("google", { redirectTo: "/" });
         }}
-        className="-pb-2 pt-2"
       >
-        <Image
-          src="/svg/defaultProfile.svg"
-          width="36"
-          height="36"
-          alt="Logout"
-          className="rounded-full"
-        />
-      </button>
+        <span className="hidden md:inline">Log in</span>
+      </Button>
     </form>
   );
 }
