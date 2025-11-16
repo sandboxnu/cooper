@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 
-import type { RoleType } from "@cooper/db/schema";
+import type { CompanyType, RoleType } from "@cooper/db/schema";
 import { cn, Pagination } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 import {
@@ -13,12 +13,16 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@cooper/ui/dropdown-menu";
+import { Chip } from "@cooper/ui/chip";
 
 import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
 import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
 import { RoleInfo } from "~/app/_components/reviews/role-info";
 import { api } from "~/trpc/react";
+import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
+import CompanyInfo from "~/app/_components/companies/company-info";
+import SearchFilter from "~/app/_components/search/search-filter";
 
 export default function Roles() {
   const searchParams = useSearchParams();
@@ -26,79 +30,95 @@ export default function Roles() {
   const searchValue = searchParams.get("search") ?? ""; // Get search query from URL
   const router = useRouter();
 
+  const [selectedType, setSelectedType] = useState<
+    "roles" | "companies" | "all"
+  >("all");
+
   const [selectedFilter, setSelectedFilter] = useState<
     "default" | "rating" | "newest" | "oldest" | undefined
   >("default");
   const [currentPage, setCurrentPage] = useState(1);
-  const rolesPerPage = 10;
+  const rolesAndCompaniesPerPage = 10;
 
-  const roles = api.role.list.useQuery({
+  const rolesAndCompanies = api.roleAndCompany.list.useQuery({
     sortBy: selectedFilter,
     search: searchValue,
-    limit: rolesPerPage,
-    offset: (currentPage - 1) * rolesPerPage,
+    limit: rolesAndCompaniesPerPage,
+    offset: (currentPage - 1) * rolesAndCompaniesPerPage,
+    type: selectedType,
   });
 
   const buttonStyle =
     "bg-white hover:bg-cooper-gray-200 border-white text-black p-2";
 
-  const defaultRole = useMemo(() => {
-    if (roles.isSuccess && "roles" in roles.data) {
-      const role = roles.data.roles.find((role) => role.id === queryParam);
-      if (role) {
-        return role;
-      } else if (roles.data.roles.length > 0) {
-        return roles.data.roles[0];
+  const defaultItem = useMemo(() => {
+    if (rolesAndCompanies.isSuccess) {
+      const item = rolesAndCompanies.data.items.find(
+        (i) => i.id === queryParam,
+      );
+      if (item) {
+        return item;
+      } else if (rolesAndCompanies.data.items.length > 0) {
+        return rolesAndCompanies.data.items[0];
       }
     }
-  }, [roles.isSuccess, roles.data, queryParam]);
+  }, [rolesAndCompanies.isSuccess, rolesAndCompanies.data, queryParam]);
 
-  const [selectedRole, setSelectedRole] = useState<RoleType | undefined>();
+  const isRole = (
+    item: RoleType | CompanyType,
+  ): item is RoleType & { type: "role" } => {
+    return "type" in item && item.type === "role";
+  };
+
+  const [selectedItem, setSelectedItem] = useState<
+    (RoleType | CompanyType) | undefined
+  >();
 
   useEffect(() => {
     // initializes the selectedRole to either the role provided by the query params or the first in the role data
-    if (defaultRole) {
-      setSelectedRole(defaultRole);
+    if (defaultItem) {
+      setSelectedItem(defaultItem);
     }
-  }, [defaultRole]);
+  }, [defaultItem]);
 
   useEffect(() => {
     // updates the URL when a role is changed
-    if (selectedRole && queryParam !== selectedRole.id) {
+    if (selectedItem && queryParam !== selectedItem.id) {
       const params = new URLSearchParams(window.location.search);
-      params.set("id", selectedRole.id);
+      params.set("id", selectedItem.id);
       router.replace(`/?${params.toString()}`);
     }
-  }, [selectedRole, router, queryParam]);
+  }, [selectedItem, router, queryParam]);
 
   const [showRoleInfo, setShowRoleInfo] = useState(false); // State for toggling views on mobile
-
-  // Reset to page 1 when filter or search changes
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [selectedFilter, searchValue]);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedFilter, searchValue, selectedType]);
+
   const totalPages =
-    roles.data && "totalCount" in roles.data && roles.data.totalCount
-      ? Math.ceil(roles.data.totalCount / rolesPerPage)
+    rolesAndCompanies.data &&
+    "totalCount" in rolesAndCompanies.data &&
+    rolesAndCompanies.data.totalCount
+      ? Math.ceil(rolesAndCompanies.data.totalCount / rolesAndCompaniesPerPage)
       : 0;
 
   return (
     <>
-      {roles.isSuccess &&
-        "roles" in roles.data &&
-        roles.data.roles.length > 0 && (
-          <div className="bg-cooper-cream-100 flex h-[81.5dvh] w-full lg:h-[90dvh]">
-            {" "}
-            {/* hardcoded sad face */}
+      <div className="self-start border-b-[1px] bg-cooper-cream-100 border-cooper-gray-150 fixed w-full">
+        <SearchFilter className="px-5 py-4 md:w-[28%] w-full" />
+      </div>
+      {rolesAndCompanies.isSuccess &&
+        rolesAndCompanies.data.items.length > 0 && (
+          <div className="bg-cooper-cream-100 flex w-full pt-[9.25dvh] h-[90dvh]">
             {/* RoleCardPreview List */}
             <div
               className={cn(
-                "w-full overflow-y-auto border-r-[0.75px] border-t-[0.75px] border-cooper-gray-300 bg-cooper-cream-100 p-5 md:rounded-tr-lg xl:rounded-none",
+                "w-full border-r-[1px] border-cooper-gray-150 bg-cooper-cream-100 p-5  xl:rounded-none overflow-y-auto ",
                 "md:w-[28%]", // Show as 28% width on md and above
                 showRoleInfo && "hidden md:block", // Hide on mobile if RoleInfo is visible
               )}
@@ -143,31 +163,70 @@ export default function Roles() {
                     </DropdownMenuLabel>
                   </DropdownMenuContent>
                 </DropdownMenu>
+                <div className="flex gap-2 py-2">
+                  <Chip
+                    label="All"
+                    onClick={() => setSelectedType("all")}
+                    selected={selectedType === "all"}
+                  />
+                  <Chip
+                    onClick={() => setSelectedType("roles")}
+                    label={`Jobs (${rolesAndCompanies.data.totalRolesCount})`}
+                    selected={selectedType === "roles"}
+                  />
+                  <Chip
+                    onClick={() => setSelectedType("companies")}
+                    label={`Companies (${rolesAndCompanies.data.totalCompanyCount})`}
+                    selected={selectedType === "companies"}
+                  />
+                </div>
               </div>
-              {"roles" in roles.data &&
-                roles.data.roles.map((role, i) => {
+              {rolesAndCompanies.data.items.map((item, i) => {
+                if (item.type === "role") {
                   return (
                     <div
-                      key={role.id}
+                      key={item.id}
                       onClick={() => {
-                        setSelectedRole(role);
+                        setSelectedItem(item);
                         setShowRoleInfo(true); // Show RoleInfo on mobile
                       }}
                     >
                       <RoleCardPreview
-                        roleObj={role}
+                        roleObj={item}
                         className={cn(
                           "mb-4 hover:bg-cooper-gray-100",
-                          selectedRole
-                            ? selectedRole.id === role.id &&
-                                "bg-cooper-cream-200 hover:bg-cooper-gray-200 border:cooper-gray-50"
+                          selectedItem
+                            ? selectedItem.id === item.id &&
+                                "bg-cooper-cream-200 hover:bg-cooper-gray-200"
                             : !i &&
-                                "bg-cooper-cream-200 hover:bg-cooper-gray-200 border:cooper-gray-50",
+                                "bg-cooper-cream-200 hover:bg-cooper-gray-200",
                         )}
                       />
                     </div>
                   );
-                })}
+                } else {
+                  return (
+                    <div
+                      key={item.id}
+                      onClick={() => {
+                        setSelectedItem(item);
+                      }}
+                    >
+                      <CompanyCardPreview
+                        companyObj={item}
+                        className={cn(
+                          "mb-4 hover:bg-cooper-gray-100",
+                          selectedItem
+                            ? selectedItem.id === item.id &&
+                                "bg-cooper-gray-200 hover:bg-cooper-gray-200"
+                            : !i &&
+                                "bg-cooper-gray-200 hover:bg-cooper-gray-200",
+                        )}
+                      />
+                    </div>
+                  );
+                }
+              })}
 
               {/* Pagination */}
               <div className="mt-4">
@@ -178,7 +237,6 @@ export default function Roles() {
                 />
               </div>
             </div>
-            {/* RoleInfo */}
             <div
               className={cn(
                 "col-span-3 w-full overflow-y-auto p-1",
@@ -186,21 +244,34 @@ export default function Roles() {
                 !showRoleInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
               )}
             >
-              {"roles" in roles.data &&
-                roles.data.roles.length > 0 &&
-                roles.data.roles[0] && (
+              {rolesAndCompanies.data.items.length > 0 &&
+                rolesAndCompanies.data.items[0] &&
+                (isRole(selectedItem ?? rolesAndCompanies.data.items[0]) ? (
                   <RoleInfo
-                    roleObj={selectedRole ?? roles.data.roles[0]}
+                    roleObj={
+                      (selectedItem ??
+                        rolesAndCompanies.data.items[0]) as RoleType
+                    }
                     onBack={() => setShowRoleInfo(false)}
                   />
-                )}
+                ) : (
+                  <div>
+                    <CompanyInfo
+                      companyObj={
+                        (selectedItem ??
+                          rolesAndCompanies.data.items[0]) as CompanyType
+                      }
+                    />{" "}
+                  </div>
+                ))}
             </div>
           </div>
         )}
-      {roles.isSuccess &&
-        "roles" in roles.data &&
-        roles.data.roles.length === 0 && <NoResults className="h-[84dvh]" />}
-      {roles.isPending && <LoadingResults className="h-[84dvh]" />}
+      {rolesAndCompanies.isSuccess &&
+        rolesAndCompanies.data.items.length === 0 && (
+          <NoResults className="h-[84dvh]" />
+        )}
+      {rolesAndCompanies.isPending && <LoadingResults className="h-[84dvh]" />}
     </>
   );
 }
