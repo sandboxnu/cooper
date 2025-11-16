@@ -22,6 +22,7 @@ import { RoleInfo } from "~/app/_components/reviews/role-info";
 import { api } from "~/trpc/react";
 import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
 import CompanyInfo from "~/app/_components/companies/company-info";
+import SearchFilter from "~/app/_components/search/search-filter";
 
 export default function Roles() {
   const searchParams = useSearchParams();
@@ -108,15 +109,16 @@ export default function Roles() {
 
   return (
     <>
+      <div className="self-start border-b-[1px] bg-cooper-cream-100 border-cooper-gray-150 fixed w-full">
+        <SearchFilter className="px-5 py-4 md:w-[28%] w-full" />
+      </div>
       {rolesAndCompanies.isSuccess &&
         rolesAndCompanies.data.items.length > 0 && (
-          <div className="bg-cooper-cream-100 flex h-[81.5dvh] w-full lg:h-[90dvh]">
-            {" "}
-            {/* hardcoded sad face */}
+          <div className="bg-cooper-cream-100 flex w-full pt-[9.25dvh] h-[90dvh]">
             {/* RoleCardPreview List */}
             <div
               className={cn(
-                "w-full overflow-y-auto border-r-[0.75px] border-t-[0.75px] border-cooper-gray-300 bg-cooper-cream-100 p-5 md:rounded-tr-lg xl:rounded-none",
+                "w-full border-r-[1px] border-cooper-gray-150 bg-cooper-cream-100 p-5  xl:rounded-none overflow-y-auto ",
                 "md:w-[28%]", // Show as 28% width on md and above
                 showRoleInfo && "hidden md:block", // Hide on mobile if RoleInfo is visible
               )}
