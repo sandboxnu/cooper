@@ -61,12 +61,12 @@ export default function Roles() {
   // Query for specific company or role based on URL params
   const companyBySlug = api.company.getBySlug.useQuery(
     { slug: companyParam ?? "" },
-    { enabled: !!companyParam && !roleParam },
+    { enabled: !!companyParam && !roleParam, retry: false, refetchOnWindowFocus: false },
   );
 
   const roleBySlug = api.role.getByCompanySlugAndRoleSlug.useQuery(
     { companySlug: companyParam ?? "", roleSlug: roleParam ?? "" },
-    { enabled: !!companyParam && !!roleParam },
+    { enabled: !!companyParam && !!roleParam, retry: false, refetchOnWindowFocus: false },
   );
 
   const buttonStyle =
@@ -125,7 +125,8 @@ export default function Roles() {
 
   useEffect(() => {
     // updates the URL when a role or company is changed
-    if (selectedItem) {
+    // Don't update URL if query is still loading (prevents updating with stale data during page changes)
+    if (selectedItem && rolesAndCompanies.isSuccess) {
       const params = new URLSearchParams(window.location.search);
 
       if (isRole(selectedItem)) {
@@ -179,11 +180,21 @@ export default function Roles() {
         }
       }
     }
-  }, [selectedItem, router, companyParam, roleParam, isRole]);
+  }, [selectedItem, router, companyParam, roleParam, isRole, rolesAndCompanies.isSuccess]);
   const [showRoleInfo, setShowRoleInfo] = useState(false); // State for toggling views on mobile
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
+    // Clear URL params when changing pages
+    const params = new URLSearchParams(window.location.search);
+    const searchParam = params.get("search");
+    
+    // Build new URL with only search param if it exists
+    if (searchParam) {
+      router.push(`/?search=${searchParam}`);
+    } else {
+      router.push("/");
+    }
   };
 
   useEffect(() => {

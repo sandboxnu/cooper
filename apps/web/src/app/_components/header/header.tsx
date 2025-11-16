@@ -29,9 +29,17 @@ export default function Header({ auth }: HeaderProps) {
     return (
       <header className="z-50 flex min-h-[14rem] w-full flex-col justify-start bg-white outline outline-[1.5px] outline-cooper-blue-600">
         <div className="z-10 ml-3 mr-4 flex h-[8dvh] min-h-10 items-center justify-between gap-4">
-          <h1 className="text-3xl font-bold text-cooper-blue-800 xl:text-4xl">
-            cooper
-          </h1>
+          <Link
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = "/";
+            }}
+          >
+            <h1 className="text-3xl font-bold text-cooper-blue-800 xl:text-4xl">
+              cooper
+            </h1>
+          </Link>
           <Button
             type="button"
             variant="outline"
@@ -71,6 +79,10 @@ export default function Header({ auth }: HeaderProps) {
         <Link
           href="/"
           className={cn("flex w-fit items-center justify-center", outerWidth)}
+          onClick={(e) => {
+            e.preventDefault();
+            window.location.href = "/";
+          }}
         >
           <div className="z-0 mx-4 flex min-w-[80px] items-end">
             <CooperLogo />
