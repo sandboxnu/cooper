@@ -23,12 +23,18 @@ import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
 import { RoleInfo } from "~/app/_components/reviews/role-info";
 import { api } from "~/trpc/react";
 import SearchFilter from "~/app/_components/search/search-filter";
+import {
+  CompareColumns,
+  CompareControls,
+} from "~/app/_components/compare/compare-ui";
+import { useCompare } from "~/app/_components/compare/compare-context";
 
 export default function Roles() {
   const searchParams = useSearchParams();
   const queryParam = searchParams.get("id") ?? null;
   const searchValue = searchParams.get("search") ?? ""; // Get search query from URL
   const router = useRouter();
+  const compare = useCompare();
 
   const [selectedType, setSelectedType] = useState<
     "roles" | "companies" | "all"
@@ -130,6 +136,52 @@ export default function Roles() {
       ? Math.ceil(rolesAndCompanies.data.totalCount / rolesAndCompaniesPerPage)
       : 0;
 
+  const resolvedSelection =
+    selectedItem ??
+    (rolesAndCompanies.data?.items.length
+      ? rolesAndCompanies.data.items[0]
+      : undefined);
+
+  const selectedRole = useMemo(() => {
+    if (!resolvedSelection) return null;
+    return isRole(resolvedSelection) ? (resolvedSelection as RoleType) : null;
+  }, [resolvedSelection]);
+
+  const selectedCompany = useMemo(() => {
+    if (!resolvedSelection) return null;
+    return !isRole(resolvedSelection)
+      ? (resolvedSelection as CompanyType)
+      : null;
+  }, [resolvedSelection]);
+
+  const handleRoleDragStart = (
+    event: React.DragEvent<HTMLDivElement>,
+    role: RoleType,
+  ) => {
+    if (!compare.isCompareMode) return;
+    event.dataTransfer.effectAllowed = "copy";
+    event.dataTransfer.setData("application/role-id", role.id);
+    event.dataTransfer.setData("text/plain", role.id);
+    const preview = document.createElement("div");
+    preview.style.position = "absolute";
+    preview.style.top = "-9999px";
+    preview.style.left = "-9999px";
+    preview.style.padding = "12px 16px";
+    preview.style.border = "1px solid #e5e5e5";
+    preview.style.borderRadius = "10px";
+    preview.style.boxShadow = "0 6px 20px rgba(0,0,0,0.15)";
+    preview.style.background = "white";
+    preview.style.fontSize = "15px";
+    preview.style.fontWeight = "600";
+    preview.style.color = "#141414";
+    preview.innerText = role.title;
+    document.body.appendChild(preview);
+    event.dataTransfer.setDragImage(preview, preview.clientWidth / 2, 20);
+    requestAnimationFrame(() => {
+      document.body.removeChild(preview);
+    });
+  };
+
   return (
     <>
       <div className="self-start border-b-[1px] bg-cooper-cream-100 border-cooper-gray-150 fixed w-full">
@@ -207,20 +259,46 @@ export default function Roles() {
               </div>
               {rolesAndCompanies.data.items.map((item, i) => {
                 if (item.type === "role") {
+                  const roleItem = item as RoleType;
                   return (
                     <div
-                      key={item.id}
+                      key={roleItem.id}
+                      className={cn(
+                        "relative rounded-lg",
+                        compare.isCompareMode &&
+                          "cursor-grab active:cursor-grabbing",
+                      )}
+                      draggable={compare.isCompareMode}
+                      onDragStart={
+                        compare.isCompareMode
+                          ? (event) => handleRoleDragStart(event, roleItem)
+                          : undefined
+                      }
                       onClick={() => {
-                        setSelectedItem(item);
+                        setSelectedItem(roleItem);
                         setShowRoleInfo(true); // Show RoleInfo on mobile
                       }}
                     >
+                      {compare.isCompareMode && (
+                        <button
+                          type="button"
+                          aria-label="Add to comparison"
+                          className="absolute right-4 top-4 z-10 flex h-7 w-7 items-center justify-center rounded-full border border-cooper-gray-300 bg-white text-base text-cooper-gray-500 shadow-sm transition hover:bg-cooper-gray-100"
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            compare.enterCompareMode();
+                            compare.addRoleId(roleItem.id);
+                          }}
+                        >
+                          +
+                        </button>
+                      )}
                       <RoleCardPreview
-                        roleObj={item}
+                        roleObj={roleItem}
                         className={cn(
                           "mb-4 hover:bg-cooper-gray-100",
                           selectedItem
-                            ? selectedItem.id === item.id &&
+                            ? selectedItem.id === roleItem.id &&
                                 "bg-cooper-cream-200 hover:bg-cooper-gray-200"
                             : !i &&
                                 "bg-cooper-cream-200 hover:bg-cooper-gray-200",
@@ -228,28 +306,27 @@ export default function Roles() {
                       />
                     </div>
                   );
-                } else {
-                  return (
-                    <div
-                      key={item.id}
-                      onClick={() => {
-                        setSelectedItem(item);
-                      }}
-                    >
-                      <CompanyCardPreview
-                        companyObj={item}
-                        className={cn(
-                          "mb-4 hover:bg-cooper-gray-100",
-                          selectedItem
-                            ? selectedItem.id === item.id &&
-                                "bg-cooper-gray-200 hover:bg-cooper-gray-200"
-                            : !i &&
-                                "bg-cooper-gray-200 hover:bg-cooper-gray-200",
-                        )}
-                      />
-                    </div>
-                  );
                 }
+
+                return (
+                  <div
+                    key={item.id}
+                    onClick={() => {
+                      setSelectedItem(item);
+                    }}
+                  >
+                    <CompanyCardPreview
+                      companyObj={item}
+                      className={cn(
+                        "mb-4 hover:bg-cooper-gray-100",
+                        selectedItem
+                          ? selectedItem.id === item.id &&
+                              "bg-cooper-gray-200 hover:bg-cooper-gray-200"
+                          : !i && "bg-cooper-gray-200 hover:bg-cooper-gray-200",
+                      )}
+                    />
+                  </div>
+                );
               })}
 
               {/* Pagination */}
@@ -268,26 +345,23 @@ export default function Roles() {
                 !showRoleInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
               )}
             >
-              {rolesAndCompanies.data.items.length > 0 &&
-                rolesAndCompanies.data.items[0] &&
-                (isRole(selectedItem ?? rolesAndCompanies.data.items[0]) ? (
+              {selectedRole && (
+                <div className="flex w-full items-center justify-end px-4 py-2">
+                  <CompareControls anchorRoleId={selectedRole.id} />
+                </div>
+              )}
+              {selectedRole ? (
+                compare.isCompareMode ? (
+                  <CompareColumns anchorRole={selectedRole} />
+                ) : (
                   <RoleInfo
-                    roleObj={
-                      (selectedItem ??
-                        rolesAndCompanies.data.items[0]) as RoleType
-                    }
+                    roleObj={selectedRole}
                     onBack={() => setShowRoleInfo(false)}
                   />
-                ) : (
-                  <div>
-                    <CompanyInfo
-                      companyObj={
-                        (selectedItem ??
-                          rolesAndCompanies.data.items[0]) as CompanyType
-                      }
-                    />{" "}
-                  </div>
-                ))}
+                )
+              ) : (
+                selectedCompany && <CompanyInfo companyObj={selectedCompany} />
+              )}
             </div>
           </div>
         )}
