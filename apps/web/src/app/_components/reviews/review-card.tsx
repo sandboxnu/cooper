@@ -36,10 +36,10 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
     >
       <div className="flex w-full flex-wrap">
         <div className="w-full sm:w-[17%]">
-          <CardContent className="flex h-full flex-col justify-between pr-0">
-            <div>
-              <div className="flex flex-row gap-2">
-                <div className="text-4xl text-[#151515]">
+          <CardContent className="flex h-full pr-0">
+            <div className="flex md:flex-col flex-row justify-between w-full">
+              <div className="flex flex-row gap-2 items-center">
+                <div className="md:text-4xl text-2xl text-[#151515]">
                   {reviewObj.overallRating.toFixed(1)}
                 </div>
                 <Image
@@ -47,6 +47,7 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
                   alt="Star icon"
                   width={28}
                   height={28}
+                  className="w-5 h-5 md:w-7 md:h-7"
                 />
               </div>
               <div className="align-center flex flex-col pt-2 text-cooper-gray-350 text-sm">
@@ -65,35 +66,27 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
           </CardContent>
         </div>
         <div className="w-full sm:w-[83%]">
-          <CardContent className="flex h-full flex-col justify-between gap-4 pl-4 sm:pl-0">
-            <div className="flex flex-row justify-between">
-              <div className="pt-1">{reviewObj.textReview}</div>
-              {isAuthor && <DeleteReviewDialog reviewId={reviewObj.id} />}
-            </div>
+          <CardContent className="flex h-full flex-col justify-between gap-4 md:pl-4 sm:pl-0 md:pt-0 pt-5">
             <div className="flex justify-between text-sm">
-              <div className="flex gap-10 bg-cooper-gray-100 p-3 pl-4 pr-4 rounded-lg">
-                <div className="flex flex-row gap-2">
+              <div className="flex md:gap-10 gap-6 bg-cooper-gray-100 p-3 md:pl-4 pr-4 rounded-lg">
+                <div className="flex md:flex-row flex-col gap-2">
                   <span className="text-cooper-gray-350">Job type</span> Co-op
                 </div>
-                <div className="flex flex-row gap-2">
+                <div className="flex md:flex-row flex-col gap-2">
                   <span className="text-cooper-gray-350">Work model</span>
                   {prettyWorkEnviornment(
                     reviewObj.workEnvironment as WorkEnvironmentType,
                   )}
                 </div>
-                <div className="flex flex-row gap-2">
+                <div className="flex md:flex-row flex-col gap-2">
                   <span className="text-cooper-gray-350">Pay</span> $
-                  {reviewObj.hourlyPay} / hr
+                  {reviewObj.hourlyPay}/hr
                 </div>
               </div>
-
-              <Image
-                src="/svg/reviewReport.svg"
-                alt="Star icon"
-                width={16}
-                height={15}
-                className="cursor-pointer"
-              />
+            </div>
+            <div className="flex flex-row justify-between">
+              <div className="pt-1">{reviewObj.textReview}</div>
+              {isAuthor && <DeleteReviewDialog reviewId={reviewObj.id} />}
             </div>
           </CardContent>
         </div>
