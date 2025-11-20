@@ -1,12 +1,15 @@
 "use client";
+
+import Image from "next/image";
+
 import type { CompanyType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 import Logo from "@cooper/ui/logo";
+
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { FavoriteButton } from "../shared/favorite-button";
-import Image from "next/image";
 
 interface CompanyCardPreviewProps {
   className?: string;
@@ -34,7 +37,7 @@ export function CompanyCardPreview({
   return (
     <Card
       className={cn(
-        "flex flex-col justify-between rounded-lg outline outline-[0.75px] outline-cooper-gray-150 h-fit",
+        "outline-cooper-gray-150 flex h-fit flex-col justify-between rounded-lg outline outline-[0.75px]",
         className,
       )}
     >
@@ -73,7 +76,7 @@ export function CompanyCardPreview({
           <CardContent>
             {averageRating !== 0 ? (
               <div className="align-center flex gap-2 text-cooper-gray-400">
-                <div className=" flex gap-1">
+                <div className="flex gap-1">
                   <Image
                     src="/svg/star.svg"
                     alt="Star icon"
@@ -82,7 +85,8 @@ export function CompanyCardPreview({
                   />
                   <div>{averageRating}</div>
                 </div>
-                ({reviews.data?.length} reviews)
+                ({reviews.data?.length}{" "}
+                {reviews.data?.length === 1 ? "review" : "reviews"})
               </div>
             ) : (
               <div className="text-cooper-gray-400">No ratings yet</div>

@@ -1,8 +1,11 @@
 "use client";
-import type { CompanyType } from "@cooper/db/schema";
-import { Input } from "../themed/onboarding/input";
+
 import { useState } from "react";
+
+import type { CompanyType } from "@cooper/db/schema";
+
 import { CompanyCardPreview } from "../companies/company-card-preview";
+import { Input } from "../themed/onboarding/input";
 
 export default function FavoriteCompanySearch({
   favoriteCompanies,
@@ -20,17 +23,17 @@ export default function FavoriteCompanySearch({
     : favoriteCompanies;
   return (
     <div>
-      <article className="w-[40%] pl-1 pb-8">
+      <article className="w-[40%] pb-8 pl-1">
         <Input
           variant="dialogue"
           onChange={(e) => {
             setCompanyLabel(e.target.value);
           }}
-          className="w-full !outline-[#EAEAEA] !border-none !shadow-none"
+          className="w-full !border-none !shadow-none !outline-[#EAEAEA]"
           placeholder="Search for a saved company..."
         />
       </article>
-      <div className="mx-1 flex-col gap-4 grid grid-cols-3 pb-4">
+      <div className="mx-1 grid grid-cols-3 flex-col gap-4 pb-4">
         {prefixedCompanies.length > 0 ? (
           prefixedCompanies
             .filter(

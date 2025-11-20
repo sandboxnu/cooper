@@ -2,10 +2,12 @@
 
 import * as React from "react";
 import * as ToastPrimitives from "@radix-ui/react-toast";
+
+import { cn } from "@cooper/ui";
+
+import { ErrorToast } from "./error-toast";
 import { useToast } from "./hooks/use-toast";
 import { SuccessToast } from "./success-toast";
-import { ErrorToast } from "./error-toast";
-import { cn } from "@cooper/ui";
 
 const ToastProvider = ToastPrimitives.Provider;
 

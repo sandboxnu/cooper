@@ -22,7 +22,7 @@ export default function NewRoleCard({ companyId }: NewRoleCardProps) {
   return (
     <Card
       className={
-        "mb-4 flex h-fit w-[100%] flex-col justify-between overflow-hidden rounded-lg outline outline-[1px] outline-[#474747]"
+        "mb-4 flex h-fit w-[100%] flex-col justify-between overflow-hidden rounded-lg outline outline-[0.75px] outline-cooper-gray-150 bg-cooper-gray-100 hover:bg-cooper-gray-100"
       }
     >
       <CardHeader className="mt-1.5 pb-3">
