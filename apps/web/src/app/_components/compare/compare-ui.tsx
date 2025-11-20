@@ -24,13 +24,23 @@ export function CompareControls({ anchorRoleId }: CompareControlsProps) {
   if (!compare.isCompareMode) {
     return (
       <Button
-        className="inline-flex items-center gap-2 rounded-md border border-cooper-gray-200 bg-white px-4 py-2 text-sm font-medium text-[#141414] shadow-sm transition hover:bg-cooper-gray-100"
+        className="inline-flex items-center gap-2 rounded-md border-[0.75px] border-cooper-gray-300 bg-cooper-blue-200 px-4 py-2 text-sm font-medium text-[#141414] transition hover:bg-cooper-blue-300"
         onClick={() => compare.enterCompareMode()}
       >
-        <span className="inline-flex h-5 w-5 items-center justify-center rounded border border-cooper-gray-300 text-xs">
-          ⇄
-        </span>
-        Compare with
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-4 w-4"
+        >
+          <rect x="2" y="2" width="5" height="5" rx="1" fill="currentColor" />
+          <rect x="9" y="2" width="5" height="5" rx="1" fill="currentColor" />
+          <rect x="2" y="9" width="5" height="5" rx="1" fill="currentColor" />
+          <rect x="9" y="9" width="5" height="5" rx="1" fill="currentColor" />
+        </svg>
+        COMPARE WITH
       </Button>
     );
   }
@@ -46,22 +56,34 @@ export function CompareControls({ anchorRoleId }: CompareControlsProps) {
       <Button
         disabled={!canAdd}
         className={cn(
-          "inline-flex items-center gap-2 rounded-md border border-cooper-gray-200 bg-white px-4 py-2 text-sm font-medium text-[#141414] shadow-sm transition",
+          "inline-flex items-center gap-2 rounded-md border-[0.75px] border-cooper-gray-300 bg-white px-4 py-2 text-sm font-medium text-[#141414] transition",
           canAdd ? "hover:bg-cooper-gray-100" : "cursor-not-allowed opacity-50",
         )}
         onClick={() => compare.addSlot()}
       >
-        <span className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-cooper-gray-300 text-base leading-none">
-          +
-        </span>
-        Add comparison
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-4 w-4"
+        >
+          <path
+            d="M8 3v10M3 8h10"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        </svg>
+        ADD COMPARISON
       </Button>
       <Button
         variant="ghost"
-        className="rounded-md border border-cooper-gray-200 bg-white px-4 py-2 text-sm font-medium text-[#141414] shadow-sm transition hover:bg-cooper-gray-100"
+        className="rounded-md border-[0.75px] border-cooper-gray-300 bg-white px-4 py-2 text-sm font-medium text-[#141414] transition hover:bg-cooper-gray-100"
         onClick={() => compare.exitCompareMode()}
       >
-        Exit
+        EXIT
       </Button>
     </div>
   );
@@ -106,13 +128,9 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
   ];
 
   return (
-    <div className="relative flex flex-col gap-4">
-      <div className="flex items-center gap-2 text-sm text-cooper-gray-500">
-        Drag roles from the list into the compare area. Maximum of three roles at
-        once.
-      </div>
+    <div className="relative flex flex-col gap-4 px-3">
       <div className="relative min-h-[70dvh] w-full overflow-x-auto">
-        <div className="flex min-h-full gap-4 pb-4 pr-4 transition">
+        <div className="flex min-h-full gap-3 pb-4 pr-4 transition">
           {columns.map((column, index) => {
             const widthClass =
               columns.length === 1
@@ -129,7 +147,7 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
               <div
                 key={column.key}
                 className={cn(
-                  "relative flex-1 rounded-xl border border-cooper-gray-150 bg-white shadow-sm transition",
+                  "relative flex-1 rounded-lg border-[0.75px] border-cooper-gray-300 bg-white shadow-sm transition",
                   widthClass,
                 )}
               >
@@ -137,7 +155,7 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
                   <button
                     type="button"
                     aria-label="Remove from comparison"
-                    className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-cooper-gray-300 bg-white text-lg text-cooper-gray-500 shadow-sm transition hover:bg-cooper-gray-100"
+                    className="absolute right-3 top-3 z-10 flex h-6 w-6 items-center justify-center rounded-full border-[0.75px] border-cooper-gray-300 bg-white text-lg leading-none text-cooper-gray-500 shadow-sm transition hover:bg-cooper-gray-100"
                     onClick={() => compare.removeRoleId(column.role.id)}
                   >
                     ×
@@ -179,19 +197,19 @@ function DropSlot({ widthClass }: { widthClass: string }) {
         }
       }}
       className={cn(
-        "flex flex-1 items-center justify-center rounded-xl border-2 border-dashed bg-cooper-gray-50 text-cooper-gray-500 transition",
+        "flex flex-1 items-center justify-center rounded-lg border-2 border-dashed bg-white text-cooper-gray-400 transition",
         isActive
           ? "border-cooper-blue-300 bg-cooper-blue-50"
-          : "border-cooper-gray-200",
+          : "border-cooper-gray-300",
         widthClass,
       )}
     >
-      <div className="flex flex-col items-center gap-3 text-center">
-        <span className="flex h-12 w-12 items-center justify-center rounded-full border border-cooper-gray-300 bg-white text-3xl text-cooper-gray-400">
+      <div className="flex flex-col items-center gap-3 px-6 text-center">
+        <span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-cooper-gray-300 bg-white text-3xl text-cooper-gray-400">
           +
         </span>
-        <p className="text-sm">
-          Drag in or select a role from the list to add to the comparison
+        <p className="text-sm text-cooper-gray-500">
+          Drag in or select a card from the list
         </p>
       </div>
     </div>
