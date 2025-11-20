@@ -35,7 +35,7 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
       )}
     >
       <div className="flex w-full flex-wrap">
-        <div className="w-full sm:w-[20%]">
+        <div className="w-full sm:w-[17%]">
           <CardContent className="flex h-full flex-col justify-between pr-0">
             <div>
               <div className="flex flex-row gap-2">
@@ -49,7 +49,7 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
                   height={28}
                 />
               </div>
-              <div className="align-center flex flex-col  pt-2 text-cooper-gray-350">
+              <div className="align-center flex flex-col pt-2 text-cooper-gray-350 text-sm">
                 <span
                   className={`${location && prettyLocationName(location) ? "visibility: visible" : "visibility: hidden"}`}
                 >
@@ -64,7 +64,7 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
             </div>
           </CardContent>
         </div>
-        <div className="w-full sm:w-[80%]">
+        <div className="w-full sm:w-[83%]">
           <CardContent className="flex h-full flex-col justify-between gap-4 pl-4 sm:pl-0">
             <div className="flex flex-row justify-between">
               <div className="pt-1">{reviewObj.textReview}</div>
