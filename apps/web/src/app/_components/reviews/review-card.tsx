@@ -67,6 +67,10 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
         </div>
         <div className="w-full sm:w-[83%]">
           <CardContent className="flex h-full flex-col justify-between gap-4 md:pl-4 sm:pl-0 md:pt-0 pt-5">
+            <div className=" flex-row justify-between hidden md:flex">
+              <div className="pt-1">{reviewObj.textReview}</div>
+              {isAuthor && <DeleteReviewDialog reviewId={reviewObj.id} />}
+            </div>
             <div className="flex justify-between text-sm">
               <div className="flex md:gap-10 gap-6 bg-cooper-gray-100 p-3 md:pl-4 pr-4 rounded-lg">
                 <div className="flex md:flex-row flex-col gap-2">
@@ -84,7 +88,7 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
                 </div>
               </div>
             </div>
-            <div className="flex flex-row justify-between">
+            <div className="flex flex-row justify-between visible md:hidden">
               <div className="pt-1">{reviewObj.textReview}</div>
               {isAuthor && <DeleteReviewDialog reviewId={reviewObj.id} />}
             </div>
