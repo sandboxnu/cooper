@@ -50,13 +50,13 @@ export function NewReviewDialog({ trigger }: NewReviewDialogProps) {
     <Dialog>
       <DialogTrigger asChild>
         {trigger ? (
-          <Button className="m-0 -mt-2 border-none bg-cooper-cream-100 p-0 text-3xl font-thin text-black outline-none hover:bg-cooper-cream-100">
+          <Button className="bg-cooper-cream-100 hover:bg-cooper-cream-100 m-0 -mt-2 border-none p-0 text-3xl font-thin text-black outline-none">
             {trigger}
           </Button>
         ) : (
-          <Button className="h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white hover:border-cooper-yellow-300 hover:bg-cooper-yellow-300">
+          <Button className="h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700">
             <span className="translate-y-[-2px] text-2xl md:hidden">+</span>
-            <span className="hidden md:inline">+ New Review</span>
+            <span className="hidden md:inline">+ ADD REVIEW</span>
           </Button>
         )}
       </DialogTrigger>

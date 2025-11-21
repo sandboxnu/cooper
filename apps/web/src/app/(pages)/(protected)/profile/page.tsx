@@ -1,9 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import { redirect } from "next/navigation";
-import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
+import Image from "next/image";
+import { redirect, useSearchParams } from "next/navigation";
 import ProfileCardHeader from "~/app/_components/profile/profile-card-header";
 
 import HeaderLayoutClient from "~/app/_components/header/header-layout-client";
@@ -39,7 +38,7 @@ export default function Profile() {
 
   if (sessionError || profileError) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex min-h-screen items-center justify-center">
         <div className="text-lg text-red-600">
           Error loading profile. Please try refreshing the page.
         </div>
@@ -92,7 +91,7 @@ export default function Profile() {
   return (
     <HeaderLayoutClient>
       <div className="bg-cooper-cream-100 w-full min-h-screen flex justify-center">
-        <div className="mx-4 mt-4 flex h-full flex-col gap-6 overflow-y-auto md:max-w-[66%] w-[66%] pt-4">
+        <div className="mx-4 mt-4 flex h-full flex-col gap-6 md:max-w-[66%] w-[66%] pt-4">
           <div className="flex items-start justify-start gap-4">
             <Image
               src={session.user.image ?? "/svg/defaultProfile.svg"}
@@ -102,7 +101,7 @@ export default function Profile() {
               className="rounded-full"
             />
             <div className="text-start">
-              <h1 className="font-bold text-[26px] font-hanken">
+              <h1 className="font-hanken text-[26px] font-bold">
                 {profile.firstName} {profile.lastName}
               </h1>
               <h2 className="text-cooper-gray-400">

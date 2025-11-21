@@ -46,7 +46,16 @@ export const authConfig = {
       }
     : {}),
   secret: env.AUTH_SECRET,
-  providers: [Google],
+  providers: [
+    Google({
+      authorization: {
+        params: {
+          hd: "husky.neu.edu",
+          prompt: "select_account",
+        },
+      },
+    }),
+  ],
   callbacks: {
     session: (opts) => {
       if (!("user" in opts))

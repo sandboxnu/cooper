@@ -1,21 +1,30 @@
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import type { ReviewType, RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 import Logo from "@cooper/ui/logo";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@cooper/ui/select";
 
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { calculateRatings } from "~/utils/reviewCountByStars";
+import { CompanyPopup } from "../companies/company-popup";
 import StarGraph from "../shared/star-graph";
 import BarGraph from "./bar-graph";
 import CollapsableInfoCard from "./collapsable-info";
 import InfoCard from "./info-card";
 import { ReviewCard } from "./review-card";
+import ReviewSearchBar from "./review-search-bar";
 import RoundBarGraph from "./round-bar-graph";
-import { CompanyPopup } from "../companies/company-popup";
+import { ReviewType, RoleType } from "@cooper/db/schema";
 
 interface RoleCardProps {
   className?: string;
@@ -24,6 +33,8 @@ interface RoleCardProps {
 }
 
 export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
+  const [ratingFilter, setRatingFilter] = useState<string>("all");
+  const [searchTerm, setSearchTerm] = useState<string>("");
   const reviews = api.review.getByRole.useQuery({ id: roleObj.id });
 
   const firstLocationId = reviews.data?.[0]?.locationId;
@@ -45,6 +56,44 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
   // ===== ROLE DATA ===== //
   const companyData = companyQuery.data;
   const averages = api.role.getAverageById.useQuery({ roleId: roleObj.id });
+  const companyReviews = api.review.getByCompany.useQuery(
+    {
+      id: companyData?.id ?? "",
+    },
+    {
+      enabled: !!companyData?.id,
+    },
+  );
+
+  const uniqueLocationIds = Array.from(
+    new Set(
+      (companyReviews.data ?? [])
+        .map((review) => review.locationId)
+        .filter((id): id is string => !!id),
+    ),
+  );
+
+  const locationQueries = api.useQueries((t) =>
+    uniqueLocationIds.map((id) =>
+      t.location.getById({ id }, { enabled: !!id }),
+    ),
+  );
+
+  const finalLocations = locationQueries
+    .map((query) => (query.data ? prettyLocationName(query.data) : null))
+    .filter((loc): loc is string => !!loc);
+
+  const avgs = api.review.list
+    .useQuery({})
+    .data?.map((review) => review.overallRating);
+  const cooperAvg: number =
+    Math.round(
+      ((avgs ?? []).reduce((accumulator, currentValue) => {
+        return accumulator + currentValue;
+      }, 0) /
+        (avgs?.length ?? 1)) *
+        10,
+    ) / 10;
 
   const perks = averages.data && {
     "Federal holidays off": averages.data.federalHolidays,
@@ -63,6 +112,23 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     { enabled: !!profileId },
   );
 
+  // Filter reviews based on selected rating and search term
+  const filteredReviews = reviews.data?.filter((review) => {
+    // Filter by rating
+    const ratingMatch =
+      ratingFilter === "all" ||
+      Math.round(review.overallRating) === parseInt(ratingFilter);
+
+    // Filter by search term
+    const searchMatch =
+      !searchTerm ||
+      review.reviewHeadline.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      review.textReview.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      review.interviewReview?.toLowerCase().includes(searchTerm.toLowerCase());
+
+    return ratingMatch && searchMatch;
+  });
+
   return (
     <div
       className={cn(
@@ -77,7 +143,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
           viewBox="0 0 14 12"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="m-4 block min-w-3 md:hidden hover:cursor-pointer"
+          className="m-4 block min-w-3 hover:cursor-pointer md:hidden"
           onClick={onBack}
         >
           <path
@@ -86,13 +152,14 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
           />
         </svg>
       )}
-      <div className="flex w-full flex-wrap items-center justify-between lg:pl-6 lg:pr-6 py-5">
-        <CardHeader className="mx-0 ">
+      <div className="flex w-full flex-wrap items-center justify-between py-5 lg:pl-6 lg:pr-6">
+        <CardHeader className="mx-0">
           <div className="flex items-center justify-start space-x-4">
             {companyData ? (
               <CompanyPopup
                 trigger={<Logo company={companyData} />}
                 company={companyData}
+                locations={finalLocations}
               />
             ) : (
               <div className="h-20 w-20 rounded-lg border bg-cooper-blue-200"></div>
@@ -111,6 +178,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                   <CompanyPopup
                     trigger={companyData.name}
                     company={companyData}
+                    locations={finalLocations}
                   />
                 )}
                 {location.isSuccess && location.data && (
@@ -120,7 +188,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             </div>
           </div>
         </CardHeader>
-        <CardContent className="grid  gap-2">
+        <CardContent className="grid gap-2">
           {reviews.isSuccess &&
             reviews.data.length > 0 &&
             (() => {
@@ -322,12 +390,46 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                       averageOverallRating={
                         averages.data?.averageOverallRating ?? 0
                       }
+                      reviews={reviews.data.length}
+                      cooperAvg={cooperAvg}
                     />
                   </div>
 
-                  {reviews.data.map((review: ReviewType) => {
-                    return <ReviewCard reviewObj={review} key={review.id} />;
-                  })}
+                  <div className="flex items-center gap-3">
+                    <Select
+                      value={ratingFilter}
+                      onValueChange={setRatingFilter}
+                    >
+                      <SelectTrigger className="w-[120px] border-[0.75px] border-cooper-gray-400 bg-cooper-gray-100 focus:ring-1 focus:ring-cooper-gray-400 focus:ring-offset-0">
+                        <SelectValue placeholder="All ratings" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all">All ratings</SelectItem>
+                        <SelectItem value="5">5 stars</SelectItem>
+                        <SelectItem value="4">4 stars</SelectItem>
+                        <SelectItem value="3">3 stars</SelectItem>
+                        <SelectItem value="2">2 stars</SelectItem>
+                        <SelectItem value="1">1 star</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <ReviewSearchBar
+                      searchTerm={searchTerm}
+                      onSearchChange={setSearchTerm}
+                      className="w-[300px]"
+                    />
+                  </div>
+
+                  {filteredReviews && filteredReviews.length > 0 ? (
+                    filteredReviews.map((review: ReviewType) => {
+                      return <ReviewCard reviewObj={review} key={review.id} />;
+                    })
+                  ) : (
+                    <div className="py-8 text-center text-cooper-gray-400">
+                      {searchTerm || ratingFilter !== "all"
+                        ? "No reviews found matching your search criteria."
+                        : "No reviews found for this rating."}
+                    </div>
+                  )}
                 </div>
               )}
             </CollapsableInfoCard>
