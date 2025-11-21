@@ -1,9 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 
 import { useFavoriteToggle } from "./useFavoriteToggle";
-import { useState } from "react";
 
 interface FavoriteButtonProps {
   objId: string;

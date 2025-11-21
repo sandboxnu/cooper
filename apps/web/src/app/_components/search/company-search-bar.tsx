@@ -76,7 +76,7 @@ export function CompanySearchBar({
       <div className="justify-left text-2xl xl:text-[30px]">
         Browse Companies
       </div>
-      <div className="flex flex-row gap-4 md:gap-6 p-1 md:items-center">
+      <div className="flex flex-row gap-4 p-1 md:items-center md:gap-6">
         <FormField
           control={form.control}
           name="searchIndustry"

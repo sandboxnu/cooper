@@ -12,9 +12,9 @@ import {
 import { CompanyType } from "@cooper/db/schema";
 import Logo from "node_modules/@cooper/ui/src/logo";
 import { FavoriteButton } from "../shared/favorite-button";
+import RenderAllRoles from "./all-company-roles";
 import { CompanyAbout } from "./company-about";
 import { CompanyReview } from "./company-reviews";
-import RenderAllRoles from "./all-company-roles";
 
 interface CompanyPopupProps {
   trigger?: React.ReactNode;
@@ -31,7 +31,7 @@ export function CompanyPopup({
     <Dialog>
       <DialogTrigger asChild>
         {trigger ? (
-          <Button className="m-0 -mt-2 border-none bg-cooper-cream-100 p-0  text-cooper-gray-400 text-md hover:underline outline-none hover:bg-cooper-cream-100">
+          <Button className="bg-cooper-cream-100 text-md hover:bg-cooper-cream-100 m-0 -mt-2 border-none p-0 text-cooper-gray-400 outline-none hover:underline">
             {trigger}
           </Button>
         ) : (

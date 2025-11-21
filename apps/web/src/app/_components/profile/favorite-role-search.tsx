@@ -1,9 +1,12 @@
 "use client";
-import { RoleType } from "@cooper/db/schema";
-import { Input } from "../themed/onboarding/input";
+
 import { useState } from "react";
-import { RoleCardPreview } from "../reviews/role-card-preview";
+
+import { RoleType } from "@cooper/db/schema";
 import { Pagination } from "@cooper/ui";
+
+import { RoleCardPreview } from "../reviews/role-card-preview";
+import { Input } from "../themed/onboarding/input";
 
 export default function FavoriteRoleSearch({
   favoriteRoles,
@@ -28,13 +31,13 @@ export default function FavoriteRoleSearch({
   return (
     <div>
       <div className="flex flex-row justify-between">
-        <div className="w-[40%] pl-1 pb-8">
+        <div className="w-[40%] pb-8 pl-1">
           <Input
             variant="dialogue"
             onChange={(e) => {
               setRoleLabel(e.target.value);
             }}
-            className="w-full !outline-[#EAEAEA] !border-none !shadow-none"
+            className="w-full !border-none !shadow-none !outline-[#EAEAEA]"
             placeholder="Search for a saved role..."
           />
         </div>
@@ -46,7 +49,7 @@ export default function FavoriteRoleSearch({
           />
         </div>
       </div>
-      <div className="mx-1 flex-col gap-4 grid grid-cols-3 pb-4 ">
+      <div className="mx-1 grid grid-cols-3 flex-col gap-4 pb-4">
         {prefixedRoles.length > 0 ? (
           prefixedRoles
             .slice(

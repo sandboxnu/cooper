@@ -1,7 +1,8 @@
 "use client";
 
-import { cn } from "@cooper/ui";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+
+import { cn } from "@cooper/ui";
 
 export default function ProfileTabs({ numReviews }: { numReviews: number }) {
   const tabs = [
@@ -24,7 +25,7 @@ export default function ProfileTabs({ numReviews }: { numReviews: number }) {
 
   return (
     <nav
-      className="flex flex-col sm:flex-row sm:space-x-4 border-b"
+      className="flex flex-col border-b sm:flex-row sm:space-x-4"
       aria-label="Tabs"
     >
       {tabs.map((tab) => (
@@ -35,9 +36,9 @@ export default function ProfileTabs({ numReviews }: { numReviews: number }) {
           }}
           className={cn(
             tab.value === currentTab
-              ? "border-primary-500 text-[#151515] border-[#151515]"
-              : "border-transparent hover:border-gray-300 hover:text-gray-700 text-[#5A5A5A]",
-            "flex items-center border-b-2 px-1 py-2 text-sm font-medium whitespace-nowrap",
+              ? "border-primary-500 border-[#151515] text-[#151515]"
+              : "border-transparent text-[#5A5A5A] hover:border-gray-300 hover:text-gray-700",
+            "flex items-center whitespace-nowrap border-b-2 px-1 py-2 text-sm font-medium",
           )}
         >
           {tab.name} {tab.name === "My reviews" ? "(" + numReviews + ")" : ""}

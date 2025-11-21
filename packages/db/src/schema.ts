@@ -20,22 +20,22 @@ import {
   Profile,
   UpdateProfileNameMajorSchema,
 } from "./schema/profiles";
+import {
+  CreateProfileToCompanySchema,
+  ProfilesToCompanies,
+} from "./schema/profilesToCompanies";
+import {
+  CreateProfileToRoleSchema,
+  ProfilesToRoles,
+} from "./schema/profilesToRoles";
+import {
+  CreateProfileToReviewSchema,
+  ProfilesToReviews,
+} from "./schema/profliesToReviews";
 import { CreateReviewSchema, Review } from "./schema/reviews";
 import { CreateRoleSchema, Role } from "./schema/roles";
 import { Session } from "./schema/sessions";
 import { User } from "./schema/users";
-import {
-  ProfilesToRoles,
-  CreateProfileToRoleSchema,
-} from "./schema/profilesToRoles";
-import {
-  ProfilesToCompanies,
-  CreateProfileToCompanySchema,
-} from "./schema/profilesToCompanies";
-import {
-  ProfilesToReviews,
-  CreateProfileToReviewSchema,
-} from "./schema/profliesToReviews";
 
 export {
   Account,

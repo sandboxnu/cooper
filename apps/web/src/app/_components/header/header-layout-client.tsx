@@ -3,10 +3,9 @@
 import type { ReactNode } from "react";
 
 import Header from "~/app/_components/header/header";
+import { api } from "~/trpc/react";
 import LoginButtonClient from "../auth/login-button-client";
 import ProfileButtonClient from "../profile/profile-button-client";
-import { api } from "~/trpc/react";
-
 /**
  * Client-side version of HeaderLayout for use in client components.
  * This should be used when placing content under the header in client components.
