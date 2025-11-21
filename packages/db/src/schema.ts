@@ -15,7 +15,11 @@ import {
 } from "./schema/companiesToLocations";
 import { CreateLocationSchema, Location } from "./schema/locations";
 import { Industry, WorkEnvironment, WorkTerm } from "./schema/misc";
-import { CreateProfileSchema, Profile } from "./schema/profiles";
+import {
+  CreateProfileSchema,
+  Profile,
+  UpdateProfileNameMajorSchema,
+} from "./schema/profiles";
 import {
   CreateProfileToCompanySchema,
   ProfilesToCompanies,
@@ -56,6 +60,7 @@ export {
   CreateReviewSchema,
   CreateRoleSchema,
   CreateLocationSchema,
+  UpdateProfileNameMajorSchema,
   WorkTerm,
   WorkEnvironment,
 };
