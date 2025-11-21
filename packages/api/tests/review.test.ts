@@ -127,6 +127,7 @@ describe("Review Router", async () => {
         website: "https://company1.com",
         createdAt: new Date(),
         updatedAt: new Date(),
+        slug: "company-1",
       },
       {
         id: "2",
@@ -136,6 +137,7 @@ describe("Review Router", async () => {
         website: "https://company2.com",
         createdAt: new Date(),
         updatedAt: new Date(),
+        slug: "company-2",
       },
       {
         id: "3",
@@ -145,6 +147,7 @@ describe("Review Router", async () => {
         website: "https://company3.com",
         createdAt: new Date(),
         updatedAt: new Date(),
+        slug: "company-3",
       },
       {
         id: "4",
@@ -154,6 +157,7 @@ describe("Review Router", async () => {
         website: "https://company4.com",
         createdAt: new Date(),
         updatedAt: new Date(),
+        slug: "company-4",
       },
     ]);
 
