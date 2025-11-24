@@ -13,15 +13,12 @@ import {
 import { RadioGroup, RadioGroupItem } from "@cooper/ui/radio-group";
 
 import { FormSection } from "~/app/_components/form/form-section";
-
-interface CoopCycleSectionProps {
-  textColor: string;
-}
+import { ChevronDown } from "lucide-react";
 
 /**
  * CoopCycleSection component renders form fields for selecting co-op cycle and year.
  */
-export function CoopCycleSection({ textColor }: CoopCycleSectionProps) {
+export function CoopCycleSection() {
   const form = useFormContext();
 
   // Need to evaluate whether this is a bad idea
@@ -32,19 +29,21 @@ export function CoopCycleSection({ textColor }: CoopCycleSectionProps) {
   );
 
   return (
-    <FormSection title="Co-op Cycle" className={textColor}>
+    <FormSection title="" className="">
       <FormField
         control={form.control}
         name="workTerm"
         render={({ field }) => (
           <FormItem className="space-y-6">
-            <FormLabel>Co-op Cycle*</FormLabel>
+            <FormLabel className="text-cooper-gray-400 text-md">
+              Co-op cycle*
+            </FormLabel>
             <FormControl>
               <RadioGroup
                 onValueChange={field.onChange}
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 defaultValue={field.value}
-                className="flex flex-col space-y-3"
+                className="flex flex-col space-y-2"
               >
                 <FormItem className="flex items-center space-x-4 space-y-0">
                   <FormControl>
@@ -58,20 +57,20 @@ export function CoopCycleSection({ textColor }: CoopCycleSectionProps) {
                 <FormItem className="flex items-center space-x-4 space-y-0">
                   <FormControl>
                     <RadioGroupItem
-                      value="FALL"
-                      checked={field.value === "FALL"}
-                    />
-                  </FormControl>
-                  <FormLabel>Fall</FormLabel>
-                </FormItem>
-                <FormItem className="flex items-center space-x-4 space-y-0">
-                  <FormControl>
-                    <RadioGroupItem
                       value="SUMMER"
                       checked={field.value === "SUMMER"}
                     />
                   </FormControl>
                   <FormLabel>Summer</FormLabel>
+                </FormItem>
+                <FormItem className="flex items-center space-x-4 space-y-0">
+                  <FormControl>
+                    <RadioGroupItem
+                      value="FALL"
+                      checked={field.value === "FALL"}
+                    />
+                  </FormControl>
+                  <FormLabel>Fall</FormLabel>
                 </FormItem>
               </RadioGroup>
             </FormControl>
@@ -84,16 +83,18 @@ export function CoopCycleSection({ textColor }: CoopCycleSectionProps) {
         name="workYear"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Co-op Year*</FormLabel>
+            <FormLabel className="text-cooper-gray-350 font-medium">
+              Year*
+            </FormLabel>
             <div className="relative w-full">
               <FormControl>
                 <select
                   className={cn(
-                    "w-full appearance-none rounded-md border-2 border-cooper-blue-600 bg-transparent px-6 py-3 pr-8 text-2xl font-semibold text-cooper-blue-600",
+                    "w-full appearance-none rounded-md border-2 border-cooper-gray-150 bg-transparent px-6 py-3 pr-8 text-md font-semibold text-cooper-gray-350",
                   )}
                   {...field}
                 >
-                  <option value={undefined}>Select the year you co-oped</option>
+                  <option value={undefined}>Select year worked...</option>
                   {years.map((year) => (
                     <option key={year} value={year}>
                       {year}
@@ -101,7 +102,7 @@ export function CoopCycleSection({ textColor }: CoopCycleSectionProps) {
                   ))}
                 </select>
               </FormControl>
-              <TriangleDownIcon className="absolute right-5 top-5 h-6 w-6 text-cooper-blue-600" />
+              <ChevronDown className="absolute right-5 top-5 h-6 w-6 text-cooper-gray-350" />
             </div>
             <FormMessage />
           </FormItem>

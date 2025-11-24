@@ -37,7 +37,7 @@ export default function Companies({
         industry={searchParams?.industry}
         location={locationQuery.data}
       />
-      <hr className="mt-4 w-full border-t border-[#9A9A9A]" />
+      <hr className="mt-4 w-full border-t border-cooper-gray-350" />
       <div className="md:overflow-y-auto">
         <p className="mt-2 text-[26px]">
           {searchParams?.industry ? (

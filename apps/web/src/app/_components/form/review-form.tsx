@@ -472,11 +472,7 @@ export function ReviewForm(props: ReviewFormProps) {
       >
         <ProgressBar />
         <div className="w-full border border-blue-100"></div>
-        {currentStep === 1 && (
-          <CoopCycleSection
-            textColor={steps[currentStep - 1]?.textColor ?? ""}
-          />
-        )}
+        {currentStep === 1 && <CoopCycleSection />}
         {currentStep == 2 && (
           <RatingsSection textColor={steps[currentStep - 1]?.textColor ?? ""} />
         )}
