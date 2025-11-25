@@ -6,15 +6,11 @@ import Fuse from "fuse.js";
 import { Form, FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 
-import type { CompanyType, RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
-import { Button } from "@cooper/ui/button";
-import { DialogFooter } from "@cooper/ui/dialog";
 import { FormControl, FormField, FormItem, FormMessage } from "@cooper/ui/form";
 import { useCustomToast } from "@cooper/ui/hooks/use-custom-toast";
 import { Input } from "@cooper/ui/input";
 import { Label } from "@cooper/ui/label";
-import Logo from "@cooper/ui/logo";
 import { Textarea } from "@cooper/ui/textarea";
 
 import type { RoleRequestType } from "../new-role-dialogue";
@@ -187,99 +183,120 @@ export default function ExistingCompanyContent({
     <>
       <div className="flex flex-col gap-4">
         {/* Company Section */}
-        <article>
-          <p className="text-lg font-semibold">Company Name</p>
-          <Input
-            variant="dialogue"
-            onChange={(e) => {
-              setCompanyLabel(e.target.value);
-              handleUpdateCompanyId(undefined);
-            }}
-            className="w-full"
-          />
-          <div className="mt-2 grid w-full grid-cols-1 gap-2">
-            {companies.isSuccess &&
-              companies.data.length > 0 &&
-              companies.data.map((company: CompanyType) => (
-                <div
-                  key={company.id}
-                  className={cn(
-                    "flex items-center justify-start space-x-4 rounded-lg border border-cooper-gray-300 p-2 hover:cursor-pointer",
-                    selectedCompanyId === company.id && "bg-cooper-blue-200",
-                  )}
-                  onClick={() => {
-                    handleUpdateCompanyId(company.id);
-                    setCreatingNewRole(false);
-                    setSelectedRoleId(undefined);
-                  }}
-                >
-                  <Logo company={company} />
-                  <h2 className="text-lg font-semibold">{company.name}</h2>
-                </div>
-              ))}
-            {companies.isSuccess && companies.data.length === 0 && (
-              <div className="text-md flex items-center rounded-lg py-2">
-                <h2 className="text-lg italic">No companies found</h2>
+        {/* Company Autocomplete */}
+<article>
+  <p className="text-lg font-semibold">Company name*</p>
+
+  <div className="relative w-[70%]">
+    <Input
+      variant="dialogue"
+      placeholder="Search companies…"
+      className="w-full"
+      value={companyLabel}
+      onChange={(e) => {
+        setCompanyLabel(e.target.value);
+        handleUpdateCompanyId(undefined);
+        setSelectedRoleId(undefined);
+      }}
+    />
+
+    {companyLabel && companies.data && (
+      <div className="absolute left-0 right-0 mt-1 max-h-60 overflow-auto rounded-md border bg-white shadow-lg z-50">
+
+        {companies.data.length > 0 ? (
+          companies.data.map((company) => (
+            <div
+              key={company.id}
+              className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
+              onClick={() => {
+                setCompanyLabel(company.name);
+                handleUpdateCompanyId(company.id);
+                setSelectedRoleId(undefined);
+              }}
+            >
+              {company.name}
+            </div>
+          ))
+        ) : (
+          <p className="px-3 py-2 italic text-gray-400">
+            No matching companies
+          </p>
+        )}
+
+      </div>
+    )}
+  </div>
+</article>
+
+
+
+{/* Roles Autocomplete */}
+
+  <article className="mt-6">
+    <p className="text-lg font-semibold">Role name*</p>
+
+    <div className="relative w-[70%]">
+      <Input
+        variant="dialogue"
+        placeholder="Search roles…"
+        value={
+          roles.data?.find((r) => r.id === selectedRoleId)?.title ?? ""
+        }
+        disabled={!selectedCompanyId}
+        onChange={(e) => {
+          setSelectedRoleId(undefined);
+          setCreatingNewRole(false);
+        }}
+        onFocus={() => setCreatingNewRole(false)}
+        className="w-full"
+      />
+
+      {roles.data && (
+        <div className="absolute left-0 right-0 mt-1 max-h-60 overflow-auto rounded-md border bg-white shadow-lg z-50">
+
+          {roles.data.length === 0 && createdRolesCount < 4 && (
+            <div
+              className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
+              onClick={() => {
+                setCreatingNewRole(true);
+                setSelectedRoleId(undefined);
+              }}
+            >
+              + Create a new role
+            </div>
+          )}
+
+          {roles.data.length > 0 &&
+            roles.data.map((role) => (
+              <div
+                key={role.id}
+                className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
+                onClick={() => {
+                  setSelectedRoleId(role.id);
+                  setCreatingNewRole(false);
+                }}
+              >
+                {role.title}
               </div>
-            )}
-            {companies.isPending && (
-              <div className="flex h-16 items-center justify-start rounded-lg p-4">
-                <h2 className="text-lg italic">Loading...</h2>
-              </div>
-            )}
-          </div>
-        </article>
-        {/* Roles Section */}
-        {selectedCompanyId && (
-          <>
-            <article>
-              <p className="text-lg font-semibold">Roles</p>
-              <div className="mt-2 grid w-full grid-cols-1 gap-2">
-                {roles.isSuccess && roles.data.length > 0 && (
-                  <>
-                    {roles.data.map((role: RoleType) => (
-                      <div
-                        key={role.id}
-                        className={cn(
-                          "flex flex-col items-start justify-start rounded-lg border border-cooper-gray-300 p-2 hover:cursor-pointer",
-                          selectedRoleId === role.id && "bg-cooper-blue-200",
-                        )}
-                        onClick={() => {
-                          setSelectedRoleId(role.id);
-                          setCreatingNewRole(false);
-                        }}
-                      >
-                        <h2 className="text-lg font-semibold">{role.title}</h2>
-                        <p className="text-md">{role.description}</p>
-                      </div>
-                    ))}
-                    {createdRolesCount < 4 && createNewRoleButton}
-                  </>
-                )}
-                {roles.isPending && (
-                  <div className="flex items-center rounded-lg py-2">
-                    <h2 className="text-lg italic">Loading...</h2>
-                  </div>
-                )}
-                {createdRolesCount < 4 &&
-                  roles.isSuccess &&
-                  roles.data.length === 0 &&
-                  createNewRoleButton}
-                {createdRolesCount >= 4 && (
-                  <div className="flex flex-col items-center justify-center rounded-lg border border-cooper-gray-300 p-2">
-                    <h2 className="text-center text-lg">
-                      You have already created the maximum number of roles.
-                    </h2>
-                    <p className="text-md">
-                      Thank you for contributing to{" "}
-                      <span className="font-bold text-cooper-blue-800">
-                        cooper!
-                      </span>
-                    </p>
-                  </div>
-                )}
-              </div>
-            </article>
+            ))}
+
+          {createdRolesCount < 4 && roles.data.length > 0 && (
+            <div
+              className="px-3 py-2 hover:bg-gray-100 cursor-pointer border-t"
+              onClick={() => {
+                setCreatingNewRole(true);
+                setSelectedRoleId(undefined);
+              }}
+            >
+              + Create a new role
+            </div>
+          )}
+
+        </div>
+      )}
+    </div>
+  </article>
+
             {/* Create New Role Section */}
             {creatingNewRole && (
               <article>
@@ -321,21 +338,9 @@ export default function ExistingCompanyContent({
                 </FormProvider>
               </article>
             )}
-          </>
-        )}
+          
       </div>
-      <DialogFooter className="mt-4">
-        <Button
-          className="border-none bg-cooper-yellow-500 text-white hover:bg-cooper-yellow-300"
-          disabled={
-            ((!selectedCompanyId || !selectedRoleId) && !creatingNewRole) ||
-            isLoading
-          }
-          onClick={handleSubmit}
-        >
-          {isLoading ? "Loading..." : "Start Review"}
-        </Button>
-      </DialogFooter>
+      
     </>
   );
 }

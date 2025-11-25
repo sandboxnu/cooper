@@ -17,7 +17,6 @@ import { benefits } from "~/app/_components/form/review-form";
 
 interface CompanyDetailsSectionProps {
   companyName: string;
-  textColor: string;
 }
 
 /**
@@ -29,13 +28,13 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
   const [otherBenefits, setOtherBenefits] = useState(false);
 
   return (
-    <FormSection title="Company Details" className={props.textColor}>
+    <FormSection>
       <FormField
         control={form.control}
         name="workEnvironment"
         render={({ field }) => (
           <FormItem className="space-y-6">
-            <FormLabel>What kind of work model?*</FormLabel>
+            <FormLabel>Work model*</FormLabel>
             <FormControl>
               <RadioGroup
                 onValueChange={field.onChange}
@@ -81,7 +80,7 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
         name="drugTest"
         render={({ field }) => (
           <FormItem className="space-y-6">
-            <FormLabel>Did {props.companyName} drug test?*</FormLabel>
+            <FormLabel>Drug test*</FormLabel>
             <FormControl>
               <RadioGroup
                 onValueChange={field.onChange}
@@ -118,7 +117,7 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
         name="overtimeNormal"
         render={({ field }) => (
           <FormItem className="space-y-6">
-            <FormLabel>Was working overtime common?*</FormLabel>
+            <FormLabel>Overtime*</FormLabel>
             <FormControl>
               <RadioGroup
                 onValueChange={field.onChange}
@@ -151,7 +150,7 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
         )}
       />
       <FormLabel>
-        Select the benefit(s) that {props.companyName} offered
+        Benefit(s) 
       </FormLabel>
       {benefits.map((benefit) => (
         <FormField
@@ -172,31 +171,6 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
           )}
         />
       ))}
-      <FormItem className="flex flex-row items-start space-x-4 space-y-0">
-        <Checkbox
-          checked={otherBenefits}
-          onCheckedChange={(c) => setOtherBenefits(!!c)}
-        />
-        <FormLabel>Other</FormLabel>
-        <FormMessage />
-      </FormItem>
-      {otherBenefits && (
-        <FormField
-          control={form.control}
-          name="otherBenefits"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Textarea
-                  placeholder="Please type the other benefits here."
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-      )}
     </FormSection>
   );
 }

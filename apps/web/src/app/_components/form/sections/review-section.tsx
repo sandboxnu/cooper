@@ -16,11 +16,13 @@ import { Textarea } from "@cooper/ui/textarea";
 import { FormSection } from "~/app/_components/form/form-section";
 import { api } from "~/trpc/react";
 import LocationBox from "../../location";
+import { RadioGroup, RadioGroupItem } from "node_modules/@cooper/ui/src/radio-group";
+import { NumberedRating } from "../numbered-rating";
 
 /**
  * ReviewSection component renders form fields for writing a co-op review.
  */
-export function ReviewSection({ textColor }: { textColor: string }) {
+export function ReviewSection() {
   const form = useFormContext();
 
   const [locationLabel, setLocationLabel] = useState<string>("");
@@ -72,7 +74,7 @@ export function ReviewSection({ textColor }: { textColor: string }) {
   }, [locationByIdData, locationLabel]);
 
   return (
-    <FormSection title="Review" className={textColor}>
+    <FormSection>
       <FormField
         control={form.control}
         name="reviewHeadline"
@@ -80,7 +82,7 @@ export function ReviewSection({ textColor }: { textColor: string }) {
           <FormItem>
             <FormLabel>Review Headline*</FormLabel>
             <FormControl>
-              <Input {...field} />
+              <Input {...field} placeholder="Ex. SWE Experience @ Google"/>
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -91,36 +93,76 @@ export function ReviewSection({ textColor }: { textColor: string }) {
         name="textReview"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Tell us about your co-op experience*</FormLabel>
+            <FormLabel>Your co-op experience*</FormLabel>
             <FormControl>
-              <Textarea {...field} />
+              <Textarea {...field} placeholder="Write about your co-op experience..."/>
             </FormControl>
             <FormMessage />
           </FormItem>
         )}
       />
       <div className="flex flex-col justify-between overflow-hidden md:flex-row md:space-x-2">
-        <LocationBox
-          searchBar={false}
-          form={form}
-          locationLabel={locationLabel}
-          setSearchTerm={setSearchTerm}
-          locationValuesAndLabels={locationValuesAndLabels}
-          setLocationLabel={setLocationLabel}
-        />
+        
         <FormField
-          control={form.control}
-          name="hourlyPay"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Hourly Pay (USD)</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        control={form.control}
+        name="overallRating"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>
+              Overall co-op experience*
+            </FormLabel>
+            <FormControl>
+              <NumberedRating {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+      <FormField
+        control={form.control}
+        name="cultureRating"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>
+              Company culture*
+            </FormLabel>
+            <FormControl>
+              <NumberedRating {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+      <FormField
+        control={form.control}
+        name="supervisorRating"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Supervisor rating*</FormLabel>
+            <FormControl>
+              <NumberedRating {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+      <FormField
+        control={form.control}
+        name="interviewRating"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>
+              Interview experience*
+            </FormLabel>
+            <FormControl>
+              <NumberedRating {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+      
+      
       </div>
     </FormSection>
   );

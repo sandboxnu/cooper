@@ -14,11 +14,12 @@ import { RadioGroup, RadioGroupItem } from "@cooper/ui/radio-group";
 
 import { FormSection } from "~/app/_components/form/form-section";
 import { ChevronDown } from "lucide-react";
+import ExistingCompanyContent from "../../reviews/new-review/existing-company-content";
 
 /**
  * CoopCycleSection component renders form fields for selecting co-op cycle and year.
  */
-export function CoopCycleSection() {
+export function BasicInfoSection() {
   const form = useFormContext();
 
   // Need to evaluate whether this is a bad idea
@@ -29,7 +30,8 @@ export function CoopCycleSection() {
   );
 
   return (
-    <FormSection title="" className="">
+    <FormSection>
+      <ExistingCompanyContent createdRolesCount={0} />
       <FormField
         control={form.control}
         name="workTerm"

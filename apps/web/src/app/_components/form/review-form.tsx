@@ -19,8 +19,7 @@ import { CheckIcon } from "@cooper/ui/icons";
 
 import {
   CompanyDetailsSection,
-  CoopCycleSection,
-  RatingsSection,
+  BasicInfoSection,
   ReviewSection,
 } from "~/app/_components/form/sections";
 import { SubmissionConfirmation } from "~/app/_components/form/submission-confirmation";
@@ -141,11 +140,16 @@ const formSchema = z.object({
 export type ReviewFormType = typeof formSchema;
 
 export const benefits = [
-  { field: "pto", label: "PTO" },
+  { field: "pto", label: "Paid time off (PTO)" },
   { field: "federalHolidays", label: "Federal holidays off" },
-  { field: "freeLunch", label: "Free lunch" },
+  { field: "lunchProvided", label: "Lunch provided" },
   { field: "freeTransport", label: "Free transportation" },
-  { field: "freeMerch", label: "Free merchandise" },
+  { field: "overtimePay", label: "Overtime pay" },
+  { field: "sickLeave", label: "Sick leave" },
+  { field: "teamSocials", label: "Team socials" },
+  { field: "paidLeave", label: "Paid leave" },
+  { field: "mentorshipProgram", label: "Mentorship program" },
+  { field: "companySwag", label: "Company swag" },
 ];
 
 // This object is CURSED. It's a mess to maintain and update.
@@ -472,17 +476,13 @@ export function ReviewForm(props: ReviewFormProps) {
       >
         <ProgressBar />
         <div className="w-full border border-blue-100"></div>
-        {currentStep === 1 && <CoopCycleSection />}
-        {currentStep == 2 && (
-          <RatingsSection textColor={steps[currentStep - 1]?.textColor ?? ""} />
-        )}
+
         {currentStep == 3 && (
-          <ReviewSection textColor={steps[currentStep - 1]?.textColor ?? ""} />
+          <ReviewSection />
         )}
         {currentStep == 4 && (
           <CompanyDetailsSection
             companyName={props.company.name}
-            textColor={steps[currentStep - 1]?.textColor ?? ""}
           />
         )}
         {currentStep >= 1 && currentStep <= steps.length && (
