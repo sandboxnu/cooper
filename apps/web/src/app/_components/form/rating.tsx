@@ -33,7 +33,7 @@ export const Rating = forwardRef<HTMLInputElement, RatingProps>(
               strokeWidth={0}
               stroke="white"
               className={cn(
-                "size-20",
+                "size-9",
                 i < hoveredIndex || i < +getValues(name)
                   ? "fill-cooper-yellow-500"
                   : "fill-cooper-gray-200",

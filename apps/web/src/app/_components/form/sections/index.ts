@@ -9,5 +9,5 @@ export {
   ReviewSection,
   CompanyDetailsSection,
   InterviewSection,
-  RoleInfoSection
+  RoleInfoSection,
 };

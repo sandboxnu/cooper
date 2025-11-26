@@ -33,7 +33,7 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
         control={form.control}
         name="workEnvironment"
         render={({ field }) => (
-          <FormItem className="space-y-6">
+          <FormItem className="space-y-6 flex flex-row gap-14">
             <FormLabel>Work model*</FormLabel>
             <FormControl>
               <RadioGroup
@@ -79,7 +79,7 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
         control={form.control}
         name="drugTest"
         render={({ field }) => (
-          <FormItem className="space-y-6">
+          <FormItem className="space-y-6 flex flex-row gap-14">
             <FormLabel>Drug test*</FormLabel>
             <FormControl>
               <RadioGroup
@@ -116,7 +116,7 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
         control={form.control}
         name="overtimeNormal"
         render={({ field }) => (
-          <FormItem className="space-y-6">
+          <FormItem className="space-y-6 flex flex-row gap-14">
             <FormLabel>Overtime*</FormLabel>
             <FormControl>
               <RadioGroup
@@ -149,9 +149,7 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
           </FormItem>
         )}
       />
-      <FormLabel>
-        Benefit(s) 
-      </FormLabel>
+      <FormLabel>Benefit(s)</FormLabel>
       {benefits.map((benefit) => (
         <FormField
           key={benefit.field}

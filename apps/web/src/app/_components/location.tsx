@@ -57,15 +57,16 @@ export default function LocationBox({
             searchBar ? "col-span-5 lg:col-span-2" : "flex flex-col justify-end"
           }
         >
-          {!searchBar && <FormLabel>Location</FormLabel>}
+          {!searchBar && <FormLabel></FormLabel>}
           <FormControl>
             <ComboBox
               {...field}
               variant={searchBar ? "filtering" : "form"}
               defaultLabel={
-                locationLabel || (searchBar ? "Location" : "Type to begin...")
+                locationLabel ||
+                (searchBar ? "Location" : "Search by location...")
               }
-              searchPlaceholder="Type to begin..."
+              searchPlaceholder="Search by location..."
               searchEmpty="No location found."
               valuesAndLabels={locationValuesAndLabels}
               currLabel={locationLabel}

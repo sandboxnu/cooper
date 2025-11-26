@@ -11,15 +11,18 @@ import {
   FormMessage,
 } from "@cooper/ui/form";
 import { Input } from "@cooper/ui/input";
-import { Textarea } from "@cooper/ui/textarea";
 
 import { FormSection } from "~/app/_components/form/form-section";
 import { api } from "~/trpc/react";
 import LocationBox from "../../location";
-import { RadioGroup, RadioGroupItem } from "node_modules/@cooper/ui/src/radio-group";
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "node_modules/@cooper/ui/src/radio-group";
 import { Label } from "node_modules/@cooper/ui/src/label";
 import { Select } from "../../themed/onboarding/select";
 import { industryOptions } from "../../onboarding/constants";
+import { Checkbox } from "node_modules/@cooper/ui/src/checkbox";
 
 /**
  * ReviewSection component renders form fields for writing a co-op review.
@@ -30,6 +33,7 @@ export function RoleInfoSection() {
   const [locationLabel, setLocationLabel] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [prefix, setPrefix] = useState<string>("");
+  const [isUnpaid, setIsUnpaid] = useState<boolean>(false);
 
   useEffect(() => {
     const newPrefix =
@@ -78,91 +82,145 @@ export function RoleInfoSection() {
   return (
     <FormSection>
       <FormField
-                control={form.control}
-                name="industry"
-                render={({ field }) => (
-                  <FormItem>
-                    <Label>Industry</Label>
-                    <FormControl>
-                      <Select
-                        placeholder="Select an industry"
-                        options={industryOptions}
-                        className="min-w-full max-w-fit border"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage className="text-sm" />
-                  </FormItem>
-                )}
+        control={form.control}
+        name="industry"
+        render={({ field }) => (
+          <FormItem className="ml-32 flex flex-row gap-14 items-center">
+            <Label className="text-sm text-cooper-gray-400 font-medium mb-3">
+              Industry
+            </Label>
+            <FormControl>
+              <Select
+                placeholder="Search by industry..."
+                options={industryOptions}
+                className="w-full border-2 rounded-lg h-10 text-sm text-cooper-gray-350 border-cooper-gray-150"
+                {...field}
               />
-      <LocationBox
-          searchBar={false}
-          form={form}
-          locationLabel={locationLabel}
-          setSearchTerm={setSearchTerm}
-          locationValuesAndLabels={locationValuesAndLabels}
-          setLocationLabel={setLocationLabel}
-        />
+            </FormControl>
+            <FormMessage className="text-sm" />
+          </FormItem>
+        )}
+      />
+
+      <FormField
+        control={form.control}
+        name="locationId"
+        render={({ field }) => (
+          <FormItem className="flex flex-row ml-32 gap-14">
+            <Label className="text-sm text-cooper-gray-400 font-medium mb-3">
+              Location
+            </Label>
+            <FormControl>
+              <LocationBox
+                searchBar={false}
+                form={form}
+                locationLabel={locationLabel}
+                setSearchTerm={setSearchTerm}
+                locationValuesAndLabels={locationValuesAndLabels}
+                setLocationLabel={setLocationLabel}
+              />
+            </FormControl>
+            <FormMessage className="text-sm" />
+          </FormItem>
+        )}
+      />
+
       <FormField
         control={form.control}
         name="workEnvironment"
         render={({ field }) => (
-          <FormItem className="space-y-6">
-            <FormLabel>Job type*</FormLabel>
+          <FormItem className="rounded-md p-6 flex flex-row gap-14 ml-32">
+            <FormLabel className="text-sm font-medium block mb-6 text-cooper-gray-400">
+              Job type
+            </FormLabel>
             <FormControl>
               <RadioGroup
                 onValueChange={field.onChange}
-                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 defaultValue={field.value}
-                className="flex flex-col space-y-3"
+                className="flex flex-col gap-2.5"
               >
-                <FormItem className="flex items-center space-x-4 space-y-0">
-                  <FormControl>
-                    <RadioGroupItem
-                      value="coop"
-                      checked={field.value === "coop"}
-                    />
-                  </FormControl>
-                  <FormLabel>Co-op</FormLabel>
-                </FormItem>
-                <FormItem className="flex items-center space-x-4 space-y-0">
-                  <FormControl>
-                    <RadioGroupItem
-                      value="internship"
-                      checked={field.value === "internship"}
-                    />
-                  </FormControl>
-                  <FormLabel>Internship</FormLabel>
-                </FormItem>
-                <FormItem className="flex items-center space-x-4 space-y-0">
-                  <FormControl>
-                    <RadioGroupItem
-                      value="parttime"
-                      checked={field.value === "parttime"}
-                    />
-                  </FormControl>
-                  <FormLabel>Part time</FormLabel>
-                </FormItem>
+                <div className="flex items-center gap-3">
+                  <RadioGroupItem
+                    value="coop"
+                    id="coop"
+                    checked={field.value === "coop"}
+                  />
+                  <Label
+                    htmlFor="coop"
+                    className="text-[#767676] font-normal cursor-pointer"
+                  >
+                    Co-op
+                  </Label>
+                </div>
+                <div className="flex items-center gap-3">
+                  <RadioGroupItem
+                    value="internship"
+                    id="internship"
+                    checked={field.value === "internship"}
+                  />
+                  <Label
+                    htmlFor="internship"
+                    className="text-[#767676] font-normal cursor-pointer"
+                  >
+                    Internship
+                  </Label>
+                </div>
+                <div className="flex items-center gap-3">
+                  <RadioGroupItem
+                    value="parttime"
+                    id="parttime"
+                    checked={field.value === "parttime"}
+                  />
+                  <Label
+                    htmlFor="parttime"
+                    className="text-[#767676] font-normal cursor-pointer"
+                  >
+                    Part time
+                  </Label>
+                </div>
               </RadioGroup>
             </FormControl>
             <FormMessage />
           </FormItem>
         )}
       />
-        
-        <FormField
-          control={form.control}
-          name="hourlyPay"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Hourly Pay (USD)</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+
+      <FormField
+        control={form.control}
+        name="hourlyPay"
+        render={({ field }) => (
+          <FormItem className="rounded-md p-6 flex flex-row ml-32 gap-14 items-center">
+            <FormLabel className="text-sm font-medium block mb-4 text-cooper-gray-400">
+              Hourly pay
+            </FormLabel>
+            <FormControl>
+              <div className="flex items-center gap-4 flex-row">
+                <div className="flex items-center flex-1 gap-2">
+                  <Input
+                    {...field}
+                    placeholder="$"
+                    className="border-2 border-cooper-gray-150 rounded-lg h-10 text-cooper-gray-400 bg-transparent text-sm p-0 focus:outline-none"
+                    disabled={isUnpaid}
+                  />
+                </div>
+                <div
+                  className="flex items-center gap-3 rounded-md px-4 py-2 cursor-pointer"
+                  onClick={() => setIsUnpaid(!isUnpaid)}
+                >
+                  <Checkbox
+                    checked={isUnpaid}
+                    className="border-cooper-yellow-500"
+                  />
+                  <span className="text-md font-small text-cooper-gray-400">
+                    Unpaid
+                  </span>
+                </div>
+              </div>
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
     </FormSection>
   );
 }

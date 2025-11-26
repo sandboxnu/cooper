@@ -16,7 +16,10 @@ import { Textarea } from "@cooper/ui/textarea";
 import { FormSection } from "~/app/_components/form/form-section";
 import { api } from "~/trpc/react";
 import LocationBox from "../../location";
-import { RadioGroup, RadioGroupItem } from "node_modules/@cooper/ui/src/radio-group";
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "node_modules/@cooper/ui/src/radio-group";
 import { NumberedRating } from "../numbered-rating";
 
 /**
@@ -79,10 +82,16 @@ export function ReviewSection() {
         control={form.control}
         name="reviewHeadline"
         render={({ field }) => (
-          <FormItem>
-            <FormLabel>Review Headline*</FormLabel>
+          <FormItem className="flex flex-row gap-14">
+            <FormLabel className="text-sm text-cooper-gray-400">
+              Review Headline*
+            </FormLabel>
             <FormControl>
-              <Input {...field} placeholder="Ex. SWE Experience @ Google"/>
+              <Input
+                {...field}
+                placeholder="Ex. SWE Experience @ Google"
+                className="border border-cooper-gray-150 w-[50%] rounded-lg h-10 text-sm"
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -92,77 +101,77 @@ export function ReviewSection() {
         control={form.control}
         name="textReview"
         render={({ field }) => (
-          <FormItem>
-            <FormLabel>Your co-op experience*</FormLabel>
-            <FormControl>
-              <Textarea {...field} placeholder="Write about your co-op experience..."/>
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-      <div className="flex flex-col justify-between overflow-hidden md:flex-row md:space-x-2">
-        
-        <FormField
-        control={form.control}
-        name="overallRating"
-        render={({ field }) => (
-          <FormItem>
-            <FormLabel>
-              Overall co-op experience*
+          <FormItem className="flex flex-row gap-14">
+            <FormLabel className="text-sm text-cooper-gray-400">
+              Your co-op experience*
             </FormLabel>
             <FormControl>
-              <NumberedRating {...field} />
+              <Textarea
+                {...field}
+                placeholder="Write about your co-op experience..."
+                className="border border-cooper-gray-150 w-[50%] text-sm"
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
         )}
       />
-      <FormField
-        control={form.control}
-        name="cultureRating"
-        render={({ field }) => (
-          <FormItem>
-            <FormLabel>
-              Company culture*
-            </FormLabel>
-            <FormControl>
-              <NumberedRating {...field} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-      <FormField
-        control={form.control}
-        name="supervisorRating"
-        render={({ field }) => (
-          <FormItem>
-            <FormLabel>Supervisor rating*</FormLabel>
-            <FormControl>
-              <NumberedRating {...field} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-      <FormField
-        control={form.control}
-        name="interviewRating"
-        render={({ field }) => (
-          <FormItem>
-            <FormLabel>
-              Interview experience*
-            </FormLabel>
-            <FormControl>
-              <NumberedRating {...field} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-      
-      
+      <div className="flex flex-row gap-56">
+        <div>Rate</div>
+        <div className="flex flex-col justify-between overflow-hidden md:flex-col md:space-x-2">
+          <FormField
+            control={form.control}
+            name="overallRating"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Overall co-op experience*</FormLabel>
+                <FormControl>
+                  <NumberedRating {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="cultureRating"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Company culture*</FormLabel>
+                <FormControl>
+                  <NumberedRating {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="supervisorRating"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Supervisor rating*</FormLabel>
+                <FormControl>
+                  <NumberedRating {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="interviewRating"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Interview experience*</FormLabel>
+                <FormControl>
+                  <NumberedRating {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
       </div>
     </FormSection>
   );

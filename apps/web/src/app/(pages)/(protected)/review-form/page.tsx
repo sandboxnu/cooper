@@ -8,7 +8,12 @@ import { useForm } from "react-hook-form";
 
 import { Button } from "@cooper/ui/button";
 import FormCollapsableInfoCard from "~/app/_components/form/form-collapsable-info";
-import { BasicInfoSection, CompanyDetailsSection, InterviewSection, ReviewSection } from "~/app/_components/form/sections";
+import {
+  BasicInfoSection,
+  CompanyDetailsSection,
+  InterviewSection,
+  ReviewSection,
+} from "~/app/_components/form/sections";
 import { z } from "zod";
 import { ReviewFormType } from "~/app/_components/form/review-form";
 import { useCustomToast } from "@cooper/ui";
@@ -292,11 +297,6 @@ export default function ReviewForm() {
         <div className="mt-4 pr-3.5 flex h-full flex-col md:max-w-[75%] w-[75%]">
           <FormCollapsableInfoCard title={"Basic Information"}>
             <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap ">
-              <div className=" text-cooper-gray-350 text-xs pt-2.5 pl-5">
-                Note: If your company isn’t in our database, we’ll ask for a few
-                additional details to request it. Making a new company makes a
-                new role.
-              </div>
               <BasicInfoSection />
             </div>
           </FormCollapsableInfoCard>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, ChevronsUpDown } from "lucide-react";
+import { Check, ChevronDown, ChevronsUpDown } from "lucide-react";
 
 import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
@@ -50,7 +50,7 @@ export default function ComboBox({
 
   const styleVariant =
     variant === "form"
-      ? "flex h-16 w-full max-w-fit rounded-md border-[3px] border-cooper-blue-600 bg-white px-3 py-2 text-xl font-normal ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+      ? "flex h-16 w-full max-w-fit rounded-lg border-2 border-cooper-gray-150 bg-white px-3 py-2 text-xl font-normal ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
       : variant === "filtering"
         ? "w-36 md:w-[21rem] h-10 lg:h-12 border-cooper-gray-400 text-lg placeholder:opacity-50 focus:ring-0 active:ring-0 rounded-lg border-[0.75px] py-0"
         : "h-8 py-0";
@@ -76,11 +76,11 @@ export default function ComboBox({
           )}
         >
           <span
-            className={`overflow-hidden whitespace-nowrap text-lg ${defaultLabel === "Location" ? "text-cooper-gray-400" : "text-gray font-normal"}`}
+            className={`overflow-hidden whitespace-nowrap text-lg ${defaultLabel === "Location" ? "text-cooper-gray-350" : "text-cooper-gray-350 font-normal"}`}
           >
             {defaultLabel}
           </span>
-          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[400px] p-0">

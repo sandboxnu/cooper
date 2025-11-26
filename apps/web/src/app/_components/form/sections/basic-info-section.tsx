@@ -31,13 +31,17 @@ export function BasicInfoSection() {
 
   return (
     <FormSection>
+      <div className=" text-cooper-gray-350 text-xs pt-2.5 pl-5">
+        Note: If your company isn’t in our database, we’ll ask for a few
+        additional details to request it. Making a new company makes a new role.
+      </div>
       <ExistingCompanyContent createdRolesCount={0} />
       <FormField
         control={form.control}
         name="workTerm"
         render={({ field }) => (
-          <FormItem className="space-y-6">
-            <FormLabel className="text-cooper-gray-400 text-md">
+          <FormItem className="space-y-6 flex flex-row gap-14">
+            <FormLabel className="text-cooper-gray-400 text-sm">
               Co-op cycle*
             </FormLabel>
             <FormControl>
@@ -84,8 +88,8 @@ export function BasicInfoSection() {
         control={form.control}
         name="workYear"
         render={({ field }) => (
-          <FormItem>
-            <FormLabel className="text-cooper-gray-350 font-medium">
+          <FormItem className="flex flex-row gap-14">
+            <FormLabel className="text-cooper-gray-400 font-medium text-sm">
               Year*
             </FormLabel>
             <div className="relative w-full">

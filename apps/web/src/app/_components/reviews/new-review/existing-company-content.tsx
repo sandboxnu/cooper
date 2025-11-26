@@ -184,163 +184,155 @@ export default function ExistingCompanyContent({
       <div className="flex flex-col gap-4">
         {/* Company Section */}
         {/* Company Autocomplete */}
-<article>
-  <p className="text-lg font-semibold">Company name*</p>
-
-  <div className="relative w-[70%]">
-    <Input
-      variant="dialogue"
-      placeholder="Search companies…"
-      className="w-full"
-      value={companyLabel}
-      onChange={(e) => {
-        setCompanyLabel(e.target.value);
-        handleUpdateCompanyId(undefined);
-        setSelectedRoleId(undefined);
-      }}
-    />
-
-    {companyLabel && companies.data && (
-      <div className="absolute left-0 right-0 mt-1 max-h-60 overflow-auto rounded-md border bg-white shadow-lg z-50">
-
-        {companies.data.length > 0 ? (
-          companies.data.map((company) => (
-            <div
-              key={company.id}
-              className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
-              onClick={() => {
-                setCompanyLabel(company.name);
-                handleUpdateCompanyId(company.id);
-                setSelectedRoleId(undefined);
-              }}
-            >
-              {company.name}
-            </div>
-          ))
-        ) : (
-          <p className="px-3 py-2 italic text-gray-400">
-            No matching companies
+        <article className="flex flex-row gap-14">
+          <p className="text-sm text-cooper-gray-400 font-semibold">
+            Company name*
           </p>
-        )}
 
-      </div>
-    )}
-  </div>
-</article>
-
-
-
-{/* Roles Autocomplete */}
-
-  <article className="mt-6">
-    <p className="text-lg font-semibold">Role name*</p>
-
-    <div className="relative w-[70%]">
-      <Input
-        variant="dialogue"
-        placeholder="Search roles…"
-        value={
-          roles.data?.find((r) => r.id === selectedRoleId)?.title ?? ""
-        }
-        disabled={!selectedCompanyId}
-        onChange={(e) => {
-          setSelectedRoleId(undefined);
-          setCreatingNewRole(false);
-        }}
-        onFocus={() => setCreatingNewRole(false)}
-        className="w-full"
-      />
-
-      {roles.data && (
-        <div className="absolute left-0 right-0 mt-1 max-h-60 overflow-auto rounded-md border bg-white shadow-lg z-50">
-
-          {roles.data.length === 0 && createdRolesCount < 4 && (
-            <div
-              className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
-              onClick={() => {
-                setCreatingNewRole(true);
+          <div className="relative w-[70%]">
+            <Input
+              variant="dialogue"
+              placeholder="Search companies…"
+              className="w-full"
+              value={companyLabel}
+              onChange={(e) => {
+                setCompanyLabel(e.target.value);
+                handleUpdateCompanyId(undefined);
                 setSelectedRoleId(undefined);
               }}
-            >
-              + Create a new role
-            </div>
-          )}
+            />
 
-          {roles.data.length > 0 &&
-            roles.data.map((role) => (
-              <div
-                key={role.id}
-                className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
-                onClick={() => {
-                  setSelectedRoleId(role.id);
-                  setCreatingNewRole(false);
-                }}
-              >
-                {role.title}
-              </div>
-            ))}
-
-          {createdRolesCount < 4 && roles.data.length > 0 && (
-            <div
-              className="px-3 py-2 hover:bg-gray-100 cursor-pointer border-t"
-              onClick={() => {
-                setCreatingNewRole(true);
-                setSelectedRoleId(undefined);
-              }}
-            >
-              + Create a new role
-            </div>
-          )}
-
-        </div>
-      )}
-    </div>
-  </article>
-
-            {/* Create New Role Section */}
-            {creatingNewRole && (
-              <article>
-                <FormProvider {...newRoleForm}>
-                  <Form>
-                    <div className="flex flex-col gap-4">
-                      <FormField
-                        control={newRoleForm.control}
-                        name="title"
-                        render={({ field }) => (
-                          <FormItem>
-                            <Label>Role Name</Label>
-                            <FormControl>
-                              <Input
-                                type="string"
-                                variant="dialogue"
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage className="text-sm" />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={newRoleForm.control}
-                        name="description"
-                        render={({ field }) => (
-                          <FormItem>
-                            <Label>Role Description</Label>
-                            <FormControl>
-                              <Textarea variant="dialogue" {...field} />
-                            </FormControl>
-                            <FormMessage className="text-sm" />
-                          </FormItem>
-                        )}
-                      />
+            {companyLabel && companies.data && (
+              <div className="absolute left-0 right-0 mt-1 max-h-60 overflow-auto rounded-md border bg-white shadow-lg z-50">
+                {companies.data.length > 0 ? (
+                  companies.data.map((company) => (
+                    <div
+                      key={company.id}
+                      className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
+                      onClick={() => {
+                        setCompanyLabel(company.name);
+                        handleUpdateCompanyId(company.id);
+                        setSelectedRoleId(undefined);
+                      }}
+                    >
+                      {company.name}
                     </div>
-                  </Form>
-                </FormProvider>
-              </article>
+                  ))
+                ) : (
+                  <p className="px-3 py-2 italic text-gray-400">
+                    No matching companies
+                  </p>
+                )}
+              </div>
             )}
-          
+          </div>
+        </article>
+
+        {/* Roles Autocomplete */}
+
+        <article className="mt-6 flex flex-row gap-14">
+          <p className="text-sm font-semibold text-cooper-gray-400">
+            Role name*
+          </p>
+
+          <div className="relative w-[70%]">
+            <Input
+              variant="dialogue"
+              placeholder="Search roles…"
+              value={
+                roles.data?.find((r) => r.id === selectedRoleId)?.title ?? ""
+              }
+              disabled={!selectedCompanyId}
+              onChange={(e) => {
+                setSelectedRoleId(undefined);
+                setCreatingNewRole(false);
+              }}
+              onFocus={() => setCreatingNewRole(false)}
+              className="w-full"
+            />
+
+            {roles.data && (
+              <div className="absolute left-0 right-0 mt-1 max-h-60 overflow-auto rounded-md border bg-white shadow-lg z-50">
+                {roles.data.length === 0 && createdRolesCount < 4 && (
+                  <div
+                    className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
+                    onClick={() => {
+                      setCreatingNewRole(true);
+                      setSelectedRoleId(undefined);
+                    }}
+                  >
+                    + Create a new role
+                  </div>
+                )}
+
+                {roles.data.length > 0 &&
+                  roles.data.map((role) => (
+                    <div
+                      key={role.id}
+                      className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
+                      onClick={() => {
+                        setSelectedRoleId(role.id);
+                        setCreatingNewRole(false);
+                      }}
+                    >
+                      {role.title}
+                    </div>
+                  ))}
+
+                {createdRolesCount < 4 && roles.data.length > 0 && (
+                  <div
+                    className="px-3 py-2 hover:bg-gray-100 cursor-pointer border-t"
+                    onClick={() => {
+                      setCreatingNewRole(true);
+                      setSelectedRoleId(undefined);
+                    }}
+                  >
+                    + Create a new role
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </article>
+
+        {/* Create New Role Section */}
+        {creatingNewRole && (
+          <article>
+            <FormProvider {...newRoleForm}>
+              <Form>
+                <div className="flex flex-col gap-4">
+                  <FormField
+                    control={newRoleForm.control}
+                    name="title"
+                    render={({ field }) => (
+                      <FormItem>
+                        <Label>Role Name</Label>
+                        <FormControl>
+                          <Input type="string" variant="dialogue" {...field} />
+                        </FormControl>
+                        <FormMessage className="text-sm" />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={newRoleForm.control}
+                    name="description"
+                    render={({ field }) => (
+                      <FormItem>
+                        <Label>Role Description</Label>
+                        <FormControl>
+                          <Textarea variant="dialogue" {...field} />
+                        </FormControl>
+                        <FormMessage className="text-sm" />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+              </Form>
+            </FormProvider>
+          </article>
+        )}
       </div>
-      
     </>
   );
 }

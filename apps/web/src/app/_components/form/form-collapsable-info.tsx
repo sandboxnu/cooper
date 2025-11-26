@@ -22,8 +22,10 @@ const FormCollapsableInfoCard: React.FC<FormCollapsableInfoCardProps> = ({
         }`}
       >
         <div className="flex justify-between w-full">
-        <span>{title}</span>
-        <div><ChevronDown className="text-cooper-gray-350" /></div>
+          <span>{title}</span>
+          <div>
+            <ChevronDown className="text-cooper-gray-350" />
+          </div>
         </div>
       </button>
       <div
