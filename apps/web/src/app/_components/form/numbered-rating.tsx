@@ -29,7 +29,7 @@ export const NumberedRating = forwardRef<HTMLInputElement, RatingProps>(
           .map((_, i) => {
             const rating = i + 1;
             const isSelected = rating === +getValues(name);
-            const isHovered = rating <= hoveredIndex;
+            const isHovered = rating === hoveredIndex;
 
             return (
               <button
@@ -46,19 +46,19 @@ export const NumberedRating = forwardRef<HTMLInputElement, RatingProps>(
                 onMouseEnter={() => setHoveredIndex(rating)}
                 onMouseLeave={() => setHoveredIndex(0)}
                 className={cn(
-                  "flex items-center gap-2 px-3 py-2 rounded-lg transition-colors",
+                  "flex items-center md:gap-2 px-3 py-2 rounded-lg transition-colors",
                   isSelected || isHovered
-                    ? "bg-cooper-yellow-500 text-white"
-                    : "bg-cooper-gray-150 text-cooper-gray-400",
-                  "hover:bg-cooper-yellow-500 hover:text-white cursor-pointer",
+                    ? "border border-cooper-yellow-500"
+                    : "bg-[#EBEBEB] text-[#333]",
+                  "hover:border hover:border-cooper-yellow-500 cursor-pointer",
                 )}
               >
                 <Image
-                        src="/svg/star.svg"
-                        alt="Star icon"
-                        width={20}
-                        height={20}
-                      />
+                  src="/svg/star.svg"
+                  alt="Star icon"
+                  width={20}
+                  height={20}
+                />
                 <span className="text-sm font-medium">{rating}.0</span>
               </button>
             );

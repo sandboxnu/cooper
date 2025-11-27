@@ -477,9 +477,7 @@ export function ReviewForm(props: ReviewFormProps) {
         <div className="w-full border border-blue-100"></div>
 
         {currentStep == 3 && <ReviewSection />}
-        {currentStep == 4 && (
-          <CompanyDetailsSection companyName={props.company.name} />
-        )}
+        {currentStep == 4 && <CompanyDetailsSection />}
         {currentStep >= 1 && currentStep <= steps.length && (
           <div className="flex justify-between space-x-4 md:justify-end">
             <Button

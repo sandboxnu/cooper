@@ -30,7 +30,7 @@ export function BasicInfoSection() {
 
   return (
     <FormSection>
-      <div className=" text-cooper-gray-350 text-xs pt-2.5 md:pl-5 pl-2 ">
+      <div className=" text-cooper-gray-350 text-xs pt-2.5 md:pl-5 pl-2">
         Note: If your company isn’t in our database, we’ll ask for a few
         additional details to request it. Making a new company makes a new role.
       </div>
@@ -39,8 +39,8 @@ export function BasicInfoSection() {
         control={form.control}
         name="workTerm"
         render={({ field }) => (
-          <FormItem className="flex flex-row gap-14 pl-2 md:pl-20">
-            <FormLabel className="text-cooper-gray-400 text-sm">
+          <FormItem className="flex flex-row gap-4 md:gap-14 pl-2 md:pl-0 pt-6 space-y-0">
+            <FormLabel className="text-cooper-gray-400 text-sm md:w-60 text-right">
               Co-op cycle
             </FormLabel>
             <FormControl>
@@ -50,7 +50,7 @@ export function BasicInfoSection() {
                 defaultValue={field.value}
                 className="flex flex-col gap-3"
               >
-                <FormItem className="flex items-center space-x-4 space-y-0">
+                <FormItem className="flex items-center space-x-4 space-y-0 ">
                   <FormControl>
                     <RadioGroupItem
                       value="SPRING"
@@ -87,8 +87,8 @@ export function BasicInfoSection() {
         control={form.control}
         name="workYear"
         render={({ field }) => (
-          <FormItem className="flex flex-row gap-14 pl-2 md:pl-20 pb-12">
-            <Label className="text-cooper-gray-400 font-medium text-sm">
+          <FormItem className="flex flex-row gap-4 md:gap-14 pl-2 md:pl-0 pb-12 pt-4 items-center">
+            <Label className="text-cooper-gray-400 font-medium text-sm md:w-60 text-right ">
               Year
             </Label>
             <div className="w-fit">

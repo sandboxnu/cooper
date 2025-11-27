@@ -15,6 +15,9 @@ import { Textarea } from "@cooper/ui/textarea";
 
 import type { RoleRequestType } from "../new-role-dialogue";
 import { api } from "~/trpc/react";
+import { Select } from "../../themed/onboarding/select";
+import { FormSection } from "../../form/form-section";
+import { FormLabel } from "../../themed/onboarding/form";
 
 const filter = new Filter();
 const roleSchema = z.object({
@@ -64,8 +67,6 @@ export default function ExistingCompanyContent({
   const { toast } = useCustomToast();
 
   const companies = api.company.list.useQuery({
-    prefix: companyLabel,
-    limit: 4,
     sortBy: "rating",
   });
 
@@ -180,120 +181,64 @@ export default function ExistingCompanyContent({
   );
 
   return (
-    <>
-      <div className="flex flex-col gap-4">
+    <FormSection>
+      <div className="flex flex-col gap-6 pt-4">
         {/* Company Section */}
         {/* Company Autocomplete */}
-        <article className="flex flex-row gap-14 pl-2 md:pl-20">
-          <p className="text-sm text-cooper-gray-400 font-semibold">
+        <FormItem className="flex flex-row gap-14 pl-2 md:pl-0 items-center">
+          <FormLabel className="text-sm text-cooper-gray-400 font-semibold md:w-60 text-right">
             Company name<span className="text-[#FB7373]">*</span>
-          </p>
+          </FormLabel>
 
-          <div className="relative w-[70%]">
-            <Input
-              variant="dialogue"
+          <div className="relative flex-1">
+            <Select
+              options={
+                companies.data?.filter(Boolean).map((company) => ({
+                  value: company.id,
+                  label: company.name,
+                })) ?? []
+              }
               placeholder="Search companies…"
-              className="w-full"
+              className="w-full border-cooper-gray-150 text-sm h-10"
               value={companyLabel}
               onChange={(e) => {
+                const newId = e.target.value;
+
                 setCompanyLabel(e.target.value);
-                handleUpdateCompanyId(undefined);
                 setSelectedRoleId(undefined);
+                handleUpdateCompanyId(newId);
               }}
             />
-
-            {companyLabel && companies.data && (
-              <div className="absolute left-0 right-0 mt-1 max-h-60 overflow-auto rounded-md border bg-white shadow-lg z-50">
-                {companies.data.length > 0 ? (
-                  companies.data.map((company) => (
-                    <div
-                      key={company.id}
-                      className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
-                      onClick={() => {
-                        setCompanyLabel(company.name);
-                        handleUpdateCompanyId(company.id);
-                        setSelectedRoleId(undefined);
-                      }}
-                    >
-                      {company.name}
-                    </div>
-                  ))
-                ) : (
-                  <p className="px-3 py-2 italic text-gray-400">
-                    No matching companies
-                  </p>
-                )}
-              </div>
-            )}
           </div>
-        </article>
+        </FormItem>
 
         {/* Roles Autocomplete */}
 
-        <article className="mt-6 flex flex-row gap-14 pl-2 md:pl-20">
-          <p className="text-sm font-semibold text-cooper-gray-400">
+        <FormItem className="flex flex-row gap-14 pl-2 md:pl-0 items-center">
+          <FormLabel className="text-sm font-semibold text-cooper-gray-400 md:w-60 text-right ">
             Role name<span className="text-[#FB7373]">*</span>
-          </p>
+          </FormLabel>
 
-          <div className="relative w-[70%]">
-            <Input
-              variant="dialogue"
+          <div className="relative flex-1">
+            <Select
               placeholder="Search roles…"
-              value={
-                roles.data?.find((r) => r.id === selectedRoleId)?.title ?? ""
+              options={
+                roles.data?.map((r) => ({
+                  value: r.id,
+                  label: r.title,
+                })) ?? []
               }
               disabled={!selectedCompanyId}
               onChange={(e) => {
-                setSelectedRoleId(undefined);
+                const newRoleId = e.target.value;
+                setSelectedRoleId(newRoleId);
                 setCreatingNewRole(false);
               }}
               onFocus={() => setCreatingNewRole(false)}
-              className="w-full "
+              className="w-full border-cooper-gray-150 text-sm h-10"
             />
-
-            {roles.data && (
-              <div className="absolute left-0 right-0 mt-1 max-h-60 overflow-auto rounded-md border bg-white shadow-lg z-50">
-                {roles.data.length === 0 && createdRolesCount < 4 && (
-                  <div
-                    className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
-                    onClick={() => {
-                      setCreatingNewRole(true);
-                      setSelectedRoleId(undefined);
-                    }}
-                  >
-                    + Create a new role
-                  </div>
-                )}
-
-                {roles.data.length > 0 &&
-                  roles.data.map((role) => (
-                    <div
-                      key={role.id}
-                      className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
-                      onClick={() => {
-                        setSelectedRoleId(role.id);
-                        setCreatingNewRole(false);
-                      }}
-                    >
-                      {role.title}
-                    </div>
-                  ))}
-
-                {createdRolesCount < 4 && roles.data.length > 0 && (
-                  <div
-                    className="px-3 py-2 hover:bg-gray-100 cursor-pointer border-t"
-                    onClick={() => {
-                      setCreatingNewRole(true);
-                      setSelectedRoleId(undefined);
-                    }}
-                  >
-                    + Create a new role
-                  </div>
-                )}
-              </div>
-            )}
           </div>
-        </article>
+        </FormItem>
 
         {/* Create New Role Section */}
         {creatingNewRole && (
@@ -333,6 +278,6 @@ export default function ExistingCompanyContent({
           </article>
         )}
       </div>
-    </>
+    </FormSection>
   );
 }

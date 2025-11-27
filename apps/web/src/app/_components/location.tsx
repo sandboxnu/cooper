@@ -54,7 +54,9 @@ export default function LocationBox({
       render={({ field }) => (
         <FormItem
           className={
-            searchBar ? "col-span-5 lg:col-span-2" : "flex flex-col justify-end"
+            searchBar
+              ? "col-span-5 lg:col-span-2"
+              : "flex flex-col justify-end  space-y-0"
           }
         >
           {!searchBar && <FormLabel></FormLabel>}

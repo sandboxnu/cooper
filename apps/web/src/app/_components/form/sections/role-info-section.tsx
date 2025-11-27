@@ -85,18 +85,18 @@ export function RoleInfoSection() {
         control={form.control}
         name="industry"
         render={({ field }) => (
-          <FormItem className="pl-2 md:ml-32 flex flex-row gap-14 items-center pt-8">
-            <Label className="text-sm text-cooper-gray-400 font-medium mb-3">
+          <FormItem className="pl-2 md:pl-0 flex flex-row gap-14 items-center pt-6">
+            <FormLabel className="text-sm text-cooper-gray-400 font-medium md:w-60 text-right">
               Industry
-            </Label>
-            <FormControl>
+            </FormLabel>
+            <div>
               <Select
                 placeholder="Search by industry..."
                 options={industryOptions}
-                className="w-[305px] border-2 rounded-lg h-10 text-sm text-cooper-gray-350 border-cooper-gray-150"
+                className="md:w-[305px] border-2 rounded-lg h-10 text-sm text-cooper-gray-350 border-cooper-gray-150"
                 {...field}
               />
-            </FormControl>
+            </div>
             <FormMessage className="text-sm" />
           </FormItem>
         )}
@@ -105,11 +105,11 @@ export function RoleInfoSection() {
       <FormField
         control={form.control}
         name="locationId"
-        render={({ field }) => (
-          <FormItem className="flex flex-row pl-2 md:ml-32 gap-14">
-            <Label className="text-sm text-cooper-gray-400 font-medium mb-3">
+        render={() => (
+          <FormItem className="flex flex-row pl-2 md:pl-0 gap-14 items-center pt-6">
+            <FormLabel className="text-sm text-cooper-gray-400 font-medium md:w-60 text-right">
               Location
-            </Label>
+            </FormLabel>
             <FormControl>
               <LocationBox
                 searchBar={false}
@@ -129,17 +129,17 @@ export function RoleInfoSection() {
         control={form.control}
         name="workEnvironment"
         render={({ field }) => (
-          <FormItem className="rounded-md flex flex-row gap-14 pl-2 md:ml-32">
-            <FormLabel className="text-sm font-medium block text-cooper-gray-400">
+          <FormItem className="rounded-md flex flex-row gap-14 pl-2 md:pl-0 pt-6 space-y-0">
+            <FormLabel className="text-sm font-medium block text-cooper-gray-400 md:w-60 text-right">
               Job type
             </FormLabel>
             <FormControl>
               <RadioGroup
                 onValueChange={field.onChange}
                 defaultValue={field.value}
-                className="flex flex-col gap-2.5"
+                className="flex flex-col gap-2.5 "
               >
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 ">
                   <RadioGroupItem
                     value="coop"
                     id="coop"
@@ -189,8 +189,8 @@ export function RoleInfoSection() {
         control={form.control}
         name="hourlyPay"
         render={({ field }) => (
-          <FormItem className="rounded-md pb-10 flex flex-row pl-2 md:ml-32 gap-12 items-center">
-            <FormLabel className="text-sm font-medium block mb-4 text-cooper-gray-400">
+          <FormItem className="rounded-md pb-10 flex flex-row pl-2 md:pl-0 gap-12  pt-6 items-center">
+            <FormLabel className="text-sm font-medium block  text-cooper-gray-400 md:w-60 text-right">
               Hourly pay
             </FormLabel>
             <FormControl>

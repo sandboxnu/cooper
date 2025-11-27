@@ -17,15 +17,11 @@ import {
 import { FormSection } from "~/app/_components/form/form-section";
 import { benefits } from "~/app/_components/form/review-form";
 
-interface CompanyDetailsSectionProps {
-  companyName: string;
-}
-
 /**
  * CompanyDetailsSection component renders form fields for capturing
  * company details related to the co-op experience.
  */
-export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
+export function CompanyDetailsSection() {
   const form = useFormContext();
 
   return (
@@ -34,8 +30,8 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
         control={form.control}
         name="workEnvironment"
         render={({ field }) => (
-          <FormItem className=" flex flex-row gap-14 pl-2 md:pl-28 pt-6">
-            <FormLabel className="text-cooper-gray-400 text-right">
+          <FormItem className=" flex flex-row gap-14 pl-2 md:pl-0 pt-6">
+            <FormLabel className="text-cooper-gray-400 text-sm md:w-60 text-right">
               Work model
             </FormLabel>
             <FormControl>
@@ -88,8 +84,10 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
         control={form.control}
         name="drugTest"
         render={({ field }) => (
-          <FormItem className="flex flex-row gap-14 pl-2 md:pl-32">
-            <FormLabel className="text-cooper-gray-400">Drug test</FormLabel>
+          <FormItem className="flex flex-row gap-14 pl-2 md:pl-0 pt-6 items-center">
+            <FormLabel className="text-cooper-gray-400 text-sm md:w-60 text-right">
+              Drug test
+            </FormLabel>
             <FormControl>
               <RadioGroup
                 onValueChange={field.onChange}
@@ -125,8 +123,10 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
         control={form.control}
         name="overtimeNormal"
         render={({ field }) => (
-          <FormItem className="flex flex-row gap-14 pl-2 md:pl-32">
-            <FormLabel className="text-cooper-gray-400">Overtime</FormLabel>
+          <FormItem className="flex flex-row gap-14 pl-2 md:pl-0 pt-6 items-center">
+            <FormLabel className="text-cooper-gray-400 text-sm md:w-60 text-right">
+              Overtime
+            </FormLabel>
             <FormControl>
               <RadioGroup
                 onValueChange={field.onChange}
@@ -159,33 +159,36 @@ export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
         )}
       />
       <div className="flex flex-row">
-        <div className="flex flex-col pl-2 md:pl-32">
-        <FormLabel className="text-cooper-gray-400 ">Benefit(s)</FormLabel>
-        <button
-      type="button"
-      className="text-cooper-gray-350 text-xs cursor-pointer"
-      onClick={() => {
-        benefits.forEach((benefit) => {
-          form.setValue(benefit.field, false);
-        });
-      }}
-    >
-      Clear
-    </button>
+        <div className="flex flex-col pl-2 md:pl-0 pt-6">
+          <FormLabel className="text-cooper-gray-400 text-sm md:w-60 text-right">
+            Benefit(s)
+          </FormLabel>
+          <button
+            type="button"
+            className="text-cooper-gray-350 text-xs cursor-pointer md:w-60 text-right"
+            onClick={() => {
+              benefits.forEach((benefit) => {
+                form.setValue(benefit.field, false);
+              });
+            }}
+          >
+            Clear
+          </button>
         </div>
-        <div className="pl-2 md:pl-14 grid grid-flow-col gap-2.5 grid-rows-6 pb-10 gap-x-14 auto-rows-max">
+        <div className="pl-2 md:pl-14 grid grid-flow-col gap-2.5 grid-rows-6 pb-10 gap-x-14 auto-rows-max pt-6 ">
           {benefits.map((benefit) => (
             <FormField
               key={benefit.field}
               control={form.control}
               name={benefit.field}
               render={({ field }) => (
-                <FormItem className="flex flex-row items-start space-x-4 space-y-0">
+                <FormItem className="flex flex-row items-start space-x-4 space-y-0 text-sm">
                   <FormControl>
                     <Checkbox
                       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                       checked={field.value}
                       onCheckedChange={field.onChange}
+                      className="w-6 h-6"
                     />
                   </FormControl>
                   <FormLabel>{benefit.label}</FormLabel>

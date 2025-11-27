@@ -1,5 +1,3 @@
-import { cn } from "@cooper/ui";
-
 import { FormCard } from "~/app/_components/form/form-card";
 
 /**

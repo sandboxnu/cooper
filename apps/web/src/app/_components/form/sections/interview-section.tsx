@@ -24,8 +24,6 @@ interface Round {
  * InterviewSection component.
  */
 export function InterviewSection() {
-  const form = useFormContext();
-
   const INTERVIEW_TYPES: InterviewType[] = [
     "Behavioral",
     "Technical",
@@ -60,14 +58,6 @@ export function InterviewSection() {
         }
         return round;
       }),
-    );
-  };
-
-  const updateDifficulty = (roundId: string, difficulty: number) => {
-    setRounds(
-      rounds.map((round) =>
-        round.id === roundId ? { ...round, difficulty } : round,
-      ),
     );
   };
 

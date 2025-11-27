@@ -75,7 +75,7 @@ export default function ComboBox({
             styleVariant,
             "h-12 min-h-0 justify-between overflow-hidden text-ellipsis text-nowrap py-0",
             variant !== "filtering" ? "w-[400px]" : "",
-            newForm ? "h-10 w-[305px]" : "h-12",
+            newForm ? "h-10 w-[192px] md:w-[305px]" : "h-12",
           )}
         >
           <span

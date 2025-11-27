@@ -24,7 +24,6 @@ import { Form } from "node_modules/@cooper/ui/src/form";
 import { RoleInfoSection } from "~/app/_components/form/sections/role-info-section";
 
 export default function ReviewForm() {
-  const searchParams = useSearchParams();
   const [currentStep, setCurrentStep] = useState(1);
 
   const {
@@ -299,40 +298,32 @@ export default function ReviewForm() {
             </div>
           </FormCollapsableInfoCard>
           <FormCollapsableInfoCard title={"Company Information"}>
-            {true && (
-              <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
-                <div className="flex flex-wrap gap-10 lg:flex-nowrap">
-                  <CompanyDetailsSection companyName={""} />
-                </div>
+            <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
+              <div className="flex flex-wrap gap-10 lg:flex-nowrap">
+                <CompanyDetailsSection />
               </div>
-            )}
+            </div>
           </FormCollapsableInfoCard>
           <FormCollapsableInfoCard title={"Role Information"}>
-            {true && (
-              <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
-                <div className="flex flex-wrap gap-10 lg:flex-nowrap">
-                  <RoleInfoSection />
-                </div>
+            <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
+              <div className="flex flex-wrap gap-10 lg:flex-nowrap">
+                <RoleInfoSection />
               </div>
-            )}
+            </div>
           </FormCollapsableInfoCard>
           <FormCollapsableInfoCard title={"Interview"}>
-            {true && (
-              <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
-                <div className="flex flex-wrap gap-10 lg:flex-nowrap">
-                  <InterviewSection />
-                </div>
+            <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
+              <div className="flex flex-wrap gap-10 lg:flex-nowrap">
+                <InterviewSection />
               </div>
-            )}
+            </div>
           </FormCollapsableInfoCard>
           <FormCollapsableInfoCard title={"Final co-op review"}>
-            {true && (
-              <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
-                <div className="flex flex-wrap gap-10 lg:flex-nowrap">
-                  <ReviewSection />
-                </div>
+            <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
+              <div className="flex flex-wrap gap-10 lg:flex-nowrap">
+                <ReviewSection />
               </div>
-            )}
+            </div>
           </FormCollapsableInfoCard>
         </div>
       </div>
