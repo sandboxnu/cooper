@@ -1,8 +1,6 @@
-import { TriangleDownIcon } from "@radix-ui/react-icons";
 import dayjs from "dayjs";
 import { useFormContext } from "react-hook-form";
 
-import { cn } from "@cooper/ui";
 import {
   FormControl,
   FormField,
@@ -13,8 +11,9 @@ import {
 import { RadioGroup, RadioGroupItem } from "@cooper/ui/radio-group";
 
 import { FormSection } from "~/app/_components/form/form-section";
-import { ChevronDown } from "lucide-react";
 import ExistingCompanyContent from "../../reviews/new-review/existing-company-content";
+import { Select } from "../../themed/onboarding/select";
+import { Label } from "node_modules/@cooper/ui/src/label";
 
 /**
  * CoopCycleSection component renders form fields for selecting co-op cycle and year.
@@ -31,7 +30,7 @@ export function BasicInfoSection() {
 
   return (
     <FormSection>
-      <div className=" text-cooper-gray-350 text-xs pt-2.5 pl-5">
+      <div className=" text-cooper-gray-350 text-xs pt-2.5 md:pl-5 pl-2 ">
         Note: If your company isn’t in our database, we’ll ask for a few
         additional details to request it. Making a new company makes a new role.
       </div>
@@ -40,16 +39,16 @@ export function BasicInfoSection() {
         control={form.control}
         name="workTerm"
         render={({ field }) => (
-          <FormItem className="space-y-6 flex flex-row gap-14">
+          <FormItem className="flex flex-row gap-14 pl-2 md:pl-20">
             <FormLabel className="text-cooper-gray-400 text-sm">
-              Co-op cycle*
+              Co-op cycle
             </FormLabel>
             <FormControl>
               <RadioGroup
                 onValueChange={field.onChange}
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 defaultValue={field.value}
-                className="flex flex-col space-y-2"
+                className="flex flex-col gap-3"
               >
                 <FormItem className="flex items-center space-x-4 space-y-0">
                   <FormControl>
@@ -58,7 +57,7 @@ export function BasicInfoSection() {
                       checked={field.value === "SPRING"}
                     />
                   </FormControl>
-                  <FormLabel>Spring</FormLabel>
+                  <FormLabel className="text-cooper-gray-350">Spring</FormLabel>
                 </FormItem>
                 <FormItem className="flex items-center space-x-4 space-y-0">
                   <FormControl>
@@ -67,7 +66,7 @@ export function BasicInfoSection() {
                       checked={field.value === "SUMMER"}
                     />
                   </FormControl>
-                  <FormLabel>Summer</FormLabel>
+                  <FormLabel className="text-cooper-gray-350">Summer</FormLabel>
                 </FormItem>
                 <FormItem className="flex items-center space-x-4 space-y-0">
                   <FormControl>
@@ -76,7 +75,7 @@ export function BasicInfoSection() {
                       checked={field.value === "FALL"}
                     />
                   </FormControl>
-                  <FormLabel>Fall</FormLabel>
+                  <FormLabel className="text-cooper-gray-350">Fall</FormLabel>
                 </FormItem>
               </RadioGroup>
             </FormControl>
@@ -88,27 +87,19 @@ export function BasicInfoSection() {
         control={form.control}
         name="workYear"
         render={({ field }) => (
-          <FormItem className="flex flex-row gap-14">
-            <FormLabel className="text-cooper-gray-400 font-medium text-sm">
-              Year*
-            </FormLabel>
-            <div className="relative w-full">
+          <FormItem className="flex flex-row gap-14 pl-2 md:pl-20 pb-12">
+            <Label className="text-cooper-gray-400 font-medium text-sm">
+              Year
+            </Label>
+            <div className="w-fit">
               <FormControl>
-                <select
-                  className={cn(
-                    "w-full appearance-none rounded-md border-2 border-cooper-gray-150 bg-transparent px-6 py-3 pr-8 text-md font-semibold text-cooper-gray-350",
-                  )}
+                <Select
+                  options={years.map((year) => ({ value: year, label: year }))}
+                  className="w-[305px] border-2 rounded-lg h-10 text-sm text-cooper-gray-350 border-cooper-gray-150"
+                  placeholder="Select year worked..."
                   {...field}
-                >
-                  <option value={undefined}>Select year worked...</option>
-                  {years.map((year) => (
-                    <option key={year} value={year}>
-                      {year}
-                    </option>
-                  ))}
-                </select>
+                />
               </FormControl>
-              <ChevronDown className="absolute right-5 top-5 h-6 w-6 text-cooper-gray-350" />
             </div>
             <FormMessage />
           </FormItem>

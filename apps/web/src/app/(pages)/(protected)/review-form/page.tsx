@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { redirect, useSearchParams } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { api } from "~/trpc/react";
@@ -21,12 +21,10 @@ import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
 import { Filter } from "bad-words";
 import dayjs from "dayjs";
 import { Form } from "node_modules/@cooper/ui/src/form";
-import ExistingCompanyContent from "~/app/_components/reviews/new-review/existing-company-content";
 import { RoleInfoSection } from "~/app/_components/form/sections/role-info-section";
 
 export default function ReviewForm() {
   const searchParams = useSearchParams();
-  const tab = searchParams.get("tab") ?? "saved-roles";
   const [currentStep, setCurrentStep] = useState(1);
 
   const {
@@ -248,8 +246,8 @@ export default function ReviewForm() {
 
   return (
     <Form {...form}>
-      <div className="bg-[#F2F1EA] w-full min-h-screen flex justify-center">
-        <div className="pl-7 pt-4 flex h-full flex-col md:max-w-[25%] w-[25%]">
+      <div className="bg-[#F2F1EA] w-full min-h-screen flex flex-col md:flex-row justify-center">
+        <div className="pl-7 pt-4 flex h-full flex-row md:flex-col md:max-w-[25%] md:w-[25%]">
           <p className="text-2xl font-medium">Create a review</p>
           <div className=" pt-9">
             {steps.map((step, index) => (
@@ -294,7 +292,7 @@ export default function ReviewForm() {
             </Button>
           </div>
         </div>
-        <div className="mt-4 pr-3.5 flex h-full flex-col md:max-w-[75%] w-[75%]">
+        <div className="mt-4 pr-3.5 flex h-full flex-col md:max-w-[75%] pl-3.5 md:w-[75%]">
           <FormCollapsableInfoCard title={"Basic Information"}>
             <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap ">
               <BasicInfoSection />

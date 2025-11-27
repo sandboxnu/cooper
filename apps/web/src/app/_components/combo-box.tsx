@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, ChevronDown, ChevronsUpDown } from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
 
 import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
@@ -28,6 +28,7 @@ interface ComboBoxProps {
   triggerClassName?: string;
   onChange?: (value: string) => void;
   variant?: "default" | "form" | "filtering";
+  newForm?: boolean;
 }
 
 /**
@@ -45,12 +46,13 @@ export default function ComboBox({
   triggerClassName,
   onChange,
   variant,
+  newForm,
 }: ComboBoxProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const styleVariant =
     variant === "form"
-      ? "flex h-16 w-full max-w-fit rounded-lg border-2 border-cooper-gray-150 bg-white px-3 py-2 text-xl font-normal ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+      ? "flex h-16 w-full rounded-lg border-2 border-cooper-gray-150 bg-white px-3 py-2 text-xl font-normal ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
       : variant === "filtering"
         ? "w-36 md:w-[21rem] h-10 lg:h-12 border-cooper-gray-400 text-lg placeholder:opacity-50 focus:ring-0 active:ring-0 rounded-lg border-[0.75px] py-0"
         : "h-8 py-0";
@@ -73,10 +75,11 @@ export default function ComboBox({
             styleVariant,
             "h-12 min-h-0 justify-between overflow-hidden text-ellipsis text-nowrap py-0",
             variant !== "filtering" ? "w-[400px]" : "",
+            newForm ? "h-10 w-[305px]" : "h-12",
           )}
         >
           <span
-            className={`overflow-hidden whitespace-nowrap text-lg ${defaultLabel === "Location" ? "text-cooper-gray-350" : "text-cooper-gray-350 font-normal"}`}
+            className={`overflow-hidden whitespace-nowrap ${defaultLabel === "Location" ? "text-cooper-gray-350" : "text-cooper-gray-350 font-normal"} ${newForm ? "text-sm" : "text-lg"}`}
           >
             {defaultLabel}
           </span>

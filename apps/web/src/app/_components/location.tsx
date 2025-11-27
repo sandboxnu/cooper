@@ -66,6 +66,7 @@ export default function LocationBox({
                 locationLabel ||
                 (searchBar ? "Location" : "Search by location...")
               }
+              newForm={true}
               searchPlaceholder="Search by location..."
               searchEmpty="No location found."
               valuesAndLabels={locationValuesAndLabels}

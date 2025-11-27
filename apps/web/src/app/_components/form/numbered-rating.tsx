@@ -2,6 +2,7 @@ import type { FieldPath } from "react-hook-form";
 import { forwardRef, useState } from "react";
 import { useFormContext } from "react-hook-form";
 
+import Image from "next/image";
 import { cn } from "@cooper/ui";
 
 // FIXME: Fix this import at some point (form context)
@@ -10,7 +11,7 @@ import type { ReviewFormType } from "~/app/_components/form/review-form";
 type RatingProps = React.InputHTMLAttributes<HTMLInputElement>;
 
 /**
- * Rating component provides a star-based rating input.
+ * Rating component provides a star-based rating input with labels.
  *
  * See: {@link https://github.com/shadcn-ui/ui/issues/1107#issuecomment-1918229523}
  */
@@ -21,39 +22,47 @@ export const NumberedRating = forwardRef<HTMLInputElement, RatingProps>(
     const [hoveredIndex, setHoveredIndex] = useState<number>(0);
 
     return (
-      <div className="flex">
+      <div className="flex gap-2">
         <input {...props} className="hidden" {...register(name)} ref={ref} />
         {Array(5)
           .fill(0)
-          .map((_, i) => (
-            <svg
-              key={i}
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              strokeWidth={0}
-              stroke="white"
-              className={cn(
-                "size-20",
-                i < hoveredIndex || i < +getValues(name)
-                  ? "fill-cooper-yellow-500"
-                  : "fill-cooper-gray-200",
-                "pr-2 hover:cursor-pointer",
-              )}
-              onMouseEnter={() => setHoveredIndex(i + 1)}
-              onMouseLeave={() => setHoveredIndex(0)}
-              onClick={() => {
-                const currentValue = +getValues(name);
-                if (currentValue === i + 1) {
-                  setValue(name, 0);
-                  setHoveredIndex(0);
-                } else {
-                  setValue(name, i + 1);
-                }
-              }}
-            >
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-            </svg>
-          ))}
+          .map((_, i) => {
+            const rating = i + 1;
+            const isSelected = rating === +getValues(name);
+            const isHovered = rating <= hoveredIndex;
+
+            return (
+              <button
+                key={i}
+                type="button"
+                onClick={() => {
+                  if (isSelected) {
+                    setValue(name, 0);
+                    setHoveredIndex(0);
+                  } else {
+                    setValue(name, rating);
+                  }
+                }}
+                onMouseEnter={() => setHoveredIndex(rating)}
+                onMouseLeave={() => setHoveredIndex(0)}
+                className={cn(
+                  "flex items-center gap-2 px-3 py-2 rounded-lg transition-colors",
+                  isSelected || isHovered
+                    ? "bg-cooper-yellow-500 text-white"
+                    : "bg-cooper-gray-150 text-cooper-gray-400",
+                  "hover:bg-cooper-yellow-500 hover:text-white cursor-pointer",
+                )}
+              >
+                <Image
+                        src="/svg/star.svg"
+                        alt="Star icon"
+                        width={20}
+                        height={20}
+                      />
+                <span className="text-sm font-medium">{rating}.0</span>
+              </button>
+            );
+          })}
       </div>
     );
   },

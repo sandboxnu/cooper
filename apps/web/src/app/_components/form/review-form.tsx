@@ -19,7 +19,6 @@ import { CheckIcon } from "@cooper/ui/icons";
 
 import {
   CompanyDetailsSection,
-  BasicInfoSection,
   ReviewSection,
 } from "~/app/_components/form/sections";
 import { SubmissionConfirmation } from "~/app/_components/form/submission-confirmation";
@@ -140,15 +139,15 @@ const formSchema = z.object({
 export type ReviewFormType = typeof formSchema;
 
 export const benefits = [
-  { field: "pto", label: "Paid time off (PTO)" },
   { field: "federalHolidays", label: "Federal holidays off" },
-  { field: "lunchProvided", label: "Lunch provided" },
   { field: "freeTransport", label: "Free transportation" },
-  { field: "overtimePay", label: "Overtime pay" },
   { field: "sickLeave", label: "Sick leave" },
-  { field: "teamSocials", label: "Team socials" },
   { field: "paidLeave", label: "Paid leave" },
   { field: "mentorshipProgram", label: "Mentorship program" },
+  { field: "overtimePay", label: "Overtime pay" },
+  { field: "pto", label: "Paid time off (PTO)" },
+  { field: "teamSocials", label: "Team socials" },
+  { field: "lunchProvided", label: "Lunch provided" },
   { field: "companySwag", label: "Company swag" },
 ];
 

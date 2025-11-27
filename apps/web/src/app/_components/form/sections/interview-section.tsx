@@ -1,16 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useFormContext } from "react-hook-form";
-
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@cooper/ui/form";
-import { Input } from "@cooper/ui/input";
 
 import { FormSection } from "~/app/_components/form/form-section";
 import { Plus, X } from "lucide-react";
@@ -99,14 +90,14 @@ export function InterviewSection() {
 
   return (
     <FormSection>
-      <div className="flex flex-row">
-        <div className="pl-16 pt-8">
+      <div className="flex flex-col md:flex-row">
+        <div className="pl-6 md:pl-16 pt-6 md:pt-8">
           <div className="text-sm font-medium">Interview rounds</div>
-          <div className="text-[#767676] text-xs">
+          <div className="text-cooper-gray-450 text-xs">
             Enter details for your interview rounds.
           </div>
         </div>
-        <div className="w-full max-w-4xl mx-auto p-6 bg-white">
+        <div className="w-full md:max-w-4xl mx-auto p-6 bg-white">
           <div className="space-y-4">
             {rounds.map((round, index) => (
               <div
@@ -133,7 +124,7 @@ export function InterviewSection() {
                       <h3 className="font-bold text-cooper-gray-400 text-md">
                         Interview type
                       </h3>
-                      <div className="text-[#767676] text-sm bg-cooper-gray-150 px-1 pt-0.25 rounded-lg">
+                      <div className="text-cooper-gray-450 text-sm bg-cooper-gray-150 px-1 pt-0.25 rounded-lg">
                         ?
                       </div>
                     </div>

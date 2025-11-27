@@ -44,4 +44,31 @@ const RadioGroupItem = React.forwardRef<
 });
 RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName;
 
-export { RadioGroup, RadioGroupItem };
+const RadioGroupRect = React.forwardRef<
+  React.ElementRef<typeof RadioGroupPrimitive.Item>,
+  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> & {
+    label?: string;
+  }
+>(({ className, label, ...props }, ref) => {
+  return (
+    <RadioGroupPrimitive.Item
+      ref={ref}
+      className={cn(
+        "h-6 w-24 rounded-md border-2 px-12 py-2 flex items-center justify-center cursor-pointer ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+        props.checked ? "border-cooper-yellow-500 " : "border-cooper-gray-150",
+        className,
+      )}
+      {...props}
+    >
+      <span
+        className={`text-sm ${props.checked ? "text-cooper-yellow-500" : "text-cooper-gray-400"}`}
+      >
+        {label}
+      </span>
+    </RadioGroupPrimitive.Item>
+  );
+});
+
+RadioGroupRect.displayName = RadioGroupPrimitive.Item.displayName;
+
+export { RadioGroup, RadioGroupItem, RadioGroupRect };

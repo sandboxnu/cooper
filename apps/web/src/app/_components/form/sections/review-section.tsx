@@ -15,11 +15,6 @@ import { Textarea } from "@cooper/ui/textarea";
 
 import { FormSection } from "~/app/_components/form/form-section";
 import { api } from "~/trpc/react";
-import LocationBox from "../../location";
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "node_modules/@cooper/ui/src/radio-group";
 import { NumberedRating } from "../numbered-rating";
 
 /**
@@ -82,9 +77,9 @@ export function ReviewSection() {
         control={form.control}
         name="reviewHeadline"
         render={({ field }) => (
-          <FormItem className="flex flex-row gap-14">
+          <FormItem className="flex flex-row gap-14 pt-6 pl-2 md:pl-20">
             <FormLabel className="text-sm text-cooper-gray-400">
-              Review Headline*
+              Review Headline
             </FormLabel>
             <FormControl>
               <Input
@@ -101,30 +96,43 @@ export function ReviewSection() {
         control={form.control}
         name="textReview"
         render={({ field }) => (
-          <FormItem className="flex flex-row gap-14">
+          <FormItem className="flex flex-row gap-14 pl-2 md:pl-20">
             <FormLabel className="text-sm text-cooper-gray-400">
-              Your co-op experience*
+              Your co-op experience
             </FormLabel>
             <FormControl>
               <Textarea
                 {...field}
                 placeholder="Write about your co-op experience..."
-                className="border border-cooper-gray-150 w-[50%] text-sm"
+                className="border border-cooper-gray-150 w-full text-sm"
               />
             </FormControl>
             <FormMessage />
           </FormItem>
         )}
       />
-      <div className="flex flex-row gap-56">
-        <div>Rate</div>
-        <div className="flex flex-col justify-between overflow-hidden md:flex-col md:space-x-2">
+      <div className="flex flex-row gap-14 ">
+        <div className="text-sm text-cooper-gray-400 pl-2 md:pl-20">Rate</div>
+        <div className="flex flex-col justify-between overflow-hidden md:flex-col ">
+        <FormField
+            control={form.control}
+            name="supervisorRating"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-sm text-cooper-gray-450">Supervisor rating</FormLabel>
+                <FormControl>
+                  <NumberedRating {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           <FormField
             control={form.control}
             name="overallRating"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Overall co-op experience*</FormLabel>
+                <FormLabel className="text-sm text-cooper-gray-450">Overall co-op experience</FormLabel>
                 <FormControl>
                   <NumberedRating {...field} />
                 </FormControl>
@@ -137,7 +145,7 @@ export function ReviewSection() {
             name="cultureRating"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Company culture*</FormLabel>
+                <FormLabel className="text-sm text-cooper-gray-450">Company culture</FormLabel>
                 <FormControl>
                   <NumberedRating {...field} />
                 </FormControl>
@@ -145,25 +153,13 @@ export function ReviewSection() {
               </FormItem>
             )}
           />
-          <FormField
-            control={form.control}
-            name="supervisorRating"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Supervisor rating*</FormLabel>
-                <FormControl>
-                  <NumberedRating {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          
           <FormField
             control={form.control}
             name="interviewRating"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel>Interview experience*</FormLabel>
+              <FormItem className=" pb-12">
+                <FormLabel className="text-sm text-cooper-gray-450">Interview experience</FormLabel>
                 <FormControl>
                   <NumberedRating {...field} />
                 </FormControl>

@@ -184,9 +184,9 @@ export default function ExistingCompanyContent({
       <div className="flex flex-col gap-4">
         {/* Company Section */}
         {/* Company Autocomplete */}
-        <article className="flex flex-row gap-14">
+        <article className="flex flex-row gap-14 pl-2 md:pl-20">
           <p className="text-sm text-cooper-gray-400 font-semibold">
-            Company name*
+            Company name<span className="text-[#FB7373]">*</span>
           </p>
 
           <div className="relative w-[70%]">
@@ -230,9 +230,9 @@ export default function ExistingCompanyContent({
 
         {/* Roles Autocomplete */}
 
-        <article className="mt-6 flex flex-row gap-14">
+        <article className="mt-6 flex flex-row gap-14 pl-2 md:pl-20">
           <p className="text-sm font-semibold text-cooper-gray-400">
-            Role name*
+            Role name<span className="text-[#FB7373]">*</span>
           </p>
 
           <div className="relative w-[70%]">
@@ -248,7 +248,7 @@ export default function ExistingCompanyContent({
                 setCreatingNewRole(false);
               }}
               onFocus={() => setCreatingNewRole(false)}
-              className="w-full"
+              className="w-full "
             />
 
             {roles.data && (

@@ -85,7 +85,7 @@ export function RoleInfoSection() {
         control={form.control}
         name="industry"
         render={({ field }) => (
-          <FormItem className="ml-32 flex flex-row gap-14 items-center">
+          <FormItem className="pl-2 md:ml-32 flex flex-row gap-14 items-center pt-8">
             <Label className="text-sm text-cooper-gray-400 font-medium mb-3">
               Industry
             </Label>
@@ -93,7 +93,7 @@ export function RoleInfoSection() {
               <Select
                 placeholder="Search by industry..."
                 options={industryOptions}
-                className="w-full border-2 rounded-lg h-10 text-sm text-cooper-gray-350 border-cooper-gray-150"
+                className="w-[305px] border-2 rounded-lg h-10 text-sm text-cooper-gray-350 border-cooper-gray-150"
                 {...field}
               />
             </FormControl>
@@ -106,7 +106,7 @@ export function RoleInfoSection() {
         control={form.control}
         name="locationId"
         render={({ field }) => (
-          <FormItem className="flex flex-row ml-32 gap-14">
+          <FormItem className="flex flex-row pl-2 md:ml-32 gap-14">
             <Label className="text-sm text-cooper-gray-400 font-medium mb-3">
               Location
             </Label>
@@ -129,8 +129,8 @@ export function RoleInfoSection() {
         control={form.control}
         name="workEnvironment"
         render={({ field }) => (
-          <FormItem className="rounded-md p-6 flex flex-row gap-14 ml-32">
-            <FormLabel className="text-sm font-medium block mb-6 text-cooper-gray-400">
+          <FormItem className="rounded-md flex flex-row gap-14 pl-2 md:ml-32">
+            <FormLabel className="text-sm font-medium block text-cooper-gray-400">
               Job type
             </FormLabel>
             <FormControl>
@@ -147,7 +147,7 @@ export function RoleInfoSection() {
                   />
                   <Label
                     htmlFor="coop"
-                    className="text-[#767676] font-normal cursor-pointer"
+                    className="text-cooper-gray-450 font-normal cursor-pointer"
                   >
                     Co-op
                   </Label>
@@ -160,7 +160,7 @@ export function RoleInfoSection() {
                   />
                   <Label
                     htmlFor="internship"
-                    className="text-[#767676] font-normal cursor-pointer"
+                    className="text-cooper-gray-450 font-normal cursor-pointer"
                   >
                     Internship
                   </Label>
@@ -173,7 +173,7 @@ export function RoleInfoSection() {
                   />
                   <Label
                     htmlFor="parttime"
-                    className="text-[#767676] font-normal cursor-pointer"
+                    className="text-cooper-gray-450 font-normal cursor-pointer"
                   >
                     Part time
                   </Label>
@@ -189,22 +189,22 @@ export function RoleInfoSection() {
         control={form.control}
         name="hourlyPay"
         render={({ field }) => (
-          <FormItem className="rounded-md p-6 flex flex-row ml-32 gap-14 items-center">
+          <FormItem className="rounded-md pb-10 flex flex-row pl-2 md:ml-32 gap-12 items-center">
             <FormLabel className="text-sm font-medium block mb-4 text-cooper-gray-400">
               Hourly pay
             </FormLabel>
             <FormControl>
-              <div className="flex items-center gap-4 flex-row">
-                <div className="flex items-center flex-1 gap-2">
+              <div className="flex items-center gap-2 flex-row">
+                <div className="flex items-center ">
                   <Input
                     {...field}
                     placeholder="$"
-                    className="border-2 border-cooper-gray-150 rounded-lg h-10 text-cooper-gray-400 bg-transparent text-sm p-0 focus:outline-none"
+                    className="border-2 border-cooper-gray-150 rounded-lg h-9 w-20 text-cooper-gray-400 bg-transparent text-sm pl-4 focus:outline-none"
                     disabled={isUnpaid}
                   />
                 </div>
                 <div
-                  className="flex items-center gap-3 rounded-md px-4 py-2 cursor-pointer"
+                  className="flex items-center gap-2 rounded-md cursor-pointer"
                   onClick={() => setIsUnpaid(!isUnpaid)}
                 >
                   <Checkbox
