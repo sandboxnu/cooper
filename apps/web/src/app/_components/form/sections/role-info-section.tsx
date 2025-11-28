@@ -94,7 +94,12 @@ export function RoleInfoSection() {
                 placeholder="Search by industry..."
                 options={industryOptions}
                 className="md:w-[305px] border-2 rounded-lg h-10 text-sm text-cooper-gray-350 border-cooper-gray-150"
-                {...field}
+                value={field.value ?? ""}
+                onChange={(e) => {
+                  const value =
+                    e.target.value === "" ? undefined : String(e.target.value);
+                  field.onChange(value);
+                }}
               />
             </div>
             <FormMessage className="text-sm" />
@@ -127,7 +132,7 @@ export function RoleInfoSection() {
 
       <FormField
         control={form.control}
-        name="workEnvironment"
+        name="jobType"
         render={({ field }) => (
           <FormItem className="rounded-md flex flex-row gap-14 pl-2 md:pl-0 pt-6 space-y-0">
             <FormLabel className="text-sm font-medium block text-cooper-gray-400 md:w-60 text-right">

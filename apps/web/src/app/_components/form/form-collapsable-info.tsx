@@ -5,13 +5,21 @@ import React, { useState } from "react";
 interface FormCollapsableInfoCardProps {
   title: string;
   children: ReactNode;
+  onClear: () => void;
 }
 
 const FormCollapsableInfoCard: React.FC<FormCollapsableInfoCardProps> = ({
   title,
   children,
+  onClear,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleClear = (e: React.MouseEvent) => {
+    e.stopPropagation();
+
+    onClear();
+  };
 
   return (
     <div className="flex h-full flex-col rounded-lg border-1 border-cooper-gray-150 bg-white duration-300 ">
@@ -22,8 +30,16 @@ const FormCollapsableInfoCard: React.FC<FormCollapsableInfoCardProps> = ({
         }`}
       >
         <div className="flex justify-between w-full">
-          <span>{title}</span>
-          <div>
+          <span>
+            {title}{" "}
+            <button
+              onClick={handleClear}
+              className="text-xs pl-2.5 text-cooper-gray-400 hover:text-cooper-gray-600 transition-colors"
+            >
+              Clear
+            </button>
+          </span>
+          <div className="flex items-center gap-3">
             <ChevronDown className="text-cooper-gray-350" />
           </div>
         </div>

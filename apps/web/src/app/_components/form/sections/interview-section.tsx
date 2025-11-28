@@ -182,7 +182,16 @@ export function InterviewSection() {
                     <p className="text-cooper-gray-350 text-xs mb-3">
                       Rate the difficulty of this round
                     </p>
-                    <Rating />
+                    <Rating
+                      value={round.difficulty}
+                      onChange={(value) => {
+                        setRounds(
+                          rounds.map((r) =>
+                            r.id === round.id ? { ...r, difficulty: value } : r,
+                          ),
+                        );
+                      }}
+                    />
                     <p className="text-cooper-gray-350 text-xs">
                       Cooper average for first round:{" "}
                       {round.cooperAverage.toFixed(1)}

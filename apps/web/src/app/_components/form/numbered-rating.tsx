@@ -4,9 +4,9 @@ import { useFormContext } from "react-hook-form";
 
 import Image from "next/image";
 import { cn } from "@cooper/ui";
+import { ReviewFormType } from "~/app/(pages)/(protected)/review-form/page";
 
 // FIXME: Fix this import at some point (form context)
-import type { ReviewFormType } from "~/app/_components/form/review-form";
 
 type RatingProps = React.InputHTMLAttributes<HTMLInputElement>;
 

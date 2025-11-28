@@ -15,7 +15,7 @@ import {
 } from "@cooper/ui/radio-group";
 
 import { FormSection } from "~/app/_components/form/form-section";
-import { benefits } from "~/app/_components/form/review-form";
+import { benefits } from "~/app/(pages)/(protected)/review-form/page";
 
 /**
  * CompanyDetailsSection component renders form fields for capturing

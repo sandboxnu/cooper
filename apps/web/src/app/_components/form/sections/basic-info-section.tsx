@@ -97,7 +97,14 @@ export function BasicInfoSection() {
                   options={years.map((year) => ({ value: year, label: year }))}
                   className="w-[305px] border-2 rounded-lg h-10 text-sm text-cooper-gray-350 border-cooper-gray-150"
                   placeholder="Select year worked..."
-                  {...field}
+                  value={field.value ?? ""}
+                  onChange={(e) => {
+                    const value =
+                      e.target.value === ""
+                        ? undefined
+                        : Number(e.target.value);
+                    field.onChange(value);
+                  }}
                 />
               </FormControl>
             </div>
