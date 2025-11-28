@@ -39,7 +39,7 @@ export default function HeaderLayoutClient({
   );
 
   return (
-    <div className="flex min-h-screen flex-col justify-between">
+    <div className="flex min-h-screen flex-col justify-between bg-red-400">
       <div className="fixed top-0 z-50 w-full bg-white">
         <Header auth={button} />
       </div>

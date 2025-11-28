@@ -81,7 +81,6 @@ export const CreateReviewSchema = createInsertSchema(Review, {
   cultureRating: z.number().min(1).max(5),
   supervisorRating: z.number().min(1).max(5),
   interviewRating: z.number().min(1).max(5),
-  interviewDifficulty: z.number().min(1).max(5),
   interviewReview: z.string().optional(),
   reviewHeadline: z.string(),
   textReview: z.string(),

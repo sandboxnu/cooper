@@ -3,22 +3,21 @@ import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Filter } from "bad-words";
 import Fuse from "fuse.js";
-import { Form, FormProvider, useForm } from "react-hook-form";
+import { Form, FormProvider, useForm, useFormContext } from "react-hook-form";
 import { z } from "zod";
 
-import type { CompanyType, RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
-import { Button } from "@cooper/ui/button";
-import { DialogFooter } from "@cooper/ui/dialog";
 import { FormControl, FormField, FormItem, FormMessage } from "@cooper/ui/form";
 import { useCustomToast } from "@cooper/ui/hooks/use-custom-toast";
 import { Input } from "@cooper/ui/input";
 import { Label } from "@cooper/ui/label";
-import Logo from "@cooper/ui/logo";
 import { Textarea } from "@cooper/ui/textarea";
 
 import type { RoleRequestType } from "../new-role-dialogue";
 import { api } from "~/trpc/react";
+import { Select } from "../../themed/onboarding/select";
+import { FormSection } from "../../form/form-section";
+import { FormLabel } from "../../themed/onboarding/form";
 
 const filter = new Filter();
 const roleSchema = z.object({
@@ -68,8 +67,6 @@ export default function ExistingCompanyContent({
   const { toast } = useCustomToast();
 
   const companies = api.company.list.useQuery({
-    prefix: companyLabel,
-    limit: 4,
     sortBy: "rating",
   });
 
@@ -183,159 +180,121 @@ export default function ExistingCompanyContent({
     </div>
   );
 
+  const form = useFormContext();
+
   return (
-    <>
-      <div className="flex flex-col gap-4">
+    <FormSection>
+      <div className="flex flex-col gap-6 pt-4">
         {/* Company Section */}
-        <article>
-          <p className="text-lg font-semibold">Company Name</p>
-          <Input
-            variant="dialogue"
-            onChange={(e) => {
-              setCompanyLabel(e.target.value);
-              handleUpdateCompanyId(undefined);
-            }}
-            className="w-full"
-          />
-          <div className="mt-2 grid w-full grid-cols-1 gap-2">
-            {companies.isSuccess &&
-              companies.data.length > 0 &&
-              companies.data.map((company: CompanyType) => (
-                <div
-                  key={company.id}
-                  className={cn(
-                    "flex items-center justify-start space-x-4 rounded-lg border border-cooper-gray-300 p-2 hover:cursor-pointer",
-                    selectedCompanyId === company.id && "bg-cooper-blue-200",
-                  )}
-                  onClick={() => {
-                    handleUpdateCompanyId(company.id);
-                    setCreatingNewRole(false);
+        {/* Company Autocomplete */}
+        <FormField
+          control={form.control}
+          name="companyName"
+          render={({ field }) => (
+            <FormItem className="flex flex-row gap-14 pl-2 md:pl-0 items-center">
+              <FormLabel className="text-sm text-cooper-gray-400 font-semibold md:w-60 text-right">
+                Company name<span className="text-[#FB7373]">*</span>
+              </FormLabel>
+
+              <div className="relative flex-1">
+                <Select
+                  options={
+                    companies.data?.filter(Boolean).map((company) => ({
+                      value: company.id,
+                      label: company.name,
+                    })) ?? []
+                  }
+                  placeholder="Search companies…"
+                  className="w-full border-cooper-gray-150 text-sm h-10"
+                  value={field.value ?? ""} // <-- use RHF value
+                  onChange={(e) => {
+                    const newId = e.target.value;
+                    field.onChange(newId); // <-- notify RHF
+                    setCompanyLabel(newId);
                     setSelectedRoleId(undefined);
+                    handleUpdateCompanyId(newId);
                   }}
-                >
-                  <Logo company={company} />
-                  <h2 className="text-lg font-semibold">{company.name}</h2>
+                />
+              </div>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        {/* Roles Autocomplete */}
+        <FormField
+          control={form.control}
+          name="roleName"
+          render={({ field }) => (
+            <FormItem className="flex flex-row gap-14 pl-2 md:pl-0 items-center">
+              <FormLabel className="text-sm font-semibold text-cooper-gray-400 md:w-60 text-right ">
+                Role name<span className="text-[#FB7373]">*</span>
+              </FormLabel>
+
+              <div className="relative flex-1">
+                <Select
+                  placeholder="Search roles…"
+                  options={
+                    roles.data?.map((r) => ({
+                      value: r.id,
+                      label: r.title,
+                    })) ?? []
+                  }
+                  disabled={!selectedCompanyId}
+                  className="w-full border-cooper-gray-150 text-sm h-10"
+                  value={field.value ?? ""}
+                  onChange={(e) => {
+                    const newRoleId = e.target.value;
+                    field.onChange(newRoleId);
+                    setSelectedRoleId(newRoleId);
+                    setCreatingNewRole(false);
+                  }}
+                  onFocus={() => setCreatingNewRole(false)}
+                />
+              </div>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        {/* Create New Role Section */}
+        {creatingNewRole && (
+          <article>
+            <FormProvider {...newRoleForm}>
+              <Form>
+                <div className="flex flex-col gap-4">
+                  <FormField
+                    control={newRoleForm.control}
+                    name="title"
+                    render={({ field }) => (
+                      <FormItem>
+                        <Label>Role Name</Label>
+                        <FormControl>
+                          <Input type="string" variant="dialogue" {...field} />
+                        </FormControl>
+                        <FormMessage className="text-sm" />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={newRoleForm.control}
+                    name="description"
+                    render={({ field }) => (
+                      <FormItem>
+                        <Label>Role Description</Label>
+                        <FormControl>
+                          <Textarea variant="dialogue" {...field} />
+                        </FormControl>
+                        <FormMessage className="text-sm" />
+                      </FormItem>
+                    )}
+                  />
                 </div>
-              ))}
-            {companies.isSuccess && companies.data.length === 0 && (
-              <div className="text-md flex items-center rounded-lg py-2">
-                <h2 className="text-lg italic">No companies found</h2>
-              </div>
-            )}
-            {companies.isPending && (
-              <div className="flex h-16 items-center justify-start rounded-lg p-4">
-                <h2 className="text-lg italic">Loading...</h2>
-              </div>
-            )}
-          </div>
-        </article>
-        {/* Roles Section */}
-        {selectedCompanyId && (
-          <>
-            <article>
-              <p className="text-lg font-semibold">Roles</p>
-              <div className="mt-2 grid w-full grid-cols-1 gap-2">
-                {roles.isSuccess && roles.data.length > 0 && (
-                  <>
-                    {roles.data.map((role: RoleType) => (
-                      <div
-                        key={role.id}
-                        className={cn(
-                          "flex flex-col items-start justify-start rounded-lg border border-cooper-gray-300 p-2 hover:cursor-pointer",
-                          selectedRoleId === role.id && "bg-cooper-blue-200",
-                        )}
-                        onClick={() => {
-                          setSelectedRoleId(role.id);
-                          setCreatingNewRole(false);
-                        }}
-                      >
-                        <h2 className="text-lg font-semibold">{role.title}</h2>
-                        <p className="text-md">{role.description}</p>
-                      </div>
-                    ))}
-                    {createdRolesCount < 4 && createNewRoleButton}
-                  </>
-                )}
-                {roles.isPending && (
-                  <div className="flex items-center rounded-lg py-2">
-                    <h2 className="text-lg italic">Loading...</h2>
-                  </div>
-                )}
-                {createdRolesCount < 4 &&
-                  roles.isSuccess &&
-                  roles.data.length === 0 &&
-                  createNewRoleButton}
-                {createdRolesCount >= 4 && (
-                  <div className="flex flex-col items-center justify-center rounded-lg border border-cooper-gray-300 p-2">
-                    <h2 className="text-center text-lg">
-                      You have already created the maximum number of roles.
-                    </h2>
-                    <p className="text-md">
-                      Thank you for contributing to{" "}
-                      <span className="font-bold text-cooper-blue-800">
-                        cooper!
-                      </span>
-                    </p>
-                  </div>
-                )}
-              </div>
-            </article>
-            {/* Create New Role Section */}
-            {creatingNewRole && (
-              <article>
-                <FormProvider {...newRoleForm}>
-                  <Form>
-                    <div className="flex flex-col gap-4">
-                      <FormField
-                        control={newRoleForm.control}
-                        name="title"
-                        render={({ field }) => (
-                          <FormItem>
-                            <Label>Role Name</Label>
-                            <FormControl>
-                              <Input
-                                type="string"
-                                variant="dialogue"
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage className="text-sm" />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={newRoleForm.control}
-                        name="description"
-                        render={({ field }) => (
-                          <FormItem>
-                            <Label>Role Description</Label>
-                            <FormControl>
-                              <Textarea variant="dialogue" {...field} />
-                            </FormControl>
-                            <FormMessage className="text-sm" />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                  </Form>
-                </FormProvider>
-              </article>
-            )}
-          </>
+              </Form>
+            </FormProvider>
+          </article>
         )}
       </div>
-      <DialogFooter className="mt-4">
-        <Button
-          className="border-none bg-cooper-yellow-500 text-white hover:bg-cooper-yellow-300"
-          disabled={
-            ((!selectedCompanyId || !selectedRoleId) && !creatingNewRole) ||
-            isLoading
-          }
-          onClick={handleSubmit}
-        >
-          {isLoading ? "Loading..." : "Start Review"}
-        </Button>
-      </DialogFooter>
-    </>
+    </FormSection>
   );
 }
