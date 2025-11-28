@@ -158,6 +158,7 @@ export function CompanyDetailsSection() {
           </FormItem>
         )}
       />
+      {/* Benefits section */}
       <div className="flex flex-row">
         <div className="flex flex-col pl-2 md:pl-0 pt-6">
           <FormLabel className="text-cooper-gray-400 text-sm md:w-60 text-right">
@@ -185,7 +186,6 @@ export function CompanyDetailsSection() {
                 <FormItem className="flex flex-row items-start space-x-4 space-y-0 text-sm">
                   <FormControl>
                     <Checkbox
-                      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                       checked={field.value}
                       onCheckedChange={field.onChange}
                       className="w-6 h-6"

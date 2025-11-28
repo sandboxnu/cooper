@@ -3,7 +3,7 @@ import { forwardRef, useState } from "react";
 import { useFormContext } from "react-hook-form";
 
 import { cn } from "@cooper/ui";
-import { ReviewFormType } from "./review-form";
+import { ReviewFormType } from "~/app/(pages)/(protected)/review-form/page";
 
 // FIXME: Fix this import at some point (form context)
 

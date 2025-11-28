@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Filter } from "bad-words";
 import Fuse from "fuse.js";
-import { Form, FormProvider, useForm } from "react-hook-form";
+import { Form, FormProvider, useForm, useFormContext } from "react-hook-form";
 import { z } from "zod";
 
 import { cn } from "@cooper/ui";
@@ -180,65 +180,82 @@ export default function ExistingCompanyContent({
     </div>
   );
 
+  const form = useFormContext();
+
   return (
     <FormSection>
       <div className="flex flex-col gap-6 pt-4">
         {/* Company Section */}
         {/* Company Autocomplete */}
-        <FormItem className="flex flex-row gap-14 pl-2 md:pl-0 items-center">
-          <FormLabel className="text-sm text-cooper-gray-400 font-semibold md:w-60 text-right">
-            Company name<span className="text-[#FB7373]">*</span>
-          </FormLabel>
+        <FormField
+          control={form.control}
+          name="companyName"
+          render={({ field }) => (
+            <FormItem className="flex flex-row gap-14 pl-2 md:pl-0 items-center">
+              <FormLabel className="text-sm text-cooper-gray-400 font-semibold md:w-60 text-right">
+                Company name<span className="text-[#FB7373]">*</span>
+              </FormLabel>
 
-          <div className="relative flex-1">
-            <Select
-              options={
-                companies.data?.filter(Boolean).map((company) => ({
-                  value: company.id,
-                  label: company.name,
-                })) ?? []
-              }
-              placeholder="Search companies…"
-              className="w-full border-cooper-gray-150 text-sm h-10"
-              value={companyLabel}
-              onChange={(e) => {
-                const newId = e.target.value;
-
-                setCompanyLabel(e.target.value);
-                setSelectedRoleId(undefined);
-                handleUpdateCompanyId(newId);
-              }}
-            />
-          </div>
-        </FormItem>
+              <div className="relative flex-1">
+                <Select
+                  options={
+                    companies.data?.filter(Boolean).map((company) => ({
+                      value: company.id,
+                      label: company.name,
+                    })) ?? []
+                  }
+                  placeholder="Search companies…"
+                  className="w-full border-cooper-gray-150 text-sm h-10"
+                  value={field.value ?? ""} // <-- use RHF value
+                  onChange={(e) => {
+                    const newId = e.target.value;
+                    field.onChange(newId); // <-- notify RHF
+                    setCompanyLabel(newId);
+                    setSelectedRoleId(undefined);
+                    handleUpdateCompanyId(newId);
+                  }}
+                />
+              </div>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
         {/* Roles Autocomplete */}
+        <FormField
+          control={form.control}
+          name="roleName"
+          render={({ field }) => (
+            <FormItem className="flex flex-row gap-14 pl-2 md:pl-0 items-center">
+              <FormLabel className="text-sm font-semibold text-cooper-gray-400 md:w-60 text-right ">
+                Role name<span className="text-[#FB7373]">*</span>
+              </FormLabel>
 
-        <FormItem className="flex flex-row gap-14 pl-2 md:pl-0 items-center">
-          <FormLabel className="text-sm font-semibold text-cooper-gray-400 md:w-60 text-right ">
-            Role name<span className="text-[#FB7373]">*</span>
-          </FormLabel>
-
-          <div className="relative flex-1">
-            <Select
-              placeholder="Search roles…"
-              options={
-                roles.data?.map((r) => ({
-                  value: r.id,
-                  label: r.title,
-                })) ?? []
-              }
-              disabled={!selectedCompanyId}
-              onChange={(e) => {
-                const newRoleId = e.target.value;
-                setSelectedRoleId(newRoleId);
-                setCreatingNewRole(false);
-              }}
-              onFocus={() => setCreatingNewRole(false)}
-              className="w-full border-cooper-gray-150 text-sm h-10"
-            />
-          </div>
-        </FormItem>
+              <div className="relative flex-1">
+                <Select
+                  placeholder="Search roles…"
+                  options={
+                    roles.data?.map((r) => ({
+                      value: r.id,
+                      label: r.title,
+                    })) ?? []
+                  }
+                  disabled={!selectedCompanyId}
+                  className="w-full border-cooper-gray-150 text-sm h-10"
+                  value={field.value ?? ""}
+                  onChange={(e) => {
+                    const newRoleId = e.target.value;
+                    field.onChange(newRoleId);
+                    setSelectedRoleId(newRoleId);
+                    setCreatingNewRole(false);
+                  }}
+                  onFocus={() => setCreatingNewRole(false)}
+                />
+              </div>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
         {/* Create New Role Section */}
         {creatingNewRole && (

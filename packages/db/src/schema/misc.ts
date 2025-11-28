@@ -44,6 +44,12 @@ export const WorkEnvironment = {
   REMOTE: "REMOTE",
 } as const;
 
+export const JobType = {
+  COOP: "coop",
+  PARTTIME: "parttime",
+  INTERNSHIP: "internship",
+} as const;
+
 export type WorkEnvironmentType =
   (typeof WorkEnvironment)[keyof typeof WorkEnvironment];
 

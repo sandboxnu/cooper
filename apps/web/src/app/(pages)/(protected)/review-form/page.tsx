@@ -24,9 +24,11 @@ import { RoleInfoSection } from "~/app/_components/form/sections/role-info-secti
 import { Circle } from "lucide-react";
 import { SubmissionConfirmation } from "~/app/_components/form/submission-confirmation";
 import { SubmissionFailure } from "~/app/_components/form/submission-failure";
+import { JobType } from "node_modules/@cooper/db/src/schema/misc";
+import { industryOptions } from "~/app/_components/onboarding/constants";
 
 const sectionFields = {
-  basic: ["workTerm", "workYear"] as const,
+  basic: ["workTerm", "workYear", "companyName", "roleName"] as const,
   company: ["workEnvironment", "drugTest", "overtimeNormal"] as const,
   role: ["industry", "locationId", "hourlyPay"] as const,
   interview: ["field"] as const,
@@ -124,6 +126,12 @@ const formSchema = z.object({
     .refine((val) => !filter.isProfane(val), {
       message: "The review headline cannot contain profane words.",
     }),
+  companyName: z.string({
+    required_error: "You need to enter a company.",
+  }),
+  roleName: z.string({
+    required_error: "You need to enter a role.",
+  }),
   textReview: z
     .string({
       required_error: "You need to enter a review for your co-op.",
@@ -146,6 +154,15 @@ const formSchema = z.object({
   workEnvironment: z.nativeEnum(WorkEnvironment, {
     required_error: "You need to select a work model.",
   }),
+  jobType: z.nativeEnum(JobType, {
+    required_error: "You need to select a job type.",
+  }),
+  industry: z.enum(
+    industryOptions.map((opt) => opt.value) as [string, ...string[]],
+    {
+      required_error: "You need to select an industry.",
+    },
+  ),
   drugTest: z
     .string({
       required_error: "You need to select whether you were drug-tested.",
@@ -390,6 +407,8 @@ export default function ReviewForm() {
             onClear={() => {
               form.resetField("workTerm");
               form.resetField("workYear");
+              form.resetField("companyName");
+              form.resetField("roleName");
             }}
           >
             <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap ">
@@ -404,6 +423,11 @@ export default function ReviewForm() {
                   form.resetField("overtimeNormal");
                   form.resetField("workEnvironment");
                   form.resetField("drugTest");
+                  benefits.forEach((benefit) => {
+                    form.resetField(
+                      benefit.field as keyof z.infer<typeof formSchema>,
+                    );
+                  });
                 }}
               >
                 <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
@@ -415,8 +439,10 @@ export default function ReviewForm() {
               <FormCollapsableInfoCard
                 title={"Role Information"}
                 onClear={() => {
-                  form.resetField("workEnvironment");
+                  form.resetField("jobType");
                   form.resetField("hourlyPay");
+                  form.resetField("industry");
+                  form.resetField("locationId");
                 }}
               >
                 <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
@@ -434,7 +460,14 @@ export default function ReviewForm() {
               </FormCollapsableInfoCard>
               <FormCollapsableInfoCard
                 title={"Final co-op review"}
-                onClear={() => {}}
+                onClear={() => {
+                  form.resetField("supervisorRating");
+                  form.resetField("cultureRating");
+                  form.resetField("interviewRating");
+                  form.resetField("overallRating");
+                  form.resetField("textReview");
+                  form.resetField("reviewHeadline");
+                }}
               >
                 <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
                   <div className="flex flex-wrap gap-10 lg:flex-nowrap">

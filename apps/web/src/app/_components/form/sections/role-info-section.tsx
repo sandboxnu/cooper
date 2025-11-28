@@ -79,6 +79,15 @@ export function RoleInfoSection() {
     }
   }, [locationByIdData, locationLabel]);
 
+  // NEW: clear local state when form locationId is cleared
+  const locationId = form.watch("locationId");
+  useEffect(() => {
+    if (!locationId) {
+      setLocationLabel("");
+      setSearchTerm("");
+    }
+  }, [locationId]);
+
   return (
     <FormSection>
       <FormField
