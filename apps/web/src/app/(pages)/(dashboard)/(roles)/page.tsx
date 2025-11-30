@@ -154,6 +154,13 @@ export default function Roles() {
       : null;
   }, [resolvedSelection]);
 
+  // Helper to check if a role is already being compared
+  const isRoleAlreadyCompared = (roleId: string) => {
+    return (
+      selectedRole?.id === roleId || compare.comparedRoleIds.includes(roleId)
+    );
+  };
+
   const handleRoleDragStart = (
     event: React.DragEvent<HTMLDivElement>,
     role: RoleType,
@@ -260,17 +267,19 @@ export default function Roles() {
               {rolesAndCompanies.data.items.map((item, i) => {
                 if (item.type === "role") {
                   const roleItem = item as RoleType;
+                  const isAlreadyCompared = isRoleAlreadyCompared(roleItem.id);
                   return (
                     <div
                       key={roleItem.id}
                       className={cn(
-                        "relative rounded-lg",
+                        "relative mb-4 rounded-lg",
                         compare.isCompareMode &&
+                          !isAlreadyCompared &&
                           "cursor-grab active:cursor-grabbing",
                       )}
-                      draggable={compare.isCompareMode}
+                      draggable={compare.isCompareMode && !isAlreadyCompared}
                       onDragStart={
-                        compare.isCompareMode
+                        compare.isCompareMode && !isAlreadyCompared
                           ? (event) => handleRoleDragStart(event, roleItem)
                           : undefined
                       }
@@ -279,11 +288,11 @@ export default function Roles() {
                         setShowRoleInfo(true); // Show RoleInfo on mobile
                       }}
                     >
-                      {compare.isCompareMode && (
+                      {compare.isCompareMode && !isAlreadyCompared && (
                         <button
                           type="button"
                           aria-label="Add to comparison"
-                          className="absolute right-4 top-4 z-10 flex h-7 w-7 items-center justify-center rounded-full border border-cooper-gray-300 bg-white text-base text-cooper-gray-500 shadow-sm transition hover:bg-cooper-gray-100"
+                          className="absolute right-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-cooper-gray-300 bg-white text-xl text-cooper-gray-400 transition hover:bg-cooper-gray-50 hover:border-cooper-gray-400"
                           onClick={(event) => {
                             event.stopPropagation();
                             compare.enterCompareMode();
@@ -295,8 +304,12 @@ export default function Roles() {
                       )}
                       <RoleCardPreview
                         roleObj={roleItem}
+                        showDragHandle={
+                          compare.isCompareMode && !isAlreadyCompared
+                        }
+                        showFavorite={!compare.isCompareMode}
                         className={cn(
-                          "mb-4 hover:bg-cooper-gray-100",
+                          "hover:bg-cooper-gray-100",
                           selectedItem
                             ? selectedItem.id === roleItem.id &&
                                 "bg-cooper-cream-200 hover:bg-cooper-gray-200"

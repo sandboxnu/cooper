@@ -99,31 +99,51 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
 
   const comparedRolesQuery = api.role.getManyByIds.useQuery(
     { ids: comparedRoleIds },
-    { enabled: comparedRoleIds.length > 0 },
+    { 
+      enabled: comparedRoleIds.length > 0,
+      placeholderData: (previousData) => previousData,
+    },
   );
 
-  const comparedRoles = useMemo<RoleType[]>(() => {
-    if (!comparedRolesQuery.isSuccess || !comparedRolesQuery.data) {
-      return [];
-    }
-    const data = comparedRolesQuery.data as RoleType[];
-    // Ensure roles are shown in the same order as IDs
-    return comparedRoleIds
-      .map((id) => data.find((role) => role.id === id))
-      .filter((role): role is RoleType => Boolean(role));
-  }, [comparedRoleIds, comparedRolesQuery.data, comparedRolesQuery.isSuccess]);
+  const { loadedRoles, loadingRoleIds } = useMemo(() => {
+    const data = comparedRolesQuery.data as RoleType[] | undefined;
+    const loadedRoleMap = new Map(data?.map((role) => [role.id, role]) ?? []);
+    
+    const loaded: RoleType[] = [];
+    const loading: string[] = [];
+    
+    comparedRoleIds.forEach((id) => {
+      const role = loadedRoleMap.get(id);
+      if (role) {
+        loaded.push(role);
+      } else {
+        loading.push(id);
+      }
+    });
+    
+    return { loadedRoles: loaded, loadingRoleIds: loading };
+  }, [comparedRoleIds, comparedRolesQuery.data]);
 
   const placeholders = Array.from({ length: reservedSlots }, (_, index) => ({
     key: `placeholder-${index}`,
+    type: 'empty' as const,
+  }));
+
+  const loadingPlaceholders = loadingRoleIds.map((id) => ({
+    key: `loading-${id}`,
+    type: 'loading' as const,
+    roleId: id,
   }));
 
   const columns = [
-    { key: `anchor-${anchorRole.id}`, role: anchorRole, isAnchor: true },
-    ...comparedRoles.map((role) => ({
+    { key: `anchor-${anchorRole.id}`, role: anchorRole, isAnchor: true, type: 'role' as const },
+    ...loadedRoles.map((role) => ({
       key: role.id,
       role,
       isAnchor: false,
+      type: 'role' as const,
     })),
+    ...loadingPlaceholders,
     ...placeholders,
   ];
 
@@ -139,8 +159,18 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
                   ? "min-w-[360px] md:min-w-[420px]"
                   : "min-w-[320px]";
 
-            if (!("role" in column)) {
-              return <DropSlot key={column.key} widthClass={widthClass} />;
+            if (column.type === 'empty') {
+              return <DropSlot key={column.key} widthClass={widthClass} anchorRoleId={anchorRole.id} />;
+            }
+
+            if (column.type === 'loading') {
+              return (
+                <LoadingSlot 
+                  key={column.key} 
+                  widthClass={widthClass} 
+                  roleId={column.roleId}
+                />
+              );
             }
 
             return (
@@ -173,7 +203,33 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
   );
 }
 
-function DropSlot({ widthClass }: { widthClass: string }) {
+function LoadingSlot({ widthClass, roleId }: { widthClass: string; roleId: string }) {
+  const compare = useCompare();
+
+  return (
+    <div
+      className={cn(
+        "relative flex flex-1 items-center justify-center rounded-lg border-[0.75px] border-cooper-gray-300 bg-white shadow-sm transition",
+        widthClass,
+      )}
+    >
+      <button
+        type="button"
+        aria-label="Remove from comparison"
+        className="absolute right-3 top-3 z-10 flex h-6 w-6 items-center justify-center rounded-full border-[0.75px] border-cooper-gray-300 bg-white text-lg leading-none text-cooper-gray-500 shadow-sm transition hover:bg-cooper-gray-100"
+        onClick={() => compare.removeRoleId(roleId)}
+      >
+        ×
+      </button>
+      <div className="flex flex-col items-center gap-3 px-6 text-center">
+        <div className="h-12 w-12 animate-spin rounded-full border-4 border-cooper-gray-200 border-t-cooper-blue-300" />
+        <p className="text-sm text-cooper-gray-500">Loading role...</p>
+      </div>
+    </div>
+  );
+}
+
+function DropSlot({ widthClass, anchorRoleId }: { widthClass: string; anchorRoleId: string }) {
   const compare = useCompare();
   const [isActive, setIsActive] = useState(false);
 
@@ -193,7 +249,10 @@ function DropSlot({ widthClass }: { widthClass: string }) {
           event.dataTransfer.getData("application/role-id") ||
           event.dataTransfer.getData("text/plain");
         if (id) {
-          compare.addRoleId(id);
+          // Prevent adding duplicate roles (including anchor role)
+          if (id !== anchorRoleId && !compare.comparedRoleIds.includes(id)) {
+            compare.addRoleId(id);
+          }
         }
       }}
       className={cn(
