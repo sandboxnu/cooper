@@ -10,12 +10,15 @@ import { api } from "~/trpc/react";
 import { RoleInfo } from "../reviews/role-info";
 import { useCompare } from "./compare-context";
 
-type CompareControlsProps = {
+interface CompareControlsProps {
   anchorRoleId?: string | null;
   inTopBar?: boolean;
-};
+}
 
-export function CompareControls({ anchorRoleId, inTopBar = false }: CompareControlsProps) {
+export function CompareControls({
+  anchorRoleId,
+  inTopBar = false,
+}: CompareControlsProps) {
   const compare = useCompare();
 
   if (!anchorRoleId) {
@@ -30,7 +33,7 @@ export function CompareControls({ anchorRoleId, inTopBar = false }: CompareContr
   if (!compare.isCompareMode) {
     return (
       <Button
-        className="inline-flex items-center gap-2 rounded-md border-[0.75px] border-cooper-gray-300 bg-cooper-blue-200 px-4 py-2 text-sm font-medium text-[#141414] transition hover:bg-cooper-blue-300"
+        className="hover:bg-cooper-blue-300 inline-flex items-center gap-2 rounded-md border-[0.75px] border-cooper-gray-300 bg-cooper-blue-200 px-4 py-2 text-sm font-medium text-[#141414] transition"
         onClick={() => compare.enterCompareMode()}
       >
         <svg
@@ -95,9 +98,9 @@ export function CompareControls({ anchorRoleId, inTopBar = false }: CompareContr
   );
 }
 
-type CompareColumnsProps = {
+interface CompareColumnsProps {
   anchorRole: RoleType;
-};
+}
 
 export function CompareColumns({ anchorRole }: CompareColumnsProps) {
   const compare = useCompare();
@@ -105,7 +108,7 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
 
   const comparedRolesQuery = api.role.getManyByIds.useQuery(
     { ids: comparedRoleIds },
-    { 
+    {
       enabled: comparedRoleIds.length > 0,
       placeholderData: (previousData) => previousData,
     },
@@ -114,10 +117,10 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
   const { loadedRoles, loadingRoleIds } = useMemo(() => {
     const data = comparedRolesQuery.data as RoleType[] | undefined;
     const loadedRoleMap = new Map(data?.map((role) => [role.id, role]) ?? []);
-    
+
     const loaded: RoleType[] = [];
     const loading: string[] = [];
-    
+
     comparedRoleIds.forEach((id) => {
       const role = loadedRoleMap.get(id);
       if (role) {
@@ -126,28 +129,33 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
         loading.push(id);
       }
     });
-    
+
     return { loadedRoles: loaded, loadingRoleIds: loading };
   }, [comparedRoleIds, comparedRolesQuery.data]);
 
   const placeholders = Array.from({ length: reservedSlots }, (_, index) => ({
     key: `placeholder-${index}`,
-    type: 'empty' as const,
+    type: "empty" as const,
   }));
 
   const loadingPlaceholders = loadingRoleIds.map((id) => ({
     key: `loading-${id}`,
-    type: 'loading' as const,
+    type: "loading" as const,
     roleId: id,
   }));
 
   const columns = [
-    { key: `anchor-${anchorRole.id}`, role: anchorRole, isAnchor: true, type: 'role' as const },
+    {
+      key: `anchor-${anchorRole.id}`,
+      role: anchorRole,
+      isAnchor: true,
+      type: "role" as const,
+    },
     ...loadedRoles.map((role) => ({
       key: role.id,
       role,
       isAnchor: false,
-      type: 'role' as const,
+      type: "role" as const,
     })),
     ...loadingPlaceholders,
     ...placeholders,
@@ -157,7 +165,7 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
     <div className="relative flex flex-col gap-4 px-3">
       <div className="relative min-h-[70dvh] w-full overflow-x-auto">
         <div className="flex min-h-full gap-3 pb-4 pr-4 transition">
-          {columns.map((column, index) => {
+          {columns.map((column) => {
             const widthClass =
               columns.length === 1
                 ? "w-full"
@@ -165,15 +173,21 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
                   ? "min-w-[360px] md:min-w-[420px]"
                   : "min-w-[320px]";
 
-            if (column.type === 'empty') {
-              return <DropSlot key={column.key} widthClass={widthClass} anchorRoleId={anchorRole.id} />;
+            if (column.type === "empty") {
+              return (
+                <DropSlot
+                  key={column.key}
+                  widthClass={widthClass}
+                  anchorRoleId={anchorRole.id}
+                />
+              );
             }
 
-            if (column.type === 'loading') {
+            if (column.type === "loading") {
               return (
-                <LoadingSlot 
-                  key={column.key} 
-                  widthClass={widthClass} 
+                <LoadingSlot
+                  key={column.key}
+                  widthClass={widthClass}
                   roleId={column.roleId}
                 />
               );
@@ -191,7 +205,7 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
                   <button
                     type="button"
                     aria-label="Remove from comparison"
-                    className="absolute right-3 top-3 z-10 flex h-6 w-6 items-center justify-center rounded-full border-[0.75px] border-cooper-gray-300 bg-white text-lg leading-none text-cooper-gray-500 shadow-sm transition hover:bg-cooper-gray-100"
+                    className="text-cooper-gray-500 absolute right-3 top-3 z-10 flex h-6 w-6 items-center justify-center rounded-full border-[0.75px] border-cooper-gray-300 bg-white text-lg leading-none shadow-sm transition hover:bg-cooper-gray-100"
                     onClick={() => compare.removeRoleId(column.role.id)}
                   >
                     ×
@@ -209,7 +223,13 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
   );
 }
 
-function LoadingSlot({ widthClass, roleId }: { widthClass: string; roleId: string }) {
+function LoadingSlot({
+  widthClass,
+  roleId,
+}: {
+  widthClass: string;
+  roleId: string;
+}) {
   const compare = useCompare();
 
   return (
@@ -222,20 +242,26 @@ function LoadingSlot({ widthClass, roleId }: { widthClass: string; roleId: strin
       <button
         type="button"
         aria-label="Remove from comparison"
-        className="absolute right-3 top-3 z-10 flex h-6 w-6 items-center justify-center rounded-full border-[0.75px] border-cooper-gray-300 bg-white text-lg leading-none text-cooper-gray-500 shadow-sm transition hover:bg-cooper-gray-100"
+        className="text-cooper-gray-500 absolute right-3 top-3 z-10 flex h-6 w-6 items-center justify-center rounded-full border-[0.75px] border-cooper-gray-300 bg-white text-lg leading-none shadow-sm transition hover:bg-cooper-gray-100"
         onClick={() => compare.removeRoleId(roleId)}
       >
         ×
       </button>
       <div className="flex flex-col items-center gap-3 px-6 text-center">
-        <div className="h-12 w-12 animate-spin rounded-full border-4 border-cooper-gray-200 border-t-cooper-blue-300" />
-        <p className="text-sm text-cooper-gray-500">Loading role...</p>
+        <div className="border-t-cooper-blue-300 h-12 w-12 animate-spin rounded-full border-4 border-cooper-gray-200" />
+        <p className="text-cooper-gray-500 text-sm">Loading role...</p>
       </div>
     </div>
   );
 }
 
-function DropSlot({ widthClass, anchorRoleId }: { widthClass: string; anchorRoleId: string }) {
+function DropSlot({
+  widthClass,
+  anchorRoleId,
+}: {
+  widthClass: string;
+  anchorRoleId: string;
+}) {
   const compare = useCompare();
   const [isActive, setIsActive] = useState(false);
 
@@ -273,12 +299,10 @@ function DropSlot({ widthClass, anchorRoleId }: { widthClass: string; anchorRole
         <span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-cooper-gray-300 bg-white text-3xl text-cooper-gray-400">
           +
         </span>
-        <p className="text-sm text-cooper-gray-500">
+        <p className="text-cooper-gray-500 text-sm">
           Drag in or select a card from the list
         </p>
       </div>
     </div>
   );
 }
-
-

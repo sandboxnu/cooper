@@ -7,27 +7,27 @@ import { ChevronDown } from "lucide-react";
 import type { CompanyType, RoleType } from "@cooper/db/schema";
 import { cn, Pagination } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
+import { Chip } from "@cooper/ui/chip";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@cooper/ui/dropdown-menu";
-import { Chip } from "@cooper/ui/chip";
 
 import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
 import CompanyInfo from "~/app/_components/companies/company-info";
-import LoadingResults from "~/app/_components/loading-results";
-import NoResults from "~/app/_components/no-results";
-import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
-import { RoleInfo } from "~/app/_components/reviews/role-info";
-import { api } from "~/trpc/react";
-import SearchFilter from "~/app/_components/search/search-filter";
+import { useCompare } from "~/app/_components/compare/compare-context";
 import {
   CompareColumns,
   CompareControls,
 } from "~/app/_components/compare/compare-ui";
-import { useCompare } from "~/app/_components/compare/compare-context";
+import LoadingResults from "~/app/_components/loading-results";
+import NoResults from "~/app/_components/no-results";
+import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
+import { RoleInfo } from "~/app/_components/reviews/role-info";
+import SearchFilter from "~/app/_components/search/search-filter";
+import { api } from "~/trpc/react";
 
 export default function Roles() {
   const searchParams = useSearchParams();
@@ -191,11 +191,11 @@ export default function Roles() {
 
   return (
     <>
-      <div className="self-start border-b-[1px] bg-cooper-cream-100 border-cooper-gray-150 fixed w-full z-20">
+      <div className="bg-cooper-cream-100 border-cooper-gray-150 fixed z-20 w-full self-start border-b-[1px]">
         <div className="flex items-center justify-between px-5 py-4">
-          <SearchFilter className="md:w-[28%] w-full" />
+          <SearchFilter className="w-full md:w-[28%]" />
           {compare.isCompareMode && selectedRole && (
-            <div className="hidden md:flex items-center gap-3">
+            <div className="hidden items-center gap-3 md:flex">
               <CompareControls anchorRoleId={selectedRole.id} inTopBar />
             </div>
           )}
@@ -203,12 +203,12 @@ export default function Roles() {
       </div>
       {rolesAndCompanies.isSuccess &&
         rolesAndCompanies.data.items.length > 0 && (
-          <div className="bg-cooper-cream-100 flex w-full pt-[9.25dvh] h-[90dvh]">
+          <div className="bg-cooper-cream-100 flex h-[90dvh] w-full pt-[9.25dvh]">
             {/* RoleCardPreview List */}
             <div
               ref={sidebarRef}
               className={cn(
-                "w-full border-r-[1px] border-cooper-gray-150 bg-cooper-cream-100 p-5  xl:rounded-none overflow-y-auto ",
+                "border-cooper-gray-150 bg-cooper-cream-100 w-full overflow-y-auto border-r-[1px] p-5 xl:rounded-none",
                 "md:w-[28%]", // Show as 28% width on md and above
                 showRoleInfo && "hidden md:block", // Hide on mobile if RoleInfo is visible
               )}
@@ -299,7 +299,7 @@ export default function Roles() {
                         <button
                           type="button"
                           aria-label="Add to comparison"
-                          className="absolute right-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-cooper-gray-300 bg-white text-xl text-cooper-gray-400 transition hover:bg-cooper-gray-50 hover:border-cooper-gray-400"
+                          className="hover:bg-cooper-gray-50 absolute right-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-cooper-gray-300 bg-white text-xl text-cooper-gray-400 transition hover:border-cooper-gray-400"
                           onClick={(event) => {
                             event.stopPropagation();
                             compare.enterCompareMode();

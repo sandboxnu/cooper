@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 
-type CompareContextValue = {
+interface CompareContextValue {
   isCompareMode: boolean;
   comparedRoleIds: string[];
   reservedSlots: number;
@@ -20,18 +20,18 @@ type CompareContextValue = {
   removeRoleId: (id: string) => void;
   addSlot: () => void;
   clear: () => void;
-};
+}
 
 const CompareContext = createContext<CompareContextValue | null>(null);
 
 const STORAGE_KEY = "cooper.compare-state";
 const MAX_COLUMNS = 3; // Including the anchor role
 
-type PersistedState = {
+interface PersistedState {
   isCompareMode: boolean;
   comparedRoleIds: string[];
   reservedSlots: number;
-};
+}
 
 export function CompareProvider({ children }: { children: React.ReactNode }) {
   const [isCompareMode, setIsCompareMode] = useState(false);
@@ -45,11 +45,9 @@ export function CompareProvider({ children }: { children: React.ReactNode }) {
       const raw = window.localStorage.getItem(STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw) as PersistedState;
-        setIsCompareMode(parsed.isCompareMode ?? false);
-        setComparedRoleIds(parsed.comparedRoleIds ?? []);
-        setReservedSlots(
-          Math.min(parsed.reservedSlots ?? 0, MAX_COLUMNS - 1),
-        );
+        setIsCompareMode(parsed.isCompareMode);
+        setComparedRoleIds(parsed.comparedRoleIds);
+        setReservedSlots(Math.min(parsed.reservedSlots, MAX_COLUMNS - 1));
       }
     } catch {
       // ignore parse errors
@@ -133,9 +131,7 @@ export function CompareProvider({ children }: { children: React.ReactNode }) {
   );
 
   return (
-    <CompareContext.Provider value={value}>
-      {children}
-    </CompareContext.Provider>
+    <CompareContext.Provider value={value}>{children}</CompareContext.Provider>
   );
 }
 
@@ -146,5 +142,3 @@ export function useCompare() {
   }
   return context;
 }
-
-
