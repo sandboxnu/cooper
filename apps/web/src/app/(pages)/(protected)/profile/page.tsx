@@ -3,12 +3,7 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import { redirect, useSearchParams } from "next/navigation";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "node_modules/@cooper/ui/src/card";
+import ProfileCardHeader from "~/app/_components/profile/profile-card-header";
 
 import HeaderLayoutClient from "~/app/_components/header/header-layout-client";
 import FavoriteCompanySearch from "~/app/_components/profile/favorite-company-search";
@@ -114,39 +109,10 @@ export default function Profile() {
               </h2>
             </div>
           </div>
-          <Card>
-            <div>
-              <CardHeader className="pb-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-4">
-                    <div>
-                      <CardTitle className="text-xl">
-                        Account Information
-                      </CardTitle>
-                    </div>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="pb-0">
-                <div className="m-4 grid grid-cols-3 grid-rows-2 items-center gap-4">
-                  <div className="flex flex-col text-sm">
-                    <h4 className="font-semibold">Name</h4>
-                    <p>
-                      {profile.firstName} {profile.lastName}
-                    </p>
-                  </div>
-                  <div className="flex flex-col text-sm">
-                    <h4 className="font-semibold">Email</h4>
-                    <p> {session.user.email} </p>
-                  </div>
-                  <div className="flex flex-col text-sm">
-                    <h4 className="font-semibold">Major</h4>
-                    <p> {profile.major} </p>
-                  </div>
-                </div>
-              </CardContent>
-            </div>
-          </Card>
+          <ProfileCardHeader
+            profile={profile}
+            email={session.user.email ?? ""}
+          />
           <ProfileTabs numReviews={reviews.length} />
           {tab === "saved-roles" ? (
             <section>
