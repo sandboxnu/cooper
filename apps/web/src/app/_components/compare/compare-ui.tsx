@@ -12,12 +12,18 @@ import { useCompare } from "./compare-context";
 
 type CompareControlsProps = {
   anchorRoleId?: string | null;
+  inTopBar?: boolean;
 };
 
-export function CompareControls({ anchorRoleId }: CompareControlsProps) {
+export function CompareControls({ anchorRoleId, inTopBar = false }: CompareControlsProps) {
   const compare = useCompare();
 
   if (!anchorRoleId) {
+    return null;
+  }
+
+  // When in top bar, only show controls if in compare mode
+  if (inTopBar && !compare.isCompareMode) {
     return null;
   }
 

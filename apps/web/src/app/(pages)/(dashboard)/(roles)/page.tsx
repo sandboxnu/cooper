@@ -191,8 +191,15 @@ export default function Roles() {
 
   return (
     <>
-      <div className="self-start border-b-[1px] bg-cooper-cream-100 border-cooper-gray-150 fixed w-full">
-        <SearchFilter className="px-5 py-4 md:w-[28%] w-full" />
+      <div className="self-start border-b-[1px] bg-cooper-cream-100 border-cooper-gray-150 fixed w-full z-20">
+        <div className="flex items-center justify-between px-5 py-4">
+          <SearchFilter className="md:w-[28%] w-full" />
+          {compare.isCompareMode && selectedRole && (
+            <div className="hidden md:flex items-center gap-3">
+              <CompareControls anchorRoleId={selectedRole.id} inTopBar />
+            </div>
+          )}
+        </div>
       </div>
       {rolesAndCompanies.isSuccess &&
         rolesAndCompanies.data.items.length > 0 && (
@@ -358,7 +365,7 @@ export default function Roles() {
                 !showRoleInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
               )}
             >
-              {selectedRole && (
+              {selectedRole && !compare.isCompareMode && (
                 <div className="flex w-full items-center justify-end px-4 py-2">
                   <CompareControls anchorRoleId={selectedRole.id} />
                 </div>
