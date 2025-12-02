@@ -538,7 +538,7 @@ export default function Roles() {
             )}
           >
             {rolesAndCompanies.data.items.length === 0 ? (
-              <NoResults clearFunction={clearFilters} className="h-[84dvh]" />
+              <NoResults clearFunction={false} className="h-[84dvh]" />
             ) : (
               rolesAndCompanies.data.items[0] &&
               (isRole(selectedItem ?? rolesAndCompanies.data.items[0]) ? (
