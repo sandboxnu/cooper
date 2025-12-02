@@ -96,7 +96,8 @@ export default function Roles() {
         appliedFilters.hourlyPay.max > 0
           ? appliedFilters.hourlyPay.max
           : undefined,
-      minRating,
+      ratings:
+        appliedFilters.ratings.length > 0 ? appliedFilters.ratings : undefined,
     };
   }, [appliedFilters]);
 
@@ -376,7 +377,7 @@ export default function Roles() {
 
   return (
     <>
-      <div className="bg-cooper-cream-100 border-cooper-gray-150 fixed flex w-full flex-col md:flex-row items-stretch md:items-center gap-4 md:gap-10 self-start border-b-[1px] py-4">
+      <div className="bg-cooper-cream-100 border-cooper-gray-150 fixed flex w-full flex-col md:flex-row items-stretch md:items-center gap-4 md:gap-5 self-start border-b-[1px] py-4">
         <div className="w-full md:w-[28%] px-5">
           <SearchFilter className="w-full" />
         </div>

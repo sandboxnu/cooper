@@ -17,7 +17,6 @@ import {
 import { Button } from "@cooper/ui/button";
 import { Checkbox } from "@cooper/ui/checkbox";
 import Autocomplete from "@cooper/ui/autocomplete";
-import { min } from "@cooper/db";
 
 interface FilterOption {
   id: string;
@@ -113,6 +112,22 @@ export default function DropdownFilter({
         return `Up to $${localMax}/hr`;
       } else {
         return title;
+      }
+    }
+
+    if (filterType === "rating") {
+      if (selectedOptions.length === 0) return title;
+      const minRating = Math.min(...selectedOptions.map(Number));
+      const maxRating = Math.max(...selectedOptions.map(Number));
+      if (minRating === maxRating) {
+        return `${minRating}.0+ stars`;
+      } else {
+        return (
+          <div className="flex gap-[5px] items-center">
+            {minRating}.0 - {maxRating}.0{" "}
+            <Image src="/svg/star.svg" alt="Star icon" width={20} height={20} />
+          </div>
+        );
       }
     }
 
@@ -333,7 +348,10 @@ export default function DropdownFilter({
         </Button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent className="flex flex-col w-96 gap-[22px] p-5 bg-cooper-cream-400 rounded-lg">
+      <DropdownMenuContent
+        align="start"
+        className="flex flex-col w-96 gap-[22px] p-5 bg-cooper-cream-400 rounded-lg"
+      >
         <DropdownMenuLabel className="flex justify-between p-0 bg-cooper-cream-400">
           <div className="flex gap-2">
             <span className="font-semibold text-base">{title}</span>

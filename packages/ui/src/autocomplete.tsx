@@ -3,7 +3,6 @@ import { X } from "lucide-react";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { Checkbox } from "./checkbox";
 
-// Types
 interface Option {
   value: string;
   label: string;
@@ -35,10 +34,6 @@ export default function Autocomplete({
       opt.label.toLowerCase().includes(search.toLowerCase()),
     );
   }, [search, options]);
-
-  const selectedLabels = options
-    .filter((opt) => value.includes(opt.value))
-    .map((opt) => opt.label);
 
   const displayValue = search;
 
@@ -143,17 +138,8 @@ export default function Autocomplete({
                 filtered.map((option) => {
                   const isSelected = value.includes(option.value);
                   return (
-                    // <button
-                    //   key={option.value}
-                    //   onClick={() => handleToggle(option.value)}
-                    //   className="relative flex w-full cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none hover:bg-gray-100 focus:bg-gray-100"
-                    // >
-                    //   <div className="flex h-4 w-4 items-center justify-center rounded border border-gray-300 mr-2">
-                    //     {isSelected && <Checkbox />}
-                    //   </div>
-                    //   {option.label}
-                    // </button>
                     <button
+                      key={option.value}
                       className="flex items-center gap-2 py-2 px-[14px] hover:bg-cooper-gray-150 w-full hover:cursor-pointer"
                       onClick={() => handleToggle(option.value)}
                     >
