@@ -61,6 +61,7 @@ export default function DropdownFilter({
   const [searchTerm, setSearchTerm] = useState("");
   const [localMin, setLocalMin] = useState(minValue?.toString() ?? "");
   const [localMax, setLocalMax] = useState(maxValue?.toString() ?? "");
+  const [rangeError, setRangeError] = useState<string | null>(null);
 
   // Trigger search callback when user types 3+ characters for location filter
   useEffect(() => {
@@ -90,17 +91,48 @@ export default function DropdownFilter({
     if (filterType === "range" && onRangeChange) {
       setLocalMin("");
       setLocalMax("");
+      setRangeError(null);
       onRangeChange(0, 0);
     }
   };
 
   const handleRangeApply = () => {
-    if (onRangeChange) {
-      const min = localMin ? parseFloat(localMin) : 0;
-      const max = localMax ? parseFloat(localMax) : 100;
-      onRangeChange(min, max);
+    if (!onRangeChange) return;
+
+    // Validate before applying
+    const min = localMin ? parseFloat(localMin) : NaN;
+    const max = localMax ? parseFloat(localMax) : NaN;
+
+    if (!isNaN(min) && !isNaN(max) && min >= max) {
+      setRangeError("Minimum must be less than maximum");
+      return;
     }
+
+    // Coerce defaults only when one side is empty
+    const appliedMin = !isNaN(min) ? min : 0;
+    const appliedMax = !isNaN(max) ? max : 100;
+
+    setRangeError(null);
+    onRangeChange(appliedMin, appliedMax);
+    return;
   };
+
+  // Validate range live so we can show helpful messaging while typing
+  useEffect(() => {
+    const min = localMin ? parseFloat(localMin) : NaN;
+    const max = localMax ? parseFloat(localMax) : NaN;
+
+    if (!isNaN(min) && !isNaN(max)) {
+      if (min >= max) {
+        setRangeError("Minimum must be less than maximum");
+      } else {
+        setRangeError(null);
+      }
+    } else {
+      // If one or both are empty/invalid, clear the error (we validate on apply)
+      setRangeError(null);
+    }
+  }, [localMin, localMax]);
 
   const displayText = (() => {
     if (filterType === "range") {
@@ -173,7 +205,10 @@ export default function DropdownFilter({
                 type="number"
                 value={localMin}
                 onChange={(e) => setLocalMin(e.target.value)}
-                className="h-9 border-cooper-gray-150 border-[1px] text-sm text-cooper-gray-400 pl-5"
+                className={cn(
+                  "h-9 border-cooper-gray-150 border-[1px] text-sm text-cooper-gray-400 pl-5",
+                  rangeError ? "border-red-500" : "",
+                )}
                 onBlur={handleRangeApply}
                 onKeyDown={(e) => e.key === "Enter" && handleRangeApply()}
               />
@@ -188,12 +223,18 @@ export default function DropdownFilter({
                 type="number"
                 value={localMax}
                 onChange={(e) => setLocalMax(e.target.value)}
-                className="h-9 border-cooper-gray-150 border-[1px] text-sm text-cooper-gray-400 pl-5"
+                className={cn(
+                  "h-9 border-cooper-gray-150 border-[1px] text-sm text-cooper-gray-400 pl-5",
+                  rangeError ? "border-red-500" : "",
+                )}
                 onBlur={handleRangeApply}
                 onKeyDown={(e) => e.key === "Enter" && handleRangeApply()}
               />
             </div>
           </div>
+          {rangeError && (
+            <p className="text-xs text-red-600 mt-2">{rangeError}</p>
+          )}
         </div>
       );
     }
