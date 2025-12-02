@@ -76,7 +76,7 @@ export default function Autocomplete({
           onChange={(e) => {
             setSearch(e.target.value);
             setOpen(true);
-            onSearchChange && onSearchChange(e.target.value);
+            onSearchChange?.(e.target.value);
           }}
           onFocus={() => setOpen(true)}
         />
