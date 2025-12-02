@@ -7,12 +7,22 @@ import { Button } from "@cooper/ui/button";
 
 import CooperLogo from "./cooper-logo";
 
-export default function NoResults({ className }: { className?: string }) {
+export default function NoResults({
+  className,
+  clearFunction,
+}: {
+  className?: string;
+  clearFunction?: () => void;
+}) {
   const router = useRouter();
   const pathname = usePathname();
 
   function clearFilters() {
-    router.push(pathname);
+    if (clearFunction) {
+      clearFunction();
+    } else {
+      router.push(pathname);
+    }
   }
 
   return (
