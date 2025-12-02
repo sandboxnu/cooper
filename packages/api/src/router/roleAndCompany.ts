@@ -103,21 +103,6 @@ export const roleAndCompanyRouter = {
         ? [...companiesWithType, ...rolesWithCompanies]
         : [...rolesWithCompanies, ...companiesWithType];
 
-      const totalRolesCount = combinedItems.filter(
-        (
-          item,
-        ): item is RoleType & {
-          companyName: string;
-          type: "role";
-          companyIndustry: string;
-        } => item.type === "role",
-      ).length;
-
-      const totalCompanyCount = combinedItems.filter(
-        (item): item is CompanyType & { type: "company" } =>
-          item.type === "company",
-      ).length;
-
       const filters = input.filters ?? {};
 
       const industryFilterActive =
@@ -228,11 +213,8 @@ export const roleAndCompanyRouter = {
         }
       }
 
-      const filteredItems = combinedItems.filter((item) => {
-        // type filter (roles/companies/all)
-        if (input.type === "roles" && item.type !== "role") return false;
-        if (input.type === "companies" && item.type !== "company") return false;
-
+      // Apply all filters EXCEPT the `type` selector to produce baseFilteredItems
+      const baseFilteredItems = combinedItems.filter((item) => {
         const allowedIndustries = filters.industries ?? [];
         const allowedLocations = filters.locations ?? [];
         const industryOk = industryFilterActive
@@ -294,19 +276,40 @@ export const roleAndCompanyRouter = {
 
       const fuseOptions = ["title", "description", "companyName", "name"];
 
-      const searchedItems = performFuseSearch<
+      // Apply fuzzy search to the base filtered items (filters applied, excluding `type`)
+      const searchedBaseItems = performFuseSearch<
         | (RoleType & { companyName: string; type: "role" })
         | (CompanyType & { type: "company" })
-      >(filteredItems, fuseOptions, input.search);
+      >(baseFilteredItems, fuseOptions, input.search);
 
-      const paginatedItems = searchedItems.slice(
+      // Totals should reflect counts after applying filters + text search but excluding `type`.
+      const totalRolesCount = searchedBaseItems.filter(
+        (item): item is RoleType & { type: "role"; companyName: string } =>
+          item.type === "role",
+      ).length;
+
+      const totalCompanyCount = searchedBaseItems.filter(
+        (item): item is CompanyType & { type: "company" } =>
+          item.type === "company",
+      ).length;
+
+      // Now apply the `type` filter to determine which items to return (filtering the searched results)
+      const postTypeItems = ((): typeof searchedBaseItems => {
+        if (input.type === "roles")
+          return searchedBaseItems.filter((i) => i.type === "role");
+        if (input.type === "companies")
+          return searchedBaseItems.filter((i) => i.type === "company");
+        return searchedBaseItems;
+      })();
+
+      const paginatedItems = postTypeItems.slice(
         input.offset,
         input.offset + input.limit,
       );
 
       return {
         items: paginatedItems,
-        totalCount: searchedItems.length,
+        totalCount: searchedBaseItems.length,
         totalRolesCount,
         totalCompanyCount,
       };
