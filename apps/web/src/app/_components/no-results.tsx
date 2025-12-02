@@ -12,17 +12,13 @@ export default function NoResults({
   clearFunction,
 }: {
   className?: string;
-  clearFunction?: () => void;
+  clearFunction?: boolean;
 }) {
   const router = useRouter();
   const pathname = usePathname();
 
   function clearFilters() {
-    if (clearFunction) {
-      clearFunction();
-    } else {
-      router.push(pathname);
-    }
+    router.push(pathname);
   }
 
   return (
@@ -35,14 +31,16 @@ export default function NoResults({
       <CooperLogo width={200} />
       <div className="flex flex-col items-center rounded-lg border-2 border-cooper-blue-600 px-16 pb-4 pt-6 text-xl font-bold">
         <h2 className="text-cooper-blue-600">No Results Found</h2>
-        <Button
-          type="button"
-          variant="ghost"
-          onClick={clearFilters}
-          className="text-cooper-blue-600"
-        >
-          Clear Filters
-        </Button>
+        {clearFunction && (
+          <Button
+            type="button"
+            variant="ghost"
+            onClick={clearFilters}
+            className="text-cooper-blue-600"
+          >
+            Clear Filters
+          </Button>
+        )}
       </div>
     </section>
   );
