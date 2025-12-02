@@ -1,8 +1,8 @@
 import { z } from "zod";
 
 import type { CompanyType, RoleType } from "@cooper/db/schema";
-import { and, asc, desc, eq, gte, inArray, lte, sql } from "@cooper/db";
-import { CompaniesToLocations, Company, Review, Role } from "@cooper/db/schema";
+import { asc, desc, sql } from "@cooper/db";
+import { Company, Review, Role } from "@cooper/db/schema";
 
 import { sortableProcedure } from "../trpc";
 import { performFuseSearch } from "../utils/fuzzyHelper";
@@ -34,287 +34,62 @@ export const roleAndCompanyRouter = {
             jobTypes: z.array(z.string()).optional(),
             minPay: z.number().optional(),
             maxPay: z.number().optional(),
-            minRating: z.number().optional(),
+            ratings: z.array(z.string()).optional(),
           })
           .optional(),
       }),
     )
     .query(async ({ ctx, input }) => {
-      const { filters } = input;
-
-      // Build role filters
       let roles: RoleType[] = [];
-
       if (ctx.sortBy === "rating") {
-        // Build WHERE conditions for roles
-        const roleConditions: string[] = [];
-        const roleParams: any[] = [];
-
-        // Filter by minimum rating
-        if (filters?.minRating) {
-          roleConditions.push(
-            `COALESCE(AVG(${Review.overallRating}::float), 0) >= $${roleParams.length + 1}`,
-          );
-          roleParams.push(filters.minRating);
-        }
-
-        // Filter by hourly pay range
-        if (filters?.minPay || filters?.maxPay) {
-          if (filters?.minPay) {
-            roleConditions.push(
-              `COALESCE(AVG(${Review.hourlyPay}::float), 0) >= $${roleParams.length + 1}`,
-            );
-            roleParams.push(filters.minPay);
-          }
-          if (filters?.maxPay) {
-            roleConditions.push(
-              `COALESCE(AVG(${Review.hourlyPay}::float), 0) <= $${roleParams.length + 1}`,
-            );
-            roleParams.push(filters.maxPay);
-          }
-        }
-
-        // Filter by job type (work environment)
-        if (filters?.jobTypes && filters.jobTypes.length > 0) {
-          const placeholders = filters.jobTypes
-            .map((_, i) => `$${roleParams.length + i + 1}`)
-            .join(",");
-          roleConditions.push(`${Review.workEnvironment} IN (${placeholders})`);
-          roleParams.push(...filters.jobTypes);
-        }
-
-        const whereClause =
-          roleConditions.length > 0
-            ? `WHERE ${roleConditions.join(" AND ")}`
-            : "";
-
-        const rolesWithRatings = await ctx.db.execute(
-          sql.raw(`
-          SELECT 
-            ${Role}.*, 
-            COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating,
-            COALESCE(AVG(${Review.hourlyPay}::float), 0) AS avg_pay
-          FROM ${Role}
-          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
-          GROUP BY ${Role.id}
-          ${whereClause}
-          HAVING COUNT(${Review.id}) > 0 OR ${whereClause === ""}
-          ORDER BY avg_rating DESC
-        `),
-        );
+        const rolesWithRatings = await ctx.db.execute(sql`
+        SELECT 
+          ${Role}.*, 
+          COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
+        FROM ${Role}
+        LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+        GROUP BY ${Role.id}
+        ORDER BY avg_rating DESC
+      `);
 
         roles = rolesWithRatings.rows.map((role) => ({
           ...(role as RoleType),
         }));
       } else {
-        // Non-rating sort - build conditions array
-        const roleConditions = [];
-
-        // Filter roles by job type if provided
-        if (filters?.jobTypes && filters.jobTypes.length > 0) {
-          // We need to join with reviews to filter by work environment
-          const rolesWithJobType = await ctx.db
-            .selectDistinct({ roleId: Review.roleId })
-            .from(Review)
-            .where(inArray(Review.workEnvironment, filters.jobTypes as any));
-
-          const roleIds = rolesWithJobType
-            .map((r) => r.roleId)
-            .filter(Boolean) as string[];
-          if (roleIds.length > 0) {
-            roleConditions.push(inArray(Role.id, roleIds));
-          } else {
-            // No roles match this filter
-            roles = [];
-          }
-        }
-
-        if (roleConditions.length === 0 || roles.length !== 0) {
-          const baseRoles = await ctx.db.query.Role.findMany({
-            orderBy: ordering[ctx.sortBy],
-            where:
-              roleConditions.length > 0 ? and(...roleConditions) : undefined,
-          });
-
-          // Filter by pay and rating in memory if needed
-          if (filters?.minPay || filters?.maxPay || filters?.minRating) {
-            const roleIds = baseRoles.map((r) => r.id);
-
-            // Get average pay and rating for each role
-            const rolesWithStats = await Promise.all(
-              baseRoles.map(async (role) => {
-                const reviews = await ctx.db.query.Review.findMany({
-                  where: eq(Review.roleId, role.id),
-                });
-
-                const avgRating =
-                  reviews.length > 0
-                    ? reviews.reduce(
-                        (sum, r) => sum + Number(r.overallRating),
-                        0,
-                      ) / reviews.length
-                    : 0;
-
-                const avgPay =
-                  reviews.length > 0
-                    ? reviews.reduce((sum, r) => sum + Number(r.hourlyPay), 0) /
-                      reviews.length
-                    : 0;
-
-                return { role, avgRating, avgPay };
-              }),
-            );
-
-            roles = rolesWithStats
-              .filter(({ avgRating, avgPay }) => {
-                if (filters?.minRating && avgRating < filters.minRating)
-                  return false;
-                if (filters?.minPay && avgPay < filters.minPay) return false;
-                if (filters?.maxPay && avgPay > filters.maxPay) return false;
-                return true;
-              })
-              .map(({ role }) => role);
-          } else {
-            roles = baseRoles;
-          }
-        }
+        roles = await ctx.db.query.Role.findMany({
+          orderBy: ordering[ctx.sortBy],
+        });
       }
 
-      // Build company filters
       let companies: CompanyType[] = [];
-
       if (ctx.sortBy === "rating") {
-        const companyConditions: string[] = [];
-        const companyParams: any[] = [];
-
-        // Filter by minimum rating
-        if (filters?.minRating) {
-          companyConditions.push(
-            `COALESCE(AVG(${Review.overallRating}::float), 0) >= $${companyParams.length + 1}`,
-          );
-          companyParams.push(filters.minRating);
-        }
-
-        // Filter by industry
-        if (filters?.industries && filters.industries.length > 0) {
-          const placeholders = filters.industries
-            .map((_, i) => `$${companyParams.length + i + 1}`)
-            .join(",");
-          companyConditions.push(`${Company.industry} IN (${placeholders})`);
-          companyParams.push(...filters.industries);
-        }
-
-        // Filter by location
-        if (filters?.locations && filters.locations.length > 0) {
-          const placeholders = filters.locations
-            .map((_, i) => `$${companyParams.length + i + 1}`)
-            .join(",");
-          companyConditions.push(`${Company.id} IN (
-            SELECT ${CompaniesToLocations.companyId}
-            FROM ${CompaniesToLocations}
-            WHERE ${CompaniesToLocations.locationId} IN (${placeholders})
-          )`);
-          companyParams.push(...filters.locations);
-        }
-
-        const whereClause =
-          companyConditions.length > 0
-            ? `WHERE ${companyConditions.join(" AND ")}`
-            : "";
-
-        const companiesWithRatings = await ctx.db.execute(
-          sql.raw(`
+        const companiesWithRatings = await ctx.db.execute(sql`
           SELECT 
             ${Company}.*, 
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Company}
           LEFT JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
           LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
-          ${whereClause}
           GROUP BY ${Company.id}
           ORDER BY avg_rating DESC
-        `),
-        );
+        `);
 
         companies = companiesWithRatings.rows.map((company) => ({
           ...(company as CompanyType),
         }));
       } else {
-        const companyConditions = [];
-
-        // Filter by industry
-        if (filters?.industries && filters.industries.length > 0) {
-          companyConditions.push(
-            inArray(Company.industry, filters.industries as any),
-          );
-        }
-
-        // Filter by location
-        if (filters?.locations && filters.locations.length > 0) {
-          const companiesWithLocations = await ctx.db
-            .selectDistinct({ companyId: CompaniesToLocations.companyId })
-            .from(CompaniesToLocations)
-            .where(inArray(CompaniesToLocations.locationId, filters.locations));
-
-          const companyIds = companiesWithLocations.map((c) => c.companyId);
-          if (companyIds.length > 0) {
-            companyConditions.push(inArray(Company.id, companyIds));
-          } else {
-            companies = [];
-          }
-        }
-
-        if (companyConditions.length === 0 || companies.length !== 0) {
-          const baseCompanies = await ctx.db.query.Company.findMany({
-            orderBy: companyOrdering[ctx.sortBy],
-            where:
-              companyConditions.length > 0
-                ? and(...companyConditions)
-                : undefined,
-          });
-
-          // Filter by rating if needed
-          if (filters?.minRating) {
-            const companiesWithRating = await Promise.all(
-              baseCompanies.map(async (company) => {
-                const reviews = await ctx.db.query.Review.findMany({
-                  where: eq(Review.companyId, company.id),
-                });
-
-                const avgRating =
-                  reviews.length > 0
-                    ? reviews.reduce(
-                        (sum, r) => sum + Number(r.overallRating),
-                        0,
-                      ) / reviews.length
-                    : 0;
-
-                return { company, avgRating };
-              }),
-            );
-
-            companies = companiesWithRating
-              .filter(({ avgRating }) => avgRating >= (filters?.minRating ?? 0))
-              .map(({ company }) => company);
-          } else {
-            companies = baseCompanies;
-          }
-        }
+        companies = await ctx.db.query.Company.findMany({
+          orderBy: companyOrdering[ctx.sortBy],
+        });
       }
 
-      // Extract unique company IDs from roles
-      const companyIds = [...new Set(roles.map((role) => role.companyId))];
-
-      // Fetch companies for roles
-      const companiesForRoles = await ctx.db.query.Company.findMany({
-        where: (company, { inArray }) => inArray(company.id, companyIds),
-      });
-
       const rolesWithCompanies = roles.map((role) => {
-        const company = companiesForRoles.find((c) => c.id === role.companyId);
+        const company = companies.find((c) => c.id === role.companyId);
+
         return {
           ...role,
           companyName: company?.name ?? "",
+          companyIndustry: company?.industry ?? "",
           type: "role" as const,
         };
       });
@@ -329,8 +104,13 @@ export const roleAndCompanyRouter = {
         : [...rolesWithCompanies, ...companiesWithType];
 
       const totalRolesCount = combinedItems.filter(
-        (item): item is RoleType & { companyName: string; type: "role" } =>
-          item.type === "role",
+        (
+          item,
+        ): item is RoleType & {
+          companyName: string;
+          type: "role";
+          companyIndustry: string;
+        } => item.type === "role",
       ).length;
 
       const totalCompanyCount = combinedItems.filter(
@@ -338,12 +118,178 @@ export const roleAndCompanyRouter = {
           item.type === "company",
       ).length;
 
+      const filters = input.filters ?? {};
+
+      const industryFilterActive =
+        Array.isArray(filters.industries) && filters.industries.length > 0;
+      const locationFilterActive =
+        Array.isArray(filters.locations) && filters.locations.length > 0;
+      const ratingsFilterActive =
+        Array.isArray(filters.ratings) && filters.ratings.length > 0;
+
+      // Build company -> location mapping if location filter is active
+      const companyLocationsMap = new Map<string, string[]>();
+      if (locationFilterActive) {
+        const locationIds = filters.locations!;
+        // Query the join table for matching company <-> location rows
+        const companyLocRows =
+          await ctx.db.query.CompaniesToLocations.findMany();
+
+        for (const r of companyLocRows) {
+          // r.companyId / r.locationId come from the CompaniesToLocations schema
+          if (!locationIds.includes(r.locationId)) continue;
+          const cid = r.companyId;
+          const lid = r.locationId;
+          const arr = companyLocationsMap.get(cid) ?? [];
+          arr.push(lid);
+          companyLocationsMap.set(cid, arr);
+        }
+      }
+
+      // Build average hourly pay maps for roles and companies so we can filter by pay range
+      const roleAvgPayMap = new Map<string, number>();
+      const companyAvgPayMap = new Map<string, number>();
+      const roleAvgRatingMap = new Map<string, number>();
+      const companyAvgRatingMap = new Map<string, number>();
+
+      // prepare id lists
+      const roleIds = roles.map((r) => r.id);
+      const companyIds = companies.map((c) => c.id);
+
+      if (roleIds.length > 0) {
+        const rolesWithAvgPay = await ctx.db.execute(sql`
+          SELECT
+            ${Role.id} AS id,
+            COALESCE(AVG(${Review.hourlyPay}::float), 0) AS avg_hourly_pay
+          FROM ${Role}
+          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          WHERE ${Role.id} IN (${sql.join(
+            roleIds.map((id) => sql`${id}`),
+            sql`,`,
+          )})
+          GROUP BY ${Role.id}
+        `);
+
+        for (const row of rolesWithAvgPay.rows) {
+          roleAvgPayMap.set(String(row.id), Number(row.avg_hourly_pay ?? 0));
+        }
+        const rolesWithAvgRating = await ctx.db.execute(sql`
+          SELECT
+            ${Role.id} AS id,
+            COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
+          FROM ${Role}
+          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          WHERE ${Role.id} IN (${sql.join(
+            roleIds.map((id) => sql`${id}`),
+            sql`,`,
+          )})
+          GROUP BY ${Role.id}
+        `);
+
+        for (const row of rolesWithAvgRating.rows) {
+          roleAvgRatingMap.set(String(row.id), Number(row.avg_rating ?? 0));
+        }
+      }
+
+      if (companyIds.length > 0) {
+        const companiesWithAvgPay = await ctx.db.execute(sql`
+          SELECT
+            ${Company.id} AS id,
+            COALESCE(AVG(${Review.hourlyPay}::float), 0) AS avg_hourly_pay
+          FROM ${Company}
+          LEFT JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
+          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          WHERE ${Company.id} IN (${sql.join(
+            companyIds.map((id) => sql`${id}`),
+            sql`,`,
+          )})
+          GROUP BY ${Company.id}
+        `);
+
+        for (const row of companiesWithAvgPay.rows) {
+          companyAvgPayMap.set(String(row.id), Number(row.avg_hourly_pay ?? 0));
+        }
+        const companiesWithAvgRating = await ctx.db.execute(sql`
+          SELECT
+            ${Company.id} AS id,
+            COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
+          FROM ${Company}
+          LEFT JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
+          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          WHERE ${Company.id} IN (${sql.join(
+            companyIds.map((id) => sql`${id}`),
+            sql`,`,
+          )})
+          GROUP BY ${Company.id}
+        `);
+
+        for (const row of companiesWithAvgRating.rows) {
+          companyAvgRatingMap.set(String(row.id), Number(row.avg_rating ?? 0));
+        }
+      }
+
       const filteredItems = combinedItems.filter((item) => {
-        return input.type === "roles"
-          ? item.type === "role"
-          : input.type === "companies"
-            ? item.type === "company"
-            : true;
+        // type filter (roles/companies/all)
+        if (input.type === "roles" && item.type !== "role") return false;
+        if (input.type === "companies" && item.type !== "company") return false;
+
+        const allowedIndustries = filters.industries ?? [];
+        const allowedLocations = filters.locations ?? [];
+        const industryOk = industryFilterActive
+          ? item.type === "company"
+            ? allowedIndustries.includes((item as CompanyType).industry)
+            : allowedIndustries.includes(
+                (item as RoleType & { companyIndustry?: string })
+                  .companyIndustry ?? "",
+              )
+          : true;
+
+        const locationOk = locationFilterActive
+          ? (() => {
+              // For companies, check company->location mapping
+              if (item.type === "company") {
+                const cid = (item as CompanyType).id;
+                const mapped = companyLocationsMap.get(cid) ?? [];
+                return mapped.some((lid) => allowedLocations.includes(lid));
+              }
+              // For roles, check the role's company mapping
+              const roleCompanyId = (item as RoleType).companyId;
+              const mapped = companyLocationsMap.get(roleCompanyId) ?? [];
+              return mapped.some((lid) => allowedLocations.includes(lid));
+            })()
+          : true;
+
+        // Pay range filter: use minPay(default 0) and maxPay(default Infinity)
+        const minPay = typeof filters.minPay === "number" ? filters.minPay : 0;
+        const maxPay =
+          typeof filters.maxPay === "number" ? filters.maxPay : Infinity;
+
+        const payOk = (() => {
+          if (item.type === "company") {
+            const cid = (item as CompanyType).id;
+            const avg = companyAvgPayMap.get(cid) ?? 0;
+            return avg >= minPay && avg <= maxPay;
+          }
+          const rid = (item as RoleType).id;
+          const avg = roleAvgPayMap.get(rid) ?? 0;
+          return avg >= minPay && avg <= maxPay;
+        })();
+
+        const ratingOk = (() => {
+          if (!ratingsFilterActive) return true;
+          const allowed = (filters.ratings ?? [])
+            .map((s) => Number(s))
+            .filter((n) => Number.isFinite(n));
+
+          const avg =
+            item.type === "company"
+              ? (companyAvgRatingMap.get((item as CompanyType).id) ?? 0)
+              : (roleAvgRatingMap.get((item as RoleType).id) ?? 0);
+
+          return allowed.some((n) => avg >= n && avg <= n + 0.9);
+        })();
+
+        return industryOk && locationOk && payOk && ratingOk;
       });
 
       const fuseOptions = ["title", "description", "companyName", "name"];

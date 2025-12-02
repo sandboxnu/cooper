@@ -63,10 +63,10 @@ export default function DropdownFiltersBar({
 
   // Industry options from your schema
   const industryOptionsWithId = Object.entries(industryOptions).map(
-    ([value, label]) => ({
-      id: useId(),
+    ([_value, label]) => ({
+      id: label.value,
       label: label.label,
-      value: value,
+      value: label.value,
     }),
   );
 
@@ -77,8 +77,6 @@ export default function DropdownFiltersBar({
         label: `${loc.city}${loc.state ? `, ${abbreviatedStateName(loc.state)}` : ""}`,
       }))
     : [];
-
-  console.log("locationOptions", locationOptions);
 
   // Job type options - you'll need to define these based on your schema
   const jobTypeOptions = jobTypes.length
