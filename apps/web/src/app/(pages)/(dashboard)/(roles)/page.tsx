@@ -270,7 +270,7 @@ export default function Roles() {
     setCurrentPage(1);
   }, [selectedFilter, searchValue]);
 
-  // Scroll to top and select first item when page changes (but not when coming from URL)
+  // Scroll to top + select first item when page changes (but not when coming from URL)
   useEffect(() => {
     if (
       rolesAndCompanies.isSuccess &&
