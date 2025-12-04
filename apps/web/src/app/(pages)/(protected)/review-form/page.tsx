@@ -1,13 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { redirect, useSearchParams } from "next/navigation";
+import { redirect } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { api } from "~/trpc/react";
 import { useForm } from "react-hook-form";
 
-import { Button } from "@cooper/ui/button";
-import FormCollapsableInfoCard from "~/app/_components/form/form-collapsable-info";
 import {
   BasicInfoSection,
   CompanyDetailsSection,
@@ -20,8 +18,7 @@ import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
 import { Filter } from "bad-words";
 import dayjs from "dayjs";
 import { Form } from "node_modules/@cooper/ui/src/form";
-import { RoleInfoSection } from "~/app/_components/form/sections/role-info-section";
-import { Circle } from "lucide-react";
+import { PaySection } from "~/app/_components/form/sections/pay-section";
 import { SubmissionConfirmation } from "~/app/_components/form/submission-confirmation";
 import { SubmissionFailure } from "~/app/_components/form/submission-failure";
 import { JobType } from "node_modules/@cooper/db/src/schema/misc";
@@ -53,16 +50,16 @@ const hasValue = (value: unknown): boolean => {
 const filter = new Filter();
 
 export const benefits = [
-  { field: "federalHolidays", label: "Federal holidays off" },
-  { field: "freeTransport", label: "Free transportation" },
-  { field: "sickLeave", label: "Sick leave" },
-  { field: "paidLeave", label: "Paid leave" },
-  { field: "mentorshipProgram", label: "Mentorship program" },
-  { field: "overtimePay", label: "Overtime pay" },
-  { field: "pto", label: "Paid time off (PTO)" },
-  { field: "teamSocials", label: "Team socials" },
-  { field: "lunchProvided", label: "Lunch provided" },
-  { field: "companySwag", label: "Company swag" },
+  { value: "federalHolidays", label: "Federal holidays off" },
+  { value: "freeTransport", label: "Free transportation" },
+  { value: "sickLeave", label: "Sick leave" },
+  { value: "paidLeave", label: "Paid leave" },
+  { value: "mentorshipProgram", label: "Mentorship program" },
+  { value: "overtimePay", label: "Overtime pay" },
+  { value: "pto", label: "Paid time off (PTO)" },
+  { value: "teamSocials", label: "Team socials" },
+  { value: "lunchProvided", label: "Lunch provided" },
+  { value: "companySwag", label: "Company swag" },
 ];
 
 const formSchema = z.object({
@@ -331,150 +328,36 @@ export default function ReviewForm() {
 
   return (
     <Form {...form}>
-      <div className="bg-[#F2F1EA] w-full min-h-screen flex flex-col md:flex-row justify-center">
-        <div className="pl-7 pt-4 flex h-full flex-row md:flex-col md:max-w-[25%] md:w-[25%]">
-          <p className="text-2xl font-medium">Create a review</p>
-          <div className=" pt-9">
-            {steps.map((step, index) => {
-              const status = getSectionStatus(form, step.section);
-              const isComplete = status === "complete";
-              const isInProgress = status === "in-progress";
-
-              return (
-                <div key={step.id} className="flex items-start gap-4">
-                  <div className="flex flex-col items-center">
-                    <button
-                      onClick={() => setCurrentStep(step.id)}
-                      className={`w-5 h-5 rounded-full flex items-center justify-center font-semibold text-sm transition-all relative overflow-hidden ${
-                        isComplete || isInProgress
-                          ? "bg-cooper-yellow-500 text-white"
-                          : isInProgress
-                            ? "bg-gray-300"
-                            : "bg-gray-300 text-gray-600"
-                      }`}
-                    >
-                      {isInProgress && (
-                        <Circle className="h-2.5 w-2.5 fill-white text-white" />
-                      )}
-                    </button>
-
-                    {index < steps.length - 1 && (
-                      <div
-                        className={`w-0.5 h-7 mt-2 mb-2 ${
-                          currentStep > step.id ? "bg-[#F4C27F]" : "bg-gray-300"
-                        }`}
-                      />
-                    )}
-                  </div>
-
-                  <p
-                    className={`font-medium text-sm ${
-                      currentStep == step.id
-                        ? "text-black"
-                        : "text-cooper-gray-400"
-                    }`}
-                  >
-                    {step.title}
-                  </p>
-                </div>
-              );
-            })}
+      <div className="bg-white w-full min-h-screen flex flex-col md:flex-row justify-center items-center">
+        <div className="mt-4 pr-3.5 flex h-full pt-10 flex-col justify-left w-[65%]">
+          <div className="text-lg text-[#333]">Basic information</div>
+          <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap w-full">
+            <BasicInfoSection />
           </div>
-          <div className="mt-11">
-            <Button
-              onClick={async () => {
-                const isValid = await form.trigger();
-                if (!isValid) {
-                  const errors = form.formState.errors;
-                  console.log("Form validation errors:", errors);
-                  toast.error("Please fill in all required fields correctly");
-                  return;
-                }
-                await form.handleSubmit(onSubmit, (errors) => {
-                  console.log("Validation errors:", errors);
-                  toast.error("Please fix the errors in the form");
-                })();
-              }}
-              className="h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-6 py-2 text-sm font-semibold text-white hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700"
-            >
-              Submit
-            </Button>
-          </div>
-        </div>
-        <div className="mt-4 pr-3.5 flex h-full flex-col md:max-w-[75%] pl-3.5 md:w-[75%]">
-          <FormCollapsableInfoCard
-            title={"Basic Information"}
-            onClear={() => {
-              form.resetField("workTerm");
-              form.resetField("workYear");
-              form.resetField("companyName");
-              form.resetField("roleName");
-            }}
-          >
-            <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap ">
-              <BasicInfoSection />
-            </div>
-          </FormCollapsableInfoCard>
+          <hr />
           {canReviewForTerm() ? (
             <div>
-              <FormCollapsableInfoCard
-                title={"Company Information"}
-                onClear={() => {
-                  form.resetField("overtimeNormal");
-                  form.resetField("workEnvironment");
-                  form.resetField("drugTest");
-                  benefits.forEach((benefit) => {
-                    form.resetField(
-                      benefit.field as keyof z.infer<typeof formSchema>,
-                    );
-                  });
-                }}
-              >
-                <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
-                  <div className="flex flex-wrap gap-10 lg:flex-nowrap">
-                    <CompanyDetailsSection />
-                  </div>
+              <div className="text-lg text-[#333]">On the job</div>
+              <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap ">
+                <CompanyDetailsSection />
+              </div>
+              <hr />
+              <div className="text-lg text-[#333]">Pay</div>
+              <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
+                <PaySection />
+              </div>
+              <hr />
+              <div className="text-lg text-[#333]">Interview</div>
+              <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
+                <div className="flex flex-wrap gap-10 lg:flex-nowrap">
+                  <InterviewSection />
                 </div>
-              </FormCollapsableInfoCard>
-              <FormCollapsableInfoCard
-                title={"Role Information"}
-                onClear={() => {
-                  form.resetField("jobType");
-                  form.resetField("hourlyPay");
-                  form.resetField("industry");
-                  form.resetField("locationId");
-                }}
-              >
-                <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
-                  <div className="flex flex-wrap gap-10 lg:flex-nowrap">
-                    <RoleInfoSection />
-                  </div>
-                </div>
-              </FormCollapsableInfoCard>
-              <FormCollapsableInfoCard title={"Interview"} onClear={() => {}}>
-                <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
-                  <div className="flex flex-wrap gap-10 lg:flex-nowrap">
-                    <InterviewSection />
-                  </div>
-                </div>
-              </FormCollapsableInfoCard>
-              <FormCollapsableInfoCard
-                title={"Final co-op review"}
-                onClear={() => {
-                  form.resetField("supervisorRating");
-                  form.resetField("cultureRating");
-                  form.resetField("interviewRating");
-                  form.resetField("overallRating");
-                  form.resetField("textReview");
-                  form.resetField("reviewHeadline");
-                }}
-              >
-                <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
-                  <div className="flex flex-wrap gap-10 lg:flex-nowrap">
-                    <ReviewSection />
-                  </div>
-                </div>
-              </FormCollapsableInfoCard>
+              </div>
+              <hr />
+              <div className="text-lg text-[#333]">Review and rate</div>
+              <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap pb-10">
+                <ReviewSection />
+              </div>
             </div>
           ) : (
             <div>You already submitted too many reviews for this term</div>

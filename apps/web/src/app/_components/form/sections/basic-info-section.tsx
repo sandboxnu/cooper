@@ -8,12 +8,10 @@ import {
   FormLabel,
   FormMessage,
 } from "@cooper/ui/form";
-import { RadioGroup, RadioGroupItem } from "@cooper/ui/radio-group";
 
 import { FormSection } from "~/app/_components/form/form-section";
 import ExistingCompanyContent from "../../reviews/new-review/existing-company-content";
 import { Select } from "../../themed/onboarding/select";
-import { Label } from "node_modules/@cooper/ui/src/label";
 
 /**
  * CoopCycleSection component renders form fields for selecting co-op cycle and year.
@@ -30,73 +28,87 @@ export function BasicInfoSection() {
 
   return (
     <FormSection>
-      <div className=" text-cooper-gray-350 text-xs pt-2.5 md:pl-5 pl-2">
-        Note: If your company isn’t in our database, we’ll ask for a few
-        additional details to request it. Making a new company makes a new role.
-      </div>
-      <ExistingCompanyContent createdRolesCount={0} />
+      <ExistingCompanyContent />
+
       <FormField
         control={form.control}
-        name="workTerm"
+        name="jobType"
         render={({ field }) => (
-          <FormItem className="flex flex-row gap-4 md:gap-14 pl-2 md:pl-0 pt-6 space-y-0">
-            <FormLabel className="text-cooper-gray-400 text-sm md:w-60 text-right">
-              Co-op cycle
+          <FormItem className="flex flex-col w-full">
+            <FormLabel className="text-sm font-semibold text-cooper-gray-400">
+              Employment type<span className="text-[#FB7373]">*</span>
             </FormLabel>
-            <FormControl>
-              <RadioGroup
-                onValueChange={field.onChange}
-                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-                defaultValue={field.value}
-                className="flex flex-col gap-3"
-              >
-                <FormItem className="flex items-center space-x-4 space-y-0 ">
-                  <FormControl>
-                    <RadioGroupItem
-                      value="SPRING"
-                      checked={field.value === "SPRING"}
-                    />
-                  </FormControl>
-                  <FormLabel className="text-cooper-gray-350">Spring</FormLabel>
-                </FormItem>
-                <FormItem className="flex items-center space-x-4 space-y-0">
-                  <FormControl>
-                    <RadioGroupItem
-                      value="SUMMER"
-                      checked={field.value === "SUMMER"}
-                    />
-                  </FormControl>
-                  <FormLabel className="text-cooper-gray-350">Summer</FormLabel>
-                </FormItem>
-                <FormItem className="flex items-center space-x-4 space-y-0">
-                  <FormControl>
-                    <RadioGroupItem
-                      value="FALL"
-                      checked={field.value === "FALL"}
-                    />
-                  </FormControl>
-                  <FormLabel className="text-cooper-gray-350">Fall</FormLabel>
-                </FormItem>
-              </RadioGroup>
+            <FormControl className="relative w-full">
+              <Select
+                onClear={() => field.onChange(undefined)}
+                options={[
+                  { value: "Co-op", label: "Co-op" },
+                  { value: "Internship", label: "Internship" },
+                  { value: "Part time", label: "Part time" },
+                ]}
+                className="w-full border-cooper-gray-150 text-sm h-10"
+                value={field.value ?? ""}
+                placeholder="Select"
+                onChange={(e) => {
+                  const value =
+                    e.target.value === "" ? undefined : e.target.value;
+                  field.onChange(value);
+                }}
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
         )}
       />
-      <FormField
-        control={form.control}
-        name="workYear"
-        render={({ field }) => (
-          <FormItem className="flex flex-row gap-4 md:gap-14 pl-2 md:pl-0 pb-12 pt-4 items-center">
-            <Label className="text-cooper-gray-400 font-medium text-sm md:w-60 text-right ">
-              Year
-            </Label>
-            <div className="w-fit">
-              <FormControl>
+      <div className="flex flex-row gap-2 w-full">
+        <FormField
+          control={form.control}
+          name="workTerm"
+          render={({ field }) => (
+            <FormItem className="flex flex-col flex-1">
+              <FormLabel className="text-sm font-semibold text-cooper-gray-400">
+                Co-op/internship term<span className="text-[#FB7373]">*</span>
+              </FormLabel>
+              <FormControl className="relative w-full">
                 <Select
-                  options={years.map((year) => ({ value: year, label: year }))}
-                  className="w-[305px] border-2 rounded-lg h-10 text-sm text-cooper-gray-350 border-cooper-gray-150"
-                  placeholder="Select year worked..."
+                  onClear={() => field.onChange(undefined)}
+                  options={[
+                    { value: "SPRING", label: "Spring" },
+                    { value: "SUMMER", label: "Summer" },
+                    { value: "FALL", label: "Fall" },
+                  ]}
+                  className="w-full border-cooper-gray-150 text-sm h-10"
+                  value={field.value ?? ""}
+                  placeholder="Select"
+                  onChange={(e) => {
+                    const value =
+                      e.target.value === "" ? undefined : e.target.value;
+                    field.onChange(value);
+                  }}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="workYear"
+          render={({ field }) => (
+            <FormItem className="flex flex-col flex-1">
+              <FormLabel className="text-sm font-semibold text-cooper-gray-400">
+                Year<span className="text-[#FB7373]">*</span>
+              </FormLabel>
+              <FormControl className="relative w-full">
+                <Select
+                  options={years.map((year) => ({
+                    value: year,
+                    label: year,
+                  }))}
+                  className="w-full border-2 rounded-lg h-10 text-sm text-cooper-gray-350 border-cooper-gray-150"
+                  placeholder="Select"
+                  onClear={() => field.onChange(undefined)}
                   value={field.value ?? ""}
                   onChange={(e) => {
                     const value =
@@ -107,11 +119,11 @@ export function BasicInfoSection() {
                   }}
                 />
               </FormControl>
-            </div>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+      </div>
     </FormSection>
   );
 }

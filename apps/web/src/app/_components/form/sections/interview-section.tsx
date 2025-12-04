@@ -1,11 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { useFormContext } from "react-hook-form";
 
 import { FormSection } from "~/app/_components/form/form-section";
-import { Plus, X } from "lucide-react";
-import { Rating } from "../rating";
+import { Plus } from "lucide-react";
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "node_modules/@cooper/ui/src/form";
+import { Select } from "../../themed/onboarding/select";
+import { useFormContext } from "react-hook-form";
 
 type InterviewType =
   | "Behavioral"
@@ -61,10 +68,6 @@ export function InterviewSection() {
     );
   };
 
-  const removeRound = (roundId: string) => {
-    setRounds(rounds.filter((round) => round.id !== roundId));
-  };
-
   const addRound = () => {
     const newId = String(Math.max(...rounds.map((r) => parseInt(r.id)), 0) + 1);
     setRounds([
@@ -77,126 +80,95 @@ export function InterviewSection() {
       },
     ]);
   };
+  const form = useFormContext();
 
   return (
     <FormSection>
       <div className="flex flex-col md:flex-row">
-        <div className="pl-6 md:pl-16 pt-6 md:pt-8">
-          <div className="text-sm font-medium">Interview rounds</div>
-          <div className="text-cooper-gray-450 text-xs">
-            Enter details for your interview rounds.
-          </div>
-        </div>
-        <div className="w-full md:max-w-4xl mx-auto p-6 bg-white">
+        <div className="w-full md:max-w-4xl mx-auto">
           <div className="space-y-4">
             {rounds.map((round, index) => (
-              <div
-                key={round.id}
-                className="border border-gray-200 rounded-lg pt-3 pr-5 pl-5 pb-5 bg-white"
-              >
-                <div className="flex justify-between items-start mb-4">
-                  <h2 className="text-md font-medium text-cooper-gray-400">
-                    Round {index + 1}
-                  </h2>
-                  <button
-                    onClick={() => removeRound(round.id)}
-                    className=" hover:bg-gray-100 rounded"
-                    aria-label="Close"
-                  >
-                    <X className="w-5 h-5 text-gray-600" />
-                  </button>
+              <div key={round.id}>
+                <div className="text-md font-medium text-cooper-gray-400">
+                  Round {index + 1}
                 </div>
 
                 <div className="grid grid-cols-2 gap-6">
                   {/* Left side - Interview type */}
-                  <div className="border-r">
-                    <div className="flex items-center gap-2 mb-3">
-                      <h3 className="font-bold text-cooper-gray-400 text-md">
-                        Interview type
-                      </h3>
-                      <div className="text-cooper-gray-450 text-sm bg-cooper-gray-150 px-1 pt-0.25 rounded-lg">
-                        ?
-                      </div>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {INTERVIEW_TYPES.map((type) => (
-                        <button
-                          key={type}
-                          onClick={() => toggleInterviewType(round.id, type)}
-                          className={`px-4 py-1 rounded-2xl border-2 font-medium text-xs transition-all ${
-                            round.selectedTypes.includes(type)
-                              ? "border-current bg-opacity-20"
-                              : "border-cooper-gray-150 text-cooper-gray-350 "
-                          }`}
-                          style={
-                            round.selectedTypes.includes(type)
-                              ? {
-                                  borderColor:
-                                    type === "Behavioral"
-                                      ? "#F68DCC"
-                                      : type === "Technical"
-                                        ? "#99B449"
-                                        : type === "Case study"
-                                          ? "#f3f4f6"
-                                          : type === "Portfolio walkthrough"
-                                            ? "#8B68BA"
-                                            : "#6A7C90",
-                                  backgroundColor:
-                                    type === "Behavioral"
-                                      ? "#FFF0F9"
-                                      : type === "Technical"
-                                        ? "#F7FDCD"
-                                        : type === "Case study"
-                                          ? "#f9fafb"
-                                          : type === "Portfolio walkthrough"
-                                            ? "#F8E9FF"
-                                            : "#D9F0FF",
-                                  color:
-                                    type === "Behavioral"
-                                      ? "#F68DCC"
-                                      : type === "Technical"
-                                        ? "#99B449"
-                                        : type === "Case study"
-                                          ? "#6b7280"
-                                          : type === "Portfolio walkthrough"
-                                            ? "#8B68BA"
-                                            : "#6A7C90",
-                                }
-                              : {}
-                          }
-                        >
-                          {round.selectedTypes.includes(type) && (
-                            <span className="mr-1">✓</span>
-                          )}
-                          {type}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Right side - Difficulty */}
-                  <div>
-                    <h3 className="font-bold text-md text-cooper-gray-400 mb-0.5">
-                      Difficulty
-                    </h3>
-                    <p className="text-cooper-gray-350 text-xs mb-3">
-                      Rate the difficulty of this round
-                    </p>
-                    <Rating
-                      value={round.difficulty}
-                      onChange={(value) => {
-                        setRounds(
-                          rounds.map((r) =>
-                            r.id === round.id ? { ...r, difficulty: value } : r,
-                          ),
-                        );
-                      }}
-                    />
-                    <p className="text-cooper-gray-350 text-xs">
-                      Cooper average for first round:{" "}
-                      {round.cooperAverage.toFixed(1)}
-                    </p>
-                  </div>
+                  <FormField
+                    control={form.control}
+                    name="round"
+                    render={({ field }) => (
+                      <FormItem className="flex flex-col">
+                        <FormLabel className="text-sm font-semibold text-cooper-gray-400">
+                          Interview type
+                        </FormLabel>
+                        <FormControl className="relative flex-1">
+                          <Select
+                            onClear={() => field.onChange(undefined)}
+                            options={[
+                              { value: "Behavioral", label: "Behavioral" },
+                              { value: "Technical", label: "Technical" },
+                              { value: "Case study", label: "Case study" },
+                              {
+                                value: "Portfolio walkthrough",
+                                label: "Portfolio walkthrough",
+                              },
+                              {
+                                value: "Online assessment",
+                                label: "Online assessment",
+                              },
+                            ]}
+                            className="w-full border-cooper-gray-150 text-sm h-10"
+                            value={field.value ?? ""}
+                            placeholder="Select"
+                            onChange={(e) => {
+                              const value =
+                                e.target.value === ""
+                                  ? undefined
+                                  : e.target.value;
+                              field.onChange(value);
+                            }}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="difficulty"
+                    render={({ field }) => (
+                      <FormItem className="flex flex-col">
+                        <FormLabel className="text-sm font-semibold text-cooper-gray-400">
+                          Difficulty
+                        </FormLabel>
+                        <FormControl className="relative flex-1">
+                          <Select
+                            onClear={() => field.onChange(undefined)}
+                            options={[
+                              { value: 1, label: 1 },
+                              { value: 2, label: 2 },
+                              { value: 3, label: 3 },
+                              { value: 4, label: 4 },
+                              { value: 5, label: 5 },
+                            ]}
+                            className="w-full border-cooper-gray-150 text-sm h-10"
+                            value={field.value ?? ""}
+                            placeholder="Select"
+                            onChange={(e) => {
+                              const value =
+                                e.target.value === ""
+                                  ? undefined
+                                  : e.target.value;
+                              field.onChange(value);
+                            }}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
                 </div>
               </div>
             ))}
@@ -205,7 +177,7 @@ export function InterviewSection() {
           {/* Add interview round button */}
           <button
             onClick={addRound}
-            className="w-full mt-2 py-2 rounded-b-lg bg-[#FFE4B3] hover:bg-[#FFE4B3] transition-colors font-bold text-[#FFA400] flex items-center justify-center gap-2"
+            className="w-full mt-2 py-2 transition-colors font-bold text-cooper-gray-450 flex items-center gap-2"
           >
             <Plus className="w-5 h-5" />
             Add interview round

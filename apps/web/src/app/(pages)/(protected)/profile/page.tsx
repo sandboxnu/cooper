@@ -5,7 +5,6 @@ import Image from "next/image";
 import { redirect, useSearchParams } from "next/navigation";
 import ProfileCardHeader from "~/app/_components/profile/profile-card-header";
 
-import HeaderLayoutClient from "~/app/_components/header/header-layout-client";
 import FavoriteCompanySearch from "~/app/_components/profile/favorite-company-search";
 import FavoriteRoleSearch from "~/app/_components/profile/favorite-role-search";
 import ProfileTabs from "~/app/_components/profile/profile-tabs";
