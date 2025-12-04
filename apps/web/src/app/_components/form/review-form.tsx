@@ -133,7 +133,7 @@ const formSchema = z.object({
   pto: z.boolean().default(false),
   federalHolidays: z.boolean().default(false),
   freeLunch: z.boolean().default(false),
-  freeTransport: z.boolean().default(false),
+  travelBenefits: z.boolean().default(false),
   freeMerch: z.boolean().default(false),
   otherBenefits: z.string().nullable(),
 });
@@ -144,7 +144,7 @@ export const benefits = [
   { field: "pto", label: "PTO" },
   { field: "federalHolidays", label: "Federal holidays off" },
   { field: "freeLunch", label: "Free lunch" },
-  { field: "freeTransport", label: "Free transportation" },
+  { field: "travelBenefits", label: "Travel benefits" },
   { field: "freeMerch", label: "Free merchandise" },
 ];
 
@@ -195,7 +195,7 @@ const steps: {
       "pto",
       "federalHolidays",
       "freeLunch",
-      "freeTransport",
+      "travelBenefits",
       "freeMerch",
       "otherBenefits",
     ],
@@ -237,7 +237,7 @@ export function ReviewForm(props: ReviewFormProps) {
       pto: false,
       federalHolidays: false,
       freeLunch: false,
-      freeTransport: false,
+      travelBenefits: false,
       freeMerch: false,
       otherBenefits: "",
     },

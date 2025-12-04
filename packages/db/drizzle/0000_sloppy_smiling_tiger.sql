@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS "review" (
 	"pto" boolean NOT NULL,
 	"federalHolidays" boolean NOT NULL,
 	"freeLunch" boolean NOT NULL,
-	"freeTransport" boolean NOT NULL,
+	"travelBenefits" boolean NOT NULL,
 	"freeMerch" boolean NOT NULL,
 	"otherBenefits" text,
 	"created_at" timestamp DEFAULT now() NOT NULL,
