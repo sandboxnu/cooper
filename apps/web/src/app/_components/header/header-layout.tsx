@@ -28,7 +28,7 @@ export default async function HeaderLayout({
       <div className="fixed top-0 z-50 w-full bg-white">
         <Header auth={button} />
       </div>
-      <article className="flex h-fit flex-col items-center justify-start pt-[8dvh]">
+      <article className="flex h-fit flex-col items-center justify-start pt-[9.5dvh]">
         {children}
       </article>
     </div>
