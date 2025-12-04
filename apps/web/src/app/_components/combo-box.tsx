@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, ChevronDown } from "lucide-react";
+import { Check, ChevronDown, X } from "lucide-react";
 
 import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
@@ -29,6 +29,7 @@ interface ComboBoxProps {
   onChange?: (value: string) => void;
   variant?: "default" | "form" | "filtering";
   newForm?: boolean;
+  onClear?: () => void;
 }
 
 /**
@@ -47,8 +48,11 @@ export default function ComboBox({
   onChange,
   variant,
   newForm,
+  onClear,
 }: ComboBoxProps) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const hasValue = currLabel && currLabel !== defaultLabel;
 
   const styleVariant =
     variant === "form"
@@ -64,7 +68,6 @@ export default function ComboBox({
         className={cn(
           "overflow-hidden file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
           triggerClassName,
-          variant !== "filtering" ? "w-[400px]" : "",
         )}
       >
         <Button
@@ -74,16 +77,39 @@ export default function ComboBox({
           className={cn(
             styleVariant,
             "h-12 min-h-0 justify-between overflow-hidden text-ellipsis text-nowrap py-0",
-            variant !== "filtering" ? "w-[400px]" : "",
-            newForm ? "h-10 w-[192px] md:w-[305px]" : "h-12",
+            variant === "form"
+              ? "w-full"
+              : variant === "filtering"
+                ? ""
+                : "w-[400px]",
+            newForm
+              ? "h-10 w-full"
+              : variant === "form"
+                ? "h-12 w-full"
+                : "h-12",
           )}
         >
           <span
             className={`overflow-hidden whitespace-nowrap ${defaultLabel === "Location" ? "text-cooper-gray-350" : "text-cooper-gray-350 font-normal"} ${newForm ? "text-sm" : "text-lg"}`}
           >
-            {defaultLabel}
+            {currLabel && currLabel !== defaultLabel ? currLabel : defaultLabel}
           </span>
-          <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          <div className="flex items-center gap-1.5">
+            {onClear && (
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onClear();
+                }}
+                className="pointer-events-auto flex items-center justify-center rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none"
+                aria-label="Clear selection"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
+            <ChevronDown className="h-4 w-4 shrink-0 opacity-50" />
+          </div>
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[400px] p-0">

@@ -23,6 +23,7 @@ import { SubmissionConfirmation } from "~/app/_components/form/submission-confir
 import { SubmissionFailure } from "~/app/_components/form/submission-failure";
 import { JobType } from "node_modules/@cooper/db/src/schema/misc";
 import { industryOptions } from "~/app/_components/onboarding/constants";
+import { Button } from "@cooper/ui/button";
 
 const sectionFields = {
   basic: ["workTerm", "workYear", "companyName", "roleName"] as const,
@@ -330,33 +331,61 @@ export default function ReviewForm() {
     <Form {...form}>
       <div className="bg-white w-full min-h-screen flex flex-col md:flex-row justify-center items-center">
         <div className="mt-4 pr-3.5 flex h-full pt-10 flex-col justify-left w-[65%]">
-          <div className="text-lg text-[#333]">Basic information</div>
-          <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap w-full">
+          <div className="text-lg text-cooper-gray-550">Basic information</div>
+          <div className="text-sm text-cooper-gray-350">
+            Note: If your company isn't in our database, we'll ask for a few
+            additional details to request it. Making a new company makes a new
+            role.
+          </div>
+          <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap w-full pb-12">
             <BasicInfoSection />
           </div>
           <hr />
           {canReviewForTerm() ? (
             <div>
-              <div className="text-lg text-[#333]">On the job</div>
-              <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap ">
+              <div className="text-lg text-cooper-gray-550 pt-12">
+                On the job
+              </div>
+              <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap pb-12">
                 <CompanyDetailsSection />
               </div>
               <hr />
-              <div className="text-lg text-[#333]">Pay</div>
-              <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
+              <div className="text-lg text-cooper-gray-550 pt-12">Pay</div>
+              <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap pb-12">
                 <PaySection />
               </div>
               <hr />
-              <div className="text-lg text-[#333]">Interview</div>
-              <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
-                <div className="flex flex-wrap gap-10 lg:flex-nowrap">
-                  <InterviewSection />
-                </div>
+              <div className="text-lg text-cooper-gray-550 pt-12">
+                Interview
+              </div>
+              <div className="flex flex-wrap gap-10 lg:flex-nowrap pb-12">
+                <InterviewSection />
               </div>
               <hr />
-              <div className="text-lg text-[#333]">Review and rate</div>
+              <div className="text-lg text-cooper-gray-550 pt-12">
+                Review and rate
+              </div>
               <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap pb-10">
                 <ReviewSection />
+              </div>
+
+              {/* Submit Button */}
+              <div className="flex justify-end pb-12 pt-6">
+                <Button
+                  type="button"
+                  onClick={async () => {
+                    const isValid = await form.trigger();
+                    if (!isValid) {
+                      toast.error("Please fill in all required fields.");
+                      return;
+                    }
+                    await form.handleSubmit(onSubmit)();
+                  }}
+                  disabled={mutation.isPending}
+                  className="bg-cooper-gray-550 hover:bg-cooper-gray-600 text-white rounded-lg px-8 py-3 text-lg font-semibold border-none"
+                >
+                  {mutation.isPending ? "Submitting..." : "Submit review"}
+                </Button>
               </div>
             </div>
           ) : (

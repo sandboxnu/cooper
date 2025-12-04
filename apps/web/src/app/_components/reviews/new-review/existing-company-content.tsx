@@ -12,6 +12,9 @@ import { Input } from "@cooper/ui/input";
 import { Label } from "@cooper/ui/label";
 import { Textarea } from "@cooper/ui/textarea";
 import { Checkbox } from "@cooper/ui/checkbox";
+import Image from "next/image";
+import Logo from "@cooper/ui/logo";
+import { prettyLocationName } from "~/utils/locationHelpers";
 
 import type { RoleRequestType } from "../new-role-dialogue";
 import { api } from "~/trpc/react";
@@ -20,6 +23,7 @@ import { FormSection } from "../../form/form-section";
 import { FormLabel } from "../../themed/onboarding/form";
 import { industryOptions } from "../../onboarding/constants";
 import LocationBox from "../../location";
+import { CompanyCardPreview } from "../../companies/company-card-preview";
 
 const filter = new Filter();
 const roleSchema = z.object({
@@ -122,15 +126,52 @@ export default function ExistingCompanyContent({
 
   const form = useFormContext();
 
+  // Get the selected company from the form
+  const selectedCompanyName = form.watch("companyName");
+  const selectedCompany = companies.data?.find(
+    (company) => company.id === selectedCompanyName,
+  );
+
+  // Fetch location and rating data for selected company
+  const locations = api.companyToLocation.getLocationsByCompanyId.useQuery(
+    {
+      companyId: selectedCompany?.id ?? "",
+    },
+    {
+      enabled: !!selectedCompany?.id,
+    },
+  );
+
+  const avg = api.company.getAverageById.useQuery(
+    {
+      companyId: selectedCompany?.id ?? "",
+    },
+    {
+      enabled: !!selectedCompany?.id,
+    },
+  );
+
+  const reviews = api.review.getByCompany.useQuery(
+    {
+      id: selectedCompany?.id ?? "",
+    },
+    {
+      enabled: !!selectedCompany?.id,
+    },
+  );
+
+  const averageRating =
+    Math.round(Number(avg.data?.averageOverallRating) * 100) / 100;
+
   return (
     <FormSection>
-      <div className="flex flex-col gap-6 pt-4 w-full">
+      <div className="flex flex-col gap-2 pt-4 w-full">
         {/* Company Section */}
         <FormField
           control={form.control}
           name="companyName"
           render={({ field }) => (
-            <FormItem className="flex flex-row items-center gap-14 pl-2 md:pl-0 w-full">
+            <FormItem className="flex flex-col w-full">
               <FormLabel className="text-sm text-cooper-gray-400 font-semibold flex-shrink-0">
                 Company name<span className="text-[#FB7373]">*</span>
               </FormLabel>
@@ -176,18 +217,31 @@ export default function ExistingCompanyContent({
               }
             }}
           />
-          <Label className="text-sm text-cooper-gray-400 cursor-pointer">
+          <Label className="text-sm text-cooper-gray-550 font-bold cursor-pointer">
             I don't see my company
           </Label>
         </div>
 
+        {/* Company Card - shown when company is selected */}
+        {selectedCompany && (
+          <div className="pt-2">
+            <div className="text-sm text-cooper-gray-400 font-semibold mb-2">
+              Adding a review for
+            </div>
+            <CompanyCardPreview
+              companyObj={selectedCompany}
+              className="w-[60%]"
+            />
+          </div>
+        )}
+
         {/* "Add Your Company" gray box section */}
         {showNewCompany && (
-          <div className="bg-cooper-gray-100 rounded-lg p-6 flex flex-col gap-4 w-full">
-            <div className="text-lg font-semibold text-cooper-gray-400">
+          <div className="bg-cooper-gray-100 rounded-lg p-3.5 flex flex-col w-full">
+            <div className="text-sm font-semibold text-cooper-gray-550">
               Add Your Company
             </div>
-            <div className="text-xs text-cooper-gray-350">
+            <div className="text-xs text-cooper-gray-450">
               We'll verify this information before it appears on the website as
               a review.
             </div>
@@ -197,14 +251,14 @@ export default function ExistingCompanyContent({
               control={form.control}
               name="companyName"
               render={({ field }) => (
-                <FormItem className="flex flex-row items-center gap-14 w-full">
-                  <FormLabel className="text-sm font-semibold text-cooper-gray-400 md:w-60 text-right flex-shrink-0">
+                <FormItem className="flex flex-col w-full pt-2.5">
+                  <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
                     Company Name<span className="text-[#FB7373]">*</span>
                   </FormLabel>
                   <FormControl className="flex-1">
                     <Input
                       placeholder="Enter"
-                      className="w-full border-cooper-gray-150 text-sm h-10"
+                      className="w-full border border-cooper-gray-150 text-sm h-10"
                       value={field.value ?? ""}
                       onChange={(e) => field.onChange(e.target.value)}
                     />
@@ -219,15 +273,15 @@ export default function ExistingCompanyContent({
               control={form.control}
               name="industry"
               render={({ field }) => (
-                <FormItem className="flex flex-row items-center gap-14 w-full">
-                  <FormLabel className="text-sm font-semibold text-cooper-gray-400 md:w-60 text-right flex-shrink-0">
+                <FormItem className="flex flex-col w-full pt-2.5">
+                  <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
                     Industry<span className="text-[#FB7373]">*</span>
                   </FormLabel>
                   <div className="relative flex-1 w-full">
                     <Select
                       options={industryOptions}
                       placeholder="Search"
-                      className="w-full border-cooper-gray-150 text-sm h-10"
+                      className="w-full border border-cooper-gray-150 text-sm h-10"
                       value={field.value ?? ""}
                       onClear={() => field.onChange(undefined)}
                       onChange={(e) => {
@@ -246,9 +300,9 @@ export default function ExistingCompanyContent({
             <FormField
               control={form.control}
               name="locationId"
-              render={({ field }) => (
-                <FormItem className="flex flex-row items-center gap-14 w-full">
-                  <FormLabel className="text-sm font-semibold text-cooper-gray-400 md:w-60 text-right flex-shrink-0">
+              render={() => (
+                <FormItem className="flex flex-col pt-2.5 w-full">
+                  <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
                     Location<span className="text-[#FB7373]">*</span>
                   </FormLabel>
                   <FormControl className="flex-1">
@@ -271,14 +325,14 @@ export default function ExistingCompanyContent({
               control={form.control}
               name="roleName"
               render={({ field }) => (
-                <FormItem className="flex flex-row items-center gap-14 w-full">
-                  <FormLabel className="text-sm font-semibold text-cooper-gray-400 flex-shrink-0">
+                <FormItem className="flex flex-col pt-2.5 w-full">
+                  <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
                     Your Role<span className="text-[#FB7373]">*</span>
                   </FormLabel>
                   <FormControl className="flex-1">
                     <Input
                       placeholder="Enter"
-                      className="w-full border-cooper-gray-150 text-sm h-10"
+                      className="w-full border border-cooper-gray-150 text-sm h-10"
                       value={field.value ?? ""}
                       onChange={(e) => field.onChange(e.target.value)}
                     />
@@ -291,12 +345,12 @@ export default function ExistingCompanyContent({
         )}
 
         {/* Your Role section (only show when company is selected and not showing new company) */}
-        <>
+        <div className=" pt-4">
           <FormField
             control={form.control}
             name="roleName"
             render={({ field }) => (
-              <FormItem className="flex flex-row items-center gap-14 pl-2 md:pl-0 w-full">
+              <FormItem className="flex flex-col w-full ">
                 <FormLabel className="text-sm font-semibold text-cooper-gray-400 flex-shrink-0">
                   Your Role<span className="text-[#FB7373]">*</span>
                 </FormLabel>
@@ -329,7 +383,7 @@ export default function ExistingCompanyContent({
 
           {/* "I don't see my role" checkbox */}
 
-          <div className="flex items-center gap-2 flex-1">
+          <div className="flex items-center gap-2 flex-1 pt-2">
             <Checkbox
               checked={creatingNewRole}
               onCheckedChange={(checked) => {
@@ -340,53 +394,46 @@ export default function ExistingCompanyContent({
                 }
               }}
             />
-            <Label className="text-sm text-cooper-gray-400 cursor-pointer">
+            <Label className="text-sm text-cooper-gray-550 font-bold cursor-pointer">
               I don't see my role
             </Label>
           </div>
 
           {/* Create New Role Section */}
           {creatingNewRole && (
-            <article className="bg-cooper-gray-100 rounded-lg p-6">
-              <FormProvider {...newRoleForm}>
-                <Form>
-                  <div className="flex flex-col gap-4">
-                    <FormField
-                      control={newRoleForm.control}
-                      name="title"
-                      render={({ field }) => (
-                        <FormItem>
-                          <Label>Role Name</Label>
-                          <FormControl>
-                            <Input
-                              type="string"
-                              variant="dialogue"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage className="text-sm" />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={newRoleForm.control}
-                      name="description"
-                      render={({ field }) => (
-                        <FormItem>
-                          <Label>Role Description</Label>
-                          <FormControl>
-                            <Textarea variant="dialogue" {...field} />
-                          </FormControl>
-                          <FormMessage className="text-sm" />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-                </Form>
-              </FormProvider>
-            </article>
+            <div className="bg-cooper-gray-100 rounded-lg p-3.5 flex flex-col w-full">
+              <div className="text-sm font-semibold text-cooper-gray-550">
+                Add Your Role
+              </div>
+              <div className="text-xs text-cooper-gray-450">
+                We'll verify this information before it appears on the website
+                as a review.
+              </div>
+
+              {/* Company Name */}
+              <FormField
+                control={form.control}
+                name="title"
+                render={({ field }) => (
+                  <FormItem className="flex flex-col w-full pt-2.5">
+                    <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
+                      Your Role<span className="text-[#FB7373]">*</span>
+                    </FormLabel>
+                    <FormControl className="flex-1">
+                      <Input
+                        placeholder="Enter"
+                        className="w-full border border-cooper-gray-150 text-sm h-10"
+                        value={field.value ?? ""}
+                        onChange={(e) => field.onChange(e.target.value)}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
           )}
-        </>
+        </div>
       </div>
     </FormSection>
   );

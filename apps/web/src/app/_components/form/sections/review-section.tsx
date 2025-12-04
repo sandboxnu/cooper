@@ -26,7 +26,7 @@ export function ReviewSection() {
         control={form.control}
         name="overallRating"
         render={({ field }) => (
-          <FormItem className="flex flex-col">
+          <FormItem className="flex flex-col pt-3">
             <FormLabel className="text-sm font-semibold text-cooper-gray-400">
               Overall rating<span className="text-[#FB7373]">*</span>
             </FormLabel>
@@ -59,12 +59,14 @@ export function ReviewSection() {
         name="textReview"
         render={({ field }) => (
           <FormItem className="flex flex-col md:flex-col pt-4">
-            <FormLabel className="text-sm text-cooper-gray-400 md:w-60 md:text-right">
+            <FormLabel className="text-sm text-cooper-gray-400 ">
               Review text
             </FormLabel>
-            <div>
-              Share any additional details on your experience. Please be
-              respectful and do not mention any specific names.
+            <div className="text-cooper-gray-550 text-xs">
+              This is your chance to share more details on your experience.
+              Think about what your peers would want to know about this
+              experience. Please be respectful and do not mention any specific
+              names.
             </div>
             <div className="flex-1">
               <Textarea

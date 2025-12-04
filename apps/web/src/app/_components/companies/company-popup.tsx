@@ -9,7 +9,7 @@ import {
   DialogTrigger,
 } from "@cooper/ui/dialog";
 
-import { CompanyType } from "@cooper/db/schema";
+import type { CompanyType } from "@cooper/db/schema";
 import Logo from "node_modules/@cooper/ui/src/logo";
 import { FavoriteButton } from "../shared/favorite-button";
 import RenderAllRoles from "./all-company-roles";

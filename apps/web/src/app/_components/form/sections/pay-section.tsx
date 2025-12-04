@@ -19,6 +19,7 @@ import {
   RadioGroupItem,
 } from "node_modules/@cooper/ui/src/radio-group";
 import { Checkbox } from "node_modules/@cooper/ui/src/checkbox";
+import { Select } from "../../themed/onboarding/select";
 
 /**
  * ReviewSection component renders form fields for writing a co-op review.
@@ -86,73 +87,156 @@ export function PaySection() {
 
   return (
     <FormSection>
-      <FormField
-        control={form.control}
-        name="hourlyPay"
-        render={({ field }) => (
-          <FormItem className="rounded-md pb-10 flex flex-col pt-6">
-            <FormLabel className="text-sm font-medium block  text-cooper-gray-400 ">
-              Pay<span className="text-[#FB7373]">*</span>
-            </FormLabel>
-            <FormControl>
-              <div className="flex items-center gap-2 flex-row">
-                <div className="flex items-center ">
-                  <Input
-                    {...field}
-                    placeholder="$"
-                    className="border-2 border-cooper-gray-150 rounded-lg h-9 w-20 text-cooper-gray-400 bg-transparent text-sm pl-4 focus:outline-none"
+      <div className="flex flex-row pt-2 gap-8 flex-1 w-full">
+        <FormField
+          control={form.control}
+          name="hourlyPay"
+          render={({ field }) => (
+            <FormItem className="rounded-md flex flex-col w-full">
+              <FormLabel className="text-sm font-bold block text-cooper-gray-550 ">
+                Pay<span className="text-[#FB7373]">*</span>
+              </FormLabel>
+              <FormControl>
+                <div className="flex gap-2 flex-col w-full">
+                  <Select
+                    onClear={() => field.onChange(undefined)}
+                    options={[
+                      { value: "INPERSON", label: "In person" },
+                      { value: "HYBRID", label: "Hybrid" },
+                      { value: "REMOTE", label: "Remote" },
+                    ]}
+                    className="w-full border-cooper-gray-150 text-sm h-10"
+                    value={field.value ?? ""}
+                    placeholder="Select"
                     disabled={isUnpaid}
+                    onChange={(e) => {
+                      const value =
+                        e.target.value === "" ? undefined : e.target.value;
+                      field.onChange(value);
+                    }}
                   />
+                  <div
+                    className="flex items-center gap-2 rounded-md cursor-pointer pt-2.5"
+                    onClick={() => setIsUnpaid(!isUnpaid)}
+                  >
+                    <Checkbox checked={isUnpaid} />
+                    <span className="text-xs text-cooper-gray-400">
+                      Unpaid position
+                    </span>
+                  </div>
                 </div>
-                <div
-                  className="flex items-center gap-2 rounded-md cursor-pointer"
-                  onClick={() => setIsUnpaid(!isUnpaid)}
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="payInterval"
+          render={({ field }) => (
+            <FormItem className="flex flex-col w-full">
+              <FormLabel className="text-sm font-bold text-cooper-gray-550">
+                Interval<span className="text-[#FB7373]">*</span>
+              </FormLabel>
+              <FormControl>
+                <Select
+                  onClear={() => field.onChange(undefined)}
+                  options={[
+                    { value: "INPERSON", label: "In person" },
+                    { value: "HYBRID", label: "Hybrid" },
+                    { value: "REMOTE", label: "Remote" },
+                  ]}
+                  className="w-full border-cooper-gray-150 text-sm h-10"
+                  value={field.value ?? ""}
+                  placeholder="Select"
+                  onChange={(e) => {
+                    const value =
+                      e.target.value === "" ? undefined : e.target.value;
+                    field.onChange(value);
+                  }}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+      </div>
+      <div className="flex flex-row gap-8 pt-3">
+        <FormField
+          control={form.control}
+          name="overtimeNormal"
+          render={({ field }) => (
+            <FormItem className="flex flex-col ">
+              <FormLabel className="text-cooper-gray-400 text-sm font-bold">
+                Worked overtime<span className="text-[#FB7373]">*</span>
+              </FormLabel>
+              <FormControl>
+                <RadioGroup
+                  onValueChange={field.onChange}
+                  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+                  defaultValue={field.value}
+                  className="flex flex-row space-x-3"
                 >
-                  <Checkbox
-                    checked={isUnpaid}
-                    className="border-cooper-yellow-500"
-                  />
-                  <span className="text-md font-small text-cooper-gray-400">
-                    Unpaid
-                  </span>
+                  <FormItem className="flex items-center space-x-4 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem
+                        value="yes"
+                        checked={field.value === "yes"}
+                      />
+                    </FormControl>
+                    <FormLabel className="text-cooper-gray-450 text-sm">
+                      Yes
+                    </FormLabel>
+                  </FormItem>
+                  <FormItem className="flex items-center space-x-4 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem
+                        value="no"
+                        checked={field.value === "no"}
+                      />
+                    </FormControl>
+                    <FormLabel className="text-cooper-gray-450 text-sm">
+                      No
+                    </FormLabel>
+                  </FormItem>
+                </RadioGroup>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="overtimePay"
+          render={({ field }) => (
+            <FormItem className="rounded-md flex flex-col">
+              <FormLabel className="text-sm font-bold block  text-cooper-gray-400">
+                Overtime Pay<span className="text-[#FB7373]">*</span>
+              </FormLabel>
+              <FormControl>
+                <div className="flex items-center gap-2 flex-row">
+                  <div className="flex items-center ">
+                    <Input
+                      {...field}
+                      placeholder="$"
+                      className="border-2 border-cooper-gray-150 rounded-lg h-9 w-20 text-cooper-gray-400 bg-transparent text-sm pl-4 focus:outline-none"
+                      disabled={isUnpaid}
+                    />
+                  </div>
                 </div>
-              </div>
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+      </div>
       <FormField
         control={form.control}
-        name="overtimePay"
+        name="pto"
         render={({ field }) => (
-          <FormItem className="rounded-md pb-10 flex flex-col pt-6">
-            <FormLabel className="text-sm font-medium block  text-cooper-gray-400">
-              Overtime Pay<span className="text-[#FB7373]">*</span>
-            </FormLabel>
-            <FormControl>
-              <div className="flex items-center gap-2 flex-row">
-                <div className="flex items-center ">
-                  <Input
-                    {...field}
-                    placeholder="$"
-                    className="border-2 border-cooper-gray-150 rounded-lg h-9 w-20 text-cooper-gray-400 bg-transparent text-sm pl-4 focus:outline-none"
-                    disabled={isUnpaid}
-                  />
-                </div>
-              </div>
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-      <FormField
-        control={form.control}
-        name="drugTest"
-        render={({ field }) => (
-          <FormItem className="flex flex-col pt-6 ">
-            <FormLabel className="text-cooper-gray-400 text-sm ">
-              Drug test required<span className="text-[#FB7373]">*</span>
+          <FormItem className="flex flex-col pt-3 ">
+            <FormLabel className="text-cooper-gray-400 text-sm font-bold">
+              Received PTO<span className="text-[#FB7373]">*</span>
             </FormLabel>
             <FormControl>
               <RadioGroup
