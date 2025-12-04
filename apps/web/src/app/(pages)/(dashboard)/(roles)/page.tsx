@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 
@@ -24,9 +24,20 @@ import { RoleInfo } from "~/app/_components/reviews/role-info";
 import { api } from "~/trpc/react";
 import SearchFilter from "~/app/_components/search/search-filter";
 
+// Helper function to create URL-friendly slugs (still needed for URL generation)
+const createSlug = (text: string): string => {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "") // Remove all non-alphanumeric characters except spaces and hyphens
+    .replace(/\s+/g, "-") // Replace spaces with hyphens
+    .replace(/-+/g, "-") // Replace multiple hyphens with single hyphen
+    .trim();
+};
+
 export default function Roles() {
   const searchParams = useSearchParams();
-  const queryParam = searchParams.get("id") ?? null;
+  const companyParam = searchParams.get("company") ?? null;
+  const roleParam = searchParams.get("role") ?? null;
   const searchValue = searchParams.get("search") ?? ""; // Get search query from URL
   const router = useRouter();
 
@@ -40,58 +51,218 @@ export default function Roles() {
   const [currentPage, setCurrentPage] = useState(1);
   const rolesAndCompaniesPerPage = 10;
 
-  const rolesAndCompanies = api.roleAndCompany.list.useQuery({
-    sortBy: selectedFilter,
-    search: searchValue,
-    limit: rolesAndCompaniesPerPage,
-    offset: (currentPage - 1) * rolesAndCompaniesPerPage,
-    type: selectedType,
-  });
+  // Query for specific company or role based on URL params
+  const companyBySlug = api.company.getBySlug.useQuery(
+    { slug: companyParam ?? "" },
+    {
+      enabled: !!companyParam && !roleParam,
+      retry: false,
+      refetchOnWindowFocus: false,
+    },
+  );
+
+  const roleBySlug = api.role.getByCompanySlugAndRoleSlug.useQuery(
+    { companySlug: companyParam ?? "", roleSlug: roleParam ?? "" },
+    {
+      enabled: !!companyParam && !!roleParam,
+      retry: false,
+      refetchOnWindowFocus: false,
+    },
+  );
+
+  // Query to get the page number for the selected item from URL
+  const pageNumberQuery = api.roleAndCompany.getPageNumber.useQuery(
+    {
+      itemId: roleBySlug.data?.id ?? companyBySlug.data?.id ?? "",
+      itemType: roleParam ? "role" : "company",
+      sortBy: selectedFilter ?? "default",
+      search: searchValue,
+      type: selectedType,
+      limit: rolesAndCompaniesPerPage,
+    },
+    {
+      enabled: (!!roleBySlug.data || !!companyBySlug.data) && !!companyParam,
+      retry: false,
+      refetchOnWindowFocus: false,
+    },
+  );
+
+  // Set the page when we get the page number from URL params
+  useEffect(() => {
+    if (pageNumberQuery.isSuccess && pageNumberQuery.data.found) {
+      setCurrentPage(pageNumberQuery.data.page);
+    }
+  }, [pageNumberQuery.isSuccess, pageNumberQuery.data]);
+
+  // Only fetch the main list after we have the correct page number (if coming from URL)
+  const shouldFetchList =
+    !companyParam || // No URL params, fetch normally
+    pageNumberQuery.isSuccess || // Have page number from URL
+    pageNumberQuery.isError; // Query failed, fall back to page 1
+
+  const rolesAndCompanies = api.roleAndCompany.list.useQuery(
+    {
+      sortBy: selectedFilter,
+      search: searchValue,
+      limit: rolesAndCompaniesPerPage,
+      offset: (currentPage - 1) * rolesAndCompaniesPerPage,
+      type: selectedType,
+    },
+    {
+      enabled: shouldFetchList,
+    },
+  );
 
   const buttonStyle =
     "bg-white hover:bg-cooper-gray-200 border-white text-black p-2";
 
   const defaultItem = useMemo(() => {
-    if (rolesAndCompanies.isSuccess) {
-      const item = rolesAndCompanies.data.items.find(
-        (i) => i.id === queryParam,
-      );
-      if (item) {
-        return item;
-      } else if (rolesAndCompanies.data.items.length > 0) {
+    // If we have both company and role params, use the role query result
+    if (companyParam && roleParam && roleBySlug.isSuccess && roleBySlug.data) {
+      return { ...roleBySlug.data, type: "role" as const };
+    }
+
+    // If we have only company param, use the company query result
+    if (
+      companyParam &&
+      !roleParam &&
+      companyBySlug.isSuccess &&
+      companyBySlug.data
+    ) {
+      return { ...companyBySlug.data, type: "company" as const };
+    }
+
+    // Default to first item in list only if no params are set
+    if (!companyParam && !roleParam && rolesAndCompanies.isSuccess) {
+      if (rolesAndCompanies.data.items.length > 0) {
         return rolesAndCompanies.data.items[0];
       }
     }
-  }, [rolesAndCompanies.isSuccess, rolesAndCompanies.data, queryParam]);
 
-  const isRole = (
-    item: RoleType | CompanyType,
-  ): item is RoleType & { type: "role" } => {
-    return "type" in item && item.type === "role";
-  };
+    return undefined;
+  }, [
+    companyParam,
+    roleParam,
+    roleBySlug.isSuccess,
+    roleBySlug.data,
+    companyBySlug.isSuccess,
+    companyBySlug.data,
+    rolesAndCompanies.isSuccess,
+    rolesAndCompanies.data,
+  ]);
+  const isRole = useCallback(
+    (item: RoleType | CompanyType): item is RoleType & { type: "role" } => {
+      return "type" in item && item.type === "role";
+    },
+    [],
+  );
 
   const [selectedItem, setSelectedItem] = useState<
     (RoleType | CompanyType) | undefined
   >();
 
+  // Ref to store card refs for scrolling
+  const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const hasScrolledToItem = useRef(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // initializes the selectedRole to either the role provided by the query params or the first in the role data
     if (defaultItem) {
       setSelectedItem(defaultItem);
     }
   }, [defaultItem]);
 
+  // Scroll to selected item only when coming from direct URL (not user clicks)
   useEffect(() => {
-    // updates the URL when a role is changed
-    if (selectedItem && queryParam !== selectedItem.id) {
-      const params = new URLSearchParams(window.location.search);
-      params.set("id", selectedItem.id);
-      router.replace(`/?${params.toString()}`);
+    if (
+      selectedItem &&
+      rolesAndCompanies.isSuccess &&
+      (companyParam || roleParam) &&
+      !hasScrolledToItem.current
+    ) {
+      const cardElement = cardRefs.current[selectedItem.id];
+      if (cardElement) {
+        cardElement.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+        hasScrolledToItem.current = true;
+      }
     }
-  }, [selectedItem, router, queryParam]);
+  }, [selectedItem, rolesAndCompanies.isSuccess, companyParam, roleParam]);
 
+  // Reset scroll flag when URL params are cleared
+  useEffect(() => {
+    if (!companyParam && !roleParam) {
+      hasScrolledToItem.current = false;
+    }
+  }, [companyParam, roleParam]);
+
+  useEffect(() => {
+    // updates the URL when a role or company is changed
+    // Don't update URL if query is still loading (prevents updating with stale data during page changes)
+    if (selectedItem && rolesAndCompanies.isSuccess) {
+      const params = new URLSearchParams(window.location.search);
+
+      if (isRole(selectedItem)) {
+        // For roles, use company and role parameters
+        const roleItem = selectedItem as RoleType & {
+          companyName?: string;
+          slug?: string;
+          companySlug?: string;
+        };
+        const companyName = roleItem.companyName ?? "";
+        const companySlug = roleItem.companySlug ?? createSlug(companyName);
+        const roleSlug = roleItem.slug;
+
+        if (
+          companyName &&
+          (companyParam !== companySlug || roleParam !== roleSlug)
+        ) {
+          // Preserve search param
+          const currentSearch = params.get("search");
+          params.delete("search");
+
+          params.set("company", companySlug);
+          params.set("role", roleSlug);
+
+          // Add search back at the end
+          if (currentSearch) {
+            params.set("search", currentSearch);
+          }
+
+          router.push(`/?${params.toString()}`);
+        }
+      } else {
+        // For companies, use the company parameter with the name
+        const companyItem = selectedItem as CompanyType & { slug?: string };
+        const companySlug = companyItem.slug;
+
+        if (companyParam !== companySlug || roleParam !== null) {
+          // Preserve search param
+          const currentSearch = params.get("search");
+          params.delete("search");
+
+          params.delete("role");
+          params.set("company", companySlug);
+
+          // Add search back at the end
+          if (currentSearch) {
+            params.set("search", currentSearch);
+          }
+
+          router.push(`/?${params.toString()}`);
+        }
+      }
+    }
+  }, [
+    selectedItem,
+    router,
+    companyParam,
+    roleParam,
+    isRole,
+    rolesAndCompanies.isSuccess,
+  ]);
   const [showRoleInfo, setShowRoleInfo] = useState(false); // State for toggling views on mobile
 
   // Reset to page 1 when filter or search changes
@@ -99,11 +270,13 @@ export default function Roles() {
     setCurrentPage(1);
   }, [selectedFilter, searchValue]);
 
-  // Scroll to top and select first item when page changes
+  // Scroll to top + select first item when page changes (but not when coming from URL)
   useEffect(() => {
     if (
       rolesAndCompanies.isSuccess &&
-      rolesAndCompanies.data.items.length > 0
+      rolesAndCompanies.data.items.length > 0 &&
+      !companyParam && // Only auto-select if no URL params
+      !roleParam
     ) {
       // Scroll sidebar to top
       if (sidebarRef.current) {
@@ -113,10 +286,26 @@ export default function Roles() {
       setSelectedItem(rolesAndCompanies.data.items[0]);
       setShowRoleInfo(true);
     }
-  }, [currentPage, rolesAndCompanies.isSuccess, rolesAndCompanies.data?.items]);
+  }, [
+    currentPage,
+    rolesAndCompanies.isSuccess,
+    rolesAndCompanies.data?.items,
+    companyParam,
+    roleParam,
+  ]);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
+    // Clear URL params when changing pages
+    const params = new URLSearchParams(window.location.search);
+    const searchParam = params.get("search");
+
+    // Build new URL with only search param if it exists
+    if (searchParam) {
+      router.push(`/?search=${searchParam}`);
+    } else {
+      router.push("/");
+    }
   };
 
   useEffect(() => {
@@ -210,6 +399,9 @@ export default function Roles() {
                   return (
                     <div
                       key={item.id}
+                      ref={(el) => {
+                        cardRefs.current[item.id] = el;
+                      }}
                       onClick={() => {
                         setSelectedItem(item);
                         setShowRoleInfo(true); // Show RoleInfo on mobile
@@ -232,7 +424,11 @@ export default function Roles() {
                   return (
                     <div
                       key={item.id}
-                      onClick={() => {
+                      ref={(el) => {
+                        cardRefs.current[item.id] = el;
+                      }}
+                      onClick={(e) => {
+                        e.preventDefault();
                         setSelectedItem(item);
                       }}
                     >
