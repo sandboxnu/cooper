@@ -506,6 +506,12 @@
           "primaryKey": false,
           "notNull": true
         },
+        "snackBar": {
+          "name": "snackBar",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
         "otherBenefits": {
           "name": "otherBenefits",
           "type": "text",
