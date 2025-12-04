@@ -632,14 +632,20 @@
           "primaryKey": false,
           "notNull": true
         },
-        "freeTransport": {
-          "name": "freeTransport",
+        "travelBenefits": {
+          "name": "travelBenefits",
           "type": "boolean",
           "primaryKey": false,
           "notNull": true
         },
         "freeMerch": {
           "name": "freeMerch",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "snackBar": {
+          "name": "snackBar",
           "type": "boolean",
           "primaryKey": false,
           "notNull": true

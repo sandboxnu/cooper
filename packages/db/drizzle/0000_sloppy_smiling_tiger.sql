@@ -84,6 +84,7 @@ CREATE TABLE IF NOT EXISTS "review" (
 	"freeLunch" boolean NOT NULL,
 	"travelBenefits" boolean NOT NULL,
 	"freeMerch" boolean NOT NULL,
+	"snackBar" boolean NOT NULL,
 	"otherBenefits" text,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updatedAt" timestamp with time zone,

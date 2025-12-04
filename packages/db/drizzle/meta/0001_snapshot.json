@@ -494,8 +494,8 @@
           "primaryKey": false,
           "notNull": true
         },
-        "freeTransport": {
-          "name": "freeTransport",
+        "travelBenefits": {
+          "name": "travelBenefits",
           "type": "boolean",
           "primaryKey": false,
           "notNull": true

@@ -41,6 +41,7 @@ export const Review = pgTable("review", {
   freeLunch: boolean("freeLunch").notNull(),
   travelBenefits: boolean("travelBenefits").notNull(),
   freeMerch: boolean("freeMerch").notNull(),
+  snackBar: boolean("snackBar").notNull().default(false), //default false for existing records
   otherBenefits: text("otherBenefits"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt", {
@@ -95,6 +96,7 @@ export const CreateReviewSchema = createInsertSchema(Review, {
   freeLunch: z.boolean(),
   travelBenefits: z.boolean(),
   freeMerch: z.boolean(),
+  snackBar: z.boolean(),
   otherBenefits: z.string().nullish(),
   roleId: z.string(),
   profileId: z.string(),

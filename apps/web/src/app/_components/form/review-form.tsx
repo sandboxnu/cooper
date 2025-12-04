@@ -135,6 +135,7 @@ const formSchema = z.object({
   freeLunch: z.boolean().default(false),
   travelBenefits: z.boolean().default(false),
   freeMerch: z.boolean().default(false),
+  snackBar: z.boolean().default(false),
   otherBenefits: z.string().nullable(),
 });
 
@@ -146,6 +147,7 @@ export const benefits = [
   { field: "freeLunch", label: "Free lunch" },
   { field: "travelBenefits", label: "Travel benefits" },
   { field: "freeMerch", label: "Free merchandise" },
+  { field: "snackBar", label: "Snack bar" },
 ];
 
 // This object is CURSED. It's a mess to maintain and update.
@@ -197,6 +199,7 @@ const steps: {
       "freeLunch",
       "travelBenefits",
       "freeMerch",
+      "snackBar",
       "otherBenefits",
     ],
     borderColor: "border-cooper-blue-800",
@@ -239,6 +242,7 @@ export function ReviewForm(props: ReviewFormProps) {
       freeLunch: false,
       travelBenefits: false,
       freeMerch: false,
+      snackBar: false,
       otherBenefits: "",
     },
   });

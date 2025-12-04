@@ -101,6 +101,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     "Lunch provided": averages.data.freeLunch,
     "Free merch": averages.data.freeMerch,
     "Travel benefits": averages.data.travelBenefits,
+    "Snack bar": averages.data.snackBar,
   };
 
   // ====== Ensure User Is Logged In + Hasn't Made Too Many Reviews ====== //
