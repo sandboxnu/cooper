@@ -33,21 +33,37 @@ export function CompareControls({
   if (!compare.isCompareMode) {
     return (
       <Button
-        className="hover:bg-cooper-blue-300 inline-flex items-center gap-2 rounded-md border-[0.75px] border-cooper-gray-300 bg-cooper-blue-200 px-4 py-2 text-sm font-medium text-[#141414] transition"
+        className="inline-flex items-center gap-3 rounded-xl border border-[#b8c9dc] bg-[#d9e5f2] px-5 py-2.5 text-sm font-semibold text-[#5a6a7a] transition hover:bg-[#ccdaea]"
         onClick={() => compare.enterCompareMode()}
       >
         <svg
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4"
         >
-          <rect x="2" y="2" width="5" height="5" rx="1" fill="currentColor" />
-          <rect x="9" y="2" width="5" height="5" rx="1" fill="currentColor" />
-          <rect x="2" y="9" width="5" height="5" rx="1" fill="currentColor" />
-          <rect x="9" y="9" width="5" height="5" rx="1" fill="currentColor" />
+          <rect
+            x="3"
+            y="5"
+            width="8"
+            height="14"
+            rx="2"
+            stroke="#5a6a7a"
+            strokeWidth="2"
+            fill="#a0b0c0"
+          />
+          <rect
+            x="13"
+            y="5"
+            width="8"
+            height="14"
+            rx="2"
+            stroke="#5a6a7a"
+            strokeWidth="2"
+            strokeDasharray="3 2"
+            fill="none"
+          />
         </svg>
         COMPARE WITH
       </Button>
@@ -65,22 +81,29 @@ export function CompareControls({
       <Button
         disabled={!canAdd}
         className={cn(
-          "inline-flex items-center gap-2 rounded-md border-[0.75px] border-cooper-gray-300 bg-white px-4 py-2 text-sm font-medium text-[#141414] transition",
-          canAdd ? "hover:bg-cooper-gray-100" : "cursor-not-allowed opacity-50",
+          "inline-flex items-center gap-3 rounded-xl bg-[#d5d5d5] px-5 py-2.5 text-sm font-semibold text-[#4a4a4a] transition",
+          canAdd ? "hover:bg-[#c5c5c5]" : "cursor-not-allowed opacity-50",
         )}
         onClick={() => compare.addSlot()}
       >
         <svg
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4"
         >
+          <circle
+            cx="10"
+            cy="10"
+            r="8"
+            stroke="#4a4a4a"
+            strokeWidth="2"
+            fill="none"
+          />
           <path
-            d="M8 3v10M3 8h10"
-            stroke="currentColor"
+            d="M10 6v8M6 10h8"
+            stroke="#4a4a4a"
             strokeWidth="2"
             strokeLinecap="round"
           />
@@ -88,10 +111,38 @@ export function CompareControls({
         ADD COMPARISON
       </Button>
       <Button
-        variant="ghost"
-        className="rounded-md border-[0.75px] border-cooper-gray-300 bg-white px-4 py-2 text-sm font-medium text-[#141414] transition hover:bg-cooper-gray-100"
+        className="inline-flex items-center gap-3 rounded-xl bg-[#7a9ec9] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#6a8eb9]"
         onClick={() => compare.exitCompareMode()}
       >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="3"
+            y="5"
+            width="8"
+            height="14"
+            rx="2"
+            stroke="white"
+            strokeWidth="2"
+            fill="rgba(255,255,255,0.3)"
+          />
+          <rect
+            x="13"
+            y="5"
+            width="8"
+            height="14"
+            rx="2"
+            stroke="white"
+            strokeWidth="2"
+            strokeDasharray="3 2"
+            fill="none"
+          />
+        </svg>
         EXIT
       </Button>
     </div>
@@ -288,18 +339,18 @@ function DropSlot({
         }
       }}
       className={cn(
-        "flex flex-1 items-center justify-center rounded-lg border-2 border-dashed bg-white text-cooper-gray-400 transition",
+        "flex flex-1 items-center justify-center rounded-xl border-2 border-dashed transition",
         isActive
-          ? "border-cooper-blue-300 bg-cooper-blue-50"
-          : "border-cooper-gray-300",
+          ? "border-cooper-blue-400 bg-[#d4e4f7]"
+          : "border-[#c5d5e8] bg-[#e8eff7]",
         widthClass,
       )}
     >
-      <div className="flex flex-col items-center gap-3 px-6 text-center">
-        <span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-cooper-gray-300 bg-white text-3xl text-cooper-gray-400">
+      <div className="flex flex-col items-center gap-4 px-6 text-center">
+        <span className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#9aacbc] text-2xl font-light text-[#9aacbc]">
           +
         </span>
-        <p className="text-cooper-gray-500 text-sm">
+        <p className="text-sm font-medium text-[#6b7a8a]">
           Drag in or select a card from the list
         </p>
       </div>
