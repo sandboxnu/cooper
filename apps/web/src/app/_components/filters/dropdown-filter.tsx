@@ -374,9 +374,8 @@ export default function DropdownFilter({
   };
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
-      <DropdownMenuTrigger>
-        <Button
-          variant="outline"
+      <DropdownMenuTrigger asChild>
+        <button
           className={cn(
             "flex items-center gap-[10px] rounded-lg px-[14px] py-2 text-sm border border-cooper-gray-150 text-cooper-gray-400 font-normal focus-visible:ring-0 h-9",
             isFiltering
@@ -386,7 +385,7 @@ export default function DropdownFilter({
         >
           {displayText}
           <ChevronDown className={cn("h-4 w-4", isOpen ? "rotate-180" : "")} />
-        </Button>
+        </button>
       </DropdownMenuTrigger>
 
       <DropdownMenuContent
