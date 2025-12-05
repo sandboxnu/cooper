@@ -192,10 +192,10 @@ export default function Roles() {
   return (
     <>
       <div className="bg-cooper-cream-100 border-cooper-gray-150 fixed z-20 w-full self-start border-b-[1px]">
-        <div className="flex items-center justify-between px-5 py-4">
+        <div className="flex min-h-[70px] items-center justify-between px-5 py-3">
           <SearchFilter className="w-full md:w-[28%]" />
           {compare.isCompareMode && selectedRole && (
-            <div className="hidden items-center gap-3 md:flex">
+            <div className="hidden items-center gap-2 md:flex">
               <CompareControls anchorRoleId={selectedRole.id} inTopBar />
             </div>
           )}

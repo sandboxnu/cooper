@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 
 import type { RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
@@ -33,38 +34,15 @@ export function CompareControls({
   if (!compare.isCompareMode) {
     return (
       <Button
-        className="inline-flex items-center gap-3 rounded-xl border border-[#b8c9dc] bg-[#d9e5f2] px-5 py-2.5 text-sm font-semibold text-[#5a6a7a] transition hover:bg-[#ccdaea]"
+        className="inline-flex items-center gap-1.5 rounded-md border bg-[rgba(49,115,222,0.15)] px-3 py-1.5 text-xs font-semibold text-[#606060] transition hover:bg-[rgba(49,115,222,0.25)]"
         onClick={() => compare.enterCompareMode()}
       >
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect
-            x="3"
-            y="5"
-            width="8"
-            height="14"
-            rx="2"
-            stroke="#5a6a7a"
-            strokeWidth="2"
-            fill="#a0b0c0"
-          />
-          <rect
-            x="13"
-            y="5"
-            width="8"
-            height="14"
-            rx="2"
-            stroke="#5a6a7a"
-            strokeWidth="2"
-            strokeDasharray="3 2"
-            fill="none"
-          />
-        </svg>
+        <Image
+          src="/svg/compareRole.svg"
+          width={16}
+          height={16}
+          alt="Compare icon"
+        />
         COMPARE WITH
       </Button>
     );
@@ -77,18 +55,18 @@ export function CompareControls({
   const canAdd = totalColumns < compare.maxColumns;
 
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-2">
       <Button
         disabled={!canAdd}
         className={cn(
-          "inline-flex items-center gap-3 rounded-xl bg-[#d5d5d5] px-5 py-2.5 text-sm font-semibold text-[#4a4a4a] transition",
+          "inline-flex items-center gap-1.5 rounded-md border border-[#DDDDDD] bg-[#E6E6E6] px-3 py-1.5 text-xs font-semibold text-[#4a4a4a] transition",
           canAdd ? "hover:bg-[#c5c5c5]" : "cursor-not-allowed opacity-50",
         )}
         onClick={() => compare.addSlot()}
       >
         <svg
-          width="20"
-          height="20"
+          width="16"
+          height="16"
           viewBox="0 0 20 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -111,38 +89,16 @@ export function CompareControls({
         ADD COMPARISON
       </Button>
       <Button
-        className="inline-flex items-center gap-3 rounded-xl bg-[#7a9ec9] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#6a8eb9]"
+        className="inline-flex items-center gap-1.5 rounded-md border border-[rgba(49,115,222,0.15)] bg-[#7a9ec9] px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-[#6a8eb9]"
         onClick={() => compare.exitCompareMode()}
       >
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect
-            x="3"
-            y="5"
-            width="8"
-            height="14"
-            rx="2"
-            stroke="white"
-            strokeWidth="2"
-            fill="rgba(255,255,255,0.3)"
-          />
-          <rect
-            x="13"
-            y="5"
-            width="8"
-            height="14"
-            rx="2"
-            stroke="white"
-            strokeWidth="2"
-            strokeDasharray="3 2"
-            fill="none"
-          />
-        </svg>
+        <Image
+          src="/svg/compareRole.svg"
+          width={16}
+          height={16}
+          alt="Compare icon"
+          className="brightness-0 invert"
+        />
         EXIT
       </Button>
     </div>
@@ -350,7 +306,7 @@ function DropSlot({
         <span className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#9aacbc] text-2xl font-light text-[#9aacbc]">
           +
         </span>
-        <p className="text-sm font-medium text-[#6b7a8a]">
+        <p className="text-md font-bold text-[#6b7a8a]">
           Drag in or select a card from the list
         </p>
       </div>
