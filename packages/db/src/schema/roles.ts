@@ -14,6 +14,9 @@ export const Role = pgTable("role", {
   slug: varchar("slug").notNull(),
   description: text("description"),
   companyId: varchar("companyId").notNull(),
+  jobType: varchar("jobType", {
+    enum: ["CO-OP", "INTERNSHIP"], // Explicitly list the enum values
+  }).default("CO-OP"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt", {
     mode: "date",
@@ -41,6 +44,7 @@ export const CreateRoleSchema = createInsertSchema(Role, {
   title: z.string(),
   description: z.string(),
   companyId: z.string(),
+  jobType: z.enum(["CO-OP", "INTERNSHIP"]),
   createdBy: z.string(),
 }).omit({
   id: true,

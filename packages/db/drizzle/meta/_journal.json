@@ -36,6 +36,20 @@
       "when": 1763152319700,
       "tag": "0004_cooing_the_leader",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1764907430477,
+      "tag": "0005_productive_hulk",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1764908076765,
+      "tag": "0006_nappy_star_brand",
+      "breakpoints": true
     }
   ]
 }
