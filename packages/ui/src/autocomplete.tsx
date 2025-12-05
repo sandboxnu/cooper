@@ -1,6 +1,7 @@
-import { useState, useMemo, useRef, useEffect } from "react";
-import { X } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
+import { X } from "lucide-react";
+
 import { Checkbox } from "./checkbox";
 
 interface Option {
@@ -70,7 +71,7 @@ export default function Autocomplete({
         <input
           ref={inputRef}
           type="text"
-          className="flex h-10 w-full rounded-md border border-cooper-gray-150 bg-white px-[14px] py-2 text-sm placeholder:text-cooper-gray-400 focus:outline-none  focus:none disabled:cursor-not-allowed disabled:opacity-50"
+          className="border-cooper-gray-150 focus:none flex h-10 w-full rounded-md border bg-white px-[14px] py-2 text-sm placeholder:text-cooper-gray-400 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
           placeholder={placeholder}
           value={displayValue}
           onChange={(e) => {
@@ -88,7 +89,7 @@ export default function Autocomplete({
             <X className="h-4 w-4" />
           </button>
         ) : (
-          <MagnifyingGlassIcon className=" absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 shrink-0 opacity-50" />
+          <MagnifyingGlassIcon className="absolute right-2 top-1/2 h-4 w-4 shrink-0 -translate-y-1/2 opacity-50" />
         )}
       </div>
 
@@ -101,14 +102,14 @@ export default function Autocomplete({
             return (
               <span
                 key={val}
-                className="inline-flex items-center gap-[6px] rounded-[8px] bg-white py-2 pl-[14px] pr-3 text-sm font-medium text-cooper-gray-400 border-cooper-gray-150 border hover:bg-cooper-gray-150"
+                className="border-cooper-gray-150 hover:bg-cooper-gray-150 inline-flex items-center gap-[6px] rounded-[8px] border bg-white py-2 pl-[14px] pr-3 text-sm font-medium text-cooper-gray-400"
               >
                 {option.label}
                 <button
                   onClick={() => handleRemove(val)}
                   className="text-cooper-gray-400"
                 >
-                  <X className="h-5 w-5 hover:bg-cooper-gray-400/20 rounded-full p-1 hover:cursor-pointer" />
+                  <X className="h-5 w-5 rounded-full p-1 hover:cursor-pointer hover:bg-cooper-gray-400/20" />
                 </button>
               </span>
             );
@@ -126,10 +127,10 @@ export default function Autocomplete({
             }}
           />
           <div
-            className="z-[101] rounded-md border border-cooper-gray-150 bg-white shadow-lg mt-1"
+            className="border-cooper-gray-150 z-[101] mt-1 rounded-md border bg-white shadow-lg"
             style={dropdownStyle}
           >
-            <div className="max-h-60 overflow-auto p-1 ">
+            <div className="max-h-60 overflow-auto p-1">
               {filtered.length === 0 ? (
                 <div className="py-6 text-center text-sm text-gray-500">
                   No results found.
@@ -140,11 +141,11 @@ export default function Autocomplete({
                   return (
                     <button
                       key={option.value}
-                      className="flex items-center gap-2 py-2 px-[14px] rounded-sm hover:bg-cooper-gray-150 w-full hover:cursor-pointer"
+                      className="hover:bg-cooper-gray-150 flex w-full items-center gap-2 rounded-sm px-[14px] py-2 hover:cursor-pointer"
                       onClick={() => handleToggle(option.value)}
                     >
                       <Checkbox checked={isSelected} />
-                      <label className="text-sm cursor-pointer flex-1 text-cooper-gray-400 text-left">
+                      <label className="flex-1 cursor-pointer text-left text-sm text-cooper-gray-400">
                         {option.label}
                       </label>
                     </button>
