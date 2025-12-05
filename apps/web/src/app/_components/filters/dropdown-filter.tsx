@@ -28,7 +28,7 @@ interface DropdownFilterProps {
   title: string;
   options: FilterOption[];
   selectedOptions: string[];
-  onSelectionChange: (selected: string[]) => void;
+  onSelectionChange?: (selected: string[]) => void;
   placeholder?: string;
   filterType?: "autocomplete" | "checkbox" | "range" | "rating" | "location";
   minValue?: number;
@@ -40,7 +40,7 @@ interface DropdownFilterProps {
   title: string;
   options: FilterOption[];
   selectedOptions: string[];
-  onSelectionChange: (selected: string[]) => void;
+  onSelectionChange?: (selected: string[]) => void;
   placeholder?: string;
   onSearchChange?: (search: string) => void;
   isLoadingOptions?: boolean;
@@ -79,7 +79,7 @@ export default function DropdownFilter({
     (filterType === "range" && (localMin || localMax));
 
   const handleToggleOption = (optionId: string) => {
-    onSelectionChange(
+    onSelectionChange?.(
       selectedOptions.includes(optionId)
         ? selectedOptions.filter((id) => id !== optionId)
         : [...selectedOptions, optionId],
@@ -87,7 +87,7 @@ export default function DropdownFilter({
   };
 
   const handleClear = () => {
-    onSelectionChange([]);
+    onSelectionChange?.([]);
     if (filterType === "range" && onRangeChange) {
       setLocalMin("");
       setLocalMax("");
@@ -252,12 +252,12 @@ export default function DropdownFilter({
       const handleRatingClick = (rating: number) => {
         if (selectedOptions.length === 0) {
           // First click - select this rating
-          onSelectionChange([rating.toString()]);
+          onSelectionChange?.([rating.toString()]);
         } else if (selectedOptions.length === 1) {
           const current = Number(selectedOptions[0]);
           if (rating === current) {
             // Clicking same rating - deselect
-            onSelectionChange([]);
+            onSelectionChange?.([]);
           } else {
             // Second click - create range
             const min = Math.min(current, rating);
@@ -266,11 +266,11 @@ export default function DropdownFilter({
             for (let i = min; i <= max; i++) {
               range.push(i.toString());
             }
-            onSelectionChange(range);
+            onSelectionChange?.(range);
           }
         } else {
           // Range exists - clicking sets new single rating
-          onSelectionChange([rating.toString()]);
+          onSelectionChange?.([rating.toString()]);
         }
       };
 
@@ -317,7 +317,7 @@ export default function DropdownFilter({
               label: option.label,
             }))}
             value={selectedOptions}
-            onChange={(selected) => onSelectionChange(selected)}
+            onChange={(selected) => onSelectionChange?.(selected)}
             placeholder={`Search by ${title === "Industry" ? "industry" : "city or state"}`}
           />
         </div>
@@ -333,7 +333,7 @@ export default function DropdownFilter({
             }))}
             value={selectedOptions}
             onChange={(selected) => {
-              onSelectionChange(selected);
+              onSelectionChange?.(selected);
             }}
             placeholder={`Search by city or state...`}
             onSearchChange={onSearchChange}

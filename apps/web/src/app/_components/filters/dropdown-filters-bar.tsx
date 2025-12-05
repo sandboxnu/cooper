@@ -1,12 +1,11 @@
 "use client";
 
-import { useId, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { api } from "~/trpc/react";
 
 import { industryOptions } from "../onboarding/constants";
 import DropdownFilter from "./dropdown-filter";
 import { abbreviatedStateName } from "~/utils/locationHelpers";
-import { Button } from "react-scroll";
 
 interface FilterState {
   industries: string[];
@@ -18,7 +17,7 @@ interface FilterState {
 
 interface DropdownFiltersBarProps {
   onFilterChange: (filters: FilterState) => void;
-  jobTypes?: Array<{ id: string; label: string }>;
+  jobTypes?: { id: string; label: string }[];
 }
 
 export default function DropdownFiltersBar({
@@ -123,7 +122,6 @@ export default function DropdownFiltersBar({
         title="Hourly pay"
         options={[]}
         selectedOptions={[]}
-        onSelectionChange={() => {}}
         filterType="range"
         onRangeChange={(min, max) =>
           handleFilterChange("hourlyPay", { min, max })
