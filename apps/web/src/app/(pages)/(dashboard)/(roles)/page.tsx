@@ -359,19 +359,6 @@ export default function Roles() {
     setCurrentPage(1); // Reset to first page when filters change
   };
 
-  const clearFilters = () => {
-    setAppliedFilters({
-      industries: [],
-      locations: [],
-      jobTypes: [],
-      hourlyPay: { min: 0, max: 0 },
-      ratings: [],
-    });
-    setSelectedFilter("default");
-    setSelectedType("all");
-    setCurrentPage(1);
-  };
-
   useEffect(() => {
     setCurrentPage(1);
   }, [selectedFilter, searchValue, selectedType]);
@@ -389,12 +376,12 @@ export default function Roles() {
         <div className="w-full md:w-[28%] px-5">
           <SearchFilter className="w-full" />
         </div>
-        <div className="flex-1 px-5 md:pr-5 md:pl-0">
+        <div className="flex-1 px-5 md:pr-5 md:pl-0 w-full overflow-x-auto md:overflow-visible no-scrollbar">
           <DropdownFiltersBar onFilterChange={handleFilterChange} />
         </div>
       </div>
       {rolesAndCompanies.isSuccess && (
-        <div className="bg-cooper-cream-100 flex h-[90dvh] w-full pt-[9.25dvh]">
+        <div className="bg-cooper-cream-100 flex h-[90dvh] w-full pt-[12dvh] md:pt-[9.25dvh]">
           {/* RoleCardPreview List */}
           <div
             ref={sidebarRef}
