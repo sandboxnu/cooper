@@ -114,8 +114,8 @@ export const roleAndCompanyRouter = {
 
       // Build company -> location mapping if location filter is active
       const companyLocationsMap = new Map<string, string[]>();
-      if (locationFilterActive) {
-        const locationIds = filters.locations!;
+      if (locationFilterActive && filters.locations) {
+        const locationIds = filters.locations;
         // Query the join table for matching company <-> location rows
         const companyLocRows =
           await ctx.db.query.CompaniesToLocations.findMany();
