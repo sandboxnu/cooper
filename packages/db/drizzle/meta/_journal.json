@@ -36,6 +36,13 @@
       "when": 1763152319700,
       "tag": "0004_cooing_the_leader",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1764894926742,
+      "tag": "0005_daily_king_cobra",
+      "breakpoints": true
     }
   ]
 }

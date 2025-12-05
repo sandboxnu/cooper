@@ -167,7 +167,10 @@ export function CompanyDetailsSection() {
             <FormControl className="relative flex-1">
               <Select
                 onClear={() => field.onChange(undefined)}
-                options={benefits}
+                options={benefits.map((benefit) => ({
+                  value: benefit.field,
+                  label: benefit.label,
+                }))}
                 className="w-full border-cooper-gray-150 text-sm h-10"
                 value={field.value ?? ""}
                 placeholder="Select"

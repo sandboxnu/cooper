@@ -1,6 +1,6 @@
 {
-  "id": "058ca4a3-738c-46ee-857c-95afe2e2c331",
-  "prevId": "a5b7fef9-8edc-451c-9478-830da99e50c6",
+  "id": "687455fe-c50e-49c3-97b0-d2b3d7a338e0",
+  "prevId": "c7418ef8-d3c0-4650-8bab-63a998bb5b82",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -81,8 +81,12 @@
           "name": "account_userId_user_id_fk",
           "tableFrom": "account",
           "tableTo": "user",
-          "columnsFrom": ["userId"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "userId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -90,7 +94,10 @@
       "compositePrimaryKeys": {
         "account_provider_providerAccountId_pk": {
           "name": "account_provider_providerAccountId_pk",
-          "columns": ["provider", "providerAccountId"]
+          "columns": [
+            "provider",
+            "providerAccountId"
+          ]
         }
       },
       "uniqueConstraints": {}
@@ -108,6 +115,12 @@
         },
         "name": {
           "name": "name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "slug": {
+          "name": "slug",
           "type": "varchar",
           "primaryKey": false,
           "notNull": true
@@ -147,7 +160,15 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {
+        "company_slug_unique": {
+          "name": "company_slug_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "slug"
+          ]
+        }
+      }
     },
     "public.companies_to_locations": {
       "name": "companies_to_locations",
@@ -172,8 +193,12 @@
           "name": "companies_to_locations_companyId_company_id_fk",
           "tableFrom": "companies_to_locations",
           "tableTo": "company",
-          "columnsFrom": ["companyId"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "companyId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -181,8 +206,12 @@
           "name": "companies_to_locations_locationId_location_id_fk",
           "tableFrom": "companies_to_locations",
           "tableTo": "location",
-          "columnsFrom": ["locationId"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "locationId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -190,7 +219,10 @@
       "compositePrimaryKeys": {
         "companies_to_locations_companyId_locationId_pk": {
           "name": "companies_to_locations_companyId_locationId_pk",
-          "columns": ["companyId", "locationId"]
+          "columns": [
+            "companyId",
+            "locationId"
+          ]
         }
       },
       "uniqueConstraints": {}
@@ -355,7 +387,8 @@
           "name": "updatedAt",
           "type": "timestamp with time zone",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true,
+          "default": "now()"
         },
         "userId": {
           "name": "userId",
@@ -371,7 +404,9 @@
         "profile_userId_unique": {
           "name": "profile_userId_unique",
           "nullsNotDistinct": false,
-          "columns": ["userId"]
+          "columns": [
+            "userId"
+          ]
         }
       }
     },
@@ -398,8 +433,12 @@
           "name": "profiles_to_companies_profileId_profile_id_fk",
           "tableFrom": "profiles_to_companies",
           "tableTo": "profile",
-          "columnsFrom": ["profileId"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "profileId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -407,8 +446,12 @@
           "name": "profiles_to_companies_companyId_company_id_fk",
           "tableFrom": "profiles_to_companies",
           "tableTo": "company",
-          "columnsFrom": ["companyId"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "companyId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -416,7 +459,10 @@
       "compositePrimaryKeys": {
         "profiles_to_companies_profileId_companyId_pk": {
           "name": "profiles_to_companies_profileId_companyId_pk",
-          "columns": ["profileId", "companyId"]
+          "columns": [
+            "profileId",
+            "companyId"
+          ]
         }
       },
       "uniqueConstraints": {}
@@ -444,8 +490,12 @@
           "name": "profiles_to_roles_profileId_profile_id_fk",
           "tableFrom": "profiles_to_roles",
           "tableTo": "profile",
-          "columnsFrom": ["profileId"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "profileId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -453,8 +503,12 @@
           "name": "profiles_to_roles_roleId_role_id_fk",
           "tableFrom": "profiles_to_roles",
           "tableTo": "role",
-          "columnsFrom": ["roleId"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "roleId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -462,7 +516,10 @@
       "compositePrimaryKeys": {
         "profiles_to_roles_profileId_roleId_pk": {
           "name": "profiles_to_roles_profileId_roleId_pk",
-          "columns": ["profileId", "roleId"]
+          "columns": [
+            "profileId",
+            "roleId"
+          ]
         }
       },
       "uniqueConstraints": {}
@@ -490,8 +547,12 @@
           "name": "profiles_to_reviews_profileId_profile_id_fk",
           "tableFrom": "profiles_to_reviews",
           "tableTo": "profile",
-          "columnsFrom": ["profileId"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "profileId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -499,8 +560,12 @@
           "name": "profiles_to_reviews_reviewId_review_id_fk",
           "tableFrom": "profiles_to_reviews",
           "tableTo": "review",
-          "columnsFrom": ["reviewId"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "reviewId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -508,7 +573,10 @@
       "compositePrimaryKeys": {
         "profiles_to_reviews_profileId_reviewId_pk": {
           "name": "profiles_to_reviews_profileId_reviewId_pk",
-          "columns": ["profileId", "reviewId"]
+          "columns": [
+            "profileId",
+            "reviewId"
+          ]
         }
       },
       "uniqueConstraints": {}
@@ -648,7 +716,15 @@
           "name": "snackBar",
           "type": "boolean",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "default": false
+        },
+        "employeeLounge": {
+          "name": "employeeLounge",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
         },
         "otherBenefits": {
           "name": "otherBenefits",
@@ -759,11 +835,24 @@
           "primaryKey": false,
           "notNull": true
         },
+        "slug": {
+          "name": "slug",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
         "description": {
           "name": "description",
           "type": "text",
           "primaryKey": false,
           "notNull": false
+        },
+        "jobType": {
+          "name": "jobType",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'CO-OP'"
         },
         "companyId": {
           "name": "companyId",
@@ -825,8 +914,12 @@
           "name": "session_userId_user_id_fk",
           "tableFrom": "session",
           "tableTo": "user",
-          "columnsFrom": ["userId"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "userId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }

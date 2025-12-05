@@ -51,16 +51,13 @@ const hasValue = (value: unknown): boolean => {
 const filter = new Filter();
 
 export const benefits = [
-  { value: "federalHolidays", label: "Federal holidays off" },
-  { value: "freeTransport", label: "Free transportation" },
-  { value: "sickLeave", label: "Sick leave" },
-  { value: "paidLeave", label: "Paid leave" },
-  { value: "mentorshipProgram", label: "Mentorship program" },
-  { value: "overtimePay", label: "Overtime pay" },
-  { value: "pto", label: "Paid time off (PTO)" },
-  { value: "teamSocials", label: "Team socials" },
-  { value: "lunchProvided", label: "Lunch provided" },
-  { value: "companySwag", label: "Company swag" },
+  { field: "pto", label: "PTO" },
+  { field: "federalHolidays", label: "Federal holidays off" },
+  { field: "freeLunch", label: "Free lunch" },
+  { field: "travelBenefits", label: "Travel benefits" },
+  { field: "freeMerch", label: "Free merchandise" },
+  { field: "snackBar", label: "Snack bar" },
+  { field: "employeeLounge", label: "Employee lounge" },
 ];
 
 const formSchema = z.object({
@@ -107,7 +104,14 @@ const formSchema = z.object({
     })
     .min(1)
     .max(5),
-  interviewDifficulty: z.coerce.number().optional().nullable().default(0),
+  interviewDifficulty: z.coerce
+    .number({
+      errorMap: () => ({
+        message: "Please select a valid interview difficulty rating.",
+      }),
+    })
+    .min(1)
+    .max(5),
   interviewReview: z
     .string()
     .optional()
@@ -124,12 +128,6 @@ const formSchema = z.object({
     .refine((val) => !filter.isProfane(val), {
       message: "The review headline cannot contain profane words.",
     }),
-  companyName: z.string({
-    required_error: "You need to enter a company.",
-  }),
-  roleName: z.string({
-    required_error: "You need to enter a role.",
-  }),
   textReview: z
     .string({
       required_error: "You need to enter a review for your co-op.",
@@ -152,15 +150,6 @@ const formSchema = z.object({
   workEnvironment: z.nativeEnum(WorkEnvironment, {
     required_error: "You need to select a work model.",
   }),
-  jobType: z.nativeEnum(JobType, {
-    required_error: "You need to select a job type.",
-  }),
-  industry: z.enum(
-    industryOptions.map((opt) => opt.value) as [string, ...string[]],
-    {
-      required_error: "You need to select an industry.",
-    },
-  ),
   drugTest: z
     .string({
       required_error: "You need to select whether you were drug-tested.",
@@ -176,8 +165,10 @@ const formSchema = z.object({
   pto: z.boolean().default(false),
   federalHolidays: z.boolean().default(false),
   freeLunch: z.boolean().default(false),
-  freeTransport: z.boolean().default(false),
+  travelBenefits: z.boolean().default(false),
   freeMerch: z.boolean().default(false),
+  snackBar: z.boolean().default(false),
+  employeeLounge: z.boolean().default(false),
   otherBenefits: z.string().nullable(),
 });
 
@@ -241,7 +232,6 @@ export default function ReviewForm() {
       pto: false,
       federalHolidays: false,
       freeLunch: false,
-      freeTransport: false,
       freeMerch: false,
       otherBenefits: "",
     },

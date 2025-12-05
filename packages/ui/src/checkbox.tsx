@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
-import { Check } from "lucide-react";
+import * as CheckboxPrimitive from "@radix-ui/react-checkbox";;
+import Image from "next/image";
 
 import { cn } from "@cooper/ui";
 
@@ -21,7 +21,7 @@ const Checkbox = React.forwardRef<
     <CheckboxPrimitive.Indicator
       className={cn("flex items-center justify-center text-current")}
     >
-      <Check className="h-3 w-3" />
+      <Image src="/svg/checkmark.svg" width={10} height={7} alt="checkmark" />
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>
 ));
