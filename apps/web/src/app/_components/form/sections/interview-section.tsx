@@ -183,7 +183,7 @@ export function InterviewSection() {
 
         <button
           onClick={addRound}
-          className="w-full mt-2 py-2 transition-colors font-bold text-cooper-gray-450 flex items-center gap-2 pl-20"
+          className="w-full mt-2 py-2 transition-colors font-bold text-cooper-gray-350 flex items-center gap-2 pl-20"
         >
           <Plus className="w-5 h-5" />
           Add interview round

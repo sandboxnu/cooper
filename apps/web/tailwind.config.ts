@@ -25,17 +25,16 @@ export default {
         // Cooper Gray
         "cooper-gray-700": "#F4F4F4",
         "cooper-gray-600": "#9A9A9A",
+        "cooper-gray-550": "#333",
         "cooper-gray-500": "#969696",
         "cooper-gray-400": "#5A5A5A",
+        "cooper-gray-350": "#767676",
         "cooper-gray-300": "#474747",
         "cooper-gray-250": "#535353",
         "cooper-gray-200": "#E0E0E0",
         "cooper-gray-150": "#E7E7E7",
         "cooper-gray-100": "#F9F9F9",
         "cooper-gray-50": "#EFEFEF",
-        "cooper-gray-350": "#9A9A9A",
-        "cooper-gray-450": "#767676",
-        "cooper-gray-550": "#333",
 
         // Cooper Blue
         "cooper-blue-800": "#3173DE",

@@ -318,7 +318,7 @@ export default function ExistingCompanyContent({
             <div className="text-sm font-semibold text-cooper-gray-550">
               Add Your Company
             </div>
-            <div className="text-xs text-cooper-gray-450">
+            <div className="text-xs text-cooper-gray-600">
               We'll verify this information before it appears on the website as
               a review.
             </div>
@@ -499,7 +499,7 @@ export default function ExistingCompanyContent({
               <div className="text-sm font-semibold text-cooper-gray-550">
                 Add Your Role
               </div>
-              <div className="text-xs text-cooper-gray-450">
+              <div className="text-xs text-cooper-gray-600">
                 We'll verify this information before it appears on the website
                 as a review.
               </div>

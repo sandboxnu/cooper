@@ -288,7 +288,7 @@ export default function ReviewForm() {
       <div className="bg-white w-full min-h-screen flex flex-col md:flex-row justify-center items-center">
         <div className="mt-4 pr-3.5 flex h-full pt-10 flex-col justify-left w-[65%]">
           <div className="text-lg text-cooper-gray-550">Basic information</div>
-          <div className="text-sm text-cooper-gray-350">
+          <div className="text-sm text-cooper-gray-600">
             Note: If your company isn't in our database, we'll ask for a few
             additional details to request it. Making a new company makes a new
             role.

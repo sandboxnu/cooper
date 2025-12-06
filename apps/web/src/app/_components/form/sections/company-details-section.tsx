@@ -75,7 +75,7 @@ export function CompanyDetailsSection() {
                       checked={field.value === "yes"}
                     />
                   </FormControl>
-                  <FormLabel className="text-cooper-gray-450 text-sm">
+                  <FormLabel className="text-cooper-gray-350 text-sm">
                     Yes
                   </FormLabel>
                 </FormItem>
@@ -83,7 +83,7 @@ export function CompanyDetailsSection() {
                   <FormControl>
                     <RadioGroupItem value="no" checked={field.value === "no"} />
                   </FormControl>
-                  <FormLabel className="text-cooper-gray-450 text-sm">
+                  <FormLabel className="text-cooper-gray-350 text-sm">
                     No
                   </FormLabel>
                 </FormItem>

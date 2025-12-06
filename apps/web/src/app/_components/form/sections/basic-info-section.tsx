@@ -165,7 +165,7 @@ export function BasicInfoSection() {
                   value: year,
                   label: year,
                 }))}
-                className="w-full border-2 rounded-lg h-10 text-sm text-cooper-gray-350 border-cooper-gray-150"
+                className="w-full border-2 rounded-lg h-10 text-sm text-cooper-gray-600 border-cooper-gray-150"
                 placeholder="Select"
                 onClear={() => field.onChange(undefined)}
                 value={field.value as string}
@@ -192,7 +192,7 @@ export function BasicInfoSection() {
               <Select
                 placeholder="Search by industry..."
                 options={industryOptions}
-                className="border-2 rounded-lg h-10 text-sm text-cooper-gray-350 border-cooper-gray-150"
+                className="border-2 rounded-lg h-10 text-sm text-cooper-gray-600 border-cooper-gray-150"
                 value={field.value as string}
                 onClear={() => field.onChange(undefined)}
                 onChange={(e) => {

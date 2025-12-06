@@ -88,7 +88,7 @@ export default function ComboBox({
           )}
         >
           <span
-            className={`overflow-hidden whitespace-nowrap ${defaultLabel === "Location" ? "text-cooper-gray-350" : "text-cooper-gray-350 font-normal"} ${newForm ? "text-sm" : "text-lg"}`}
+            className={`overflow-hidden whitespace-nowrap ${defaultLabel === "Location" ? "text-cooper-gray-600" : "text-cooper-gray-600 font-normal"} ${newForm ? "text-sm" : "text-lg"}`}
           >
             {currLabel && currLabel !== defaultLabel ? currLabel : defaultLabel}
           </span>
