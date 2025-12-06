@@ -40,9 +40,9 @@ export function Pagination({
         onClick={handlePrevious}
         disabled={!canGoBack}
         className={cn(
-          "flex h-8 w-8 items-center justify-center rounded-md border border-cooper-gray-150 bg-white text-cooper-gray-600 transition-colors hover:bg-cooper-gray-50",
+          "border-cooper-gray-150 text-cooper-gray-600 hover:bg-cooper-gray-50 flex h-8 w-8 items-center justify-center rounded-md border bg-white transition-colors",
           !canGoBack &&
-            "cursor-not-allowed bg-cooper-cream-300 hover:bg-cooper-cream-300 opacity-75",
+            "bg-cooper-cream-300 hover:bg-cooper-cream-300 cursor-not-allowed opacity-75",
         )}
         aria-label="Previous page"
       >
@@ -57,9 +57,9 @@ export function Pagination({
         onClick={handleNext}
         disabled={!canGoForward}
         className={cn(
-          "flex h-8 w-8 items-center justify-center rounded-md border border-cooper-gray-150 bg-white text-cooper-gray-600 transition-colors hover:bg-cooper-gray-50",
+          "border-cooper-gray-150 text-cooper-gray-600 hover:bg-cooper-gray-50 flex h-8 w-8 items-center justify-center rounded-md border bg-white transition-colors",
           !canGoForward &&
-            "cursor-not-allowed bg-cooper-cream-300 hover:bg-cooper-cream-300 opacity-75",
+            "bg-cooper-cream-300 hover:bg-cooper-cream-300 cursor-not-allowed opacity-75",
         )}
         aria-label="Next page"
       >
