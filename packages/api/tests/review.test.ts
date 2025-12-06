@@ -253,7 +253,6 @@ describe("Review Router", async () => {
       drugTest: 0.5,
       freeLunch: 0.5,
       freeMerch: 1,
-      snackBar: 0,
       travelBenefits: 0.5,
       overtimeNormal: 0.5,
       pto: 0.5,
