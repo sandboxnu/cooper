@@ -368,19 +368,6 @@ export default function Roles() {
 
   const handleFilterChange = (filters: FilterState) => {
     setAppliedFilters(filters);
-    setCurrentPage(1); // Reset to first page when filters change
-  };
-
-  const clearFilters = () => {
-    setAppliedFilters({
-      industries: [],
-      locations: [],
-      jobTypes: [],
-      hourlyPay: { min: 0, max: 0 },
-      ratings: [],
-    });
-    setSelectedFilter("default");
-    setSelectedType("all");
     setCurrentPage(1);
   };
 

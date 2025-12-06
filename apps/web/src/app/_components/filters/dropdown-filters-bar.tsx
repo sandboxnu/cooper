@@ -17,7 +17,7 @@ interface FilterState {
 
 interface DropdownFiltersBarProps {
   onFilterChange: (filters: FilterState) => void;
-  jobTypes?: Array<{ id: string; label: string }>;
+  jobTypes?: { id: string; label: string }[];
 }
 
 export default function DropdownFiltersBar({
@@ -122,7 +122,9 @@ export default function DropdownFiltersBar({
         title="Hourly pay"
         options={[]}
         selectedOptions={[]}
-        onSelectionChange={() => {}}
+        onSelectionChange={() => {
+          // No-op: range filter uses onRangeChange instead
+        }}
         filterType="range"
         onRangeChange={(min, max) =>
           handleFilterChange("hourlyPay", { min, max })

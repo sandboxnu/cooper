@@ -156,21 +156,18 @@ const formSchema = z.object({
 export type ReviewFormType = typeof formSchema;
 export default function ReviewForm() {
   const router = useRouter();
-  const [submitted, setSubmitted] = useState(false);
 
   const {
     data: session,
     isLoading: sessionLoading,
-    error: sessionError,
+    error: _sessionError,
   } = api.auth.getSession.useQuery();
   const {
     data: profile,
     isLoading: profileLoading,
-    error: profileError,
+    error: _profileError,
   } = api.profile.getCurrentUser.useQuery();
 
-  const [validForm, setValidForm] = useState(true);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const { toast } = useCustomToast();
   const [roleId, setRoleId] = useState<string>("");
   const [companyId, setCompanyId] = useState<string>("");
@@ -247,14 +244,9 @@ export default function ReviewForm() {
 
   const mutation = api.review.create.useMutation({
     onSuccess: () => {
-      setValidForm(true);
-      setSubmitted(true);
       router.push("/");
     },
     onError: (error) => {
-      setValidForm(false);
-      setErrorMessage(error.message || "An unknown error occurred.");
-
       toast.error(error.message || "Something went wrong. Please try again.");
     },
   });

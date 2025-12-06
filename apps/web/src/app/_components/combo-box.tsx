@@ -52,8 +52,6 @@ export default function ComboBox({
 }: ComboBoxProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const hasValue = currLabel && currLabel !== defaultLabel;
-
   const styleVariant =
     variant === "form"
       ? "flex h-16 w-full rounded-lg border-2 border-cooper-gray-150 bg-white px-3 py-2 text-xl font-normal ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"

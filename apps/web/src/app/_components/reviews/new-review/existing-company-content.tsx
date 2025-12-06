@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Filter } from "bad-words";
 import Fuse from "fuse.js";
@@ -11,6 +10,7 @@ import { useCustomToast } from "@cooper/ui/hooks/use-custom-toast";
 import { Input } from "@cooper/ui/input";
 import { Label } from "@cooper/ui/label";
 import { Checkbox } from "@cooper/ui/checkbox";
+import { Button } from "@cooper/ui/button";
 
 import type { RoleRequestType } from "../new-role-dialogue";
 import { api } from "~/trpc/react";
@@ -31,17 +31,17 @@ const roleSchema = z.object({
     .refine((val) => !filter.isProfane(val), {
       message: "The title cannot contain profane words.",
     }),
-  description: z
-    .string()
-    .min(10, {
-      message: "The review must be at least 10 characters.",
-    })
-    .max(500, {
-      message: "The description must be at most 500 characters.",
-    })
-    .refine((val) => !filter.isProfane(val), {
-      message: "The description cannot contain profane words.",
-    }),
+  // description: z
+  //   .string()
+  //   .min(10, {
+  //     message: "The review must be at least 10 characters.",
+  //   })
+  //   .max(500, {
+  //     message: "The description must be at most 500 characters.",
+  //   })
+  //   .refine((val) => !filter.isProfane(val), {
+  //     message: "The description cannot contain profane words.",
+  //   }),
   companyId: z.string(),
   createdBy: z.string(),
 });
@@ -54,9 +54,11 @@ export default function ExistingCompanyContent({
   const [selectedCompanyId, setSelectedCompanyId] = useState<
     string | undefined
   >();
-  const [selectedRoleId, setSelectedRoleId] = useState<string | undefined>();
   const [creatingNewRole, setCreatingNewRole] = useState<boolean>(false);
   const [showNewCompany, setShowNewCompany] = useState<boolean>(false);
+  const [locationLabel, setLocationLabel] = useState<string>("");
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [prefix, setPrefix] = useState<string>("");
 
   const { toast } = useCustomToast();
 
@@ -72,6 +74,33 @@ export default function ExistingCompanyContent({
       enabled: !!selectedCompanyId,
     },
   );
+
+  // Location fetching logic for new company
+  useEffect(() => {
+    const newPrefix =
+      searchTerm.length === 3 ? searchTerm.slice(0, 3).toLowerCase() : null;
+    if (newPrefix && newPrefix !== prefix) {
+      setPrefix(newPrefix);
+    }
+  }, [prefix, searchTerm]);
+
+  const locationsToUpdate = api.location.getByPrefix.useQuery(
+    { prefix },
+    { enabled: searchTerm.length === 3 },
+  );
+
+  const locationValuesAndLabels = locationsToUpdate.data
+    ? locationsToUpdate.data.map((location) => {
+        return {
+          value: location.id,
+          label:
+            location.city +
+            (location.state ? `, ${location.state}` : "") +
+            ", " +
+            location.country,
+        };
+      })
+    : [];
 
   const extendedRoleSchema = roleSchema.extend({
     title: roleSchema.shape.title.refine(
@@ -107,6 +136,32 @@ export default function ExistingCompanyContent({
   });
 
   const newRoleMutation = api.role.create.useMutation({
+    onSuccess: (data) => {
+      toast.success("Role created successfully!");
+      const createdRole = data[0];
+      if (createdRole) {
+        form.setValue("roleName", createdRole.id);
+        setCreatingNewRole(false);
+        // Refresh roles list
+        void roles.refetch();
+      }
+    },
+    onError: (error) => {
+      console.error("Mutation error:", error);
+      toast.error(error.message || "Something went wrong. Please try again.");
+    },
+  });
+
+  const createCompanyWithRoleMutation = api.company.createWithRole.useMutation({
+    onSuccess: (roleId) => {
+      toast.success("Company and role created successfully!");
+      form.setValue("roleName", roleId);
+      form.setValue("companyName", selectedCompany?.id ?? "");
+      setShowNewCompany(false);
+      setCreatingNewRole(false);
+      void companies.refetch();
+      void roles.refetch();
+    },
     onError: (error) => {
       console.error("Mutation error:", error);
       toast.error(error.message || "Something went wrong. Please try again.");
@@ -121,41 +176,70 @@ export default function ExistingCompanyContent({
   const form = useFormContext();
 
   // Get the selected company from the form
-  const selectedCompanyName = form.watch("companyName");
+  const selectedCompanyName = form.watch("companyName") as string;
   const selectedCompany = companies.data?.find(
     (company) => company.id === selectedCompanyName,
   );
 
-  // Fetch location and rating data for selected company
-  const locations = api.companyToLocation.getLocationsByCompanyId.useQuery(
-    {
-      companyId: selectedCompany?.id ?? "",
-    },
-    {
-      enabled: !!selectedCompany?.id,
-    },
-  );
+  const handleCreateCompanyWithRole = async () => {
+    const companyName = form.getValues("companyName") as string;
+    const industry = form.getValues("industry") as string;
+    const locationId = form.getValues("locationId") as string;
+    const roleTitle =
+      (form.getValues("title") as string) ||
+      (form.getValues("roleName") as string);
 
-  const avg = api.company.getAverageById.useQuery(
-    {
-      companyId: selectedCompany?.id ?? "",
-    },
-    {
-      enabled: !!selectedCompany?.id,
-    },
-  );
+    // Validate required fields
+    if (!companyName || companyName.length < 3) {
+      toast.error("Company name must be at least 3 characters.");
+      return;
+    }
+    if (!industry) {
+      toast.error("Please select an industry.");
+      return;
+    }
+    if (!locationId) {
+      toast.error("Please select a location.");
+      return;
+    }
+    if (!roleTitle || roleTitle.length < 3) {
+      toast.error("Role title must be at least 3 characters.");
+      return;
+    }
 
-  const reviews = api.review.getByCompany.useQuery(
-    {
-      id: selectedCompany?.id ?? "",
-    },
-    {
-      enabled: !!selectedCompany?.id,
-    },
-  );
+    await createCompanyWithRoleMutation.mutateAsync({
+      companyName: companyName.trim(),
+      description: `Company in ${industry} industry`,
+      industry,
+      roleTitle: roleTitle.trim(),
+      roleDescription: "Role description",
+      createdBy: profileId ?? "",
+    });
+  };
 
-  const averageRating =
-    Math.round(Number(avg.data?.averageOverallRating) * 100) / 100;
+  const handleCreateRole = async () => {
+    if (!selectedCompanyId) {
+      toast.error("Please select a company first.");
+      return;
+    }
+
+    // Only validate the title field since companyId and createdBy are set programmatically
+    const isTitleValid = await newRoleForm.trigger("title");
+    if (!isTitleValid) {
+      toast.error("Please enter a valid role title (at least 5 characters).");
+      return;
+    }
+
+    const values = newRoleForm.getValues();
+
+    await newRoleMutation.mutateAsync({
+      title: values.title,
+      description: values.description,
+      companyId: selectedCompanyId,
+      createdBy: profileId ?? "",
+      jobType: "CO-OP",
+    });
+  };
 
   return (
     <FormSection>
@@ -180,12 +264,11 @@ export default function ExistingCompanyContent({
                   }
                   placeholder="Select"
                   className="w-full border-cooper-gray-150 text-sm h-10"
-                  value={field.value ?? ""}
+                  value={field.value as string}
                   onClear={() => field.onChange(undefined)}
                   onChange={(e) => {
                     const newId = e.target.value;
                     field.onChange(newId);
-                    setSelectedRoleId(undefined);
                     handleUpdateCompanyId(newId);
                     if (newId) {
                       setShowNewCompany(false);
@@ -253,7 +336,7 @@ export default function ExistingCompanyContent({
                     <Input
                       placeholder="Enter"
                       className="w-full border border-cooper-gray-150 text-sm h-10"
-                      value={field.value ?? ""}
+                      value={field.value as string}
                       onChange={(e) => field.onChange(e.target.value)}
                     />
                   </FormControl>
@@ -276,7 +359,7 @@ export default function ExistingCompanyContent({
                       options={industryOptions}
                       placeholder="Search"
                       className="w-full border border-cooper-gray-150 text-sm h-10"
-                      value={field.value ?? ""}
+                      value={field.value as string}
                       onClear={() => field.onChange(undefined)}
                       onChange={(e) => {
                         const value =
@@ -290,7 +373,7 @@ export default function ExistingCompanyContent({
               )}
             />
 
-            {/* Location - you'll need to add locationId to form schema if not already */}
+            {/* Location - Fixed */}
             <FormField
               control={form.control}
               name="locationId"
@@ -303,10 +386,11 @@ export default function ExistingCompanyContent({
                     <LocationBox
                       searchBar={false}
                       form={form}
-                      locationLabel=""
-                      setSearchTerm={() => {}}
-                      locationValuesAndLabels={[]}
-                      setLocationLabel={() => {}}
+                      locationLabel={locationLabel}
+                      setSearchTerm={setSearchTerm}
+                      locationValuesAndLabels={locationValuesAndLabels}
+                      setLocationLabel={setLocationLabel}
+                      locationsToUpdate={locationsToUpdate}
                     />
                   </FormControl>
                   <FormMessage />
@@ -327,7 +411,7 @@ export default function ExistingCompanyContent({
                     <Input
                       placeholder="Enter"
                       className="w-full border border-cooper-gray-150 text-sm h-10"
-                      value={field.value ?? ""}
+                      value={field.value as string}
                       onChange={(e) => field.onChange(e.target.value)}
                     />
                   </FormControl>
@@ -335,6 +419,20 @@ export default function ExistingCompanyContent({
                 </FormItem>
               )}
             />
+
+            {/* Submit Button for Creating Company */}
+            <div className="flex justify-end pt-4">
+              <Button
+                type="button"
+                onClick={handleCreateCompanyWithRole}
+                disabled={createCompanyWithRoleMutation.isPending}
+                className="bg-cooper-gray-550 hover:bg-cooper-gray-600 text-white rounded-lg px-8 py-3 text-lg font-semibold border-none"
+              >
+                {createCompanyWithRoleMutation.isPending
+                  ? "Creating..."
+                  : "Create Company & Role"}
+              </Button>
+            </div>
           </div>
         )}
 
@@ -353,7 +451,6 @@ export default function ExistingCompanyContent({
                   <Select
                     onClear={() => {
                       field.onChange(undefined);
-                      setSelectedRoleId(undefined);
                     }}
                     options={
                       roles.data?.map((r) => ({
@@ -363,13 +460,12 @@ export default function ExistingCompanyContent({
                     }
                     disabled={!selectedCompanyId}
                     className="w-full border-cooper-gray-150 text-sm h-10"
-                    value={field.value ?? ""}
+                    value={field.value as string}
                     placeholder="Select"
                     onChange={(e) => {
                       const newRoleId =
                         e.target.value === "" ? undefined : e.target.value;
                       field.onChange(newRoleId);
-                      setSelectedRoleId(newRoleId);
                       setCreatingNewRole(false);
                     }}
                     onFocus={() => setCreatingNewRole(false)}
@@ -388,7 +484,6 @@ export default function ExistingCompanyContent({
               onCheckedChange={(checked) => {
                 setCreatingNewRole(checked === true);
                 if (checked) {
-                  setSelectedRoleId(undefined);
                   form.setValue("roleName", "");
                 }
               }}
@@ -411,7 +506,7 @@ export default function ExistingCompanyContent({
 
               {/* Company Name */}
               <FormField
-                control={form.control}
+                control={newRoleForm.control}
                 name="title"
                 render={({ field }) => (
                   <FormItem className="flex flex-col w-full pt-2.5">
@@ -422,7 +517,7 @@ export default function ExistingCompanyContent({
                       <Input
                         placeholder="Enter"
                         className="w-full border border-cooper-gray-150 text-sm h-10"
-                        value={field.value ?? ""}
+                        value={field.value}
                         onChange={(e) => field.onChange(e.target.value)}
                       />
                     </FormControl>
@@ -430,6 +525,18 @@ export default function ExistingCompanyContent({
                   </FormItem>
                 )}
               />
+
+              {/* Submit Button for Creating Role */}
+              <div className="flex justify-end pt-4">
+                <Button
+                  type="button"
+                  onClick={handleCreateRole}
+                  disabled={newRoleMutation.isPending}
+                  className="bg-cooper-gray-550 hover:bg-cooper-gray-600 text-white rounded-lg px-8 py-3 text-lg font-semibold border-none"
+                >
+                  {newRoleMutation.isPending ? "Creating..." : "Create Role"}
+                </Button>
+              </div>
             </div>
           )}
         </div>

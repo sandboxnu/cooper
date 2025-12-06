@@ -24,7 +24,7 @@ import InfoCard from "./info-card";
 import { ReviewCard } from "./review-card";
 import ReviewSearchBar from "./review-search-bar";
 import RoundBarGraph from "./round-bar-graph";
-import { ReviewType, RoleType } from "@cooper/db/schema";
+import type { ReviewType, RoleType } from "@cooper/db/schema";
 
 interface RoleCardProps {
   className?: string;

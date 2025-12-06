@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
 import { FormSection } from "~/app/_components/form/form-section";
 import {
   FormControl,
@@ -13,18 +11,18 @@ import {
 import { Select } from "../../themed/onboarding/select";
 import { useFormContext } from "react-hook-form";
 
-type InterviewType =
-  | "Behavioral"
-  | "Technical"
-  | "Case study"
-  | "Portfolio walkthrough"
-  | "Online assessment";
-interface Round {
-  id: string;
-  selectedTypes: InterviewType[];
-  difficulty: number;
-  cooperAverage: number;
-}
+// type InterviewType =
+//   | "Behavioral"
+//   | "Technical"
+//   | "Case study"
+//   | "Portfolio walkthrough"
+//   | "Online assessment";
+// interface Round {
+//   id: string;
+//   selectedTypes: InterviewType[];
+//   difficulty: number;
+//   cooperAverage: number;
+// }
 
 /**
  * InterviewSection component.

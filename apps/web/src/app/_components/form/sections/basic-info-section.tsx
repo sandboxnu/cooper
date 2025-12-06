@@ -77,7 +77,7 @@ export function BasicInfoSection() {
     }
   }, [locationByIdData, locationLabel]);
 
-  const locationId = form.watch("locationId");
+  const locationId = form.watch("locationId") as string;
   useEffect(() => {
     if (!locationId) {
       setLocationLabel("");
@@ -106,7 +106,7 @@ export function BasicInfoSection() {
                   { value: "Part time", label: "Part time" },
                 ]}
                 className="w-full border-cooper-gray-150 text-sm h-10"
-                value={field.value ?? ""}
+                value={field.value as string}
                 placeholder="Select"
                 onChange={(e) => {
                   const value =
@@ -136,7 +136,7 @@ export function BasicInfoSection() {
                   { value: "FALL", label: "Fall" },
                 ]}
                 className="w-full border-cooper-gray-150 text-sm h-10"
-                value={field.value ?? ""}
+                value={field.value as string}
                 placeholder="Select"
                 onChange={(e) => {
                   const value =
@@ -168,7 +168,7 @@ export function BasicInfoSection() {
                 className="w-full border-2 rounded-lg h-10 text-sm text-cooper-gray-350 border-cooper-gray-150"
                 placeholder="Select"
                 onClear={() => field.onChange(undefined)}
-                value={field.value ?? ""}
+                value={field.value as string}
                 onChange={(e) => {
                   const value =
                     e.target.value === "" ? undefined : Number(e.target.value);
@@ -193,7 +193,7 @@ export function BasicInfoSection() {
                 placeholder="Search by industry..."
                 options={industryOptions}
                 className="border-2 rounded-lg h-10 text-sm text-cooper-gray-350 border-cooper-gray-150"
-                value={field.value ?? ""}
+                value={field.value as string}
                 onClear={() => field.onChange(undefined)}
                 onChange={(e) => {
                   const value =

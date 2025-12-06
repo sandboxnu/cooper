@@ -58,7 +58,7 @@ export function PaySection() {
   }, [locationByIdData, locationLabel]);
 
   // NEW: clear local state when form locationId is cleared
-  const locationId = form.watch("locationId");
+  const locationId = form.watch("locationId") as string;
   useEffect(() => {
     if (!locationId) {
       setLocationLabel("");

@@ -30,16 +30,16 @@ export const Rating = forwardRef<HTMLInputElement, RatingProps>(
       ...restProps
     } = props;
 
-    // If name is provided, use form context (form-based mode)
-    // Otherwise, use controlled value/onChange (local state mode)
-    const formContext = name ? useFormContext<ReviewFormType>() : null;
+    // Always call useFormContext (hooks must be called unconditionally)
+    // Only use it if name is provided
+    const formContext = useFormContext<ReviewFormType>();
     const nameField = name as FieldPath<ReviewFormType> | undefined;
 
     const [hoveredIndex, setHoveredIndex] = useState<number>(0);
 
     // Get current value based on mode
     const getCurrentValue = (): number => {
-      if (nameField && formContext) {
+      if (nameField && name) {
         return +formContext.getValues(nameField) || 0;
       }
       return controlledValue ?? 0;
@@ -47,7 +47,7 @@ export const Rating = forwardRef<HTMLInputElement, RatingProps>(
 
     // Handle value change based on mode
     const handleChange = (newValue: number) => {
-      if (nameField && formContext) {
+      if (nameField && name) {
         formContext.setValue(nameField, newValue);
       } else if (controlledOnChange) {
         controlledOnChange(newValue);
@@ -58,7 +58,7 @@ export const Rating = forwardRef<HTMLInputElement, RatingProps>(
 
     return (
       <div className="flex">
-        {nameField && formContext && (
+        {nameField && name && (
           <input
             {...restProps}
             className="hidden"
