@@ -6,7 +6,7 @@ import { api } from "~/trpc/react";
 import LoadingResults from "../loading-results";
 import NewRoleCard from "../reviews/new-role-card";
 import { RoleCardPreview } from "../reviews/role-card-preview";
-import { CompanyType } from "@cooper/db/schema";
+import type { CompanyType } from "@cooper/db/schema";
 
 interface RenderAllRolesProps {
   company: CompanyType | null;

@@ -7,22 +7,32 @@ import { ChevronDown } from "lucide-react";
 import type { CompanyType, RoleType } from "@cooper/db/schema";
 import { cn, Pagination } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
+import { Chip } from "@cooper/ui/chip";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@cooper/ui/dropdown-menu";
-import { Chip } from "@cooper/ui/chip";
 
 import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
 import CompanyInfo from "~/app/_components/companies/company-info";
+import DropdownFiltersBar from "~/app/_components/filters/dropdown-filters-bar";
 import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
 import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
 import { RoleInfo } from "~/app/_components/reviews/role-info";
-import { api } from "~/trpc/react";
+
 import SearchFilter from "~/app/_components/search/search-filter";
+import { api } from "~/trpc/react";
+
+interface FilterState {
+  industries: string[];
+  locations: string[];
+  jobTypes: string[];
+  hourlyPay: { min: number; max: number };
+  ratings: string[];
+}
 
 // Helper function to create URL-friendly slugs (still needed for URL generation)
 const createSlug = (text: string): string => {
@@ -33,6 +43,14 @@ const createSlug = (text: string): string => {
     .replace(/-+/g, "-") // Replace multiple hyphens with single hyphen
     .trim();
 };
+
+interface FilterState {
+  industries: string[];
+  locations: string[];
+  jobTypes: string[];
+  hourlyPay: { min: number; max: number };
+  ratings: string[];
+}
 
 export default function Roles() {
   const searchParams = useSearchParams();
@@ -49,7 +67,42 @@ export default function Roles() {
     "default" | "rating" | "newest" | "oldest" | undefined
   >("default");
   const [currentPage, setCurrentPage] = useState(1);
+  const [appliedFilters, setAppliedFilters] = useState<FilterState>({
+    industries: [],
+    locations: [],
+    jobTypes: [],
+    hourlyPay: { min: 0, max: 0 },
+    ratings: [],
+  });
   const rolesAndCompaniesPerPage = 10;
+
+  // Convert filter state to backend format
+  const backendFilters = useMemo(() => {
+    return {
+      industries:
+        appliedFilters.industries.length > 0
+          ? appliedFilters.industries
+          : undefined,
+      locations:
+        appliedFilters.locations.length > 0
+          ? appliedFilters.locations
+          : undefined,
+      jobTypes:
+        appliedFilters.jobTypes.length > 0
+          ? appliedFilters.jobTypes
+          : undefined,
+      minPay:
+        appliedFilters.hourlyPay.min > 0
+          ? appliedFilters.hourlyPay.min
+          : undefined,
+      maxPay:
+        appliedFilters.hourlyPay.max > 0
+          ? appliedFilters.hourlyPay.max
+          : undefined,
+      ratings:
+        appliedFilters.ratings.length > 0 ? appliedFilters.ratings : undefined,
+    };
+  }, [appliedFilters]);
 
   // Query for specific company or role based on URL params
   const companyBySlug = api.company.getBySlug.useQuery(
@@ -107,6 +160,7 @@ export default function Roles() {
       limit: rolesAndCompaniesPerPage,
       offset: (currentPage - 1) * rolesAndCompaniesPerPage,
       type: selectedType,
+      filters: backendFilters,
     },
     {
       enabled: shouldFetchList,
@@ -217,6 +271,7 @@ export default function Roles() {
 
         if (
           companyName &&
+          roleSlug &&
           (companyParam !== companySlug || roleParam !== roleSlug)
         ) {
           // Preserve search param
@@ -238,7 +293,10 @@ export default function Roles() {
         const companyItem = selectedItem as CompanyType & { slug?: string };
         const companySlug = companyItem.slug;
 
-        if (companyParam !== companySlug || roleParam !== null) {
+        if (
+          companySlug &&
+          (companyParam !== companySlug || roleParam !== null)
+        ) {
           // Preserve search param
           const currentSearch = params.get("search");
           params.delete("search");
@@ -308,6 +366,11 @@ export default function Roles() {
     }
   };
 
+  const handleFilterChange = (filters: FilterState) => {
+    setAppliedFilters(filters);
+    setCurrentPage(1);
+  };
+
   useEffect(() => {
     setCurrentPage(1);
   }, [selectedFilter, searchValue, selectedType]);
@@ -321,17 +384,22 @@ export default function Roles() {
 
   return (
     <>
-      <div className="self-start border-b-[1px] bg-cooper-cream-100 border-cooper-gray-150 fixed w-full">
-        <SearchFilter className="px-5 py-4 md:w-[28%] w-full" />
-      </div>
-      {rolesAndCompanies.isSuccess &&
-        rolesAndCompanies.data.items.length > 0 && (
-          <div className="bg-cooper-cream-100 flex w-full pt-[9.25dvh] h-[90dvh]">
+      <div className="bg-cooper-cream-100 border-cooper-gray-150 fixed flex w-full flex-col md:flex-row items-stretch md:items-center gap-4 md:gap-5 self-start border-b-[1px] py-4">
+        <div className="bg-cooper-cream-100 border-cooper-gray-150 fixed flex w-full flex-col md:flex-row items-stretch md:items-center gap-4 md:gap-5 self-start border-b-[1px] py-4">
+          <div className="w-full md:w-[28%] px-5">
+            <SearchFilter className="w-full" />
+          </div>
+          <div className="flex-1 px-5 md:pr-5 md:pl-0">
+            <DropdownFiltersBar onFilterChange={handleFilterChange} />
+          </div>
+        </div>
+        {rolesAndCompanies.isSuccess && (
+          <div className="bg-cooper-cream-100 flex h-[90dvh] w-full pt-[9.25dvh]">
             {/* RoleCardPreview List */}
             <div
               ref={sidebarRef}
               className={cn(
-                "w-full border-r-[1px] border-cooper-gray-150 bg-cooper-cream-100 p-5  xl:rounded-none overflow-y-auto ",
+                "border-cooper-gray-150 bg-cooper-cream-100 w-full overflow-y-auto border-r-[1px] p-5 xl:rounded-none",
                 "md:w-[28%]", // Show as 28% width on md and above
                 showRoleInfo && "hidden md:block", // Hide on mobile if RoleInfo is visible
               )}
@@ -394,6 +462,12 @@ export default function Roles() {
                   />
                 </div>
               </div>
+              {rolesAndCompanies.data.items.length === 0 && (
+                <div className="mt-6 p-4 text-center text-sm text-cooper-gray-400">
+                  No results found.
+                </div>
+              )}
+
               {rolesAndCompanies.data.items.map((item, i) => {
                 if (item.type === "role") {
                   return (
@@ -464,7 +538,9 @@ export default function Roles() {
                 !showRoleInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
               )}
             >
-              {rolesAndCompanies.data.items.length > 0 &&
+              {rolesAndCompanies.data.items.length === 0 ? (
+                <NoResults clearFunction={false} className="h-[84dvh]" />
+              ) : (
                 rolesAndCompanies.data.items[0] &&
                 (isRole(selectedItem ?? rolesAndCompanies.data.items[0]) ? (
                   <RoleInfo
@@ -481,16 +557,14 @@ export default function Roles() {
                         (selectedItem ??
                           rolesAndCompanies.data.items[0]) as CompanyType
                       }
-                    />{" "}
+                    />
                   </div>
-                ))}
+                ))
+              )}
             </div>
           </div>
         )}
-      {rolesAndCompanies.isSuccess &&
-        rolesAndCompanies.data.items.length === 0 && (
-          <NoResults className="h-[84dvh]" />
-        )}
+      </div>
       {rolesAndCompanies.isPending && <LoadingResults className="h-[84dvh]" />}
     </>
   );

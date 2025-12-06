@@ -135,7 +135,7 @@ export function CompanySearchBar({
             onSubmit={onSubmit}
           />
           <Button
-            className="border-white bg-white p-0 text-cooper-gray-400 hover:bg-white hover:text-[#9A9A9A]"
+            className="border-white bg-white p-0 text-cooper-gray-400 hover:bg-white hover:text-cooper-gray-600"
             onClick={() => {
               setSelectedIndustry("INDUSTRY");
               setLocationLabel("");

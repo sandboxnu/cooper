@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { RoleType } from "@cooper/db/schema";
+import type { RoleType } from "@cooper/db/schema";
 import { Pagination } from "@cooper/ui";
 
 import { RoleCardPreview } from "../reviews/role-card-preview";

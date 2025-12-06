@@ -9,7 +9,7 @@ import {
   DialogTrigger,
 } from "@cooper/ui/dialog";
 
-import { CompanyType } from "@cooper/db/schema";
+import type { CompanyType } from "@cooper/db/schema";
 import Logo from "node_modules/@cooper/ui/src/logo";
 import { FavoriteButton } from "../shared/favorite-button";
 import RenderAllRoles from "./all-company-roles";
@@ -31,7 +31,7 @@ export function CompanyPopup({
     <Dialog>
       <DialogTrigger asChild>
         {trigger ? (
-          <Button className="bg-cooper-cream-100 text-md hover:bg-cooper-cream-100 m-0 -mt-2 border-none p-0 text-cooper-gray-400 outline-none hover:underline">
+          <Button className="bg-cooper-cream-100 !py-0 h-auto text-md hover:bg-cooper-cream-100 border-none !p-0 text-cooper-gray-400 outline-none hover:underline">
             {trigger}
           </Button>
         ) : (

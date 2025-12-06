@@ -8,7 +8,7 @@ import { cn } from ".";
 
 interface ILogoProps {
   className?: string;
-  company: CompanyType;
+  company: Omit<CompanyType, "slug"> & { slug?: string };
   size?: "small" | "default" | "medium";
 }
 

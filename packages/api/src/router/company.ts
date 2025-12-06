@@ -75,7 +75,8 @@ export const companyRouter = {
           ${Company}.*, 
           COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
         FROM ${Company}
-        LEFT JOIN ${Review} ON ${Review.companyId}::uuid = ${Company.id}
+        LEFT JOIN ${Review}
+          ON NULLIF(${Review.companyId}, '')::uuid = ${Company.id}
         ${whereClause}
         GROUP BY ${Company.id}
         ORDER BY avg_rating DESC
