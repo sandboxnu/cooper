@@ -307,7 +307,7 @@ export default function ExistingCompanyContent({
             </div>
             <CompanyCardPreview
               companyObj={selectedCompany}
-              className="w-[60%]"
+              className="md:w-[60%]"
             />
           </div>
         )}
@@ -336,7 +336,11 @@ export default function ExistingCompanyContent({
                     <Input
                       placeholder="Enter"
                       className="w-full border border-cooper-gray-150 text-sm h-10"
-                      value={field.value as string}
+                      value={
+                        (field.value as string)?.length > 0
+                          ? (field.value as string)
+                          : ""
+                      }
                       onChange={(e) => field.onChange(e.target.value)}
                     />
                   </FormControl>
@@ -359,7 +363,11 @@ export default function ExistingCompanyContent({
                       options={industryOptions}
                       placeholder="Search"
                       className="w-full border border-cooper-gray-150 text-sm h-10"
-                      value={field.value as string}
+                      value={
+                        (field.value as string)?.length > 0
+                          ? (field.value as string)
+                          : ""
+                      }
                       onClear={() => field.onChange(undefined)}
                       onChange={(e) => {
                         const value =

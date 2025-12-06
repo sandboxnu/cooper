@@ -62,7 +62,7 @@ export function ReviewSection() {
         render={({ field }) => (
           <FormItem className="flex flex-col md:flex-col pt-4">
             <FormLabel className="text-sm text-cooper-gray-400 ">
-              Review text
+              Review text<span className="text-[#FB7373]">*</span>
             </FormLabel>
             <div className="text-cooper-gray-550 text-xs">
               This is your chance to share more details on your experience.

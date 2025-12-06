@@ -106,7 +106,11 @@ export function BasicInfoSection() {
                   { value: "Part time", label: "Part time" },
                 ]}
                 className="w-full border-cooper-gray-150 text-sm h-10"
-                value={field.value as string}
+                value={
+                  (field.value as string)?.length > 0
+                    ? (field.value as string)
+                    : ""
+                }
                 placeholder="Select"
                 onChange={(e) => {
                   const value =
@@ -136,7 +140,11 @@ export function BasicInfoSection() {
                   { value: "FALL", label: "Fall" },
                 ]}
                 className="w-full border-cooper-gray-150 text-sm h-10"
-                value={field.value as string}
+                value={
+                  (field.value as string)?.length > 0
+                    ? (field.value as string)
+                    : ""
+                }
                 placeholder="Select"
                 onChange={(e) => {
                   const value =
@@ -168,7 +176,11 @@ export function BasicInfoSection() {
                 className="w-full border-2 rounded-lg h-10 text-sm text-cooper-gray-600 border-cooper-gray-150"
                 placeholder="Select"
                 onClear={() => field.onChange(undefined)}
-                value={field.value as string}
+                value={
+                  (field.value as string)?.length > 0
+                    ? (field.value as string)
+                    : ""
+                }
                 onChange={(e) => {
                   const value =
                     e.target.value === "" ? undefined : Number(e.target.value);
@@ -184,7 +196,7 @@ export function BasicInfoSection() {
         control={form.control}
         name="industry"
         render={({ field }) => (
-          <FormItem className="pl-2 md:pl-0 flex flex-col pt-4">
+          <FormItem className="md:pl-0 flex flex-col pt-4">
             <FormLabel className="text-sm text-cooper-gray-400 font-bold">
               Industry<span className="text-[#FB7373]">*</span>
             </FormLabel>
@@ -193,7 +205,11 @@ export function BasicInfoSection() {
                 placeholder="Search by industry..."
                 options={industryOptions}
                 className="border-2 rounded-lg h-10 text-sm text-cooper-gray-600 border-cooper-gray-150"
-                value={field.value as string}
+                value={
+                  (field.value as string)?.length > 0
+                    ? (field.value as string)
+                    : ""
+                }
                 onClear={() => field.onChange(undefined)}
                 onChange={(e) => {
                   const value =

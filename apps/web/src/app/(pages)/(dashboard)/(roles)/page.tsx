@@ -389,7 +389,7 @@ export default function Roles() {
           <div className="w-full md:w-[28%] px-5">
             <SearchFilter className="w-full" />
           </div>
-          <div className="flex-1 px-5 md:pr-5 md:pl-0">
+          <div className="flex-1 px-5 md:pr-5 md:pl-0 ">
             <DropdownFiltersBar onFilterChange={handleFilterChange} />
           </div>
         </div>
