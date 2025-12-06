@@ -494,20 +494,14 @@
           "primaryKey": false,
           "notNull": true
         },
-        "travelBenefits": {
-          "name": "travelBenefits",
+        "freeTransport": {
+          "name": "freeTransport",
           "type": "boolean",
           "primaryKey": false,
           "notNull": true
         },
         "freeMerch": {
           "name": "freeMerch",
-          "type": "boolean",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "snackBar": {
-          "name": "snackBar",
           "type": "boolean",
           "primaryKey": false,
           "notNull": true
