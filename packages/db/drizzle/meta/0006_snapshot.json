@@ -1,6 +1,6 @@
 {
-  "id": "433e4808-c161-42fc-b874-a13ce24890ef",
-  "prevId": "c7418ef8-d3c0-4650-8bab-63a998bb5b82",
+  "id": "219dc469-c8ef-4e00-9958-3579f2932adc",
+  "prevId": "433e4808-c161-42fc-b874-a13ce24890ef",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -645,8 +645,8 @@
           "primaryKey": false,
           "notNull": true
         },
-        "freeTransport": {
-          "name": "freeTransport",
+        "travelBenefits": {
+          "name": "travelBenefits",
           "type": "boolean",
           "primaryKey": false,
           "notNull": true

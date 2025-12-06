@@ -40,8 +40,22 @@
     {
       "idx": 5,
       "version": "7",
-      "when": 1764894926742,
-      "tag": "0005_daily_king_cobra",
+      "when": 1764907430477,
+      "tag": "0005_productive_hulk",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1764908076765,
+      "tag": "0006_nappy_star_brand",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1764942026193,
+      "tag": "0007_simple_korg",
       "breakpoints": true
     }
   ]

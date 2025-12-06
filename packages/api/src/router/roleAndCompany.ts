@@ -47,7 +47,7 @@ export const roleAndCompanyRouter = {
           ${Role}.*, 
           COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
         FROM ${Role}
-        LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+        LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
         GROUP BY ${Role.id}
         ORDER BY avg_rating DESC
       `);
@@ -68,8 +68,8 @@ export const roleAndCompanyRouter = {
             ${Company}.*, 
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Company}
-          LEFT JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
-          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
+          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
           GROUP BY ${Company.id}
           ORDER BY avg_rating DESC
         `);
@@ -147,7 +147,7 @@ export const roleAndCompanyRouter = {
             ${Role.id} AS id,
             COALESCE(AVG(${Review.hourlyPay}::float), 0) AS avg_hourly_pay
           FROM ${Role}
-          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
           WHERE ${Role.id} IN (${sql.join(
             roleIds.map((id) => sql`${id}`),
             sql`,`,
@@ -163,7 +163,7 @@ export const roleAndCompanyRouter = {
             ${Role.id} AS id,
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Role}
-          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
           WHERE ${Role.id} IN (${sql.join(
             roleIds.map((id) => sql`${id}`),
             sql`,`,
@@ -182,8 +182,8 @@ export const roleAndCompanyRouter = {
             ${Company.id} AS id,
             COALESCE(AVG(${Review.hourlyPay}::float), 0) AS avg_hourly_pay
           FROM ${Company}
-          LEFT JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
-          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
+          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
           WHERE ${Company.id} IN (${sql.join(
             companyIds.map((id) => sql`${id}`),
             sql`,`,
@@ -199,8 +199,8 @@ export const roleAndCompanyRouter = {
             ${Company.id} AS id,
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Company}
-          LEFT JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
-          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
+          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
           WHERE ${Company.id} IN (${sql.join(
             companyIds.map((id) => sql`${id}`),
             sql`,`,
@@ -337,7 +337,7 @@ export const roleAndCompanyRouter = {
             ${Role}.*, 
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Role}
-          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
           GROUP BY ${Role.id}
           ORDER BY avg_rating DESC
         `);
@@ -358,8 +358,8 @@ export const roleAndCompanyRouter = {
             ${Company}.*, 
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Company}
-          LEFT JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
-          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
+          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
           GROUP BY ${Company.id}
           ORDER BY avg_rating DESC
         `);

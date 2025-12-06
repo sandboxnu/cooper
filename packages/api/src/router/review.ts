@@ -95,12 +95,7 @@ export const reviewRouter = {
       // Initialize bad words filter
       const filter = new Filter();
 
-      if (filter.isProfane(input.reviewHeadline)) {
-        throw new TRPCError({
-          code: "PRECONDITION_FAILED",
-          message: "Review headline cannot contain profane words",
-        });
-      } else if (filter.isProfane(input.textReview)) {
+      if (filter.isProfane(input.textReview)) {
         throw new TRPCError({
           code: "PRECONDITION_FAILED",
           message: "Review text cannot contain profane words",
@@ -115,7 +110,6 @@ export const reviewRouter = {
       // Create a clean version of the input with filtered strings
       const cleanInput = {
         ...input,
-        reviewHeadline: filter.clean(input.reviewHeadline),
         textReview: filter.clean(input.textReview),
         // Keep non-string fields as they are
         profileId: input.profileId,
@@ -216,7 +210,6 @@ export const reviewRouter = {
       const drugTest = calcPercentage("drugTest");
       const freeLunch = calcPercentage("freeLunch");
       const freeMerch = calcPercentage("freeMerch");
-      const snackBar = calcPercentage("snackBar");
       const travelBenefits = calcPercentage("travelBenefits");
       const overtimeNormal = calcPercentage("overtimeNormal");
       const pto = calcPercentage("pto");
@@ -241,7 +234,6 @@ export const reviewRouter = {
         drugTest: drugTest,
         freeLunch: freeLunch,
         freeMerch: freeMerch,
-        snackBar: snackBar,
         travelBenefits: travelBenefits,
         overtimeNormal: overtimeNormal,
         pto: pto,

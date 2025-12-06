@@ -93,7 +93,7 @@ export default function Autocomplete({
       </div>
 
       {/* Selected items badges */}
-      {value.length > 0 && !search && (
+      {value.length > 0 && (
         <div className="mt-2 flex flex-wrap gap-1">
           {value.map((val) => {
             const option = options.find((opt) => opt.value === val);
@@ -140,7 +140,7 @@ export default function Autocomplete({
                   return (
                     <button
                       key={option.value}
-                      className="flex items-center gap-2 py-2 px-[14px] hover:bg-cooper-gray-150 w-full hover:cursor-pointer"
+                      className="flex items-center gap-2 py-2 px-[14px] rounded-sm hover:bg-cooper-gray-150 w-full hover:cursor-pointer"
                       onClick={() => handleToggle(option.value)}
                     >
                       <Checkbox checked={isSelected} />

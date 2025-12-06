@@ -22,8 +22,17 @@ import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
 import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
 import { RoleInfo } from "~/app/_components/reviews/role-info";
-import { api } from "~/trpc/react";
+
 import SearchFilter from "~/app/_components/search/search-filter";
+import { api } from "~/trpc/react";
+
+interface FilterState {
+  industries: string[];
+  locations: string[];
+  jobTypes: string[];
+  hourlyPay: { min: number; max: number };
+  ratings: string[];
+}
 
 // Helper function to create URL-friendly slugs (still needed for URL generation)
 const createSlug = (text: string): string => {
@@ -151,11 +160,11 @@ export default function Roles() {
       limit: rolesAndCompaniesPerPage,
       offset: (currentPage - 1) * rolesAndCompaniesPerPage,
       type: selectedType,
+      filters: backendFilters,
     },
     {
       enabled: shouldFetchList,
-      filters: backendFilters,
-  },
+    },
   );
 
   const buttonStyle =
@@ -262,6 +271,7 @@ export default function Roles() {
 
         if (
           companyName &&
+          roleSlug &&
           (companyParam !== companySlug || roleParam !== roleSlug)
         ) {
           // Preserve search param
@@ -283,7 +293,10 @@ export default function Roles() {
         const companyItem = selectedItem as CompanyType & { slug?: string };
         const companySlug = companyItem.slug;
 
-        if (companyParam !== companySlug || roleParam !== null) {
+        if (
+          companySlug &&
+          (companyParam !== companySlug || roleParam !== null)
+        ) {
           // Preserve search param
           const currentSearch = params.get("search");
           params.delete("search");
@@ -358,8 +371,6 @@ export default function Roles() {
     setCurrentPage(1); // Reset to first page when filters change
   };
 
-
-
   const clearFilters = () => {
     setAppliedFilters({
       industries: [],
@@ -387,183 +398,186 @@ export default function Roles() {
   return (
     <>
       <div className="bg-cooper-cream-100 border-cooper-gray-150 fixed flex w-full flex-col md:flex-row items-stretch md:items-center gap-4 md:gap-5 self-start border-b-[1px] py-4">
-        <div className="w-full md:w-[28%] px-5">
-          <SearchFilter className="w-full" />
-        </div>
-        <div className="flex-1 px-5 md:pr-5 md:pl-0">
-          <DropdownFiltersBar onFilterChange={handleFilterChange} />
-        </div>
-      </div>
-      {rolesAndCompanies.isSuccess && (
-        <div className="bg-cooper-cream-100 flex h-[90dvh] w-full pt-[9.25dvh]">
-          {/* RoleCardPreview List */}
-          <div
-            ref={sidebarRef}
-            className={cn(
-              "border-cooper-gray-150 bg-cooper-cream-100 w-full overflow-y-auto border-r-[1px] p-5 xl:rounded-none",
-              "md:w-[28%]", // Show as 28% width on md and above
-              showRoleInfo && "hidden md:block", // Hide on mobile if RoleInfo is visible
-            )}
-          >
-            <div className="text-right">
-              <DropdownMenu>
-                <DropdownMenuTrigger className="text-md mb-2">
-                  Sort By{" "}
-                  <span className="underline">
-                    {selectedFilter &&
-                      selectedFilter.charAt(0).toUpperCase() +
-                        selectedFilter.slice(1)}
-                  </span>
-                  <ChevronDown className="inline" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuLabel className="flex flex-col text-center">
-                    <Button
-                      className={buttonStyle}
-                      onClick={() => setSelectedFilter("default")}
-                    >
-                      Default
-                    </Button>
-                    <Button
-                      className={buttonStyle}
-                      onClick={() => setSelectedFilter("newest")}
-                    >
-                      Newest
-                    </Button>
-                    <Button
-                      className={buttonStyle}
-                      onClick={() => setSelectedFilter("oldest")}
-                    >
-                      Oldest
-                    </Button>
-                    <Button
-                      className={buttonStyle}
-                      onClick={() => setSelectedFilter("rating")}
-                    >
-                      Rating
-                    </Button>
-                  </DropdownMenuLabel>
-                </DropdownMenuContent>
-              </DropdownMenu>
-              <div className="flex gap-2 py-2">
-                <Chip
-                  label="All"
-                  onClick={() => setSelectedType("all")}
-                  selected={selectedType === "all"}
-                />
-                <Chip
-                  onClick={() => setSelectedType("roles")}
-                  label={`Jobs (${rolesAndCompanies.data.totalRolesCount})`}
-                  selected={selectedType === "roles"}
-                />
-                <Chip
-                  onClick={() => setSelectedType("companies")}
-                  label={`Companies (${rolesAndCompanies.data.totalCompanyCount})`}
-                  selected={selectedType === "companies"}
-                />
-              </div>
-            </div>
-            {rolesAndCompanies.data.items.length === 0 && (
-              <div className="mt-6 p-4 text-center text-sm text-cooper-gray-400">
-                No results found.
-              </div>
-            )}
-
-            {rolesAndCompanies.data.items.map((item, i) => {
-              if (item.type === "role") {
-                return (
-                  <div
-                    key={item.id}
-                      ref={(el) => {
-                        cardRefs.current[item.id] = el;
-                      }}
-                    onClick={() => {
-                      setSelectedItem(item);
-                      setShowRoleInfo(true); // Show RoleInfo on mobile
-                    }}
-                  >
-                    <RoleCardPreview
-                      roleObj={item}
-                      className={cn(
-                        "mb-4 hover:bg-cooper-gray-100",
-                        selectedItem
-                          ? selectedItem.id === item.id &&
-                              "bg-cooper-cream-200 hover:bg-cooper-gray-200"
-                          : !i &&
-                              "bg-cooper-cream-200 hover:bg-cooper-gray-200",
-                      )}
-                    />
-                  </div>
-                );
-              } else {
-                return (
-                  <div
-                    key={item.id}
-                      ref={(el) => {
-                        cardRefs.current[item.id] = el;
-                      }}
-                    onClick={(e) => {
-                        e.preventDefault();
-                      setSelectedItem(item);
-                    }}
-                  >
-                    <CompanyCardPreview
-                      companyObj={item}
-                      className={cn(
-                        "mb-4 hover:bg-cooper-gray-100",
-                        selectedItem
-                          ? selectedItem.id === item.id &&
-                              "bg-cooper-gray-200 hover:bg-cooper-gray-200"
-                          : !i && "bg-cooper-gray-200 hover:bg-cooper-gray-200",
-                      )}
-                    />
-                  </div>
-                );
-              }
-            })}
-
-            {/* Pagination */}
-            <div className="mt-4">
-              <Pagination
-                currentPage={currentPage}
-                totalPages={totalPages}
-                onPageChange={handlePageChange}
-              />
-            </div>
+        <div className="bg-cooper-cream-100 border-cooper-gray-150 fixed flex w-full flex-col md:flex-row items-stretch md:items-center gap-4 md:gap-5 self-start border-b-[1px] py-4">
+          <div className="w-full md:w-[28%] px-5">
+            <SearchFilter className="w-full" />
           </div>
-          <div
-            className={cn(
-              "col-span-3 w-full overflow-y-auto p-1",
-              "md:w-[72%]", // Show as 72% width on md and above
-              !showRoleInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
-            )}
-          >
-            {rolesAndCompanies.data.items.length === 0 ? (
-              <NoResults clearFunction={false} className="h-[84dvh]" />
-            ) : (
-              rolesAndCompanies.data.items[0] &&
-              (isRole(selectedItem ?? rolesAndCompanies.data.items[0]) ? (
-                <RoleInfo
-                  roleObj={
-                    (selectedItem ??
-                      rolesAndCompanies.data.items[0]) as RoleType
-                  }
-                  onBack={() => setShowRoleInfo(false)}
-                />
-              ) : (
-                <div>
-                  <CompanyInfo
-                    companyObj={
-                      (selectedItem ??
-                        rolesAndCompanies.data.items[0]) as CompanyType
-                    }
+          <div className="flex-1 px-5 md:pr-5 md:pl-0">
+            <DropdownFiltersBar onFilterChange={handleFilterChange} />
+          </div>
+        </div>
+        {rolesAndCompanies.isSuccess && (
+          <div className="bg-cooper-cream-100 flex h-[90dvh] w-full pt-[9.25dvh]">
+            {/* RoleCardPreview List */}
+            <div
+              ref={sidebarRef}
+              className={cn(
+                "border-cooper-gray-150 bg-cooper-cream-100 w-full overflow-y-auto border-r-[1px] p-5 xl:rounded-none",
+                "md:w-[28%]", // Show as 28% width on md and above
+                showRoleInfo && "hidden md:block", // Hide on mobile if RoleInfo is visible
+              )}
+            >
+              <div className="text-right">
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="text-md mb-2">
+                    Sort By{" "}
+                    <span className="underline">
+                      {selectedFilter &&
+                        selectedFilter.charAt(0).toUpperCase() +
+                          selectedFilter.slice(1)}
+                    </span>
+                    <ChevronDown className="inline" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuLabel className="flex flex-col text-center">
+                      <Button
+                        className={buttonStyle}
+                        onClick={() => setSelectedFilter("default")}
+                      >
+                        Default
+                      </Button>
+                      <Button
+                        className={buttonStyle}
+                        onClick={() => setSelectedFilter("newest")}
+                      >
+                        Newest
+                      </Button>
+                      <Button
+                        className={buttonStyle}
+                        onClick={() => setSelectedFilter("oldest")}
+                      >
+                        Oldest
+                      </Button>
+                      <Button
+                        className={buttonStyle}
+                        onClick={() => setSelectedFilter("rating")}
+                      >
+                        Rating
+                      </Button>
+                    </DropdownMenuLabel>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+                <div className="flex gap-2 py-2">
+                  <Chip
+                    label="All"
+                    onClick={() => setSelectedType("all")}
+                    selected={selectedType === "all"}
+                  />
+                  <Chip
+                    onClick={() => setSelectedType("roles")}
+                    label={`Jobs (${rolesAndCompanies.data.totalRolesCount})`}
+                    selected={selectedType === "roles"}
+                  />
+                  <Chip
+                    onClick={() => setSelectedType("companies")}
+                    label={`Companies (${rolesAndCompanies.data.totalCompanyCount})`}
+                    selected={selectedType === "companies"}
                   />
                 </div>
-              ))
-            )}
+              </div>
+              {rolesAndCompanies.data.items.length === 0 && (
+                <div className="mt-6 p-4 text-center text-sm text-cooper-gray-400">
+                  No results found.
+                </div>
+              )}
+
+              {rolesAndCompanies.data.items.map((item, i) => {
+                if (item.type === "role") {
+                  return (
+                    <div
+                      key={item.id}
+                      ref={(el) => {
+                        cardRefs.current[item.id] = el;
+                      }}
+                      onClick={() => {
+                        setSelectedItem(item);
+                        setShowRoleInfo(true); // Show RoleInfo on mobile
+                      }}
+                    >
+                      <RoleCardPreview
+                        roleObj={item}
+                        className={cn(
+                          "mb-4 hover:bg-cooper-gray-100",
+                          selectedItem
+                            ? selectedItem.id === item.id &&
+                                "bg-cooper-cream-200 hover:bg-cooper-gray-200"
+                            : !i &&
+                                "bg-cooper-cream-200 hover:bg-cooper-gray-200",
+                        )}
+                      />
+                    </div>
+                  );
+                } else {
+                  return (
+                    <div
+                      key={item.id}
+                      ref={(el) => {
+                        cardRefs.current[item.id] = el;
+                      }}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setSelectedItem(item);
+                      }}
+                    >
+                      <CompanyCardPreview
+                        companyObj={item}
+                        className={cn(
+                          "mb-4 hover:bg-cooper-gray-100",
+                          selectedItem
+                            ? selectedItem.id === item.id &&
+                                "bg-cooper-gray-200 hover:bg-cooper-gray-200"
+                            : !i &&
+                                "bg-cooper-gray-200 hover:bg-cooper-gray-200",
+                        )}
+                      />
+                    </div>
+                  );
+                }
+              })}
+
+              {/* Pagination */}
+              <div className="mt-4">
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={handlePageChange}
+                />
+              </div>
+            </div>
+            <div
+              className={cn(
+                "col-span-3 w-full overflow-y-auto p-1",
+                "md:w-[72%]", // Show as 72% width on md and above
+                !showRoleInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
+              )}
+            >
+              {rolesAndCompanies.data.items.length === 0 ? (
+                <NoResults clearFunction={false} className="h-[84dvh]" />
+              ) : (
+                rolesAndCompanies.data.items[0] &&
+                (isRole(selectedItem ?? rolesAndCompanies.data.items[0]) ? (
+                  <RoleInfo
+                    roleObj={
+                      (selectedItem ??
+                        rolesAndCompanies.data.items[0]) as RoleType
+                    }
+                    onBack={() => setShowRoleInfo(false)}
+                  />
+                ) : (
+                  <div>
+                    <CompanyInfo
+                      companyObj={
+                        (selectedItem ??
+                          rolesAndCompanies.data.items[0]) as CompanyType
+                      }
+                    />
+                  </div>
+                ))
+              )}
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
       {rolesAndCompanies.isPending && <LoadingResults className="h-[84dvh]" />}
     </>
   );

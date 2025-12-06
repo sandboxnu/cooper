@@ -1,6 +1,6 @@
 {
-  "id": "433e4808-c161-42fc-b874-a13ce24890ef",
-  "prevId": "c7418ef8-d3c0-4650-8bab-63a998bb5b82",
+  "id": "a9099010-2230-4542-b4c4-87cc8a4f83b8",
+  "prevId": "219dc469-c8ef-4e00-9958-3579f2932adc",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -645,8 +645,8 @@
           "primaryKey": false,
           "notNull": true
         },
-        "freeTransport": {
-          "name": "freeTransport",
+        "travelBenefits": {
+          "name": "travelBenefits",
           "type": "boolean",
           "primaryKey": false,
           "notNull": true
@@ -785,18 +785,18 @@
           "primaryKey": false,
           "notNull": false
         },
+        "jobType": {
+          "name": "jobType",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'CO-OP'"
+        },
         "companyId": {
           "name": "companyId",
           "type": "varchar",
           "primaryKey": false,
           "notNull": true
-        },
-        "jobType": {
-          "name": "jobType",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false,
-          "default": "'CO-OP'"
         },
         "created_at": {
           "name": "created_at",

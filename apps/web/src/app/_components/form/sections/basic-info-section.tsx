@@ -186,7 +186,7 @@ export function BasicInfoSection() {
         render={({ field }) => (
           <FormItem className="pl-2 md:pl-0 flex flex-col pt-4">
             <FormLabel className="text-sm text-cooper-gray-400 font-bold">
-              Industry
+              Industry<span className="text-[#FB7373]">*</span>
             </FormLabel>
             <div>
               <Select
@@ -210,10 +210,10 @@ export function BasicInfoSection() {
       <FormField
         control={form.control}
         name="locationId"
-        render={({ field }) => (
+        render={() => (
           <FormItem className="flex flex-col pt-4 w-full">
             <FormLabel className="text-sm text-cooper-gray-400 font-bold">
-              Location
+              Location<span className="text-[#FB7373]">*</span>
             </FormLabel>
             <FormControl className="w-full">
               <LocationBox

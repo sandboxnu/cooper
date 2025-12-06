@@ -3,7 +3,6 @@
 import { useState } from "react";
 
 import { FormSection } from "~/app/_components/form/form-section";
-import { Plus } from "lucide-react";
 import {
   FormControl,
   FormField,
@@ -31,38 +30,72 @@ interface Round {
  * InterviewSection component.
  */
 export function InterviewSection() {
-  const [rounds, setRounds] = useState<Round[]>([
-    {
-      id: "1",
-      selectedTypes: ["Behavioral", "Technical"],
-      difficulty: 5,
-      cooperAverage: 3.2,
-    },
-    {
-      id: "2",
-      selectedTypes: ["Portfolio walkthrough", "Online assessment"],
-      difficulty: 4,
-      cooperAverage: 4.5,
-    },
-  ]);
+  // const [rounds, setRounds] = useState<Round[]>([
+  //   {
+  //     id: "1",
+  //     selectedTypes: ["Behavioral", "Technical"],
+  //     difficulty: 5,
+  //     cooperAverage: 3.2,
+  //   },
+  //   {
+  //     id: "2",
+  //     selectedTypes: ["Portfolio walkthrough", "Online assessment"],
+  //     difficulty: 4,
+  //     cooperAverage: 4.5,
+  //   },
+  // ]);
 
-  const addRound = () => {
-    const newId = String(Math.max(...rounds.map((r) => parseInt(r.id)), 0) + 1);
-    setRounds([
-      ...rounds,
-      {
-        id: newId,
-        selectedTypes: [],
-        difficulty: 3,
-        cooperAverage: 0,
-      },
-    ]);
-  };
+  // const addRound = () => {
+  //   const newId = String(Math.max(...rounds.map((r) => parseInt(r.id)), 0) + 1);
+  //   setRounds([
+  //     ...rounds,
+  //     {
+  //       id: newId,
+  //       selectedTypes: [],
+  //       difficulty: 3,
+  //       cooperAverage: 0,
+  //     },
+  //   ]);
+  // };
   const form = useFormContext();
 
   return (
     <FormSection>
-      <div className="w-full pt-3">
+      <FormField
+        control={form.control}
+        name="interviewDifficulty"
+        render={({ field }) => (
+          <FormItem className="flex flex-col w-full">
+            <FormLabel className="text-sm font-semibold text-cooper-gray-400">
+              Interview difficulty<span className="text-[#FB7373]">*</span>
+            </FormLabel>
+            <FormControl className="relative w-full">
+              <Select
+                onClear={() => field.onChange(undefined)}
+                options={[
+                  { value: 1, label: 1 },
+                  { value: 2, label: 2 },
+                  { value: 3, label: 3 },
+                  { value: 4, label: 4 },
+                  { value: 5, label: 5 },
+                ]}
+                className="w-full border-cooper-gray-150 text-sm h-10"
+                value={
+                  field.value && field.value > 0 ? String(field.value) : ""
+                }
+                placeholder="Select"
+                onChange={(e) => {
+                  const value =
+                    e.target.value === "" ? undefined : e.target.value;
+                  field.onChange(value);
+                }}
+              />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+      {/* <div className="w-full pt-3">
         <div className="space-y-4">
           {rounds.map((round, index) => (
             <div key={round.id} className="flex flex-row gap-7 w-full">
@@ -157,7 +190,7 @@ export function InterviewSection() {
           <Plus className="w-5 h-5" />
           Add interview round
         </button>
-      </div>
+      </div> */}
     </FormSection>
   );
 }

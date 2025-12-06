@@ -12,6 +12,7 @@ import { RadioGroup, RadioGroupItem } from "@cooper/ui/radio-group";
 import { FormSection } from "~/app/_components/form/form-section";
 import { benefits } from "~/app/(pages)/(protected)/review-form/page";
 import { Select } from "../../themed/onboarding/select";
+import DropdownFilter from "../../filters/dropdown-filter";
 
 /**
  * CompanyDetailsSection component renders form fields for capturing
@@ -111,7 +112,9 @@ export function CompanyDetailsSection() {
                   { value: 5, label: 5 },
                 ]}
                 className="w-full border-cooper-gray-150 text-sm h-10"
-                value={field.value ?? ""}
+                value={
+                  field.value && field.value > 0 ? String(field.value) : ""
+                }
                 placeholder="Select"
                 onChange={(e) => {
                   const value =
@@ -143,7 +146,9 @@ export function CompanyDetailsSection() {
                   { value: 5, label: 5 },
                 ]}
                 className="w-full border-cooper-gray-150 text-sm h-10"
-                value={field.value ?? ""}
+                value={
+                  field.value && field.value > 0 ? String(field.value) : ""
+                }
                 placeholder="Select"
                 onChange={(e) => {
                   const value =
@@ -162,22 +167,25 @@ export function CompanyDetailsSection() {
         render={({ field }) => (
           <FormItem className="flex flex-col pt-2.5">
             <FormLabel className="text-sm font-bold text-cooper-gray-400">
-              Benefits<span className="text-[#FB7373]">*</span>
+              Benefits
             </FormLabel>
             <FormControl className="relative flex-1">
-              <Select
-                onClear={() => field.onChange(undefined)}
+              <DropdownFilter
+                title="Benefits"
+                filterType="autocomplete"
                 options={benefits.map((benefit) => ({
-                  value: benefit.field,
+                  id: benefit.field,
                   label: benefit.label,
                 }))}
-                className="w-full border-cooper-gray-150 text-sm h-10"
-                value={field.value ?? ""}
-                placeholder="Select"
-                onChange={(e) => {
-                  const value =
-                    e.target.value === "" ? undefined : e.target.value;
-                  field.onChange(value);
+                selectedOptions={
+                  Array.isArray(field.value)
+                    ? field.value
+                    : field.value
+                      ? [field.value]
+                      : []
+                }
+                onSelectionChange={(selected) => {
+                  field.onChange(selected.length > 0 ? selected : undefined);
                 }}
               />
             </FormControl>

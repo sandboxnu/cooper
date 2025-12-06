@@ -41,8 +41,7 @@ export const Review = pgTable("review", {
   freeLunch: boolean("freeLunch").notNull(),
   travelBenefits: boolean("travelBenefits").notNull(),
   freeMerch: boolean("freeMerch").notNull(),
-  snackBar: boolean("snackBar").notNull().default(false), //default false for existing records
-  employeeLounge: boolean("employeeLounge").notNull().default(false), //also default false
+  snackBar: boolean("snackBar").notNull().default(false),
   otherBenefits: text("otherBenefits"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt", {
@@ -82,9 +81,9 @@ export const CreateReviewSchema = createInsertSchema(Review, {
   overallRating: z.number().min(1).max(5),
   cultureRating: z.number().min(1).max(5),
   supervisorRating: z.number().min(1).max(5),
-  interviewRating: z.number().min(1).max(5),
+  interviewRating: z.number().min(1).max(5).optional().default(0),
   interviewReview: z.string().optional(),
-  reviewHeadline: z.string(),
+  reviewHeadline: z.string().optional().default(""),
   textReview: z.string(),
   locationId: z.string().optional(),
   hourlyPay: z.string().optional(),
@@ -95,9 +94,8 @@ export const CreateReviewSchema = createInsertSchema(Review, {
   federalHolidays: z.boolean(),
   freeLunch: z.boolean(),
   travelBenefits: z.boolean(),
-  freeMerch: z.boolean(),
   snackBar: z.boolean(),
-  employeeLounge: z.boolean(),
+  freeMerch: z.boolean(),
   otherBenefits: z.string().nullish(),
   roleId: z.string(),
   profileId: z.string(),

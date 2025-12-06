@@ -41,11 +41,13 @@ export function ReviewSection() {
                   { value: 5, label: 5 },
                 ]}
                 className="w-full border-cooper-gray-150 text-sm h-10"
-                value={field.value ?? ""}
+                value={
+                  field.value && field.value > 0 ? String(field.value) : ""
+                }
                 placeholder="Select"
                 onChange={(e) => {
                   const value =
-                    e.target.value === "" ? undefined : e.target.value;
+                    e.target.value === "" ? undefined : Number(e.target.value);
                   field.onChange(value);
                 }}
               />

@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { redirect } from "next/navigation";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { api } from "~/trpc/react";
 import { useForm } from "react-hook-form";
@@ -14,40 +14,13 @@ import {
 } from "~/app/_components/form/sections";
 import { z } from "zod";
 import { useCustomToast } from "@cooper/ui";
-import { WorkEnvironment, WorkTerm } from "@cooper/db/schema";
+import { Industry, WorkEnvironment, WorkTerm } from "@cooper/db/schema";
 import { Filter } from "bad-words";
 import dayjs from "dayjs";
 import { Form } from "node_modules/@cooper/ui/src/form";
 import { PaySection } from "~/app/_components/form/sections/pay-section";
-import { SubmissionConfirmation } from "~/app/_components/form/submission-confirmation";
-import { SubmissionFailure } from "~/app/_components/form/submission-failure";
-import { JobType } from "node_modules/@cooper/db/src/schema/misc";
-import { industryOptions } from "~/app/_components/onboarding/constants";
 import { Button } from "@cooper/ui/button";
 
-const sectionFields = {
-  basic: ["workTerm", "workYear", "companyName", "roleName"] as const,
-  company: ["workEnvironment", "drugTest", "overtimeNormal"] as const,
-  role: ["industry", "locationId", "hourlyPay"] as const,
-  interview: ["field"] as const,
-  review: [
-    "reviewHeadline",
-    "textReview",
-    "supervisorRating",
-    "overallRating",
-    "cultureRating",
-    "interviewRating",
-  ] as const,
-};
-
-type SectionKey = keyof typeof sectionFields;
-
-const hasValue = (value: unknown): boolean => {
-  if (value === undefined || value === null) return false;
-  if (typeof value === "string" && value.trim() === "") return false;
-  if (typeof value === "number" && value === 0) return false;
-  return true;
-};
 const filter = new Filter();
 
 export const benefits = [
@@ -63,6 +36,9 @@ export const benefits = [
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
     required_error: "You need to select a co-op cycle.",
+  }),
+  industry: z.nativeEnum(Industry, {
+    required_error: "You need to select an industry.",
   }),
   workYear: z.coerce
     .number({
@@ -96,14 +72,6 @@ const formSchema = z.object({
     })
     .min(1)
     .max(5),
-  interviewRating: z.coerce
-    .number({
-      errorMap: () => ({
-        message: "Please select a valid interview experience rating.",
-      }),
-    })
-    .min(1)
-    .max(5),
   interviewDifficulty: z.coerce
     .number({
       errorMap: () => ({
@@ -118,16 +86,6 @@ const formSchema = z.object({
     .refine((val) => !filter.isProfane(val ?? ""), {
       message: "The interview review cannot contain profane words.",
     }),
-  reviewHeadline: z
-    .string({
-      required_error: "You need to enter a Review Headline.",
-    })
-    .min(8, {
-      message: "The review headline must be at least 8 characters.",
-    })
-    .refine((val) => !filter.isProfane(val), {
-      message: "The review headline cannot contain profane words.",
-    }),
   textReview: z
     .string({
       required_error: "You need to enter a review for your co-op.",
@@ -138,15 +96,33 @@ const formSchema = z.object({
     .refine((val) => !filter.isProfane(val), {
       message: "The review cannot contain profane words.",
     }),
-  locationId: z.string().optional(),
+  companyName: z
+    .string({
+      required_error: "You need to enter a company.",
+    })
+    .min(1, {
+      message: "You need to enter a company.",
+    }),
+  roleName: z
+    .string({
+      required_error: "You need to enter a company.",
+    })
+    .min(1, {
+      message: "You need to enter a company.",
+    }),
+  locationId: z.string().min(1, {
+    message: "You need to select a location.",
+  }),
+  jobType: z.string().min(1, {
+    message: "You need to select a job type.",
+  }),
   hourlyPay: z.coerce
     .number()
-    .min(0, {
+    .min(1, {
       message: "Please enter hourly pay",
     })
     .transform((val) => (val ? val.toString() : null))
-    .nullable()
-    .optional(),
+    .nullable(),
   workEnvironment: z.nativeEnum(WorkEnvironment, {
     required_error: "You need to select a work model.",
   }),
@@ -156,13 +132,18 @@ const formSchema = z.object({
     })
     .transform((x) => x === "true")
     .pipe(z.boolean()),
+  pto: z
+    .string({
+      required_error: "You need to select whether you received PTO.",
+    })
+    .transform((x) => x === "true")
+    .pipe(z.boolean()),
   overtimeNormal: z
     .string({
       required_error: "You need to select whether working overtime was common.",
     })
     .transform((x) => x === "true")
     .pipe(z.boolean()),
-  pto: z.boolean().default(false),
   federalHolidays: z.boolean().default(false),
   freeLunch: z.boolean().default(false),
   travelBenefits: z.boolean().default(false),
@@ -174,7 +155,7 @@ const formSchema = z.object({
 
 export type ReviewFormType = typeof formSchema;
 export default function ReviewForm() {
-  const [currentStep, setCurrentStep] = useState(1);
+  const router = useRouter();
   const [submitted, setSubmitted] = useState(false);
 
   const {
@@ -194,23 +175,6 @@ export default function ReviewForm() {
   const [roleId, setRoleId] = useState<string>("");
   const [companyId, setCompanyId] = useState<string>("");
 
-  const getSectionStatus = (
-    form: ReturnType<typeof useForm<z.infer<ReviewFormType>>>,
-    section: SectionKey,
-  ): "complete" | "in-progress" | "not-started" => {
-    const fields = sectionFields[section];
-    const values = form.watch(fields as any);
-
-    const filledCount = fields.filter((field) => {
-      const value = form.getValues(field as any);
-      return hasValue(value);
-    }).length;
-
-    if (filledCount === 0 && fields.length > 0) return "not-started";
-    if (filledCount === fields.length) return "complete";
-    return "in-progress";
-  };
-
   const form = useForm<z.infer<ReviewFormType>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -219,35 +183,43 @@ export default function ReviewForm() {
       overallRating: 0,
       cultureRating: 0,
       supervisorRating: 0,
-      interviewRating: 0,
       interviewDifficulty: 0,
       interviewReview: "",
-      reviewHeadline: "",
       textReview: "",
       locationId: "",
       hourlyPay: "",
       workEnvironment: undefined,
       drugTest: undefined,
       overtimeNormal: undefined,
-      pto: false,
+      pto: undefined,
       federalHolidays: false,
       freeLunch: false,
       freeMerch: false,
       otherBenefits: "",
+      roleName: "",
+      companyName: "",
     },
   });
 
-  const steps = [
-    { id: 1, title: "01. Basic Information", section: "basic" as SectionKey },
-    {
-      id: 2,
-      title: "02. Company Information",
-      section: "company" as SectionKey,
-    },
-    { id: 3, title: "03. Role Information", section: "role" as SectionKey },
-    { id: 4, title: "04. Interview", section: "interview" as SectionKey },
-    { id: 5, title: "05. Final co-op review", section: "review" as SectionKey },
-  ];
+  // Watch form values and update roleId and companyId
+  const roleName = form.watch("roleName");
+  const companyName = form.watch("companyName");
+
+  useEffect(() => {
+    if (roleName) {
+      setRoleId(roleName);
+    } else {
+      setRoleId("");
+    }
+  }, [roleName]);
+
+  useEffect(() => {
+    if (companyName) {
+      setCompanyId(companyName);
+    } else {
+      setCompanyId("");
+    }
+  }, [companyName]);
 
   const profileId = profile?.id;
 
@@ -277,6 +249,7 @@ export default function ReviewForm() {
     onSuccess: () => {
       setValidForm(true);
       setSubmitted(true);
+      router.push("/");
     },
     onError: (error) => {
       setValidForm(false);
@@ -293,7 +266,8 @@ export default function ReviewForm() {
         profileId: profile?.id,
         companyId: companyId,
         ...values,
-        interviewDifficulty: values.interviewDifficulty ?? 0,
+        interviewRating: 1,
+        reviewHeadline: "",
       });
     } catch (error) {
       // Error is already handled by onError callback
@@ -302,20 +276,20 @@ export default function ReviewForm() {
   }
 
   if (!sessionLoading && !profileLoading && (!session || !profile)) {
-    redirect("/");
+    router.push("/");
   }
 
   if (!session || !profile) {
     return null;
   }
 
-  if (submitted) {
-    if (validForm) {
-      return <SubmissionConfirmation />;
-    } else {
-      return <SubmissionFailure message={errorMessage ?? undefined} />;
-    }
-  }
+  // if (submitted) {
+  //   if (validForm) {
+  //     return <SubmissionConfirmation />;
+  //   } else {
+  //     return <SubmissionFailure message={errorMessage ?? undefined} />;
+  //   }
+  // }
 
   return (
     <Form {...form}>
@@ -366,6 +340,12 @@ export default function ReviewForm() {
                   onClick={async () => {
                     const isValid = await form.trigger();
                     if (!isValid) {
+                      const errors = form.formState.errors;
+                      const errorFields = Object.keys(errors).filter(
+                        (key) => errors[key as keyof typeof errors],
+                      );
+                      console.log("Fields with errors:", errorFields);
+                      console.log("Error details:", errors);
                       toast.error("Please fill in all required fields.");
                       return;
                     }

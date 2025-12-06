@@ -1,12 +1,11 @@
 "use client";
 
-import { useId, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { api } from "~/trpc/react";
 
 import { industryOptions } from "../onboarding/constants";
 import DropdownFilter from "./dropdown-filter";
 import { abbreviatedStateName } from "~/utils/locationHelpers";
-import { Button } from "react-scroll";
 
 interface FilterState {
   industries: string[];

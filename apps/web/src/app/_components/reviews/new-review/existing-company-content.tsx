@@ -3,18 +3,14 @@ import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Filter } from "bad-words";
 import Fuse from "fuse.js";
-import { Form, FormProvider, useForm, useFormContext } from "react-hook-form";
+import { useForm, useFormContext } from "react-hook-form";
 import { z } from "zod";
 
 import { FormControl, FormField, FormItem, FormMessage } from "@cooper/ui/form";
 import { useCustomToast } from "@cooper/ui/hooks/use-custom-toast";
 import { Input } from "@cooper/ui/input";
 import { Label } from "@cooper/ui/label";
-import { Textarea } from "@cooper/ui/textarea";
 import { Checkbox } from "@cooper/ui/checkbox";
-import Image from "next/image";
-import Logo from "@cooper/ui/logo";
-import { prettyLocationName } from "~/utils/locationHelpers";
 
 import type { RoleRequestType } from "../new-role-dialogue";
 import { api } from "~/trpc/react";
@@ -55,8 +51,6 @@ export default function ExistingCompanyContent({
 }: {
   profileId?: string;
 }) {
-  const router = useRouter();
-
   const [selectedCompanyId, setSelectedCompanyId] = useState<
     string | undefined
   >();
@@ -323,7 +317,7 @@ export default function ExistingCompanyContent({
             {/* Your Role */}
             <FormField
               control={form.control}
-              name="roleName"
+              name="title"
               render={({ field }) => (
                 <FormItem className="flex flex-col pt-2.5 w-full">
                   <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
@@ -357,7 +351,10 @@ export default function ExistingCompanyContent({
 
                 <div className="relative flex-1 w-full">
                   <Select
-                    onClear={() => field.onChange(undefined)}
+                    onClear={() => {
+                      field.onChange(undefined);
+                      setSelectedRoleId(undefined);
+                    }}
                     options={
                       roles.data?.map((r) => ({
                         value: r.id,
@@ -367,8 +364,10 @@ export default function ExistingCompanyContent({
                     disabled={!selectedCompanyId}
                     className="w-full border-cooper-gray-150 text-sm h-10"
                     value={field.value ?? ""}
+                    placeholder="Select"
                     onChange={(e) => {
-                      const newRoleId = e.target.value;
+                      const newRoleId =
+                        e.target.value === "" ? undefined : e.target.value;
                       field.onChange(newRoleId);
                       setSelectedRoleId(newRoleId);
                       setCreatingNewRole(false);
