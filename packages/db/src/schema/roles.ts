@@ -12,6 +12,11 @@ export const Role = pgTable("role", {
   id: uuid("id").notNull().primaryKey().defaultRandom(),
   title: varchar("title").notNull(),
   description: text("description"),
+  jobType: varchar("jobType", {
+    enum: ["CO-OP", "INTERNSHIP"],
+  })
+    .notNull()
+    .default("CO-OP"),
   companyId: varchar("companyId").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt", {
@@ -39,6 +44,7 @@ export const RoleRelations = relations(Role, ({ one, many }) => ({
 export const CreateRoleSchema = createInsertSchema(Role, {
   title: z.string(),
   description: z.string(),
+  jobType: z.enum(["CO-OP", "INTERNSHIP"]),
   companyId: z.string(),
   createdBy: z.string(),
 }).omit({

@@ -1,24 +1,26 @@
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Filter } from "bad-words";
 import Fuse from "fuse.js";
-import { Form, FormProvider, useForm } from "react-hook-form";
+import { useForm, useFormContext } from "react-hook-form";
 import { z } from "zod";
 
-import type { CompanyType, RoleType } from "@cooper/db/schema";
-import { cn } from "@cooper/ui";
-import { Button } from "@cooper/ui/button";
-import { DialogFooter } from "@cooper/ui/dialog";
 import { FormControl, FormField, FormItem, FormMessage } from "@cooper/ui/form";
 import { useCustomToast } from "@cooper/ui/hooks/use-custom-toast";
 import { Input } from "@cooper/ui/input";
 import { Label } from "@cooper/ui/label";
-import Logo from "@cooper/ui/logo";
-import { Textarea } from "@cooper/ui/textarea";
+import { Checkbox } from "@cooper/ui/checkbox";
+import { Button } from "@cooper/ui/button";
 
 import type { RoleRequestType } from "../new-role-dialogue";
 import { api } from "~/trpc/react";
+import { Select } from "../../themed/onboarding/select";
+import { FormSection } from "../../form/form-section";
+import { FormLabel } from "../../themed/onboarding/form";
+import { industryOptions } from "../../onboarding/constants";
+import LocationBox from "../../location";
+import { CompanyCardPreview } from "../../companies/company-card-preview";
+import ComboBox from "../../combo-box";
 
 const filter = new Filter();
 const roleSchema = z.object({
@@ -30,46 +32,38 @@ const roleSchema = z.object({
     .refine((val) => !filter.isProfane(val), {
       message: "The title cannot contain profane words.",
     }),
-  description: z
-    .string()
-    .min(10, {
-      message: "The review must be at least 10 characters.",
-    })
-    .max(500, {
-      message: "The description must be at most 500 characters.",
-    })
-    .refine((val) => !filter.isProfane(val), {
-      message: "The description cannot contain profane words.",
-    }),
+  // description: z
+  //   .string()
+  //   .min(10, {
+  //     message: "The review must be at least 10 characters.",
+  //   })
+  //   .max(500, {
+  //     message: "The description must be at most 500 characters.",
+  //   })
+  //   .refine((val) => !filter.isProfane(val), {
+  //     message: "The description cannot contain profane words.",
+  //   }),
   companyId: z.string(),
   createdBy: z.string(),
 });
 
-interface ExistingCompanyContentProps {
-  createdRolesCount: number;
-  profileId?: string;
-}
-
 export default function ExistingCompanyContent({
-  createdRolesCount,
   profileId,
-}: ExistingCompanyContentProps) {
-  const router = useRouter();
-
-  const [companyLabel, setCompanyLabel] = useState<string>("");
+}: {
+  profileId?: string;
+}) {
   const [selectedCompanyId, setSelectedCompanyId] = useState<
     string | undefined
   >();
-  const [selectedRoleId, setSelectedRoleId] = useState<string | undefined>();
   const [creatingNewRole, setCreatingNewRole] = useState<boolean>(false);
-
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [showNewCompany, setShowNewCompany] = useState<boolean>(false);
+  const [locationLabel, setLocationLabel] = useState<string>("");
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [prefix, setPrefix] = useState<string>("");
 
   const { toast } = useCustomToast();
 
   const companies = api.company.list.useQuery({
-    prefix: companyLabel,
-    limit: 4,
     sortBy: "rating",
   });
 
@@ -81,6 +75,33 @@ export default function ExistingCompanyContent({
       enabled: !!selectedCompanyId,
     },
   );
+
+  // Location fetching logic for new company
+  useEffect(() => {
+    const newPrefix =
+      searchTerm.length === 3 ? searchTerm.slice(0, 3).toLowerCase() : null;
+    if (newPrefix && newPrefix !== prefix) {
+      setPrefix(newPrefix);
+    }
+  }, [prefix, searchTerm]);
+
+  const locationsToUpdate = api.location.getByPrefix.useQuery(
+    { prefix },
+    { enabled: searchTerm.length === 3 },
+  );
+
+  const locationValuesAndLabels = locationsToUpdate.data
+    ? locationsToUpdate.data.map((location) => {
+        return {
+          value: location.id,
+          label:
+            location.city +
+            (location.state ? `, ${location.state}` : "") +
+            ", " +
+            location.country,
+        };
+      })
+    : [];
 
   const extendedRoleSchema = roleSchema.extend({
     title: roleSchema.shape.title.refine(
@@ -116,11 +137,35 @@ export default function ExistingCompanyContent({
   });
 
   const newRoleMutation = api.role.create.useMutation({
+    onSuccess: (data) => {
+      toast.success("Role created successfully!");
+      const createdRole = data[0];
+      if (createdRole) {
+        form.setValue("roleName", createdRole.id);
+        setCreatingNewRole(false);
+        // Refresh roles list
+        void roles.refetch();
+      }
+    },
     onError: (error) => {
       console.error("Mutation error:", error);
       toast.error(error.message || "Something went wrong. Please try again.");
+    },
+  });
 
-      setIsLoading(false);
+  const createCompanyWithRoleMutation = api.company.createWithRole.useMutation({
+    onSuccess: (roleId) => {
+      toast.success("Company and role created successfully!");
+      form.setValue("roleName", roleId);
+      form.setValue("companyName", selectedCompany?.id ?? "");
+      setShowNewCompany(false);
+      setCreatingNewRole(false);
+      void companies.refetch();
+      void roles.refetch();
+    },
+    onError: (error) => {
+      console.error("Mutation error:", error);
+      toast.error(error.message || "Something went wrong. Please try again.");
     },
   });
 
@@ -129,213 +174,418 @@ export default function ExistingCompanyContent({
     setSelectedCompanyId(newId);
   }
 
-  async function handleSubmit() {
-    // Existing Company and Role Case
-    if (selectedRoleId) {
-      router.push("/review?id=" + selectedRoleId);
+  const form = useFormContext();
+
+  // Get the selected company from the form
+  const selectedCompanyName = form.watch("companyName") as string;
+  const selectedCompany = companies.data?.find(
+    (company) => company.id === selectedCompanyName,
+  );
+
+  const handleCreateCompanyWithRole = async () => {
+    const companyName = form.getValues("companyName") as string;
+    const industry = form.getValues("industry") as string;
+    const locationId = form.getValues("locationId") as string;
+    const roleTitle =
+      (form.getValues("title") as string) ||
+      (form.getValues("roleName") as string);
+
+    // Validate required fields
+    if (!companyName || companyName.length < 3) {
+      toast.error("Company name must be at least 3 characters.");
+      return;
+    }
+    if (!industry) {
+      toast.error("Please select an industry.");
+      return;
+    }
+    if (!locationId) {
+      toast.error("Please select a location.");
+      return;
+    }
+    if (!roleTitle || roleTitle.length < 3) {
+      toast.error("Role title must be at least 3 characters.");
       return;
     }
 
-    // Existing Company and New Role Case
-    if (creatingNewRole && selectedCompanyId) {
-      const res = await newRoleForm.trigger(["title", "description"], {
-        shouldFocus: true,
-      });
+    await createCompanyWithRoleMutation.mutateAsync({
+      companyName: companyName.trim(),
+      description: `Company in ${industry} industry`,
+      industry,
+      roleTitle: roleTitle.trim(),
+      roleDescription: "Role description",
+      createdBy: profileId ?? "",
+    });
+  };
 
-      if (!res) {
-        return;
-      }
-
-      setIsLoading(true);
-
-      try {
-        const newRoles = await newRoleMutation.mutateAsync({
-          ...newRoleForm.getValues(),
-          companyId: selectedCompanyId,
-          createdBy: profileId ?? "",
-        });
-
-        if (newRoles[0]) {
-          router.push("/review?id=" + newRoles[0].id);
-        } else {
-          setIsLoading(false);
-        }
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      } catch (err) {
-        setIsLoading(false);
-      }
+  const handleCreateRole = async () => {
+    if (!selectedCompanyId) {
+      toast.error("Please select a company first.");
+      return;
     }
-  }
 
-  const createNewRoleButton = (
-    <div
-      className={cn(
-        "flex flex-col items-center justify-center rounded-lg border border-cooper-gray-300 p-2 hover:cursor-pointer",
-        creatingNewRole && "bg-cooper-blue-200",
-      )}
-      onClick={() => {
-        setCreatingNewRole(true);
-        setSelectedRoleId(undefined);
-      }}
-    >
-      <h2 className="text-lg">Don't see your role?</h2>
-      <p className="text-md">Add a New One</p>
-    </div>
-  );
+    // Only validate the title field since companyId and createdBy are set programmatically
+    const isTitleValid = await newRoleForm.trigger("title");
+    if (!isTitleValid) {
+      toast.error("Please enter a valid role title (at least 5 characters).");
+      return;
+    }
+
+    const values = newRoleForm.getValues();
+
+    await newRoleMutation.mutateAsync({
+      title: values.title,
+      description: values.description,
+      companyId: selectedCompanyId,
+      createdBy: profileId ?? "",
+      jobType: "CO-OP",
+    });
+  };
 
   return (
-    <>
-      <div className="flex flex-col gap-4">
+    <FormSection>
+      <div className="flex flex-col gap-2 pt-4 w-full">
         {/* Company Section */}
-        <article>
-          <p className="text-lg font-semibold">Company Name</p>
-          <Input
-            variant="dialogue"
-            onChange={(e) => {
-              setCompanyLabel(e.target.value);
-              handleUpdateCompanyId(undefined);
-            }}
-            className="w-full"
-          />
-          <div className="mt-2 grid w-full grid-cols-1 gap-2">
-            {companies.isSuccess &&
-              companies.data.length > 0 &&
-              companies.data.map((company: CompanyType) => (
-                <div
-                  key={company.id}
-                  className={cn(
-                    "flex items-center justify-start space-x-4 rounded-lg border border-cooper-gray-300 p-2 hover:cursor-pointer",
-                    selectedCompanyId === company.id && "bg-cooper-blue-200",
-                  )}
-                  onClick={() => {
-                    handleUpdateCompanyId(company.id);
-                    setCreatingNewRole(false);
-                    setSelectedRoleId(undefined);
+        <FormField
+          control={form.control}
+          name="companyName"
+          render={({ field }) => (
+            <FormItem className="flex flex-col w-full">
+              <FormLabel className="text-sm text-cooper-gray-400 font-semibold flex-shrink-0">
+                Company name<span className="text-[#FB7373]">*</span>
+              </FormLabel>
+
+              <div className="relative flex-1 w-full ">
+                <ComboBox
+                  valuesAndLabels={
+                    companies.data?.filter(Boolean).map((company) => ({
+                      value: company.id,
+                      label: company.name,
+                    })) ?? []
+                  }
+                  defaultLabel="Select company"
+                  searchPlaceholder="Select"
+                  searchEmpty="No company found."
+                  variant={"form"}
+                  currLabel={
+                    field.value &&
+                    typeof field.value === "string" &&
+                    field.value.length > 0
+                      ? (companies.data?.find((c) => c.id === field.value)
+                          ?.name ?? "")
+                      : ""
+                  }
+                  onClear={() => field.onChange(undefined)}
+                  onSelect={(selectedLabel) => {
+                    const selectedCompany = companies.data?.find(
+                      (c) => c.name === selectedLabel,
+                    );
+                    if (selectedCompany) {
+                      const newId = selectedCompany.id;
+                      field.onChange(newId);
+                      handleUpdateCompanyId(newId);
+                      if (newId) {
+                        setShowNewCompany(false);
+                      }
+                    }
                   }}
-                >
-                  <Logo company={company} />
-                  <h2 className="text-lg font-semibold">{company.name}</h2>
-                </div>
-              ))}
-            {companies.isSuccess && companies.data.length === 0 && (
-              <div className="text-md flex items-center rounded-lg py-2">
-                <h2 className="text-lg italic">No companies found</h2>
+                />
               </div>
-            )}
-            {companies.isPending && (
-              <div className="flex h-16 items-center justify-start rounded-lg p-4">
-                <h2 className="text-lg italic">Loading...</h2>
-              </div>
-            )}
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        {/* "I don't see my company" checkbox */}
+
+        <div className="flex items-center gap-2 flex-1">
+          <Checkbox
+            checked={showNewCompany}
+            onCheckedChange={(checked) => {
+              setShowNewCompany(checked === true);
+              if (checked) {
+                form.setValue("companyName", "");
+                setSelectedCompanyId(undefined);
+              }
+            }}
+          />
+          <Label className="text-sm text-cooper-gray-550 font-bold cursor-pointer">
+            I don't see my company
+          </Label>
+        </div>
+
+        {/* Company Card - shown when company is selected */}
+        {selectedCompany && (
+          <div className="pt-2">
+            <div className="text-sm text-cooper-gray-400 font-semibold mb-2">
+              Adding a review for
+            </div>
+            <CompanyCardPreview
+              companyObj={selectedCompany}
+              className="w-full"
+            />
           </div>
-        </article>
-        {/* Roles Section */}
-        {selectedCompanyId && (
-          <>
-            <article>
-              <p className="text-lg font-semibold">Roles</p>
-              <div className="mt-2 grid w-full grid-cols-1 gap-2">
-                {roles.isSuccess && roles.data.length > 0 && (
-                  <>
-                    {roles.data.map((role: RoleType) => (
-                      <div
-                        key={role.id}
-                        className={cn(
-                          "flex flex-col items-start justify-start rounded-lg border border-cooper-gray-300 p-2 hover:cursor-pointer",
-                          selectedRoleId === role.id && "bg-cooper-blue-200",
-                        )}
-                        onClick={() => {
-                          setSelectedRoleId(role.id);
-                          setCreatingNewRole(false);
-                        }}
-                      >
-                        <h2 className="text-lg font-semibold">{role.title}</h2>
-                        <p className="text-md">{role.description}</p>
-                      </div>
-                    ))}
-                    {createdRolesCount < 4 && createNewRoleButton}
-                  </>
-                )}
-                {roles.isPending && (
-                  <div className="flex items-center rounded-lg py-2">
-                    <h2 className="text-lg italic">Loading...</h2>
-                  </div>
-                )}
-                {createdRolesCount < 4 &&
-                  roles.isSuccess &&
-                  roles.data.length === 0 &&
-                  createNewRoleButton}
-                {createdRolesCount >= 4 && (
-                  <div className="flex flex-col items-center justify-center rounded-lg border border-cooper-gray-300 p-2">
-                    <h2 className="text-center text-lg">
-                      You have already created the maximum number of roles.
-                    </h2>
-                    <p className="text-md">
-                      Thank you for contributing to{" "}
-                      <span className="font-bold text-cooper-blue-800">
-                        cooper!
-                      </span>
-                    </p>
-                  </div>
-                )}
-              </div>
-            </article>
-            {/* Create New Role Section */}
-            {creatingNewRole && (
-              <article>
-                <FormProvider {...newRoleForm}>
-                  <Form>
-                    <div className="flex flex-col gap-4">
-                      <FormField
-                        control={newRoleForm.control}
-                        name="title"
-                        render={({ field }) => (
-                          <FormItem>
-                            <Label>Role Name</Label>
-                            <FormControl>
-                              <Input
-                                type="string"
-                                variant="dialogue"
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage className="text-sm" />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={newRoleForm.control}
-                        name="description"
-                        render={({ field }) => (
-                          <FormItem>
-                            <Label>Role Description</Label>
-                            <FormControl>
-                              <Textarea variant="dialogue" {...field} />
-                            </FormControl>
-                            <FormMessage className="text-sm" />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                  </Form>
-                </FormProvider>
-              </article>
-            )}
-          </>
         )}
+
+        {/* "Add Your Company" gray box section */}
+        {showNewCompany && (
+          <div className="bg-cooper-gray-100 rounded-lg p-3.5 flex flex-col w-full">
+            <div className="text-sm font-semibold text-cooper-gray-550">
+              Add Your Company
+            </div>
+            <div className="text-xs text-cooper-gray-600">
+              We'll verify this information before it appears on the website as
+              a review.
+            </div>
+
+            {/* Company Name */}
+            <FormField
+              control={form.control}
+              name="companyName"
+              render={({ field }) => (
+                <FormItem className="flex flex-col w-full pt-2.5">
+                  <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
+                    Company Name<span className="text-[#FB7373]">*</span>
+                  </FormLabel>
+                  <FormControl className="flex-1">
+                    <Input
+                      placeholder="Enter"
+                      className="w-full border border-cooper-gray-150 text-sm h-10"
+                      value={
+                        field.value &&
+                        typeof field.value === "string" &&
+                        field.value.length > 0
+                          ? field.value
+                          : ""
+                      }
+                      onChange={(e) => field.onChange(e.target.value)}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* Industry */}
+            <FormField
+              control={form.control}
+              name="industry"
+              render={({ field }) => (
+                <FormItem className="flex flex-col flex-1 pt-2.5">
+                  <FormLabel className="text-xs font-bold text-cooper-gray-550">
+                    Industry<span className="text-[#FB7373]">*</span>
+                  </FormLabel>
+                  <FormControl className="relative w-full">
+                    <Select
+                      options={industryOptions}
+                      placeholder="Search"
+                      className="w-full border-2 bg-white border-cooper-gray-150 text-sm text-cooper-gray-350 h-10"
+                      value={
+                        field.value &&
+                        typeof field.value === "string" &&
+                        field.value.length > 0
+                          ? field.value
+                          : ""
+                      }
+                      onClear={() => field.onChange(undefined)}
+                      onChange={(e) => {
+                        const value =
+                          e.target.value === "" ? undefined : e.target.value;
+                        field.onChange(value);
+                      }}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* Location - Fixed */}
+            <FormField
+              control={form.control}
+              name="locationId"
+              render={() => (
+                <FormItem className="flex flex-col pt-2.5 w-full">
+                  <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
+                    Location<span className="text-[#FB7373]">*</span>
+                  </FormLabel>
+                  <FormControl className="flex-1">
+                    <LocationBox
+                      searchBar={false}
+                      form={form}
+                      locationLabel={locationLabel}
+                      setSearchTerm={setSearchTerm}
+                      locationValuesAndLabels={locationValuesAndLabels}
+                      setLocationLabel={setLocationLabel}
+                      locationsToUpdate={locationsToUpdate}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* Your Role */}
+            <FormField
+              control={form.control}
+              name="title"
+              render={({ field }) => (
+                <FormItem className="flex flex-col pt-2.5 w-full">
+                  <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
+                    Your Role<span className="text-[#FB7373]">*</span>
+                  </FormLabel>
+                  <FormControl className="flex-1">
+                    <Input
+                      placeholder="Enter"
+                      className="w-full border border-cooper-gray-150 text-sm h-10"
+                      value={
+                        field.value &&
+                        typeof field.value === "string" &&
+                        field.value.length > 0
+                          ? field.value
+                          : ""
+                      }
+                      onChange={(e) => field.onChange(e.target.value)}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* Submit Button for Creating Company */}
+            <div className="flex justify-end pt-4">
+              <Button
+                type="button"
+                onClick={handleCreateCompanyWithRole}
+                disabled={createCompanyWithRoleMutation.isPending}
+                className="bg-cooper-gray-550 hover:bg-cooper-gray-600 text-white rounded-lg px-8 py-3 text-lg font-semibold border-none"
+              >
+                {createCompanyWithRoleMutation.isPending
+                  ? "Creating..."
+                  : "Create Company & Role"}
+              </Button>
+            </div>
+          </div>
+        )}
+
+        {/* Your Role section (only show when company is selected and not showing new company) */}
+        <div className=" pt-4">
+          <FormField
+            control={form.control}
+            name="roleName"
+            render={({ field }) => (
+              <FormItem className="flex flex-col w-full ">
+                <FormLabel className="text-sm font-semibold text-cooper-gray-400 flex-shrink-0">
+                  Your Role<span className="text-[#FB7373]">*</span>
+                </FormLabel>
+
+                <div className="relative flex-1 w-full">
+                  <Select
+                    onClear={() => {
+                      field.onChange(undefined);
+                    }}
+                    options={
+                      roles.data?.map((r) => ({
+                        value: r.id,
+                        label: r.title,
+                      })) ?? []
+                    }
+                    disabled={!selectedCompanyId}
+                    className="w-full border-cooper-gray-150 text-sm h-10"
+                    value={
+                      field.value &&
+                      typeof field.value === "string" &&
+                      field.value.length > 0
+                        ? field.value
+                        : ""
+                    }
+                    placeholder="Select"
+                    onChange={(e) => {
+                      const newRoleId =
+                        e.target.value === "" ? undefined : e.target.value;
+                      field.onChange(newRoleId);
+                      setCreatingNewRole(false);
+                    }}
+                    onFocus={() => setCreatingNewRole(false)}
+                  />
+                </div>
+                <FormMessage />
+                {selectedCompanyId && roles.data && roles.data.length === 0 && (
+                  <p className="text-sm text-red-500 mt-1">
+                    No roles available for this company. Please add a role
+                    first.
+                  </p>
+                )}
+              </FormItem>
+            )}
+          />
+
+          {/* "I don't see my role" checkbox */}
+
+          <div className="flex items-center gap-2 flex-1 pt-2">
+            <Checkbox
+              checked={creatingNewRole}
+              onCheckedChange={(checked) => {
+                setCreatingNewRole(checked === true);
+                if (checked) {
+                  form.setValue("roleName", "");
+                }
+              }}
+            />
+            <Label className="text-sm text-cooper-gray-550 font-bold cursor-pointer">
+              I don't see my role
+            </Label>
+          </div>
+
+          {/* Create New Role Section */}
+          {creatingNewRole && (
+            <div className="bg-cooper-gray-100 rounded-lg p-3.5 flex flex-col w-full">
+              <div className="text-sm font-semibold text-cooper-gray-550">
+                Add Your Role
+              </div>
+              <div className="text-xs text-cooper-gray-600">
+                We'll verify this information before it appears on the website
+                as a review.
+              </div>
+
+              {/* Company Name */}
+              <FormField
+                control={newRoleForm.control}
+                name="title"
+                render={({ field }) => (
+                  <FormItem className="flex flex-col w-full pt-2.5">
+                    <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
+                      Your Role<span className="text-[#FB7373]">*</span>
+                    </FormLabel>
+                    <FormControl className="flex-1">
+                      <Input
+                        placeholder="Enter"
+                        className="w-full border border-cooper-gray-150 text-sm h-10"
+                        value={field.value}
+                        onChange={(e) => field.onChange(e.target.value)}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Submit Button for Creating Role */}
+              <div className="flex justify-end pt-4">
+                <Button
+                  type="button"
+                  onClick={handleCreateRole}
+                  disabled={newRoleMutation.isPending}
+                  className="bg-cooper-gray-550 hover:bg-cooper-gray-600 text-white rounded-lg px-8 py-3 text-lg font-semibold border-none"
+                >
+                  {newRoleMutation.isPending ? "Creating..." : "Create Role"}
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
-      <DialogFooter className="mt-4">
-        <Button
-          className="border-none bg-cooper-yellow-500 text-white hover:bg-cooper-yellow-300"
-          disabled={
-            ((!selectedCompanyId || !selectedRoleId) && !creatingNewRole) ||
-            isLoading
-          }
-          onClick={handleSubmit}
-        >
-          {isLoading ? "Loading..." : "Start Review"}
-        </Button>
-      </DialogFooter>
-    </>
+    </FormSection>
   );
 }

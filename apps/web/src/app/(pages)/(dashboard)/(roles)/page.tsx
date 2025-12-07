@@ -22,12 +22,21 @@ import {
   CompareColumns,
   CompareControls,
 } from "~/app/_components/compare/compare-ui";
+import DropdownFiltersBar from "~/app/_components/filters/dropdown-filters-bar";
 import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
 import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
 import { RoleInfo } from "~/app/_components/reviews/role-info";
 import SearchFilter from "~/app/_components/search/search-filter";
 import { api } from "~/trpc/react";
+
+interface FilterState {
+  industries: string[];
+  locations: string[];
+  jobTypes: string[];
+  hourlyPay: { min: number; max: number };
+  ratings: string[];
+}
 
 export default function Roles() {
   const searchParams = useSearchParams();
@@ -44,7 +53,42 @@ export default function Roles() {
     "default" | "rating" | "newest" | "oldest" | undefined
   >("default");
   const [currentPage, setCurrentPage] = useState(1);
+  const [appliedFilters, setAppliedFilters] = useState<FilterState>({
+    industries: [],
+    locations: [],
+    jobTypes: [],
+    hourlyPay: { min: 0, max: 0 },
+    ratings: [],
+  });
   const rolesAndCompaniesPerPage = 10;
+
+  // Convert filter state to backend format
+  const backendFilters = useMemo(() => {
+    return {
+      industries:
+        appliedFilters.industries.length > 0
+          ? appliedFilters.industries
+          : undefined,
+      locations:
+        appliedFilters.locations.length > 0
+          ? appliedFilters.locations
+          : undefined,
+      jobTypes:
+        appliedFilters.jobTypes.length > 0
+          ? appliedFilters.jobTypes
+          : undefined,
+      minPay:
+        appliedFilters.hourlyPay.min > 0
+          ? appliedFilters.hourlyPay.min
+          : undefined,
+      maxPay:
+        appliedFilters.hourlyPay.max > 0
+          ? appliedFilters.hourlyPay.max
+          : undefined,
+      ratings:
+        appliedFilters.ratings.length > 0 ? appliedFilters.ratings : undefined,
+    };
+  }, [appliedFilters]);
 
   const rolesAndCompanies = api.roleAndCompany.list.useQuery({
     sortBy: selectedFilter,
@@ -52,6 +96,7 @@ export default function Roles() {
     limit: rolesAndCompaniesPerPage,
     offset: (currentPage - 1) * rolesAndCompaniesPerPage,
     type: selectedType,
+    filters: backendFilters,
   });
 
   const buttonStyle =
@@ -125,6 +170,11 @@ export default function Roles() {
     setCurrentPage(page);
   };
 
+  const handleFilterChange = (filters: FilterState) => {
+    setAppliedFilters(filters);
+    setCurrentPage(1); // Reset to first page when filters change
+  };
+
   useEffect(() => {
     setCurrentPage(1);
   }, [selectedFilter, searchValue, selectedType]);
@@ -191,21 +241,22 @@ export default function Roles() {
 
   return (
     <>
-      <div className="bg-cooper-cream-100 border-cooper-gray-150 fixed z-20 w-full self-start border-b-[1px]">
-        <div className="flex min-h-[50px] items-center justify-between px-5 py-2">
-          <div className="flex w-full items-center md:w-[28%]">
-            <SearchFilter className="w-full" />
-          </div>
-          {compare.isCompareMode && selectedRole && (
-            <div className="hidden items-center gap-2 md:flex">
-              <CompareControls anchorRoleId={selectedRole.id} inTopBar />
-            </div>
-          )}
+      <div className="bg-cooper-cream-100 border-cooper-gray-150 fixed z-20 flex w-full flex-col items-stretch gap-4 self-start border-b-[1px] py-4 md:flex-row md:items-center md:gap-5">
+        <div className="w-full px-5 md:w-[28%]">
+          <SearchFilter className="w-full" />
         </div>
+        <div className="no-scrollbar w-full flex-1 overflow-x-auto px-5 md:overflow-visible md:pl-0 md:pr-5">
+          <DropdownFiltersBar onFilterChange={handleFilterChange} />
+        </div>
+        {compare.isCompareMode && selectedRole && (
+          <div className="hidden items-center gap-2 px-5 md:flex">
+            <CompareControls anchorRoleId={selectedRole.id} inTopBar />
+          </div>
+        )}
       </div>
       {rolesAndCompanies.isSuccess &&
         rolesAndCompanies.data.items.length > 0 && (
-          <div className="bg-cooper-cream-100 flex h-[90dvh] w-full pt-[9.25dvh]">
+          <div className="bg-cooper-cream-100 flex h-[90dvh] w-full pt-[12dvh] md:pt-[9.25dvh]">
             {/* RoleCardPreview List */}
             <div
               ref={sidebarRef}
@@ -339,9 +390,9 @@ export default function Roles() {
                         }
                         showFavorite={!compare.isCompareMode}
                         className={cn(
-                          "hover:bg-cooper-gray-100",
+                          "hover:bg-cooper-gray-200",
                           selectedItem
-                            ? selectedItem.id === item.id &&
+                            ? selectedItem.id === roleItem.id &&
                                 "bg-cooper-cream-200"
                             : !i && "bg-cooper-cream-200",
                         )}
@@ -360,12 +411,10 @@ export default function Roles() {
                     <CompanyCardPreview
                       companyObj={item}
                       className={cn(
-                        "mb-4 hover:bg-cooper-gray-100",
+                        "mb-4 hover:bg-cooper-gray-200",
                         selectedItem
-                          ? selectedItem.id === item.id &&
-                              "bg-cooper-cream-200 hover:bg-cooper-gray-200"
-                          : !i &&
-                              "bg-cooper-cream-200 hover:bg-cooper-gray-200",
+                          ? selectedItem.id === item.id && "bg-cooper-cream-200"
+                          : !i && "bg-cooper-cream-200",
                       )}
                     />
                   </div>
