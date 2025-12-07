@@ -65,7 +65,7 @@ export default function ExistingCompanyContent({
 
   const companies = api.company.list.useQuery({
     sortBy: "rating",
-    limit: 10000
+    limit: 10000,
   });
 
   const roles = api.role.getByCompany.useQuery(
