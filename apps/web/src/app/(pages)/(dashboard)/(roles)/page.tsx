@@ -342,7 +342,6 @@ export default function Roles() {
       }
       // Select first item on the new page
       setSelectedItem(rolesAndCompanies.data.items[0]);
-      setShowRoleInfo(true);
     }
   }, [
     currentPage,
