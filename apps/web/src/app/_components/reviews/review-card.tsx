@@ -7,9 +7,13 @@ import { cn } from "@cooper/ui";
 import { Card, CardContent } from "@cooper/ui/card";
 
 import { api } from "~/trpc/react";
-import { prettyLocationName } from "~/utils/locationHelpers";
-import { prettyWorkEnviornment } from "~/utils/stringHelpers";
+import { locationName } from "~/utils/locationHelpers";
+import {
+  abbreviatedWorkTerm,
+  prettyWorkEnviornment,
+} from "~/utils/stringHelpers";
 import { DeleteReviewDialog } from "./delete-review-dialogue";
+import { ReviewCardStars } from "./review-card-stars";
 
 interface ReviewCardProps {
   className?: string;
@@ -23,51 +27,45 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
   // Check if the current user is the author of the review
   const isAuthor = currentProfile?.id === reviewObj.profileId;
 
-  const { data: location } = api.location.getById.useQuery({
-    id: reviewObj.locationId ?? "",
-  });
-
   return (
     <Card
       className={cn(
-        "mx-auto w-[100%] border-[0.75px] border-cooper-gray-150 bg-[#FEFEFE]",
+        "mx-auto min-h-40 w-[100%] border-[0.75px] border-cooper-gray-400 bg-cooper-gray-100",
         className,
       )}
     >
       <div className="flex w-full flex-wrap">
-        <div className="w-full sm:w-[17%]">
-          <CardContent className="flex h-full pr-0">
-            <div className="flex md:flex-col flex-row justify-between w-full">
-              <div className="flex flex-row gap-2 items-center">
-                <div className="md:text-4xl text-2xl text-[#151515]">
-                  {reviewObj.overallRating.toFixed(1)}
-                </div>
-                <Image
-                  src="/svg/star.svg"
-                  alt="Star icon"
-                  width={28}
-                  height={28}
-                  className="w-5 h-5 md:w-7 md:h-7"
-                />
+        <div className="h-40 w-full sm:w-[35%]">
+          <CardContent className="flex h-full flex-col justify-between pr-0">
+            <div>
+              <div className="pt-2">
+                <ReviewCardStars numStars={reviewObj.overallRating} />
               </div>
               <div className="align-center flex flex-col pt-2 text-cooper-gray-600 text-sm">
                 <span
-                  className={`${location && prettyLocationName(location) ? "visibility: visible" : "visibility: hidden"}`}
+                  className={`${locationName(reviewObj) ? "visibility: visible" : "visibility: hidden"}`}
                 >
-                  {prettyLocationName(location)}
+                  {locationName(reviewObj)} •
                 </span>
                 <span>
-                  {reviewObj.workTerm.charAt(0).toUpperCase() +
-                    reviewObj.workTerm.slice(1).toLowerCase()}{" "}
-                  {reviewObj.workYear}
+                  {abbreviatedWorkTerm(reviewObj.workTerm)} {reviewObj.workYear}
                 </span>
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <div className="text-sm">
+                {reviewObj.createdAt.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
               </div>
             </div>
           </CardContent>
         </div>
-        <div className="w-full sm:w-[83%]">
-          <CardContent className="flex h-full flex-col justify-between gap-4 md:pl-4 sm:pl-0 md:pt-0 pt-5">
-            <div className=" flex-row justify-between hidden md:flex">
+        <div className="w-full sm:w-[65%]">
+          <CardContent className="flex h-full flex-col justify-between gap-4 pl-4 sm:pl-0">
+            <div className="flex flex-row justify-between">
               <div className="pt-1">{reviewObj.textReview}</div>
               {isAuthor && <DeleteReviewDialog reviewId={reviewObj.id} />}
             </div>
@@ -87,10 +85,14 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
                   {reviewObj.hourlyPay}/hr
                 </div>
               </div>
-            </div>
-            <div className="flex flex-row justify-between visible md:hidden">
-              <div className="pt-1">{reviewObj.textReview}</div>
-              {isAuthor && <DeleteReviewDialog reviewId={reviewObj.id} />}
+
+              <Image
+                src="/svg/reviewReport.svg"
+                alt="Star icon"
+                width={16}
+                height={15}
+                className="cursor-pointer"
+              />
             </div>
           </CardContent>
         </div>
