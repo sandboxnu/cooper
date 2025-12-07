@@ -383,14 +383,14 @@ export default function Roles() {
   const selectedRole = useMemo(() => {
     if (!resolvedSelection) return null;
     return isRole(resolvedSelection) ? (resolvedSelection as RoleType) : null;
-  }, [resolvedSelection]);
+  }, [resolvedSelection, isRole]);
 
   const selectedCompany = useMemo(() => {
     if (!resolvedSelection) return null;
     return !isRole(resolvedSelection)
       ? (resolvedSelection as CompanyType)
       : null;
-  }, [resolvedSelection]);
+  }, [resolvedSelection, isRole]);
 
   // Helper to check if a role is already being compared
   const isRoleAlreadyCompared = (roleId: string) => {
