@@ -11,6 +11,7 @@ import { User } from "./users";
 export const Role = pgTable("role", {
   id: uuid("id").notNull().primaryKey().defaultRandom(),
   title: varchar("title").notNull(),
+  slug: varchar("slug").notNull(),
   description: text("description"),
   jobType: varchar("jobType", {
     enum: ["CO-OP", "INTERNSHIP"],
@@ -49,6 +50,7 @@ export const CreateRoleSchema = createInsertSchema(Role, {
   createdBy: z.string(),
 }).omit({
   id: true,
+  slug: true,
   createdAt: true,
   updatedAt: true,
 });
