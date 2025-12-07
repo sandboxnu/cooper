@@ -245,7 +245,8 @@ export const roleRouter = {
       const drugTest = calcPercentage("drugTest");
       const freeLunch = calcPercentage("freeLunch");
       const freeMerch = calcPercentage("freeMerch");
-      const freeTransportation = calcPercentage("freeTransport");
+      const travelBenefits = calcPercentage("travelBenefits");
+      const snackBar = calcPercentage("snackBar");
       const overtimeNormal = calcPercentage("overtimeNormal");
       const pto = calcPercentage("pto");
 
@@ -269,7 +270,8 @@ export const roleRouter = {
         drugTest: drugTest,
         freeLunch: freeLunch,
         freeMerch: freeMerch,
-        freeTransportation: freeTransportation,
+        travelBenefits: travelBenefits,
+        snackBar: snackBar,
         overtimeNormal: overtimeNormal,
         pto: pto,
         minPay: minPay,

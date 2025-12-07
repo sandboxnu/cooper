@@ -4,7 +4,7 @@ import type { CompanyType, RoleType } from "@cooper/db/schema";
 import { asc, desc, sql } from "@cooper/db";
 import { Company, Review, Role } from "@cooper/db/schema";
 
-import { sortableProcedure } from "../trpc";
+import { publicProcedure, sortableProcedure } from "../trpc";
 import { performFuseSearch } from "../utils/fuzzyHelper";
 
 const ordering = {
@@ -47,7 +47,7 @@ export const roleAndCompanyRouter = {
           ${Role}.*, 
           COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
         FROM ${Role}
-        LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+        LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
         GROUP BY ${Role.id}
         ORDER BY avg_rating DESC
       `);
@@ -68,8 +68,8 @@ export const roleAndCompanyRouter = {
             ${Company}.*, 
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Company}
-          LEFT JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
-          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
+          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
           GROUP BY ${Company.id}
           ORDER BY avg_rating DESC
         `);
@@ -114,7 +114,7 @@ export const roleAndCompanyRouter = {
 
       // Build company -> location mapping if location filter is active
       const companyLocationsMap = new Map<string, string[]>();
-      if (locationFilterActive && filters.locations) {
+      if (locationFilterActive) {
         const locationIds = filters.locations;
         // Query the join table for matching company <-> location rows
         const companyLocRows =
@@ -122,7 +122,7 @@ export const roleAndCompanyRouter = {
 
         for (const r of companyLocRows) {
           // r.companyId / r.locationId come from the CompaniesToLocations schema
-          if (!locationIds.includes(r.locationId)) continue;
+          if (!locationIds?.includes(r.locationId)) continue;
           const cid = r.companyId;
           const lid = r.locationId;
           const arr = companyLocationsMap.get(cid) ?? [];
@@ -147,7 +147,7 @@ export const roleAndCompanyRouter = {
             ${Role.id} AS id,
             COALESCE(AVG(${Review.hourlyPay}::float), 0) AS avg_hourly_pay
           FROM ${Role}
-          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
           WHERE ${Role.id} IN (${sql.join(
             roleIds.map((id) => sql`${id}`),
             sql`,`,
@@ -163,7 +163,7 @@ export const roleAndCompanyRouter = {
             ${Role.id} AS id,
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Role}
-          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
           WHERE ${Role.id} IN (${sql.join(
             roleIds.map((id) => sql`${id}`),
             sql`,`,
@@ -182,8 +182,8 @@ export const roleAndCompanyRouter = {
             ${Company.id} AS id,
             COALESCE(AVG(${Review.hourlyPay}::float), 0) AS avg_hourly_pay
           FROM ${Company}
-          LEFT JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
-          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
+          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
           WHERE ${Company.id} IN (${sql.join(
             companyIds.map((id) => sql`${id}`),
             sql`,`,
@@ -199,8 +199,8 @@ export const roleAndCompanyRouter = {
             ${Company.id} AS id,
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Company}
-          LEFT JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
-          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
+          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
           WHERE ${Company.id} IN (${sql.join(
             companyIds.map((id) => sql`${id}`),
             sql`,`,
@@ -313,5 +313,111 @@ export const roleAndCompanyRouter = {
         totalRolesCount,
         totalCompanyCount,
       };
+    }),
+
+  getPageNumber: publicProcedure
+    .input(
+      z.object({
+        itemId: z.string(),
+        itemType: z.enum(["role", "company"]),
+        sortBy: z
+          .enum(["default", "rating", "newest", "oldest"])
+          .default("default"),
+        search: z.string().optional(),
+        type: z.enum(["roles", "companies", "all"]).default("all"),
+        limit: z.number().default(10),
+      }),
+    )
+    .query(async ({ ctx, input }) => {
+      // Fetch all items using the same logic as the list endpoint
+      let roles: RoleType[] = [];
+      if (input.sortBy === "rating") {
+        const rolesWithRatings = await ctx.db.execute(sql`
+          SELECT 
+            ${Role}.*, 
+            COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
+          FROM ${Role}
+          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
+          GROUP BY ${Role.id}
+          ORDER BY avg_rating DESC
+        `);
+
+        roles = rolesWithRatings.rows.map((role) => ({
+          ...(role as RoleType),
+        }));
+      } else {
+        roles = await ctx.db.query.Role.findMany({
+          orderBy: ordering[input.sortBy],
+        });
+      }
+
+      let companies: CompanyType[] = [];
+      if (input.sortBy === "rating") {
+        const companiesWithRatings = await ctx.db.execute(sql`
+          SELECT 
+            ${Company}.*, 
+            COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
+          FROM ${Company}
+          LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
+          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
+          GROUP BY ${Company.id}
+          ORDER BY avg_rating DESC
+        `);
+
+        companies = companiesWithRatings.rows.map((company) => ({
+          ...(company as CompanyType),
+        }));
+      } else {
+        companies = await ctx.db.query.Company.findMany({
+          orderBy: companyOrdering[input.sortBy],
+        });
+      }
+
+      const rolesWithCompanies = roles.map((role) => {
+        const company = companies.find((c) => c.id === role.companyId);
+        return {
+          ...role,
+          companyName: company?.name ?? "",
+          type: "role" as const,
+        };
+      });
+
+      const companiesWithType = companies.map((company) => ({
+        ...company,
+        type: "company" as const,
+      }));
+
+      const combinedItems = input.search
+        ? [...companiesWithType, ...rolesWithCompanies]
+        : [...rolesWithCompanies, ...companiesWithType];
+
+      const filteredItems = combinedItems.filter((item) => {
+        return input.type === "roles"
+          ? item.type === "role"
+          : input.type === "companies"
+            ? item.type === "company"
+            : true;
+      });
+
+      const fuseOptions = ["title", "description", "companyName", "name"];
+
+      const searchedItems = performFuseSearch<
+        | (RoleType & { companyName: string; type: "role" })
+        | (CompanyType & { type: "company" })
+      >(filteredItems, fuseOptions, input.search);
+
+      // Find the index of the item
+      const itemIndex = searchedItems.findIndex(
+        (item) => item.id === input.itemId && item.type === input.itemType,
+      );
+
+      if (itemIndex === -1) {
+        return { page: 1, found: false };
+      }
+
+      // Calculate the page number (1-indexed)
+      const pageNumber = Math.floor(itemIndex / input.limit) + 1;
+
+      return { page: pageNumber, found: true };
     }),
 };
