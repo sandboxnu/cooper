@@ -34,7 +34,7 @@ export function CompareControls({
   if (!compare.isCompareMode) {
     return (
       <Button
-        className="inline-flex items-center gap-1.5 rounded-md border bg-[rgba(49,115,222,0.15)] px-3 py-1.5 text-xs font-semibold text-[#606060] transition hover:bg-[rgba(49,115,222,0.25)]"
+        className="inline-flex items-center gap-1.5 rounded-md border border-[rgba(49,115,222,0.2)] bg-[rgba(49,115,222,0.15)] px-3 py-1.5 text-xs font-semibold text-[#606060] transition hover:bg-[rgba(49,115,222,0.25)]"
         onClick={() => compare.enterCompareMode()}
       >
         <Image
@@ -188,7 +188,7 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
               <div
                 key={column.key}
                 className={cn(
-                  "relative flex-1 rounded-lg border-[0.75px] border-cooper-gray-300 bg-white shadow-sm transition",
+                  "relative flex-1 rounded-lg border-[0.75px] border-cooper-gray-300 bg-white transition",
                   widthClass,
                 )}
               >
@@ -196,7 +196,7 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
                   <button
                     type="button"
                     aria-label="Remove from comparison"
-                    className="text-cooper-gray-500 absolute right-3 top-3 z-10 flex h-6 w-6 items-center justify-center rounded-full border-[0.75px] border-cooper-gray-300 bg-white text-lg leading-none shadow-sm transition hover:bg-cooper-gray-100"
+                    className="text-cooper-gray-500 absolute right-3 top-3 z-10 flex h-6 w-6 items-center justify-center text-2xl leading-none transition"
                     onClick={() => compare.removeRoleId(column.role.id)}
                   >
                     ×
@@ -226,14 +226,14 @@ function LoadingSlot({
   return (
     <div
       className={cn(
-        "relative flex flex-1 items-center justify-center rounded-lg border-[0.75px] border-cooper-gray-300 bg-white shadow-sm transition",
+        "relative flex flex-1 items-center justify-center bg-white shadow-sm transition",
         widthClass,
       )}
     >
       <button
         type="button"
         aria-label="Remove from comparison"
-        className="text-cooper-gray-500 absolute right-3 top-3 z-10 flex h-6 w-6 items-center justify-center rounded-full border-[0.75px] border-cooper-gray-300 bg-white text-lg leading-none shadow-sm transition hover:bg-cooper-gray-100"
+        className="text-cooper-gray-500 absolute right-3 top-3 z-10 flex h-6 w-6 items-center justify-center text-2xl leading-none transition hover:bg-cooper-gray-100"
         onClick={() => compare.removeRoleId(roleId)}
       >
         ×

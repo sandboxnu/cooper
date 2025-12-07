@@ -341,9 +341,9 @@ export default function Roles() {
                         className={cn(
                           "hover:bg-cooper-gray-100",
                           selectedItem
-                            ? selectedItem.id === roleItem.id &&
-                                "bg-[#EAEAEA] hover:bg-[#EAEAEA]"
-                            : !i && "bg-[#EAEAEA] hover:bg-[#EAEAEA]",
+                            ? selectedItem.id === item.id &&
+                                "bg-cooper-cream-200"
+                            : !i && "bg-cooper-cream-200",
                         )}
                       />
                     </div>
@@ -363,8 +363,9 @@ export default function Roles() {
                         "mb-4 hover:bg-cooper-gray-100",
                         selectedItem
                           ? selectedItem.id === item.id &&
-                              "bg-cooper-gray-200 hover:bg-cooper-gray-200"
-                          : !i && "bg-cooper-gray-200 hover:bg-cooper-gray-200",
+                              "bg-cooper-cream-200 hover:bg-cooper-gray-200"
+                          : !i &&
+                              "bg-cooper-cream-200 hover:bg-cooper-gray-200",
                       )}
                     />
                   </div>
