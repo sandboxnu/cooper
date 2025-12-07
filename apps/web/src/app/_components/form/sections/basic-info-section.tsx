@@ -20,7 +20,11 @@ import { api } from "~/trpc/react";
 /**
  * CoopCycleSection component renders form fields for selecting co-op cycle and year.
  */
-export function BasicInfoSection() {
+export function BasicInfoSection({
+  profileId,
+}: {
+  profileId: string | undefined;
+}) {
   const form = useFormContext();
   const [locationLabel, setLocationLabel] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -87,7 +91,7 @@ export function BasicInfoSection() {
 
   return (
     <FormSection>
-      <ExistingCompanyContent />
+      <ExistingCompanyContent profileId={profileId} />
 
       <FormField
         control={form.control}
@@ -177,7 +181,7 @@ export function BasicInfoSection() {
                   value: year,
                   label: year,
                 }))}
-                className="w-full border-2 rounded-lg h-10 text-sm text-cooper-gray-350 border-cooper-gray-150"
+                className="w-full border-2 h-10 rounded-lg text-sm text-cooper-gray-350 border-cooper-gray-150"
                 placeholder="Select"
                 onClear={() => field.onChange(undefined)}
                 value={

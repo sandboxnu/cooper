@@ -362,15 +362,15 @@ export default function ExistingCompanyContent({
               control={form.control}
               name="industry"
               render={({ field }) => (
-                <FormItem className="flex flex-col w-full pt-2.5">
-                  <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
+                <FormItem className="flex flex-col flex-1 pt-2.5">
+                  <FormLabel className="text-xs font-bold text-cooper-gray-550">
                     Industry<span className="text-[#FB7373]">*</span>
                   </FormLabel>
-                  <div className="relative flex-1 w-full">
+                  <FormControl className="relative w-full">
                     <Select
                       options={industryOptions}
                       placeholder="Search"
-                      className="w-full border border-cooper-gray-150 text-sm text-cooper-gray-350 h-10"
+                      className="w-full border-2 bg-white border-cooper-gray-150 text-sm text-cooper-gray-350 h-10"
                       value={
                         field.value &&
                         typeof field.value === "string" &&
@@ -385,7 +385,7 @@ export default function ExistingCompanyContent({
                         field.onChange(value);
                       }}
                     />
-                  </div>
+                  </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
@@ -502,6 +502,14 @@ export default function ExistingCompanyContent({
                   />
                 </div>
                 <FormMessage />
+                {selectedCompanyId &&
+                  roles.data &&
+                  roles.data.length === 0 &&
+                    <p className="text-sm text-red-500 mt-1">
+                      No roles available for this company. Please add a role
+                      first.
+                    </p>
+                  }
               </FormItem>
             )}
           />

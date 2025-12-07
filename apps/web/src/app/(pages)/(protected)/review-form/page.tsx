@@ -294,7 +294,7 @@ export default function ReviewForm() {
             role.
           </div>
           <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap w-full pb-12">
-            <BasicInfoSection />
+            <BasicInfoSection profileId={profileId} />
           </div>
           <hr />
           {canReviewForTerm() ? (
