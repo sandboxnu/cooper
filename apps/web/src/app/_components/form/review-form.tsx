@@ -376,11 +376,11 @@ export function ReviewForm(props: ReviewFormProps) {
             </Button>
           </div>
           <Image
-            src="/svg/logo.svg"
+            src="/logo.svg"
             alt="Co-op Review Logo"
-            width={650}
-            height={650}
-            className="hidden max-w-full xl:block"
+            width={500}
+            height={500}
+            className="hidden max-w-full xl:block p-16"
           />
         </div>
       </div>
