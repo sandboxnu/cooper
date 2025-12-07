@@ -8,7 +8,6 @@ import { Button } from "@cooper/ui/button";
 
 import { api } from "~/trpc/react";
 import CooperLogo from "../cooper-logo";
-import { NewReviewDialog } from "../reviews/new-review/new-review-dialogue";
 import MobileHeaderButton from "./mobile-header-button";
 
 interface HeaderProps {
@@ -93,7 +92,12 @@ export default function Header({ auth }: HeaderProps) {
         </Link>
         {session.data && (
           <div className="flex items-center gap-8">
-            <NewReviewDialog />
+            <Link href="/review-form">
+              <Button className="h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700">
+                <span className="translate-y-[-2px] text-2xl md:hidden">+</span>
+                <span className="hidden md:inline">+ ADD REVIEW</span>
+              </Button>
+            </Link>
           </div>
         )}
         {auth}
@@ -101,7 +105,12 @@ export default function Header({ auth }: HeaderProps) {
 
       {/* Mobile new review button and burger button */}
       <div className="justify-right mr-2 flex flex-shrink grid-cols-2 items-center gap-2 md:hidden">
-        <NewReviewDialog />
+        <Link href="/review-form">
+          <Button className="h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700">
+            <span className="translate-y-[-2px] text-2xl md:hidden">+</span>
+            <span className="hidden md:inline">+ ADD REVIEW</span>
+          </Button>
+        </Link>
         <Button
           type="button"
           variant="ghost"

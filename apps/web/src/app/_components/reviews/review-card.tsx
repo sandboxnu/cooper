@@ -50,7 +50,7 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
                   className="w-5 h-5 md:w-7 md:h-7"
                 />
               </div>
-              <div className="align-center flex flex-col pt-2 text-cooper-gray-350 text-sm">
+              <div className="align-center flex flex-col pt-2 text-cooper-gray-600 text-sm">
                 <span
                   className={`${location && prettyLocationName(location) ? "visibility: visible" : "visibility: hidden"}`}
                 >
@@ -74,16 +74,16 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
             <div className="flex justify-between text-sm">
               <div className="flex md:gap-10 gap-6 bg-[#f4f4f4] p-3 md:pl-4 pr-4 rounded-lg">
                 <div className="flex md:flex-row flex-col gap-2">
-                  <span className="text-cooper-gray-350">Job type</span> Co-op
+                  <span className="text-cooper-gray-600">Job type</span> Co-op
                 </div>
                 <div className="flex md:flex-row flex-col gap-2">
-                  <span className="text-cooper-gray-350">Work model</span>
+                  <span className="text-cooper-gray-600">Work model</span>
                   {prettyWorkEnviornment(
                     reviewObj.workEnvironment as WorkEnvironmentType,
                   )}
                 </div>
                 <div className="flex md:flex-row flex-col gap-2">
-                  <span className="text-cooper-gray-350">Pay</span> $
+                  <span className="text-cooper-gray-600">Pay</span> $
                   {reviewObj.hourlyPay}/hr
                 </div>
               </div>

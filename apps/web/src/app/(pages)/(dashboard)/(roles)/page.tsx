@@ -44,6 +44,14 @@ const createSlug = (text: string): string => {
     .trim();
 };
 
+interface FilterState {
+  industries: string[];
+  locations: string[];
+  jobTypes: string[];
+  hourlyPay: { min: number; max: number };
+  ratings: string[];
+}
+
 export default function Roles() {
   const searchParams = useSearchParams();
   const companyParam = searchParams.get("company") ?? null;
@@ -263,6 +271,7 @@ export default function Roles() {
 
         if (
           companyName &&
+          roleSlug &&
           (companyParam !== companySlug || roleParam !== roleSlug)
         ) {
           // Preserve search param
@@ -284,7 +293,10 @@ export default function Roles() {
         const companyItem = selectedItem as CompanyType & { slug?: string };
         const companySlug = companyItem.slug;
 
-        if (companyParam !== companySlug || roleParam !== null) {
+        if (
+          companySlug &&
+          (companyParam !== companySlug || roleParam !== null)
+        ) {
           // Preserve search param
           const currentSearch = params.get("search");
           params.delete("search");
@@ -356,7 +368,7 @@ export default function Roles() {
 
   const handleFilterChange = (filters: FilterState) => {
     setAppliedFilters(filters);
-    setCurrentPage(1); // Reset to first page when filters change
+    setCurrentPage(1);
   };
 
   useEffect(() => {
