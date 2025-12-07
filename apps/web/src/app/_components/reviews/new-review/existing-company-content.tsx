@@ -502,14 +502,12 @@ export default function ExistingCompanyContent({
                   />
                 </div>
                 <FormMessage />
-                {selectedCompanyId &&
-                  roles.data &&
-                  roles.data.length === 0 &&
-                    <p className="text-sm text-red-500 mt-1">
-                      No roles available for this company. Please add a role
-                      first.
-                    </p>
-                  }
+                {selectedCompanyId && roles.data && roles.data.length === 0 && (
+                  <p className="text-sm text-red-500 mt-1">
+                    No roles available for this company. Please add a role
+                    first.
+                  </p>
+                )}
               </FormItem>
             )}
           />
