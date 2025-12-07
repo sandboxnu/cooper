@@ -38,11 +38,11 @@ export function CompanyPopup({
           <div></div>
         )}
       </DialogTrigger>
-      <DialogContent className="max-h-[80dvh] w-[70dvw] sm:max-w-none overflow-y-auto bg-white">
+      <DialogContent className="max-h-[80dvh] md:w-[70dvw] sm:max-w-none overflow-y-auto bg-white p-2 md:p-6">
         <DialogHeader>
           <DialogTitle className="text-cooper-gray-900 flex flex-col items-center justify-between text-2xl font-semibold md:flex-row md:gap-12"></DialogTitle>
         </DialogHeader>
-        <div className="mx-2 mb-5 mt-2 flex items-start justify-between">
+        <div className="mx-2 mb-5 mt-2 flex items-start justify-between ">
           <div className="flex">
             <div className="mr-3 flex h-12 w-12 items-center justify-center">
               <Logo company={company} size="medium" />
@@ -60,8 +60,8 @@ export function CompanyPopup({
           </div>
           <FavoriteButton objId={company.id} objType="company" />
         </div>
-        <div className="flex flex-row">
-          <div className="mx-4 w-[70%] gap-4 font-sans md:mx-auto md:max-w-[66dvw] pr-4">
+        <div className="flex flex-col md:flex-row">
+          <div className="mx-4 md:w-[70%] gap-4 font-sans md:mx-auto md:max-w-[66dvw] md:pr-4 ">
             <div className="mb-6 gap-2 px-1 md:gap-4">
               <CompanyReview companyObj={company} />
             </div>

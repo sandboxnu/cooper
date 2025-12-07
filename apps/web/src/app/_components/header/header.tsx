@@ -53,12 +53,6 @@ export default function Header({ auth }: HeaderProps) {
             label="Jobs"
             onClick={() => setIsOpen(false)}
           />
-          <MobileHeaderButton
-            href="/companies"
-            iconSrc="/svg/work.svg"
-            label="Companies"
-            onClick={() => setIsOpen(false)}
-          />
           <MobileHeaderButton label="Profile" onClick={() => setIsOpen(false)}>
             {auth}
           </MobileHeaderButton>

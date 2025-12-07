@@ -75,8 +75,8 @@ export function CompanyCardPreview({
           </CardHeader>
           <CardContent>
             {averageRating !== 0 ? (
-              <div className="align-center flex gap-2 text-cooper-gray-400">
-                <div className="flex gap-1">
+              <div className="align-center flex flex-col md:flex-row gap-2 text-cooper-gray-400">
+                <div className="flex gap-1 items-center">
                   <Image
                     src="/svg/star.svg"
                     alt="Star icon"

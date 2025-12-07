@@ -38,8 +38,8 @@ export default function CompanyStatistics({
     })
     .filter((item) => item.count > 0);
   return (
-    <div className="flex flex-row justify-between w-full pt-4 text-cooper-gray-400">
-      <div className="w-[30%]">
+    <div className="flex flex-col md:flex-row justify-between w-full pt-4 text-cooper-gray-400 gap-4 md:gap-0">
+      <div className="md:w-[30%]">
         <p className="pb-2">Job type</p>
         <div className="h-7 flex-1 rounded-lg bg-cooper-yellow-200" />
         <div className="flex flex-row items-center pt-2 justify-between">
@@ -50,7 +50,7 @@ export default function CompanyStatistics({
           <div className="pl-2">{reviews}</div>
         </div>
       </div>
-      <div className="w-[30%]">
+      <div className="md:w-[30%]">
         <p className="pb-2">Work model</p>
         <div className="h-7 flex-1 rounded-lg flex overflow-hidden gap-0.5">
           {workModels.map((model) => (
@@ -89,7 +89,7 @@ export default function CompanyStatistics({
           </div>
         ))}
       </div>
-      <div className="w-[30%]">
+      <div className="md:w-[30%]">
         <p className="pb-2">Pay</p>
         <div className="h-7 flex-1 rounded-lg flex overflow-hidden gap-0.5">
           {payRangesWithData.map((item) => (
