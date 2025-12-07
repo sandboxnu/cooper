@@ -122,8 +122,7 @@ const formSchema = z.object({
       message: "Please enter hourly pay",
     })
     .transform((val) => (val ? val.toString() : null))
-    .nullable()
-    .optional(),
+    .nullable(),
   workEnvironment: z.nativeEnum(WorkEnvironment, {
     required_error: "You need to select a work model.",
   }),
@@ -295,7 +294,7 @@ export default function ReviewForm() {
             role.
           </div>
           <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap w-full pb-12">
-            <BasicInfoSection />
+            <BasicInfoSection profileId={profileId} />
           </div>
           <hr />
           {canReviewForTerm() ? (

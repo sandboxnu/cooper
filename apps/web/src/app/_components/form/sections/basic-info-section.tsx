@@ -20,7 +20,11 @@ import { api } from "~/trpc/react";
 /**
  * CoopCycleSection component renders form fields for selecting co-op cycle and year.
  */
-export function BasicInfoSection() {
+export function BasicInfoSection({
+  profileId,
+}: {
+  profileId: string | undefined;
+}) {
   const form = useFormContext();
   const [locationLabel, setLocationLabel] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -87,7 +91,7 @@ export function BasicInfoSection() {
 
   return (
     <FormSection>
-      <ExistingCompanyContent />
+      <ExistingCompanyContent profileId={profileId} />
 
       <FormField
         control={form.control}
@@ -105,7 +109,7 @@ export function BasicInfoSection() {
                   { value: "Internship", label: "Internship" },
                   { value: "Part time", label: "Part time" },
                 ]}
-                className="w-full border-cooper-gray-150 text-sm h-10"
+                className="w-full border-cooper-gray-150 text-cooper-gray-350 text-sm h-10"
                 value={
                   field.value &&
                   typeof field.value === "string" &&
@@ -141,7 +145,7 @@ export function BasicInfoSection() {
                   { value: "SUMMER", label: "Summer" },
                   { value: "FALL", label: "Fall" },
                 ]}
-                className="w-full border-cooper-gray-150 text-sm h-10"
+                className="w-full border-cooper-gray-150 text-cooper-gray-350 text-sm h-10"
                 value={
                   field.value &&
                   typeof field.value === "string" &&
@@ -177,7 +181,7 @@ export function BasicInfoSection() {
                   value: year,
                   label: year,
                 }))}
-                className="w-full border-2 rounded-lg h-10 text-sm text-cooper-gray-600 border-cooper-gray-150"
+                className="w-full border-2 h-10 rounded-lg text-sm text-cooper-gray-350 border-cooper-gray-150"
                 placeholder="Select"
                 onClear={() => field.onChange(undefined)}
                 value={
@@ -198,7 +202,7 @@ export function BasicInfoSection() {
         control={form.control}
         name="industry"
         render={({ field }) => (
-          <FormItem className="md:pl-0 flex flex-col pt-4">
+          <FormItem className="flex flex-col pt-4">
             <FormLabel className="text-sm text-cooper-gray-400 font-bold">
               Industry<span className="text-[#FB7373]">*</span>
             </FormLabel>
@@ -206,7 +210,7 @@ export function BasicInfoSection() {
               <Select
                 placeholder="Search by industry..."
                 options={industryOptions}
-                className="border-2 rounded-lg h-10 text-sm text-cooper-gray-600 border-cooper-gray-150"
+                className="border-2 rounded-lg h-10 text-sm text-cooper-gray-350 border-cooper-gray-150"
                 value={
                   field.value &&
                   typeof field.value === "string" &&

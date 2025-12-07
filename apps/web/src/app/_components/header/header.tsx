@@ -6,6 +6,7 @@ import Link from "next/link";
 
 import { Button } from "@cooper/ui/button";
 
+import { api } from "~/trpc/react";
 import CooperLogo from "../cooper-logo";
 import MobileHeaderButton from "./mobile-header-button";
 
@@ -19,6 +20,7 @@ interface HeaderProps {
  */
 export default function Header({ auth }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const session = api.auth.getSession.useQuery();
 
   if (isOpen) {
     return (
@@ -82,14 +84,16 @@ export default function Header({ auth }: HeaderProps) {
         >
           Submit Feedback or Bug Reports
         </Link>
-        <div className="flex items-center gap-8">
-          <Link href="/review-form">
-            <Button className="h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700">
-              <span className="translate-y-[-2px] text-2xl md:hidden">+</span>
-              <span className="hidden md:inline">+ ADD REVIEW</span>
-            </Button>
-          </Link>
-        </div>
+        {session.data && (
+          <div className="flex items-center gap-8">
+            <Link href="/review-form">
+              <Button className="h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700">
+                <span className="translate-y-[-2px] text-2xl md:hidden">+</span>
+                <span className="hidden md:inline">+ ADD REVIEW</span>
+              </Button>
+            </Link>
+          </div>
+        )}
         {auth}
       </div>
 

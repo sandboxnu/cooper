@@ -20,6 +20,7 @@ import { FormLabel } from "../../themed/onboarding/form";
 import { industryOptions } from "../../onboarding/constants";
 import LocationBox from "../../location";
 import { CompanyCardPreview } from "../../companies/company-card-preview";
+import ComboBox from "../../combo-box";
 
 const filter = new Filter();
 const roleSchema = z.object({
@@ -254,24 +255,38 @@ export default function ExistingCompanyContent({
                 Company name<span className="text-[#FB7373]">*</span>
               </FormLabel>
 
-              <div className="relative flex-1 w-full">
-                <Select
-                  options={
+              <div className="relative flex-1 w-full ">
+                <ComboBox
+                  valuesAndLabels={
                     companies.data?.filter(Boolean).map((company) => ({
                       value: company.id,
                       label: company.name,
                     })) ?? []
                   }
-                  placeholder="Select"
-                  className="w-full border-cooper-gray-150 text-sm h-10"
-                  value={field.value as string}
+                  defaultLabel="Select company"
+                  searchPlaceholder="Select"
+                  searchEmpty="No company found."
+                  variant={"form"}
+                  currLabel={
+                    field.value &&
+                    typeof field.value === "string" &&
+                    field.value.length > 0
+                      ? (companies.data?.find((c) => c.id === field.value)
+                          ?.name ?? "")
+                      : ""
+                  }
                   onClear={() => field.onChange(undefined)}
-                  onChange={(e) => {
-                    const newId = e.target.value;
-                    field.onChange(newId);
-                    handleUpdateCompanyId(newId);
-                    if (newId) {
-                      setShowNewCompany(false);
+                  onSelect={(selectedLabel) => {
+                    const selectedCompany = companies.data?.find(
+                      (c) => c.name === selectedLabel,
+                    );
+                    if (selectedCompany) {
+                      const newId = selectedCompany.id;
+                      field.onChange(newId);
+                      handleUpdateCompanyId(newId);
+                      if (newId) {
+                        setShowNewCompany(false);
+                      }
                     }
                   }}
                 />
@@ -307,7 +322,7 @@ export default function ExistingCompanyContent({
             </div>
             <CompanyCardPreview
               companyObj={selectedCompany}
-              className="md:w-[60%]"
+              className="w-full"
             />
           </div>
         )}
@@ -356,15 +371,15 @@ export default function ExistingCompanyContent({
               control={form.control}
               name="industry"
               render={({ field }) => (
-                <FormItem className="flex flex-col w-full pt-2.5">
-                  <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
+                <FormItem className="flex flex-col flex-1 pt-2.5">
+                  <FormLabel className="text-xs font-bold text-cooper-gray-550">
                     Industry<span className="text-[#FB7373]">*</span>
                   </FormLabel>
-                  <div className="relative flex-1 w-full">
+                  <FormControl className="relative w-full">
                     <Select
                       options={industryOptions}
                       placeholder="Search"
-                      className="w-full border border-cooper-gray-150 text-sm h-10"
+                      className="w-full border-2 bg-white border-cooper-gray-150 text-sm text-cooper-gray-350 h-10"
                       value={
                         field.value &&
                         typeof field.value === "string" &&
@@ -379,7 +394,7 @@ export default function ExistingCompanyContent({
                         field.onChange(value);
                       }}
                     />
-                  </div>
+                  </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
@@ -423,7 +438,13 @@ export default function ExistingCompanyContent({
                     <Input
                       placeholder="Enter"
                       className="w-full border border-cooper-gray-150 text-sm h-10"
-                      value={field.value as string}
+                      value={
+                        field.value &&
+                        typeof field.value === "string" &&
+                        field.value.length > 0
+                          ? field.value
+                          : ""
+                      }
                       onChange={(e) => field.onChange(e.target.value)}
                     />
                   </FormControl>
@@ -472,7 +493,13 @@ export default function ExistingCompanyContent({
                     }
                     disabled={!selectedCompanyId}
                     className="w-full border-cooper-gray-150 text-sm h-10"
-                    value={field.value as string}
+                    value={
+                      field.value &&
+                      typeof field.value === "string" &&
+                      field.value.length > 0
+                        ? field.value
+                        : ""
+                    }
                     placeholder="Select"
                     onChange={(e) => {
                       const newRoleId =
@@ -484,6 +511,12 @@ export default function ExistingCompanyContent({
                   />
                 </div>
                 <FormMessage />
+                {selectedCompanyId && roles.data && roles.data.length === 0 && (
+                  <p className="text-sm text-red-500 mt-1">
+                    No roles available for this company. Please add a role
+                    first.
+                  </p>
+                )}
               </FormItem>
             )}
           />

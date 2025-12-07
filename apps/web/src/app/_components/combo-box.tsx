@@ -83,12 +83,12 @@ export default function ComboBox({
             newForm
               ? "h-10 w-full"
               : variant === "form"
-                ? "h-12 w-full"
+                ? "h-10 w-full"
                 : "h-12",
           )}
         >
           <span
-            className={`overflow-hidden whitespace-nowrap ${defaultLabel === "Location" ? "text-cooper-gray-600" : "text-cooper-gray-600 font-normal"} ${newForm ? "text-sm" : "text-lg"}`}
+            className={`overflow-hidden whitespace-nowrap ${defaultLabel === "Location" ? "text-cooper-gray-350" : "text-cooper-gray-350 font-normal"} ${newForm ? "text-sm" : "text-sm"}`}
           >
             {currLabel && currLabel !== defaultLabel ? currLabel : defaultLabel}
           </span>
