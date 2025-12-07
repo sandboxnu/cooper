@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, ChevronDown, X } from "lucide-react";
+import { Check, ChevronsUpDown } from "lucide-react";
 
 import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
@@ -28,8 +28,6 @@ interface ComboBoxProps {
   triggerClassName?: string;
   onChange?: (value: string) => void;
   variant?: "default" | "form" | "filtering";
-  newForm?: boolean;
-  onClear?: () => void;
 }
 
 /**
@@ -47,14 +45,12 @@ export default function ComboBox({
   triggerClassName,
   onChange,
   variant,
-  newForm,
-  onClear,
 }: ComboBoxProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const styleVariant =
     variant === "form"
-      ? "flex h-16 w-full rounded-lg border-2 border-cooper-gray-150 bg-white px-3 py-2 text-xl font-normal ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+      ? "flex h-16 w-full max-w-fit rounded-md border-[3px] border-cooper-blue-600 bg-white px-3 py-2 text-xl font-normal ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
       : variant === "filtering"
         ? "w-36 md:w-[21rem] h-10 lg:h-12 border-cooper-gray-400 text-lg placeholder:opacity-50 focus:ring-0 active:ring-0 rounded-lg border-[0.75px] py-0"
         : "h-8 py-0";
@@ -66,6 +62,7 @@ export default function ComboBox({
         className={cn(
           "overflow-hidden file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
           triggerClassName,
+          variant !== "filtering" ? "w-[400px]" : "",
         )}
       >
         <Button
@@ -75,39 +72,15 @@ export default function ComboBox({
           className={cn(
             styleVariant,
             "h-12 min-h-0 justify-between overflow-hidden text-ellipsis text-nowrap py-0",
-            variant === "form"
-              ? "w-full"
-              : variant === "filtering"
-                ? ""
-                : "w-[400px]",
-            newForm
-              ? "h-10 w-full"
-              : variant === "form"
-                ? "h-10 w-full"
-                : "h-12",
+            variant !== "filtering" ? "w-[400px]" : "",
           )}
         >
           <span
-            className={`overflow-hidden whitespace-nowrap ${defaultLabel === "Location" ? "text-cooper-gray-350" : "text-cooper-gray-350 font-normal"} ${newForm ? "text-sm" : "text-sm"}`}
+            className={`overflow-hidden whitespace-nowrap text-lg ${defaultLabel === "Location" ? "text-cooper-gray-400" : "text-gray font-normal"}`}
           >
-            {currLabel && currLabel !== defaultLabel ? currLabel : defaultLabel}
+            {defaultLabel}
           </span>
-          <div className="flex items-center gap-1.5">
-            {onClear && (
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onClear();
-                }}
-                className="pointer-events-auto flex items-center justify-center rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none"
-                aria-label="Clear selection"
-              >
-                <X className="h-4 w-4" />
-              </button>
-            )}
-            <ChevronDown className="h-4 w-4 shrink-0 opacity-50" />
-          </div>
+          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[400px] p-0">

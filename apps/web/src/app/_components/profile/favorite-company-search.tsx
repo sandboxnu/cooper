@@ -23,7 +23,7 @@ export default function FavoriteCompanySearch({
     : favoriteCompanies;
   return (
     <div>
-      <article className="md:w-[40%] pb-8 pl-1">
+      <article className="w-[40%] pb-8 pl-1">
         <Input
           variant="dialogue"
           onChange={(e) => {
@@ -33,7 +33,7 @@ export default function FavoriteCompanySearch({
           placeholder="Search for a saved company..."
         />
       </article>
-      <div className="mx-1 grid grid-cols-1 md:grid-cols-3 flex-col gap-4 pb-4">
+      <div className="mx-1 grid grid-cols-3 flex-col gap-4 pb-4">
         {prefixedCompanies.length > 0 ? (
           prefixedCompanies
             .filter(

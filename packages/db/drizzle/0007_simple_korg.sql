@@ -1,1 +1,0 @@
-ALTER TABLE "role" ALTER COLUMN "jobType" SET NOT NULL;

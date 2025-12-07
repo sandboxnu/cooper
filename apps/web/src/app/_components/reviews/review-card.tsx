@@ -41,7 +41,7 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
               <div className="pt-2">
                 <ReviewCardStars numStars={reviewObj.overallRating} />
               </div>
-              <div className="align-center flex flex-col pt-2 text-cooper-gray-600 text-sm">
+              <div className="align-center flex flex-wrap gap-x-2 pt-2">
                 <span
                   className={`${locationName(reviewObj) ? "visibility: visible" : "visibility: hidden"}`}
                 >
@@ -70,20 +70,15 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
               {isAuthor && <DeleteReviewDialog reviewId={reviewObj.id} />}
             </div>
             <div className="flex justify-between text-sm">
-              <div className="flex md:gap-10 gap-6 bg-[#f4f4f4] p-3 md:pl-4 pr-4 rounded-lg">
-                <div className="flex md:flex-row flex-col gap-2">
-                  <span className="text-cooper-gray-600">Job type</span> Co-op
-                </div>
-                <div className="flex md:flex-row flex-col gap-2">
-                  <span className="text-cooper-gray-600">Work model</span>
+              <div className="flex gap-6">
+                <div>Position type: Co-op</div>
+                <div>
+                  Work model:{" "}
                   {prettyWorkEnviornment(
                     reviewObj.workEnvironment as WorkEnvironmentType,
                   )}
                 </div>
-                <div className="flex md:flex-row flex-col gap-2">
-                  <span className="text-cooper-gray-600">Pay</span> $
-                  {reviewObj.hourlyPay}/hr
-                </div>
+                <div>Pay: ${reviewObj.hourlyPay} / hr</div>
               </div>
 
               <Image

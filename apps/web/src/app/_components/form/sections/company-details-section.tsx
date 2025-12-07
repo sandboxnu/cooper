@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 
+import { Checkbox } from "@cooper/ui/checkbox";
 import {
   FormControl,
   FormField,
@@ -8,90 +10,65 @@ import {
   FormMessage,
 } from "@cooper/ui/form";
 import { RadioGroup, RadioGroupItem } from "@cooper/ui/radio-group";
+import { Textarea } from "@cooper/ui/textarea";
 
 import { FormSection } from "~/app/_components/form/form-section";
-import { benefits } from "~/app/(pages)/(protected)/review-form/page";
-import { Select } from "../../themed/onboarding/select";
-import DropdownFilter from "../../filters/dropdown-filter";
+import { benefits } from "~/app/_components/form/review-form";
+
+interface CompanyDetailsSectionProps {
+  companyName: string;
+  textColor: string;
+}
 
 /**
  * CompanyDetailsSection component renders form fields for capturing
  * company details related to the co-op experience.
  */
-export function CompanyDetailsSection() {
+export function CompanyDetailsSection(props: CompanyDetailsSectionProps) {
   const form = useFormContext();
+  const [otherBenefits, setOtherBenefits] = useState(false);
 
   return (
-    <FormSection>
+    <FormSection title="Company Details" className={props.textColor}>
       <FormField
         control={form.control}
         name="workEnvironment"
         render={({ field }) => (
-          <FormItem className="flex flex-col pt-5">
-            <FormLabel className="text-sm font-bold text-cooper-gray-400">
-              Work model<span className="text-[#FB7373]">*</span>
-            </FormLabel>
-            <FormControl>
-              <Select
-                onClear={() => field.onChange(undefined)}
-                options={[
-                  { value: "INPERSON", label: "In person" },
-                  { value: "HYBRID", label: "Hybrid" },
-                  { value: "REMOTE", label: "Remote" },
-                ]}
-                className="w-full border-cooper-gray-150 text-sm h-10"
-                value={
-                  field.value &&
-                  typeof field.value === "string" &&
-                  field.value.length > 0
-                    ? field.value
-                    : ""
-                }
-                placeholder="Select"
-                onChange={(e) => {
-                  const value =
-                    e.target.value === "" ? undefined : e.target.value;
-                  field.onChange(value);
-                }}
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-      <FormField
-        control={form.control}
-        name="drugTest"
-        render={({ field }) => (
-          <FormItem className="flex flex-col pt-4 ">
-            <FormLabel className="text-cooper-gray-400 text-sm font-bold">
-              Drug Test<span className="text-[#FB7373]">*</span>
-            </FormLabel>
+          <FormItem className="space-y-6">
+            <FormLabel>What kind of work model?*</FormLabel>
             <FormControl>
               <RadioGroup
                 onValueChange={field.onChange}
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 defaultValue={field.value}
-                className="flex flex-row space-x-3"
+                className="flex flex-col space-y-3"
               >
-                <FormItem className="flex items-center space-x-2 space-y-0">
+                <FormItem className="flex items-center space-x-4 space-y-0">
                   <FormControl>
                     <RadioGroupItem
-                      value="yes"
-                      checked={field.value === "yes"}
+                      value="INPERSON"
+                      checked={field.value === "INPERSON"}
                     />
                   </FormControl>
-                  <FormLabel className="text-cooper-gray-350 text-sm">
-                    Yes
-                  </FormLabel>
+                  <FormLabel>In-person</FormLabel>
                 </FormItem>
-                <FormItem className="flex items-center space-x-2 space-y-0">
+                <FormItem className="flex items-center space-x-4 space-y-0">
                   <FormControl>
-                    <RadioGroupItem value="no" checked={field.value === "no"} />
+                    <RadioGroupItem
+                      value="HYBRID"
+                      checked={field.value === "HYBRID"}
+                    />
                   </FormControl>
-                  <FormLabel className="text-cooper-gray-350 text-sm">
-                    No
-                  </FormLabel>
+                  <FormLabel>Hybrid</FormLabel>
+                </FormItem>
+                <FormItem className="flex items-center space-x-4 space-y-0">
+                  <FormControl>
+                    <RadioGroupItem
+                      value="REMOTE"
+                      checked={field.value === "REMOTE"}
+                    />
+                  </FormControl>
+                  <FormLabel>Remote</FormLabel>
                 </FormItem>
               </RadioGroup>
             </FormControl>
@@ -101,33 +78,36 @@ export function CompanyDetailsSection() {
       />
       <FormField
         control={form.control}
-        name="cultureRating"
+        name="drugTest"
         render={({ field }) => (
-          <FormItem className="flex flex-col">
-            <FormLabel className="text-sm font-bold text-cooper-gray-400 pt-2.5">
-              Company Culture<span className="text-[#FB7373]">*</span>
-            </FormLabel>
-            <FormControl className="relative flex-1">
-              <Select
-                onClear={() => field.onChange(undefined)}
-                options={[
-                  { value: 1, label: 1 },
-                  { value: 2, label: 2 },
-                  { value: 3, label: 3 },
-                  { value: 4, label: 4 },
-                  { value: 5, label: 5 },
-                ]}
-                className="w-full border-cooper-gray-150 text-sm h-10"
-                value={
-                  field.value && field.value > 0 ? String(field.value) : ""
-                }
-                placeholder="Select"
-                onChange={(e) => {
-                  const value =
-                    e.target.value === "" ? undefined : e.target.value;
-                  field.onChange(value);
-                }}
-              />
+          <FormItem className="space-y-6">
+            <FormLabel>Did {props.companyName} drug test?*</FormLabel>
+            <FormControl>
+              <RadioGroup
+                onValueChange={field.onChange}
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+                defaultValue={field.value}
+                className="flex flex-col space-y-3"
+              >
+                <FormItem className="flex items-center space-x-4 space-y-0">
+                  <FormControl>
+                    <RadioGroupItem
+                      value="true"
+                      checked={field.value === "true"}
+                    />
+                  </FormControl>
+                  <FormLabel>Yes</FormLabel>
+                </FormItem>
+                <FormItem className="flex items-center space-x-4 space-y-0">
+                  <FormControl>
+                    <RadioGroupItem
+                      value="false"
+                      checked={field.value === "false"}
+                    />
+                  </FormControl>
+                  <FormLabel>No</FormLabel>
+                </FormItem>
+              </RadioGroup>
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -135,70 +115,88 @@ export function CompanyDetailsSection() {
       />
       <FormField
         control={form.control}
-        name="supervisorRating"
+        name="overtimeNormal"
         render={({ field }) => (
-          <FormItem className="flex flex-col pt-2.5">
-            <FormLabel className="text-sm font-bold text-cooper-gray-400">
-              Supervisor rating<span className="text-[#FB7373]">*</span>
-            </FormLabel>
-            <FormControl className="relative flex-1">
-              <Select
-                onClear={() => field.onChange(undefined)}
-                options={[
-                  { value: 1, label: 1 },
-                  { value: 2, label: 2 },
-                  { value: 3, label: 3 },
-                  { value: 4, label: 4 },
-                  { value: 5, label: 5 },
-                ]}
-                className="w-full border-cooper-gray-150 text-sm h-10"
-                value={
-                  field.value && field.value > 0 ? String(field.value) : ""
-                }
-                placeholder="Select"
-                onChange={(e) => {
-                  const value =
-                    e.target.value === "" ? undefined : e.target.value;
-                  field.onChange(value);
-                }}
-              />
+          <FormItem className="space-y-6">
+            <FormLabel>Was working overtime common?*</FormLabel>
+            <FormControl>
+              <RadioGroup
+                onValueChange={field.onChange}
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+                defaultValue={field.value}
+                className="flex flex-col space-y-3"
+              >
+                <FormItem className="flex items-center space-x-4 space-y-0">
+                  <FormControl>
+                    <RadioGroupItem
+                      value="true"
+                      checked={field.value === "true"}
+                    />
+                  </FormControl>
+                  <FormLabel>Yes</FormLabel>
+                </FormItem>
+                <FormItem className="flex items-center space-x-4 space-y-0">
+                  <FormControl>
+                    <RadioGroupItem
+                      value="false"
+                      checked={field.value === "false"}
+                    />
+                  </FormControl>
+                  <FormLabel>No</FormLabel>
+                </FormItem>
+              </RadioGroup>
             </FormControl>
             <FormMessage />
           </FormItem>
         )}
       />
-      <FormField
-        control={form.control}
-        name="benefits"
-        render={({ field }) => (
-          <FormItem className="flex flex-col pt-2.5">
-            <FormLabel className="text-sm font-bold text-cooper-gray-400">
-              Benefits
-            </FormLabel>
-            <FormControl className="relative flex-1">
-              <DropdownFilter
-                title="Benefits"
-                filterType="autocomplete"
-                options={benefits.map((benefit) => ({
-                  id: benefit.field,
-                  label: benefit.label,
-                }))}
-                selectedOptions={
-                  Array.isArray(field.value)
-                    ? field.value
-                    : field.value
-                      ? [field.value]
-                      : []
-                }
-                onSelectionChange={(selected) => {
-                  field.onChange(selected.length > 0 ? selected : undefined);
-                }}
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
+      <FormLabel>
+        Select the benefit(s) that {props.companyName} offered
+      </FormLabel>
+      {benefits.map((benefit) => (
+        <FormField
+          key={benefit.field}
+          control={form.control}
+          name={benefit.field}
+          render={({ field }) => (
+            <FormItem className="flex flex-row items-start space-x-4 space-y-0">
+              <FormControl>
+                <Checkbox
+                  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                />
+              </FormControl>
+              <FormLabel>{benefit.label}</FormLabel>
+            </FormItem>
+          )}
+        />
+      ))}
+      <FormItem className="flex flex-row items-start space-x-4 space-y-0">
+        <Checkbox
+          checked={otherBenefits}
+          onCheckedChange={(c) => setOtherBenefits(!!c)}
+        />
+        <FormLabel>Other</FormLabel>
+        <FormMessage />
+      </FormItem>
+      {otherBenefits && (
+        <FormField
+          control={form.control}
+          name="otherBenefits"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <Textarea
+                  placeholder="Please type the other benefits here."
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+      )}
     </FormSection>
   );
 }

@@ -32,7 +32,6 @@ export default function LocationBox({
   setValue,
   handleSubmit,
   onSubmit,
-  onClear,
 }: {
   searchBar: boolean;
   form: UseFormReturn<FieldValues>;
@@ -47,7 +46,6 @@ export default function LocationBox({
   setValue?: (name: string, finalValue: string) => void;
   handleSubmit?: UseFormHandleSubmit<FieldValues, undefined>;
   onSubmit?: (data: FormSchema) => void;
-  onClear?: () => void;
 }) {
   return (
     <FormField
@@ -56,22 +54,18 @@ export default function LocationBox({
       render={({ field }) => (
         <FormItem
           className={
-            searchBar
-              ? "col-span-5 lg:col-span-2"
-              : "flex flex-col justify-end space-y-0"
+            searchBar ? "col-span-5 lg:col-span-2" : "flex flex-col justify-end"
           }
         >
-          {!searchBar && <FormLabel></FormLabel>}
+          {!searchBar && <FormLabel>Location</FormLabel>}
           <FormControl>
             <ComboBox
               {...field}
               variant={searchBar ? "filtering" : "form"}
               defaultLabel={
-                locationLabel ||
-                (searchBar ? "Location" : "Search by location...")
+                locationLabel || (searchBar ? "Location" : "Type to begin...")
               }
-              newForm={true}
-              searchPlaceholder="Search by location..."
+              searchPlaceholder="Type to begin..."
               searchEmpty="No location found."
               valuesAndLabels={locationValuesAndLabels}
               currLabel={locationLabel}
@@ -103,14 +97,6 @@ export default function LocationBox({
                       (location) => location.label === currentValue,
                     )?.value,
                   );
-                }
-              }}
-              onClear={() => {
-                field.onChange(undefined);
-                setLocationLabel("");
-                setSearchTerm("");
-                if (onClear) {
-                  onClear();
                 }
               }}
             />

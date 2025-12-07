@@ -24,7 +24,7 @@ import InfoCard from "./info-card";
 import { ReviewCard } from "./review-card";
 import ReviewSearchBar from "./review-search-bar";
 import RoundBarGraph from "./round-bar-graph";
-import type { ReviewType, RoleType } from "@cooper/db/schema";
+import { ReviewType, RoleType } from "@cooper/db/schema";
 
 interface RoleCardProps {
   className?: string;
@@ -100,8 +100,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     "Drug test": averages.data.drugTest,
     "Lunch provided": averages.data.freeLunch,
     "Free merch": averages.data.freeMerch,
-    "Travel benefits": averages.data.travelBenefits,
-    "Snack bar": averages.data.snackBar,
+    "Transportation covered": averages.data.freeTransportation,
   };
 
   // ====== Ensure User Is Logged In + Hasn't Made Too Many Reviews ====== //

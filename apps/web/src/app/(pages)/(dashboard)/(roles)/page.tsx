@@ -38,24 +38,6 @@ interface FilterState {
   ratings: string[];
 }
 
-// Helper function to create URL-friendly slugs (still needed for URL generation)
-const createSlug = (text: string): string => {
-  return text
-    .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, "") // Remove all non-alphanumeric characters except spaces and hyphens
-    .replace(/\s+/g, "-") // Replace spaces with hyphens
-    .replace(/-+/g, "-") // Replace multiple hyphens with single hyphen
-    .trim();
-};
-
-interface FilterState {
-  industries: string[];
-  locations: string[];
-  jobTypes: string[];
-  hourlyPay: { min: number; max: number };
-  ratings: string[];
-}
-
 export default function Roles() {
   const searchParams = useSearchParams();
   const queryParam = searchParams.get("id") ?? null;
@@ -156,61 +138,8 @@ export default function Roles() {
     // updates the URL when a role is changed
     if (selectedItem && queryParam !== selectedItem.id) {
       const params = new URLSearchParams(window.location.search);
-
-      if (isRole(selectedItem)) {
-        // For roles, use company and role parameters
-        const roleItem = selectedItem as RoleType & {
-          companyName?: string;
-          slug?: string;
-          companySlug?: string;
-        };
-        const companyName = roleItem.companyName ?? "";
-        const companySlug = roleItem.companySlug ?? createSlug(companyName);
-        const roleSlug = roleItem.slug;
-
-        if (
-          companyName &&
-          roleSlug &&
-          (companyParam !== companySlug || roleParam !== roleSlug)
-        ) {
-          // Preserve search param
-          const currentSearch = params.get("search");
-          params.delete("search");
-
-          params.set("company", companySlug);
-          params.set("role", roleSlug);
-
-          // Add search back at the end
-          if (currentSearch) {
-            params.set("search", currentSearch);
-          }
-
-          router.push(`/?${params.toString()}`);
-        }
-      } else {
-        // For companies, use the company parameter with the name
-        const companyItem = selectedItem as CompanyType & { slug?: string };
-        const companySlug = companyItem.slug;
-
-        if (
-          companySlug &&
-          (companyParam !== companySlug || roleParam !== null)
-        ) {
-          // Preserve search param
-          const currentSearch = params.get("search");
-          params.delete("search");
-
-          params.delete("role");
-          params.set("company", companySlug);
-
-          // Add search back at the end
-          if (currentSearch) {
-            params.set("search", currentSearch);
-          }
-
-          router.push(`/?${params.toString()}`);
-        }
-      }
+      params.set("id", selectedItem.id);
+      router.replace(`/?${params.toString()}`);
     }
   }, [selectedItem, router, queryParam]);
 
@@ -243,7 +172,7 @@ export default function Roles() {
 
   const handleFilterChange = (filters: FilterState) => {
     setAppliedFilters(filters);
-    setCurrentPage(1);
+    setCurrentPage(1); // Reset to first page when filters change
   };
 
   useEffect(() => {
