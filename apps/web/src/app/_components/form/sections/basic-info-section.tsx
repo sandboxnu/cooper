@@ -202,7 +202,7 @@ export function BasicInfoSection({
         control={form.control}
         name="industry"
         render={({ field }) => (
-          <FormItem className="pl-2 md:pl-0 flex flex-col pt-4">
+          <FormItem className="flex flex-col pt-4">
             <FormLabel className="text-sm text-cooper-gray-400 font-bold">
               Industry<span className="text-[#FB7373]">*</span>
             </FormLabel>

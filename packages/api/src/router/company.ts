@@ -5,7 +5,7 @@ import { z } from "zod";
 
 import type { SQL, SQLWrapper } from "@cooper/db";
 import type { CompanyType, ReviewType } from "@cooper/db/schema";
-import { and, asc, desc, eq, ilike, like, sql } from "@cooper/db";
+import { and, asc, desc, eq, like, sql } from "@cooper/db";
 import {
   CompaniesToLocations,
   Company,
@@ -22,7 +22,6 @@ import {
   sortableProcedure,
 } from "../trpc";
 import { performFuseSearch } from "../utils/fuzzyHelper";
-import { createSlug, generateUniqueSlug } from "../utils/slugHelpers";
 
 const ordering = {
   default: desc(Company.id),
@@ -118,15 +117,7 @@ export const companyRouter = {
     .input(z.object({ name: z.string() }))
     .query(({ ctx, input }) => {
       return ctx.db.query.Company.findFirst({
-        where: ilike(Company.name, input.name),
-      });
-    }),
-
-  getBySlug: publicProcedure
-    .input(z.object({ slug: z.string() }))
-    .query(({ ctx, input }) => {
-      return ctx.db.query.Company.findFirst({
-        where: eq(Company.slug, input.slug),
+        where: eq(Company.name, input.name),
       });
     }),
 
@@ -150,26 +141,13 @@ export const companyRouter = {
 
   create: protectedProcedure
     .input(CreateCompanySchema)
-    .mutation(async ({ ctx, input }) => {
-      // Generate base slug from company name
-      const baseSlug = createSlug(input.name);
-
-      // Get existing slugs to ensure uniqueness
-      const existingCompanies = await ctx.db.query.Company.findMany({
-        columns: { slug: true },
-      });
-      const existingSlugs = existingCompanies.map((c) => c.slug);
-
-      // Generate unique slug
-      const uniqueSlug = generateUniqueSlug(baseSlug, existingSlugs);
-
-      const values = {
-        ...input,
-        slug: uniqueSlug,
-        website: input.website ?? `${input.name}.com`,
-      };
-
-      return ctx.db.insert(Company).values(values).returning();
+    .mutation(({ ctx, input }) => {
+      if (input.website) {
+        return ctx.db.insert(Company).values(input);
+      }
+      return ctx.db
+        .insert(Company)
+        .values({ ...input, website: `${input.name}.com` });
     }),
 
   delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
@@ -241,20 +219,9 @@ export const companyRouter = {
         website: input.website ?? `${input.companyName}.com`,
       };
 
-      // Generate unique slug for company
-      const companyBaseSlug = createSlug(input.companyName);
-      const existingCompanies = await ctx.db.query.Company.findMany({
-        columns: { slug: true },
-      });
-      const existingCompanySlugs = existingCompanies.map((c) => c.slug);
-      const uniqueCompanySlug = generateUniqueSlug(
-        companyBaseSlug,
-        existingCompanySlugs,
-      );
-
       const companies = await ctx.db
         .insert(Company)
-        .values({ ...companyValues, slug: uniqueCompanySlug })
+        .values(companyValues)
         .returning();
       const companyId = companies[0]?.id;
 
@@ -272,22 +239,7 @@ export const companyRouter = {
         createdBy: input.createdBy,
       };
 
-      // Generate unique slug for role (only unique within this company)
-      const roleBaseSlug = createSlug(input.roleTitle);
-      const existingRoles = await ctx.db.query.Role.findMany({
-        where: (role, { eq }) => eq(role.companyId, companyId),
-        columns: { slug: true },
-      });
-      const existingRoleSlugs = existingRoles.map((r) => r.slug);
-      const uniqueRoleSlug = generateUniqueSlug(
-        roleBaseSlug,
-        existingRoleSlugs,
-      );
-
-      const roles = await ctx.db
-        .insert(Role)
-        .values({ ...roleValues, slug: uniqueRoleSlug })
-        .returning();
+      const roles = await ctx.db.insert(Role).values(roleValues).returning();
       const roleId = roles[0]?.id;
 
       if (!roleId) {

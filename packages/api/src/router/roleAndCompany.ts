@@ -114,7 +114,7 @@ export const roleAndCompanyRouter = {
 
       // Build company -> location mapping if location filter is active
       const companyLocationsMap = new Map<string, string[]>();
-      if (locationFilterActive && filters.locations) {
+      if (locationFilterActive) {
         const locationIds = filters.locations;
         // Query the join table for matching company <-> location rows
         const companyLocRows =
@@ -122,7 +122,7 @@ export const roleAndCompanyRouter = {
 
         for (const r of companyLocRows) {
           // r.companyId / r.locationId come from the CompaniesToLocations schema
-          if (!locationIds.includes(r.locationId)) continue;
+          if (!locationIds?.includes(r.locationId)) continue;
           const cid = r.companyId;
           const lid = r.locationId;
           const arr = companyLocationsMap.get(cid) ?? [];
@@ -147,7 +147,7 @@ export const roleAndCompanyRouter = {
             ${Role.id} AS id,
             COALESCE(AVG(${Review.hourlyPay}::float), 0) AS avg_hourly_pay
           FROM ${Role}
-          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
           WHERE ${Role.id} IN (${sql.join(
             roleIds.map((id) => sql`${id}`),
             sql`,`,
@@ -163,7 +163,7 @@ export const roleAndCompanyRouter = {
             ${Role.id} AS id,
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Role}
-          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
           WHERE ${Role.id} IN (${sql.join(
             roleIds.map((id) => sql`${id}`),
             sql`,`,
@@ -182,8 +182,8 @@ export const roleAndCompanyRouter = {
             ${Company.id} AS id,
             COALESCE(AVG(${Review.hourlyPay}::float), 0) AS avg_hourly_pay
           FROM ${Company}
-          LEFT JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
-          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
+          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
           WHERE ${Company.id} IN (${sql.join(
             companyIds.map((id) => sql`${id}`),
             sql`,`,
@@ -199,8 +199,8 @@ export const roleAndCompanyRouter = {
             ${Company.id} AS id,
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Company}
-          LEFT JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
-          LEFT JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
+          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
           WHERE ${Company.id} IN (${sql.join(
             companyIds.map((id) => sql`${id}`),
             sql`,`,

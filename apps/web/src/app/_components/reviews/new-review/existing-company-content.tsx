@@ -342,7 +342,7 @@ export default function ExistingCompanyContent({
             </div>
             <CompanyCardPreview
               companyObj={selectedCompany}
-              className="w-[60%]"
+              className="w-full"
             />
           </div>
         )}

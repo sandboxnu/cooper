@@ -26,15 +26,7 @@ export default function Header({ auth }: HeaderProps) {
     return (
       <header className="z-50 flex min-h-[14rem] w-full flex-col justify-start bg-cooper-cream-100 outline outline-[1px]">
         <div className="z-10 ml-3 mr-4 flex h-[8dvh] min-h-10 items-center justify-between gap-4">
-          <Link
-            href="/"
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.href = "/";
-            }}
-          >
-            <h1 className="text-2xl font-bold text-cooper-blue-800">Cooper</h1>
-          </Link>
+          <h1 className="text-2xl font-bold text-cooper-blue-800">Cooper</h1>
           <Button
             type="button"
             variant="outline"
@@ -53,12 +45,6 @@ export default function Header({ auth }: HeaderProps) {
             label="Jobs"
             onClick={() => setIsOpen(false)}
           />
-          <MobileHeaderButton
-            href="/companies"
-            iconSrc="/svg/work.svg"
-            label="Companies"
-            onClick={() => setIsOpen(false)}
-          />
           <MobileHeaderButton label="Profile" onClick={() => setIsOpen(false)}>
             {auth}
           </MobileHeaderButton>
@@ -69,14 +55,7 @@ export default function Header({ auth }: HeaderProps) {
 
   return (
     <header className="z-10 flex w-full items-center justify-between px-6 py-4 outline outline-[1px] bg-cooper-cream-100 outline-cooper-gray-150">
-      <Link
-        href="/"
-        onClick={(e) => {
-          e.preventDefault();
-          window.location.href = "/";
-        }}
-        className={"flex items-center justify-center gap-3"}
-      >
+      <Link href="/" className={"flex items-center justify-center gap-3"}>
         <div className="z-0 flex max-w-[43px] items-end">
           <CooperLogo />
         </div>
