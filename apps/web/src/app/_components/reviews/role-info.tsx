@@ -374,10 +374,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                 <div className="flex h-full w-full flex-col items-center justify-center text-[#5a5a5a]">
                   <p>No reviews yet</p>
                   {usersReviews.isSuccess && usersReviews.data.length < 5 && (
-                    <Link
-                      href={`/review?id=${roleObj.id}`}
-                      className="ml-2 underline"
-                    >
+                    <Link href={`/review-form`} className="ml-2 underline">
                       Add one!
                     </Link>
                   )}
