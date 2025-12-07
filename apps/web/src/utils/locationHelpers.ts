@@ -15,12 +15,12 @@ export const locationName = (reviewObj: ReviewType) => {
   }
 };
 
-export const prettyLocationName = (location: LocationType | undefined) => {
-  return location
-    ? location.city +
-        (location.state ? `, ${abbreviatedStateName(location.state)}` : "") +
-        (location.state ? "" : `, ${location.country}`)
-    : "N/A";
+export const prettyLocationName = (location: LocationType) => {
+  return (
+    location.city +
+    (location.state ? `, ${abbreviatedStateName(location.state)}` : "") +
+    (location.state ? "" : `, ${location.country}`)
+  );
 };
 
 export const abbreviatedStateName = (state: string) => {

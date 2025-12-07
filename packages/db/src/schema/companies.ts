@@ -12,7 +12,6 @@ import { Role } from "./roles";
 export const Company = pgTable("company", {
   id: uuid("id").notNull().primaryKey().defaultRandom(),
   name: varchar("name").notNull(),
-  slug: varchar("slug").notNull().unique(),
   description: text("description"),
   industry: varchar("industry").notNull(),
   website: varchar("website"),
@@ -39,7 +38,6 @@ export const CreateCompanySchema = createInsertSchema(Company, {
   website: z.string().optional(),
 }).omit({
   id: true,
-  slug: true,
   createdAt: true,
   updatedAt: true,
 });

@@ -4,8 +4,8 @@ import { Filter } from "bad-words";
 import { z } from "zod";
 
 import type { ReviewType, RoleType } from "@cooper/db/schema";
-import { and, asc, desc, eq, ilike, sql } from "@cooper/db";
-import { Company, CreateRoleSchema, Review, Role } from "@cooper/db/schema";
+import { asc, desc, eq, sql } from "@cooper/db";
+import { CreateRoleSchema, Review, Role } from "@cooper/db/schema";
 
 import {
   protectedProcedure,
@@ -13,7 +13,6 @@ import {
   sortableProcedure,
 } from "../trpc";
 import { performFuseSearch } from "../utils/fuzzyHelper";
-import { createSlug, generateUniqueSlug } from "../utils/slugHelpers";
 
 const ordering = {
   default: desc(Role.id),
@@ -120,47 +119,12 @@ export const roleRouter = {
       });
     }),
 
-  getByCompanyAndTitle: publicProcedure
-    .input(z.object({ companyName: z.string(), roleTitle: z.string() }))
-    .query(async ({ ctx, input }) => {
-      const company = await ctx.db.query.Company.findFirst({
-        where: ilike(Company.name, input.companyName),
+  getManyByIds: publicProcedure
+    .input(z.object({ ids: z.array(z.string()).min(1) }))
+    .query(({ ctx, input }) => {
+      return ctx.db.query.Role.findMany({
+        where: (role, { inArray }) => inArray(role.id, input.ids),
       });
-
-      if (!company) return null;
-
-      return ctx.db.query.Role.findFirst({
-        where: and(
-          eq(Role.companyId, company.id),
-          ilike(Role.title, input.roleTitle),
-        ),
-      });
-    }),
-
-  getByCompanySlugAndRoleSlug: publicProcedure
-    .input(z.object({ companySlug: z.string(), roleSlug: z.string() }))
-    .query(async ({ ctx, input }) => {
-      const company = await ctx.db.query.Company.findFirst({
-        where: eq(Company.slug, input.companySlug),
-      });
-
-      if (!company) return null;
-
-      const role = await ctx.db.query.Role.findFirst({
-        where: and(
-          eq(Role.companyId, company.id),
-          eq(Role.slug, input.roleSlug),
-        ),
-      });
-
-      if (!role) return null;
-
-      // Return role with company name and slug included
-      return {
-        ...role,
-        companyName: company.name,
-        companySlug: company.slug,
-      };
     }),
 
   getByCompany: sortableProcedure
@@ -190,7 +154,7 @@ export const roleRouter = {
 
   create: protectedProcedure
     .input(CreateRoleSchema)
-    .mutation(async ({ ctx, input }) => {
+    .mutation(({ ctx, input }) => {
       const filter = new Filter();
 
       if (filter.isProfane(input.title)) {
@@ -210,20 +174,7 @@ export const roleRouter = {
         title: filter.clean(input.title),
         description: filter.clean(input.description ?? ""),
       };
-
-      // Generate unique slug for role (only unique within the same company)
-      const baseSlug = createSlug(cleanInput.title);
-      const existingRoles = await ctx.db.query.Role.findMany({
-        where: (role, { eq }) => eq(role.companyId, cleanInput.companyId),
-        columns: { slug: true },
-      });
-      const existingSlugs = existingRoles.map((r) => r.slug);
-      const uniqueSlug = generateUniqueSlug(baseSlug, existingSlugs);
-
-      return ctx.db
-        .insert(Role)
-        .values({ ...cleanInput, slug: uniqueSlug })
-        .returning();
+      return ctx.db.insert(Role).values(cleanInput).returning();
     }),
 
   delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {

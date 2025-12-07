@@ -4,6 +4,7 @@ import { cn } from "@cooper/ui";
 
 import { hankenGroteskFont } from "~/app/styles/font";
 import { TRPCReactProvider } from "~/trpc/react";
+import { CompareProvider } from "~/app/_components/compare/compare-context";
 
 import "~/app/styles/globals.css";
 
@@ -37,7 +38,9 @@ export default function RootLayout(props: { children: React.ReactNode }) {
           "min-h-screen bg-cooper-cream-100 font-sans text-foreground antialiased",
         )}
       >
-        <TRPCReactProvider>{props.children}</TRPCReactProvider>
+        <TRPCReactProvider>
+          <CompareProvider>{props.children}</CompareProvider>
+        </TRPCReactProvider>
       </body>
     </html>
   );
