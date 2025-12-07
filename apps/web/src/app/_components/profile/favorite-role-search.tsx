@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { RoleType } from "@cooper/db/schema";
+import type { RoleType } from "@cooper/db/schema";
 import { Pagination } from "@cooper/ui";
 
 import { RoleCardPreview } from "../reviews/role-card-preview";
@@ -31,7 +31,7 @@ export default function FavoriteRoleSearch({
   return (
     <div>
       <div className="flex flex-row justify-between">
-        <div className="w-[40%] pb-8 pl-1">
+        <div className="md:w-[40%] pb-8 pl-1">
           <Input
             variant="dialogue"
             onChange={(e) => {
@@ -49,7 +49,7 @@ export default function FavoriteRoleSearch({
           />
         </div>
       </div>
-      <div className="mx-1 grid grid-cols-3 flex-col gap-4 pb-4">
+      <div className="mx-1 grid grid-cols-1 md:grid-cols-3 flex-col gap-4 pb-4">
         {prefixedRoles.length > 0 ? (
           prefixedRoles
             .slice(

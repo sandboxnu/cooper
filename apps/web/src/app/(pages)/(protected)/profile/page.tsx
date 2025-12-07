@@ -3,20 +3,15 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import { redirect, useSearchParams } from "next/navigation";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "node_modules/@cooper/ui/src/card";
+import ProfileCardHeader from "~/app/_components/profile/profile-card-header";
 
-import HeaderLayoutClient from "~/app/_components/header/header-layout-client";
 import FavoriteCompanySearch from "~/app/_components/profile/favorite-company-search";
 import FavoriteRoleSearch from "~/app/_components/profile/favorite-role-search";
 import ProfileTabs from "~/app/_components/profile/profile-tabs";
-import { NewReviewDialog } from "~/app/_components/reviews/new-review/new-review-dialogue";
 import { ReviewCard } from "~/app/_components/reviews/review-card";
 import { api } from "~/trpc/react";
+import { Button } from "@cooper/ui/button";
+import Link from "next/link";
 
 export default function Profile() {
   const searchParams = useSearchParams();
@@ -94,98 +89,68 @@ export default function Profile() {
   }
 
   return (
-    <HeaderLayoutClient>
-      <div className="bg-cooper-cream-100 w-full min-h-screen flex justify-center">
-        <div className="mx-4 mt-4 flex h-full flex-col gap-6 md:max-w-[66%] w-[66%] pt-4">
-          <div className="flex items-start justify-start gap-4">
-            <Image
-              src={session.user.image ?? "/svg/defaultProfile.svg"}
-              width="72"
-              height="72"
-              alt="Logout"
-              className="rounded-full"
-            />
-            <div className="text-start">
-              <h1 className="font-hanken text-[26px] font-bold">
-                {profile.firstName} {profile.lastName}
-              </h1>
-              <h2 className="text-cooper-gray-400">
-                Class of {profile.graduationYear}
-              </h2>
-            </div>
+    <div className="bg-cooper-cream-100 w-full min-h-screen flex justify-center">
+      <div className="mx-4 mt-4 flex h-full flex-col gap-6 md:max-w-[66%] w-[66%] pt-4">
+        <div className="flex items-start justify-start gap-4">
+          <Image
+            src={session.user.image ?? "/svg/defaultProfile.svg"}
+            width="72"
+            height="72"
+            alt="Logout"
+            className="rounded-full"
+          />
+          <div className="text-start">
+            <h1 className="font-hanken text-[26px] font-bold">
+              {profile.firstName} {profile.lastName}
+            </h1>
+            <h2 className="text-cooper-gray-400">
+              Class of {profile.graduationYear}
+            </h2>
           </div>
-          <Card>
-            <div>
-              <CardHeader className="pb-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-4">
-                    <div>
-                      <CardTitle className="text-xl">
-                        Account Information
-                      </CardTitle>
-                    </div>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="pb-0">
-                <div className="m-4 grid grid-cols-3 grid-rows-2 items-center gap-4">
-                  <div className="flex flex-col text-sm">
-                    <h4 className="font-semibold">Name</h4>
-                    <p>
-                      {profile.firstName} {profile.lastName}
-                    </p>
-                  </div>
-                  <div className="flex flex-col text-sm">
-                    <h4 className="font-semibold">Email</h4>
-                    <p> {session.user.email} </p>
-                  </div>
-                  <div className="flex flex-col text-sm">
-                    <h4 className="font-semibold">Major</h4>
-                    <p> {profile.major} </p>
-                  </div>
-                </div>
-              </CardContent>
-            </div>
-          </Card>
-          <ProfileTabs numReviews={reviews.length} />
-          {tab === "saved-roles" ? (
-            <section>
-              <FavoriteRoleSearch favoriteRoles={favoriteRoles} />
-            </section>
-          ) : tab === "saved-companies" ? (
-            <section>
-              <FavoriteCompanySearch favoriteCompanies={favoriteCompanies} />
-            </section>
-          ) : (
-            <section>
-              <div className="flex flex-row items-center justify-between">
-                {reviews.length === 0 ? (
-                  <div className="italic text-cooper-gray-400">
-                    No Reviews Yet
-                  </div>
-                ) : (
-                  <div />
-                )}
-
-                <div>
-                  <NewReviewDialog trigger="+" />
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-4">
-                {reviews.length > 0 &&
-                  reviews.map((review) => (
-                    <ReviewCard
-                      key={review.id}
-                      reviewObj={review}
-                      className="w-[100%]"
-                    />
-                  ))}
-              </div>
-            </section>
-          )}
         </div>
+        <ProfileCardHeader profile={profile} email={session.user.email ?? ""} />
+        <ProfileTabs numReviews={reviews.length} />
+        {tab === "saved-roles" ? (
+          <section>
+            <FavoriteRoleSearch favoriteRoles={favoriteRoles} />
+          </section>
+        ) : tab === "saved-companies" ? (
+          <section>
+            <FavoriteCompanySearch favoriteCompanies={favoriteCompanies} />
+          </section>
+        ) : (
+          <section>
+            <div className="flex flex-row items-center justify-between">
+              {reviews.length === 0 ? (
+                <div className="italic text-cooper-gray-400">
+                  No Reviews Yet
+                </div>
+              ) : (
+                <div />
+              )}
+
+              <div>
+                <Link href="/review-form">
+                  <Button className="bg-cooper-cream-100 hover:bg-cooper-cream-100 m-0 -mt-2 border-none p-0 text-3xl font-thin text-black outline-none">
+                    +
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-4">
+              {reviews.length > 0 &&
+                reviews.map((review) => (
+                  <ReviewCard
+                    key={review.id}
+                    reviewObj={review}
+                    className="w-[100%]"
+                  />
+                ))}
+            </div>
+          </section>
+        )}
       </div>
-    </HeaderLayoutClient>
+    </div>
   );
 }

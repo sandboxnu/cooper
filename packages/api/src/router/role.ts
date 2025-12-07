@@ -163,6 +163,14 @@ export const roleRouter = {
       };
     }),
 
+  getManyByIds: publicProcedure
+    .input(z.object({ ids: z.array(z.string()).min(1) }))
+    .query(({ ctx, input }) => {
+      return ctx.db.query.Role.findMany({
+        where: (role, { inArray }) => inArray(role.id, input.ids),
+      });
+    }),
+
   getByCompany: sortableProcedure
     .input(z.object({ companyId: z.string() }))
     .query(async ({ ctx, input }) => {
@@ -294,7 +302,8 @@ export const roleRouter = {
       const drugTest = calcPercentage("drugTest");
       const freeLunch = calcPercentage("freeLunch");
       const freeMerch = calcPercentage("freeMerch");
-      const freeTransportation = calcPercentage("freeTransport");
+      const travelBenefits = calcPercentage("travelBenefits");
+      const snackBar = calcPercentage("snackBar");
       const overtimeNormal = calcPercentage("overtimeNormal");
       const pto = calcPercentage("pto");
 
@@ -318,7 +327,8 @@ export const roleRouter = {
         drugTest: drugTest,
         freeLunch: freeLunch,
         freeMerch: freeMerch,
-        freeTransportation: freeTransportation,
+        travelBenefits: travelBenefits,
+        snackBar: snackBar,
         overtimeNormal: overtimeNormal,
         pto: pto,
         minPay: minPay,
