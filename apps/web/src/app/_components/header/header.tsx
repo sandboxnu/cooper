@@ -6,6 +6,7 @@ import Link from "next/link";
 
 import { Button } from "@cooper/ui/button";
 
+import { api } from "~/trpc/react";
 import CooperLogo from "../cooper-logo";
 import { NewReviewDialog } from "../reviews/new-review/new-review-dialogue";
 import MobileHeaderButton from "./mobile-header-button";
@@ -20,6 +21,7 @@ interface HeaderProps {
  */
 export default function Header({ auth }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const session = api.auth.getSession.useQuery();
 
   if (isOpen) {
     return (
@@ -89,9 +91,11 @@ export default function Header({ auth }: HeaderProps) {
         >
           Submit Feedback or Bug Reports
         </Link>
-        <div className="flex items-center gap-8">
-          <NewReviewDialog />
-        </div>
+        {session.data && (
+          <div className="flex items-center gap-8">
+            <NewReviewDialog />
+          </div>
+        )}
         {auth}
       </div>
 
