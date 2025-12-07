@@ -372,7 +372,7 @@ export default function Roles() {
 
   return (
     <>
-      <div className="bg-cooper-cream-100 border-cooper-gray-150 fixed flex w-full flex-col md:flex-row items-stretch md:items-center gap-4 md:gap-5 self-start border-b-[1px] py-4">
+      <div className="bg-cooper-cream-100 border-cooper-gray-150 fixed flex w-full flex-col md:flex-row items-stretch md:items-center gap-4 md:gap-5 self-start border-b-[1px] py-4 z-10">
         <div className="w-full md:w-[28%] px-5">
           <SearchFilter className="w-full" />
         </div>

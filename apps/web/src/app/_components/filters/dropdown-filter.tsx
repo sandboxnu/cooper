@@ -377,7 +377,7 @@ export default function DropdownFilter({
       <DropdownMenuTrigger asChild>
         <button
           className={cn(
-            "flex items-center gap-[10px] rounded-lg px-[14px] py-2 text-sm border border-cooper-gray-150 text-cooper-gray-400 font-normal focus-visible:ring-0 h-9",
+            "flex items-center gap-[10px] rounded-lg px-[14px] py-2 text-sm border border-cooper-gray-150 text-cooper-gray-400 font-normal focus-visible:ring-0 h-9 whitespace-nowrap",
             isFiltering
               ? "border-cooper-gray-600 bg-cooper-gray-700 hover:bg-cooper-gray-200"
               : "bg-white hover:bg-cooper-gray-150",
