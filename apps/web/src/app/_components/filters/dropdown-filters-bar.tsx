@@ -86,7 +86,7 @@ export default function DropdownFiltersBar({
       ];
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex gap-2">
       <DropdownFilter
         title="Industry"
         filterType="autocomplete"
@@ -122,9 +122,6 @@ export default function DropdownFiltersBar({
         title="Hourly pay"
         options={[]}
         selectedOptions={[]}
-        onSelectionChange={() => {
-          // No-op: range filter uses onRangeChange instead
-        }}
         filterType="range"
         onRangeChange={(min, max) =>
           handleFilterChange("hourlyPay", { min, max })
