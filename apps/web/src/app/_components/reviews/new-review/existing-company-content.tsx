@@ -60,11 +60,13 @@ export default function ExistingCompanyContent({
   const [locationLabel, setLocationLabel] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [prefix, setPrefix] = useState<string>("");
+  const [companySearchTerm, setCompanySearchTerm] = useState<string>("");
 
   const { toast } = useCustomToast();
 
   const companies = api.company.list.useQuery({
     sortBy: "rating",
+    limit: 10000,
   });
 
   const roles = api.role.getByCompany.useQuery(
@@ -257,12 +259,25 @@ export default function ExistingCompanyContent({
 
               <div className="relative flex-1 w-full ">
                 <ComboBox
-                  valuesAndLabels={
-                    companies.data?.filter(Boolean).map((company) => ({
-                      value: company.id,
-                      label: company.name,
-                    })) ?? []
-                  }
+                  valuesAndLabels={(() => {
+                    const allCompanies =
+                      companies.data?.filter(Boolean).map((company) => ({
+                        value: company.id,
+                        label: company.name,
+                      })) ?? [];
+
+                    // If searching, filter and limit to top 50 matches
+                    // If not searching, show top 50 by default
+                    if (companySearchTerm) {
+                      const filtered = allCompanies.filter((c) =>
+                        c.label
+                          .toLowerCase()
+                          .includes(companySearchTerm.toLowerCase()),
+                      );
+                      return filtered.slice(0, 50);
+                    }
+                    return allCompanies.slice(0, 50);
+                  })()}
                   defaultLabel="Select company"
                   searchPlaceholder="Select"
                   searchEmpty="No company found."
@@ -275,7 +290,11 @@ export default function ExistingCompanyContent({
                           ?.name ?? "")
                       : ""
                   }
-                  onClear={() => field.onChange(undefined)}
+                  onChange={(searchValue) => setCompanySearchTerm(searchValue)}
+                  onClear={() => {
+                    field.onChange(undefined);
+                    setCompanySearchTerm("");
+                  }}
                   onSelect={(selectedLabel) => {
                     const selectedCompany = companies.data?.find(
                       (c) => c.name === selectedLabel,
@@ -288,6 +307,7 @@ export default function ExistingCompanyContent({
                         setShowNewCompany(false);
                       }
                     }
+                    setCompanySearchTerm("");
                   }}
                 />
               </div>
