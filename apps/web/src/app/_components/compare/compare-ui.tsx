@@ -226,7 +226,7 @@ function LoadingSlot({
   return (
     <div
       className={cn(
-        "relative flex flex-1 items-center justify-center border rounded-lg border-[#DDDDDD] bg-white shadow-sm transition",
+        "relative flex flex-1 items-center justify-center rounded-lg border-[0.75px] border-cooper-gray-300 bg-white transition",
         widthClass,
       )}
     >
@@ -279,7 +279,7 @@ function DropSlot({
         }
       }}
       className={cn(
-        "flex flex-1 items-center justify-center rounded-xl border-2 border-dashed transition",
+        "flex flex-1 items-center justify-center rounded-lg border-2 border-dashed transition",
         isActive
           ? "border-cooper-blue-400 bg-[#d4e4f7]"
           : "border-[#DDDDDD] bg-[#E4EAF0]",
