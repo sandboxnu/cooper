@@ -182,7 +182,6 @@ export function BasicInfoSection() {
                 onClear={() => field.onChange(undefined)}
                 value={
                   field.value &&
-                  typeof field.value === "string" &&
                   field.value.length > 0
                     ? field.value
                     : ""

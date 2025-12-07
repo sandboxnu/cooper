@@ -394,7 +394,7 @@ export default function Roles() {
           </div>
         </div>
         {rolesAndCompanies.isSuccess && (
-          <div className="bg-cooper-cream-100 flex h-[90dvh] w-full pt-[9.25dvh]">
+          <div className="bg-cooper-cream-100 flex h-[90dvh] w-full pt-40 md:pt-[9.25dvh]">
             {/* RoleCardPreview List */}
             <div
               ref={sidebarRef}
