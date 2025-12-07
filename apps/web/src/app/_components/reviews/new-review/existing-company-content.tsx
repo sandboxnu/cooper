@@ -20,6 +20,7 @@ import { FormLabel } from "../../themed/onboarding/form";
 import { industryOptions } from "../../onboarding/constants";
 import LocationBox from "../../location";
 import { CompanyCardPreview } from "../../companies/company-card-preview";
+import ComboBox from "../../combo-box";
 
 const filter = new Filter();
 const roleSchema = z.object({
@@ -254,30 +255,38 @@ export default function ExistingCompanyContent({
                 Company name<span className="text-[#FB7373]">*</span>
               </FormLabel>
 
-              <div className="relative flex-1 w-full">
-                <Select
-                  options={
+              <div className="relative flex-1 w-full ">
+                <ComboBox
+                  valuesAndLabels={
                     companies.data?.filter(Boolean).map((company) => ({
                       value: company.id,
                       label: company.name,
                     })) ?? []
                   }
-                  placeholder="Select"
-                  className="w-full border-cooper-gray-150 text-sm h-10"
-                  value={
+                  defaultLabel="Select company"
+                  searchPlaceholder="Select"
+                  searchEmpty="No company found."
+                  variant={"form"}
+                  currLabel={
                     field.value &&
                     typeof field.value === "string" &&
                     field.value.length > 0
-                      ? field.value
+                      ? (companies.data?.find((c) => c.id === field.value)
+                          ?.name ?? "")
                       : ""
                   }
                   onClear={() => field.onChange(undefined)}
-                  onChange={(e) => {
-                    const newId = e.target.value;
-                    field.onChange(newId);
-                    handleUpdateCompanyId(newId);
-                    if (newId) {
-                      setShowNewCompany(false);
+                  onSelect={(selectedLabel) => {
+                    const selectedCompany = companies.data?.find(
+                      (c) => c.name === selectedLabel,
+                    );
+                    if (selectedCompany) {
+                      const newId = selectedCompany.id;
+                      field.onChange(newId);
+                      handleUpdateCompanyId(newId);
+                      if (newId) {
+                        setShowNewCompany(false);
+                      }
                     }
                   }}
                 />
