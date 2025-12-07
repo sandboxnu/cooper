@@ -37,11 +37,11 @@ export default function MobileHeaderButton({
     <div className="relative items-center justify-center">
       {path === href && (
         <Image
-          src="/svg/hidingLogo.svg"
+          src="/svg/bodyLogo.svg"
           alt="Selected"
           width={80}
           height={80}
-          className="absolute -top-6 z-10 -translate-y-2"
+          className="absolute -top-[45px] z-10 -translate-y-2"
         />
       )}
       {href ? (
