@@ -337,8 +337,10 @@ export default function ExistingCompanyContent({
                       placeholder="Enter"
                       className="w-full border border-cooper-gray-150 text-sm h-10"
                       value={
-                        (field.value as string)?.length > 0
-                          ? (field.value as string)
+                        field.value &&
+                        typeof field.value === "string" &&
+                        field.value.length > 0
+                          ? field.value
                           : ""
                       }
                       onChange={(e) => field.onChange(e.target.value)}
@@ -364,8 +366,10 @@ export default function ExistingCompanyContent({
                       placeholder="Search"
                       className="w-full border border-cooper-gray-150 text-sm h-10"
                       value={
-                        (field.value as string)?.length > 0
-                          ? (field.value as string)
+                        field.value &&
+                        typeof field.value === "string" &&
+                        field.value.length > 0
+                          ? field.value
                           : ""
                       }
                       onClear={() => field.onChange(undefined)}

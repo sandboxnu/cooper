@@ -41,8 +41,10 @@ export function CompanyDetailsSection() {
                 ]}
                 className="w-full border-cooper-gray-150 text-sm h-10"
                 value={
-                  (field.value as string)?.length > 0
-                    ? (field.value as string)
+                  field.value &&
+                  typeof field.value === "string" &&
+                  field.value.length > 0
+                    ? field.value
                     : ""
                 }
                 placeholder="Select"

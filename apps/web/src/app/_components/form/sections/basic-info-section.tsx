@@ -107,8 +107,10 @@ export function BasicInfoSection() {
                 ]}
                 className="w-full border-cooper-gray-150 text-sm h-10"
                 value={
-                  (field.value as string)?.length > 0
-                    ? (field.value as string)
+                  field.value &&
+                  typeof field.value === "string" &&
+                  field.value.length > 0
+                    ? field.value
                     : ""
                 }
                 placeholder="Select"
@@ -141,8 +143,10 @@ export function BasicInfoSection() {
                 ]}
                 className="w-full border-cooper-gray-150 text-sm h-10"
                 value={
-                  (field.value as string)?.length > 0
-                    ? (field.value as string)
+                  field.value &&
+                  typeof field.value === "string" &&
+                  field.value.length > 0
+                    ? field.value
                     : ""
                 }
                 placeholder="Select"
@@ -177,8 +181,10 @@ export function BasicInfoSection() {
                 placeholder="Select"
                 onClear={() => field.onChange(undefined)}
                 value={
-                  (field.value as string)?.length > 0
-                    ? (field.value as string)
+                  field.value &&
+                  typeof field.value === "string" &&
+                  field.value.length > 0
+                    ? field.value
                     : ""
                 }
                 onChange={(e) => {
@@ -206,8 +212,10 @@ export function BasicInfoSection() {
                 options={industryOptions}
                 className="border-2 rounded-lg h-10 text-sm text-cooper-gray-600 border-cooper-gray-150"
                 value={
-                  (field.value as string)?.length > 0
-                    ? (field.value as string)
+                  field.value &&
+                  typeof field.value === "string" &&
+                  field.value.length > 0
+                    ? field.value
                     : ""
                 }
                 onClear={() => field.onChange(undefined)}
