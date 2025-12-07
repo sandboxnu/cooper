@@ -40,7 +40,13 @@ export function CompanyDetailsSection() {
                   { value: "REMOTE", label: "Remote" },
                 ]}
                 className="w-full border-cooper-gray-150 text-sm h-10"
-                value={field.value as string}
+                value={
+                  field.value &&
+                  typeof field.value === "string" &&
+                  field.value.length > 0
+                    ? field.value
+                    : ""
+                }
                 placeholder="Select"
                 onChange={(e) => {
                   const value =

@@ -264,7 +264,13 @@ export default function ExistingCompanyContent({
                   }
                   placeholder="Select"
                   className="w-full border-cooper-gray-150 text-sm h-10"
-                  value={field.value as string}
+                  value={
+                    field.value &&
+                    typeof field.value === "string" &&
+                    field.value.length > 0
+                      ? field.value
+                      : ""
+                  }
                   onClear={() => field.onChange(undefined)}
                   onChange={(e) => {
                     const newId = e.target.value;
@@ -336,7 +342,13 @@ export default function ExistingCompanyContent({
                     <Input
                       placeholder="Enter"
                       className="w-full border border-cooper-gray-150 text-sm h-10"
-                      value={field.value as string}
+                      value={
+                        field.value &&
+                        typeof field.value === "string" &&
+                        field.value.length > 0
+                          ? field.value
+                          : ""
+                      }
                       onChange={(e) => field.onChange(e.target.value)}
                     />
                   </FormControl>
@@ -358,8 +370,14 @@ export default function ExistingCompanyContent({
                     <Select
                       options={industryOptions}
                       placeholder="Search"
-                      className="w-full border border-cooper-gray-150 text-sm h-10"
-                      value={field.value as string}
+                      className="w-full border border-cooper-gray-150 text-sm text-cooper-gray-350 h-10"
+                      value={
+                        field.value &&
+                        typeof field.value === "string" &&
+                        field.value.length > 0
+                          ? field.value
+                          : ""
+                      }
                       onClear={() => field.onChange(undefined)}
                       onChange={(e) => {
                         const value =
@@ -411,7 +429,13 @@ export default function ExistingCompanyContent({
                     <Input
                       placeholder="Enter"
                       className="w-full border border-cooper-gray-150 text-sm h-10"
-                      value={field.value as string}
+                      value={
+                        field.value &&
+                        typeof field.value === "string" &&
+                        field.value.length > 0
+                          ? field.value
+                          : ""
+                      }
                       onChange={(e) => field.onChange(e.target.value)}
                     />
                   </FormControl>
@@ -460,7 +484,13 @@ export default function ExistingCompanyContent({
                     }
                     disabled={!selectedCompanyId}
                     className="w-full border-cooper-gray-150 text-sm h-10"
-                    value={field.value as string}
+                    value={
+                      field.value &&
+                      typeof field.value === "string" &&
+                      field.value.length > 0
+                        ? field.value
+                        : ""
+                    }
                     placeholder="Select"
                     onChange={(e) => {
                       const newRoleId =

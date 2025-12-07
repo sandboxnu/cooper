@@ -105,8 +105,14 @@ export function BasicInfoSection() {
                   { value: "Internship", label: "Internship" },
                   { value: "Part time", label: "Part time" },
                 ]}
-                className="w-full border-cooper-gray-150 text-sm h-10"
-                value={field.value as string}
+                className="w-full border-cooper-gray-150 text-cooper-gray-350 text-sm h-10"
+                value={
+                  field.value &&
+                  typeof field.value === "string" &&
+                  field.value.length > 0
+                    ? field.value
+                    : ""
+                }
                 placeholder="Select"
                 onChange={(e) => {
                   const value =
@@ -135,8 +141,14 @@ export function BasicInfoSection() {
                   { value: "SUMMER", label: "Summer" },
                   { value: "FALL", label: "Fall" },
                 ]}
-                className="w-full border-cooper-gray-150 text-sm h-10"
-                value={field.value as string}
+                className="w-full border-cooper-gray-150 text-cooper-gray-350 text-sm h-10"
+                value={
+                  field.value &&
+                  typeof field.value === "string" &&
+                  field.value.length > 0
+                    ? field.value
+                    : ""
+                }
                 placeholder="Select"
                 onChange={(e) => {
                   const value =
@@ -165,10 +177,12 @@ export function BasicInfoSection() {
                   value: year,
                   label: year,
                 }))}
-                className="w-full border-2 rounded-lg h-10 text-sm text-cooper-gray-600 border-cooper-gray-150"
+                className="w-full border-2 rounded-lg h-10 text-sm text-cooper-gray-350 border-cooper-gray-150"
                 placeholder="Select"
                 onClear={() => field.onChange(undefined)}
-                value={field.value as string}
+                value={
+                  field.value && field.value > 0 ? String(field.value) : ""
+                }
                 onChange={(e) => {
                   const value =
                     e.target.value === "" ? undefined : Number(e.target.value);
@@ -192,8 +206,14 @@ export function BasicInfoSection() {
               <Select
                 placeholder="Search by industry..."
                 options={industryOptions}
-                className="border-2 rounded-lg h-10 text-sm text-cooper-gray-600 border-cooper-gray-150"
-                value={field.value as string}
+                className="border-2 rounded-lg h-10 text-sm text-cooper-gray-350 border-cooper-gray-150"
+                value={
+                  field.value &&
+                  typeof field.value === "string" &&
+                  field.value.length > 0
+                    ? field.value
+                    : ""
+                }
                 onClear={() => field.onChange(undefined)}
                 onChange={(e) => {
                   const value =
