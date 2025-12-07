@@ -192,8 +192,10 @@ export default function Roles() {
   return (
     <>
       <div className="bg-cooper-cream-100 border-cooper-gray-150 fixed z-20 w-full self-start border-b-[1px]">
-        <div className="flex min-h-[70px] items-center justify-between px-5 py-3">
-          <SearchFilter className="w-full md:w-[28%]" />
+        <div className="flex min-h-[50px] items-center justify-between px-5 py-2">
+          <div className="flex w-full items-center md:w-[28%]">
+            <SearchFilter className="w-full" />
+          </div>
           {compare.isCompareMode && selectedRole && (
             <div className="hidden items-center gap-2 md:flex">
               <CompareControls anchorRoleId={selectedRole.id} inTopBar />
@@ -299,14 +301,35 @@ export default function Roles() {
                         <button
                           type="button"
                           aria-label="Add to comparison"
-                          className="hover:bg-cooper-gray-50 absolute right-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-cooper-gray-300 bg-white text-xl text-cooper-gray-400 transition hover:border-cooper-gray-400"
+                          className="absolute right-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center transition"
                           onClick={(event) => {
                             event.stopPropagation();
                             compare.enterCompareMode();
                             compare.addRoleId(roleItem.id);
                           }}
                         >
-                          +
+                          <svg
+                            width="30"
+                            height="30"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <circle
+                              cx="10"
+                              cy="10"
+                              r="8"
+                              stroke="#B4B4B4"
+                              strokeWidth="2"
+                              fill="none"
+                            />
+                            <path
+                              d="M10 6v8M6 10h8"
+                              stroke="#B4B4B4"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                            />
+                          </svg>
                         </button>
                       )}
                       <RoleCardPreview
@@ -319,9 +342,8 @@ export default function Roles() {
                           "hover:bg-cooper-gray-100",
                           selectedItem
                             ? selectedItem.id === roleItem.id &&
-                                "bg-cooper-cream-200 hover:bg-cooper-gray-200"
-                            : !i &&
-                                "bg-cooper-cream-200 hover:bg-cooper-gray-200",
+                                "bg-[#EAEAEA] hover:bg-[#EAEAEA]"
+                            : !i && "bg-[#EAEAEA] hover:bg-[#EAEAEA]",
                         )}
                       />
                     </div>

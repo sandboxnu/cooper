@@ -64,29 +64,13 @@ export function CompareControls({
         )}
         onClick={() => compare.addSlot()}
       >
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 20 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle
-            cx="10"
-            cy="10"
-            r="8"
-            stroke="#4a4a4a"
-            strokeWidth="2"
-            fill="none"
-          />
-          <path
-            d="M10 6v8M6 10h8"
-            stroke="#4a4a4a"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-        </svg>
-        ADD COMPARISON
+        <Image
+          src="/svg/compareAdd.svg"
+          width={16}
+          height={16}
+          alt="Compare icon"
+        />
+        <span>ADD COMPARISON</span>
       </Button>
       <Button
         className="inline-flex items-center gap-1.5 rounded-md border border-[rgba(49,115,222,0.15)] bg-[#7a9ec9] px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-[#6a8eb9]"
@@ -298,15 +282,34 @@ function DropSlot({
         "flex flex-1 items-center justify-center rounded-xl border-2 border-dashed transition",
         isActive
           ? "border-cooper-blue-400 bg-[#d4e4f7]"
-          : "border-[#c5d5e8] bg-[#e8eff7]",
+          : "border-[#DDDDDD] bg-[#E4EAF0]",
         widthClass,
       )}
     >
-      <div className="flex flex-col items-center gap-4 px-6 text-center">
-        <span className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#9aacbc] text-2xl font-light text-[#9aacbc]">
-          +
-        </span>
-        <p className="text-md font-bold text-[#6b7a8a]">
+      <div className="flex flex-col items-center gap-2 px-6 text-center">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="10"
+            cy="10"
+            r="8"
+            stroke="#686868"
+            strokeWidth="2"
+            fill="none"
+          />
+          <path
+            d="M10 6v8M6 10h8"
+            stroke="#686868"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        </svg>
+        <p className="text-md font-extrabold text-[#686868]">
           Drag in or select a card from the list
         </p>
       </div>
