@@ -181,10 +181,7 @@ export function BasicInfoSection() {
                 placeholder="Select"
                 onClear={() => field.onChange(undefined)}
                 value={
-                  field.value &&
-                  field.value.length > 0
-                    ? field.value
-                    : ""
+                  field.value && field.value > 0 ? String(field.value) : ""
                 }
                 onChange={(e) => {
                   const value =

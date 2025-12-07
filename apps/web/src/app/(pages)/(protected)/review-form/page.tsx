@@ -122,7 +122,8 @@ const formSchema = z.object({
       message: "Please enter hourly pay",
     })
     .transform((val) => (val ? val.toString() : null))
-    .nullable(),
+    .nullable()
+    .optional(),
   workEnvironment: z.nativeEnum(WorkEnvironment, {
     required_error: "You need to select a work model.",
   }),
