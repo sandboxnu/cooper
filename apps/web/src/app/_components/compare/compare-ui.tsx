@@ -226,7 +226,7 @@ function LoadingSlot({
   return (
     <div
       className={cn(
-        "relative flex flex-1 items-center justify-center bg-white shadow-sm transition",
+        "relative flex flex-1 items-center justify-center border rounded-lg border-[#DDDDDD] bg-white shadow-sm transition",
         widthClass,
       )}
     >
