@@ -653,11 +653,6 @@ export default function Roles() {
                 !showRoleInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
               )}
             >
-              {selectedRole && !compare.isCompareMode && (
-                <div className="flex w-full items-center justify-end px-4 py-2">
-                  <CompareControls anchorRoleId={selectedRole.id} />
-                </div>
-              )}
               {selectedRole ? (
                 compare.isCompareMode ? (
                   <CompareColumns anchorRole={selectedRole} />
