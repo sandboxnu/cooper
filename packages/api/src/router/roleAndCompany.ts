@@ -111,6 +111,8 @@ export const roleAndCompanyRouter = {
         Array.isArray(filters.locations) && filters.locations.length > 0;
       const ratingsFilterActive =
         Array.isArray(filters.ratings) && filters.ratings.length > 0;
+      const jobTypeFilterActive =
+        Array.isArray(filters.jobTypes) && filters.jobTypes.length > 0;
 
       // Build company -> location mapping if location filter is active
       const companyLocationsMap = new Map<string, string[]>();
@@ -217,6 +219,8 @@ export const roleAndCompanyRouter = {
       const baseFilteredItems = combinedItems.filter((item) => {
         const allowedIndustries = filters.industries ?? [];
         const allowedLocations = filters.locations ?? [];
+        const allowedJobTypes = filters.jobTypes ?? [];
+
         const industryOk = industryFilterActive
           ? item.type === "company"
             ? allowedIndustries.includes((item as CompanyType).industry)
@@ -239,6 +243,18 @@ export const roleAndCompanyRouter = {
               const mapped = companyLocationsMap.get(roleCompanyId) ?? [];
               return mapped.some((lid) => allowedLocations.includes(lid));
             })()
+          : true;
+
+        const jobTypeMap: Record<string, string> = {
+          "CO-OP": "Co-op",
+          INTERNSHIP: "Internship",
+        };
+        const jobTypeOk = jobTypeFilterActive
+          ? item.type === "role"
+            ? allowedJobTypes.includes(
+                jobTypeMap[(item as RoleType).jobType] || "",
+              )
+            : true
           : true;
 
         // Pay range filter: use minPay(default 0) and maxPay(default Infinity)
@@ -271,7 +287,7 @@ export const roleAndCompanyRouter = {
           return allowed.some((n) => avg >= n && avg <= n + 0.9);
         })();
 
-        return industryOk && locationOk && payOk && ratingOk;
+        return industryOk && locationOk && jobTypeOk && payOk && ratingOk;
       });
 
       const fuseOptions = ["title", "description", "companyName", "name"];
