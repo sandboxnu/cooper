@@ -28,12 +28,10 @@ interface FilterBodyProps {
   options: FilterOption[];
   selectedOptions: string[];
   onSelectionChange?: (selected: string[]) => void;
-
   placeholder?: string;
   minValue?: number;
   maxValue?: number;
   onRangeChange?: (min: number, max: number) => void;
-
   onSearchChange?: (search: string) => void;
   isLoadingOptions?: boolean;
 }

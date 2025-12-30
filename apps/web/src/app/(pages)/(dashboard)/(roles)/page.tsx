@@ -39,6 +39,9 @@ interface FilterState {
   jobTypes: string[];
   hourlyPay: { min: number; max: number };
   ratings: string[];
+  workModels?: string[];
+  overtimeWork?: string[];
+  companyCulture?: string[];
 }
 
 // Helper function to create URL-friendly slugs (still needed for URL generation)
@@ -75,6 +78,9 @@ export default function Roles() {
     jobTypes: [],
     hourlyPay: { min: 0, max: 0 },
     ratings: [],
+    workModels: [],
+    overtimeWork: [],
+    companyCulture: [],
   });
   const rolesAndCompaniesPerPage = 10;
 
@@ -696,6 +702,7 @@ export default function Roles() {
           totalRolesCount: rolesAndCompanies.data?.totalRolesCount ?? 0,
           totalCompanyCount: rolesAndCompanies.data?.totalCompanyCount ?? 0,
         }}
+        isLoading={rolesAndCompanies.isFetching}
       />
     </>
   );

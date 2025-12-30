@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { api } from "~/trpc/react";
 
-import { industryOptions } from "../onboarding/constants";
+import { industryOptions, jobTypeOptions } from "../onboarding/constants";
 import DropdownFilter from "./dropdown-filter";
 import { abbreviatedStateName } from "~/utils/locationHelpers";
 
@@ -70,13 +70,12 @@ export default function DropdownFiltersBar({
       }))
     : [];
 
-  // Job type options - you'll need to define these based on your schema
-  const jobTypeOptions = jobTypes.length
-    ? jobTypes
-    : [
-        { id: "Co-op", label: "Co-op" },
-        { id: "Internship", label: "Internship" },
-      ];
+  // Job type options
+  const jobTypeOptionsWithId = jobTypeOptions.map((jobType) => ({
+    id: jobType.value,
+    label: jobType.label,
+    value: jobType.value,
+  }));
 
   return (
     <div className="flex gap-2">
@@ -104,7 +103,7 @@ export default function DropdownFiltersBar({
       <DropdownFilter
         title="Job type"
         filterType="checkbox"
-        options={jobTypeOptions}
+        options={jobTypeOptionsWithId}
         selectedOptions={filters.jobTypes}
         onSelectionChange={(selected) =>
           handleFilterChange("jobTypes", selected)

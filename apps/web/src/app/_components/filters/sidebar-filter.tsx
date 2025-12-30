@@ -2,14 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { api } from "~/trpc/react";
-import DropdownFilter from "./dropdown-filter";
 import { industryOptions } from "../onboarding/constants";
-import { jobTypeOptions } from "../onboarding/constants";
+import { jobTypeOptions, workModelOptions } from "../onboarding/constants";
 import { abbreviatedStateName } from "~/utils/locationHelpers";
 import { Button } from "@cooper/ui/button";
-import { Chip } from "@cooper/ui/chip";
-import Autocomplete from "@cooper/ui/autocomplete";
 import RoleTypeSelector from "./role-type-selector";
+import SidebarSection from "./sidebar-section";
 
 interface FilterState {
   industries: string[];
@@ -17,22 +15,23 @@ interface FilterState {
   jobTypes: string[];
   hourlyPay: { min: number; max: number };
   ratings: string[];
+  workModels?: string[];
+  overtimeWork?: string[];
+  companyCulture?: string[];
 }
 
 interface SidebarFilterProps {
   isOpen: boolean;
   onClose: () => void;
-
   filters: FilterState;
   onFilterChange: (filters: FilterState) => void;
-
   selectedType: "roles" | "companies" | "all";
   onSelectedTypeChange: (t: "roles" | "companies" | "all") => void;
-
   data?: {
     totalRolesCount: number;
     totalCompanyCount: number;
   };
+  isLoading?: boolean;
 }
 
 export default function SidebarFilter({
@@ -43,6 +42,7 @@ export default function SidebarFilter({
   selectedType,
   onSelectedTypeChange,
   data,
+  isLoading,
 }: SidebarFilterProps) {
   if (!isOpen) {
     return null;
@@ -99,10 +99,30 @@ export default function SidebarFilter({
     value: jobType.value,
   }));
 
+  const workModelOptionsWithId = workModelOptions.map((workModel) => ({
+    // placeholder since not gonna implement backend yet
+    id: workModel.value,
+    label: workModel.label,
+    value: workModel.value,
+  }));
+
+  const clearAll = () => {
+    onFilterChange({
+      industries: [],
+      locations: [],
+      jobTypes: [],
+      hourlyPay: { min: 0, max: 0 },
+      ratings: [],
+      workModels: [],
+      overtimeWork: [],
+      companyCulture: [],
+    });
+  };
+
   return (
     <div className="fixed inset-0 z-50 bg-black/30">
       <div className="fixed right-0 top-0 h-screen w-1/3 bg-cooper-cream-100 shadow-xl">
-        <div className="flex flex-col mx-4 gap-y-2 my-4">
+        <div className="flex flex-col mx-4 my-4">
           <div className="flex items-center justify-start gap-4 border-cooper-gray-300 px-4">
             <Button
               variant="ghost"
@@ -111,8 +131,7 @@ export default function SidebarFilter({
             >
               X
             </Button>
-
-            <p>Filters</p>
+            <p className="text-lg font-semibold">Filters</p>
           </div>
           <div className="h-px w-full bg-cooper-gray-150" />
           <RoleTypeSelector
@@ -124,8 +143,7 @@ export default function SidebarFilter({
             }}
           />
           <div className="h-px w-full bg-cooper-gray-150" />
-
-          <DropdownFilter
+          <SidebarSection
             title="Industry"
             filterType="autocomplete"
             options={industryOptionsWithId}
@@ -133,8 +151,87 @@ export default function SidebarFilter({
             onSelectionChange={(selected) =>
               handleFilterChange("industries", selected)
             }
-            isSideBar
           />
+          <div className="h-px w-full bg-cooper-gray-150" />
+          <SidebarSection
+            title="Location"
+            filterType="location"
+            options={locationOptions}
+            selectedOptions={filters.locations}
+            onSelectionChange={(selected) =>
+              handleFilterChange("locations", selected)
+            }
+            onSearchChange={(search) => setSearchTerm(search)}
+          />
+          <div className="h-px w-full bg-cooper-gray-150" />
+          <SidebarSection
+            title="Job type"
+            filterType="checkbox"
+            options={jobTypeOptionsWithId}
+            selectedOptions={filters.jobTypes}
+            onSelectionChange={(selected) =>
+              handleFilterChange("jobTypes", selected)
+            }
+          />
+          <div className="h-px w-full bg-cooper-gray-150" />
+          <div className="flex flex-col py-2">
+            {/* all of these don't work in the backend btw/dont rly have functionality atm.  */}
+            <span className="font-semibold text-base">On the job</span>
+            <SidebarSection
+              title="Work model"
+              filterType="checkbox"
+              options={workModelOptionsWithId}
+              selectedOptions={filters.workModels || []}
+              variant="subsection"
+              onSelectionChange={(selected) =>
+                handleFilterChange("workModels", selected)
+              }
+            />
+            <SidebarSection
+              title="Overtime work"
+              filterType="checkbox"
+              options={[
+                {
+                  id: "Yes",
+                  label: "Overtime work commonly expected",
+                  value: "Yes",
+                },
+              ]}
+              selectedOptions={filters.overtimeWork ? filters.overtimeWork : []}
+              onSelectionChange={(selected) =>
+                handleFilterChange("overtimeWork", selected)
+              }
+              variant="subsection"
+            />
+            <SidebarSection
+              title="Company Culture"
+              filterType="rating"
+              options={[]}
+              selectedOptions={filters.companyCulture || []}
+              variant="subsection"
+              onSelectionChange={(selected) =>
+                handleFilterChange("companyCulture", selected)
+              }
+            />
+            <div className="h-px w-full bg-cooper-gray-150" />
+            <div className="flex justify-between items-center m-2">
+              <Button
+                className="bg-transparent border-none text-cooper-gray-400 text-sm hover:bg-transparent p-0"
+                onClick={clearAll}
+              >
+                Clear all
+              </Button>
+              <Button
+                className="bg-cooper-gray-300 text-cooper-gray-100 font-semibold text-sm hover:bg-cooper-gray-200 p-2 border-0"
+                onClick={onClose}
+              >
+                {!isLoading
+                  ? "Show Results " +
+                    `(${(data?.totalRolesCount || 0) + (data?.totalCompanyCount || 0)})`
+                  : "Loading..."}
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

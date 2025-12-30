@@ -17,7 +17,7 @@ import { Button } from "@cooper/ui/button";
 import FilterBody, {
   type FilterOption,
   type FilterVariant,
-} from "~/app/_components/filters/filter-body";
+} from "./filter-body";
 
 interface DropdownFilterProps {
   title: string;
