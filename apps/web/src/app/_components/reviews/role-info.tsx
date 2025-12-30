@@ -24,7 +24,7 @@ import InfoCard from "./info-card";
 import { ReviewCard } from "./review-card";
 import ReviewSearchBar from "./review-search-bar";
 import RoundBarGraph from "./round-bar-graph";
-import { ReviewType, RoleType } from "@cooper/db/schema";
+import type { ReviewType, RoleType } from "@cooper/db/schema";
 
 interface RoleCardProps {
   className?: string;
@@ -100,7 +100,8 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     "Drug test": averages.data.drugTest,
     "Lunch provided": averages.data.freeLunch,
     "Free merch": averages.data.freeMerch,
-    "Transportation covered": averages.data.freeTransportation,
+    "Travel benefits": averages.data.travelBenefits,
+    "Snack bar": averages.data.snackBar,
   };
 
   // ====== Ensure User Is Logged In + Hasn't Made Too Many Reviews ====== //
@@ -373,10 +374,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                 <div className="flex h-full w-full flex-col items-center justify-center text-[#5a5a5a]">
                   <p>No reviews yet</p>
                   {usersReviews.isSuccess && usersReviews.data.length < 5 && (
-                    <Link
-                      href={`/review?id=${roleObj.id}`}
-                      className="ml-2 underline"
-                    >
+                    <Link href={`/review-form`} className="ml-2 underline">
                       Add one!
                     </Link>
                   )}

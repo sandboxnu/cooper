@@ -6,8 +6,8 @@ import Link from "next/link";
 
 import { Button } from "@cooper/ui/button";
 
+import { api } from "~/trpc/react";
 import CooperLogo from "../cooper-logo";
-import { NewReviewDialog } from "../reviews/new-review/new-review-dialogue";
 import MobileHeaderButton from "./mobile-header-button";
 
 interface HeaderProps {
@@ -20,12 +20,21 @@ interface HeaderProps {
  */
 export default function Header({ auth }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const session = api.auth.getSession.useQuery();
 
   if (isOpen) {
     return (
       <header className="z-50 flex min-h-[14rem] w-full flex-col justify-start bg-cooper-cream-100 outline outline-[1px]">
         <div className="z-10 ml-3 mr-4 flex h-[8dvh] min-h-10 items-center justify-between gap-4">
-          <h1 className="text-2xl font-bold text-cooper-blue-800">Cooper</h1>
+          <Link
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = "/";
+            }}
+          >
+            <h1 className="text-2xl font-bold text-cooper-blue-800">Cooper</h1>
+          </Link>
           <Button
             type="button"
             variant="outline"
@@ -44,12 +53,6 @@ export default function Header({ auth }: HeaderProps) {
             label="Jobs"
             onClick={() => setIsOpen(false)}
           />
-          <MobileHeaderButton
-            href="/companies"
-            iconSrc="/svg/work.svg"
-            label="Companies"
-            onClick={() => setIsOpen(false)}
-          />
           <MobileHeaderButton label="Profile" onClick={() => setIsOpen(false)}>
             {auth}
           </MobileHeaderButton>
@@ -60,7 +63,14 @@ export default function Header({ auth }: HeaderProps) {
 
   return (
     <header className="z-10 flex w-full items-center justify-between px-6 py-4 outline outline-[1px] bg-cooper-cream-100 outline-cooper-gray-150">
-      <Link href="/" className={"flex items-center justify-center gap-3"}>
+      <Link
+        href="/"
+        onClick={(e) => {
+          e.preventDefault();
+          window.location.href = "/";
+        }}
+        className={"flex items-center justify-center gap-3"}
+      >
         <div className="z-0 flex max-w-[43px] items-end">
           <CooperLogo />
         </div>
@@ -74,15 +84,27 @@ export default function Header({ auth }: HeaderProps) {
         >
           Submit Feedback or Bug Reports
         </Link>
-        <div className="flex items-center gap-8">
-          <NewReviewDialog />
-        </div>
+        {session.data && (
+          <div className="flex items-center gap-8">
+            <Link href="/review-form">
+              <Button className="h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700">
+                <span className="translate-y-[-2px] text-2xl md:hidden">+</span>
+                <span className="hidden md:inline">+ ADD REVIEW</span>
+              </Button>
+            </Link>
+          </div>
+        )}
         {auth}
       </div>
 
       {/* Mobile new review button and burger button */}
       <div className="justify-right mr-2 flex flex-shrink grid-cols-2 items-center gap-2 md:hidden">
-        <NewReviewDialog />
+        <Link href="/review-form">
+          <Button className="h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700">
+            <span className="translate-y-[-2px] text-2xl md:hidden">+</span>
+            <span className="hidden md:inline">+ ADD REVIEW</span>
+          </Button>
+        </Link>
         <Button
           type="button"
           variant="ghost"

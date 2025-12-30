@@ -127,6 +127,7 @@ describe("Review Router", async () => {
         website: "https://company1.com",
         createdAt: new Date(),
         updatedAt: new Date(),
+        slug: "company-1",
       },
       {
         id: "2",
@@ -136,6 +137,7 @@ describe("Review Router", async () => {
         website: "https://company2.com",
         createdAt: new Date(),
         updatedAt: new Date(),
+        slug: "company-2",
       },
       {
         id: "3",
@@ -145,6 +147,7 @@ describe("Review Router", async () => {
         website: "https://company3.com",
         createdAt: new Date(),
         updatedAt: new Date(),
+        slug: "company-3",
       },
       {
         id: "4",
@@ -154,6 +157,7 @@ describe("Review Router", async () => {
         website: "https://company4.com",
         createdAt: new Date(),
         updatedAt: new Date(),
+        slug: "company-4",
       },
     ]);
 
@@ -171,7 +175,8 @@ describe("Review Router", async () => {
         drugTest: false,
         freeLunch: true,
         freeMerch: true,
-        freeTransport: false,
+        travelBenefits: false,
+        snackBar: false,
         overtimeNormal: true,
         pto: true,
         workTerm: "SPRING",
@@ -200,7 +205,8 @@ describe("Review Router", async () => {
         drugTest: true,
         freeLunch: false,
         freeMerch: true,
-        freeTransport: true,
+        travelBenefits: true,
+        snackBar: false,
         overtimeNormal: false,
         pto: false,
         workTerm: "SPRING",
@@ -247,7 +253,7 @@ describe("Review Router", async () => {
       drugTest: 0.5,
       freeLunch: 0.5,
       freeMerch: 1,
-      freeTransportation: 0.5,
+      travelBenefits: 0.5,
       overtimeNormal: 0.5,
       pto: 0.5,
       minPay: 15,

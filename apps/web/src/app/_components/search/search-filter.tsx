@@ -87,6 +87,10 @@ export default function SearchFilter({
       // Initialize URLSearchParams with the required searchText
       const params = new URLSearchParams(window.location.search);
 
+      // Clear company and role params when searching
+      params.delete("company");
+      params.delete("role");
+
       // Conditionally add searchCycle and searchTerm if they have values
       if (searchCycle !== undefined) {
         params.set("cycle", searchCycle);
