@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 
 import type { CompanyType, RoleType } from "@cooper/db/schema";
@@ -28,7 +29,9 @@ import NoResults from "~/app/_components/no-results";
 import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
 import { RoleInfo } from "~/app/_components/reviews/role-info";
 import SearchFilter from "~/app/_components/search/search-filter";
+import SidebarFilter from "~/app/_components/filters/sidebar-filter";
 import { api } from "~/trpc/react";
+import RoleTypeSelector from "~/app/_components/filters/role-type-selector";
 
 interface FilterState {
   industries: string[];
@@ -55,6 +58,8 @@ export default function Roles() {
   const searchValue = searchParams.get("search") ?? ""; // Get search query from URL
   const router = useRouter();
   const compare = useCompare();
+
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const [selectedType, setSelectedType] = useState<
     "roles" | "companies" | "all"
@@ -433,8 +438,23 @@ export default function Roles() {
         <div className="w-full px-5 md:w-[28%]">
           <SearchFilter className="w-full" />
         </div>
-        <div className="no-scrollbar w-full flex-1 overflow-x-auto px-5 md:overflow-visible md:pl-0 md:pr-5">
-          <DropdownFiltersBar onFilterChange={handleFilterChange} />
+        <div className="no-scrollbar w-full flex flex-1 overflow-x-auto px-5 md:overflow-visible md:pl-0 md:pr-5 gap-2">
+          <DropdownFiltersBar
+            filters={appliedFilters}
+            onFilterChange={handleFilterChange}
+          />
+          <Button
+            className="flex items-center gap-[10px] rounded-lg px-[14px] py-2 text-sm border border-cooper-gray-150 text-cooper-gray-400 font-normal focus-visible:ring-0 outline-none focus:outline-none h-9 whitespace-nowrap bg-white hover:bg-cooper-gray-150"
+            onClick={() => setIsSidebarOpen(true)}
+          >
+            <Image
+              src="/svg/sidebarFilter.svg"
+              width={16}
+              height={16}
+              alt="Sidebar filters icon"
+            />
+            Filters
+          </Button>
         </div>
         {compare.isCompareMode && selectedRole && (
           <div className="hidden items-center gap-2 px-5 md:flex">
@@ -494,23 +514,14 @@ export default function Roles() {
                     </DropdownMenuLabel>
                   </DropdownMenuContent>
                 </DropdownMenu>
-                <div className="flex gap-2 py-2">
-                  <Chip
-                    label="All"
-                    onClick={() => setSelectedType("all")}
-                    selected={selectedType === "all"}
-                  />
-                  <Chip
-                    onClick={() => setSelectedType("roles")}
-                    label={`Jobs (${rolesAndCompanies.data.totalRolesCount})`}
-                    selected={selectedType === "roles"}
-                  />
-                  <Chip
-                    onClick={() => setSelectedType("companies")}
-                    label={`Companies (${rolesAndCompanies.data.totalCompanyCount})`}
-                    selected={selectedType === "companies"}
-                  />
-                </div>
+                <RoleTypeSelector
+                  onSelectedTypeChange={setSelectedType}
+                  selectedType={selectedType}
+                  data={{
+                    totalRolesCount: rolesAndCompanies.data.totalRolesCount,
+                    totalCompanyCount: rolesAndCompanies.data.totalCompanyCount,
+                  }}
+                />
               </div>
               {rolesAndCompanies.data.items.map((item, i) => {
                 if (item.type === "role") {
@@ -673,6 +684,19 @@ export default function Roles() {
           <NoResults className="h-[84dvh]" />
         )}
       {rolesAndCompanies.isPending && <LoadingResults className="h-[84dvh]" />}
+
+      <SidebarFilter
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
+        filters={appliedFilters}
+        onFilterChange={handleFilterChange}
+        selectedType={selectedType}
+        onSelectedTypeChange={setSelectedType}
+        data={{
+          totalRolesCount: rolesAndCompanies.data?.totalRolesCount ?? 0,
+          totalCompanyCount: rolesAndCompanies.data?.totalCompanyCount ?? 0,
+        }}
+      />
     </>
   );
 }

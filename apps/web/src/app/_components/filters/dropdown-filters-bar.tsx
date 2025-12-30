@@ -16,22 +16,16 @@ interface FilterState {
 }
 
 interface DropdownFiltersBarProps {
+  filters: FilterState;
   onFilterChange: (filters: FilterState) => void;
   jobTypes?: { id: string; label: string }[];
 }
 
 export default function DropdownFiltersBar({
+  filters,
   onFilterChange,
   jobTypes = [],
 }: DropdownFiltersBarProps) {
-  const [filters, setFilters] = useState<FilterState>({
-    industries: [],
-    locations: [],
-    jobTypes: [],
-    hourlyPay: { min: 0, max: 0 },
-    ratings: [],
-  });
-
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [prefix, setPrefix] = useState<string>("");
 
@@ -56,7 +50,6 @@ export default function DropdownFiltersBar({
       ...filters,
       [key]: value,
     };
-    setFilters(newFilters);
     onFilterChange(newFilters);
   };
 
