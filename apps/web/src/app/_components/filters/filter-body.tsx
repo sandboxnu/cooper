@@ -242,7 +242,7 @@ function FilterBodyAutocomplete({
     <div>
       <Autocomplete
         options={options.map((option) => ({
-          value: option.id,
+          value: option.value || option.id,
           label: option.label,
         }))}
         value={selectedOptions}

@@ -8,6 +8,8 @@ import { abbreviatedStateName } from "~/utils/locationHelpers";
 import { Button } from "@cooper/ui/button";
 import RoleTypeSelector from "./role-type-selector";
 import SidebarSection from "./sidebar-section";
+import { ChevronRight } from "lucide-react";
+import { cn } from "@cooper/ui";
 
 interface FilterState {
   industries: string[];
@@ -44,10 +46,6 @@ export default function SidebarFilter({
   data,
   isLoading,
 }: SidebarFilterProps) {
-  if (!isOpen) {
-    return null;
-  }
-
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [prefix, setPrefix] = useState<string>("");
 
@@ -120,16 +118,31 @@ export default function SidebarFilter({
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/30">
-      <div className="fixed right-0 top-0 h-screen w-1/3 bg-cooper-cream-100 shadow-xl">
-        <div className="flex flex-col mx-4 my-4">
-          <div className="flex items-center justify-start gap-4 border-cooper-gray-300 px-4">
+    <div
+      className={cn(
+        "fixed inset-0 z-50 transition-opacity duration-200",
+        isOpen
+          ? "opacity-100 bg-black/30 pointer-events-auto"
+          : "opacity-0 bg-black/0 pointer-events-none",
+      )}
+      onClick={onClose}
+    >
+      <div
+        className={cn(
+          "fixed right-0 top-0 h-screen w-1/3 bg-cooper-cream-100 shadow-xl",
+          "transition-transform duration-200 ease-out",
+          isOpen ? "translate-x-0" : "translate-x-full",
+          "overflow-y-auto",
+        )}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex flex-col mx-6 mt-3">
+          <div className="flex items-center justify-start gap-2 mb-2 ml-[-12px]">
             <Button
-              variant="ghost"
-              className="text-cooper-gray-300 p-0"
+              className="text-cooper-gray-300 p-0 bg-transparent border-0 hover:bg-transparent"
               onClick={onClose}
             >
-              X
+              <ChevronRight className="h-6 w-6" />
             </Button>
             <p className="text-lg font-semibold">Filters</p>
           </div>
@@ -222,7 +235,7 @@ export default function SidebarFilter({
                 Clear all
               </Button>
               <Button
-                className="bg-cooper-gray-300 text-cooper-gray-100 font-semibold text-sm hover:bg-cooper-gray-200 p-2 border-0"
+                className="bg-cooper-gray-300 text-cooper-gray-100 font-semibold text-sm hover:bg-cooper-gray-400 px-2 py-1 border-0"
                 onClick={onClose}
               >
                 {!isLoading

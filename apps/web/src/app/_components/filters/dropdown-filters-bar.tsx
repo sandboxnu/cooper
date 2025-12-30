@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { api } from "~/trpc/react";
 
 import { industryOptions, jobTypeOptions } from "../onboarding/constants";
 import DropdownFilter from "./dropdown-filter";
 import { abbreviatedStateName } from "~/utils/locationHelpers";
+import { LocationType } from "@cooper/db/schema";
 
 interface FilterState {
   industries: string[];
@@ -53,6 +54,23 @@ export default function DropdownFiltersBar({
     onFilterChange(newFilters);
   };
 
+  // fetch each selected location so we can show labels immediately
+  //this small part is like completely vibecoded btw :skull:
+  const selectedLocationQueries = api.useQueries((t) =>
+    filters.locations.map((id) =>
+      t.location.getById(
+        { id },
+        {
+          enabled: !!id,
+        },
+      ),
+    ),
+  );
+
+  const selectedLocations = selectedLocationQueries
+    .map((q) => q.data)
+    .filter((loc): loc is LocationType => Boolean(loc));
+
   // Industry options from your schema
   const industryOptionsWithId = Object.entries(industryOptions).map(
     ([_value, label]) => ({
@@ -62,13 +80,24 @@ export default function DropdownFiltersBar({
     }),
   );
 
-  // Location options
-  const locationOptions = locationsToUpdate.data
-    ? locationsToUpdate.data.map((loc) => ({
+  const locationOptions = useMemo(() => {
+    const fromSelected = selectedLocations.map((loc) => ({
+      id: loc.id,
+      label: `${loc.city}${loc.state ? `, ${abbreviatedStateName(loc.state)}` : ""}`,
+    }));
+
+    const fromPrefix =
+      locationsToUpdate.data?.map((loc) => ({
         id: loc.id,
         label: `${loc.city}${loc.state ? `, ${abbreviatedStateName(loc.state)}` : ""}`,
-      }))
-    : [];
+      })) ?? [];
+
+    // merge + dedupe by id
+    const map = new Map<string, { id: string; label: string }>();
+    for (const opt of [...fromSelected, ...fromPrefix]) map.set(opt.id, opt);
+
+    return Array.from(map.values());
+  }, [selectedLocations, locationsToUpdate.data]);
 
   // Job type options
   const jobTypeOptionsWithId = jobTypeOptions.map((jobType) => ({
