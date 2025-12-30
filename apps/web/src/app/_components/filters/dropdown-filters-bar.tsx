@@ -6,7 +6,7 @@ import { api } from "~/trpc/react";
 import { industryOptions, jobTypeOptions } from "../onboarding/constants";
 import DropdownFilter from "./dropdown-filter";
 import { abbreviatedStateName } from "~/utils/locationHelpers";
-import { LocationType } from "@cooper/db/schema";
+import type { LocationType } from "@cooper/db/schema";
 
 interface FilterState {
   industries: string[];
@@ -19,13 +19,11 @@ interface FilterState {
 interface DropdownFiltersBarProps {
   filters: FilterState;
   onFilterChange: (filters: FilterState) => void;
-  jobTypes?: { id: string; label: string }[];
 }
 
 export default function DropdownFiltersBar({
   filters,
   onFilterChange,
-  jobTypes = [],
 }: DropdownFiltersBarProps) {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [prefix, setPrefix] = useState<string>("");

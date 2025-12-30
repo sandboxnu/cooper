@@ -8,7 +8,6 @@ import { ChevronDown } from "lucide-react";
 import type { CompanyType, RoleType } from "@cooper/db/schema";
 import { cn, Pagination } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
-import { Chip } from "@cooper/ui/chip";
 import {
   DropdownMenu,
   DropdownMenuContent,

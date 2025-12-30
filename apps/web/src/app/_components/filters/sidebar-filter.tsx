@@ -151,8 +151,8 @@ export default function SidebarFilter({
             onSelectedTypeChange={onSelectedTypeChange}
             selectedType={selectedType}
             data={{
-              totalRolesCount: data?.totalRolesCount || 0,
-              totalCompanyCount: data?.totalCompanyCount || 0,
+              totalRolesCount: data?.totalRolesCount ?? 0,
+              totalCompanyCount: data?.totalCompanyCount ?? 0,
             }}
           />
           <div className="h-px w-full bg-cooper-gray-150" />
@@ -194,7 +194,7 @@ export default function SidebarFilter({
               title="Work model"
               filterType="checkbox"
               options={workModelOptionsWithId}
-              selectedOptions={filters.workModels || []}
+              selectedOptions={filters.workModels ?? []}
               variant="subsection"
               onSelectionChange={(selected) =>
                 handleFilterChange("workModels", selected)
@@ -220,7 +220,7 @@ export default function SidebarFilter({
               title="Company Culture"
               filterType="rating"
               options={[]}
-              selectedOptions={filters.companyCulture || []}
+              selectedOptions={filters.companyCulture ?? []}
               variant="subsection"
               onSelectionChange={(selected) =>
                 handleFilterChange("companyCulture", selected)
@@ -240,7 +240,7 @@ export default function SidebarFilter({
               >
                 {!isLoading
                   ? "Show Results " +
-                    `(${(data?.totalRolesCount || 0) + (data?.totalCompanyCount || 0)})`
+                    `(${(data?.totalRolesCount ?? 0) + (data?.totalCompanyCount ?? 0)})`
                   : "Loading..."}
               </Button>
             </div>

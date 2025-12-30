@@ -252,7 +252,7 @@ export const roleAndCompanyRouter = {
         const jobTypeOk = jobTypeFilterActive
           ? item.type === "role"
             ? allowedJobTypes.includes(
-                jobTypeMap[(item as RoleType).jobType] || "",
+                jobTypeMap[(item as RoleType).jobType] ?? "",
               )
             : true
           : true;

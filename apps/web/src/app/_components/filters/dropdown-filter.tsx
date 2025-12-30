@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { ChevronDown, X } from "lucide-react";
 import { cn } from "@cooper/ui";
 
@@ -14,10 +14,8 @@ import {
 } from "@cooper/ui/dropdown-menu";
 import { Button } from "@cooper/ui/button";
 
-import FilterBody, {
-  type FilterOption,
-  type FilterVariant,
-} from "./filter-body";
+import FilterBody from "./filter-body";
+import type { FilterOption, FilterVariant } from "./filter-body";
 
 interface DropdownFilterProps {
   title: string;
@@ -48,7 +46,7 @@ export default function DropdownFilter({
 
   const isFiltering = useMemo(() => {
     if (filterType === "range") {
-      return Boolean((minValue && minValue > 0) || (maxValue && maxValue > 0));
+      return Boolean((minValue && minValue > 0) ?? (maxValue && maxValue > 0));
     }
     return selectedOptions.length > 0;
   }, [filterType, selectedOptions.length, minValue, maxValue]);

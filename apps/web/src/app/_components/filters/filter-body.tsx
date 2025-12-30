@@ -4,7 +4,6 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 
 import { cn } from "@cooper/ui";
-import { Button } from "@cooper/ui/button";
 import { Checkbox } from "@cooper/ui/checkbox";
 import Autocomplete from "@cooper/ui/autocomplete";
 import { Input } from "../themed/onboarding/input";
@@ -242,7 +241,7 @@ function FilterBodyAutocomplete({
     <div>
       <Autocomplete
         options={options.map((option) => ({
-          value: option.value || option.id,
+          value: option.value ?? option.id,
           label: option.label,
         }))}
         value={selectedOptions}

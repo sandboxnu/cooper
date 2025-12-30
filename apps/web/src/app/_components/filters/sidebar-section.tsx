@@ -1,8 +1,7 @@
 import { Button } from "@cooper/ui/button";
-import FilterBody, {
-  type FilterOption,
-  type FilterVariant,
-} from "./filter-body";
+import FilterBody from "./filter-body";
+import type { FilterOption, FilterVariant } from "./filter-body";
+
 import { cn } from "@cooper/ui";
 
 interface SidebarSectionProps {
