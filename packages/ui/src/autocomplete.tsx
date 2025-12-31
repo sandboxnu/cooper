@@ -71,7 +71,7 @@ export default function Autocomplete({
         <input
           ref={inputRef}
           type="text"
-          className="border-cooper-gray-150 focus:none flex h-10 w-full rounded-md border bg-white px-[14px] py-2 text-sm placeholder:text-cooper-gray-400 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+          className="border-cooper-gray-150 focus:none flex h8 w-full rounded-md border bg-white px-[14px] py-2 text-sm placeholder:text-cooper-gray-400 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
           placeholder={placeholder}
           value={displayValue}
           onChange={(e) => {
