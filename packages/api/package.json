@@ -23,7 +23,7 @@
     "@cooper/auth": "workspace:*",
     "@cooper/db": "workspace:*",
     "@cooper/validators": "workspace:*",
-    "@trpc/server": "11.0.0-rc.441",
+    "@trpc/server": "11.8.0",
     "bad-words": "^4.0.0",
     "fuse.js": "^7.0.0",
     "superjson": "2.2.1",

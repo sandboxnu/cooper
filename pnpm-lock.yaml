@@ -162,14 +162,14 @@ importers:
         specifier: ^5.49.2
         version: 5.51.11(react@18.3.1)
       '@trpc/client':
-        specifier: 11.0.0-rc.441
-        version: 11.0.0-rc.441(@trpc/server@11.0.0-rc.441)
+        specifier: 11.8.0
+        version: 11.8.0(@trpc/server@11.8.0(typescript@5.5.4))(typescript@5.5.4)
       '@trpc/react-query':
-        specifier: 11.0.0-rc.441
-        version: 11.0.0-rc.441(@tanstack/react-query@5.51.11(react@18.3.1))(@trpc/client@11.0.0-rc.441(@trpc/server@11.0.0-rc.441))(@trpc/server@11.0.0-rc.441)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 11.8.0
+        version: 11.8.0(@tanstack/react-query@5.51.11(react@18.3.1))(@trpc/client@11.8.0(@trpc/server@11.8.0(typescript@5.5.4))(typescript@5.5.4))(@trpc/server@11.8.0(typescript@5.5.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.5.4)
       '@trpc/server':
-        specifier: 11.0.0-rc.441
-        version: 11.0.0-rc.441
+        specifier: 11.8.0
+        version: 11.8.0(typescript@5.5.4)
       bad-words:
         specifier: ^4.0.0
         version: 4.0.0
@@ -262,8 +262,8 @@ importers:
         specifier: workspace:*
         version: link:../validators
       '@trpc/server':
-        specifier: 11.0.0-rc.441
-        version: 11.0.0-rc.441
+        specifier: 11.8.0
+        version: 11.8.0(typescript@5.5.4)
       bad-words:
         specifier: ^4.0.0
         version: 4.0.0
@@ -3395,22 +3395,26 @@ packages:
   '@tootallnate/quickjs-emscripten@0.23.0':
     resolution: {integrity: sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==}
 
-  '@trpc/client@11.0.0-rc.441':
-    resolution: {integrity: sha512-O9zHP7JcK35jO5G8BoW304WdRcHW1TKZae2QDU65KvfMxosbmqY2ajwAgs6CxTS45c1PuF9vI0kXtP52e3FYgQ==}
+  '@trpc/client@11.8.0':
+    resolution: {integrity: sha512-imJQeESX1hAapDaC4JB91yvXg41AZfBuTh/scnEiN/hAubZa5s/ikp0n+w29q2GCf+hREkr3WptUFKFJoDAIug==}
     peerDependencies:
-      '@trpc/server': 11.0.0-rc.441+0c4a58144
+      '@trpc/server': 11.8.0
+      typescript: '>=5.7.2'
 
-  '@trpc/react-query@11.0.0-rc.441':
-    resolution: {integrity: sha512-VZm17FyQ/imz5S2pdJe6Qt9Od3JH1jDL8SlI5LZJ/ZXm+vdIbY3KJO1GOBKWfUw5oewaAE/QZJS0xVZqpIvw7g==}
+  '@trpc/react-query@11.8.0':
+    resolution: {integrity: sha512-zJG22PqhGUBq6ke58McGxRBGWGDTHlmsgpxp/rQx8iT2yi0Ja1H2/UcSsjZ/MG65DhCfpKvMVH0OVivTn9FWwA==}
     peerDependencies:
-      '@tanstack/react-query': ^5.49.2
-      '@trpc/client': 11.0.0-rc.441+0c4a58144
-      '@trpc/server': 11.0.0-rc.441+0c4a58144
+      '@tanstack/react-query': ^5.80.3
+      '@trpc/client': 11.8.0
+      '@trpc/server': 11.8.0
       react: '>=18.2.0'
       react-dom: '>=18.2.0'
+      typescript: '>=5.7.2'
 
-  '@trpc/server@11.0.0-rc.441':
-    resolution: {integrity: sha512-H0NN85JDgDlvG9tHW9efygLJZbVkszLagm5VeLD8MuhXqqKU+WyMTqb4D8rI560dse4dMC3lI5IoXaCEXMoznA==}
+  '@trpc/server@11.8.0':
+    resolution: {integrity: sha512-DphyQnLuyX2nwJCQGWQ9zYz4hZGvRhSBqDhQ0SH3tDhQ3PU4u68xofA0pJ741Ir4InEAFD+TtJVLAQy+wVOkiQ==}
+    peerDependencies:
+      typescript: '>=5.7.2'
 
   '@trysound/sax@0.2.0':
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
@@ -6983,6 +6987,7 @@ packages:
   next@14.2.35:
     resolution: {integrity: sha512-KhYd2Hjt/O1/1aZVX3dCwGXM1QmOV4eNM2UTacK5gipDdPN/oHHK/4oVGy7X8GMfPMsUTUEmGlsy0EY1YGAkig==}
     engines: {node: '>=18.17.0'}
+    deprecated: This version has a security vulnerability. Please upgrade to a patched version. See https://nextjs.org/blog/security-update-2025-12-11 for more details.
     hasBin: true
     peerDependencies:
       '@opentelemetry/api': ^1.1.0
@@ -12718,19 +12723,23 @@ snapshots:
 
   '@tootallnate/quickjs-emscripten@0.23.0': {}
 
-  '@trpc/client@11.0.0-rc.441(@trpc/server@11.0.0-rc.441)':
+  '@trpc/client@11.8.0(@trpc/server@11.8.0(typescript@5.5.4))(typescript@5.5.4)':
     dependencies:
-      '@trpc/server': 11.0.0-rc.441
+      '@trpc/server': 11.8.0(typescript@5.5.4)
+      typescript: 5.5.4
 
-  '@trpc/react-query@11.0.0-rc.441(@tanstack/react-query@5.51.11(react@18.3.1))(@trpc/client@11.0.0-rc.441(@trpc/server@11.0.0-rc.441))(@trpc/server@11.0.0-rc.441)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@trpc/react-query@11.8.0(@tanstack/react-query@5.51.11(react@18.3.1))(@trpc/client@11.8.0(@trpc/server@11.8.0(typescript@5.5.4))(typescript@5.5.4))(@trpc/server@11.8.0(typescript@5.5.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.5.4)':
     dependencies:
       '@tanstack/react-query': 5.51.11(react@18.3.1)
-      '@trpc/client': 11.0.0-rc.441(@trpc/server@11.0.0-rc.441)
-      '@trpc/server': 11.0.0-rc.441
+      '@trpc/client': 11.8.0(@trpc/server@11.8.0(typescript@5.5.4))(typescript@5.5.4)
+      '@trpc/server': 11.8.0(typescript@5.5.4)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
+      typescript: 5.5.4
 
-  '@trpc/server@11.0.0-rc.441': {}
+  '@trpc/server@11.8.0(typescript@5.5.4)':
+    dependencies:
+      typescript: 5.5.4
 
   '@trysound/sax@0.2.0': {}
 
