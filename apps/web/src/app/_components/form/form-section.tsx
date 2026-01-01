@@ -1,4 +1,3 @@
-
 /**
  * FormSection component creates a section within a FormCard with a specified title.
  */
