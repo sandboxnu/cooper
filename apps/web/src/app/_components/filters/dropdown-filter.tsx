@@ -318,7 +318,7 @@ export default function DropdownFilter({
             }))}
             value={selectedOptions}
             onChange={(selected) => onSelectionChange?.(selected)}
-            placeholder={`Search by ${title === "Industry" ? "industry" : "city or state"}`}
+            placeholder={`Search by ${title === "Industry" ? "industry" : title === "Benefits" ? "benefits" : "city or state"}`}
           />
         </div>
       );
