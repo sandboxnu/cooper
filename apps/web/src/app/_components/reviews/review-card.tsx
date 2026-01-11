@@ -90,7 +90,7 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
                 src="/svg/reviewReport.svg"
                 alt="Star icon"
                 width={16}
-                height={14}
+                height={15}
                 className="cursor-pointer"
               />
             </div>
