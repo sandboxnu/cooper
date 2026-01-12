@@ -6,7 +6,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import type { IndustryType, LocationType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { Form } from "@cooper/ui/form";
 
