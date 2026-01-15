@@ -93,31 +93,7 @@ export default function Autocomplete({
         )}
       </div>
 
-      {/* Selected items badges */}
-      {value.length > 0 && (
-        <div className="mt-2 flex flex-wrap gap-1">
-          {value.map((val) => {
-            const option = options.find((opt) => opt.value === val);
-            if (!option) return null;
-            return (
-              <span
-                key={val}
-                className="border-cooper-gray-150 hover:bg-cooper-gray-150 inline-flex items-center gap-[6px] rounded-[8px] border bg-white py-2 pl-[14px] pr-3 text-sm font-medium text-cooper-gray-400"
-              >
-                {option.label}
-                <button
-                  onClick={() => handleRemove(val)}
-                  className="text-cooper-gray-400"
-                >
-                  <X className="h-5 w-5 rounded-full p-1 hover:cursor-pointer hover:bg-cooper-gray-400/20" />
-                </button>
-              </span>
-            );
-          })}
-        </div>
-      )}
-
-      {open && (
+      {open ? (
         <>
           <div
             className="fixed inset-0 z-[100]"
@@ -155,6 +131,29 @@ export default function Autocomplete({
             </div>
           </div>
         </>
+      ) : (
+        value.length > 0 && (
+          <div className="mt-2 flex flex-wrap gap-1">
+            {value.map((val) => {
+              const option = options.find((opt) => opt.value === val);
+              if (!option) return null;
+              return (
+                <span
+                  key={val}
+                  className="border-cooper-gray-150 hover:bg-cooper-gray-150 inline-flex items-center gap-[6px] rounded-[8px] border bg-white py-2 pl-[14px] pr-3 text-sm font-medium text-cooper-gray-400"
+                >
+                  {option.label}
+                  <button
+                    onClick={() => handleRemove(val)}
+                    className="text-cooper-gray-400"
+                  >
+                    <X className="h-5 w-5 rounded-full p-1 hover:cursor-pointer hover:bg-cooper-gray-400/20" />
+                  </button>
+                </span>
+              );
+            })}
+          </div>
+        )
       )}
     </div>
   );

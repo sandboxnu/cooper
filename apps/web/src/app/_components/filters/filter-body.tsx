@@ -223,7 +223,7 @@ function FilterBodyRating({
             )}
           >
             <Image src="/svg/star.svg" alt="Star icon" width={20} height={20} />
-            <span className="text-xs">{rating}.0</span>
+            <span className="text-sm">{rating}.0</span>
           </button>
         );
       })}

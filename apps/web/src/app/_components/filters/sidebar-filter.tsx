@@ -36,6 +36,9 @@ interface SidebarFilterProps {
   isLoading?: boolean;
 }
 
+/**
+ * Main Sidebar Filter component for filtering job listings.
+ */
 export default function SidebarFilter({
   filters,
   isOpen,
@@ -117,6 +120,15 @@ export default function SidebarFilter({
     });
   };
 
+  const handleClearOnTheJob = () => {
+    onFilterChange({
+      ...filters,
+      workModels: [],
+      overtimeWork: [],
+      companyCulture: [],
+    });
+  };
+
   return (
     <div
       className={cn(
@@ -189,7 +201,15 @@ export default function SidebarFilter({
           <div className="h-px w-full bg-cooper-gray-150" />
           <div className="flex flex-col py-2">
             {/* all of these don't work in the backend btw/dont rly have functionality atm.  */}
-            <span className="font-semibold text-base">On the job</span>
+            <div className="flex gap-2">
+              <span className="font-semibold text-base">On the job</span>
+              <Button
+                className="bg-transparent border-none text-cooper-gray-400 text-xs hover:bg-transparent p-0 h-auto self-center"
+                onClick={handleClearOnTheJob}
+              >
+                Clear
+              </Button>
+            </div>
             <SidebarSection
               title="Work model"
               filterType="checkbox"
@@ -206,7 +226,7 @@ export default function SidebarFilter({
               options={[
                 {
                   id: "Yes",
-                  label: "Overtime work commonly expected",
+                  label: "Overtime commonly expected",
                   value: "Yes",
                 },
               ]}
@@ -229,13 +249,13 @@ export default function SidebarFilter({
             <div className="h-px w-full bg-cooper-gray-150" />
             <div className="flex justify-between items-center m-2">
               <Button
-                className="bg-transparent border-none text-cooper-gray-400 text-sm hover:bg-transparent p-0"
+                className="bg-transparent border-none text-cooper-gray-550 text-sm hover:bg-transparent p-0"
                 onClick={clearAll}
               >
                 Clear all
               </Button>
               <Button
-                className="bg-cooper-gray-300 text-cooper-gray-100 font-semibold text-sm hover:bg-cooper-gray-400 px-2 py-1 border-0"
+                className="bg-cooper-gray-550 text-cooper-gray-100 font-semibold text-sm hover:bg-cooper-gray-400 px-2 py-1 border-0"
                 onClick={onClose}
               >
                 {!isLoading
