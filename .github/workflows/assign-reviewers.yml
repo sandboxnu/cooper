@@ -12,8 +12,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const groupA = ["tracyyh", "gpalmer27"];
-            const groupB = ["suxls", "mattrwang", "songmichael11"];
+            const groupA = ["songmichael11", "gpalmer27"];
+            const groupB = ["tracyyh", "Sarah-Zhang1", "leeyandrea", "Tiffybin"];
             const prAuthor = context.payload.pull_request.user.login;
 
             function pickRandom(arr) {
