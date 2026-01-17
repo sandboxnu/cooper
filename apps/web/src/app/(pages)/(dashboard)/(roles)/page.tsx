@@ -430,7 +430,7 @@ export default function Roles() {
   return (
     <>
       <div className="bg-cooper-cream-100 border-cooper-gray-150 fixed z-20 flex w-full flex-col items-stretch gap-4 self-start border-b-[1px] py-4 md:flex-row md:items-center md:gap-5">
-        <div className="w-full px-5 md:w-[28%]">
+        <div className="w-full px-5 md:w-[27%]">
           <SearchFilter className="w-full" />
         </div>
         <div className="no-scrollbar w-full flex-1 overflow-x-auto px-5 md:overflow-visible md:pl-0 md:pr-5">
