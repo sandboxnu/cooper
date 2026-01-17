@@ -71,7 +71,7 @@ export default function Autocomplete({
         <input
           ref={inputRef}
           type="text"
-          className="border-cooper-gray-150 focus:none flex h-10 w-full rounded-md border bg-white px-[14px] py-2 text-sm placeholder:text-cooper-gray-400 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+          className="border-cooper-gray-150 focus:none flex h8 w-full rounded-md border bg-white px-[14px] py-2 text-sm placeholder:text-cooper-gray-400 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
           placeholder={placeholder}
           value={displayValue}
           onChange={(e) => {
@@ -93,31 +93,7 @@ export default function Autocomplete({
         )}
       </div>
 
-      {/* Selected items badges */}
-      {value.length > 0 && (
-        <div className="mt-2 flex flex-wrap gap-1">
-          {value.map((val) => {
-            const option = options.find((opt) => opt.value === val);
-            if (!option) return null;
-            return (
-              <span
-                key={val}
-                className="border-cooper-gray-150 hover:bg-cooper-gray-150 inline-flex items-center gap-[6px] rounded-[8px] border bg-white py-2 pl-[14px] pr-3 text-sm font-medium text-cooper-gray-400"
-              >
-                {option.label}
-                <button
-                  onClick={() => handleRemove(val)}
-                  className="text-cooper-gray-400"
-                >
-                  <X className="h-5 w-5 rounded-full p-1 hover:cursor-pointer hover:bg-cooper-gray-400/20" />
-                </button>
-              </span>
-            );
-          })}
-        </div>
-      )}
-
-      {open && (
+      {open ? (
         <>
           <div
             className="fixed inset-0 z-[100]"
@@ -155,6 +131,29 @@ export default function Autocomplete({
             </div>
           </div>
         </>
+      ) : (
+        value.length > 0 && (
+          <div className="mt-2 flex flex-wrap gap-1">
+            {value.map((val) => {
+              const option = options.find((opt) => opt.value === val);
+              if (!option) return null;
+              return (
+                <span
+                  key={val}
+                  className="border-cooper-gray-150 hover:bg-cooper-gray-150 inline-flex items-center gap-[6px] rounded-[8px] border bg-white py-2 pl-[14px] pr-3 text-sm font-medium text-cooper-gray-400"
+                >
+                  {option.label}
+                  <button
+                    onClick={() => handleRemove(val)}
+                    className="text-cooper-gray-400"
+                  >
+                    <X className="h-5 w-5 rounded-full p-1 hover:cursor-pointer hover:bg-cooper-gray-400/20" />
+                  </button>
+                </span>
+              );
+            })}
+          </div>
+        )
       )}
     </div>
   );
