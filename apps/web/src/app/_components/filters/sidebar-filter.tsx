@@ -105,7 +105,7 @@ export default function SidebarFilter({
       hourlyPay: { min: 0, max: 0 },
       ratings: [],
       workModels: [],
-      overtimeWork: false,
+      overtimeWork: [],
       companyCulture: [],
     });
   };
@@ -114,7 +114,7 @@ export default function SidebarFilter({
     onFilterChange({
       ...filters,
       workModels: [],
-      overtimeWork: false,
+      overtimeWork: [],
       companyCulture: [],
     });
   };
@@ -204,7 +204,7 @@ export default function SidebarFilter({
               title="Work model"
               filterType="checkbox"
               options={workModelOptionsWithId}
-              selectedOptions={filters.workModels ?? []}
+              selectedOptions={filters.workModels}
               variant="subsection"
               onSelectionChange={(selected) =>
                 handleFilterChange("workModels", selected)
@@ -220,7 +220,7 @@ export default function SidebarFilter({
                   value: "Yes",
                 },
               ]}
-              selectedOptions={filters.overtimeWork ? ["Yes"] : []}
+              selectedOptions={filters.overtimeWork}
               onSelectionChange={(selected) =>
                 handleFilterChange("overtimeWork", selected)
               }
@@ -230,7 +230,7 @@ export default function SidebarFilter({
               title="Company Culture"
               filterType="rating"
               options={[]}
-              selectedOptions={filters.companyCulture ?? []}
+              selectedOptions={filters.companyCulture}
               variant="subsection"
               onSelectionChange={(selected) =>
                 handleFilterChange("companyCulture", selected)

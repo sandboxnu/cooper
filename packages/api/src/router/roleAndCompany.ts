@@ -264,7 +264,7 @@ export const roleAndCompanyRouter = {
         `);
 
         for (const row of rolesWithWorkModels.rows) {
-          const models = (row.work_models as string[] | null) ?? [];
+          const models = (row.work_models as (string | null)[] | null) ?? [];
           roleWorkModelsMap.set(
             String(row.id),
             models.filter((m) => m !== null),
@@ -369,7 +369,7 @@ export const roleAndCompanyRouter = {
         `);
 
         for (const row of companiesWithWorkModels.rows) {
-          const models = (row.work_models as string[] | null) ?? [];
+          const models = (row.work_models as (string | null)[] | null) ?? [];
           companyWorkModelsMap.set(
             String(row.id),
             models.filter((m) => m !== null),

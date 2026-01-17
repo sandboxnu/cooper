@@ -5,6 +5,6 @@ export interface FilterState {
   hourlyPay: { min: number; max: number };
   ratings: string[];
   workModels: string[];
-  overtimeWork: boolean;
+  overtimeWork: string[];
   companyCulture: string[];
 }

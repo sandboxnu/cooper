@@ -68,7 +68,7 @@ export default function Roles() {
     hourlyPay: { min: 0, max: 0 },
     ratings: [],
     workModels: [],
-    overtimeWork: false,
+    overtimeWork: [],
     companyCulture: [],
   });
   const rolesAndCompaniesPerPage = 10;
@@ -151,7 +151,7 @@ export default function Roles() {
         appliedFilters.workModels.length > 0
           ? appliedFilters.workModels
           : undefined,
-      overtimeWork: appliedFilters.overtimeWork,
+      overtimeWork: appliedFilters.overtimeWork.length > 0 ? true : undefined,
       companyCulture:
         appliedFilters.companyCulture.length > 0
           ? appliedFilters.companyCulture
