@@ -7,14 +7,7 @@ import { industryOptions, jobTypeOptions } from "../onboarding/constants";
 import DropdownFilter from "./dropdown-filter";
 import { abbreviatedStateName } from "~/utils/locationHelpers";
 import type { LocationType } from "@cooper/db/schema";
-
-interface FilterState {
-  industries: string[];
-  locations: string[];
-  jobTypes: string[];
-  hourlyPay: { min: number; max: number };
-  ratings: string[];
-}
+import type { FilterState } from "./types";
 
 interface DropdownFiltersBarProps {
   filters: FilterState;

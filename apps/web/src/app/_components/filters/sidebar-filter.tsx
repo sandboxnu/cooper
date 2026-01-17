@@ -10,17 +10,7 @@ import RoleTypeSelector from "./role-type-selector";
 import SidebarSection from "./sidebar-section";
 import { ChevronRight } from "lucide-react";
 import { cn } from "@cooper/ui";
-
-interface FilterState {
-  industries: string[];
-  locations: string[];
-  jobTypes: string[];
-  hourlyPay: { min: number; max: number };
-  ratings: string[];
-  workModels?: string[];
-  overtimeWork?: string[];
-  companyCulture?: string[];
-}
+import type { FilterState } from "./types";
 
 interface SidebarFilterProps {
   isOpen: boolean;
@@ -115,7 +105,7 @@ export default function SidebarFilter({
       hourlyPay: { min: 0, max: 0 },
       ratings: [],
       workModels: [],
-      overtimeWork: [],
+      overtimeWork: false,
       companyCulture: [],
     });
   };
@@ -124,7 +114,7 @@ export default function SidebarFilter({
     onFilterChange({
       ...filters,
       workModels: [],
-      overtimeWork: [],
+      overtimeWork: false,
       companyCulture: [],
     });
   };
@@ -230,9 +220,9 @@ export default function SidebarFilter({
                   value: "Yes",
                 },
               ]}
-              selectedOptions={filters.overtimeWork ? filters.overtimeWork : []}
+              selectedOptions={filters.overtimeWork ? ["Yes"] : []}
               onSelectionChange={(selected) =>
-                handleFilterChange("overtimeWork", selected)
+                handleFilterChange("overtimeWork", selected.length > 0)
               }
               variant="subsection"
             />

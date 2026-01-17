@@ -31,17 +31,7 @@ import SearchFilter from "~/app/_components/search/search-filter";
 import SidebarFilter from "~/app/_components/filters/sidebar-filter";
 import { api } from "~/trpc/react";
 import RoleTypeSelector from "~/app/_components/filters/role-type-selector";
-
-interface FilterState {
-  industries: string[];
-  locations: string[];
-  jobTypes: string[];
-  hourlyPay: { min: number; max: number };
-  ratings: string[];
-  workModels?: string[];
-  overtimeWork?: string[];
-  companyCulture?: string[];
-}
+import type { FilterState } from "~/app/_components/filters/types";
 
 // Helper function to create URL-friendly slugs (still needed for URL generation)
 const createSlug = (text: string): string => {
@@ -78,7 +68,7 @@ export default function Roles() {
     hourlyPay: { min: 0, max: 0 },
     ratings: [],
     workModels: [],
-    overtimeWork: [],
+    overtimeWork: false,
     companyCulture: [],
   });
   const rolesAndCompaniesPerPage = 10;
@@ -157,6 +147,15 @@ export default function Roles() {
           : undefined,
       ratings:
         appliedFilters.ratings.length > 0 ? appliedFilters.ratings : undefined,
+      workModels:
+        appliedFilters.workModels.length > 0
+          ? appliedFilters.workModels
+          : undefined,
+      overtimeWork: appliedFilters.overtimeWork,
+      companyCulture:
+        appliedFilters.companyCulture.length > 0
+          ? appliedFilters.companyCulture
+          : undefined,
     };
   }, [appliedFilters]);
 
