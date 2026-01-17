@@ -222,7 +222,7 @@ export default function SidebarFilter({
               ]}
               selectedOptions={filters.overtimeWork ? ["Yes"] : []}
               onSelectionChange={(selected) =>
-                handleFilterChange("overtimeWork", selected.length > 0)
+                handleFilterChange("overtimeWork", selected)
               }
               variant="subsection"
             />
