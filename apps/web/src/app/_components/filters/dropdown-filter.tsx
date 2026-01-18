@@ -117,7 +117,7 @@ export default function DropdownFilter({
           <div className="flex gap-2">
             <span className="font-semibold text-base">{title}</span>
             <Button
-              className="bg-transparent border-none text-cooper-gray-400 text-xs hover:bg-transparent p-0 h-auto self-center"
+              className="bg-transparent border-none text-cooper-gray-400 font-normal text-xs hover:bg-transparent p-0 h-auto self-center"
               onClick={handleClear}
             >
               Clear

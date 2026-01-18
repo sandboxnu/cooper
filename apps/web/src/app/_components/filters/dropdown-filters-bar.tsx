@@ -8,6 +8,7 @@ import DropdownFilter from "./dropdown-filter";
 import { abbreviatedStateName } from "~/utils/locationHelpers";
 import type { LocationType } from "@cooper/db/schema";
 import type { FilterState } from "./types";
+import { prettyLocationName } from "~/utils/locationHelpers";
 
 interface DropdownFiltersBarProps {
   filters: FilterState;
@@ -74,13 +75,13 @@ export default function DropdownFiltersBar({
   const locationOptions = useMemo(() => {
     const fromSelected = selectedLocations.map((loc) => ({
       id: loc.id,
-      label: `${loc.city}${loc.state ? `, ${abbreviatedStateName(loc.state)}` : ""}`,
+      label: prettyLocationName(loc),
     }));
 
     const fromPrefix =
       locationsToUpdate.data?.map((loc) => ({
         id: loc.id,
-        label: `${loc.city}${loc.state ? `, ${abbreviatedStateName(loc.state)}` : ""}`,
+        label: prettyLocationName(loc),
       })) ?? [];
 
     // merge + dedupe by id

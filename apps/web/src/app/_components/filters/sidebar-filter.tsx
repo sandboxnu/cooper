@@ -4,7 +4,10 @@ import { useState, useEffect } from "react";
 import { api } from "~/trpc/react";
 import { industryOptions } from "../onboarding/constants";
 import { jobTypeOptions, workModelOptions } from "../onboarding/constants";
-import { abbreviatedStateName } from "~/utils/locationHelpers";
+import {
+  abbreviatedStateName,
+  prettyLocationName,
+} from "~/utils/locationHelpers";
 import { Button } from "@cooper/ui/button";
 import RoleTypeSelector from "./role-type-selector";
 import SidebarSection from "./sidebar-section";
@@ -79,7 +82,7 @@ export default function SidebarFilter({
   const locationOptions = locationsToUpdate.data
     ? locationsToUpdate.data.map((loc) => ({
         id: loc.id,
-        label: `${loc.city}${loc.state ? `, ${abbreviatedStateName(loc.state)}` : ""}`,
+        label: prettyLocationName(loc),
       }))
     : [];
 
@@ -190,7 +193,6 @@ export default function SidebarFilter({
           />
           <div className="h-px w-full bg-cooper-gray-150" />
           <div className="flex flex-col py-2">
-            {/* all of these don't work in the backend btw/dont rly have functionality atm.  */}
             <div className="flex gap-2">
               <span className="font-semibold text-base">On the job</span>
               <Button

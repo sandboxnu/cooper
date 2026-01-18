@@ -37,7 +37,7 @@ export default function SidebarSection({
       <div className="flex gap-2 items-end">
         <span
           className={cn(
-            "font-semibold text-base",
+            "font-semibold text-base text-cooper-gray-550",
             variant == "subsection" && "text-sm",
           )}
         >
@@ -45,7 +45,7 @@ export default function SidebarSection({
         </span>
         {variant === "main" && (
           <Button
-            className="bg-transparent border-none text-cooper-gray-400 text-xs hover:bg-transparent p-0 h-auto self-center"
+            className="bg-transparent border-none text-cooper-gray-400 font-normal text-xs hover:bg-transparent p-0 h-auto self-center"
             onClick={handleClear}
           >
             Clear
@@ -53,15 +53,17 @@ export default function SidebarSection({
         )}
       </div>
 
-      <FilterBody
-        variant={filterType}
-        title={title}
-        options={options}
-        selectedOptions={selectedOptions}
-        onSelectionChange={onSelectionChange}
-        onSearchChange={onSearchChange}
-        isLoadingOptions={isLoadingOptions}
-      />
+      <div className="text-cooper-gray-400">
+        <FilterBody
+          variant={filterType}
+          title={title}
+          options={options}
+          selectedOptions={selectedOptions}
+          onSelectionChange={onSelectionChange}
+          onSearchChange={onSearchChange}
+          isLoadingOptions={isLoadingOptions}
+        />
+      </div>
     </div>
   );
 }

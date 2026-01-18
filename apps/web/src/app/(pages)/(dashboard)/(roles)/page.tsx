@@ -631,25 +631,6 @@ export default function Roles() {
                     </div>
                   );
                 }
-
-                // return (
-                //   <div
-                //     key={item.id}
-                //     onClick={() => {
-                //       setSelectedItem(item);
-                //     }}
-                //   >
-                //     <CompanyCardPreview
-                //       companyObj={item}
-                //       className={cn(
-                //         "mb-4 hover:bg-cooper-gray-200",
-                //         selectedItem
-                //           ? selectedItem.id === item.id && "bg-cooper-cream-200"
-                //           : !i && "bg-cooper-cream-200",
-                //       )}
-                //     />
-                //   </div>
-                // );
               })}
 
               {/* Pagination */}
