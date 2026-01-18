@@ -236,6 +236,7 @@ function FilterBodyAutocomplete({
   options,
   selectedOptions,
   onSelectionChange,
+  placeholder,
 }: FilterBodyProps) {
   return (
     <div>
@@ -246,7 +247,10 @@ function FilterBodyAutocomplete({
         }))}
         value={selectedOptions}
         onChange={(selected) => onSelectionChange?.(selected)}
-        placeholder={`Search by ${title === "Industry" ? "industry" : "city or state"}`}
+        placeholder={
+          placeholder ||
+          `Search by ${title === "Industry" ? "industry" : "city or state"}`
+        }
       />
     </div>
   );

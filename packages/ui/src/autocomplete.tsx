@@ -43,7 +43,7 @@ export default function Autocomplete({
     if (open && inputRef.current) {
       const rect = inputRef.current.getBoundingClientRect();
       setDropdownStyle({
-        position: "fixed",
+        position: "relative",
         width: `${rect.width}px`,
       });
     }
