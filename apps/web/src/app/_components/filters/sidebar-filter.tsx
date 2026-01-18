@@ -4,10 +4,7 @@ import { useState, useEffect } from "react";
 import { api } from "~/trpc/react";
 import { industryOptions } from "../onboarding/constants";
 import { jobTypeOptions, workModelOptions } from "../onboarding/constants";
-import {
-  abbreviatedStateName,
-  prettyLocationName,
-} from "~/utils/locationHelpers";
+import { prettyLocationName } from "~/utils/locationHelpers";
 import { Button } from "@cooper/ui/button";
 import RoleTypeSelector from "./role-type-selector";
 import SidebarSection from "./sidebar-section";

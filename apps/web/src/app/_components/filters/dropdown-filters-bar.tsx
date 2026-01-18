@@ -5,7 +5,6 @@ import { api } from "~/trpc/react";
 
 import { industryOptions, jobTypeOptions } from "../onboarding/constants";
 import DropdownFilter from "./dropdown-filter";
-import { abbreviatedStateName } from "~/utils/locationHelpers";
 import type { LocationType } from "@cooper/db/schema";
 import type { FilterState } from "./types";
 import { prettyLocationName } from "~/utils/locationHelpers";
