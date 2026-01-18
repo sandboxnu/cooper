@@ -191,7 +191,7 @@ export default function SidebarFilter({
           <div className="h-px w-full bg-cooper-gray-150" />
           <div className="flex flex-col py-2">
             <div className="flex gap-2">
-              <span className="font-semibold text-base">On the job</span>
+              <span className="font-normal text-base">On the job</span>
               <Button
                 className="bg-transparent border-none text-cooper-gray-400 text-xs hover:bg-transparent p-0 h-auto self-center"
                 onClick={handleClearOnTheJob}
