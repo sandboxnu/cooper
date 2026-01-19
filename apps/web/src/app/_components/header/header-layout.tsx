@@ -25,10 +25,10 @@ export default async function HeaderLayout({
 
   return (
     <div className="flex min-h-screen flex-col justify-between">
-      <div className="fixed top-0 z-50 w-full bg-white">
+      <div className=" top-0 z-50 w-full bg-white">
         <Header auth={button} />
       </div>
-      <article className="flex h-fit flex-col items-center justify-start pt-[8dvh]">
+      <article className="flex h-fit flex-col items-center justify-start">
         {children}
       </article>
     </div>
