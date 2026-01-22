@@ -238,17 +238,15 @@ function FilterBodyAutocomplete({
   onSelectionChange,
 }: FilterBodyProps) {
   return (
-    <div>
-      <Autocomplete
-        options={options.map((option) => ({
-          value: option.value ?? option.id,
-          label: option.label,
-        }))}
-        value={selectedOptions}
-        onChange={(selected) => onSelectionChange?.(selected)}
-        placeholder={`Search by ${title === "Industry" ? "industry" : "city or state"}`}
-      />
-    </div>
+    <Autocomplete
+      options={options.map((option) => ({
+        value: option.value ?? option.id,
+        label: option.label,
+      }))}
+      value={selectedOptions}
+      onChange={(selected) => onSelectionChange?.(selected)}
+      placeholder={`Search by ${title === "Industry" ? "industry" : "city or state"}`}
+    />
   );
 }
 

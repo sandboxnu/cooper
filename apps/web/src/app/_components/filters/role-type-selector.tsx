@@ -7,6 +7,7 @@ interface RoleTypeSelectorProps {
     totalRolesCount: number;
     totalCompanyCount: number;
   };
+  isLoading?: boolean;
 }
 
 // Component for selecting role type: All, Jobs, Companies
@@ -14,6 +15,7 @@ export default function RoleTypeSelector({
   onSelectedTypeChange,
   selectedType,
   data,
+  isLoading,
 }: RoleTypeSelectorProps) {
   return (
     <div className="flex gap-2 py-2">
@@ -24,12 +26,12 @@ export default function RoleTypeSelector({
       />
       <Chip
         onClick={() => onSelectedTypeChange("roles")}
-        label={`Jobs (${data?.totalRolesCount ?? "0"})`}
+        label={`Jobs (${isLoading ? "..." : (data?.totalRolesCount ?? "0")})`}
         selected={selectedType === "roles"}
       />
       <Chip
         onClick={() => onSelectedTypeChange("companies")}
-        label={`Companies (${data?.totalCompanyCount ?? "0"})`}
+        label={`Companies (${isLoading ? "..." : (data?.totalCompanyCount ?? "0")})`}
         selected={selectedType === "companies"}
       />
     </div>
