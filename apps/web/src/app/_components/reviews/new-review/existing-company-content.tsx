@@ -318,7 +318,10 @@ export default function ExistingCompanyContent({
 
         {/* "I don't see my company" checkbox */}
 
-        <div className="flex items-center gap-2 flex-1">
+        <div
+          className="flex items-center gap-2 flex-1"
+          onClick={() => setShowNewCompany(!showNewCompany)}
+        >
           <Checkbox
             checked={showNewCompany}
             onCheckedChange={(checked) => {
@@ -543,7 +546,10 @@ export default function ExistingCompanyContent({
 
           {/* "I don't see my role" checkbox */}
 
-          <div className="flex items-center gap-2 flex-1 pt-2">
+          <div
+            className="flex items-center gap-2 flex-1 pt-2"
+            onClick={() => setCreatingNewRole(!creatingNewRole)}
+          >
             <Checkbox
               checked={creatingNewRole}
               onCheckedChange={(checked) => {
