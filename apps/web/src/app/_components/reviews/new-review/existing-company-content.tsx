@@ -253,7 +253,7 @@ export default function ExistingCompanyContent({
           name="companyName"
           render={({ field }) => (
             <FormItem className="flex flex-col w-full">
-              <FormLabel className="text-sm text-cooper-gray-400 font-semibold flex-shrink-0">
+              <FormLabel className="text-sm text-cooper-gray-400 font-bold flex-shrink-0">
                 Company name<span className="text-[#FB7373]">*</span>
               </FormLabel>
 
@@ -499,7 +499,7 @@ export default function ExistingCompanyContent({
             name="roleName"
             render={({ field }) => (
               <FormItem className="flex flex-col w-full ">
-                <FormLabel className="text-sm font-semibold text-cooper-gray-400 flex-shrink-0">
+                <FormLabel className="text-sm font-bold text-cooper-gray-400 flex-shrink-0">
                   Your Role<span className="text-[#FB7373]">*</span>
                 </FormLabel>
 

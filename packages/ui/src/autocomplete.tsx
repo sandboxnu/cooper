@@ -89,7 +89,7 @@ export default function Autocomplete({
             <X className="h-4 w-4" />
           </button>
         ) : (
-          <MagnifyingGlassIcon className="absolute right-2 top-1/2 h-4 w-4 shrink-0 -translate-y-1/2 opacity-50" />
+          <MagnifyingGlassIcon className="absolute right-2 top-1/2 h-5 w-5 shrink-0 -translate-y-1/2 opacity-50" />
         )}
       </div>
 
