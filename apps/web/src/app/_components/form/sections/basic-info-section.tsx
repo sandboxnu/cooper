@@ -12,7 +12,6 @@ import {
 import { FormSection } from "~/app/_components/form/form-section";
 import ExistingCompanyContent from "../../reviews/new-review/existing-company-content";
 import { Select } from "../../themed/onboarding/select";
-import { industryOptions } from "../../onboarding/constants";
 import LocationBox from "../../location";
 import { useEffect, useState } from "react";
 import { api } from "~/trpc/react";
