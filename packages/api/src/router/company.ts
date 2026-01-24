@@ -114,14 +114,6 @@ export const companyRouter = {
       ).slice(0, input.limit);
     }),
 
-  getByName: publicProcedure
-    .input(z.object({ name: z.string() }))
-    .query(({ ctx, input }) => {
-      return ctx.db.query.Company.findFirst({
-        where: ilike(Company.name, input.name),
-      });
-    }),
-
   getBySlug: publicProcedure
     .input(z.object({ slug: z.string() }))
     .query(({ ctx, input }) => {
@@ -136,16 +128,6 @@ export const companyRouter = {
       return ctx.db.query.Company.findFirst({
         where: eq(Company.id, input.id),
       });
-    }),
-
-  getLocationsById: publicProcedure
-    .input(z.object({ id: z.string() }))
-    .query(({ ctx, input }) => {
-      return ctx.db
-        .select()
-        .from(CompaniesToLocations)
-        .innerJoin(Location, eq(CompaniesToLocations.locationId, Location.id))
-        .where(eq(CompaniesToLocations.companyId, input.id));
     }),
 
   create: protectedProcedure
@@ -171,10 +153,6 @@ export const companyRouter = {
 
       return ctx.db.insert(Company).values(values).returning();
     }),
-
-  delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
-    return ctx.db.delete(Company).where(eq(Company.id, input));
-  }),
 
   createWithRole: protectedProcedure
     .input(
