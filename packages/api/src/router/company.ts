@@ -5,13 +5,12 @@ import { z } from "zod";
 
 import type { SQL, SQLWrapper } from "@cooper/db";
 import type { CompanyType, ReviewType } from "@cooper/db/schema";
-import { and, asc, desc, eq, ilike, like, sql } from "@cooper/db";
+import { and, asc, desc, eq, like, sql } from "@cooper/db";
 import {
   CompaniesToLocations,
   Company,
   CreateCompanySchema,
   Industry,
-  Location,
   Review,
   Role,
 } from "@cooper/db/schema";
