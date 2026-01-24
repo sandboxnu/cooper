@@ -15,6 +15,8 @@ interface AutocompleteProps {
   value?: string[];
   onChange: (value: string[]) => void;
   onSearchChange?: (search: string) => void;
+  // whether the autocomplete is rendered within a menu content (for positioning)
+  isInMenuContent?: boolean;
 }
 
 export default function Autocomplete({
@@ -23,6 +25,7 @@ export default function Autocomplete({
   value = [],
   onChange,
   onSearchChange,
+  isInMenuContent = false,
 }: AutocompleteProps) {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
@@ -43,11 +46,18 @@ export default function Autocomplete({
     if (open && inputRef.current) {
       const rect = inputRef.current.getBoundingClientRect();
       setDropdownStyle({
-        position: "relative",
+        position: "fixed",
+        ...(isInMenuContent && { top: `${rect.bottom}px` }),
         width: `${rect.width}px`,
       });
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
     }
-  }, [open]);
+  }, [open, isInMenuContent]);
 
   const handleToggle = (optionValue: string) => {
     const newValue = value.includes(optionValue)

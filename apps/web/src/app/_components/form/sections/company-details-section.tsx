@@ -194,6 +194,7 @@ export function CompanyDetailsSection() {
                 onSelectionChange={(selected) => {
                   field.onChange(selected.length > 0 ? selected : undefined);
                 }}
+                isInMenuContent={true}
               />
             </FormControl>
             <FormMessage />

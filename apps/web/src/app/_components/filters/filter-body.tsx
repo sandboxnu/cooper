@@ -33,6 +33,7 @@ interface FilterBodyProps {
   onRangeChange?: (min: number, max: number) => void;
   onSearchChange?: (search: string) => void;
   isLoadingOptions?: boolean;
+  isInMenuContent?: boolean;
 }
 
 /**
@@ -237,22 +238,22 @@ function FilterBodyAutocomplete({
   selectedOptions,
   onSelectionChange,
   placeholder,
+  isInMenuContent,
 }: FilterBodyProps) {
   return (
-    <div>
-      <Autocomplete
-        options={options.map((option) => ({
-          value: option.value ?? option.id,
-          label: option.label,
-        }))}
-        value={selectedOptions}
-        onChange={(selected) => onSelectionChange?.(selected)}
-        placeholder={
-          placeholder ||
-          `Search by ${title === "Industry" ? "industry" : "city or state"}`
-        }
-      />
-    </div>
+    <Autocomplete
+      options={options.map((option) => ({
+        value: option.value ?? option.id,
+        label: option.label,
+      }))}
+      value={selectedOptions}
+      onChange={(selected) => onSelectionChange?.(selected)}
+      placeholder={
+        placeholder ??
+        `Search by ${title === "Industry" ? "industry" : "city or state"}`
+      }
+      isInMenuContent={isInMenuContent}
+    />
   );
 }
 
