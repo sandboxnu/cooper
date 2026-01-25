@@ -24,11 +24,11 @@ export default async function HeaderLayout({
   );
 
   return (
-    <div className="flex min-h-screen flex-col overflow-hidden">
+    <div className="flex h-screen flex-col overflow-hidden">
       <div className=" top-0 z-50 w-full bg-white">
         <Header auth={button} />
       </div>
-      <article className="flex min-h-0 flex-1 flex-col items-center justify-start overflow-y-auto ">
+      <article className="flex min-h-0 flex-1 flex-col items-center justify-start overflow-hidden ">
         {children}
       </article>
     </div>
