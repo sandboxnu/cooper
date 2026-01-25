@@ -372,6 +372,17 @@ export default function Roles() {
     setCurrentPage(1); // Reset to first page when filters change
   };
 
+  const isFiltering = useMemo(() => {
+    return (
+      appliedFilters.industries.length > 0 ||
+      appliedFilters.locations.length > 0 ||
+      appliedFilters.jobTypes.length > 0 ||
+      appliedFilters.workModels.length > 0 ||
+      appliedFilters.overtimeWork.length > 0 ||
+      appliedFilters.companyCulture.length > 0
+    );
+  }, [appliedFilters]);
+
   useEffect(() => {
     setCurrentPage(1);
   }, [selectedFilter, searchValue, selectedType]);
@@ -448,7 +459,12 @@ export default function Roles() {
             onFilterChange={handleFilterChange}
           />
           <Button
-            className="flex items-center gap-[10px] rounded-lg px-[14px] py-2 text-sm border border-cooper-gray-150 text-cooper-gray-400 font-normal focus-visible:ring-0 outline-none focus:outline-none h-9 whitespace-nowrap bg-white hover:bg-cooper-gray-150"
+            className={cn(
+              "flex items-center gap-[10px] rounded-lg px-[14px] py-2 text-sm border border-cooper-gray-150 text-cooper-gray-400 font-normal focus-visible:ring-0 outline-none focus:outline-none h-9 whitespace-nowrap",
+              isFiltering
+                ? "border-cooper-gray-600 bg-cooper-gray-700 hover:bg-cooper-gray-200"
+                : "bg-white hover:bg-cooper-gray-150",
+            )}
             onClick={() => setIsSidebarOpen(true)}
           >
             <Image
@@ -677,10 +693,15 @@ export default function Roles() {
         onFilterChange={handleFilterChange}
         selectedType={selectedType}
         onSelectedTypeChange={setSelectedType}
-        data={{
-          totalRolesCount: rolesAndCompanies.data?.totalRolesCount ?? 0,
-          totalCompanyCount: rolesAndCompanies.data?.totalCompanyCount ?? 0,
-        }}
+        data={
+          rolesAndCompanies.isFetching
+            ? undefined
+            : {
+                totalRolesCount: rolesAndCompanies.data?.totalRolesCount ?? 0,
+                totalCompanyCount:
+                  rolesAndCompanies.data?.totalCompanyCount ?? 0,
+              }
+        }
         isLoading={rolesAndCompanies.isFetching}
       />
     </>

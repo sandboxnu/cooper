@@ -134,12 +134,12 @@ export default function SidebarFilter({
           "fixed right-0 top-0 h-screen w-1/3 bg-cooper-cream-100 shadow-xl",
           "transition-transform duration-200 ease-out",
           isOpen ? "translate-x-0" : "translate-x-full",
-          "overflow-y-auto",
+          "flex flex-col",
         )}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex flex-col mx-6 mt-3">
-          <div className="flex items-center justify-start gap-2 mb-2 ml-[-12px]">
+        <div className="flex-1 overflow-y-auto mx-6 mt-3 pb-20 no-scrollbar">
+          <div className="flex items-center justify-start gap-2 mb-2 ml-[-6px]">
             <Button
               className="text-cooper-gray-300 p-0 bg-transparent border-0 hover:bg-transparent"
               onClick={onClose}
@@ -156,6 +156,7 @@ export default function SidebarFilter({
               totalRolesCount: data?.totalRolesCount ?? 0,
               totalCompanyCount: data?.totalCompanyCount ?? 0,
             }}
+            isLoading={isLoading}
           />
           <div className="h-px w-full bg-cooper-gray-150" />
           <SidebarSection
@@ -235,24 +236,28 @@ export default function SidebarFilter({
                 handleFilterChange("companyCulture", selected)
               }
             />
-            <div className="h-px w-full bg-cooper-gray-150" />
-            <div className="flex justify-between items-center m-2">
-              <Button
-                className="bg-transparent border-none text-cooper-gray-550 text-sm hover:bg-transparent p-0"
-                onClick={clearAll}
-              >
-                Clear all
-              </Button>
-              <Button
-                className="bg-cooper-gray-550 text-cooper-gray-100 font-semibold text-sm hover:bg-cooper-gray-400 px-2 py-1 border-0"
-                onClick={onClose}
-              >
-                {!isLoading
-                  ? "Show Results " +
-                    `(${(data?.totalRolesCount ?? 0) + (data?.totalCompanyCount ?? 0)})`
-                  : "Loading..."}
-              </Button>
-            </div>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center bg-cooper-cream-100 px-6 pb-4">
+          <div className="h-px w-full bg-cooper-gray-150" />
+          <div className="flex justify-between items-center w-full mt-2">
+            <Button
+              className="bg-transparent border-none text-cooper-gray-550 text-sm hover:bg-transparent p-0"
+              onClick={clearAll}
+            >
+              Clear all
+            </Button>
+            <Button
+              className="bg-cooper-gray-550 text-cooper-gray-100 font-semibold text-sm hover:bg-cooper-gray-400 px-2 py-1 border-0"
+              onClick={onClose}
+            >
+              {!isLoading
+                ? "Show Results " +
+                  `(${(data?.totalRolesCount ?? 0) + (data?.totalCompanyCount ?? 0)})`
+                : "Loading..."}
+            </Button>
           </div>
         </div>
       </div>
