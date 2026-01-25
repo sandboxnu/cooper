@@ -82,12 +82,11 @@ export function RoleCardPreview({
               </span>
             </div>
             <div className="flex items-center gap-2 text-base text-[#666666]">
-              <span>{company.data?.name}</span>
+              {company.data?.name}
               {location.isSuccess && location.data && (
-                <>
-                  <span>•</span>
-                  <span>{prettyLocationName(location.data)}</span>
-                </>
+                <span className="before:content-['•'] before:mr-2">
+                  {prettyLocationName(location.data)}
+                </span>
               )}
             </div>
             {reviews.isSuccess && reviews.data.length > 0 && (
