@@ -47,7 +47,7 @@ export default function CompanyInfo({
   return (
     <section className="w-full overflow-y-auto">
       {company.isSuccess ? (
-        <div className="mx-4 h-[86dvh] justify-center gap-4 font-sans md:mx-auto md:max-w-[66dvw]">
+        <div className="mx-4 justify-center gap-4 font-sans md:mx-auto md:max-w-[66dvw]">
           <div className="mx-2 mb-6 mt-6 flex items-start justify-between">
             <div className="flex">
               <div className="mr-3 flex h-16 w-16 items-center justify-center">
@@ -70,7 +70,7 @@ export default function CompanyInfo({
           </div>
 
           <div className="flex flex-row">
-            <div className="mx-4 h-[86dvh] w-[70%] gap-4 font-sans md:mx-auto md:max-w-[66dvw] pr-4">
+            <div className="mx-4 w-[70%] gap-4 font-sans md:mx-auto md:max-w-[66dvw] pr-4">
               <div className="mb-6 gap-2 px-1 md:gap-4">
                 <CompanyReview companyObj={company.data} />
               </div>
