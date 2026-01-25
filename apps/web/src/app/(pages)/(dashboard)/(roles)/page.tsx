@@ -308,9 +308,6 @@ export default function Roles() {
     }
   }, [
     selectedItem,
-    router,
-    companyParam,
-    roleParam,
     isRole,
     rolesAndCompanies.isSuccess,
   ]);
