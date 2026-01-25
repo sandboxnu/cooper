@@ -34,7 +34,7 @@ export default function RenderAllRoles({ company }: RenderAllRolesProps) {
                   <div
                     key={role.id}
                     className="p-2"
-                    onClick={() => router.push(`/?company=${company?.name.toLowerCase()}&role=${role.title.toLowerCase()}`)}
+                    onClick={() => router.push(`/?company=${company?.name.toLowerCase()}&role=${role.title.toLowerCase().replace(/ /g, "-")}`)}
                   >
                     <RoleCardPreview
                       roleObj={role}
