@@ -241,10 +241,8 @@ describe("Review Router", async () => {
     expect(result).toEqual({
       averageOverallRating: 3,
       averageHourlyPay: 20,
-      averageInterviewDifficulty: 2.5,
       averageCultureRating: 4,
       averageSupervisorRating: 3,
-      averageInterviewRating: 3.5,
       federalHolidays: 0.5,
       drugTest: 0.5,
       freeLunch: 0.5,
