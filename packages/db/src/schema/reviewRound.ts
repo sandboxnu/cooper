@@ -1,6 +1,5 @@
 import { relations, sql } from "drizzle-orm";
 import {
-  integer,
   pgTable,
   timestamp,
   uuid,
@@ -26,7 +25,6 @@ export const ReviewRound = pgTable("review_round", {
   }).$onUpdateFn(() => sql`now()`),
 });
 
-
 export type ReviewRoundType = typeof ReviewRound.$inferSelect;
 
 export const ReviewRoundRelations = relations(ReviewRound, ({ one }) => ({
@@ -44,4 +42,3 @@ export const CreateReviewRoundSchema = createInsertSchema(ReviewRound, {
   createdAt: true,
   updatedAt: true,
 });
-
