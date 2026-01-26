@@ -2,7 +2,13 @@ import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
 import { and, desc, eq, sql } from "@cooper/db";
-import { Company, CreateProfileSchema, Profile, Review, Role } from "@cooper/db/schema";
+import {
+  Company,
+  CreateProfileSchema,
+  Profile,
+  Review,
+  Role,
+} from "@cooper/db/schema";
 
 import { UpdateProfileNameMajorSchema } from "../../../db/src/schema/profiles";
 
