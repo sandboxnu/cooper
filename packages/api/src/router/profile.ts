@@ -147,7 +147,10 @@ export const profileRouter = {
         INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}::uuid
         WHERE ${ProfilesToCompanies.profileId}::uuid = ${input.profileId}::uuid
       `);
-      return favoritesWithReviews.rows;
+      return favoritesWithReviews.rows as Array<{
+        profileId: string;
+        companyId: string;
+      }>;
     }),
 
   listFavoriteRoles: protectedProcedure
@@ -158,9 +161,12 @@ export const profileRouter = {
         FROM ${ProfilesToRoles}
         INNER JOIN ${Role} ON ${Role.id}::uuid = ${ProfilesToRoles.roleId}::uuid
         INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}::uuid
-        WHERE ${ProfilesToCompanies.profileId}::uuid = ${input.profileId}::uuid
+        WHERE ${ProfilesToRoles.profileId}::uuid = ${input.profileId}::uuid
       `);
-      return favoritesWithReviews.rows;
+      return favoritesWithReviews.rows as Array<{
+        profileId: string;
+        roleId: string;
+      }>;
     }),
 
   listFavoriteReviews: protectedProcedure

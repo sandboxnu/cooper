@@ -64,7 +64,7 @@ export default function Profile() {
 
   const favoriteRoleQueries = api.useQueries((t) =>
     favoriteRoleIds.map((r) =>
-      t.role.getById({ id: String(r.roleId) }, { enabled: !!r.roleId }),
+      t.role.getById({ id: r.roleId }, { enabled: !!r.roleId }),
     ),
   );
 
@@ -73,10 +73,7 @@ export default function Profile() {
 
   const favoriteCompanyQueries = api.useQueries((t) =>
     favoriteCompanyIds.map((c) =>
-      t.company.getById(
-        { id: String(c.companyId) },
-        { enabled: !!c.companyId },
-      ),
+      t.company.getById({ id: c.companyId }, { enabled: !!c.companyId }),
     ),
   );
 
