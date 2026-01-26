@@ -258,7 +258,6 @@ export default function ReviewForm() {
         profileId: profile?.id,
         companyId: companyId,
         ...values,
-        interviewRating: 1,
         reviewHeadline: "",
       });
     } catch (error) {
