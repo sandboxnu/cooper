@@ -18,6 +18,7 @@ import { WorkEnvironment, WorkTerm } from "./misc";
 import { Profile } from "./profiles";
 import { ProfilesToReviews } from "./profliesToReviews";
 import { Role } from "./roles";
+import { ReviewRound } from "./reviewRound";
 
 export const Review = pgTable("review", {
   id: uuid("id").notNull().primaryKey().defaultRandom(),
@@ -26,8 +27,6 @@ export const Review = pgTable("review", {
   overallRating: integer("overallRating").notNull(),
   cultureRating: integer("cultureRating").notNull(),
   supervisorRating: integer("supervisorRating").notNull(),
-  interviewRating: integer("interviewRating").notNull(),
-  interviewDifficulty: integer("interviewDifficulty").notNull(),
   interviewReview: text("interviewReview"),
   reviewHeadline: varchar("reviewHeadline").notNull(),
   textReview: text("textReview").notNull(),
@@ -73,6 +72,7 @@ export const ReviewRelations = relations(Review, ({ one, many }) => ({
     references: [Location.id],
   }),
   profiles_to_reviews: many(ProfilesToReviews),
+  interviewRounds: many(ReviewRound),
 }));
 
 export const CreateReviewSchema = createInsertSchema(Review, {
@@ -81,7 +81,6 @@ export const CreateReviewSchema = createInsertSchema(Review, {
   overallRating: z.number().min(1).max(5),
   cultureRating: z.number().min(1).max(5),
   supervisorRating: z.number().min(1).max(5),
-  interviewRating: z.number().min(1).max(5).optional().default(0),
   interviewReview: z.string().optional(),
   reviewHeadline: z.string().optional().default(""),
   textReview: z.string(),
