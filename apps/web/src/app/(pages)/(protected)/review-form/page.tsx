@@ -332,10 +332,6 @@ export default function ReviewForm() {
                   onClick={async () => {
                     const isValid = await form.trigger();
                     if (!isValid) {
-                      const errors = form.formState.errors;
-                      const errorFields = Object.keys(errors).filter(
-                        (key) => errors[key as keyof typeof errors],
-                      );
                       toast.error("Please fill in all required fields.");
                       return;
                     }
