@@ -68,9 +68,6 @@ export default function Profile() {
     ),
   );
 
-  console.log("companies ", favoriteCompanyIds);
-  console.log("roles ", favoriteRoleIds);
-
   const favoriteCompanyQueries = api.useQueries((t) =>
     favoriteCompanyIds.map((c) =>
       t.company.getById({ id: c.companyId }, { enabled: !!c.companyId }),

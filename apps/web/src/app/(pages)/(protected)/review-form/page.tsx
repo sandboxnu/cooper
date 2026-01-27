@@ -336,8 +336,6 @@ export default function ReviewForm() {
                       const errorFields = Object.keys(errors).filter(
                         (key) => errors[key as keyof typeof errors],
                       );
-                      console.log("Fields with errors:", errorFields);
-                      console.log("Error details:", errors);
                       toast.error("Please fill in all required fields.");
                       return;
                     }
