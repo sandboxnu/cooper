@@ -8,6 +8,7 @@ import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 import { DialogTitle } from "@cooper/ui/dialog";
 import { Form, FormControl, FormField, FormItem } from "@cooper/ui/form";
+import { Checkbox } from "@cooper/ui/checkbox";
 
 import {
   FormLabel,
@@ -101,13 +102,10 @@ export function OnboardingForm({
 
   return (
     <>
-      <DialogTitle className="pb-2 text-center text-2xl font-bold">
-        Create a Cooper Account
+      <DialogTitle className="pb-2 text-left text-lg font-medium ">
+        Let’s get you setup
       </DialogTitle>
       <Form {...form}>
-        <p className="text-gray-500">
-          <span className="text-red-500">* </span>Required
-        </p>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-col space-y-6"
@@ -120,7 +118,11 @@ export function OnboardingForm({
                 <FormItem className="max-w-72">
                   <FormLabel required>First Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="First" {...field} />
+                    <Input
+                      placeholder="First"
+                      {...field}
+                      onClear={() => field.onChange("")}
+                    />
                   </FormControl>
                   <FormMessage className="text-base" />
                 </FormItem>
@@ -133,7 +135,11 @@ export function OnboardingForm({
                 <FormItem className="max-w-72 lg:ml-2">
                   <FormLabel required>Last Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="Last" {...field} />
+                    <Input
+                      placeholder="Last"
+                      {...field}
+                      onClear={() => field.onChange("")}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -144,10 +150,14 @@ export function OnboardingForm({
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem className="max-w-72">
+              <FormItem>
                 <FormLabel required>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="example@example.com" {...field} />
+                  <Input
+                    placeholder="example@example.com"
+                    {...field}
+                    onClear={() => field.onChange("")}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -158,9 +168,10 @@ export function OnboardingForm({
               control={form.control}
               name="major"
               render={() => (
-                <FormItem className="max-w-72">
+                <FormItem>
                   <FormLabel>Major</FormLabel>
                   <ComboBox
+                    variant="form"
                     defaultLabel={majorLabel || "Select major..."}
                     searchPlaceholder="Search major..."
                     searchEmpty="No major found."
@@ -175,7 +186,6 @@ export function OnboardingForm({
                       );
                       form.setValue("major", currentValue);
                     }}
-                    triggerClassName="max-w-72"
                   />
                 </FormItem>
               )}
@@ -185,35 +195,27 @@ export function OnboardingForm({
               control={form.control}
               name="minor"
               render={({ field }) => (
-                <FormItem className="max-w-72">
+                <FormItem>
                   <FormLabel>Minor</FormLabel>
                   <FormControl>
-                    <Input placeholder="Minor" {...field} />
+                    <Input
+                      placeholder="Minor"
+                      {...field}
+                      onClear={() => field.onChange("")}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
           </div>
+
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-            <FormField
-              control={form.control}
-              name="graduationYear"
-              render={({ field }) => (
-                <FormItem className="max-w-72">
-                  <FormLabel required>Graduation Year</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Year" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
             <FormField
               control={form.control}
               name="graduationMonth"
               render={({ field }) => (
-                <FormItem className="max-w-72">
+                <FormItem>
                   <FormLabel required>Graduation Month</FormLabel>
                   <FormControl>
                     <Select
@@ -227,20 +229,44 @@ export function OnboardingForm({
                 </FormItem>
               )}
             />
+            <FormField
+              control={form.control}
+              name="graduationYear"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel required>Graduation Year</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Year"
+                      {...field}
+                      onClear={() => field.onChange("")}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
           </div>
           <FormField
             control={form.control}
             name="cooped"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel required>
-                  Have you completed a co-op before?
-                </FormLabel>
+              <FormItem className="max-w-72">
                 <FormControl>
-                  <FormItem className="flex items-center space-x-4">
+                  <FormItem>
                     <FormControl>
-                      <div>
-                        <Button
+                      <div className="flex items-center space-x-2">
+                        <Checkbox
+                          checked={cooped}
+                          onCheckedChange={(checked) => {
+                            setCooped(checked === true);
+                            field.onChange(checked === true);
+                          }}
+                        />
+                        <FormLabel required>
+                          I have completed a co-op or internship
+                        </FormLabel>
+                        {/* <Button
                           type="button"
                           variant={cooped === true ? "default" : "outline"}
                           className={cn(
@@ -267,7 +293,7 @@ export function OnboardingForm({
                           }}
                         >
                           No
-                        </Button>
+                        </Button> */}
                       </div>
                     </FormControl>
                   </FormItem>
@@ -277,8 +303,11 @@ export function OnboardingForm({
             )}
           />
           <div className="mt-4 flex justify-end">
-            <Button type="submit" className="w-24">
-              Next
+            <Button
+              type="submit"
+              className=" bg-cooper-gray-550 border-cooper-gray-550 hover:bg-cooper-gray-300 px-3.5 py-2 text-base font-bold"
+            >
+              Finish
             </Button>
           </div>
         </form>
