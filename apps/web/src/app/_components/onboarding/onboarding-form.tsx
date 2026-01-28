@@ -41,9 +41,7 @@ const formSchema = z.object({
     .number()
     .min(1, "Graduation month is required")
     .max(12, "Invalid month"),
-  cooped: z.boolean({
-    required_error: "Please select whether you've completed a co-op before",
-  }),
+  cooped: z.boolean().optional(),
 });
 
 export type OnboardingFormType = z.infer<typeof formSchema>;
@@ -263,37 +261,9 @@ export function OnboardingForm({
                             field.onChange(checked === true);
                           }}
                         />
-                        <FormLabel required>
+                        <FormLabel>
                           I have completed a co-op or internship
                         </FormLabel>
-                        {/* <Button
-                          type="button"
-                          variant={cooped === true ? "default" : "outline"}
-                          className={cn(
-                            "mr-0 h-12 rounded-r-none border-2 border-cooper-gray-300 text-lg text-cooper-gray-400 shadow-none ring-offset-background hover:bg-accent hover:text-black focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2",
-                            cooped === true && "bg-cooper-blue-200 text-black",
-                          )}
-                          onClick={() => {
-                            setCooped(true);
-                            field.onChange(true);
-                          }}
-                        >
-                          Yes
-                        </Button>
-                        <Button
-                          type="button"
-                          variant={cooped === false ? "default" : "outline"}
-                          className={cn(
-                            "ml-0 h-12 rounded-l-none border-2 border-l-0 border-cooper-gray-300 text-lg text-cooper-gray-400 shadow-none ring-offset-background hover:bg-accent hover:text-black focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2",
-                            cooped === false && "bg-cooper-blue-200 text-black",
-                          )}
-                          onClick={() => {
-                            setCooped(false);
-                            field.onChange(false);
-                          }}
-                        >
-                          No
-                        </Button> */}
                       </div>
                     </FormControl>
                   </FormItem>
