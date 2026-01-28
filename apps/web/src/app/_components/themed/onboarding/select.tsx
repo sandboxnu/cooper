@@ -1,5 +1,5 @@
 import { cn } from "@cooper/ui";
-import { X } from "lucide-react";
+import { X, ChevronDown } from "lucide-react";
 
 interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   options: { value: string | number; label: string | number }[];
@@ -51,12 +51,7 @@ export const Select: React.FC<SelectProps> = ({
           </button>
         )}
         {/* Chevron */}
-        <svg
-          className="h-4 w-4 fill-current flex-shrink-0 text-cooper-gray-600"
-          viewBox="0 0 20 20"
-        >
-          <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
-        </svg>
+        <ChevronDown className="h-6 w-6 shrink-0 opacity-50" />
       </div>
     </div>
   );
