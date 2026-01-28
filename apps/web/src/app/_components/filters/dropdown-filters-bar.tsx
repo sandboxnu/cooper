@@ -139,6 +139,8 @@ export default function DropdownFiltersBar({
           handleFilterChange("hourlyPay", { min, max })
         }
         placeholder="Select range"
+        minValue={filters.hourlyPay.min}
+        maxValue={filters.hourlyPay.max}
       />
 
       <DropdownFilter

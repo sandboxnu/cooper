@@ -66,18 +66,35 @@ function FilterBodyRange({
   maxValue,
   onRangeChange,
 }: FilterBodyProps) {
-  const [localMin, setLocalMin] = useState(minValue?.toString() ?? "");
-  const [localMax, setLocalMax] = useState(maxValue?.toString() ?? "");
+  // Show empty inputs when the parent range is the default (0,0)
+  const [localMin, setLocalMin] = useState(
+    minValue === 0 && maxValue === 0 ? "" : (minValue?.toString() ?? ""),
+  );
+  const [localMax, setLocalMax] = useState(
+    minValue === 0 && maxValue === 0 ? "" : (maxValue?.toString() ?? ""),
+  );
   const [rangeError, setRangeError] = useState<string | null>(null);
 
   // keep local inputs synced if parent passes new min/max
   useEffect(() => {
+    // Treat (0,0) as "no selection" and show empty inputs
+    if (minValue === 0 && maxValue === 0) {
+      setLocalMin("");
+      return;
+    }
+
     setLocalMin(minValue?.toString() ?? "");
-  }, [minValue]);
+  }, [minValue, maxValue]);
 
   useEffect(() => {
+    // Treat (0,0) as "no selection" and show empty inputs
+    if (minValue === 0 && maxValue === 0) {
+      setLocalMax("");
+      return;
+    }
+
     setLocalMax(maxValue?.toString() ?? "");
-  }, [maxValue]);
+  }, [minValue, maxValue]);
 
   const handleRangeApply = () => {
     if (!onRangeChange) return;
@@ -90,8 +107,15 @@ function FilterBodyRange({
       return;
     }
 
+    // If both inputs are empty, treat this as clearing the range (0,0)
+    if (isNaN(min) && isNaN(max)) {
+      setRangeError(null);
+      onRangeChange(0, 0);
+      return;
+    }
+
     const appliedMin = !isNaN(min) ? min : 0;
-    const appliedMax = !isNaN(max) ? max : 100;
+    const appliedMax = !isNaN(max) ? max : Infinity;
 
     setRangeError(null);
     onRangeChange(appliedMin, appliedMax);
@@ -109,7 +133,7 @@ function FilterBodyRange({
   }, [localMin, localMax]);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col -mt-2">
       <div className="flex gap-[10px] items-center">
         <div className="flex-1">
           <label className="text-xs text-cooper-gray-400 mb-1">Min</label>

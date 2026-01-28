@@ -61,7 +61,7 @@ export default function DropdownFilter({
   const displayText = useMemo(() => {
     if (filterType === "range") {
       const min = minValue ?? 0;
-      const max = maxValue ?? 0;
+      const max = maxValue ? (maxValue !== Infinity ? maxValue : 0) : 0;
 
       if (min > 0 && max > 0) return `$${min}-${max}/hr`;
       if (min > 0) return `$${min}/hr+`;

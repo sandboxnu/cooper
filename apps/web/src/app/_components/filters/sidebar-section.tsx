@@ -12,6 +12,9 @@ interface SidebarSectionProps {
   filterType?: FilterVariant;
   onSearchChange?: (search: string) => void;
   isLoadingOptions?: boolean;
+  onRangeChange?: (min: number, max: number) => void;
+  minValue?: number;
+  maxValue?: number;
   variant?: "main" | "subsection";
 }
 
@@ -26,9 +29,17 @@ export default function SidebarSection({
   filterType = "checkbox",
   onSearchChange,
   isLoadingOptions,
+  onRangeChange,
+  minValue,
+  maxValue,
   variant = "main",
 }: SidebarSectionProps) {
   const handleClear = () => {
+    if (filterType === "range") {
+      onRangeChange?.(0, 0);
+      return;
+    }
+
     onSelectionChange?.([]);
   };
 
@@ -60,6 +71,9 @@ export default function SidebarSection({
           options={options}
           selectedOptions={selectedOptions}
           onSelectionChange={onSelectionChange}
+          onRangeChange={onRangeChange}
+          minValue={minValue}
+          maxValue={maxValue}
           onSearchChange={onSearchChange}
           isLoadingOptions={isLoadingOptions}
         />

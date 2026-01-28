@@ -131,7 +131,7 @@ export default function SidebarFilter({
     >
       <div
         className={cn(
-          "fixed right-0 top-0 h-screen w-1/3 bg-cooper-cream-100 shadow-xl",
+          "fixed right-0 top-0 h-screen w-full md:w-1/3 bg-cooper-cream-100 shadow-xl",
           "transition-transform duration-200 ease-out",
           isOpen ? "translate-x-0" : "translate-x-full",
           "flex flex-col",
@@ -190,6 +190,33 @@ export default function SidebarFilter({
             }
           />
           <div className="h-px w-full bg-cooper-gray-150" />
+
+          <SidebarSection
+            title="Hourly pay"
+            filterType="range"
+            options={[]}
+            selectedOptions={[]}
+            minValue={filters.hourlyPay.min}
+            maxValue={filters.hourlyPay.max}
+            onRangeChange={(min, max) =>
+              handleFilterChange("hourlyPay", { min, max })
+            }
+          />
+
+          <div className="h-px w-full bg-cooper-gray-150" />
+
+          <SidebarSection
+            title="Overall rating"
+            filterType="rating"
+            options={[]}
+            selectedOptions={filters.ratings}
+            onSelectionChange={(selected) =>
+              handleFilterChange("ratings", selected)
+            }
+          />
+
+          <div className="h-px w-full bg-cooper-gray-150" />
+
           <div className="flex flex-col py-2">
             <div className="flex gap-2">
               <span className="font-normal text-base">On the job</span>
