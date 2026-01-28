@@ -35,6 +35,7 @@ const formSchema = z.object({
   minor: z.string().optional(),
   graduationYear: z.coerce
     .number()
+    .min(1, "Graduation year is required")
     .min(2010, "Graduation year must be 2010 or later")
     .max(currentYear + 6, "Graduation year must be within the next 5 years"),
   graduationMonth: z.coerce
@@ -167,24 +168,27 @@ export function OnboardingForm({
               name="major"
               render={() => (
                 <FormItem>
-                  <FormLabel>Major</FormLabel>
-                  <ComboBox
-                    variant="form"
-                    defaultLabel={majorLabel || "Select major..."}
-                    searchPlaceholder="Search major..."
-                    searchEmpty="No major found."
-                    valuesAndLabels={majors.map((major) => ({
-                      value: major,
-                      label: major,
-                    }))}
-                    currLabel={majorLabel}
-                    onSelect={(currentValue) => {
-                      setMajorLabel(
-                        currentValue === majorLabel ? "" : currentValue,
-                      );
-                      form.setValue("major", currentValue);
-                    }}
-                  />
+                  <FormLabel required>Major</FormLabel>
+                  <FormControl>
+                    <ComboBox
+                      variant="form"
+                      defaultLabel={majorLabel || "Select major..."}
+                      searchPlaceholder="Search major..."
+                      searchEmpty="No major found."
+                      valuesAndLabels={majors.map((major) => ({
+                        value: major,
+                        label: major,
+                      }))}
+                      currLabel={majorLabel}
+                      onSelect={(currentValue) => {
+                        setMajorLabel(
+                          currentValue === majorLabel ? "" : currentValue,
+                        );
+                        form.setValue("major", currentValue);
+                      }}
+                    />
+                  </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
