@@ -43,7 +43,7 @@ export default function DropdownFiltersBar({
     }
   }, [prefix, searchTerm]);
 
-  const locationsToUpdate = api.location.getByPrefix.useQuery(
+  const locationsToUpdate = api.location.getByPopularity.useQuery(
     { prefix },
     { enabled: searchTerm.length === 3 && prefix.length === 3 },
   );
