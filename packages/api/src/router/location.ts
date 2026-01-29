@@ -41,13 +41,7 @@ export const locationRouter = {
     }),
 
   getByPopularity: publicProcedure
-    .input(
-      z
-        .object({
-          prefix: z.string().optional(),
-        })
-        .optional(),
-    )
+    .input(z.object({ prefix: z.string() }))
     .query(({ ctx, input }) => {
       const query = ctx.db
         .select({
@@ -63,13 +57,18 @@ export const locationRouter = {
           eq(Location.id, CompaniesToLocations.locationId),
         );
 
-      if (input?.prefix) {
+      if (input.prefix) {
         query.where(ilike(Location.city, `${input.prefix}%`));
       }
 
       return query
         .groupBy(Location.id, Location.city, Location.state)
         .having(sql`count(${CompaniesToLocations.companyId}) >= 0`)
-        .orderBy(desc(sql`count(${CompaniesToLocations.companyId})`));
+        .orderBy(
+          desc(sql`count(${CompaniesToLocations.companyId})`),
+          asc(Location.country),
+          asc(Location.state),
+          asc(Location.city),
+        );
     }),
 } satisfies TRPCRouterRecord;
