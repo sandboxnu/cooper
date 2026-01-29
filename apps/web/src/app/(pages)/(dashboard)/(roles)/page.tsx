@@ -266,10 +266,6 @@ export default function Roles() {
         const companySlug = roleItem.companySlug ?? createSlug(companyName);
         const roleSlug = roleItem.slug;
 
-        if (
-          companyName &&
-          (companyParam !== companySlug || roleParam !== roleSlug)
-        ) {
           // Preserve search param
           const currentSearch = params.get("search");
           params.delete("search");
@@ -283,13 +279,11 @@ export default function Roles() {
           }
 
           router.push(`/?${params.toString()}`);
-        }
       } else {
         // For companies, use the company parameter with the name
         const companyItem = selectedItem as CompanyType & { slug?: string };
         const companySlug = companyItem.slug;
 
-        if (companyParam !== companySlug || roleParam !== null) {
           // Preserve search param
           const currentSearch = params.get("search");
           params.delete("search");
@@ -303,13 +297,13 @@ export default function Roles() {
           }
 
           router.push(`/?${params.toString()}`);
-        }
       }
     }
   }, [
     selectedItem,
     isRole,
     rolesAndCompanies.isSuccess,
+    router
   ]);
 
   //here 
@@ -439,7 +433,7 @@ export default function Roles() {
 
   return (
     <>
-      <div className="bg-cooper-cream-100 border-cooper-gray-150  z-20 flex w-full flex-col items-stretch gap-4 self-start border-b-[1px] py-4 md:flex-row md:items-center md:gap-5">
+      <div className="bg-cooper-cream-100 border-cooper-gray-150 fixed z-20 flex w-full flex-col items-stretch gap-4 self-start border-b-[1px] py-4 md:flex-row md:items-center md:gap-5">
         <div className="w-full px-5 md:w-[28%]">
           <SearchFilter className="w-full" />
         </div>
@@ -454,7 +448,7 @@ export default function Roles() {
       </div>
       {rolesAndCompanies.isSuccess &&
         rolesAndCompanies.data.items.length > 0 && (
-          <div className="bg-cooper-cream-100 flex h-[90dvh] w-full ">
+          <div className="bg-cooper-cream-100 flex h-[90dvh] w-full pt-[12dvh] md:pt-[9.25dvh]">
             {/* RoleCardPreview List */}
             <div
               ref={sidebarRef}
