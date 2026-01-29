@@ -209,7 +209,9 @@ export function BasicInfoSection({
             <div>
               <Select
                 placeholder="Search by industry..."
-                options={industryOptions}
+                options={industryOptions.sort((a, b) =>
+                  a.label.localeCompare(b.label),
+                )}
                 className="border-2 rounded-lg h-10 text-sm text-cooper-gray-350 border-cooper-gray-150"
                 value={
                   field.value &&
