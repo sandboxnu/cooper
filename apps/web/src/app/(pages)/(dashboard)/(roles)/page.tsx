@@ -311,6 +311,8 @@ export default function Roles() {
     isRole,
     rolesAndCompanies.isSuccess,
   ]);
+
+  //here 
   const [showRoleInfo, setShowRoleInfo] = useState(false); // State for toggling views on mobile
 
   // Reset to page 1 when filter or search changes
@@ -363,6 +365,17 @@ export default function Roles() {
   useEffect(() => {
     setCurrentPage(1);
   }, [selectedFilter, searchValue, selectedType]);
+
+  useEffect(() => {
+  if (roleParam) {
+    setSelectedType("roles");
+  } else if (companyParam) {
+    setSelectedType("companies");
+  } else {
+    setSelectedType("all");
+  }
+  }, [roleParam, companyParam]);
+
 
   const totalPages =
     rolesAndCompanies.data &&
