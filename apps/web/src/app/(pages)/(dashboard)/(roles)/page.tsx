@@ -434,6 +434,8 @@ export default function Roles() {
   return (
     <>
       <div className="bg-cooper-cream-100 border-cooper-gray-150 fixed z-20 flex w-full flex-col items-stretch gap-4 self-start border-b-[1px] py-4 md:flex-row md:items-center md:gap-5">
+    <div className="flex h-full flex-col w-full">
+      <div className="bg-cooper-cream-100 border-cooper-gray-150 sticky top-0 z-20 flex w-full flex-shrink-0 flex-col items-stretch gap-4 border-b-[1px] py-4 md:flex-row md:items-center md:gap-5">
         <div className="w-full px-5 md:w-[28%]">
           <SearchFilter className="w-full" />
         </div>
@@ -448,7 +450,7 @@ export default function Roles() {
       </div>
       {rolesAndCompanies.isSuccess &&
         rolesAndCompanies.data.items.length > 0 && (
-          <div className="bg-cooper-cream-100 flex h-[90dvh] w-full pt-[12dvh] md:pt-[9.25dvh]">
+          <div className="bg-cooper-cream-100 flex min-h-0 flex-1 w-full">
             {/* RoleCardPreview List */}
             <div
               ref={sidebarRef}
@@ -682,6 +684,6 @@ export default function Roles() {
           <NoResults className="h-[84dvh]" />
         )}
       {rolesAndCompanies.isPending && <LoadingResults className="h-[84dvh]" />}
-    </>
+    </div>
   );
 }

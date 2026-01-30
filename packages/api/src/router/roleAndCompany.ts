@@ -47,7 +47,7 @@ export const roleAndCompanyRouter = {
           ${Role}.*, 
           COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
         FROM ${Role}
-        LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
+        INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
         GROUP BY ${Role.id}
         ORDER BY avg_rating DESC
       `);
@@ -56,9 +56,22 @@ export const roleAndCompanyRouter = {
           ...(role as RoleType),
         }));
       } else {
-        roles = await ctx.db.query.Role.findMany({
-          orderBy: ordering[ctx.sortBy],
-        });
+        const rolesWithReviews = await ctx.db.execute(sql`
+        SELECT DISTINCT ${Review.roleId}::uuid as role_id
+        FROM ${Review}
+        WHERE ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
+      `);
+
+        const roleIds = rolesWithReviews.rows.map((row) => String(row.role_id));
+
+        if (roleIds.length === 0) {
+          roles = [];
+        } else {
+          roles = await ctx.db.query.Role.findMany({
+            where: (role, { inArray }) => inArray(role.id, roleIds),
+            orderBy: ordering[ctx.sortBy],
+          });
+        }
       }
 
       let companies: CompanyType[] = [];
@@ -69,7 +82,7 @@ export const roleAndCompanyRouter = {
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Company}
           LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
-          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
+          INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
           GROUP BY ${Company.id}
           ORDER BY avg_rating DESC
         `);
@@ -78,9 +91,25 @@ export const roleAndCompanyRouter = {
           ...(company as CompanyType),
         }));
       } else {
-        companies = await ctx.db.query.Company.findMany({
+        const foundCompanies = await ctx.db.query.Company.findMany({
           orderBy: companyOrdering[ctx.sortBy],
         });
+
+        const companiesWithReviews = await ctx.db.execute(sql`
+          SELECT DISTINCT ${Company.id}::uuid as company_id
+          FROM ${Company}
+          INNER JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
+          INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          WHERE ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
+        `);
+
+        const companyIdsWithReviews = new Set(
+          companiesWithReviews.rows.map((row) => String(row.company_id)),
+        );
+
+        companies = foundCompanies.filter((company) =>
+          companyIdsWithReviews.has(company.id),
+        );
       }
 
       const rolesWithCompanies = roles.map((role) => {
@@ -147,7 +176,7 @@ export const roleAndCompanyRouter = {
             ${Role.id} AS id,
             COALESCE(AVG(${Review.hourlyPay}::float), 0) AS avg_hourly_pay
           FROM ${Role}
-          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
+          INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
           WHERE ${Role.id} IN (${sql.join(
             roleIds.map((id) => sql`${id}`),
             sql`,`,
@@ -163,7 +192,7 @@ export const roleAndCompanyRouter = {
             ${Role.id} AS id,
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Role}
-          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
+          INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
           WHERE ${Role.id} IN (${sql.join(
             roleIds.map((id) => sql`${id}`),
             sql`,`,
@@ -183,7 +212,7 @@ export const roleAndCompanyRouter = {
             COALESCE(AVG(${Review.hourlyPay}::float), 0) AS avg_hourly_pay
           FROM ${Company}
           LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
-          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
+          INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
           WHERE ${Company.id} IN (${sql.join(
             companyIds.map((id) => sql`${id}`),
             sql`,`,
@@ -200,7 +229,7 @@ export const roleAndCompanyRouter = {
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Company}
           LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
-          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
+          INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
           WHERE ${Company.id} IN (${sql.join(
             companyIds.map((id) => sql`${id}`),
             sql`,`,
@@ -337,7 +366,7 @@ export const roleAndCompanyRouter = {
             ${Role}.*, 
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Role}
-          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
+          INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
           GROUP BY ${Role.id}
           ORDER BY avg_rating DESC
         `);
@@ -346,9 +375,22 @@ export const roleAndCompanyRouter = {
           ...(role as RoleType),
         }));
       } else {
-        roles = await ctx.db.query.Role.findMany({
-          orderBy: ordering[input.sortBy],
-        });
+        const rolesWithReviews = await ctx.db.execute(sql`
+        SELECT DISTINCT ${Review.roleId}::uuid as role_id
+        FROM ${Review}
+        WHERE ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
+      `);
+
+        const roleIds = rolesWithReviews.rows.map((row) => String(row.role_id));
+
+        if (roleIds.length === 0) {
+          roles = [];
+        } else {
+          roles = await ctx.db.query.Role.findMany({
+            where: (role, { inArray }) => inArray(role.id, roleIds),
+            orderBy: ordering[input.sortBy],
+          });
+        }
       }
 
       let companies: CompanyType[] = [];
@@ -359,7 +401,7 @@ export const roleAndCompanyRouter = {
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Company}
           LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
-          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
+          INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
           GROUP BY ${Company.id}
           ORDER BY avg_rating DESC
         `);
@@ -368,9 +410,25 @@ export const roleAndCompanyRouter = {
           ...(company as CompanyType),
         }));
       } else {
-        companies = await ctx.db.query.Company.findMany({
+        const foundCompanies = await ctx.db.query.Company.findMany({
           orderBy: companyOrdering[input.sortBy],
         });
+
+        const companiesWithReviews = await ctx.db.execute(sql`
+          SELECT DISTINCT ${Company.id}::uuid as company_id
+          FROM ${Company}
+          INNER JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
+          INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          WHERE ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
+        `);
+
+        const companyIdsWithReviews = new Set(
+          companiesWithReviews.rows.map((row) => String(row.company_id)),
+        );
+
+        companies = foundCompanies.filter((company) =>
+          companyIdsWithReviews.has(company.id),
+        );
       }
 
       const rolesWithCompanies = roles.map((role) => {
