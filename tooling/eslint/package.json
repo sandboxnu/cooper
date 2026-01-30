@@ -14,13 +14,13 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@next/eslint-plugin-next": "^14.2.4",
+    "@next/eslint-plugin-next": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsx-a11y": "^6.9.0",
     "eslint-plugin-react": "^7.34.3",
-    "eslint-plugin-react-hooks": "rc",
+    "eslint-plugin-react-hooks": "5.2.0",
     "eslint-plugin-turbo": "^2.0.6",
-    "typescript-eslint": "rc-v8"
+    "typescript-eslint": "8.0.0"
   },
   "devDependencies": {
     "@cooper/prettier-config": "workspace:*",

@@ -1,7 +1,8 @@
 import { redirect } from "next/navigation";
 
 import { auth } from "@cooper/auth";
-import { Toaster } from "@cooper/ui/toaster";
+import { CustomToaster } from "@cooper/ui";
+import HeaderLayout from "~/app/_components/header/header-layout";
 
 export default async function ProtectedLayour({
   children,
@@ -16,9 +17,9 @@ export default async function ProtectedLayour({
   }
 
   return (
-    <>
+    <HeaderLayout>
       {children}
-      <Toaster />
-    </>
+      <CustomToaster />
+    </HeaderLayout>
   );
 }

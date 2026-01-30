@@ -1,6 +1,4 @@
 export function ReviewCardStars({ numStars }: { numStars: number }) {
-  numStars = Math.min(5, Math.round(numStars));
-
   const yellowStar = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -31,12 +29,27 @@ export function ReviewCardStars({ numStars }: { numStars: number }) {
     </svg>
   );
 
+  const fullStars = Math.floor(numStars);
+  const fractionalStars = numStars % 1;
+  const emptyStars = 5 - Math.ceil(numStars);
   return (
     <div className="flex gap-1">
-      {Array.from({ length: numStars }, (_, index) => (
+      {Array.from({ length: fullStars }, (_, index) => (
         <div key={index + "yellow star"}>{yellowStar}</div>
       ))}
-      {Array.from({ length: 5 - numStars }, (_, index) => (
+      {fractionalStars > 0 && (
+        <div key="fraction" className="relative h-[17px] w-[19px]">
+          {grayStar}
+          <div
+            className="absolute left-0 top-0 h-full overflow-hidden"
+            style={{ width: `${fractionalStars * 100}%` }}
+          >
+            {yellowStar}
+          </div>
+        </div>
+      )}
+
+      {Array.from({ length: emptyStars }, (_, index) => (
         <div key={index + "gray star"}>{grayStar}</div>
       ))}
     </div>

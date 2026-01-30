@@ -4,9 +4,7 @@ import { auth } from "@cooper/auth";
 
 import Header from "~/app/_components/header/header";
 import LoginButton from "../auth/login-button";
-import Footer from "../footer";
 import ProfileButton from "../profile/profile-button";
-import SearchFilter from "../search/search-filter";
 
 /**
  * This should be used when placing content under the header, standardizes how children are placed under a header.
@@ -26,17 +24,13 @@ export default async function HeaderLayout({
   );
 
   return (
-    <div className="flex min-h-screen flex-col justify-between">
-      <div className="flex flex-col">
+    <div className="flex h-screen flex-col overflow-y-auto">
+      <div className=" top-0 z-50 w-full bg-white">
         <Header auth={button} />
-        <article className="flex h-fit flex-col items-center justify-start">
-          <div className="mx-0 mt-2 flex min-h-fit justify-center xl:mt-0 xl:hidden">
-            <SearchFilter searchClassName="px-4 mb-2" />
-          </div>
-          {children}
-        </article>
       </div>
-      <Footer />
+      <article className="flex min-h-0 flex-1 flex-col items-center justify-start overflow-hidden ">
+        {children}
+      </article>
     </div>
   );
 }

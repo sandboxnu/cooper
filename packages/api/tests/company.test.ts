@@ -68,15 +68,6 @@ describe("Company Router", async () => {
   //   });
   // })
 
-  test("getByName endpoint returns company by name", async () => {
-    const companyName = "Test Company";
-    await caller.company.getByName({ name: companyName });
-
-    expect(db.query.Company.findFirst).toHaveBeenCalledWith({
-      where: eq(Company.name, companyName),
-    });
-  });
-
   test("getById endpoint returns company by id", async () => {
     const companyId = "123";
     await caller.company.getById({ id: companyId });

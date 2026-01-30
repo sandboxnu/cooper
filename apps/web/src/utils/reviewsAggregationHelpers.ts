@@ -32,7 +32,8 @@ export function listBenefits(reviewObj: ReviewType): string[] {
   if (reviewObj.pto) benefits.push("Paid Time Off");
   if (reviewObj.federalHolidays) benefits.push("Federal Holidays Off");
   if (reviewObj.freeLunch) benefits.push("Free Lunch");
-  if (reviewObj.freeTransport) benefits.push("Free Transporation");
+  if (reviewObj.travelBenefits) benefits.push("Free Transporation");
   if (reviewObj.freeMerch) benefits.push("Free Merch");
+  if (reviewObj.snackBar) benefits.push("Snack Bar");
   return benefits;
 }
