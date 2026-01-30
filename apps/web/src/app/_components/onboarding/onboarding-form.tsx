@@ -101,7 +101,7 @@ export function OnboardingForm({
 
   return (
     <>
-      <DialogTitle className="pb-2 text-left text-lg font-medium ">
+      <DialogTitle className="pb-6 text-left text-xl font-medium ">
         Let’s get you setup
       </DialogTitle>
       <Form {...form}>
@@ -279,7 +279,7 @@ export function OnboardingForm({
           <div className="mt-4 flex justify-end">
             <Button
               type="submit"
-              className=" bg-cooper-gray-550 border-cooper-gray-550 hover:bg-cooper-gray-300 px-3.5 py-2 text-base font-bold"
+              className=" bg-cooper-gray-550 border-cooper-gray-550 hover:bg-cooper-gray-300 hover:border-cooper-gray-300 px-3.5 py-2 text-base font-bold"
             >
               Finish
             </Button>
