@@ -266,47 +266,42 @@ export default function Roles() {
         const companySlug = roleItem.companySlug ?? createSlug(companyName);
         const roleSlug = roleItem.slug;
 
-          // Preserve search param
-          const currentSearch = params.get("search");
-          params.delete("search");
+        // Preserve search param
+        const currentSearch = params.get("search");
+        params.delete("search");
 
-          params.set("company", companySlug);
-          params.set("role", roleSlug);
+        params.set("company", companySlug);
+        params.set("role", roleSlug);
 
-          // Add search back at the end
-          if (currentSearch) {
-            params.set("search", currentSearch);
-          }
+        // Add search back at the end
+        if (currentSearch) {
+          params.set("search", currentSearch);
+        }
 
-          router.push(`/?${params.toString()}`);
+        router.push(`/?${params.toString()}`);
       } else {
         // For companies, use the company parameter with the name
         const companyItem = selectedItem as CompanyType & { slug?: string };
         const companySlug = companyItem.slug;
 
-          // Preserve search param
-          const currentSearch = params.get("search");
-          params.delete("search");
+        // Preserve search param
+        const currentSearch = params.get("search");
+        params.delete("search");
 
-          params.delete("role");
-          params.set("company", companySlug);
+        params.delete("role");
+        params.set("company", companySlug);
 
-          // Add search back at the end
-          if (currentSearch) {
-            params.set("search", currentSearch);
-          }
+        // Add search back at the end
+        if (currentSearch) {
+          params.set("search", currentSearch);
+        }
 
-          router.push(`/?${params.toString()}`);
+        router.push(`/?${params.toString()}`);
       }
     }
-  }, [
-    selectedItem,
-    isRole,
-    rolesAndCompanies.isSuccess,
-    router
-  ]);
+  }, [selectedItem, isRole, rolesAndCompanies.isSuccess, router]);
 
-  //here 
+  //here
   const [showRoleInfo, setShowRoleInfo] = useState(false); // State for toggling views on mobile
 
   // Reset to page 1 when filter or search changes
@@ -361,15 +356,14 @@ export default function Roles() {
   }, [selectedFilter, searchValue, selectedType]);
 
   useEffect(() => {
-  if (roleParam) {
-    setSelectedType("roles");
-  } else if (companyParam) {
-    setSelectedType("companies");
-  } else {
-    setSelectedType("all");
-  }
+    if (roleParam) {
+      setSelectedType("roles");
+    } else if (companyParam) {
+      setSelectedType("companies");
+    } else {
+      setSelectedType("all");
+    }
   }, [roleParam, companyParam]);
-
 
   const totalPages =
     rolesAndCompanies.data &&
