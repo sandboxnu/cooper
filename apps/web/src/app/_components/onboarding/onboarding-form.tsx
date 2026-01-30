@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import type { Session } from "@cooper/auth";
-import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 import { DialogTitle } from "@cooper/ui/dialog";
 import { Form, FormControl, FormField, FormItem } from "@cooper/ui/form";
