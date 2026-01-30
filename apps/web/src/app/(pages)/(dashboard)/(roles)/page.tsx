@@ -299,9 +299,14 @@ export default function Roles() {
         router.push(`/?${params.toString()}`);
       }
     }
-  }, [selectedItem, isRole, rolesAndCompanies.isSuccess, router]);
-
-  //here
+  }, [
+    selectedItem,
+    router,
+    companyParam,
+    roleParam,
+    isRole,
+    rolesAndCompanies.isSuccess,
+  ]);
   const [showRoleInfo, setShowRoleInfo] = useState(false); // State for toggling views on mobile
 
   // Reset to page 1 when filter or search changes
@@ -426,8 +431,6 @@ export default function Roles() {
   };
 
   return (
-    <>
-      <div className="bg-cooper-cream-100 border-cooper-gray-150 fixed z-20 flex w-full flex-col items-stretch gap-4 self-start border-b-[1px] py-4 md:flex-row md:items-center md:gap-5">
     <div className="flex h-full flex-col w-full">
       <div className="bg-cooper-cream-100 border-cooper-gray-150 sticky top-0 z-20 flex w-full flex-shrink-0 flex-col items-stretch gap-4 border-b-[1px] py-4 md:flex-row md:items-center md:gap-5">
         <div className="w-full px-5 md:w-[28%]">
