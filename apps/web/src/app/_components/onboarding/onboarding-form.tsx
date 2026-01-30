@@ -35,7 +35,6 @@ const formSchema = z.object({
   minor: z.string().optional(),
   graduationYear: z.coerce
     .number()
-    .min(1, "Graduation year is required")
     .min(2010, "Graduation year must be 2010 or later")
     .max(currentYear + 6, "Graduation year must be within the next 5 years"),
   graduationMonth: z.coerce
