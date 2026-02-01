@@ -4,7 +4,7 @@ import createJiti from "jiti";
 // Import env files to validate at build time. Use jiti so we can load .ts files in here.
 createJiti(fileURLToPath(import.meta.url))("./src/env");
 
-/** @type {import("next").NextConfig} */
+/** @type {import("next").NextConfig & { eslint?: { ignoreDuringBuilds?: boolean }; typescript?: { ignoreBuildErrors?: boolean } } } */ 
 const config = {
   reactStrictMode: true,
 
