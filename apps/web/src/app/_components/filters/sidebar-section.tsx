@@ -44,11 +44,11 @@ export default function SidebarSection({
   };
 
   return (
-    <div className="flex flex-col gap-[10px] py-4">
+    <div className="flex flex-col gap-[9px]">
       <div className="flex gap-2 items-end">
         <span
           className={cn(
-            "font-semibold text-base text-cooper-gray-550",
+            "font-semibold text-base/5 text-cooper-gray-550 ",
             variant == "subsection" && "text-sm",
           )}
         >

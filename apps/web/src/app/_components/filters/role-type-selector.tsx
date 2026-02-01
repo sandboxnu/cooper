@@ -18,7 +18,7 @@ export default function RoleTypeSelector({
   isLoading,
 }: RoleTypeSelectorProps) {
   return (
-    <div className="flex gap-2 py-2">
+    <div className="flex gap-2">
       <Chip
         label={`All`}
         onClick={() => onSelectedTypeChange("all")}

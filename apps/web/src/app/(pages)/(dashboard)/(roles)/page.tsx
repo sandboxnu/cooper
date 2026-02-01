@@ -494,7 +494,7 @@ export default function Roles() {
                 showRoleInfo && "hidden md:block", // Hide on mobile if RoleInfo is visible
               )}
             >
-              <div className="text-right">
+              <div className="text-right pb-2">
                 <DropdownMenu>
                   <DropdownMenuTrigger className="text-md mb-2">
                     Sort By{" "}

@@ -138,129 +138,133 @@ export default function SidebarFilter({
         )}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex-1 overflow-y-auto mx-6 mt-3 pb-20 no-scrollbar">
-          <div className="flex items-center justify-start gap-2 mb-2 ml-[-6px]">
+        <div className="overflow-y-auto mx-6 mt-3 pb-20 no-scrollbar flex flex-col">
+          <div className="flex items-center justify-start gap-2 ml-[-6px]">
             <Button
               className="text-cooper-gray-300 p-0 bg-transparent border-0 hover:bg-transparent"
               onClick={onClose}
             >
               <ChevronRight className="h-6 w-6" />
             </Button>
-            <p className="text-lg font-semibold">Filters</p>
+            <p className="text-lg font-bold">Filters</p>
           </div>
-          <div className="h-px w-full bg-cooper-gray-150" />
-          <RoleTypeSelector
-            onSelectedTypeChange={onSelectedTypeChange}
-            selectedType={selectedType}
-            data={{
-              totalRolesCount: data?.totalRolesCount ?? 0,
-              totalCompanyCount: data?.totalCompanyCount ?? 0,
-            }}
-            isLoading={isLoading}
-          />
-          <div className="h-px w-full bg-cooper-gray-150" />
-          <SidebarSection
-            title="Industry"
-            filterType="autocomplete"
-            options={industryOptionsWithId}
-            selectedOptions={filters.industries}
-            onSelectionChange={(selected) =>
-              handleFilterChange("industries", selected)
-            }
-          />
-          <div className="h-px w-full bg-cooper-gray-150" />
-          <SidebarSection
-            title="Location"
-            filterType="location"
-            options={locationOptions}
-            selectedOptions={filters.locations}
-            onSelectionChange={(selected) =>
-              handleFilterChange("locations", selected)
-            }
-            onSearchChange={(search) => setSearchTerm(search)}
-          />
-          <div className="h-px w-full bg-cooper-gray-150" />
-          <SidebarSection
-            title="Job type"
-            filterType="checkbox"
-            options={jobTypeOptionsWithId}
-            selectedOptions={filters.jobTypes}
-            onSelectionChange={(selected) =>
-              handleFilterChange("jobTypes", selected)
-            }
-          />
-          <div className="h-px w-full bg-cooper-gray-150" />
 
-          <SidebarSection
-            title="Hourly pay"
-            filterType="range"
-            options={[]}
-            selectedOptions={[]}
-            minValue={filters.hourlyPay.min}
-            maxValue={filters.hourlyPay.max}
-            onRangeChange={(min, max) =>
-              handleFilterChange("hourlyPay", { min, max })
-            }
-          />
+          <div className="flex flex-col gap-[12px]">
+            <div className="h-px w-full bg-cooper-gray-150" />
+            <RoleTypeSelector
+              onSelectedTypeChange={onSelectedTypeChange}
+              selectedType={selectedType}
+              data={{
+                totalRolesCount: data?.totalRolesCount ?? 0,
+                totalCompanyCount: data?.totalCompanyCount ?? 0,
+              }}
+              isLoading={isLoading}
+            />
+            <div className="h-px w-full bg-cooper-gray-150" />
+            <SidebarSection
+              title="Industry"
+              filterType="autocomplete"
+              options={industryOptionsWithId}
+              selectedOptions={filters.industries}
+              onSelectionChange={(selected) =>
+                handleFilterChange("industries", selected)
+              }
+            />
+            <div className="h-px w-full bg-cooper-gray-150" />
+            <SidebarSection
+              title="Location"
+              filterType="location"
+              options={locationOptions}
+              selectedOptions={filters.locations}
+              onSelectionChange={(selected) =>
+                handleFilterChange("locations", selected)
+              }
+              onSearchChange={(search) => setSearchTerm(search)}
+            />
+            <div className="h-px w-full bg-cooper-gray-150" />
+            <SidebarSection
+              title="Job type"
+              filterType="checkbox"
+              options={jobTypeOptionsWithId}
+              selectedOptions={filters.jobTypes}
+              onSelectionChange={(selected) =>
+                handleFilterChange("jobTypes", selected)
+              }
+            />
+            <div className="h-px w-full bg-cooper-gray-150" />
 
-          <div className="h-px w-full bg-cooper-gray-150" />
+            <SidebarSection
+              title="Hourly pay"
+              filterType="range"
+              options={[]}
+              selectedOptions={[]}
+              minValue={filters.hourlyPay.min}
+              maxValue={filters.hourlyPay.max}
+              onRangeChange={(min, max) =>
+                handleFilterChange("hourlyPay", { min, max })
+              }
+            />
 
-          <SidebarSection
-            title="Overall rating"
-            filterType="rating"
-            options={[]}
-            selectedOptions={filters.ratings}
-            onSelectionChange={(selected) =>
-              handleFilterChange("ratings", selected)
-            }
-          />
+            <div className="h-px w-full bg-cooper-gray-150" />
 
-          <div className="h-px w-full bg-cooper-gray-150" />
-
-          <div className="flex flex-col py-2">
-            <div className="flex gap-2">
-              <span className="font-normal text-base">On the job</span>
-              <Button
-                className="bg-transparent border-none text-cooper-gray-400 text-xs hover:bg-transparent p-0 h-auto self-center"
-                onClick={handleClearOnTheJob}
-              >
-                Clear
-              </Button>
+            {/* On the job subsection */}
+            <div className="flex flex-col gap-[10px]">
+              <div className="flex gap-2">
+                <span className="font-normal text-base">On the job</span>
+                <Button
+                  className="bg-transparent border-none font-normal text-cooper-gray-400 text-xs hover:bg-transparent p-0 h-auto self-center"
+                  onClick={handleClearOnTheJob}
+                >
+                  Clear
+                </Button>
+              </div>
+              <SidebarSection
+                title="Work model"
+                filterType="checkbox"
+                options={workModelOptionsWithId}
+                selectedOptions={filters.workModels}
+                variant="subsection"
+                onSelectionChange={(selected) =>
+                  handleFilterChange("workModels", selected)
+                }
+              />
+              <SidebarSection
+                title="Overtime work"
+                filterType="checkbox"
+                options={[
+                  {
+                    id: "Yes",
+                    label: "Overtime commonly expected",
+                    value: "Yes",
+                  },
+                ]}
+                selectedOptions={filters.overtimeWork}
+                onSelectionChange={(selected) =>
+                  handleFilterChange("overtimeWork", selected)
+                }
+                variant="subsection"
+              />
+              <SidebarSection
+                title="Company Culture"
+                filterType="rating"
+                options={[]}
+                selectedOptions={filters.companyCulture}
+                variant="subsection"
+                onSelectionChange={(selected) =>
+                  handleFilterChange("companyCulture", selected)
+                }
+              />
             </div>
+
+            <div className="h-px w-full bg-cooper-gray-150" />
+
             <SidebarSection
-              title="Work model"
-              filterType="checkbox"
-              options={workModelOptionsWithId}
-              selectedOptions={filters.workModels}
-              variant="subsection"
-              onSelectionChange={(selected) =>
-                handleFilterChange("workModels", selected)
-              }
-            />
-            <SidebarSection
-              title="Overtime work"
-              filterType="checkbox"
-              options={[
-                {
-                  id: "Yes",
-                  label: "Overtime commonly expected",
-                  value: "Yes",
-                },
-              ]}
-              selectedOptions={filters.overtimeWork}
-              onSelectionChange={(selected) =>
-                handleFilterChange("overtimeWork", selected)
-              }
-              variant="subsection"
-            />
-            <SidebarSection
-              title="Company Culture"
+              title="Overall rating"
               filterType="rating"
               options={[]}
-              selectedOptions={filters.companyCulture}
-              variant="subsection"
+              selectedOptions={filters.ratings}
               onSelectionChange={(selected) =>
-                handleFilterChange("companyCulture", selected)
+                handleFilterChange("ratings", selected)
               }
             />
           </div>
