@@ -43,7 +43,7 @@ export default function DropdownFiltersBar({
     }
   }, [prefix, searchTerm]);
 
-  const locationsToUpdate = api.location.getByPrefix.useQuery(
+  const locationsToUpdate = api.location.getByPopularity.useQuery(
     { prefix },
     { enabled: searchTerm.length === 3 && prefix.length === 3 },
   );
@@ -61,13 +61,13 @@ export default function DropdownFiltersBar({
   };
 
   // Industry options from your schema
-  const industryOptionsWithId = Object.entries(industryOptions).map(
-    ([_value, label]) => ({
+  const industryOptionsWithId = Object.entries(industryOptions)
+    .map(([_value, label]) => ({
       id: label.value,
       label: label.label,
       value: label.value,
-    }),
-  );
+    }))
+    .sort((a, b) => a.label.localeCompare(b.label));
 
   // Location options
   const locationOptions = locationsToUpdate.data
