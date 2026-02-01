@@ -66,7 +66,7 @@ importers:
         version: 5.5.4
       vitest:
         specifier: 'catalog:'
-        version: 2.1.9(@types/node@20.16.5)(@vitest/ui@2.1.2(vitest@2.1.9))(jsdom@25.0.1(bufferutil@4.0.8)(utf-8-validate@6.0.4))(terser@5.31.6)
+        version: 2.1.9(@types/node@20.16.5)(@vitest/ui@2.1.2)(jsdom@25.0.1(bufferutil@4.0.8)(utf-8-validate@6.0.4))(terser@5.31.6)
 
   apps/auth-proxy:
     dependencies:
@@ -267,7 +267,7 @@ importers:
         version: 5.5.4
       vitest:
         specifier: 'catalog:'
-        version: 2.1.9(@types/node@20.16.5)(@vitest/ui@2.1.2(vitest@2.1.9))(jsdom@25.0.1(bufferutil@4.0.8)(utf-8-validate@6.0.4))(terser@5.31.6)
+        version: 2.1.9(@types/node@20.16.5)(@vitest/ui@2.1.2)(jsdom@25.0.1(bufferutil@4.0.8)(utf-8-validate@6.0.4))(terser@5.31.6)
 
   packages/api:
     dependencies:
@@ -504,24 +504,39 @@ importers:
       '@cooper/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
+      '@testing-library/jest-dom':
+        specifier: ^6.6.3
+        version: 6.9.1
+      '@testing-library/react':
+        specifier: ^16.0.1
+        version: 16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@types/react':
         specifier: catalog:react18
         version: 18.3.3
       eslint:
         specifier: 'catalog:'
         version: 9.7.0
+      jsdom:
+        specifier: ^25.0.1
+        version: 25.0.1(bufferutil@4.0.8)(utf-8-validate@6.0.4)
       prettier:
         specifier: 'catalog:'
         version: 3.3.3
       react:
         specifier: catalog:react18
         version: 18.3.1
+      react-dom:
+        specifier: catalog:react18
+        version: 18.3.1(react@18.3.1)
       tailwindcss:
         specifier: ^3.4.4
         version: 3.4.6(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.5.4))
       typescript:
         specifier: 'catalog:'
         version: 5.5.4
+      vitest:
+        specifier: 'catalog:'
+        version: 2.1.9(@types/node@20.16.5)(@vitest/ui@2.1.2)(jsdom@25.0.1(bufferutil@4.0.8)(utf-8-validate@6.0.4))(terser@5.31.6)
       zod:
         specifier: 'catalog:'
         version: 3.23.8
@@ -13377,7 +13392,7 @@ snapshots:
 
   '@testing-library/dom@10.4.1':
     dependencies:
-      '@babel/code-frame': 7.24.7
+      '@babel/code-frame': 7.29.0
       '@babel/runtime': 7.25.4
       '@types/aria-query': 5.0.4
       aria-query: 5.3.0
@@ -13837,7 +13852,7 @@ snapshots:
       std-env: 3.10.0
       test-exclude: 7.0.1
       tinyrainbow: 1.2.0
-      vitest: 2.1.9(@types/node@20.16.5)(@vitest/ui@2.1.2(vitest@2.1.9))(jsdom@25.0.1(bufferutil@4.0.8)(utf-8-validate@6.0.4))(terser@5.31.6)
+      vitest: 2.1.9(@types/node@20.16.5)(@vitest/ui@2.1.2)(jsdom@25.0.1(bufferutil@4.0.8)(utf-8-validate@6.0.4))(terser@5.31.6)
     transitivePeerDependencies:
       - supports-color
 
@@ -13888,7 +13903,7 @@ snapshots:
       sirv: 2.0.4
       tinyglobby: 0.2.9
       tinyrainbow: 1.2.0
-      vitest: 2.1.9(@types/node@20.16.5)(@vitest/ui@2.1.2(vitest@2.1.9))(jsdom@25.0.1(bufferutil@4.0.8)(utf-8-validate@6.0.4))(terser@5.31.6)
+      vitest: 2.1.9(@types/node@20.16.5)(@vitest/ui@2.1.2)(jsdom@25.0.1(bufferutil@4.0.8)(utf-8-validate@6.0.4))(terser@5.31.6)
 
   '@vitest/utils@2.1.2':
     dependencies:
@@ -20606,7 +20621,7 @@ snapshots:
       fsevents: 2.3.3
       terser: 5.31.6
 
-  vitest@2.1.9(@types/node@20.16.5)(@vitest/ui@2.1.2(vitest@2.1.9))(jsdom@25.0.1(bufferutil@4.0.8)(utf-8-validate@6.0.4))(terser@5.31.6):
+  vitest@2.1.9(@types/node@20.16.5)(@vitest/ui@2.1.2)(jsdom@25.0.1(bufferutil@4.0.8)(utf-8-validate@6.0.4))(terser@5.31.6):
     dependencies:
       '@vitest/expect': 2.1.9
       '@vitest/mocker': 2.1.9(vite@5.4.8(@types/node@20.16.5)(terser@5.31.6))
