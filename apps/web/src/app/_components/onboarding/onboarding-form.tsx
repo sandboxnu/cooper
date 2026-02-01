@@ -99,7 +99,7 @@ export function OnboardingForm({
 
   return (
     <>
-      <DialogTitle className="pb-6 text-left text-xl font-medium ">
+      <DialogTitle className="pb-6 text-left text-lg font-medium ">
         Let’s get you setup
       </DialogTitle>
       <Form {...form}>
@@ -151,7 +151,7 @@ export function OnboardingForm({
                 <FormLabel required>Email</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="example@example.com"
+                    placeholder="example@husky.neu.edu"
                     {...field}
                     onClear={() => field.onChange("")}
                   />
