@@ -1,4 +1,4 @@
-import { useCustomToast } from "@cooper/ui/hooks/use-custom-toast";
+import { useCustomToast } from "@cooper/ui";
 import { api } from "~/trpc/react";
 
 type ObjType = "role" | "company";
