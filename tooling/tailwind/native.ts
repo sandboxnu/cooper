@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-import base from "./base";
+import base from "@cooper/tailwind-config/base";
 
 export default {
   content: base.content,
