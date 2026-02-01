@@ -1,1 +1,17 @@
-{"name":"@cooper/auth-proxy-prod","version":"0.0.0","type":"module","private":true,"dependencies":{"@auth/core":"0.32.0","@panva/hkdf":"1.2.1","cookie":"0.6.0","jose":"5.6.3","node-mock-http":"1.0.4","oauth4webapi":"2.11.1","preact":"10.11.3","preact-render-to-string":"5.2.3","std-env":"3.7.0"}}
+{
+  "name": "@cooper/auth-proxy-prod",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "@auth/core": "0.32.0",
+    "@panva/hkdf": "1.2.1",
+    "cookie": "0.6.0",
+    "jose": "5.6.3",
+    "node-mock-http": "1.0.4",
+    "oauth4webapi": "2.11.1",
+    "preact": "10.11.3",
+    "preact-render-to-string": "5.2.3",
+    "std-env": "3.7.0"
+  }
+}
