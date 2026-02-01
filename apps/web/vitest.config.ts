@@ -10,17 +10,14 @@ export default defineConfig({
     setupFiles: ["./test/setup.ts"],
     include: ["test/**/*.{test,spec}.{ts,tsx}", "src/**/*.{test,spec}.{ts,tsx}"],
     globals: true,
-    exclude: [
-          "**/packages/validators/**",
-          "**/tooling/eslint/**",
-          "**/tooling/prettier/**",
-          "**/tooling/tailwind/**",
-          "**/turbo/generators/**",
-        ],
   },
   resolve: {
     alias: {
       "~": path.resolve(__dirname, "./src"),
+      "@cooper/ui/hooks/use-custom-toast": path.resolve(
+        __dirname,
+        "./test/stubs/use-custom-toast.ts",
+      ),
     },
   },
 });
