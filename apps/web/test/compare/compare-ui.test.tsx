@@ -64,7 +64,9 @@ describe("CompareControls", () => {
 
   test("renders COMPARE WITH button when not in compare mode", () => {
     render(<CompareControls anchorRoleId="r1" />);
-    expect(screen.getByRole("button", { name: /compare with/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /compare with/i }),
+    ).toBeInTheDocument();
   });
 
   test("clicking COMPARE WITH calls enterCompareMode", () => {
@@ -76,7 +78,9 @@ describe("CompareControls", () => {
   test("when in compare mode renders ADD COMPARISON and EXIT", () => {
     mockCompare.isCompareMode = true;
     render(<CompareControls anchorRoleId="r1" />);
-    expect(screen.getByRole("button", { name: /add comparison/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /add comparison/i }),
+    ).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /exit/i })).toBeInTheDocument();
   });
 
@@ -96,9 +100,7 @@ describe("CompareColumns", () => {
   } as never;
 
   test("renders anchor role column", () => {
-    render(
-      <CompareColumns anchorRole={anchorRole} />,
-    );
+    render(<CompareColumns anchorRole={anchorRole} />);
     expect(screen.getByTestId("role-info")).toBeInTheDocument();
   });
 });

@@ -42,13 +42,8 @@ describe("MobileHeaderButton", () => {
 
   test("renders icon when iconSrc is provided", () => {
     render(
-      <MobileHeaderButton
-        href="/"
-        iconSrc="/svg/apartment.svg"
-        label="Jobs"
-      />,
+      <MobileHeaderButton href="/" iconSrc="/svg/apartment.svg" label="Jobs" />,
     );
     expect(screen.getByRole("img", { name: /jobs/i })).toBeInTheDocument();
   });
-
 });

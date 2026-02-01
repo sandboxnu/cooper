@@ -55,10 +55,9 @@ describe("reviewsAggregationHelpers", () => {
     });
 
     test("handles decimal average", () => {
-      const reviews = [
-        { overallRating: 4 },
-        { overallRating: 5 },
-      ] as { overallRating: number }[];
+      const reviews = [{ overallRating: 4 }, { overallRating: 5 }] as {
+        overallRating: number;
+      }[];
       expect(averageStarRating(reviews)).toBe(4.5);
     });
   });

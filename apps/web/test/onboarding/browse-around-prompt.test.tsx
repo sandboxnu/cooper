@@ -22,9 +22,7 @@ vi.mock("~/app/_components/onboarding/post-onboarding/welcome-dialog", () => ({
 
 describe("BrowseAroundPrompt", () => {
   test("renders WelcomeDialog with welcome message for first name", () => {
-    render(
-      <BrowseAroundPrompt firstName="Alex" onClick={vi.fn()} />,
-    );
+    render(<BrowseAroundPrompt firstName="Alex" onClick={vi.fn()} />);
     expect(screen.getByTestId("welcome-dialog")).toBeInTheDocument();
     expect(screen.getByTestId("heading")).toHaveTextContent(
       "Welcome to Cooper, Alex!",

@@ -21,7 +21,8 @@ vi.mock("~/trpc/react", () => ({
     },
     company: {
       getAverageById: {
-        useQuery: () => ({ data: { averageOverallRating: 4.2 } }) },
+        useQuery: () => ({ data: { averageOverallRating: 4.2 } }),
+      },
     },
   },
 }));
@@ -36,16 +37,12 @@ vi.mock("~/app/_components/companies/company-statistics", () => ({
 
 describe("CompanyReview", () => {
   test("renders StarGraph", () => {
-    render(
-      <CompanyReview companyObj={{ id: "c1", name: "Test" } as never} />,
-    );
+    render(<CompanyReview companyObj={{ id: "c1", name: "Test" } as never} />);
     expect(screen.getByTestId("star-graph")).toBeInTheDocument();
   });
 
   test("renders CompanyStatistics when reviews exist", () => {
-    render(
-      <CompanyReview companyObj={{ id: "c1", name: "Test" } as never} />,
-    );
+    render(<CompanyReview companyObj={{ id: "c1", name: "Test" } as never} />);
     expect(screen.getByTestId("company-statistics")).toBeInTheDocument();
   });
 });

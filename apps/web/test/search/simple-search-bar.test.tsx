@@ -19,9 +19,7 @@ describe("SimpleSearchBar", () => {
       </Wrapper>,
     );
     expect(
-      screen.getByPlaceholderText(
-        "Search for a job, company, industry...",
-      ),
+      screen.getByPlaceholderText("Search for a job, company, industry..."),
     ).toBeInTheDocument();
   });
 

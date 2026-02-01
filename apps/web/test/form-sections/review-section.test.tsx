@@ -50,7 +50,9 @@ describe("ReviewSection", () => {
       </Wrapper>,
     );
     expect(
-      screen.getByText(/Please be respectful and do not mention any specific names/),
+      screen.getByText(
+        /Please be respectful and do not mention any specific names/,
+      ),
     ).toBeInTheDocument();
   });
 });

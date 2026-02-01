@@ -10,7 +10,9 @@ vi.mock("next/navigation", () => ({
 describe("BackButton", () => {
   test("renders Go Back button", () => {
     render(<BackButton />);
-    expect(screen.getByRole("button", { name: /go back/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /go back/i }),
+    ).toBeInTheDocument();
   });
 
   test("calls router.back on click", () => {

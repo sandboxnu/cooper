@@ -16,14 +16,22 @@ describe("ProfileTabs", () => {
 
   test("renders Saved roles, Saved companies, My reviews tabs", () => {
     render(<ProfileTabs numReviews={5} />);
-    expect(screen.getByRole("button", { name: /saved roles/i })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /saved companies/i })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /my reviews \(5\)/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /saved roles/i }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /saved companies/i }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /my reviews \(5\)/i }),
+    ).toBeInTheDocument();
   });
 
   test("renders numReviews in My reviews tab", () => {
     render(<ProfileTabs numReviews={12} />);
-    expect(screen.getByRole("button", { name: /my reviews \(12\)/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /my reviews \(12\)/i }),
+    ).toBeInTheDocument();
   });
 
   test("has nav with aria-label Tabs", () => {

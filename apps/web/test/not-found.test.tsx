@@ -31,7 +31,9 @@ describe("NotFound", () => {
 
   test("renders BackButton", () => {
     render(<NotFound />);
-    expect(screen.getByRole("button", { name: /go back/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /go back/i }),
+    ).toBeInTheDocument();
   });
 
   test("renders within HeaderLayout", () => {

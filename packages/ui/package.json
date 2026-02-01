@@ -16,7 +16,9 @@
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
-    "ui-add": "pnpm dlx shadcn@latest add && prettier src --write --list-different"
+    "ui-add": "pnpm dlx shadcn@latest add && prettier src --write --list-different",
+    "test": "vitest",
+    "test:run": "vitest run"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -43,12 +45,17 @@
     "@cooper/prettier-config": "workspace:*",
     "@cooper/tailwind-config": "workspace:*",
     "@cooper/tsconfig": "workspace:*",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
     "@types/react": "catalog:react18",
     "eslint": "catalog:",
+    "jsdom": "^25.0.1",
     "prettier": "catalog:",
     "react": "catalog:react18",
+    "react-dom": "catalog:react18",
     "tailwindcss": "^3.4.4",
     "typescript": "catalog:",
+    "vitest": "catalog:",
     "zod": "catalog:"
   },
   "peerDependencies": {

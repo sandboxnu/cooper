@@ -33,7 +33,10 @@ vi.mock("@cooper/ui/hooks/use-custom-toast", () => ({
   useCustomToast: () => ({ toast: { error: vi.fn(), success: vi.fn() } }),
 }));
 
-vi.stubGlobal("setTimeout", vi.fn((fn: () => void) => fn()));
+vi.stubGlobal(
+  "setTimeout",
+  vi.fn((fn: () => void) => fn()),
+);
 
 describe("NewRoleDialog", () => {
   test("renders trigger button", () => {

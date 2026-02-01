@@ -115,10 +115,9 @@ describe("companyStatistics", () => {
     });
 
     test("returns Low and Mid ranges when fewer than 3 unique pays", () => {
-      const reviews = [
-        { hourlyPay: "15" },
-        { hourlyPay: "25" },
-      ] as { hourlyPay: string | null }[];
+      const reviews = [{ hourlyPay: "15" }, { hourlyPay: "25" }] as {
+        hourlyPay: string | null;
+      }[];
       const result = calculatePayRange(reviews);
       expect(result).toHaveLength(2);
       expect(result[0].label).toBe("Low");

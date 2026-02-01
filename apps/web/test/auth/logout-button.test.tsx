@@ -9,7 +9,9 @@ vi.mock("@cooper/auth", () => ({
 describe("LogoutButton", () => {
   test("renders Sign Out button", () => {
     render(<LogoutButton />);
-    expect(screen.getByRole("button", { name: /sign out/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /sign out/i }),
+    ).toBeInTheDocument();
   });
 
   test("button is inside a form", () => {

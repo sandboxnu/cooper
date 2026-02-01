@@ -20,10 +20,12 @@ describe("OnboardingDialog when no profile", () => {
   test("renders OnboardingForm when session exists and no profile", () => {
     render(
       <OnboardingDialog
-        session={{
-          user: { id: "u1", email: "a@b.com", name: "User" },
-          session: {},
-        } as never}
+        session={
+          {
+            user: { id: "u1", email: "a@b.com", name: "User" },
+            session: {},
+          } as never
+        }
       />,
     );
     expect(screen.getByTestId("onboarding-form")).toBeInTheDocument();

@@ -74,7 +74,9 @@ describe("RoleCardPreview", () => {
 
   test("hides favorite button when showFavorite is false", () => {
     render(<RoleCardPreview roleObj={roleObj} showFavorite={false} />);
-    expect(screen.queryByRole("button", { name: /favorite/i })).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("button", { name: /favorite/i }),
+    ).not.toBeInTheDocument();
   });
 
   test("shows drag handle when showDragHandle is true", () => {

@@ -23,10 +23,12 @@ describe("OnboardingDialog", () => {
   test("returns null when profile exists (shouldShowOnboarding is false)", () => {
     const { container } = render(
       <OnboardingDialog
-        session={{
-          user: { id: "u1", email: "a@b.com", name: "User" },
-          session: {},
-        } as never}
+        session={
+          {
+            user: { id: "u1", email: "a@b.com", name: "User" },
+            session: {},
+          } as never
+        }
       />,
     );
     expect(container.firstChild).toBeNull();

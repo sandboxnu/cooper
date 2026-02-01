@@ -1,8 +1,5 @@
 import { describe, expect, test } from "vitest";
-import {
-  abbreviatedStateName,
-  prettyLocationName,
-} from "./locationHelpers";
+import { abbreviatedStateName, prettyLocationName } from "./locationHelpers";
 
 describe("locationHelpers", () => {
   describe("prettyLocationName", () => {

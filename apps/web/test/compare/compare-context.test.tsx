@@ -42,7 +42,11 @@ function TestConsumer() {
       <button type="button" onClick={() => compare.clear()} data-testid="clear">
         Clear
       </button>
-      <button type="button" onClick={() => compare.addSlot()} data-testid="slot">
+      <button
+        type="button"
+        onClick={() => compare.addSlot()}
+        data-testid="slot"
+      >
         Slot
       </button>
     </div>

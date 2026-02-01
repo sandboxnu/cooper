@@ -13,9 +13,7 @@ vi.mock("~/trpc/react", () => ({
         useQuery: () => ({
           isPending: false,
           isSuccess: true,
-          data: [
-            { id: "role-1", title: "Engineer", companyName: "Acme" },
-          ],
+          data: [{ id: "role-1", title: "Engineer", companyName: "Acme" }],
         }),
       },
     },
@@ -37,21 +35,13 @@ vi.mock("~/app/_components/reviews/new-role-card", () => ({
 describe("RenderAllRoles", () => {
   test("renders Roles at company name with count", () => {
     render(
-      <RenderAllRoles
-        company={{ id: "c1", name: "Acme Corp" } as never}
-      />,
+      <RenderAllRoles company={{ id: "c1", name: "Acme Corp" } as never} />,
     );
-    expect(
-      screen.getByText(/Roles at Acme Corp \(1\)/),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Roles at Acme Corp \(1\)/)).toBeInTheDocument();
   });
 
   test("renders NewRoleCard when company is provided", () => {
-    render(
-      <RenderAllRoles
-        company={{ id: "c1", name: "Acme" } as never}
-      />,
-    );
+    render(<RenderAllRoles company={{ id: "c1", name: "Acme" } as never} />);
     expect(screen.getByTestId("new-role-card")).toBeInTheDocument();
   });
 });

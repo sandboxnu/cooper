@@ -56,7 +56,9 @@ vi.mock("~/app/_components/header/mobile-header-button", () => ({
 describe("Header", () => {
   test("renders Cooper title", () => {
     render(<Header auth={<span>Auth</span>} />);
-    expect(screen.getByRole("heading", { name: /cooper/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /cooper/i }),
+    ).toBeInTheDocument();
   });
 
   test("renders auth slot", () => {

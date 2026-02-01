@@ -63,6 +63,8 @@ describe("WelcomeDialog", () => {
         onClick={onClick}
       />,
     );
-    expect(screen.getByRole("img", { name: /cooper logo/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", { name: /cooper logo/i }),
+    ).toBeInTheDocument();
   });
 });

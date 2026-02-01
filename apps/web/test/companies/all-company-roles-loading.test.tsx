@@ -34,9 +34,7 @@ vi.mock("~/app/_components/reviews/new-role-card", () => ({
 
 describe("RenderAllRoles loading state", () => {
   test("renders LoadingResults when query is pending", () => {
-    render(
-      <RenderAllRoles company={{ id: "c1", name: "Acme" } as never} />,
-    );
+    render(<RenderAllRoles company={{ id: "c1", name: "Acme" } as never} />);
     expect(screen.getByTestId("loading-results")).toBeInTheDocument();
   });
 });

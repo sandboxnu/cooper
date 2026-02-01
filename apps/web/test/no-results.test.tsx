@@ -22,12 +22,16 @@ describe("NoResults", () => {
 
   test("does not show Clear Filters when clearFunction is false", () => {
     render(<NoResults clearFunction={false} />);
-    expect(screen.queryByRole("button", { name: /clear filters/i })).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("button", { name: /clear filters/i }),
+    ).not.toBeInTheDocument();
   });
 
   test("shows Clear Filters when clearFunction is true", () => {
     render(<NoResults clearFunction={true} />);
-    expect(screen.getByRole("button", { name: /clear filters/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /clear filters/i }),
+    ).toBeInTheDocument();
   });
 
   test("Clear Filters calls router.push with pathname", () => {

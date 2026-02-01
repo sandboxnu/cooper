@@ -1,3 +1,4 @@
+import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { render, screen } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
@@ -12,9 +13,12 @@ vi.mock("~/trpc/react", () => ({
   },
 }));
 
-vi.mock("~/app/_components/reviews/new-review/existing-company-content", () => ({
-  default: () => <div data-testid="existing-company-content">Company</div>,
-}));
+vi.mock(
+  "~/app/_components/reviews/new-review/existing-company-content",
+  () => ({
+    default: () => <div data-testid="existing-company-content">Company</div>,
+  }),
+);
 
 vi.mock("~/app/_components/location", () => ({
   default: () => <div data-testid="location-box">Location</div>,
@@ -81,6 +85,24 @@ describe("BasicInfoSection", () => {
     ).toBeInTheDocument();
   });
 
+  test("renders Industry label", () => {
+    render(
+      <Wrapper>
+        <BasicInfoSection profileId={undefined} />
+      </Wrapper>,
+    );
+    expect(screen.getByText(/Industry/)).toBeInTheDocument();
+  });
+
+  test("renders Location label", () => {
+    render(
+      <Wrapper>
+        <BasicInfoSection profileId={undefined} />
+      </Wrapper>,
+    );
+    expect(screen.getAllByText(/Location/).length).toBeGreaterThanOrEqual(1);
+  });
+
   test("renders LocationBox", () => {
     render(
       <Wrapper>
@@ -88,5 +110,35 @@ describe("BasicInfoSection", () => {
       </Wrapper>,
     );
     expect(screen.getByTestId("location-box")).toBeInTheDocument();
+  });
+
+  test("renders with existing jobType value", () => {
+    render(
+      <Wrapper defaultValues={{ jobType: "Co-op" }}>
+        <BasicInfoSection profileId={undefined} />
+      </Wrapper>,
+    );
+    expect(screen.getByText(/Job type/)).toBeInTheDocument();
+  });
+
+  test("renders with existing workTerm and workYear values", () => {
+    render(
+      <Wrapper defaultValues={{ workTerm: "SUMMER", workYear: 2024 }}>
+        <BasicInfoSection profileId={undefined} />
+      </Wrapper>,
+    );
+    expect(screen.getByText(/Co-op\/internship term/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Year of co-op\/internship term/),
+    ).toBeInTheDocument();
+  });
+
+  test("renders with existing industry value", () => {
+    render(
+      <Wrapper defaultValues={{ industry: "Technology" }}>
+        <BasicInfoSection profileId={undefined} />
+      </Wrapper>,
+    );
+    expect(screen.getByText(/Industry/)).toBeInTheDocument();
   });
 });

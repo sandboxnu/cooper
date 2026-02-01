@@ -64,6 +64,8 @@ describe("ProfileButton", () => {
 
   test("renders Log Out button in dropdown content", () => {
     render(<ProfileButton session={mockSession} />);
-    expect(screen.getByRole("button", { name: /log out/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /log out/i }),
+    ).toBeInTheDocument();
   });
 });

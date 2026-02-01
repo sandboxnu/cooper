@@ -28,15 +28,16 @@ vi.mock("~/app/_components/header/header-layout", () => ({
 
 describe("ProtectedLayout", () => {
   test("renders children and HeaderLayout when session exists", async () => {
-    const ProtectedLayout = (
-      await import("~/app/(pages)/(protected)/layout")
-    ).default;
+    const ProtectedLayout = (await import("~/app/(pages)/(protected)/layout"))
+      .default;
     const element = await ProtectedLayout({
       children: <span data-testid="protected-child">Protected</span>,
     });
     render(element);
     expect(screen.getByTestId("header-layout")).toBeInTheDocument();
-    expect(screen.getByTestId("protected-child")).toHaveTextContent("Protected");
+    expect(screen.getByTestId("protected-child")).toHaveTextContent(
+      "Protected",
+    );
     expect(screen.getByTestId("custom-toaster")).toBeInTheDocument();
   });
 });

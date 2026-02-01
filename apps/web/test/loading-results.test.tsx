@@ -29,9 +29,7 @@ describe("LoadingResults", () => {
   });
 
   test("applies custom className", () => {
-    const { container } = render(
-      <LoadingResults className="custom-class" />,
-    );
+    const { container } = render(<LoadingResults className="custom-class" />);
     const section = container.querySelector("section");
     expect(section).toHaveClass("custom-class");
   });
