@@ -87,7 +87,7 @@ export default function ExistingCompanyContent({
     }
   }, [prefix, searchTerm]);
 
-  const locationsToUpdate = api.location.getByPrefix.useQuery(
+  const locationsToUpdate = api.location.getByPopularity.useQuery(
     { prefix },
     { enabled: searchTerm.length === 3 },
   );
@@ -400,8 +400,10 @@ export default function ExistingCompanyContent({
                   </FormLabel>
                   <FormControl className="relative w-full">
                     <Select
-                      options={industryOptions}
-                      placeholder="Search"
+                      options={industryOptions.sort((a, b) =>
+                        a.label.localeCompare(b.label),
+                      )}
+                      placeholder="Search by industry..."
                       className="w-full border-2 bg-white border-cooper-gray-150 text-sm text-cooper-gray-350 h-10"
                       value={
                         field.value &&
