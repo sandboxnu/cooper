@@ -5,12 +5,13 @@ import { z } from "zod";
 
 import type { SQL, SQLWrapper } from "@cooper/db";
 import type { CompanyType, ReviewType } from "@cooper/db/schema";
-import { and, asc, desc, eq, like, sql } from "@cooper/db";
+import { and, asc, desc, eq, ilike, like, sql } from "@cooper/db";
 import {
   CompaniesToLocations,
   Company,
   CreateCompanySchema,
   Industry,
+  Location,
   Review,
   Role,
 } from "@cooper/db/schema";
@@ -113,6 +114,14 @@ export const companyRouter = {
       ).slice(0, input.limit);
     }),
 
+  getByName: publicProcedure
+    .input(z.object({ name: z.string() }))
+    .query(({ ctx, input }) => {
+      return ctx.db.query.Company.findFirst({
+        where: ilike(Company.name, input.name),
+      });
+    }),
+
   getBySlug: publicProcedure
     .input(z.object({ slug: z.string() }))
     .query(({ ctx, input }) => {
@@ -127,6 +136,16 @@ export const companyRouter = {
       return ctx.db.query.Company.findFirst({
         where: eq(Company.id, input.id),
       });
+    }),
+
+  getLocationsById: publicProcedure
+    .input(z.object({ id: z.string() }))
+    .query(({ ctx, input }) => {
+      return ctx.db
+        .select()
+        .from(CompaniesToLocations)
+        .innerJoin(Location, eq(CompaniesToLocations.locationId, Location.id))
+        .where(eq(CompaniesToLocations.companyId, input.id));
     }),
 
   create: protectedProcedure
@@ -152,6 +171,10 @@ export const companyRouter = {
 
       return ctx.db.insert(Company).values(values).returning();
     }),
+
+  delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
+    return ctx.db.delete(Company).where(eq(Company.id, input));
+  }),
 
   createWithRole: protectedProcedure
     .input(

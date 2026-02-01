@@ -15,7 +15,6 @@ interface RenderAllRolesProps {
 export default function RenderAllRoles({ company }: RenderAllRolesProps) {
   const roles = api.role.getByCompany.useQuery({
     companyId: company?.id ?? "",
-    onlyWithReviews: true,
   });
   const router = useRouter();
 
