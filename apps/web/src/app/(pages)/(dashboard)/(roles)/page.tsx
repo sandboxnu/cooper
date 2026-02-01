@@ -456,7 +456,7 @@ export default function Roles() {
         <div className="w-full px-5 md:w-[28%]">
           <SearchFilter className="w-full" />
         </div>
-        <div className="no-scrollbar w-full flex flex-1 overflow-x-auto px-5] md:pl-0 md:pr-5 gap-2 px-5">
+        <div className="no-scrollbar w-full flex flex-1 overflow-x-auto md:pr-0 gap-2 px-5">
           <DropdownFiltersBar
             filters={appliedFilters}
             onFilterChange={handleFilterChange}
@@ -480,7 +480,7 @@ export default function Roles() {
           </Button>
         </div>
         {compare.isCompareMode && selectedRole && (
-          <div className="hidden items-center gap-2 px-5 md:flex">
+          <div className="hidden items-center gap-2 pr-5 md:flex">
             <CompareControls anchorRoleId={selectedRole.id} inTopBar />
           </div>
         )}
