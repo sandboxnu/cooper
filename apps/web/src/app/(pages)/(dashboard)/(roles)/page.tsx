@@ -266,44 +266,37 @@ export default function Roles() {
         const companySlug = roleItem.companySlug ?? createSlug(companyName);
         const roleSlug = roleItem.slug;
 
-        if (
-          companyName &&
-          (companyParam !== companySlug || roleParam !== roleSlug)
-        ) {
-          // Preserve search param
-          const currentSearch = params.get("search");
-          params.delete("search");
+        // Preserve search param
+        const currentSearch = params.get("search");
+        params.delete("search");
 
-          params.set("company", companySlug);
-          params.set("role", roleSlug);
+        params.set("company", companySlug);
+        params.set("role", roleSlug);
 
-          // Add search back at the end
-          if (currentSearch) {
-            params.set("search", currentSearch);
-          }
-
-          router.push(`/?${params.toString()}`);
+        // Add search back at the end
+        if (currentSearch) {
+          params.set("search", currentSearch);
         }
+
+        router.push(`/?${params.toString()}`);
       } else {
         // For companies, use the company parameter with the name
         const companyItem = selectedItem as CompanyType & { slug?: string };
         const companySlug = companyItem.slug;
 
-        if (companyParam !== companySlug || roleParam !== null) {
-          // Preserve search param
-          const currentSearch = params.get("search");
-          params.delete("search");
+        // Preserve search param
+        const currentSearch = params.get("search");
+        params.delete("search");
 
-          params.delete("role");
-          params.set("company", companySlug);
+        params.delete("role");
+        params.set("company", companySlug);
 
-          // Add search back at the end
-          if (currentSearch) {
-            params.set("search", currentSearch);
-          }
-
-          router.push(`/?${params.toString()}`);
+        // Add search back at the end
+        if (currentSearch) {
+          params.set("search", currentSearch);
         }
+
+        router.push(`/?${params.toString()}`);
       }
     }
   }, [
@@ -366,6 +359,16 @@ export default function Roles() {
   useEffect(() => {
     setCurrentPage(1);
   }, [selectedFilter, searchValue, selectedType]);
+
+  useEffect(() => {
+    if (roleParam) {
+      setSelectedType("roles");
+    } else if (companyParam) {
+      setSelectedType("companies");
+    } else {
+      setSelectedType("all");
+    }
+  }, [roleParam, companyParam]);
 
   const totalPages =
     rolesAndCompanies.data &&
