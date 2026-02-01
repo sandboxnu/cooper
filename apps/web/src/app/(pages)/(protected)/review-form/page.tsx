@@ -288,7 +288,7 @@ export default function ReviewForm() {
       <div className="bg-white w-full h-screen flex flex-col md:flex-row justify-center items-center overflow-auto">
         <div className="mt-4 pr-3.5 flex h-full pt-10 flex-col justify-left w-[65%]">
           <div className="text-lg text-cooper-gray-550">Basic information</div>
-          <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap w-full pb-12">
+          <div className="flex flex-wrap gap-10 xl:flex-nowrap pb-12 w-full">
             <BasicInfoSection profileId={profileId} />
           </div>
           <hr />
