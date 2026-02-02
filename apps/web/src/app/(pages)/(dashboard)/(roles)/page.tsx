@@ -275,37 +275,44 @@ export default function Roles() {
         const companySlug = roleItem.companySlug ?? createSlug(companyName);
         const roleSlug = roleItem.slug;
 
-        // Preserve search param
-        const currentSearch = params.get("search");
-        params.delete("search");
+        if (
+          companyName &&
+          (companyParam !== companySlug || roleParam !== roleSlug)
+        ) {
+          // Preserve search param
+          const currentSearch = params.get("search");
+          params.delete("search");
 
-        params.set("company", companySlug);
-        params.set("role", roleSlug);
+          params.set("company", companySlug);
+          params.set("role", roleSlug);
 
-        // Add search back at the end
-        if (currentSearch) {
-          params.set("search", currentSearch);
+          // Add search back at the end
+          if (currentSearch) {
+            params.set("search", currentSearch);
+          }
+
+          router.push(`/?${params.toString()}`);
         }
-
-        router.push(`/?${params.toString()}`);
       } else {
         // For companies, use the company parameter with the name
         const companyItem = selectedItem as CompanyType & { slug?: string };
         const companySlug = companyItem.slug;
 
-        // Preserve search param
-        const currentSearch = params.get("search");
-        params.delete("search");
+        if (companyParam !== companySlug || roleParam !== null) {
+          // Preserve search param
+          const currentSearch = params.get("search");
+          params.delete("search");
 
-        params.delete("role");
-        params.set("company", companySlug);
+          params.delete("role");
+          params.set("company", companySlug);
 
-        // Add search back at the end
-        if (currentSearch) {
-          params.set("search", currentSearch);
+          // Add search back at the end
+          if (currentSearch) {
+            params.set("search", currentSearch);
+          }
+
+          router.push(`/?${params.toString()}`);
         }
-
-        router.push(`/?${params.toString()}`);
       }
     }
   }, [
@@ -317,6 +324,7 @@ export default function Roles() {
     rolesAndCompanies.isSuccess,
   ]);
   const [showRoleInfo, setShowRoleInfo] = useState(false); // State for toggling views on mobile
+  const [showCompanyInfo, setShowCompanyInfo] = useState(false);
 
   // Reset to page 1 when filter or search changes
   useEffect(() => {
@@ -379,16 +387,6 @@ export default function Roles() {
   useEffect(() => {
     setCurrentPage(1);
   }, [selectedFilter, searchValue, selectedType]);
-
-  useEffect(() => {
-    if (roleParam) {
-      setSelectedType("roles");
-    } else if (companyParam) {
-      setSelectedType("companies");
-    } else {
-      setSelectedType("all");
-    }
-  }, [roleParam, companyParam]);
 
   const totalPages =
     rolesAndCompanies.data &&
@@ -494,7 +492,7 @@ export default function Roles() {
               className={cn(
                 "border-cooper-gray-150 bg-cooper-cream-100 w-full overflow-y-auto border-r-[1px] p-5 xl:rounded-none",
                 "md:w-[28%]", // Show as 28% width on md and above
-                showRoleInfo && "hidden md:block", // Hide on mobile if RoleInfo is visible
+                (showRoleInfo || showCompanyInfo) && "hidden md:block", // Hide on mobile if RoleInfo is visible
               )}
             >
               <div className="text-right pb-2">
@@ -635,6 +633,7 @@ export default function Roles() {
                       onClick={(e) => {
                         e.preventDefault();
                         setSelectedItem(item);
+                        setShowCompanyInfo(true);
                       }}
                     >
                       <CompanyCardPreview
@@ -665,7 +664,7 @@ export default function Roles() {
               className={cn(
                 "col-span-3 w-full overflow-y-auto p-1",
                 "md:w-[72%]", // Show as 72% width on md and above
-                !showRoleInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
+                !showRoleInfo && !showCompanyInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
               )}
             >
               {selectedRole ? (
@@ -678,7 +677,12 @@ export default function Roles() {
                   />
                 )
               ) : (
-                selectedCompany && <CompanyInfo companyObj={selectedCompany} />
+                selectedCompany && (
+                  <CompanyInfo
+                    companyObj={selectedCompany}
+                    onBack={() => setShowCompanyInfo(false)}
+                  />
+                )
               )}
             </div>
           </div>
