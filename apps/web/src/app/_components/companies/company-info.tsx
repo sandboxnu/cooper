@@ -11,8 +11,10 @@ import { prettyLocationName } from "~/utils/locationHelpers";
 
 export default function CompanyInfo({
   companyObj,
+  onBack,
 }: {
   companyObj: CompanyType;
+  onBack?: () => void;
 }) {
   const companyID = companyObj.id;
   const company = api.company.getById.useQuery({ id: companyID });
@@ -48,6 +50,22 @@ export default function CompanyInfo({
     <section className="w-full overflow-y-auto">
       {company.isSuccess ? (
         <div className="mx-4 justify-center gap-4 font-sans md:mx-auto md:max-w-[66dvw]">
+          {onBack && (
+            <svg
+              width="14"
+              height="12"
+              viewBox="0 0 14 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="m-4 block min-w-3 hover:cursor-pointer md:hidden"
+              onClick={onBack}
+            >
+              <path
+                d="M13.41 10.59L12 12L6 6L12 0L13.41 1.41L8.83 6L13.41 10.59ZM7.41 10.59L6 12L0 6L6 0L7.41 1.41L2.83 6L7.41 10.59Z"
+                fill="#5A5A5A"
+              />
+            </svg>
+          )}
           <div className="mx-2 mb-6 mt-6 flex items-start justify-between">
             <div className="flex">
               <div className="mr-3 flex h-16 w-16 items-center justify-center">
