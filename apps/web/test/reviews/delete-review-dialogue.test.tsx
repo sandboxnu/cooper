@@ -11,7 +11,7 @@ vi.mock("~/trpc/react", () => ({
           onSuccess?: () => void;
           onError?: () => void;
         }) => ({
-          mutate: vi.fn((id: string) => {
+          mutate: vi.fn(() => {
             opts.onSuccess?.();
           }),
           isPending: false,

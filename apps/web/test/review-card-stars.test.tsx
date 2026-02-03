@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 import { ReviewCardStars } from "~/app/_components/reviews/review-card-stars";
 

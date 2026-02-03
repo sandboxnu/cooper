@@ -49,7 +49,7 @@ vi.mock("~/app/_components/no-results", () => ({
 vi.mock("~/app/_components/reviews/role-info", () => ({
   RoleInfo: ({ roleObj }: { roleObj: unknown }) => (
     <div data-testid="role-info">
-      {String((roleObj as { name?: string })?.name)}
+      {String((roleObj as { name: string })?.name)}
     </div>
   ),
 }));

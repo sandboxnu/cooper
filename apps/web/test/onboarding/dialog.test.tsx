@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 import { OnboardingDialog } from "~/app/_components/onboarding/dialog";
 
