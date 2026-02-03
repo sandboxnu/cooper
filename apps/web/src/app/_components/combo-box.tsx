@@ -100,13 +100,13 @@ export default function ComboBox({
                   e.stopPropagation();
                   onClear();
                 }}
-                className="pointer-events-auto flex items-center justify-center rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none"
+                className="pointer-events-auto flex items-center justify-center rounded-sm opacity-60 ring-offset-background transition-opacity hover:opacity-80 focus:outline-none"
                 aria-label="Clear selection"
               >
                 <X className="h-4 w-4" />
               </button>
             )}
-            <ChevronDown className="h-4 w-4 shrink-0 opacity-50" />
+            <ChevronDown className="h-6 w-6 shrink-0 opacity-50" />
           </div>
         </Button>
       </PopoverTrigger>

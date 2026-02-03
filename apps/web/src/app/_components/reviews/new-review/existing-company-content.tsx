@@ -253,7 +253,7 @@ export default function ExistingCompanyContent({
           name="companyName"
           render={({ field }) => (
             <FormItem className="flex flex-col w-full">
-              <FormLabel className="text-sm text-cooper-gray-400 font-semibold flex-shrink-0">
+              <FormLabel className="text-sm text-cooper-gray-400 font-bold flex-shrink-0">
                 Company name<span className="text-[#FB7373]">*</span>
               </FormLabel>
 
@@ -318,7 +318,10 @@ export default function ExistingCompanyContent({
 
         {/* "I don't see my company" checkbox */}
 
-        <div className="flex items-center gap-2 flex-1">
+        <div
+          className="flex items-center gap-2 flex-1"
+          onClick={() => setShowNewCompany(!showNewCompany)}
+        >
           <Checkbox
             checked={showNewCompany}
             onCheckedChange={(checked) => {
@@ -498,7 +501,7 @@ export default function ExistingCompanyContent({
             name="roleName"
             render={({ field }) => (
               <FormItem className="flex flex-col w-full ">
-                <FormLabel className="text-sm font-semibold text-cooper-gray-400 flex-shrink-0">
+                <FormLabel className="text-sm font-bold text-cooper-gray-400 flex-shrink-0">
                   Your Role<span className="text-[#FB7373]">*</span>
                 </FormLabel>
 
@@ -545,7 +548,10 @@ export default function ExistingCompanyContent({
 
           {/* "I don't see my role" checkbox */}
 
-          <div className="flex items-center gap-2 flex-1 pt-2">
+          <div
+            className="flex items-center gap-2 flex-1 pt-2"
+            onClick={() => setCreatingNewRole(!creatingNewRole)}
+          >
             <Checkbox
               checked={creatingNewRole}
               onCheckedChange={(checked) => {
