@@ -7,6 +7,7 @@ import type { ReviewType } from "@cooper/db/schema";
 import { and, eq, inArray } from "@cooper/db";
 import { db } from "@cooper/db/client";
 import { Company, Review } from "@cooper/db/schema";
+import { CompaniesToLocations } from "@cooper/db/schema";
 
 import { appRouter } from "../src/root";
 import { createCallerFactory, createTRPCContext } from "../src/trpc";
@@ -21,12 +22,20 @@ vi.mock("@cooper/db/client", () => ({
       Company: {
         findMany: vi.fn(),
       },
+      CompaniesToLocations: {
+        findFirst: vi.fn(),
+      },
     },
+    insert: vi.fn(),
+    delete: vi.fn(),
   },
 }));
 
 vi.mock("@cooper/auth", () => ({
-  auth: vi.fn(),
+  auth: vi.fn().mockResolvedValue({
+    user: { id: "1" },
+    expires: "1",
+  }),
 }));
 
 describe("Review Router", async () => {
@@ -286,5 +295,95 @@ describe("Review Router", async () => {
       minPay: 15,
       maxPay: 25,
     });
+  });
+
+  const validCreateInput = {
+    profileId: "user-1",
+    roleId: "r1",
+    companyId: "c1",
+    workTerm: "SPRING" as const,
+    workYear: 2024,
+    overallRating: 4,
+    cultureRating: 4,
+    supervisorRating: 4,
+    interviewRating: 4,
+    interviewDifficulty: 3,
+    textReview: "Good review text here",
+    workEnvironment: "REMOTE" as const,
+    drugTest: false,
+    overtimeNormal: true,
+    pto: true,
+    federalHolidays: true,
+    freeLunch: true,
+    travelBenefits: false,
+    freeMerch: true,
+    snackBar: false,
+  };
+
+  test("list with search uses Fuse and returns filtered reviews", async () => {
+    const reviewsWithHeadline = [
+      {
+        ...data[0],
+        reviewHeadline: "Great experience",
+        textReview: "Good",
+        location: "Boston",
+      },
+      {
+        ...data[1],
+        reviewHeadline: "Average",
+        textReview: "Okay",
+        location: "NYC",
+      },
+    ];
+    vi.mocked(db.query.Review.findMany).mockResolvedValue(
+      reviewsWithHeadline as unknown as ReviewType[],
+    );
+    const result = await caller.review.list({ search: "Great" });
+    expect(db.query.Review.findMany).toHaveBeenCalled();
+    expect(Array.isArray(result)).toBe(true);
+  });
+
+  test("create throws when profileId falsy", async () => {
+    await expect(
+      caller.review.create({ ...validCreateInput, profileId: "" }),
+    ).rejects.toMatchObject({ code: "FORBIDDEN" });
+  });
+
+  test("create throws when text contains profanity", async () => {
+    vi.mocked(db.query.Review.findMany).mockResolvedValue([]);
+    await expect(
+      caller.review.create({ ...validCreateInput, textReview: "This is shit" }),
+    ).rejects.toMatchObject({ code: "PRECONDITION_FAILED" });
+  });
+
+  test("create throws when user has 5 or more reviews", async () => {
+    vi.mocked(db.query.Review.findMany).mockResolvedValue(
+      Array(5).fill(data[0]) as unknown as ReviewType[],
+    );
+    vi.mocked(db.insert).mockReturnValue({
+      values: vi.fn().mockResolvedValue([{ id: "new" }]),
+    } as never);
+    await expect(caller.review.create(validCreateInput)).rejects.toMatchObject({
+      code: "PRECONDITION_FAILED",
+    });
+  });
+
+  test("create inserts review when valid", async () => {
+    vi.mocked(db.query.Review.findMany).mockResolvedValue([]);
+    vi.mocked(db.query.CompaniesToLocations.findFirst).mockResolvedValue(null);
+    vi.mocked(db.insert).mockReturnValue({
+      values: vi.fn().mockResolvedValue([{ id: "new-review" }]),
+    } as never);
+    const result = await caller.review.create(validCreateInput);
+    expect(db.insert).toHaveBeenCalled();
+    expect(result).toBeDefined();
+  });
+
+  test("delete deletes review by id", async () => {
+    const where = vi.fn().mockResolvedValue(undefined);
+    vi.mocked(db.delete).mockReturnValue({ where } as never);
+    await caller.review.delete("review-123");
+    expect(db.delete).toHaveBeenCalledWith(Review);
+    expect(where).toHaveBeenCalledWith(eq(Review.id, "review-123"));
   });
 });
