@@ -48,5 +48,10 @@
     "typescript": "catalog:",
     "vitest": "catalog:"
   },
-  "prettier": "@cooper/prettier-config"
+  "prettier": "@cooper/prettier-config",
+  "pnpm": {
+    "patchedDependencies": {
+      "@vitejs/plugin-react": "patches/@vitejs__plugin-react.patch"
+    }
+  }
 }
