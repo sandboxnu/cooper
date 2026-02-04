@@ -12,10 +12,10 @@ import {
 import { FormSection } from "~/app/_components/form/form-section";
 import ExistingCompanyContent from "../../reviews/new-review/existing-company-content";
 import { Select } from "../../themed/onboarding/select";
-import { industryOptions } from "../../onboarding/constants";
 import LocationBox from "../../location";
 import { useEffect, useState } from "react";
 import { api } from "~/trpc/react";
+import { industryOptions } from "../../onboarding/constants";
 
 /**
  * CoopCycleSection component renders form fields for selecting co-op cycle and year.
@@ -45,7 +45,7 @@ export function BasicInfoSection({
     }
   }, [prefix, searchTerm]);
 
-  const locationsToUpdate = api.location.getByPrefix.useQuery(
+  const locationsToUpdate = api.location.getByPopularity.useQuery(
     { prefix },
     { enabled: searchTerm.length === 3 },
   );
@@ -209,7 +209,9 @@ export function BasicInfoSection({
             <div>
               <Select
                 placeholder="Search by industry..."
-                options={industryOptions}
+                options={industryOptions.sort((a, b) =>
+                  a.label.localeCompare(b.label),
+                )}
                 className="border-2 rounded-lg h-10 text-sm text-cooper-gray-350 border-cooper-gray-150"
                 value={
                   field.value &&

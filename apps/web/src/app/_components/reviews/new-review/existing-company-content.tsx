@@ -87,7 +87,7 @@ export default function ExistingCompanyContent({
     }
   }, [prefix, searchTerm]);
 
-  const locationsToUpdate = api.location.getByPrefix.useQuery(
+  const locationsToUpdate = api.location.getByPopularity.useQuery(
     { prefix },
     { enabled: searchTerm.length === 3 },
   );
@@ -253,7 +253,7 @@ export default function ExistingCompanyContent({
           name="companyName"
           render={({ field }) => (
             <FormItem className="flex flex-col w-full">
-              <FormLabel className="text-sm text-cooper-gray-400 font-semibold flex-shrink-0">
+              <FormLabel className="text-sm text-cooper-gray-400 font-bold flex-shrink-0">
                 Company name<span className="text-[#FB7373]">*</span>
               </FormLabel>
 
@@ -318,7 +318,10 @@ export default function ExistingCompanyContent({
 
         {/* "I don't see my company" checkbox */}
 
-        <div className="flex items-center gap-2 flex-1">
+        <div
+          className="flex items-center gap-2 flex-1"
+          onClick={() => setShowNewCompany(!showNewCompany)}
+        >
           <Checkbox
             checked={showNewCompany}
             onCheckedChange={(checked) => {
@@ -397,8 +400,10 @@ export default function ExistingCompanyContent({
                   </FormLabel>
                   <FormControl className="relative w-full">
                     <Select
-                      options={industryOptions}
-                      placeholder="Search"
+                      options={industryOptions.sort((a, b) =>
+                        a.label.localeCompare(b.label),
+                      )}
+                      placeholder="Search by industry..."
                       className="w-full border-2 bg-white border-cooper-gray-150 text-sm text-cooper-gray-350 h-10"
                       value={
                         field.value &&
@@ -496,7 +501,7 @@ export default function ExistingCompanyContent({
             name="roleName"
             render={({ field }) => (
               <FormItem className="flex flex-col w-full ">
-                <FormLabel className="text-sm font-semibold text-cooper-gray-400 flex-shrink-0">
+                <FormLabel className="text-sm font-bold text-cooper-gray-400 flex-shrink-0">
                   Your Role<span className="text-[#FB7373]">*</span>
                 </FormLabel>
 
@@ -543,7 +548,10 @@ export default function ExistingCompanyContent({
 
           {/* "I don't see my role" checkbox */}
 
-          <div className="flex items-center gap-2 flex-1 pt-2">
+          <div
+            className="flex items-center gap-2 flex-1 pt-2"
+            onClick={() => setCreatingNewRole(!creatingNewRole)}
+          >
             <Checkbox
               checked={creatingNewRole}
               onCheckedChange={(checked) => {
