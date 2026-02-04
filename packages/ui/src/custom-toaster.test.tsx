@@ -21,7 +21,6 @@ vi.mock("next/image", () => ({
 }));
 
 describe("CustomToaster", () => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-call -- vitest beforeEach with mock
   beforeEach(() => {
     mockToasts.length = 0;
   });
