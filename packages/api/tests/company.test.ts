@@ -1,11 +1,12 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
+import type { Mock } from "vitest";
 
 import type { Session } from "@cooper/auth";
 import { auth } from "@cooper/auth";
 import type { CompanyType, ReviewType } from "@cooper/db/schema";
-import { and, eq, inArray } from "@cooper/db";
+import { eq } from "@cooper/db";
 import { db } from "@cooper/db/client";
-import { Company, Review, Role } from "@cooper/db/schema";
+import { Company, Review } from "@cooper/db/schema";
 
 import { appRouter } from "../src/root";
 import { createCallerFactory, createTRPCContext } from "../src/trpc";
@@ -69,7 +70,7 @@ describe("Company Router", async () => {
 
   beforeEach(() => {
     vi.restoreAllMocks();
-    vi.mocked(auth).mockResolvedValue(session);
+    (auth as Mock).mockResolvedValue(session);
     vi.mocked(db.query.Review.findMany).mockResolvedValue(data as ReviewType[]);
     vi.mocked(db.execute).mockResolvedValue({ rows: mockCompanyRows } as never);
     vi.mocked(db.query.Company.findMany).mockResolvedValue(

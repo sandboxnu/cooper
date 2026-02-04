@@ -1,9 +1,12 @@
 export function useCustomToast() {
+  const noop = () => {
+    /* stub */
+  };
   return {
     toast: {
-      success: () => {},
-      error: () => {},
-      warning: () => {},
+      success: noop,
+      error: noop,
+      warning: noop,
     },
   };
 }

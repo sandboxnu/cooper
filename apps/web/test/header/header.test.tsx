@@ -3,7 +3,10 @@ import { describe, expect, test, vi } from "vitest";
 import Header from "~/app/_components/header/header";
 
 vi.mock("next/image", () => ({
-  default: ({ alt }: { alt: string }) => <img src="/menu.svg" alt={alt} />,
+  default: ({ alt }: { alt: string }) => (
+    // eslint-disable-next-line @next/next/no-img-element -- test mock
+    <img src="/menu.svg" alt={alt} />
+  ),
 }));
 
 vi.mock("next/link", () => ({
@@ -38,9 +41,9 @@ vi.mock("~/app/_components/cooper-logo", () => ({
 
 vi.mock("~/app/_components/header/mobile-header-button", () => ({
   default: ({
-    href,
     label,
     children,
+    href: _href,
   }: {
     href?: string;
     label?: string;

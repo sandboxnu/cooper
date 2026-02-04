@@ -17,6 +17,7 @@ vi.mock("@cooper/auth", () => ({
 }));
 
 vi.mock("@cooper/ui", () => ({
+  cn: (...args: unknown[]) => args.filter(Boolean).join(" "),
   CustomToaster: () => <div data-testid="custom-toaster">Toaster</div>,
 }));
 

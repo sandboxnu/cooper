@@ -3,14 +3,14 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 import { CustomToaster } from "./custom-toaster";
 
-const mockToasts: Array<{
+const mockToasts: {
   id: string;
   title?: React.ReactNode;
   description?: React.ReactNode;
   action?: React.ReactNode;
   variant?: "default" | "destructive";
   className?: string;
-}> = [];
+}[] = [];
 
 vi.mock("./hooks/use-toast", () => ({
   useToast: () => ({ toasts: mockToasts }),
@@ -21,6 +21,7 @@ vi.mock("next/image", () => ({
 }));
 
 describe("CustomToaster", () => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call -- vitest beforeEach with mock
   beforeEach(() => {
     mockToasts.length = 0;
   });

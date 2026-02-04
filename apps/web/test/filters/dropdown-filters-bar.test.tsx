@@ -43,7 +43,7 @@ describe("DropdownFiltersBar", () => {
       fireEvent.click(coop);
       expect(onFilterChange).toHaveBeenCalledWith(
         expect.objectContaining({
-          jobTypes: expect.any(Array),
+          jobTypes: expect.any(Array) as unknown as string[],
         }),
       );
     }

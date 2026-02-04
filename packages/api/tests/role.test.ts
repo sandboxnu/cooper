@@ -1,10 +1,11 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
+import type { Mock } from "vitest";
 
 import type { Session } from "@cooper/auth";
 import { auth } from "@cooper/auth";
-import { and, asc, desc, eq, inArray } from "@cooper/db";
+import { eq } from "@cooper/db";
 import { db } from "@cooper/db/client";
-import { Company, Review, Role } from "@cooper/db/schema";
+import { Role } from "@cooper/db/schema";
 
 import { appRouter } from "../src/root";
 import { createCallerFactory, createTRPCContext } from "../src/trpc";
@@ -15,7 +16,9 @@ const mockRole = {
   description: "Build things",
   companyId: "company-1",
   slug: "engineer",
+  jobType: "CO-OP" as const,
   createdAt: new Date(),
+  updatedAt: null as Date | null,
   createdBy: "user-1",
 };
 
@@ -59,7 +62,7 @@ vi.mock("@cooper/auth", () => ({
 describe("Role Router", () => {
   beforeEach(() => {
     vi.restoreAllMocks();
-    vi.mocked(auth).mockResolvedValue({
+    (auth as Mock).mockResolvedValue({
       user: { id: "user-1" },
       expires: "1",
     });
@@ -110,7 +113,7 @@ describe("Role Router", () => {
 
   test("getByCompanySlugAndRoleSlug returns null when company not found", async () => {
     const caller = await getCaller();
-    vi.mocked(db.query.Company.findFirst).mockResolvedValue(null);
+    vi.mocked(db.query.Company.findFirst).mockResolvedValue(undefined);
     const result = await caller.role.getByCompanySlugAndRoleSlug({
       companySlug: "nonexistent",
       roleSlug: "engineer",

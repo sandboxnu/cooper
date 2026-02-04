@@ -1,9 +1,10 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 import ProfileButtonClient from "~/app/_components/profile/profile-button-client";
 
 vi.mock("next/image", () => ({
   default: ({ src, alt }: { src: string; alt: string }) => (
+    // eslint-disable-next-line @next/next/no-img-element -- test mock
     <img src={src} alt={alt} data-testid="profile-image" />
   ),
 }));
@@ -38,8 +39,10 @@ vi.mock("@cooper/ui/dropdown-menu", () => ({
   DropdownMenuSeparator: () => <hr />,
 }));
 
+type SessionLike = Parameters<typeof ProfileButtonClient>[0]["session"];
+
 describe("ProfileButtonClient", () => {
-  const mockSession = {
+  const mockSession: SessionLike = {
     user: {
       id: "u1",
       email: "test@neu.edu",
@@ -47,7 +50,7 @@ describe("ProfileButtonClient", () => {
       image: "/custom-avatar.png",
     },
     session: {},
-  } as never;
+  };
 
   test("renders profile image with session user image", () => {
     render(<ProfileButtonClient session={mockSession} />);
@@ -57,7 +60,7 @@ describe("ProfileButtonClient", () => {
   });
 
   test("renders default image when session user image is null", () => {
-    const sessionNoImage = {
+    const sessionNoImage: SessionLike = {
       ...mockSession,
       user: { ...mockSession.user, image: null },
     };

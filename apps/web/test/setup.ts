@@ -12,12 +12,15 @@ Object.defineProperty(window, "matchMedia", {
 });
 
 // jsdom does not provide ResizeObserver (required by cmdk/Command)
+const noop = () => {
+  /* stub for jsdom */
+};
 class ResizeObserverMock {
-  observe = () => {};
-  unobserve = () => {};
-  disconnect = () => {};
+  observe = noop;
+  unobserve = noop;
+  disconnect = noop;
 }
 window.ResizeObserver = ResizeObserverMock as unknown as typeof ResizeObserver;
 
 // jsdom does not implement scrollIntoView (used by cmdk/Command)
-Element.prototype.scrollIntoView = () => {};
+Element.prototype.scrollIntoView = noop;

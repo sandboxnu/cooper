@@ -4,6 +4,7 @@ import { ReviewCard } from "~/app/_components/reviews/review-card";
 
 vi.mock("next/image", () => ({
   default: ({ alt, src }: { alt: string; src: string }) => (
+    // eslint-disable-next-line @next/next/no-img-element -- test mock
     <img src={src} alt={alt} />
   ),
 }));

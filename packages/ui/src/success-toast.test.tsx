@@ -48,7 +48,10 @@ describe("SuccessToast", () => {
         <SuccessToast description="Done" className="custom-toast" />,
       ),
     );
-    const root = container.querySelector("[data-state=open]") as HTMLElement;
-    expect(root).toHaveClass("custom-toast");
+    const root = container.querySelector("[data-state=open]");
+    expect(root).not.toBeNull();
+    if (root) {
+      expect(root).toHaveClass("custom-toast");
+    }
   });
 });

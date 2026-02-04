@@ -10,12 +10,12 @@ const mockCompare = {
   comparedRoleIds: [] as string[],
   reservedSlots: 0,
   maxColumns: 3,
-  enterCompareMode: vi.fn(),
-  exitCompareMode: vi.fn(),
+  enterCompareMode: vi.fn<void[], void>(),
+  exitCompareMode: vi.fn<void[], void>(),
   addRoleId: vi.fn(),
   removeRoleId: vi.fn(),
-  addSlot: vi.fn(),
-  clear: vi.fn(),
+  addSlot: vi.fn<void[], void>(),
+  clear: vi.fn<void[], void>(),
 };
 
 vi.mock("~/app/_components/compare/compare-context", () => ({
@@ -23,7 +23,10 @@ vi.mock("~/app/_components/compare/compare-context", () => ({
 }));
 
 vi.mock("next/image", () => ({
-  default: ({ alt }: { alt: string }) => <img src="/icon.svg" alt={alt} />,
+  default: ({ alt }: { alt: string }) => (
+    // eslint-disable-next-line @next/next/no-img-element -- test mock
+    <img src="/icon.svg" alt={alt} />
+  ),
 }));
 
 vi.mock("~/trpc/react", () => ({
@@ -41,6 +44,7 @@ vi.mock("~/app/_components/reviews/role-info", () => ({
 }));
 
 describe("CompareControls", () => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call -- vitest beforeEach callback with mocks
   beforeEach(() => {
     mockCompare.isCompareMode = false;
     mockCompare.comparedRoleIds = [];

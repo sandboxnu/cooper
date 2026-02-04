@@ -4,6 +4,7 @@ import { describe, expect, test } from "vitest";
 import * as ToastPrimitives from "@radix-ui/react-toast";
 import { ErrorToast } from "./error-toast";
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access -- vi.mock in test
 vi.mock("next/image", () => ({
   default: ({ alt }: { alt: string }) => <img src="/toastX.svg" alt={alt} />,
 }));

@@ -4,6 +4,7 @@ import StarGraph from "~/app/_components/shared/star-graph";
 
 vi.mock("next/image", () => ({
   default: ({ alt }: { alt: string }) => (
+    // eslint-disable-next-line @next/next/no-img-element -- test mock
     <img src="/star.svg" alt={alt} data-testid="star-icon" />
   ),
 }));

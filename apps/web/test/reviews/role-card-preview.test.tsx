@@ -3,7 +3,10 @@ import { describe, expect, test, vi } from "vitest";
 import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
 
 vi.mock("next/image", () => ({
-  default: ({ alt }: { alt: string }) => <img alt={alt} />,
+  default: ({ alt }: { alt: string }) => (
+    // eslint-disable-next-line @next/next/no-img-element -- test mock
+    <img alt={alt} />
+  ),
 }));
 
 vi.mock("~/trpc/react", () => ({

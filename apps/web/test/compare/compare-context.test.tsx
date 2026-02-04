@@ -53,15 +53,22 @@ function TestConsumer() {
   );
 }
 
+const mockGetItem = vi.fn((): string | null => null);
+const mockSetItem = vi.fn();
+const mockRemoveItem = vi.fn();
+
+const mockLocalStorage = {
+  getItem: mockGetItem,
+  setItem: mockSetItem,
+  removeItem: mockRemoveItem,
+};
+
 describe("CompareContext", () => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call -- vitest beforeEach callback with mocks
   beforeEach(() => {
     if (typeof window !== "undefined") {
       Object.defineProperty(window, "localStorage", {
-        value: {
-          getItem: vi.fn(() => null),
-          setItem: vi.fn(),
-          removeItem: vi.fn(),
-        },
+        value: mockLocalStorage,
         writable: true,
       });
     }

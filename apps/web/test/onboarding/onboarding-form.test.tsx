@@ -17,8 +17,8 @@ function OnboardingDialogWrapper(
   );
 }
 
-const mockCloseDialog = vi.fn();
-const mockMutate = vi.fn();
+const mockCloseDialog = vi.fn<void[], void>();
+const mockMutate = vi.fn<void[], void>();
 let mockProfileIsSuccess = false;
 
 vi.mock("~/trpc/react", () => ({
@@ -107,6 +107,7 @@ const defaultSession = {
 } as never;
 
 describe("OnboardingForm", () => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call -- vitest beforeEach callback with mocks
   beforeEach(() => {
     mockMutate.mockClear();
     mockCloseDialog.mockClear();

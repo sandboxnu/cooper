@@ -1,4 +1,5 @@
 import { describe, expect, test, vi } from "vitest";
+import type { Mock } from "vitest";
 
 import type { Session } from "@cooper/auth";
 import { auth, invalidateSessionToken, validateToken } from "@cooper/auth";
@@ -19,7 +20,7 @@ vi.mock("@cooper/auth", () => ({
 describe("Auth Router", () => {
   test("getSession returns session when logged in", async () => {
     const session: Session = { user: { id: "1" }, expires: "1" };
-    vi.mocked(auth).mockResolvedValue(session);
+    (auth as Mock).mockResolvedValue(session);
 
     const ctx = await createTRPCContext({
       session,
@@ -32,7 +33,7 @@ describe("Auth Router", () => {
   });
 
   test("getSession returns null when not logged in", async () => {
-    vi.mocked(auth).mockResolvedValue(null);
+    (auth as Mock).mockResolvedValue(null);
 
     const ctx = await createTRPCContext({
       session: null,
@@ -46,7 +47,7 @@ describe("Auth Router", () => {
 
   test("getSecretMessage returns message when authenticated", async () => {
     const session: Session = { user: { id: "1" }, expires: "1" };
-    vi.mocked(auth).mockResolvedValue(session);
+    (auth as Mock).mockResolvedValue(session);
 
     const ctx = await createTRPCContext({
       session,
@@ -60,7 +61,7 @@ describe("Auth Router", () => {
 
   test("signOut returns success false when no token", async () => {
     const session: Session = { user: { id: "1" }, expires: "1" };
-    vi.mocked(auth).mockResolvedValue(session);
+    (auth as Mock).mockResolvedValue(session);
 
     const ctx = await createTRPCContext({
       session,
@@ -70,13 +71,13 @@ describe("Auth Router", () => {
 
     const result = await caller.auth.signOut();
     expect(result).toEqual({ success: false });
-    expect(invalidateSessionToken).not.toHaveBeenCalled();
+    expect(invalidateSessionToken as Mock).not.toHaveBeenCalled();
   });
 
   test("signOut invalidates token and returns success when token present", async () => {
     const session: Session = { user: { id: "1" }, expires: "1" };
-    vi.mocked(validateToken).mockResolvedValue(session);
-    vi.mocked(invalidateSessionToken).mockResolvedValue(undefined);
+    (validateToken as Mock).mockResolvedValue(session);
+    (invalidateSessionToken as Mock).mockResolvedValue(undefined);
 
     const ctx = await createTRPCContext({
       session,
@@ -86,6 +87,8 @@ describe("Auth Router", () => {
 
     const result = await caller.auth.signOut();
     expect(result).toEqual({ success: true });
-    expect(invalidateSessionToken).toHaveBeenCalledWith("Bearer some-token");
+    expect(invalidateSessionToken as Mock).toHaveBeenCalledWith(
+      "Bearer some-token",
+    );
   });
 });

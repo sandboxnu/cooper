@@ -3,6 +3,7 @@ import { describe, expect, test, vi } from "vitest";
 import DashboardLayout from "~/app/(pages)/(dashboard)/layout";
 
 vi.mock("@cooper/ui", () => ({
+  cn: (...args: unknown[]) => args.filter(Boolean).join(" "),
   CustomToaster: () => <div data-testid="custom-toaster">Toaster</div>,
 }));
 

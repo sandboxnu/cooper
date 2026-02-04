@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 import ProfileTabs from "~/app/_components/profile/profile-tabs";
 
-const mockPush = vi.fn();
+const mockPush = vi.fn<void[], void>();
 vi.mock("next/navigation", () => ({
   usePathname: () => "/profile",
   useRouter: () => ({ push: mockPush }),
@@ -10,6 +10,7 @@ vi.mock("next/navigation", () => ({
 }));
 
 describe("ProfileTabs", () => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call -- vitest beforeEach callback with mocks
   beforeEach(() => {
     mockPush.mockClear();
   });

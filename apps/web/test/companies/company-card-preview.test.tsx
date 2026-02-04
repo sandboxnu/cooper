@@ -3,7 +3,10 @@ import { describe, expect, test, vi } from "vitest";
 import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
 
 vi.mock("next/image", () => ({
-  default: ({ alt }: { alt: string }) => <img src="/star.svg" alt={alt} />,
+  default: ({ alt }: { alt: string }) => (
+    // eslint-disable-next-line @next/next/no-img-element -- test mock
+    <img src="/star.svg" alt={alt} />
+  ),
 }));
 
 vi.mock("~/trpc/react", () => ({

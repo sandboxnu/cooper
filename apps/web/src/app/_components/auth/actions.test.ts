@@ -4,11 +4,12 @@ import { handleGoogleSignIn, handleSignOut } from "./actions";
 const mockSignIn = vi.fn();
 const mockSignOut = vi.fn();
 vi.mock("@cooper/auth", () => ({
-  signIn: (...args: unknown[]) => mockSignIn(...args),
-  signOut: (...args: unknown[]) => mockSignOut(...args),
+  signIn: (...args: unknown[]) => mockSignIn(...args) as unknown,
+  signOut: (...args: unknown[]) => mockSignOut(...args) as unknown,
 }));
 
 describe("auth actions", () => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call -- vitest beforeEach callback with hoisted mocks
   beforeEach(() => {
     mockSignIn.mockReset();
     mockSignOut.mockReset();

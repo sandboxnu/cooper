@@ -3,7 +3,10 @@ import { describe, expect, test, vi } from "vitest";
 import LoginButton from "~/app/_components/auth/login-button";
 
 vi.mock("next/image", () => ({
-  default: ({ alt }: { alt: string }) => <img src="/login.svg" alt={alt} />,
+  default: ({ alt }: { alt: string }) => (
+    // eslint-disable-next-line @next/next/no-img-element -- test mock
+    <img src="/login.svg" alt={alt} />
+  ),
 }));
 
 vi.mock("@cooper/auth", () => ({

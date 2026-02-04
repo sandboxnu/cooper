@@ -4,7 +4,10 @@ import { describe, expect, test, vi } from "vitest";
 import { RoleInfo } from "~/app/_components/reviews/role-info";
 
 vi.mock("next/image", () => ({
-  default: ({ alt }: { alt: string }) => <img alt={alt} />,
+  default: ({ alt }: { alt: string }) => (
+    // eslint-disable-next-line @next/next/no-img-element -- test mock
+    <img alt={alt} />
+  ),
 }));
 
 vi.mock("next/link", () => ({
@@ -163,7 +166,7 @@ describe("RoleInfo", () => {
     );
     const backSvg = container.querySelector('svg[viewBox="0 0 14 12"]');
     expect(backSvg).toBeInTheDocument();
-    fireEvent.click(backSvg!);
+    if (backSvg) fireEvent.click(backSvg);
     expect(onBack).toHaveBeenCalled();
   });
 });

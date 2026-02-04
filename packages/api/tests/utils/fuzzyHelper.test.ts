@@ -39,6 +39,8 @@ describe("performFuseSearch", () => {
   test("searches across multiple keys", () => {
     const result = performFuseSearch(items, ["name", "role"], "Designer");
     expect(result).toHaveLength(1);
-    expect(result[0].name).toBe("Bob");
+    const first = result[0];
+    if (!first) throw new Error("expected one result");
+    expect(first.name).toBe("Bob");
   });
 });

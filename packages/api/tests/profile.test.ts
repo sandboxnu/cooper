@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
+import type { Mock } from "vitest";
 
 import type { Session } from "@cooper/auth";
 import { auth } from "@cooper/auth";
@@ -53,7 +54,7 @@ vi.mock("@cooper/auth", () => ({
 describe("Profile Router", () => {
   beforeEach(() => {
     vi.restoreAllMocks();
-    vi.mocked(auth).mockResolvedValue({
+    (auth as Mock).mockResolvedValue({
       user: { id: "user-1" },
       expires: "1",
     });

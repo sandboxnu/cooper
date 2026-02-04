@@ -4,13 +4,15 @@ import { WelcomeDialog } from "~/app/_components/onboarding/post-onboarding/welc
 
 vi.mock("next/image", () => ({
   default: ({ alt, src }: { alt: string; src: string }) => (
+    // eslint-disable-next-line @next/next/no-img-element -- test mock
     <img src={src} alt={alt} />
   ),
 }));
 
 describe("WelcomeDialog", () => {
-  const onClick = vi.fn();
+  const onClick = vi.fn<void[], void>();
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call -- vitest beforeEach callback with mocks
   beforeEach(() => {
     onClick.mockClear();
   });

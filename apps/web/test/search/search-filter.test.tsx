@@ -3,13 +3,14 @@ import { fireEvent } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 import SearchFilter from "~/app/_components/search/search-filter";
 
-const mockPush = vi.fn();
+const mockPush = vi.fn<void[], void>();
 vi.mock("next/navigation", () => ({
   useRouter: () => ({ push: mockPush }),
   usePathname: () => "/roles",
 }));
 
 describe("SearchFilter", () => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call -- vitest beforeEach callback with mocks
   beforeEach(() => {
     mockPush.mockClear();
   });

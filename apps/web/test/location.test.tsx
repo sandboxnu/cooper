@@ -104,7 +104,7 @@ describe("LocationBox", () => {
 
   test("calls setLocationLabel and field.onChange when option selected (form mode)", () => {
     const setLocationLabel = vi.fn();
-    let formRef: ReturnType<typeof useForm>;
+    let formRef: ReturnType<typeof useForm> | undefined;
     render(
       <Wrapper>
         {(form) => {
@@ -126,7 +126,8 @@ describe("LocationBox", () => {
     );
     fireEvent.click(screen.getByTestId("select-location"));
     expect(setLocationLabel).toHaveBeenCalledWith("Boston, MA, USA");
-    expect(formRef!.getValues("locationId")).toBe("loc-1");
+    if (!formRef) throw new Error("formRef not set");
+    expect(formRef.getValues("locationId")).toBe("loc-1");
   });
 
   test("calls setSearchTerm when search input changes", () => {

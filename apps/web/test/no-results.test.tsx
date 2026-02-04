@@ -10,6 +10,7 @@ vi.mock("next/navigation", () => ({
 
 vi.mock("next/image", () => ({
   default: ({ alt }: { alt: string }) => (
+    // eslint-disable-next-line @next/next/no-img-element -- test mock
     <img src="/logo.svg" alt={alt} data-testid="cooper-logo" />
   ),
 }));

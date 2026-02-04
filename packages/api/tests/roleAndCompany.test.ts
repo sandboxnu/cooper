@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
+import type { Mock } from "vitest";
 
-import type { Session } from "@cooper/auth";
 import { auth } from "@cooper/auth";
 import { db } from "@cooper/db/client";
 
@@ -52,7 +52,7 @@ vi.mock("@cooper/auth", () => ({
 describe("RoleAndCompany Router", () => {
   beforeEach(() => {
     vi.restoreAllMocks();
-    vi.mocked(auth).mockResolvedValue(null);
+    (auth as Mock).mockResolvedValue(null);
     vi.mocked(db.execute).mockResolvedValue({ rows: [] } as never);
     vi.mocked(db.query.Role.findMany).mockResolvedValue([]);
     vi.mocked(db.query.Company.findMany).mockResolvedValue([]);

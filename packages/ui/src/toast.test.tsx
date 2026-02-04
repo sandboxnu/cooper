@@ -37,7 +37,7 @@ describe("Toast", () => {
   });
 
   test("Toast applies variant class", () => {
-    const { container } = render(
+    render(
       <ToastProvider>
         <ToastViewport />
         <Toast open variant="destructive">
@@ -45,8 +45,8 @@ describe("Toast", () => {
         </Toast>
       </ToastProvider>,
     );
-    const toast = screen.getByText("Error").closest("[data-state=open]");
-    expect(toast).toHaveClass("destructive");
+    const toastEl = screen.getByText("Error").closest("[data-state=open]");
+    expect(toastEl).toHaveClass("destructive");
   });
 
   test("ToastClose renders close icon", () => {

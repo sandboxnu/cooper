@@ -32,6 +32,7 @@ vi.mock("next/image", () => ({
     onMouseLeave: () => void;
     className?: string;
   }) => (
+    // eslint-disable-next-line @next/next/no-img-element -- test mock
     <img
       data-testid="favorite-img"
       src={src}

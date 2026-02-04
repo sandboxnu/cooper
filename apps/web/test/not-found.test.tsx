@@ -14,6 +14,7 @@ vi.mock("~/app/_components/back-button", () => ({
 
 vi.mock("next/image", () => ({
   default: ({ alt }: { alt: string }) => (
+    // eslint-disable-next-line @next/next/no-img-element -- test mock
     <img src="/svg/deadLogo.svg" alt={alt} data-testid="404-image" />
   ),
 }));

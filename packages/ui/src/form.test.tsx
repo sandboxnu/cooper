@@ -29,7 +29,11 @@ function FormWrapper({ defaultValues }: { defaultValues?: FormValues }) {
   });
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(() => {})}>
+      <form
+        onSubmit={form.handleSubmit(() => {
+          /* noop */
+        })}
+      >
         <FormField
           control={form.control}
           name="username"

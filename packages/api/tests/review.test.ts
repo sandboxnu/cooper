@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/unbound-method */
 import { beforeEach, describe, expect, test, vi } from "vitest";
 
 import type { Session } from "@cooper/auth";
@@ -7,7 +5,6 @@ import type { ReviewType } from "@cooper/db/schema";
 import { and, eq, inArray } from "@cooper/db";
 import { db } from "@cooper/db/client";
 import { Company, Review } from "@cooper/db/schema";
-import { CompaniesToLocations } from "@cooper/db/schema";
 
 import { appRouter } from "../src/root";
 import { createCallerFactory, createTRPCContext } from "../src/trpc";
@@ -370,7 +367,9 @@ describe("Review Router", async () => {
 
   test("create inserts review when valid", async () => {
     vi.mocked(db.query.Review.findMany).mockResolvedValue([]);
-    vi.mocked(db.query.CompaniesToLocations.findFirst).mockResolvedValue(null);
+    vi.mocked(db.query.CompaniesToLocations.findFirst).mockResolvedValue(
+      undefined,
+    );
     vi.mocked(db.insert).mockReturnValue({
       values: vi.fn().mockResolvedValue([{ id: "new-review" }]),
     } as never);

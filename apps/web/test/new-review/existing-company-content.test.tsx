@@ -159,7 +159,8 @@ describe("ExistingCompanyContent", () => {
       .find((el) =>
         el.closest("div")?.textContent?.includes("I don't see my company"),
       );
-    fireEvent.click(companyCheckbox!);
+    if (!companyCheckbox) throw new Error("checkbox not found");
+    fireEvent.click(companyCheckbox);
     expect(screen.getByText(/Company Name/)).toBeInTheDocument();
     expect(screen.getByText(/Industry/)).toBeInTheDocument();
     expect(screen.getAllByText(/Location/).length).toBeGreaterThanOrEqual(1);
@@ -180,14 +181,15 @@ describe("ExistingCompanyContent", () => {
       .find((el) =>
         el.closest("div")?.textContent?.includes("I don't see my company"),
       );
-    fireEvent.click(companyCheckbox!);
+    if (!companyCheckbox) throw new Error("checkbox not found");
+    fireEvent.click(companyCheckbox);
     const button = screen.getByRole("button", {
       name: "Create Company & Role",
     });
     expect(button).toBeInTheDocument();
   });
 
-  test("calls toast.error when Create Company & Role clicked with empty company name", async () => {
+  test("calls toast.error when Create Company & Role clicked with empty company name", () => {
     mockToastError.mockClear();
     render(
       <Wrapper>
@@ -199,7 +201,7 @@ describe("ExistingCompanyContent", () => {
       .find((el) =>
         el.closest("div")?.textContent?.includes("I don't see my company"),
       );
-    fireEvent.click(companyCheckbox!);
+    if (companyCheckbox) fireEvent.click(companyCheckbox);
     const button = screen.getByRole("button", {
       name: "Create Company & Role",
     });
@@ -240,7 +242,7 @@ describe("ExistingCompanyContent", () => {
       .find((el) =>
         el.closest("div")?.textContent?.includes("I don't see my role"),
       );
-    fireEvent.click(roleCheckbox!);
+    if (roleCheckbox) fireEvent.click(roleCheckbox);
     expect(screen.getByText("Add Your Role")).toBeInTheDocument();
     expect(
       screen.getByText(/We'll verify this information before it appears/),
@@ -250,7 +252,7 @@ describe("ExistingCompanyContent", () => {
     ).toBeInTheDocument();
   });
 
-  test("calls toast.error when Create Role clicked without selecting company", async () => {
+  test("calls toast.error when Create Role clicked without selecting company", () => {
     mockToastError.mockClear();
     render(
       <Wrapper>
@@ -262,7 +264,7 @@ describe("ExistingCompanyContent", () => {
       .find((el) =>
         el.closest("div")?.textContent?.includes("I don't see my role"),
       );
-    fireEvent.click(roleCheckbox!);
+    if (roleCheckbox) fireEvent.click(roleCheckbox);
     const createRoleButton = screen.getByRole("button", {
       name: "Create Role",
     });
@@ -285,7 +287,7 @@ describe("ExistingCompanyContent", () => {
       .find((el) =>
         el.closest("div")?.textContent?.includes("I don't see my role"),
       );
-    fireEvent.click(roleCheckbox!);
+    if (roleCheckbox) fireEvent.click(roleCheckbox);
     const roleTitleInput = screen.getByPlaceholderText("Enter");
     fireEvent.change(roleTitleInput, { target: { value: "ab" } });
     const createRoleButton = screen.getByRole("button", {

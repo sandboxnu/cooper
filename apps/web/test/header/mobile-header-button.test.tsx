@@ -4,6 +4,7 @@ import MobileHeaderButton from "~/app/_components/header/mobile-header-button";
 
 vi.mock("next/image", () => ({
   default: ({ alt, src }: { alt: string; src: string }) => (
+    // eslint-disable-next-line @next/next/no-img-element -- test mock
     <img src={src} alt={alt} />
   ),
 }));

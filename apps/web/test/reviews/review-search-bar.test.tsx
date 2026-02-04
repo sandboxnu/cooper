@@ -3,16 +3,20 @@ import { fireEvent } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 import ReviewSearchBar from "~/app/_components/reviews/review-search-bar";
 
+const noop = () => {
+  /* no-op for test */
+};
+
 describe("ReviewSearchBar", () => {
   test("renders input with placeholder", () => {
-    render(<ReviewSearchBar searchTerm="" onSearchChange={() => {}} />);
+    render(<ReviewSearchBar searchTerm="" onSearchChange={noop} />);
     expect(
       screen.getByPlaceholderText("Search reviews..."),
     ).toBeInTheDocument();
   });
 
   test("displays initial search term", () => {
-    render(<ReviewSearchBar searchTerm="co-op" onSearchChange={() => {}} />);
+    render(<ReviewSearchBar searchTerm="co-op" onSearchChange={noop} />);
     const input = screen.getByPlaceholderText("Search reviews...");
     expect(input).toHaveValue("co-op");
   });
@@ -29,7 +33,7 @@ describe("ReviewSearchBar", () => {
     const { container } = render(
       <ReviewSearchBar
         searchTerm=""
-        onSearchChange={() => {}}
+        onSearchChange={noop}
         className="custom-class"
       />,
     );

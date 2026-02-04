@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
+import type { Mock } from "vitest";
 
 import type { Session } from "@cooper/auth";
 import { auth } from "@cooper/auth";
@@ -36,13 +37,13 @@ describe("Location Router", () => {
   beforeEach(() => {
     vi.restoreAllMocks();
     vi.mocked(db.query.Location.findMany).mockResolvedValue(mockLocations);
-    vi.mocked(db.query.Location.findFirst).mockResolvedValue(mockLocations[0]!);
+    vi.mocked(db.query.Location.findFirst).mockResolvedValue(mockLocations[0]);
   });
 
   const session: Session = { user: { id: "1" }, expires: "1" };
 
   const getCaller = async () => {
-    vi.mocked(auth).mockResolvedValue(session);
+    (auth as Mock).mockResolvedValue(session);
     const ctx = await createTRPCContext({
       session,
       headers: new Headers(),

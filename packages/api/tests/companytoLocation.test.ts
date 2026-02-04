@@ -1,10 +1,10 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
+import type { Mock } from "vitest";
 
 import type { Session } from "@cooper/auth";
 import { auth } from "@cooper/auth";
-import { eq } from "@cooper/db";
 import { db } from "@cooper/db/client";
-import { CompaniesToLocations, Location } from "@cooper/db/schema";
+import { CompaniesToLocations } from "@cooper/db/schema";
 
 import { appRouter } from "../src/root";
 import { createCallerFactory, createTRPCContext } from "../src/trpc";
@@ -58,7 +58,7 @@ describe("CompanyToLocation Router", () => {
   const session: Session = { user: { id: "1" }, expires: "1" };
 
   const getCaller = async () => {
-    vi.mocked(auth).mockResolvedValue(session);
+    (auth as Mock).mockResolvedValue(session);
     const ctx = await createTRPCContext({
       session,
       headers: new Headers(),
