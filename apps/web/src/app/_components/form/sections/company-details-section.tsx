@@ -12,7 +12,7 @@ import { RadioGroup, RadioGroupItem } from "@cooper/ui/radio-group";
 import { FormSection } from "~/app/_components/form/form-section";
 import { benefits } from "~/app/(pages)/(protected)/review-form/page";
 import { Select } from "../../themed/onboarding/select";
-import FilterBody from "../../filters/filter-body";
+import DropdownFilter from "../../filters/dropdown-filter";
 
 /**
  * CompanyDetailsSection component renders form fields for capturing
@@ -176,9 +176,9 @@ export function CompanyDetailsSection() {
               Benefits
             </FormLabel>
             <FormControl className="relative flex-1">
-              <FilterBody
+              <DropdownFilter
                 title="Benefits"
-                variant="autocomplete"
+                filterType="autocomplete"
                 options={benefits.map((benefit) => ({
                   id: benefit.field,
                   label: benefit.label,
@@ -190,11 +190,9 @@ export function CompanyDetailsSection() {
                       ? [field.value]
                       : []
                 }
-                placeholder="Select benefits"
                 onSelectionChange={(selected) => {
                   field.onChange(selected.length > 0 ? selected : undefined);
                 }}
-                isInMenuContent={true}
               />
             </FormControl>
             <FormMessage />

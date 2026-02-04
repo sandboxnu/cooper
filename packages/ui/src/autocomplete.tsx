@@ -15,8 +15,6 @@ interface AutocompleteProps {
   value?: string[];
   onChange: (value: string[]) => void;
   onSearchChange?: (search: string) => void;
-  // whether the autocomplete is rendered within a menu content (for positioning)
-  isInMenuContent?: boolean;
 }
 
 export default function Autocomplete({
@@ -25,7 +23,6 @@ export default function Autocomplete({
   value = [],
   onChange,
   onSearchChange,
-  isInMenuContent = false,
 }: AutocompleteProps) {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
@@ -47,17 +44,10 @@ export default function Autocomplete({
       const rect = inputRef.current.getBoundingClientRect();
       setDropdownStyle({
         position: "fixed",
-        ...(isInMenuContent && { top: `${rect.bottom}px` }),
         width: `${rect.width}px`,
       });
-      const originalOverflow = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
-
-      return () => {
-        document.body.style.overflow = originalOverflow;
-      };
     }
-  }, [open, isInMenuContent]);
+  }, [open]);
 
   const handleToggle = (optionValue: string) => {
     const newValue = value.includes(optionValue)
@@ -81,7 +71,7 @@ export default function Autocomplete({
         <input
           ref={inputRef}
           type="text"
-          className="border-cooper-gray-150 focus:none flex h8 w-full rounded-md border bg-white px-[14px] py-2 text-sm placeholder:text-cooper-gray-400 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+          className="border-cooper-gray-150 focus:none flex h-10 w-full rounded-md border bg-white px-[14px] py-2 text-sm placeholder:text-cooper-gray-400 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
           placeholder={placeholder}
           value={displayValue}
           onChange={(e) => {
@@ -99,11 +89,35 @@ export default function Autocomplete({
             <X className="h-4 w-4" />
           </button>
         ) : (
-          <MagnifyingGlassIcon className="absolute right-2 top-1/2 h-5 w-5 shrink-0 -translate-y-1/2 opacity-50" />
+          <MagnifyingGlassIcon className="absolute right-2 top-1/2 h-4 w-4 shrink-0 -translate-y-1/2 opacity-50" />
         )}
       </div>
 
-      {open ? (
+      {/* Selected items badges */}
+      {value.length > 0 && (
+        <div className="mt-2 flex flex-wrap gap-1">
+          {value.map((val) => {
+            const option = options.find((opt) => opt.value === val);
+            if (!option) return null;
+            return (
+              <span
+                key={val}
+                className="border-cooper-gray-150 hover:bg-cooper-gray-150 inline-flex items-center gap-[6px] rounded-[8px] border bg-white py-2 pl-[14px] pr-3 text-sm font-medium text-cooper-gray-400"
+              >
+                {option.label}
+                <button
+                  onClick={() => handleRemove(val)}
+                  className="text-cooper-gray-400"
+                >
+                  <X className="h-5 w-5 rounded-full p-1 hover:cursor-pointer hover:bg-cooper-gray-400/20" />
+                </button>
+              </span>
+            );
+          })}
+        </div>
+      )}
+
+      {open && (
         <>
           <div
             className="fixed inset-0 z-[100]"
@@ -141,29 +155,6 @@ export default function Autocomplete({
             </div>
           </div>
         </>
-      ) : (
-        value.length > 0 && (
-          <div className="mt-2 flex flex-wrap gap-1">
-            {value.map((val) => {
-              const option = options.find((opt) => opt.value === val);
-              if (!option) return null;
-              return (
-                <span
-                  key={val}
-                  className="border-cooper-gray-150 hover:bg-cooper-gray-150 inline-flex items-center gap-[6px] rounded-[8px] border bg-white py-2 pl-[14px] pr-3 text-sm font-medium text-cooper-gray-400"
-                >
-                  {option.label}
-                  <button
-                    onClick={() => handleRemove(val)}
-                    className="text-cooper-gray-400"
-                  >
-                    <X className="h-5 w-5 rounded-full p-1 hover:cursor-pointer hover:bg-cooper-gray-400/20" />
-                  </button>
-                </span>
-              );
-            })}
-          </div>
-        )
       )}
     </div>
   );

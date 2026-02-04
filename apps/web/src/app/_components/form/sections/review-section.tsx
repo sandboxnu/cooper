@@ -27,7 +27,7 @@ export function ReviewSection() {
         name="overallRating"
         render={({ field }) => (
           <FormItem className="flex flex-col pt-3">
-            <FormLabel className="text-sm font-bold text-cooper-gray-400">
+            <FormLabel className="text-sm font-semibold text-cooper-gray-400">
               Overall rating<span className="text-[#FB7373]">*</span>
             </FormLabel>
             <FormControl className="relative flex-1">
@@ -61,7 +61,7 @@ export function ReviewSection() {
         name="textReview"
         render={({ field }) => (
           <FormItem className="flex flex-col md:flex-col pt-4">
-            <FormLabel className="text-sm font-bold text-cooper-gray-400 ">
+            <FormLabel className="text-sm text-cooper-gray-400 ">
               Review text<span className="text-[#FB7373]">*</span>
             </FormLabel>
             <div className="text-cooper-gray-550 text-xs">

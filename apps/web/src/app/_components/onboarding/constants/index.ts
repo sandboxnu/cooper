@@ -363,14 +363,3 @@ export const majors = [
   "Theatre, BA",
   "Theatre, BS",
 ];
-
-export const jobTypeOptions = [
-  { value: "CO-OP", label: "Co-op" },
-  { value: "INTERNSHIP", label: "Internship" },
-];
-
-export const workModelOptions = [
-  { value: "INPERSON", label: "In-person" },
-  { value: "REMOTE", label: "Remote" },
-  { value: "HYBRID", label: "Hybrid" },
-];

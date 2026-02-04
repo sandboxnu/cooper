@@ -25,8 +25,6 @@ import { ReviewCard } from "./review-card";
 import ReviewSearchBar from "./review-search-bar";
 import RoundBarGraph from "./round-bar-graph";
 import type { ReviewType, RoleType } from "@cooper/db/schema";
-import { CompareControls } from "../compare/compare-ui";
-import { useCompare } from "../compare/compare-context";
 
 interface RoleCardProps {
   className?: string;
@@ -54,8 +52,6 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     { id: roleObj.companyId },
     { enabled: !!reviews.data?.[0]?.companyId },
   );
-
-  const compare = useCompare();
 
   // ===== ROLE DATA ===== //
   const companyData = companyQuery.data;
@@ -157,7 +153,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
           />
         </svg>
       )}
-      <div className="flex w-full flex-wrap items-start justify-between py-5 lg:pl-6 lg:pr-6">
+      <div className="flex w-full flex-wrap items-center justify-between py-5 lg:pl-6 lg:pr-6">
         <CardHeader className="mx-0">
           <div className="flex items-center justify-start space-x-4">
             {companyData ? (
@@ -193,34 +189,29 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             </div>
           </div>
         </CardHeader>
-        <div className="flex flex-col items-end mr-6 gap-2">
-          <CardContent className="grid gap-2">
-            {reviews.isSuccess &&
-              reviews.data.length > 0 &&
-              (() => {
-                return (
-                  <div className="align-center flex gap-2 text-cooper-gray-400">
-                    <Image
-                      src="/svg/star.svg"
-                      alt="Star icon"
-                      width={20}
-                      height={20}
-                    />
-                    <div>
-                      {Math.round(
-                        Number(averages.data?.averageOverallRating) * 100,
-                      ) / 100}
-                    </div>
-                    ({reviews.data.length} review
-                    {reviews.data.length !== 1 && "s"})
+        <CardContent className="grid gap-2">
+          {reviews.isSuccess &&
+            reviews.data.length > 0 &&
+            (() => {
+              return (
+                <div className="align-center flex gap-2 text-cooper-gray-400">
+                  <Image
+                    src="/svg/star.svg"
+                    alt="Star icon"
+                    width={20}
+                    height={20}
+                  />
+                  <div>
+                    {Math.round(
+                      Number(averages.data?.averageOverallRating) * 100,
+                    ) / 100}
                   </div>
-                );
-              })()}
-          </CardContent>
-          {!compare.isCompareMode && (
-            <CompareControls anchorRoleId={roleObj.id} />
-          )}
-        </div>
+                  ({reviews.data.length} review
+                  {reviews.data.length !== 1 && "s"})
+                </div>
+              );
+            })()}
+        </CardContent>
       </div>
       <div className="flex w-[100%] justify-between">
         <div className="grid w-full grid-cols-2 gap-5 px-3 lg:pl-6 lg:pr-6">

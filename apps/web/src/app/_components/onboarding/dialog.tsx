@@ -43,7 +43,7 @@ export function OnboardingDialog({
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent
-        className="max-h-[90dvh] max-w-[85dvw] overflow-y-auto rounded-lg p-6 md:max-w-[70dvw] lg:max-w-[46rem] lg:p-8"
+        className="max-h-[90dvh] max-w-[85dvw] overflow-y-scroll rounded-lg p-8 md:max-w-[70dvw] lg:max-w-[46rem] lg:p-12"
         aria-describedby="The form to create a Cooper profile once you have logged in with a husky google account."
       >
         <OnboardingForm

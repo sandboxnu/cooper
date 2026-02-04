@@ -4,10 +4,10 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import type { Session } from "@cooper/auth";
+import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 import { DialogTitle } from "@cooper/ui/dialog";
 import { Form, FormControl, FormField, FormItem } from "@cooper/ui/form";
-import { Checkbox } from "@cooper/ui/checkbox";
 
 import {
   FormLabel,
@@ -40,7 +40,9 @@ const formSchema = z.object({
     .number()
     .min(1, "Graduation month is required")
     .max(12, "Invalid month"),
-  cooped: z.boolean().optional(),
+  cooped: z.boolean({
+    required_error: "Please select whether you've completed a co-op before",
+  }),
 });
 
 export type OnboardingFormType = z.infer<typeof formSchema>;
@@ -99,10 +101,13 @@ export function OnboardingForm({
 
   return (
     <>
-      <DialogTitle className="pb-6 text-left text-lg font-medium ">
-        Let’s get you setup
+      <DialogTitle className="pb-2 text-center text-2xl font-bold">
+        Create a Cooper Account
       </DialogTitle>
       <Form {...form}>
+        <p className="text-gray-500">
+          <span className="text-red-500">* </span>Required
+        </p>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-col space-y-6"
@@ -115,11 +120,7 @@ export function OnboardingForm({
                 <FormItem className="max-w-72">
                   <FormLabel required>First Name</FormLabel>
                   <FormControl>
-                    <Input
-                      placeholder="First"
-                      {...field}
-                      onClear={() => field.onChange("")}
-                    />
+                    <Input placeholder="First" {...field} />
                   </FormControl>
                   <FormMessage className="text-base" />
                 </FormItem>
@@ -132,11 +133,7 @@ export function OnboardingForm({
                 <FormItem className="max-w-72 lg:ml-2">
                   <FormLabel required>Last Name</FormLabel>
                   <FormControl>
-                    <Input
-                      placeholder="Last"
-                      {...field}
-                      onClear={() => field.onChange("")}
-                    />
+                    <Input placeholder="Last" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -147,14 +144,10 @@ export function OnboardingForm({
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="max-w-72">
                 <FormLabel required>Email</FormLabel>
                 <FormControl>
-                  <Input
-                    placeholder="example@husky.neu.edu"
-                    {...field}
-                    onClear={() => field.onChange("")}
-                  />
+                  <Input placeholder="example@example.com" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -165,28 +158,25 @@ export function OnboardingForm({
               control={form.control}
               name="major"
               render={() => (
-                <FormItem>
-                  <FormLabel required>Major</FormLabel>
-                  <FormControl>
-                    <ComboBox
-                      variant="form"
-                      defaultLabel={majorLabel || "Select major..."}
-                      searchPlaceholder="Search major..."
-                      searchEmpty="No major found."
-                      valuesAndLabels={majors.map((major) => ({
-                        value: major,
-                        label: major,
-                      }))}
-                      currLabel={majorLabel}
-                      onSelect={(currentValue) => {
-                        setMajorLabel(
-                          currentValue === majorLabel ? "" : currentValue,
-                        );
-                        form.setValue("major", currentValue);
-                      }}
-                    />
-                  </FormControl>
-                  <FormMessage />
+                <FormItem className="max-w-72">
+                  <FormLabel>Major</FormLabel>
+                  <ComboBox
+                    defaultLabel={majorLabel || "Select major..."}
+                    searchPlaceholder="Search major..."
+                    searchEmpty="No major found."
+                    valuesAndLabels={majors.map((major) => ({
+                      value: major,
+                      label: major,
+                    }))}
+                    currLabel={majorLabel}
+                    onSelect={(currentValue) => {
+                      setMajorLabel(
+                        currentValue === majorLabel ? "" : currentValue,
+                      );
+                      form.setValue("major", currentValue);
+                    }}
+                    triggerClassName="max-w-72"
+                  />
                 </FormItem>
               )}
             />
@@ -195,27 +185,35 @@ export function OnboardingForm({
               control={form.control}
               name="minor"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="max-w-72">
                   <FormLabel>Minor</FormLabel>
                   <FormControl>
-                    <Input
-                      placeholder="Minor"
-                      {...field}
-                      onClear={() => field.onChange("")}
-                    />
+                    <Input placeholder="Minor" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
           </div>
-
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+            <FormField
+              control={form.control}
+              name="graduationYear"
+              render={({ field }) => (
+                <FormItem className="max-w-72">
+                  <FormLabel required>Graduation Year</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Year" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
             <FormField
               control={form.control}
               name="graduationMonth"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="max-w-72">
                   <FormLabel required>Graduation Month</FormLabel>
                   <FormControl>
                     <Select
@@ -229,43 +227,47 @@ export function OnboardingForm({
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name="graduationYear"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel required>Graduation Year</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Year"
-                      {...field}
-                      onClear={() => field.onChange("")}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
           </div>
           <FormField
             control={form.control}
             name="cooped"
             render={({ field }) => (
-              <FormItem className="max-w-72">
+              <FormItem>
+                <FormLabel required>
+                  Have you completed a co-op before?
+                </FormLabel>
                 <FormControl>
-                  <FormItem>
+                  <FormItem className="flex items-center space-x-4">
                     <FormControl>
-                      <div className="flex items-center space-x-2">
-                        <Checkbox
-                          checked={cooped}
-                          onCheckedChange={(checked) => {
-                            setCooped(checked === true);
-                            field.onChange(checked === true);
+                      <div>
+                        <Button
+                          type="button"
+                          variant={cooped === true ? "default" : "outline"}
+                          className={cn(
+                            "mr-0 h-12 rounded-r-none border-2 border-cooper-gray-300 text-lg text-cooper-gray-400 shadow-none ring-offset-background hover:bg-accent hover:text-black focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2",
+                            cooped === true && "bg-cooper-blue-200 text-black",
+                          )}
+                          onClick={() => {
+                            setCooped(true);
+                            field.onChange(true);
                           }}
-                        />
-                        <FormLabel>
-                          I have completed a co-op or internship
-                        </FormLabel>
+                        >
+                          Yes
+                        </Button>
+                        <Button
+                          type="button"
+                          variant={cooped === false ? "default" : "outline"}
+                          className={cn(
+                            "ml-0 h-12 rounded-l-none border-2 border-l-0 border-cooper-gray-300 text-lg text-cooper-gray-400 shadow-none ring-offset-background hover:bg-accent hover:text-black focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2",
+                            cooped === false && "bg-cooper-blue-200 text-black",
+                          )}
+                          onClick={() => {
+                            setCooped(false);
+                            field.onChange(false);
+                          }}
+                        >
+                          No
+                        </Button>
                       </div>
                     </FormControl>
                   </FormItem>
@@ -275,11 +277,8 @@ export function OnboardingForm({
             )}
           />
           <div className="mt-4 flex justify-end">
-            <Button
-              type="submit"
-              className=" bg-cooper-gray-550 border-cooper-gray-550 hover:bg-cooper-gray-300 hover:border-cooper-gray-300 px-3.5 py-2 text-base font-bold"
-            >
-              Finish
+            <Button type="submit" className="w-24">
+              Next
             </Button>
           </div>
         </form>

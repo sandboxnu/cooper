@@ -1,23 +1,37 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { api } from "~/trpc/react";
 
-import { industryOptions, jobTypeOptions } from "../onboarding/constants";
+import { industryOptions } from "../onboarding/constants";
 import DropdownFilter from "./dropdown-filter";
-import type { LocationType } from "@cooper/db/schema";
-import type { FilterState } from "./types";
-import { prettyLocationName } from "~/utils/locationHelpers";
+import { abbreviatedStateName } from "~/utils/locationHelpers";
+
+interface FilterState {
+  industries: string[];
+  locations: string[];
+  jobTypes: string[];
+  hourlyPay: { min: number; max: number };
+  ratings: string[];
+}
 
 interface DropdownFiltersBarProps {
-  filters: FilterState;
   onFilterChange: (filters: FilterState) => void;
+  jobTypes?: { id: string; label: string }[];
 }
 
 export default function DropdownFiltersBar({
-  filters,
   onFilterChange,
+  jobTypes = [],
 }: DropdownFiltersBarProps) {
+  const [filters, setFilters] = useState<FilterState>({
+    industries: [],
+    locations: [],
+    jobTypes: [],
+    hourlyPay: { min: 0, max: 0 },
+    ratings: [],
+  });
+
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [prefix, setPrefix] = useState<string>("");
 
@@ -29,7 +43,7 @@ export default function DropdownFiltersBar({
     }
   }, [prefix, searchTerm]);
 
-  const locationsToUpdate = api.location.getByPopularity.useQuery(
+  const locationsToUpdate = api.location.getByPrefix.useQuery(
     { prefix },
     { enabled: searchTerm.length === 3 && prefix.length === 3 },
   );
@@ -42,60 +56,34 @@ export default function DropdownFiltersBar({
       ...filters,
       [key]: value,
     };
+    setFilters(newFilters);
     onFilterChange(newFilters);
   };
 
-  // fetch each selected location so we can show labels immediately
-  //this small part is like completely vibecoded btw :skull:
-  const selectedLocationQueries = api.useQueries((t) =>
-    filters.locations.map((id) =>
-      t.location.getById(
-        { id },
-        {
-          enabled: !!id,
-        },
-      ),
-    ),
-  );
-
-  const selectedLocations = selectedLocationQueries
-    .map((q) => q.data)
-    .filter((loc): loc is LocationType => Boolean(loc));
-
   // Industry options from your schema
-  const industryOptionsWithId = Object.entries(industryOptions)
-    .map(([_value, label]) => ({
+  const industryOptionsWithId = Object.entries(industryOptions).map(
+    ([_value, label]) => ({
       id: label.value,
       label: label.label,
       value: label.value,
-    }))
-    .sort((a, b) => a.label.localeCompare(b.label));
+    }),
+  );
 
-  const locationOptions = useMemo(() => {
-    const fromSelected = selectedLocations.map((loc) => ({
-      id: loc.id,
-      label: prettyLocationName(loc),
-    }));
-
-    const fromPrefix =
-      locationsToUpdate.data?.map((loc) => ({
+  // Location options
+  const locationOptions = locationsToUpdate.data
+    ? locationsToUpdate.data.map((loc) => ({
         id: loc.id,
-        label: prettyLocationName(loc),
-      })) ?? [];
+        label: `${loc.city}${loc.state ? `, ${abbreviatedStateName(loc.state)}` : ""}`,
+      }))
+    : [];
 
-    // merge + dedupe by id
-    const map = new Map<string, { id: string; label: string }>();
-    for (const opt of [...fromSelected, ...fromPrefix]) map.set(opt.id, opt);
-
-    return Array.from(map.values());
-  }, [selectedLocations, locationsToUpdate.data]);
-
-  // Job type options
-  const jobTypeOptionsWithId = jobTypeOptions.map((jobType) => ({
-    id: jobType.value,
-    label: jobType.label,
-    value: jobType.value,
-  }));
+  // Job type options - you'll need to define these based on your schema
+  const jobTypeOptions = jobTypes.length
+    ? jobTypes
+    : [
+        { id: "Co-op", label: "Co-op" },
+        { id: "Internship", label: "Internship" },
+      ];
 
   return (
     <div className="flex gap-2">
@@ -123,7 +111,7 @@ export default function DropdownFiltersBar({
       <DropdownFilter
         title="Job type"
         filterType="checkbox"
-        options={jobTypeOptionsWithId}
+        options={jobTypeOptions}
         selectedOptions={filters.jobTypes}
         onSelectionChange={(selected) =>
           handleFilterChange("jobTypes", selected)
@@ -139,8 +127,6 @@ export default function DropdownFiltersBar({
           handleFilterChange("hourlyPay", { min, max })
         }
         placeholder="Select range"
-        minValue={filters.hourlyPay.min}
-        maxValue={filters.hourlyPay.max}
       />
 
       <DropdownFilter

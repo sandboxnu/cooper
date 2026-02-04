@@ -54,7 +54,7 @@ export default function ComboBox({
 
   const styleVariant =
     variant === "form"
-      ? "flex h-16 w-full rounded-lg border border-cooper-gray-150 bg-white px-3 py-2 text-xl font-normal ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+      ? "flex h-16 w-full rounded-lg border-2 border-cooper-gray-150 bg-white px-3 py-2 text-xl font-normal ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
       : variant === "filtering"
         ? "w-36 md:w-[21rem] h-10 lg:h-12 border-cooper-gray-400 text-lg placeholder:opacity-50 focus:ring-0 active:ring-0 rounded-lg border-[0.75px] py-0"
         : "h-8 py-0";
@@ -100,13 +100,13 @@ export default function ComboBox({
                   e.stopPropagation();
                   onClear();
                 }}
-                className="pointer-events-auto flex items-center justify-center rounded-sm opacity-60 ring-offset-background transition-opacity hover:opacity-80 focus:outline-none"
+                className="pointer-events-auto flex items-center justify-center rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none"
                 aria-label="Clear selection"
               >
                 <X className="h-4 w-4" />
               </button>
             )}
-            <ChevronDown className="h-6 w-6 shrink-0 opacity-50" />
+            <ChevronDown className="h-4 w-4 shrink-0 opacity-50" />
           </div>
         </Button>
       </PopoverTrigger>

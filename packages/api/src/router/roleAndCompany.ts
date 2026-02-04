@@ -35,9 +35,6 @@ export const roleAndCompanyRouter = {
             minPay: z.number().optional(),
             maxPay: z.number().optional(),
             ratings: z.array(z.string()).optional(),
-            workModels: z.array(z.string()).optional(),
-            overtimeWork: z.boolean().optional(),
-            companyCulture: z.array(z.string()).optional(),
           })
           .optional(),
       }),
@@ -143,14 +140,6 @@ export const roleAndCompanyRouter = {
         Array.isArray(filters.locations) && filters.locations.length > 0;
       const ratingsFilterActive =
         Array.isArray(filters.ratings) && filters.ratings.length > 0;
-      const jobTypeFilterActive =
-        Array.isArray(filters.jobTypes) && filters.jobTypes.length > 0;
-      const overtimeWorkFilterActive = filters.overtimeWork === true;
-      const companyCultureFilterActive =
-        Array.isArray(filters.companyCulture) &&
-        filters.companyCulture.length > 0;
-      const workModelsFilterActive =
-        Array.isArray(filters.workModels) && filters.workModels.length > 0;
 
       // Build company -> location mapping if location filter is active
       const companyLocationsMap = new Map<string, string[]>();
@@ -171,31 +160,11 @@ export const roleAndCompanyRouter = {
         }
       }
 
-      // Build company -> job types mapping if job type filter is active
-      const companyJobTypesMap = new Map<string, string[]>();
-      if (jobTypeFilterActive) {
-        for (const role of roles) {
-          const cid = role.companyId;
-          const jobType = role.jobType;
-          const arr = companyJobTypesMap.get(cid) ?? [];
-          if (!arr.includes(jobType)) {
-            arr.push(jobType);
-          }
-          companyJobTypesMap.set(cid, arr);
-        }
-      }
-
       // Build average hourly pay maps for roles and companies so we can filter by pay range
       const roleAvgPayMap = new Map<string, number>();
       const companyAvgPayMap = new Map<string, number>();
       const roleAvgRatingMap = new Map<string, number>();
       const companyAvgRatingMap = new Map<string, number>();
-      const roleAvgCultureRatingMap = new Map<string, number>();
-      const companyAvgCultureRatingMap = new Map<string, number>();
-      const roleOvertimePercentMap = new Map<string, number>();
-      const companyOvertimePercentMap = new Map<string, number>();
-      const roleWorkModelsMap = new Map<string, string[]>();
-      const companyWorkModelsMap = new Map<string, string[]>();
 
       // prepare id lists
       const roleIds = roles.map((r) => r.id);
@@ -234,71 +203,6 @@ export const roleAndCompanyRouter = {
         for (const row of rolesWithAvgRating.rows) {
           roleAvgRatingMap.set(String(row.id), Number(row.avg_rating ?? 0));
         }
-
-        const rolesWithAvgCultureRating = await ctx.db.execute(sql`
-          SELECT
-            ${Role.id} AS id,
-            COALESCE(AVG(${Review.cultureRating}::float), 0) AS avg_culture_rating
-          FROM ${Role}
-          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
-          WHERE ${Role.id} IN (${sql.join(
-            roleIds.map((id) => sql`${id}`),
-            sql`,`,
-          )})
-          GROUP BY ${Role.id}
-        `);
-
-        for (const row of rolesWithAvgCultureRating.rows) {
-          roleAvgCultureRatingMap.set(
-            String(row.id),
-            Number(row.avg_culture_rating ?? 0),
-          );
-        }
-
-        const rolesWithOvertimePercent = await ctx.db.execute(sql`
-          SELECT
-            ${Role.id} AS id,
-            COALESCE(
-              SUM(CASE WHEN ${Review.overtimeNormal} = true THEN 1 ELSE 0 END)::float / 
-              NULLIF(COUNT(${Review.id})::float, 0),
-              0
-            ) AS overtime_percent
-          FROM ${Role}
-          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
-          WHERE ${Role.id} IN (${sql.join(
-            roleIds.map((id) => sql`${id}`),
-            sql`,`,
-          )})
-          GROUP BY ${Role.id}
-        `);
-
-        for (const row of rolesWithOvertimePercent.rows) {
-          roleOvertimePercentMap.set(
-            String(row.id),
-            Number(row.overtime_percent ?? 0),
-          );
-        }
-
-        const rolesWithWorkModels = await ctx.db.execute(sql`
-          SELECT
-            ${Role.id} AS id,
-            array_agg(DISTINCT ${Review.workEnvironment}) as work_models
-          FROM ${Role}
-          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
-          WHERE ${Role.id} IN (${sql.join(
-            roleIds.map((id) => sql`${id}`),
-            sql`,`,
-          )})
-          GROUP BY ${Role.id}
-        `);
-
-        for (const row of rolesWithWorkModels.rows) {
-          const models = (row.work_models as (string | null)[] | null) ?? [];
-          roleWorkModelsMap.set(
-            String(row.id),
-            models.filter((m) => m !== null),
-          );
-        }
       }
 
       if (companyIds.length > 0) {
@@ -336,82 +240,12 @@ export const roleAndCompanyRouter = {
         for (const row of companiesWithAvgRating.rows) {
           companyAvgRatingMap.set(String(row.id), Number(row.avg_rating ?? 0));
         }
-
-        const companiesWithAvgCultureRating = await ctx.db.execute(sql`
-          SELECT
-            ${Company.id} AS id,
-            COALESCE(AVG(${Review.cultureRating}::float), 0) AS avg_culture_rating
-          FROM ${Company}
-          LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
-          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
-          WHERE ${Company.id} IN (${sql.join(
-            companyIds.map((id) => sql`${id}`),
-            sql`,`,
-          )})
-          GROUP BY ${Company.id}
-        `);
-
-        for (const row of companiesWithAvgCultureRating.rows) {
-          companyAvgCultureRatingMap.set(
-            String(row.id),
-            Number(row.avg_culture_rating ?? 0),
-          );
-        }
-
-        const companiesWithOvertimePercent = await ctx.db.execute(sql`
-          SELECT
-            ${Company.id} AS id,
-            COALESCE(
-              SUM(CASE WHEN ${Review.overtimeNormal} = true THEN 1 ELSE 0 END)::float / 
-              NULLIF(COUNT(${Review.id})::float, 0),
-              0
-            ) AS overtime_percent
-          FROM ${Company}
-          LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
-          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
-          WHERE ${Company.id} IN (${sql.join(
-            companyIds.map((id) => sql`${id}`),
-            sql`,`,
-          )})
-          GROUP BY ${Company.id}
-        `);
-
-        for (const row of companiesWithOvertimePercent.rows) {
-          companyOvertimePercentMap.set(
-            String(row.id),
-            Number(row.overtime_percent ?? 0),
-          );
-        }
-
-        const companiesWithWorkModels = await ctx.db.execute(sql`
-          SELECT
-            ${Company.id} AS id,
-            array_agg(DISTINCT ${Review.workEnvironment}) as work_models
-          FROM ${Company}
-          LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
-          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
-          WHERE ${Company.id} IN (${sql.join(
-            companyIds.map((id) => sql`${id}`),
-            sql`,`,
-          )})
-          GROUP BY ${Company.id}
-        `);
-
-        for (const row of companiesWithWorkModels.rows) {
-          const models = (row.work_models as (string | null)[] | null) ?? [];
-          companyWorkModelsMap.set(
-            String(row.id),
-            models.filter((m) => m !== null),
-          );
-        }
       }
 
       // Apply all filters EXCEPT the `type` selector to produce baseFilteredItems
       const baseFilteredItems = combinedItems.filter((item) => {
         const allowedIndustries = filters.industries ?? [];
         const allowedLocations = filters.locations ?? [];
-        const allowedJobTypes = filters.jobTypes ?? [];
-
         const industryOk = industryFilterActive
           ? item.type === "company"
             ? allowedIndustries.includes((item as CompanyType).industry)
@@ -433,18 +267,6 @@ export const roleAndCompanyRouter = {
               const roleCompanyId = (item as RoleType).companyId;
               const mapped = companyLocationsMap.get(roleCompanyId) ?? [];
               return mapped.some((lid) => allowedLocations.includes(lid));
-            })()
-          : true;
-
-        const jobTypeOk = jobTypeFilterActive
-          ? (() => {
-              if (item.type === "role") {
-                return allowedJobTypes.includes((item as RoleType).jobType);
-              }
-              // For companies, check if any of their roles match the job type filter
-              const cid = (item as CompanyType).id;
-              const jobTypes = companyJobTypesMap.get(cid) ?? [];
-              return jobTypes.some((jt) => allowedJobTypes.includes(jt));
             })()
           : true;
 
@@ -475,62 +297,10 @@ export const roleAndCompanyRouter = {
               ? (companyAvgRatingMap.get((item as CompanyType).id) ?? 0)
               : (roleAvgRatingMap.get((item as RoleType).id) ?? 0);
 
-          //if ratings is length 1, filter by that rating and above
-          return allowed.length === 1
-            ? allowed.some((n) => avg >= n)
-            : allowed.some((n) => avg >= n && avg <= n + 0.9);
+          return allowed.some((n) => avg >= n && avg <= n + 0.9);
         })();
 
-        const overtimeOk = (() => {
-          if (!overtimeWorkFilterActive) return true;
-          // If true, show roles where >50% of reviews say overtime is normal
-          const percent =
-            item.type === "company"
-              ? (companyOvertimePercentMap.get((item as CompanyType).id) ?? 0)
-              : (roleOvertimePercentMap.get((item as RoleType).id) ?? 0);
-          return percent > 0.5;
-        })();
-
-        const companyCultureOk = (() => {
-          if (!companyCultureFilterActive) return true;
-          const allowed = (filters.companyCulture ?? [])
-            .map((s) => Number(s))
-            .filter((n) => Number.isFinite(n));
-
-          const avg =
-            item.type === "company"
-              ? (companyAvgCultureRatingMap.get((item as CompanyType).id) ?? 0)
-              : (roleAvgCultureRatingMap.get((item as RoleType).id) ?? 0);
-
-          //if culture ratings is length 1, filter by that rating and above
-          return allowed.length === 1
-            ? allowed.some((n) => avg >= n)
-            : allowed.some((n) => avg >= n && avg <= n + 0.9);
-        })();
-
-        const workModelsOk = (() => {
-          if (!workModelsFilterActive) return true;
-          const allowedModels = filters.workModels ?? [];
-
-          const itemModels =
-            item.type === "company"
-              ? (companyWorkModelsMap.get((item as CompanyType).id) ?? [])
-              : (roleWorkModelsMap.get((item as RoleType).id) ?? []);
-
-          // Item passes if any of its work models match the filter
-          return itemModels.some((model) => allowedModels.includes(model));
-        })();
-
-        return (
-          industryOk &&
-          locationOk &&
-          jobTypeOk &&
-          payOk &&
-          ratingOk &&
-          overtimeOk &&
-          companyCultureOk &&
-          workModelsOk
-        );
+        return industryOk && locationOk && payOk && ratingOk;
       });
 
       const fuseOptions = ["title", "description", "companyName", "name"];
