@@ -48,7 +48,7 @@ function Wrapper({
   children,
   defaultValues = {},
 }: {
-  children: (form: ReturnType<typeof useForm>) => React.ReactNode;
+  children: (form: unknown) => React.ReactNode;
   defaultValues?: Record<string, unknown>;
 }) {
   const form = useForm({
@@ -69,7 +69,7 @@ describe("LocationBox", () => {
         {(form) => (
           <LocationBox
             searchBar={false}
-            form={form}
+            form={form as never}
             locationLabel=""
             setSearchTerm={vi.fn()}
             locationValuesAndLabels={[]}
@@ -90,7 +90,7 @@ describe("LocationBox", () => {
         {(form) => (
           <LocationBox
             searchBar
-            form={form}
+            form={form as never}
             locationLabel=""
             setSearchTerm={vi.fn()}
             locationValuesAndLabels={[]}
@@ -108,11 +108,11 @@ describe("LocationBox", () => {
     render(
       <Wrapper>
         {(form) => {
-          formRef = form;
+          formRef = form as ReturnType<typeof useForm>;
           return (
             <LocationBox
               searchBar={false}
-              form={form}
+              form={form as never}
               locationLabel=""
               setSearchTerm={vi.fn()}
               locationValuesAndLabels={[
@@ -137,7 +137,7 @@ describe("LocationBox", () => {
         {(form) => (
           <LocationBox
             searchBar={false}
-            form={form}
+            form={form as never}
             locationLabel=""
             setSearchTerm={setSearchTerm}
             locationValuesAndLabels={[]}
@@ -158,7 +158,7 @@ describe("LocationBox", () => {
         {(form) => (
           <LocationBox
             searchBar={false}
-            form={form}
+            form={form as never}
             locationLabel="Boston"
             setSearchTerm={vi.fn()}
             locationValuesAndLabels={[]}

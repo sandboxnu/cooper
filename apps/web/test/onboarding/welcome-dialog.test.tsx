@@ -10,7 +10,7 @@ vi.mock("next/image", () => ({
 }));
 
 describe("WelcomeDialog", () => {
-  const onClick = vi.fn<void[], void>();
+  const onClick = vi.fn();
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-call -- vitest beforeEach callback with mocks
   beforeEach(() => {

@@ -56,7 +56,7 @@ describe("ReviewSearchBar (search)", () => {
         <ReviewSearchBar />
       </Wrapper>,
     );
-    expect(screen.getByRole("button", { type: "submit" })).toBeInTheDocument();
+    expect(screen.getByRole("button")).toBeInTheDocument();
   });
 
   test("uses cycle and term as initial values when provided", () => {

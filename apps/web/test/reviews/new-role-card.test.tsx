@@ -2,7 +2,9 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 import NewRoleCard from "~/app/_components/reviews/new-role-card";
 
-const mockUseQuery = vi.fn(() => ({ data: null }));
+const mockUseQuery = vi.fn(() => ({
+  data: null as { session: { user: unknown } } | null,
+}));
 vi.mock("~/trpc/react", () => ({
   api: {
     auth: {

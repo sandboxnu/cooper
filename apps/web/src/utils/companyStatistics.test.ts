@@ -54,7 +54,7 @@ describe("companyStatistics", () => {
       const result = calculateWorkModels([
         { workEnvironment: "REMOTE" } as never,
       ]);
-      expect(result[0].name).toBe("Remote");
+      expect(result[0]?.name).toBe("Remote");
     });
   });
 
@@ -120,8 +120,8 @@ describe("companyStatistics", () => {
       }[];
       const result = calculatePayRange(reviews);
       expect(result).toHaveLength(2);
-      expect(result[0].label).toBe("Low");
-      expect(result[1].label).toBe("Mid");
+      expect(result[0]?.label).toBe("Low");
+      expect(result[1]?.label).toBe("Mid");
     });
   });
 });

@@ -3,7 +3,7 @@ import { fireEvent } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 import SearchFilter from "~/app/_components/search/search-filter";
 
-const mockPush = vi.fn<void[], void>();
+const mockPush = vi.fn();
 vi.mock("next/navigation", () => ({
   useRouter: () => ({ push: mockPush }),
   usePathname: () => "/roles",

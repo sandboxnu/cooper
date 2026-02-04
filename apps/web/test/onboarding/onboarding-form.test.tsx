@@ -17,8 +17,8 @@ function OnboardingDialogWrapper(
   );
 }
 
-const mockCloseDialog = vi.fn<void[], void>();
-const mockMutate = vi.fn<void[], void>();
+const mockCloseDialog = vi.fn();
+const mockMutate = vi.fn();
 let mockProfileIsSuccess = false;
 
 vi.mock("~/trpc/react", () => ({

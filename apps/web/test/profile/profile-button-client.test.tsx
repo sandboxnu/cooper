@@ -49,7 +49,7 @@ describe("ProfileButtonClient", () => {
       name: "Test User",
       image: "/custom-avatar.png",
     },
-    session: {},
+    expires: "",
   };
 
   test("renders profile image with session user image", () => {

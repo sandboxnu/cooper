@@ -141,6 +141,7 @@ describe("ExistingCompanyContent", () => {
       checkboxes.find((el) =>
         el.closest("div")?.textContent?.includes("I don't see my company"),
       ) ?? checkboxes[0];
+    if (!companyCheckbox) throw new Error("company checkbox not found");
     fireEvent.click(companyCheckbox);
     expect(screen.getByText("Add Your Company")).toBeInTheDocument();
     expect(

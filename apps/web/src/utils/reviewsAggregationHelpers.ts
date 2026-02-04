@@ -1,7 +1,19 @@
 import type { ReviewType, WorkEnvironmentType } from "@cooper/db/schema";
 
+type WorkEnvironmentReview = Pick<ReviewType, "workEnvironment">;
+type RatingReview = Pick<ReviewType, "overallRating">;
+type BenefitsReview = Pick<
+  ReviewType,
+  | "pto"
+  | "federalHolidays"
+  | "freeLunch"
+  | "travelBenefits"
+  | "freeMerch"
+  | "snackBar"
+>;
+
 export function mostCommonWorkEnviornment(
-  reviews: ReviewType[],
+  reviews: WorkEnvironmentReview[],
 ): "In Person" | "Hybrid" | "Remote" {
   const counts = {
     INPERSON: 0,
@@ -20,14 +32,14 @@ export function mostCommonWorkEnviornment(
   return "Remote";
 }
 
-export function averageStarRating(reviews: ReviewType[]): number {
+export function averageStarRating(reviews: RatingReview[]): number {
   const totalStars = reviews.reduce((accum, curr) => {
     return accum + curr.overallRating;
   }, 0);
   return totalStars / reviews.length;
 }
 
-export function listBenefits(reviewObj: ReviewType): string[] {
+export function listBenefits(reviewObj: BenefitsReview): string[] {
   const benefits: string[] = [];
   if (reviewObj.pto) benefits.push("Paid Time Off");
   if (reviewObj.federalHolidays) benefits.push("Federal Holidays Off");

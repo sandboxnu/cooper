@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 import ProfileTabs from "~/app/_components/profile/profile-tabs";
 
-const mockPush = vi.fn<void[], void>();
+const mockPush = vi.fn();
 vi.mock("next/navigation", () => ({
   usePathname: () => "/profile",
   useRouter: () => ({ push: mockPush }),

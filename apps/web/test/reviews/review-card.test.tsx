@@ -9,8 +9,12 @@ vi.mock("next/image", () => ({
   ),
 }));
 
-const mockGetById = vi.fn(() => ({ data: null }));
-const mockCurrentUser = vi.fn(() => ({ data: null }));
+const mockGetById = vi.fn(() => ({
+  data: null as { city: string; state: string; country: string } | null,
+}));
+const mockCurrentUser = vi.fn(() => ({
+  data: null as { id: string } | null,
+}));
 vi.mock("~/trpc/react", () => ({
   api: {
     profile: {

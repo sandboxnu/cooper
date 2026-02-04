@@ -10,12 +10,12 @@ const mockCompare = {
   comparedRoleIds: [] as string[],
   reservedSlots: 0,
   maxColumns: 3,
-  enterCompareMode: vi.fn<void[], void>(),
-  exitCompareMode: vi.fn<void[], void>(),
+  enterCompareMode: vi.fn(),
+  exitCompareMode: vi.fn(),
   addRoleId: vi.fn(),
   removeRoleId: vi.fn(),
-  addSlot: vi.fn<void[], void>(),
-  clear: vi.fn<void[], void>(),
+  addSlot: vi.fn(),
+  clear: vi.fn(),
 };
 
 vi.mock("~/app/_components/compare/compare-context", () => ({
