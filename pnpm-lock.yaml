@@ -38,10 +38,6 @@ catalogs:
 importers:
 
   .:
-    dependencies:
-      '@vitejs/plugin-react':
-        specifier: ^5.1.2
-        version: 5.1.2(vite@5.4.8(@types/node@20.16.5)(terser@5.31.6))
     devDependencies:
       '@cooper/prettier-config':
         specifier: workspace:*
@@ -49,6 +45,9 @@ importers:
       '@turbo/gen':
         specifier: ^2.1.1
         version: 2.1.1(@types/node@20.16.5)(typescript@5.5.4)
+      '@vitejs/plugin-react':
+        specifier: ^5.1.2
+        version: 5.1.2(vite@5.4.8(@types/node@20.16.5)(terser@5.31.6))
       '@vitest/coverage-v8':
         specifier: ^2.1.9
         version: 2.1.9(vitest@2.1.9(@types/node@20.16.5)(@vitest/ui@2.1.2)(jsdom@25.0.1(bufferutil@4.0.8)(utf-8-validate@6.0.4))(terser@5.31.6))
@@ -188,13 +187,13 @@ importers:
         version: 7.0.0
       geist:
         specifier: ^1.3.0
-        version: 1.3.1(next@14.2.35(@babel/core@7.29.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+        version: 1.3.1(next@14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       lucide-react:
         specifier: ^0.436.0
         version: 0.436.0(react@18.3.1)
       next:
         specifier: ^14.2.35
-        version: 14.2.35(@babel/core@7.29.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: catalog:react18
         version: 18.3.1
@@ -331,10 +330,10 @@ importers:
         version: 0.10.1(typescript@5.5.4)(zod@3.23.8)
       next:
         specifier: ^14.2.35
-        version: 14.2.35(@babel/core@7.29.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-auth:
         specifier: 5.0.0-beta.19
-        version: 5.0.0-beta.19(next@14.2.35(@babel/core@7.29.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+        version: 5.0.0-beta.19(next@14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       react:
         specifier: catalog:react18
         version: 18.3.1
@@ -409,6 +408,9 @@ importers:
       typescript:
         specifier: 'catalog:'
         version: 5.5.4
+      vitest:
+        specifier: 'catalog:'
+        version: 2.1.9(@types/node@20.16.5)(@vitest/ui@2.1.2)(jsdom@25.0.1(bufferutil@4.0.8)(utf-8-validate@6.0.4))(terser@5.31.6)
 
   packages/scraper:
     dependencies:
@@ -513,6 +515,9 @@ importers:
       '@types/react':
         specifier: catalog:react18
         version: 18.3.3
+      '@vitejs/plugin-react':
+        specifier: ^5.1.2
+        version: 5.1.2(vite@5.4.8(@types/node@20.16.5)(terser@5.31.6))
       eslint:
         specifier: 'catalog:'
         version: 9.7.0
@@ -534,6 +539,9 @@ importers:
       typescript:
         specifier: 'catalog:'
         version: 5.5.4
+      vite:
+        specifier: ^5.4.8
+        version: 5.4.8(@types/node@20.16.5)(terser@5.31.6)
       vitest:
         specifier: 'catalog:'
         version: 2.1.9(@types/node@20.16.5)(@vitest/ui@2.1.2)(jsdom@25.0.1(bufferutil@4.0.8)(utf-8-validate@6.0.4))(terser@5.31.6)
@@ -10433,7 +10441,7 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.7
       chalk: 2.4.2
       js-tokens: 4.0.0
-      picocolors: 1.1.0
+      picocolors: 1.1.1
 
   '@babel/parser@7.24.8':
     dependencies:
@@ -16186,9 +16194,9 @@ snapshots:
       strip-ansi: 6.0.1
       wide-align: 1.1.5
 
-  geist@1.3.1(next@14.2.35(@babel/core@7.29.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
+  geist@1.3.1(next@14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
     dependencies:
-      next: 14.2.35(@babel/core@7.29.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next: 14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
   gensync@1.0.0-beta.2: {}
 
@@ -18011,10 +18019,10 @@ snapshots:
 
   netmask@2.0.2: {}
 
-  next-auth@5.0.0-beta.19(next@14.2.35(@babel/core@7.29.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1):
+  next-auth@5.0.0-beta.19(next@14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1):
     dependencies:
       '@auth/core': 0.32.0
-      next: 14.2.35(@babel/core@7.29.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next: 14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
 
   next-themes@0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
@@ -18022,7 +18030,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  next@14.2.35(@babel/core@7.29.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  next@14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@next/env': 14.2.35
       '@swc/helpers': 0.5.5
@@ -18032,7 +18040,7 @@ snapshots:
       postcss: 8.4.31
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      styled-jsx: 5.1.1(@babel/core@7.29.0)(react@18.3.1)
+      styled-jsx: 5.1.1(react@18.3.1)
     optionalDependencies:
       '@next/swc-darwin-arm64': 14.2.33
       '@next/swc-darwin-x64': 14.2.33
@@ -18835,7 +18843,7 @@ snapshots:
   postcss@8.4.47:
     dependencies:
       nanoid: 3.3.7
-      picocolors: 1.1.0
+      picocolors: 1.1.1
       source-map-js: 1.2.1
 
   postgres-array@3.0.2: {}
@@ -19958,12 +19966,10 @@ snapshots:
     dependencies:
       inline-style-parser: 0.2.3
 
-  styled-jsx@5.1.1(@babel/core@7.29.0)(react@18.3.1):
+  styled-jsx@5.1.1(react@18.3.1):
     dependencies:
       client-only: 0.0.1
       react: 18.3.1
-    optionalDependencies:
-      '@babel/core': 7.29.0
 
   stylehacks@6.1.1(postcss@8.4.39):
     dependencies:
@@ -20482,13 +20488,13 @@ snapshots:
     dependencies:
       browserslist: 4.23.2
       escalade: 3.1.2
-      picocolors: 1.1.0
+      picocolors: 1.1.1
 
   update-browserslist-db@1.1.0(browserslist@4.23.3):
     dependencies:
       browserslist: 4.23.3
       escalade: 3.1.2
-      picocolors: 1.1.0
+      picocolors: 1.1.1
 
   update-browserslist-db@1.2.3(browserslist@4.28.1):
     dependencies:
