@@ -73,7 +73,7 @@ export function PaySection() {
         name="hourlyPay"
         render={({ field }) => (
           <FormItem className="rounded-md flex flex-col w-full">
-            <FormLabel className="text-sm font-bold block text-cooper-gray-550 ">
+            <FormLabel className="text-sm font-bold block text-cooper-gray-400 ">
               Hourly pay<span className="text-[#FB7373]">*</span>
             </FormLabel>
             <FormControl>
@@ -89,7 +89,7 @@ export function PaySection() {
                   onClick={() => setIsUnpaid(!isUnpaid)}
                 >
                   <Checkbox checked={isUnpaid} />
-                  <span className="text-xs text-cooper-gray-400">
+                  <span className="text-sm text-cooper-gray-400">
                     Unpaid position
                   </span>
                 </div>
