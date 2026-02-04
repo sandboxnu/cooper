@@ -15,8 +15,8 @@ describe("use-toast reducer", () => {
     };
     const next = reducer(state, action);
     expect(next.toasts).toHaveLength(1);
-    expect(next.toasts[0].id).toBe("1");
-    expect(next.toasts[0].description).toBe("Test");
+    expect(next.toasts[0]?.id).toBe("1");
+    expect(next.toasts[0]?.description).toBe("Test");
   });
 
   test("ADD_TOAST respects TOAST_LIMIT of 1", () => {
@@ -29,7 +29,7 @@ describe("use-toast reducer", () => {
     };
     const next = reducer(state, action);
     expect(next.toasts).toHaveLength(1);
-    expect(next.toasts[0].id).toBe("2");
+    expect(next.toasts[0]?.id).toBe("2");
   });
 
   test("UPDATE_TOAST updates existing toast", () => {
@@ -41,7 +41,7 @@ describe("use-toast reducer", () => {
       toast: { id: "1", description: "New" },
     };
     const next = reducer(state, action);
-    expect(next.toasts[0].description).toBe("New");
+    expect(next.toasts[0]?.description).toBe("New");
   });
 
   test("DISMISS_TOAST sets open to false", () => {
@@ -53,7 +53,7 @@ describe("use-toast reducer", () => {
       toastId: "1",
     };
     const next = reducer(state, action);
-    expect(next.toasts[0].open).toBe(false);
+    expect(next.toasts[0]?.open).toBe(false);
   });
 
   test("REMOVE_TOAST removes toast by id", () => {
@@ -69,7 +69,7 @@ describe("use-toast reducer", () => {
     };
     const next = reducer(state, action);
     expect(next.toasts).toHaveLength(1);
-    expect(next.toasts[0].id).toBe("1");
+    expect(next.toasts[0]?.id).toBe("1");
   });
 
   test("REMOVE_TOAST with undefined clears all", () => {
