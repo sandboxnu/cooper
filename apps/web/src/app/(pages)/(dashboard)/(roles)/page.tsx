@@ -31,7 +31,7 @@ import SearchFilter from "~/app/_components/search/search-filter";
 import SidebarFilter from "~/app/_components/filters/sidebar-filter";
 import { api } from "~/trpc/react";
 import RoleTypeSelector from "~/app/_components/filters/role-type-selector";
-import { FilterState } from "~/app/_components/filters/types";
+import type { FilterState } from "~/app/_components/filters/types";
 
 // Helper function to create URL-friendly slugs (still needed for URL generation)
 const createSlug = (text: string): string => {
