@@ -4,6 +4,7 @@ import {
   calculatePayRange,
   calculateWorkModels,
 } from "./companyStatistics";
+import { ReviewType } from "@cooper/db/schema";
 
 describe("companyStatistics", () => {
   const mockReviews = [
@@ -23,7 +24,7 @@ describe("companyStatistics", () => {
       workEnvironment: "INPERSON",
       hourlyPay: "20",
     },
-  ] as { workEnvironment: string; hourlyPay: string | null }[];
+  ] as ReviewType[];
 
   describe("calculateWorkModels", () => {
     test("returns empty array for no reviews", () => {
@@ -106,7 +107,7 @@ describe("companyStatistics", () => {
         { hourlyPay: "10" },
         { hourlyPay: "20" },
         { hourlyPay: "30" },
-      ] as { hourlyPay: string | null }[];
+      ] as ReviewType[];
       const result = calculatePayRange(reviews);
       expect(result).toHaveLength(3);
       expect(result[0]).toMatchObject({ label: "Low", min: 10 });
@@ -115,9 +116,10 @@ describe("companyStatistics", () => {
     });
 
     test("returns Low and Mid ranges when fewer than 3 unique pays", () => {
-      const reviews = [{ hourlyPay: "15" }, { hourlyPay: "25" }] as {
-        hourlyPay: string | null;
-      }[];
+      const reviews = [
+        { hourlyPay: "15" },
+        { hourlyPay: "25" },
+      ] as ReviewType[];
       const result = calculatePayRange(reviews);
       expect(result).toHaveLength(2);
       expect(result[0]?.label).toBe("Low");

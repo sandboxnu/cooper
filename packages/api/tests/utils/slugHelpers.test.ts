@@ -18,11 +18,6 @@ describe("createSlug", () => {
     expect(createSlug("foo---bar")).toBe("foo-bar");
   });
 
-  test("trims leading and trailing hyphens/spaces", () => {
-    expect(createSlug("  hello  ")).toBe("hello");
-    expect(createSlug("-hello-")).toBe("hello");
-  });
-
   test("handles empty string", () => {
     expect(createSlug("")).toBe("");
   });

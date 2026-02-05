@@ -4,6 +4,7 @@ import {
   listBenefits,
   mostCommonWorkEnviornment,
 } from "./reviewsAggregationHelpers";
+import { ReviewType } from "@cooper/db/schema";
 
 describe("reviewsAggregationHelpers", () => {
   describe("mostCommonWorkEnviornment", () => {
@@ -12,7 +13,7 @@ describe("reviewsAggregationHelpers", () => {
         { workEnvironment: "INPERSON" },
         { workEnvironment: "INPERSON" },
         { workEnvironment: "REMOTE" },
-      ] as { workEnvironment: string }[];
+      ] as ReviewType[];
       expect(mostCommonWorkEnviornment(reviews)).toBe("In Person");
     });
 
@@ -21,7 +22,7 @@ describe("reviewsAggregationHelpers", () => {
         { workEnvironment: "HYBRID" },
         { workEnvironment: "HYBRID" },
         { workEnvironment: "REMOTE" },
-      ] as { workEnvironment: string }[];
+      ] as ReviewType[];
       expect(mostCommonWorkEnviornment(reviews)).toBe("Hybrid");
     });
 
@@ -30,7 +31,7 @@ describe("reviewsAggregationHelpers", () => {
         { workEnvironment: "REMOTE" },
         { workEnvironment: "REMOTE" },
         { workEnvironment: "INPERSON" },
-      ] as { workEnvironment: string }[];
+      ] as ReviewType[];
       expect(mostCommonWorkEnviornment(reviews)).toBe("Remote");
     });
 
@@ -39,7 +40,7 @@ describe("reviewsAggregationHelpers", () => {
         { workEnvironment: "INPERSON" },
         { workEnvironment: "HYBRID" },
         { workEnvironment: "REMOTE" },
-      ] as { workEnvironment: string }[];
+      ] as ReviewType[];
       expect(mostCommonWorkEnviornment(reviews)).toBe("In Person");
     });
   });
@@ -50,14 +51,15 @@ describe("reviewsAggregationHelpers", () => {
         { overallRating: 4 },
         { overallRating: 5 },
         { overallRating: 3 },
-      ] as { overallRating: number }[];
+      ] as ReviewType[];
       expect(averageStarRating(reviews)).toBe(4);
     });
 
     test("handles decimal average", () => {
-      const reviews = [{ overallRating: 4 }, { overallRating: 5 }] as {
-        overallRating: number;
-      }[];
+      const reviews = [
+        { overallRating: 4 },
+        { overallRating: 5 },
+      ] as ReviewType[];
       expect(averageStarRating(reviews)).toBe(4.5);
     });
   });

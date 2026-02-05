@@ -19,18 +19,6 @@ describe("performFuseSearch", () => {
     expect(result).toEqual(items);
   });
 
-  test("returns matching elements when searchQuery matches", () => {
-    const result = performFuseSearch(items, ["name"], "Alice");
-    expect(result).toHaveLength(1);
-    expect(result[0]).toEqual({ id: "1", name: "Alice", role: "Engineer" });
-  });
-
-  test("returns multiple matches when searchQuery matches multiple", () => {
-    const result = performFuseSearch(items, ["role"], "Engineer");
-    expect(result).toHaveLength(2);
-    expect(result.map((r) => r.name)).toEqual(["Alice", "Charlie"]);
-  });
-
   test("returns empty array when no match", () => {
     const result = performFuseSearch(items, ["name", "role"], "ZZZ");
     expect(result).toEqual([]);

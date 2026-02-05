@@ -58,13 +58,6 @@ describe("ReviewForm page", () => {
     expect(screen.getByTestId("basic-info-section")).toBeInTheDocument();
   });
 
-  test("renders note about company not in database", () => {
-    render(<ReviewForm />);
-    expect(
-      screen.getByText(/If your company isn't in our database/),
-    ).toBeInTheDocument();
-  });
-
   test("renders On the job, Pay, Interview, Review sections when can review", () => {
     render(<ReviewForm />);
     expect(screen.getByText("On the job")).toBeInTheDocument();

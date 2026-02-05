@@ -1,5 +1,6 @@
 import { describe, expect, test } from "vitest";
 import { calculateRatings } from "./reviewCountByStars";
+import { ReviewType } from "@cooper/db/schema";
 
 describe("reviewCountByStars", () => {
   describe("calculateRatings", () => {
@@ -18,7 +19,7 @@ describe("reviewCountByStars", () => {
         { overallRating: 5 },
         { overallRating: 4 },
         { overallRating: 3 },
-      ] as { overallRating: number }[];
+      ] as ReviewType[];
       const result = calculateRatings(reviews);
       expect(result).toHaveLength(5);
       const five = result.find((r) => r.stars === 5);

@@ -1,13 +1,10 @@
 import type { ReviewType } from "@cooper/db/schema";
 
-type WorkEnvironmentReview = Pick<ReviewType, "workEnvironment">;
-type PayReview = Pick<ReviewType, "hourlyPay">;
-
 function toCamelCase(word: string) {
   return word.toLowerCase().replace(/^\w/, (c) => c.toUpperCase());
 }
 
-export function calculateWorkModels(reviews: WorkEnvironmentReview[] = []) {
+export function calculateWorkModels(reviews: ReviewType[] = []) {
   const totalReviews = reviews.length;
   const uniqueModels: string[] = [
     ...new Set(reviews.map((r) => r.workEnvironment)),
@@ -21,7 +18,7 @@ export function calculateWorkModels(reviews: WorkEnvironmentReview[] = []) {
   });
 }
 
-export function calculatePay(reviews: PayReview[] = []) {
+export function calculatePay(reviews: ReviewType[] = []) {
   const totalReviews = reviews.length;
   const uniquePay: string[] = [
     ...new Set(reviews.map((r) => r.hourlyPay ?? "0")),
@@ -41,7 +38,7 @@ interface PayRange {
   max: number;
 }
 
-export function calculatePayRange(reviews: PayReview[] = []): PayRange[] {
+export function calculatePayRange(reviews: ReviewType[] = []): PayRange[] {
   const pays = reviews
     .map((r) => Number(r.hourlyPay ?? 0))
     .sort((a, b) => a - b);

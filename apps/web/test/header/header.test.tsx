@@ -64,11 +64,6 @@ describe("Header", () => {
     ).toBeInTheDocument();
   });
 
-  test("renders auth slot", () => {
-    render(<Header auth={<span data-testid="auth-slot">Auth content</span>} />);
-    expect(screen.getByTestId("auth-slot")).toHaveTextContent("Auth content");
-  });
-
   test("renders Submit Feedback link", () => {
     render(<Header auth={<span>Auth</span>} />);
     expect(

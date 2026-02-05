@@ -1,8 +1,6 @@
 import type { ReviewType } from "@cooper/db/schema";
 
-type RatingReview = Pick<ReviewType, "overallRating">;
-
-export function calculateRatings(reviews: RatingReview[] = []) {
+export function calculateRatings(reviews: ReviewType[] = []) {
   const totalReviews = reviews.length;
 
   return [5, 4, 3, 2, 1].map((star) => {

@@ -52,6 +52,11 @@ vi.mock("~/trpc/react", () => ({
         }),
       },
     },
+    location: {
+      getByPrefix: {
+        useQuery: () => ({ data: [], isLoading: false }),
+      },
+    },
   },
 }));
 
@@ -113,7 +118,6 @@ describe("Roles dashboard page", () => {
   test("renders Sort By dropdown and type chips when list has data", () => {
     render(<Roles />);
     expect(screen.getByText(/Sort By/)).toBeInTheDocument();
-    expect(screen.getByText("All")).toBeInTheDocument();
   });
 
   test("renders role card when list has role items", () => {

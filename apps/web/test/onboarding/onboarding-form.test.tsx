@@ -113,19 +113,6 @@ describe("OnboardingForm", () => {
     mockCloseDialog.mockClear();
   });
 
-  test("renders Create a Cooper Account title", () => {
-    render(
-      <OnboardingDialogWrapper
-        userId="user-1"
-        closeDialog={mockCloseDialog}
-        session={defaultSession}
-      />,
-    );
-    expect(
-      screen.getByRole("heading", { name: "Create a Cooper Account" }),
-    ).toBeInTheDocument();
-  });
-
   test("renders First Name and Last Name fields", () => {
     render(
       <OnboardingDialogWrapper
@@ -147,7 +134,7 @@ describe("OnboardingForm", () => {
       />,
     );
     expect(
-      screen.getByPlaceholderText("example@example.com"),
+      screen.getByPlaceholderText("example@husky.neu.edu"),
     ).toBeInTheDocument();
   });
 
@@ -176,7 +163,7 @@ describe("OnboardingForm", () => {
     expect(screen.getByTestId("graduation-month")).toBeInTheDocument();
   });
 
-  test("renders Have you completed a co-op before with Yes and No", () => {
+  test("renders co-op checkbox with label", () => {
     render(
       <OnboardingDialogWrapper
         userId="user-1"
@@ -185,10 +172,10 @@ describe("OnboardingForm", () => {
       />,
     );
     expect(
-      screen.getByText(/Have you completed a co-op before/),
+      screen.getByText(/I have completed a co-op or internship/),
     ).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Yes" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "No" })).toBeInTheDocument();
+    const checkbox = screen.getByRole("checkbox");
+    expect(checkbox).toBeInTheDocument();
   });
 
   test("renders Next submit button", () => {
@@ -199,7 +186,7 @@ describe("OnboardingForm", () => {
         session={defaultSession}
       />,
     );
-    expect(screen.getByRole("button", { name: "Next" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Finish" })).toBeInTheDocument();
   });
 
   test("pre-fills firstName and lastName from session name", () => {
@@ -222,12 +209,12 @@ describe("OnboardingForm", () => {
         session={defaultSession}
       />,
     );
-    expect(screen.getByPlaceholderText("example@example.com")).toHaveValue(
+    expect(screen.getByPlaceholderText("example@husky.neu.edu")).toHaveValue(
       "jane@example.com",
     );
   });
 
-  test("clicking Yes sets cooped to true", () => {
+  test("checking co-op checkbox sets cooped to true", () => {
     render(
       <OnboardingDialogWrapper
         userId="user-1"
@@ -235,13 +222,13 @@ describe("OnboardingForm", () => {
         session={defaultSession}
       />,
     );
-    fireEvent.click(screen.getByRole("button", { name: "Yes" }));
-    expect(screen.getByRole("button", { name: "Yes" })).toHaveClass(
-      "bg-cooper-blue-200",
-    );
+    const checkbox = screen.getByRole("checkbox");
+    expect(checkbox).not.toBeChecked();
+    fireEvent.click(checkbox);
+    expect(checkbox).toBeChecked();
   });
 
-  test("clicking No sets cooped to false", () => {
+  test("unchecking co-op checkbox sets cooped to false", () => {
     render(
       <OnboardingDialogWrapper
         userId="user-1"
@@ -249,10 +236,11 @@ describe("OnboardingForm", () => {
         session={defaultSession}
       />,
     );
-    fireEvent.click(screen.getByRole("button", { name: "No" }));
-    expect(screen.getByRole("button", { name: "No" })).toHaveClass(
-      "bg-cooper-blue-200",
-    );
+    const checkbox = screen.getByRole("checkbox");
+    fireEvent.click(checkbox);
+    expect(checkbox).toBeChecked();
+    fireEvent.click(checkbox);
+    expect(checkbox).not.toBeChecked();
   });
 });
 
@@ -270,28 +258,6 @@ describe("OnboardingForm on success", () => {
     expect(screen.getByTestId("browse-around-prompt")).toHaveTextContent(
       "Jane",
     );
-    mockProfileIsSuccess = false;
-  });
-
-  test("renders CoopPrompt when profile.isSuccess and cooped is true", () => {
-    const { rerender } = render(
-      <OnboardingDialogWrapper
-        userId="user-1"
-        closeDialog={mockCloseDialog}
-        session={defaultSession}
-      />,
-    );
-    fireEvent.click(screen.getByRole("button", { name: "Yes" }));
-    mockProfileIsSuccess = true;
-    rerender(
-      <OnboardingDialogWrapper
-        userId="user-1"
-        closeDialog={mockCloseDialog}
-        session={defaultSession}
-      />,
-    );
-    expect(screen.getByTestId("coop-prompt")).toBeInTheDocument();
-    expect(screen.getByTestId("coop-prompt")).toHaveTextContent("Jane");
     mockProfileIsSuccess = false;
   });
 });

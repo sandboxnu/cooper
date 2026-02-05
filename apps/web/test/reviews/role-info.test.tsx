@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { fireEvent } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 import { RoleInfo } from "~/app/_components/reviews/role-info";
+import { CompareProvider } from "~/app/_components/compare/compare-context";
 
 vi.mock("next/image", () => ({
   default: ({ alt }: { alt: string }) => (
@@ -115,54 +116,92 @@ describe("RoleInfo", () => {
   } as never;
 
   test("renders role title", () => {
-    render(<RoleInfo roleObj={roleObj} />);
+    render(
+      <CompareProvider>
+        <RoleInfo roleObj={roleObj} />
+      </CompareProvider>,
+    );
     expect(screen.getByText("Software Co-op")).toBeInTheDocument();
   });
 
   test("renders company name", () => {
-    render(<RoleInfo roleObj={roleObj} />);
+    render(
+      <CompareProvider>
+        <RoleInfo roleObj={roleObj} />
+      </CompareProvider>,
+    );
     expect(screen.getAllByText("Acme Corp").length).toBeGreaterThan(0);
   });
 
   test("renders Job Description section", () => {
-    render(<RoleInfo roleObj={roleObj} />);
+    render(
+      <CompareProvider>
+        <RoleInfo roleObj={roleObj} />
+      </CompareProvider>,
+    );
     expect(screen.getByText("Job Description")).toBeInTheDocument();
   });
 
   test("renders role description in Job Description", () => {
-    render(<RoleInfo roleObj={roleObj} />);
+    render(
+      <CompareProvider>
+        <RoleInfo roleObj={roleObj} />
+      </CompareProvider>,
+    );
     expect(screen.getByText("Build software.")).toBeInTheDocument();
   });
 
   test("renders On the job section", () => {
-    render(<RoleInfo roleObj={roleObj} />);
+    render(
+      <CompareProvider>
+        <RoleInfo roleObj={roleObj} />
+      </CompareProvider>,
+    );
     expect(screen.getByText("On the job")).toBeInTheDocument();
   });
 
   test("renders Pay section", () => {
-    render(<RoleInfo roleObj={roleObj} />);
+    render(
+      <CompareProvider>
+        <RoleInfo roleObj={roleObj} />
+      </CompareProvider>,
+    );
     expect(screen.getByText("Pay")).toBeInTheDocument();
   });
 
   test("renders Interview section", () => {
-    render(<RoleInfo roleObj={roleObj} />);
+    render(
+      <CompareProvider>
+        <RoleInfo roleObj={roleObj} />
+      </CompareProvider>,
+    );
     expect(screen.getByText("Interview")).toBeInTheDocument();
   });
 
   test("renders Reviews section", () => {
-    render(<RoleInfo roleObj={roleObj} />);
+    render(
+      <CompareProvider>
+        <RoleInfo roleObj={roleObj} />
+      </CompareProvider>,
+    );
     expect(screen.getByText("Reviews")).toBeInTheDocument();
   });
 
   test("renders No reviews yet when no reviews", () => {
-    render(<RoleInfo roleObj={roleObj} />);
+    render(
+      <CompareProvider>
+        <RoleInfo roleObj={roleObj} />
+      </CompareProvider>,
+    );
     expect(screen.getByText("No reviews yet")).toBeInTheDocument();
   });
 
   test("renders back button when onBack provided and calls onBack when clicked", () => {
     const onBack = vi.fn();
     const { container } = render(
-      <RoleInfo roleObj={roleObj} onBack={onBack} />,
+      <CompareProvider>
+        <RoleInfo roleObj={roleObj} onBack={onBack} />
+      </CompareProvider>,
     );
     const backSvg = container.querySelector('svg[viewBox="0 0 14 12"]');
     expect(backSvg).toBeInTheDocument();

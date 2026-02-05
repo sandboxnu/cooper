@@ -11,7 +11,6 @@ export function performFuseSearch<T>(
 
   const fuseOptions = {
     keys: options,
-    threshold: 0.2, // Stricter matching so only close matches are returned
   };
 
   const fuse = new Fuse(elem, fuseOptions);

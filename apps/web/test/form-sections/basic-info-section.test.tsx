@@ -9,6 +9,9 @@ vi.mock("~/trpc/react", () => ({
     location: {
       getByPrefix: { useQuery: () => ({ data: [] }) },
       getById: { useQuery: () => ({ data: undefined }) },
+      getByPopularity: {
+        useQuery: () => ({ data: [], isLoading: false }),
+      },
     },
   },
 }));

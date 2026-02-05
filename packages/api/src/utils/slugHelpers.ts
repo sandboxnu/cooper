@@ -8,8 +8,7 @@ export const createSlug = (text: string): string => {
     .replace(/[^a-z0-9\s-]/g, "") // Remove all non-alphanumeric characters except spaces and hyphens
     .replace(/\s+/g, "-") // Replace spaces with hyphens
     .replace(/-+/g, "-") // Replace multiple hyphens with single hyphen
-    .trim()
-    .replace(/^-+|-+$/g, ""); // Trim leading and trailing hyphens
+    .trim();
 };
 
 /**
