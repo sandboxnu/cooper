@@ -53,9 +53,20 @@ export default function Roles() {
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  const typeParam = searchParams.get("type");
+
   const [selectedType, setSelectedType] = useState<
     "roles" | "companies" | "all"
-  >("all");
+  >(() => {
+    if (
+      typeParam === "roles" ||
+      typeParam === "companies" ||
+      typeParam === "all"
+    ) {
+      return typeParam;
+    }
+    return "all";
+  });
 
   const [selectedFilter, setSelectedFilter] = useState<
     "default" | "rating" | "newest" | "oldest" | undefined
@@ -281,6 +292,7 @@ export default function Roles() {
 
         params.set("company", companySlug);
         params.set("role", roleSlug);
+        params.set("type", selectedType);
 
         // Add search back at the end
         if (currentSearch) {
@@ -299,6 +311,7 @@ export default function Roles() {
 
         params.delete("role");
         params.set("company", companySlug);
+        params.set("type", selectedType);
 
         // Add search back at the end
         if (currentSearch) {
@@ -380,6 +393,17 @@ export default function Roles() {
   useEffect(() => {
     setCurrentPage(1);
   }, [selectedFilter, searchValue, selectedType]);
+
+  useEffect(() => {
+    const typeParam = searchParams.get("type");
+    if (
+      typeParam === "roles" ||
+      typeParam === "companies" ||
+      typeParam === "all"
+    ) {
+      setSelectedType(typeParam);
+    }
+  }, [searchParams]);
 
   const totalPages =
     rolesAndCompanies.data &&
