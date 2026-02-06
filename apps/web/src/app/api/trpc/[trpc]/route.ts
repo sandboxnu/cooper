@@ -1,6 +1,7 @@
 import { auth } from "@cooper/auth";
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
 import { appRouter, createTRPCContext } from "@cooper/api";
+import { headers } from "next/headers";
 
 function setCorsHeaders(response: Response) {
   response.headers.set("Access-Control-Allow-Origin", "*");
@@ -18,10 +19,10 @@ const handler = async (req: Request) => {
     endpoint: "/api/trpc",
     router: appRouter,
     req,
-    createContext: () =>
+    createContext: async () =>
       createTRPCContext({
         session,
-        headers: req.headers,
+        headers: await headers(),
       }),
     onError({ error, path }) {
       console.error(`>>> tRPC Error on '${path}'`, error);

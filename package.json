@@ -45,5 +45,8 @@
     "typescript": "catalog:",
     "vitest": "catalog:"
   },
-  "prettier": "@cooper/prettier-config"
+  "prettier": "@cooper/prettier-config",
+  "dependencies": {
+    "next-auth": "^4.24.13"
+  }
 }

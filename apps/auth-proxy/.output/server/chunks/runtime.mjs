@@ -1,27 +1,14 @@
-import process from "node:process";
-globalThis._importMeta_ = globalThis._importMeta_ || {
-  url: "file:///_entry.js",
-  env: process.env,
-};
-import http, { Server as Server$1 } from "node:http";
-import https, { Server } from "node:https";
-import { promises, existsSync } from "node:fs";
-import { dirname as dirname$1, resolve as resolve$1, join } from "node:path";
-import { fileURLToPath } from "node:url";
+import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import http, { Server as Server$1 } from 'node:http';
+import https, { Server } from 'node:https';
+import { promises, existsSync } from 'node:fs';
+import { dirname as dirname$1, resolve as resolve$1, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const suspectProtoRx$1 =
-  /"(?:_|\\u0{2}5[Ff]){2}(?:p|\\u0{2}70)(?:r|\\u0{2}72)(?:o|\\u0{2}6[Ff])(?:t|\\u0{2}74)(?:o|\\u0{2}6[Ff])(?:_|\\u0{2}5[Ff]){2}"\s*:/;
-const suspectConstructorRx$1 =
-  /"(?:c|\\u0063)(?:o|\\u006[Ff])(?:n|\\u006[Ee])(?:s|\\u0073)(?:t|\\u0074)(?:r|\\u0072)(?:u|\\u0075)(?:c|\\u0063)(?:t|\\u0074)(?:o|\\u006[Ff])(?:r|\\u0072)"\s*:/;
+const suspectProtoRx$1 = /"(?:_|\\u0{2}5[Ff]){2}(?:p|\\u0{2}70)(?:r|\\u0{2}72)(?:o|\\u0{2}6[Ff])(?:t|\\u0{2}74)(?:o|\\u0{2}6[Ff])(?:_|\\u0{2}5[Ff]){2}"\s*:/;
+const suspectConstructorRx$1 = /"(?:c|\\u0063)(?:o|\\u006[Ff])(?:n|\\u006[Ee])(?:s|\\u0073)(?:t|\\u0074)(?:r|\\u0072)(?:u|\\u0075)(?:c|\\u0063)(?:t|\\u0074)(?:o|\\u006[Ff])(?:r|\\u0072)"\s*:/;
 const JsonSigRx$1 = /^\s*["[{]|^\s*-?\d{1,16}(\.\d{1,17})?([Ee][+-]?\d+)?\s*$/;
 function jsonParseTransform$1(key, value) {
-  if (
-    key === "__proto__" ||
-    (key === "constructor" &&
-      value &&
-      typeof value === "object" &&
-      "prototype" in value)
-  ) {
+  if (key === "__proto__" || key === "constructor" && value && typeof value === "object" && "prototype" in value) {
     warnKeyDropped$1(key);
     return;
   }
@@ -37,9 +24,7 @@ function destr$1(value, options = {}) {
   const _value = value.trim();
   if (
     // eslint-disable-next-line unicorn/prefer-at
-    value[0] === '"' &&
-    value.endsWith('"') &&
-    !value.includes("\\")
+    value[0] === '"' && value.endsWith('"') && !value.includes("\\")
   ) {
     return _value.slice(1, -1);
   }
@@ -102,14 +87,7 @@ function encode$1(text) {
   return encodeURI("" + text).replace(ENC_PIPE_RE$1, "|");
 }
 function encodeQueryValue$1(input) {
-  return encode$1(typeof input === "string" ? input : JSON.stringify(input))
-    .replace(PLUS_RE$1, "%2B")
-    .replace(ENC_SPACE_RE$1, "+")
-    .replace(HASH_RE$1, "%23")
-    .replace(AMPERSAND_RE$1, "%26")
-    .replace(ENC_BACKTICK_RE$1, "`")
-    .replace(ENC_CARET_RE$1, "^")
-    .replace(SLASH_RE$1, "%2F");
+  return encode$1(typeof input === "string" ? input : JSON.stringify(input)).replace(PLUS_RE$1, "%2B").replace(ENC_SPACE_RE$1, "+").replace(HASH_RE$1, "%23").replace(AMPERSAND_RE$1, "%26").replace(ENC_BACKTICK_RE$1, "`").replace(ENC_CARET_RE$1, "^").replace(SLASH_RE$1, "%2F");
 }
 function encodeQueryKey$1(text) {
   return encodeQueryValue$1(text).replace(EQUAL_RE$1, "%3D");
@@ -161,18 +139,14 @@ function encodeQueryItem$1(key, value) {
     return encodeQueryKey$1(key);
   }
   if (Array.isArray(value)) {
-    return value
-      .map((_value) => `${encodeQueryKey$1(key)}=${encodeQueryValue$1(_value)}`)
-      .join("&");
+    return value.map(
+      (_value) => `${encodeQueryKey$1(key)}=${encodeQueryValue$1(_value)}`
+    ).join("&");
   }
   return `${encodeQueryKey$1(key)}=${encodeQueryValue$1(value)}`;
 }
 function stringifyQuery$1(query) {
-  return Object.keys(query)
-    .filter((k) => query[k] !== void 0)
-    .map((k) => encodeQueryItem$1(k, query[k]))
-    .filter(Boolean)
-    .join("&");
+  return Object.keys(query).filter((k) => query[k] !== void 0).map((k) => encodeQueryItem$1(k, query[k])).filter(Boolean).join("&");
 }
 
 const PROTOCOL_STRICT_REGEX$1 = /^[\s\w\0+.-]{2,}:([/\\]{1,2})/;
@@ -186,10 +160,7 @@ function hasProtocol$1(inputString, opts = {}) {
   if (opts.strict) {
     return PROTOCOL_STRICT_REGEX$1.test(inputString);
   }
-  return (
-    PROTOCOL_REGEX$1.test(inputString) ||
-    (opts.acceptRelative ? PROTOCOL_RELATIVE_REGEX$1.test(inputString) : false)
-  );
+  return PROTOCOL_REGEX$1.test(inputString) || (opts.acceptRelative ? PROTOCOL_RELATIVE_REGEX$1.test(inputString) : false);
 }
 function hasTrailingSlash$1(input = "", respectQueryAndFragment) {
   {
@@ -253,7 +224,7 @@ function joinURL$1(base, ...input) {
 const protocolRelative$1 = Symbol.for("ufo:protocolRelative");
 function parseURL$1(input = "", defaultProto) {
   const _specialProtoMatch = input.match(
-    /^[\s\0]*(blob:|data:|javascript:|vbscript:)(.*)/i,
+    /^[\s\0]*(blob:|data:|javascript:|vbscript:)(.*)/i
   );
   if (_specialProtoMatch) {
     const [, _proto, _pathname = ""] = _specialProtoMatch;
@@ -264,16 +235,13 @@ function parseURL$1(input = "", defaultProto) {
       auth: "",
       host: "",
       search: "",
-      hash: "",
+      hash: ""
     };
   }
   if (!hasProtocol$1(input, { acceptRelative: true })) {
     return parsePath$1(input);
   }
-  const [, protocol = "", auth, hostAndPath = ""] =
-    input
-      .replace(/\\/g, "/")
-      .match(/^[\s\0]*([\w+.-]{2,}:)?\/\/([^/@]+@)?(.*)/) || [];
+  const [, protocol = "", auth, hostAndPath = ""] = input.replace(/\\/g, "/").match(/^[\s\0]*([\w+.-]{2,}:)?\/\/([^/@]+@)?(.*)/) || [];
   let [, host = "", path = ""] = hostAndPath.match(/([^#/?]*)(.*)?/) || [];
   if (protocol === "file:") {
     path = path.replace(/\/(?=[A-Za-z]:)/, "");
@@ -286,48 +254,40 @@ function parseURL$1(input = "", defaultProto) {
     pathname,
     search,
     hash,
-    [protocolRelative$1]: !protocol,
+    [protocolRelative$1]: !protocol
   };
 }
 function parsePath$1(input = "") {
-  const [pathname = "", search = "", hash = ""] = (
-    input.match(/([^#?]*)(\?[^#]*)?(#.*)?/) || []
-  ).splice(1);
+  const [pathname = "", search = "", hash = ""] = (input.match(/([^#?]*)(\?[^#]*)?(#.*)?/) || []).splice(1);
   return {
     pathname,
     search,
-    hash,
+    hash
   };
 }
 function stringifyParsedURL$1(parsed) {
   const pathname = parsed.pathname || "";
-  const search = parsed.search
-    ? (parsed.search.startsWith("?") ? "" : "?") + parsed.search
-    : "";
+  const search = parsed.search ? (parsed.search.startsWith("?") ? "" : "?") + parsed.search : "";
   const hash = parsed.hash || "";
   const auth = parsed.auth ? parsed.auth + "@" : "";
   const host = parsed.host || "";
-  const proto =
-    parsed.protocol || parsed[protocolRelative$1]
-      ? (parsed.protocol || "") + "//"
-      : "";
+  const proto = parsed.protocol || parsed[protocolRelative$1] ? (parsed.protocol || "") + "//" : "";
   return proto + auth + host + pathname + search + hash;
 }
 
 const NODE_TYPES = {
   NORMAL: 0,
   WILDCARD: 1,
-  PLACEHOLDER: 2,
+  PLACEHOLDER: 2
 };
 
 function createRouter$1(options = {}) {
   const ctx = {
     options,
     rootNode: createRadixNode(),
-    staticRoutesMap: {},
+    staticRoutesMap: {}
   };
-  const normalizeTrailingSlash = (p) =>
-    options.strictTrailingSlash ? p : p.replace(/\/$/, "") || "/";
+  const normalizeTrailingSlash = (p) => options.strictTrailingSlash ? p : p.replace(/\/$/, "") || "/";
   if (options.routes) {
     for (const path in options.routes) {
       insert(ctx, normalizeTrailingSlash(path), options.routes[path]);
@@ -337,7 +297,7 @@ function createRouter$1(options = {}) {
     ctx,
     lookup: (path) => lookup(ctx, normalizeTrailingSlash(path)),
     insert: (path, data) => insert(ctx, normalizeTrailingSlash(path), data),
-    remove: (path) => remove(ctx, normalizeTrailingSlash(path)),
+    remove: (path) => remove(ctx, normalizeTrailingSlash(path))
   };
 }
 function lookup(ctx, path) {
@@ -361,9 +321,7 @@ function lookup(ctx, path) {
     if (nextNode === void 0) {
       if (node && node.placeholderChildren.length > 1) {
         const remaining = sections.length - i;
-        node =
-          node.placeholderChildren.find((c) => c.maxDepth === remaining) ||
-          null;
+        node = node.placeholderChildren.find((c) => c.maxDepth === remaining) || null;
       } else {
         node = node.placeholderChildren[0] || null;
       }
@@ -389,7 +347,7 @@ function lookup(ctx, path) {
   if (paramsFound) {
     return {
       ...node.data,
-      params: paramsFound ? params : void 0,
+      params: paramsFound ? params : void 0
     };
   }
   return node.data;
@@ -402,24 +360,22 @@ function insert(ctx, path, data) {
   const matchedNodes = [node];
   for (const section of sections) {
     let childNode;
-    if ((childNode = node.children.get(section))) {
+    if (childNode = node.children.get(section)) {
       node = childNode;
     } else {
       const type = getNodeType(section);
       childNode = createRadixNode({ type, parent: node });
       node.children.set(section, childNode);
       if (type === NODE_TYPES.PLACEHOLDER) {
-        childNode.paramName =
-          section === "*" ? `_${_unnamedPlaceholderCtr++}` : section.slice(1);
+        childNode.paramName = section === "*" ? `_${_unnamedPlaceholderCtr++}` : section.slice(1);
         node.placeholderChildren.push(childNode);
         isStaticRoute = false;
       } else if (type === NODE_TYPES.WILDCARD) {
         node.wildcardChildNode = childNode;
-        childNode.paramName =
-          section.slice(
-            3,
-            /* "**:" */
-          ) || "_";
+        childNode.paramName = section.slice(
+          3
+          /* "**:" */
+        ) || "_";
         isStaticRoute = false;
       }
       matchedNodes.push(childNode);
@@ -466,7 +422,7 @@ function createRadixNode(options = {}) {
     data: options.data || null,
     paramName: options.paramName || null,
     wildcardChildNode: null,
-    placeholderChildren: [],
+    placeholderChildren: []
   };
 }
 function getNodeType(str) {
@@ -486,14 +442,14 @@ function toRouteMatcher(router) {
 function _createMatcher(table, strictTrailingSlash) {
   return {
     ctx: { table },
-    matchAll: (path) => _matchRoutes(path, table, strictTrailingSlash),
+    matchAll: (path) => _matchRoutes(path, table, strictTrailingSlash)
   };
 }
 function _createRouteTable() {
   return {
     static: /* @__PURE__ */ new Map(),
     wildcard: /* @__PURE__ */ new Map(),
-    dynamic: /* @__PURE__ */ new Map(),
+    dynamic: /* @__PURE__ */ new Map()
   };
 }
 function _matchRoutes(path, table, strictTrailingSlash) {
@@ -508,8 +464,7 @@ function _matchRoutes(path, table, strictTrailingSlash) {
   }
   for (const [key, value] of _sortRoutesMap(table.dynamic)) {
     if (path.startsWith(key + "/")) {
-      const subPath =
-        "/" + path.slice(key.length).split("/").splice(2).join("/");
+      const subPath = "/" + path.slice(key.length).split("/").splice(2).join("/");
       matches.push(..._matchRoutes(subPath, value));
     }
   }
@@ -526,10 +481,7 @@ function _routerNodeToTable(initialPath, initialNode) {
   const table = _createRouteTable();
   function _addNode(path, node) {
     if (path) {
-      if (
-        node.type === NODE_TYPES.NORMAL &&
-        !(path.includes("*") || path.includes(":"))
-      ) {
+      if (node.type === NODE_TYPES.NORMAL && !(path.includes("*") || path.includes(":"))) {
         if (node.data) {
           table.static.set(path, node.data);
         }
@@ -552,19 +504,11 @@ function _routerNodeToTable(initialPath, initialNode) {
   return table;
 }
 
-const suspectProtoRx =
-  /"(?:_|\\u0{2}5[Ff]){2}(?:p|\\u0{2}70)(?:r|\\u0{2}72)(?:o|\\u0{2}6[Ff])(?:t|\\u0{2}74)(?:o|\\u0{2}6[Ff])(?:_|\\u0{2}5[Ff]){2}"\s*:/;
-const suspectConstructorRx =
-  /"(?:c|\\u0063)(?:o|\\u006[Ff])(?:n|\\u006[Ee])(?:s|\\u0073)(?:t|\\u0074)(?:r|\\u0072)(?:u|\\u0075)(?:c|\\u0063)(?:t|\\u0074)(?:o|\\u006[Ff])(?:r|\\u0072)"\s*:/;
+const suspectProtoRx = /"(?:_|\\u0{2}5[Ff]){2}(?:p|\\u0{2}70)(?:r|\\u0{2}72)(?:o|\\u0{2}6[Ff])(?:t|\\u0{2}74)(?:o|\\u0{2}6[Ff])(?:_|\\u0{2}5[Ff]){2}"\s*:/;
+const suspectConstructorRx = /"(?:c|\\u0063)(?:o|\\u006[Ff])(?:n|\\u006[Ee])(?:s|\\u0073)(?:t|\\u0074)(?:r|\\u0072)(?:u|\\u0075)(?:c|\\u0063)(?:t|\\u0074)(?:o|\\u006[Ff])(?:r|\\u0072)"\s*:/;
 const JsonSigRx = /^\s*["[{]|^\s*-?\d{1,16}(\.\d{1,17})?([Ee][+-]?\d+)?\s*$/;
 function jsonParseTransform(key, value) {
-  if (
-    key === "__proto__" ||
-    (key === "constructor" &&
-      value &&
-      typeof value === "object" &&
-      "prototype" in value)
-  ) {
+  if (key === "__proto__" || key === "constructor" && value && typeof value === "object" && "prototype" in value) {
     warnKeyDropped(key);
     return;
   }
@@ -577,11 +521,7 @@ function destr(value, options = {}) {
   if (typeof value !== "string") {
     return value;
   }
-  if (
-    value[0] === '"' &&
-    value[value.length - 1] === '"' &&
-    value.indexOf("\\") === -1
-  ) {
+  if (value[0] === '"' && value[value.length - 1] === '"' && value.indexOf("\\") === -1) {
     return value.slice(1, -1);
   }
   const _value = value.trim();
@@ -637,11 +577,7 @@ function isPlainObject(value) {
     return false;
   }
   const prototype = Object.getPrototypeOf(value);
-  if (
-    prototype !== null &&
-    prototype !== Object.prototype &&
-    Object.getPrototypeOf(prototype) !== null
-  ) {
+  if (prototype !== null && prototype !== Object.prototype && Object.getPrototypeOf(prototype) !== null) {
     return false;
   }
   if (Symbol.iterator in value) {
@@ -676,7 +612,7 @@ function _defu(baseObject, defaults, namespace = ".", merger) {
         value,
         object[key],
         (namespace ? `${namespace}.` : "") + key.toString(),
-        merger,
+        merger
       );
     } else {
       object[key] = value;
@@ -685,9 +621,10 @@ function _defu(baseObject, defaults, namespace = ".", merger) {
   return object;
 }
 function createDefu(merger) {
-  return (...arguments_) =>
+  return (...arguments_) => (
     // eslint-disable-next-line unicorn/no-array-reduce
-    arguments_.reduce((p, c) => _defu(p, c, "", merger), {});
+    arguments_.reduce((p, c) => _defu(p, c, "", merger), {})
+  );
 }
 const defu = createDefu();
 const defuFn = createDefu((object, key, currentValue) => {
@@ -722,7 +659,7 @@ class H3Error extends Error {
   toJSON() {
     const obj = {
       message: this.message,
-      statusCode: sanitizeStatusCode(this.statusCode, 500),
+      statusCode: sanitizeStatusCode(this.statusCode, 500)
     };
     if (this.statusMessage) {
       obj.statusMessage = sanitizeStatusMessage(this.statusMessage);
@@ -741,19 +678,20 @@ function createError$1(input) {
     return input;
   }
   const err = new H3Error(input.message ?? input.statusMessage ?? "", {
-    cause: input.cause || input,
+    cause: input.cause || input
   });
   if (hasProp(input, "stack")) {
     try {
       Object.defineProperty(err, "stack", {
         get() {
           return input.stack;
-        },
+        }
       });
     } catch {
       try {
         err.stack = input.stack;
-      } catch {}
+      } catch {
+      }
     }
   }
   if (input.data) {
@@ -774,7 +712,7 @@ function createError$1(input) {
     const sanitizedMessage = sanitizeStatusMessage(err.statusMessage);
     if (sanitizedMessage !== originalMessage) {
       console.warn(
-        "[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.",
+        "[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default."
       );
     }
   }
@@ -795,7 +733,7 @@ function sendError(event, error, debug) {
     statusCode: h3Error.statusCode,
     statusMessage: h3Error.statusMessage,
     stack: [],
-    data: h3Error.data,
+    data: h3Error.data
   };
   if (debug) {
     responseBody.stack = (h3Error.stack || "").split("\n").map((l) => l.trim());
@@ -825,7 +763,7 @@ function assertMethod(event, expected, allowHead) {
   if (!isMethod(event, expected)) {
     throw createError$1({
       statusCode: 405,
-      statusMessage: "HTTP method is not allowed.",
+      statusMessage: "HTTP method is not allowed."
     });
   }
 }
@@ -853,10 +791,7 @@ function getRequestHost(event, opts = {}) {
   return event.node.req.headers.host || "localhost";
 }
 function getRequestProtocol(event, opts = {}) {
-  if (
-    opts.xForwardedProto !== false &&
-    event.node.req.headers["x-forwarded-proto"] === "https"
-  ) {
+  if (opts.xForwardedProto !== false && event.node.req.headers["x-forwarded-proto"] === "https") {
     return "https";
   }
   return event.node.req.connection?.encrypted ? "https" : "http";
@@ -866,33 +801,25 @@ function getRequestURL(event, opts = {}) {
   const protocol = getRequestProtocol(event, opts);
   const path = (event.node.req.originalUrl || event.path).replace(
     /^[/\\]+/g,
-    "/",
+    "/"
   );
   return new URL(path, `${protocol}://${host}`);
 }
 function toWebRequest(event) {
-  return (
-    event.web?.request ||
-    new Request(getRequestURL(event), {
-      // @ts-ignore Undici option
-      duplex: "half",
-      method: event.method,
-      headers: event.headers,
-      body: getRequestWebStream(event),
-    })
-  );
+  return event.web?.request || new Request(getRequestURL(event), {
+    // @ts-ignore Undici option
+    duplex: "half",
+    method: event.method,
+    headers: event.headers,
+    body: getRequestWebStream(event)
+  });
 }
 
 const RawBodySymbol = Symbol.for("h3RawBody");
 const PayloadMethods$1 = ["PATCH", "POST", "PUT", "DELETE"];
 function readRawBody(event, encoding = "utf8") {
   assertMethod(event, PayloadMethods$1);
-  const _rawBody =
-    event._requestBody ||
-    event.web?.request?.body ||
-    event.node.req[RawBodySymbol] ||
-    event.node.req.rawBody ||
-    event.node.req.body;
+  const _rawBody = event._requestBody || event.web?.request?.body || event.node.req[RawBodySymbol] || event.node.req.rawBody || event.node.req.body;
   if (_rawBody) {
     const promise2 = Promise.resolve(_rawBody).then((_resolved) => {
       if (Buffer.isBuffer(_resolved)) {
@@ -901,33 +828,28 @@ function readRawBody(event, encoding = "utf8") {
       if (typeof _resolved.pipeTo === "function") {
         return new Promise((resolve, reject) => {
           const chunks = [];
-          _resolved
-            .pipeTo(
-              new WritableStream({
-                write(chunk) {
-                  chunks.push(chunk);
-                },
-                close() {
-                  resolve(Buffer.concat(chunks));
-                },
-                abort(reason) {
-                  reject(reason);
-                },
-              }),
-            )
-            .catch(reject);
+          _resolved.pipeTo(
+            new WritableStream({
+              write(chunk) {
+                chunks.push(chunk);
+              },
+              close() {
+                resolve(Buffer.concat(chunks));
+              },
+              abort(reason) {
+                reject(reason);
+              }
+            })
+          ).catch(reject);
         });
       } else if (typeof _resolved.pipe === "function") {
         return new Promise((resolve, reject) => {
           const chunks = [];
-          _resolved
-            .on("data", (chunk) => {
-              chunks.push(chunk);
-            })
-            .on("end", () => {
-              resolve(Buffer.concat(chunks));
-            })
-            .on("error", reject);
+          _resolved.on("data", (chunk) => {
+            chunks.push(chunk);
+          }).on("end", () => {
+            resolve(Buffer.concat(chunks));
+          }).on("error", reject);
         });
       }
       if (_resolved.constructor === Object) {
@@ -937,42 +859,30 @@ function readRawBody(event, encoding = "utf8") {
         return Buffer.from(_resolved.toString());
       }
       if (_resolved instanceof FormData) {
-        return new Response(_resolved)
-          .bytes()
-          .then((uint8arr) => Buffer.from(uint8arr));
+        return new Response(_resolved).bytes().then((uint8arr) => Buffer.from(uint8arr));
       }
       return Buffer.from(_resolved);
     });
-    return encoding
-      ? promise2.then((buff) => buff.toString(encoding))
-      : promise2;
+    return encoding ? promise2.then((buff) => buff.toString(encoding)) : promise2;
   }
-  if (
-    !Number.parseInt(event.node.req.headers["content-length"] || "") &&
-    !/\bchunked\b/i.test(
-      String(event.node.req.headers["transfer-encoding"] ?? ""),
-    )
-  ) {
+  if (!Number.parseInt(event.node.req.headers["content-length"] || "") && !/\bchunked\b/i.test(
+    String(event.node.req.headers["transfer-encoding"] ?? "")
+  )) {
     return Promise.resolve(void 0);
   }
-  const promise = (event.node.req[RawBodySymbol] = new Promise(
+  const promise = event.node.req[RawBodySymbol] = new Promise(
     (resolve, reject) => {
       const bodyData = [];
-      event.node.req
-        .on("error", (err) => {
-          reject(err);
-        })
-        .on("data", (chunk) => {
-          bodyData.push(chunk);
-        })
-        .on("end", () => {
-          resolve(Buffer.concat(bodyData));
-        });
-    },
-  ));
-  const result = encoding
-    ? promise.then((buff) => buff.toString(encoding))
-    : promise;
+      event.node.req.on("error", (err) => {
+        reject(err);
+      }).on("data", (chunk) => {
+        bodyData.push(chunk);
+      }).on("end", () => {
+        resolve(Buffer.concat(bodyData));
+      });
+    }
+  );
+  const result = encoding ? promise.then((buff) => buff.toString(encoding)) : promise;
   return result;
 }
 function getRequestWebStream(event) {
@@ -983,11 +893,7 @@ function getRequestWebStream(event) {
   if (bodyStream) {
     return bodyStream;
   }
-  const _hasRawBody =
-    RawBodySymbol in event.node.req ||
-    "rawBody" in event.node.req ||
-    "body" in event.node.req ||
-    "__unenv__" in event.node.req;
+  const _hasRawBody = RawBodySymbol in event.node.req || "rawBody" in event.node.req || "body" in event.node.req || "__unenv__" in event.node.req;
   if (_hasRawBody) {
     return new ReadableStream({
       async start(controller) {
@@ -996,7 +902,7 @@ function getRequestWebStream(event) {
           controller.enqueue(_rawBody);
         }
         controller.close();
-      },
+      }
     });
   }
   return new ReadableStream({
@@ -1010,12 +916,12 @@ function getRequestWebStream(event) {
       event.node.req.on("error", (err) => {
         controller.error(err);
       });
-    },
+    }
   });
 }
 
 function handleCacheHeaders(event, opts) {
-  const cacheControls = ["public", ...(opts.cacheControls || [])];
+  const cacheControls = ["public", ...opts.cacheControls || []];
   let cacheMatched = false;
   if (opts.maxAge !== void 0) {
     cacheControls.push(`max-age=${+opts.maxAge}`, `s-maxage=${+opts.maxAge}`);
@@ -1048,7 +954,7 @@ function handleCacheHeaders(event, opts) {
 
 const MIMES = {
   html: "text/html",
-  json: "application/json",
+  json: "application/json"
 };
 
 const DISALLOWED_STATUS_CHARS = /[^\u0009\u0020-\u007E]/g;
@@ -1155,7 +1061,7 @@ function setResponseStatus(event, code, text) {
   if (code) {
     event.node.res.statusCode = sanitizeStatusCode(
       code,
-      event.node.res.statusCode,
+      event.node.res.statusCode
     );
   }
   if (text) {
@@ -1163,18 +1069,14 @@ function setResponseStatus(event, code, text) {
   }
 }
 function defaultContentType(event, type) {
-  if (
-    type &&
-    event.node.res.statusCode !== 304 &&
-    !event.node.res.getHeader("content-type")
-  ) {
+  if (type && event.node.res.statusCode !== 304 && !event.node.res.getHeader("content-type")) {
     event.node.res.setHeader("content-type", type);
   }
 }
 function sendRedirect(event, location, code = 302) {
   event.node.res.statusCode = sanitizeStatusCode(
     code,
-    event.node.res.statusCode,
+    event.node.res.statusCode
   );
   event.node.res.setHeader("location", location);
   const encodedLoc = location.replace(/"/g, "%22");
@@ -1186,7 +1088,10 @@ function getResponseHeader(event, name) {
 }
 function setResponseHeaders(event, headers) {
   for (const [name, value] of Object.entries(headers)) {
-    event.node.res.setHeader(name, value);
+    event.node.res.setHeader(
+      name,
+      value
+    );
   }
 }
 const setHeaders = setResponseHeaders;
@@ -1226,17 +1131,15 @@ function sendStream(event, stream) {
     return Promise.resolve();
   }
   if (hasProp(stream, "pipeTo") && typeof stream.pipeTo === "function") {
-    return stream
-      .pipeTo(
-        new WritableStream({
-          write(chunk) {
-            event.node.res.write(chunk);
-          },
-        }),
-      )
-      .then(() => {
-        event.node.res.end();
-      });
+    return stream.pipeTo(
+      new WritableStream({
+        write(chunk) {
+          event.node.res.write(chunk);
+        }
+      })
+    ).then(() => {
+      event.node.res.end();
+    });
   }
   if (hasProp(stream, "pipe") && typeof stream.pipe === "function") {
     return new Promise((resolve, reject) => {
@@ -1270,7 +1173,7 @@ function sendWebResponse(event, response) {
   if (response.status) {
     event.node.res.statusCode = sanitizeStatusCode(
       response.status,
-      event.node.res.statusCode,
+      event.node.res.statusCode
     );
   }
   if (response.statusText) {
@@ -1286,12 +1189,7 @@ function sendWebResponse(event, response) {
   return sendStream(event, response.body);
 }
 
-const PayloadMethods = /* @__PURE__ */ new Set([
-  "PATCH",
-  "POST",
-  "PUT",
-  "DELETE",
-]);
+const PayloadMethods = /* @__PURE__ */ new Set(["PATCH", "POST", "PUT", "DELETE"]);
 const ignoredHeaders = /* @__PURE__ */ new Set([
   "transfer-encoding",
   "accept-encoding",
@@ -1300,7 +1198,7 @@ const ignoredHeaders = /* @__PURE__ */ new Set([
   "upgrade",
   "expect",
   "host",
-  "accept",
+  "accept"
 ]);
 async function proxyRequest(event, target, opts = {}) {
   let body;
@@ -1317,7 +1215,7 @@ async function proxyRequest(event, target, opts = {}) {
   const fetchHeaders = mergeHeaders(
     getProxyRequestHeaders(event, { host: target.startsWith("/") }),
     opts.fetchOptions?.headers,
-    opts.headers,
+    opts.headers
   );
   return sendProxy(event, target, {
     ...opts,
@@ -1326,8 +1224,8 @@ async function proxyRequest(event, target, opts = {}) {
       body,
       duplex,
       ...opts.fetchOptions,
-      headers: fetchHeaders,
-    },
+      headers: fetchHeaders
+    }
   });
 }
 async function sendProxy(event, target, opts = {}) {
@@ -1337,18 +1235,18 @@ async function sendProxy(event, target, opts = {}) {
       headers: opts.headers,
       ignoreResponseError: true,
       // make $ofetch.raw transparent
-      ...opts.fetchOptions,
+      ...opts.fetchOptions
     });
   } catch (error) {
     throw createError$1({
       status: 502,
       statusMessage: "Bad Gateway",
-      cause: error,
+      cause: error
     });
   }
   event.node.res.statusCode = sanitizeStatusCode(
     response.status,
-    event.node.res.statusCode,
+    event.node.res.statusCode
   );
   event.node.res.statusMessage = sanitizeStatusMessage(response.statusText);
   const cookies = [];
@@ -1373,18 +1271,18 @@ async function sendProxy(event, target, opts = {}) {
           cookie = rewriteCookieProperty(
             cookie,
             opts.cookieDomainRewrite,
-            "domain",
+            "domain"
           );
         }
         if (opts.cookiePathRewrite) {
           cookie = rewriteCookieProperty(
             cookie,
             opts.cookiePathRewrite,
-            "path",
+            "path"
           );
         }
         return cookie;
-      }),
+      })
     );
   }
   if (opts.onResponse) {
@@ -1411,7 +1309,7 @@ function getProxyRequestHeaders(event, opts) {
   const headers = /* @__PURE__ */ Object.create(null);
   const reqHeaders = getRequestHeaders(event);
   for (const name in reqHeaders) {
-    if (!ignoredHeaders.has(name) || (name === "host" && opts?.host)) {
+    if (!ignoredHeaders.has(name) || name === "host" && opts?.host) {
       headers[name] = reqHeaders[name];
     }
   }
@@ -1423,10 +1321,10 @@ function fetchWithEvent(event, req, init, options) {
     context: init?.context || event.context,
     headers: {
       ...getProxyRequestHeaders(event, {
-        host: typeof req === "string" && req.startsWith("/"),
+        host: typeof req === "string" && req.startsWith("/")
       }),
-      ...init?.headers,
-    },
+      ...init?.headers
+    }
   });
 }
 function _getFetch(_fetch) {
@@ -1437,7 +1335,7 @@ function _getFetch(_fetch) {
     return globalThis.fetch;
   }
   throw new Error(
-    "fetch is not available. Try importing `node-fetch-native/polyfill` for Node.js.",
+    "fetch is not available. Try importing `node-fetch-native/polyfill` for Node.js."
   );
 }
 function rewriteCookieProperty(header, map, property) {
@@ -1454,7 +1352,7 @@ function rewriteCookieProperty(header, map, property) {
         return match;
       }
       return newValue ? prefix + newValue : "";
-    },
+    }
   );
 }
 function mergeHeaders(defaults, ...inputs) {
@@ -1464,11 +1362,7 @@ function mergeHeaders(defaults, ...inputs) {
   }
   const merged = new Headers(defaults);
   for (const input of _inputs) {
-    const entries = Array.isArray(input)
-      ? input
-      : typeof input.entries === "function"
-        ? input.entries()
-        : Object.entries(input);
+    const entries = Array.isArray(input) ? input : typeof input.entries === "function" ? input.entries() : Object.entries(input);
     for (const [key, value] of entries) {
       if (value !== void 0) {
         merged.set(key, value);
@@ -1479,7 +1373,7 @@ function mergeHeaders(defaults, ...inputs) {
 }
 
 class H3Event {
-  __is_event__ = true;
+  "__is_event__" = true;
   // Context
   node;
   // Node
@@ -1518,13 +1412,11 @@ class H3Event {
   }
   // --- Respoonse ---
   get handled() {
-    return (
-      this._handled || this.node.res.writableEnded || this.node.res.headersSent
-    );
+    return this._handled || this.node.res.writableEnded || this.node.res.headersSent;
   }
   respondWith(response) {
-    return Promise.resolve(response).then((_response) =>
-      sendWebResponse(this, _response),
+    return Promise.resolve(response).then(
+      (_response) => sendWebResponse(this, _response)
     );
   }
   // --- Utils ---
@@ -1571,7 +1463,7 @@ function defineEventHandler(handler) {
   }
   const _hooks = {
     onRequest: _normalizeArray(handler.onRequest),
-    onBeforeResponse: _normalizeArray(handler.onBeforeResponse),
+    onBeforeResponse: _normalizeArray(handler.onBeforeResponse)
   };
   const _handler = (event) => {
     return _callHandler(event, handler.handler, _hooks);
@@ -1582,7 +1474,7 @@ function defineEventHandler(handler) {
   return _handler;
 }
 function _normalizeArray(input) {
-  return input ? (Array.isArray(input) ? input : [input]) : void 0;
+  return input ? Array.isArray(input) ? input : [input] : void 0;
 }
 async function _callHandler(event, handler, hooks) {
   if (hooks.onRequest) {
@@ -1610,12 +1502,10 @@ function toEventHandler(input, _, _route) {
   if (!isEventHandler(input)) {
     console.warn(
       "[h3] Implicit event handler conversion is deprecated. Use `eventHandler()` or `fromNodeMiddleware()` to define event handlers.",
-      _route && _route !== "/"
-        ? `
-     Route: ${_route}`
-        : "",
+      _route && _route !== "/" ? `
+     Route: ${_route}` : "",
       `
-     Handler: ${input}`,
+     Handler: ${input}`
     );
   }
   return input;
@@ -1633,7 +1523,7 @@ function defineLazyEventHandler(factory) {
         if (typeof handler2 !== "function") {
           throw new TypeError(
             "Invalid lazy handler result. It should be a function:",
-            handler2,
+            handler2
           );
         }
         _resolved = { handler: toEventHandler(r.default || r) };
@@ -1668,7 +1558,7 @@ function createApp(options = {}) {
     options,
     get websocket() {
       return getWebsocket();
-    },
+    }
   };
   return app;
 }
@@ -1682,7 +1572,9 @@ function use(app, arg1, arg2, arg3) {
       use(app, arg1, i, arg3);
     }
   } else if (typeof arg1 === "string") {
-    app.stack.push(normalizeLayer({ ...arg3, route: arg1, handler: arg2 }));
+    app.stack.push(
+      normalizeLayer({ ...arg3, route: arg1, handler: arg2 })
+    );
   } else if (typeof arg1 === "function") {
     app.stack.push(normalizeLayer({ ...arg2, handler: arg1 }));
   } else {
@@ -1693,8 +1585,7 @@ function use(app, arg1, arg2, arg3) {
 function createAppEventHandler(stack, options) {
   const spacing = options.debug ? 2 : void 0;
   return eventHandler(async (event) => {
-    event.node.req.originalUrl =
-      event.node.req.originalUrl || event.node.req.url || "/";
+    event.node.req.originalUrl = event.node.req.originalUrl || event.node.req.url || "/";
     const _reqPath = event._path || event.node.req.url || "/";
     let _layerPath;
     if (options.onRequest) {
@@ -1740,7 +1631,7 @@ function createAppEventHandler(stack, options) {
     if (!event.handled) {
       throw createError$1({
         statusCode: 404,
-        statusMessage: `Cannot find any path matching ${event.path || "/"}.`,
+        statusMessage: `Cannot find any path matching ${event.path || "/"}.`
       });
     }
     if (options.onAfterResponse) {
@@ -1772,7 +1663,7 @@ function createResolver(stack) {
         res = {
           ...res,
           ..._res,
-          route: joinURL$1(res.route || "/", _res.route || "/"),
+          route: joinURL$1(res.route || "/", _res.route || "/")
         };
       }
       return res;
@@ -1792,7 +1683,7 @@ function normalizeLayer(input) {
   return {
     route: withoutTrailingSlash$1(input.route),
     match: input.match,
-    handler,
+    handler
   };
 }
 function handleHandlerResponse(event, val, jsonSpace) {
@@ -1833,7 +1724,7 @@ function handleHandlerResponse(event, val, jsonSpace) {
   }
   throw createError$1({
     statusCode: 500,
-    statusMessage: `[h3] Cannot send ${valType} as response.`,
+    statusMessage: `[h3] Cannot send ${valType} as response.`
   });
 }
 function cachedFn(fn) {
@@ -1853,7 +1744,7 @@ function websocketOptions(evResolver, appOptions) {
       const { pathname } = typeof url === "string" ? parseURL$1(url) : url;
       const resolved = await evResolver(pathname);
       return resolved?.handler?.__websocket__ || {};
-    },
+    }
   };
 }
 
@@ -1866,7 +1757,7 @@ const RouterMethods = [
   "post",
   "put",
   "trace",
-  "patch",
+  "patch"
 ];
 function createRouter(opts = {}) {
   const _router = createRouter$1({});
@@ -1888,8 +1779,7 @@ function createRouter(opts = {}) {
     }
     return router;
   };
-  router.use = router.add = (path, handler, method) =>
-    addRoute(path, handler, method || "all");
+  router.use = router.add = (path, handler, method) => addRoute(path, handler, method || "all");
   for (const method of RouterMethods) {
     router[method] = (path, handle) => router.add(path, handle, method);
   }
@@ -1904,8 +1794,8 @@ function createRouter(opts = {}) {
         error: createError$1({
           statusCode: 404,
           name: "Not Found",
-          statusMessage: `Cannot find any route matching ${path || "/"}.`,
-        }),
+          statusMessage: `Cannot find any route matching ${path || "/"}.`
+        })
       };
     }
     let handler = matched.handlers[method] || matched.handlers.all;
@@ -1932,15 +1822,18 @@ function createRouter(opts = {}) {
         error: createError$1({
           statusCode: 405,
           name: "Method Not Allowed",
-          statusMessage: `Method ${method} is not allowed on this route.`,
-        }),
+          statusMessage: `Method ${method} is not allowed on this route.`
+        })
       };
     }
     return { matched, handler };
   };
   const isPreemptive = opts.preemptive || opts.preemtive;
   router.handler = eventHandler((event) => {
-    const match = matchHandler(event.path, event.method.toLowerCase());
+    const match = matchHandler(
+      event.path,
+      event.method.toLowerCase()
+    );
     if ("error" in match) {
       if (isPreemptive) {
         throw match.error;
@@ -1966,7 +1859,7 @@ function createRouter(opts = {}) {
     }
     let res = {
       route: match.matched.path,
-      handler: match.handler,
+      handler: match.handler
     };
     if (match.handler.__resolve__) {
       const _res = await match.handler.__resolve__(path);
@@ -1980,7 +1873,7 @@ function createRouter(opts = {}) {
   return router;
 }
 function toNodeListener(app) {
-  const toNodeHandle = async function (req, res) {
+  const toNodeHandle = async function(req, res) {
     const event = createEvent(req, res);
     try {
       await app.handler(event);
@@ -2011,15 +1904,7 @@ function toNodeListener(app) {
   return toNodeHandle;
 }
 
-const s = globalThis.Headers,
-  i = globalThis.AbortController,
-  l =
-    globalThis.fetch ||
-    (() => {
-      throw new Error(
-        "[node-fetch-native] Failed to fetch: `globalThis.fetch` is not available!",
-      );
-    });
+const s=globalThis.Headers,i=globalThis.AbortController,l=globalThis.fetch||(()=>{throw new Error("[node-fetch-native] Failed to fetch: `globalThis.fetch` is not available!")});
 
 class FetchError extends Error {
   constructor(message, opts) {
@@ -2035,19 +1920,17 @@ function createFetchError(ctx) {
   const method = ctx.request?.method || ctx.options?.method || "GET";
   const url = ctx.request?.url || String(ctx.request) || "/";
   const requestStr = `[${method}] ${JSON.stringify(url)}`;
-  const statusStr = ctx.response
-    ? `${ctx.response.status} ${ctx.response.statusText}`
-    : "<no response>";
+  const statusStr = ctx.response ? `${ctx.response.status} ${ctx.response.statusText}` : "<no response>";
   const message = `${requestStr}: ${statusStr}${errorMessage ? ` ${errorMessage}` : ""}`;
   const fetchError = new FetchError(
     message,
-    ctx.error ? { cause: ctx.error } : void 0,
+    ctx.error ? { cause: ctx.error } : void 0
   );
   for (const key of ["request", "options", "response"]) {
     Object.defineProperty(fetchError, key, {
       get() {
         return ctx[key];
-      },
+      }
     });
   }
   for (const [key, refKey] of [
@@ -2055,19 +1938,19 @@ function createFetchError(ctx) {
     ["status", "status"],
     ["statusCode", "status"],
     ["statusText", "statusText"],
-    ["statusMessage", "statusText"],
+    ["statusMessage", "statusText"]
   ]) {
     Object.defineProperty(fetchError, key, {
       get() {
         return ctx.response && ctx.response[refKey];
-      },
+      }
     });
   }
   return fetchError;
 }
 
 const payloadMethods = new Set(
-  Object.freeze(["PATCH", "POST", "PUT", "DELETE"]),
+  Object.freeze(["PATCH", "POST", "PUT", "DELETE"])
 );
 function isPayloadMethod(method = "GET") {
   return payloadMethods.has(method.toUpperCase());
@@ -2089,16 +1972,13 @@ function isJSONSerializable(value) {
   if (value.buffer) {
     return false;
   }
-  return (
-    (value.constructor && value.constructor.name === "Object") ||
-    typeof value.toJSON === "function"
-  );
+  return value.constructor && value.constructor.name === "Object" || typeof value.toJSON === "function";
 }
 const textTypes = /* @__PURE__ */ new Set([
   "image/svg",
   "application/xml",
   "application/xhtml",
-  "application/html",
+  "application/html"
 ]);
 const JSON_RE = /^application\/(?:[\w!#$%&*.^`~-]*\+)?json(;.+)?$/i;
 function detectResponseType(_contentType = "") {
@@ -2117,18 +1997,18 @@ function detectResponseType(_contentType = "") {
 function mergeFetchOptions(input, defaults, Headers = globalThis.Headers) {
   const merged = {
     ...defaults,
-    ...input,
+    ...input
   };
   if (defaults?.params && input?.params) {
     merged.params = {
       ...defaults?.params,
-      ...input?.params,
+      ...input?.params
     };
   }
   if (defaults?.query && input?.query) {
     merged.query = {
       ...defaults?.query,
-      ...input?.query,
+      ...input?.query
     };
   }
   if (defaults?.headers && input?.headers) {
@@ -2155,7 +2035,7 @@ const retryStatusCodes = /* @__PURE__ */ new Set([
   // Bad Gateway
   503,
   // Service Unavailable
-  504,
+  504
   //  Gateway Timeout
 ]);
 const nullBodyResponses$1 = /* @__PURE__ */ new Set([101, 204, 205, 304]);
@@ -2163,14 +2043,10 @@ function createFetch$1(globalOptions = {}) {
   const {
     fetch = globalThis.fetch,
     Headers = globalThis.Headers,
-    AbortController = globalThis.AbortController,
+    AbortController = globalThis.AbortController
   } = globalOptions;
   async function onError(context) {
-    const isAbort =
-      (context.error &&
-        context.error.name === "AbortError" &&
-        !context.options.timeout) ||
-      false;
+    const isAbort = context.error && context.error.name === "AbortError" && !context.options.timeout || false;
     if (context.options.retry !== false && !isAbort) {
       let retries;
       if (typeof context.options.retry === "number") {
@@ -2178,20 +2054,15 @@ function createFetch$1(globalOptions = {}) {
       } else {
         retries = isPayloadMethod(context.options.method) ? 0 : 1;
       }
-      const responseCode = (context.response && context.response.status) || 500;
-      if (
-        retries > 0 &&
-        (Array.isArray(context.options.retryStatusCodes)
-          ? context.options.retryStatusCodes.includes(responseCode)
-          : retryStatusCodes.has(responseCode))
-      ) {
+      const responseCode = context.response && context.response.status || 500;
+      if (retries > 0 && (Array.isArray(context.options.retryStatusCodes) ? context.options.retryStatusCodes.includes(responseCode) : retryStatusCodes.has(responseCode))) {
         const retryDelay = context.options.retryDelay || 0;
         if (retryDelay > 0) {
           await new Promise((resolve) => setTimeout(resolve, retryDelay));
         }
         return $fetchRaw(context.request, {
           ...context.options,
-          retry: retries - 1,
+          retry: retries - 1
         });
       }
     }
@@ -2206,7 +2077,7 @@ function createFetch$1(globalOptions = {}) {
       request: _request,
       options: mergeFetchOptions(_options, globalOptions.defaults, Headers),
       response: void 0,
-      error: void 0,
+      error: void 0
     };
     context.options.method = context.options.method?.toUpperCase();
     if (context.options.onRequest) {
@@ -2219,16 +2090,13 @@ function createFetch$1(globalOptions = {}) {
       if (context.options.query || context.options.params) {
         context.request = withQuery$1(context.request, {
           ...context.options.params,
-          ...context.options.query,
+          ...context.options.query
         });
       }
     }
     if (context.options.body && isPayloadMethod(context.options.method)) {
       if (isJSONSerializable(context.options.body)) {
-        context.options.body =
-          typeof context.options.body === "string"
-            ? context.options.body
-            : JSON.stringify(context.options.body);
+        context.options.body = typeof context.options.body === "string" ? context.options.body : JSON.stringify(context.options.body);
         context.options.headers = new Headers(context.options.headers || {});
         if (!context.options.headers.has("content-type")) {
           context.options.headers.set("content-type", "application/json");
@@ -2238,8 +2106,7 @@ function createFetch$1(globalOptions = {}) {
         }
       } else if (
         // ReadableStream Body
-        ("pipeTo" in context.options.body &&
-          typeof context.options.body.pipeTo === "function") || // Node.js Stream Body
+        "pipeTo" in context.options.body && typeof context.options.body.pipeTo === "function" || // Node.js Stream Body
         typeof context.options.body.pipe === "function"
       ) {
         if (!("duplex" in context.options)) {
@@ -2252,12 +2119,15 @@ function createFetch$1(globalOptions = {}) {
       const controller = new AbortController();
       abortTimeout = setTimeout(
         () => controller.abort(),
-        context.options.timeout,
+        context.options.timeout
       );
       context.options.signal = controller.signal;
     }
     try {
-      context.response = await fetch(context.request, context.options);
+      context.response = await fetch(
+        context.request,
+        context.options
+      );
     } catch (error) {
       context.error = error;
       if (context.options.onRequestError) {
@@ -2269,16 +2139,9 @@ function createFetch$1(globalOptions = {}) {
         clearTimeout(abortTimeout);
       }
     }
-    const hasBody =
-      context.response.body &&
-      !nullBodyResponses$1.has(context.response.status) &&
-      context.options.method !== "HEAD";
+    const hasBody = context.response.body && !nullBodyResponses$1.has(context.response.status) && context.options.method !== "HEAD";
     if (hasBody) {
-      const responseType =
-        (context.options.parseResponse
-          ? "json"
-          : context.options.responseType) ||
-        detectResponseType(context.response.headers.get("content-type") || "");
+      const responseType = (context.options.parseResponse ? "json" : context.options.responseType) || detectResponseType(context.response.headers.get("content-type") || "");
       switch (responseType) {
         case "json": {
           const data = await context.response.text();
@@ -2298,11 +2161,7 @@ function createFetch$1(globalOptions = {}) {
     if (context.options.onResponse) {
       await context.options.onResponse(context);
     }
-    if (
-      !context.options.ignoreResponseError &&
-      context.response.status >= 400 &&
-      context.response.status < 600
-    ) {
+    if (!context.options.ignoreResponseError && context.response.status >= 400 && context.response.status < 600) {
       if (context.options.onResponseError) {
         await context.options.onResponseError(context);
       }
@@ -2316,14 +2175,13 @@ function createFetch$1(globalOptions = {}) {
   };
   $fetch.raw = $fetchRaw;
   $fetch.native = (...args) => fetch(...args);
-  $fetch.create = (defaultOptions = {}) =>
-    createFetch$1({
-      ...globalOptions,
-      defaults: {
-        ...globalOptions.defaults,
-        ...defaultOptions,
-      },
-    });
+  $fetch.create = (defaultOptions = {}) => createFetch$1({
+    ...globalOptions,
+    defaults: {
+      ...globalOptions.defaults,
+      ...defaultOptions
+    }
+  });
   return $fetch;
 }
 
@@ -2338,7 +2196,7 @@ function createNodeFetch() {
   const nodeFetchOptions = {
     agent(parsedURL) {
       return parsedURL.protocol === "http:" ? httpAgent : httpsAgent;
-    },
+    }
   };
   return function nodeFetchWithKeepAlive(input, init) {
     return l(input, { ...nodeFetchOptions, ...init });
@@ -2363,7 +2221,7 @@ function rawHeaders(headers) {
   return rawHeaders2;
 }
 function mergeFns(...functions) {
-  return function (...args) {
+  return function(...args) {
     for (const fn of functions) {
       fn(...args);
     }
@@ -2384,9 +2242,7 @@ let EventEmitter$1 = class EventEmitter {
   static set defaultMaxListeners(arg) {
     if (typeof arg !== "number" || arg < 0 || Number.isNaN(arg)) {
       throw new RangeError(
-        'The value of "defaultMaxListeners" is out of range. It must be a non-negative number. Received ' +
-          arg +
-          ".",
+        'The value of "defaultMaxListeners" is out of range. It must be a non-negative number. Received ' + arg + "."
       );
     }
     defaultMaxListeners = arg;
@@ -2394,9 +2250,7 @@ let EventEmitter$1 = class EventEmitter {
   setMaxListeners(n) {
     if (typeof n !== "number" || n < 0 || Number.isNaN(n)) {
       throw new RangeError(
-        'The value of "n" is out of range. It must be a non-negative number. Received ' +
-          n +
-          ".",
+        'The value of "n" is out of range. It must be a non-negative number. Received ' + n + "."
       );
     }
     this._maxListeners = n;
@@ -2418,7 +2272,7 @@ let EventEmitter$1 = class EventEmitter {
         throw er;
       }
       const err = new Error(
-        "Unhandled error." + (er ? " (" + er.message + ")" : ""),
+        "Unhandled error." + (er ? " (" + er.message + ")" : "")
       );
       err.context = er;
       throw err;
@@ -2479,14 +2333,10 @@ function _addListener(target, type, listener, prepend) {
     target._events[type].push(listener);
   }
   const maxListeners = _getMaxListeners(target);
-  if (
-    maxListeners > 0 &&
-    target._events[type].length > maxListeners &&
-    !target._events[type].warned
-  ) {
+  if (maxListeners > 0 && target._events[type].length > maxListeners && !target._events[type].warned) {
     target._events[type].warned = true;
     const warning = new Error(
-      `[unenv] Possible EventEmitter memory leak detected. ${target._events[type].length} ${type} listeners added. Use emitter.setMaxListeners() to increase limit`,
+      `[unenv] Possible EventEmitter memory leak detected. ${target._events[type].length} ${type} listeners added. Use emitter.setMaxListeners() to increase limit`
     );
     warning.name = "MaxListenersExceededWarning";
     warning.emitter = target;
@@ -2534,9 +2384,7 @@ function _wrapOnce(target, type, listener) {
     }
     target.removeListener(type, wrapper);
     fired = true;
-    return args.length === 0
-      ? listener.call(target)
-      : listener.apply(target, args);
+    return args.length === 0 ? listener.call(target) : listener.apply(target, args);
   };
   wrapper.listener = listener;
   return wrapper;
@@ -2554,8 +2402,7 @@ function _listeners(target, type, unwrap) {
 function _checkListener(listener) {
   if (typeof listener !== "function") {
     throw new TypeError(
-      'The "listener" argument must be of type Function. Received type ' +
-        typeof listener,
+      'The "listener" argument must be of type Function. Received type ' + typeof listener
     );
   }
 }
@@ -2582,8 +2429,10 @@ class _Readable extends EventEmitter {
   constructor(_opts) {
     super();
   }
-  _read(_size) {}
-  read(_size) {}
+  _read(_size) {
+  }
+  read(_size) {
+  }
   setEncoding(_encoding) {
     return this;
   }
@@ -2599,7 +2448,8 @@ class _Readable extends EventEmitter {
   unpipe(_destination) {
     return this;
   }
-  unshift(_chunk, _encoding) {}
+  unshift(_chunk, _encoding) {
+  }
   wrap(_oldStream) {
     return this;
   }
@@ -2704,14 +2554,8 @@ class _Writable extends EventEmitter {
     if (this._data === void 0) {
       this._data = chunk;
     } else {
-      const a =
-        typeof this._data === "string"
-          ? Buffer.from(this._data, this._encoding || encoding || "utf8")
-          : this._data;
-      const b =
-        typeof chunk === "string"
-          ? Buffer.from(chunk, encoding || this._encoding || "utf8")
-          : chunk;
+      const a = typeof this._data === "string" ? Buffer.from(this._data, this._encoding || encoding || "utf8") : this._data;
+      const b = typeof chunk === "string" ? Buffer.from(chunk, encoding || this._encoding || "utf8") : chunk;
       this._data = Buffer.concat([a, b]);
     }
     this._encoding = encoding;
@@ -2719,17 +2563,15 @@ class _Writable extends EventEmitter {
       callback();
     }
   }
-  _writev(_chunks, _callback) {}
-  _destroy(_error, _callback) {}
-  _final(_callback) {}
+  _writev(_chunks, _callback) {
+  }
+  _destroy(_error, _callback) {
+  }
+  _final(_callback) {
+  }
   write(chunk, arg2, arg3) {
     const encoding = typeof arg2 === "string" ? this._encoding : "utf-8";
-    const cb =
-      typeof arg2 === "function"
-        ? arg2
-        : typeof arg3 === "function"
-          ? arg3
-          : void 0;
+    const cb = typeof arg2 === "function" ? arg2 : typeof arg3 === "function" ? arg3 : void 0;
     this._write(chunk, encoding, cb);
     return true;
   }
@@ -2737,14 +2579,7 @@ class _Writable extends EventEmitter {
     return this;
   }
   end(arg1, arg2, arg3) {
-    const callback =
-      typeof arg1 === "function"
-        ? arg1
-        : typeof arg2 === "function"
-          ? arg2
-          : typeof arg3 === "function"
-            ? arg3
-            : void 0;
+    const callback = typeof arg1 === "function" ? arg1 : typeof arg2 === "function" ? arg2 : typeof arg3 === "function" ? arg3 : void 0;
     if (this.writableEnded) {
       if (callback) {
         callback();
@@ -2762,8 +2597,10 @@ class _Writable extends EventEmitter {
     this.emit("finish");
     return this;
   }
-  cork() {}
-  uncork() {}
+  cork() {
+  }
+  uncork() {
+  }
   destroy(_error) {
     this.destroyed = true;
     delete this._data;
@@ -2900,7 +2737,9 @@ function _distinct(obj) {
   const d = {};
   for (const [key, value] of Object.entries(obj)) {
     if (key) {
-      d[key] = (Array.isArray(value) ? value : [value]).filter(Boolean);
+      d[key] = (Array.isArray(value) ? value : [value]).filter(
+        Boolean
+      );
     }
   }
   return d;
@@ -2936,8 +2775,10 @@ class ServerResponse extends Writable {
   _flush() {
     this.flushHeaders();
   }
-  detachSocket(_socket) {}
-  writeContinue(_callback) {}
+  detachSocket(_socket) {
+  }
+  writeContinue(_callback) {
+  }
   writeHead(statusCode, arg1, arg2) {
     if (statusCode) {
       this.statusCode = statusCode;
@@ -2948,8 +2789,7 @@ class ServerResponse extends Writable {
     }
     const headers = arg2 || arg1;
     if (headers) {
-      if (Array.isArray(headers));
-      else {
+      if (Array.isArray(headers)) ; else {
         for (const key in headers) {
           this.setHeader(key, headers[key]);
         }
@@ -2958,7 +2798,8 @@ class ServerResponse extends Writable {
     this.headersSent = true;
     return this;
   }
-  writeProcessing() {}
+  writeProcessing() {
+  }
   setTimeout(_msecs, _callback) {
     return this;
   }
@@ -2966,8 +2807,8 @@ class ServerResponse extends Writable {
     name = name.toLowerCase();
     const current = this._headers[name];
     const all = [
-      ...(Array.isArray(current) ? current : [current]),
-      ...(Array.isArray(value) ? value : [value]),
+      ...Array.isArray(current) ? current : [current],
+      ...Array.isArray(value) ? value : [value]
     ].filter(Boolean);
     this._headers[name] = all.length > 1 ? all : all[0];
     return this;
@@ -2991,8 +2832,10 @@ class ServerResponse extends Writable {
   removeHeader(name) {
     delete this._headers[name.toLowerCase()];
   }
-  addTrailers(_headers) {}
-  flushHeaders() {}
+  addTrailers(_headers) {
+  }
+  flushHeaders() {
+  }
   writeEarlyHints(_headers, cb) {
     if (typeof cb === "function") {
       cb();
@@ -3009,10 +2852,7 @@ function createCall(handle) {
     req.method = context.method || "GET";
     req.headers = {};
     if (context.headers) {
-      const headerEntries =
-        typeof context.headers.entries === "function"
-          ? context.headers.entries()
-          : Object.entries(context.headers);
+      const headerEntries = typeof context.headers.entries === "function" ? context.headers.entries() : Object.entries(context.headers);
       for (const [name, value] of headerEntries) {
         if (!value) {
           continue;
@@ -3022,15 +2862,12 @@ function createCall(handle) {
     }
     req.headers.host = req.headers.host || context.host || "localhost";
     req.connection.encrypted = // @ts-ignore
-      req.connection.encrypted || context.protocol === "https";
+    req.connection.encrypted || context.protocol === "https";
     req.body = context.body || null;
     req.__unenv__ = context.context;
     return handle(req, res).then(() => {
       let body = res._data;
-      if (
-        nullBodyResponses.has(res.statusCode) ||
-        req.method.toUpperCase() === "HEAD"
-      ) {
+      if (nullBodyResponses.has(res.statusCode) || req.method.toUpperCase() === "HEAD") {
         body = null;
         delete res._headers["content-length"];
       }
@@ -3038,7 +2875,7 @@ function createCall(handle) {
         body,
         headers: res._headers,
         status: res.statusCode,
-        statusText: res.statusMessage,
+        statusText: res.statusMessage
       };
       req.destroy();
       res.destroy();
@@ -3061,14 +2898,14 @@ function createFetch(call, _fetch = global.fetch) {
         headers: Object.fromEntries(
           Object.entries(r.headers).map(([name, value]) => [
             name,
-            Array.isArray(value) ? value.join(",") : String(value) || "",
-          ]),
-        ),
+            Array.isArray(value) ? value.join(",") : String(value) || ""
+          ])
+        )
       });
     } catch (error) {
       return new Response(error.toString(), {
         status: Number.parseInt(error.statusCode || error.code) || 500,
-        statusText: error.statusText,
+        statusText: error.statusText
       });
     }
   };
@@ -3088,15 +2925,13 @@ function flatHooks(configHooks, hooks = {}, parentName) {
 }
 const defaultTask = { run: (function_) => function_() };
 const _createTask = () => defaultTask;
-const createTask =
-  typeof console.createTask !== "undefined" ? console.createTask : _createTask;
+const createTask = typeof console.createTask !== "undefined" ? console.createTask : _createTask;
 function serialTaskCaller(hooks, args) {
   const name = args.shift();
   const task = createTask(name);
   return hooks.reduce(
-    (promise, hookFunction) =>
-      promise.then(() => task.run(() => hookFunction(...args))),
-    Promise.resolve(),
+    (promise, hookFunction) => promise.then(() => task.run(() => hookFunction(...args))),
+    Promise.resolve()
   );
 }
 function parallelTaskCaller(hooks, args) {
@@ -3123,7 +2958,8 @@ class Hookable {
   }
   hook(name, function_, options = {}) {
     if (!name || typeof function_ !== "function") {
-      return () => {};
+      return () => {
+      };
     }
     const originalName = name;
     let dep;
@@ -3134,9 +2970,7 @@ class Hookable {
     if (dep && !options.allowDeprecated) {
       let message = dep.message;
       if (!message) {
-        message =
-          `${originalName} hook has been deprecated` +
-          (dep.to ? `, please use ${dep.to}` : "");
+        message = `${originalName} hook has been deprecated` + (dep.to ? `, please use ${dep.to}` : "");
       }
       if (!this._deprecatedMessages) {
         this._deprecatedMessages = /* @__PURE__ */ new Set();
@@ -3150,9 +2984,10 @@ class Hookable {
       try {
         Object.defineProperty(function_, "name", {
           get: () => "_" + name.replace(/\W+/g, "_") + "_hook_cb",
-          configurable: true,
+          configurable: true
         });
-      } catch {}
+      } catch {
+      }
     }
     this._hooks[name] = this._hooks[name] || [];
     this._hooks[name].push(function_);
@@ -3188,8 +3023,7 @@ class Hookable {
     }
   }
   deprecateHook(name, deprecated) {
-    this._deprecatedHooks[name] =
-      typeof deprecated === "string" ? { to: deprecated } : deprecated;
+    this._deprecatedHooks[name] = typeof deprecated === "string" ? { to: deprecated } : deprecated;
     const _hooks = this._hooks[name] || [];
     delete this._hooks[name];
     for (const hook of _hooks) {
@@ -3204,8 +3038,8 @@ class Hookable {
   }
   addHooks(configHooks) {
     const hooks = flatHooks(configHooks);
-    const removeFns = Object.keys(hooks).map((key) =>
-      this.hook(key, hooks[key]),
+    const removeFns = Object.keys(hooks).map(
+      (key) => this.hook(key, hooks[key])
     );
     return () => {
       for (const unreg of removeFns.splice(0, removeFns.length)) {
@@ -3233,16 +3067,13 @@ class Hookable {
     return this.callHookWith(parallelTaskCaller, name, ...arguments_);
   }
   callHookWith(caller, name, ...arguments_) {
-    const event =
-      this._before || this._after
-        ? { name, args: arguments_, context: {} }
-        : void 0;
+    const event = this._before || this._after ? { name, args: arguments_, context: {} } : void 0;
     if (this._before) {
       callEachWith(this._before, event);
     }
     const result = caller(
       name in this._hooks ? [...this._hooks[name]] : [],
-      arguments_,
+      arguments_
     );
     if (result instanceof Promise) {
       return result.finally(() => {
@@ -3286,87 +3117,85 @@ function createHooks() {
 }
 
 function klona(x) {
-  if (typeof x !== "object") return x;
+	if (typeof x !== 'object') return x;
 
-  var k,
-    tmp,
-    str = Object.prototype.toString.call(x);
+	var k, tmp, str=Object.prototype.toString.call(x);
 
-  if (str === "[object Object]") {
-    if (x.constructor !== Object && typeof x.constructor === "function") {
-      tmp = new x.constructor();
-      for (k in x) {
-        if (x.hasOwnProperty(k) && tmp[k] !== x[k]) {
-          tmp[k] = klona(x[k]);
-        }
-      }
-    } else {
-      tmp = {}; // null
-      for (k in x) {
-        if (k === "__proto__") {
-          Object.defineProperty(tmp, k, {
-            value: klona(x[k]),
-            configurable: true,
-            enumerable: true,
-            writable: true,
-          });
-        } else {
-          tmp[k] = klona(x[k]);
-        }
-      }
-    }
-    return tmp;
-  }
+	if (str === '[object Object]') {
+		if (x.constructor !== Object && typeof x.constructor === 'function') {
+			tmp = new x.constructor();
+			for (k in x) {
+				if (x.hasOwnProperty(k) && tmp[k] !== x[k]) {
+					tmp[k] = klona(x[k]);
+				}
+			}
+		} else {
+			tmp = {}; // null
+			for (k in x) {
+				if (k === '__proto__') {
+					Object.defineProperty(tmp, k, {
+						value: klona(x[k]),
+						configurable: true,
+						enumerable: true,
+						writable: true,
+					});
+				} else {
+					tmp[k] = klona(x[k]);
+				}
+			}
+		}
+		return tmp;
+	}
 
-  if (str === "[object Array]") {
-    k = x.length;
-    for (tmp = Array(k); k--; ) {
-      tmp[k] = klona(x[k]);
-    }
-    return tmp;
-  }
+	if (str === '[object Array]') {
+		k = x.length;
+		for (tmp=Array(k); k--;) {
+			tmp[k] = klona(x[k]);
+		}
+		return tmp;
+	}
 
-  if (str === "[object Set]") {
-    tmp = new Set();
-    x.forEach(function (val) {
-      tmp.add(klona(val));
-    });
-    return tmp;
-  }
+	if (str === '[object Set]') {
+		tmp = new Set;
+		x.forEach(function (val) {
+			tmp.add(klona(val));
+		});
+		return tmp;
+	}
 
-  if (str === "[object Map]") {
-    tmp = new Map();
-    x.forEach(function (val, key) {
-      tmp.set(klona(key), klona(val));
-    });
-    return tmp;
-  }
+	if (str === '[object Map]') {
+		tmp = new Map;
+		x.forEach(function (val, key) {
+			tmp.set(klona(key), klona(val));
+		});
+		return tmp;
+	}
 
-  if (str === "[object Date]") {
-    return new Date(+x);
-  }
+	if (str === '[object Date]') {
+		return new Date(+x);
+	}
 
-  if (str === "[object RegExp]") {
-    tmp = new RegExp(x.source, x.flags);
-    tmp.lastIndex = x.lastIndex;
-    return tmp;
-  }
+	if (str === '[object RegExp]') {
+		tmp = new RegExp(x.source, x.flags);
+		tmp.lastIndex = x.lastIndex;
+		return tmp;
+	}
 
-  if (str === "[object DataView]") {
-    return new x.constructor(klona(x.buffer));
-  }
+	if (str === '[object DataView]') {
+		return new x.constructor( klona(x.buffer) );
+	}
 
-  if (str === "[object ArrayBuffer]") {
-    return x.slice(0);
-  }
+	if (str === '[object ArrayBuffer]') {
+		return x.slice(0);
+	}
 
-  // ArrayBuffer.isView(x)
-  // ~> `new` bcuz `Buffer.slice` => ref
-  if (str.slice(-6) === "Array]") {
-    return new x.constructor(x);
-  }
+	// ArrayBuffer.isView(x)
+	// ~> `new` bcuz `Buffer.slice` => ref
+	if (str.slice(-6) === 'Array]') {
+		return new x.constructor(x);
+	}
 
-  return x;
+	return x;
 }
 
 const NUMBER_CHAR_RE = /\d/;
@@ -3418,11 +3247,7 @@ function splitByCase(str, separators) {
   return parts;
 }
 function kebabCase(str, joiner) {
-  return str
-    ? (Array.isArray(str) ? str : splitByCase(str))
-        .map((p) => p.toLowerCase())
-        .join(joiner)
-    : "";
+  return str ? (Array.isArray(str) ? str : splitByCase(str)).map((p) => p.toLowerCase()).join(joiner) : "";
 }
 function snakeCase(str) {
   return kebabCase(str || "", "_");
@@ -3431,7 +3256,7 @@ function snakeCase(str) {
 function getEnv(key, opts) {
   const envKey = snakeCase(key).toUpperCase();
   return destr$1(
-    process.env[opts.prefix + envKey] ?? process.env[opts.altPrefix + envKey],
+    process.env[opts.prefix + envKey] ?? process.env[opts.altPrefix + envKey]
   );
 }
 function _isObject(input) {
@@ -3468,27 +3293,25 @@ function _expandFromEnv(value) {
 
 const inlineAppConfig = {};
 
+
+
 const appConfig = defuFn(inlineAppConfig);
 
 const _inlineRuntimeConfig = {
-  app: {
-    baseURL: "/",
+  "app": {
+    "baseURL": "/"
   },
-  nitro: {
-    routeRules: {},
-  },
+  "nitro": {
+    "routeRules": {}
+  }
 };
 const envOptions = {
   prefix: "NITRO_",
-  altPrefix:
-    _inlineRuntimeConfig.nitro.envPrefix ?? process.env.NITRO_ENV_PREFIX ?? "_",
-  envExpansion:
-    _inlineRuntimeConfig.nitro.envExpansion ??
-    process.env.NITRO_ENV_EXPANSION ??
-    false,
+  altPrefix: _inlineRuntimeConfig.nitro.envPrefix ?? process.env.NITRO_ENV_PREFIX ?? "_",
+  envExpansion: _inlineRuntimeConfig.nitro.envExpansion ?? process.env.NITRO_ENV_EXPANSION ?? false
 };
 const _sharedRuntimeConfig = _deepFreeze(
-  applyEnv(klona(_inlineRuntimeConfig), envOptions),
+  applyEnv(klona(_inlineRuntimeConfig), envOptions)
 );
 function useRuntimeConfig(event) {
   {
@@ -3509,14 +3332,14 @@ function _deepFreeze(object) {
 new Proxy(/* @__PURE__ */ Object.create(null), {
   get: (_, prop) => {
     console.warn(
-      "Please use `useRuntimeConfig()` instead of accessing config directly.",
+      "Please use `useRuntimeConfig()` instead of accessing config directly."
     );
     const runtimeConfig = useRuntimeConfig();
     if (prop in runtimeConfig) {
       return runtimeConfig[prop];
     }
     return void 0;
-  },
+  }
 });
 
 const defaults = Object.freeze({
@@ -3529,7 +3352,7 @@ const defaults = Object.freeze({
   unorderedSets: false,
   excludeKeys: void 0,
   excludeValues: void 0,
-  replacer: void 0,
+  replacer: void 0
 });
 function objectHash(object, options) {
   if (options) {
@@ -3544,7 +3367,7 @@ function objectHash(object, options) {
 const defaultPrototypesKeys = Object.freeze([
   "prototype",
   "__proto__",
-  "constructor",
+  "constructor"
 ]);
 function createHasher(options) {
   let buff = "";
@@ -3585,19 +3408,11 @@ function createHasher(options) {
       } else {
         return this.dispatch("[CIRCULAR:" + objectNumber + "]");
       }
-      if (
-        typeof Buffer !== "undefined" &&
-        Buffer.isBuffer &&
-        Buffer.isBuffer(object)
-      ) {
+      if (typeof Buffer !== "undefined" && Buffer.isBuffer && Buffer.isBuffer(object)) {
         write("buffer:");
         return write(object.toString("utf8"));
       }
-      if (
-        objType !== "object" &&
-        objType !== "function" &&
-        objType !== "asyncfunction"
-      ) {
+      if (objType !== "object" && objType !== "function" && objType !== "asyncfunction") {
         if (this[objType]) {
           this[objType](object);
         } else if (!options.ignoreUnknown) {
@@ -3638,8 +3453,7 @@ function createHasher(options) {
       }
     },
     array(arr, unordered) {
-      unordered =
-        unordered === void 0 ? options.unorderedArrays !== false : unordered;
+      unordered = unordered === void 0 ? options.unorderedArrays !== false : unordered;
       write("array:" + arr.length + ":");
       if (!unordered || arr.length <= 1) {
         for (const entry of arr) {
@@ -3675,7 +3489,7 @@ function createHasher(options) {
       if (value && typeof value.entries === "function") {
         return this.array(
           Array.from(value.entries()),
-          true,
+          true
           /* ordered */
         );
       }
@@ -3781,7 +3595,7 @@ function createHasher(options) {
         return write("[blob]");
       }
       throw new Error(
-        'Hashing Blob objects is currently not supported\nUse "options.replacer" or "options.ignoreUnknown"\n',
+        'Hashing Blob objects is currently not supported\nUse "options.replacer" or "options.ignoreUnknown"\n'
       );
     },
     domwindow() {
@@ -3841,7 +3655,7 @@ function createHasher(options) {
     },
     tlswrap() {
       return write("tlswrap");
-    },
+    }
   };
 }
 const nativeFunc = "[native code] }";
@@ -3850,9 +3664,7 @@ function isNativeFunction(f) {
   if (typeof f !== "function") {
     return false;
   }
-  return (
-    Function.prototype.toString.call(f).slice(-nativeFuncLength) === nativeFunc
-  );
+  return Function.prototype.toString.call(f).slice(-nativeFuncLength) === nativeFunc;
 }
 
 class WordArray {
@@ -3867,22 +3679,19 @@ class WordArray {
     this.clamp();
     if (this.sigBytes % 4) {
       for (let i = 0; i < wordArray.sigBytes; i++) {
-        const thatByte =
-          (wordArray.words[i >>> 2] >>> (24 - (i % 4) * 8)) & 255;
-        this.words[(this.sigBytes + i) >>> 2] |=
-          thatByte << (24 - ((this.sigBytes + i) % 4) * 8);
+        const thatByte = wordArray.words[i >>> 2] >>> 24 - i % 4 * 8 & 255;
+        this.words[this.sigBytes + i >>> 2] |= thatByte << 24 - (this.sigBytes + i) % 4 * 8;
       }
     } else {
       for (let j = 0; j < wordArray.sigBytes; j += 4) {
-        this.words[(this.sigBytes + j) >>> 2] = wordArray.words[j >>> 2];
+        this.words[this.sigBytes + j >>> 2] = wordArray.words[j >>> 2];
       }
     }
     this.sigBytes += wordArray.sigBytes;
     return this;
   }
   clamp() {
-    this.words[this.sigBytes >>> 2] &=
-      4294967295 << (32 - (this.sigBytes % 4) * 8);
+    this.words[this.sigBytes >>> 2] &= 4294967295 << 32 - this.sigBytes % 4 * 8;
     this.words.length = Math.ceil(this.sigBytes / 4);
   }
   clone() {
@@ -3893,45 +3702,42 @@ const Hex = {
   stringify(wordArray) {
     const hexChars = [];
     for (let i = 0; i < wordArray.sigBytes; i++) {
-      const bite = (wordArray.words[i >>> 2] >>> (24 - (i % 4) * 8)) & 255;
+      const bite = wordArray.words[i >>> 2] >>> 24 - i % 4 * 8 & 255;
       hexChars.push((bite >>> 4).toString(16), (bite & 15).toString(16));
     }
     return hexChars.join("");
-  },
+  }
 };
 const Base64 = {
   stringify(wordArray) {
-    const keyStr =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     const base64Chars = [];
     for (let i = 0; i < wordArray.sigBytes; i += 3) {
-      const byte1 = (wordArray.words[i >>> 2] >>> (24 - (i % 4) * 8)) & 255;
-      const byte2 =
-        (wordArray.words[(i + 1) >>> 2] >>> (24 - ((i + 1) % 4) * 8)) & 255;
-      const byte3 =
-        (wordArray.words[(i + 2) >>> 2] >>> (24 - ((i + 2) % 4) * 8)) & 255;
-      const triplet = (byte1 << 16) | (byte2 << 8) | byte3;
+      const byte1 = wordArray.words[i >>> 2] >>> 24 - i % 4 * 8 & 255;
+      const byte2 = wordArray.words[i + 1 >>> 2] >>> 24 - (i + 1) % 4 * 8 & 255;
+      const byte3 = wordArray.words[i + 2 >>> 2] >>> 24 - (i + 2) % 4 * 8 & 255;
+      const triplet = byte1 << 16 | byte2 << 8 | byte3;
       for (let j = 0; j < 4 && i * 8 + j * 6 < wordArray.sigBytes * 8; j++) {
-        base64Chars.push(keyStr.charAt((triplet >>> (6 * (3 - j))) & 63));
+        base64Chars.push(keyStr.charAt(triplet >>> 6 * (3 - j) & 63));
       }
     }
     return base64Chars.join("");
-  },
+  }
 };
 const Latin1 = {
   parse(latin1Str) {
     const latin1StrLength = latin1Str.length;
     const words = [];
     for (let i = 0; i < latin1StrLength; i++) {
-      words[i >>> 2] |= (latin1Str.charCodeAt(i) & 255) << (24 - (i % 4) * 8);
+      words[i >>> 2] |= (latin1Str.charCodeAt(i) & 255) << 24 - i % 4 * 8;
     }
     return new WordArray(words, latin1StrLength);
-  },
+  }
 };
 const Utf8 = {
   parse(utf8Str) {
     return Latin1.parse(unescape(encodeURIComponent(utf8Str)));
-  },
+  }
 };
 class BufferedBlockAlgorithm {
   constructor() {
@@ -3952,7 +3758,8 @@ class BufferedBlockAlgorithm {
     this._nDataBytes += data.sigBytes;
   }
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  _doProcessBlock(_dataWords, _offset) {}
+  _doProcessBlock(_dataWords, _offset) {
+  }
   _process(doFlush) {
     let processedWords;
     let nBlocksReady = this._data.sigBytes / (this.blockSize * 4);
@@ -3987,21 +3794,80 @@ class Hasher extends BufferedBlockAlgorithm {
 }
 
 const H = [
-  1779033703, -1150833019, 1013904242, -1521486534, 1359893119, -1694144372,
-  528734635, 1541459225,
+  1779033703,
+  -1150833019,
+  1013904242,
+  -1521486534,
+  1359893119,
+  -1694144372,
+  528734635,
+  1541459225
 ];
 const K = [
-  1116352408, 1899447441, -1245643825, -373957723, 961987163, 1508970993,
-  -1841331548, -1424204075, -670586216, 310598401, 607225278, 1426881987,
-  1925078388, -2132889090, -1680079193, -1046744716, -459576895, -272742522,
-  264347078, 604807628, 770255983, 1249150122, 1555081692, 1996064986,
-  -1740746414, -1473132947, -1341970488, -1084653625, -958395405, -710438585,
-  113926993, 338241895, 666307205, 773529912, 1294757372, 1396182291,
-  1695183700, 1986661051, -2117940946, -1838011259, -1564481375, -1474664885,
-  -1035236496, -949202525, -778901479, -694614492, -200395387, 275423344,
-  430227734, 506948616, 659060556, 883997877, 958139571, 1322822218, 1537002063,
-  1747873779, 1955562222, 2024104815, -2067236844, -1933114872, -1866530822,
-  -1538233109, -1090935817, -965641998,
+  1116352408,
+  1899447441,
+  -1245643825,
+  -373957723,
+  961987163,
+  1508970993,
+  -1841331548,
+  -1424204075,
+  -670586216,
+  310598401,
+  607225278,
+  1426881987,
+  1925078388,
+  -2132889090,
+  -1680079193,
+  -1046744716,
+  -459576895,
+  -272742522,
+  264347078,
+  604807628,
+  770255983,
+  1249150122,
+  1555081692,
+  1996064986,
+  -1740746414,
+  -1473132947,
+  -1341970488,
+  -1084653625,
+  -958395405,
+  -710438585,
+  113926993,
+  338241895,
+  666307205,
+  773529912,
+  1294757372,
+  1396182291,
+  1695183700,
+  1986661051,
+  -2117940946,
+  -1838011259,
+  -1564481375,
+  -1474664885,
+  -1035236496,
+  -949202525,
+  -778901479,
+  -694614492,
+  -200395387,
+  275423344,
+  430227734,
+  506948616,
+  659060556,
+  883997877,
+  958139571,
+  1322822218,
+  1537002063,
+  1747873779,
+  1955562222,
+  2024104815,
+  -2067236844,
+  -1933114872,
+  -1866530822,
+  -1538233109,
+  -1090935817,
+  -965641998
 ];
 const W = [];
 class SHA256 extends Hasher {
@@ -4028,56 +3894,44 @@ class SHA256 extends Hasher {
         W[i] = M[offset + i] | 0;
       } else {
         const gamma0x = W[i - 15];
-        const gamma0 =
-          ((gamma0x << 25) | (gamma0x >>> 7)) ^
-          ((gamma0x << 14) | (gamma0x >>> 18)) ^
-          (gamma0x >>> 3);
+        const gamma0 = (gamma0x << 25 | gamma0x >>> 7) ^ (gamma0x << 14 | gamma0x >>> 18) ^ gamma0x >>> 3;
         const gamma1x = W[i - 2];
-        const gamma1 =
-          ((gamma1x << 15) | (gamma1x >>> 17)) ^
-          ((gamma1x << 13) | (gamma1x >>> 19)) ^
-          (gamma1x >>> 10);
+        const gamma1 = (gamma1x << 15 | gamma1x >>> 17) ^ (gamma1x << 13 | gamma1x >>> 19) ^ gamma1x >>> 10;
         W[i] = gamma0 + W[i - 7] + gamma1 + W[i - 16];
       }
-      const ch = (e & f) ^ (~e & g);
-      const maj = (a & b) ^ (a & c) ^ (b & c);
-      const sigma0 =
-        ((a << 30) | (a >>> 2)) ^
-        ((a << 19) | (a >>> 13)) ^
-        ((a << 10) | (a >>> 22));
-      const sigma1 =
-        ((e << 26) | (e >>> 6)) ^
-        ((e << 21) | (e >>> 11)) ^
-        ((e << 7) | (e >>> 25));
+      const ch = e & f ^ ~e & g;
+      const maj = a & b ^ a & c ^ b & c;
+      const sigma0 = (a << 30 | a >>> 2) ^ (a << 19 | a >>> 13) ^ (a << 10 | a >>> 22);
+      const sigma1 = (e << 26 | e >>> 6) ^ (e << 21 | e >>> 11) ^ (e << 7 | e >>> 25);
       const t1 = h + sigma1 + ch + K[i] + W[i];
       const t2 = sigma0 + maj;
       h = g;
       g = f;
       f = e;
-      e = (d + t1) | 0;
+      e = d + t1 | 0;
       d = c;
       c = b;
       b = a;
-      a = (t1 + t2) | 0;
+      a = t1 + t2 | 0;
     }
-    H2[0] = (H2[0] + a) | 0;
-    H2[1] = (H2[1] + b) | 0;
-    H2[2] = (H2[2] + c) | 0;
-    H2[3] = (H2[3] + d) | 0;
-    H2[4] = (H2[4] + e) | 0;
-    H2[5] = (H2[5] + f) | 0;
-    H2[6] = (H2[6] + g) | 0;
-    H2[7] = (H2[7] + h) | 0;
+    H2[0] = H2[0] + a | 0;
+    H2[1] = H2[1] + b | 0;
+    H2[2] = H2[2] + c | 0;
+    H2[3] = H2[3] + d | 0;
+    H2[4] = H2[4] + e | 0;
+    H2[5] = H2[5] + f | 0;
+    H2[6] = H2[6] + g | 0;
+    H2[7] = H2[7] + h | 0;
   }
   finalize(messageUpdate) {
     super.finalize(messageUpdate);
     const nBitsTotal = this._nDataBytes * 8;
     const nBitsLeft = this._data.sigBytes * 8;
-    this._data.words[nBitsLeft >>> 5] |= 128 << (24 - (nBitsLeft % 32));
-    this._data.words[(((nBitsLeft + 64) >>> 9) << 4) + 14] = Math.floor(
-      nBitsTotal / 4294967296,
+    this._data.words[nBitsLeft >>> 5] |= 128 << 24 - nBitsLeft % 32;
+    this._data.words[(nBitsLeft + 64 >>> 9 << 4) + 14] = Math.floor(
+      nBitsTotal / 4294967296
     );
-    this._data.words[(((nBitsLeft + 64) >>> 9) << 4) + 15] = nBitsTotal;
+    this._data.words[(nBitsLeft + 64 >>> 9 << 4) + 15] = nBitsTotal;
     this._data.sigBytes = this._data.words.length * 4;
     this._process();
     return this._hash;
@@ -4088,8 +3942,7 @@ function sha256base64(message) {
 }
 
 function hash(object, options = {}) {
-  const hashed =
-    typeof object === "string" ? object : objectHash(object, options);
+  const hashed = typeof object === "string" ? object : objectHash(object, options);
   return sha256base64(hashed).slice(0, 10);
 }
 
@@ -4107,14 +3960,7 @@ function encode(text) {
   return encodeURI("" + text).replace(ENC_PIPE_RE, "|");
 }
 function encodeQueryValue(input) {
-  return encode(typeof input === "string" ? input : JSON.stringify(input))
-    .replace(PLUS_RE, "%2B")
-    .replace(ENC_SPACE_RE, "+")
-    .replace(HASH_RE, "%23")
-    .replace(AMPERSAND_RE, "%26")
-    .replace(ENC_BACKTICK_RE, "`")
-    .replace(ENC_CARET_RE, "^")
-    .replace(SLASH_RE, "%2F");
+  return encode(typeof input === "string" ? input : JSON.stringify(input)).replace(PLUS_RE, "%2B").replace(ENC_SPACE_RE, "+").replace(HASH_RE, "%23").replace(AMPERSAND_RE, "%26").replace(ENC_BACKTICK_RE, "`").replace(ENC_CARET_RE, "^").replace(SLASH_RE, "%2F");
 }
 function encodeQueryKey(text) {
   return encodeQueryValue(text).replace(EQUAL_RE, "%3D");
@@ -4169,18 +4015,12 @@ function encodeQueryItem(key, value) {
     return encodeQueryKey(key);
   }
   if (Array.isArray(value)) {
-    return value
-      .map((_value) => `${encodeQueryKey(key)}=${encodeQueryValue(_value)}`)
-      .join("&");
+    return value.map((_value) => `${encodeQueryKey(key)}=${encodeQueryValue(_value)}`).join("&");
   }
   return `${encodeQueryKey(key)}=${encodeQueryValue(value)}`;
 }
 function stringifyQuery(query) {
-  return Object.keys(query)
-    .filter((k) => query[k] !== void 0)
-    .map((k) => encodeQueryItem(k, query[k]))
-    .filter(Boolean)
-    .join("&");
+  return Object.keys(query).filter((k) => query[k] !== void 0).map((k) => encodeQueryItem(k, query[k])).filter(Boolean).join("&");
 }
 
 const PROTOCOL_STRICT_REGEX = /^[\s\w\0+.-]{2,}:([/\\]{1,2})/;
@@ -4194,10 +4034,7 @@ function hasProtocol(inputString, opts = {}) {
   if (opts.strict) {
     return PROTOCOL_STRICT_REGEX.test(inputString);
   }
-  return (
-    PROTOCOL_REGEX.test(inputString) ||
-    (opts.acceptRelative ? PROTOCOL_RELATIVE_REGEX.test(inputString) : false)
-  );
+  return PROTOCOL_REGEX.test(inputString) || (opts.acceptRelative ? PROTOCOL_RELATIVE_REGEX.test(inputString) : false);
 }
 function hasTrailingSlash(input = "", respectQueryAndFragment) {
   {
@@ -4262,7 +4099,7 @@ function joinURL(base, ...input) {
 const protocolRelative = Symbol.for("ufo:protocolRelative");
 function parseURL(input = "", defaultProto) {
   const _specialProtoMatch = input.match(
-    /^[\s\0]*(blob:|data:|javascript:|vbscript:)(.*)/i,
+    /^[\s\0]*(blob:|data:|javascript:|vbscript:)(.*)/i
   );
   if (_specialProtoMatch) {
     const [, _proto, _pathname = ""] = _specialProtoMatch;
@@ -4273,16 +4110,13 @@ function parseURL(input = "", defaultProto) {
       auth: "",
       host: "",
       search: "",
-      hash: "",
+      hash: ""
     };
   }
   if (!hasProtocol(input, { acceptRelative: true })) {
     return defaultProto ? parseURL(defaultProto + input) : parsePath(input);
   }
-  const [, protocol = "", auth, hostAndPath = ""] =
-    input
-      .replace(/\\/g, "/")
-      .match(/^[\s\0]*([\w+.-]{2,}:)?\/\/([^/@]+@)?(.*)/) || [];
+  const [, protocol = "", auth, hostAndPath = ""] = input.replace(/\\/g, "/").match(/^[\s\0]*([\w+.-]{2,}:)?\/\/([^/@]+@)?(.*)/) || [];
   let [, host = "", path = ""] = hostAndPath.match(/([^#/?]*)(.*)?/) || [];
   if (protocol === "file:") {
     path = path.replace(/\/(?=[A-Za-z]:)/, "");
@@ -4295,31 +4129,24 @@ function parseURL(input = "", defaultProto) {
     pathname,
     search,
     hash,
-    [protocolRelative]: !protocol,
+    [protocolRelative]: !protocol
   };
 }
 function parsePath(input = "") {
-  const [pathname = "", search = "", hash = ""] = (
-    input.match(/([^#?]*)(\?[^#]*)?(#.*)?/) || []
-  ).splice(1);
+  const [pathname = "", search = "", hash = ""] = (input.match(/([^#?]*)(\?[^#]*)?(#.*)?/) || []).splice(1);
   return {
     pathname,
     search,
-    hash,
+    hash
   };
 }
 function stringifyParsedURL(parsed) {
   const pathname = parsed.pathname || "";
-  const search = parsed.search
-    ? (parsed.search.startsWith("?") ? "" : "?") + parsed.search
-    : "";
+  const search = parsed.search ? (parsed.search.startsWith("?") ? "" : "?") + parsed.search : "";
   const hash = parsed.hash || "";
   const auth = parsed.auth ? parsed.auth + "@" : "";
   const host = parsed.host || "";
-  const proto =
-    parsed.protocol || parsed[protocolRelative]
-      ? (parsed.protocol || "") + "//"
-      : "";
+  const proto = parsed.protocol || parsed[protocolRelative] ? (parsed.protocol || "") + "//" : "";
   return proto + auth + host + pathname + search + hash;
 }
 
@@ -4338,7 +4165,7 @@ function asyncCall(function_, ...arguments_) {
 }
 function isPrimitive(value) {
   const type = typeof value;
-  return value === null || (type !== "object" && type !== "function");
+  return value === null || type !== "object" && type !== "function";
 }
 function isPureObject(value) {
   const proto = Object.getPrototypeOf(value);
@@ -4394,7 +4221,7 @@ const storageKeyProperties = [
   "getKeys",
   "clear",
   "mount",
-  "unmount",
+  "unmount"
 ];
 function prefixStorage(storage, base) {
   base = normalizeBaseKey(base);
@@ -4403,25 +4230,19 @@ function prefixStorage(storage, base) {
   }
   const nsStorage = { ...storage };
   for (const property of storageKeyProperties) {
-    nsStorage[property] = (key = "", ...args) =>
+    nsStorage[property] = (key = "", ...args) => (
       // @ts-ignore
-      storage[property](base + key, ...args);
+      storage[property](base + key, ...args)
+    );
   }
-  nsStorage.getKeys = (key = "", ...arguments_) =>
-    storage
-      .getKeys(base + key, ...arguments_)
-      .then((keys) => keys.map((key2) => key2.slice(base.length)));
+  nsStorage.getKeys = (key = "", ...arguments_) => storage.getKeys(base + key, ...arguments_).then((keys) => keys.map((key2) => key2.slice(base.length)));
   return nsStorage;
 }
 function normalizeKey$1(key) {
   if (!key) {
     return "";
   }
-  return key
-    .split("?")[0]
-    .replace(/[/\\]/g, ":")
-    .replace(/:+/g, ":")
-    .replace(/^:|:$/g, "");
+  return key.split("?")[0].replace(/[/\\]/g, ":").replace(/:+/g, ":").replace(/^:|:$/g, "");
 }
 function joinKeys(...keys) {
   return normalizeKey$1(keys.join(":"));
@@ -4467,7 +4288,7 @@ const memory = defineDriver$1(() => {
     },
     dispose() {
       data.clear();
-    },
+    }
   };
 });
 
@@ -4477,7 +4298,7 @@ function createStorage(options = {}) {
     mountpoints: [""],
     watching: false,
     watchListeners: [],
-    unwatch: {},
+    unwatch: {}
   };
   const getMount = (key) => {
     for (const base of context.mountpoints) {
@@ -4485,31 +4306,24 @@ function createStorage(options = {}) {
         return {
           base,
           relativeKey: key.slice(base.length),
-          driver: context.mounts[base],
+          driver: context.mounts[base]
         };
       }
     }
     return {
       base: "",
       relativeKey: key,
-      driver: context.mounts[""],
+      driver: context.mounts[""]
     };
   };
   const getMounts = (base, includeParent) => {
-    return context.mountpoints
-      .filter(
-        (mountpoint) =>
-          mountpoint.startsWith(base) ||
-          (includeParent && base.startsWith(mountpoint)),
-      )
-      .map((mountpoint) => ({
-        relativeBase:
-          base.length > mountpoint.length
-            ? base.slice(mountpoint.length)
-            : void 0,
-        mountpoint,
-        driver: context.mounts[mountpoint],
-      }));
+    return context.mountpoints.filter(
+      (mountpoint) => mountpoint.startsWith(base) || includeParent && base.startsWith(mountpoint)
+    ).map((mountpoint) => ({
+      relativeBase: base.length > mountpoint.length ? base.slice(mountpoint.length) : void 0,
+      mountpoint,
+      driver: context.mounts[mountpoint]
+    }));
   };
   const onChange = (event, key) => {
     if (!context.watching) {
@@ -4529,7 +4343,7 @@ function createStorage(options = {}) {
       context.unwatch[mountpoint] = await watch(
         context.mounts[mountpoint],
         onChange,
-        mountpoint,
+        mountpoint
       );
     }
   };
@@ -4551,7 +4365,7 @@ function createStorage(options = {}) {
         batch = {
           driver: mount.driver,
           base: mount.base,
-          items: [],
+          items: []
         };
         batches.set(mount.base, batch);
       }
@@ -4561,20 +4375,17 @@ function createStorage(options = {}) {
       const isStringItem = typeof item === "string";
       const key = normalizeKey$1(isStringItem ? item : item.key);
       const value = isStringItem ? void 0 : item.value;
-      const options2 =
-        isStringItem || !item.options
-          ? commonOptions
-          : { ...commonOptions, ...item.options };
+      const options2 = isStringItem || !item.options ? commonOptions : { ...commonOptions, ...item.options };
       const mount = getMount(key);
       getBatch(mount).items.push({
         key,
         value,
         relativeKey: mount.relativeKey,
-        options: options2,
+        options: options2
       });
     }
     return Promise.all([...batches.values()].map((batch) => cb(batch))).then(
-      (r) => r.flat(),
+      (r) => r.flat()
     );
   };
   const storage = {
@@ -4587,8 +4398,8 @@ function createStorage(options = {}) {
     getItem(key, opts = {}) {
       key = normalizeKey$1(key);
       const { relativeKey, driver } = getMount(key);
-      return asyncCall(driver.getItem, relativeKey, opts).then((value) =>
-        destr(value),
+      return asyncCall(driver.getItem, relativeKey, opts).then(
+        (value) => destr(value)
       );
     },
     getItems(items, commonOptions) {
@@ -4598,14 +4409,14 @@ function createStorage(options = {}) {
             batch.driver.getItems,
             batch.items.map((item) => ({
               key: item.relativeKey,
-              options: item.options,
+              options: item.options
             })),
-            commonOptions,
-          ).then((r) =>
-            r.map((item) => ({
+            commonOptions
+          ).then(
+            (r) => r.map((item) => ({
               key: joinKeys(batch.base, item.key),
-              value: destr(item.value),
-            })),
+              value: destr(item.value)
+            }))
           );
         }
         return Promise.all(
@@ -4613,12 +4424,12 @@ function createStorage(options = {}) {
             return asyncCall(
               batch.driver.getItem,
               item.relativeKey,
-              item.options,
+              item.options
             ).then((value) => ({
               key: item.key,
-              value: destr(value),
+              value: destr(value)
             }));
-          }),
+          })
         );
       });
     },
@@ -4628,8 +4439,8 @@ function createStorage(options = {}) {
       if (driver.getItemRaw) {
         return asyncCall(driver.getItemRaw, relativeKey, opts);
       }
-      return asyncCall(driver.getItem, relativeKey, opts).then((value) =>
-        deserializeRaw(value),
+      return asyncCall(driver.getItem, relativeKey, opts).then(
+        (value) => deserializeRaw(value)
       );
     },
     async setItem(key, value, opts = {}) {
@@ -4654,9 +4465,9 @@ function createStorage(options = {}) {
             batch.items.map((item) => ({
               key: item.relativeKey,
               value: stringify(item.value),
-              options: item.options,
+              options: item.options
             })),
-            commonOptions,
+            commonOptions
           );
         }
         if (!batch.driver.setItem) {
@@ -4668,9 +4479,9 @@ function createStorage(options = {}) {
               batch.driver.setItem,
               item.relativeKey,
               stringify(item.value),
-              item.options,
+              item.options
             );
-          }),
+          })
         );
       });
     },
@@ -4723,7 +4534,7 @@ function createStorage(options = {}) {
         const value = await asyncCall(
           driver.getItem,
           relativeKey + "$",
-          opts,
+          opts
         ).then((value_) => destr(value_));
         if (value && typeof value === "object") {
           if (typeof value.atime === "string") {
@@ -4753,7 +4564,7 @@ function createStorage(options = {}) {
         const rawKeys = await asyncCall(
           mount.driver.getKeys,
           mount.relativeBase,
-          opts,
+          opts
         );
         for (const key of rawKeys) {
           const fullKey = mount.mountpoint + normalizeKey$1(key);
@@ -4763,14 +4574,12 @@ function createStorage(options = {}) {
         }
         maskedMounts = [
           mount.mountpoint,
-          ...maskedMounts.filter((p) => !p.startsWith(mount.mountpoint)),
+          ...maskedMounts.filter((p) => !p.startsWith(mount.mountpoint))
         ];
       }
-      return base
-        ? allKeys.filter(
-            (key) => key.startsWith(base) && key[key.length - 1] !== "$",
-          )
-        : allKeys.filter((key) => key[key.length - 1] !== "$");
+      return base ? allKeys.filter(
+        (key) => key.startsWith(base) && key[key.length - 1] !== "$"
+      ) : allKeys.filter((key) => key[key.length - 1] !== "$");
     },
     // Utils
     async clear(base, opts = {}) {
@@ -4783,15 +4592,15 @@ function createStorage(options = {}) {
           if (m.driver.removeItem) {
             const keys = await m.driver.getKeys(m.relativeBase || "", opts);
             return Promise.all(
-              keys.map((key) => m.driver.removeItem(key, opts)),
+              keys.map((key) => m.driver.removeItem(key, opts))
             );
           }
-        }),
+        })
       );
     },
     async dispose() {
       await Promise.all(
-        Object.values(context.mounts).map((driver) => dispose(driver)),
+        Object.values(context.mounts).map((driver) => dispose(driver))
       );
     },
     async watch(callback) {
@@ -4799,7 +4608,7 @@ function createStorage(options = {}) {
       context.watchListeners.push(callback);
       return async () => {
         context.watchListeners = context.watchListeners.filter(
-          (listener) => listener !== callback,
+          (listener) => listener !== callback
         );
         if (context.watchListeners.length === 0) {
           await stopWatch();
@@ -4822,11 +4631,9 @@ function createStorage(options = {}) {
       }
       context.mounts[base] = driver;
       if (context.watching) {
-        Promise.resolve(watch(driver, onChange, base))
-          .then((unwatcher) => {
-            context.unwatch[base] = unwatcher;
-          })
-          .catch(console.error);
+        Promise.resolve(watch(driver, onChange, base)).then((unwatcher) => {
+          context.unwatch[base] = unwatcher;
+        }).catch(console.error);
       }
       return storage;
     },
@@ -4850,7 +4657,7 @@ function createStorage(options = {}) {
       const m = getMount(key);
       return {
         driver: m.driver,
-        base: m.base,
+        base: m.base
       };
     },
     getMounts(base = "", opts = {}) {
@@ -4858,7 +4665,7 @@ function createStorage(options = {}) {
       const mounts = getMounts(base, opts.parents);
       return mounts.map((m) => ({
         driver: m.driver,
-        base: m.mountpoint,
+        base: m.mountpoint
       }));
     },
     // Aliases
@@ -4867,14 +4674,13 @@ function createStorage(options = {}) {
     set: (key, value, opts = {}) => storage.setItem(key, value, opts),
     has: (key, opts = {}) => storage.hasItem(key, opts),
     del: (key, opts = {}) => storage.removeItem(key, opts),
-    remove: (key, opts = {}) => storage.removeItem(key, opts),
+    remove: (key, opts = {}) => storage.removeItem(key, opts)
   };
   return storage;
 }
 function watch(driver, onChange, base) {
-  return driver.watch
-    ? driver.watch((event, key) => onChange(event, base + key))
-    : () => {};
+  return driver.watch ? driver.watch((event, key) => onChange(event, base + key)) : () => {
+  };
 }
 async function dispose(driver) {
   if (typeof driver.dispose === "function") {
@@ -4882,35 +4688,33 @@ async function dispose(driver) {
   }
 }
 
-const _assets = {};
+const _assets = {
+
+};
 
 const normalizeKey = function normalizeKey(key) {
   if (!key) {
     return "";
   }
-  return key
-    .split("?")[0]
-    .replace(/[/\\]/g, ":")
-    .replace(/:+/g, ":")
-    .replace(/^:|:$/g, "");
+  return key.split("?")[0].replace(/[/\\]/g, ":").replace(/:+/g, ":").replace(/^:|:$/g, "");
 };
 
 const assets$1 = {
   getKeys() {
-    return Promise.resolve(Object.keys(_assets));
+    return Promise.resolve(Object.keys(_assets))
   },
-  hasItem(id) {
+  hasItem (id) {
     id = normalizeKey(id);
-    return Promise.resolve(id in _assets);
+    return Promise.resolve(id in _assets)
   },
-  getItem(id) {
+  getItem (id) {
     id = normalizeKey(id);
-    return Promise.resolve(_assets[id] ? _assets[id].import() : null);
+    return Promise.resolve(_assets[id] ? _assets[id].import() : null)
   },
-  getMeta(id) {
+  getMeta (id) {
     id = normalizeKey(id);
-    return Promise.resolve(_assets[id] ? _assets[id].meta : {});
-  },
+    return Promise.resolve(_assets[id] ? _assets[id].meta : {})
+  }
 };
 
 function defineDriver(factory) {
@@ -4924,7 +4728,7 @@ function createRequiredError(driver, name) {
   if (Array.isArray(name)) {
     return createError(
       driver,
-      `Missing some of the required options ${name.map((n) => "`" + n + "`").join(", ")}`,
+      `Missing some of the required options ${name.map((n) => "`" + n + "`").join(", ")}`
     );
   }
   return createError(driver, `Missing required option \`${name}\`.`);
@@ -4947,10 +4751,7 @@ function unlink(path) {
   return promises.unlink(path).catch(ignoreNotfound);
 }
 function readdir(dir) {
-  return promises
-    .readdir(dir, { withFileTypes: true })
-    .catch(ignoreNotfound)
-    .then((r) => r || []);
+  return promises.readdir(dir, { withFileTypes: true }).catch(ignoreNotfound).then((r) => r || []);
 }
 async function ensuredir(dir) {
   if (existsSync(dir)) {
@@ -4976,7 +4777,7 @@ async function readdirRecursive(dir, ignore) {
           files.push(entry.name);
         }
       }
-    }),
+    })
   );
   return files;
 }
@@ -4990,7 +4791,7 @@ async function rmRecursive(dir) {
       } else {
         return promises.unlink(entryPath);
       }
-    }),
+    })
   );
 }
 
@@ -5005,7 +4806,7 @@ const unstorage_47drivers_47fs_45lite = defineDriver((opts = {}) => {
     if (PATH_TRAVERSE_RE.test(key)) {
       throw createError(
         DRIVER_NAME,
-        `Invalid key: ${JSON.stringify(key)}. It should not contain .. segments`,
+        `Invalid key: ${JSON.stringify(key)}. It should not contain .. segments`
       );
     }
     const resolved = join(opts.base, key.replace(/:/g, "/"));
@@ -5024,9 +4825,7 @@ const unstorage_47drivers_47fs_45lite = defineDriver((opts = {}) => {
       return readFile(r(key));
     },
     async getMeta(key) {
-      const { atime, mtime, size, birthtime, ctime } = await promises
-        .stat(r(key))
-        .catch(() => ({}));
+      const { atime, mtime, size, birthtime, ctime } = await promises.stat(r(key)).catch(() => ({}));
       return { atime, mtime, size, birthtime, ctime };
     },
     setItem(key, value) {
@@ -5055,21 +4854,15 @@ const unstorage_47drivers_47fs_45lite = defineDriver((opts = {}) => {
         return;
       }
       await rmRecursive(r("."));
-    },
+    }
   };
 });
 
 const storage = createStorage({});
 
-storage.mount("/assets", assets$1);
+storage.mount('/assets', assets$1);
 
-storage.mount(
-  "data",
-  unstorage_47drivers_47fs_45lite({
-    driver: "fsLite",
-    base: "/Users/Palmford/Desktop/cooper/apps/auth-proxy/.data/kv",
-  }),
-);
+storage.mount('data', unstorage_47drivers_47fs_45lite({"driver":"fsLite","base":"/Users/Palmford/Desktop/cooper/apps/auth-proxy/.data/kv"}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -5079,7 +4872,7 @@ const defaultCacheOptions = {
   name: "_",
   base: "/cache",
   swr: true,
-  maxAge: 1,
+  maxAge: 1
 };
 function defineCachedFunction(fn, opts = {}) {
   opts = { ...defaultCacheOptions, ...opts };
@@ -5089,11 +4882,8 @@ function defineCachedFunction(fn, opts = {}) {
   const integrity = opts.integrity || hash([fn, opts]);
   const validate = opts.validate || ((entry) => entry.value !== void 0);
   async function get(key, resolver, shouldInvalidateCache, event) {
-    const cacheKey = [opts.base, group, name, key + ".json"]
-      .filter(Boolean)
-      .join(":")
-      .replace(/:\/$/, ":index");
-    let entry = (await useStorage().getItem(cacheKey)) || {};
+    const cacheKey = [opts.base, group, name, key + ".json"].filter(Boolean).join(":").replace(/:\/$/, ":index");
+    let entry = await useStorage().getItem(cacheKey) || {};
     if (typeof entry !== "object") {
       entry = {};
       const error = new Error("Malformed data read from cache.");
@@ -5104,19 +4894,11 @@ function defineCachedFunction(fn, opts = {}) {
     if (ttl) {
       entry.expires = Date.now() + ttl;
     }
-    const expired =
-      shouldInvalidateCache ||
-      entry.integrity !== integrity ||
-      (ttl && Date.now() - (entry.mtime || 0) > ttl) ||
-      validate(entry) === false;
+    const expired = shouldInvalidateCache || entry.integrity !== integrity || ttl && Date.now() - (entry.mtime || 0) > ttl || validate(entry) === false;
     const _resolve = async () => {
       const isPending = pending[key];
       if (!isPending) {
-        if (
-          entry.value !== void 0 &&
-          (opts.staleMaxAge || 0) >= 0 &&
-          opts.swr === false
-        ) {
+        if (entry.value !== void 0 && (opts.staleMaxAge || 0) >= 0 && opts.swr === false) {
           entry.value = void 0;
           entry.integrity = void 0;
           entry.mtime = void 0;
@@ -5137,12 +4919,10 @@ function defineCachedFunction(fn, opts = {}) {
         entry.integrity = integrity;
         delete pending[key];
         if (validate(entry) !== false) {
-          const promise = useStorage()
-            .setItem(cacheKey, entry)
-            .catch((error) => {
-              console.error(`[nitro] [cache] Cache write error.`, error);
-              useNitroApp().captureError(error, { event, tags: ["cache"] });
-            });
+          const promise = useStorage().setItem(cacheKey, entry).catch((error) => {
+            console.error(`[nitro] [cache] Cache write error.`, error);
+            useNitroApp().captureError(error, { event, tags: ["cache"] });
+          });
           if (event && event.waitUntil) {
             event.waitUntil(promise);
           }
@@ -5175,11 +4955,11 @@ function defineCachedFunction(fn, opts = {}) {
       key,
       () => fn(...args),
       shouldInvalidateCache,
-      args[0] && isEvent(args[0]) ? args[0] : void 0,
+      args[0] && isEvent(args[0]) ? args[0] : void 0
     );
     let value = entry.value;
     if (opts.transform) {
-      value = (await opts.transform(entry, ...args)) || value;
+      value = await opts.transform(entry, ...args) || value;
     }
     return value;
   };
@@ -5192,10 +4972,7 @@ function escapeKey(key) {
   return String(key).replace(/\W/g, "");
 }
 function defineCachedEventHandler(handler, opts = defaultCacheOptions) {
-  const variableHeaderNames = (opts.varies || [])
-    .filter(Boolean)
-    .map((h) => h.toLowerCase())
-    .sort();
+  const variableHeaderNames = (opts.varies || []).filter(Boolean).map((h) => h.toLowerCase()).sort();
   const _opts = {
     ...opts,
     getKey: async (event) => {
@@ -5203,14 +4980,10 @@ function defineCachedEventHandler(handler, opts = defaultCacheOptions) {
       if (customKey) {
         return escapeKey(customKey);
       }
-      const _path =
-        event.node.req.originalUrl || event.node.req.url || event.path;
-      const _pathname =
-        escapeKey(decodeURI(parseURL(_path).pathname)).slice(0, 16) || "index";
+      const _path = event.node.req.originalUrl || event.node.req.url || event.path;
+      const _pathname = escapeKey(decodeURI(parseURL(_path).pathname)).slice(0, 16) || "index";
       const _hashedPath = `${_pathname}.${hash(_path)}`;
-      const _headers = variableHeaderNames
-        .map((header) => [header, event.node.req.headers[header]])
-        .map(([name, value]) => `${escapeKey(name)}.${hash(value)}`);
+      const _headers = variableHeaderNames.map((header) => [header, event.node.req.headers[header]]).map(([name, value]) => `${escapeKey(name)}.${hash(value)}`);
       return [_hashedPath, ..._headers].join(":");
     },
     validate: (entry) => {
@@ -5223,130 +4996,128 @@ function defineCachedEventHandler(handler, opts = defaultCacheOptions) {
       if (entry.value.body === void 0) {
         return false;
       }
-      if (
-        entry.value.headers.etag === "undefined" ||
-        entry.value.headers["last-modified"] === "undefined"
-      ) {
+      if (entry.value.headers.etag === "undefined" || entry.value.headers["last-modified"] === "undefined") {
         return false;
       }
       return true;
     },
     group: opts.group || "nitro/handlers",
-    integrity: opts.integrity || hash([handler, opts]),
+    integrity: opts.integrity || hash([handler, opts])
   };
-  const _cachedHandler = cachedFunction(async (incomingEvent) => {
-    const variableHeaders = {};
-    for (const header of variableHeaderNames) {
-      variableHeaders[header] = incomingEvent.node.req.headers[header];
-    }
-    const reqProxy = cloneWithProxy(incomingEvent.node.req, {
-      headers: variableHeaders,
-    });
-    const resHeaders = {};
-    let _resSendBody;
-    const resProxy = cloneWithProxy(incomingEvent.node.res, {
-      statusCode: 200,
-      writableEnded: false,
-      writableFinished: false,
-      headersSent: false,
-      closed: false,
-      getHeader(name) {
-        return resHeaders[name];
-      },
-      setHeader(name, value) {
-        resHeaders[name] = value;
-        return this;
-      },
-      getHeaderNames() {
-        return Object.keys(resHeaders);
-      },
-      hasHeader(name) {
-        return name in resHeaders;
-      },
-      removeHeader(name) {
-        delete resHeaders[name];
-      },
-      getHeaders() {
-        return resHeaders;
-      },
-      end(chunk, arg2, arg3) {
-        if (typeof chunk === "string") {
-          _resSendBody = chunk;
-        }
-        if (typeof arg2 === "function") {
-          arg2();
-        }
-        if (typeof arg3 === "function") {
-          arg3();
-        }
-        return this;
-      },
-      write(chunk, arg2, arg3) {
-        if (typeof chunk === "string") {
-          _resSendBody = chunk;
-        }
-        if (typeof arg2 === "function") {
-          arg2();
-        }
-        if (typeof arg3 === "function") {
-          arg3();
-        }
-        return this;
-      },
-      writeHead(statusCode, headers2) {
-        this.statusCode = statusCode;
-        if (headers2) {
-          for (const header in headers2) {
-            this.setHeader(header, headers2[header]);
+  const _cachedHandler = cachedFunction(
+    async (incomingEvent) => {
+      const variableHeaders = {};
+      for (const header of variableHeaderNames) {
+        variableHeaders[header] = incomingEvent.node.req.headers[header];
+      }
+      const reqProxy = cloneWithProxy(incomingEvent.node.req, {
+        headers: variableHeaders
+      });
+      const resHeaders = {};
+      let _resSendBody;
+      const resProxy = cloneWithProxy(incomingEvent.node.res, {
+        statusCode: 200,
+        writableEnded: false,
+        writableFinished: false,
+        headersSent: false,
+        closed: false,
+        getHeader(name) {
+          return resHeaders[name];
+        },
+        setHeader(name, value) {
+          resHeaders[name] = value;
+          return this;
+        },
+        getHeaderNames() {
+          return Object.keys(resHeaders);
+        },
+        hasHeader(name) {
+          return name in resHeaders;
+        },
+        removeHeader(name) {
+          delete resHeaders[name];
+        },
+        getHeaders() {
+          return resHeaders;
+        },
+        end(chunk, arg2, arg3) {
+          if (typeof chunk === "string") {
+            _resSendBody = chunk;
           }
+          if (typeof arg2 === "function") {
+            arg2();
+          }
+          if (typeof arg3 === "function") {
+            arg3();
+          }
+          return this;
+        },
+        write(chunk, arg2, arg3) {
+          if (typeof chunk === "string") {
+            _resSendBody = chunk;
+          }
+          if (typeof arg2 === "function") {
+            arg2();
+          }
+          if (typeof arg3 === "function") {
+            arg3();
+          }
+          return this;
+        },
+        writeHead(statusCode, headers2) {
+          this.statusCode = statusCode;
+          if (headers2) {
+            for (const header in headers2) {
+              this.setHeader(header, headers2[header]);
+            }
+          }
+          return this;
         }
-        return this;
-      },
-    });
-    const event = createEvent(reqProxy, resProxy);
-    event.fetch = (url, fetchOptions) =>
-      fetchWithEvent(event, url, fetchOptions, {
-        fetch: useNitroApp().localFetch,
       });
-    event.$fetch = (url, fetchOptions) =>
-      fetchWithEvent(event, url, fetchOptions, {
-        fetch: globalThis.$fetch,
+      const event = createEvent(reqProxy, resProxy);
+      event.fetch = (url, fetchOptions) => fetchWithEvent(event, url, fetchOptions, {
+        fetch: useNitroApp().localFetch
       });
-    event.context = incomingEvent.context;
-    event.context.cache = {
-      options: _opts,
-    };
-    const body = (await handler(event)) || _resSendBody;
-    const headers = event.node.res.getHeaders();
-    headers.etag = String(headers.Etag || headers.etag || `W/"${hash(body)}"`);
-    headers["last-modified"] = String(
-      headers["Last-Modified"] ||
-        headers["last-modified"] ||
-        /* @__PURE__ */ new Date().toUTCString(),
-    );
-    const cacheControl = [];
-    if (opts.swr) {
-      if (opts.maxAge) {
-        cacheControl.push(`s-maxage=${opts.maxAge}`);
+      event.$fetch = (url, fetchOptions) => fetchWithEvent(event, url, fetchOptions, {
+        fetch: globalThis.$fetch
+      });
+      event.context = incomingEvent.context;
+      event.context.cache = {
+        options: _opts
+      };
+      const body = await handler(event) || _resSendBody;
+      const headers = event.node.res.getHeaders();
+      headers.etag = String(
+        headers.Etag || headers.etag || `W/"${hash(body)}"`
+      );
+      headers["last-modified"] = String(
+        headers["Last-Modified"] || headers["last-modified"] || (/* @__PURE__ */ new Date()).toUTCString()
+      );
+      const cacheControl = [];
+      if (opts.swr) {
+        if (opts.maxAge) {
+          cacheControl.push(`s-maxage=${opts.maxAge}`);
+        }
+        if (opts.staleMaxAge) {
+          cacheControl.push(`stale-while-revalidate=${opts.staleMaxAge}`);
+        } else {
+          cacheControl.push("stale-while-revalidate");
+        }
+      } else if (opts.maxAge) {
+        cacheControl.push(`max-age=${opts.maxAge}`);
       }
-      if (opts.staleMaxAge) {
-        cacheControl.push(`stale-while-revalidate=${opts.staleMaxAge}`);
-      } else {
-        cacheControl.push("stale-while-revalidate");
+      if (cacheControl.length > 0) {
+        headers["cache-control"] = cacheControl.join(", ");
       }
-    } else if (opts.maxAge) {
-      cacheControl.push(`max-age=${opts.maxAge}`);
-    }
-    if (cacheControl.length > 0) {
-      headers["cache-control"] = cacheControl.join(", ");
-    }
-    const cacheEntry = {
-      code: event.node.res.statusCode,
-      headers,
-      body,
-    };
-    return cacheEntry;
-  }, _opts);
+      const cacheEntry = {
+        code: event.node.res.statusCode,
+        headers,
+        body
+      };
+      return cacheEntry;
+    },
+    _opts
+  );
   return defineEventHandler(async (event) => {
     if (opts.headersOnly) {
       if (handleCacheHeaders(event, { maxAge: opts.maxAge })) {
@@ -5358,20 +5129,21 @@ function defineCachedEventHandler(handler, opts = defaultCacheOptions) {
     if (event.node.res.headersSent || event.node.res.writableEnded) {
       return response.body;
     }
-    if (
-      handleCacheHeaders(event, {
-        modifiedTime: new Date(response.headers["last-modified"]),
-        etag: response.headers.etag,
-        maxAge: opts.maxAge,
-      })
-    ) {
+    if (handleCacheHeaders(event, {
+      modifiedTime: new Date(response.headers["last-modified"]),
+      etag: response.headers.etag,
+      maxAge: opts.maxAge
+    })) {
       return;
     }
     event.node.res.statusCode = response.code;
     for (const name in response.headers) {
       const value = response.headers[name];
       if (name === "set-cookie") {
-        event.node.res.appendHeader(name, splitCookiesString(value));
+        event.node.res.appendHeader(
+          name,
+          splitCookiesString(value)
+        );
       } else {
         event.node.res.setHeader(name, value);
       }
@@ -5393,59 +5165,38 @@ function cloneWithProxy(obj, overrides) {
         return true;
       }
       return Reflect.set(target, property, value, receiver);
-    },
+    }
   });
 }
 const cachedEventHandler = defineCachedEventHandler;
 
 function hasReqHeader(event, name, includes) {
   const value = getRequestHeader(event, name);
-  return (
-    value && typeof value === "string" && value.toLowerCase().includes(includes)
-  );
+  return value && typeof value === "string" && value.toLowerCase().includes(includes);
 }
 function isJsonRequest(event) {
   if (hasReqHeader(event, "accept", "text/html")) {
     return false;
   }
-  return (
-    hasReqHeader(event, "accept", "application/json") ||
-    hasReqHeader(event, "user-agent", "curl/") ||
-    hasReqHeader(event, "user-agent", "httpie/") ||
-    hasReqHeader(event, "sec-fetch-mode", "cors") ||
-    event.path.startsWith("/api/") ||
-    event.path.endsWith(".json")
-  );
+  return hasReqHeader(event, "accept", "application/json") || hasReqHeader(event, "user-agent", "curl/") || hasReqHeader(event, "user-agent", "httpie/") || hasReqHeader(event, "sec-fetch-mode", "cors") || event.path.startsWith("/api/") || event.path.endsWith(".json");
 }
 function normalizeError(error) {
   const cwd = typeof process.cwd === "function" ? process.cwd() : "/";
-  const stack = (error.stack || "")
-    .split("\n")
-    .splice(1)
-    .filter((line) => line.includes("at "))
-    .map((line) => {
-      const text = line
-        .replace(cwd + "/", "./")
-        .replace("webpack:/", "")
-        .replace("file://", "")
-        .trim();
-      return {
-        text,
-        internal:
-          (line.includes("node_modules") && !line.includes(".cache")) ||
-          line.includes("internal") ||
-          line.includes("new Promise"),
-      };
-    });
+  const stack = (error.stack || "").split("\n").splice(1).filter((line) => line.includes("at ")).map((line) => {
+    const text = line.replace(cwd + "/", "./").replace("webpack:/", "").replace("file://", "").trim();
+    return {
+      text,
+      internal: line.includes("node_modules") && !line.includes(".cache") || line.includes("internal") || line.includes("new Promise")
+    };
+  });
   const statusCode = error.statusCode || 500;
-  const statusMessage =
-    error.statusMessage ?? (statusCode === 404 ? "Not Found" : "");
+  const statusMessage = error.statusMessage ?? (statusCode === 404 ? "Not Found" : "");
   const message = error.message || error.toString();
   return {
     stack,
     statusCode,
     statusMessage,
-    message,
+    message
   };
 }
 function _captureError(error, type) {
@@ -5453,11 +5204,13 @@ function _captureError(error, type) {
   useNitroApp().captureError(error, { tags: [type] });
 }
 function trapUnhandledNodeErrors() {
-  process.on("unhandledRejection", (error) =>
-    _captureError(error, "unhandledRejection"),
+  process.on(
+    "unhandledRejection",
+    (error) => _captureError(error, "unhandledRejection")
   );
-  process.on("uncaughtException", (error) =>
-    _captureError(error, "uncaughtException"),
+  process.on(
+    "uncaughtException",
+    (error) => _captureError(error, "uncaughtException")
   );
 }
 function joinHeaders(value) {
@@ -5470,7 +5223,7 @@ function normalizeFetchResponse(response) {
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,
-    headers: normalizeCookieHeaders(response.headers),
+    headers: normalizeCookieHeaders(response.headers)
   });
 }
 function normalizeCookieHeader(header = "") {
@@ -5492,7 +5245,7 @@ function normalizeCookieHeaders(headers) {
 
 const config = useRuntimeConfig();
 const _routeRulesMatcher = toRouteMatcher(
-  createRouter$1({ routes: config.nitro.routeRules }),
+  createRouter$1({ routes: config.nitro.routeRules })
 );
 function createRouteRulesHandler(ctx) {
   return eventHandler((event) => {
@@ -5530,7 +5283,7 @@ function createRouteRulesHandler(ctx) {
       }
       return proxyRequest(event, target, {
         fetch: ctx.localFetch,
-        ...routeRules.proxy,
+        ...routeRules.proxy
       });
     }
   });
@@ -5539,7 +5292,7 @@ function getRouteRules(event) {
   event.context._nitro = event.context._nitro || {};
   if (!event.context._nitro.routeRules) {
     event.context._nitro.routeRules = getRouteRulesForPath(
-      withoutBase(event.path.split("?")[0], useRuntimeConfig().app.baseURL),
+      withoutBase(event.path.split("?")[0], useRuntimeConfig().app.baseURL)
     );
   }
   return event.context._nitro.routeRules;
@@ -5548,7 +5301,9 @@ function getRouteRulesForPath(path) {
   return defu({}, ..._routeRulesMatcher.matchAll(path).reverse());
 }
 
-const plugins = [];
+const plugins = [
+  
+];
 
 function defineNitroErrorHandler(handler) {
   return handler;
@@ -5561,20 +5316,18 @@ const errorHandler = defineNitroErrorHandler(
       statusCode,
       statusMessage,
       message,
-      stack: void 0,
+      stack: void 0
     };
     if (error.unhandled || error.fatal) {
       const tags = [
         "[nitro]",
         "[request error]",
         error.unhandled && "[unhandled]",
-        error.fatal && "[fatal]",
-      ]
-        .filter(Boolean)
-        .join(" ");
+        error.fatal && "[fatal]"
+      ].filter(Boolean).join(" ");
       console.error(
         tags,
-        error.message + "\n" + stack.map((l) => "  " + l.text).join("  \n"),
+        error.message + "\n" + stack.map((l) => "  " + l.text).join("  \n")
       );
     }
     setResponseStatus(event, statusCode, statusMessage);
@@ -5585,7 +5338,7 @@ const errorHandler = defineNitroErrorHandler(
       setResponseHeader(event, "Content-Type", "text/html");
       return send(event, renderHTMLError(errorObject));
     }
-  },
+  }
 );
 function renderHTMLError(error) {
   const statusCode = error.statusCode || 500;
@@ -5627,9 +5380,7 @@ function normalizeWindowsPath(input = "") {
   if (!input) {
     return input;
   }
-  return input
-    .replace(/\\/g, "/")
-    .replace(_DRIVE_LETTER_START_RE, (r) => r.toUpperCase());
+  return input.replace(/\\/g, "/").replace(_DRIVE_LETTER_START_RE, (r) => r.toUpperCase());
 }
 const _IS_ABSOLUTE_RE = /^[/\\](?![/\\])|^[/\\]{2}(?!\.)|^[A-Za-z]:[/\\]/;
 const _DRIVE_LETTER_RE = /^[A-Za-z]:$/;
@@ -5639,15 +5390,11 @@ function cwd() {
   }
   return "/";
 }
-const resolve = function (...arguments_) {
+const resolve = function(...arguments_) {
   arguments_ = arguments_.map((argument) => normalizeWindowsPath(argument));
   let resolvedPath = "";
   let resolvedAbsolute = false;
-  for (
-    let index = arguments_.length - 1;
-    index >= -1 && !resolvedAbsolute;
-    index--
-  ) {
+  for (let index = arguments_.length - 1; index >= -1 && !resolvedAbsolute; index--) {
     const path = index >= 0 ? arguments_[index] : cwd();
     if (!path || path.length === 0) {
       continue;
@@ -5676,14 +5423,8 @@ function normalizeString(path, allowAboveRoot) {
       char = "/";
     }
     if (char === "/") {
-      if (lastSlash === index - 1 || dots === 1);
-      else if (dots === 2) {
-        if (
-          res.length < 2 ||
-          lastSegmentLength !== 2 ||
-          res[res.length - 1] !== "." ||
-          res[res.length - 2] !== "."
-        ) {
+      if (lastSlash === index - 1 || dots === 1) ; else if (dots === 2) {
+        if (res.length < 2 || lastSegmentLength !== 2 || res[res.length - 1] !== "." || res[res.length - 2] !== ".") {
           if (res.length > 2) {
             const lastSlashIndex = res.lastIndexOf("/");
             if (lastSlashIndex === -1) {
@@ -5726,41 +5467,36 @@ function normalizeString(path, allowAboveRoot) {
   }
   return res;
 }
-const isAbsolute = function (p) {
+const isAbsolute = function(p) {
   return _IS_ABSOLUTE_RE.test(p);
 };
-const dirname = function (p) {
-  const segments = normalizeWindowsPath(p)
-    .replace(/\/$/, "")
-    .split("/")
-    .slice(0, -1);
+const dirname = function(p) {
+  const segments = normalizeWindowsPath(p).replace(/\/$/, "").split("/").slice(0, -1);
   if (segments.length === 1 && _DRIVE_LETTER_RE.test(segments[0])) {
     segments[0] += "/";
   }
   return segments.join("/") || (isAbsolute(p) ? "/" : ".");
 };
 
-function readAsset(id) {
+function readAsset (id) {
   const serverDir = dirname(fileURLToPath(globalThis._importMeta_.url));
-  return promises.readFile(resolve(serverDir, assets[id].path));
+  return promises.readFile(resolve(serverDir, assets[id].path))
 }
 
 const publicAssetBases = {};
 
-function isPublicAssetURL(id = "") {
+function isPublicAssetURL(id = '') {
   if (assets[id]) {
-    return true;
+    return true
   }
   for (const base in publicAssetBases) {
-    if (id.startsWith(base)) {
-      return true;
-    }
+    if (id.startsWith(base)) { return true }
   }
-  return false;
+  return false
 }
 
-function getAsset(id) {
-  return assets[id];
+function getAsset (id) {
+  return assets[id]
 }
 
 const METHODS = /* @__PURE__ */ new Set(["HEAD", "GET"]);
@@ -5770,19 +5506,15 @@ const _f4b49z = eventHandler((event) => {
     return;
   }
   let id = decodePath(
-    withLeadingSlash(withoutTrailingSlash(parseURL(event.path).pathname)),
+    withLeadingSlash(withoutTrailingSlash(parseURL(event.path).pathname))
   );
   let asset;
   const encodingHeader = String(
-    getRequestHeader(event, "accept-encoding") || "",
+    getRequestHeader(event, "accept-encoding") || ""
   );
   const encodings = [
-    ...encodingHeader
-      .split(",")
-      .map((e) => EncodingMap[e.trim()])
-      .filter(Boolean)
-      .sort(),
-    "",
+    ...encodingHeader.split(",").map((e) => EncodingMap[e.trim()]).filter(Boolean).sort(),
+    ""
   ];
   if (encodings.length > 1) {
     setResponseHeader(event, "Vary", "Accept-Encoding");
@@ -5802,7 +5534,7 @@ const _f4b49z = eventHandler((event) => {
       removeResponseHeader(event, "Cache-Control");
       throw createError$1({
         statusMessage: "Cannot find static asset " + id,
-        statusCode: 404,
+        statusCode: 404
       });
     }
     return;
@@ -5814,11 +5546,7 @@ const _f4b49z = eventHandler((event) => {
   }
   const ifModifiedSinceH = getRequestHeader(event, "if-modified-since");
   const mtimeDate = new Date(asset.mtime);
-  if (
-    ifModifiedSinceH &&
-    asset.mtime &&
-    new Date(ifModifiedSinceH) >= mtimeDate
-  ) {
+  if (ifModifiedSinceH && asset.mtime && new Date(ifModifiedSinceH) >= mtimeDate) {
     setResponseStatus(event, 304, "Not Modified");
     return "";
   }
@@ -5840,34 +5568,20 @@ const _f4b49z = eventHandler((event) => {
   return readAsset(id);
 });
 
-const _lazy_ndhp3J = () => import("./routes/r/_...auth_.mjs");
+const _lazy_ndhp3J = () => import('./routes/r/_...auth_.mjs');
 
 const handlers = [
-  {
-    route: "",
-    handler: _f4b49z,
-    lazy: false,
-    middleware: true,
-    method: undefined,
-  },
-  {
-    route: "/r/**:auth",
-    handler: _lazy_ndhp3J,
-    lazy: true,
-    middleware: false,
-    method: undefined,
-  },
+  { route: '', handler: _f4b49z, lazy: false, middleware: true, method: undefined },
+  { route: '/r/**:auth', handler: _lazy_ndhp3J, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
   const config = useRuntimeConfig();
   const hooks = createHooks();
   const captureError = (error, context = {}) => {
-    const promise = hooks
-      .callHookParallel("error", error, context)
-      .catch((_err) => {
-        console.error("Error while capturing another error", _err);
-      });
+    const promise = hooks.callHookParallel("error", error, context).catch((_err) => {
+      console.error("Error while capturing another error", _err);
+    });
     if (context.event && isEvent(context.event)) {
       const errors = context.event.context.nitro?.errors;
       if (errors) {
@@ -5890,33 +5604,28 @@ function createNitroApp() {
       });
     },
     onBeforeResponse: async (event, response) => {
-      await nitroApp.hooks
-        .callHook("beforeResponse", event, response)
-        .catch((error) => {
-          captureError(error, { event, tags: ["request", "response"] });
-        });
+      await nitroApp.hooks.callHook("beforeResponse", event, response).catch((error) => {
+        captureError(error, { event, tags: ["request", "response"] });
+      });
     },
     onAfterResponse: async (event, response) => {
-      await nitroApp.hooks
-        .callHook("afterResponse", event, response)
-        .catch((error) => {
-          captureError(error, { event, tags: ["request", "response"] });
-        });
-    },
+      await nitroApp.hooks.callHook("afterResponse", event, response).catch((error) => {
+        captureError(error, { event, tags: ["request", "response"] });
+      });
+    }
   });
   const router = createRouter({
-    preemptive: true,
+    preemptive: true
   });
   const localCall = createCall(toNodeListener(h3App));
   const _localFetch = createFetch(localCall, globalThis.fetch);
-  const localFetch = (input, init) =>
-    _localFetch(input, init).then((response) =>
-      normalizeFetchResponse(response),
-    );
+  const localFetch = (input, init) => _localFetch(input, init).then(
+    (response) => normalizeFetchResponse(response)
+  );
   const $fetch = createFetch$1({
     fetch: localFetch,
     Headers: Headers$1,
-    defaults: { baseURL: config.app.baseURL },
+    defaults: { baseURL: config.app.baseURL }
   });
   globalThis.$fetch = $fetch;
   h3App.use(createRouteRulesHandler({ localFetch }));
@@ -5927,12 +5636,10 @@ function createNitroApp() {
       if (envContext) {
         Object.assign(event.context, envContext);
       }
-      event.fetch = (req, init) =>
-        fetchWithEvent(event, req, init, { fetch: localFetch });
-      event.$fetch = (req, init) =>
-        fetchWithEvent(event, req, init, {
-          fetch: $fetch,
-        });
+      event.fetch = (req, init) => fetchWithEvent(event, req, init, { fetch: localFetch });
+      event.$fetch = (req, init) => fetchWithEvent(event, req, init, {
+        fetch: $fetch
+      });
       event.waitUntil = (promise) => {
         if (!event.context.nitro._waitUntilPromises) {
           event.context.nitro._waitUntilPromises = [];
@@ -5945,24 +5652,24 @@ function createNitroApp() {
       event.captureError = (error, context) => {
         captureError(error, { event, ...context });
       };
-    }),
+    })
   );
   for (const h of handlers) {
     let handler = h.lazy ? lazyEventHandler(h.handler) : h.handler;
     if (h.middleware || !h.route) {
       const middlewareBase = (config.app.baseURL + (h.route || "/")).replace(
         /\/+/g,
-        "/",
+        "/"
       );
       h3App.use(middlewareBase, handler);
     } else {
       const routeRules = getRouteRulesForPath(
-        h.route.replace(/:\w+|\*\*/g, "_"),
+        h.route.replace(/:\w+|\*\*/g, "_")
       );
       if (routeRules.cache) {
         handler = cachedEventHandler(handler, {
           group: "nitro/routes",
-          ...routeRules.cache,
+          ...routeRules.cache
         });
       }
       router.use(h.route, handler, h.method);
@@ -5975,7 +5682,7 @@ function createNitroApp() {
     router,
     localCall,
     localFetch,
-    captureError,
+    captureError
   };
   for (const plugin of plugins) {
     try {
@@ -5990,7 +5697,8 @@ function createNitroApp() {
 const nitroApp = createNitroApp();
 const useNitroApp = () => nitroApp;
 
-const debug = (...args) => {};
+const debug = (...args) => {
+};
 function GracefulShutdown(server, opts) {
   opts = opts || {};
   const options = Object.assign(
@@ -6000,9 +5708,9 @@ function GracefulShutdown(server, opts) {
       development: false,
       forceExit: true,
       onShutdown: (signal) => Promise.resolve(signal),
-      preShutdown: (signal) => Promise.resolve(signal),
+      preShutdown: (signal) => Promise.resolve(signal)
     },
-    opts,
+    opts
   );
   let isShuttingDown = false;
   const connections = {};
@@ -6025,28 +5733,23 @@ function GracefulShutdown(server, opts) {
       }
     };
   }
-  const signals = options.signals
-    .split(" ")
-    .map((s) => s.trim())
-    .filter((s) => s.length > 0);
+  const signals = options.signals.split(" ").map((s) => s.trim()).filter((s) => s.length > 0);
   const once = onceFactory();
   once(process, signals, (signal) => {
-    shutdown(signal)
-      .then(() => {
-        if (options.forceExit) {
-          process.exit(failed ? 1 : 0);
-        }
-      })
-      .catch((err) => {
-        process.exit(1);
-      });
+    shutdown(signal).then(() => {
+      if (options.forceExit) {
+        process.exit(failed ? 1 : 0);
+      }
+    }).catch((err) => {
+      process.exit(1);
+    });
   });
   function isFunction(functionToCheck) {
     const getType = Object.prototype.toString.call(functionToCheck);
     return /^\[object\s([A-Za-z]+)?Function]$/.test(getType);
   }
   function destroy(socket, force = false) {
-    if ((socket._isIdle && isShuttingDown) || force) {
+    if (socket._isIdle && isShuttingDown || force) {
       socket.destroy();
       if (socket.server instanceof http.Server) {
         delete connections[socket._connectionId];
@@ -6079,17 +5782,17 @@ function GracefulShutdown(server, opts) {
       }
     }
   }
-  server.on("request", function (req, res) {
+  server.on("request", function(req, res) {
     req.socket._isIdle = false;
     if (isShuttingDown && !res.headersSent) {
       res.setHeader("connection", "close");
     }
-    res.on("finish", function () {
+    res.on("finish", function() {
       req.socket._isIdle = true;
       destroy(req.socket);
     });
   });
-  server.on("connection", function (socket) {
+  server.on("connection", function(socket) {
     if (isShuttingDown) {
       socket.destroy();
     } else {
@@ -6115,7 +5818,8 @@ function GracefulShutdown(server, opts) {
       });
     }
   });
-  process.on("close", function () {});
+  process.on("close", function() {
+  });
   function shutdown(sig) {
     function cleanupHttp() {
       destroyAllConnections();
@@ -6143,13 +5847,11 @@ function GracefulShutdown(server, opts) {
     function waitForReadyToShutDown(totalNumInterval) {
       if (totalNumInterval === 0) {
         debug(
-          `Could not close connections in time (${options.timeout}ms), will forcefully shut down`,
+          `Could not close connections in time (${options.timeout}ms), will forcefully shut down`
         );
         return Promise.resolve(true);
       }
-      const allConnectionsClosed =
-        Object.keys(connections).length === 0 &&
-        Object.keys(secureConnections).length === 0;
+      const allConnectionsClosed = Object.keys(connections).length === 0 && Object.keys(secureConnections).length === 0;
       if (allConnectionsClosed) {
         return Promise.resolve(false);
       }
@@ -6162,30 +5864,22 @@ function GracefulShutdown(server, opts) {
     if (isShuttingDown) {
       return Promise.resolve();
     }
-    return options
-      .preShutdown(sig)
-      .then(() => {
-        isShuttingDown = true;
-        cleanupHttp();
-      })
-      .then(() => {
-        const pollIterations = options.timeout
-          ? Math.round(options.timeout / 250)
-          : 0;
-        return waitForReadyToShutDown(pollIterations);
-      })
-      .then((force) => {
-        if (force) {
-          destroyAllConnections(force);
-        }
-        return options.onShutdown(sig);
-      })
-      .then(finalHandler)
-      .catch((err) => {
-        const errString = typeof err === "string" ? err : JSON.stringify(err);
-        failed = true;
-        throw errString;
-      });
+    return options.preShutdown(sig).then(() => {
+      isShuttingDown = true;
+      cleanupHttp();
+    }).then(() => {
+      const pollIterations = options.timeout ? Math.round(options.timeout / 250) : 0;
+      return waitForReadyToShutDown(pollIterations);
+    }).then((force) => {
+      if (force) {
+        destroyAllConnections(force);
+      }
+      return options.onShutdown(sig);
+    }).then(finalHandler).catch((err) => {
+      const errString = typeof err === "string" ? err : JSON.stringify(err);
+      failed = true;
+      throw errString;
+    });
   }
   function shutdownManual() {
     return shutdown("manual");
@@ -6196,11 +5890,9 @@ function GracefulShutdown(server, opts) {
 function getGracefulShutdownConfig() {
   return {
     disabled: !!process.env.NITRO_SHUTDOWN_DISABLED,
-    signals: (process.env.NITRO_SHUTDOWN_SIGNALS || "SIGTERM SIGINT")
-      .split(" ")
-      .map((s) => s.trim()),
+    signals: (process.env.NITRO_SHUTDOWN_SIGNALS || "SIGTERM SIGINT").split(" ").map((s) => s.trim()),
     timeout: Number.parseInt(process.env.NITRO_SHUTDOWN_TIMEOUT, 10) || 3e4,
-    forceExit: !process.env.NITRO_SHUTDOWN_NO_FORCE_EXIT,
+    forceExit: !process.env.NITRO_SHUTDOWN_NO_FORCE_EXIT
   };
 }
 function setupGracefulShutdown(listener, nitroApp) {
@@ -6218,26 +5910,20 @@ function setupGracefulShutdown(listener, nitroApp) {
           console.warn("Graceful shutdown timeout, force exiting...");
           resolve();
         }, shutdownConfig.timeout);
-        nitroApp.hooks
-          .callHook("close")
-          .catch((err) => {
-            console.error(err);
-          })
-          .finally(() => {
-            clearTimeout(timeout);
-            resolve();
-          });
+        nitroApp.hooks.callHook("close").catch((err) => {
+          console.error(err);
+        }).finally(() => {
+          clearTimeout(timeout);
+          resolve();
+        });
       });
-    },
+    }
   });
 }
 
 const cert = process.env.NITRO_SSL_CERT;
 const key = process.env.NITRO_SSL_KEY;
-const server =
-  cert && key
-    ? new Server({ key, cert }, toNodeListener(nitroApp.h3App))
-    : new Server$1(toNodeListener(nitroApp.h3App));
+const server = cert && key ? new Server({ key, cert }, toNodeListener(nitroApp.h3App)) : new Server$1(toNodeListener(nitroApp.h3App));
 const port = destr$1(process.env.NITRO_PORT || process.env.PORT) || 3e3;
 const host = process.env.NITRO_HOST || process.env.HOST;
 const path = process.env.NITRO_UNIX_SOCKET;
