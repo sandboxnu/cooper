@@ -2,12 +2,12 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 
 import type { CompanyType, RoleType } from "@cooper/db/schema";
 import { cn, Pagination } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
-import { Chip } from "@cooper/ui/chip";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -28,15 +28,10 @@ import NoResults from "~/app/_components/no-results";
 import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
 import { RoleInfo } from "~/app/_components/reviews/role-info";
 import SearchFilter from "~/app/_components/search/search-filter";
+import SidebarFilter from "~/app/_components/filters/sidebar-filter";
 import { api } from "~/trpc/react";
-
-interface FilterState {
-  industries: string[];
-  locations: string[];
-  jobTypes: string[];
-  hourlyPay: { min: number; max: number };
-  ratings: string[];
-}
+import RoleTypeSelector from "~/app/_components/filters/role-type-selector";
+import type { FilterState } from "~/app/_components/filters/types";
 
 // Helper function to create URL-friendly slugs (still needed for URL generation)
 const createSlug = (text: string): string => {
@@ -56,6 +51,8 @@ export default function Roles() {
   const router = useRouter();
   const compare = useCompare();
 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   const [selectedType, setSelectedType] = useState<
     "roles" | "companies" | "all"
   >("all");
@@ -70,6 +67,9 @@ export default function Roles() {
     jobTypes: [],
     hourlyPay: { min: 0, max: 0 },
     ratings: [],
+    workModels: [],
+    overtimeWork: [],
+    companyCulture: [],
   });
   const rolesAndCompaniesPerPage = 10;
 
@@ -147,6 +147,15 @@ export default function Roles() {
           : undefined,
       ratings:
         appliedFilters.ratings.length > 0 ? appliedFilters.ratings : undefined,
+      workModels:
+        appliedFilters.workModels.length > 0
+          ? appliedFilters.workModels
+          : undefined,
+      overtimeWork: appliedFilters.overtimeWork.length > 0 ? true : undefined,
+      companyCulture:
+        appliedFilters.companyCulture.length > 0
+          ? appliedFilters.companyCulture
+          : undefined,
     };
   }, [appliedFilters]);
 
@@ -315,6 +324,7 @@ export default function Roles() {
     rolesAndCompanies.isSuccess,
   ]);
   const [showRoleInfo, setShowRoleInfo] = useState(false); // State for toggling views on mobile
+  const [showCompanyInfo, setShowCompanyInfo] = useState(false);
 
   // Reset to page 1 when filter or search changes
   useEffect(() => {
@@ -362,6 +372,17 @@ export default function Roles() {
     setAppliedFilters(filters);
     setCurrentPage(1); // Reset to first page when filters change
   };
+
+  const isFiltering = useMemo(() => {
+    return (
+      appliedFilters.industries.length > 0 ||
+      appliedFilters.locations.length > 0 ||
+      appliedFilters.jobTypes.length > 0 ||
+      appliedFilters.workModels.length > 0 ||
+      appliedFilters.overtimeWork.length > 0 ||
+      appliedFilters.companyCulture.length > 0
+    );
+  }, [appliedFilters]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -433,11 +454,31 @@ export default function Roles() {
         <div className="w-full px-5 md:w-[28%]">
           <SearchFilter className="w-full" />
         </div>
-        <div className="no-scrollbar w-full flex-1 overflow-x-auto px-5 md:overflow-visible md:pl-0 md:pr-5">
-          <DropdownFiltersBar onFilterChange={handleFilterChange} />
+        <div className="no-scrollbar w-full flex flex-1 overflow-x-auto md:pr-0 gap-2 px-5">
+          <DropdownFiltersBar
+            filters={appliedFilters}
+            onFilterChange={handleFilterChange}
+          />
+          <Button
+            className={cn(
+              "flex items-center gap-[10px] rounded-lg px-[14px] py-2 text-sm border border-cooper-gray-150 text-cooper-gray-400 font-normal focus-visible:ring-0 outline-none focus:outline-none h-9 whitespace-nowrap",
+              isFiltering
+                ? "border-cooper-gray-600 bg-cooper-gray-700 hover:bg-cooper-gray-200"
+                : "bg-white hover:bg-cooper-gray-150",
+            )}
+            onClick={() => setIsSidebarOpen(true)}
+          >
+            <Image
+              src="/svg/sidebarFilter.svg"
+              width={16}
+              height={16}
+              alt="Sidebar filters icon"
+            />
+            Filters
+          </Button>
         </div>
         {compare.isCompareMode && selectedRole && (
-          <div className="hidden items-center gap-2 px-5 md:flex">
+          <div className="hidden items-center gap-2 pr-5 md:flex">
             <CompareControls anchorRoleId={selectedRole.id} inTopBar />
           </div>
         )}
@@ -451,10 +492,10 @@ export default function Roles() {
               className={cn(
                 "border-cooper-gray-150 bg-cooper-cream-100 w-full overflow-y-auto border-r-[1px] p-5 xl:rounded-none",
                 "md:w-[28%]", // Show as 28% width on md and above
-                showRoleInfo && "hidden md:block", // Hide on mobile if RoleInfo is visible
+                (showRoleInfo || showCompanyInfo) && "hidden md:block", // Hide on mobile if RoleInfo is visible
               )}
             >
-              <div className="text-right">
+              <div className="text-right pb-2">
                 <DropdownMenu>
                   <DropdownMenuTrigger className="text-md mb-2">
                     Sort By{" "}
@@ -494,23 +535,14 @@ export default function Roles() {
                     </DropdownMenuLabel>
                   </DropdownMenuContent>
                 </DropdownMenu>
-                <div className="flex gap-2 py-2">
-                  <Chip
-                    label="All"
-                    onClick={() => setSelectedType("all")}
-                    selected={selectedType === "all"}
-                  />
-                  <Chip
-                    onClick={() => setSelectedType("roles")}
-                    label={`Jobs (${rolesAndCompanies.data.totalRolesCount})`}
-                    selected={selectedType === "roles"}
-                  />
-                  <Chip
-                    onClick={() => setSelectedType("companies")}
-                    label={`Companies (${rolesAndCompanies.data.totalCompanyCount})`}
-                    selected={selectedType === "companies"}
-                  />
-                </div>
+                <RoleTypeSelector
+                  onSelectedTypeChange={setSelectedType}
+                  selectedType={selectedType}
+                  data={{
+                    totalRolesCount: rolesAndCompanies.data.totalRolesCount,
+                    totalCompanyCount: rolesAndCompanies.data.totalCompanyCount,
+                  }}
+                />
               </div>
               {rolesAndCompanies.data.items.map((item, i) => {
                 if (item.type === "role") {
@@ -601,6 +633,7 @@ export default function Roles() {
                       onClick={(e) => {
                         e.preventDefault();
                         setSelectedItem(item);
+                        setShowCompanyInfo(true);
                       }}
                     >
                       <CompanyCardPreview
@@ -616,25 +649,6 @@ export default function Roles() {
                     </div>
                   );
                 }
-
-                // return (
-                //   <div
-                //     key={item.id}
-                //     onClick={() => {
-                //       setSelectedItem(item);
-                //     }}
-                //   >
-                //     <CompanyCardPreview
-                //       companyObj={item}
-                //       className={cn(
-                //         "mb-4 hover:bg-cooper-gray-200",
-                //         selectedItem
-                //           ? selectedItem.id === item.id && "bg-cooper-cream-200"
-                //           : !i && "bg-cooper-cream-200",
-                //       )}
-                //     />
-                //   </div>
-                // );
               })}
 
               {/* Pagination */}
@@ -650,14 +664,9 @@ export default function Roles() {
               className={cn(
                 "col-span-3 w-full overflow-y-auto p-1",
                 "md:w-[72%]", // Show as 72% width on md and above
-                !showRoleInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
+                !showRoleInfo && !showCompanyInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
               )}
             >
-              {selectedRole && !compare.isCompareMode && (
-                <div className="flex w-full items-center justify-end px-4 py-2">
-                  <CompareControls anchorRoleId={selectedRole.id} />
-                </div>
-              )}
               {selectedRole ? (
                 compare.isCompareMode ? (
                   <CompareColumns anchorRole={selectedRole} />
@@ -668,7 +677,12 @@ export default function Roles() {
                   />
                 )
               ) : (
-                selectedCompany && <CompanyInfo companyObj={selectedCompany} />
+                selectedCompany && (
+                  <CompanyInfo
+                    companyObj={selectedCompany}
+                    onBack={() => setShowCompanyInfo(false)}
+                  />
+                )
               )}
             </div>
           </div>
@@ -678,6 +692,25 @@ export default function Roles() {
           <NoResults className="h-[84dvh]" />
         )}
       {rolesAndCompanies.isPending && <LoadingResults className="h-[84dvh]" />}
+
+      <SidebarFilter
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
+        filters={appliedFilters}
+        onFilterChange={handleFilterChange}
+        selectedType={selectedType}
+        onSelectedTypeChange={setSelectedType}
+        data={
+          rolesAndCompanies.isFetching
+            ? undefined
+            : {
+                totalRolesCount: rolesAndCompanies.data?.totalRolesCount ?? 0,
+                totalCompanyCount:
+                  rolesAndCompanies.data?.totalCompanyCount ?? 0,
+              }
+        }
+        isLoading={rolesAndCompanies.isFetching}
+      />
     </div>
   );
 }

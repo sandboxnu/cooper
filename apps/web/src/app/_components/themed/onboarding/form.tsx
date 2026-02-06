@@ -9,7 +9,7 @@ export function FormLabel({
   ...props
 }: React.ComponentProps<typeof FormLabelPrimitive> & { required?: boolean }) {
   return (
-    <FormLabelPrimitive className="text-lg font-semibold text-black" {...props}>
+    <FormLabelPrimitive className="text-sm font-bold text-black" {...props}>
       {children}
       {required && <span className="ml-1 text-red-500">*</span>}
     </FormLabelPrimitive>
