@@ -40,13 +40,11 @@
     "@cooper/prettier-config": "workspace:*",
     "@turbo/gen": "^2.1.1",
     "@vitest/ui": "2.1.2",
+    "next-auth": "^4.24.13",
     "prettier": "catalog:",
     "turbo": "^2.1.1",
     "typescript": "catalog:",
     "vitest": "catalog:"
   },
-  "prettier": "@cooper/prettier-config",
-  "dependencies": {
-    "next-auth": "^4.24.13"
-  }
+  "prettier": "@cooper/prettier-config"
 }

@@ -1,6 +1,6 @@
 import type {
   DefaultSession,
-  NextAuthConfig,
+  NextAuthOptions,
   Session as NextAuthSession,
 } from "next-auth";
 import { skipCSRFCheck } from "@auth/core";
@@ -48,6 +48,8 @@ export const authConfig = {
   secret: env.AUTH_SECRET,
   providers: [
     Google({
+      clientId: env.AUTH_GOOGLE_ID,
+      clientSecret: env.AUTH_GOOGLE_SECRET,
       authorization: {
         params: {
           hd: "husky.neu.edu",
@@ -78,7 +80,7 @@ export const authConfig = {
       return true;
     },
   },
-} satisfies NextAuthConfig;
+} satisfies NextAuthOptions;
 
 export const validateToken = async (
   token: string,

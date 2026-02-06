@@ -65,7 +65,7 @@ export const GET = async (
     const authResponse = await handlers.GET(req);
     const setCookie = authResponse.headers
       .getSetCookie()
-      .find((cookie) => AUTH_COOKIE_PATTERN.test(cookie));
+      .find((cookie: string) => AUTH_COOKIE_PATTERN.test(cookie));
     const match = setCookie?.match(AUTH_COOKIE_PATTERN)?.[1];
 
     if (!match)

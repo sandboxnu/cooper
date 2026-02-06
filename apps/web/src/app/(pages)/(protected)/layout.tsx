@@ -4,6 +4,8 @@ import { auth } from "@cooper/auth";
 import { CustomToaster } from "@cooper/ui";
 import HeaderLayout from "~/app/_components/header/header-layout";
 
+export const dynamic = "force-dynamic";
+
 export default async function ProtectedLayour({
   children,
 }: {
