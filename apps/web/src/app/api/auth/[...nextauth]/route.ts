@@ -33,12 +33,13 @@ export const POST = async (_req: NextRequest) => {
 
 export const GET = async (
   _req: NextRequest,
-  props: { params: { nextauth: string[] } },
+  context: { params: Promise<{ nextauth: string[] }> },
 ) => {
+  const params = await context.params;
   // First step must be to correct the request URL.
   const req = rewriteRequestUrlInDevelopment(_req);
 
-  const nextauthAction = props.params.nextauth[0];
+  const nextauthAction = params.nextauth[0];
   const isExpoSignIn = req.nextUrl.searchParams.get("expo-redirect");
   const isExpoCallback = (await cookies()).get(EXPO_COOKIE_NAME);
 
