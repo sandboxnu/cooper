@@ -45,10 +45,11 @@ export const GET = async (
   if (nextauthAction === "signin" && !!isExpoSignIn) {
     // set a cookie we can read in the callback
     // to know to send the user back to expo
-    (await
-      // set a cookie we can read in the callback
+    (
+      await // set a cookie we can read in the callback
       // to know to send the user back to expo
-      cookies()).set({
+      cookies()
+    ).set({
       name: EXPO_COOKIE_NAME,
       value: isExpoSignIn,
       maxAge: 60 * 10, // 10 min
@@ -56,8 +57,8 @@ export const GET = async (
     });
   }
 
-    if (nextauthAction === "callback" && !!isExpoCallback) {
-      (await cookies()).delete(EXPO_COOKIE_NAME);
+  if (nextauthAction === "callback" && !!isExpoCallback) {
+    (await cookies()).delete(EXPO_COOKIE_NAME);
 
     // Run original handler, then extract the session token from the response
     // Send it back via a query param in the Expo deep link. The Expo app

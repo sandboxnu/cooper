@@ -21,7 +21,7 @@ import {
   FormItem,
   FormMessage,
 } from "@cooper/ui/form";
-import { useCustomToast } from "@cooper/ui/hooks/use-custom-toast";
+import { useCustomToast } from "@cooper/ui";
 import { Input } from "@cooper/ui/input";
 import { Label } from "@cooper/ui/label";
 import { Textarea } from "@cooper/ui/textarea";
