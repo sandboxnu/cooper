@@ -6,7 +6,7 @@ import { useForm, useFormContext } from "react-hook-form";
 import { z } from "zod";
 
 import { FormControl, FormField, FormItem, FormMessage } from "@cooper/ui/form";
-import { useCustomToast } from "@cooper/ui";
+import { useCustomToast } from "@cooper/ui/hooks/use-custom-toast";
 import { Input } from "@cooper/ui/input";
 import { Label } from "@cooper/ui/label";
 import { Checkbox } from "@cooper/ui/checkbox";

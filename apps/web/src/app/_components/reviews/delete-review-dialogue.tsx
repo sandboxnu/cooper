@@ -12,7 +12,7 @@ import {
 } from "@cooper/ui/dialog";
 
 import { api } from "~/trpc/react";
-import { useCustomToast } from "@cooper/ui";
+import { useCustomToast } from "@cooper/ui/hooks/use-custom-toast";
 
 interface DeleteReviewDialogProps {
   reviewId: string;
