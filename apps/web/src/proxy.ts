@@ -1,4 +1,4 @@
-export { auth as middleware } from "@cooper/auth";
+export { auth as proxy } from "@cooper/auth";
 
 // Or like this if you need to do something here.
 // export default auth((req) => {
