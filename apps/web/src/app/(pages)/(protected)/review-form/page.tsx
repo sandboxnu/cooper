@@ -23,16 +23,6 @@ import { Button } from "@cooper/ui/button";
 
 const filter = new Filter();
 
-export const benefits = [
-  { field: "pto", label: "PTO" },
-  { field: "federalHolidays", label: "Federal holidays off" },
-  { field: "freeLunch", label: "Free lunch" },
-  { field: "travelBenefits", label: "Travel benefits" },
-  { field: "freeMerch", label: "Free merchandise" },
-  { field: "snackBar", label: "Snack bar" },
-  { field: "employeeLounge", label: "Employee lounge" },
-];
-
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
     required_error: "You need to select a co-op cycle.",

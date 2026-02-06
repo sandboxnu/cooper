@@ -10,9 +10,18 @@ import {
 import { RadioGroup, RadioGroupItem } from "@cooper/ui/radio-group";
 
 import { FormSection } from "~/app/_components/form/form-section";
-import { benefits } from "~/app/(pages)/(protected)/review-form/page";
 import { Select } from "../../themed/onboarding/select";
 import FilterBody from "../../filters/filter-body";
+
+const benefits = [
+  { field: "pto", label: "PTO" },
+  { field: "federalHolidays", label: "Federal holidays off" },
+  { field: "freeLunch", label: "Free lunch" },
+  { field: "travelBenefits", label: "Travel benefits" },
+  { field: "freeMerch", label: "Free merchandise" },
+  { field: "snackBar", label: "Snack bar" },
+  { field: "employeeLounge", label: "Employee lounge" },
+];
 
 /**
  * CompanyDetailsSection component renders form fields for capturing
