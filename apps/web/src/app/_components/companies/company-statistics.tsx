@@ -3,11 +3,13 @@ export default function CompanyStatistics({
   reviews,
   payStats,
   payRange,
+  jobTypes
 }: {
   workModels: { name: string; percentage: number; count: number }[];
   payStats: { pay: string; percentage: number; count: number }[];
   reviews: number;
   payRange: { label?: string; min: number; max: number }[];
+  jobTypes: { name: string; percentage: number; count: number }[];
 }) {
   const payRangeColors = [
     "cooper-yellow-200",
@@ -42,13 +44,19 @@ export default function CompanyStatistics({
       <div className="md:w-[30%]">
         <p className="pb-2">Job type</p>
         <div className="h-7 flex-1 rounded-lg bg-cooper-yellow-200" />
-        <div className="flex flex-row items-center pt-2 justify-between">
-          <div className="flex flex-row items-center">
-            <div className="w-3.5 h-3.5 rounded-full bg-cooper-yellow-200" />
-            <div className="pl-2">Co-op</div>
-          </div>
-          <div className="pl-2">{reviews}</div>
-        </div>
+        {jobTypes.map((model) => (
+            <div
+              key={model.name}
+              className={`h-full rounded-lg ${
+                model.name === "Co-op"
+                  ? "bg-cooper-yellow-200"
+                  : model.name === "Internship"
+                    ? "bg-cooper-blue-400"
+                    : "bg-cooper-red-400"
+              }`}
+              style={{ width: `${model.percentage}%` }}
+            />
+          ))}
       </div>
       <div className="md:w-[30%]">
         <p className="pb-2">Work model</p>

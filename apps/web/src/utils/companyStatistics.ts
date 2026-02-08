@@ -18,6 +18,20 @@ export function calculateWorkModels(reviews: ReviewType[] = []) {
   });
 }
 
+export function calculateJobTypes(reviews: ReviewType[] = []) {
+  const totalReviews = reviews.length;
+  const uniqueTypes: string[] = [
+    ...new Set(reviews.map((r) => r.jobType)),
+  ];
+
+  return uniqueTypes.map((model) => {
+    const count = reviews.filter((r) => r.jobType === model).length;
+    const percentage =
+      totalReviews > 0 ? Math.round((count / totalReviews) * 100) : 0;
+    return { name: toCamelCase(model), percentage, count };
+  });
+}
+
 export function calculatePay(reviews: ReviewType[] = []) {
   const totalReviews = reviews.length;
   const uniquePay: string[] = [

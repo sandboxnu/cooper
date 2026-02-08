@@ -107,7 +107,6 @@ export function BasicInfoSection({
                 options={[
                   { value: "Co-op", label: "Co-op" },
                   { value: "Internship", label: "Internship" },
-                  { value: "Part time", label: "Part time" },
                 ]}
                 className="w-full border-cooper-gray-150 text-cooper-gray-350 text-sm h-10"
                 value={

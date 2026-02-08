@@ -73,14 +73,12 @@ export function RoleCardPreview({
         )}
         <div className={cn("flex-1", showDragHandle && "pl-8")}>
           <CardHeader className="space-y-0.5 ">
-            <div className="flex items-center gap-2">
+
               <h3 className="text-xl font-semibold leading-tight">
                 {role.data?.title}
               </h3>
-              <span className="text-base font-normal text-[#999999]">
-                Co-op
-              </span>
-            </div>
+
+
             <div className="flex items-center gap-2 text-base text-[#666666]">
               {company.data?.name}
               {location.isSuccess && location.data && (
@@ -103,7 +101,7 @@ export function RoleCardPreview({
                   ) / 100}
                 </span>
                 <span>
-                  ({reviews.data.length}+ review
+                  ({reviews.data.length} review
                   {reviews.data.length === 1 ? "" : "s"})
                 </span>
               </div>

@@ -172,10 +172,8 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             <div className="flex h-20 flex-col justify-center">
               <CardTitle>
                 <div className="flex items-center gap-3 text-lg md:text-2xl">
-                  <div>{roleObj.title}</div>
-                  <div className="hidden text-sm font-normal text-cooper-gray-400 sm:block">
-                    Co-op
-                  </div>
+                  {roleObj.title}
+
                 </div>
               </CardTitle>
               <div className="align-center flex gap-2 text-cooper-gray-400">

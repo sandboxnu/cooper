@@ -113,7 +113,7 @@ const formSchema = z.object({
   locationId: z.string().min(1, {
     message: "You need to select a location.",
   }),
-  jobType: z.string().min(1, {
+  jobType: z.nativeEnum(JobType, {
     message: "You need to select a job type.",
   }),
   hourlyPay: z.coerce
@@ -184,6 +184,7 @@ export default function ReviewForm() {
       interviewReview: "",
       textReview: "",
       locationId: "",
+      jobType: undefined,
       hourlyPay: "",
       workEnvironment: undefined,
       drugTest: undefined,
@@ -259,7 +260,7 @@ export default function ReviewForm() {
         companyId: companyId,
         ...values,
         interviewRating: 1,
-        reviewHeadline: "",
+        reviewHeadline: ""
       });
     } catch (error) {
       // Error is already handled by onError callback
