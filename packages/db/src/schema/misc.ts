@@ -69,3 +69,12 @@ export const RequestStatus = {
 
 export type RequestStatusType =
   (typeof RequestStatus)[keyof typeof RequestStatus];
+
+export const Status = {
+  DELETED: "DELETED",
+  DRAFT: "DRAFT",
+  PUBLISHED: "PUBLISHED",
+} as const;
+
+export type StatusType =
+  (typeof Status)[keyof typeof Status];
