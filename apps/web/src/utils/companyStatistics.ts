@@ -20,9 +20,7 @@ export function calculateWorkModels(reviews: ReviewType[] = []) {
 
 export function calculateJobTypes(reviews: ReviewType[] = []) {
   const totalReviews = reviews.length;
-  const uniqueTypes: string[] = [
-    ...new Set(reviews.map((r) => r.jobType)),
-  ];
+  const uniqueTypes: string[] = [...new Set(reviews.map((r) => r.jobType))];
 
   return uniqueTypes.map((model) => {
     const count = reviews.filter((r) => r.jobType === model).length;
@@ -33,13 +31,22 @@ export function calculateJobTypes(reviews: ReviewType[] = []) {
 }
 
 export function calculatePay(reviews: ReviewType[] = []) {
-  const totalReviews = reviews.length;
-  const uniquePay: string[] = [
-    ...new Set(reviews.map((r) => r.hourlyPay ?? "0")),
-  ];
+  const reviewsWithPay = reviews.filter(
+    (r) => r.hourlyPay != null && r.hourlyPay !== "" && Number(r.hourlyPay) > 0,
+  );
+  const totalReviews = reviewsWithPay.length;
+  if (totalReviews === 0) return [];
 
-  return uniquePay.map((pay) => {
-    const count = reviews.filter((r) => (r.hourlyPay ?? "0") === pay).length;
+  const payByValue = new Map<number, number>();
+  for (const r of reviewsWithPay) {
+    const value = Number(r.hourlyPay);
+    if (!Number.isNaN(value)) {
+      payByValue.set(value, (payByValue.get(value) ?? 0) + 1);
+    }
+  }
+
+  return [...payByValue.entries()].map(([payNum, count]) => {
+    const pay = String(payNum);
     const percentage =
       totalReviews > 0 ? Math.round((count / totalReviews) * 100) : 0;
     return { pay, percentage, count };
@@ -55,6 +62,7 @@ interface PayRange {
 export function calculatePayRange(reviews: ReviewType[] = []): PayRange[] {
   const pays = reviews
     .map((r) => Number(r.hourlyPay ?? 0))
+    .filter((n) => !Number.isNaN(n) && n > 0)
     .sort((a, b) => a - b);
 
   if (pays.length === 0) {
@@ -63,22 +71,17 @@ export function calculatePayRange(reviews: ReviewType[] = []): PayRange[] {
 
   const uniquePays = [...new Set(pays)];
 
-  if (uniquePays.length < 3) {
+  if (uniquePays.length === 1) {
+    const only = uniquePays[0] ?? 0;
+    return [{ label: "Pay", min: only, max: only }];
+  }
+  if (uniquePays.length === 2) {
+    const low = uniquePays[0] ?? 0;
+    const high = uniquePays[1] ?? 0;
+    const mid = Math.floor((low + high) / 2);
     return [
-      {
-        label: "Low",
-        min: uniquePays[0] ?? 0,
-        max: Math.floor(
-          ((uniquePays[uniquePays.length - 1] ?? 0) + (uniquePays[0] ?? 0)) / 2,
-        ),
-      },
-      {
-        label: "Mid",
-        min: Math.floor(
-          ((uniquePays[uniquePays.length - 1] ?? 0) + (uniquePays[0] ?? 0)) / 2,
-        ),
-        max: uniquePays[uniquePays.length - 1] ?? 0,
-      },
+      { label: "Low", min: low, max: mid },
+      { label: "Mid", min: mid + 1, max: high },
     ];
   }
 

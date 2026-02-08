@@ -173,6 +173,7 @@ export const roleAndCompanyRouter = {
 
       // Build company -> job types mapping if job type filter is active
       const companyJobTypesMap = new Map<string, string[]>();
+      const roleJobTypesMap = new Map<string, string[]>();
       if (jobTypeFilterActive && roles.length > 0) {
         const roleIds = roles.map((r) => r.id);
         const reviewsWithJobType = await ctx.db.query.Review.findMany({
@@ -441,9 +442,11 @@ export const roleAndCompanyRouter = {
         const jobTypeOk = jobTypeFilterActive
           ? (() => {
               if (item.type === "role") {
-                return allowedJobTypes.includes((item as RoleType).jobType);
+                const roleJobTypes =
+                  roleJobTypesMap.get((item as RoleType).id) ?? [];
+                return roleJobTypes.some((jt) => allowedJobTypes.includes(jt));
               }
-              // For companies, check if any of their roles match the job type filter
+              // For companies, check if any of their roles' reviews match the job type filter
               const cid = (item as CompanyType).id;
               const jobTypes = companyJobTypesMap.get(cid) ?? [];
               return jobTypes.some((jt) => allowedJobTypes.includes(jt));

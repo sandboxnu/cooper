@@ -14,7 +14,12 @@ import {
 } from "~/app/_components/form/sections";
 import { z } from "zod";
 import { useCustomToast } from "@cooper/ui";
-import { Industry, WorkEnvironment, WorkTerm } from "@cooper/db/schema";
+import {
+  Industry,
+  WorkEnvironment,
+  WorkTerm,
+  JobType,
+} from "@cooper/db/schema";
 import { Filter } from "bad-words";
 import dayjs from "dayjs";
 import { Form } from "node_modules/@cooper/ui/src/form";
@@ -22,16 +27,6 @@ import { PaySection } from "~/app/_components/form/sections/pay-section";
 import { Button } from "@cooper/ui/button";
 
 const filter = new Filter();
-
-export const benefits = [
-  { field: "pto", label: "PTO" },
-  { field: "federalHolidays", label: "Federal holidays off" },
-  { field: "freeLunch", label: "Free lunch" },
-  { field: "travelBenefits", label: "Travel benefits" },
-  { field: "freeMerch", label: "Free merchandise" },
-  { field: "snackBar", label: "Snack bar" },
-  { field: "employeeLounge", label: "Employee lounge" },
-];
 
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
@@ -260,7 +255,7 @@ export default function ReviewForm() {
         companyId: companyId,
         ...values,
         interviewRating: 1,
-        reviewHeadline: ""
+        reviewHeadline: "",
       });
     } catch (error) {
       // Error is already handled by onError callback

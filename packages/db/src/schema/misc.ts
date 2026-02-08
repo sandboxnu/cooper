@@ -43,8 +43,7 @@ export const JobType = {
   INTERNSHIP: "Internship",
 } as const;
 
-export type JobTypeType = 
-(typeof JobType)[keyof typeof JobType]
+export type JobTypeType = (typeof JobType)[keyof typeof JobType];
 
 export const WorkEnvironment = {
   INPERSON: "INPERSON",

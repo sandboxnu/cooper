@@ -17,16 +17,15 @@ export default function Profile() {
   const searchParams = useSearchParams();
   const tab = searchParams.get("tab") ?? "saved-roles";
 
-  const {
-    data: session,
-    isLoading: sessionLoading,
-    error: sessionError,
-  } = api.auth.getSession.useQuery();
-  const {
-    data: profile,
-    isLoading: profileLoading,
-    error: profileError,
-  } = api.profile.getCurrentUser.useQuery();
+  const sessionQuery = api.auth.getSession.useQuery();
+  const session = sessionQuery.data;
+  const sessionLoading = sessionQuery.isLoading;
+  const sessionError = sessionQuery.error;
+
+  const profileQuery = api.profile.getCurrentUser.useQuery();
+  const profile = profileQuery.data;
+  const profileLoading = profileQuery.isLoading;
+  const profileError = profileQuery.error;
 
   useEffect(() => {
     if (!sessionLoading && !profileLoading) {

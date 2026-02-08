@@ -173,7 +173,6 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
               <CardTitle>
                 <div className="flex items-center gap-3 text-lg md:text-2xl">
                   {roleObj.title}
-
                 </div>
               </CardTitle>
               <div className="align-center flex gap-2 text-cooper-gray-400">
