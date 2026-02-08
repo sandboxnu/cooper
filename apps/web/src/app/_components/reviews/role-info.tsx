@@ -319,8 +319,10 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                     <div className="text-cooper-gray-400">Overtime work</div>
                     <div className="flex items-center gap-2 pl-1">
                       <div className="text-4xl text-[#141414]">
-                        {Number(averages.data.overtimeNormal.toPrecision(2)) *
-                          100}
+                        {Math.round(
+                          Number(averages.data.overtimeNormal.toPrecision(2)) *
+                            100,
+                        )}
                         %
                       </div>
                       <div className="flex flex-wrap text-sm text-[#141414]">
