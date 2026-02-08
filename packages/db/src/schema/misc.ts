@@ -76,5 +76,4 @@ export const Status = {
   PUBLISHED: "PUBLISHED",
 } as const;
 
-export type StatusType =
-  (typeof Status)[keyof typeof Status];
+export type StatusType = (typeof Status)[keyof typeof Status];

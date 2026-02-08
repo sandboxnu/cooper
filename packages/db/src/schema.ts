@@ -4,7 +4,7 @@ import type {
   IndustryType,
   WorkEnvironmentType,
   WorkTermType,
-  StatusType
+  StatusType,
 } from "./schema/misc";
 import type { ReviewType } from "./schema/reviews";
 import type { RoleType } from "./schema/roles";
@@ -64,7 +64,7 @@ export {
   UpdateProfileNameMajorSchema,
   WorkTerm,
   WorkEnvironment,
-  Status
+  Status,
 };
 
 export type {
@@ -75,5 +75,5 @@ export type {
   WorkEnvironmentType,
   WorkTermType,
   LocationType,
-  StatusType
+  StatusType,
 };

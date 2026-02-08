@@ -14,7 +14,7 @@ import { z } from "zod";
 
 import { Company } from "./companies";
 import { Location } from "./locations";
-import { WorkEnvironment, WorkTerm , Status} from "./misc";
+import { WorkEnvironment, WorkTerm, Status } from "./misc";
 import { Profile } from "./profiles";
 import { ProfilesToReviews } from "./profliesToReviews";
 import { Role } from "./roles";
@@ -100,7 +100,7 @@ export const CreateReviewSchema = createInsertSchema(Review, {
   otherBenefits: z.string().nullish(),
   roleId: z.string(),
   profileId: z.string(),
-  status: z.nativeEnum(Status)
+  status: z.nativeEnum(Status),
 }).omit({
   id: true,
   createdAt: true,
