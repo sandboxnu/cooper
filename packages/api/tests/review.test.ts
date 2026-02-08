@@ -191,7 +191,7 @@ describe("Review Router", async () => {
         otherBenefits: "Good",
         roleId: "1",
         profileId: "1",
-        status: Status.DRAFT
+        status: Status.DRAFT,
       },
       {
         id: "2",
@@ -222,7 +222,7 @@ describe("Review Router", async () => {
         otherBenefits: "Good",
         roleId: "1",
         profileId: "1",
-        status: Status.DRAFT
+        status: Status.DRAFT,
       },
     ]);
 
