@@ -75,7 +75,7 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
               <div className="flex md:gap-10 gap-6 bg-[#f4f4f4] p-3 md:pl-4 pr-4 rounded-lg">
                 <div className="flex md:flex-row flex-col gap-2">
                   <span className="text-cooper-gray-350">Job type</span>{" "}
-                  {reviewObj.jobType}
+                  {reviewObj.jobType === "CO-OP" ? "Co-op" : reviewObj.jobType}
                 </div>
                 <div className="flex md:flex-row flex-col gap-2">
                   <span className="text-cooper-gray-350">Work model</span>

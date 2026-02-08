@@ -32,7 +32,7 @@ export const Review = pgTable("review", {
   reviewHeadline: varchar("reviewHeadline").notNull(),
   textReview: text("textReview").notNull(),
   locationId: varchar("locationId"),
-  jobType: varchar("jobType").notNull().default("CO-OP"),
+  jobType: varchar("jobType").notNull().default("Co-op"),
   hourlyPay: decimal("hourlyPay"),
   workEnvironment: varchar("workEnvironment").notNull(),
   drugTest: boolean("drugTest").notNull(),
