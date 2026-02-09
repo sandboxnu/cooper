@@ -14,7 +14,12 @@ import {
 } from "~/app/_components/form/sections";
 import { z } from "zod";
 import { useCustomToast } from "@cooper/ui";
-import { Industry, WorkEnvironment, WorkTerm } from "@cooper/db/schema";
+import {
+  Industry,
+  WorkEnvironment,
+  WorkTerm,
+  JobType,
+} from "@cooper/db/schema";
 import { Filter } from "bad-words";
 import dayjs from "dayjs";
 import { Form } from "node_modules/@cooper/ui/src/form";
@@ -22,16 +27,6 @@ import { PaySection } from "~/app/_components/form/sections/pay-section";
 import { Button } from "@cooper/ui/button";
 
 const filter = new Filter();
-
-export const benefits = [
-  { field: "pto", label: "PTO" },
-  { field: "federalHolidays", label: "Federal holidays off" },
-  { field: "freeLunch", label: "Free lunch" },
-  { field: "travelBenefits", label: "Travel benefits" },
-  { field: "freeMerch", label: "Free merchandise" },
-  { field: "snackBar", label: "Snack bar" },
-  { field: "employeeLounge", label: "Employee lounge" },
-];
 
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
@@ -113,7 +108,7 @@ const formSchema = z.object({
   locationId: z.string().min(1, {
     message: "You need to select a location.",
   }),
-  jobType: z.string().min(1, {
+  jobType: z.nativeEnum(JobType, {
     message: "You need to select a job type.",
   }),
   hourlyPay: z.coerce
@@ -184,6 +179,7 @@ export default function ReviewForm() {
       interviewReview: "",
       textReview: "",
       locationId: "",
+      jobType: undefined,
       hourlyPay: "",
       workEnvironment: undefined,
       drugTest: undefined,
@@ -285,15 +281,10 @@ export default function ReviewForm() {
 
   return (
     <Form {...form}>
-      <div className="bg-white w-full min-h-screen flex flex-col md:flex-row justify-center items-center">
+      <div className="bg-white w-full h-screen flex flex-col md:flex-row justify-center items-center overflow-auto">
         <div className="mt-4 pr-3.5 flex h-full pt-10 flex-col justify-left w-[65%]">
           <div className="text-lg text-cooper-gray-550">Basic information</div>
-          <div className="text-sm text-cooper-gray-600">
-            Note: If your company isn't in our database, we'll ask for a few
-            additional details to request it. Making a new company makes a new
-            role.
-          </div>
-          <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap w-full pb-12">
+          <div className="flex flex-wrap gap-10 xl:flex-nowrap pb-12 w-full">
             <BasicInfoSection profileId={profileId} />
           </div>
           <hr />
@@ -332,12 +323,6 @@ export default function ReviewForm() {
                   onClick={async () => {
                     const isValid = await form.trigger();
                     if (!isValid) {
-                      const errors = form.formState.errors;
-                      const errorFields = Object.keys(errors).filter(
-                        (key) => errors[key as keyof typeof errors],
-                      );
-                      console.log("Fields with errors:", errorFields);
-                      console.log("Error details:", errors);
                       toast.error("Please fill in all required fields.");
                       return;
                     }

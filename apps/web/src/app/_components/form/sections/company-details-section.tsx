@@ -10,9 +10,8 @@ import {
 import { RadioGroup, RadioGroupItem } from "@cooper/ui/radio-group";
 
 import { FormSection } from "~/app/_components/form/form-section";
-import { benefits } from "~/app/(pages)/(protected)/review-form/page";
 import { Select } from "../../themed/onboarding/select";
-import DropdownFilter from "../../filters/dropdown-filter";
+import FilterBody from "../../filters/filter-body";
 
 /**
  * CompanyDetailsSection component renders form fields for capturing
@@ -20,6 +19,16 @@ import DropdownFilter from "../../filters/dropdown-filter";
  */
 export function CompanyDetailsSection() {
   const form = useFormContext();
+
+  const benefits = [
+    { field: "pto", label: "PTO" },
+    { field: "federalHolidays", label: "Federal holidays off" },
+    { field: "freeLunch", label: "Free lunch" },
+    { field: "travelBenefits", label: "Travel benefits" },
+    { field: "freeMerch", label: "Free merchandise" },
+    { field: "snackBar", label: "Snack bar" },
+    { field: "employeeLounge", label: "Employee lounge" },
+  ];
 
   return (
     <FormSection>
@@ -176,9 +185,9 @@ export function CompanyDetailsSection() {
               Benefits
             </FormLabel>
             <FormControl className="relative flex-1">
-              <DropdownFilter
+              <FilterBody
                 title="Benefits"
-                filterType="autocomplete"
+                variant="autocomplete"
                 options={benefits.map((benefit) => ({
                   id: benefit.field,
                   label: benefit.label,
@@ -190,9 +199,11 @@ export function CompanyDetailsSection() {
                       ? [field.value]
                       : []
                 }
+                placeholder="Select benefits"
                 onSelectionChange={(selected) => {
                   field.onChange(selected.length > 0 ? selected : undefined);
                 }}
+                isInMenuContent={true}
               />
             </FormControl>
             <FormMessage />

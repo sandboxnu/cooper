@@ -1,10 +1,17 @@
 import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
-import { and, desc, eq } from "@cooper/db";
-import { CreateProfileSchema, Profile } from "@cooper/db/schema";
+import { and, desc, eq, sql } from "@cooper/db";
+import {
+  Company,
+  CreateProfileSchema,
+  Profile,
+  Review,
+  Role,
+} from "@cooper/db/schema";
 
 import { UpdateProfileNameMajorSchema } from "../../../db/src/schema/profiles";
+import type { Session } from "@cooper/auth";
 
 import {
   CreateProfileToCompanySchema,
@@ -36,8 +43,9 @@ export const profileRouter = {
     }),
 
   getCurrentUser: protectedProcedure.query(({ ctx }) => {
+    const session = ctx.session as Session;
     return ctx.db.query.Profile.findFirst({
-      where: eq(Profile.userId, ctx.session.user.id),
+      where: eq(Profile.userId, session.user.id),
     });
   }),
 
@@ -133,19 +141,34 @@ export const profileRouter = {
   listFavoriteCompanies: protectedProcedure
     .input(z.object({ profileId: z.string() }))
     .query(async ({ ctx, input }) => {
-      return ctx.db
-        .select()
-        .from(ProfilesToCompanies)
-        .where(eq(ProfilesToCompanies.profileId, input.profileId));
+      const favoritesWithReviews = await ctx.db.execute(sql`
+        SELECT DISTINCT ${ProfilesToCompanies}.*
+        FROM ${ProfilesToCompanies}
+        INNER JOIN ${Company} ON ${Company.id}::uuid = ${ProfilesToCompanies.companyId}::uuid
+        INNER JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}::uuid
+        INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}::uuid
+        WHERE ${ProfilesToCompanies.profileId}::uuid = ${input.profileId}::uuid
+      `);
+      return favoritesWithReviews.rows as {
+        profileId: string;
+        companyId: string;
+      }[];
     }),
 
   listFavoriteRoles: protectedProcedure
     .input(z.object({ profileId: z.string() }))
     .query(async ({ ctx, input }) => {
-      return ctx.db
-        .select()
-        .from(ProfilesToRoles)
-        .where(eq(ProfilesToRoles.profileId, input.profileId));
+      const favoritesWithReviews = await ctx.db.execute(sql`
+        SELECT DISTINCT ${ProfilesToRoles}.*
+        FROM ${ProfilesToRoles}
+        INNER JOIN ${Role} ON ${Role.id}::uuid = ${ProfilesToRoles.roleId}::uuid
+        INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}::uuid
+        WHERE ${ProfilesToRoles.profileId}::uuid = ${input.profileId}::uuid
+      `);
+      return favoritesWithReviews.rows as {
+        profileId: string;
+        roleId: string;
+      }[];
     }),
 
   listFavoriteReviews: protectedProcedure

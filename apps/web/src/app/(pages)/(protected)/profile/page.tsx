@@ -17,16 +17,15 @@ export default function Profile() {
   const searchParams = useSearchParams();
   const tab = searchParams.get("tab") ?? "saved-roles";
 
-  const {
-    data: session,
-    isLoading: sessionLoading,
-    error: sessionError,
-  } = api.auth.getSession.useQuery();
-  const {
-    data: profile,
-    isLoading: profileLoading,
-    error: profileError,
-  } = api.profile.getCurrentUser.useQuery();
+  const sessionQuery = api.auth.getSession.useQuery();
+  const session = sessionQuery.data;
+  const sessionLoading = sessionQuery.isLoading;
+  const sessionError = sessionQuery.error;
+
+  const profileQuery = api.profile.getCurrentUser.useQuery();
+  const profile = profileQuery.data;
+  const profileLoading = profileQuery.isLoading;
+  const profileError = profileQuery.error;
 
   useEffect(() => {
     if (!sessionLoading && !profileLoading) {
@@ -38,7 +37,7 @@ export default function Profile() {
 
   if (sessionError || profileError) {
     return (
-      <div className="flex min-h-screen items-center justify-center">
+      <div className="flex h-screen items-center justify-center">
         <div className="text-lg text-red-600">
           Error loading profile. Please try refreshing the page.
         </div>
@@ -89,8 +88,8 @@ export default function Profile() {
   }
 
   return (
-    <div className="bg-cooper-cream-100 w-full min-h-screen flex justify-center">
-      <div className="mx-4 mt-4 flex h-full flex-col gap-6 md:max-w-[66%] w-[66%] pt-4">
+    <div className="bg-cooper-cream-100 w-full h-screen flex justify-center overflow-auto">
+      <div className="mx-4 mt-4 flex flex-col gap-6 md:max-w-[66%] w-[66%] pt-4">
         <div className="flex items-start justify-start gap-4">
           <Image
             src={session.user.image ?? "/svg/defaultProfile.svg"}

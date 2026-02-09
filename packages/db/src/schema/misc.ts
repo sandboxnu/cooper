@@ -38,16 +38,17 @@ export const Industry = {
 
 export type IndustryType = (typeof Industry)[keyof typeof Industry];
 
+export const JobType = {
+  COOP: "Co-op",
+  INTERNSHIP: "Internship",
+} as const;
+
+export type JobTypeType = (typeof JobType)[keyof typeof JobType];
+
 export const WorkEnvironment = {
   INPERSON: "INPERSON",
   HYBRID: "HYBRID",
   REMOTE: "REMOTE",
-} as const;
-
-export const JobType = {
-  COOP: "coop",
-  PARTTIME: "parttime",
-  INTERNSHIP: "internship",
 } as const;
 
 export type WorkEnvironmentType =
