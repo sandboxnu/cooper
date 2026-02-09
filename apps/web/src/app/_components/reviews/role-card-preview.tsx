@@ -44,7 +44,12 @@ export function RoleCardPreview({
   );
 
   const jobTypesFromReviews = [
-    ...new Set((reviews.data ?? []).map((r) => r.jobType).filter(Boolean)),
+    ...new Set(
+      (reviews.data ?? [])
+        .map((r) => r.jobType)
+        .filter(Boolean)
+        .map((job) => (job === "CO-OP" ? "Co-op" : job)),
+    ),
   ] as string[];
   const jobTypeLabel =
     jobTypesFromReviews.length === 0
