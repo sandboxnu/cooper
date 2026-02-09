@@ -134,6 +134,16 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     return ratingMatch && searchMatch;
   });
 
+  const jobTypesFromReviews = [
+    ...new Set((reviews.data ?? []).map((r) => r.jobType).filter(Boolean)),
+  ] as string[];
+  const jobTypeLabel =
+    jobTypesFromReviews.length === 0
+      ? null
+      : jobTypesFromReviews.length === 1
+        ? jobTypesFromReviews[0]
+        : jobTypesFromReviews.sort().join(" / ");
+
   return (
     <div
       className={cn(
@@ -172,7 +182,10 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             <div className="flex h-20 flex-col justify-center">
               <CardTitle>
                 <div className="flex items-center gap-3 text-lg md:text-2xl">
-                  {roleObj.title}
+                  <div>{roleObj.title}</div>
+                  <div className="hidden text-sm font-normal text-cooper-gray-400 sm:block">
+                    {jobTypeLabel}
+                  </div>
                 </div>
               </CardTitle>
               <div className="align-center flex gap-2 text-cooper-gray-400">

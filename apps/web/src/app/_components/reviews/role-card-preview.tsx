@@ -43,6 +43,16 @@ export function RoleCardPreview({
     },
   );
 
+  const jobTypesFromReviews = [
+    ...new Set((reviews.data ?? []).map((r) => r.jobType).filter(Boolean)),
+  ] as string[];
+  const jobTypeLabel =
+    jobTypesFromReviews.length === 0
+      ? null
+      : jobTypesFromReviews.length === 1
+        ? jobTypesFromReviews[0]
+        : jobTypesFromReviews.sort().join(" / ");
+
   return (
     <Card
       className={cn(
@@ -73,9 +83,14 @@ export function RoleCardPreview({
         )}
         <div className={cn("flex-1", showDragHandle && "pl-8")}>
           <CardHeader className="space-y-0.5 ">
-            <h3 className="text-xl font-semibold leading-tight">
-              {role.data?.title}
-            </h3>
+            <div className="flex items-center gap-2">
+              <h3 className="text-xl font-semibold leading-tight">
+                {role.data?.title}
+              </h3>
+              <span className="text-sm font-normal text-[#999999]">
+                {jobTypeLabel}
+              </span>
+            </div>
 
             <div className="flex items-center gap-2 text-base text-[#666666]">
               {company.data?.name}

@@ -1,4 +1,5 @@
 import type { ReviewType } from "@cooper/db/schema";
+import { prettyWorkEnviornment } from "./stringHelpers";
 
 function toCamelCase(word: string) {
   return word.toLowerCase().replace(/^\w/, (c) => c.toUpperCase());
@@ -14,7 +15,10 @@ export function calculateWorkModels(reviews: ReviewType[] = []) {
     const count = reviews.filter((r) => r.workEnvironment === model).length;
     const percentage =
       totalReviews > 0 ? Math.round((count / totalReviews) * 100) : 0;
-    return { name: toCamelCase(model), percentage, count };
+    const name = prettyWorkEnviornment(
+      model as "INPERSON" | "HYBRID" | "REMOTE",
+    );
+    return { name, percentage, count };
   });
 }
 

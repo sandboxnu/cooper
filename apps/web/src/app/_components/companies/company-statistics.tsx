@@ -27,7 +27,6 @@ export default function CompanyStatistics({
   };
   const workModelOrder: Record<string, number> = {
     "In-person": 0,
-    Inperson: 0,
     Hybrid: 1,
     Remote: 2,
   };
@@ -113,7 +112,7 @@ export default function CompanyStatistics({
             <div
               key={model.name}
               className={`h-full rounded-lg ${
-                model.name === "Inperson"
+                model.name === "In-person"
                   ? "bg-cooper-yellow-200"
                   : model.name === "Hybrid"
                     ? "bg-cooper-blue-400"
@@ -132,7 +131,7 @@ export default function CompanyStatistics({
             <div className="flex flex-row items-center">
               <div
                 className={`w-3.5 h-3.5 rounded-full ${
-                  workModel.name === "Inperson"
+                  workModel.name === "In-person"
                     ? "bg-cooper-yellow-200"
                     : workModel.name === "Hybrid"
                       ? "bg-cooper-blue-400"
