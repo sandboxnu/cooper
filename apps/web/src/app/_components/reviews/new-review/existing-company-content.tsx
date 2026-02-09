@@ -240,7 +240,6 @@ export default function ExistingCompanyContent({
       description: values.description,
       companyId: selectedCompanyId,
       createdBy: profileId ?? "",
-      jobType: "CO-OP",
     });
   };
 

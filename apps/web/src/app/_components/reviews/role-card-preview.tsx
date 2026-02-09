@@ -43,6 +43,21 @@ export function RoleCardPreview({
     },
   );
 
+  const jobTypesFromReviews = [
+    ...new Set(
+      (reviews.data ?? [])
+        .map((r) => r.jobType)
+        .filter(Boolean)
+        .map((job) => (job === "CO-OP" ? "Co-op" : job)),
+    ),
+  ] as string[];
+  const jobTypeLabel =
+    jobTypesFromReviews.length === 0
+      ? null
+      : jobTypesFromReviews.length === 1
+        ? jobTypesFromReviews[0]
+        : jobTypesFromReviews.sort().join(" / ");
+
   return (
     <Card
       className={cn(
@@ -77,10 +92,11 @@ export function RoleCardPreview({
               <h3 className="text-xl font-semibold leading-tight">
                 {role.data?.title}
               </h3>
-              <span className="text-base font-normal text-[#999999]">
-                Co-op
+              <span className="text-sm font-normal text-[#999999]">
+                {jobTypeLabel}
               </span>
             </div>
+
             <div className="flex items-center gap-2 text-base text-[#666666]">
               {company.data?.name}
               {location.isSuccess && location.data && (
@@ -103,7 +119,7 @@ export function RoleCardPreview({
                   ) / 100}
                 </span>
                 <span>
-                  ({reviews.data.length}+ review
+                  ({reviews.data.length} review
                   {reviews.data.length === 1 ? "" : "s"})
                 </span>
               </div>

@@ -134,6 +134,21 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     return ratingMatch && searchMatch;
   });
 
+  const jobTypesFromReviews = [
+    ...new Set(
+      (reviews.data ?? [])
+        .map((r) => r.jobType)
+        .filter(Boolean)
+        .map((job) => (job === "CO-OP" ? "Co-op" : job)),
+    ),
+  ] as string[];
+  const jobTypeLabel =
+    jobTypesFromReviews.length === 0
+      ? null
+      : jobTypesFromReviews.length === 1
+        ? jobTypesFromReviews[0]
+        : jobTypesFromReviews.sort().join(" / ");
+
   return (
     <div
       className={cn(
@@ -174,7 +189,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                 <div className="flex items-center gap-3 text-lg md:text-2xl">
                   <div>{roleObj.title}</div>
                   <div className="hidden text-sm font-normal text-cooper-gray-400 sm:block">
-                    Co-op
+                    {jobTypeLabel}
                   </div>
                 </div>
               </CardTitle>
@@ -322,8 +337,10 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                     <div className="text-cooper-gray-400">Overtime work</div>
                     <div className="flex items-center gap-2 pl-1">
                       <div className="text-4xl text-[#141414]">
-                        {Number(averages.data.overtimeNormal.toPrecision(2)) *
-                          100}
+                        {Math.round(
+                          Number(averages.data.overtimeNormal.toPrecision(2)) *
+                            100,
+                        )}
                         %
                       </div>
                       <div className="flex flex-wrap text-sm text-[#141414]">
