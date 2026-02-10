@@ -11,6 +11,7 @@ import {
 } from "@cooper/db/schema";
 
 import { UpdateProfileNameMajorSchema } from "../../../db/src/schema/profiles";
+import type { Session } from "@cooper/auth";
 
 import {
   CreateProfileToCompanySchema,
@@ -42,8 +43,9 @@ export const profileRouter = {
     }),
 
   getCurrentUser: protectedProcedure.query(({ ctx }) => {
+    const session = ctx.session as Session;
     return ctx.db.query.Profile.findFirst({
-      where: eq(Profile.userId, ctx.session.user.id),
+      where: eq(Profile.userId, session.user.id),
     });
   }),
 

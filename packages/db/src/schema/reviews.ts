@@ -14,7 +14,7 @@ import { z } from "zod";
 
 import { Company } from "./companies";
 import { Location } from "./locations";
-import { WorkEnvironment, WorkTerm, Status } from "./misc";
+import { JobType, WorkEnvironment, WorkTerm, Status } from "./misc";
 import { Profile } from "./profiles";
 import { ProfilesToReviews } from "./profliesToReviews";
 import { Role } from "./roles";
@@ -32,6 +32,7 @@ export const Review = pgTable("review", {
   reviewHeadline: varchar("reviewHeadline").notNull(),
   textReview: text("textReview").notNull(),
   locationId: varchar("locationId"),
+  jobType: varchar("jobType").notNull().default("Co-op"),
   hourlyPay: decimal("hourlyPay"),
   workEnvironment: varchar("workEnvironment").notNull(),
   drugTest: boolean("drugTest").notNull(),
@@ -87,6 +88,7 @@ export const CreateReviewSchema = createInsertSchema(Review, {
   reviewHeadline: z.string().optional().default(""),
   textReview: z.string(),
   locationId: z.string().optional(),
+  jobType: z.nativeEnum(JobType),
   hourlyPay: z.string().optional(),
   workEnvironment: z.nativeEnum(WorkEnvironment),
   drugTest: z.boolean(),
