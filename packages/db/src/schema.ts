@@ -4,11 +4,8 @@ import type {
   IndustryType,
   WorkEnvironmentType,
   WorkTermType,
-<<<<<<< HEAD
   StatusType,
-=======
   JobTypeType,
->>>>>>> 5eeeda14f7b1722e8eea52e44610454866fef8b4
 } from "./schema/misc";
 import type { ReviewType } from "./schema/reviews";
 import type { RoleType } from "./schema/roles";
@@ -19,11 +16,13 @@ import {
   CreateCompanyToLocationSchema,
 } from "./schema/companiesToLocations";
 import { CreateLocationSchema, Location } from "./schema/locations";
-<<<<<<< HEAD
-import { Industry, WorkEnvironment, WorkTerm, Status } from "./schema/misc";
-=======
-import { Industry, WorkEnvironment, WorkTerm, JobType } from "./schema/misc";
->>>>>>> 5eeeda14f7b1722e8eea52e44610454866fef8b4
+import {
+  Industry,
+  WorkEnvironment,
+  WorkTerm,
+  Status,
+  JobType,
+} from "./schema/misc";
 import {
   CreateProfileSchema,
   Profile,
@@ -72,11 +71,8 @@ export {
   UpdateProfileNameMajorSchema,
   WorkTerm,
   WorkEnvironment,
-<<<<<<< HEAD
   Status,
-=======
   JobType,
->>>>>>> 5eeeda14f7b1722e8eea52e44610454866fef8b4
 };
 
 export type {
@@ -87,9 +83,6 @@ export type {
   WorkEnvironmentType,
   WorkTermType,
   LocationType,
-<<<<<<< HEAD
   StatusType,
-=======
   JobTypeType,
->>>>>>> 5eeeda14f7b1722e8eea52e44610454866fef8b4
 };

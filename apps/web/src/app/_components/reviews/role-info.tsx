@@ -137,7 +137,6 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     return ratingMatch && searchMatch;
   });
 
-<<<<<<< HEAD
   const workModels = calculateWorkModels(reviews.data);
 
   const topWorkModel = workModels.reduce(
@@ -149,7 +148,6 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     value: (m.percentage / 100) * m.count,
     name: `${m.name} ${m.percentage}%`,
   }));
-=======
   const jobTypesFromReviews = [
     ...new Set(
       (reviews.data ?? [])
@@ -164,7 +162,6 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
       : jobTypesFromReviews.length === 1
         ? jobTypesFromReviews[0]
         : jobTypesFromReviews.sort().join(" / ");
->>>>>>> 5eeeda14f7b1722e8eea52e44610454866fef8b4
 
   return (
     <div
