@@ -272,17 +272,18 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
               </InfoCard>
             </div>
           )}
-          <ModalContainer>
+          <div className="w-[1018px] rounded-lg border border-[#EBEBEB] bg-white px-[24px] py-[20px]">
             <h2 className="text-[20px] font-semibold mb-2">On the Job</h2>
 
             <div className="flex items-start gap-12">
               {/* work model */}
               <div className="flex flex-col gap-4 min-w-[320px]">
                 <div>
-                  <div className="font-bold text-cooper-gray-400 mb-2">
+                  <div className="font-bold text-[#444444] mb-2">
                     Work model
                   </div>
                   <div className="text-2xl mt-1">{topWorkModel}</div>
+                  {/* donut chart */}
                   <DonutChart data={data} width="350px" height="250px" />
                 </div>
               </div>
@@ -291,9 +292,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
 
                 {/* benefits */}
                 <div className="flex flex-col gap-2">
-                  <div className="font-bold text-cooper-gray-400 mb-2">
-                    Benefits
-                  </div>
+                  <div className="font-bold text-[#444444] mb-2">Benefits</div>
                   {perks &&
                     Object.entries(perks)
                       .sort(([, a], [, b]) => Number(b > 0.5) - Number(a > 0.5))
@@ -310,7 +309,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                 </div>
                 {/* culture */}
                 <div className="flex flex-col gap-2">
-                  <div className="font-bold text-cooper-gray-400">
+                  <div className="font-bold text-[#444444]">
                     Company culture
                   </div>
                   <div className="text-gray-500 text-sm">Based on</div>
@@ -322,7 +321,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                 </div>
               </div>
             </div>
-          </ModalContainer>
+          </div>
           {averages.data && (
             <div className="col-span-2" id="pay">
               <CollapsableInfoCard title={"Pay"}>
