@@ -131,7 +131,7 @@ export default function Roles() {
   const shouldFetchList =
     !companyParam || // No URL params, fetch normally
     pageNumberQuery.isSuccess || // Have page number from URL
-    pageNumberQuery.isError; // Query failed, fall back to page 1
+    pageNumberQuery.isError; // Query failed, fall back to page 1.
 
   // Convert filter state to backend format
   const backendFilters = useMemo(() => {
