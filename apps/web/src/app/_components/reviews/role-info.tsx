@@ -25,11 +25,11 @@ import { ReviewCard } from "./review-card";
 import ReviewSearchBar from "./review-search-bar";
 import RoundBarGraph from "./round-bar-graph";
 import type { ReviewType, RoleType } from "@cooper/db/schema";
-import DonutChart from "./donut-chart";
-import { calculateWorkModels } from "~/utils/companyStatistics";
-import ModalContainer from "./modal";
-import { CompareControls } from "../compare/compare-ui";
-import { useCompare } from "../compare/compare-context";
+import DonutChart from './donut-chart';
+import {
+  calculateWorkModels
+} from "~/utils/companyStatistics";
+
 
 interface RoleCardProps {
   className?: string;
@@ -135,33 +135,19 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
       review.interviewReview?.toLowerCase().includes(searchTerm.toLowerCase());
 
     return ratingMatch && searchMatch;
-  });
+});
 
   const workModels = calculateWorkModels(reviews.data);
 
-  const topWorkModel = workModels.reduce(
-    (max, m) => (Number(m.percentage) > Number(max?.percentage) ? m : max),
-    workModels[0],
-  )?.name;
+const topWorkModel =
+  workModels.reduce((max, m) =>
+    Number(m.percentage) > Number(max?.percentage) ? m : max
+  , workModels[0])?.name;
 
   const data = workModels.map((m) => ({
     value: (m.percentage / 100) * m.count,
     name: `${m.name} ${m.percentage}%`,
   }));
-  const jobTypesFromReviews = [
-    ...new Set(
-      (reviews.data ?? [])
-        .map((r) => r.jobType)
-        .filter(Boolean)
-        .map((job) => (job === "CO-OP" ? "Co-op" : job)),
-    ),
-  ] as string[];
-  const jobTypeLabel =
-    jobTypesFromReviews.length === 0
-      ? null
-      : jobTypesFromReviews.length === 1
-        ? jobTypesFromReviews[0]
-        : jobTypesFromReviews.sort().join(" / ");
 
   return (
     <div
@@ -283,7 +269,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                     Work model
                   </div>
                   <div className="text-2xl mt-1">{topWorkModel}</div>
-                  {/* donut chart */}
+                   {/* donut chart */}
                   <DonutChart data={data} width="350px" height="250px" />
                 </div>
               </div>
@@ -294,18 +280,17 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                 <div className="flex flex-col gap-2">
                   <div className="font-bold text-[#444444] mb-2">Benefits</div>
                   {perks &&
-                    Object.entries(perks)
-                      .sort(([, a], [, b]) => Number(b > 0.5) - Number(a > 0.5))
+                    Object.entries(perks).sort(([, a], [, b]) => Number(b > 0.5) - Number(a > 0.5))
                       .map(([perk, value]) => (
-                        <div
-                          key={perk}
-                          className={
-                            value > 0.5 ? "text-[#141414]" : "text-[#7d7d7d]"
-                          }
-                        >
-                          {perk}
-                        </div>
-                      ))}
+                      <div
+                        key={perk}
+                        className={
+                          value > 0.5 ? "text-[#141414]" : "text-[#7d7d7d]"
+                        }
+                      >
+                        {perk}
+                      </div>
+                    ))}
                 </div>
                 {/* culture */}
                 <div className="flex flex-col gap-2">
@@ -314,9 +299,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                   </div>
                   <div className="text-gray-500 text-sm">Based on</div>
                   <div className="text-4xl mt-2">
-                    {Math.round(
-                      (averages.data?.averageSupervisorRating ?? 0) * 10,
-                    ) / 10}
+                    {Math.round((averages.data?.averageSupervisorRating ?? 0)*10)/10}
                   </div>
                 </div>
               </div>
