@@ -25,11 +25,6 @@ import { ReviewCard } from "./review-card";
 import ReviewSearchBar from "./review-search-bar";
 import RoundBarGraph from "./round-bar-graph";
 import type { ReviewType, RoleType } from "@cooper/db/schema";
-import DonutChart from './donut-chart';
-import {
-  calculateWorkModels
-} from "~/utils/companyStatistics";
-
 
 interface RoleCardProps {
   className?: string;
@@ -135,19 +130,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
       review.interviewReview?.toLowerCase().includes(searchTerm.toLowerCase());
 
     return ratingMatch && searchMatch;
-});
-
-  const workModels = calculateWorkModels(reviews.data);
-
-const topWorkModel =
-  workModels.reduce((max, m) =>
-    Number(m.percentage) > Number(max?.percentage) ? m : max
-  , workModels[0])?.name;
-
-  const data = workModels.map((m) => ({
-    value: (m.percentage / 100) * m.count,
-    name: `${m.name} ${m.percentage}%`,
-  }));
+  });
 
   return (
     <div
@@ -268,11 +251,10 @@ const topWorkModel =
                   <div className="font-bold text-[#444444] mb-2">
                     Work model
                   </div>
-                  <div className="text-2xl mt-1">{topWorkModel}</div>
-                   {/* donut chart */}
-                  <DonutChart data={data} width="350px" height="250px" />
+                  <div className="text-2xl mt-1">placeholder</div>
                 </div>
               </div>
+              {/* donut chart */}
               <div className="flex flex-row gap-12 items-start">
                 <div className="w-px bg-[#EBEBEB] self-stretch" />
 
@@ -280,8 +262,7 @@ const topWorkModel =
                 <div className="flex flex-col gap-2">
                   <div className="font-bold text-[#444444] mb-2">Benefits</div>
                   {perks &&
-                    Object.entries(perks).sort(([, a], [, b]) => Number(b > 0.5) - Number(a > 0.5))
-                      .map(([perk, value]) => (
+                    Object.entries(perks).map(([perk, value]) => (
                       <div
                         key={perk}
                         className={
@@ -299,7 +280,7 @@ const topWorkModel =
                   </div>
                   <div className="text-gray-500 text-sm">Based on</div>
                   <div className="text-4xl mt-2">
-                    {Math.round((averages.data?.averageSupervisorRating ?? 0)*10)/10}
+                    {averages.data?.averageSupervisorRating}
                   </div>
                 </div>
               </div>
