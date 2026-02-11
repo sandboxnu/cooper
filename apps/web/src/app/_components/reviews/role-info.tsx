@@ -241,50 +241,56 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
               </InfoCard>
             </div>
           )}
-          <div className="w-[1018px] rounded-lg border border-[#EBEBEB] bg-white px-[24px] py-[20px]">
-            <h2 className="text-[20px] font-semibold mb-2">On the Job</h2>
 
-            <div className="flex items-start gap-12">
-              {/* work model */}
-              <div className="flex flex-col gap-4 min-w-[320px]">
-                <div>
-                  <div className="font-bold text-[#444444] mb-2">
-                    Work model
+          <div className="col-span-2" id="on-the-job">
+            <CollapsableInfoCard title={"On the job"}>
+              {averages.data && (
+                <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
+                  <div className="flex flex-wrap gap-10 lg:flex-nowrap">
+                    <BarGraph
+                      title={"Company culture rating"}
+                      maxValue={5}
+                      value={averages.data.averageCultureRating}
+                    />
+                    <BarGraph
+                      title={"Supervisor rating"}
+                      maxValue={5}
+                      value={averages.data.averageSupervisorRating}
+                    />
                   </div>
-                  <div className="text-2xl mt-1">placeholder</div>
-                </div>
-              </div>
-              {/* donut chart */}
-              <div className="flex flex-row gap-12 items-start">
-                <div className="w-px bg-[#EBEBEB] self-stretch" />
 
-                {/* benefits */}
-                <div className="flex flex-col gap-2">
-                  <div className="font-bold text-[#444444] mb-2">Benefits</div>
-                  {perks &&
-                    Object.entries(perks).map(([perk, value]) => (
-                      <div
-                        key={perk}
-                        className={
-                          value > 0.5 ? "text-[#141414]" : "text-[#7d7d7d]"
-                        }
-                      >
-                        {perk}
-                      </div>
-                    ))}
-                </div>
-                {/* culture */}
-                <div className="flex flex-col gap-2">
-                  <div className="font-bold text-[#444444]">
-                    Company culture
+                  <div className="flex flex-wrap gap-x-6">
+                    {perks &&
+                      Object.entries(perks).map(
+                        ([perk, value]: [string, number]) => (
+                          <div
+                            key={perk}
+                            className={`flex items-center gap-2 ${value > 0.5 ? "text-[#141414]" : "text-[#7d7d7d]"}`}
+                          >
+                            {value > 0.5 ? (
+                              <Image
+                                src="svg/perkCheck.svg"
+                                alt="check mark"
+                                width={12}
+                                height={9}
+                              />
+                            ) : (
+                              <Image
+                                src="svg/perkCross.svg"
+                                alt="x mark"
+                                height={11}
+                                width={11}
+                              />
+                            )}
+
+                            {perk}
+                          </div>
+                        ),
+                      )}
                   </div>
-                  <div className="text-gray-500 text-sm">Based on</div>
-                  <div className="text-4xl mt-2">
-                    {averages.data?.averageSupervisorRating}
-                  </div>
                 </div>
-              </div>
-            </div>
+              )}
+            </CollapsableInfoCard>
           </div>
           {averages.data && (
             <div className="col-span-2" id="pay">
