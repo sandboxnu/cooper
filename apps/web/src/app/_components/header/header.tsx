@@ -24,7 +24,7 @@ export default function Header({ auth }: HeaderProps) {
 
   if (isOpen) {
     return (
-      <header className="z-50 flex min-h-[14rem] w-full flex-col justify-start bg-cooper-cream-100 outline outline-[1px]">
+      <header className="bg-cooper-cream-100 z-50 flex min-h-[14rem] w-full flex-col justify-start outline outline-[1px]">
         <div className="z-10 ml-3 mr-4 flex h-[8dvh] min-h-10 items-center justify-between gap-4">
           <Link
             href="/"
@@ -62,7 +62,7 @@ export default function Header({ auth }: HeaderProps) {
   }
 
   return (
-    <header className="z-10 flex w-full items-center justify-between px-6 py-4 outline outline-[1px] bg-cooper-cream-100 outline-cooper-gray-150">
+    <header className="bg-cooper-cream-100 outline-cooper-gray-150 z-10 flex w-full items-center justify-between px-6 py-4 outline outline-[1px]">
       <Link
         href="/"
         onClick={(e) => {
@@ -74,20 +74,20 @@ export default function Header({ auth }: HeaderProps) {
         <div className="z-0 flex max-w-[43px] items-end">
           <CooperLogo />
         </div>
-        <h1 className="text-2xl font-bold text-cooper-blue-800 ">Cooper</h1>
+        <h1 className="text-2xl font-bold text-cooper-blue-800">Cooper</h1>
       </Link>
       <div className="hidden flex-shrink grid-cols-2 items-center justify-center gap-6 md:flex">
         <Link
           href="https://docs.google.com/forms/d/e/1FAIpQLSf-ZvpyBawT5LlMho7X4oNZ0Z_1M-o6cXLJjB5uJiNAvvnkfw/viewform?usp=dialog"
           target="_blank"
-          className="text-sm text-cooper-gray-250 hover:underline"
+          className="text-cooper-gray-250 text-sm hover:underline"
         >
           Submit Feedback or Bug Reports
         </Link>
         {session.data && (
           <div className="flex items-center gap-8">
             <Link href="/review-form">
-              <Button className="h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700">
+              <Button className="hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700 h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white">
                 <span className="translate-y-[-2px] text-2xl md:hidden">+</span>
                 <span className="hidden md:inline">+ ADD REVIEW</span>
               </Button>
@@ -101,7 +101,7 @@ export default function Header({ auth }: HeaderProps) {
       <div className="justify-right mr-2 flex flex-shrink grid-cols-2 items-center gap-2 md:hidden">
         {session.data ? (
           <Link href="/review-form">
-            <Button className="h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700">
+            <Button className="hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700 h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white">
               <span className="translate-y-[-2px] text-2xl md:hidden">+</span>
             </Button>
           </Link>
