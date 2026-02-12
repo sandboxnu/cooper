@@ -25,6 +25,8 @@ import { ReviewCard } from "./review-card";
 import ReviewSearchBar from "./review-search-bar";
 import RoundBarGraph from "./round-bar-graph";
 import type { ReviewType, RoleType } from "@cooper/db/schema";
+import { CompareControls } from "../compare/compare-ui";
+import { useCompare } from "../compare/compare-context";
 
 interface RoleCardProps {
   className?: string;
@@ -130,7 +132,23 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
       review.interviewReview?.toLowerCase().includes(searchTerm.toLowerCase());
 
     return ratingMatch && searchMatch;
+    
   });
+
+   const jobTypesFromReviews = [
+    ...new Set(
+      (reviews.data ?? [])
+        .map((r) => r.jobType)
+        .filter(Boolean)
+        .map((job) => (job === "CO-OP" ? "Co-op" : job)),
+    ),
+  ] as string[];
+  const jobTypeLabel =
+    jobTypesFromReviews.length === 0
+      ? null
+      : jobTypesFromReviews.length === 1
+        ? jobTypesFromReviews[0]
+        : jobTypesFromReviews.sort().join(" / ");
 
   return (
     <div
