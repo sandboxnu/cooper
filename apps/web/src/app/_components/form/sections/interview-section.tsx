@@ -65,7 +65,7 @@ export function InterviewSection() {
         render={({ field }) => (
           <FormItem className="flex flex-col w-full">
             <FormLabel className="text-sm font-bold text-cooper-gray-400">
-              Interview difficulty<span className="text-[#FB7373]">*</span>
+              Interview difficulty<span className="text-cooper-red-300">*</span>
             </FormLabel>
             <FormControl className="relative w-full">
               <Select
