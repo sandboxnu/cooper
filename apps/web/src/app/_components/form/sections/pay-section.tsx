@@ -86,7 +86,11 @@ export function PaySection() {
                 />
                 <div
                   className="flex items-center gap-2 rounded-md cursor-pointer pt-2.5"
-                  onClick={() => setIsUnpaid(!isUnpaid)}
+                  onClick={() => {
+                    const next = !isUnpaid;
+                    setIsUnpaid(next);
+                    form.setValue("hourlyPay", next ? "0" : "", { shouldValidate: true });
+                  }}
                 >
                   <Checkbox checked={isUnpaid} />
                   <span className="text-sm text-cooper-gray-400">
