@@ -19,13 +19,11 @@ import { calculateRatings } from "~/utils/reviewCountByStars";
 import { CompanyPopup } from "../companies/company-popup";
 import StarGraph from "../shared/star-graph";
 import BarGraph from "./bar-graph";
-import CollapsableInfoCard from "./collapsable-info";
 import InfoCard from "./info-card";
 import { ReviewCard } from "./review-card";
 import ReviewSearchBar from "./review-search-bar";
 import RoundBarGraph from "./round-bar-graph";
 import type { ReviewType, RoleType } from "@cooper/db/schema";
-import DonutChart from "./donut-chart";
 import { calculateWorkModels } from "~/utils/companyStatistics";
 import ModalContainer from "./modal";
 import { CompareControls } from "../compare/compare-ui";
@@ -273,60 +271,57 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
               </InfoCard>
             </div>
           )}
-          <ModalContainer>
-            <h2 className="text-[20px] font-semibold mb-2">On the Job</h2>
+          <ModalContainer title="On the job">
+              {averages.data && (
+                <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
+                  <div className="flex flex-wrap gap-10 lg:flex-nowrap">
+                    <BarGraph
+                      title={"Company culture rating"}
+                      maxValue={5}
+                      value={averages.data.averageCultureRating}
+                    />
+                    <BarGraph
+                      title={"Supervisor rating"}
+                      maxValue={5}
+                      value={averages.data.averageSupervisorRating}
+                    />
+                  </div>
 
-            <div className="flex items-start gap-12">
-              {/* work model */}
-              <div className="flex flex-col gap-4 min-w-[320px]">
-                <div>
-                  <div className="font-bold text-cooper-gray-400 mb-2">
-                    Work model
-                  </div>
-                  <div className="text-2xl mt-1">{topWorkModel}</div>
-                  <DonutChart data={data} width="350px" height="250px" />
-                </div>
-              </div>
-              <div className="flex flex-row gap-12 items-start">
-                <div className="w-px bg-[#EBEBEB] self-stretch" />
+                  <div className="flex flex-wrap gap-x-6">
+                    {perks &&
+                      Object.entries(perks).map(
+                        ([perk, value]: [string, number]) => (
+                          <div
+                            key={perk}
+                            className={`flex items-center gap-2 ${value > 0.5 ? "text-[#141414]" : "text-[#7d7d7d]"}`}
+                          >
+                            {value > 0.5 ? (
+                              <Image
+                                src="svg/perkCheck.svg"
+                                alt="check mark"
+                                width={12}
+                                height={9}
+                              />
+                            ) : (
+                              <Image
+                                src="svg/perkCross.svg"
+                                alt="x mark"
+                                height={11}
+                                width={11}
+                              />
+                            )}
 
-                {/* benefits */}
-                <div className="flex flex-col gap-2">
-                  <div className="font-bold text-cooper-gray-400 mb-2">
-                    Benefits
-                  </div>
-                  {perks &&
-                    Object.entries(perks)
-                      .sort(([, a], [, b]) => Number(b > 0.5) - Number(a > 0.5))
-                      .map(([perk, value]) => (
-                        <div
-                          key={perk}
-                          className={
-                            value > 0.5 ? "text-[#141414]" : "text-[#7d7d7d]"
-                          }
-                        >
-                          {perk}
-                        </div>
-                      ))}
-                </div>
-                {/* culture */}
-                <div className="flex flex-col gap-2">
-                  <div className="font-bold text-cooper-gray-400">
-                    Company culture
-                  </div>
-                  <div className="text-gray-500 text-sm">Based on</div>
-                  <div className="text-4xl mt-2">
-                    {Math.round(
-                      (averages.data?.averageSupervisorRating ?? 0) * 10,
-                    ) / 10}
+                            {perk}
+                          </div>
+                        ),
+                      )}
                   </div>
                 </div>
-              </div>
-            </div>
+              )}
           </ModalContainer>
           {averages.data && (
             <div className="col-span-2" id="pay">
-              <CollapsableInfoCard title={"Pay"}>
+              <ModalContainer title={"Pay"}>
                 <div className="flex flex-col justify-between gap-3 md:flex-row">
                   <div className="flex flex-col gap-2 md:w-[30%] md:gap-5">
                     <div className="text-cooper-gray-400">Pay range</div>
@@ -388,11 +383,11 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                     />
                   </div>
                 </div>
-              </CollapsableInfoCard>
+              </ModalContainer>
             </div>
           )}
           <div className="col-span-2" id="interview">
-            <CollapsableInfoCard title="Interview">
+            <ModalContainer title="Interview">
               {averages.data && (
                 <div className="flex flex-wrap gap-10">
                   <BarGraph
@@ -407,10 +402,10 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                   />
                 </div>
               )}
-            </CollapsableInfoCard>
+            </ModalContainer>
           </div>
           <div className="col-span-2" id="reviews">
-            <CollapsableInfoCard title="Reviews">
+            <ModalContainer title="Reviews">
               {reviews.isSuccess && reviews.data.length === 0 && (
                 <div className="flex h-full w-full flex-col items-center justify-center text-[#5a5a5a]">
                   <p>No reviews yet</p>
@@ -471,7 +466,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                   )}
                 </div>
               )}
-            </CollapsableInfoCard>
+            </ModalContainer>
           </div>
         </div>
       </div>
