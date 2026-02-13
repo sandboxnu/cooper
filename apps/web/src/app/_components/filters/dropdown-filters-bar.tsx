@@ -1,13 +1,14 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
-import { api } from "~/trpc/react";
+import { useEffect, useMemo, useState } from "react";
 
+import type { LocationType } from "@cooper/db/schema";
+
+import type { FilterState } from "./types";
+import { api } from "~/trpc/react";
+import { prettyLocationName } from "~/utils/locationHelpers";
 import { industryOptions, jobTypeOptions } from "../onboarding/constants";
 import DropdownFilter from "./dropdown-filter";
-import type { LocationType } from "@cooper/db/schema";
-import type { FilterState } from "./types";
-import { prettyLocationName } from "~/utils/locationHelpers";
 
 interface DropdownFiltersBarProps {
   filters: FilterState;

@@ -2,6 +2,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import type { ReviewType, RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 import Logo from "@cooper/ui/logo";
@@ -14,20 +15,19 @@ import {
 } from "@cooper/ui/select";
 
 import { api } from "~/trpc/react";
+import { calculateWorkModels } from "~/utils/companyStatistics";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { calculateRatings } from "~/utils/reviewCountByStars";
 import { CompanyPopup } from "../companies/company-popup";
+import { useCompare } from "../compare/compare-context";
+import { CompareControls } from "../compare/compare-ui";
 import StarGraph from "../shared/star-graph";
 import BarGraph from "./bar-graph";
 import InfoCard from "./info-card";
+import ModalContainer from "./modal";
 import { ReviewCard } from "./review-card";
 import ReviewSearchBar from "./review-search-bar";
 import RoundBarGraph from "./round-bar-graph";
-import type { ReviewType, RoleType } from "@cooper/db/schema";
-import { calculateWorkModels } from "~/utils/companyStatistics";
-import ModalContainer from "./modal";
-import { CompareControls } from "../compare/compare-ui";
-import { useCompare } from "../compare/compare-context";
 
 interface RoleCardProps {
   className?: string;
@@ -221,7 +221,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             </div>
           </div>
         </CardHeader>
-        <div className="flex flex-col items-end mr-6 gap-2">
+        <div className="mr-6 flex flex-col items-end gap-2">
           <CardContent className="grid gap-2">
             {reviews.isSuccess &&
               reviews.data.length > 0 &&
@@ -272,52 +272,52 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             </div>
           )}
           <ModalContainer title="On the job">
-              {averages.data && (
-                <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
-                  <div className="flex flex-wrap gap-10 lg:flex-nowrap">
-                    <BarGraph
-                      title={"Company culture rating"}
-                      maxValue={5}
-                      value={averages.data.averageCultureRating}
-                    />
-                    <BarGraph
-                      title={"Supervisor rating"}
-                      maxValue={5}
-                      value={averages.data.averageSupervisorRating}
-                    />
-                  </div>
-
-                  <div className="flex flex-wrap gap-x-6">
-                    {perks &&
-                      Object.entries(perks).map(
-                        ([perk, value]: [string, number]) => (
-                          <div
-                            key={perk}
-                            className={`flex items-center gap-2 ${value > 0.5 ? "text-[#141414]" : "text-[#7d7d7d]"}`}
-                          >
-                            {value > 0.5 ? (
-                              <Image
-                                src="svg/perkCheck.svg"
-                                alt="check mark"
-                                width={12}
-                                height={9}
-                              />
-                            ) : (
-                              <Image
-                                src="svg/perkCross.svg"
-                                alt="x mark"
-                                height={11}
-                                width={11}
-                              />
-                            )}
-
-                            {perk}
-                          </div>
-                        ),
-                      )}
-                  </div>
+            {averages.data && (
+              <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
+                <div className="flex flex-wrap gap-10 lg:flex-nowrap">
+                  <BarGraph
+                    title={"Company culture rating"}
+                    maxValue={5}
+                    value={averages.data.averageCultureRating}
+                  />
+                  <BarGraph
+                    title={"Supervisor rating"}
+                    maxValue={5}
+                    value={averages.data.averageSupervisorRating}
+                  />
                 </div>
-              )}
+
+                <div className="flex flex-wrap gap-x-6">
+                  {perks &&
+                    Object.entries(perks).map(
+                      ([perk, value]: [string, number]) => (
+                        <div
+                          key={perk}
+                          className={`flex items-center gap-2 ${value > 0.5 ? "text-[#141414]" : "text-[#7d7d7d]"}`}
+                        >
+                          {value > 0.5 ? (
+                            <Image
+                              src="svg/perkCheck.svg"
+                              alt="check mark"
+                              width={12}
+                              height={9}
+                            />
+                          ) : (
+                            <Image
+                              src="svg/perkCross.svg"
+                              alt="x mark"
+                              height={11}
+                              width={11}
+                            />
+                          )}
+
+                          {perk}
+                        </div>
+                      ),
+                    )}
+                </div>
+              </div>
+            )}
           </ModalContainer>
           {averages.data && (
             <div className="col-span-2" id="pay">

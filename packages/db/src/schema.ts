@@ -2,9 +2,9 @@ import type { CompanyType } from "./schema/companies";
 import type { LocationType } from "./schema/locations";
 import type {
   IndustryType,
+  JobTypeType,
   WorkEnvironmentType,
   WorkTermType,
-  JobTypeType,
 } from "./schema/misc";
 import type { ReviewType } from "./schema/reviews";
 import type { RoleType } from "./schema/roles";
@@ -15,7 +15,7 @@ import {
   CreateCompanyToLocationSchema,
 } from "./schema/companiesToLocations";
 import { CreateLocationSchema, Location } from "./schema/locations";
-import { Industry, WorkEnvironment, WorkTerm, JobType } from "./schema/misc";
+import { Industry, JobType, WorkEnvironment, WorkTerm } from "./schema/misc";
 import {
   CreateProfileSchema,
   Profile,

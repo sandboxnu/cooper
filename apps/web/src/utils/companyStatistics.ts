@@ -1,4 +1,5 @@
 import type { ReviewType } from "@cooper/db/schema";
+
 import { prettyWorkEnviornment } from "./stringHelpers";
 
 function toCamelCase(word: string) {
