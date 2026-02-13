@@ -15,6 +15,7 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "__DATABASE__________": "",
     "db:push": "turbo run -F @cooper/db push",
     "db:generate": "turbo run -F @cooper/db generate",
@@ -39,11 +40,18 @@
   "devDependencies": {
     "@cooper/prettier-config": "workspace:*",
     "@turbo/gen": "^2.1.1",
+    "@vitejs/plugin-react": "^5.1.2",
+    "@vitest/coverage-v8": "^2.1.9",
     "@vitest/ui": "2.1.2",
     "prettier": "catalog:",
     "turbo": "^2.1.1",
     "typescript": "catalog:",
     "vitest": "catalog:"
   },
-  "prettier": "@cooper/prettier-config"
+  "prettier": "@cooper/prettier-config",
+  "pnpm": {
+    "patchedDependencies": {
+      "@vitejs/plugin-react": "patches/@vitejs__plugin-react.patch"
+    }
+  }
 }

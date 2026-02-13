@@ -3,6 +3,7 @@
   "compilerOptions": {
     "lib": ["es2022", "dom", "dom.iterable"],
     "jsx": "preserve",
+    "types": ["vitest/globals"],
     "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"]
@@ -11,6 +12,5 @@
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
     "module": "esnext"
   },
-  "include": [".", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [".", ".next/types/**/*.ts"]
 }

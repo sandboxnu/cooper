@@ -8,4 +8,12 @@ export default [
   },
   ...baseConfig,
   ...reactConfig,
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+    languageOptions: {
+      parserOptions: {
+        project: "./tsconfig.json",
+      },
+    },
+  },
 ];

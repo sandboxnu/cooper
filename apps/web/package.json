@@ -7,6 +7,8 @@
     "build": "pnpm with-env next build",
     "clean": "git clean -xdf .next .turbo node_modules",
     "dev": "pnpm with-env next dev",
+    "test": "vitest",
+    "test:run": "vitest run",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "start": "pnpm with-env next start",
@@ -42,6 +44,8 @@
     "@cooper/prettier-config": "workspace:*",
     "@cooper/tailwind-config": "workspace:*",
     "@cooper/tsconfig": "workspace:*",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
     "@types/node": "^20.14.15",
     "@types/react": "catalog:react18",
     "@types/react-dom": "catalog:react18",
@@ -49,9 +53,11 @@
     "dotenv-cli": "^7.4.2",
     "eslint": "catalog:",
     "jiti": "^1.21.6",
+    "jsdom": "^25.0.1",
     "prettier": "catalog:",
     "tailwindcss": "^3.4.4",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "vitest": "catalog:"
   },
   "prettier": "@cooper/prettier-config"
 }
