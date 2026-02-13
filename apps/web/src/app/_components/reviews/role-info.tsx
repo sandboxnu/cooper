@@ -135,8 +135,6 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     return ratingMatch && searchMatch;
   });
 
-
-
   const jobTypesFromReviews = [
     ...new Set(
       (reviews.data ?? [])
