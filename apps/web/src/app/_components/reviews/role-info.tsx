@@ -15,7 +15,6 @@ import {
 } from "@cooper/ui/select";
 
 import { api } from "~/trpc/react";
-import { calculateWorkModels } from "~/utils/companyStatistics";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { calculateRatings } from "~/utils/reviewCountByStars";
 import { CompanyPopup } from "../companies/company-popup";
