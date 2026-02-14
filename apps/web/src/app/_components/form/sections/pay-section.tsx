@@ -89,7 +89,9 @@ export function PaySection() {
                   onClick={() => {
                     const next = !isUnpaid;
                     setIsUnpaid(next);
-                    form.setValue("hourlyPay", next ? "0" : "", { shouldValidate: true });
+                    form.setValue("hourlyPay", next ? "0" : "", {
+                      shouldValidate: true,
+                    });
                   }}
                 >
                   <Checkbox checked={isUnpaid} />

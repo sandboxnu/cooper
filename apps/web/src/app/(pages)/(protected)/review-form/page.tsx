@@ -14,12 +14,7 @@ import {
 } from "~/app/_components/form/sections";
 import { z } from "zod";
 import { useCustomToast } from "@cooper/ui";
-import {
-  Industry,
-  WorkEnvironment,
-  WorkTerm,
-  JobType,
-} from "@cooper/db/schema";
+import { WorkEnvironment, WorkTerm, JobType } from "@cooper/db/schema";
 import { Filter } from "bad-words";
 import dayjs from "dayjs";
 import { Form } from "node_modules/@cooper/ui/src/form";
@@ -113,9 +108,7 @@ const formSchema = z.object({
     .min(0, {
       message: "Please enter hourly pay",
     })
-    .transform((val) =>
-  val === undefined || Number.isNaN(val) ? null : val.toString(),
-)
+    .transform((val) => (Number.isNaN(val) ? null : val.toString()))
     .nullable(),
   workEnvironment: z.nativeEnum(WorkEnvironment, {
     required_error: "You need to select a work model.",
