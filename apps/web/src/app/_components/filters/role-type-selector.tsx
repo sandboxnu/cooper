@@ -26,12 +26,12 @@ export default function RoleTypeSelector({
       />
       <Chip
         onClick={() => onSelectedTypeChange("roles")}
-        label={`Jobs (${isLoading ? "..." : (data?.totalRolesCount ?? "0")})`}
+        label="Jobs"
         selected={selectedType === "roles"}
       />
       <Chip
         onClick={() => onSelectedTypeChange("companies")}
-        label={`Companies (${isLoading ? "..." : (data?.totalCompanyCount ?? "0")})`}
+        label="Companies"
         selected={selectedType === "companies"}
       />
     </div>

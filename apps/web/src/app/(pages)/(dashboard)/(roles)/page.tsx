@@ -630,7 +630,7 @@ export default function Roles() {
                         }
                         showFavorite={!compare.isCompareMode}
                         className={cn(
-                          "hover:bg-cooper-gray-200",
+                          "hover:bg-cooper-gray-200 hover:cursor-pointer",
                           selectedItem
                             ? selectedItem.id === item.id &&
                                 "bg-cooper-cream-200 hover:bg-cooper-gray-200"
@@ -656,7 +656,7 @@ export default function Roles() {
                       <CompanyCardPreview
                         companyObj={item}
                         className={cn(
-                          "mb-4 hover:bg-cooper-gray-100",
+                          "mb-4 hover:bg-cooper-gray-200 hover:cursor-pointer",
                           selectedItem
                             ? selectedItem.id === item.id &&
                                 "bg-cooper-cream-200"
