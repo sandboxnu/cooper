@@ -240,22 +240,22 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
       <div className="flex w-[100%] justify-between">
         <div className="grid w-full grid-cols-2 gap-5 px-3 lg:pl-6 lg:pr-6">
           <div className="col-span-2 h-full md:col-span-1" id="job-description">
-            <InfoCard title={"Job Description"}>
+            <ModalContainer title={"Job Description"}>
               <div className="flex h-28 overflow-y-auto pr-4 text-[#5a5a5a] md:h-40">
                 {roleObj.description}
               </div>
-            </InfoCard>
+            </ModalContainer>
           </div>
           {companyData && (
             <div className="col-span-2 h-full md:col-span-1" id="company">
-              <InfoCard title={`About ${companyData.name}`}>
+              <ModalContainer title={`About ${companyData.name}`}>
                 <div className="flex gap-4 text-[#5a5a5a]">
                   <Logo company={companyData} />
                   <p className="h-28 overflow-y-auto md:h-40">
                     {companyData.description}
                   </p>
                 </div>
-              </InfoCard>
+              </ModalContainer>
             </div>
           )}
           <ModalContainer title="On the job">
