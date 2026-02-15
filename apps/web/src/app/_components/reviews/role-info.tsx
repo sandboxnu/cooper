@@ -257,54 +257,59 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
               </ModalContainer>
             </div>
           )}
-          <ModalContainer title="On the job">
-            {averages.data && (
-              <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
-                <div className="flex flex-wrap gap-10 lg:flex-nowrap">
-                  <BarGraph
-                    title={"Company culture rating"}
-                    maxValue={5}
-                    value={averages.data.averageCultureRating}
-                  />
-                  <BarGraph
-                    title={"Supervisor rating"}
-                    maxValue={5}
-                    value={averages.data.averageSupervisorRating}
-                  />
-                </div>
+        
+          
+          <div className="col-span-2">
+            <ModalContainer title={"On the job"}>
+              {averages.data && (
+                <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
+                  <div className="flex flex-wrap gap-10 lg:flex-nowrap">
+                    <BarGraph
+                      title={"Company culture rating"}
+                      maxValue={5}
+                      value={averages.data.averageCultureRating}
+                    />
+                    <BarGraph
+                      title={"Supervisor rating"}
+                      maxValue={5}
+                      value={averages.data.averageSupervisorRating}
+                    />
+                  </div>
 
-                <div className="flex flex-wrap gap-x-6">
-                  {perks &&
-                    Object.entries(perks).map(
-                      ([perk, value]: [string, number]) => (
-                        <div
-                          key={perk}
-                          className={`flex items-center gap-2 ${value > 0.5 ? "text-[#141414]" : "text-[#7d7d7d]"}`}
-                        >
-                          {value > 0.5 ? (
-                            <Image
-                              src="svg/perkCheck.svg"
-                              alt="check mark"
-                              width={12}
-                              height={9}
-                            />
-                          ) : (
-                            <Image
-                              src="svg/perkCross.svg"
-                              alt="x mark"
-                              height={11}
-                              width={11}
-                            />
-                          )}
+                  <div className="flex flex-wrap gap-x-6">
+                    {perks &&
+                      Object.entries(perks).map(
+                        ([perk, value]: [string, number]) => (
+                          <div
+                            key={perk}
+                            className={`flex items-center gap-2 ${value > 0.5 ? "text-[#141414]" : "text-[#7d7d7d]"}`}
+                          >
+                            {value > 0.5 ? (
+                              <Image
+                                src="svg/perkCheck.svg"
+                                alt="check mark"
+                                width={12}
+                                height={9}
+                              />
+                            ) : (
+                              <Image
+                                src="svg/perkCross.svg"
+                                alt="x mark"
+                                height={11}
+                                width={11}
+                              />
+                            )}
 
-                          {perk}
-                        </div>
-                      ),
-                    )}
+                            {perk}
+                          </div>
+                        ),
+                      )}
+                  </div>
                 </div>
-              </div>
-            )}
-          </ModalContainer>
+              )}
+            </ModalContainer>
+          </div>
+            
           {averages.data && (
             <div className="col-span-2" id="pay">
               <ModalContainer title={"Pay"}>
