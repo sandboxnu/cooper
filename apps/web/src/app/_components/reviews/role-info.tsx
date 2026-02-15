@@ -22,7 +22,6 @@ import { useCompare } from "../compare/compare-context";
 import { CompareControls } from "../compare/compare-ui";
 import StarGraph from "../shared/star-graph";
 import BarGraph from "./bar-graph";
-import InfoCard from "./info-card";
 import ModalContainer from "./modal";
 import { ReviewCard } from "./review-card";
 import ReviewSearchBar from "./review-search-bar";
