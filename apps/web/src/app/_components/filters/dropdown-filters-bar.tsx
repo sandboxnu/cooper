@@ -20,6 +20,7 @@ export default function DropdownFiltersBar({
 }: DropdownFiltersBarProps) {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [prefix, setPrefix] = useState<string>("");
+  const [openFilterKey, setOpenFilterKey] = useState<string | null>(null);
 
   useEffect(() => {
     const newPrefix =
@@ -107,6 +108,8 @@ export default function DropdownFiltersBar({
         onSelectionChange={(selected) =>
           handleFilterChange("industries", selected)
         }
+        open={openFilterKey === "industry"}
+        onOpenChange={(open) => setOpenFilterKey(open ? "industry" : null)}
       />
 
       <DropdownFilter
@@ -118,6 +121,8 @@ export default function DropdownFiltersBar({
           handleFilterChange("locations", selected)
         }
         onSearchChange={(search) => setSearchTerm(search)}
+        open={openFilterKey === "location"}
+        onOpenChange={(open) => setOpenFilterKey(open ? "location" : null)}
       />
 
       <DropdownFilter
@@ -128,6 +133,8 @@ export default function DropdownFiltersBar({
         onSelectionChange={(selected) =>
           handleFilterChange("jobTypes", selected)
         }
+        open={openFilterKey === "jobType"}
+        onOpenChange={(open) => setOpenFilterKey(open ? "jobType" : null)}
       />
 
       <DropdownFilter
@@ -141,6 +148,8 @@ export default function DropdownFiltersBar({
         placeholder="Select range"
         minValue={filters.hourlyPay.min}
         maxValue={filters.hourlyPay.max}
+        open={openFilterKey === "hourlyPay"}
+        onOpenChange={(open) => setOpenFilterKey(open ? "hourlyPay" : null)}
       />
 
       <DropdownFilter
@@ -152,6 +161,8 @@ export default function DropdownFiltersBar({
         }
         filterType="rating"
         placeholder="Select rating"
+        open={openFilterKey === "rating"}
+        onOpenChange={(open) => setOpenFilterKey(open ? "rating" : null)}
       />
     </div>
   );

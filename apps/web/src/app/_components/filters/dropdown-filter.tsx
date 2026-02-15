@@ -29,6 +29,8 @@ interface DropdownFilterProps {
   onRangeChange?: (min: number, max: number) => void;
   onSearchChange?: (search: string) => void;
   isLoadingOptions?: boolean;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
 }
 
 export default function DropdownFilter({
@@ -41,8 +43,16 @@ export default function DropdownFilter({
   maxValue,
   onRangeChange,
   onSearchChange,
+  open: controlledOpen,
+  onOpenChange,
 }: DropdownFilterProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [internalOpen, setInternalOpen] = useState(false);
+  const isControlled =
+    controlledOpen !== undefined && onOpenChange !== undefined;
+  const isOpen = isControlled ? controlledOpen : internalOpen;
+  const setIsOpen = isControlled
+    ? (value: boolean) => onOpenChange?.(value)
+    : setInternalOpen;
 
   const isFiltering = useMemo(() => {
     if (filterType === "range") {
