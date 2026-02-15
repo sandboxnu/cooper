@@ -1,10 +1,22 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { api } from "~/trpc/react";
+import { Filter } from "bad-words";
+import dayjs from "dayjs";
+import { Form } from "node_modules/@cooper/ui/src/form";
 import { useForm } from "react-hook-form";
+import { z } from "zod";
+
+import {
+  Industry,
+  JobType,
+  WorkEnvironment,
+  WorkTerm,
+} from "@cooper/db/schema";
+import { useCustomToast } from "@cooper/ui";
+import { Button } from "@cooper/ui/button";
 
 import {
   BasicInfoSection,
@@ -12,19 +24,8 @@ import {
   InterviewSection,
   ReviewSection,
 } from "~/app/_components/form/sections";
-import { z } from "zod";
-import { useCustomToast } from "@cooper/ui";
-import {
-  Industry,
-  WorkEnvironment,
-  WorkTerm,
-  JobType,
-} from "@cooper/db/schema";
-import { Filter } from "bad-words";
-import dayjs from "dayjs";
-import { Form } from "node_modules/@cooper/ui/src/form";
 import { PaySection } from "~/app/_components/form/sections/pay-section";
-import { Button } from "@cooper/ui/button";
+import { api } from "~/trpc/react";
 
 const filter = new Filter();
 
@@ -281,38 +282,38 @@ export default function ReviewForm() {
 
   return (
     <Form {...form}>
-      <div className="bg-white w-full h-screen flex flex-col md:flex-row justify-center items-center overflow-auto">
-        <div className="mt-4 pr-3.5 flex h-full pt-10 flex-col justify-left w-[65%]">
-          <div className="text-lg text-cooper-gray-550">Basic information</div>
-          <div className="flex flex-wrap gap-10 xl:flex-nowrap pb-12 w-full">
+      <div className="flex h-screen w-full flex-col items-center justify-center overflow-auto bg-white md:flex-row">
+        <div className="justify-left mt-4 flex h-full w-[65%] flex-col pr-3.5 pt-10">
+          <div className="text-cooper-gray-550 text-lg">Basic information</div>
+          <div className="flex w-full flex-wrap gap-10 pb-12 xl:flex-nowrap">
             <BasicInfoSection profileId={profileId} />
           </div>
           <hr />
           {canReviewForTerm() ? (
             <div>
-              <div className="text-lg text-cooper-gray-550 pt-12">
+              <div className="text-cooper-gray-550 pt-12 text-lg">
                 On the job
               </div>
-              <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap pb-12">
+              <div className="flex flex-wrap gap-10 overflow-auto pb-12 xl:flex-nowrap">
                 <CompanyDetailsSection />
               </div>
               <hr />
-              <div className="text-lg text-cooper-gray-550 pt-12">Pay</div>
-              <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap pb-12">
+              <div className="text-cooper-gray-550 pt-12 text-lg">Pay</div>
+              <div className="flex flex-wrap gap-10 overflow-auto pb-12 xl:flex-nowrap">
                 <PaySection />
               </div>
               <hr />
-              <div className="text-lg text-cooper-gray-550 pt-12">
+              <div className="text-cooper-gray-550 pt-12 text-lg">
                 Interview
               </div>
-              <div className="flex flex-wrap gap-10 lg:flex-nowrap pb-12">
+              <div className="flex flex-wrap gap-10 pb-12 lg:flex-nowrap">
                 <InterviewSection />
               </div>
               <hr />
-              <div className="text-lg text-cooper-gray-550 pt-12">
+              <div className="text-cooper-gray-550 pt-12 text-lg">
                 Review and rate
               </div>
-              <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap pb-10">
+              <div className="flex flex-wrap gap-10 overflow-auto pb-10 xl:flex-nowrap">
                 <ReviewSection />
               </div>
 
@@ -329,7 +330,7 @@ export default function ReviewForm() {
                     await form.handleSubmit(onSubmit)();
                   }}
                   disabled={mutation.isPending}
-                  className="bg-cooper-gray-550 hover:bg-cooper-gray-600 text-white rounded-lg px-8 py-3 text-lg font-semibold border-none"
+                  className="bg-cooper-gray-550 hover:bg-cooper-gray-600 rounded-lg border-none px-8 py-3 text-lg font-semibold text-white"
                 >
                   {mutation.isPending ? "Submitting..." : "Submit review"}
                 </Button>

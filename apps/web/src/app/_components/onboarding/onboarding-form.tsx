@@ -5,9 +5,9 @@ import { z } from "zod";
 
 import type { Session } from "@cooper/auth";
 import { Button } from "@cooper/ui/button";
+import { Checkbox } from "@cooper/ui/checkbox";
 import { DialogTitle } from "@cooper/ui/dialog";
 import { Form, FormControl, FormField, FormItem } from "@cooper/ui/form";
-import { Checkbox } from "@cooper/ui/checkbox";
 
 import {
   FormLabel,
@@ -99,7 +99,7 @@ export function OnboardingForm({
 
   return (
     <>
-      <DialogTitle className="pb-6 text-left text-lg font-medium ">
+      <DialogTitle className="pb-6 text-left text-lg font-medium">
         Let’s get you setup
       </DialogTitle>
       <Form {...form}>
@@ -277,7 +277,7 @@ export function OnboardingForm({
           <div className="mt-4 flex justify-end">
             <Button
               type="submit"
-              className=" bg-cooper-gray-550 border-cooper-gray-550 hover:bg-cooper-gray-300 hover:border-cooper-gray-300 px-3.5 py-2 text-base font-bold"
+              className="bg-cooper-gray-550 border-cooper-gray-550 px-3.5 py-2 text-base font-bold hover:border-cooper-gray-300 hover:bg-cooper-gray-300"
             >
               Finish
             </Button>

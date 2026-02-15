@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "node_modules/@cooper/ui/src/card";
+
 import { api } from "~/trpc/react";
 
 interface ProfileCardHeaderProps {
@@ -49,7 +50,7 @@ export default function ProfileCardHeader({
           {!editing ? (
             <Button
               variant="outline"
-              className="py-2 text-sm h-[28px] border w-[38px] border-gray-400 text-gray-400"
+              className="h-[28px] w-[38px] border border-gray-400 py-2 text-sm text-gray-400"
               onClick={() => setEditing(true)}
             >
               Edit
@@ -58,7 +59,7 @@ export default function ProfileCardHeader({
             <div className="flex gap-2">
               <Button
                 variant="outline"
-                className="py-2 text-sm h-[28px] border w-[70px] border-gray-400 text-gray-400"
+                className="h-[28px] w-[70px] border border-gray-400 py-2 text-sm text-gray-400"
                 onClick={() => {
                   setFirstName(profile.firstName);
                   setLastName(profile.lastName);
@@ -70,7 +71,7 @@ export default function ProfileCardHeader({
                 Cancel
               </Button>
               <Button
-                className="py-2 text-sm h-[28px] border w-[38px]"
+                className="h-[28px] w-[38px] border py-2 text-sm"
                 onClick={() =>
                   update.mutate({
                     id: profile.id,
@@ -95,7 +96,7 @@ export default function ProfileCardHeader({
 
       <CardContent className="pb-0">
         {!editing ? (
-          <div className="m-4 grid grid-cols-1 md:grid-cols-3 grid-rows-2 items-center gap-4 text-sm">
+          <div className="m-4 grid grid-cols-1 grid-rows-2 items-center gap-4 text-sm md:grid-cols-3">
             <div className="flex flex-col">
               <h4 className="font-semibold">Name</h4>
               <p>
@@ -113,7 +114,7 @@ export default function ProfileCardHeader({
           </div>
         ) : (
           <form
-            className="m-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm"
+            className="m-4 grid grid-cols-1 gap-4 text-sm md:grid-cols-3"
             onSubmit={(e) => {
               e.preventDefault();
               update.mutate({

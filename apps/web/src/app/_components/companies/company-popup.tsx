@@ -1,5 +1,8 @@
 "use client";
 
+import Logo from "node_modules/@cooper/ui/src/logo";
+
+import type { CompanyType } from "@cooper/db/schema";
 import { Button } from "@cooper/ui/button";
 import {
   Dialog,
@@ -9,8 +12,6 @@ import {
   DialogTrigger,
 } from "@cooper/ui/dialog";
 
-import type { CompanyType } from "@cooper/db/schema";
-import Logo from "node_modules/@cooper/ui/src/logo";
 import { FavoriteButton } from "../shared/favorite-button";
 import RenderAllRoles from "./all-company-roles";
 import { CompanyAbout } from "./company-about";
@@ -31,18 +32,18 @@ export function CompanyPopup({
     <Dialog>
       <DialogTrigger asChild>
         {trigger ? (
-          <Button className="bg-cooper-cream-100 !py-0 h-auto text-md hover:bg-cooper-cream-100 border-none !p-0 text-cooper-gray-400 outline-none hover:underline">
+          <Button className="bg-cooper-cream-100 text-md hover:bg-cooper-cream-100 h-auto border-none !p-0 !py-0 text-cooper-gray-400 outline-none hover:underline">
             {trigger}
           </Button>
         ) : (
           <div></div>
         )}
       </DialogTrigger>
-      <DialogContent className="max-h-[80dvh] md:w-[70dvw] sm:max-w-none overflow-y-auto bg-white p-2 md:p-6">
+      <DialogContent className="max-h-[80dvh] overflow-y-auto bg-white p-2 sm:max-w-none md:w-[70dvw] md:p-6">
         <DialogHeader>
           <DialogTitle className="text-cooper-gray-900 flex flex-col items-center justify-between text-2xl font-semibold md:flex-row md:gap-12"></DialogTitle>
         </DialogHeader>
-        <div className="mx-2 mb-5 mt-2 flex items-start justify-between ">
+        <div className="mx-2 mb-5 mt-2 flex items-start justify-between">
           <div className="flex">
             <div className="mr-3 flex h-12 w-12 items-center justify-center">
               <Logo company={company} size="medium" />
@@ -61,7 +62,7 @@ export function CompanyPopup({
           <FavoriteButton objId={company.id} objType="company" />
         </div>
         <div className="flex flex-col md:flex-row">
-          <div className="mx-4 md:w-[70%] gap-4 font-sans md:mx-auto md:max-w-[66dvw] md:pr-4 ">
+          <div className="mx-4 gap-4 font-sans md:mx-auto md:w-[70%] md:max-w-[66dvw] md:pr-4">
             <div className="mb-6 gap-2 px-1 md:gap-4">
               <CompanyReview companyObj={company} />
             </div>

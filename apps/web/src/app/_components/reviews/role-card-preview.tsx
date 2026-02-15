@@ -87,7 +87,7 @@ export function RoleCardPreview({
           </div>
         )}
         <div className={cn("flex-1", showDragHandle && "pl-8")}>
-          <CardHeader className="space-y-0.5 ">
+          <CardHeader className="space-y-0.5">
             <div className="flex items-center gap-2">
               <h3 className="text-xl font-semibold leading-tight">
                 {role.data?.title}
@@ -100,7 +100,7 @@ export function RoleCardPreview({
             <div className="flex items-center gap-2 text-base text-[#666666]">
               {company.data?.name}
               {location.isSuccess && location.data && (
-                <span className="before:content-['•'] before:mr-2">
+                <span className="before:mr-2 before:content-['•']">
                   {prettyLocationName(location.data)}
                 </span>
               )}

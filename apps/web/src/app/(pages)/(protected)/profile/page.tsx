@@ -2,16 +2,17 @@
 
 import { useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { redirect, useSearchParams } from "next/navigation";
-import ProfileCardHeader from "~/app/_components/profile/profile-card-header";
+
+import { Button } from "@cooper/ui/button";
 
 import FavoriteCompanySearch from "~/app/_components/profile/favorite-company-search";
 import FavoriteRoleSearch from "~/app/_components/profile/favorite-role-search";
+import ProfileCardHeader from "~/app/_components/profile/profile-card-header";
 import ProfileTabs from "~/app/_components/profile/profile-tabs";
 import { ReviewCard } from "~/app/_components/reviews/review-card";
 import { api } from "~/trpc/react";
-import { Button } from "@cooper/ui/button";
-import Link from "next/link";
 
 export default function Profile() {
   const searchParams = useSearchParams();
@@ -88,8 +89,8 @@ export default function Profile() {
   }
 
   return (
-    <div className="bg-cooper-cream-100 w-full h-screen flex justify-center overflow-auto">
-      <div className="mx-4 mt-4 flex flex-col gap-6 md:max-w-[66%] w-[66%] pt-4">
+    <div className="bg-cooper-cream-100 flex h-screen w-full justify-center overflow-auto">
+      <div className="mx-4 mt-4 flex w-[66%] flex-col gap-6 pt-4 md:max-w-[66%]">
         <div className="flex items-start justify-start gap-4">
           <Image
             src={session.user.image ?? "/svg/defaultProfile.svg"}

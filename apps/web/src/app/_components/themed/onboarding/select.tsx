@@ -1,5 +1,6 @@
+import { ChevronDown, X } from "lucide-react";
+
 import { cn } from "@cooper/ui";
-import { X, ChevronDown } from "lucide-react";
 
 interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   options: { value: string | number; label: string | number }[];
@@ -19,7 +20,7 @@ export const Select: React.FC<SelectProps> = ({
     <div className="relative w-full">
       <select
         className={cn(
-          "h-9 w-full appearance-none rounded-lg border border-cooper-gray-150 bg-transparent px-4 pr-10 text-sm text-cooper-gray-350 shadow-none placeholder:text-muted-foreground hover:bg-accent focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+          "border-cooper-gray-150 text-cooper-gray-350 h-9 w-full appearance-none rounded-lg border bg-transparent px-4 pr-10 text-sm shadow-none placeholder:text-muted-foreground hover:bg-accent focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
           className,
         )}
         {...props}

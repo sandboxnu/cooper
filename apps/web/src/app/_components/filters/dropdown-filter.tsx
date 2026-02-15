@@ -1,21 +1,20 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ChevronDown, X } from "lucide-react";
-import { cn } from "@cooper/ui";
-
 import Image from "next/image";
+import { ChevronDown, X } from "lucide-react";
 
+import { cn } from "@cooper/ui";
+import { Button } from "@cooper/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@cooper/ui/dropdown-menu";
-import { Button } from "@cooper/ui/button";
 
-import FilterBody from "./filter-body";
 import type { FilterOption, FilterVariant } from "./filter-body";
+import FilterBody from "./filter-body";
 
 interface DropdownFilterProps {
   title: string;
@@ -76,7 +75,7 @@ export default function DropdownFilter({
       if (minRating === maxRating) return `${minRating}.0+ stars`;
 
       return (
-        <div className="flex gap-[5px] items-center">
+        <div className="flex items-center gap-[5px]">
           {minRating}.0 - {maxRating}.0{" "}
           <Image src="/svg/star.svg" alt="Star icon" width={20} height={20} />
         </div>
@@ -98,10 +97,10 @@ export default function DropdownFilter({
       <DropdownMenuTrigger asChild>
         <button
           className={cn(
-            "flex items-center gap-[10px] rounded-lg px-[14px] py-2 text-sm border border-cooper-gray-150 text-cooper-gray-400 font-normal focus-visible:ring-0 outline-none focus:outline-none h-9 whitespace-nowrap",
+            "border-cooper-gray-150 flex h-9 items-center gap-[10px] whitespace-nowrap rounded-lg border px-[14px] py-2 text-sm font-normal text-cooper-gray-400 outline-none focus:outline-none focus-visible:ring-0",
             isFiltering
               ? "border-cooper-gray-600 bg-cooper-gray-700 hover:bg-cooper-gray-200"
-              : "bg-white hover:bg-cooper-gray-150",
+              : "hover:bg-cooper-gray-150 bg-white",
           )}
         >
           {displayText}
@@ -111,13 +110,13 @@ export default function DropdownFilter({
 
       <DropdownMenuContent
         align="start"
-        className="flex flex-col w-96 gap-[22px] p-5 bg-cooper-cream-400 rounded-lg"
+        className="bg-cooper-cream-400 flex w-96 flex-col gap-[22px] rounded-lg p-5"
       >
-        <DropdownMenuLabel className="flex justify-between p-0 bg-cooper-cream-400">
+        <DropdownMenuLabel className="bg-cooper-cream-400 flex justify-between p-0">
           <div className="flex gap-2">
-            <span className="font-semibold text-base">{title}</span>
+            <span className="text-base font-semibold">{title}</span>
             <Button
-              className="bg-transparent border-none text-cooper-gray-400 font-normal text-xs hover:bg-transparent p-0 h-auto self-center"
+              className="h-auto self-center border-none bg-transparent p-0 text-xs font-normal text-cooper-gray-400 hover:bg-transparent"
               onClick={handleClear}
             >
               Clear
@@ -125,7 +124,7 @@ export default function DropdownFilter({
           </div>
           <Button
             onClick={() => setIsOpen(false)}
-            className="bg-transparent border-none text-cooper-gray-400 hover:bg-transparent p-0 h-auto"
+            className="h-auto border-none bg-transparent p-0 text-cooper-gray-400 hover:bg-transparent"
           >
             <X className="h-4 w-4" />
           </Button>
