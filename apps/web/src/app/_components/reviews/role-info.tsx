@@ -257,8 +257,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
               </ModalContainer>
             </div>
           )}
-        
-          
+
           <div className="col-span-2">
             <ModalContainer title={"On the job"}>
               {averages.data && (
@@ -309,7 +308,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
               )}
             </ModalContainer>
           </div>
-            
+
           {averages.data && (
             <div className="col-span-2" id="pay">
               <ModalContainer title={"Pay"}>
