@@ -555,10 +555,7 @@ export default function Roles() {
                 <RoleTypeSelector
                   onSelectedTypeChange={setSelectedType}
                   selectedType={selectedType}
-                  data={{
-                    totalRolesCount: rolesAndCompanies.data.totalRolesCount,
-                    totalCompanyCount: rolesAndCompanies.data.totalCompanyCount,
-                  }}
+                  
                 />
               </div>
               {rolesAndCompanies.data.items.map((item, i) => {

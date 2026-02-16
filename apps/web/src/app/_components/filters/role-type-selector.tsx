@@ -3,19 +3,12 @@ import { Chip } from "@cooper/ui/chip";
 interface RoleTypeSelectorProps {
   onSelectedTypeChange: (t: "roles" | "companies" | "all") => void;
   selectedType: "roles" | "companies" | "all";
-  data?: {
-    totalRolesCount: number;
-    totalCompanyCount: number;
-  };
-  isLoading?: boolean;
 }
 
 // Component for selecting role type: All, Jobs, Companies
 export default function RoleTypeSelector({
   onSelectedTypeChange,
   selectedType,
-  data,
-  isLoading,
 }: RoleTypeSelectorProps) {
   return (
     <div className="flex gap-2">
@@ -25,13 +18,13 @@ export default function RoleTypeSelector({
         selected={selectedType === "all"}
       />
       <Chip
-        onClick={() => onSelectedTypeChange("roles")}
-        label={`Jobs (${isLoading ? "..." : (data?.totalRolesCount ?? "0")})`}
+        onClick={() => {selectedType === "roles" ? onSelectedTypeChange("all") : onSelectedTypeChange("roles")}}
+        label={`Jobs`}
         selected={selectedType === "roles"}
       />
       <Chip
-        onClick={() => onSelectedTypeChange("companies")}
-        label={`Companies (${isLoading ? "..." : (data?.totalCompanyCount ?? "0")})`}
+        onClick={() => {selectedType === "companies" ? onSelectedTypeChange("all") : onSelectedTypeChange("companies")}}
+        label={`Companies`}
         selected={selectedType === "companies"}
       />
     </div>

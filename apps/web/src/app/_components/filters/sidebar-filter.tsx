@@ -154,11 +154,7 @@ export default function SidebarFilter({
             <RoleTypeSelector
               onSelectedTypeChange={onSelectedTypeChange}
               selectedType={selectedType}
-              data={{
-                totalRolesCount: data?.totalRolesCount ?? 0,
-                totalCompanyCount: data?.totalCompanyCount ?? 0,
-              }}
-              isLoading={isLoading}
+          
             />
             <div className="h-px w-full bg-cooper-gray-150" />
             <SidebarSection

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@cooper/ui/button";
 import {
   Dialog,
@@ -27,8 +28,10 @@ export function CompanyPopup({
   company,
   locations,
 }: CompanyPopupProps) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         {trigger ? (
           <Button className="bg-cooper-cream-100 !py-0 h-auto text-md hover:bg-cooper-cream-100 border-none !p-0 text-cooper-gray-400 outline-none hover:underline">
@@ -71,7 +74,7 @@ export function CompanyPopup({
             <CompanyAbout companyObj={company} />
           </div>
           <div>
-            <RenderAllRoles company={company} />
+            <RenderAllRoles company={company} onClose={() => setOpen(false)} />
           </div>
         </div>
       </DialogContent>
