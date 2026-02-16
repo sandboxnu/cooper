@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, forwardRef } from "react";
 import { ChevronDown, X } from "lucide-react";
 import { cn } from "@cooper/ui";
 
@@ -31,21 +31,31 @@ interface DropdownFilterProps {
   isLoadingOptions?: boolean;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
+  /** When true, renders only the trigger button (for use with external popover). */
+  triggerOnly?: boolean;
+  /** Called when the trigger is clicked (only used when triggerOnly is true). */
+  onTriggerClick?: () => void;
 }
 
-export default function DropdownFilter({
-  title,
-  options,
-  selectedOptions,
-  onSelectionChange,
-  filterType = "checkbox",
-  minValue,
-  maxValue,
-  onRangeChange,
-  onSearchChange,
-  open: controlledOpen,
-  onOpenChange,
-}: DropdownFilterProps) {
+const DropdownFilter = forwardRef<HTMLButtonElement, DropdownFilterProps>(
+  function DropdownFilter(
+    {
+      title,
+      options,
+      selectedOptions,
+      onSelectionChange,
+      filterType = "checkbox",
+      minValue,
+      maxValue,
+      onRangeChange,
+      onSearchChange,
+      open: controlledOpen,
+      onOpenChange,
+      triggerOnly = false,
+      onTriggerClick,
+    },
+    ref,
+  ) {
   const [internalOpen, setInternalOpen] = useState(false);
   const isControlled =
     controlledOpen !== undefined && onOpenChange !== undefined;
@@ -103,20 +113,31 @@ export default function DropdownFilter({
     return `${firstLabel}${additionalCount}`;
   }, [filterType, maxValue, minValue, options, selectedOptions, title]);
 
+  const triggerButton = (
+    <button
+      ref={triggerOnly ? ref : undefined}
+      type="button"
+      className={cn(
+        "flex items-center gap-[10px] rounded-lg px-[14px] py-2 text-sm border border-cooper-gray-150 text-cooper-gray-400 font-normal focus-visible:ring-0 outline-none focus:outline-none h-9 whitespace-nowrap",
+        isFiltering
+          ? "border-cooper-gray-600 bg-cooper-gray-700 hover:bg-cooper-gray-200"
+          : "bg-white hover:bg-cooper-gray-150",
+      )}
+      onClick={triggerOnly ? onTriggerClick : undefined}
+    >
+      {displayText}
+      <ChevronDown className={cn("h-4 w-4", isOpen ? "rotate-180" : "")} />
+    </button>
+  );
+
+  if (triggerOnly) {
+    return triggerButton;
+  }
+
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
-        <button
-          className={cn(
-            "flex items-center gap-[10px] rounded-lg px-[14px] py-2 text-sm border border-cooper-gray-150 text-cooper-gray-400 font-normal focus-visible:ring-0 outline-none focus:outline-none h-9 whitespace-nowrap",
-            isFiltering
-              ? "border-cooper-gray-600 bg-cooper-gray-700 hover:bg-cooper-gray-200"
-              : "bg-white hover:bg-cooper-gray-150",
-          )}
-        >
-          {displayText}
-          <ChevronDown className={cn("h-4 w-4", isOpen ? "rotate-180" : "")} />
-        </button>
+        {triggerButton}
       </DropdownMenuTrigger>
 
       <DropdownMenuContent
@@ -155,4 +176,78 @@ export default function DropdownFilter({
       </DropdownMenuContent>
     </DropdownMenu>
   );
+});
+
+/** Panel content (header + FilterBody) for use inside a single Popover. */
+export function FilterPanelContent(
+  props: Pick<
+    DropdownFilterProps,
+    | "title"
+    | "options"
+    | "selectedOptions"
+    | "onSelectionChange"
+    | "filterType"
+    | "minValue"
+    | "maxValue"
+    | "onRangeChange"
+    | "onSearchChange"
+    | "placeholder"
+  > & { onClose: () => void },
+) {
+  const {
+    title,
+    options,
+    selectedOptions,
+    onSelectionChange,
+    filterType = "checkbox",
+    minValue,
+    maxValue,
+    onRangeChange,
+    onSearchChange,
+    onClose,
+    placeholder,
+  } = props;
+
+  const handleClear = () => {
+    onSelectionChange?.([]);
+    if (filterType === "range" && onRangeChange) {
+      onRangeChange(0, 0);
+    }
+  };
+
+  return (
+    <div className="flex flex-col w-96 gap-[22px] p-5 bg-cooper-cream-400 rounded-lg">
+      <div className="flex justify-between p-0 bg-cooper-cream-400">
+        <div className="flex gap-2">
+          <span className="font-semibold text-base">{title}</span>
+          <Button
+            className="bg-transparent border-none text-cooper-gray-400 font-normal text-xs hover:bg-transparent p-0 h-auto self-center"
+            onClick={handleClear}
+          >
+            Clear
+          </Button>
+        </div>
+        <Button
+          onClick={onClose}
+          className="bg-transparent border-none text-cooper-gray-400 hover:bg-transparent p-0 h-auto"
+        >
+          <X className="h-4 w-4" />
+        </Button>
+      </div>
+      <FilterBody
+        variant={filterType}
+        title={title}
+        options={options}
+        selectedOptions={selectedOptions}
+        onSelectionChange={onSelectionChange}
+        minValue={minValue}
+        maxValue={maxValue}
+        onRangeChange={onRangeChange}
+        onSearchChange={onSearchChange}
+        placeholder={placeholder}
+      />
+    </div>
+  );
 }
+
+export default DropdownFilter;
