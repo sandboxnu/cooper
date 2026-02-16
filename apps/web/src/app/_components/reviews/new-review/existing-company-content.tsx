@@ -14,13 +14,12 @@ import { Button } from "@cooper/ui/button";
 
 import type { RoleRequestType } from "../new-role-dialogue";
 import { api } from "~/trpc/react";
-import { Select } from "../../themed/onboarding/select";
 import { FormSection } from "../../form/form-section";
 import { FormLabel } from "../../themed/onboarding/form";
 import { industryOptions } from "../../onboarding/constants";
 import LocationBox from "../../location";
 import { CompanyCardPreview } from "../../companies/company-card-preview";
-import ComboBox from "../../combo-box";
+import FilterBody from "../../filters/filter-body";
 
 const filter = new Filter();
 const roleSchema = z.object({
@@ -60,7 +59,6 @@ export default function ExistingCompanyContent({
   const [locationLabel, setLocationLabel] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [prefix, setPrefix] = useState<string>("");
-  const [companySearchTerm, setCompanySearchTerm] = useState<string>("");
 
   const { toast } = useCustomToast();
 
@@ -257,56 +255,38 @@ export default function ExistingCompanyContent({
               </FormLabel>
 
               <div className="relative flex-1 w-full ">
-                <ComboBox
-                  valuesAndLabels={(() => {
-                    const allCompanies =
-                      companies.data?.filter(Boolean).map((company) => ({
-                        value: company.id,
+                <FilterBody
+                  variant="autocomplete"
+                  title="Company"
+                  options={
+                    companies.data
+                      ?.filter(Boolean)
+                      .slice(0, 50)
+                      .map((company) => ({
+                        id: company.id,
                         label: company.name,
-                      })) ?? [];
-
-                    // If searching, filter and limit to top 50 matches
-                    // If not searching, show top 50 by default
-                    if (companySearchTerm) {
-                      const filtered = allCompanies.filter((c) =>
-                        c.label
-                          .toLowerCase()
-                          .includes(companySearchTerm.toLowerCase()),
-                      );
-                      return filtered.slice(0, 50);
-                    }
-                    return allCompanies.slice(0, 50);
-                  })()}
-                  defaultLabel="Select company"
-                  searchPlaceholder="Select"
-                  searchEmpty="No company found."
-                  variant={"form"}
-                  currLabel={
+                        value: company.id,
+                      })) ?? []
+                  }
+                  selectedOptions={
                     field.value &&
                     typeof field.value === "string" &&
                     field.value.length > 0
-                      ? (companies.data?.find((c) => c.id === field.value)
-                          ?.name ?? "")
-                      : ""
+                      ? [field.value]
+                      : []
                   }
-                  onChange={(searchValue) => setCompanySearchTerm(searchValue)}
-                  onClear={() => {
-                    field.onChange(undefined);
-                    setCompanySearchTerm("");
-                  }}
-                  onSelect={(selectedLabel) => {
-                    const selectedCompany = companies.data?.find(
-                      (c) => c.name === selectedLabel,
-                    );
-                    if (selectedCompany) {
-                      const newId = selectedCompany.id;
-                      field.onChange(newId);
-                      handleUpdateCompanyId(newId);
-                      if (newId) {
-                        setShowNewCompany(false);
-                      }
+                  placeholder="Select company"
+                  singleSelect
+                  onSelectionChange={(selected) => {
+                    const selectedId = selected[0];
+                    if (selectedId) {
+                      field.onChange(selectedId);
+                      handleUpdateCompanyId(selectedId);
+                      setShowNewCompany(false);
+                    } else {
+                      field.onChange(undefined);
+                      setSelectedCompanyId(undefined);
                     }
-                    setCompanySearchTerm("");
                   }}
                 />
               </div>
@@ -398,24 +378,27 @@ export default function ExistingCompanyContent({
                     Industry<span className="text-[#FB7373]">*</span>
                   </FormLabel>
                   <FormControl className="relative w-full">
-                    <Select
-                      options={industryOptions.sort((a, b) =>
-                        a.label.localeCompare(b.label),
-                      )}
-                      placeholder="Search by industry..."
-                      className="w-full border-2 bg-white border-cooper-gray-150 text-sm text-cooper-gray-350 h-10"
-                      value={
+                    <FilterBody
+                      variant="autocomplete"
+                      title="Industry"
+                      options={[...industryOptions]
+                        .sort((a, b) => a.label.localeCompare(b.label))
+                        .map((o) => ({
+                          id: o.value,
+                          label: o.label,
+                          value: o.value,
+                        }))}
+                      selectedOptions={
                         field.value &&
                         typeof field.value === "string" &&
                         field.value.length > 0
-                          ? field.value
-                          : ""
+                          ? [field.value]
+                          : []
                       }
-                      onClear={() => field.onChange(undefined)}
-                      onChange={(e) => {
-                        const value =
-                          e.target.value === "" ? undefined : e.target.value;
-                        field.onChange(value);
+                      placeholder="Search by industry..."
+                      singleSelect
+                      onSelectionChange={(selected) => {
+                        field.onChange(selected[0] ?? undefined);
                       }}
                     />
                   </FormControl>
@@ -505,33 +488,34 @@ export default function ExistingCompanyContent({
                 </FormLabel>
 
                 <div className="relative flex-1 w-full">
-                  <Select
-                    onClear={() => {
-                      field.onChange(undefined);
-                    }}
+                  <FilterBody
+                    variant="autocomplete"
+                    title="Role"
                     options={
                       roles.data?.map((r) => ({
-                        value: r.id,
+                        id: r.id,
                         label: r.title,
+                        value: r.id,
                       })) ?? []
                     }
-                    disabled={!selectedCompanyId}
-                    className="w-full border-cooper-gray-150 text-sm h-10"
-                    value={
+                    selectedOptions={
                       field.value &&
                       typeof field.value === "string" &&
                       field.value.length > 0
-                        ? field.value
-                        : ""
+                        ? [field.value]
+                        : []
                     }
-                    placeholder="Select"
-                    onChange={(e) => {
-                      const newRoleId =
-                        e.target.value === "" ? undefined : e.target.value;
-                      field.onChange(newRoleId);
+                    placeholder={
+                      selectedCompanyId
+                        ? "Select role"
+                        : "Select a company first"
+                    }
+                    singleSelect
+                    onSelectionChange={(selected) => {
+                      const selectedId = selected[0];
+                      field.onChange(selectedId ?? undefined);
                       setCreatingNewRole(false);
                     }}
-                    onFocus={() => setCreatingNewRole(false)}
                   />
                 </div>
                 <FormMessage />

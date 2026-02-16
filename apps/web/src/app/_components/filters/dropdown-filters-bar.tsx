@@ -10,12 +10,7 @@ import type { LocationType } from "@cooper/db/schema";
 import type { FilterState } from "./types";
 import { prettyLocationName } from "~/utils/locationHelpers";
 
-type FilterKey =
-  | "industry"
-  | "location"
-  | "jobType"
-  | "hourlyPay"
-  | "rating";
+type FilterKey = "industry" | "location" | "jobType" | "hourlyPay" | "rating";
 
 interface DropdownFiltersBarProps {
   filters: FilterState;

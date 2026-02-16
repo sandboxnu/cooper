@@ -4,9 +4,17 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@cooper/ui/dropdown-menu";
 import { Button } from "@cooper/ui/button";
 
 import { api } from "~/trpc/react";
+import { handleSignOut } from "../auth/actions";
 import CooperLogo from "../cooper-logo";
 import MobileHeaderButton from "./mobile-header-button";
 
@@ -53,9 +61,49 @@ export default function Header({ auth }: HeaderProps) {
             label="Jobs"
             onClick={() => setIsOpen(false)}
           />
-          <MobileHeaderButton label="Profile" onClick={() => setIsOpen(false)}>
-            {auth}
-          </MobileHeaderButton>
+          {session.data ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="my-1 flex h-20 w-20 flex-col gap-1 border-cooper-blue-600 text-sm text-cooper-blue-600"
+                >
+                  <Image
+                    src={session.data.user.image ?? "/svg/defaultProfile.svg"}
+                    width={32}
+                    height={32}
+                    alt="Profile"
+                    className="rounded-full"
+                  />
+                  <span>Profile</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="center">
+                <DropdownMenuLabel className="text-center">
+                  <Link href="/profile" onClick={() => setIsOpen(false)}>
+                    Profile
+                  </Link>
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuLabel className="text-center">
+                  <form>
+                    <button
+                      type="submit"
+                      formAction={handleSignOut}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Log Out
+                    </button>
+                  </form>
+                </DropdownMenuLabel>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            <MobileHeaderButton label="" onClick={() => setIsOpen(false)}>
+              {auth}
+            </MobileHeaderButton>
+          )}
         </div>
       </header>
     );

@@ -15,6 +15,8 @@ interface AutocompleteProps {
   value?: string[];
   onChange: (value: string[]) => void;
   onSearchChange?: (search: string) => void;
+  /** When true, only one option can be selected; selection is shown in the bar and dropdown closes on select. */
+  singleSelect?: boolean;
   // whether the autocomplete is rendered within a menu content (for positioning)
   isInMenuContent?: boolean;
 }
@@ -25,6 +27,7 @@ export default function Autocomplete({
   value = [],
   onChange,
   onSearchChange,
+  singleSelect = false,
   isInMenuContent = false,
 }: AutocompleteProps) {
   const [open, setOpen] = useState(false);
@@ -39,15 +42,21 @@ export default function Autocomplete({
     );
   }, [search, options]);
 
-  const displayValue = search;
+  const selectedLabel =
+    singleSelect && value.length === 1
+      ? (options.find((o) => o.value === value[0])?.label ?? "")
+      : "";
+  const displayValue =
+    singleSelect && !open && selectedLabel ? selectedLabel : search;
 
-  // Calculate dropdown position
+  // Calculate dropdown position so it appears directly below the input
   useEffect(() => {
     if (open && inputRef.current) {
       const rect = inputRef.current.getBoundingClientRect();
       setDropdownStyle({
         position: "fixed",
-        ...(isInMenuContent && { top: `${rect.bottom}px` }),
+        top: `${rect.bottom + (isInMenuContent ? 0 : 4)}px`,
+        left: `${rect.left}px`,
         width: `${rect.width}px`,
       });
       const originalOverflow = document.body.style.overflow;
@@ -60,6 +69,12 @@ export default function Autocomplete({
   }, [open, isInMenuContent]);
 
   const handleToggle = (optionValue: string) => {
+    if (singleSelect) {
+      onChange([optionValue]);
+      setOpen(false);
+      setSearch("");
+      return;
+    }
     const newValue = value.includes(optionValue)
       ? value.filter((v) => v !== optionValue)
       : [...value, optionValue];
@@ -89,7 +104,11 @@ export default function Autocomplete({
             setOpen(true);
             onSearchChange?.(e.target.value);
           }}
-          onFocus={() => setOpen(true)}
+          onFocus={() => {
+            setOpen(true);
+            if (singleSelect && value.length === 1) setSearch("");
+          }}
+          readOnly={singleSelect && !open && value.length === 1}
         />
         {search || value.length > 0 ? (
           <button
@@ -142,7 +161,8 @@ export default function Autocomplete({
           </div>
         </>
       ) : (
-        value.length > 0 && (
+        value.length > 0 &&
+        !singleSelect && (
           <div className="mt-2 flex flex-wrap gap-1">
             {value.map((val) => {
               const option = options.find((opt) => opt.value === val);

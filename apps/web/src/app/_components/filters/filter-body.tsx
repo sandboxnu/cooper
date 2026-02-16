@@ -28,6 +28,8 @@ interface FilterBodyProps {
   selectedOptions: string[];
   onSelectionChange?: (selected: string[]) => void;
   placeholder?: string;
+  /** When true (autocomplete only), only one option can be selected; value shows in bar and dropdown closes on select. */
+  singleSelect?: boolean;
   minValue?: number;
   maxValue?: number;
   onRangeChange?: (min: number, max: number) => void;
@@ -262,6 +264,7 @@ function FilterBodyAutocomplete({
   selectedOptions,
   onSelectionChange,
   placeholder,
+  singleSelect,
   isInMenuContent,
 }: FilterBodyProps) {
   return (
@@ -276,6 +279,7 @@ function FilterBodyAutocomplete({
         placeholder ??
         `Search by ${title === "Industry" ? "industry" : "city or state"}`
       }
+      singleSelect={singleSelect}
       isInMenuContent={isInMenuContent}
     />
   );
