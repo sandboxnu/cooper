@@ -273,6 +273,25 @@ export default function Roles() {
     // updates the URL when a role or company is changed
     // Don't update URL if query is still loading (prevents updating with stale data during page changes)
     if (selectedItem && rolesAndCompanies.isSuccess) {
+      const currentUrl = new URLSearchParams(
+        typeof window !== "undefined" ? window.location.search : "",
+      );
+      const urlCompany = currentUrl.get("company");
+      const urlRole = currentUrl.get("role");
+      if (urlCompany && urlRole) {
+        if (!isRole(selectedItem)) return;
+        const r = selectedItem as RoleType & {
+          slug?: string;
+          companySlug?: string;
+          companyName?: string;
+        };
+        const itemCompanySlug =
+          r.companySlug ?? createSlug(r.companyName ?? "");
+        if (r.slug !== urlRole || itemCompanySlug !== urlCompany) {
+          return;
+        }
+      }
+
       const params = new URLSearchParams(window.location.search);
 
       if (isRole(selectedItem)) {
@@ -327,6 +346,7 @@ export default function Roles() {
     companyParam,
     roleParam,
     isRole,
+    selectedType,
     rolesAndCompanies.isSuccess,
   ]);
   const [showRoleInfo, setShowRoleInfo] = useState(false); // State for toggling views on mobile

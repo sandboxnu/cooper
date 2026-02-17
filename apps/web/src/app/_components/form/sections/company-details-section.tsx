@@ -38,7 +38,7 @@ export function CompanyDetailsSection() {
         render={({ field }) => (
           <FormItem className="flex flex-col pt-5">
             <FormLabel className="text-sm font-bold text-cooper-gray-400">
-              Work model<span className="text-[#FB7373]">*</span>
+              Work model<span className="text-cooper-red-300">*</span>
             </FormLabel>
             <FormControl>
               <Select
@@ -72,9 +72,9 @@ export function CompanyDetailsSection() {
         control={form.control}
         name="drugTest"
         render={({ field }) => (
-          <FormItem className="flex flex-col pt-4">
-            <FormLabel className="text-sm font-bold text-cooper-gray-400">
-              Drug Test<span className="text-[#FB7373]">*</span>
+          <FormItem className="flex flex-col pt-4 ">
+            <FormLabel className="text-cooper-gray-400 text-sm font-bold">
+              Drug Test<span className="text-cooper-red-300">*</span>
             </FormLabel>
             <FormControl>
               <RadioGroup
@@ -113,8 +113,8 @@ export function CompanyDetailsSection() {
         name="cultureRating"
         render={({ field }) => (
           <FormItem className="flex flex-col">
-            <FormLabel className="pt-2.5 text-sm font-bold text-cooper-gray-400">
-              Company Culture<span className="text-[#FB7373]">*</span>
+            <FormLabel className="text-sm font-bold text-cooper-gray-400 pt-2.5">
+              Company Culture<span className="text-cooper-red-300">*</span>
             </FormLabel>
             <FormControl className="relative flex-1">
               <Select
@@ -148,7 +148,7 @@ export function CompanyDetailsSection() {
         render={({ field }) => (
           <FormItem className="flex flex-col pt-2.5">
             <FormLabel className="text-sm font-bold text-cooper-gray-400">
-              Supervisor rating<span className="text-[#FB7373]">*</span>
+              Supervisor rating<span className="text-cooper-red-300">*</span>
             </FormLabel>
             <FormControl className="relative flex-1">
               <Select
