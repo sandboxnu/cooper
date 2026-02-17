@@ -31,11 +31,11 @@ const Logo: React.FC<ILogoProps> = ({ company, size, className }) => {
   ) : (
     <Image
       src={`https://img.logo.dev/${website}?token=pk_DNxGM2gHTjiLU3p79GX79A`}
-      width={80}
-      height={80}
+      width={50}
+      height={50}
       alt={`Logo of ${company.name}`}
       className={cn(
-        `${size === "small" ? "" : size === "medium" ? "h-50 w-50" : "h-20 w-20"} rounded-lg`,
+        `h-[50px] w-[50px] rounded-lg`,
         className,
       )}
       onError={() => setImageError(true)}
