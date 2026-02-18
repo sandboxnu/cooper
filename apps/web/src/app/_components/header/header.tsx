@@ -87,15 +87,15 @@ export default function Header({ auth }: HeaderProps) {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuLabel className="text-center">
-                  <form>
-                    <button
-                      type="submit"
-                      formAction={handleSignOut}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      Log Out
-                    </button>
-                  </form>
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      await handleSignOut();
+                      setIsOpen(false);
+                    }}
+                  >
+                    Log Out
+                  </button>
                 </DropdownMenuLabel>
               </DropdownMenuContent>
             </DropdownMenu>
