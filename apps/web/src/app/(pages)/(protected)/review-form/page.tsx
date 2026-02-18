@@ -14,12 +14,7 @@ import {
 } from "~/app/_components/form/sections";
 import { z } from "zod";
 import { useCustomToast } from "@cooper/ui";
-import {
-  Industry,
-  WorkEnvironment,
-  WorkTerm,
-  JobType,
-} from "@cooper/db/schema";
+import { WorkEnvironment, WorkTerm, JobType } from "@cooper/db/schema";
 import { Filter } from "bad-words";
 import dayjs from "dayjs";
 import { Form } from "node_modules/@cooper/ui/src/form";
@@ -31,9 +26,6 @@ const filter = new Filter();
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
     required_error: "You need to select a co-op cycle.",
-  }),
-  industry: z.nativeEnum(Industry, {
-    required_error: "You need to select an industry.",
   }),
   workYear: z.coerce
     .number({
@@ -113,10 +105,10 @@ const formSchema = z.object({
   }),
   hourlyPay: z.coerce
     .number()
-    .min(1, {
+    .min(0, {
       message: "Please enter hourly pay",
     })
-    .transform((val) => (val ? val.toString() : null))
+    .transform((val) => (Number.isNaN(val) ? null : val.toString()))
     .nullable(),
   workEnvironment: z.nativeEnum(WorkEnvironment, {
     required_error: "You need to select a work model.",

@@ -74,7 +74,7 @@ export function PaySection() {
         render={({ field }) => (
           <FormItem className="rounded-md flex flex-col w-full">
             <FormLabel className="text-sm font-bold block text-cooper-gray-400 ">
-              Hourly pay<span className="text-[#FB7373]">*</span>
+              Hourly pay<span className="text-cooper-red-300">*</span>
             </FormLabel>
             <FormControl>
               <div className="flex gap-2 flex-col w-full">
@@ -86,7 +86,13 @@ export function PaySection() {
                 />
                 <div
                   className="flex items-center gap-2 rounded-md cursor-pointer pt-2.5"
-                  onClick={() => setIsUnpaid(!isUnpaid)}
+                  onClick={() => {
+                    const next = !isUnpaid;
+                    setIsUnpaid(next);
+                    form.setValue("hourlyPay", next ? "0" : "", {
+                      shouldValidate: true,
+                    });
+                  }}
                 >
                   <Checkbox checked={isUnpaid} />
                   <span className="text-sm text-cooper-gray-400">
@@ -107,7 +113,7 @@ export function PaySection() {
           render={({ field }) => (
             <FormItem className="flex flex-col ">
               <FormLabel className="text-cooper-gray-400 text-sm font-bold">
-                Worked overtime<span className="text-[#FB7373]">*</span>
+                Worked overtime<span className="text-cooper-red-300">*</span>
               </FormLabel>
               <FormControl>
                 <RadioGroup
@@ -151,7 +157,7 @@ export function PaySection() {
         render={({ field }) => (
           <FormItem className="flex flex-col pt-3 ">
             <FormLabel className="text-cooper-gray-400 text-sm font-bold">
-              Received PTO<span className="text-[#FB7373]">*</span>
+              Received PTO<span className="text-cooper-red-300">*</span>
             </FormLabel>
             <FormControl>
               <RadioGroup

@@ -34,7 +34,7 @@ export function ReviewSection() {
           return (
             <FormItem className="flex flex-col pt-3">
               <FormLabel className="text-sm font-bold text-cooper-gray-400">
-                Overall rating<span className="text-[#FB7373]">*</span>
+                Overall rating<span className="text-cooper-red-300">*</span>
               </FormLabel>
               <FormControl className="relative flex-1">
                 <FilterBody
@@ -63,7 +63,7 @@ export function ReviewSection() {
         render={({ field }) => (
           <FormItem className="flex flex-col md:flex-col pt-4">
             <FormLabel className="text-sm font-bold text-cooper-gray-400 ">
-              Review text<span className="text-[#FB7373]">*</span>
+              Review text<span className="text-cooper-red-300">*</span>
             </FormLabel>
             <div className="text-cooper-gray-550 text-xs">
               This is your chance to share more details on your experience.

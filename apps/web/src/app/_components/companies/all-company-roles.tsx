@@ -42,9 +42,9 @@ export default function RenderAllRoles({
                     onClick={() => {
                       onClose?.();
                       router.push(
-                        `/?company=${company?.name.toLowerCase()}&role=${role.title.toLowerCase().replace(/ /g, "-")}&type=roles`,
-                      );
-                    }}
+                        `/?company=${company?.slug ?? ""}&role=${role.slug}&type=roles`,
+                      )
+                    }
                   >
                     <RoleCardPreview
                       roleObj={role}

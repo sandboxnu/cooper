@@ -251,7 +251,7 @@ export default function ExistingCompanyContent({
           render={({ field }) => (
             <FormItem className="flex flex-col w-full">
               <FormLabel className="text-sm text-cooper-gray-400 font-bold flex-shrink-0">
-                Company name<span className="text-[#FB7373]">*</span>
+                Company name<span className="text-cooper-red-300">*</span>
               </FormLabel>
 
               <div className="relative flex-1 w-full ">
@@ -347,7 +347,7 @@ export default function ExistingCompanyContent({
               render={({ field }) => (
                 <FormItem className="flex flex-col w-full pt-2.5">
                   <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
-                    Company Name<span className="text-[#FB7373]">*</span>
+                    Company Name<span className="text-cooper-red-300">*</span>
                   </FormLabel>
                   <FormControl className="flex-1">
                     <Input
@@ -375,7 +375,7 @@ export default function ExistingCompanyContent({
               render={({ field }) => (
                 <FormItem className="flex flex-col flex-1 pt-2.5">
                   <FormLabel className="text-xs font-bold text-cooper-gray-550">
-                    Industry<span className="text-[#FB7373]">*</span>
+                    Industry<span className="text-cooper-red-300">*</span>
                   </FormLabel>
                   <FormControl className="relative w-full">
                     <FilterBody
@@ -414,7 +414,7 @@ export default function ExistingCompanyContent({
               render={() => (
                 <FormItem className="flex flex-col pt-2.5 w-full">
                   <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
-                    Location<span className="text-[#FB7373]">*</span>
+                    Location<span className="text-cooper-red-300">*</span>
                   </FormLabel>
                   <FormControl className="flex-1">
                     <LocationBox
@@ -439,7 +439,7 @@ export default function ExistingCompanyContent({
               render={({ field }) => (
                 <FormItem className="flex flex-col pt-2.5 w-full">
                   <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
-                    Your Role<span className="text-[#FB7373]">*</span>
+                    Your Role<span className="text-cooper-red-300">*</span>
                   </FormLabel>
                   <FormControl className="flex-1">
                     <Input
@@ -484,7 +484,7 @@ export default function ExistingCompanyContent({
             render={({ field }) => (
               <FormItem className="flex flex-col w-full ">
                 <FormLabel className="text-sm font-bold text-cooper-gray-400 flex-shrink-0">
-                  Your Role<span className="text-[#FB7373]">*</span>
+                  Your Role<span className="text-cooper-red-300">*</span>
                 </FormLabel>
 
                 <div className="relative flex-1 w-full">
@@ -567,7 +567,7 @@ export default function ExistingCompanyContent({
                 render={({ field }) => (
                   <FormItem className="flex flex-col w-full pt-2.5">
                     <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
-                      Your Role<span className="text-[#FB7373]">*</span>
+                      Your Role<span className="text-cooper-red-300">*</span>
                     </FormLabel>
                     <FormControl className="flex-1">
                       <Input
