@@ -3,7 +3,6 @@
   "compilerOptions": {
     "lib": ["es2022", "dom", "dom.iterable"],
     "jsx": "preserve",
-    "types": ["node"],
     "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"]
