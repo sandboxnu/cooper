@@ -4,14 +4,14 @@ import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 import { Review } from "./reviews";
 
-export const InterviewTypeSchema = pgEnum("interview_type",[
+export const InterviewTypeSchema = pgEnum("interview_type", [
   "phone",
   "onsite",
   "virtual",
   "hr",
 ]);
 
-export const InterviewDifficultySchema = pgEnum("interview_difficulty",[
+export const InterviewDifficultySchema = pgEnum("interview_difficulty", [
   "Great",
   "Hard",
   "Medium",
@@ -26,7 +26,9 @@ export const ReviewRound = pgTable("review_round", {
     .references(() => Review.id, { onDelete: "cascade" }),
 
   interviewType: InterviewTypeSchema("interview_type").notNull(),
-  interviewDifficulty: InterviewDifficultySchema("interview_difficulty").notNull(),
+  interviewDifficulty: InterviewDifficultySchema(
+    "interview_difficulty",
+  ).notNull(),
 
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at", {
@@ -43,9 +45,18 @@ export const ReviewRoundRelations = relations(ReviewRound, ({ one }) => ({
   }),
 }));
 
-
-export const ZodInterviewTypeSchema = z.enum(["phone", "onsite", "virtual", "hr"]);
-export const ZodInterviewDifficultySchema = z.enum(["Great", "Hard", "Medium", "Easy"]);
+export const ZodInterviewTypeSchema = z.enum([
+  "phone",
+  "onsite",
+  "virtual",
+  "hr",
+]);
+export const ZodInterviewDifficultySchema = z.enum([
+  "Great",
+  "Hard",
+  "Medium",
+  "Easy",
+]);
 
 export const CreateReviewRoundSchema = createInsertSchema(ReviewRound, {
   interviewType: ZodInterviewTypeSchema,
