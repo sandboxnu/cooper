@@ -141,7 +141,8 @@ export function BasicInfoSection({
           return (
             <FormItem className="flex flex-col flex-1 pt-4">
               <FormLabel className="text-sm font-bold text-cooper-gray-400">
-                Co-op/internship term<span className="text-cooper-red-300">*</span>
+                Co-op/internship term
+                <span className="text-cooper-red-300">*</span>
               </FormLabel>
               <FormControl className="relative w-full">
                 <FilterBody

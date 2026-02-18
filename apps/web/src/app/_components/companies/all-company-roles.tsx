@@ -43,8 +43,8 @@ export default function RenderAllRoles({
                       onClose?.();
                       router.push(
                         `/?company=${company?.slug ?? ""}&role=${role.slug}&type=roles`,
-                      )
-                    }
+                      );
+                    }}
                   >
                     <RoleCardPreview
                       roleObj={role}

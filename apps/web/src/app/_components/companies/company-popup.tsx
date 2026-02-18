@@ -48,7 +48,7 @@ export function CompanyPopup({
         <div className="mx-2 mb-5 mt-2 flex items-start justify-between ">
           <div className="flex">
             <div className="mr-3 flex h-12 w-12 items-center justify-center">
-              <Logo company={company} size="medium" />
+              <Logo company={company} />
             </div>
             <div>
               <h1 className="text-lg font-medium">{company.name}</h1>
