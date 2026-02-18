@@ -1,8 +1,8 @@
-import { Button } from "@cooper/ui/button";
-import FilterBody from "./filter-body";
-import type { FilterOption, FilterVariant } from "./filter-body";
-
 import { cn } from "@cooper/ui";
+import { Button } from "@cooper/ui/button";
+
+import type { FilterOption, FilterVariant } from "./filter-body";
+import FilterBody from "./filter-body";
 
 interface SidebarSectionProps {
   title: string;
@@ -45,10 +45,10 @@ export default function SidebarSection({
 
   return (
     <div className="flex flex-col gap-[9px]">
-      <div className="flex gap-2 items-end">
+      <div className="flex items-end gap-2">
         <span
           className={cn(
-            "font-semibold text-base/5 text-cooper-gray-550 ",
+            "text-cooper-gray-550 text-base/5 font-semibold",
             variant == "subsection" && "text-sm",
           )}
         >
@@ -56,7 +56,7 @@ export default function SidebarSection({
         </span>
         {variant === "main" && (
           <Button
-            className="bg-transparent border-none text-cooper-gray-400 font-normal text-xs hover:bg-transparent p-0 h-auto self-center"
+            className="h-auto self-center border-none bg-transparent p-0 text-xs font-normal text-cooper-gray-400 hover:bg-transparent"
             onClick={handleClear}
           >
             Clear

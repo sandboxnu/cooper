@@ -10,8 +10,8 @@ import {
 import { RadioGroup, RadioGroupItem } from "@cooper/ui/radio-group";
 
 import { FormSection } from "~/app/_components/form/form-section";
-import { Select } from "../../themed/onboarding/select";
 import FilterBody from "../../filters/filter-body";
+import { Select } from "../../themed/onboarding/select";
 
 /**
  * CompanyDetailsSection component renders form fields for capturing
@@ -48,7 +48,7 @@ export function CompanyDetailsSection() {
                   { value: "HYBRID", label: "Hybrid" },
                   { value: "REMOTE", label: "Remote" },
                 ]}
-                className="w-full border-cooper-gray-150 text-sm h-10"
+                className="border-cooper-gray-150 h-10 w-full text-sm"
                 value={
                   field.value &&
                   typeof field.value === "string" &&
@@ -126,7 +126,7 @@ export function CompanyDetailsSection() {
                   { value: 4, label: 4 },
                   { value: 5, label: 5 },
                 ]}
-                className="w-full border-cooper-gray-150 text-sm h-10"
+                className="border-cooper-gray-150 h-10 w-full text-sm"
                 value={
                   field.value && field.value > 0 ? String(field.value) : ""
                 }
@@ -160,7 +160,7 @@ export function CompanyDetailsSection() {
                   { value: 4, label: 4 },
                   { value: 5, label: 5 },
                 ]}
-                className="w-full border-cooper-gray-150 text-sm h-10"
+                className="border-cooper-gray-150 h-10 w-full text-sm"
                 value={
                   field.value && field.value > 0 ? String(field.value) : ""
                 }

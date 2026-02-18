@@ -1,5 +1,6 @@
-import { Input as InputPrimitive } from "@cooper/ui/input";
 import { X } from "lucide-react";
+
+import { Input as InputPrimitive } from "@cooper/ui/input";
 
 interface InputProps extends React.ComponentProps<typeof InputPrimitive> {
   onClear?: () => void;
@@ -9,7 +10,7 @@ export function Input({ onClear, ...props }: InputProps) {
   return (
     <div className="relative w-full">
       <InputPrimitive
-        className="h-9 rounded-lg border border-cooper-gray-150 text-sm shadow-none hover:bg-accent pr-10"
+        className="border-cooper-gray-150 h-9 rounded-lg border pr-10 text-sm shadow-none hover:bg-accent"
         {...props}
       />
       {onClear && (

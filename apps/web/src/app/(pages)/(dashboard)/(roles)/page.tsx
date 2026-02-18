@@ -1,8 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
+import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 
 import type { CompanyType, RoleType } from "@cooper/db/schema";
@@ -15,6 +15,7 @@ import {
   DropdownMenuTrigger,
 } from "@cooper/ui/dropdown-menu";
 
+import type { FilterState } from "~/app/_components/filters/types";
 import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
 import CompanyInfo from "~/app/_components/companies/company-info";
 import { useCompare } from "~/app/_components/compare/compare-context";
@@ -23,15 +24,14 @@ import {
   CompareControls,
 } from "~/app/_components/compare/compare-ui";
 import DropdownFiltersBar from "~/app/_components/filters/dropdown-filters-bar";
+import RoleTypeSelector from "~/app/_components/filters/role-type-selector";
+import SidebarFilter from "~/app/_components/filters/sidebar-filter";
 import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
 import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
 import { RoleInfo } from "~/app/_components/reviews/role-info";
 import SearchFilter from "~/app/_components/search/search-filter";
-import SidebarFilter from "~/app/_components/filters/sidebar-filter";
 import { api } from "~/trpc/react";
-import RoleTypeSelector from "~/app/_components/filters/role-type-selector";
-import type { FilterState } from "~/app/_components/filters/types";
 
 // Helper function to create URL-friendly slugs (still needed for URL generation)
 const createSlug = (text: string): string => {
@@ -131,7 +131,7 @@ export default function Roles() {
   const shouldFetchList =
     !companyParam || // No URL params, fetch normally
     pageNumberQuery.isSuccess || // Have page number from URL
-    pageNumberQuery.isError; // Query failed, fall back to page 1
+    pageNumberQuery.isError; // Query failed, fall back to page 1.
 
   // Convert filter state to backend format
   const backendFilters = useMemo(() => {
@@ -486,22 +486,22 @@ export default function Roles() {
   };
 
   return (
-    <div className="flex h-full flex-col w-full">
+    <div className="flex h-full w-full flex-col">
       <div className="bg-cooper-cream-100 border-cooper-gray-150 sticky top-0 z-20 flex w-full flex-shrink-0 flex-col items-stretch gap-4 border-b-[1px] py-4 md:flex-row md:items-center md:gap-5">
         <div className="w-full px-5 md:w-[28%]">
           <SearchFilter className="w-full" />
         </div>
-        <div className="no-scrollbar w-full flex flex-1 overflow-x-auto md:pr-0 gap-2 px-5">
+        <div className="no-scrollbar flex w-full flex-1 gap-2 overflow-x-auto px-5 md:pr-0">
           <DropdownFiltersBar
             filters={appliedFilters}
             onFilterChange={handleFilterChange}
           />
           <Button
             className={cn(
-              "flex items-center gap-[10px] rounded-lg px-[14px] py-2 text-sm border border-cooper-gray-150 text-cooper-gray-400 font-normal focus-visible:ring-0 outline-none focus:outline-none h-9 whitespace-nowrap",
+              "border-cooper-gray-150 flex h-9 items-center gap-[10px] whitespace-nowrap rounded-lg border px-[14px] py-2 text-sm font-normal text-cooper-gray-400 outline-none focus:outline-none focus-visible:ring-0",
               isFiltering
                 ? "border-cooper-gray-600 bg-cooper-gray-700 hover:bg-cooper-gray-200"
-                : "bg-white hover:bg-cooper-gray-150",
+                : "hover:bg-cooper-gray-150 bg-white",
             )}
             onClick={() => setIsSidebarOpen(true)}
           >
@@ -522,7 +522,7 @@ export default function Roles() {
       </div>
       {rolesAndCompanies.isSuccess &&
         rolesAndCompanies.data.items.length > 0 && (
-          <div className="bg-cooper-cream-100 flex min-h-0 flex-1 w-full">
+          <div className="bg-cooper-cream-100 flex min-h-0 w-full flex-1">
             {/* RoleCardPreview List */}
             <div
               ref={sidebarRef}
@@ -532,7 +532,7 @@ export default function Roles() {
                 (showRoleInfo || showCompanyInfo) && "hidden md:block", // Hide on mobile if RoleInfo is visible
               )}
             >
-              <div className="text-right pb-2">
+              <div className="pb-2 text-right">
                 <DropdownMenu>
                   <DropdownMenuTrigger className="text-md mb-2">
                     Sort By{" "}

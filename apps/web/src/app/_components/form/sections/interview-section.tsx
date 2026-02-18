@@ -1,6 +1,5 @@
 "use client";
 
-import { FormSection } from "~/app/_components/form/form-section";
 import {
   FormControl,
   FormField,
@@ -8,8 +7,10 @@ import {
   FormLabel,
   FormMessage,
 } from "node_modules/@cooper/ui/src/form";
-import { Select } from "../../themed/onboarding/select";
 import { useFormContext } from "react-hook-form";
+
+import { FormSection } from "~/app/_components/form/form-section";
+import { Select } from "../../themed/onboarding/select";
 
 // type InterviewType =
 //   | "Behavioral"
@@ -63,7 +64,7 @@ export function InterviewSection() {
         control={form.control}
         name="interviewDifficulty"
         render={({ field }) => (
-          <FormItem className="flex flex-col w-full">
+          <FormItem className="flex w-full flex-col">
             <FormLabel className="text-sm font-bold text-cooper-gray-400">
               Interview difficulty<span className="text-cooper-red-300">*</span>
             </FormLabel>
@@ -77,7 +78,7 @@ export function InterviewSection() {
                   { value: 4, label: 4 },
                   { value: 5, label: 5 },
                 ]}
-                className="w-full border-cooper-gray-150 text-sm h-10"
+                className="border-cooper-gray-150 h-10 w-full text-sm"
                 value={
                   field.value && field.value > 0 ? String(field.value) : ""
                 }

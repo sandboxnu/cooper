@@ -40,7 +40,7 @@ export function ReviewSection() {
                   { value: 4, label: 4 },
                   { value: 5, label: 5 },
                 ]}
-                className="w-full border-cooper-gray-150 text-sm h-10"
+                className="border-cooper-gray-150 h-10 w-full text-sm"
                 value={
                   field.value && field.value > 0 ? String(field.value) : ""
                 }
@@ -74,7 +74,7 @@ export function ReviewSection() {
               <Textarea
                 {...field}
                 placeholder="i.e. job duties not mentioned in the job description, co-op program at the company, etc."
-                className="border border-cooper-gray-150 w-full text-sm"
+                className="border-cooper-gray-150 w-full border text-sm"
               />
             </div>
             <FormMessage />

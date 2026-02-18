@@ -1,6 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Checkbox } from "node_modules/@cooper/ui/src/checkbox";
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "node_modules/@cooper/ui/src/radio-group";
 import { useFormContext } from "react-hook-form";
 
 import {
@@ -14,11 +19,6 @@ import { Input } from "@cooper/ui/input";
 
 import { FormSection } from "~/app/_components/form/form-section";
 import { api } from "~/trpc/react";
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "node_modules/@cooper/ui/src/radio-group";
-import { Checkbox } from "node_modules/@cooper/ui/src/checkbox";
 
 /**
  * ReviewSection component renders form fields for writing a co-op review.
@@ -77,11 +77,11 @@ export function PaySection() {
               Hourly pay<span className="text-cooper-red-300">*</span>
             </FormLabel>
             <FormControl>
-              <div className="flex gap-2 flex-col w-full">
+              <div className="flex w-full flex-col gap-2">
                 <Input
                   {...field}
                   placeholder="$"
-                  className="border-2 border-cooper-gray-150 rounded-lg h-9 text-cooper-gray-400 bg-transparent text-sm pl-4 focus:outline-none"
+                  className="border-cooper-gray-150 h-9 rounded-lg border-2 bg-transparent pl-4 text-sm text-cooper-gray-400 focus:outline-none"
                   disabled={isUnpaid}
                 />
                 <div
