@@ -3,19 +3,8 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Filter } from "bad-words";
-import dayjs from "dayjs";
-import { Form } from "node_modules/@cooper/ui/src/form";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 
-import {
-  Industry,
-  JobType,
-  WorkEnvironment,
-  WorkTerm,
-} from "@cooper/db/schema";
-import { useCustomToast } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 
 import {
