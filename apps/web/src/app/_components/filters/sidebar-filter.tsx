@@ -1,16 +1,21 @@
 "use-client";
 
-import { useState, useEffect } from "react";
-import { api } from "~/trpc/react";
-import { industryOptions } from "../onboarding/constants";
-import { jobTypeOptions, workModelOptions } from "../onboarding/constants";
-import { prettyLocationName } from "~/utils/locationHelpers";
+import { useEffect, useState } from "react";
+import { ChevronRight } from "lucide-react";
+
+import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
+
+import type { FilterState } from "./types";
+import { api } from "~/trpc/react";
+import { prettyLocationName } from "~/utils/locationHelpers";
+import {
+  industryOptions,
+  jobTypeOptions,
+  workModelOptions,
+} from "../onboarding/constants";
 import RoleTypeSelector from "./role-type-selector";
 import SidebarSection from "./sidebar-section";
-import { ChevronRight } from "lucide-react";
-import { cn } from "@cooper/ui";
-import type { FilterState } from "./types";
 
 interface SidebarFilterProps {
   isOpen: boolean;
@@ -116,24 +121,24 @@ export default function SidebarFilter({
       className={cn(
         "fixed inset-0 z-50 transition-opacity duration-200",
         isOpen
-          ? "opacity-100 bg-black/30 pointer-events-auto"
-          : "opacity-0 bg-black/0 pointer-events-none",
+          ? "pointer-events-auto bg-black/30 opacity-100"
+          : "pointer-events-none bg-black/0 opacity-0",
       )}
       onClick={onClose}
     >
       <div
         className={cn(
-          "fixed right-0 top-0 h-screen w-full md:w-1/3 bg-cooper-cream-100 shadow-xl",
+          "bg-cooper-cream-100 fixed right-0 top-0 h-screen w-full shadow-xl md:w-1/3",
           "transition-transform duration-200 ease-out",
           isOpen ? "translate-x-0" : "translate-x-full",
           "flex flex-col",
         )}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="overflow-y-auto mx-6 mt-3 pb-20 no-scrollbar flex flex-col">
-          <div className="flex items-center justify-start gap-2 ml-[-6px]">
+        <div className="no-scrollbar mx-6 mt-3 flex flex-col overflow-y-auto pb-20">
+          <div className="ml-[-6px] flex items-center justify-start gap-2">
             <Button
-              className="text-cooper-gray-300 p-0 bg-transparent border-0 hover:bg-transparent"
+              className="border-0 bg-transparent p-0 text-cooper-gray-300 hover:bg-transparent"
               onClick={onClose}
             >
               <ChevronRight className="h-6 w-6" />
@@ -142,12 +147,12 @@ export default function SidebarFilter({
           </div>
 
           <div className="flex flex-col gap-[12px]">
-            <div className="h-px w-full bg-cooper-gray-150" />
+            <div className="bg-cooper-gray-150 h-px w-full" />
             <RoleTypeSelector
               onSelectedTypeChange={onSelectedTypeChange}
               selectedType={selectedType}
             />
-            <div className="h-px w-full bg-cooper-gray-150" />
+            <div className="bg-cooper-gray-150 h-px w-full" />
             <SidebarSection
               title="Industry"
               filterType="autocomplete"
@@ -157,7 +162,7 @@ export default function SidebarFilter({
                 handleFilterChange("industries", selected)
               }
             />
-            <div className="h-px w-full bg-cooper-gray-150" />
+            <div className="bg-cooper-gray-150 h-px w-full" />
             <SidebarSection
               title="Location"
               filterType="location"
@@ -168,7 +173,7 @@ export default function SidebarFilter({
               }
               onSearchChange={(search) => setSearchTerm(search)}
             />
-            <div className="h-px w-full bg-cooper-gray-150" />
+            <div className="bg-cooper-gray-150 h-px w-full" />
             <SidebarSection
               title="Job type"
               filterType="checkbox"
@@ -178,7 +183,7 @@ export default function SidebarFilter({
                 handleFilterChange("jobTypes", selected)
               }
             />
-            <div className="h-px w-full bg-cooper-gray-150" />
+            <div className="bg-cooper-gray-150 h-px w-full" />
 
             <SidebarSection
               title="Hourly pay"
@@ -192,14 +197,14 @@ export default function SidebarFilter({
               }
             />
 
-            <div className="h-px w-full bg-cooper-gray-150" />
+            <div className="bg-cooper-gray-150 h-px w-full" />
 
             {/* On the job subsection */}
             <div className="flex flex-col gap-[10px]">
               <div className="flex gap-2">
-                <span className="font-normal text-base">On the job</span>
+                <span className="text-base font-normal">On the job</span>
                 <Button
-                  className="bg-transparent border-none font-normal text-cooper-gray-400 text-xs hover:bg-transparent p-0 h-auto self-center"
+                  className="h-auto self-center border-none bg-transparent p-0 text-xs font-normal text-cooper-gray-400 hover:bg-transparent"
                   onClick={handleClearOnTheJob}
                 >
                   Clear
@@ -243,7 +248,7 @@ export default function SidebarFilter({
               />
             </div>
 
-            <div className="h-px w-full bg-cooper-gray-150" />
+            <div className="bg-cooper-gray-150 h-px w-full" />
 
             <SidebarSection
               title="Overall rating"
@@ -258,17 +263,17 @@ export default function SidebarFilter({
         </div>
 
         {/* Footer */}
-        <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center bg-cooper-cream-100 px-6 pb-4">
-          <div className="h-px w-full bg-cooper-gray-150" />
-          <div className="flex justify-between items-center w-full mt-2">
+        <div className="bg-cooper-cream-100 absolute bottom-0 left-0 right-0 flex flex-col items-center px-6 pb-4">
+          <div className="bg-cooper-gray-150 h-px w-full" />
+          <div className="mt-2 flex w-full items-center justify-between">
             <Button
-              className="bg-transparent border-none text-cooper-gray-550 text-sm hover:bg-transparent p-0"
+              className="text-cooper-gray-550 border-none bg-transparent p-0 text-sm hover:bg-transparent"
               onClick={clearAll}
             >
               Clear all
             </Button>
             <Button
-              className="bg-cooper-gray-550 text-cooper-gray-100 font-semibold text-sm hover:bg-cooper-gray-400 px-2 py-1 border-0"
+              className="bg-cooper-gray-550 border-0 px-2 py-1 text-sm font-semibold text-cooper-gray-100 hover:bg-cooper-gray-400"
               onClick={onClose}
             >
               Show Results

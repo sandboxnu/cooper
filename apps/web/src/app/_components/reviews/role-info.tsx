@@ -2,6 +2,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import type { ReviewType, RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 import Logo from "@cooper/ui/logo";
@@ -17,6 +18,8 @@ import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { calculateRatings } from "~/utils/reviewCountByStars";
 import { CompanyPopup } from "../companies/company-popup";
+import { useCompare } from "../compare/compare-context";
+import { CompareControls } from "../compare/compare-ui";
 import StarGraph from "../shared/star-graph";
 import BarGraph from "./bar-graph";
 import CollapsableInfoCard from "./collapsable-info";
@@ -24,9 +27,6 @@ import InfoCard from "./info-card";
 import { ReviewCard } from "./review-card";
 import ReviewSearchBar from "./review-search-bar";
 import RoundBarGraph from "./round-bar-graph";
-import type { ReviewType, RoleType } from "@cooper/db/schema";
-import { CompareControls } from "../compare/compare-ui";
-import { useCompare } from "../compare/compare-context";
 
 interface RoleCardProps {
   className?: string;
@@ -208,7 +208,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             </div>
           </div>
         </CardHeader>
-        <div className="flex flex-col items-end mr-6 gap-2">
+        <div className="mr-6 flex flex-col items-end gap-2">
           <CardContent className="grid gap-2">
             {reviews.isSuccess &&
               reviews.data.length > 0 &&

@@ -75,7 +75,7 @@ export function ReviewSection() {
               <Textarea
                 {...field}
                 placeholder="i.e. job duties not mentioned in the job description, co-op program at the company, etc."
-                className="border border-cooper-gray-150 w-full text-sm"
+                className="border-cooper-gray-150 w-full border text-sm"
               />
             </div>
             <FormMessage />

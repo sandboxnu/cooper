@@ -64,6 +64,13 @@
       "when": 1770514183613,
       "tag": "0008_demonic_drax",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1770514183614,
+      "tag": "0009_flowery_roland_deschain",
+      "breakpoints": true
     }
   ]
 }

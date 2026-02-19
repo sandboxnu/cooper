@@ -4,8 +4,9 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 
 import { cn } from "@cooper/ui";
-import { Checkbox } from "@cooper/ui/checkbox";
 import Autocomplete from "@cooper/ui/autocomplete";
+import { Checkbox } from "@cooper/ui/checkbox";
+
 import { Input } from "../themed/onboarding/input";
 
 export interface FilterOption {
@@ -136,21 +137,21 @@ function FilterBodyRange({
   }, [localMin, localMax]);
 
   return (
-    <div className="flex flex-col -mt-2">
-      <div className="flex gap-[10px] items-center">
+    <div className="-mt-2 flex flex-col">
+      <div className="flex items-center gap-[10px]">
         <div className="flex-1">
-          <label className="text-xs text-cooper-gray-400 mb-1">Min</label>
+          <label className="mb-1 text-xs text-cooper-gray-400">Min</label>
         </div>
         <div className="w-4" />
         <div className="flex-1">
-          <label htmlFor="max" className="text-xs text-cooper-gray-400 mb-1">
+          <label htmlFor="max" className="mb-1 text-xs text-cooper-gray-400">
             Max
           </label>
         </div>
       </div>
 
-      <div className="flex gap-[10px] items-center">
-        <div className="flex-1 relative">
+      <div className="flex items-center gap-[10px]">
+        <div className="relative flex-1">
           <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-cooper-gray-400">
             $
           </span>
@@ -160,7 +161,7 @@ function FilterBodyRange({
             value={localMin}
             onChange={(e) => setLocalMin(e.target.value)}
             className={cn(
-              "h-9 border-cooper-gray-150 border-[1px] text-sm text-cooper-gray-400 pl-5",
+              "border-cooper-gray-150 h-9 border-[1px] pl-5 text-sm text-cooper-gray-400",
               rangeError ? "border-red-500" : "",
             )}
             onBlur={handleRangeApply}
@@ -170,7 +171,7 @@ function FilterBodyRange({
 
         <hr className="border-cooper-gray-600 w-4" />
 
-        <div className="flex-1 relative">
+        <div className="relative flex-1">
           <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-cooper-gray-400">
             $
           </span>
@@ -180,7 +181,7 @@ function FilterBodyRange({
             value={localMax}
             onChange={(e) => setLocalMax(e.target.value)}
             className={cn(
-              "h-9 border-cooper-gray-150 border-[1px] text-sm text-cooper-gray-400 pl-5",
+              "border-cooper-gray-150 h-9 border-[1px] pl-5 text-sm text-cooper-gray-400",
               rangeError ? "border-red-500" : "",
             )}
             onBlur={handleRangeApply}
@@ -189,7 +190,7 @@ function FilterBodyRange({
         </div>
       </div>
 
-      {rangeError && <p className="text-xs text-red-600 mt-2">{rangeError}</p>}
+      {rangeError && <p className="mt-2 text-xs text-red-600">{rangeError}</p>}
     </div>
   );
 }
@@ -230,7 +231,7 @@ function FilterBodyRating({
   };
 
   return (
-    <div className="flex border border-cooper-gray-150 rounded-lg overflow-hidden">
+    <div className="border-cooper-gray-150 flex overflow-hidden rounded-lg border">
       {[1, 2, 3, 4, 5].map((rating, index) => {
         const isInRange =
           rating >= minRating &&
@@ -242,7 +243,7 @@ function FilterBodyRating({
             key={rating}
             onClick={() => handleRatingClick(rating)}
             className={cn(
-              "flex-1 py-[10px] px-5 flex items-center justify-center gap-1 transition-colors relative bg-cooper-gray-150",
+              "bg-cooper-gray-150 relative flex flex-1 items-center justify-center gap-1 px-5 py-[10px] transition-colors",
               isInRange
                 ? "hover:bg-cooper-yellow-200 bg-cooper-yellow-400"
                 : "hover:bg-cooper-yellow-200",
@@ -265,6 +266,7 @@ function FilterBodyAutocomplete({
   onSelectionChange,
   placeholder,
   singleSelect,
+  onSearchChange,
   isInMenuContent,
 }: FilterBodyProps) {
   return (
@@ -280,6 +282,7 @@ function FilterBodyAutocomplete({
         `Search by ${title === "Industry" ? "industry" : "city or state"}`
       }
       singleSelect={singleSelect}
+      onSearchChange={onSearchChange}
       isInMenuContent={isInMenuContent}
     />
   );
@@ -339,7 +342,7 @@ function FilterBodyCheckbox({
         />
       )}
 
-      <div className="flex flex-col gap-2 max-h-64 overflow-y-auto">
+      <div className="flex max-h-64 flex-col gap-2 overflow-y-auto">
         {filteredOptions.map((option) => (
           <div key={option.id} className="flex items-center gap-2">
             <Checkbox
@@ -349,7 +352,7 @@ function FilterBodyCheckbox({
             />
             <label
               htmlFor={option.id}
-              className="text-sm cursor-pointer flex-1"
+              className="flex-1 cursor-pointer text-sm"
             >
               {option.label}
             </label>
