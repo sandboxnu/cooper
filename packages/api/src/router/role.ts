@@ -171,10 +171,8 @@ export const roleRouter = {
 
       const averageOverallRating = calcAvg("overallRating");
       const averageHourlyPay = calcAvg("hourlyPay");
-      const averageInterviewDifficulty = calcAvg("interviewDifficulty");
       const averageCultureRating = calcAvg("cultureRating");
       const averageSupervisorRating = calcAvg("supervisorRating");
-      const averageInterviewRating = calcAvg("interviewRating");
 
       const federalHolidays = calcPercentage("federalHolidays");
       const drugTest = calcPercentage("drugTest");
@@ -197,10 +195,8 @@ export const roleRouter = {
       return {
         averageOverallRating: averageOverallRating,
         averageHourlyPay: averageHourlyPay,
-        averageInterviewDifficulty: averageInterviewDifficulty,
         averageCultureRating: averageCultureRating,
         averageSupervisorRating: averageSupervisorRating,
-        averageInterviewRating: averageInterviewRating,
         federalHolidays: federalHolidays,
         drugTest: drugTest,
         freeLunch: freeLunch,
