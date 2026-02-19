@@ -2,6 +2,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import type { ReviewType, RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 import Logo from "@cooper/ui/logo";
@@ -17,6 +18,8 @@ import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { calculateRatings } from "~/utils/reviewCountByStars";
 import { CompanyPopup } from "../companies/company-popup";
+import { useCompare } from "../compare/compare-context";
+import { CompareControls } from "../compare/compare-ui";
 import StarGraph from "../shared/star-graph";
 import BarGraph from "./bar-graph";
 import CollapsableInfoCard from "./collapsable-info";
@@ -24,7 +27,6 @@ import InfoCard from "./info-card";
 import { ReviewCard } from "./review-card";
 import ReviewSearchBar from "./review-search-bar";
 import RoundBarGraph from "./round-bar-graph";
-import type { ReviewType, RoleType } from "@cooper/db/schema";
 
 interface RoleCardProps {
   className?: string;
@@ -52,6 +54,8 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     { id: roleObj.companyId },
     { enabled: !!reviews.data?.[0]?.companyId },
   );
+
+  const compare = useCompare();
 
   // ===== ROLE DATA ===== //
   const companyData = companyQuery.data;
@@ -130,6 +134,21 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     return ratingMatch && searchMatch;
   });
 
+  const jobTypesFromReviews = [
+    ...new Set(
+      (reviews.data ?? [])
+        .map((r) => r.jobType)
+        .filter(Boolean)
+        .map((job) => (job === "CO-OP" ? "Co-op" : job)),
+    ),
+  ] as string[];
+  const jobTypeLabel =
+    jobTypesFromReviews.length === 0
+      ? null
+      : jobTypesFromReviews.length === 1
+        ? jobTypesFromReviews[0]
+        : jobTypesFromReviews.sort().join(" / ");
+
   return (
     <div
       className={cn(
@@ -153,7 +172,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
           />
         </svg>
       )}
-      <div className="flex w-full flex-wrap items-center justify-between py-5 lg:pl-6 lg:pr-6">
+      <div className="flex w-full flex-wrap items-start justify-between py-5 lg:pl-6 lg:pr-6">
         <CardHeader className="mx-0">
           <div className="flex items-center justify-start space-x-4">
             {companyData ? (
@@ -170,7 +189,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                 <div className="flex items-center gap-3 text-lg md:text-2xl">
                   <div>{roleObj.title}</div>
                   <div className="hidden text-sm font-normal text-cooper-gray-400 sm:block">
-                    Co-op
+                    {jobTypeLabel}
                   </div>
                 </div>
               </CardTitle>
@@ -189,29 +208,34 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             </div>
           </div>
         </CardHeader>
-        <CardContent className="grid gap-2">
-          {reviews.isSuccess &&
-            reviews.data.length > 0 &&
-            (() => {
-              return (
-                <div className="align-center flex gap-2 text-cooper-gray-400">
-                  <Image
-                    src="/svg/star.svg"
-                    alt="Star icon"
-                    width={20}
-                    height={20}
-                  />
-                  <div>
-                    {Math.round(
-                      Number(averages.data?.averageOverallRating) * 100,
-                    ) / 100}
+        <div className="mr-6 flex flex-col items-end gap-2">
+          <CardContent className="grid gap-2">
+            {reviews.isSuccess &&
+              reviews.data.length > 0 &&
+              (() => {
+                return (
+                  <div className="align-center flex gap-2 text-cooper-gray-400">
+                    <Image
+                      src="/svg/star.svg"
+                      alt="Star icon"
+                      width={20}
+                      height={20}
+                    />
+                    <div>
+                      {Math.round(
+                        Number(averages.data?.averageOverallRating) * 100,
+                      ) / 100}
+                    </div>
+                    ({reviews.data.length} review
+                    {reviews.data.length !== 1 && "s"})
                   </div>
-                  ({reviews.data.length} review
-                  {reviews.data.length !== 1 && "s"})
-                </div>
-              );
-            })()}
-        </CardContent>
+                );
+              })()}
+          </CardContent>
+          {!compare.isCompareMode && (
+            <CompareControls anchorRoleId={roleObj.id} />
+          )}
+        </div>
       </div>
       <div className="flex w-[100%] justify-between">
         <div className="grid w-full grid-cols-2 gap-5 px-3 lg:pl-6 lg:pr-6">
@@ -313,8 +337,10 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                     <div className="text-cooper-gray-400">Overtime work</div>
                     <div className="flex items-center gap-2 pl-1">
                       <div className="text-4xl text-[#141414]">
-                        {Number(averages.data.overtimeNormal.toPrecision(2)) *
-                          100}
+                        {Math.round(
+                          Number(averages.data.overtimeNormal.toPrecision(2)) *
+                            100,
+                        )}
                         %
                       </div>
                       <div className="flex flex-wrap text-sm text-[#141414]">

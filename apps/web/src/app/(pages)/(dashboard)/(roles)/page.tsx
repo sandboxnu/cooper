@@ -1,13 +1,13 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 
 import type { CompanyType, RoleType } from "@cooper/db/schema";
 import { cn, Pagination } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
-import { Chip } from "@cooper/ui/chip";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,6 +15,7 @@ import {
   DropdownMenuTrigger,
 } from "@cooper/ui/dropdown-menu";
 
+import type { FilterState } from "~/app/_components/filters/types";
 import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
 import CompanyInfo from "~/app/_components/companies/company-info";
 import { useCompare } from "~/app/_components/compare/compare-context";
@@ -23,20 +24,14 @@ import {
   CompareControls,
 } from "~/app/_components/compare/compare-ui";
 import DropdownFiltersBar from "~/app/_components/filters/dropdown-filters-bar";
+import RoleTypeSelector from "~/app/_components/filters/role-type-selector";
+import SidebarFilter from "~/app/_components/filters/sidebar-filter";
 import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
 import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
 import { RoleInfo } from "~/app/_components/reviews/role-info";
 import SearchFilter from "~/app/_components/search/search-filter";
 import { api } from "~/trpc/react";
-
-interface FilterState {
-  industries: string[];
-  locations: string[];
-  jobTypes: string[];
-  hourlyPay: { min: number; max: number };
-  ratings: string[];
-}
 
 // Helper function to create URL-friendly slugs (still needed for URL generation)
 const createSlug = (text: string): string => {
@@ -56,9 +51,22 @@ export default function Roles() {
   const router = useRouter();
   const compare = useCompare();
 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const typeParam = searchParams.get("type");
+
   const [selectedType, setSelectedType] = useState<
     "roles" | "companies" | "all"
-  >("all");
+  >(() => {
+    if (
+      typeParam === "roles" ||
+      typeParam === "companies" ||
+      typeParam === "all"
+    ) {
+      return typeParam;
+    }
+    return "all";
+  });
 
   const [selectedFilter, setSelectedFilter] = useState<
     "default" | "rating" | "newest" | "oldest" | undefined
@@ -70,6 +78,9 @@ export default function Roles() {
     jobTypes: [],
     hourlyPay: { min: 0, max: 0 },
     ratings: [],
+    workModels: [],
+    overtimeWork: [],
+    companyCulture: [],
   });
   const rolesAndCompaniesPerPage = 10;
 
@@ -120,7 +131,7 @@ export default function Roles() {
   const shouldFetchList =
     !companyParam || // No URL params, fetch normally
     pageNumberQuery.isSuccess || // Have page number from URL
-    pageNumberQuery.isError; // Query failed, fall back to page 1
+    pageNumberQuery.isError; // Query failed, fall back to page 1.
 
   // Convert filter state to backend format
   const backendFilters = useMemo(() => {
@@ -147,6 +158,15 @@ export default function Roles() {
           : undefined,
       ratings:
         appliedFilters.ratings.length > 0 ? appliedFilters.ratings : undefined,
+      workModels:
+        appliedFilters.workModels.length > 0
+          ? appliedFilters.workModels
+          : undefined,
+      overtimeWork: appliedFilters.overtimeWork.length > 0 ? true : undefined,
+      companyCulture:
+        appliedFilters.companyCulture.length > 0
+          ? appliedFilters.companyCulture
+          : undefined,
     };
   }, [appliedFilters]);
 
@@ -253,6 +273,25 @@ export default function Roles() {
     // updates the URL when a role or company is changed
     // Don't update URL if query is still loading (prevents updating with stale data during page changes)
     if (selectedItem && rolesAndCompanies.isSuccess) {
+      const currentUrl = new URLSearchParams(
+        typeof window !== "undefined" ? window.location.search : "",
+      );
+      const urlCompany = currentUrl.get("company");
+      const urlRole = currentUrl.get("role");
+      if (urlCompany && urlRole) {
+        if (!isRole(selectedItem)) return;
+        const r = selectedItem as RoleType & {
+          slug?: string;
+          companySlug?: string;
+          companyName?: string;
+        };
+        const itemCompanySlug =
+          r.companySlug ?? createSlug(r.companyName ?? "");
+        if (r.slug !== urlRole || itemCompanySlug !== urlCompany) {
+          return;
+        }
+      }
+
       const params = new URLSearchParams(window.location.search);
 
       if (isRole(selectedItem)) {
@@ -266,44 +305,39 @@ export default function Roles() {
         const companySlug = roleItem.companySlug ?? createSlug(companyName);
         const roleSlug = roleItem.slug;
 
-        if (
-          companyName &&
-          (companyParam !== companySlug || roleParam !== roleSlug)
-        ) {
-          // Preserve search param
-          const currentSearch = params.get("search");
-          params.delete("search");
+        // Preserve search param
+        const currentSearch = params.get("search");
+        params.delete("search");
 
-          params.set("company", companySlug);
-          params.set("role", roleSlug);
+        params.set("company", companySlug);
+        params.set("role", roleSlug);
+        params.set("type", selectedType);
 
-          // Add search back at the end
-          if (currentSearch) {
-            params.set("search", currentSearch);
-          }
-
-          router.push(`/?${params.toString()}`);
+        // Add search back at the end
+        if (currentSearch) {
+          params.set("search", currentSearch);
         }
+
+        router.push(`/?${params.toString()}`);
       } else {
         // For companies, use the company parameter with the name
         const companyItem = selectedItem as CompanyType & { slug?: string };
         const companySlug = companyItem.slug;
 
-        if (companyParam !== companySlug || roleParam !== null) {
-          // Preserve search param
-          const currentSearch = params.get("search");
-          params.delete("search");
+        // Preserve search param
+        const currentSearch = params.get("search");
+        params.delete("search");
 
-          params.delete("role");
-          params.set("company", companySlug);
+        params.delete("role");
+        params.set("company", companySlug);
+        params.set("type", selectedType);
 
-          // Add search back at the end
-          if (currentSearch) {
-            params.set("search", currentSearch);
-          }
-
-          router.push(`/?${params.toString()}`);
+        // Add search back at the end
+        if (currentSearch) {
+          params.set("search", currentSearch);
         }
+
+        router.push(`/?${params.toString()}`);
       }
     }
   }, [
@@ -312,9 +346,11 @@ export default function Roles() {
     companyParam,
     roleParam,
     isRole,
+    selectedType,
     rolesAndCompanies.isSuccess,
   ]);
   const [showRoleInfo, setShowRoleInfo] = useState(false); // State for toggling views on mobile
+  const [showCompanyInfo, setShowCompanyInfo] = useState(false);
 
   // Reset to page 1 when filter or search changes
   useEffect(() => {
@@ -363,9 +399,31 @@ export default function Roles() {
     setCurrentPage(1); // Reset to first page when filters change
   };
 
+  const isFiltering = useMemo(() => {
+    return (
+      appliedFilters.industries.length > 0 ||
+      appliedFilters.locations.length > 0 ||
+      appliedFilters.jobTypes.length > 0 ||
+      appliedFilters.workModels.length > 0 ||
+      appliedFilters.overtimeWork.length > 0 ||
+      appliedFilters.companyCulture.length > 0
+    );
+  }, [appliedFilters]);
+
   useEffect(() => {
     setCurrentPage(1);
   }, [selectedFilter, searchValue, selectedType]);
+
+  useEffect(() => {
+    const typeParam = searchParams.get("type");
+    if (
+      typeParam === "roles" ||
+      typeParam === "companies" ||
+      typeParam === "all"
+    ) {
+      setSelectedType(typeParam);
+    }
+  }, [searchParams]);
 
   const totalPages =
     rolesAndCompanies.data &&
@@ -428,33 +486,53 @@ export default function Roles() {
   };
 
   return (
-    <>
-      <div className="bg-cooper-cream-100 border-cooper-gray-150  z-20 flex w-full flex-col items-stretch gap-4 self-start border-b-[1px] py-4 md:flex-row md:items-center md:gap-5">
+    <div className="flex h-full w-full flex-col">
+      <div className="bg-cooper-cream-100 border-cooper-gray-150 sticky top-0 z-20 flex w-full flex-shrink-0 flex-col items-stretch gap-4 border-b-[1px] py-4 md:flex-row md:items-center md:gap-5">
         <div className="w-full px-5 md:w-[28%]">
           <SearchFilter className="w-full" />
         </div>
-        <div className="no-scrollbar w-full flex-1 overflow-x-auto px-5 md:overflow-visible md:pl-0 md:pr-5">
-          <DropdownFiltersBar onFilterChange={handleFilterChange} />
+        <div className="no-scrollbar flex w-full flex-1 gap-2 overflow-x-auto px-5 md:pr-0">
+          <DropdownFiltersBar
+            filters={appliedFilters}
+            onFilterChange={handleFilterChange}
+          />
+          <Button
+            className={cn(
+              "border-cooper-gray-150 flex h-9 items-center gap-[10px] whitespace-nowrap rounded-lg border px-[14px] py-2 text-sm font-normal text-cooper-gray-400 outline-none focus:outline-none focus-visible:ring-0",
+              isFiltering
+                ? "border-cooper-gray-600 bg-cooper-gray-700 hover:bg-cooper-gray-200"
+                : "hover:bg-cooper-gray-150 bg-white",
+            )}
+            onClick={() => setIsSidebarOpen(true)}
+          >
+            <Image
+              src="/svg/sidebarFilter.svg"
+              width={16}
+              height={16}
+              alt="Sidebar filters icon"
+            />
+            Filters
+          </Button>
         </div>
         {compare.isCompareMode && selectedRole && (
-          <div className="hidden items-center gap-2 px-5 md:flex">
+          <div className="hidden items-center gap-2 pr-5 md:flex">
             <CompareControls anchorRoleId={selectedRole.id} inTopBar />
           </div>
         )}
       </div>
       {rolesAndCompanies.isSuccess &&
         rolesAndCompanies.data.items.length > 0 && (
-          <div className="bg-cooper-cream-100 flex h-[90dvh] w-full ">
+          <div className="bg-cooper-cream-100 flex min-h-0 w-full flex-1">
             {/* RoleCardPreview List */}
             <div
               ref={sidebarRef}
               className={cn(
                 "border-cooper-gray-150 bg-cooper-cream-100 w-full overflow-y-auto border-r-[1px] p-5 xl:rounded-none",
                 "md:w-[28%]", // Show as 28% width on md and above
-                showRoleInfo && "hidden md:block", // Hide on mobile if RoleInfo is visible
+                (showRoleInfo || showCompanyInfo) && "hidden md:block", // Hide on mobile if RoleInfo is visible
               )}
             >
-              <div className="text-right">
+              <div className="pb-2 text-right">
                 <DropdownMenu>
                   <DropdownMenuTrigger className="text-md mb-2">
                     Sort By{" "}
@@ -494,23 +572,14 @@ export default function Roles() {
                     </DropdownMenuLabel>
                   </DropdownMenuContent>
                 </DropdownMenu>
-                <div className="flex gap-2 py-2">
-                  <Chip
-                    label="All"
-                    onClick={() => setSelectedType("all")}
-                    selected={selectedType === "all"}
-                  />
-                  <Chip
-                    onClick={() => setSelectedType("roles")}
-                    label={`Jobs (${rolesAndCompanies.data.totalRolesCount})`}
-                    selected={selectedType === "roles"}
-                  />
-                  <Chip
-                    onClick={() => setSelectedType("companies")}
-                    label={`Companies (${rolesAndCompanies.data.totalCompanyCount})`}
-                    selected={selectedType === "companies"}
-                  />
-                </div>
+                <RoleTypeSelector
+                  onSelectedTypeChange={setSelectedType}
+                  selectedType={selectedType}
+                  data={{
+                    totalRolesCount: rolesAndCompanies.data.totalRolesCount,
+                    totalCompanyCount: rolesAndCompanies.data.totalCompanyCount,
+                  }}
+                />
               </div>
               {rolesAndCompanies.data.items.map((item, i) => {
                 if (item.type === "role") {
@@ -601,6 +670,7 @@ export default function Roles() {
                       onClick={(e) => {
                         e.preventDefault();
                         setSelectedItem(item);
+                        setShowCompanyInfo(true);
                       }}
                     >
                       <CompanyCardPreview
@@ -616,25 +686,6 @@ export default function Roles() {
                     </div>
                   );
                 }
-
-                // return (
-                //   <div
-                //     key={item.id}
-                //     onClick={() => {
-                //       setSelectedItem(item);
-                //     }}
-                //   >
-                //     <CompanyCardPreview
-                //       companyObj={item}
-                //       className={cn(
-                //         "mb-4 hover:bg-cooper-gray-200",
-                //         selectedItem
-                //           ? selectedItem.id === item.id && "bg-cooper-cream-200"
-                //           : !i && "bg-cooper-cream-200",
-                //       )}
-                //     />
-                //   </div>
-                // );
               })}
 
               {/* Pagination */}
@@ -650,14 +701,9 @@ export default function Roles() {
               className={cn(
                 "col-span-3 w-full overflow-y-auto p-1",
                 "md:w-[72%]", // Show as 72% width on md and above
-                !showRoleInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
+                !showRoleInfo && !showCompanyInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
               )}
             >
-              {selectedRole && !compare.isCompareMode && (
-                <div className="flex w-full items-center justify-end px-4 py-2">
-                  <CompareControls anchorRoleId={selectedRole.id} />
-                </div>
-              )}
               {selectedRole ? (
                 compare.isCompareMode ? (
                   <CompareColumns anchorRole={selectedRole} />
@@ -668,7 +714,12 @@ export default function Roles() {
                   />
                 )
               ) : (
-                selectedCompany && <CompanyInfo companyObj={selectedCompany} />
+                selectedCompany && (
+                  <CompanyInfo
+                    companyObj={selectedCompany}
+                    onBack={() => setShowCompanyInfo(false)}
+                  />
+                )
               )}
             </div>
           </div>
@@ -678,6 +729,25 @@ export default function Roles() {
           <NoResults className="h-[84dvh]" />
         )}
       {rolesAndCompanies.isPending && <LoadingResults className="h-[84dvh]" />}
-    </>
+
+      <SidebarFilter
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
+        filters={appliedFilters}
+        onFilterChange={handleFilterChange}
+        selectedType={selectedType}
+        onSelectedTypeChange={setSelectedType}
+        data={
+          rolesAndCompanies.isFetching
+            ? undefined
+            : {
+                totalRolesCount: rolesAndCompanies.data?.totalRolesCount ?? 0,
+                totalCompanyCount:
+                  rolesAndCompanies.data?.totalCompanyCount ?? 0,
+              }
+        }
+        isLoading={rolesAndCompanies.isFetching}
+      />
+    </div>
   );
 }

@@ -14,7 +14,7 @@ import { z } from "zod";
 
 import { Company } from "./companies";
 import { Location } from "./locations";
-import { WorkEnvironment, WorkTerm } from "./misc";
+import { JobType, WorkEnvironment, WorkTerm, Status } from "./misc";
 import { Profile } from "./profiles";
 import { ProfilesToReviews } from "./profliesToReviews";
 import { Role } from "./roles";
@@ -31,6 +31,7 @@ export const Review = pgTable("review", {
   reviewHeadline: varchar("reviewHeadline").notNull(),
   textReview: text("textReview").notNull(),
   locationId: varchar("locationId"),
+  jobType: varchar("jobType").notNull().default("Co-op"),
   hourlyPay: decimal("hourlyPay"),
   workEnvironment: varchar("workEnvironment").notNull(),
   drugTest: boolean("drugTest").notNull(),
@@ -50,6 +51,7 @@ export const Review = pgTable("review", {
   roleId: varchar("roleId").notNull(),
   profileId: varchar("profileId"),
   companyId: varchar("companyId").notNull(),
+  status: varchar("status").notNull().default(Status.DRAFT),
 });
 
 export type ReviewType = typeof Review.$inferSelect;
@@ -85,6 +87,7 @@ export const CreateReviewSchema = createInsertSchema(Review, {
   reviewHeadline: z.string().optional().default(""),
   textReview: z.string(),
   locationId: z.string().optional(),
+  jobType: z.nativeEnum(JobType),
   hourlyPay: z.string().optional(),
   workEnvironment: z.nativeEnum(WorkEnvironment),
   drugTest: z.boolean(),
@@ -98,6 +101,7 @@ export const CreateReviewSchema = createInsertSchema(Review, {
   otherBenefits: z.string().nullish(),
   roleId: z.string(),
   profileId: z.string(),
+  status: z.nativeEnum(Status),
 }).omit({
   id: true,
   createdAt: true,

@@ -15,6 +15,7 @@ interface RenderAllRolesProps {
 export default function RenderAllRoles({ company }: RenderAllRolesProps) {
   const roles = api.role.getByCompany.useQuery({
     companyId: company?.id ?? "",
+    onlyWithReviews: true,
   });
   const router = useRouter();
 
@@ -34,7 +35,11 @@ export default function RenderAllRoles({ company }: RenderAllRolesProps) {
                   <div
                     key={role.id}
                     className="p-2"
-                    onClick={() => router.push(`/role?id=${role.id}`)}
+                    onClick={() =>
+                      router.push(
+                        `/?company=${company?.slug ?? ""}&role=${role.slug}&type=roles`,
+                      )
+                    }
                   >
                     <RoleCardPreview
                       roleObj={role}

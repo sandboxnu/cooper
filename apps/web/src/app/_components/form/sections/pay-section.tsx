@@ -1,6 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Checkbox } from "node_modules/@cooper/ui/src/checkbox";
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "node_modules/@cooper/ui/src/radio-group";
 import { useFormContext } from "react-hook-form";
 
 import {
@@ -14,11 +19,6 @@ import { Input } from "@cooper/ui/input";
 
 import { FormSection } from "~/app/_components/form/form-section";
 import { api } from "~/trpc/react";
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "node_modules/@cooper/ui/src/radio-group";
-import { Checkbox } from "node_modules/@cooper/ui/src/checkbox";
 
 /**
  * ReviewSection component renders form fields for writing a co-op review.
@@ -73,23 +73,29 @@ export function PaySection() {
         name="hourlyPay"
         render={({ field }) => (
           <FormItem className="rounded-md flex flex-col w-full">
-            <FormLabel className="text-sm font-bold block text-cooper-gray-550 ">
-              Hourly pay<span className="text-[#FB7373]">*</span>
+            <FormLabel className="text-sm font-bold block text-cooper-gray-400 ">
+              Hourly pay<span className="text-cooper-red-300">*</span>
             </FormLabel>
             <FormControl>
-              <div className="flex gap-2 flex-col w-full">
+              <div className="flex w-full flex-col gap-2">
                 <Input
                   {...field}
                   placeholder="$"
-                  className="border-2 border-cooper-gray-150 rounded-lg h-9 text-cooper-gray-400 bg-transparent text-sm pl-4 focus:outline-none"
+                  className="border-cooper-gray-150 h-9 rounded-lg border-2 bg-transparent pl-4 text-sm text-cooper-gray-400 focus:outline-none"
                   disabled={isUnpaid}
                 />
                 <div
                   className="flex items-center gap-2 rounded-md cursor-pointer pt-2.5"
-                  onClick={() => setIsUnpaid(!isUnpaid)}
+                  onClick={() => {
+                    const next = !isUnpaid;
+                    setIsUnpaid(next);
+                    form.setValue("hourlyPay", next ? "0" : "", {
+                      shouldValidate: true,
+                    });
+                  }}
                 >
                   <Checkbox checked={isUnpaid} />
-                  <span className="text-xs text-cooper-gray-400">
+                  <span className="text-sm text-cooper-gray-400">
                     Unpaid position
                   </span>
                 </div>
@@ -107,7 +113,7 @@ export function PaySection() {
           render={({ field }) => (
             <FormItem className="flex flex-col ">
               <FormLabel className="text-cooper-gray-400 text-sm font-bold">
-                Worked overtime<span className="text-[#FB7373]">*</span>
+                Worked overtime<span className="text-cooper-red-300">*</span>
               </FormLabel>
               <FormControl>
                 <RadioGroup
@@ -151,7 +157,7 @@ export function PaySection() {
         render={({ field }) => (
           <FormItem className="flex flex-col pt-3 ">
             <FormLabel className="text-cooper-gray-400 text-sm font-bold">
-              Received PTO<span className="text-[#FB7373]">*</span>
+              Received PTO<span className="text-cooper-red-300">*</span>
             </FormLabel>
             <FormControl>
               <RadioGroup

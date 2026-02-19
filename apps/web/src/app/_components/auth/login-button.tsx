@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import { signIn } from "@cooper/auth";
 import { Button } from "@cooper/ui/button";
 
@@ -28,7 +29,7 @@ export default function LoginButton() {
       {/* Button for larger screens */}
       <form className="hidden md:flex">
         <Button
-          className="h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700"
+          className="hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700 h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white"
           formAction={async () => {
             "use server";
             await signIn("google", { redirectTo: "/" });
