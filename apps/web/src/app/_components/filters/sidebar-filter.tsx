@@ -19,11 +19,6 @@ interface SidebarFilterProps {
   onFilterChange: (filters: FilterState) => void;
   selectedType: "roles" | "companies" | "all";
   onSelectedTypeChange: (t: "roles" | "companies" | "all") => void;
-  data?: {
-    totalRolesCount: number;
-    totalCompanyCount: number;
-  };
-  isLoading?: boolean;
 }
 
 /**
@@ -36,8 +31,6 @@ export default function SidebarFilter({
   onClose,
   selectedType,
   onSelectedTypeChange,
-  data,
-  isLoading,
 }: SidebarFilterProps) {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [prefix, setPrefix] = useState<string>("");
@@ -278,10 +271,7 @@ export default function SidebarFilter({
               className="bg-cooper-gray-550 text-cooper-gray-100 font-semibold text-sm hover:bg-cooper-gray-400 px-2 py-1 border-0"
               onClick={onClose}
             >
-              {!isLoading
-                ? "Show Results " +
-                  `(${(data?.totalRolesCount ?? 0) + (data?.totalCompanyCount ?? 0)})`
-                : "Loading..."}
+              Show Results
             </Button>
           </div>
         </div>

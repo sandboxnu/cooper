@@ -742,16 +742,6 @@ export default function Roles() {
         onFilterChange={handleFilterChange}
         selectedType={selectedType}
         onSelectedTypeChange={setSelectedType}
-        data={
-          rolesAndCompanies.isFetching
-            ? undefined
-            : {
-                totalRolesCount: rolesAndCompanies.data?.totalRolesCount ?? 0,
-                totalCompanyCount:
-                  rolesAndCompanies.data?.totalCompanyCount ?? 0,
-              }
-        }
-        isLoading={rolesAndCompanies.isFetching}
       />
     </div>
   );
