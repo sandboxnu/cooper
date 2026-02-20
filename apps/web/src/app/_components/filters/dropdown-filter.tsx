@@ -28,6 +28,8 @@ interface DropdownFilterProps {
   onRangeChange?: (min: number, max: number) => void;
   onSearchChange?: (search: string) => void;
   isLoadingOptions?: boolean;
+  /** Render dropdown above the trigger to avoid being cut off near bottom of viewport */
+  side?: "top" | "bottom";
 }
 
 export default function DropdownFilter({
@@ -40,6 +42,7 @@ export default function DropdownFilter({
   maxValue,
   onRangeChange,
   onSearchChange,
+  side = "bottom",
 }: DropdownFilterProps) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -110,6 +113,7 @@ export default function DropdownFilter({
 
       <DropdownMenuContent
         align="start"
+        side={side}
         className="bg-cooper-cream-400 flex w-96 flex-col gap-[22px] rounded-lg p-5"
       >
         <DropdownMenuLabel className="bg-cooper-cream-400 flex justify-between p-0">

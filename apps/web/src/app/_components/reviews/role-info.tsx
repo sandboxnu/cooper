@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -20,13 +20,29 @@ import { calculateRatings } from "~/utils/reviewCountByStars";
 import { CompanyPopup } from "../companies/company-popup";
 import { useCompare } from "../compare/compare-context";
 import { CompareControls } from "../compare/compare-ui";
+import DropdownFilter from "../filters/dropdown-filter";
 import StarGraph from "../shared/star-graph";
 import BarGraph from "./bar-graph";
 import CollapsableInfoCard from "./collapsable-info";
 import InfoCard from "./info-card";
 import { ReviewCard } from "./review-card";
-import ReviewSearchBar from "./review-search-bar";
 import RoundBarGraph from "./round-bar-graph";
+import { Button } from "node_modules/@cooper/ui/src/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+} from "node_modules/@cooper/ui/src/dropdown-menu";
+import { ChevronDown } from "lucide-react";
+
+const RATING_OPTIONS = [
+  { value: "all", label: "All ratings" },
+  ...([5, 4, 3, 2, 1] as const).map((n) => ({
+    value: String(n),
+    label: `${n} star${n === 1 ? "" : "s"}`,
+  })),
+] as const;
 
 interface RoleCardProps {
   className?: string;
@@ -36,8 +52,18 @@ interface RoleCardProps {
 
 export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
   const [ratingFilter, setRatingFilter] = useState<string>("all");
-  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [locationFilter, setLocationFilter] = useState<string>("all");
+  const [jobTypeFilter, setJobTypeFilter] = useState<string>("all");
+  const [locationSearchTerm, setLocationSearchTerm] = useState("");
+  const [locationPrefix, setLocationPrefix] = useState("");
   const reviews = api.review.getByRole.useQuery({ id: roleObj.id });
+
+  useEffect(() => {
+    const first = locationSearchTerm.slice(0, 3);
+    setLocationPrefix(first);
+  }, [locationSearchTerm]);
+  const buttonStyle =
+    "bg-white hover:bg-cooper-gray-200 border-white text-cooper-gray-400 p-2";
 
   const firstLocationId = reviews.data?.[0]?.locationId;
 
@@ -49,6 +75,9 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
   );
 
   const ratings = calculateRatings(reviews.data ?? []);
+  const [selectedFilter, setSelectedFilter] = useState<
+    "most recent" | "highest rating" | "lowest rating" | undefined
+  >("most recent");
 
   const companyQuery = api.company.getById.useQuery(
     { id: roleObj.companyId },
@@ -87,6 +116,45 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     .map((query) => (query.data ? prettyLocationName(query.data) : null))
     .filter((loc): loc is string => !!loc);
 
+  const roleLocationIds = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          (reviews.data ?? [])
+            .map((r) => r.locationId)
+            .filter((id): id is string => !!id),
+        ),
+      ),
+    [reviews.data],
+  );
+  const roleLocationQueries = api.useQueries((t) =>
+    roleLocationIds.map((id) => t.location.getById({ id }, { enabled: !!id })),
+  );
+  const locationsToUpdate = api.location.getByPopularity.useQuery(
+    { prefix: locationPrefix },
+    {
+      enabled: locationSearchTerm.length >= 3 && locationPrefix.length >= 3,
+    },
+  );
+  const locationOptions = useMemo(() => {
+    const fromRole = roleLocationQueries
+      .map((q) => q.data)
+      .filter((d): d is NonNullable<typeof d> => !!d)
+      .map((loc) => ({ id: loc.id, label: prettyLocationName(loc) }));
+    const fromSearch =
+      locationsToUpdate.data?.map((loc) => ({
+        id: loc.id,
+        label: prettyLocationName(loc),
+      })) ?? [];
+    const byId = new Map<string, { id: string; label: string }>();
+    for (const o of fromRole) byId.set(o.id, o);
+    for (const o of fromSearch) byId.set(o.id, o);
+    return [
+      { id: "all", label: "All locations" },
+      ...Array.from(byId.values()),
+    ];
+  }, [roleLocationQueries, locationsToUpdate.data]);
+
   const avgs = api.review.list
     .useQuery({})
     .data?.map((review) => review.overallRating);
@@ -124,15 +192,33 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
       ratingFilter === "all" ||
       Math.round(review.overallRating) === parseInt(ratingFilter);
 
-    // Filter by search term
-    const searchMatch =
-      !searchTerm ||
-      review.reviewHeadline.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      review.textReview.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      review.interviewReview?.toLowerCase().includes(searchTerm.toLowerCase());
+    const locationMatch =
+      locationFilter === "all" ||
+      !locationFilter ||
+      review.locationId === locationFilter;
 
-    return ratingMatch && searchMatch;
+    const jobTypeMatch =
+      jobTypeFilter === "all" || review.jobType === jobTypeFilter;
+
+    return ratingMatch && locationMatch && jobTypeMatch;
   });
+
+  const sortedReviews = useMemo(() => {
+    if (!filteredReviews) return undefined;
+    const list = [...filteredReviews];
+    switch (selectedFilter) {
+      case "highest rating":
+        return list.sort((a, b) => b.overallRating - a.overallRating);
+      case "lowest rating":
+        return list.sort((a, b) => a.overallRating - b.overallRating);
+      case "most recent":
+      default:
+        return list.sort(
+          (a, b) =>
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+        );
+    }
+  }, [filteredReviews, selectedFilter]);
 
   const jobTypesFromReviews = [
     ...new Set(
@@ -408,7 +494,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
               )}
               {reviews.isSuccess && reviews.data.length > 0 && (
                 <div className="flex h-full flex-col gap-5">
-                  <div className="w-[60%]">
+                  <div className="w-[44%]">
                     <StarGraph
                       ratings={ratings}
                       averageOverallRating={
@@ -419,38 +505,93 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                     />
                   </div>
 
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 pt-6">
                     <Select
                       value={ratingFilter}
                       onValueChange={setRatingFilter}
                     >
-                      <SelectTrigger className="w-[120px] border-[0.75px] border-cooper-gray-400 bg-cooper-gray-100 focus:ring-1 focus:ring-cooper-gray-400 focus:ring-offset-0">
+                      <SelectTrigger className="w-[120px] h-[36px] border-[1px] border-cooper-gray-150 bg-white focus:ring-0 focus:ring-cooper-gray-150 focus:ring-offset-0 text-cooper-gray-400">
                         <SelectValue placeholder="All ratings" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="all">All ratings</SelectItem>
-                        <SelectItem value="5">5 stars</SelectItem>
-                        <SelectItem value="4">4 stars</SelectItem>
-                        <SelectItem value="3">3 stars</SelectItem>
-                        <SelectItem value="2">2 stars</SelectItem>
-                        <SelectItem value="1">1 star</SelectItem>
+                        {RATING_OPTIONS.map(({ value, label }) => (
+                          <SelectItem key={value} value={value}>
+                            {label}
+                          </SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
-                    <ReviewSearchBar
-                      searchTerm={searchTerm}
-                      onSearchChange={setSearchTerm}
-                      className="w-[300px]"
+                    <DropdownFilter
+                      title="Location"
+                      filterType="location"
+                      options={locationOptions}
+                      selectedOptions={
+                        locationFilter === "all" || !locationFilter
+                          ? []
+                          : [locationFilter]
+                      }
+                      onSelectionChange={(selected) =>
+                        setLocationFilter(selected[0] ?? "all")
+                      }
+                      onSearchChange={(search) => setLocationSearchTerm(search)}
+                      side="top"
                     />
+                    <Select
+                      value={jobTypeFilter}
+                      onValueChange={setJobTypeFilter}
+                    >
+                      <SelectTrigger className="w-[120px] h-[36px] border-[1px] border-cooper-gray-150 bg-white focus:ring-0 focus:ring-cooper-gray-150 focus:ring-offset-0 text-cooper-gray-400">
+                        <SelectValue placeholder="All ratings" />
+                      </SelectTrigger>
+                      <SelectContent side="top">
+                        <SelectItem value="all">All job types</SelectItem>
+                        <SelectItem value="Co-op">Co-op</SelectItem>
+                        <SelectItem value="Internship">Internship</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger className="text-md text-cooper-gray-400">
+                        Sort By:{" "}
+                        <span className="underline">
+                          {selectedFilter &&
+                            selectedFilter.charAt(0).toUpperCase() +
+                              selectedFilter.slice(1)}
+                        </span>
+                        <ChevronDown className="inline" />
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent>
+                        <DropdownMenuLabel className="flex flex-col text-center">
+                          <Button
+                            className={buttonStyle}
+                            onClick={() => setSelectedFilter("most recent")}
+                          >
+                            Most recent
+                          </Button>
+                          <Button
+                            className={buttonStyle}
+                            onClick={() => setSelectedFilter("highest rating")}
+                          >
+                            Highest rating
+                          </Button>
+                          <Button
+                            className={buttonStyle}
+                            onClick={() => setSelectedFilter("lowest rating")}
+                          >
+                            Lowest rating
+                          </Button>
+                        </DropdownMenuLabel>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
                   </div>
 
-                  {filteredReviews && filteredReviews.length > 0 ? (
-                    filteredReviews.map((review: ReviewType) => {
+                  {sortedReviews && sortedReviews.length > 0 ? (
+                    sortedReviews.map((review: ReviewType) => {
                       return <ReviewCard reviewObj={review} key={review.id} />;
                     })
                   ) : (
                     <div className="py-8 text-center text-cooper-gray-400">
-                      {searchTerm || ratingFilter !== "all"
-                        ? "No reviews found matching your search criteria."
+                      {locationFilter || jobTypeFilter || ratingFilter !== "all"
+                        ? "No reviews found matching your filter criteria."
                         : "No reviews found for this rating."}
                     </div>
                   )}
