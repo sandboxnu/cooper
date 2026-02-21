@@ -179,7 +179,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
               <CompanyPopup
                 trigger={<Logo company={companyData} />}
                 company={companyData}
-                locations={finalLocations}
+                locations={finalLocations} 
               />
             ) : (
               <div className="h-20 w-20 rounded-lg border bg-cooper-blue-200"></div>
