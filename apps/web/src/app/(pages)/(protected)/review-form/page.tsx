@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Filter } from "bad-words";
@@ -196,10 +196,22 @@ export default function ReviewForm() {
       companyName: "",
     },
   });
-
   // Watch form values and update roleId and companyId
   const roleName = form.watch("roleName");
   const companyName = form.watch("companyName");
+
+  const isDirty = form.formState.isDirty;
+  const isDirtyRef = useRef(isDirty);
+
+  useEffect(() => {
+    isDirtyRef.current = isDirty;
+  }, [isDirty]);
+
+  useEffect(() => {
+    form.reset();
+    setShowModal(false);
+    isDirtyRef.current = false;
+  }, [form]);
 
   useEffect(() => {
     if (roleName) {
@@ -219,14 +231,18 @@ export default function ReviewForm() {
 
   useEffect(() => {
     const handleLeave: EventListener = () => {
-      setShowModal(true);
+      if (isDirtyRef.current) {
+        setShowModal(true);
+      } else {
+        router.push("/");
+      }
     };
     window.addEventListener("review-form:leave-attempt", handleLeave);
 
     return () => {
       window.removeEventListener("review-form:leave-attempt", handleLeave);
     };
-  }, []);
+  }, [router]);
 
   const profileId = profile?.id;
 
@@ -306,7 +322,7 @@ export default function ReviewForm() {
       <div
         className={`flex h-screen w-full flex-col items-center justify-center overflow-auto bg-white md:flex-row ${showModal ? "pointer-events-none" : ""}`}
       >
-        {showModal && (
+        {isDirty && showModal && (
           <div className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs">
             <div className="pointer-events-auto">
               <Popup

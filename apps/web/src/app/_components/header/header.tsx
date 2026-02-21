@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 import { Button } from "@cooper/ui/button";
 
@@ -23,6 +23,7 @@ export default function Header({ auth }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const session = api.auth.getSession.useQuery();
+  const router = useRouter();
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -31,6 +32,7 @@ export default function Header({ auth }: HeaderProps) {
       window.dispatchEvent(new CustomEvent("review-form:leave-attempt"));
       return;
     }
+    router.push("/")
   };
 
   if (isOpen) {
