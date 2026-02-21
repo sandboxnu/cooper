@@ -198,7 +198,9 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
       review.locationId === locationFilter;
 
     const jobTypeMatch =
-      jobTypeFilter === "all" || review.jobType === jobTypeFilter;
+      jobTypeFilter === "all" ||
+      review.jobType === jobTypeFilter ||
+      (review.jobType === "CO-OP" && jobTypeFilter === "Co-op");
 
     return ratingMatch && locationMatch && jobTypeMatch;
   });
