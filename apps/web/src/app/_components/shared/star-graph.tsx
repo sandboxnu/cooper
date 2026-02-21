@@ -22,19 +22,23 @@ export default function StarGraph({
 
   return (
     <div>
-      <p className="text-[#5A5A5A] font-bold text-sm pb-4">Overall rating</p>
+      <p className="text-cooper-gray-400 font-bold text-sm pb-3">
+        Overall rating
+      </p>
       <div className="mr-6 flex flex-row justify-between w-full items-start text-cooper-gray-400">
-        <div className="flex flex-col">
-          <div className="flex flex-row gap-2">
-            <div className="text-4xl">{averageOverallRating.toFixed(1)}</div>
+        <div className="flex flex-col ">
+          <div className="flex flex-row gap-2 pt-1">
+            <div className="text-4xl text-[#151515]">
+              {averageOverallRating.toFixed(1)}
+            </div>
             <Image src="/svg/star.svg" alt="Star icon" width={28} height={28} />
           </div>
-          <div className="pt-2 text-sm">
+          <div className="pt-4 text-sm">
             Based on {reviews} {reviews === 1 ? "review" : "reviews"}
           </div>
           <div className="text-sm">Cooper average: {cooperAvg}</div>
         </div>
-        <div className="mt-4 w-full min-w-24 max-w-36 md:max-w-64 space-y-1 pt-1 md:mt-0">
+        <div className="mt-4 w-full min-w-24 max-w-36 md:max-w-48 space-y-1 pt-1 md:mt-0 ">
           {ratings.map((rating) => (
             <div key={rating.stars} className="flex items-center">
               <span className="text-xs text-gray-600 mr-2">
