@@ -214,11 +214,18 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
       case "lowest rating":
         return list.sort((a, b) => a.overallRating - b.overallRating);
       case "most recent":
-      default:
-        return list.sort(
-          (a, b) =>
-            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-        );
+      default: {
+        const termOrder: Record<string, number> = {
+          SPRING: 1,
+          SUMMER: 2,
+          FALL: 3,
+        };
+        return list.sort((a, b) => {
+          const yearDiff = b.workYear - a.workYear;
+          if (yearDiff !== 0) return yearDiff;
+          return (termOrder[b.workTerm] ?? 0) - (termOrder[a.workTerm] ?? 0);
+        });
+      }
     }
   }, [filteredReviews, selectedFilter]);
 

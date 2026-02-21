@@ -278,8 +278,8 @@ export default function Roles() {
       );
       const urlCompany = currentUrl.get("company");
       const urlRole = currentUrl.get("role");
-      if (urlCompany && urlRole) {
-        if (!isRole(selectedItem)) return;
+      // Skip URL update only when the URL already matches the selected item
+      if (urlCompany && urlRole && isRole(selectedItem)) {
         const r = selectedItem as RoleType & {
           slug?: string;
           companySlug?: string;
@@ -287,7 +287,7 @@ export default function Roles() {
         };
         const itemCompanySlug =
           r.companySlug ?? createSlug(r.companyName ?? "");
-        if (r.slug !== urlRole || itemCompanySlug !== urlCompany) {
+        if (r.slug === urlRole && itemCompanySlug === urlCompany) {
           return;
         }
       }
