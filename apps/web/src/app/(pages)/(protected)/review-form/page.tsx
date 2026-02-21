@@ -25,6 +25,7 @@ import {
   ReviewSection,
 } from "~/app/_components/form/sections";
 import { PaySection } from "~/app/_components/form/sections/pay-section";
+import Popup from "~/app/_components/form/sections/popup";
 import { api } from "~/trpc/react";
 
 const filter = new Filter();
@@ -167,6 +168,7 @@ export default function ReviewForm() {
   const { toast } = useCustomToast();
   const [roleId, setRoleId] = useState<string>("");
   const [companyId, setCompanyId] = useState<string>("");
+  const [showModal, setShowModal] = useState(false);
 
   const form = useForm<z.infer<ReviewFormType>>({
     resolver: zodResolver(formSchema),
@@ -214,6 +216,17 @@ export default function ReviewForm() {
       setCompanyId("");
     }
   }, [companyName]);
+
+  useEffect(() => {
+    const handleLeave: EventListener = () => {
+      setShowModal(true);
+    };
+    window.addEventListener("review-form:leave-attempt", handleLeave);
+
+    return () => {
+      window.removeEventListener("review-form:leave-attempt", handleLeave);
+    };
+  }, []);
 
   const profileId = profile?.id;
 
@@ -272,6 +285,14 @@ export default function ReviewForm() {
     return null;
   }
 
+  const discardDraft = () => {
+    setShowModal(false);
+    router.push("/");
+  };
+
+  const saveDraft = () => {
+    setShowModal(false);
+  };
   // if (submitted) {
   //   if (validForm) {
   //     return <SubmissionConfirmation />;
@@ -282,7 +303,22 @@ export default function ReviewForm() {
 
   return (
     <Form {...form}>
-      <div className="flex h-screen w-full flex-col items-center justify-center overflow-auto bg-white md:flex-row">
+      <div
+        className={`flex h-screen w-full flex-col items-center justify-center overflow-auto bg-white md:flex-row ${showModal ? "pointer-events-none" : ""}`}
+      >
+        {showModal && (
+          <div className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs">
+            <div className="pointer-events-auto">
+              <Popup
+                showModal={showModal}
+                onCancel={() => setShowModal(false)}
+                onDiscard={discardDraft}
+                onSave={saveDraft}
+              />
+            </div>
+          </div>
+        )}
+
         <div className="justify-left mt-4 flex h-full w-[65%] flex-col pr-3.5 pt-10">
           <div className="text-cooper-gray-550 text-lg">Basic information</div>
           <div className="flex w-full flex-wrap gap-10 pb-12 xl:flex-nowrap">

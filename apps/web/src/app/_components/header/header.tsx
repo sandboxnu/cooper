@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { Button } from "@cooper/ui/button";
 
@@ -20,7 +21,17 @@ interface HeaderProps {
  */
 export default function Header({ auth }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
   const session = api.auth.getSession.useQuery();
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+
+    if (pathname === "/review-form") {
+      window.dispatchEvent(new CustomEvent("review-form:leave-attempt"));
+      return;
+    }
+  };
 
   if (isOpen) {
     return (
@@ -28,10 +39,7 @@ export default function Header({ auth }: HeaderProps) {
         <div className="z-10 ml-3 mr-4 flex h-[8dvh] min-h-10 items-center justify-between gap-4">
           <Link
             href="/"
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.href = "/";
-            }}
+            onClick={handleLogoClick}
           >
             <h1 className="text-2xl font-bold text-cooper-blue-800">Cooper</h1>
           </Link>
@@ -65,10 +73,7 @@ export default function Header({ auth }: HeaderProps) {
     <header className="bg-cooper-cream-100 outline-cooper-gray-150 z-10 flex w-full items-center justify-between px-6 py-4 outline outline-[1px]">
       <Link
         href="/"
-        onClick={(e) => {
-          e.preventDefault();
-          window.location.href = "/";
-        }}
+        onClick={handleLogoClick}
         className={"flex items-center justify-center gap-3"}
       >
         <div className="z-0 flex max-w-[43px] items-end">
