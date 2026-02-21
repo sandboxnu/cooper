@@ -61,7 +61,7 @@ export function RoleCardPreview({
   return (
     <Card
       className={cn(
-        "outline-cooper-gray-150 relative flex flex-col justify-between overflow-hidden rounded-lg outline outline-[0.75px]",
+        "outline-cooper-gray-150 relative flex flex-col justify-between overflow-hidden rounded-lg outline outline-[0.75px] hover:cursor-pointer hover:bg-cooper-gray-200",
         className,
       )}
     >

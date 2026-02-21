@@ -68,12 +68,14 @@ export default function CompanyInfo({
           )}
           <div className="mx-2 mb-6 mt-6 flex items-start justify-between">
             <div className="flex">
-              <div className="mr-3 flex h-16 w-16 items-center justify-center">
-                {company.data && <Logo company={company.data} size="small" />}
+              <div className="mr-3 flex items-center justify-center">
+                {company.data && <Logo company={company.data} />}
               </div>
               <div>
-                <h1 className="text-lg font-semibold">{company.data?.name}</h1>
-                <p className="text-md text-gray-600">
+                <h1 className="text-lg font-medium text-[#151515]">
+                  {company.data?.name}
+                </h1>
+                <p className="text-md text-cooper-gray-400 font-normal">
                   {locations.length > 1
                     ? `${locations[0]} +${locations.length - 1} ${locations.length - 1 === 1 ? "other" : "others"}`
                     : locations.length === 1
