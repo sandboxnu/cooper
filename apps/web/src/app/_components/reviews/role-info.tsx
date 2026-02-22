@@ -23,7 +23,12 @@ import InfoCard from "./info-card";
 import { ReviewCard } from "./review-card";
 import RoundBarGraph from "./round-bar-graph";
 import type { ReviewType, RoleType } from "@cooper/db/schema";
-import { DropdownMenuContent, DropdownMenuTrigger, DropdownMenuLabel, DropdownMenu } from "@cooper/ui/dropdown-menu";
+import {
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+  DropdownMenuLabel,
+  DropdownMenu,
+} from "@cooper/ui/dropdown-menu";
 import { Button } from "@cooper/ui/button";
 import { ChevronDown } from "lucide-react";
 
