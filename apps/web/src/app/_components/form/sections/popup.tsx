@@ -23,7 +23,7 @@ const Popup: React.FC<PopupProps> = ({
       <div className="hidden md:flex">
         <div
           className={
-            "mb-[28px] flex h-fit w-[400px] flex-col rounded-[10px] bg-white p-[15px] lg-shadow"
+            "mb-[28px] flex h-fit w-[400px] flex-col rounded-[10px] bg-white p-[20px] lg-shadow"
           }
         >
           <div className={"flex justify-end"}>
@@ -37,7 +37,7 @@ const Popup: React.FC<PopupProps> = ({
               X
             </button>
           </div>
-          <div className={"flex text-lg font-bold text-black -mt-2"}>
+          <div className={"flex text-lg font-semibold text-[#151515] -mt-2"}>
             <span>Save as Draft?</span>
           </div>
           <div
@@ -54,7 +54,7 @@ const Popup: React.FC<PopupProps> = ({
             <button
               type="button"
               className={
-                "rounded-[6px] border border-gray-200 px-[10px] py-[6px] text-cooper-gray-400 text-xs"
+                "rounded-[6px] border border-gray-200 px-[10px] py-[6px] text-cooper-gray-400 text-sm"
               }
               onClick={onCancel}
             >
@@ -64,7 +64,7 @@ const Popup: React.FC<PopupProps> = ({
               <button
                 type="button"
                 className={
-                  "rounded-[6px] border border-gray-200 px-[10px] py-[6px] text-cooper-gray-400 text-xs"
+                  "rounded-[6px] border border-gray-200 px-[10px] py-[6px] text-cooper-gray-400 text-sm"
                 }
                 onClick={onDiscard}
               >
@@ -73,7 +73,7 @@ const Popup: React.FC<PopupProps> = ({
               <button
                 type="button"
                 className={
-                  "rounded-[6px] bg-orange-400 px-[10px] py-[6px] text-white text-xs"
+                  "rounded-[6px] bg-[#FFA400] px-[10px] py-[6px] text-white text-sm"
                 }
                 onClick={onSave}
               >
@@ -87,7 +87,7 @@ const Popup: React.FC<PopupProps> = ({
       {/* Mobile Popup */}
       <div className="flex w-full flex-col items-center justify-center md:hidden">
         <div className="absolute bottom-20 flex flex-col w-full h-[200px] max-w-sm rounded-lg bg-white p-6 shadow-lg px-[13px]">
-          <div className="mb-[8px] text-black text-xl font-bold text-center">
+          <div className="mb-[8px] text-[#151515] text-xl font-semibold text-center">
             Save as Draft?
           </div>
           <div className="mb-[8px] text-cooper-gray-400 text-base text-center">
@@ -98,7 +98,7 @@ const Popup: React.FC<PopupProps> = ({
           <div className="flex flex-col gap-[12px] w-full">
             <button
               type="button"
-              className={"mb-[8px] text-orange-400 w-full"}
+              className={"mb-[8px] text-orange-400 w-full text-sm"}
               onClick={onSave}
             >
               Save Draft
@@ -107,7 +107,7 @@ const Popup: React.FC<PopupProps> = ({
             <button
               type="button"
               className={
-                "hover:text-cooper-gray-500 text-cooper-gray-400 w-full"
+                "hover:text-cooper-gray-500 text-cooper-gray-400 w-full text-sm"
               }
               onClick={onDiscard}
             >
@@ -119,7 +119,7 @@ const Popup: React.FC<PopupProps> = ({
         <div className="flex items-center justify-center h-[40px] absolute bottom-5 flex-col w-full max-w-sm rounded-lg bg-white shadow-lg">
           <button
             type="button"
-            className={"text-cooper-gray-400 w-full"}
+            className={"text-cooper-gray-400 w-full text-sm"}
             onClick={onCancel}
           >
             Cancel
