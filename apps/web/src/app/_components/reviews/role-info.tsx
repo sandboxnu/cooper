@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,13 +7,7 @@ import type { ReviewType, RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 import Logo from "@cooper/ui/logo";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@cooper/ui/select";
+import { Popover, PopoverAnchor, PopoverContent } from "@cooper/ui/popover";
 
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
@@ -20,7 +15,8 @@ import { calculateRatings } from "~/utils/reviewCountByStars";
 import { CompanyPopup } from "../companies/company-popup";
 import { useCompare } from "../compare/compare-context";
 import { CompareControls } from "../compare/compare-ui";
-import DropdownFilter from "../filters/dropdown-filter";
+import DropdownFilter, { FilterPanelContent } from "../filters/dropdown-filter";
+import { jobTypeOptions } from "../onboarding/constants";
 import StarGraph from "../shared/star-graph";
 import BarGraph from "./bar-graph";
 import CollapsableInfoCard from "./collapsable-info";
@@ -36,14 +32,6 @@ import {
 } from "node_modules/@cooper/ui/src/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 
-const RATING_OPTIONS = [
-  { value: "all", label: "All ratings" },
-  ...([5, 4, 3, 2, 1] as const).map((n) => ({
-    value: String(n),
-    label: `${n} star${n === 1 ? "" : "s"}`,
-  })),
-] as const;
-
 interface RoleCardProps {
   className?: string;
   roleObj: RoleType;
@@ -51,12 +39,30 @@ interface RoleCardProps {
 }
 
 export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
-  const [ratingFilter, setRatingFilter] = useState<string>("all");
+  const [ratingFilter, setRatingFilter] = useState<string[]>([]);
   const [locationFilter, setLocationFilter] = useState<string>("all");
   const [jobTypeFilter, setJobTypeFilter] = useState<string>("all");
   const [locationSearchTerm, setLocationSearchTerm] = useState("");
   const [locationPrefix, setLocationPrefix] = useState("");
+  const [openFilterKey, setOpenFilterKey] = useState<
+    "rating" | "location" | "jobType" | null
+  >(null);
   const reviews = api.review.getByRole.useQuery({ id: roleObj.id });
+
+  const setFilterOpen = (key: "rating" | "location" | "jobType") => {
+    setOpenFilterKey((prev) => (prev === key ? null : key));
+  };
+  const wrapAnchor = (
+    key: "rating" | "location" | "jobType",
+    node: ReactNode,
+  ) =>
+    openFilterKey === key ? (
+      <PopoverAnchor asChild key={key}>
+        {node}
+      </PopoverAnchor>
+    ) : (
+      node
+    );
 
   useEffect(() => {
     const first = locationSearchTerm.slice(0, 3);
@@ -152,6 +158,16 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     return [...Array.from(byId.values())];
   }, [roleLocationQueries, locationsToUpdate.data]);
 
+  const jobTypeOptionsWithId = useMemo(
+    () =>
+      jobTypeOptions.map((j) => ({
+        id: j.label,
+        label: j.label,
+        value: j.value,
+      })),
+    [],
+  );
+
   const avgs = api.review.list
     .useQuery({})
     .data?.map((review) => review.overallRating);
@@ -184,10 +200,15 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
 
   // Filter reviews based on selected rating and search term
   const filteredReviews = reviews.data?.filter((review) => {
-    // Filter by rating
+    // Filter by rating (empty = all; otherwise range min–max inclusive)
     const ratingMatch =
-      ratingFilter === "all" ||
-      Math.round(review.overallRating) === parseInt(ratingFilter);
+      ratingFilter.length === 0 ||
+      (() => {
+        const r = Math.round(review.overallRating);
+        const min = Math.min(...ratingFilter.map(Number));
+        const max = Math.max(...ratingFilter.map(Number));
+        return r >= min && r <= max;
+      })();
 
     const locationMatch =
       locationFilter === "all" ||
@@ -197,7 +218,8 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     const jobTypeMatch =
       jobTypeFilter === "all" ||
       review.jobType === jobTypeFilter ||
-      (review.jobType === "CO-OP" && jobTypeFilter === "Co-op");
+      (review.jobType === "CO-OP" && jobTypeFilter === "Co-op") ||
+      (review.jobType === "INTERNSHIP" && jobTypeFilter === "Internship");
 
     return ratingMatch && locationMatch && jobTypeMatch;
   });
@@ -512,49 +534,122 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                   </div>
 
                   <div className="flex items-center gap-3 pt-6">
-                    <Select
-                      value={ratingFilter}
-                      onValueChange={setRatingFilter}
+                    <Popover
+                      open={openFilterKey !== null}
+                      onOpenChange={(open) => !open && setOpenFilterKey(null)}
                     >
-                      <SelectTrigger className="w-[120px] h-[36px] border-[1px] hover:bg-cooper-gray-200 border-cooper-gray-150 bg-white focus:ring-0 focus:ring-cooper-gray-150 focus:ring-offset-0 text-cooper-gray-400">
-                        <SelectValue placeholder="All ratings" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {RATING_OPTIONS.map(({ value, label }) => (
-                          <SelectItem key={value} value={value}>
-                            {label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    <DropdownFilter
-                      title="Location"
-                      filterType="location"
-                      options={locationOptions}
-                      selectedOptions={
-                        locationFilter === "all" || !locationFilter
-                          ? []
-                          : [locationFilter]
-                      }
-                      onSelectionChange={(selected) =>
-                        setLocationFilter(selected[0] ?? "all")
-                      }
-                      onSearchChange={(search) => setLocationSearchTerm(search)}
-                      side="top"
-                    />
-                    <Select
-                      value={jobTypeFilter}
-                      onValueChange={setJobTypeFilter}
-                    >
-                      <SelectTrigger className="w-[120px] h-[36px] border-[1px] hover:bg-cooper-gray-200 border-cooper-gray-150 bg-white focus:ring-0 focus:ring-cooper-gray-150 focus:ring-offset-0 text-cooper-gray-400">
-                        <SelectValue placeholder="All ratings" />
-                      </SelectTrigger>
-                      <SelectContent side="top">
-                        <SelectItem value="all">All job types</SelectItem>
-                        <SelectItem value="Co-op">Co-op</SelectItem>
-                        <SelectItem value="Internship">Internship</SelectItem>
-                      </SelectContent>
-                    </Select>
+                      {wrapAnchor(
+                        "rating",
+                        <DropdownFilter
+                          key="rating"
+                          title="Overall rating"
+                          filterType="rating"
+                          options={[]}
+                          selectedOptions={ratingFilter}
+                          onSelectionChange={(selected) =>
+                            setRatingFilter(selected)
+                          }
+                          triggerOnly
+                          open={openFilterKey === "rating"}
+                          onTriggerClick={() => setFilterOpen("rating")}
+                          side="top"
+                        />,
+                      )}
+                      {wrapAnchor(
+                        "location",
+                        <DropdownFilter
+                          key="location"
+                          title="Location"
+                          filterType="location"
+                          options={locationOptions}
+                          selectedOptions={
+                            locationFilter === "all" || !locationFilter
+                              ? []
+                              : [locationFilter]
+                          }
+                          onSelectionChange={(selected) =>
+                            setLocationFilter(selected[0] ?? "all")
+                          }
+                          onSearchChange={(search) =>
+                            setLocationSearchTerm(search)
+                          }
+                          triggerOnly
+                          open={openFilterKey === "location"}
+                          onTriggerClick={() => setFilterOpen("location")}
+                          side="top"
+                        />,
+                      )}
+                      {wrapAnchor(
+                        "jobType",
+                        <DropdownFilter
+                          key="jobType"
+                          title="Job type"
+                          filterType="checkbox"
+                          options={jobTypeOptionsWithId}
+                          selectedOptions={
+                            jobTypeFilter === "all" ? [] : [jobTypeFilter]
+                          }
+                          onSelectionChange={(selected) =>
+                            setJobTypeFilter(selected[0] ?? "all")
+                          }
+                          triggerOnly
+                          open={openFilterKey === "jobType"}
+                          onTriggerClick={() => setFilterOpen("jobType")}
+                          side="top"
+                        />,
+                      )}
+                      <PopoverContent
+                        align="start"
+                        side="top"
+                        className="border-0 bg-transparent p-0"
+                      >
+                        {openFilterKey === "rating" && (
+                          <FilterPanelContent
+                            title="Overall rating"
+                            filterType="rating"
+                            options={[]}
+                            selectedOptions={ratingFilter}
+                            onSelectionChange={(selected) =>
+                              setRatingFilter(selected)
+                            }
+                            onClose={() => setOpenFilterKey(null)}
+                          />
+                        )}
+                        {openFilterKey === "location" && (
+                          <FilterPanelContent
+                            title="Location"
+                            filterType="location"
+                            options={locationOptions}
+                            selectedOptions={
+                              locationFilter === "all" || !locationFilter
+                                ? []
+                                : [locationFilter]
+                            }
+                            onSelectionChange={(selected) =>
+                              setLocationFilter(selected[0] ?? "all")
+                            }
+                            onSearchChange={(search) =>
+                              setLocationSearchTerm(search)
+                            }
+                            onClose={() => setOpenFilterKey(null)}
+                          />
+                        )}
+                        {openFilterKey === "jobType" && (
+                          <FilterPanelContent
+                            title="Job type"
+                            filterType="checkbox"
+                            options={jobTypeOptionsWithId}
+                            selectedOptions={
+                              jobTypeFilter === "all" ? [] : [jobTypeFilter]
+                            }
+                            onSelectionChange={(selected) =>
+                              setJobTypeFilter(selected[0] ?? "all")
+                            }
+                            onClose={() => setOpenFilterKey(null)}
+                          />
+                        )}
+                      </PopoverContent>
+                    </Popover>
                     <DropdownMenu>
                       <DropdownMenuTrigger className="text-md text-cooper-gray-400">
                         Sort By:{" "}
@@ -596,7 +691,9 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                     })
                   ) : (
                     <div className="py-8 text-center text-cooper-gray-400">
-                      {locationFilter || jobTypeFilter || ratingFilter !== "all"
+                      {locationFilter ||
+                      jobTypeFilter ||
+                      ratingFilter.length > 0
                         ? "No reviews found matching your filter criteria."
                         : "No reviews found for this rating."}
                     </div>

@@ -11,7 +11,7 @@ import {
 
 import { FormSection } from "~/app/_components/form/form-section";
 import ExistingCompanyContent from "../../reviews/new-review/existing-company-content";
-import { Select } from "../../themed/onboarding/select";
+import FilterBody from "../../filters/filter-body";
 import LocationBox from "../../location";
 import { useEffect, useState } from "react";
 import { api } from "~/trpc/react";
@@ -95,74 +95,78 @@ export function BasicInfoSection({
       <FormField
         control={form.control}
         name="jobType"
-        render={({ field }) => (
-          <FormItem className="flex flex-col w-full pt-4">
-            <FormLabel className="text-sm font-bold text-cooper-gray-400">
-              Job type<span className="text-cooper-red-300">*</span>
-            </FormLabel>
-            <FormControl className="relative w-full">
-              <Select
-                onClear={() => field.onChange(undefined)}
-                options={[
-                  { value: "Co-op", label: "Co-op" },
-                  { value: "Internship", label: "Internship" },
-                ]}
-                className="w-full border-cooper-gray-150 text-cooper-gray-350 text-sm h-10"
-                value={
-                  field.value &&
-                  typeof field.value === "string" &&
-                  field.value.length > 0
-                    ? field.value
-                    : ""
-                }
-                placeholder="Select"
-                onChange={(e) => {
-                  const value =
-                    e.target.value === "" ? undefined : e.target.value;
-                  field.onChange(value);
-                }}
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
+        render={({ field }) => {
+          const options = [
+            { id: "Co-op", label: "Co-op" },
+            { id: "Internship", label: "Internship" },
+          ];
+          return (
+            <FormItem className="flex flex-col w-full pt-4">
+              <FormLabel className="text-sm font-bold text-cooper-gray-400">
+                Job type<span className="text-cooper-red-300">*</span>
+              </FormLabel>
+              <FormControl className="relative w-full">
+                <FilterBody
+                  variant="autocomplete"
+                  title="Job type"
+                  options={options}
+                  selectedOptions={
+                    field.value &&
+                    typeof field.value === "string" &&
+                    field.value.length > 0
+                      ? [field.value]
+                      : []
+                  }
+                  placeholder="Select"
+                  singleSelect
+                  onSelectionChange={(selected) => {
+                    field.onChange(selected[0] ?? undefined);
+                  }}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          );
+        }}
       />
       <FormField
         control={form.control}
         name="workTerm"
-        render={({ field }) => (
-          <FormItem className="flex flex-col flex-1 pt-4">
-            <FormLabel className="text-sm font-bold text-cooper-gray-400">
-              Co-op/internship term
-              <span className="text-cooper-red-300">*</span>
-            </FormLabel>
-            <FormControl className="relative w-full">
-              <Select
-                onClear={() => field.onChange(undefined)}
-                options={[
-                  { value: "SPRING", label: "Spring" },
-                  { value: "SUMMER", label: "Summer" },
-                  { value: "FALL", label: "Fall" },
-                ]}
-                className="w-full border-cooper-gray-150 text-cooper-gray-350 text-sm h-10"
-                value={
-                  field.value &&
-                  typeof field.value === "string" &&
-                  field.value.length > 0
-                    ? field.value
-                    : ""
-                }
-                placeholder="Select"
-                onChange={(e) => {
-                  const value =
-                    e.target.value === "" ? undefined : e.target.value;
-                  field.onChange(value);
-                }}
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
+        render={({ field }) => {
+          const options = [
+            { id: "SPRING", label: "Spring" },
+            { id: "SUMMER", label: "Summer" },
+            { id: "FALL", label: "Fall" },
+          ];
+          return (
+            <FormItem className="flex flex-col flex-1 pt-4">
+              <FormLabel className="text-sm font-bold text-cooper-gray-400">
+                Co-op/internship term
+                <span className="text-cooper-red-300">*</span>
+              </FormLabel>
+              <FormControl className="relative w-full">
+                <FilterBody
+                  variant="autocomplete"
+                  title="Co-op/internship term"
+                  options={options}
+                  selectedOptions={
+                    field.value &&
+                    typeof field.value === "string" &&
+                    field.value.length > 0
+                      ? [field.value]
+                      : []
+                  }
+                  placeholder="Select"
+                  singleSelect
+                  onSelectionChange={(selected) => {
+                    field.onChange(selected[0] ?? undefined);
+                  }}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          );
+        }}
       />
 
       <FormField
@@ -175,21 +179,22 @@ export function BasicInfoSection({
               <span className="text-cooper-red-300">*</span>
             </FormLabel>
             <FormControl className="relative w-full">
-              <Select
+              <FilterBody
+                variant="autocomplete"
+                title="Year"
                 options={years.map((year) => ({
-                  value: year,
-                  label: year,
+                  id: String(year),
+                  label: String(year),
+                  value: String(year),
                 }))}
-                className="w-full border-2 h-10 rounded-lg text-sm text-cooper-gray-350 border-cooper-gray-150"
-                placeholder="Select"
-                onClear={() => field.onChange(undefined)}
-                value={
-                  field.value && field.value > 0 ? String(field.value) : ""
+                selectedOptions={
+                  field.value && field.value > 0 ? [String(field.value)] : []
                 }
-                onChange={(e) => {
-                  const value =
-                    e.target.value === "" ? undefined : Number(e.target.value);
-                  field.onChange(value);
+                placeholder="Select"
+                singleSelect
+                onSelectionChange={(selected) => {
+                  const val = selected[0];
+                  field.onChange(val ? Number(val) : undefined);
                 }}
               />
             </FormControl>
