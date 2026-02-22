@@ -72,9 +72,9 @@ export function PaySection() {
         control={form.control}
         name="hourlyPay"
         render={({ field }) => (
-          <FormItem className="flex w-full flex-col rounded-md">
-            <FormLabel className="block text-sm font-bold text-cooper-gray-400">
-              Hourly pay<span className="text-[#FB7373]">*</span>
+          <FormItem className="rounded-md flex flex-col w-full">
+            <FormLabel className="text-sm font-bold block text-cooper-gray-400 ">
+              Hourly pay<span className="text-cooper-red-300">*</span>
             </FormLabel>
             <FormControl>
               <div className="flex w-full flex-col gap-2">
@@ -85,8 +85,14 @@ export function PaySection() {
                   disabled={isUnpaid}
                 />
                 <div
-                  className="flex cursor-pointer items-center gap-2 rounded-md pt-2.5"
-                  onClick={() => setIsUnpaid(!isUnpaid)}
+                  className="flex items-center gap-2 rounded-md cursor-pointer pt-2.5"
+                  onClick={() => {
+                    const next = !isUnpaid;
+                    setIsUnpaid(next);
+                    form.setValue("hourlyPay", next ? "0" : "", {
+                      shouldValidate: true,
+                    });
+                  }}
                 >
                   <Checkbox checked={isUnpaid} />
                   <span className="text-sm text-cooper-gray-400">
@@ -105,9 +111,9 @@ export function PaySection() {
           control={form.control}
           name="overtimeNormal"
           render={({ field }) => (
-            <FormItem className="flex flex-col">
-              <FormLabel className="text-sm font-bold text-cooper-gray-400">
-                Worked overtime<span className="text-[#FB7373]">*</span>
+            <FormItem className="flex flex-col ">
+              <FormLabel className="text-cooper-gray-400 text-sm font-bold">
+                Worked overtime<span className="text-cooper-red-300">*</span>
               </FormLabel>
               <FormControl>
                 <RadioGroup
@@ -149,9 +155,9 @@ export function PaySection() {
         control={form.control}
         name="pto"
         render={({ field }) => (
-          <FormItem className="flex flex-col pt-3">
-            <FormLabel className="text-sm font-bold text-cooper-gray-400">
-              Received PTO<span className="text-[#FB7373]">*</span>
+          <FormItem className="flex flex-col pt-3 ">
+            <FormLabel className="text-cooper-gray-400 text-sm font-bold">
+              Received PTO<span className="text-cooper-red-300">*</span>
             </FormLabel>
             <FormControl>
               <RadioGroup

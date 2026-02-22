@@ -15,7 +15,6 @@ import { Select } from "../../themed/onboarding/select";
 import LocationBox from "../../location";
 import { useEffect, useState } from "react";
 import { api } from "~/trpc/react";
-import { industryOptions } from "../../onboarding/constants";
 
 /**
  * CoopCycleSection component renders form fields for selecting co-op cycle and year.
@@ -99,7 +98,7 @@ export function BasicInfoSection({
         render={({ field }) => (
           <FormItem className="flex flex-col w-full pt-4">
             <FormLabel className="text-sm font-bold text-cooper-gray-400">
-              Job type<span className="text-[#FB7373]">*</span>
+              Job type<span className="text-cooper-red-300">*</span>
             </FormLabel>
             <FormControl className="relative w-full">
               <Select
@@ -134,7 +133,8 @@ export function BasicInfoSection({
         render={({ field }) => (
           <FormItem className="flex flex-col flex-1 pt-4">
             <FormLabel className="text-sm font-bold text-cooper-gray-400">
-              Co-op/internship term<span className="text-[#FB7373]">*</span>
+              Co-op/internship term
+              <span className="text-cooper-red-300">*</span>
             </FormLabel>
             <FormControl className="relative w-full">
               <Select
@@ -172,7 +172,7 @@ export function BasicInfoSection({
           <FormItem className="flex flex-col flex-1 pt-4">
             <FormLabel className="text-sm font-bold text-cooper-gray-400">
               Year of co-op/internship term
-              <span className="text-[#FB7373]">*</span>
+              <span className="text-cooper-red-300">*</span>
             </FormLabel>
             <FormControl className="relative w-full">
               <Select
@@ -197,40 +197,6 @@ export function BasicInfoSection({
           </FormItem>
         )}
       />
-      <FormField
-        control={form.control}
-        name="industry"
-        render={({ field }) => (
-          <FormItem className="flex flex-col pt-4">
-            <FormLabel className="text-sm text-cooper-gray-400 font-bold">
-              Industry<span className="text-[#FB7373]">*</span>
-            </FormLabel>
-            <div>
-              <Select
-                placeholder="Search by industry..."
-                options={industryOptions.sort((a, b) =>
-                  a.label.localeCompare(b.label),
-                )}
-                className="border-2 rounded-lg h-10 text-sm text-cooper-gray-350 border-cooper-gray-150"
-                value={
-                  field.value &&
-                  typeof field.value === "string" &&
-                  field.value.length > 0
-                    ? field.value
-                    : ""
-                }
-                onClear={() => field.onChange(undefined)}
-                onChange={(e) => {
-                  const value =
-                    e.target.value === "" ? undefined : String(e.target.value);
-                  field.onChange(value);
-                }}
-              />
-            </div>
-            <FormMessage className="text-sm" />
-          </FormItem>
-        )}
-      />
 
       <FormField
         control={form.control}
@@ -238,7 +204,7 @@ export function BasicInfoSection({
         render={() => (
           <FormItem className="flex flex-col pt-4 w-full">
             <FormLabel className="text-sm text-cooper-gray-400 font-bold">
-              Location<span className="text-[#FB7373]">*</span>
+              Location<span className="text-cooper-red-300">*</span>
             </FormLabel>
             <FormControl className="w-full">
               <LocationBox
