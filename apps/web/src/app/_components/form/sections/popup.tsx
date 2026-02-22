@@ -23,19 +23,14 @@ const Popup: React.FC<PopupProps> = ({
       <div className="hidden md:flex">
         <div
           className={
-            "mb-[28px] flex h-fit w-[458px] flex-col rounded-[10px] bg-white p-[24px] shadow-sm shadow-black blur-[10]"
+            "mb-[28px] flex h-fit w-[400px] flex-col rounded-[10px] bg-white p-[15px] lg-shadow"
           }
         >
-          <div
-            className={
-              "mb-[8px] flex items-center justify-between text-base font-bold text-black"
-            }
-          >
-            <span>Save as Draft?</span>
-            <button
+          <div className = {"flex justify-end"}>
+          <button
               type="button"
               className={
-                "flex h-4 w-4 items-center justify-center rounded-full bg-gray-200 text-xs font-bold text-gray-500"
+                "flex h-4 w-4 items-center justify-center rounded-full bg-gray-300 text-[9px] font-bold text-gray-500"
               }
               onClick={onCancel}
             >
@@ -44,7 +39,15 @@ const Popup: React.FC<PopupProps> = ({
           </div>
           <div
             className={
-              "mb-[8px] py-[8px] text-sm font-semibold text-cooper-gray-400"
+              "flex text-lg font-bold text-black -mt-2"
+            }
+          >
+            <span>Save as Draft?</span>
+            
+          </div>
+          <div
+            className={
+              "mb-[12px] py-[8px] text-base font-semibold text-cooper-gray-400"
             }
           >
             We'll save what you've written so far, and you can continue editing
@@ -56,28 +59,28 @@ const Popup: React.FC<PopupProps> = ({
             <button
               type="button"
               className={
-                "rounded-[4px] border border-gray-400 px-[8px] py-[4px] text-cooper-gray-400"
+                "rounded-[6px] border border-gray-200 px-[10px] py-[6px] text-cooper-gray-400 text-xs"
               }
               onClick={onCancel}
             >
               Cancel
             </button>
-            <div className={"flex gap-[20px]"}>
+            <div className={"flex gap-[8px]"}>
               <button
                 type="button"
-                className={"hover:text-cooper-gray-500 text-cooper-gray-400"}
+                className={"rounded-[6px] border border-gray-200 px-[10px] py-[6px] text-cooper-gray-400 text-xs"}
                 onClick={onDiscard}
               >
-                Discard
+                Do not save
               </button>
               <button
                 type="button"
                 className={
-                  "rounded-[4px] bg-orange-400 px-[8px] py-[4px] text-white"
+                  "rounded-[6px] bg-orange-400 px-[10px] py-[6px] text-white text-xs"
                 }
                 onClick={onSave}
               >
-                Save Draft
+                Confirm
               </button>
             </div>
           </div>
