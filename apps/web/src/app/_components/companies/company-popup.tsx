@@ -1,8 +1,6 @@
 "use client";
 
-import Logo from "node_modules/@cooper/ui/src/logo";
-
-import type { CompanyType } from "@cooper/db/schema";
+import { useState } from "react";
 import { Button } from "@cooper/ui/button";
 import {
   Dialog,
@@ -16,6 +14,8 @@ import { FavoriteButton } from "../shared/favorite-button";
 import RenderAllRoles from "./all-company-roles";
 import { CompanyAbout } from "./company-about";
 import { CompanyReview } from "./company-reviews";
+import Logo from "node_modules/@cooper/ui/src/logo";
+import { CompanyType } from "@cooper/db/schema";
 
 interface CompanyPopupProps {
   trigger?: React.ReactNode;
@@ -28,8 +28,10 @@ export function CompanyPopup({
   company,
   locations,
 }: CompanyPopupProps) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         {trigger ? (
           <Button className="bg-cooper-cream-100 text-md hover:bg-cooper-cream-100 h-auto border-none !p-0 !py-0 text-cooper-gray-400 outline-none hover:underline">
@@ -46,7 +48,7 @@ export function CompanyPopup({
         <div className="mx-2 mb-5 mt-2 flex items-start justify-between">
           <div className="flex">
             <div className="mr-3 flex h-12 w-12 items-center justify-center">
-              <Logo company={company} size="medium" />
+              <Logo company={company} />
             </div>
             <div>
               <h1 className="text-lg font-medium">{company.name}</h1>
@@ -72,7 +74,7 @@ export function CompanyPopup({
             <CompanyAbout companyObj={company} />
           </div>
           <div>
-            <RenderAllRoles company={company} />
+            <RenderAllRoles company={company} onClose={() => setOpen(false)} />
           </div>
         </div>
       </DialogContent>

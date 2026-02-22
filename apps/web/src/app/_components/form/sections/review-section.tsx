@@ -12,7 +12,7 @@ import {
 import { Textarea } from "@cooper/ui/textarea";
 
 import { FormSection } from "~/app/_components/form/form-section";
-import { Select } from "../../themed/onboarding/select";
+import FilterBody from "../../filters/filter-body";
 
 /**
  * ReviewSection component renders form fields for writing a co-op review.
@@ -25,36 +25,37 @@ export function ReviewSection() {
       <FormField
         control={form.control}
         name="overallRating"
-        render={({ field }) => (
-          <FormItem className="flex flex-col pt-3">
-            <FormLabel className="text-sm font-bold text-cooper-gray-400">
-              Overall rating<span className="text-cooper-red-300">*</span>
-            </FormLabel>
-            <FormControl className="relative flex-1">
-              <Select
-                onClear={() => field.onChange(undefined)}
-                options={[
-                  { value: 1, label: 1 },
-                  { value: 2, label: 2 },
-                  { value: 3, label: 3 },
-                  { value: 4, label: 4 },
-                  { value: 5, label: 5 },
-                ]}
-                className="border-cooper-gray-150 h-10 w-full text-sm"
-                value={
-                  field.value && field.value > 0 ? String(field.value) : ""
-                }
-                placeholder="Select"
-                onChange={(e) => {
-                  const value =
-                    e.target.value === "" ? undefined : Number(e.target.value);
-                  field.onChange(value);
-                }}
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
+        render={({ field }) => {
+          const options = [1, 2, 3, 4, 5].map((n) => ({
+            id: String(n),
+            label: String(n),
+            value: String(n),
+          }));
+          return (
+            <FormItem className="flex flex-col pt-3">
+              <FormLabel className="text-sm font-bold text-cooper-gray-400">
+                Overall rating<span className="text-cooper-red-300">*</span>
+              </FormLabel>
+              <FormControl className="relative flex-1">
+                <FilterBody
+                  variant="autocomplete"
+                  title="Overall rating"
+                  options={options}
+                  selectedOptions={
+                    field.value && field.value > 0 ? [String(field.value)] : []
+                  }
+                  placeholder="Select"
+                  singleSelect
+                  onSelectionChange={(selected) => {
+                    const val = selected[0];
+                    field.onChange(val ? Number(val) : undefined);
+                  }}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          );
+        }}
       />
       <FormField
         control={form.control}
