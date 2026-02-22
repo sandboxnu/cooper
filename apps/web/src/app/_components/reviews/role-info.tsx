@@ -2,7 +2,6 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import type { ReviewType, RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 import Logo from "@cooper/ui/logo";
@@ -18,14 +17,16 @@ import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { calculateRatings } from "~/utils/reviewCountByStars";
 import { CompanyPopup } from "../companies/company-popup";
-import { useCompare } from "../compare/compare-context";
-import { CompareControls } from "../compare/compare-ui";
 import StarGraph from "../shared/star-graph";
 import BarGraph from "./bar-graph";
-import ModalContainer from "./modal";
+import CollapsableInfoCard from "./collapsable-info";
+import InfoCard from "./info-card";
 import { ReviewCard } from "./review-card";
 import ReviewSearchBar from "./review-search-bar";
 import RoundBarGraph from "./round-bar-graph";
+import type { ReviewType, RoleType } from "@cooper/db/schema";
+import { CompareControls } from "../compare/compare-ui";
+import { useCompare } from "../compare/compare-context";
 
 interface RoleCardProps {
   className?: string;
@@ -207,7 +208,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             </div>
           </div>
         </CardHeader>
-        <div className="mr-6 flex flex-col items-end gap-2">
+        <div className="flex flex-col items-end mr-6 gap-2">
           <CardContent className="grid gap-2">
             {reviews.isSuccess &&
               reviews.data.length > 0 &&
@@ -239,27 +240,27 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
       <div className="flex w-[100%] justify-between">
         <div className="grid w-full grid-cols-2 gap-5 px-3 lg:pl-6 lg:pr-6">
           <div className="col-span-2 h-full md:col-span-1" id="job-description">
-            <ModalContainer title={"Job Description"}>
+            <InfoCard title={"Job Description"}>
               <div className="flex h-28 overflow-y-auto pr-4 text-[#5a5a5a] md:h-40">
                 {roleObj.description}
               </div>
-            </ModalContainer>
+            </InfoCard>
           </div>
           {companyData && (
             <div className="col-span-2 h-full md:col-span-1" id="company">
-              <ModalContainer title={`About ${companyData.name}`}>
+              <InfoCard title={`About ${companyData.name}`}>
                 <div className="flex gap-4 text-[#5a5a5a]">
                   <Logo company={companyData} />
                   <p className="h-28 overflow-y-auto md:h-40">
                     {companyData.description}
                   </p>
                 </div>
-              </ModalContainer>
+              </InfoCard>
             </div>
           )}
 
-          <div className="col-span-2">
-            <ModalContainer title={"On the job"}>
+          <div className="col-span-2" id="on-the-job">
+            <CollapsableInfoCard title={"On the job"}>
               {averages.data && (
                 <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
                   <div className="flex flex-wrap gap-10 lg:flex-nowrap">
@@ -306,12 +307,11 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                   </div>
                 </div>
               )}
-            </ModalContainer>
+            </CollapsableInfoCard>
           </div>
-
           {averages.data && (
             <div className="col-span-2" id="pay">
-              <ModalContainer title={"Pay"}>
+              <CollapsableInfoCard title={"Pay"}>
                 <div className="flex flex-col justify-between gap-3 md:flex-row">
                   <div className="flex flex-col gap-2 md:w-[30%] md:gap-5">
                     <div className="text-cooper-gray-400">Pay range</div>
@@ -373,11 +373,11 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                     />
                   </div>
                 </div>
-              </ModalContainer>
+              </CollapsableInfoCard>
             </div>
           )}
           <div className="col-span-2" id="interview">
-            <ModalContainer title="Interview">
+            <CollapsableInfoCard title="Interview">
               {averages.data && (
                 <div className="flex flex-wrap gap-10">
                   <BarGraph
@@ -392,10 +392,10 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                   />
                 </div>
               )}
-            </ModalContainer>
+            </CollapsableInfoCard>
           </div>
           <div className="col-span-2" id="reviews">
-            <ModalContainer title="Reviews">
+            <CollapsableInfoCard title="Reviews">
               {reviews.isSuccess && reviews.data.length === 0 && (
                 <div className="flex h-full w-full flex-col items-center justify-center text-[#5a5a5a]">
                   <p>No reviews yet</p>
@@ -456,7 +456,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                   )}
                 </div>
               )}
-            </ModalContainer>
+            </CollapsableInfoCard>
           </div>
         </div>
       </div>
