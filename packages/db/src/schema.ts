@@ -6,7 +6,6 @@ import type {
   WorkEnvironmentType,
   WorkTermType,
   StatusType,
-  JobTypeType,
 } from "./schema/misc";
 import type { ReviewType } from "./schema/reviews";
 import type { RoleType } from "./schema/roles";

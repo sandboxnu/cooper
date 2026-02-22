@@ -4,22 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Filter } from "bad-words";
-import dayjs from "dayjs";
-import { Form } from "node_modules/@cooper/ui/src/form";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
-
-import {
-  Industry,
-  JobType,
-  WorkEnvironment,
-  WorkTerm,
-} from "@cooper/db/schema";
-import { useCustomToast } from "@cooper/ui";
-import { Button } from "@cooper/ui/button";
 
 import { Button } from "@cooper/ui/button";
 
@@ -29,12 +14,10 @@ import {
   InterviewSection,
   ReviewSection,
 } from "~/app/_components/form/sections";
-import { PaySection } from "~/app/_components/form/sections/pay-section";
 import Popup from "~/app/_components/form/sections/popup";
 import { z } from "zod";
 import { useCustomToast } from "@cooper/ui";
 import { WorkEnvironment, WorkTerm, JobType } from "@cooper/db/schema";
-import { Filter } from "bad-words";
 import dayjs from "dayjs";
 import { Form } from "node_modules/@cooper/ui/src/form";
 import { PaySection } from "~/app/_components/form/sections/pay-section";
@@ -329,22 +312,8 @@ export default function ReviewForm() {
   return (
     <Form {...form}>
       <div
-        className={`flex h-screen w-full flex-col items-center justify-center overflow-auto bg-white md:flex-row ${showModal ? "pointer-events-none" : ""}`}
+        className={`${showModal ? "pointer-events-none" : ""} flex h-screen w-full flex-col items-center justify-center overflow-auto bg-white md:flex-row`}
       >
-        {isDirty && showModal && (
-          <div className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs">
-            <div className="pointer-events-auto">
-              <Popup
-                showModal={showModal}
-                onCancel={() => setShowModal(false)}
-                onDiscard={discardDraft}
-                onSave={saveDraft}
-              />
-            </div>
-          </div>
-        )}
-
-      <div className="flex h-screen w-full flex-col items-center justify-center overflow-auto bg-white md:flex-row">
         <div className="justify-left mt-4 flex h-full w-[65%] flex-col pr-3.5 pt-10">
           <div className="text-cooper-gray-550 text-lg">Basic information</div>
           <div className="flex w-full flex-wrap gap-10 pb-12 xl:flex-nowrap">
@@ -402,6 +371,18 @@ export default function ReviewForm() {
             <div>You already submitted too many reviews for this term</div>
           )}
         </div>
+        {isDirty && showModal && (
+          <div className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs">
+            <div className="pointer-events-auto">
+              <Popup
+                showModal={showModal}
+                onCancel={() => setShowModal(false)}
+                onDiscard={discardDraft}
+                onSave={saveDraft}
+              />
+            </div>
+          </div>
+        )}
       </div>
     </Form>
   );
