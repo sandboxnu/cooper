@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Filter } from "bad-words";
 import { useForm } from "react-hook-form";
 
 import { Button } from "@cooper/ui/button";
@@ -13,10 +14,10 @@ import {
   InterviewSection,
   ReviewSection,
 } from "~/app/_components/form/sections";
+import Popup from "~/app/_components/form/sections/popup";
 import { z } from "zod";
 import { useCustomToast } from "@cooper/ui";
 import { WorkEnvironment, WorkTerm, JobType } from "@cooper/db/schema";
-import { Filter } from "bad-words";
 import dayjs from "dayjs";
 import { Form } from "node_modules/@cooper/ui/src/form";
 import { PaySection } from "~/app/_components/form/sections/pay-section";
@@ -159,6 +160,7 @@ export default function ReviewForm() {
   const { toast } = useCustomToast();
   const [roleId, setRoleId] = useState<string>("");
   const [companyId, setCompanyId] = useState<string>("");
+  const [showModal, setShowModal] = useState(false);
 
   const form = useForm<z.infer<ReviewFormType>>({
     resolver: zodResolver(formSchema),
@@ -186,10 +188,22 @@ export default function ReviewForm() {
       companyName: "",
     },
   });
-
   // Watch form values and update roleId and companyId
   const roleName = form.watch("roleName");
   const companyName = form.watch("companyName");
+
+  const isDirty = form.formState.isDirty;
+  const isDirtyRef = useRef(isDirty);
+
+  useEffect(() => {
+    isDirtyRef.current = isDirty;
+  }, [isDirty]);
+
+  useEffect(() => {
+    form.reset();
+    setShowModal(false);
+    isDirtyRef.current = false;
+  }, [form]);
 
   useEffect(() => {
     if (roleName) {
@@ -206,6 +220,21 @@ export default function ReviewForm() {
       setCompanyId("");
     }
   }, [companyName]);
+
+  useEffect(() => {
+    const handleLeave: EventListener = () => {
+      if (isDirtyRef.current) {
+        setShowModal(true);
+      } else {
+        router.push("/");
+      }
+    };
+    window.addEventListener("review-form:leave-attempt", handleLeave);
+
+    return () => {
+      window.removeEventListener("review-form:leave-attempt", handleLeave);
+    };
+  }, [router]);
 
   const profileId = profile?.id;
 
@@ -264,6 +293,14 @@ export default function ReviewForm() {
     return null;
   }
 
+  const discardDraft = () => {
+    setShowModal(false);
+    router.push("/");
+  };
+
+  const saveDraft = () => {
+    setShowModal(false);
+  };
   // if (submitted) {
   //   if (validForm) {
   //     return <SubmissionConfirmation />;
@@ -274,7 +311,9 @@ export default function ReviewForm() {
 
   return (
     <Form {...form}>
-      <div className="flex h-screen w-full flex-col items-center justify-center overflow-auto bg-white md:flex-row">
+      <div
+        className={`${showModal ? "pointer-events-none" : ""} flex h-screen w-full flex-col items-center justify-center overflow-auto bg-white md:flex-row`}
+      >
         <div className="justify-left mt-4 flex h-full w-[65%] flex-col pr-3.5 pt-10">
           <div className="text-cooper-gray-550 text-lg">Basic information</div>
           <div className="flex w-full flex-wrap gap-10 pb-12 xl:flex-nowrap">
@@ -332,6 +371,18 @@ export default function ReviewForm() {
             <div>You already submitted too many reviews for this term</div>
           )}
         </div>
+        {isDirty && showModal && (
+          <div className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs">
+            <div className="pointer-events-auto">
+              <Popup
+                showModal={showModal}
+                onCancel={() => setShowModal(false)}
+                onDiscard={discardDraft}
+                onSave={saveDraft}
+              />
+            </div>
+          </div>
+        )}
       </div>
     </Form>
   );
