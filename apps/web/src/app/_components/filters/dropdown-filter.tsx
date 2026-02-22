@@ -210,7 +210,7 @@ export function FilterPanelContent(
     | "onRangeChange"
     | "onSearchChange"
     | "placeholder"
-  > & { onClose: () => void },
+  > & { onClose: () => void; isInMenuContent?: boolean },
 ) {
   const {
     title,
@@ -224,6 +224,7 @@ export function FilterPanelContent(
     onSearchChange,
     onClose,
     placeholder,
+    isInMenuContent = true,
   } = props;
 
   const handleClear = () => {
@@ -263,6 +264,7 @@ export function FilterPanelContent(
         onRangeChange={onRangeChange}
         onSearchChange={onSearchChange}
         placeholder={placeholder}
+        isInMenuContent={isInMenuContent}
       />
     </div>
   );

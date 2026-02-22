@@ -40,7 +40,7 @@ interface RoleCardProps {
 
 export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
   const [ratingFilter, setRatingFilter] = useState<string[]>([]);
-  const [locationFilter, setLocationFilter] = useState<string>("all");
+  const [locationFilter, setLocationFilter] = useState<string[]>([]);
   const [jobTypeFilter, setJobTypeFilter] = useState<string>("all");
   const [locationSearchTerm, setLocationSearchTerm] = useState("");
   const [locationPrefix, setLocationPrefix] = useState("");
@@ -211,9 +211,8 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
       })();
 
     const locationMatch =
-      locationFilter === "all" ||
-      !locationFilter ||
-      review.locationId === locationFilter;
+      locationFilter.length === 0 ||
+      (!!review.locationId && locationFilter.includes(review.locationId));
 
     const jobTypeMatch =
       jobTypeFilter === "all" ||
@@ -562,13 +561,9 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                           title="Location"
                           filterType="location"
                           options={locationOptions}
-                          selectedOptions={
-                            locationFilter === "all" || !locationFilter
-                              ? []
-                              : [locationFilter]
-                          }
+                          selectedOptions={locationFilter}
                           onSelectionChange={(selected) =>
-                            setLocationFilter(selected[0] ?? "all")
+                            setLocationFilter(selected)
                           }
                           onSearchChange={(search) =>
                             setLocationSearchTerm(search)
@@ -620,18 +615,15 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                             title="Location"
                             filterType="location"
                             options={locationOptions}
-                            selectedOptions={
-                              locationFilter === "all" || !locationFilter
-                                ? []
-                                : [locationFilter]
-                            }
+                            selectedOptions={locationFilter}
                             onSelectionChange={(selected) =>
-                              setLocationFilter(selected[0] ?? "all")
+                              setLocationFilter(selected)
                             }
                             onSearchChange={(search) =>
                               setLocationSearchTerm(search)
                             }
                             onClose={() => setOpenFilterKey(null)}
+                            isInMenuContent
                           />
                         )}
                         {openFilterKey === "jobType" && (
@@ -691,9 +683,9 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                     })
                   ) : (
                     <div className="py-8 text-center text-cooper-gray-400">
-                      {locationFilter ||
-                      jobTypeFilter ||
-                      ratingFilter.length > 0
+                      {locationFilter.length > 0 ||
+                        jobTypeFilter ||
+                        ratingFilter.length > 0
                         ? "No reviews found matching your filter criteria."
                         : "No reviews found for this rating."}
                     </div>
