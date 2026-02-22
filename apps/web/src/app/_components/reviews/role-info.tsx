@@ -149,10 +149,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     const byId = new Map<string, { id: string; label: string }>();
     for (const o of fromRole) byId.set(o.id, o);
     for (const o of fromSearch) byId.set(o.id, o);
-    return [
-      { id: "all", label: "All locations" },
-      ...Array.from(byId.values()),
-    ];
+    return [...Array.from(byId.values())];
   }, [roleLocationQueries, locationsToUpdate.data]);
 
   const avgs = api.review.list
@@ -519,7 +516,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                       value={ratingFilter}
                       onValueChange={setRatingFilter}
                     >
-                      <SelectTrigger className="w-[120px] h-[36px] border-[1px] border-cooper-gray-150 bg-white focus:ring-0 focus:ring-cooper-gray-150 focus:ring-offset-0 text-cooper-gray-400">
+                      <SelectTrigger className="w-[120px] h-[36px] border-[1px] hover:bg-cooper-gray-200 border-cooper-gray-150 bg-white focus:ring-0 focus:ring-cooper-gray-150 focus:ring-offset-0 text-cooper-gray-400">
                         <SelectValue placeholder="All ratings" />
                       </SelectTrigger>
                       <SelectContent>
@@ -549,7 +546,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                       value={jobTypeFilter}
                       onValueChange={setJobTypeFilter}
                     >
-                      <SelectTrigger className="w-[120px] h-[36px] border-[1px] border-cooper-gray-150 bg-white focus:ring-0 focus:ring-cooper-gray-150 focus:ring-offset-0 text-cooper-gray-400">
+                      <SelectTrigger className="w-[120px] h-[36px] border-[1px] hover:bg-cooper-gray-200 border-cooper-gray-150 bg-white focus:ring-0 focus:ring-cooper-gray-150 focus:ring-offset-0 text-cooper-gray-400">
                         <SelectValue placeholder="All ratings" />
                       </SelectTrigger>
                       <SelectContent side="top">
