@@ -6,15 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import {
-  Industry,
-  JobType,
-  WorkEnvironment,
-  WorkTerm,
-} from "@cooper/db/schema";
+import { JobType, WorkEnvironment, WorkTerm } from "@cooper/db/schema";
 import { useCustomToast } from "@cooper/ui";
-import { Button } from "@cooper/ui/button";
-
 import { Button } from "@cooper/ui/button";
 
 import {
@@ -23,8 +16,6 @@ import {
   InterviewSection,
   ReviewSection,
 } from "~/app/_components/form/sections";
-import { useCustomToast } from "@cooper/ui";
-import { WorkEnvironment, WorkTerm, JobType } from "@cooper/db/schema";
 import { Filter } from "bad-words";
 import dayjs from "dayjs";
 import { Form } from "node_modules/@cooper/ui/src/form";
