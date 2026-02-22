@@ -295,6 +295,7 @@ function FilterBodyLocation({
   selectedOptions,
   onSelectionChange,
   onSearchChange,
+  isInMenuContent,
 }: FilterBodyProps) {
   return (
     <div className="flex flex-col gap-3">
@@ -307,6 +308,7 @@ function FilterBodyLocation({
         onChange={(selected) => onSelectionChange?.(selected)}
         placeholder="Search by city or state..."
         onSearchChange={onSearchChange}
+        isInMenuContent={isInMenuContent}
       />
     </div>
   );
