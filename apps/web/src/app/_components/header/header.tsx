@@ -32,17 +32,14 @@ export default function Header({ auth }: HeaderProps) {
       window.dispatchEvent(new CustomEvent("review-form:leave-attempt"));
       return;
     }
-    router.push("/")
+    router.push("/");
   };
 
   if (isOpen) {
     return (
       <header className="bg-cooper-cream-100 z-50 flex min-h-[14rem] w-full flex-col justify-start outline outline-[1px]">
         <div className="z-10 ml-3 mr-4 flex h-[8dvh] min-h-10 items-center justify-between gap-4">
-          <Link
-            href="/"
-            onClick={handleLogoClick}
-          >
+          <Link href="/" onClick={handleLogoClick}>
             <h1 className="text-2xl font-bold text-cooper-blue-800">Cooper</h1>
           </Link>
           <Button
