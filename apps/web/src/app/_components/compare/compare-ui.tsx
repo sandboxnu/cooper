@@ -34,7 +34,7 @@ export function CompareControls({
   if (!compare.isCompareMode) {
     return (
       <Button
-        className="inline-flex items-center gap-1.5 rounded-md border border-[rgba(49,115,222,0.2)] bg-[rgba(49,115,222,0.15)] px-3 py-1.5 text-xs font-semibold text-[#606060] transition hover:bg-[rgba(49,115,222,0.25)]"
+        className="hidden md:inline-flex items-center gap-1.5 rounded-md border border-[rgba(49,115,222,0.2)] bg-[rgba(49,115,222,0.15)] px-3 py-1.5 text-xs font-semibold text-[#606060] transition hover:bg-[rgba(49,115,222,0.25)]"
         onClick={() => compare.enterCompareMode()}
       >
         <Image

@@ -457,6 +457,8 @@ export default function Roles() {
     );
   };
 
+  const roleInfoScrollRef = useRef<HTMLDivElement>(null);
+
   const handleRoleDragStart = (
     event: React.DragEvent<HTMLDivElement>,
     role: RoleType,
@@ -484,6 +486,12 @@ export default function Roles() {
       document.body.removeChild(preview);
     });
   };
+
+  useEffect(() => {
+    if (selectedRole) {
+      roleInfoScrollRef.current?.scrollTo({ top: 0 });
+    }
+  }, [selectedRole?.id]);
 
   return (
     <div className="flex h-full w-full flex-col">
@@ -575,10 +583,6 @@ export default function Roles() {
                 <RoleTypeSelector
                   onSelectedTypeChange={setSelectedType}
                   selectedType={selectedType}
-                  data={{
-                    totalRolesCount: rolesAndCompanies.data.totalRolesCount,
-                    totalCompanyCount: rolesAndCompanies.data.totalCompanyCount,
-                  }}
                 />
               </div>
               {rolesAndCompanies.data.items.map((item, i) => {
@@ -650,7 +654,7 @@ export default function Roles() {
                         }
                         showFavorite={!compare.isCompareMode}
                         className={cn(
-                          "hover:bg-cooper-gray-200",
+                          "hover:bg-cooper-gray-200 hover:cursor-pointer",
                           selectedItem
                             ? selectedItem.id === item.id &&
                                 "bg-cooper-cream-200 hover:bg-cooper-gray-200"
@@ -676,7 +680,7 @@ export default function Roles() {
                       <CompanyCardPreview
                         companyObj={item}
                         className={cn(
-                          "mb-4 hover:bg-cooper-gray-100",
+                          "mb-4 hover:bg-cooper-gray-200 hover:cursor-pointer",
                           selectedItem
                             ? selectedItem.id === item.id &&
                                 "bg-cooper-cream-200"
@@ -698,6 +702,7 @@ export default function Roles() {
               </div>
             </div>
             <div
+              ref={roleInfoScrollRef}
               className={cn(
                 "col-span-3 w-full overflow-y-auto p-1",
                 "md:w-[72%]", // Show as 72% width on md and above
@@ -737,16 +742,6 @@ export default function Roles() {
         onFilterChange={handleFilterChange}
         selectedType={selectedType}
         onSelectedTypeChange={setSelectedType}
-        data={
-          rolesAndCompanies.isFetching
-            ? undefined
-            : {
-                totalRolesCount: rolesAndCompanies.data?.totalRolesCount ?? 0,
-                totalCompanyCount:
-                  rolesAndCompanies.data?.totalCompanyCount ?? 0,
-              }
-        }
-        isLoading={rolesAndCompanies.isFetching}
       />
     </div>
   );
