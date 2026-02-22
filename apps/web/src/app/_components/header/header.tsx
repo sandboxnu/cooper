@@ -18,12 +18,9 @@ import { api } from "~/trpc/react";
 import { handleSignOut } from "../auth/actions";
 import CooperLogo from "../cooper-logo";
 import MobileHeaderButton from "./mobile-header-button";
-
 interface HeaderProps {
   auth: React.ReactNode;
 }
-
-const utils = api.useUtils();
 
 /**
  * This is the header component. (Probably) should use header-layout instead
@@ -34,6 +31,7 @@ export default function Header({ auth }: HeaderProps) {
   const pathname = usePathname();
   const session = api.auth.getSession.useQuery();
   const router = useRouter();
+  const utils = api.useUtils();
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
