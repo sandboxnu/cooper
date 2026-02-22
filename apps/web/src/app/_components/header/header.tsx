@@ -5,9 +5,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@cooper/ui/dropdown-menu";
 import { Button } from "@cooper/ui/button";
 
 import { api } from "~/trpc/react";
+import { handleSignOut } from "../auth/actions";
 import CooperLogo from "../cooper-logo";
 import MobileHeaderButton from "./mobile-header-button";
 
@@ -60,9 +68,50 @@ export default function Header({ auth }: HeaderProps) {
             label="Jobs"
             onClick={() => setIsOpen(false)}
           />
-          <MobileHeaderButton label="Profile" onClick={() => setIsOpen(false)}>
-            {auth}
-          </MobileHeaderButton>
+          {session.data ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="my-1 flex h-20 w-20 flex-col gap-1 border-cooper-blue-600 text-sm text-cooper-blue-600"
+                >
+                  <Image
+                    src={session.data.user.image ?? "/svg/defaultProfile.svg"}
+                    width={32}
+                    height={32}
+                    alt="Profile"
+                    className="rounded-full"
+                  />
+                  <span>Profile</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="center">
+                <DropdownMenuLabel className="text-center">
+                  <Link href="/profile" onClick={() => setIsOpen(false)}>
+                    Profile
+                  </Link>
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuLabel className="text-center">
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      await handleSignOut();
+                      await utils.auth.getSession.invalidate();
+                      setIsOpen(false);
+                    }}
+                  >
+                    Log Out
+                  </button>
+                </DropdownMenuLabel>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            <MobileHeaderButton label="" onClick={() => setIsOpen(false)}>
+              {auth}
+            </MobileHeaderButton>
+          )}
         </div>
       </header>
     );
@@ -101,31 +150,32 @@ export default function Header({ auth }: HeaderProps) {
         {auth}
       </div>
 
-      {/* Mobile new review button and burger button */}
+      {/* Mobile: when logged in show + and hamburger; when logged out show only login button */}
       <div className="justify-right mr-2 flex flex-shrink grid-cols-2 items-center gap-2 md:hidden">
         {session.data ? (
-          <Link href="/review-form">
-            <Button className="hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700 h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white">
-              <span className="translate-y-[-2px] text-2xl md:hidden">+</span>
+          <>
+            <Link href="/review-form">
+              <Button className="hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700 h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white">
+                <span className="translate-y-[-2px] text-2xl md:hidden">+</span>
+              </Button>
+            </Link>
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsOpen((prev) => !prev)}
+            >
+              <Image
+                src="/svg/burgerMenu.svg"
+                width="32"
+                height="32"
+                alt="Hamburger Menu"
+              />
             </Button>
-          </Link>
+          </>
         ) : (
           auth
         )}
-
-        <Button
-          type="button"
-          variant="ghost"
-          size="icon"
-          onClick={() => setIsOpen((prev) => !prev)}
-        >
-          <Image
-            src="/svg/burgerMenu.svg"
-            width="32"
-            height="32"
-            alt="Hamburger Menu"
-          />
-        </Button>
       </div>
     </header>
   );

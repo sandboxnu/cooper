@@ -9,10 +9,9 @@ import { cn } from ".";
 interface ILogoProps {
   className?: string;
   company: Omit<CompanyType, "slug"> & { slug?: string };
-  size?: "small" | "default" | "medium";
 }
 
-const Logo: React.FC<ILogoProps> = ({ company, size, className }) => {
+const Logo: React.FC<ILogoProps> = ({ company, className }) => {
   const rawWebsite = company.website;
   const website =
     rawWebsite && rawWebsite !== ""
@@ -31,13 +30,10 @@ const Logo: React.FC<ILogoProps> = ({ company, size, className }) => {
   ) : (
     <Image
       src={`https://img.logo.dev/${website}?token=pk_DNxGM2gHTjiLU3p79GX79A`}
-      width={80}
-      height={80}
+      width={50}
+      height={50}
       alt={`Logo of ${company.name}`}
-      className={cn(
-        `${size === "small" ? "" : size === "medium" ? "h-50 w-50" : "h-20 w-20"} rounded-lg`,
-        className,
-      )}
+      className={cn(`h-[50px] w-[50px] rounded-lg`, className)}
       onError={() => setImageError(true)}
     />
   );
