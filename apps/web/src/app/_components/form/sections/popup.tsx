@@ -37,7 +37,9 @@ const Popup: React.FC<PopupProps> = ({
               X
             </button>
           </div>
-          <div className={"flex text-[22px] font-semibold text-[#151515] -mt-2"}>
+          <div
+            className={"flex text-[22px] font-semibold text-[#151515] -mt-2"}
+          >
             <span>Save as Draft?</span>
           </div>
           <div
@@ -95,8 +97,7 @@ const Popup: React.FC<PopupProps> = ({
             your review anytime.
           </div>
 
-           <div className="border border-cooper-gray-200 flex-grow -mx-3"></div>
-
+          <div className="border border-cooper-gray-200 flex-grow -mx-3"></div>
 
           <div className="mt-[6px] flex flex-col gap-[8px] w-full">
             <button
