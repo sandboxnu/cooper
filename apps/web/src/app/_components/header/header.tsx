@@ -19,7 +19,6 @@ import { handleSignOut } from "../auth/actions";
 import CooperLogo from "../cooper-logo";
 import MobileHeaderButton from "./mobile-header-button";
 
-
 interface HeaderProps {
   auth: React.ReactNode;
 }
