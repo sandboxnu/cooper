@@ -6,7 +6,7 @@ import type { Session } from "@cooper/auth";
 import type { ReviewType } from "@cooper/db/schema";
 import { and, eq, inArray } from "@cooper/db";
 import { db } from "@cooper/db/client";
-import { Company, Review } from "@cooper/db/schema";
+import { Company, Review, Status } from "@cooper/db/schema";
 
 import { appRouter } from "../src/root";
 import { createCallerFactory, createTRPCContext } from "../src/trpc";
@@ -192,6 +192,7 @@ describe("Review Router", async () => {
         otherBenefits: "Good",
         roleId: "1",
         profileId: "1",
+        status: Status.DRAFT,
       },
       {
         id: "2",
@@ -223,6 +224,7 @@ describe("Review Router", async () => {
         otherBenefits: "Good",
         roleId: "1",
         profileId: "1",
+        status: Status.DRAFT,
       },
     ]);
 

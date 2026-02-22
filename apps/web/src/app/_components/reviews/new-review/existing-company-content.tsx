@@ -251,9 +251,9 @@ export default function ExistingCompanyContent({
           control={form.control}
           name="companyName"
           render={({ field }) => (
-            <FormItem className="flex w-full flex-col">
-              <FormLabel className="flex-shrink-0 text-sm font-bold text-cooper-gray-400">
-                Company name<span className="text-[#FB7373]">*</span>
+            <FormItem className="flex flex-col w-full">
+              <FormLabel className="text-sm text-cooper-gray-400 font-bold flex-shrink-0">
+                Company name<span className="text-cooper-red-300">*</span>
               </FormLabel>
 
               <div className="relative w-full flex-1">
@@ -365,9 +365,9 @@ export default function ExistingCompanyContent({
               control={form.control}
               name="companyName"
               render={({ field }) => (
-                <FormItem className="flex w-full flex-col pt-2.5">
-                  <FormLabel className="text-cooper-gray-550 flex-shrink-0 text-xs font-bold">
-                    Company Name<span className="text-[#FB7373]">*</span>
+                <FormItem className="flex flex-col w-full pt-2.5">
+                  <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
+                    Company Name<span className="text-cooper-red-300">*</span>
                   </FormLabel>
                   <FormControl className="flex-1">
                     <Input
@@ -393,9 +393,9 @@ export default function ExistingCompanyContent({
               control={form.control}
               name="industry"
               render={({ field }) => (
-                <FormItem className="flex flex-1 flex-col pt-2.5">
-                  <FormLabel className="text-cooper-gray-550 text-xs font-bold">
-                    Industry<span className="text-[#FB7373]">*</span>
+                <FormItem className="flex flex-col flex-1 pt-2.5">
+                  <FormLabel className="text-xs font-bold text-cooper-gray-550">
+                    Industry<span className="text-cooper-red-300">*</span>
                   </FormLabel>
                   <FormControl className="relative w-full">
                     <Select
@@ -429,9 +429,9 @@ export default function ExistingCompanyContent({
               control={form.control}
               name="locationId"
               render={() => (
-                <FormItem className="flex w-full flex-col pt-2.5">
-                  <FormLabel className="text-cooper-gray-550 flex-shrink-0 text-xs font-bold">
-                    Location<span className="text-[#FB7373]">*</span>
+                <FormItem className="flex flex-col pt-2.5 w-full">
+                  <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
+                    Location<span className="text-cooper-red-300">*</span>
                   </FormLabel>
                   <FormControl className="flex-1">
                     <LocationBox
@@ -454,9 +454,9 @@ export default function ExistingCompanyContent({
               control={form.control}
               name="title"
               render={({ field }) => (
-                <FormItem className="flex w-full flex-col pt-2.5">
-                  <FormLabel className="text-cooper-gray-550 flex-shrink-0 text-xs font-bold">
-                    Your Role<span className="text-[#FB7373]">*</span>
+                <FormItem className="flex flex-col pt-2.5 w-full">
+                  <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
+                    Your Role<span className="text-cooper-red-300">*</span>
                   </FormLabel>
                   <FormControl className="flex-1">
                     <Input
@@ -499,9 +499,9 @@ export default function ExistingCompanyContent({
             control={form.control}
             name="roleName"
             render={({ field }) => (
-              <FormItem className="flex w-full flex-col">
-                <FormLabel className="flex-shrink-0 text-sm font-bold text-cooper-gray-400">
-                  Your Role<span className="text-[#FB7373]">*</span>
+              <FormItem className="flex flex-col w-full ">
+                <FormLabel className="text-sm font-bold text-cooper-gray-400 flex-shrink-0">
+                  Your Role<span className="text-cooper-red-300">*</span>
                 </FormLabel>
 
                 <div className="relative w-full flex-1">
@@ -581,9 +581,9 @@ export default function ExistingCompanyContent({
                 control={newRoleForm.control}
                 name="title"
                 render={({ field }) => (
-                  <FormItem className="flex w-full flex-col pt-2.5">
-                    <FormLabel className="text-cooper-gray-550 flex-shrink-0 text-xs font-bold">
-                      Your Role<span className="text-[#FB7373]">*</span>
+                  <FormItem className="flex flex-col w-full pt-2.5">
+                    <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
+                      Your Role<span className="text-cooper-red-300">*</span>
                     </FormLabel>
                     <FormControl className="flex-1">
                       <Input

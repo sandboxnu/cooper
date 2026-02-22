@@ -39,6 +39,7 @@
   "devDependencies": {
     "@cooper/prettier-config": "workspace:*",
     "@turbo/gen": "^2.1.1",
+    "@types/estree": "^1.0.8",
     "@vitest/ui": "2.1.2",
     "prettier": "catalog:",
     "turbo": "^2.1.1",

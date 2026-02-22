@@ -37,7 +37,7 @@ export default function RenderAllRoles({ company }: RenderAllRolesProps) {
                     className="p-2"
                     onClick={() =>
                       router.push(
-                        `/?company=${company?.name.toLowerCase()}&role=${role.title.toLowerCase().replace(/ /g, "-")}&type=roles`,
+                        `/?company=${company?.slug ?? ""}&role=${role.slug}&type=roles`,
                       )
                     }
                   >

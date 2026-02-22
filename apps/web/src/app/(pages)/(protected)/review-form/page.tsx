@@ -6,6 +6,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Filter } from "bad-words";
 import dayjs from "dayjs";
 import { Form } from "node_modules/@cooper/ui/src/form";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -18,6 +21,8 @@ import {
 import { useCustomToast } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 
+import { Button } from "@cooper/ui/button";
+
 import {
   BasicInfoSection,
   CompanyDetailsSection,
@@ -26,6 +31,13 @@ import {
 } from "~/app/_components/form/sections";
 import { PaySection } from "~/app/_components/form/sections/pay-section";
 import Popup from "~/app/_components/form/sections/popup";
+import { z } from "zod";
+import { useCustomToast } from "@cooper/ui";
+import { WorkEnvironment, WorkTerm, JobType } from "@cooper/db/schema";
+import { Filter } from "bad-words";
+import dayjs from "dayjs";
+import { Form } from "node_modules/@cooper/ui/src/form";
+import { PaySection } from "~/app/_components/form/sections/pay-section";
 import { api } from "~/trpc/react";
 
 const filter = new Filter();
@@ -33,9 +45,6 @@ const filter = new Filter();
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
     required_error: "You need to select a co-op cycle.",
-  }),
-  industry: z.nativeEnum(Industry, {
-    required_error: "You need to select an industry.",
   }),
   workYear: z.coerce
     .number({
@@ -115,10 +124,10 @@ const formSchema = z.object({
   }),
   hourlyPay: z.coerce
     .number()
-    .min(1, {
+    .min(0, {
       message: "Please enter hourly pay",
     })
-    .transform((val) => (val ? val.toString() : null))
+    .transform((val) => (Number.isNaN(val) ? null : val.toString()))
     .nullable(),
   workEnvironment: z.nativeEnum(WorkEnvironment, {
     required_error: "You need to select a work model.",
@@ -335,6 +344,7 @@ export default function ReviewForm() {
           </div>
         )}
 
+      <div className="flex h-screen w-full flex-col items-center justify-center overflow-auto bg-white md:flex-row">
         <div className="justify-left mt-4 flex h-full w-[65%] flex-col pr-3.5 pt-10">
           <div className="text-cooper-gray-550 text-lg">Basic information</div>
           <div className="flex w-full flex-wrap gap-10 pb-12 xl:flex-nowrap">
