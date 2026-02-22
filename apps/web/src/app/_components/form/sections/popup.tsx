@@ -26,8 +26,8 @@ const Popup: React.FC<PopupProps> = ({
             "mb-[28px] flex h-fit w-[400px] flex-col rounded-[10px] bg-white p-[15px] lg-shadow"
           }
         >
-          <div className = {"flex justify-end"}>
-          <button
+          <div className={"flex justify-end"}>
+            <button
               type="button"
               className={
                 "flex h-4 w-4 items-center justify-center rounded-full bg-gray-300 text-[9px] font-bold text-gray-500"
@@ -37,13 +37,8 @@ const Popup: React.FC<PopupProps> = ({
               X
             </button>
           </div>
-          <div
-            className={
-              "flex text-lg font-bold text-black -mt-2"
-            }
-          >
+          <div className={"flex text-lg font-bold text-black -mt-2"}>
             <span>Save as Draft?</span>
-            
           </div>
           <div
             className={
@@ -68,7 +63,9 @@ const Popup: React.FC<PopupProps> = ({
             <div className={"flex gap-[8px]"}>
               <button
                 type="button"
-                className={"rounded-[6px] border border-gray-200 px-[10px] py-[6px] text-cooper-gray-400 text-xs"}
+                className={
+                  "rounded-[6px] border border-gray-200 px-[10px] py-[6px] text-cooper-gray-400 text-xs"
+                }
                 onClick={onDiscard}
               >
                 Do not save
