@@ -159,6 +159,7 @@ function FilterBodyRange({
             id="min"
             type="number"
             value={localMin}
+            min={0}
             onChange={(e) => setLocalMin(e.target.value)}
             className={cn(
               "border-cooper-gray-150 h-9 border-[1px] pl-5 text-sm text-cooper-gray-400",
@@ -179,6 +180,7 @@ function FilterBodyRange({
             id="max"
             type="number"
             value={localMax}
+            min={0}
             onChange={(e) => setLocalMax(e.target.value)}
             className={cn(
               "border-cooper-gray-150 h-9 border-[1px] pl-5 text-sm text-cooper-gray-400",
