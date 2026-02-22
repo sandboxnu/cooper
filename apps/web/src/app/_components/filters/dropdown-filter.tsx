@@ -28,6 +28,8 @@ interface DropdownFilterProps {
   onRangeChange?: (min: number, max: number) => void;
   onSearchChange?: (search: string) => void;
   isLoadingOptions?: boolean;
+  /** Render dropdown above the trigger to avoid being cut off near bottom of viewport */
+  side?: "top" | "bottom";
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
   /** When true, renders only the trigger button (for use with external popover). */
@@ -48,6 +50,7 @@ const DropdownFilter = forwardRef<HTMLButtonElement, DropdownFilterProps>(
       maxValue,
       onRangeChange,
       onSearchChange,
+      side = "bottom",
       open: controlledOpen,
       onOpenChange,
       triggerOnly = false,
@@ -155,6 +158,7 @@ const DropdownFilter = forwardRef<HTMLButtonElement, DropdownFilterProps>(
 
         <DropdownMenuContent
           align="start"
+          side={side}
           className="flex flex-col w-96 gap-[22px] p-5 bg-cooper-cream-400 rounded-lg"
         >
           <DropdownMenuLabel className="flex justify-between p-0 bg-cooper-cream-400">
@@ -206,7 +210,7 @@ export function FilterPanelContent(
     | "onRangeChange"
     | "onSearchChange"
     | "placeholder"
-  > & { onClose: () => void },
+  > & { onClose: () => void; isInMenuContent?: boolean },
 ) {
   const {
     title,
@@ -220,6 +224,7 @@ export function FilterPanelContent(
     onSearchChange,
     onClose,
     placeholder,
+    isInMenuContent = true,
   } = props;
 
   const handleClear = () => {
@@ -259,6 +264,7 @@ export function FilterPanelContent(
         onRangeChange={onRangeChange}
         onSearchChange={onSearchChange}
         placeholder={placeholder}
+        isInMenuContent={isInMenuContent}
       />
     </div>
   );
