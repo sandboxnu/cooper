@@ -1,7 +1,6 @@
 import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
-import type { Session } from "@cooper/auth";
 import { and, desc, eq, sql } from "@cooper/db";
 import {
   Company,
@@ -12,6 +11,8 @@ import {
 } from "@cooper/db/schema";
 
 import { UpdateProfileNameMajorSchema } from "../../../db/src/schema/profiles";
+import type { Session } from "@cooper/auth";
+
 import {
   CreateProfileToCompanySchema,
   ProfilesToCompanies,

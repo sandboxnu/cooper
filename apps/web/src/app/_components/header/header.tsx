@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
 
 import {
   DropdownMenu,
@@ -18,6 +17,7 @@ import { api } from "~/trpc/react";
 import { handleSignOut } from "../auth/actions";
 import CooperLogo from "../cooper-logo";
 import MobileHeaderButton from "./mobile-header-button";
+
 interface HeaderProps {
   auth: React.ReactNode;
 }
@@ -28,26 +28,20 @@ interface HeaderProps {
  */
 export default function Header({ auth }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname();
   const session = api.auth.getSession.useQuery();
-  const router = useRouter();
   const utils = api.useUtils();
-
-  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-
-    if (pathname === "/review-form") {
-      window.dispatchEvent(new CustomEvent("review-form:leave-attempt"));
-      return;
-    }
-    router.push("/");
-  };
 
   if (isOpen) {
     return (
       <header className="bg-cooper-cream-100 z-50 flex min-h-[14rem] w-full flex-col justify-start outline outline-[1px]">
         <div className="z-10 ml-3 mr-4 flex h-[8dvh] min-h-10 items-center justify-between gap-4">
-          <Link href="/" onClick={handleLogoClick}>
+          <Link
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = "/";
+            }}
+          >
             <h1 className="text-2xl font-bold text-cooper-blue-800">Cooper</h1>
           </Link>
           <Button
@@ -121,7 +115,10 @@ export default function Header({ auth }: HeaderProps) {
     <header className="bg-cooper-cream-100 outline-cooper-gray-150 z-10 flex w-full items-center justify-between px-6 py-4 outline outline-[1px]">
       <Link
         href="/"
-        onClick={handleLogoClick}
+        onClick={(e) => {
+          e.preventDefault();
+          window.location.href = "/";
+        }}
         className={"flex items-center justify-center gap-3"}
       >
         <div className="z-0 flex max-w-[43px] items-end">

@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import type { ReviewType, RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 import Logo from "@cooper/ui/logo";
@@ -22,14 +23,13 @@ import CollapsableInfoCard from "./collapsable-info";
 import InfoCard from "./info-card";
 import { ReviewCard } from "./review-card";
 import RoundBarGraph from "./round-bar-graph";
-import type { ReviewType, RoleType } from "@cooper/db/schema";
+import { Button } from "node_modules/@cooper/ui/src/button";
 import {
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-  DropdownMenuLabel,
   DropdownMenu,
-} from "@cooper/ui/dropdown-menu";
-import { Button } from "@cooper/ui/button";
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+} from "node_modules/@cooper/ui/src/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 
 interface RoleCardProps {
@@ -321,7 +321,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             </div>
           </div>
         </CardHeader>
-        <div className="flex flex-col items-end mr-6 gap-2">
+        <div className="mr-6 flex flex-col items-end gap-2">
           <CardContent className="grid gap-2">
             {reviews.isSuccess &&
               reviews.data.length > 0 &&
