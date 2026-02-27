@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@cooper/tsconfig": "workspace:*",
-    "minimatch": "^10.2.1",
+    "minimatch": "^10.2.3",
     "typescript": "catalog:"
   },
   "prettier": "@cooper/prettier-config"
