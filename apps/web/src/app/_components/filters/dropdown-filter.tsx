@@ -270,4 +270,4 @@ export function FilterPanelContent(
   );
 }
 
-export default DropdownFilter; 
+export default DropdownFilter;
