@@ -30,7 +30,7 @@ export default function Header({ auth }: HeaderProps) {
             href="/"
             onClick={(e) => {
               e.preventDefault();
-              window.location.href = "/";
+              window.location.href = "/"; 
             }}
           >
             <h1 className="text-2xl font-bold text-cooper-blue-800">Cooper</h1>
