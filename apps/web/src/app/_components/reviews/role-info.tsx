@@ -19,8 +19,7 @@ import DropdownFilter, { FilterPanelContent } from "../filters/dropdown-filter";
 import { jobTypeOptions } from "../onboarding/constants";
 import StarGraph from "../shared/star-graph";
 import BarGraph from "./bar-graph";
-import CollapsableInfoCard from "./collapsable-info";
-import InfoCard from "./info-card";
+import ModalContainer from "./modal";
 import { ReviewCard } from "./review-card";
 import RoundBarGraph from "./round-bar-graph";
 import { Button } from "node_modules/@cooper/ui/src/button";
@@ -353,27 +352,27 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
       <div className="flex w-[100%] justify-between">
         <div className="grid w-full grid-cols-2 gap-5 px-3 lg:pl-6 lg:pr-6">
           <div className="col-span-2 h-full md:col-span-1" id="job-description">
-            <InfoCard title={"Job Description"}>
+            <ModalContainer title={"Job Description"}>
               <div className="flex h-28 overflow-y-auto pr-4 text-[#5a5a5a] md:h-40">
                 {roleObj.description}
               </div>
-            </InfoCard>
+            </ModalContainer>
           </div>
           {companyData && (
             <div className="col-span-2 h-full md:col-span-1" id="company">
-              <InfoCard title={`About ${companyData.name}`}>
+              <ModalContainer title={`About ${companyData.name}`}>
                 <div className="flex gap-4 text-[#5a5a5a]">
                   <Logo company={companyData} />
                   <p className="h-28 overflow-y-auto md:h-40">
                     {companyData.description}
                   </p>
                 </div>
-              </InfoCard>
+              </ModalContainer>
             </div>
           )}
 
-          <div className="col-span-2" id="on-the-job">
-            <CollapsableInfoCard title={"On the job"}>
+          <div className="col-span-2">
+            <ModalContainer title={"On the job"}>
               {averages.data && (
                 <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
                   <div className="flex flex-wrap gap-10 lg:flex-nowrap">
@@ -420,11 +419,12 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                   </div>
                 </div>
               )}
-            </CollapsableInfoCard>
+            </ModalContainer>
           </div>
+
           {averages.data && (
             <div className="col-span-2" id="pay">
-              <CollapsableInfoCard title={"Pay"}>
+              <ModalContainer title={"Pay"}>
                 <div className="flex flex-col justify-between gap-3 md:flex-row">
                   <div className="flex flex-col gap-2 md:w-[30%] md:gap-5">
                     <div className="text-cooper-gray-400">Pay range</div>
@@ -486,11 +486,11 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                     />
                   </div>
                 </div>
-              </CollapsableInfoCard>
+              </ModalContainer>
             </div>
           )}
           <div className="col-span-2" id="interview">
-            <CollapsableInfoCard title="Interview">
+            <ModalContainer title="Interview">
               {averages.data && (
                 <div className="flex flex-wrap gap-10">
                   <BarGraph
@@ -505,10 +505,10 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                   />
                 </div>
               )}
-            </CollapsableInfoCard>
+            </ModalContainer>
           </div>
           <div className="col-span-2" id="reviews">
-            <CollapsableInfoCard title="Reviews">
+            <ModalContainer title="Reviews">
               {reviews.isSuccess && reviews.data.length === 0 && (
                 <div className="flex h-full w-full flex-col items-center justify-center text-[#5a5a5a]">
                   <p>No reviews yet</p>
@@ -692,7 +692,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                   )}
                 </div>
               )}
-            </CollapsableInfoCard>
+            </ModalContainer>
           </div>
         </div>
       </div>
