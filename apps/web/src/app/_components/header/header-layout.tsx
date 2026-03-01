@@ -20,7 +20,7 @@ export default async function HeaderLayout({
   const button = session ? (
     <ProfileButton session={session} />
   ) : (
-    <LoginButton />
+    ""
   );
 
   return (
