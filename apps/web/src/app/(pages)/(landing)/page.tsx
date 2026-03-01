@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import LoginButton from "~/app/_components/auth/login-button";
 
@@ -9,8 +8,8 @@ const textOptions = [
 ];
 export default function Landing() {
   return (
-    <div className="flex h-full w-full flex-row bg-[#FFFEF6]">
-      <div className="w-[43%] flex flex-col pl-16 pr-28 justify-center">
+    <div className="flex w-full flex-col lg:flex-row bg-[#FFFEF6] overflow-auto h-screen">
+      <div className="lg:w-[43%] flex flex-col pl-16 pr-28 justify-center pt-2 lg:pt-0">
         <div className="flex flex-row items-center gap-2">
           <div className="text-cooper-blue-800 text-[40px] leading-[48px] font-semibold">
             Real reviews of{" "}
@@ -26,11 +25,11 @@ export default function Landing() {
           </div>
         </div>
         <div className="w-full pt-8">
-        <LoginButton />
-        <div className="text-cooper-gray-600 font-bold text-md pb-8 pt-4">
-          Only Northeastern students can access reviews
-        </div>
-        <hr />
+          <LoginButton />
+          <div className="text-cooper-gray-600 font-bold text-md pb-8 pt-4">
+            Only Northeastern students can access reviews
+          </div>
+          <hr />
         </div>
 
         <div className="pt-6 text-cooper-gray-550 font-lg flex flex-col gap-3">

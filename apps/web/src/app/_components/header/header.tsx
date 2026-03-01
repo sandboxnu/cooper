@@ -36,10 +36,10 @@ export default function Header({ auth }: HeaderProps) {
       <header className="bg-cooper-cream-100 z-50 flex min-h-[14rem] w-full flex-col justify-start outline outline-[1px]">
         <div className="z-10 ml-3 mr-4 flex h-[8dvh] min-h-10 items-center justify-between gap-4">
           <Link
-            href="/"
+            href="/roles"
             onClick={(e) => {
               e.preventDefault();
-              window.location.href = "/";
+              window.location.href = "/roles";
             }}
           >
             <h1 className="text-2xl font-bold text-cooper-blue-800">Cooper</h1>
@@ -57,7 +57,7 @@ export default function Header({ auth }: HeaderProps) {
 
         <div className="flex translate-y-8 justify-evenly">
           <MobileHeaderButton
-            href="/"
+            href="/roles"
             iconSrc="/svg/apartment.svg"
             label="Jobs"
             onClick={() => setIsOpen(false)}
@@ -91,9 +91,9 @@ export default function Header({ auth }: HeaderProps) {
                   <button
                     type="button"
                     onClick={async () => {
-                      await handleSignOut();
-                      await utils.auth.getSession.invalidate();
-                      setIsOpen(false);
+                      utils.auth.getSession.setData(undefined, null);
+  setIsOpen(false);
+  await handleSignOut();
                     }}
                   >
                     Log Out
@@ -114,10 +114,10 @@ export default function Header({ auth }: HeaderProps) {
   return (
     <header className="bg-cooper-cream-100 outline-cooper-gray-150 z-10 flex w-full items-center justify-between px-6 py-4 outline outline-[1px]">
       <Link
-        href="/"
+        href="/roles"
         onClick={(e) => {
           e.preventDefault();
-          window.location.href = "/";
+          window.location.href = "/roles";
         }}
         className={"flex items-center justify-center gap-3"}
       >
