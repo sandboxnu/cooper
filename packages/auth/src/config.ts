@@ -41,9 +41,7 @@ export const authConfig = {
   // In development, we need to skip checks to allow Expo to work
   ...(!isSecureContext
     ? {
-        // Cast via unknown to align our import with NextAuth's internal @auth/core symbol type
-        skipCSRFCheck:
-          skipCSRFCheck as unknown as NextAuthConfig["skipCSRFCheck"],
+        skipCSRFCheck: skipCSRFCheck,
         trustHost: true,
       }
     : {}),
