@@ -17,16 +17,18 @@ import { api } from "~/trpc/react";
 import { handleSignOut } from "../auth/actions";
 import CooperLogo from "../cooper-logo";
 import MobileHeaderButton from "./mobile-header-button";
+import { Session } from "@cooper/auth";
 
 interface HeaderProps {
   auth: React.ReactNode;
+  loggedIn: Session | null;
 }
 
 /**
  * This is the header component. (Probably) should use header-layout instead
  * @returns The header component for the website
  */
-export default function Header({ auth }: HeaderProps) {
+export default function Header({ auth, loggedIn }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const session = api.auth.getSession.useQuery();
   const utils = api.useUtils();
@@ -92,8 +94,8 @@ export default function Header({ auth }: HeaderProps) {
                     type="button"
                     onClick={async () => {
                       utils.auth.getSession.setData(undefined, null);
-  setIsOpen(false);
-  await handleSignOut();
+                      setIsOpen(false);
+                      await handleSignOut();
                     }}
                   >
                     Log Out
@@ -134,7 +136,7 @@ export default function Header({ auth }: HeaderProps) {
         >
           Submit Feedback or Bug Reports
         </Link>
-        {session.data && (
+        {session.data && loggedIn && (
           <div className="flex items-center gap-8">
             <Link href="/review-form">
               <Button className="hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700 h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white">
