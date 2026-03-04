@@ -5,6 +5,7 @@ import { z } from "zod";
 
 import { Company } from "./companies";
 import { ProfilesToRoles } from "./profilesToRoles";
+import { Report } from "./reports";
 import { Review } from "./reviews";
 import { User } from "./users";
 
@@ -31,6 +32,7 @@ export const RoleRelations = relations(Role, ({ one, many }) => ({
   }),
   reviews: many(Review),
   profiles_to_roles: many(ProfilesToRoles),
+  reports: many(Report),
   createdBy: one(User, {
     fields: [Role.createdBy],
     references: [User.id],
