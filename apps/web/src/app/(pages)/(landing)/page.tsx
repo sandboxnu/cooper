@@ -10,23 +10,24 @@ export default function Landing() {
   return (
     <div className="flex w-full flex-col lg:flex-row bg-[#FFFEF6] overflow-auto lg:overflow-hidden h-full flex-1">
       <div className="lg:w-[43%] flex flex-col pl-16 pr-28 justify-center pt-2 lg:pt-0">
-        <div className="flex flex-row items-center gap-2">
+        <div className="flex w-fit flex-row items-center gap-2">
           <div className="text-cooper-blue-800 text-[40px] leading-[48px] font-semibold">
-            Real reviews of{" "}
-            <p className="font-black italic p-0">real co-op experiences</p>
-          </div>
-          <div>
+            <div>Real reviews of </div>
+            <span className="font-black italic">
+              real co-op experiences
+            </span>{" "}
             <Image
               src="/blue-star.png"
               width={30}
               height={32}
               alt="Blue star"
+              className="inline-block align-top"
             />
           </div>
         </div>
-        <div className="w-full pt-8">
+        <div className="w-fit pt-8">
           <LoginButton />
-          <div className="text-cooper-gray-600 font-bold text-md pb-8 pt-4">
+          <div className="text-cooper-gray-600 font-bold text-md pb-8 pt-4 w-fit">
             Only Northeastern students can access reviews
           </div>
           <hr />
