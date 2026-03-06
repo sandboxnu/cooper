@@ -47,6 +47,10 @@ export default function ProfileButton({ session }: ProfileButtonProps) {
               </button>
             </form>
           </DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuLabel className="text-center">
+            <Link href="/admin">Admin</Link>
+          </DropdownMenuLabel>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

@@ -1,0 +1,83 @@
+"use client";
+import { cn } from "@cooper/ui";
+import { Button } from "node_modules/@cooper/ui/src/button";
+import { Input } from "node_modules/@cooper/ui/src/input";
+import { useState } from "react";
+import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
+import { ReviewCard } from "~/app/_components/reviews/review-card";
+import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
+import { Select } from "~/app/_components/themed/onboarding/select";
+import { api } from "~/trpc/react";
+
+export default function Admin() {
+  const roles = api.role.list.useQuery({}, {});
+  const reviews = api.review.list.useQuery({}, {});
+  const [selectedRole, setSelectedRole] = useState<string>("")
+
+  const companies = api.company.list.useQuery(
+    {
+      showAll: false,
+    },
+    {},
+  );
+
+  return (
+    <div className="bg-cooper-cream-100 flex flex-col h-screen w-full justify-center overflow-auto">
+      <div className="flex flex-row">
+      <Input
+            className={cn(
+              "border-cooper-gray-150 h-9 border-[1px] pl-5 w-[30%] text-sm text-cooper-gray-400",
+              
+            )}
+            placeholder="Type email here"
+
+          />
+          <div className="w-[10%]">
+          <Select
+                options={[
+                  { value: "Admin", label: "Admin"},
+                  { value: "Co-op advisor", label: "Co-op advisor" },
+                ]}
+                className="border-cooper-gray-150 h-10 text-sm"
+                value={selectedRole}
+                placeholder="Select"
+                onChange={(e) => {
+                  setSelectedRole(e.target.value)
+
+                }}
+              />
+              </div>
+        <Button
+                  type="button"
+
+                  className="bg-cooper-gray-550 hover:bg-cooper-gray-600 rounded-lg border-none px-8 py-3 text-lg font-semibold text-white"
+                >
+                  Submit
+                </Button>
+      </div>
+      <div className="flex flex-row gap-2">
+        <div className="flex flex-col">All reviews
+        {reviews.data?.map((review) => (
+          <ReviewCard reviewObj={review} key={review.id} className="h-[30%]"/>
+        ))}
+        </div>
+        <div>
+          All roles:
+          {roles.data?.roles.map((role) => (
+            <RoleCardPreview
+              key={role.id}
+              roleObj={role}
+              
+            />
+          ))}
+        </div>
+        <div>
+          All companies
+          {companies.data?.map((company) => (
+            <CompanyCardPreview key={company.id} companyObj={company} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}

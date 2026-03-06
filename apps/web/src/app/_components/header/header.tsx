@@ -99,6 +99,12 @@ export default function Header({ auth }: HeaderProps) {
                     Log Out
                   </button>
                 </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuLabel className="text-center">
+                  <Link href="/admin" onClick={() => setIsOpen(false)}>
+                    Admin
+                  </Link>
+                </DropdownMenuLabel>
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
