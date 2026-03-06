@@ -66,10 +66,17 @@
       "breakpoints": true
     },
     {
-      "idx": 8,
+      "idx": 9,
       "version": "7",
       "when": 1770514183614,
       "tag": "0009_flowery_roland_deschain",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1772681764630,
+      "tag": "0010_smooth_daimon_hellstrom",
       "breakpoints": true
     }
   ]

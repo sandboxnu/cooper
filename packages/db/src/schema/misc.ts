@@ -86,3 +86,13 @@ export const Status = {
 } as const;
 
 export type StatusType = (typeof Status)[keyof typeof Status];
+
+export const ReportReason = {
+  INAPPROPRIATE_CONTENT: "INAPPROPRIATE_CONTENT",
+  DUPLICATE: "DUPLICATE",
+  MISLEADING: "MISLEADING",
+  SPAM: "SPAM",
+  OTHER: "OTHER",
+} as const;
+
+export type ReportReasonType = (typeof ReportReason)[keyof typeof ReportReason];
