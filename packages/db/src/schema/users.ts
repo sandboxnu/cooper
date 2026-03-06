@@ -1,6 +1,6 @@
 import { relations } from "drizzle-orm";
 import { pgTable, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
-
+import { UserRole, type UserRoleType } from "./misc";
 import { Account } from "./accounts";
 import { Profile } from "./profiles";
 
@@ -13,6 +13,10 @@ export const User = pgTable("user", {
     withTimezone: true,
   }),
   image: varchar("image", { length: 255 }),
+  role: varchar("role", { length: 32 })
+    .$type<UserRoleType>()
+    .notNull()
+    .default(UserRole.STUDENT),
 });
 
 export const UserRelations = relations(User, ({ one, many }) => ({

@@ -62,6 +62,14 @@ export const WorkTerm = {
 
 export type WorkTermType = (typeof WorkTerm)[keyof typeof WorkTerm];
 
+export const UserRole = {
+  STUDENT: "STUDENT",
+  ADMIN: "ADMIN",
+  COORDINATOR: "COORDINATOR",
+} as const;
+
+export type UserRoleType = (typeof UserRole)[keyof typeof UserRole];
+
 export const RequestStatus = {
   PENDING: "PENDING",
   APPROVED: "APPROVED",
