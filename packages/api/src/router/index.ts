@@ -6,6 +6,7 @@ import { profileRouter } from "./profile";
 import { reviewRouter } from "./review";
 import { roleRouter } from "./role";
 import { roleAndCompanyRouter } from "./roleAndCompany";
+import { userRouter } from "./user";
 
 export {
   authRouter,
@@ -16,4 +17,5 @@ export {
   locationRouter,
   companyToLocationRouter,
   roleAndCompanyRouter,
+  userRouter,
 };

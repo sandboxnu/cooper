@@ -1,5 +1,6 @@
 "use client";
-import { cn } from "@cooper/ui";
+import { UserRole, UserRoleType } from "@cooper/db/schema";
+import { cn, useCustomToast } from "@cooper/ui";
 import { Button } from "node_modules/@cooper/ui/src/button";
 import { Input } from "node_modules/@cooper/ui/src/input";
 import { useState } from "react";
@@ -11,8 +12,20 @@ import { api } from "~/trpc/react";
 
 export default function Admin() {
   const roles = api.role.list.useQuery({}, {});
+  const { toast } = useCustomToast();
   const reviews = api.review.list.useQuery({}, {});
-  const [selectedRole, setSelectedRole] = useState<string>("")
+  const [selectedRole, setSelectedRole] = useState<string>("");
+  const [email, setEmail] = useState("");
+  const createUser = api.user.create.useMutation({
+    onSuccess: () => {
+      toast.success("User added successfully.");
+      setEmail("");
+      setSelectedRole("");
+    },
+    onError: (error) => {
+      toast.error(error.message ?? "Something went wrong. Please try again.");
+    },
+  });
 
   const companies = api.company.list.useQuery(
     {
@@ -30,13 +43,15 @@ export default function Admin() {
               
             )}
             placeholder="Type email here"
+            value={email}
+          onChange={(e) => setEmail(e.target.value)}
 
           />
           <div className="w-[10%]">
           <Select
                 options={[
-                  { value: "Admin", label: "Admin"},
-                  { value: "Co-op advisor", label: "Co-op advisor" },
+                  { value: UserRole.ADMIN, label: "Admin"},
+                  { value: UserRole.COORDINATOR, label: "Co-op advisor" },
                 ]}
                 className="border-cooper-gray-150 h-10 text-sm"
                 value={selectedRole}
@@ -51,6 +66,10 @@ export default function Admin() {
                   type="button"
 
                   className="bg-cooper-gray-550 hover:bg-cooper-gray-600 rounded-lg border-none px-8 py-3 text-lg font-semibold text-white"
+                  onClick={() => {
+                    if (!email || !selectedRole) return; 
+                    createUser.mutate({ email, role: selectedRole as UserRoleType });
+                  }}
                 >
                   Submit
                 </Button>

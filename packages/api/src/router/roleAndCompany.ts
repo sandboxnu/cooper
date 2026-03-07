@@ -6,6 +6,7 @@ import { Company, Review, Role } from "@cooper/db/schema";
 
 import { publicProcedure, sortableProcedure } from "../trpc";
 import { performFuseSearch } from "../utils/fuzzyHelper";
+import { TRPCRouterRecord } from "@trpc/server";
 
 const ordering = {
   default: desc(Role.id),
