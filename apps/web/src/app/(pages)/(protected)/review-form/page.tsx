@@ -233,7 +233,7 @@ export default function ReviewForm() {
 
   const mutation = api.review.create.useMutation({
     onSuccess: () => {
-      router.push("/");
+      router.push("/roles");
     },
     onError: (error) => {
       toast.error(error.message || "Something went wrong. Please try again.");

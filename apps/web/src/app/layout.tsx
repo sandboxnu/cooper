@@ -27,6 +27,8 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout(props: { children: React.ReactNode }) {
+  // Ensure user is authenticated
+
   return (
     <html
       className={hankenGroteskFont.variable}
