@@ -49,7 +49,7 @@ export default function Landing() {
           })}
         </div>
       </div>
-      <div>
+      <div className="flex-1 flex justify-end">
         <Image
           src="/landing-placeholder.png"
           width={880}
