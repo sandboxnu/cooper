@@ -10,8 +10,5 @@
       "persistent": true
     }
   },
-  "globalEnv": [
-    "AUTH_GOOGLE_ADMIN_ID",
-    "AUTH_GOOGLE_ADMIN_SECRET"
-  ]
+  "globalEnv": ["AUTH_GOOGLE_ADMIN_ID", "AUTH_GOOGLE_ADMIN_SECRET"]
 }
