@@ -1,15 +1,18 @@
 import { signIn } from "@cooper/auth";
 import Image from "next/image";
 import LoginButton from "~/app/_components/auth/login-button";
+import { AdminAccessToast } from "~/app/_components/landing/admin-access-toast";
 
 const textOptions = [
   "Insights on interviews, pay, and job experience",
   "Side-by-side comparison view of up to three jobs",
   "Anonymous reviews to protect identities",
 ];
+
 export default function Landing() {
   return (
     <div className="flex w-full flex-col lg:flex-row bg-[#FFFEF6] overflow-auto lg:overflow-hidden h-full flex-1">
+      <AdminAccessToast />
       <div className="lg:w-[43%] flex flex-col pl-16 pr-28 justify-center pt-2 lg:pt-0">
         <div className="flex w-fit flex-row items-center gap-2">
           <div className="text-cooper-blue-800 text-[40px] leading-[48px] font-semibold">
