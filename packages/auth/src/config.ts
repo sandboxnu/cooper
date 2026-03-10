@@ -60,8 +60,8 @@ export const authConfig = {
     }),
     Google({
       id: "googleAdmin",
-      clientId: env.AUTH_GOOGLE_ID,
-      clientSecret: env.AUTH_GOOGLE_SECRET,
+      clientId: env.AUTH_GOOGLE_ADMIN_ID,
+      clientSecret: env.AUTH_GOOGLE_ADMIN_SECRET,
       authorization: {
         params: {
           prompt: "select_account",
@@ -82,7 +82,7 @@ export const authConfig = {
         },
       };
     },
-    async signIn({ user, account }) {
+    signIn({ user, account }) {
       const email = user.email;
       if (account?.provider === "googleAdmin") {
         return true;
