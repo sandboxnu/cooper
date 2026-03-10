@@ -15,8 +15,8 @@ export default eventHandler(async (event) =>
       }),
       Google({
         id: "googleAdmin",
-        clientId: process.env.AUTH_GOOGLE_ID,
-        clientSecret: process.env.AUTH_GOOGLE_SECRET,
+        clientId: process.env.AUTH_GOOGLE_ADMIN_ID,
+        clientSecret: process.env.AUTH_GOOGLE_ADMIN_SECRET,
       }),
     ],
   }),
