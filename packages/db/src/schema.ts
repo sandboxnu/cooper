@@ -6,6 +6,7 @@ import type {
   WorkTermType,
   StatusType,
   JobTypeType,
+  ReportReasonType,
 } from "./schema/misc";
 import type { ReviewType } from "./schema/reviews";
 import type { RoleType } from "./schema/roles";
@@ -22,7 +23,10 @@ import {
   WorkTerm,
   Status,
   JobType,
+  ReportReason,
 } from "./schema/misc";
+import { CreateReportSchema, Report } from "./schema/reports";
+import type { ReportType } from "./schema/reports";
 import {
   CreateProfileSchema,
   Profile,
@@ -73,16 +77,21 @@ export {
   WorkEnvironment,
   Status,
   JobType,
+  Report,
+  CreateReportSchema,
+  ReportReason,
 };
 
 export type {
   CompanyType,
   ReviewType,
   RoleType,
+  ReportType,
   IndustryType,
   WorkEnvironmentType,
   WorkTermType,
   LocationType,
   StatusType,
   JobTypeType,
+  ReportReasonType,
 };

@@ -6,6 +6,8 @@ export const env = createEnv({
   server: {
     AUTH_GOOGLE_ID: z.string().min(1),
     AUTH_GOOGLE_SECRET: z.string().min(1),
+    AUTH_GOOGLE_ADMIN_ID: z.string().min(1),
+    AUTH_GOOGLE_ADMIN_SECRET: z.string().min(1),
     AUTH_SECRET:
       process.env.NODE_ENV === "production"
         ? z.string().min(1)
