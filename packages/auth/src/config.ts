@@ -48,9 +48,22 @@ export const authConfig = {
   secret: env.AUTH_SECRET,
   providers: [
     Google({
+      id: "google",
+      clientId: env.AUTH_GOOGLE_ID,
+      clientSecret: env.AUTH_GOOGLE_SECRET,
       authorization: {
         params: {
           hd: "husky.neu.edu",
+          prompt: "select_account",
+        },
+      },
+    }),
+    Google({
+      id: "googleAdmin",
+      clientId: env.AUTH_GOOGLE_ID,
+      clientSecret: env.AUTH_GOOGLE_SECRET,
+      authorization: {
+        params: {
           prompt: "select_account",
         },
       },
@@ -69,8 +82,11 @@ export const authConfig = {
         },
       };
     },
-    signIn({ user }) {
+    signIn({ user, account }) {
       const email = user.email;
+      if (account?.provider === "googleAdmin") {
+        return true;
+      }
 
       if (!email?.endsWith("@husky.neu.edu")) {
         return "/redirection";
