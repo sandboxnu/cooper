@@ -1,6 +1,6 @@
 {
-  "id": "c831d7ae-4f08-4fa4-8b5f-ffd3e1698c42",
-  "prevId": "c831d7ae-4f08-4fa4-8b5f-ffd3e1698c48",
+  "id": "0db7f451-ed53-422a-a482-75076da8e696",
+  "prevId": "c831d7ae-4f08-4fa4-8b5f-ffd3e1698c42",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -524,6 +524,72 @@
           "columns": ["profileId", "reviewId"]
         }
       },
+      "uniqueConstraints": {}
+    },
+    "public.report": {
+      "name": "report",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "reportText": {
+          "name": "reportText",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reason": {
+          "name": "reason",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "profileId": {
+          "name": "profileId",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "companyId": {
+          "name": "companyId",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "roleId": {
+          "name": "roleId",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "reviewId": {
+          "name": "reviewId",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updatedAt": {
+          "name": "updatedAt",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
     "public.review": {
