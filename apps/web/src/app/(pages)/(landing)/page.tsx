@@ -1,3 +1,4 @@
+import { signIn } from "@cooper/auth";
 import Image from "next/image";
 import LoginButton from "~/app/_components/auth/login-button";
 
@@ -27,9 +28,21 @@ export default function Landing() {
         </div>
         <div className="w-fit pt-8">
           <LoginButton />
-          <div className="text-cooper-gray-600 font-bold text-md pb-8 pt-4 w-fit">
+          <div className="text-cooper-gray-600 font-bold text-md pt-4 w-fit">
             Only Northeastern students can access reviews
           </div>
+          <form>
+  <button
+    type="submit"
+    formAction={async () => {
+      "use server";
+      await signIn("googleAdmin", { redirectTo: "/roles" });
+    }}
+    className="text-cooper-gray-600 font-bold text-md pb-8 pt-4 w-fit cursor-pointer hover:underline"
+  >
+    Or continue as admin / coordinator
+  </button>
+</form>
           <hr />
         </div>
 
