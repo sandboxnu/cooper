@@ -32,17 +32,17 @@ export default function Landing() {
             Only Northeastern students can access reviews
           </div>
           <form>
-  <button
-    type="submit"
-    formAction={async () => {
-      "use server";
-      await signIn("googleAdmin", { redirectTo: "/roles" });
-    }}
-    className="text-cooper-gray-600 font-bold text-md pb-8 pt-4 w-fit cursor-pointer hover:underline"
-  >
-    Or continue as admin / coordinator
-  </button>
-</form>
+            <button
+              type="submit"
+              formAction={async () => {
+                "use server";
+                await signIn("googleAdmin", { redirectTo: "/roles" });
+              }}
+              className="text-cooper-gray-600 font-bold text-md pb-8 pt-4 w-fit cursor-pointer hover:underline"
+            >
+              Or continue as admin / coordinator
+            </button>
+          </form>
           <hr />
         </div>
 

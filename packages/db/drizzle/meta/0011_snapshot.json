@@ -1,6 +1,6 @@
 {
-  "id": "0db7f451-ed53-422a-a482-75076da8e696",
-  "prevId": "c831d7ae-4f08-4fa4-8b5f-ffd3e1698c42",
+  "id": "aef8b69c-f9ca-4a1d-a480-7aefaec0a8ab",
+  "prevId": "0db7f451-ed53-422a-a482-75076da8e696",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -968,6 +968,13 @@
           "type": "varchar(255)",
           "primaryKey": false,
           "notNull": false
+        },
+        "role": {
+          "name": "role",
+          "type": "varchar(32)",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'STUDENT'"
         }
       },
       "indexes": {},

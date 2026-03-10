@@ -23,7 +23,7 @@ export default function Admin() {
       setSelectedRole("");
     },
     onError: (error) => {
-      toast.error(error.message ?? "Something went wrong. Please try again.");
+      toast.error(error.message);
     },
   });
 
@@ -37,57 +37,54 @@ export default function Admin() {
   return (
     <div className="bg-cooper-cream-100 flex flex-col h-screen w-full justify-center overflow-auto">
       <div className="flex flex-row">
-      <Input
-            className={cn(
-              "border-cooper-gray-150 h-9 border-[1px] pl-5 w-[30%] text-sm text-cooper-gray-400",
-              
-            )}
-            placeholder="Type email here"
-            value={email}
+        <Input
+          className={cn(
+            "border-cooper-gray-150 h-9 border-[1px] pl-5 w-[30%] text-sm text-cooper-gray-400",
+          )}
+          placeholder="Type email here"
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
-
-          />
-          <div className="w-[10%]">
+        />
+        <div className="w-[10%]">
           <Select
-                options={[
-                  { value: UserRole.ADMIN, label: "Admin"},
-                  { value: UserRole.COORDINATOR, label: "Co-op advisor" },
-                ]}
-                className="border-cooper-gray-150 h-10 text-sm"
-                value={selectedRole}
-                placeholder="Select"
-                onChange={(e) => {
-                  setSelectedRole(e.target.value)
-
-                }}
-              />
-              </div>
+            options={[
+              { value: UserRole.ADMIN, label: "Admin" },
+              { value: UserRole.COORDINATOR, label: "Co-op advisor" },
+            ]}
+            className="border-cooper-gray-150 h-10 text-sm"
+            value={selectedRole}
+            placeholder="Select"
+            onChange={(e) => {
+              setSelectedRole(e.target.value);
+            }}
+          />
+        </div>
         <Button
-                  type="button"
-
-                  className="bg-cooper-gray-550 hover:bg-cooper-gray-600 rounded-lg border-none px-8 py-3 text-lg font-semibold text-white"
-                  onClick={() => {
-                    if (!email || !selectedRole) return; 
-                    createUser.mutate({ email, role: selectedRole as UserRoleType });
-                  }}
-                >
-                  Submit
-                </Button>
+          type="button"
+          className="bg-cooper-gray-550 hover:bg-cooper-gray-600 rounded-lg border-none px-8 py-3 text-lg font-semibold text-white"
+          onClick={() => {
+            if (!email || !selectedRole) return;
+            createUser.mutate({ email, role: selectedRole as UserRoleType });
+          }}
+        >
+          Submit
+        </Button>
       </div>
       <div className="flex flex-row gap-2">
-        <div className="flex flex-col">All reviews
-        {reviews.data?.map((review) => (
-          <ReviewCard reviewObj={review} key={review.id} className="h-[30%]"/>
-        ))}
+        <div className="flex flex-col">
+          All reviews
+          {reviews.data?.map((review) => (
+            <ReviewCard
+              reviewObj={review}
+              key={review.id}
+              className="h-[30%]"
+            />
+          ))}
         </div>
         <div>
           All roles:
           {roles.data?.roles.map((role) => (
-            <RoleCardPreview
-              key={role.id}
-              roleObj={role}
-              
-            />
+            <RoleCardPreview key={role.id} roleObj={role} />
           ))}
         </div>
         <div>

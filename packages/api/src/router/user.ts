@@ -21,10 +21,10 @@ export const userRouter = {
       if (existing) {
         // optionally update role instead of throwing
         return ctx.db
-        .update(User)
-        .set({ role: input.role })
-        .where(eq(User.email, input.email))
-        .returning();
+          .update(User)
+          .set({ role: input.role })
+          .where(eq(User.email, input.email))
+          .returning();
       }
 
       return ctx.db
