@@ -11,28 +11,19 @@ const textOptions = [
 
 export default function Landing() {
   return (
-    <div className="flex w-full flex-col lg:flex-row bg-[#FFFEF6] overflow-auto lg:overflow-hidden h-full flex-1">
+    <div className="flex w-full flex-col bg-cooper-cream-100 lg:flex-row overflow-auto lg:overflow-hidden h-full flex-1">
       <AdminAccessToast />
       <div className="lg:w-[43%] flex flex-col pl-16 pr-28 justify-center pt-2 lg:pt-0">
         <div className="flex w-fit flex-row items-center gap-2">
           <div className="text-cooper-blue-800 text-[40px] leading-[48px] font-semibold">
             <div>Real reviews of </div>
-            <span className="font-black italic">
-              real co-op experiences
-            </span>{" "}
-            <Image
-              src="/blue-star.png"
-              width={30}
-              height={32}
-              alt="Blue star"
-              className="inline-block align-top"
-            />
+            <span className="font-black italic">real co-op experiences</span>
           </div>
         </div>
         <div className="w-fit pt-8">
           <LoginButton />
-          <div className="text-cooper-gray-600 font-bold text-md pt-4 w-fit">
-            Only Northeastern students can access reviews
+          <div className="text-cooper-gray-600 text-md pb-6 pt-4 w-fit">
+            Log in with husky.neu.edu email to access reviews
           </div>
           <form>
             <button
@@ -65,7 +56,7 @@ export default function Landing() {
           })}
         </div>
       </div>
-      <div>
+      <div className="flex-1 flex justify-end">
         <Image
           src="/landing-placeholder.png"
           width={880}
