@@ -29,8 +29,6 @@ import {
 } from "./schema/misc";
 import { CreateReportSchema, Report } from "./schema/reports";
 import type { ReportType } from "./schema/reports";
-import { CreateReportSchema, Report } from "./schema/reports";
-import type { ReportType } from "./schema/reports";
 import {
   CreateProfileSchema,
   Profile,
