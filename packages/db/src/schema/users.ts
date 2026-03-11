@@ -3,7 +3,7 @@ import { pgTable, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
 import { Account } from "./accounts";
 import { Profile } from "./profiles";
 import { UserRole } from "./misc";
-import type{ UserRoleType } from "./misc";
+import type { UserRoleType } from "./misc";
 
 export const User = pgTable("user", {
   id: uuid("id").notNull().primaryKey().defaultRandom(),

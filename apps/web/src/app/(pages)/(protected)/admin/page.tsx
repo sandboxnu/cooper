@@ -1,6 +1,7 @@
 "use client";
 import { UserRole, UserRoleType } from "@cooper/db/schema";
 import { cn, useCustomToast } from "@cooper/ui";
+import { useRouter } from "next/navigation";
 import { Button } from "node_modules/@cooper/ui/src/button";
 import { Input } from "node_modules/@cooper/ui/src/input";
 import { useState } from "react";
@@ -11,6 +12,21 @@ import { Select } from "~/app/_components/themed/onboarding/select";
 import { api } from "~/trpc/react";
 
 export default function Admin() {
+  const router = useRouter();
+
+  const {
+    data: session,
+    isLoading: sessionLoading,
+    error: _sessionError,
+  } = api.auth.getSession.useQuery();
+
+  if (
+    !sessionLoading &&
+    session?.user.role &&
+    session.user.role !== UserRole.ADMIN
+  ) {
+    router.replace("/404");
+  }
   const roles = api.role.list.useQuery({}, {});
   const { toast } = useCustomToast();
   const reviews = api.review.list.useQuery({}, {});

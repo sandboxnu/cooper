@@ -5,7 +5,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 import { useCustomToast } from "@cooper/ui";
 
-const TOAST_DELAY_MS = 300;
 const CLEAR_URL_AFTER_MS = 5000;
 
 const MESSAGE = "You don't have access as an admin or coordinator.";
@@ -17,36 +16,31 @@ function AdminAccessToastInner() {
   const shownRef = useRef(false);
 
   const error = searchParams.get("error");
-  const showError = error === "unauthorized-admin" || error != null;
+  console.log("[AdminAccessToast] render", { error });
 
   useEffect(() => {
     if (!error || shownRef.current) return;
     shownRef.current = true;
+    console.log("[AdminAccessToast] scheduling toast", { error });
 
-    const showToastId = window.setTimeout(() => {
-      toast.error(MESSAGE);
-    }, TOAST_DELAY_MS);
+    console.log("[AdminAccessToast] showing toast", { error });
+    toast.error(MESSAGE);
 
     const clearUrlId = window.setTimeout(() => {
+      console.log("[AdminAccessToast] clearing url", { error });
       router.replace("/", { scroll: false });
     }, CLEAR_URL_AFTER_MS);
 
     return () => {
-      window.clearTimeout(showToastId);
+      console.log("[AdminAccessToast] cleanup", { error });
       window.clearTimeout(clearUrlId);
     };
-  }, [error, toast, router]);
+    // Intentionally depend only on `error`.
+    // `toast` is not referentially stable (new object each render) and would cancel the timeout.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [error]);
 
-  if (!showError) return null;
-
-  return (
-    <div
-      role="alert"
-      className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-md text-sm font-medium mb-4"
-    >
-      {MESSAGE}
-    </div>
-  );
+  return null;
 }
 
 export function AdminAccessToast() {

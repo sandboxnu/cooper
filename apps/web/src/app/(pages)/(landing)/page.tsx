@@ -22,7 +22,7 @@ export default function Landing() {
         </div>
         <div className="w-fit pt-8">
           <LoginButton />
-          <div className="text-cooper-gray-600 text-md pb-6 pt-4 w-fit">
+          <div className="text-cooper-gray-600 text-md pt-4 w-fit">
             Log in with husky.neu.edu email to access reviews
           </div>
           <form>
@@ -32,7 +32,7 @@ export default function Landing() {
                 "use server";
                 await signIn("googleAdmin", { redirectTo: "/roles" });
               }}
-              className="text-cooper-gray-600 font-bold text-md pb-8 pt-4 w-fit cursor-pointer hover:underline"
+              className="text-cooper-gray-600 font-bold text-md pb-6 pt-2 w-fit cursor-pointer hover:underline"
             >
               Or continue as admin / coordinator
             </button>

@@ -15,7 +15,7 @@ export const userRouter = {
     .mutation(async ({ ctx, input }) => {
       // Optional: enforce uniqueness per email
       const existing = await ctx.db.query.User.findFirst({
-        where: (u, { eq }) => eq(u.email, input.email as string),
+        where: (u, { eq }) => eq(u.email, input.email),
       });
 
       if (existing) {
@@ -23,14 +23,14 @@ export const userRouter = {
         return ctx.db
           .update(User)
           .set({ role: input.role })
-          .where(eq(User.email, input.email as string))
+          .where(eq(User.email, input.email))
           .returning();
       }
 
       return ctx.db
         .insert(User)
         .values({
-          email: input.email as string,
+          email: input.email,
           role: input.role,
         })
         .returning();

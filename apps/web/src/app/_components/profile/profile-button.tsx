@@ -10,6 +10,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@cooper/ui/dropdown-menu";
+import { UserRole } from "node_modules/@cooper/db/src/schema/misc";
 
 interface ProfileButtonProps {
   session: Session;
@@ -47,10 +48,14 @@ export default function ProfileButton({ session }: ProfileButtonProps) {
               </button>
             </form>
           </DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuLabel className="text-center">
-            <Link href="/admin">Admin</Link>
-          </DropdownMenuLabel>
+          {session.user.role === UserRole.ADMIN && (
+            <>
+              <DropdownMenuSeparator />
+              <DropdownMenuLabel className="text-center">
+                <Link href="/admin">Admin</Link>
+              </DropdownMenuLabel>
+            </>
+          )}
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
