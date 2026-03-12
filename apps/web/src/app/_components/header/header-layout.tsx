@@ -8,7 +8,7 @@ import ProfileButton from "../profile/profile-button";
 /**
  * This should be used when placing content under the header, standardizes how children are placed under a header.
  * @param param0 Children to pass into the layout
- * @returns A layout component that standardizes the distance from the header
+ * @returns A layout component that standardizes the distance from the header.
  */
 export default async function HeaderLayout({
   children,
