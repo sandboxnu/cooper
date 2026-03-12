@@ -7,6 +7,7 @@ import type {
   StatusType,
   JobTypeType,
   ReportReasonType,
+  UserRoleType,
 } from "./schema/misc";
 import type { ReviewType } from "./schema/reviews";
 import type { RoleType } from "./schema/roles";
@@ -24,6 +25,7 @@ import {
   Status,
   JobType,
   ReportReason,
+  UserRole,
 } from "./schema/misc";
 import { CreateReportSchema, Report } from "./schema/reports";
 import type { ReportType } from "./schema/reports";
@@ -80,6 +82,7 @@ export {
   Report,
   CreateReportSchema,
   ReportReason,
+  UserRole,
 };
 
 export type {
@@ -94,4 +97,5 @@ export type {
   StatusType,
   JobTypeType,
   ReportReasonType,
+  UserRoleType,
 };

@@ -21,6 +21,7 @@ import dayjs from "dayjs";
 import { Form } from "node_modules/@cooper/ui/src/form";
 import { PaySection } from "~/app/_components/form/sections/pay-section";
 import { api } from "~/trpc/react";
+import { UserRole } from "node_modules/@cooper/db/src/schema/misc";
 
 const filter = new Filter();
 
@@ -233,7 +234,7 @@ export default function ReviewForm() {
 
   const mutation = api.review.create.useMutation({
     onSuccess: () => {
-      router.push("/");
+      router.push("/roles");
     },
     onError: (error) => {
       toast.error(error.message || "Something went wrong. Please try again.");
@@ -262,6 +263,10 @@ export default function ReviewForm() {
 
   if (!session || !profile) {
     return null;
+  }
+
+  if (session.user.role && session.user.role !== UserRole.STUDENT) {
+    router.replace("/404");
   }
 
   // if (submitted) {

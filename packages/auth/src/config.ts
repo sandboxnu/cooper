@@ -8,7 +8,7 @@ import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import Google from "next-auth/providers/google";
 
 import { db } from "@cooper/db/client";
-import { Account, Session, User } from "@cooper/db/schema";
+import { Account, Session, User, UserRole } from "@cooper/db/schema";
 
 import { env } from "../env";
 
@@ -16,6 +16,7 @@ declare module "next-auth" {
   interface Session {
     user: {
       id: string;
+      role?: string;
     } & DefaultSession["user"];
   }
 }
@@ -24,6 +25,7 @@ declare module "@auth/core/types" {
   interface Session {
     user: {
       id: string;
+      role?: string;
     } & DefaultSession["user"];
   }
 }
@@ -82,15 +84,37 @@ export const authConfig = {
         },
       };
     },
-    signIn({ user, account }) {
+    async signIn({ user, account }) {
       const email = user.email;
-      if (account?.provider === "googleAdmin") {
+      if (!email) {
+        return account?.provider === "googleAdmin"
+          ? "/?error=unauthorized-admin"
+          : "/redirection";
+      }
+
+      // Allow anyone who already exists in the DB as admin or coordinator (any provider, any email)
+      const adminOrCoordinator = await db.query.User.findFirst({
+        where: (u, { eq, and, or }) =>
+          and(
+            eq(u.email, email),
+            or(eq(u.role, UserRole.ADMIN), eq(u.role, UserRole.COORDINATOR)),
+          ),
+      });
+
+      if (adminOrCoordinator) {
         return true;
       }
 
-      if (!email?.endsWith("@husky.neu.edu")) {
+      // They used the admin/coordinator flow but are not in the DB with that role
+      if (account?.provider === "googleAdmin") {
+        return "/?error=unauthorized-admin";
+      }
+
+      // Regular student Google login: must be a husky.neu.edu email
+      if (!email.endsWith("@husky.neu.edu")) {
         return "/redirection";
       }
+
       return true;
     },
   },

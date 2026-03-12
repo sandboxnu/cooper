@@ -44,6 +44,7 @@ export const companyRouter = {
           })
           .optional(),
         limit: z.number().optional().default(30),
+        showAll: z.boolean().optional().default(true),
       }),
     )
     .query(async ({ ctx, input }) => {
@@ -69,17 +70,23 @@ export const companyRouter = {
             ? sql`WHERE ${sql.join(filters, sql` AND `)} AND ${nameFilter}`
             : sql`WHERE ${nameFilter}`;
 
+        // When showAll is false, only include companies that have at least one review.
+        const havingClause = input.showAll
+          ? sql``
+          : sql`HAVING COUNT(${Review.id}) > 0`;
+
         const companiesWithRatings = await ctx.db.execute(sql`
-        SELECT 
-          ${Company}.*, 
-          COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
-        FROM ${Company}
-        LEFT JOIN ${Review}
-          ON NULLIF(${Review.companyId}, '')::uuid = ${Company.id}
-        ${whereClause}
-        GROUP BY ${Company.id}
-        ORDER BY avg_rating DESC
-      `);
+          SELECT 
+            ${Company}.*, 
+            COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
+          FROM ${Company}
+          LEFT JOIN ${Review}
+            ON NULLIF(${Review.companyId}, '')::uuid = ${Company.id}
+          ${whereClause}
+          GROUP BY ${Company.id}
+          ${havingClause}
+          ORDER BY avg_rating DESC
+        `);
 
         const companies = companiesWithRatings.rows.map((role) => ({
           ...(role as CompanyType),
@@ -100,10 +107,31 @@ export const companyRouter = {
         like(Company.name, `${input.prefix}%`),
       ].filter(Boolean) as SQLWrapper[];
 
-      const companies = await ctx.db.query.Company.findMany({
+      const foundCompanies = await ctx.db.query.Company.findMany({
         orderBy: ordering[ctx.sortBy],
         where: conditions.length > 0 ? and(...conditions) : undefined,
       });
+
+      let companies = foundCompanies;
+
+      if (!input.showAll) {
+        // Only keep companies that have at least one review.
+        const companiesWithReviews = await ctx.db.execute(sql`
+          SELECT DISTINCT ${Company.id}::uuid as company_id
+          FROM ${Company}
+          INNER JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
+          INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          WHERE ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
+        `);
+
+        const companyIdsWithReviews = new Set(
+          companiesWithReviews.rows.map((row) => String(row.company_id)),
+        );
+
+        companies = foundCompanies.filter((company) =>
+          companyIdsWithReviews.has(company.id),
+        );
+      }
 
       const fuseOptions = ["name", "description"];
       return performFuseSearch<CompanyType>(

@@ -78,6 +78,13 @@
       "when": 1772681764630,
       "tag": "0010_smooth_daimon_hellstrom",
       "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1773116518055,
+      "tag": "0011_chubby_triton",
+      "breakpoints": true
     }
   ]
 }
