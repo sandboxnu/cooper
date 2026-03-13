@@ -278,6 +278,8 @@ export default function Roles() {
       );
       const urlCompany = currentUrl.get("company");
       const urlRole = currentUrl.get("role");
+      // Don't overwrite URL if it has a role but selectedItem is a company (would clear role)
+      if (urlRole && !isRole(selectedItem)) return;
       // Skip URL update only when the URL already matches the selected item
       if (urlCompany && urlRole && isRole(selectedItem)) {
         const r = selectedItem as RoleType & {
@@ -305,6 +307,9 @@ export default function Roles() {
         const companySlug = roleItem.companySlug ?? createSlug(companyName);
         const roleSlug = roleItem.slug;
 
+        // Don't push if we don't have a valid role slug (would clear role param)
+        if (!roleSlug) return;
+
         // Preserve search param
         const currentSearch = params.get("search");
         params.delete("search");
@@ -318,7 +323,7 @@ export default function Roles() {
           params.set("search", currentSearch);
         }
 
-        router.push(`/?${params.toString()}`);
+        router.push(`/roles/?${params.toString()}`);
       } else {
         // For companies, use the company parameter with the name
         const companyItem = selectedItem as CompanyType & { slug?: string };
@@ -337,7 +342,7 @@ export default function Roles() {
           params.set("search", currentSearch);
         }
 
-        router.push(`/?${params.toString()}`);
+        router.push(`/roles/?${params.toString()}`);
       }
     }
   }, [
@@ -388,9 +393,9 @@ export default function Roles() {
 
     // Build new URL with only search param if it exists
     if (searchParam) {
-      router.push(`/?search=${searchParam}`);
+      router.push(`/roles/?search=${searchParam}`);
     } else {
-      router.push("/");
+      router.push("/roles");
     }
   };
 

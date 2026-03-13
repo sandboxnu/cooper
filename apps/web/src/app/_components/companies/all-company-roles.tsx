@@ -39,10 +39,12 @@ export default function RenderAllRoles({
                   <div
                     key={role.id}
                     className="p-2"
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
                       onClose?.();
                       router.push(
-                        `/?company=${company?.slug ?? ""}&role=${role.slug}&type=roles`,
+                        `/roles/?company=${company?.slug ?? ""}&type=roles&role=${role.slug}`,
                       );
                     }}
                   >
