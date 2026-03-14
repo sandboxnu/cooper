@@ -1,5 +1,3 @@
-import { X } from "lucide-react";
-
 import { Input as InputPrimitive } from "@cooper/ui/input";
 import { X } from "lucide-react";
 

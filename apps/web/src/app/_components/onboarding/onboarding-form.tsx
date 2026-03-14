@@ -8,7 +8,6 @@ import { Button } from "@cooper/ui/button";
 import { Checkbox } from "@cooper/ui/checkbox";
 import { DialogTitle } from "@cooper/ui/dialog";
 import { Form, FormControl, FormField, FormItem } from "@cooper/ui/form";
-import { Checkbox } from "@cooper/ui/checkbox";
 
 import {
   FormLabel,
