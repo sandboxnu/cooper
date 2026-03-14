@@ -38,16 +38,17 @@ export const Industry = {
 
 export type IndustryType = (typeof Industry)[keyof typeof Industry];
 
+export const JobType = {
+  COOP: "Co-op",
+  INTERNSHIP: "Internship",
+} as const;
+
+export type JobTypeType = (typeof JobType)[keyof typeof JobType];
+
 export const WorkEnvironment = {
   INPERSON: "INPERSON",
   HYBRID: "HYBRID",
   REMOTE: "REMOTE",
-} as const;
-
-export const JobType = {
-  COOP: "coop",
-  PARTTIME: "parttime",
-  INTERNSHIP: "internship",
 } as const;
 
 export type WorkEnvironmentType =
@@ -69,3 +70,21 @@ export const RequestStatus = {
 
 export type RequestStatusType =
   (typeof RequestStatus)[keyof typeof RequestStatus];
+
+export const Status = {
+  DELETED: "DELETED",
+  DRAFT: "DRAFT",
+  PUBLISHED: "PUBLISHED",
+} as const;
+
+export type StatusType = (typeof Status)[keyof typeof Status];
+
+export const ReportReason = {
+  INAPPROPRIATE_CONTENT: "INAPPROPRIATE_CONTENT",
+  DUPLICATE: "DUPLICATE",
+  MISLEADING: "MISLEADING",
+  SPAM: "SPAM",
+  OTHER: "OTHER",
+} as const;
+
+export type ReportReasonType = (typeof ReportReason)[keyof typeof ReportReason];

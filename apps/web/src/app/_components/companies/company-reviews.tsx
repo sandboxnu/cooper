@@ -7,6 +7,7 @@ import { calculateRatings } from "~/utils/reviewCountByStars";
 import StarGraph from "../shared/star-graph";
 import CompanyStatistics from "./company-statistics";
 import {
+  calculateJobTypes,
   calculatePay,
   calculatePayRange,
   calculateWorkModels,
@@ -28,6 +29,7 @@ export function CompanyReview({ companyObj }: CompanyReviewProps) {
 
   const ratings = calculateRatings(reviews.data ?? []);
   const workModels = calculateWorkModels(reviews.data ?? []);
+  const jobTypes = calculateJobTypes(reviews.data ?? []);
   const payStats = calculatePay(reviews.data ?? []);
   const payRange = calculatePayRange(reviews.data ?? []);
 
@@ -56,9 +58,9 @@ export function CompanyReview({ companyObj }: CompanyReviewProps) {
         {(reviews.data?.length ?? 0) > 0 && (
           <CompanyStatistics
             workModels={workModels}
-            reviews={reviews.data?.length ?? 0}
             payStats={payStats}
             payRange={payRange}
+            jobTypes={jobTypes}
           />
         )}
       </div>

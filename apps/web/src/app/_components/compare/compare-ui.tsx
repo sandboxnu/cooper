@@ -34,7 +34,7 @@ export function CompareControls({
   if (!compare.isCompareMode) {
     return (
       <Button
-        className="inline-flex items-center gap-1.5 rounded-md border border-[rgba(49,115,222,0.2)] bg-[rgba(49,115,222,0.15)] px-3 py-1.5 text-xs font-semibold text-[#606060] transition hover:bg-[rgba(49,115,222,0.25)]"
+        className="hidden md:inline-flex items-center gap-1.5 rounded-md border border-[rgba(49,115,222,0.2)] bg-[rgba(49,115,222,0.15)] px-3 py-1.5 text-xs font-semibold text-[#606060] transition hover:bg-[rgba(49,115,222,0.25)]"
         onClick={() => compare.enterCompareMode()}
       >
         <Image
@@ -59,7 +59,7 @@ export function CompareControls({
       <Button
         disabled={!canAdd}
         className={cn(
-          "inline-flex items-center gap-1.5 rounded-md border border-[#DDDDDD] bg-[#E6E6E6] px-3 py-1.5 text-xs font-semibold text-[#4a4a4a] transition",
+          "inline-flex items-center gap-1.5 rounded-md border border-[#DDDDDD] bg-[#E6E6E6] px-3 py-1.5 text-xs font-semibold text-[#4a4a4a] transition h-9",
           canAdd ? "hover:bg-[#c5c5c5]" : "cursor-not-allowed opacity-50",
         )}
         onClick={() => compare.addSlot()}
@@ -73,7 +73,7 @@ export function CompareControls({
         <span>ADD COMPARISON</span>
       </Button>
       <Button
-        className="inline-flex items-center gap-1.5 rounded-md border border-[rgba(49,115,222,0.15)] bg-[#7a9ec9] px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-[#6a8eb9]"
+        className="inline-flex items-center gap-1.5 rounded-md border border-[rgba(49,115,222,0.15)] bg-[#7a9ec9] px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-[#6a8eb9] h-9"
         onClick={() => compare.exitCompareMode()}
       >
         <Image

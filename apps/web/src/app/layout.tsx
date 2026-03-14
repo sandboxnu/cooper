@@ -27,6 +27,8 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout(props: { children: React.ReactNode }) {
+  // Ensure user is authenticated
+
   return (
     <html
       className={hankenGroteskFont.variable}
@@ -35,7 +37,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
     >
       <body
         className={cn(
-          "min-h-screen bg-cooper-cream-100 font-sans text-foreground antialiased",
+          "bg-cooper-cream-100 font-sans text-foreground antialiased",
         )}
       >
         <TRPCReactProvider>

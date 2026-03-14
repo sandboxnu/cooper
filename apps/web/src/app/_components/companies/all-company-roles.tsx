@@ -10,11 +10,16 @@ import type { CompanyType } from "@cooper/db/schema";
 
 interface RenderAllRolesProps {
   company: CompanyType | null;
+  onClose?: () => void;
 }
 
-export default function RenderAllRoles({ company }: RenderAllRolesProps) {
+export default function RenderAllRoles({
+  company,
+  onClose,
+}: RenderAllRolesProps) {
   const roles = api.role.getByCompany.useQuery({
     companyId: company?.id ?? "",
+    onlyWithReviews: true,
   });
   const router = useRouter();
 
@@ -34,13 +39,18 @@ export default function RenderAllRoles({ company }: RenderAllRolesProps) {
                   <div
                     key={role.id}
                     className="p-2"
-                    onClick={() => router.push(`/role?id=${role.id}`)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      onClose?.();
+                      router.push(
+                        `/roles/?company=${company?.slug ?? ""}&type=roles&role=${role.slug}`,
+                      );
+                    }}
                   >
                     <RoleCardPreview
                       roleObj={role}
-                      className={cn(
-                        "bg-cooper-gray-100 hover:bg-cooper-gray-100",
-                      )}
+                      className={cn("bg-cooper-gray-100 ")}
                     />
                   </div>
                 );

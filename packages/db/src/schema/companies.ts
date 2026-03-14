@@ -6,6 +6,7 @@ import { z } from "zod";
 import { CompaniesToLocations } from "./companiesToLocations";
 import { Industry } from "./misc";
 import { ProfilesToCompanies } from "./profilesToCompanies";
+import { Report } from "./reports";
 import { Review } from "./reviews";
 import { Role } from "./roles";
 
@@ -30,6 +31,7 @@ export const CompanyRelations = relations(Company, ({ many }) => ({
   reviews: many(Review),
   companies_to_locations: many(CompaniesToLocations),
   profiles_to_companies: many(ProfilesToCompanies),
+  reports: many(Report),
 }));
 
 export const CreateCompanySchema = createInsertSchema(Company, {

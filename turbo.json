@@ -72,7 +72,9 @@
     "AUTH_GOOGLE_SECRET",
     "AUTH_REDIRECT_PROXY_URL",
     "AUTH_SECRET",
-    "PORT"
+    "PORT",
+    "AUTH_GOOGLE_ADMIN_ID",
+    "AUTH_GOOGLE_ADMIN_SECRET"
   ],
   "globalPassThroughEnv": [
     "NODE_ENV",

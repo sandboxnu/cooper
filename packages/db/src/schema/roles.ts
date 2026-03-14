@@ -5,6 +5,7 @@ import { z } from "zod";
 
 import { Company } from "./companies";
 import { ProfilesToRoles } from "./profilesToRoles";
+import { Report } from "./reports";
 import { Review } from "./reviews";
 import { User } from "./users";
 
@@ -13,11 +14,6 @@ export const Role = pgTable("role", {
   title: varchar("title").notNull(),
   slug: varchar("slug").notNull(),
   description: text("description"),
-  jobType: varchar("jobType", {
-    enum: ["CO-OP", "INTERNSHIP"],
-  })
-    .notNull()
-    .default("CO-OP"),
   companyId: varchar("companyId").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt", {
@@ -36,6 +32,7 @@ export const RoleRelations = relations(Role, ({ one, many }) => ({
   }),
   reviews: many(Review),
   profiles_to_roles: many(ProfilesToRoles),
+  reports: many(Report),
   createdBy: one(User, {
     fields: [Role.createdBy],
     references: [User.id],
@@ -45,7 +42,6 @@ export const RoleRelations = relations(Role, ({ one, many }) => ({
 export const CreateRoleSchema = createInsertSchema(Role, {
   title: z.string(),
   description: z.string(),
-  jobType: z.enum(["CO-OP", "INTERNSHIP"]),
   companyId: z.string(),
   createdBy: z.string(),
 }).omit({

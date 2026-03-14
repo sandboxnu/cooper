@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useLayoutEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { X } from "lucide-react";
 
@@ -15,6 +16,10 @@ interface AutocompleteProps {
   value?: string[];
   onChange: (value: string[]) => void;
   onSearchChange?: (search: string) => void;
+  /** When true, only one option can be selected; selection is shown in the bar and dropdown closes on select. */
+  singleSelect?: boolean;
+  // whether the autocomplete is rendered within a menu content (for positioning)
+  isInMenuContent?: boolean;
 }
 
 export default function Autocomplete({
@@ -23,6 +28,8 @@ export default function Autocomplete({
   value = [],
   onChange,
   onSearchChange,
+  singleSelect = false,
+  isInMenuContent = false,
 }: AutocompleteProps) {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
@@ -36,20 +43,52 @@ export default function Autocomplete({
     );
   }, [search, options]);
 
-  const displayValue = search;
+  const selectedLabel =
+    singleSelect && value.length === 1
+      ? (options.find((o) => o.value === value[0])?.label ?? "")
+      : "";
+  const displayValue =
+    singleSelect && !open && selectedLabel ? selectedLabel : search;
 
-  // Calculate dropdown position
-  useEffect(() => {
-    if (open && inputRef.current) {
+  const updateDropdownPosition = useMemo(
+    () => () => {
+      if (!inputRef.current) return;
       const rect = inputRef.current.getBoundingClientRect();
       setDropdownStyle({
         position: "fixed",
+        top: `${rect.bottom + (isInMenuContent ? 0 : 4)}px`,
+        left: `${rect.left}px`,
         width: `${rect.width}px`,
       });
-    }
-  }, [open]);
+    },
+    [isInMenuContent],
+  );
+
+  // Position dropdown directly below the input; use layout effect so rect is correct after open
+  useLayoutEffect(() => {
+    if (!open) return;
+    updateDropdownPosition();
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleScrollOrResize = () => updateDropdownPosition();
+    window.addEventListener("scroll", handleScrollOrResize, true);
+    window.addEventListener("resize", handleScrollOrResize);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("scroll", handleScrollOrResize, true);
+      window.removeEventListener("resize", handleScrollOrResize);
+    };
+  }, [open, updateDropdownPosition]);
 
   const handleToggle = (optionValue: string) => {
+    if (singleSelect) {
+      onChange([optionValue]);
+      setOpen(false);
+      setSearch("");
+      return;
+    }
     const newValue = value.includes(optionValue)
       ? value.filter((v) => v !== optionValue)
       : [...value, optionValue];
@@ -71,7 +110,7 @@ export default function Autocomplete({
         <input
           ref={inputRef}
           type="text"
-          className="border-cooper-gray-150 focus:none flex h-10 w-full rounded-md border bg-white px-[14px] py-2 text-sm placeholder:text-cooper-gray-400 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+          className="border-cooper-gray-150 focus:none flex h8 w-full rounded-md border bg-white px-[14px] py-2 text-sm placeholder:text-cooper-gray-400 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
           placeholder={placeholder}
           value={displayValue}
           onChange={(e) => {
@@ -79,7 +118,11 @@ export default function Autocomplete({
             setOpen(true);
             onSearchChange?.(e.target.value);
           }}
-          onFocus={() => setOpen(true)}
+          onFocus={() => {
+            setOpen(true);
+            if (singleSelect && value.length === 1) setSearch("");
+          }}
+          readOnly={singleSelect && !open && value.length === 1}
         />
         {search || value.length > 0 ? (
           <button
@@ -89,12 +132,81 @@ export default function Autocomplete({
             <X className="h-4 w-4" />
           </button>
         ) : (
-          <MagnifyingGlassIcon className="absolute right-2 top-1/2 h-4 w-4 shrink-0 -translate-y-1/2 opacity-50" />
+          <MagnifyingGlassIcon className="absolute right-2 top-1/2 h-5 w-5 shrink-0 -translate-y-1/2 opacity-50" />
         )}
       </div>
 
-      {/* Selected items badges */}
-      {value.length > 0 && (
+      {open && isInMenuContent && (
+        <div className="border-cooper-gray-150 absolute left-0 right-0 top-full z-[101] mt-1 rounded-md border bg-white shadow-lg">
+          <div className="max-h-60 overflow-auto p-1">
+            {filtered.length === 0 ? (
+              <div className="py-6 text-center text-sm text-gray-500">
+                No results found.
+              </div>
+            ) : (
+              filtered.map((option) => {
+                const isSelected = value.includes(option.value);
+                return (
+                  <button
+                    key={option.value}
+                    className="hover:bg-cooper-gray-150 flex w-full items-center gap-2 rounded-sm px-[14px] py-2 hover:cursor-pointer"
+                    onClick={() => handleToggle(option.value)}
+                  >
+                    <Checkbox checked={isSelected} />
+                    <label className="flex-1 cursor-pointer text-left text-sm text-cooper-gray-400">
+                      {option.label}
+                    </label>
+                  </button>
+                );
+              })
+            )}
+          </div>
+        </div>
+      )}
+      {open &&
+        !isInMenuContent &&
+        typeof document !== "undefined" &&
+        createPortal(
+          <>
+            <div
+              className="fixed inset-0 z-[100]"
+              onClick={() => {
+                setOpen(false);
+                setSearch("");
+              }}
+            />
+            <div
+              className="border-cooper-gray-150 z-[101] rounded-md border bg-white shadow-lg"
+              style={dropdownStyle}
+            >
+              <div className="max-h-60 overflow-auto p-1">
+                {filtered.length === 0 ? (
+                  <div className="py-6 text-center text-sm text-gray-500">
+                    No results found.
+                  </div>
+                ) : (
+                  filtered.map((option) => {
+                    const isSelected = value.includes(option.value);
+                    return (
+                      <button
+                        key={option.value}
+                        className="hover:bg-cooper-gray-150 flex w-full items-center gap-2 rounded-sm px-[14px] py-2 hover:cursor-pointer"
+                        onClick={() => handleToggle(option.value)}
+                      >
+                        <Checkbox checked={isSelected} />
+                        <label className="flex-1 cursor-pointer text-left text-sm text-cooper-gray-400">
+                          {option.label}
+                        </label>
+                      </button>
+                    );
+                  })
+                )}
+              </div>
+            </div>
+          </>,
+          document.body,
+        )}
+      {!open && value.length > 0 && !singleSelect && (
         <div className="mt-2 flex flex-wrap gap-1">
           {value.map((val) => {
             const option = options.find((opt) => opt.value === val);
@@ -115,46 +227,6 @@ export default function Autocomplete({
             );
           })}
         </div>
-      )}
-
-      {open && (
-        <>
-          <div
-            className="fixed inset-0 z-[100]"
-            onClick={() => {
-              setOpen(false);
-              setSearch("");
-            }}
-          />
-          <div
-            className="border-cooper-gray-150 z-[101] mt-1 rounded-md border bg-white shadow-lg"
-            style={dropdownStyle}
-          >
-            <div className="max-h-60 overflow-auto p-1">
-              {filtered.length === 0 ? (
-                <div className="py-6 text-center text-sm text-gray-500">
-                  No results found.
-                </div>
-              ) : (
-                filtered.map((option) => {
-                  const isSelected = value.includes(option.value);
-                  return (
-                    <button
-                      key={option.value}
-                      className="hover:bg-cooper-gray-150 flex w-full items-center gap-2 rounded-sm px-[14px] py-2 hover:cursor-pointer"
-                      onClick={() => handleToggle(option.value)}
-                    >
-                      <Checkbox checked={isSelected} />
-                      <label className="flex-1 cursor-pointer text-left text-sm text-cooper-gray-400">
-                        {option.label}
-                      </label>
-                    </button>
-                  );
-                })
-              )}
-            </div>
-          </div>
-        </>
       )}
     </div>
   );

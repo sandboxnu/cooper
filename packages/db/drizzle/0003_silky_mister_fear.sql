@@ -1,6 +1,6 @@
 -- Add slug columns as nullable first to allow backfilling
-ALTER TABLE "company" ADD COLUMN "slug" varchar;--> statement-breakpoint
-ALTER TABLE "role" ADD COLUMN "slug" varchar;--> statement-breakpoint
+ALTER TABLE "company" ADD COLUMN IF NOT EXISTS "slug" varchar;--> statement-breakpoint
+ALTER TABLE "role" ADD COLUMN IF NOT EXISTS "slug" varchar;--> statement-breakpoint
 
 -- Backfill company slugs from names
 UPDATE "company" 
@@ -38,4 +38,5 @@ WHERE c.id = nc.id AND nc.rn > 1;--> statement-breakpoint
 -- Now make the columns NOT NULL and add unique constraint only for company
 ALTER TABLE "company" ALTER COLUMN "slug" SET NOT NULL;--> statement-breakpoint
 ALTER TABLE "role" ALTER COLUMN "slug" SET NOT NULL;--> statement-breakpoint
+ALTER TABLE "company" DROP CONSTRAINT IF EXISTS "company_slug_unique";--> statement-breakpoint
 ALTER TABLE "company" ADD CONSTRAINT "company_slug_unique" UNIQUE("slug");

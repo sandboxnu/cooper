@@ -58,6 +58,7 @@ export default {
 
         // Cooper "Red"
         "cooper-red-400": "#FCC9B8",
+        "cooper-red-300": "#FB7373",
 
         // Deprecated Colors
         "cooper-pink-500": "#EA8FBA",

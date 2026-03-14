@@ -89,3 +89,9 @@ To generate `AUTH_GOOGLE_ID` and `AUTH_GOOGLE_SECRET`, see [Setting up OAuth 2.0
 ```bash
 openssl rand -base64 32
 ```
+
+### Location
+
+To fill the location info within Neon, follow the steps on [this page](https://neon.com/docs/import/import-from-csv). Skip steps 2 and 3, as the locations.csv
+file already exists in the repo, and then for step 4, replace 'customer' with 'location' and replace the path with the path to the location.csv file.
+
