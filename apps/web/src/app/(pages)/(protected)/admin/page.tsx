@@ -23,7 +23,8 @@ export default function Admin() {
   if (
     !sessionLoading &&
     session?.user.role &&
-    session.user.role !== UserRole.ADMIN
+    session.user.role !== UserRole.ADMIN &&
+    session.user.role !== UserRole.DEVELOPER
   ) {
     router.replace("/404");
   }

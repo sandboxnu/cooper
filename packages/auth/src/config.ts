@@ -92,20 +92,24 @@ export const authConfig = {
           : "/redirection";
       }
 
-      // Allow anyone who already exists in the DB as admin or coordinator (any provider, any email)
-      const adminOrCoordinator = await db.query.User.findFirst({
+      // Allow anyone who already exists in the DB as admin, coordinator, or developer (any provider, any email)
+      const elevatedUser = await db.query.User.findFirst({
         where: (u, { eq, and, or }) =>
           and(
             eq(u.email, email),
-            or(eq(u.role, UserRole.ADMIN), eq(u.role, UserRole.COORDINATOR)),
+            or(
+              eq(u.role, UserRole.ADMIN),
+              eq(u.role, UserRole.COORDINATOR),
+              eq(u.role, UserRole.DEVELOPER),
+            ),
           ),
       });
 
-      if (adminOrCoordinator) {
+      if (elevatedUser) {
         return true;
       }
 
-      // They used the admin/coordinator flow but are not in the DB with that role
+      // They used the admin/coordinator flow but are not in the DB with an elevated role
       if (account?.provider === "googleAdmin") {
         return "/?error=unauthorized-admin";
       }

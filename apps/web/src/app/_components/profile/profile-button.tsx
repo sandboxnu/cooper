@@ -48,7 +48,8 @@ export default function ProfileButton({ session }: ProfileButtonProps) {
               </button>
             </form>
           </DropdownMenuLabel>
-          {session.user.role === UserRole.ADMIN && (
+          {(session.user.role === UserRole.ADMIN ||
+            session.user.role === UserRole.DEVELOPER) && (
             <>
               <DropdownMenuSeparator />
               <DropdownMenuLabel className="text-center">

@@ -33,7 +33,9 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const session = api.auth.getSession.useQuery();
   const utils = api.useUtils();
-  const isStudent = session.data?.user.role === UserRole.STUDENT;
+  const isStudentOrDeveloper =
+    session.data?.user.role === UserRole.STUDENT ||
+    session.data?.user.role === UserRole.DEVELOPER;
 
   if (isOpen) {
     return (
@@ -144,7 +146,7 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
         >
           Submit Feedback or Bug Reports
         </Link>
-        {session.data && loggedIn && isStudent && (
+        {session.data && loggedIn && isStudentOrDeveloper && (
           <div className="flex items-center gap-8">
             <Link href="/review-form">
               <Button className="hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700 h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white">
@@ -159,7 +161,7 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
 
       {/* Mobile: when logged in show + and hamburger; when logged out show only login button */}
       <div className="justify-right mr-2 flex flex-shrink grid-cols-2 items-center gap-2 md:hidden">
-        {session.data && loggedIn && isStudent ? (
+        {session.data && loggedIn && isStudentOrDeveloper ? (
           <>
             <Link href="/review-form">
               <Button className="hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700 h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white">

@@ -265,7 +265,11 @@ export default function ReviewForm() {
     return null;
   }
 
-  if (session.user.role && session.user.role !== UserRole.STUDENT) {
+  if (
+    session.user.role &&
+    session.user.role !== UserRole.STUDENT &&
+    session.user.role !== UserRole.DEVELOPER
+  ) {
     router.replace("/404");
   }
 
