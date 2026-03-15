@@ -53,7 +53,7 @@ export default function ProfileButton({ session }: ProfileButtonProps) {
             <>
               <DropdownMenuSeparator />
               <DropdownMenuLabel className="text-center">
-                <Link href="/admin">Admin</Link>
+                <Link href="/admin/dashboard">Admin</Link>
               </DropdownMenuLabel>
             </>
           )}

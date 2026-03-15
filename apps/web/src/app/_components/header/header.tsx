@@ -107,7 +107,10 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuLabel className="text-center">
-                  <Link href="/admin" onClick={() => setIsOpen(false)}>
+                  <Link
+                    href="/admin/dashboard"
+                    onClick={() => setIsOpen(false)}
+                  >
                     Admin
                   </Link>
                 </DropdownMenuLabel>
