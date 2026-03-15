@@ -25,6 +25,10 @@ export const ModerationAction = pgTable("moderation_action", {
     .notNull()
     .references(() => User.id),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
+  revokedAt: timestamp("revokedAt", {
+    mode: "date",
+    withTimezone: true,
+  }),
 });
 
 export type ModerationActionRecordType = typeof ModerationAction.$inferSelect;
@@ -52,4 +56,5 @@ export const CreateModerationActionSchema = createInsertSchema(
 ).omit({
   id: true,
   createdAt: true,
+  revokedAt: true,
 });
