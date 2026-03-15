@@ -11,6 +11,7 @@ import {
   Company,
   CreateReviewSchema,
   Review,
+  Status,
 } from "@cooper/db/schema";
 
 import {
@@ -36,6 +37,7 @@ export const reviewRouter = {
       const { options } = input;
 
       const conditions = [
+        eq(Review.status, Status.PUBLISHED),
         options?.cycle && eq(Review.workTerm, options.cycle),
         options?.term && eq(Review.workEnvironment, options.term),
       ].filter(Boolean);
@@ -62,7 +64,10 @@ export const reviewRouter = {
     .input(z.object({ id: z.string() }))
     .query(({ ctx, input }) => {
       return ctx.db.query.Review.findMany({
-        where: eq(Review.roleId, input.id),
+        where: and(
+          eq(Review.roleId, input.id),
+          eq(Review.status, Status.PUBLISHED),
+        ),
       });
     }),
 
@@ -70,7 +75,10 @@ export const reviewRouter = {
     .input(z.object({ id: z.string() }))
     .query(({ ctx, input }) => {
       return ctx.db.query.Review.findMany({
-        where: eq(Review.companyId, input.id),
+        where: and(
+          eq(Review.companyId, input.id),
+          eq(Review.status, Status.PUBLISHED),
+        ),
       });
     }),
 
@@ -159,6 +167,15 @@ export const reviewRouter = {
       return ctx.db.insert(Review).values(cleanInput);
     }),
 
+  saveDraft: protectedProcedure
+    .input(CreateReviewSchema)
+    .mutation(async ({ ctx, input }) => {
+
+      return ctx.db
+        .insert(Review)
+        .values(input);
+    }),
+
   delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
     return ctx.db.delete(Review).where(eq(Review.id, input));
   }),
@@ -180,7 +197,10 @@ export const reviewRouter = {
       const companyIds = companies.map((company) => company.id);
 
       const reviews = await ctx.db.query.Review.findMany({
-        where: inArray(Review.companyId, companyIds),
+        where: and(
+          inArray(Review.companyId, companyIds),
+          eq(Review.status, Status.PUBLISHED),
+        ),
       });
 
       const calcAvg = (field: keyof ReviewType) => {
