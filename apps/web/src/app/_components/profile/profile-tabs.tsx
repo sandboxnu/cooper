@@ -3,12 +3,20 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import { cn } from "@cooper/ui";
+import { api } from "~/trpc/react";
+import { UserRole } from "@cooper/db/schema";
 
 export default function ProfileTabs({ numReviews }: { numReviews: number }) {
+  const { data: session } = api.auth.getSession.useQuery();
+  const isStudentOrDeveloper =
+    session?.user.role === UserRole.STUDENT ||
+    session?.user.role === UserRole.DEVELOPER;
   const tabs = [
     { name: "Saved roles", value: "saved-roles" },
     { name: "Saved companies", value: "saved-companies" },
-    { name: "My reviews", value: "my-reviews" },
+    ...(isStudentOrDeveloper
+      ? [{ name: "My reviews", value: "my-reviews" }]
+      : []),
   ];
 
   const searchParams = useSearchParams();

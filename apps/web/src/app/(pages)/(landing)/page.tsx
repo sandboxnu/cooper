@@ -1,14 +1,18 @@
+import { signIn } from "@cooper/auth";
 import Image from "next/image";
 import LoginButton from "~/app/_components/auth/login-button";
+import { AdminAccessToast } from "~/app/_components/landing/admin-access-toast";
 
 const textOptions = [
   "Insights on interviews, pay, and job experience",
   "Side-by-side comparison view of up to three jobs",
   "Anonymous reviews to protect identities",
 ];
+
 export default function Landing() {
   return (
     <div className="flex w-full flex-col bg-cooper-cream-100 lg:flex-row overflow-auto lg:overflow-hidden h-full flex-1">
+      <AdminAccessToast />
       <div className="lg:w-[43%] flex flex-col pl-16 pr-28 justify-center pt-2 lg:pt-0">
         <div className="flex w-fit flex-row items-center gap-2">
           <div className="text-cooper-blue-800 text-[40px] leading-[48px] font-semibold">
@@ -18,9 +22,21 @@ export default function Landing() {
         </div>
         <div className="w-fit pt-8">
           <LoginButton />
-          <div className="text-cooper-gray-600 text-md pb-6 pt-4 w-fit">
+          <div className="text-cooper-gray-600 text-md pt-4 w-fit">
             Log in with husky.neu.edu email to access reviews
           </div>
+          <form>
+            <button
+              type="submit"
+              formAction={async () => {
+                "use server";
+                await signIn("googleAdmin", { redirectTo: "/roles" });
+              }}
+              className="text-cooper-gray-600 font-bold text-md pb-6 pt-2 w-fit cursor-pointer hover:underline"
+            >
+              Or continue as admin / coordinator
+            </button>
+          </form>
           <hr />
         </div>
 
