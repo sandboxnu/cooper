@@ -87,30 +87,6 @@ export default function Admin() {
           Submit
         </Button>
       </div>
-      <div className="flex flex-row gap-2">
-        <div className="flex flex-col">
-          All reviews
-          {reviews.data?.map((review) => (
-            <ReviewCard
-              reviewObj={review}
-              key={review.id}
-              className="h-[30%]"
-            />
-          ))}
-        </div>
-        <div>
-          All roles:
-          {roles.data?.roles.map((role) => (
-            <RoleCardPreview key={role.id} roleObj={role} />
-          ))}
-        </div>
-        <div>
-          All companies
-          {companies.data?.map((company) => (
-            <CompanyCardPreview key={company.id} companyObj={company} />
-          ))}
-        </div>
-      </div>
     </div>
   );
 }

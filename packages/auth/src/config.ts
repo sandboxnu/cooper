@@ -53,6 +53,8 @@ export const authConfig = {
       id: "google",
       clientId: env.AUTH_GOOGLE_ID,
       clientSecret: env.AUTH_GOOGLE_SECRET,
+      allowDangerousEmailAccountLinking: true, // to prevent "To confirm your identity, sign in with the same account you used originally."" error
+
       authorization: {
         params: {
           hd: "husky.neu.edu",
@@ -64,6 +66,7 @@ export const authConfig = {
       id: "googleAdmin",
       clientId: env.AUTH_GOOGLE_ADMIN_ID,
       clientSecret: env.AUTH_GOOGLE_ADMIN_SECRET,
+      allowDangerousEmailAccountLinking: true, // to prevent "To confirm your identity, sign in with the same account you used originally."" error
       authorization: {
         params: {
           prompt: "select_account",
