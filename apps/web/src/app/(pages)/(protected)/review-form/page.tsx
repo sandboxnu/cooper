@@ -17,7 +17,7 @@ import {
 import Popup from "~/app/_components/form/sections/popup";
 import { z } from "zod";
 import { useCustomToast } from "@cooper/ui";
-import { WorkEnvironment, WorkTerm, JobType } from "@cooper/db/schema";
+import { WorkEnvironment, WorkTerm, JobType, Status } from "@cooper/db/schema";
 import dayjs from "dayjs";
 import { Form } from "node_modules/@cooper/ui/src/form";
 import { PaySection } from "~/app/_components/form/sections/pay-section";
@@ -253,6 +253,7 @@ export default function ReviewForm() {
 
     const reviewsForCurrentTerm = reviews.data.filter(
       (review) =>
+        review.status === Status.PUBLISHED &&
         String(review.workTerm) === currentTerm &&
         review.workYear === Number(currentYear),
     );
@@ -269,6 +270,16 @@ export default function ReviewForm() {
     },
   });
 
+  const draftMutation = api.review.saveDraft.useMutation({
+    onSuccess: () => {
+      router.push("/");
+      setShowModal(false);
+    },
+    onError: (error) => {
+      toast.error(error.message || "Failed to save draft. Please try again.");
+    },
+  });
+
   async function onSubmit(values: z.infer<ReviewFormType>) {
     try {
       await mutation.mutateAsync({
@@ -278,6 +289,7 @@ export default function ReviewForm() {
         ...values,
         interviewRating: 1,
         reviewHeadline: "",
+        status: Status.PUBLISHED,
       });
     } catch (error) {
       // Error is already handled by onError callback
@@ -294,13 +306,57 @@ export default function ReviewForm() {
   }
 
   const discardDraft = () => {
-    setShowModal(false);
     router.push("/");
   };
 
-  const saveDraft = () => {
-    setShowModal(false);
-  };
+  async function onSaveDraft() {
+    try {
+      const values = form.getValues();
+
+      const draftPayload: Record<string, unknown> = {
+        roleId: roleId,
+        profileId: profileId,
+        companyId: companyId,
+        workTerm: values.workTerm,
+        workYear: values.workYear,
+        overallRating: values.overallRating || null,
+        cultureRating: values.cultureRating || null,
+        supervisorRating:
+        values.supervisorRating || null,
+        interviewRating: 1,
+        interviewDifficulty:
+          values.interviewDifficulty || null,
+        interviewReview: values.interviewReview ?? null,
+        reviewHeadline: "" || null,
+        textReview: values.textReview || null,
+        locationId: values.locationId || null,
+        jobType: values.jobType,
+        hourlyPay:
+          values.hourlyPay ?? null,
+        workEnvironment: values.workEnvironment,
+        drugTest: values.drugTest,
+        pto: values.pto,
+        overtimeNormal: values.overtimeNormal,
+        federalHolidays: values.federalHolidays,
+        freeLunch: values.freeLunch,
+        travelBenefits: values.travelBenefits,
+        freeMerch: values.freeMerch,
+        snackBar: values.snackBar,
+        otherBenefits: values.otherBenefits ?? null,
+        status: Status.DRAFT,
+      };
+
+      await draftMutation.mutateAsync(
+        draftPayload as Parameters<typeof draftMutation.mutateAsync>[0],
+      );
+
+      form.reset(values);
+      isDirtyRef.current = false;
+      toast.success("Draft saved.");
+    } catch (error) {
+      console.error("Draft save failed:", error);
+    }
+  }
   // if (submitted) {
   //   if (validForm) {
   //     return <SubmissionConfirmation />;
@@ -360,7 +416,7 @@ export default function ReviewForm() {
                     }
                     await form.handleSubmit(onSubmit)();
                   }}
-                  disabled={mutation.isPending}
+                  disabled={mutation.isPending || draftMutation.isPending}
                   className="bg-cooper-gray-550 hover:bg-cooper-gray-600 rounded-lg border-none px-8 py-3 text-lg font-semibold text-white"
                 >
                   {mutation.isPending ? "Submitting..." : "Submit review"}
@@ -378,7 +434,7 @@ export default function ReviewForm() {
                 showModal={showModal}
                 onCancel={() => setShowModal(false)}
                 onDiscard={discardDraft}
-                onSave={saveDraft}
+                onSave={onSaveDraft}
               />
             </div>
           </div>
