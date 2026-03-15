@@ -85,6 +85,13 @@
       "when": 1773116518055,
       "tag": "0011_chubby_triton",
       "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1773594321895,
+      "tag": "0012_icy_husk",
+      "breakpoints": true
     }
   ]
 }

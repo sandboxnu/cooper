@@ -6,9 +6,16 @@ import type {
   WorkTermType,
   StatusType,
   JobTypeType,
+  ModerationActionTypeType,
+  ModerationEntityTypeType,
   ReportReasonType,
   UserRoleType,
 } from "./schema/misc";
+import {
+  CreateModerationActionSchema,
+  ModerationAction,
+} from "./schema/moderationActions";
+import type { ModerationActionRecordType } from "./schema/moderationActions";
 import type { ReviewType } from "./schema/reviews";
 import type { RoleType } from "./schema/roles";
 import { Account } from "./schema/accounts";
@@ -24,6 +31,8 @@ import {
   WorkTerm,
   Status,
   JobType,
+  ModerationActionType,
+  ModerationEntityType,
   ReportReason,
   UserRole,
 } from "./schema/misc";
@@ -79,8 +88,12 @@ export {
   WorkEnvironment,
   Status,
   JobType,
+  ModerationAction,
+  CreateModerationActionSchema,
   Report,
   CreateReportSchema,
+  ModerationActionType,
+  ModerationEntityType,
   ReportReason,
   UserRole,
 };
@@ -96,6 +109,9 @@ export type {
   LocationType,
   StatusType,
   JobTypeType,
+  ModerationActionRecordType,
+  ModerationActionTypeType,
+  ModerationEntityTypeType,
   ReportReasonType,
   UserRoleType,
 };

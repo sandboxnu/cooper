@@ -14,6 +14,7 @@ export const User = pgTable("user", {
     withTimezone: true,
   }),
   image: varchar("image", { length: 255 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
   role: varchar("role", { length: 32 })
     .$type<UserRoleType>()
     .notNull()
