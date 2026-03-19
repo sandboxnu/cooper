@@ -80,9 +80,18 @@ export const ReviewRelations = relations(Review, ({ one, many }) => ({
 export const CreateReviewSchema = createInsertSchema(Review, {
   workTerm: z.nativeEnum(WorkTerm).nullish(),
   workYear: z.number().nullish(),
-  overallRating: z.number().min(1).max(5).nullish(),
-  cultureRating: z.number().min(1).max(5).nullish(),
-  supervisorRating: z.number().min(1).max(5).nullish(),
+  overallRating: z.preprocess(
+    (value) => (value === 0 ? null : value),
+    z.number().min(1).max(5).nullish(),
+  ),
+  cultureRating: z.preprocess(
+    (value) => (value === 0 ? null : value),
+    z.number().min(1).max(5).nullish(),
+  ),
+  supervisorRating: z.preprocess(
+    (value) => (value === 0 ? null : value),
+    z.number().min(1).max(5).nullish(),
+  ),
   interviewRating: z.number().min(1).max(5).optional().default(0).nullish(),
   interviewReview: z.string().optional().nullish(),
   reviewHeadline: z.string().optional().default("").nullish(),
