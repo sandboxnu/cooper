@@ -45,6 +45,8 @@ export function OnboardingDialog({
       <DialogContent
         className="max-h-[90dvh] max-w-[85dvw] overflow-y-auto rounded-lg md:max-w-[70dvw] lg:max-w-[46rem]"
         aria-describedby="The form to create a Cooper profile once you have logged in with a husky google account."
+        onInteractOutside={(e) => e.preventDefault()}
+        onEscapeKeyDown={(e) => e.preventDefault()}
       >
         <OnboardingForm
           userId={session.user.id}
