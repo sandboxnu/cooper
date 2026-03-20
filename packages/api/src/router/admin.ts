@@ -39,7 +39,7 @@ export const adminRouter = {
         createdAt: review.createdAt,
         headline: review.reviewHeadline,
         text: review.textReview,
-      })); 
+      }));
 
       const roleItems = roles.map((role) => ({
         type: "role" as const,
