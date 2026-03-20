@@ -27,12 +27,12 @@ export function CreateUserForm() {
   });
 
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row gap-4 pb-4">
       <Input
         className={cn(
           "border-cooper-gray-150 h-9 border-[1px] pl-5 w-[30%] text-sm text-cooper-gray-400",
         )}
-        placeholder="Type email here"
+        placeholder="Add new user email here"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
@@ -42,9 +42,9 @@ export function CreateUserForm() {
             { value: UserRole.ADMIN, label: "Admin" },
             { value: UserRole.COORDINATOR, label: "Co-op advisor" },
           ]}
-          className="border-cooper-gray-150 h-10 text-sm"
+          className="border-cooper-gray-150 h-9 text-sm bg-white"
           value={selectedRole}
-          placeholder="Select"
+          placeholder="Select role"
           onChange={(e) => {
             setSelectedRole(e.target.value);
           }}
@@ -52,7 +52,7 @@ export function CreateUserForm() {
       </div>
       <Button
         type="button"
-        className="bg-cooper-gray-550 hover:bg-cooper-gray-600 rounded-lg border-none px-8 py-3 text-lg font-semibold text-white"
+        className="bg-cooper-gray-550 hover:bg-cooper-gray-600 rounded-lg border-none px-8 py-3 text-lg font-semibold text-white h-9"
         onClick={() => {
           if (!email || !selectedRole) return;
           createUser.mutate({ email, role: selectedRole as UserRoleType });
