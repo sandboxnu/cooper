@@ -222,7 +222,7 @@ export function OnboardingForm({
                         options={monthOptions}
                         className="min-w-full"
                         {...field}
-                        value={field.value?.toString() ?? ""}
+                        value={field.value?.toString()}
                       />
                     </FormControl>
                     <FormMessage />
