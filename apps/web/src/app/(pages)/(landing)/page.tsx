@@ -11,7 +11,7 @@ const textOptions = [
 
 export default function Landing() {
   return (
-    <div className="flex w-full flex-col bg-cooper-cream-100 lg:flex-row overflow-auto lg:overflow-hidden h-full flex-1">
+    <div className="flex w-full flex-col bg-cooper-cream-500 lg:flex-row overflow-auto lg:overflow-hidden h-full flex-1">
       <AdminAccessToast />
       <div className="lg:w-[43%] flex flex-col pl-16 pr-28 justify-center pt-2 lg:pt-0">
         <div className="flex w-fit flex-row items-center gap-2">
@@ -56,13 +56,13 @@ export default function Landing() {
           })}
         </div>
       </div>
-      <div className="justify-end">
+      <div className="justify-end pt-20">
         <Image
           src="/landing-page-image.png"
           width={880}
           height={784}
           alt="Landing picture"
-          className="pt-20"
+          className="cooper-gray-400 shadow-xl rounded-lg"
         />
       </div>
     </div>
