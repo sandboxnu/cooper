@@ -31,13 +31,15 @@ const formSchema = z.object({
   major: z.string().min(1, "Major is required"),
   minor: z.string().optional(),
   graduationYear: z.coerce
-    .number()
+    .number({ invalid_type_error: "Graduation year is required" })
     .min(2010, "Graduation year must be 2010 or later")
     .max(currentYear + 6, "Graduation year must be within the next 5 years"),
   graduationMonth: z.coerce
-    .number()
+    .number({ invalid_type_error: "Graduation month is required" })
     .min(1, "Graduation month is required")
-    .max(12, "Invalid month"),
+    .max(12, "Invalid month")
+    .optional()
+    .refine((val) => val !== undefined, "Graduation month is required"),
 });
 
 export type OnboardingFormType = z.infer<typeof formSchema>;
@@ -74,7 +76,7 @@ export function OnboardingForm({
       major: "",
       minor: undefined,
       graduationYear: undefined,
-      graduationMonth: 0,
+      graduationMonth: undefined,
     },
   });
 
@@ -220,6 +222,7 @@ export function OnboardingForm({
                         options={monthOptions}
                         className="min-w-full"
                         {...field}
+                        value={field.value?.toString() ?? ""}
                       />
                     </FormControl>
                     <FormMessage />
