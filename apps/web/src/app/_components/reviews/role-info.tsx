@@ -31,6 +31,7 @@ import {
   DropdownMenuTrigger,
 } from "node_modules/@cooper/ui/src/dropdown-menu";
 import { ChevronDown } from "lucide-react";
+import { ReportButton } from "../shared/report-button";
 
 interface RoleCardProps {
   className?: string;
@@ -345,9 +346,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                 );
               })()}
           </CardContent>
-          {!compare.isCompareMode && (
-            <CompareControls anchorRoleId={roleObj.id} />
-          )}
+          <ReportButton entityId={roleObj.id} entityType="role" />
         </div>
       </div>
       <div className="flex w-[100%] justify-between">

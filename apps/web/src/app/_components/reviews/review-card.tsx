@@ -10,6 +10,7 @@ import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { prettyWorkEnviornment } from "~/utils/stringHelpers";
 import { DeleteReviewDialog } from "./delete-review-dialogue";
+import { ReportButton } from "../shared/report-button";
 
 interface ReviewCardProps {
   className?: string;
@@ -88,6 +89,7 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
                   {reviewObj.hourlyPay}/hr
                 </div>
               </div>
+              <ReportButton entityId={reviewObj.id} entityType="review" />
             </div>
             <div className="visible flex flex-row justify-between md:hidden">
               <div className="pt-1">{reviewObj.textReview}</div>

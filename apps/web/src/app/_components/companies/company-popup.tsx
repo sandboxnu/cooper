@@ -15,7 +15,8 @@ import RenderAllRoles from "./all-company-roles";
 import { CompanyAbout } from "./company-about";
 import { CompanyReview } from "./company-reviews";
 import Logo from "node_modules/@cooper/ui/src/logo";
-import { CompanyType } from "@cooper/db/schema";
+import type { CompanyType } from "@cooper/db/schema";
+import { ReportButton } from "../shared/report-button";
 
 interface CompanyPopupProps {
   trigger?: React.ReactNode;
@@ -72,6 +73,7 @@ export function CompanyPopup({
             <div className="my-8 border-t border-cooper-gray-200"></div>
 
             <CompanyAbout companyObj={company} />
+            <ReportButton entityId={company.id} entityType="company" />
           </div>
           <div>
             <RenderAllRoles company={company} onClose={() => setOpen(false)} />
