@@ -15,9 +15,7 @@ interface CompareControlsProps {
   anchorRoleId?: string | null;
 }
 
-export function CompareControls({
-  anchorRoleId,
-}: CompareControlsProps) {
+export function CompareControls({ anchorRoleId }: CompareControlsProps) {
   const compare = useCompare();
 
   if (!anchorRoleId) {

@@ -13,8 +13,6 @@ import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { calculateRatings } from "~/utils/reviewCountByStars";
 import { CompanyPopup } from "../companies/company-popup";
-import { useCompare } from "../compare/compare-context";
-import { CompareControls } from "../compare/compare-ui";
 import DropdownFilter, { FilterPanelContent } from "../filters/dropdown-filter";
 import { jobTypeOptions } from "../onboarding/constants";
 import StarGraph from "../shared/star-graph";
@@ -90,8 +88,6 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     { id: roleObj.companyId },
     { enabled: !!reviews.data?.[0]?.companyId },
   );
-
-  const compare = useCompare();
 
   // ===== ROLE DATA ===== //
   const companyData = companyQuery.data;
