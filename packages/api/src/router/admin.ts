@@ -2,7 +2,7 @@ import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
 import { desc } from "@cooper/db";
-import { Company, Review, Role } from "@cooper/db/schema";
+import { Company, Review, Role, User } from "@cooper/db/schema";
 
 import { protectedProcedure } from "../trpc";
 
@@ -78,6 +78,31 @@ export const adminRouter = {
           roles: roles.length,
           companies: companies.length,
         },
+      };
+    }),
+  userManagerItems: protectedProcedure
+    .input(
+      z
+        .object({
+          limit: z.number().min(1).max(500).default(200),
+        })
+        .optional(),
+    )
+    .query(async ({ ctx, input }) => {
+      const limit = input?.limit ?? 200;
+      const users = await ctx.db.query.User.findMany({
+        orderBy: desc(User.createdAt),
+        limit,
+      });
+
+      return {
+        items: users.map((user) => ({
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          role: user.role,
+          createdAt: user.createdAt,
+        })),
       };
     }),
 } satisfies TRPCRouterRecord;
