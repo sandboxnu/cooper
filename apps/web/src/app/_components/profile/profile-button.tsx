@@ -35,6 +35,15 @@ export default function ProfileButton({ session }: ProfileButtonProps) {
           <DropdownMenuLabel className="text-center">
             <Link href="/profile">Profile</Link>
           </DropdownMenuLabel>
+          {(session.user.role === UserRole.ADMIN ||
+            session.user.role === UserRole.DEVELOPER) && (
+            <>
+              <DropdownMenuSeparator />
+              <DropdownMenuLabel className="text-center">
+                <Link href="/admin/dashboard">Admin</Link>
+              </DropdownMenuLabel>
+            </>
+          )}
           <DropdownMenuSeparator />
           <DropdownMenuLabel className="text-center">
             <form>
@@ -48,15 +57,6 @@ export default function ProfileButton({ session }: ProfileButtonProps) {
               </button>
             </form>
           </DropdownMenuLabel>
-          {(session.user.role === UserRole.ADMIN ||
-            session.user.role === UserRole.DEVELOPER) && (
-            <>
-              <DropdownMenuSeparator />
-              <DropdownMenuLabel className="text-center">
-                <Link href="/admin/dashboard">Admin</Link>
-              </DropdownMenuLabel>
-            </>
-          )}
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
