@@ -30,13 +30,34 @@ export function OnboardingDialog({
     refetchOnWindowFocus: false,
   });
 
+  const backendFilters = {
+    industries: undefined,
+    locations: undefined,
+    jobTypes: undefined,
+    minPay: undefined,
+    maxPay: undefined,
+    ratings: undefined,
+    workModels: undefined,
+    overtimeWork: undefined,
+    companyCulture: undefined,
+  };
+
+  const roles = api.roleAndCompany.list.useQuery({
+    sortBy: "default",
+    search: "",
+    limit: 10,
+    offset: 0,
+    type: "all",
+    filters: backendFilters,
+  });
+
   const shouldShowOnboarding = session && !profile.data;
 
   const closeDialog = () => {
     setOpen(false);
   };
 
-  if (profile.isPending || !shouldShowOnboarding) {
+  if (profile.isPending || !shouldShowOnboarding || roles.isPending) {
     return null;
   }
 
