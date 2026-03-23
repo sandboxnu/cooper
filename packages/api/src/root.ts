@@ -1,4 +1,5 @@
 import {
+  adminRouter,
   authRouter,
   companyRouter,
   companyToLocationRouter,
@@ -13,6 +14,7 @@ import {
 import { createTRPCRouter } from "./trpc";
 
 export const appRouter = createTRPCRouter({
+  admin: adminRouter,
   auth: authRouter,
   company: companyRouter,
   role: roleRouter,

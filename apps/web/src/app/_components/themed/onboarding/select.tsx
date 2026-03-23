@@ -20,13 +20,13 @@ export const Select: React.FC<SelectProps> = ({
     <div className="relative w-full">
       <select
         className={cn(
-          "border-cooper-gray-150 text-cooper-gray-350 h-9 w-full appearance-none rounded-lg border bg-transparent px-4 pr-10 text-sm shadow-none placeholder:text-muted-foreground hover:bg-accent focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+          "h-9 w-full appearance-none rounded-lg border border-cooper-gray-150 bg-transparent px-4 pr-10 text-sm text-cooper-gray-350 shadow-none placeholder:text-muted-foreground hover:bg-accent focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
           className,
         )}
         {...props}
       >
         {placeholder && (
-          <option value="" disabled hidden>
+          <option value="" hidden>
             {placeholder}
           </option>
         )}

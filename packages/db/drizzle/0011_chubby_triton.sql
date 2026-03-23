@@ -1,1 +1,1 @@
-ALTER TABLE "user" ADD COLUMN "role" varchar(32) DEFAULT 'STUDENT' NOT NULL;
+ALTER TABLE "user" ADD COLUMN if not exists "role" varchar(32)  DEFAULT 'STUDENT' NOT NULL;
