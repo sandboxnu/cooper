@@ -321,18 +321,15 @@ export default function ReviewForm() {
         workYear: values.workYear,
         overallRating: values.overallRating,
         cultureRating: values.cultureRating,
-        supervisorRating:
-        values.supervisorRating,
+        supervisorRating: values.supervisorRating,
         interviewRating: 1,
-        interviewDifficulty:
-          values.interviewDifficulty || null,
+        interviewDifficulty: values.interviewDifficulty || null,
         interviewReview: values.interviewReview || null,
         reviewHeadline: "" || null,
         textReview: values.textReview || null,
         locationId: values.locationId || null,
         jobType: values.jobType || null,
-        hourlyPay:
-          values.hourlyPay || null,
+        hourlyPay: values.hourlyPay || null,
         workEnvironment: values.workEnvironment || null,
         drugTest: values.drugTest || null,
         pto: values.pto || null,
@@ -352,7 +349,7 @@ export default function ReviewForm() {
 
       form.reset(values);
       isDirtyRef.current = false;
-      toast.success("Draft saved.");
+      toast.success("This draft has been saved.");
     } catch (error) {
       console.error("Draft save failed:", error);
     }
@@ -403,9 +400,22 @@ export default function ReviewForm() {
               <div className="flex flex-wrap gap-10 overflow-auto pb-10 xl:flex-nowrap">
                 <ReviewSection />
               </div>
-
+            <div className = "flex gap-2 justify-end"> 
+               {/* Save Draft Button */}
+              <div className="pb-12 pt-6">
+                <Button
+                  type = "button" 
+                  onClick= {onSaveDraft}
+                  disabled={mutation.isPending || draftMutation.isPending}
+                  className="bg-white hover:bg-cooper-gray-600
+                  rounded-lg border border-cooper-gray-150 2-253 px-8 py-3 text-lg font-semibold
+                  text-[#151515]"
+                  >
+                  {draftMutation.isPending ? "Saving draft..." : "Save draft"}
+                </Button>
+              </div>
               {/* Submit Button */}
-              <div className="flex justify-end pb-12 pt-6">
+              <div className="pb-12 pt-6">
                 <Button
                   type="button"
                   onClick={async () => {
@@ -421,6 +431,7 @@ export default function ReviewForm() {
                 >
                   {mutation.isPending ? "Submitting..." : "Submit review"}
                 </Button>
+              </div>
               </div>
             </div>
           ) : (
