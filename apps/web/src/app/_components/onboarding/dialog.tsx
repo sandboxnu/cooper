@@ -52,6 +52,6 @@ export function OnboardingDialog({
           session={session}
         />
       </DialogContent>
-    </Dialog> 
+    </Dialog>
   );
 }
