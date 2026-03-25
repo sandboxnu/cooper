@@ -40,7 +40,7 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
             <div className="flex w-full flex-row justify-between md:flex-col">
               <div className="flex flex-row items-center gap-2">
                 <div className="text-2xl text-[#151515] md:text-4xl">
-                  {(reviewObj.overallRating || 0).toFixed(1)}
+                  {(reviewObj.overallRating).toFixed(1)}
                 </div>
                 <Image
                   src="/svg/star.svg"
@@ -57,8 +57,8 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
                   {prettyLocationName(location)}
                 </span>
                 <span>
-                  {(reviewObj.workTerm || "").charAt(0).toUpperCase() +
-                    (reviewObj.workTerm || "").slice(1).toLowerCase()}{" "}
+                  {(reviewObj.workTerm).charAt(0).toUpperCase() +
+                    (reviewObj.workTerm).slice(1).toLowerCase()}{" "}
                   {reviewObj.workYear}
                 </span>
               </div>

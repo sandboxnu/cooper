@@ -13,6 +13,7 @@ import ProfileCardHeader from "~/app/_components/profile/profile-card-header";
 import ProfileTabs from "~/app/_components/profile/profile-tabs";
 import { ReviewCard } from "~/app/_components/reviews/review-card";
 import { api } from "~/trpc/react";
+import { DraftReviewCard } from "~/app/_components/reviews/draft-review-card";
 
 export default function Profile() {
   const searchParams = useSearchParams();
@@ -139,8 +140,14 @@ export default function Profile() {
             </div>
 
             <div className="flex flex-col gap-4">
-              {reviews.length > 0 &&
-                reviews.map((review) => (
+              {reviews.length > 0 && 
+                reviews.map((review) => (review.status === "DRAFT") ? (
+                  <DraftReviewCard
+                    key={review.id}
+                    reviewObj={review}
+                    className="w-[100%]"
+                  />
+                ) : (
                   <ReviewCard
                     key={review.id}
                     reviewObj={review}

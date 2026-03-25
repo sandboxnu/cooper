@@ -32,3 +32,28 @@ export function formatDate(date?: Date) {
   // Return the formatted date string
   return `${day} ${month} ${year}`;
 }
+
+export const formatLastEditedDate = (
+  updatedAt?: Date | null,
+  createdAt?: Date,
+): string => {
+  const date = updatedAt ?? createdAt;
+
+  if (!date) {
+    return "";
+  }
+
+  const now = new Date();
+  const msPerDay = 1000 * 60 * 60 * 24;
+  const daysDifference = Math.floor(
+    (now.getTime() - date.getTime()) / msPerDay,
+  );
+
+  if (daysDifference <= 7) {
+    if (daysDifference === 0) return "Last edited today";
+    if (daysDifference === 1) return "Last edited yesterday";
+    return `Last edited ${daysDifference} days ago`;
+  } else {
+    return `Last edited ${formatDate(date)}`;
+  }
+};
