@@ -141,7 +141,8 @@ export default function Profile() {
 
             <div className="flex flex-col gap-4">
               {reviews.length > 0 && 
-                reviews.map((review) => (review.status === "DRAFT") ? (
+                reviews.sort((a, b) => (a.status === "DRAFT" ? -1 : 1) - (b.status === "DRAFT" ? -1 : 1)).
+                map((review) => (review.status === "DRAFT") ? (
                   <DraftReviewCard
                     key={review.id}
                     reviewObj={review}
