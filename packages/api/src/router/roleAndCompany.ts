@@ -1,6 +1,7 @@
 import { z } from "zod";
 
-import type { CompanyType, RoleType } from "@cooper/db/schema";
+import type { CompanyType, RoleType} from "@cooper/db/schema";
+import { Status } from "@cooper/db/schema";
 import { asc, desc, sql } from "@cooper/db";
 import { Company, Review, Role } from "@cooper/db/schema";
 
@@ -103,8 +104,9 @@ export const roleAndCompanyRouter = {
           FROM ${Company}
           INNER JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
           INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
-          WHERE ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
-        `);
+          WHERE ${Review.roleId} != ''
+            AND ${Review.roleId} IS NOT NULL
+            AND ${Review.status} = ${Status.PUBLISHED}        `);
 
         const companyIdsWithReviews = new Set(
           companiesWithReviews.rows.map((row) => String(row.company_id)),
@@ -613,7 +615,9 @@ export const roleAndCompanyRouter = {
         const rolesWithReviews = await ctx.db.execute(sql`
         SELECT DISTINCT ${Review.roleId}::uuid as role_id
         FROM ${Review}
-        WHERE ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
+          WHERE ${Review.roleId} != ''
+            AND ${Review.roleId} IS NOT NULL
+            AND ${Review.status} = ${Status.PUBLISHED}
       `);
 
         const roleIds = rolesWithReviews.rows.map((row) => String(row.role_id));
@@ -654,7 +658,7 @@ export const roleAndCompanyRouter = {
           FROM ${Company}
           INNER JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
           INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
-          WHERE ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
+          WHERE ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL AND ${Review.status} = ${Status.PUBLISHED}
         `);
 
         const companyIdsWithReviews = new Set(

@@ -13,6 +13,7 @@ import {
   Industry,
   Review,
   Role,
+  Status,
 } from "@cooper/db/schema";
 
 import {
@@ -71,11 +72,12 @@ export const companyRouter = {
 
         const companiesWithRatings = await ctx.db.execute(sql`
         SELECT 
-          ${Company}.*, 
+          ${Company}.*,
           COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
         FROM ${Company}
         LEFT JOIN ${Review}
           ON NULLIF(${Review.companyId}, '')::uuid = ${Company.id}
+          AND ${Review.status} = ${Status.PUBLISHED}
         ${whereClause}
         GROUP BY ${Company.id}
         ORDER BY avg_rating DESC
@@ -281,7 +283,10 @@ export const companyRouter = {
     .input(z.object({ companyId: z.string() }))
     .query(async ({ ctx, input }) => {
       const reviews = await ctx.db.query.Review.findMany({
-        where: eq(Review.companyId, input.companyId),
+        where: and(
+          eq(Review.companyId, input.companyId),
+          eq(Review.status, Status.PUBLISHED),
+        ),
       });
 
       const calcAvg = (field: keyof ReviewType) => {

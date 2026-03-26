@@ -72,7 +72,7 @@ export function DraftReviewCard({
           <CardContent className="flex h-full flex-col justify-between gap-3 sm:pl-0">
             <div className="align-center text-cooper-gray-250 flex flex-col text-base">
               <span
-                className={`${location && prettyLocationName(location) ? "visibility: visible" : "visibility: hidden"}`}
+                className={`${location && prettyLocationName(location)}`}
               >
                 {company?.name} • {prettyLocationName(location)}
               </span>
