@@ -97,7 +97,11 @@ export default function CompanyInfo({
               <div className="my-8 border-t border-cooper-gray-200"></div>
 
               <CompanyAbout companyObj={company.data} />
-              <ReportButton entityId={company.data.id} entityType="company" />
+              <ReportButton
+                entityId={company.data.id}
+                entityType="company"
+                iconOnly={false}
+              />
             </div>
             <div>
               <RenderAllRoles company={company.data as CompanyType} />

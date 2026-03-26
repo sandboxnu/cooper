@@ -2,6 +2,7 @@
 
 import type { FormEvent } from "react";
 import { useState } from "react";
+import Image from "next/image";
 
 import type { ReportReasonType } from "@cooper/db/schema";
 import { ReportReason } from "@cooper/db/schema";
@@ -30,9 +31,14 @@ import { api } from "~/trpc/react";
 interface ReportButtonProps {
   entityType: "role" | "company" | "review";
   entityId: string;
+  iconOnly?: boolean;
 }
 
-export function ReportButton({ entityType, entityId }: ReportButtonProps) {
+export function ReportButton({
+  entityType,
+  entityId,
+  iconOnly,
+}: ReportButtonProps) {
   const { toast } = useCustomToast();
   const [isOpen, setIsOpen] = useState(false);
   const [reason, setReason] = useState<ReportReasonType | "">("");
@@ -79,11 +85,16 @@ export function ReportButton({ entityType, entityId }: ReportButtonProps) {
 
   return (
     <>
-      <button
-        onClick={() => setIsOpen(true)}
-        className="text-red-500 hover:text-red-700"
-      >
-        Report
+      <button onClick={() => setIsOpen(true)} className="text-cooper-gray-300">
+        <span className="flex flex-row gap-2">
+          <Image
+            src="/svg/reviewReport.svg"
+            width={16}
+            height={16}
+            alt="Report"
+          />
+          {!iconOnly && "Report"}
+        </span>
       </button>
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>

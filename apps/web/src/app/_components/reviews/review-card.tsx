@@ -89,7 +89,11 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
                   {reviewObj.hourlyPay}/hr
                 </div>
               </div>
-              <ReportButton entityId={reviewObj.id} entityType="review" />
+              <ReportButton
+                entityId={reviewObj.id}
+                entityType="review"
+                iconOnly={true}
+              />
             </div>
             <div className="visible flex flex-row justify-between md:hidden">
               <div className="pt-1">{reviewObj.textReview}</div>
