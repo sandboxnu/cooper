@@ -13,8 +13,6 @@ import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { calculateRatings } from "~/utils/reviewCountByStars";
 import { CompanyPopup } from "../companies/company-popup";
-import { useCompare } from "../compare/compare-context";
-import { CompareControls } from "../compare/compare-ui";
 import DropdownFilter, { FilterPanelContent } from "../filters/dropdown-filter";
 import { jobTypeOptions } from "../onboarding/constants";
 import StarGraph from "../shared/star-graph";
@@ -31,6 +29,7 @@ import {
   DropdownMenuTrigger,
 } from "node_modules/@cooper/ui/src/dropdown-menu";
 import { ChevronDown } from "lucide-react";
+import { ReportButton } from "../shared/report-button";
 
 interface RoleCardProps {
   className?: string;
@@ -89,8 +88,6 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     { id: roleObj.companyId },
     { enabled: !!reviews.data?.[0]?.companyId },
   );
-
-  const compare = useCompare();
 
   // ===== ROLE DATA ===== //
   const companyData = companyQuery.data;
@@ -345,9 +342,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                 );
               })()}
           </CardContent>
-          {!compare.isCompareMode && (
-            <CompareControls anchorRoleId={roleObj.id} />
-          )}
+          <ReportButton entityId={roleObj.id} entityType="role" />
         </div>
       </div>
       <div className="flex w-[100%] justify-between">
