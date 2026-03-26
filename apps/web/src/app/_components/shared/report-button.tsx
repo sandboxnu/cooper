@@ -87,7 +87,7 @@ export function ReportButton({ entityType, entityId }: ReportButtonProps) {
       </button>
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="w-full max-w-md bg-white">
+        <DialogContent className="w-full max-w-md bg-white p-5">
           <DialogHeader>
             <DialogTitle>Report content</DialogTitle>
             <DialogDescription>
