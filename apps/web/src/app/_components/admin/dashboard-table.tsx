@@ -35,6 +35,139 @@ interface OptimisticItemState {
   hidden?: boolean;
 }
 
+interface RawDashboardItem {
+  type?: unknown;
+  id?: unknown;
+  createdAt?: unknown;
+  flagged?: unknown;
+  hidden?: unknown;
+  // review
+  text?: unknown;
+  headline?: unknown;
+  // role
+  title?: unknown;
+  companyId?: unknown;
+  // company
+  name?: unknown;
+}
+
+const mapDashboardItems = (rawItems: unknown): DashboardItem[] => {
+  if (!Array.isArray(rawItems)) return [];
+
+  const isRecord = (value: unknown): value is RawDashboardItem =>
+    typeof value === "object" && value !== null;
+
+  const asString = (value: unknown): string | null =>
+    typeof value === "string" ? value : null;
+
+  const asBoolean = (value: unknown): boolean =>
+    typeof value === "boolean" ? value : false;
+
+  const asDate = (value: unknown): Date => {
+    if (value instanceof Date) return value;
+    const s = asString(value);
+    return s ? new Date(s) : new Date(0);
+  };
+
+  const getType = (value: RawDashboardItem) => {
+    const t = value.type;
+    return t === "review" || t === "role" || t === "company" ? t : null;
+  };
+
+  const items: DashboardItem[] = [];
+
+  for (const raw of rawItems) {
+    if (!isRecord(raw)) continue;
+    const type = getType(raw);
+    if (!type) continue;
+
+    if (type === "review") {
+      const id = asString(raw.id);
+      if (!id) continue;
+      const text = asString(raw.text);
+      const headline = asString(raw.headline);
+      items.push({
+        id,
+        category: "review",
+        title: (text ?? headline ?? "").toString(),
+        description: headline ?? undefined,
+        createdAt: asDate(raw.createdAt),
+        flagged: asBoolean(raw.flagged),
+        hidden: asBoolean(raw.hidden),
+      });
+      continue;
+    }
+
+    if (type === "role") {
+      const id = asString(raw.id);
+      const title = asString(raw.title);
+      if (!id || !title) continue;
+      const companyId = asString(raw.companyId);
+      items.push({
+        id,
+        category: "role",
+        title,
+        company: companyId ?? undefined,
+        createdAt: asDate(raw.createdAt),
+        flagged: asBoolean(raw.flagged),
+        hidden: asBoolean(raw.hidden),
+      });
+      continue;
+    }
+
+    // company
+    const id = asString(raw.id);
+    const name = asString(raw.name);
+    if (!id || !name) continue;
+    items.push({
+      id,
+      category: "company",
+      title: name,
+      createdAt: asDate(raw.createdAt),
+      flagged: asBoolean(raw.flagged),
+      hidden: asBoolean(raw.hidden),
+    });
+  }
+
+  return items;
+};
+
+function useProcessedItems(args: {
+  rawItems: unknown;
+  optimisticState: Record<string, OptimisticItemState>;
+  filterItems: (items: DashboardItem[]) => DashboardItem[];
+  currentPage: number;
+  pageSize: number;
+}) {
+  const { rawItems, optimisticState, filterItems, currentPage, pageSize } =
+    args;
+
+  const baseItems = useMemo(() => mapDashboardItems(rawItems), [rawItems]);
+
+  return useMemo(() => {
+    const items = baseItems.map((item) => {
+      const key = `${item.category}:${item.id}`;
+      const optimistic = optimisticState[key];
+      return optimistic
+        ? {
+            ...item,
+            flagged: optimistic.flagged ?? item.flagged,
+            hidden: optimistic.hidden ?? item.hidden,
+          }
+        : item;
+    });
+
+    const filtered = filterItems(items);
+    const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+    const start = (currentPage - 1) * pageSize;
+
+    return {
+      totalPages,
+      pageItems: filtered.slice(start, start + pageSize),
+    };
+  }, [baseItems, optimisticState, filterItems, currentPage, pageSize]);
+}
+
 const TABS = [
   { label: "All", value: "all" as const },
   { label: "Reviews", value: "reviews" as const },
@@ -340,35 +473,29 @@ export function AdminDashboardTable() {
 
   const [activeTab, setActiveTab] = useState<TabValue>("all");
   const [searchQuery, setSearchQuery] = useState("");
-  const [mostRecentOpen, setMostRecentOpen] = useState(true);
-  const [reportedOpen, setReportedOpen] = useState(true);
-  const [hiddenOpen, setHiddenOpen] = useState(true);
-  const [flaggedOpen, setFlaggedOpen] = useState(true);
-  const [currentPageRecent, setCurrentPageRecent] = useState(1);
-  const [currentPageFlagged, setCurrentPageFlagged] = useState(1);
-  const [currentPageHidden, setCurrentPageHidden] = useState(1);
-  const [currentPageReported, setCurrentPageReported] = useState(1);
-  const [confirmHideOpen, setConfirmHideOpen] = useState(false);
-  const [confirmHideItem, setConfirmHideItem] = useState<DashboardItem | null>(
-    null,
-  );
-  const [confirmFlagOpen, setConfirmFlagOpen] = useState(false);
-  const [confirmFlagItem, setConfirmFlagItem] = useState<DashboardItem | null>(
-    null,
-  );
+  type SectionKey = "recent" | "reported" | "flagged" | "hidden";
+  const [sections, setSections] = useState<
+    Record<SectionKey, { open: boolean; page: number }>
+  >(() => ({
+    recent: { open: true, page: 1 },
+    reported: { open: true, page: 1 },
+    flagged: { open: true, page: 1 },
+    hidden: { open: true, page: 1 },
+  }));
+  const [dialog, setDialog] = useState<{
+    type: "hide" | "flag" | null;
+    item: DashboardItem | null;
+  }>({ type: null, item: null });
   const [flagReason, setFlagReason] = useState("");
   const [optimisticItemState, setOptimisticItemState] = useState<
     Record<string, OptimisticItemState>
   >({});
 
-  const getItemKey = (item: Pick<DashboardItem, "category" | "id">) =>
-    `${item.category}:${item.id}`;
-
   const setItemOptimisticState = (
     item: Pick<DashboardItem, "category" | "id">,
     partial: OptimisticItemState,
   ) => {
-    const itemKey = getItemKey(item);
+    const itemKey = `${item.category}:${item.id}`;
     setOptimisticItemState((prev) => ({
       ...prev,
       [itemKey]: {
@@ -381,7 +508,7 @@ export function AdminDashboardTable() {
   const clearItemOptimisticState = (
     item: Pick<DashboardItem, "category" | "id">,
   ) => {
-    const itemKey = getItemKey(item);
+    const itemKey = `${item.category}:${item.id}`;
     setOptimisticItemState((prev) => {
       if (!(itemKey in prev)) return prev;
       const next = { ...prev };
@@ -442,160 +569,6 @@ export function AdminDashboardTable() {
 
   const pageSize = 5;
 
-  const mapItems = (rawItems: unknown) => {
-    if (!Array.isArray(rawItems)) return [];
-
-    interface RawDashboardItem {
-      type?: unknown;
-      id?: unknown;
-      createdAt?: unknown;
-      flagged?: unknown;
-      hidden?: unknown;
-      // review
-      text?: unknown;
-      headline?: unknown;
-      // role
-      title?: unknown;
-      companyId?: unknown;
-      // company
-      name?: unknown;
-    }
-
-    const isRecord = (value: unknown): value is RawDashboardItem =>
-      typeof value === "object" && value !== null;
-
-    const asString = (value: unknown): string | null =>
-      typeof value === "string" ? value : null;
-
-    const asBoolean = (value: unknown): boolean =>
-      typeof value === "boolean" ? value : false;
-
-    const asDate = (value: unknown): Date => {
-      if (value instanceof Date) return value;
-      const s = asString(value);
-      return s ? new Date(s) : new Date(0);
-    };
-
-    const getType = (value: RawDashboardItem) => {
-      const t = value.type;
-      return t === "review" || t === "role" || t === "company" ? t : null;
-    };
-
-    const items: DashboardItem[] = [];
-
-    for (const raw of rawItems) {
-      if (!isRecord(raw)) continue;
-      const type = getType(raw);
-      if (!type) continue;
-
-      if (type === "review") {
-        const id = asString(raw.id);
-        if (!id) continue;
-        const text = asString(raw.text);
-        const headline = asString(raw.headline);
-        items.push({
-          id,
-          category: "review",
-          title: (text ?? headline ?? "").toString(),
-          description: headline ?? undefined,
-          createdAt: asDate(raw.createdAt),
-          flagged: asBoolean(raw.flagged),
-          hidden: asBoolean(raw.hidden),
-        });
-        continue;
-      }
-
-      if (type === "role") {
-        const id = asString(raw.id);
-        const title = asString(raw.title);
-        if (!id || !title) continue;
-        const companyId = asString(raw.companyId);
-        items.push({
-          id,
-          category: "role",
-          title,
-          company: companyId ?? undefined,
-          createdAt: asDate(raw.createdAt),
-          flagged: asBoolean(raw.flagged),
-          hidden: asBoolean(raw.hidden),
-        });
-        continue;
-      }
-
-      // company
-      const id = asString(raw.id);
-      const name = asString(raw.name);
-      if (!id || !name) continue;
-      items.push({
-        id,
-        category: "company",
-        title: name,
-        createdAt: asDate(raw.createdAt),
-        flagged: asBoolean(raw.flagged),
-        hidden: asBoolean(raw.hidden),
-      });
-    }
-
-    return items;
-  };
-
-  const mostRecentItems: DashboardItem[] = useMemo(
-    () =>
-      mapItems(mostRecentItemsData?.items).map((item) => {
-        const optimistic = optimisticItemState[getItemKey(item)];
-        return optimistic
-          ? {
-              ...item,
-              flagged: optimistic.flagged ?? item.flagged,
-              hidden: optimistic.hidden ?? item.hidden,
-            }
-          : item;
-      }),
-    [mostRecentItemsData, optimisticItemState],
-  );
-  const flaggedItems: DashboardItem[] = useMemo(
-    () =>
-      mapItems(flaggedData?.items).map((item) => {
-        const optimistic = optimisticItemState[getItemKey(item)];
-        return optimistic
-          ? {
-              ...item,
-              flagged: optimistic.flagged ?? item.flagged,
-              hidden: optimistic.hidden ?? item.hidden,
-            }
-          : item;
-      }),
-    [flaggedData, optimisticItemState],
-  );
-  const hiddenItems: DashboardItem[] = useMemo(
-    () =>
-      mapItems(hiddenData?.items).map((item) => {
-        const optimistic = optimisticItemState[getItemKey(item)];
-        return optimistic
-          ? {
-              ...item,
-              flagged: optimistic.flagged ?? item.flagged,
-              hidden: optimistic.hidden ?? item.hidden,
-            }
-          : item;
-      }),
-    [hiddenData, optimisticItemState],
-  );
-  const reportedItems: DashboardItem[] = useMemo(
-    () =>
-      mapItems(reportedData?.items).map((item) => {
-        const optimistic = optimisticItemState[getItemKey(item)];
-        return optimistic
-          ? {
-              ...item,
-              flagged: optimistic.flagged ?? item.flagged,
-              hidden: optimistic.hidden ?? item.hidden,
-            }
-          : item;
-      }),
-    [reportedData, optimisticItemState],
-  );
-
   const filterItems = useCallback(
     (current: DashboardItem[]) => {
       let result = current;
@@ -608,19 +581,26 @@ export function AdminDashboardTable() {
         result = result.filter((i) => i.category === "company");
       }
 
-      if (searchQuery.trim()) {
-        const q = searchQuery.toLowerCase();
-        result = result.filter((item) =>
-          [
-            item.title,
-            item.subtitle,
-            item.description,
-            item.company,
-            item.location,
-          ]
-            .filter(Boolean)
-            .some((v) => v?.toLowerCase().includes(q)),
-        );
+      const q = searchQuery.trim().toLowerCase();
+      if (q) {
+        result = result.filter((item) => {
+          const titleMatch = item.title.toLowerCase().includes(q);
+          const subtitleMatch =
+            item.subtitle?.toLowerCase().includes(q) ?? false;
+          const descriptionMatch =
+            item.description?.toLowerCase().includes(q) ?? false;
+          const companyMatch = item.company?.toLowerCase().includes(q) ?? false;
+          const locationMatch =
+            item.location?.toLowerCase().includes(q) ?? false;
+
+          return (
+            titleMatch ||
+            subtitleMatch ||
+            descriptionMatch ||
+            companyMatch ||
+            locationMatch
+          );
+        });
       }
 
       return result;
@@ -628,108 +608,99 @@ export function AdminDashboardTable() {
     [activeTab, searchQuery],
   );
 
-  const filteredMostRecentItems = useMemo(
-    () => filterItems(mostRecentItems),
-    [mostRecentItems, filterItems],
-  );
-  const filteredFlaggedItems = useMemo(
-    () => filterItems(flaggedItems),
-    [flaggedItems, filterItems],
-  );
-  const filteredHiddenItems = useMemo(
-    () => filterItems(hiddenItems),
-    [hiddenItems, filterItems],
-  );
-  const filteredReportedItems = useMemo(
-    () => filterItems(reportedItems),
-    [reportedItems, filterItems],
-  );
+  const recent = useProcessedItems({
+    rawItems: mostRecentItemsData?.items,
+    optimisticState: optimisticItemState,
+    filterItems,
+    currentPage: sections.recent.page,
+    pageSize,
+  });
 
-  const totalPagesRecent = Math.max(
-    1,
-    Math.ceil(filteredMostRecentItems.length / pageSize),
-  );
-  const totalPagesFlagged = Math.max(
-    1,
-    Math.ceil(filteredFlaggedItems.length / pageSize),
-  );
-  const totalPagesHidden = Math.max(
-    1,
-    Math.ceil(filteredHiddenItems.length / pageSize),
-  );
-  const totalPagesReported = Math.max(
-    1,
-    Math.ceil(filteredReportedItems.length / pageSize),
-  );
+  const flagged = useProcessedItems({
+    rawItems: flaggedData?.items,
+    optimisticState: optimisticItemState,
+    filterItems,
+    currentPage: sections.flagged.page,
+    pageSize,
+  });
 
-  const pageItemsRecent = useMemo(() => {
-    const start = (currentPageRecent - 1) * pageSize;
-    return filteredMostRecentItems.slice(start, start + pageSize);
-  }, [filteredMostRecentItems, currentPageRecent]);
+  const hidden = useProcessedItems({
+    rawItems: hiddenData?.items,
+    optimisticState: optimisticItemState,
+    filterItems,
+    currentPage: sections.hidden.page,
+    pageSize,
+  });
 
-  const pageItemsFlagged = useMemo(() => {
-    const start = (currentPageFlagged - 1) * pageSize;
-    return filteredFlaggedItems.slice(start, start + pageSize);
-  }, [filteredFlaggedItems, currentPageFlagged]);
-
-  const pageItemsHidden = useMemo(() => {
-    const start = (currentPageHidden - 1) * pageSize;
-    return filteredHiddenItems.slice(start, start + pageSize);
-  }, [filteredHiddenItems, currentPageHidden]);
-
-  const pageItemsReported = useMemo(() => {
-    const start = (currentPageReported - 1) * pageSize;
-    return filteredReportedItems.slice(start, start + pageSize);
-  }, [filteredReportedItems, currentPageReported]);
+  const reported = useProcessedItems({
+    rawItems: reportedData?.items,
+    optimisticState: optimisticItemState,
+    filterItems,
+    currentPage: sections.reported.page,
+    pageSize,
+  });
 
   useEffect(() => {
     const clampPage = (currentPage: number, totalPages: number) =>
       Math.min(currentPage, totalPages);
 
-    setCurrentPageRecent((p) => clampPage(p, totalPagesRecent));
-    setCurrentPageFlagged((p) => clampPage(p, totalPagesFlagged));
-    setCurrentPageHidden((p) => clampPage(p, totalPagesHidden));
-    setCurrentPageReported((p) => clampPage(p, totalPagesReported));
+    setSections((prev) => ({
+      ...prev,
+      recent: {
+        ...prev.recent,
+        page: clampPage(prev.recent.page, recent.totalPages),
+      },
+      flagged: {
+        ...prev.flagged,
+        page: clampPage(prev.flagged.page, flagged.totalPages),
+      },
+      hidden: {
+        ...prev.hidden,
+        page: clampPage(prev.hidden.page, hidden.totalPages),
+      },
+      reported: {
+        ...prev.reported,
+        page: clampPage(prev.reported.page, reported.totalPages),
+      },
+    }));
   }, [
-    totalPagesRecent,
-    totalPagesFlagged,
-    totalPagesHidden,
-    totalPagesReported,
+    recent.totalPages,
+    flagged.totalPages,
+    hidden.totalPages,
+    reported.totalPages,
   ]);
+
+  const resetAllPages = useCallback(() => {
+    setSections((prev) => {
+      const next = {} as typeof prev;
+      (Object.keys(prev) as SectionKey[]).forEach((key) => {
+        next[key] = { ...prev[key], page: 1 };
+      });
+      return next;
+    });
+  }, []);
 
   const handleTabChange = (value: TabValue) => {
     setActiveTab(value);
-    setCurrentPageRecent(1);
-    setCurrentPageFlagged(1);
-    setCurrentPageHidden(1);
-    setCurrentPageReported(1);
+    resetAllPages();
   };
 
-  const handlePageChangeRecent = (page: number) => {
-    if (page < 1 || page > totalPagesRecent) return;
-    setCurrentPageRecent(page);
-  };
-
-  const handlePageChangeFlagged = (page: number) => {
-    if (page < 1 || page > totalPagesFlagged) return;
-    setCurrentPageFlagged(page);
-  };
-
-  const handlePageChangeHidden = (page: number) => {
-    if (page < 1 || page > totalPagesHidden) return;
-    setCurrentPageHidden(page);
-  };
-
-  const handlePageChangeReported = (page: number) => {
-    if (page < 1 || page > totalPagesReported) return;
-    setCurrentPageReported(page);
+  const handlePageChange = (
+    key: SectionKey,
+    page: number,
+    totalPages: number,
+  ) => {
+    if (page < 1 || page > totalPages) return;
+    setSections((prev) => ({
+      ...prev,
+      [key]: { ...prev[key], page },
+    }));
   };
 
   const handleToggleFlag = (item: DashboardItem) => {
     if (item.flagged === false) {
-      setConfirmFlagItem(item);
       setFlagReason("");
-      setConfirmFlagOpen(true);
+      setDialog({ type: "flag", item });
       return;
     }
 
@@ -743,8 +714,7 @@ export function AdminDashboardTable() {
 
   const handleToggleHidden = (item: DashboardItem) => {
     if (item.hidden === false) {
-      setConfirmHideItem(item);
-      setConfirmHideOpen(true);
+      setDialog({ type: "hide", item });
       return;
     }
 
@@ -759,10 +729,9 @@ export function AdminDashboardTable() {
   return (
     <div className="flex min-h-0 h-full w-full flex-col gap-4 overflow-y-auto">
       <Dialog
-        open={confirmHideOpen}
+        open={dialog.type === "hide"}
         onOpenChange={(open) => {
-          setConfirmHideOpen(open);
-          if (!open) setConfirmHideItem(null);
+          if (!open) setDialog({ type: null, item: null });
         }}
       >
         <DialogContent className="w-[min(92vw,520px)] p-6">
@@ -770,7 +739,7 @@ export function AdminDashboardTable() {
             <DialogTitle>Hide this item?</DialogTitle>
             <DialogDescription>
               Are you sure you want to hide this{" "}
-              {confirmHideItem?.category ?? "item"}? You can unhide it later.
+              {dialog.item?.category ?? "item"}? You can unhide it later.
             </DialogDescription>
           </DialogHeader>
 
@@ -778,8 +747,7 @@ export function AdminDashboardTable() {
             <button
               type="button"
               onClick={() => {
-                setConfirmHideOpen(false);
-                setConfirmHideItem(null);
+                setDialog({ type: null, item: null });
               }}
               className="inline-flex h-9 items-center justify-center rounded-md border border-gray-200 bg-white px-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
             >
@@ -787,16 +755,15 @@ export function AdminDashboardTable() {
             </button>
             <button
               type="button"
-              disabled={!confirmHideItem || setHiddenStatusMutation.isPending}
+              disabled={!dialog.item || setHiddenStatusMutation.isPending}
               onClick={() => {
-                if (!confirmHideItem) return;
+                if (!dialog.item) return;
                 setHiddenStatusMutation.mutate({
-                  entityType: confirmHideItem.category,
-                  entityId: confirmHideItem.id,
+                  entityType: dialog.item.category,
+                  entityId: dialog.item.id,
                   hidden: true,
                 });
-                setConfirmHideOpen(false);
-                setConfirmHideItem(null);
+                setDialog({ type: null, item: null });
               }}
               className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-3 text-sm font-medium text-white hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
             >
@@ -807,11 +774,10 @@ export function AdminDashboardTable() {
       </Dialog>
 
       <Dialog
-        open={confirmFlagOpen}
+        open={dialog.type === "flag"}
         onOpenChange={(open) => {
-          setConfirmFlagOpen(open);
           if (!open) {
-            setConfirmFlagItem(null);
+            setDialog({ type: null, item: null });
             setFlagReason("");
           }
         }}
@@ -820,8 +786,7 @@ export function AdminDashboardTable() {
           <DialogHeader>
             <DialogTitle>Flag this item?</DialogTitle>
             <DialogDescription>
-              Add a reason for flagging this{" "}
-              {confirmFlagItem?.category ?? "item"}.
+              Add a reason for flagging this {dialog.item?.category ?? "item"}.
             </DialogDescription>
           </DialogHeader>
 
@@ -846,8 +811,7 @@ export function AdminDashboardTable() {
             <button
               type="button"
               onClick={() => {
-                setConfirmFlagOpen(false);
-                setConfirmFlagItem(null);
+                setDialog({ type: null, item: null });
                 setFlagReason("");
               }}
               className="inline-flex h-9 items-center justify-center rounded-md border border-gray-200 bg-white px-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
@@ -857,24 +821,23 @@ export function AdminDashboardTable() {
             <button
               type="button"
               disabled={
-                !confirmFlagItem ||
+                !dialog.item ||
                 setFlaggedStatusMutation.isPending ||
                 !flagReason.trim()
               }
               onClick={() => {
-                if (!confirmFlagItem) return;
+                if (!dialog.item) return;
                 const reason = flagReason.trim();
                 if (!reason) return;
 
                 setFlaggedStatusMutation.mutate({
-                  entityType: confirmFlagItem.category,
-                  entityId: confirmFlagItem.id,
+                  entityType: dialog.item.category,
+                  entityId: dialog.item.id,
                   flagged: true,
                   description: reason,
                 });
 
-                setConfirmFlagOpen(false);
-                setConfirmFlagItem(null);
+                setDialog({ type: null, item: null });
                 setFlagReason("");
               }}
               className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-3 text-sm font-medium text-white hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
@@ -892,10 +855,7 @@ export function AdminDashboardTable() {
             value={searchQuery}
             onChange={(e) => {
               setSearchQuery(e.target.value);
-              setCurrentPageRecent(1);
-              setCurrentPageHidden(1);
-              setCurrentPageFlagged(1);
-              setCurrentPageReported(1);
+              resetAllPages();
             }}
             className="w-[40%] rounded-md border border-gray-200 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:none focus:outline-none focus:ring-1 focus:ring-gray-200"
           />
@@ -940,65 +900,60 @@ export function AdminDashboardTable() {
           ))}
         </nav>
 
-        <CollapsibleSection
-          title="New this week"
-          isOpen={mostRecentOpen}
-          onToggle={() => setMostRecentOpen((o) => !o)}
-          isLoading={isLoadingMostRecent}
-          pageItems={pageItemsRecent}
-          totalPages={totalPagesRecent}
-          currentPage={currentPageRecent}
-          onPageChange={handlePageChangeRecent}
-          onToggleFlag={handleToggleFlag}
-          onToggleHidden={handleToggleHidden}
-          isUpdatingFlag={setFlaggedStatusMutation.isPending}
-          isUpdatingHidden={setHiddenStatusMutation.isPending}
-        />
-
-        <CollapsibleSection
-          title="Reported"
-          isOpen={reportedOpen}
-          onToggle={() => setReportedOpen((o) => !o)}
-          isLoading={isLoadingReported}
-          pageItems={pageItemsReported}
-          totalPages={totalPagesReported}
-          currentPage={currentPageReported}
-          onPageChange={handlePageChangeReported}
-          onToggleFlag={handleToggleFlag}
-          onToggleHidden={handleToggleHidden}
-          isUpdatingFlag={setFlaggedStatusMutation.isPending}
-          isUpdatingHidden={setHiddenStatusMutation.isPending}
-        />
-
-        <CollapsibleSection
-          title="Flagged"
-          isOpen={flaggedOpen}
-          onToggle={() => setFlaggedOpen((o) => !o)}
-          isLoading={isLoadingFlagged}
-          pageItems={pageItemsFlagged}
-          totalPages={totalPagesFlagged}
-          currentPage={currentPageFlagged}
-          onPageChange={handlePageChangeFlagged}
-          onToggleFlag={handleToggleFlag}
-          onToggleHidden={handleToggleHidden}
-          isUpdatingFlag={setFlaggedStatusMutation.isPending}
-          isUpdatingHidden={setHiddenStatusMutation.isPending}
-        />
-
-        <CollapsibleSection
-          title="Hidden"
-          isOpen={hiddenOpen}
-          onToggle={() => setHiddenOpen((o) => !o)}
-          isLoading={isLoadingHidden}
-          pageItems={pageItemsHidden}
-          totalPages={totalPagesHidden}
-          currentPage={currentPageHidden}
-          onPageChange={handlePageChangeHidden}
-          onToggleFlag={handleToggleFlag}
-          onToggleHidden={handleToggleHidden}
-          isUpdatingFlag={setFlaggedStatusMutation.isPending}
-          isUpdatingHidden={setHiddenStatusMutation.isPending}
-        />
+        {(
+          [
+            {
+              key: "recent",
+              title: "New this week",
+              data: recent,
+              isLoading: isLoadingMostRecent,
+            },
+            {
+              key: "reported",
+              title: "Reported",
+              data: reported,
+              isLoading: isLoadingReported,
+            },
+            {
+              key: "flagged",
+              title: "Flagged",
+              data: flagged,
+              isLoading: isLoadingFlagged,
+            },
+            {
+              key: "hidden",
+              title: "Hidden",
+              data: hidden,
+              isLoading: isLoadingHidden,
+            },
+          ] as const
+        ).map(({ key, title, data, isLoading }) => {
+          const section = sections[key];
+          return (
+            <CollapsibleSection
+              key={key}
+              title={title}
+              isOpen={section.open}
+              onToggle={() =>
+                setSections((prev) => ({
+                  ...prev,
+                  [key]: { ...prev[key], open: !prev[key].open },
+                }))
+              }
+              isLoading={isLoading}
+              pageItems={data.pageItems}
+              totalPages={data.totalPages}
+              currentPage={section.page}
+              onPageChange={(page) =>
+                handlePageChange(key, page, data.totalPages)
+              }
+              onToggleFlag={handleToggleFlag}
+              onToggleHidden={handleToggleHidden}
+              isUpdatingFlag={setFlaggedStatusMutation.isPending}
+              isUpdatingHidden={setHiddenStatusMutation.isPending}
+            />
+          );
+        })}
       </div>
     </div>
   );

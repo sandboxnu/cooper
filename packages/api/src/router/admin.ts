@@ -15,6 +15,69 @@ import {
 
 import { protectedProcedure } from "../trpc";
 
+const getTime = (d: Date | string) =>
+  d instanceof Date ? d.getTime() : new Date(d).getTime();
+
+const sortByCreatedAtDesc = <T extends { createdAt: Date | string }>(
+  items: T[],
+) => items.sort((a, b) => getTime(b.createdAt) - getTime(a.createdAt));
+
+const fetchWhenIdsPresent = <T>(
+  ids: string[],
+  query: () => Promise<T[]>,
+): Promise<T[]> => (ids.length > 0 ? query() : Promise.resolve([]));
+
+const moderationKey = (entityType: string, entityId: string) =>
+  `${entityType}:${entityId}`;
+
+interface ModerationFlags {
+  flagged: (entityType: string, entityId: string) => boolean;
+  hidden: (entityType: string, entityId: string) => boolean;
+}
+
+const mapReviewItem = (
+  review: {
+    id: string;
+    createdAt: Date;
+    reviewHeadline: string | null;
+    textReview: string | null;
+  },
+  flags: ModerationFlags,
+) => ({
+  type: "review" as const,
+  id: review.id,
+  createdAt: review.createdAt,
+  headline: review.reviewHeadline,
+  text: review.textReview,
+  flagged: flags.flagged(ModerationEntityType.REVIEW, review.id),
+  hidden: flags.hidden(ModerationEntityType.REVIEW, review.id),
+});
+
+const mapRoleItem = (
+  role: { id: string; createdAt: Date; title: string; companyId: string },
+  flags: ModerationFlags,
+) => ({
+  type: "role" as const,
+  id: role.id,
+  createdAt: role.createdAt,
+  title: role.title,
+  companyId: role.companyId,
+  flagged: flags.flagged(ModerationEntityType.ROLE, role.id),
+  hidden: flags.hidden(ModerationEntityType.ROLE, role.id),
+});
+
+const mapCompanyItem = (
+  company: { id: string; createdAt: Date; name: string },
+  flags: ModerationFlags,
+) => ({
+  type: "company" as const,
+  id: company.id,
+  createdAt: company.createdAt,
+  name: company.name,
+  flagged: flags.flagged(ModerationEntityType.COMPANY, company.id),
+  hidden: flags.hidden(ModerationEntityType.COMPANY, company.id),
+});
+
 export const adminRouter = {
   dashboardItems: protectedProcedure
     .input(
@@ -48,61 +111,34 @@ export const adminRouter = {
       ]);
 
       const flaggedKeys = new Set(
-        flaggedRecords.map(
-          (record) => `${record.entityType}:${record.entityId}`,
+        flaggedRecords.map((record) =>
+          moderationKey(record.entityType, record.entityId),
         ),
       );
       const hiddenKeys = new Set(
-        hiddenRecords.map(
-          (record) => `${record.entityType}:${record.entityId}`,
+        hiddenRecords.map((record) =>
+          moderationKey(record.entityType, record.entityId),
         ),
       );
 
-      const reviewItems = reviews.map((review) => ({
-        type: "review" as const,
-        id: review.id,
-        createdAt: review.createdAt,
-        headline: review.reviewHeadline,
-        text: review.textReview,
-        flagged: flaggedKeys.has(`${ModerationEntityType.REVIEW}:${review.id}`),
-        hidden: hiddenKeys.has(`${ModerationEntityType.REVIEW}:${review.id}`),
-      }));
+      const flags: ModerationFlags = {
+        flagged: (entityType, entityId) =>
+          flaggedKeys.has(moderationKey(entityType, entityId)),
+        hidden: (entityType, entityId) =>
+          hiddenKeys.has(moderationKey(entityType, entityId)),
+      };
 
-      const roleItems = roles.map((role) => ({
-        type: "role" as const,
-        id: role.id,
-        createdAt: role.createdAt,
-        title: role.title,
-        companyId: role.companyId,
-        flagged: flaggedKeys.has(`${ModerationEntityType.ROLE}:${role.id}`),
-        hidden: hiddenKeys.has(`${ModerationEntityType.ROLE}:${role.id}`),
-      }));
-
-      const companyItems = companies.map((company) => ({
-        type: "company" as const,
-        id: company.id,
-        createdAt: company.createdAt,
-        name: company.name,
-        flagged: flaggedKeys.has(
-          `${ModerationEntityType.COMPANY}:${company.id}`,
-        ),
-        hidden: hiddenKeys.has(`${ModerationEntityType.COMPANY}:${company.id}`),
-      }));
-
-      const items = [...reviewItems, ...roleItems, ...companyItems].sort(
-        (a, b) => {
-          const aTime =
-            a.createdAt instanceof Date
-              ? a.createdAt.getTime()
-              : new Date(a.createdAt as unknown as string).getTime();
-          const bTime =
-            b.createdAt instanceof Date
-              ? b.createdAt.getTime()
-              : new Date(b.createdAt as unknown as string).getTime();
-
-          return bTime - aTime;
-        },
+      const reviewItems = reviews.map((review) => mapReviewItem(review, flags));
+      const roleItems = roles.map((role) => mapRoleItem(role, flags));
+      const companyItems = companies.map((company) =>
+        mapCompanyItem(company, flags),
       );
+
+      const items = sortByCreatedAtDesc([
+        ...reviewItems,
+        ...roleItems,
+        ...companyItems,
+      ]);
 
       return {
         items,
@@ -154,72 +190,45 @@ export const adminRouter = {
       }
 
       const [reviews, roles, companies] = await Promise.all([
-        reviewIds.length > 0
-          ? ctx.db.query.Review.findMany({
-              orderBy: desc(Review.createdAt),
-              where: (review, { inArray }) => inArray(review.id, reviewIds),
-              limit: limitPerType,
-            })
-          : Promise.resolve([]),
-        roleIds.length > 0
-          ? ctx.db.query.Role.findMany({
-              orderBy: desc(Role.createdAt),
-              where: (role, { inArray }) => inArray(role.id, roleIds),
-              limit: limitPerType,
-            })
-          : Promise.resolve([]),
-        companyIds.length > 0
-          ? ctx.db.query.Company.findMany({
-              orderBy: desc(Company.createdAt),
-              where: (company, { inArray }) => inArray(company.id, companyIds),
-              limit: limitPerType,
-            })
-          : Promise.resolve([]),
+        fetchWhenIdsPresent(reviewIds, () =>
+          ctx.db.query.Review.findMany({
+            orderBy: desc(Review.createdAt),
+            where: (review, { inArray }) => inArray(review.id, reviewIds),
+            limit: limitPerType,
+          }),
+        ),
+        fetchWhenIdsPresent(roleIds, () =>
+          ctx.db.query.Role.findMany({
+            orderBy: desc(Role.createdAt),
+            where: (role, { inArray }) => inArray(role.id, roleIds),
+            limit: limitPerType,
+          }),
+        ),
+        fetchWhenIdsPresent(companyIds, () =>
+          ctx.db.query.Company.findMany({
+            orderBy: desc(Company.createdAt),
+            where: (company, { inArray }) => inArray(company.id, companyIds),
+            limit: limitPerType,
+          }),
+        ),
       ]);
 
-      const reviewItems = reviews.map((review) => ({
-        type: "review" as const,
-        id: review.id,
-        createdAt: review.createdAt,
-        headline: review.reviewHeadline,
-        text: review.textReview,
-        flagged: true,
-        hidden: false,
-      }));
+      const flags: ModerationFlags = {
+        flagged: () => true,
+        hidden: () => false,
+      };
 
-      const roleItems = roles.map((role) => ({
-        type: "role" as const,
-        id: role.id,
-        createdAt: role.createdAt,
-        title: role.title,
-        companyId: role.companyId,
-        flagged: true,
-        hidden: false,
-      }));
-
-      const companyItems = companies.map((company) => ({
-        type: "company" as const,
-        id: company.id,
-        createdAt: company.createdAt,
-        name: company.name,
-        flagged: true,
-        hidden: false,
-      }));
-
-      const items = [...reviewItems, ...roleItems, ...companyItems].sort(
-        (a, b) => {
-          const aTime =
-            a.createdAt instanceof Date
-              ? a.createdAt.getTime()
-              : new Date(a.createdAt as unknown as string).getTime();
-          const bTime =
-            b.createdAt instanceof Date
-              ? b.createdAt.getTime()
-              : new Date(b.createdAt as unknown as string).getTime();
-
-          return bTime - aTime;
-        },
+      const reviewItems = reviews.map((review) => mapReviewItem(review, flags));
+      const roleItems = roles.map((role) => mapRoleItem(role, flags));
+      const companyItems = companies.map((company) =>
+        mapCompanyItem(company, flags),
       );
+
+      const items = sortByCreatedAtDesc([
+        ...reviewItems,
+        ...roleItems,
+        ...companyItems,
+      ]);
 
       return {
         items,
@@ -271,72 +280,45 @@ export const adminRouter = {
       }
 
       const [reviews, roles, companies] = await Promise.all([
-        reviewIds.length > 0
-          ? ctx.db.query.Review.findMany({
-              orderBy: desc(Review.createdAt),
-              where: (review, { inArray }) => inArray(review.id, reviewIds),
-              limit: limitPerType,
-            })
-          : Promise.resolve([]),
-        roleIds.length > 0
-          ? ctx.db.query.Role.findMany({
-              orderBy: desc(Role.createdAt),
-              where: (role, { inArray }) => inArray(role.id, roleIds),
-              limit: limitPerType,
-            })
-          : Promise.resolve([]),
-        companyIds.length > 0
-          ? ctx.db.query.Company.findMany({
-              orderBy: desc(Company.createdAt),
-              where: (company, { inArray }) => inArray(company.id, companyIds),
-              limit: limitPerType,
-            })
-          : Promise.resolve([]),
+        fetchWhenIdsPresent(reviewIds, () =>
+          ctx.db.query.Review.findMany({
+            orderBy: desc(Review.createdAt),
+            where: (review, { inArray }) => inArray(review.id, reviewIds),
+            limit: limitPerType,
+          }),
+        ),
+        fetchWhenIdsPresent(roleIds, () =>
+          ctx.db.query.Role.findMany({
+            orderBy: desc(Role.createdAt),
+            where: (role, { inArray }) => inArray(role.id, roleIds),
+            limit: limitPerType,
+          }),
+        ),
+        fetchWhenIdsPresent(companyIds, () =>
+          ctx.db.query.Company.findMany({
+            orderBy: desc(Company.createdAt),
+            where: (company, { inArray }) => inArray(company.id, companyIds),
+            limit: limitPerType,
+          }),
+        ),
       ]);
 
-      const reviewItems = reviews.map((review) => ({
-        type: "review" as const,
-        id: review.id,
-        createdAt: review.createdAt,
-        headline: review.reviewHeadline,
-        text: review.textReview,
-        flagged: false,
-        hidden: true,
-      }));
+      const flags: ModerationFlags = {
+        flagged: () => false,
+        hidden: () => true,
+      };
 
-      const roleItems = roles.map((role) => ({
-        type: "role" as const,
-        id: role.id,
-        createdAt: role.createdAt,
-        title: role.title,
-        companyId: role.companyId,
-        flagged: false,
-        hidden: true,
-      }));
-
-      const companyItems = companies.map((company) => ({
-        type: "company" as const,
-        id: company.id,
-        createdAt: company.createdAt,
-        name: company.name,
-        flagged: false,
-        hidden: true,
-      }));
-
-      const items = [...reviewItems, ...roleItems, ...companyItems].sort(
-        (a, b) => {
-          const aTime =
-            a.createdAt instanceof Date
-              ? a.createdAt.getTime()
-              : new Date(a.createdAt as unknown as string).getTime();
-          const bTime =
-            b.createdAt instanceof Date
-              ? b.createdAt.getTime()
-              : new Date(b.createdAt as unknown as string).getTime();
-
-          return bTime - aTime;
-        },
+      const reviewItems = reviews.map((review) => mapReviewItem(review, flags));
+      const roleItems = roles.map((role) => mapRoleItem(role, flags));
+      const companyItems = companies.map((company) =>
+        mapCompanyItem(company, flags),
       );
+
+      const items = sortByCreatedAtDesc([
+        ...reviewItems,
+        ...roleItems,
+        ...companyItems,
+      ]);
 
       return {
         items,
@@ -400,27 +382,27 @@ export const adminRouter = {
       }
 
       const [reviews, roles, companies] = await Promise.all([
-        reviewIds.length > 0
-          ? ctx.db.query.Review.findMany({
-              orderBy: desc(Review.createdAt),
-              where: (review, { inArray }) => inArray(review.id, reviewIds),
-              limit: limitPerType,
-            })
-          : Promise.resolve([]),
-        roleIds.length > 0
-          ? ctx.db.query.Role.findMany({
-              orderBy: desc(Role.createdAt),
-              where: (role, { inArray }) => inArray(role.id, roleIds),
-              limit: limitPerType,
-            })
-          : Promise.resolve([]),
-        companyIds.length > 0
-          ? ctx.db.query.Company.findMany({
-              orderBy: desc(Company.createdAt),
-              where: (company, { inArray }) => inArray(company.id, companyIds),
-              limit: limitPerType,
-            })
-          : Promise.resolve([]),
+        fetchWhenIdsPresent(reviewIds, () =>
+          ctx.db.query.Review.findMany({
+            orderBy: desc(Review.createdAt),
+            where: (review, { inArray }) => inArray(review.id, reviewIds),
+            limit: limitPerType,
+          }),
+        ),
+        fetchWhenIdsPresent(roleIds, () =>
+          ctx.db.query.Role.findMany({
+            orderBy: desc(Role.createdAt),
+            where: (role, { inArray }) => inArray(role.id, roleIds),
+            limit: limitPerType,
+          }),
+        ),
+        fetchWhenIdsPresent(companyIds, () =>
+          ctx.db.query.Company.findMany({
+            orderBy: desc(Company.createdAt),
+            where: (company, { inArray }) => inArray(company.id, companyIds),
+            limit: limitPerType,
+          }),
+        ),
       ]);
 
       const [flaggedRecords, hiddenRecords] = await Promise.all([
@@ -429,61 +411,34 @@ export const adminRouter = {
       ]);
 
       const flaggedKeys = new Set(
-        flaggedRecords.map(
-          (record) => `${record.entityType}:${record.entityId}`,
+        flaggedRecords.map((record) =>
+          moderationKey(record.entityType, record.entityId),
         ),
       );
       const hiddenKeys = new Set(
-        hiddenRecords.map(
-          (record) => `${record.entityType}:${record.entityId}`,
+        hiddenRecords.map((record) =>
+          moderationKey(record.entityType, record.entityId),
         ),
       );
 
-      const reviewItems = reviews.map((review) => ({
-        type: "review" as const,
-        id: review.id,
-        createdAt: review.createdAt,
-        headline: review.reviewHeadline,
-        text: review.textReview,
-        flagged: flaggedKeys.has(`${ModerationEntityType.REVIEW}:${review.id}`),
-        hidden: hiddenKeys.has(`${ModerationEntityType.REVIEW}:${review.id}`),
-      }));
+      const flags: ModerationFlags = {
+        flagged: (entityType, entityId) =>
+          flaggedKeys.has(moderationKey(entityType, entityId)),
+        hidden: (entityType, entityId) =>
+          hiddenKeys.has(moderationKey(entityType, entityId)),
+      };
 
-      const roleItems = roles.map((role) => ({
-        type: "role" as const,
-        id: role.id,
-        createdAt: role.createdAt,
-        title: role.title,
-        companyId: role.companyId,
-        flagged: flaggedKeys.has(`${ModerationEntityType.ROLE}:${role.id}`),
-        hidden: hiddenKeys.has(`${ModerationEntityType.ROLE}:${role.id}`),
-      }));
-
-      const companyItems = companies.map((company) => ({
-        type: "company" as const,
-        id: company.id,
-        createdAt: company.createdAt,
-        name: company.name,
-        flagged: flaggedKeys.has(
-          `${ModerationEntityType.COMPANY}:${company.id}`,
-        ),
-        hidden: hiddenKeys.has(`${ModerationEntityType.COMPANY}:${company.id}`),
-      }));
-
-      const items = [...reviewItems, ...roleItems, ...companyItems].sort(
-        (a, b) => {
-          const aTime =
-            a.createdAt instanceof Date
-              ? a.createdAt.getTime()
-              : new Date(a.createdAt as unknown as string).getTime();
-          const bTime =
-            b.createdAt instanceof Date
-              ? b.createdAt.getTime()
-              : new Date(b.createdAt as unknown as string).getTime();
-
-          return bTime - aTime;
-        },
+      const reviewItems = reviews.map((review) => mapReviewItem(review, flags));
+      const roleItems = roles.map((role) => mapRoleItem(role, flags));
+      const companyItems = companies.map((company) =>
+        mapCompanyItem(company, flags),
       );
+
+      const items = sortByCreatedAtDesc([
+        ...reviewItems,
+        ...roleItems,
+        ...companyItems,
+      ]);
 
       return {
         items,
