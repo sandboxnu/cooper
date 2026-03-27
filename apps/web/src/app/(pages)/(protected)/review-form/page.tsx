@@ -91,14 +91,16 @@ const formSchema = z.object({
     })
     .min(1, {
       message: "You need to enter a company.",
-    }).nullable(),
+    })
+    .nullable(),
   roleName: z
     .string({
       required_error: "You need to enter a company.",
     })
     .min(1, {
       message: "You need to enter a company.",
-    }).nullable(),
+    })
+    .nullable(),
   locationId: z.string().min(1, {
     message: "You need to select a location.",
   }),
@@ -227,7 +229,7 @@ export default function ReviewForm() {
         setShowModal(true);
       } else {
         router.push("/");
-        //not going to /profile 
+        //not going to /profile
       }
     };
     window.addEventListener("review-form:leave-attempt", handleLeave);
@@ -311,11 +313,11 @@ export default function ReviewForm() {
   };
 
   const normalizeRadios = (v: unknown) =>
-      v === true || v === "yes" ? true : v === false || v === "no" ? false : null;
+    v === true || v === "yes" ? true : v === false || v === "no" ? false : null;
 
   async function onSaveDraft() {
     try {
-      const values = form.getValues()
+      const values = form.getValues();
 
       const draftPayload: Record<string, unknown> = {
         roleId: roleId,
@@ -404,38 +406,38 @@ export default function ReviewForm() {
               <div className="flex flex-wrap gap-10 overflow-auto pb-10 xl:flex-nowrap">
                 <ReviewSection />
               </div>
-            <div className = "flex gap-2 justify-end"> 
-               {/* Save Draft Button */}
-              <div className="pb-12 pt-6">
-                <Button
-                  type = "button" 
-                  onClick= {onSaveDraft}
-                  disabled={mutation.isPending || draftMutation.isPending}
-                  className="bg-white hover:bg-cooper-gray-600
+              <div className="flex gap-2 justify-end">
+                {/* Save Draft Button */}
+                <div className="pb-12 pt-6">
+                  <Button
+                    type="button"
+                    onClick={onSaveDraft}
+                    disabled={mutation.isPending || draftMutation.isPending}
+                    className="bg-white hover:bg-cooper-gray-600
                   rounded-lg border border-cooper-gray-150 2-253 px-8 py-3 text-lg font-semibold
                   text-[#151515]"
                   >
-                  {draftMutation.isPending ? "Saving draft..." : "Save draft"}
-                </Button>
-              </div>
-              {/* Submit Button */}
-              <div className="pb-12 pt-6">
-                <Button
-                  type="button"
-                  onClick={async () => {
-                    const isValid = await form.trigger();
-                    if (!isValid) {
-                      toast.error("Please fill in all required fields.");
-                      return;
-                    }
-                    await form.handleSubmit(onSubmit)();
-                  }}
-                  disabled={mutation.isPending || draftMutation.isPending}
-                  className="bg-cooper-gray-550 hover:bg-cooper-gray-600 rounded-lg border-none px-8 py-3 text-lg font-semibold text-white"
-                >
-                  {mutation.isPending ? "Submitting..." : "Submit review"}
-                </Button>
-              </div>
+                    {draftMutation.isPending ? "Saving draft..." : "Save draft"}
+                  </Button>
+                </div>
+                {/* Submit Button */}
+                <div className="pb-12 pt-6">
+                  <Button
+                    type="button"
+                    onClick={async () => {
+                      const isValid = await form.trigger();
+                      if (!isValid) {
+                        toast.error("Please fill in all required fields.");
+                        return;
+                      }
+                      await form.handleSubmit(onSubmit)();
+                    }}
+                    disabled={mutation.isPending || draftMutation.isPending}
+                    className="bg-cooper-gray-550 hover:bg-cooper-gray-600 rounded-lg border-none px-8 py-3 text-lg font-semibold text-white"
+                  >
+                    {mutation.isPending ? "Submitting..." : "Submit review"}
+                  </Button>
+                </div>
               </div>
             </div>
           ) : (

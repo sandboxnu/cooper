@@ -46,14 +46,11 @@ export const formatLastEditedDate = (
   const now = new Date();
   const msPerDay = 1000 * 60 * 60 * 24;
   const msPerHour = 1000 * 60 * 60;
-  const msPerMin = 1000 * 60
+  const msPerMin = 1000 * 60;
   const timeDifference = now.getTime() - date.getTime();
-  const daysDifference = Math.floor(
-    timeDifference / msPerDay,
-  );
+  const daysDifference = Math.floor(timeDifference / msPerDay);
   const hoursDifference = Math.floor(timeDifference / msPerHour);
   const minutesDifference = Math.floor(timeDifference / msPerMin);
-
 
   if (minutesDifference <= 59) {
     return `Last edited ${minutesDifference} minutes ago`;

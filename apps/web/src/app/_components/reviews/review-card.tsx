@@ -13,10 +13,7 @@ interface ReviewCardProps {
   reviewObj: ReviewType;
 }
 
-export function ReviewCard({
-  reviewObj,
-  className,
-}: ReviewCardProps) {
+export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
   const { data: role } = api.role.getById.useQuery(
     { id: reviewObj.roleId },
     { enabled: !!reviewObj.roleId },
@@ -44,34 +41,36 @@ export function ReviewCard({
         <div className="w-full">
           <CardContent className="flex h-full">
             <div className="flex w-full items-center justify-start gap-3">
-                <span className="text-xl font-medium text-black">
-                  {roleTitle}
-                </span>
+              <span className="text-xl font-medium text-black">
+                {roleTitle}
+              </span>
             </div>
             <div className="flex items-start w-full justify-end">
               <div className="mt-2 flex items-center gap-2 md:gap-2">
-                <span className = " text-black md:text-2xl">{reviewObj.overallRating.toFixed(1)}</span>
-                  <YellowStar className="h-5 w-5 md:h-7 md:w-7" />
+                <span className=" text-black md:text-2xl">
+                  {reviewObj.overallRating.toFixed(1)}
+                </span>
+                <YellowStar className="h-5 w-5 md:h-7 md:w-7" />
               </div>
             </div>
           </CardContent>
         </div>
         <div className="w-full">
           <CardContent className="flex h-full flex-col justify-between gap-3 sm:pl-0">
-          <div className="w-full text-black text-base">
+            <div className="w-full text-black text-base">
               <span className="text-black text-base text-opacity-60">
                 {company?.name}
               </span>
-            
-            <span className="text-black text-opacity-60">{" "}•{" "}</span>
+
+              <span className="text-black text-opacity-60"> • </span>
               <span className="text-black text-base text-opacity-60">
                 {prettyLocationName(location)}
               </span>
-           
             </div>
             <div className="flex gap-1 text-sm text-black pt-2 text-opacity-60">
               <span>
-                Reviewed on {formatDate(reviewObj.updatedAt, reviewObj.createdAt)}
+                Reviewed on{" "}
+                {formatDate(reviewObj.updatedAt, reviewObj.createdAt)}
               </span>
             </div>
           </CardContent>

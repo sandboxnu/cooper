@@ -48,7 +48,11 @@ export function DraftReviewCard({
                 <span className="text-xl font-medium text-black">
                   {roleTitle}
                 </span>
-              ) : <span className="text-xl font-medium text-black text-opacity-40">Job title</span>}
+              ) : (
+                <span className="text-xl font-medium text-black text-opacity-40">
+                  Job title
+                </span>
+              )}
               <span className="flex items-center gap-2 text-lg font-medium text-red-600">
                 <span className="flex items-center h-2 w-2 rounded-full bg-red-600"></span>
                 Draft
@@ -56,8 +60,16 @@ export function DraftReviewCard({
             </div>
             <div className="flex items-start w-full justify-end">
               <div className="mt-2 flex items-center gap-2 md:gap-2">
-                {reviewObj.overallRating ? (<span className = " text-black md:text-2xl">{reviewObj.overallRating.toFixed(1)}</span>) : 
-                <span className=" text-black text-opacity-40 md:text-2xl"> 0.0 </span>}
+                {reviewObj.overallRating ? (
+                  <span className=" text-black md:text-2xl">
+                    {reviewObj.overallRating.toFixed(1)}
+                  </span>
+                ) : (
+                  <span className=" text-black text-opacity-40 md:text-2xl">
+                    {" "}
+                    0.0{" "}
+                  </span>
+                )}
                 {!reviewObj.overallRating ? (
                   <GrayStar className="h-5 w-5 md:h-7 md:w-7" />
                 ) : (
@@ -69,26 +81,24 @@ export function DraftReviewCard({
         </div>
         <div className="w-full">
           <CardContent className="flex h-full flex-col justify-between gap-3 sm:pl-0">
-          <div className="w-full text-black text-base">
-            {company?.name ? (
-              <span className="text-black text-base">
-                {company.name}
-              </span>
-            ) : (
-              <span className="text-black text-base text-opacity-40">
-                Company name
-              </span>
-            )}
-            <span className="text-black text-opacity-40">{" "}•{" "}</span>
-            {location ? (
-              <span className="text-black text-base">
-                {prettyLocationName(location)}
-              </span>
-            ) : (
-              <span className="text-black text-base text-opacity-40">
-                Location
-              </span>
-            )}
+            <div className="w-full text-black text-base">
+              {company?.name ? (
+                <span className="text-black text-base">{company.name}</span>
+              ) : (
+                <span className="text-black text-base text-opacity-40">
+                  Company name
+                </span>
+              )}
+              <span className="text-black text-opacity-40"> • </span>
+              {location ? (
+                <span className="text-black text-base">
+                  {prettyLocationName(location)}
+                </span>
+              ) : (
+                <span className="text-black text-base text-opacity-40">
+                  Location
+                </span>
+              )}
             </div>
             <div className="flex gap-1 text-sm text-black pt-2 text-opacity-60">
               <span>

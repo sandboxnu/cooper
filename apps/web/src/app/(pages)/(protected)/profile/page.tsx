@@ -140,21 +140,28 @@ export default function Profile() {
             </div>
 
             <div className="flex flex-col gap-4">
-              {reviews.length > 0 && 
-                reviews.sort((a, b) => (a.status === "DRAFT" ? -1 : 1) - (b.status === "DRAFT" ? -1 : 1)).
-                map((review) => (review.status === "DRAFT") ? (
-                  <DraftReviewCard
-                    key={review.id}
-                    reviewObj={review}
-                    className="w-[100%]"
-                  />
-                ) : (
-                  <ReviewCard
-                    key={review.id}
-                    reviewObj={review}
-                    className="w-[100%]"
-                  />
-                ))}
+              {reviews.length > 0 &&
+                reviews
+                  .sort(
+                    (a, b) =>
+                      (a.status === "DRAFT" ? -1 : 1) -
+                      (b.status === "DRAFT" ? -1 : 1),
+                  )
+                  .map((review) =>
+                    review.status === "DRAFT" ? (
+                      <DraftReviewCard
+                        key={review.id}
+                        reviewObj={review}
+                        className="w-[100%]"
+                      />
+                    ) : (
+                      <ReviewCard
+                        key={review.id}
+                        reviewObj={review}
+                        className="w-[100%]"
+                      />
+                    ),
+                  )}
             </div>
           </section>
         )}
