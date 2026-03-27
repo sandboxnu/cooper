@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import type { CompanyType, RoleType} from "@cooper/db/schema";
+import type { CompanyType, RoleType } from "@cooper/db/schema";
 import { Status } from "@cooper/db/schema";
 import { asc, desc, sql } from "@cooper/db";
 import { Company, Review, Role } from "@cooper/db/schema";
@@ -52,6 +52,7 @@ export const roleAndCompanyRouter = {
           COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
         FROM ${Role}
         INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+        WHERE ${Review.status} = ${Status.PUBLISHED}
         GROUP BY ${Role.id}
         ORDER BY avg_rating DESC
       `);
@@ -63,7 +64,9 @@ export const roleAndCompanyRouter = {
         const rolesWithReviews = await ctx.db.execute(sql`
         SELECT DISTINCT ${Review.roleId}::uuid as role_id
         FROM ${Review}
-        WHERE ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
+        WHERE ${Review.roleId} != ''
+          AND ${Review.roleId} IS NOT NULL
+          AND ${Review.status} = ${Status.PUBLISHED}
       `);
 
         const roleIds = rolesWithReviews.rows.map((row) => String(row.role_id));
@@ -87,6 +90,7 @@ export const roleAndCompanyRouter = {
           FROM ${Company}
           LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
           INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          WHERE ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Company.id}
           ORDER BY avg_rating DESC
         `);
@@ -179,7 +183,11 @@ export const roleAndCompanyRouter = {
       if (jobTypeFilterActive && roles.length > 0) {
         const roleIds = roles.map((r) => r.id);
         const reviewsWithJobType = await ctx.db.query.Review.findMany({
-          where: (review, { inArray }) => inArray(review.roleId, roleIds),
+          where: (review, { inArray, and, eq }) =>
+            and(
+              inArray(review.roleId, roleIds),
+              eq(review.status, Status.PUBLISHED),
+            ),
           columns: { companyId: true, jobType: true },
         });
         for (const r of reviewsWithJobType) {
@@ -217,6 +225,7 @@ export const roleAndCompanyRouter = {
             roleIds.map((id) => sql`${id}`),
             sql`,`,
           )})
+            AND ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Role.id}
         `);
 
@@ -233,6 +242,7 @@ export const roleAndCompanyRouter = {
             roleIds.map((id) => sql`${id}`),
             sql`,`,
           )})
+            AND ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Role.id}
         `);
 
@@ -250,6 +260,7 @@ export const roleAndCompanyRouter = {
             roleIds.map((id) => sql`${id}`),
             sql`,`,
           )})
+            AND ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Role.id}
         `);
 
@@ -274,6 +285,7 @@ export const roleAndCompanyRouter = {
             roleIds.map((id) => sql`${id}`),
             sql`,`,
           )})
+            AND ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Role.id}
         `);
 
@@ -294,6 +306,7 @@ export const roleAndCompanyRouter = {
             roleIds.map((id) => sql`${id}`),
             sql`,`,
           )})
+            AND ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Role.id}
         `);
 
@@ -318,6 +331,7 @@ export const roleAndCompanyRouter = {
             companyIds.map((id) => sql`${id}`),
             sql`,`,
           )})
+            AND ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Company.id}
         `);
 
@@ -335,6 +349,7 @@ export const roleAndCompanyRouter = {
             companyIds.map((id) => sql`${id}`),
             sql`,`,
           )})
+            AND ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Company.id}
         `);
 
@@ -353,6 +368,7 @@ export const roleAndCompanyRouter = {
             companyIds.map((id) => sql`${id}`),
             sql`,`,
           )})
+            AND ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Company.id}
         `);
 
@@ -378,6 +394,7 @@ export const roleAndCompanyRouter = {
             companyIds.map((id) => sql`${id}`),
             sql`,`,
           )})
+            AND ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Company.id}
         `);
 
@@ -399,6 +416,7 @@ export const roleAndCompanyRouter = {
             companyIds.map((id) => sql`${id}`),
             sql`,`,
           )})
+            AND ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Company.id}
         `);
 
@@ -604,6 +622,7 @@ export const roleAndCompanyRouter = {
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Role}
           INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          WHERE ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Role.id}
           ORDER BY avg_rating DESC
         `);
@@ -641,6 +660,7 @@ export const roleAndCompanyRouter = {
           FROM ${Company}
           LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
           INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+          WHERE ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Company.id}
           ORDER BY avg_rating DESC
         `);

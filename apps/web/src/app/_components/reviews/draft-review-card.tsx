@@ -45,10 +45,10 @@ export function DraftReviewCard({
           <CardContent className="flex h-full">
             <div className="flex w-full items-center justify-start gap-3">
               {roleTitle ? (
-                <span className="text-xl font-medium text-cooper-gray-250">
+                <span className="text-xl font-medium text-black">
                   {roleTitle}
                 </span>
-              ) : ""}
+              ) : <span className="text-xl font-medium text-black text-opacity-40">Job title</span>}
               <span className="flex items-center gap-2 text-lg font-medium text-red-600">
                 <span className="flex items-center h-2 w-2 rounded-full bg-red-600"></span>
                 Draft
@@ -56,9 +56,8 @@ export function DraftReviewCard({
             </div>
             <div className="flex items-start w-full justify-end">
               <div className="mt-2 flex items-center gap-2 md:gap-2">
-                <div className="text-2xl text-[#151515] md:text-2xl">
-                  {(reviewObj.overallRating || 0).toFixed(1)}
-                </div>
+                {reviewObj.overallRating ? (<span className = " text-black md:text-2xl">{reviewObj.overallRating.toFixed(1)}</span>) : 
+                <span className=" text-black text-opacity-40 md:text-2xl"> 0.0 </span>}
                 {!reviewObj.overallRating ? (
                   <GrayStar className="h-5 w-5 md:h-7 md:w-7" />
                 ) : (
@@ -70,14 +69,35 @@ export function DraftReviewCard({
         </div>
         <div className="w-full">
           <CardContent className="flex h-full flex-col justify-between gap-3 sm:pl-0">
-            <div className="align-center text-cooper-gray-250 flex flex-col text-base">
+          <div className="w-full text-black text-base">
+            {company?.name ? (
+              <span className="text-black text-base">
+                {company.name}
+              </span>
+            ) : (
+              <span className="text-black text-base text-opacity-40">
+                Company name
+              </span>
+            )}
+            <span className="text-black text-opacity-40">{" "}•{" "}</span>
+            {location ? (
+              <span className="text-black text-base">
+                {prettyLocationName(location)}
+              </span>
+            ) : (
+              <span className="text-black text-base text-opacity-40">
+                Location
+              </span>
+            )}
+            </div>
+            {/* <div className="align-center text-black flex flex-col text-base">
               <span
                 className={`${location && prettyLocationName(location)}`}
               >
                 {company?.name} • {prettyLocationName(location)}
               </span>
-            </div>
-            <div className="flex gap-1 text-sm text-cooper-gray-250 pt-2">
+            </div> */}
+            <div className="flex gap-1 text-sm text-black pt-2">
               <span>
                 {formatLastEditedDate(reviewObj.updatedAt, reviewObj.createdAt)}
               </span>

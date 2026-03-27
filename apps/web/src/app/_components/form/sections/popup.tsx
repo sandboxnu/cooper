@@ -47,7 +47,7 @@ const Popup: React.FC<PopupProps> = ({
               "mb-[12px] py-[8px] text-base font-semibold text-cooper-gray-400"
             }   
           >
-            We'll save what you've written so far, and you can find your draft in the profile.
+            We'll save what you've written so far, and you can continue editing your review anytime.
           </div>
           <div
             className={"flex w-full items-center justify-between text-[12px]"}
@@ -92,7 +92,7 @@ const Popup: React.FC<PopupProps> = ({
             Save as Draft?
           </div>
           <div className="mb-[8px] text-cooper-gray-400 text-base text-center">
-            We'll save what you've written so far, and you can find your draft in the profile.
+            We'll save what you've written so far, and you can continue editing your review anytime.
           </div>
 
           <div className="border border-cooper-gray-200 flex-grow -mx-3"></div>

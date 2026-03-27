@@ -30,7 +30,7 @@ export function formatDate(date?: Date) {
   const day = String(date.getDate()).padStart(2, "0"); // Ensure two digits for the day
 
   // Return the formatted date string
-  return `${day} ${month} ${year}`;
+  return `${month} ${day}, ${year}`;
 }
 
 export const formatLastEditedDate = (
@@ -45,13 +45,23 @@ export const formatLastEditedDate = (
 
   const now = new Date();
   const msPerDay = 1000 * 60 * 60 * 24;
+  const msPerHour = 1000 * 60 * 60;
+  const msPerMin = 1000 * 60
+  const timeDifference = now.getTime() - date.getTime();
   const daysDifference = Math.floor(
-    (now.getTime() - date.getTime()) / msPerDay,
+    timeDifference / msPerDay,
   );
+  const hoursDifference = Math.floor(timeDifference / msPerHour);
+  const minutesDifference = Math.floor(timeDifference / msPerMin);
 
-  if (daysDifference <= 7) {
-    if (daysDifference === 0) return "Last edited today";
-    if (daysDifference === 1) return "Last edited yesterday";
+
+  if (minutesDifference <= 59) {
+    return `Last edited ${minutesDifference} minutes ago`;
+  }
+  if (hoursDifference <= 23) {
+    return `Last edited ${hoursDifference} hrs ago`;
+  }
+  if (daysDifference <= 6) {
     return `Last edited ${daysDifference} days ago`;
   } else {
     return `Last edited ${formatDate(date)}`;
