@@ -517,7 +517,7 @@ export const adminRouter = {
             entityType: input.entityType,
             entityId: input.entityId,
             description:
-              input.description?.trim() || "Flagged from admin dashboard",
+              input.description?.trim() ?? "Flagged from admin dashboard",
             adminId: ctx.session.user.id,
           });
         }
@@ -557,7 +557,7 @@ export const adminRouter = {
             entityType: input.entityType,
             entityId: input.entityId,
             description:
-              input.description?.trim() || "Hidden from admin dashboard",
+              input.description?.trim() ?? "Hidden from admin dashboard",
             adminId: ctx.session.user.id,
           });
         }
