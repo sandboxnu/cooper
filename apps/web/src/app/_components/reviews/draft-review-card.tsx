@@ -90,14 +90,7 @@ export function DraftReviewCard({
               </span>
             )}
             </div>
-            {/* <div className="align-center text-black flex flex-col text-base">
-              <span
-                className={`${location && prettyLocationName(location)}`}
-              >
-                {company?.name} • {prettyLocationName(location)}
-              </span>
-            </div> */}
-            <div className="flex gap-1 text-sm text-black pt-2">
+            <div className="flex gap-1 text-sm text-black pt-2 text-opacity-60">
               <span>
                 {formatLastEditedDate(reviewObj.updatedAt, reviewObj.createdAt)}
               </span>
