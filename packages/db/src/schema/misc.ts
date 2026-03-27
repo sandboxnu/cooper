@@ -106,11 +106,3 @@ export const ModerationEntityType = {
 
 export type ModerationEntityTypeType =
   (typeof ModerationEntityType)[keyof typeof ModerationEntityType];
-
-export const ModerationActionType = {
-  FLAGGED: "flagged",
-  HIDDEN: "hidden",
-} as const;
-
-export type ModerationActionTypeType =
-  (typeof ModerationActionType)[keyof typeof ModerationActionType];

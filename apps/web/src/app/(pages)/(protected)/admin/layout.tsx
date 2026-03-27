@@ -30,7 +30,7 @@ export default function AdminLayout({
   }
 
   return (
-    <div className="flex w-full flex-col">
+    <div className="flex min-h-0 w-full flex-1 flex-col">
       <div className="border-b bg-white px-6 py-3">
         <div className="flex gap-4 text-sm">
           <Link href="/admin/dashboard">Dashboard</Link>
