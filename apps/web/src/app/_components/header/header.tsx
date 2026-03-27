@@ -18,7 +18,7 @@ import { api } from "~/trpc/react";
 import { handleSignOut } from "../auth/actions";
 import CooperLogo from "../cooper-logo";
 import MobileHeaderButton from "./mobile-header-button";
-import { Session } from "@cooper/auth";
+import type { Session } from "@cooper/auth";
 import { UserRole } from "node_modules/@cooper/db/src/schema/misc";
 
 interface HeaderProps {
