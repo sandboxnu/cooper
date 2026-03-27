@@ -91,14 +91,14 @@ const formSchema = z.object({
     })
     .min(1, {
       message: "You need to enter a company.",
-    }),
+    }).nullable(),
   roleName: z
     .string({
       required_error: "You need to enter a company.",
     })
     .min(1, {
       message: "You need to enter a company.",
-    }),
+    }).nullable(),
   locationId: z.string().min(1, {
     message: "You need to select a location.",
   }),
@@ -133,12 +133,12 @@ const formSchema = z.object({
     })
     .transform((x) => x === "true")
     .pipe(z.boolean()),
-  federalHolidays: z.boolean().default(false),
-  freeLunch: z.boolean().default(false),
-  travelBenefits: z.boolean().default(false),
-  freeMerch: z.boolean().default(false),
-  snackBar: z.boolean().default(false),
-  employeeLounge: z.boolean().default(false),
+  federalHolidays: z.boolean(),
+  freeLunch: z.boolean(),
+  travelBenefits: z.boolean(),
+  freeMerch: z.boolean(),
+  snackBar: z.boolean(),
+  employeeLounge: z.boolean(),
   otherBenefits: z.string().nullable(),
 });
 
@@ -227,6 +227,7 @@ export default function ReviewForm() {
         setShowModal(true);
       } else {
         router.push("/");
+        //not going to /profile 
       }
     };
     window.addEventListener("review-form:leave-attempt", handleLeave);
@@ -309,14 +310,17 @@ export default function ReviewForm() {
     router.push("/");
   };
 
+  const normalizeRadios = (v: unknown) =>
+      v === true || v === "yes" ? true : v === false || v === "no" ? false : null;
+
   async function onSaveDraft() {
     try {
-      const values = form.getValues();
+      const values = form.getValues()
 
       const draftPayload: Record<string, unknown> = {
-        roleId: roleId || null,
+        roleId: roleId,
         profileId: profileId,
-        companyId: companyId || null,
+        companyId: companyId,
         workTerm: values.workTerm,
         workYear: values.workYear,
         overallRating: values.overallRating,
@@ -324,16 +328,16 @@ export default function ReviewForm() {
         supervisorRating: values.supervisorRating,
         interviewRating: 1,
         interviewDifficulty: values.interviewDifficulty || null,
-        interviewReview: values.interviewReview || null,
-        reviewHeadline: "" || null,
+        interviewReview: values.interviewReview ?? null,
+        reviewHeadline: "",
         textReview: values.textReview || null,
         locationId: values.locationId || null,
-        jobType: values.jobType || null,
+        jobType: values.jobType,
         hourlyPay: values.hourlyPay || null,
-        workEnvironment: values.workEnvironment || null,
-        drugTest: values.drugTest || null,
-        pto: values.pto || null,
-        overtimeNormal: values.overtimeNormal || null,
+        workEnvironment: values.workEnvironment,
+        drugTest: normalizeRadios(values.drugTest),
+        pto: normalizeRadios(values.pto),
+        overtimeNormal: normalizeRadios(values.overtimeNormal),
         federalHolidays: values.federalHolidays || null,
         freeLunch: values.freeLunch || null,
         travelBenefits: values.travelBenefits || null,
