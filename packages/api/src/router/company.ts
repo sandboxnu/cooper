@@ -77,19 +77,8 @@ export const companyRouter = {
           : sql`HAVING COUNT(${Review.id}) > 0`;
 
         const companiesWithRatings = await ctx.db.execute(sql`
-        SELECT 
-          ${Company}.*,
-          COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
-        FROM ${Company}
-        LEFT JOIN ${Review}
-          ON NULLIF(${Review.companyId}, '')::uuid = ${Company.id}
-          AND ${Review.status} = ${Status.PUBLISHED}
-        ${whereClause}
-        GROUP BY ${Company.id}
-        ORDER BY avg_rating DESC
-      `);
-          SELECT 
-            ${Company}.*, 
+        SELECT
+            ${Company}.*,
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Company}
           LEFT JOIN ${Review}
@@ -99,7 +88,6 @@ export const companyRouter = {
           ${havingClause}
           ORDER BY avg_rating DESC
         `);
-
         const companies = companiesWithRatings.rows.map((role) => ({
           ...(role as CompanyType),
         }));
@@ -257,7 +245,6 @@ export const companyRouter = {
         industry: input.industry,
         website: input.website ?? `${input.companyName}.com`,
       };
-
       // Generate unique slug for company
       const companyBaseSlug = createSlug(input.companyName);
       const existingCompanies = await ctx.db.query.Company.findMany({
