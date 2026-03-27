@@ -192,9 +192,9 @@ export const roleAndCompanyRouter = {
         });
         for (const r of reviewsWithJobType) {
           const cid = r.companyId;
-          const arr = companyJobTypesMap.get(cid) ?? [];
-          if (!arr.includes(r.jobType)) arr.push(r.jobType);
-          companyJobTypesMap.set(cid, arr);
+          const arr = companyJobTypesMap.get(cid ?? "") ?? [];
+          if (!arr.includes(r.jobType ?? "")) arr.push(r.jobType ?? "");
+          companyJobTypesMap.set(cid ?? "", arr);
         }
       }
 

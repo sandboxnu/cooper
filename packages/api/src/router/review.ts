@@ -102,7 +102,7 @@ export const reviewRouter = {
       // Initialize bad words filter
       const filter = new Filter();
 
-      if (filter.isProfane(input.textReview)) {
+      if (filter.isProfane(input.textReview ?? "")) {
         throw new TRPCError({
           code: "PRECONDITION_FAILED",
           message: "Review text cannot contain profane words",
@@ -117,7 +117,7 @@ export const reviewRouter = {
       // Create a clean version of the input with filtered strings
       const cleanInput = {
         ...input,
-        textReview: filter.clean(input.textReview),
+        textReview: filter.clean(input.textReview ?? ""),
         // Keep non-string fields as they are
         profileId: input.profileId,
         interviewReview: filter.clean(input.interviewReview ?? ""),
@@ -150,15 +150,15 @@ export const reviewRouter = {
         const existingRelation =
           await ctx.db.query.CompaniesToLocations.findFirst({
             where: and(
-              eq(CompaniesToLocations.companyId, input.companyId),
+              eq(CompaniesToLocations.companyId, input.companyId ?? ""),
               eq(CompaniesToLocations.locationId, input.locationId ?? ""),
             ),
           });
 
         if (!existingRelation) {
           await ctx.db.insert(CompaniesToLocations).values({
-            locationId: input.locationId,
-            companyId: input.companyId,
+            locationId: input.locationId ?? "",
+            companyId: input.companyId ?? "",
           });
         }
       }
