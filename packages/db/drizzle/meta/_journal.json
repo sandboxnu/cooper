@@ -66,10 +66,38 @@
       "breakpoints": true
     },
     {
-      "idx": 8,
+      "idx": 9,
       "version": "7",
       "when": 1770514183614,
       "tag": "0009_flowery_roland_deschain",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1772681764630,
+      "tag": "0010_smooth_daimon_hellstrom",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1773116518055,
+      "tag": "0011_chubby_triton",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1773594321895,
+      "tag": "0012_icy_husk",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1773596506523,
+      "tag": "0013_yielding_timeslip",
       "breakpoints": true
     }
   ]

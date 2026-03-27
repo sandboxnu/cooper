@@ -10,6 +10,7 @@ import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
 import { ProfilesToCompanies } from "./profilesToCompanies";
+import { Report } from "./reports";
 import { Review } from "./reviews";
 import { User } from "./users";
 
@@ -39,6 +40,7 @@ export const ProfileRelations = relations(Profile, ({ one, many }) => ({
   }),
   reviews: many(Review),
   proflies_to_companies: many(ProfilesToCompanies),
+  reports: many(Report),
 }));
 
 const MAX_GRADUATION_LENGTH = 6;

@@ -62,6 +62,15 @@ export const WorkTerm = {
 
 export type WorkTermType = (typeof WorkTerm)[keyof typeof WorkTerm];
 
+export const UserRole = {
+  STUDENT: "STUDENT",
+  ADMIN: "ADMIN",
+  COORDINATOR: "COORDINATOR",
+  DEVELOPER: "DEVELOPER",
+} as const;
+
+export type UserRoleType = (typeof UserRole)[keyof typeof UserRole];
+
 export const RequestStatus = {
   PENDING: "PENDING",
   APPROVED: "APPROVED",
@@ -78,3 +87,30 @@ export const Status = {
 } as const;
 
 export type StatusType = (typeof Status)[keyof typeof Status];
+
+export const ReportReason = {
+  INAPPROPRIATE_CONTENT: "INAPPROPRIATE_CONTENT",
+  DUPLICATE: "DUPLICATE",
+  MISLEADING: "MISLEADING",
+  SPAM: "SPAM",
+  OTHER: "OTHER",
+} as const;
+
+export type ReportReasonType = (typeof ReportReason)[keyof typeof ReportReason];
+
+export const ModerationEntityType = {
+  REVIEW: "review",
+  ROLE: "role",
+  COMPANY: "company",
+} as const;
+
+export type ModerationEntityTypeType =
+  (typeof ModerationEntityType)[keyof typeof ModerationEntityType];
+
+export const ModerationActionType = {
+  FLAGGED: "flagged",
+  HIDDEN: "hidden",
+} as const;
+
+export type ModerationActionTypeType =
+  (typeof ModerationActionType)[keyof typeof ModerationActionType];

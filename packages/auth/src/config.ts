@@ -8,7 +8,7 @@ import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import Google from "next-auth/providers/google";
 
 import { db } from "@cooper/db/client";
-import { Account, Session, User } from "@cooper/db/schema";
+import { Account, Session, User, UserRole } from "@cooper/db/schema";
 
 import { env } from "../env";
 
@@ -16,6 +16,7 @@ declare module "next-auth" {
   interface Session {
     user: {
       id: string;
+      role?: string;
     } & DefaultSession["user"];
   }
 }
@@ -24,6 +25,7 @@ declare module "@auth/core/types" {
   interface Session {
     user: {
       id: string;
+      role?: string;
     } & DefaultSession["user"];
   }
 }
@@ -48,9 +50,25 @@ export const authConfig = {
   secret: env.AUTH_SECRET,
   providers: [
     Google({
+      id: "google",
+      clientId: env.AUTH_GOOGLE_ID,
+      clientSecret: env.AUTH_GOOGLE_SECRET,
+      allowDangerousEmailAccountLinking: true, // to prevent "To confirm your identity, sign in with the same account you used originally."" error
+
       authorization: {
         params: {
           hd: "husky.neu.edu",
+          prompt: "select_account",
+        },
+      },
+    }),
+    Google({
+      id: "googleAdmin",
+      clientId: env.AUTH_GOOGLE_ADMIN_ID,
+      clientSecret: env.AUTH_GOOGLE_ADMIN_SECRET,
+      allowDangerousEmailAccountLinking: true, // to prevent "To confirm your identity, sign in with the same account you used originally."" error
+      authorization: {
+        params: {
           prompt: "select_account",
         },
       },
@@ -69,12 +87,41 @@ export const authConfig = {
         },
       };
     },
-    signIn({ user }) {
+    async signIn({ user, account }) {
       const email = user.email;
+      if (!email) {
+        return account?.provider === "googleAdmin"
+          ? "/?error=unauthorized-admin"
+          : "/redirection";
+      }
 
-      if (!email?.endsWith("@husky.neu.edu")) {
+      // Allow anyone who already exists in the DB as admin, coordinator, or developer (any provider, any email)
+      const elevatedUser = await db.query.User.findFirst({
+        where: (u, { eq, and, or }) =>
+          and(
+            eq(u.email, email),
+            or(
+              eq(u.role, UserRole.ADMIN),
+              eq(u.role, UserRole.COORDINATOR),
+              eq(u.role, UserRole.DEVELOPER),
+            ),
+          ),
+      });
+
+      if (elevatedUser) {
+        return true;
+      }
+
+      // They used the admin/coordinator flow but are not in the DB with an elevated role
+      if (account?.provider === "googleAdmin") {
+        return "/?error=unauthorized-admin";
+      }
+
+      // Regular student Google login: must be a husky.neu.edu email
+      if (!email.endsWith("@husky.neu.edu")) {
         return "/redirection";
       }
+
       return true;
     },
   },

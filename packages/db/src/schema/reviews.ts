@@ -17,6 +17,7 @@ import { Location } from "./locations";
 import { JobType, WorkEnvironment, WorkTerm, Status } from "./misc";
 import { Profile } from "./profiles";
 import { ProfilesToReviews } from "./profliesToReviews";
+import { Report } from "./reports";
 import { Role } from "./roles";
 
 export const Review = pgTable("review", {
@@ -75,6 +76,7 @@ export const ReviewRelations = relations(Review, ({ one, many }) => ({
     references: [Location.id],
   }),
   profiles_to_reviews: many(ProfilesToReviews),
+  reports: many(Report),
 }));
 
 export const CreateReviewSchema = createInsertSchema(Review, {

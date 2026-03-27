@@ -126,7 +126,11 @@ export function RoleCardPreview({
             )}
           </CardHeader>
         </div>
-        {showFavorite && <FavoriteButton objId={roleObj.id} objType="role" />}
+        {showFavorite && (
+          <div onClick={(e) => e.stopPropagation()}>
+            <FavoriteButton objId={roleObj.id} objType="role" />
+          </div>
+        )}
       </div>
     </Card>
   );
