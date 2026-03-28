@@ -14,7 +14,7 @@ interface DashboardItem {
   category: DashboardCategory;
   title: string;
   subtitle?: string;
-  description?: string;
+  description?: string | null;
   company?: string;
   location?: string | null;
   createdAt: Date;

@@ -18,7 +18,7 @@ export function DraftReviewCard({
   className,
 }: DraftReviewCardProps) {
   const { data: role } = api.role.getById.useQuery(
-    { id: reviewObj.roleId },
+    { id: reviewObj.roleId ?? ""},
     { enabled: !!reviewObj.roleId },
   );
 
@@ -27,7 +27,7 @@ export function DraftReviewCard({
   });
 
   const { data: company } = api.company.getById.useQuery(
-    { id: reviewObj.companyId },
+    { id: reviewObj.companyId ?? ""},
     { enabled: !!reviewObj.companyId },
   );
 

@@ -9,7 +9,7 @@ function toCamelCase(word: string) {
 export function calculateWorkModels(reviews: ReviewType[] = []) {
   const totalReviews = reviews.length;
   const uniqueModels: string[] = [
-    ...new Set(reviews.map((r) => r.workEnvironment)),
+    ...new Set(reviews.map((r) => r.workEnvironment ?? "")),
   ];
 
   return uniqueModels.map((model) => {
@@ -25,7 +25,7 @@ export function calculateWorkModels(reviews: ReviewType[] = []) {
 
 export function calculateJobTypes(reviews: ReviewType[] = []) {
   const totalReviews = reviews.length;
-  const uniqueTypes: string[] = [...new Set(reviews.map((r) => r.jobType))];
+  const uniqueTypes: string[] = [...new Set(reviews.map((r) => r.jobType ?? ""))];
 
   return uniqueTypes.map((model) => {
     const count = reviews.filter((r) => r.jobType === model).length;

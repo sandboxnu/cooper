@@ -15,7 +15,7 @@ interface ReviewCardProps {
 
 export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
   const { data: role } = api.role.getById.useQuery(
-    { id: reviewObj.roleId },
+    { id: reviewObj.roleId ?? ""},
     { enabled: !!reviewObj.roleId },
   );
 
@@ -24,7 +24,7 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
   });
 
   const { data: company } = api.company.getById.useQuery(
-    { id: reviewObj.companyId },
+    { id: reviewObj.companyId ?? ""},
     { enabled: !!reviewObj.companyId },
   );
 
@@ -48,7 +48,7 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
             <div className="flex items-start w-full justify-end">
               <div className="mt-2 flex items-center gap-2 md:gap-2">
                 <span className=" text-black md:text-2xl">
-                  {reviewObj.overallRating.toFixed(1)}
+                  {reviewObj.overallRating?.toFixed(1) ?? "0.0"}
                 </span>
                 <YellowStar className="h-5 w-5 md:h-7 md:w-7" />
               </div>
@@ -70,7 +70,7 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
             <div className="flex gap-1 text-sm text-black pt-2 text-opacity-60">
               <span>
                 Reviewed on{" "}
-                {formatDate(reviewObj.updatedAt, reviewObj.createdAt)}
+                {formatDate(reviewObj.createdAt)}
               </span>
             </div>
           </CardContent>

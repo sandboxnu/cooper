@@ -170,7 +170,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
 
   const avgs = api.review.list
     .useQuery({})
-    .data?.map((review) => review.overallRating);
+    .data?.map((review) => review.overallRating ?? 0);
   const cooperAvg: number =
     Math.round(
       ((avgs ?? []).reduce((accumulator, currentValue) => {
@@ -204,7 +204,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     const ratingMatch =
       ratingFilter.length === 0 ||
       (() => {
-        const r = Math.round(review.overallRating);
+        const r = Math.round(review.overallRating ?? 0);
         const min = Math.min(...ratingFilter.map(Number));
         const max = Math.max(...ratingFilter.map(Number));
         return r >= min && r <= max;
@@ -228,9 +228,9 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     const list = [...filteredReviews];
     switch (selectedFilter) {
       case "highest rating":
-        return list.sort((a, b) => b.overallRating - a.overallRating);
+        return list.sort((a, b) => (b.overallRating ?? 0) - (a.overallRating ?? 0));
       case "lowest rating":
-        return list.sort((a, b) => a.overallRating - b.overallRating);
+        return list.sort((a, b) => (a.overallRating ?? 0) - (b.overallRating ?? 0));
       case "most recent":
       default: {
         const termOrder: Record<string, number> = {
@@ -239,9 +239,9 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
           FALL: 3,
         };
         return list.sort((a, b) => {
-          const yearDiff = b.workYear - a.workYear;
+          const yearDiff = (b.workYear ?? 0) - (a.workYear ?? 0);
           if (yearDiff !== 0) return yearDiff;
-          return (termOrder[b.workTerm] ?? 0) - (termOrder[a.workTerm] ?? 0);
+          return (termOrder[b.workTerm ?? 0] ?? 0) - (termOrder[a.workTerm ?? 0] ?? 0);
         });
       }
     }
