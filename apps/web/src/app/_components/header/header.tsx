@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
 
 import {
   DropdownMenu,
@@ -17,7 +18,7 @@ import { api } from "~/trpc/react";
 import { handleSignOut } from "../auth/actions";
 import CooperLogo from "../cooper-logo";
 import MobileHeaderButton from "./mobile-header-button";
-import { Session } from "@cooper/auth";
+import type { Session } from "@cooper/auth";
 import { UserRole } from "node_modules/@cooper/db/src/schema/misc";
 
 interface HeaderProps {
@@ -31,11 +32,23 @@ interface HeaderProps {
  */
 export default function Header({ auth, loggedIn }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
   const session = api.auth.getSession.useQuery();
+  const router = useRouter();
   const utils = api.useUtils();
   const isStudentOrDeveloper =
     session.data?.user.role === UserRole.STUDENT ||
     session.data?.user.role === UserRole.DEVELOPER;
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+
+    if (pathname === "/review-form") {
+      window.dispatchEvent(new CustomEvent("review-form:leave-attempt"));
+      return;
+    }
+    router.push("/");
+  };
 
   if (isOpen) {
     return (

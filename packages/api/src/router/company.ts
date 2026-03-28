@@ -13,6 +13,7 @@ import {
   Industry,
   Review,
   Role,
+  Status,
 } from "@cooper/db/schema";
 
 import {
@@ -76,8 +77,8 @@ export const companyRouter = {
           : sql`HAVING COUNT(${Review.id}) > 0`;
 
         const companiesWithRatings = await ctx.db.execute(sql`
-          SELECT 
-            ${Company}.*, 
+        SELECT
+            ${Company}.*,
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Company}
           LEFT JOIN ${Review}
@@ -87,7 +88,6 @@ export const companyRouter = {
           ${havingClause}
           ORDER BY avg_rating DESC
         `);
-
         const companies = companiesWithRatings.rows.map((role) => ({
           ...(role as CompanyType),
         }));
@@ -245,7 +245,6 @@ export const companyRouter = {
         industry: input.industry,
         website: input.website ?? `${input.companyName}.com`,
       };
-
       // Generate unique slug for company
       const companyBaseSlug = createSlug(input.companyName);
       const existingCompanies = await ctx.db.query.Company.findMany({
@@ -309,7 +308,10 @@ export const companyRouter = {
     .input(z.object({ companyId: z.string() }))
     .query(async ({ ctx, input }) => {
       const reviews = await ctx.db.query.Review.findMany({
-        where: eq(Review.companyId, input.companyId),
+        where: and(
+          eq(Review.companyId, input.companyId),
+          eq(Review.status, Status.PUBLISHED),
+        ),
       });
 
       const calcAvg = (field: keyof ReviewType) => {

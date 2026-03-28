@@ -5,14 +5,14 @@ import Fuse from "fuse.js";
 import { z } from "zod";
 
 import type { ReviewType } from "@cooper/db/schema";
-import { and, desc, eq, inArray } from "@cooper/db";
+import { and, desc, eq, inArray, isNull } from "@cooper/db";
 import {
   CompaniesToLocations,
   Company,
   CreateReviewSchema,
   Review,
+  Status,
 } from "@cooper/db/schema";
-
 import {
   protectedProcedure,
   publicProcedure,
@@ -36,6 +36,7 @@ export const reviewRouter = {
       const { options } = input;
 
       const conditions = [
+        eq(Review.status, Status.PUBLISHED),
         options?.cycle && eq(Review.workTerm, options.cycle),
         options?.term && eq(Review.workEnvironment, options.term),
       ].filter(Boolean);
@@ -62,7 +63,10 @@ export const reviewRouter = {
     .input(z.object({ id: z.string() }))
     .query(({ ctx, input }) => {
       return ctx.db.query.Review.findMany({
-        where: eq(Review.roleId, input.id),
+        where: and(
+          eq(Review.roleId, input.id),
+          eq(Review.status, Status.PUBLISHED),
+        ),
       });
     }),
 
@@ -70,7 +74,10 @@ export const reviewRouter = {
     .input(z.object({ id: z.string() }))
     .query(({ ctx, input }) => {
       return ctx.db.query.Review.findMany({
-        where: eq(Review.companyId, input.id),
+        where: and(
+          eq(Review.companyId, input.id),
+          eq(Review.status, Status.PUBLISHED),
+        ),
       });
     }),
 
@@ -95,7 +102,7 @@ export const reviewRouter = {
       // Initialize bad words filter
       const filter = new Filter();
 
-      if (filter.isProfane(input.textReview)) {
+      if (filter.isProfane(input.textReview ?? "")) {
         throw new TRPCError({
           code: "PRECONDITION_FAILED",
           message: "Review text cannot contain profane words",
@@ -110,7 +117,7 @@ export const reviewRouter = {
       // Create a clean version of the input with filtered strings
       const cleanInput = {
         ...input,
-        textReview: filter.clean(input.textReview),
+        textReview: filter.clean(input.textReview ?? ""),
         // Keep non-string fields as they are
         profileId: input.profileId,
         interviewReview: filter.clean(input.interviewReview ?? ""),
@@ -143,20 +150,110 @@ export const reviewRouter = {
         const existingRelation =
           await ctx.db.query.CompaniesToLocations.findFirst({
             where: and(
-              eq(CompaniesToLocations.companyId, input.companyId),
+              eq(CompaniesToLocations.companyId, input.companyId ?? ""),
               eq(CompaniesToLocations.locationId, input.locationId ?? ""),
             ),
           });
 
         if (!existingRelation) {
           await ctx.db.insert(CompaniesToLocations).values({
-            locationId: input.locationId,
-            companyId: input.companyId,
+            locationId: input.locationId ?? "",
+            companyId: input.companyId ?? "",
           });
         }
       }
 
       return ctx.db.insert(Review).values(cleanInput);
+    }),
+
+  saveDraft: protectedProcedure
+    .input(CreateReviewSchema)
+    .mutation(async ({ ctx, input }) => {
+      if (!input.profileId) {
+        throw new TRPCError({
+          code: "FORBIDDEN",
+          message: "You must be logged in to save a draft",
+        });
+      }
+
+      const draftInput = {
+        ...input,
+        status: Status.DRAFT,
+      };
+
+      const existingReview = await ctx.db.query.Review.findFirst({
+        where: and(
+          input.companyId == null
+            ? isNull(Review.companyId)
+            : eq(Review.companyId, input.companyId),
+          input.locationId == null
+            ? isNull(Review.locationId)
+            : eq(Review.locationId, input.locationId),
+          eq(Review.profileId, input.profileId),
+          input.workTerm == null
+            ? isNull(Review.workTerm)
+            : eq(Review.workTerm, input.workTerm),
+          input.workYear == null
+            ? isNull(Review.workYear)
+            : eq(Review.workYear, input.workYear),
+          eq(Review.status, Status.DRAFT),
+          input.roleId == null
+            ? isNull(Review.roleId)
+            : eq(Review.roleId, input.roleId),
+          input.overallRating == null
+            ? isNull(Review.overallRating)
+            : eq(Review.overallRating, input.overallRating),
+          input.hourlyPay == null
+            ? isNull(Review.hourlyPay)
+            : eq(Review.hourlyPay, input.hourlyPay),
+          input.interviewDifficulty == null
+            ? isNull(Review.interviewDifficulty)
+            : eq(Review.interviewDifficulty, input.interviewDifficulty),
+          input.cultureRating == null
+            ? isNull(Review.cultureRating)
+            : eq(Review.cultureRating, input.cultureRating),
+          input.supervisorRating == null
+            ? isNull(Review.supervisorRating)
+            : eq(Review.supervisorRating, input.supervisorRating),
+          input.interviewRating == null
+            ? isNull(Review.interviewRating)
+            : eq(Review.interviewRating, input.interviewRating),
+          input.federalHolidays == null
+            ? isNull(Review.federalHolidays)
+            : eq(Review.federalHolidays, input.federalHolidays),
+          input.drugTest == null
+            ? isNull(Review.drugTest)
+            : eq(Review.drugTest, input.drugTest),
+          input.freeLunch == null
+            ? isNull(Review.freeLunch)
+            : eq(Review.freeLunch, input.freeLunch),
+          input.freeMerch == null
+            ? isNull(Review.freeMerch)
+            : eq(Review.freeMerch, input.freeMerch),
+          input.travelBenefits == null
+            ? isNull(Review.travelBenefits)
+            : eq(Review.travelBenefits, input.travelBenefits),
+          input.overtimeNormal == null
+            ? isNull(Review.overtimeNormal)
+            : eq(Review.overtimeNormal, input.overtimeNormal),
+          input.pto == null ? isNull(Review.pto) : eq(Review.pto, input.pto),
+          input.textReview == null
+            ? isNull(Review.textReview)
+            : eq(Review.textReview, input.textReview),
+          input.interviewReview == null
+            ? isNull(Review.interviewReview)
+            : eq(Review.interviewReview, input.interviewReview),
+        ),
+      });
+
+      if (existingReview) {
+        throw new TRPCError({
+          code: "CONFLICT",
+          message: "This draft is a duplicate of an existing draft.",
+        });
+      }
+
+      return ctx.db.insert(Review).values(draftInput);
     }),
 
   delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
@@ -180,7 +277,10 @@ export const reviewRouter = {
       const companyIds = companies.map((company) => company.id);
 
       const reviews = await ctx.db.query.Review.findMany({
-        where: inArray(Review.companyId, companyIds),
+        where: and(
+          inArray(Review.companyId, companyIds),
+          eq(Review.status, Status.PUBLISHED),
+        ),
       });
 
       const calcAvg = (field: keyof ReviewType) => {

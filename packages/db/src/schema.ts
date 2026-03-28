@@ -2,10 +2,10 @@ import type { CompanyType } from "./schema/companies";
 import type { LocationType } from "./schema/locations";
 import type {
   IndustryType,
+  JobTypeType,
   WorkEnvironmentType,
   WorkTermType,
   StatusType,
-  JobTypeType,
   ModerationActionTypeType,
   ModerationEntityTypeType,
   ReportReasonType,
