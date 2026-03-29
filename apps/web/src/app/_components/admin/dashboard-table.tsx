@@ -446,11 +446,14 @@ function CollapsibleSection({
 }
 
 /** Must match `useQuery` inputs so refetch/invalidation targets the same cache keys. */
-const ADMIN_DASHBOARD_INPUT = { limitPerType: 50 } as const;
-const ADMIN_SECTION_INPUT = { limitPerType: 100 } as const;
+const ADMIN_DASHBOARD_INPUT = { limitPerType: 1000 } as const;
+const ADMIN_SECTION_INPUT = { limitPerType: 1000 } as const;
 
 export function AdminDashboardTable() {
   const utils = api.useUtils();
+  const [activeTab, setActiveTab] = useState<TabValue>("all");
+  const [searchQuery, setSearchQuery] = useState("");
+
   const { data: mostRecentItemsData, isLoading: isLoadingMostRecent } =
     api.admin.dashboardItems.useQuery(ADMIN_DASHBOARD_INPUT, {
       staleTime: 60_000,
@@ -470,9 +473,6 @@ export function AdminDashboardTable() {
     api.admin.reportedDashboardItems.useQuery(ADMIN_SECTION_INPUT, {
       staleTime: 60_000,
     });
-
-  const [activeTab, setActiveTab] = useState<TabValue>("all");
-  const [searchQuery, setSearchQuery] = useState("");
   type SectionKey = "recent" | "reported" | "flagged" | "hidden";
   const [sections, setSections] = useState<
     Record<SectionKey, { open: boolean; page: number }>
