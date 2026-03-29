@@ -472,7 +472,7 @@ export const adminRouter = {
       const existing = await ctx.db.query.Flagged.findFirst({
         where: and(
           eq(Flagged.entityType, input.entityType),
-          eq(Flagged.entityId, input.entityId),
+          eq(Flagged.entityId, sql`${input.entityId}::uuid`),
           eq(Flagged.isActive, true),
         ),
       });
@@ -497,7 +497,7 @@ export const adminRouter = {
           })
           .where(
             and(
-              eq(Flagged.entityId, input.entityId),
+              eq(Flagged.entityId, sql`${input.entityId}::uuid`),
               eq(Flagged.isActive, true),
             ),
           );
