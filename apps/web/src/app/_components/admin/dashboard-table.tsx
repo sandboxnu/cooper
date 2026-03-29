@@ -446,16 +446,24 @@ function CollapsibleSection({
 }
 
 /** Must match `useQuery` inputs so refetch/invalidation targets the same cache keys. */
-const ADMIN_DASHBOARD_INPUT = { limitPerType: 1000 } as const;
-const ADMIN_SECTION_INPUT = { limitPerType: 1000 } as const;
+const ADMIN_DASHBOARD_INPUT = { limitPerType: 50 } as const;
+const ADMIN_SECTION_INPUT = { limitPerType: 50 } as const;
 
 export function AdminDashboardTable() {
   const utils = api.useUtils();
   const [activeTab, setActiveTab] = useState<TabValue>("all");
   const [searchQuery, setSearchQuery] = useState("");
 
+  const dashboardQueryInput = useMemo(
+    () => ({
+      ...ADMIN_DASHBOARD_INPUT,
+      search: searchQuery.trim() || undefined,
+    }),
+    [searchQuery],
+  );
+
   const { data: mostRecentItemsData, isLoading: isLoadingMostRecent } =
-    api.admin.dashboardItems.useQuery(ADMIN_DASHBOARD_INPUT, {
+    api.admin.dashboardItems.useQuery(dashboardQueryInput, {
       staleTime: 60_000,
     });
 
@@ -580,7 +588,7 @@ export function AdminDashboardTable() {
       } else if (activeTab === "role") {
         result = result.filter((i) => i.category === "role");
       } else if (activeTab === "company") {
-        result = result.filter((i) => i.category === "company");
+        result = result.filter((i) => i.category === "company").slice(0, 50);
       }
 
       const q = searchQuery.trim().toLowerCase();
@@ -602,7 +610,7 @@ export function AdminDashboardTable() {
             companyMatch ||
             locationMatch
           );
-        });
+        }).slice(0, 50);
       }
 
       return result;

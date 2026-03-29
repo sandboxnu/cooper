@@ -1,7 +1,7 @@
 import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
-import { and, desc, eq, sql } from "@cooper/db";
+import { and, desc, eq, ilike, sql } from "@cooper/db";
 import {
   Company,
   Flagged,
@@ -84,11 +84,14 @@ export const adminRouter = {
       z
         .object({
           limitPerType: z.number().min(1).max(100).default(20),
+          search: z.string().optional(),
         })
         .optional(),
     )
     .query(async ({ ctx, input }) => {
       const limitPerType = input?.limitPerType ?? 20;
+      const search = input?.search?.trim() ?? "";
+      const hasSearch = search.length > 0;
 
       const [reviews, roles, companies] = await Promise.all([
         ctx.db.query.Review.findMany({
@@ -101,6 +104,7 @@ export const adminRouter = {
         }),
         ctx.db.query.Company.findMany({
           orderBy: desc(Company.createdAt),
+          where: hasSearch ? ilike(Company.name, `%${search}%`) : undefined,
           limit: limitPerType,
         }),
       ]);
