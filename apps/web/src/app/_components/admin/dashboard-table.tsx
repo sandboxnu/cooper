@@ -593,24 +593,27 @@ export function AdminDashboardTable() {
 
       const q = searchQuery.trim().toLowerCase();
       if (q) {
-        result = result.filter((item) => {
-          const titleMatch = item.title.toLowerCase().includes(q);
-          const subtitleMatch =
-            item.subtitle?.toLowerCase().includes(q) ?? false;
-          const descriptionMatch =
-            item.description?.toLowerCase().includes(q) ?? false;
-          const companyMatch = item.company?.toLowerCase().includes(q) ?? false;
-          const locationMatch =
-            item.location?.toLowerCase().includes(q) ?? false;
+        result = result
+          .filter((item) => {
+            const titleMatch = item.title.toLowerCase().includes(q);
+            const subtitleMatch =
+              item.subtitle?.toLowerCase().includes(q) ?? false;
+            const descriptionMatch =
+              item.description?.toLowerCase().includes(q) ?? false;
+            const companyMatch =
+              item.company?.toLowerCase().includes(q) ?? false;
+            const locationMatch =
+              item.location?.toLowerCase().includes(q) ?? false;
 
-          return (
-            titleMatch ||
-            subtitleMatch ||
-            descriptionMatch ||
-            companyMatch ||
-            locationMatch
-          );
-        }).slice(0, 50);
+            return (
+              titleMatch ||
+              subtitleMatch ||
+              descriptionMatch ||
+              companyMatch ||
+              locationMatch
+            );
+          })
+          .slice(0, 50);
       }
 
       return result;
