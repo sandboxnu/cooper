@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS "hidden" (
 	"createdAt" timestamp DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
-DROP TABLE "moderation_action";--> statement-breakpoint
+DROP TABLE IF EXISTS "moderation_action";--> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "flagged" ADD CONSTRAINT "flagged_adminId_user_id_fk" FOREIGN KEY ("adminId") REFERENCES "public"."user"("id") ON DELETE no action ON UPDATE no action;
 EXCEPTION

@@ -619,7 +619,7 @@ export function AdminDashboardTable() {
   const flagged = useProcessedItems({
     rawItems: flaggedData?.items,
     optimisticState: optimisticItemState,
-    filterItems,
+    filterItems: (items) => filterItems(items).filter((i) => i.flagged),
     currentPage: sections.flagged.page,
     pageSize,
   });
@@ -627,7 +627,7 @@ export function AdminDashboardTable() {
   const hidden = useProcessedItems({
     rawItems: hiddenData?.items,
     optimisticState: optimisticItemState,
-    filterItems,
+    filterItems: (items) => filterItems(items).filter((i) => i.hidden),
     currentPage: sections.hidden.page,
     pageSize,
   });

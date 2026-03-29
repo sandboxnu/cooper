@@ -1,5 +1,12 @@
 import { relations } from "drizzle-orm";
-import { pgTable, text, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
+import {
+  boolean,
+  pgTable,
+  text,
+  timestamp,
+  uuid,
+  varchar,
+} from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -17,6 +24,7 @@ export const Hidden = pgTable("hidden", {
   adminId: uuid("adminId")
     .notNull()
     .references(() => User.id),
+  isActive: boolean("isActive").notNull().default(true),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
 });
 
@@ -36,5 +44,6 @@ export const CreateHiddenSchema = createInsertSchema(Hidden, {
   adminId: z.string().uuid(),
 }).omit({
   id: true,
+  isActive: true,
   createdAt: true,
 });

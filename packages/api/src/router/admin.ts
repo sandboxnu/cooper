@@ -106,8 +106,12 @@ export const adminRouter = {
       ]);
 
       const [flaggedRecords, hiddenRecords] = await Promise.all([
-        ctx.db.query.Flagged.findMany(),
-        ctx.db.query.Hidden.findMany(),
+        ctx.db.query.Flagged.findMany({
+          where: eq(Flagged.isActive, true),
+        }),
+        ctx.db.query.Hidden.findMany({
+          where: eq(Hidden.isActive, true),
+        }),
       ]);
 
       const flaggedKeys = new Set(
@@ -162,6 +166,7 @@ export const adminRouter = {
 
       const flagged = await ctx.db.query.Flagged.findMany({
         orderBy: desc(Flagged.createdAt),
+        where: eq(Flagged.isActive, true),
       });
 
       const reviewIds = flagged
@@ -252,6 +257,7 @@ export const adminRouter = {
 
       const hidden = await ctx.db.query.Hidden.findMany({
         orderBy: desc(Hidden.createdAt),
+        where: eq(Hidden.isActive, true),
       });
 
       const reviewIds = hidden
@@ -406,8 +412,12 @@ export const adminRouter = {
       ]);
 
       const [flaggedRecords, hiddenRecords] = await Promise.all([
-        ctx.db.query.Flagged.findMany(),
-        ctx.db.query.Hidden.findMany(),
+        ctx.db.query.Flagged.findMany({
+          where: eq(Flagged.isActive, true),
+        }),
+        ctx.db.query.Hidden.findMany({
+          where: eq(Hidden.isActive, true),
+        }),
       ]);
 
       const flaggedKeys = new Set(
@@ -463,6 +473,7 @@ export const adminRouter = {
         where: and(
           eq(Flagged.entityType, input.entityType),
           eq(Flagged.entityId, input.entityId),
+          eq(Flagged.isActive, true),
         ),
       });
 
@@ -476,13 +487,15 @@ export const adminRouter = {
             adminId: ctx.session.user.id,
           });
         }
-      } else if (existing) {
+      } else {
         await ctx.db
-          .delete(Flagged)
+          .update(Flagged)
+          .set({ isActive: false })
           .where(
             and(
               eq(Flagged.entityType, input.entityType),
               eq(Flagged.entityId, input.entityId),
+              eq(Flagged.isActive, true),
             ),
           );
       }
@@ -503,6 +516,7 @@ export const adminRouter = {
         where: and(
           eq(Hidden.entityType, input.entityType),
           eq(Hidden.entityId, input.entityId),
+          eq(Hidden.isActive, true),
         ),
       });
 
@@ -516,13 +530,15 @@ export const adminRouter = {
             adminId: ctx.session.user.id,
           });
         }
-      } else if (existing) {
+      } else {
         await ctx.db
-          .delete(Hidden)
+          .update(Hidden)
+          .set({ isActive: false })
           .where(
             and(
               eq(Hidden.entityType, input.entityType),
               eq(Hidden.entityId, input.entityId),
+              eq(Hidden.isActive, true),
             ),
           );
       }
