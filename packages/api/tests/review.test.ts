@@ -56,7 +56,7 @@ describe("Review Router", async () => {
 
     expect(db.query.Review.findMany).toHaveBeenCalledWith({
       orderBy: expect.anything(),
-      where: undefined,
+      where: and(eq(Review.hidden, false)),
     });
   });
 
@@ -69,7 +69,7 @@ describe("Review Router", async () => {
 
     expect(db.query.Review.findMany).toHaveBeenCalledWith({
       orderBy: expect.anything(),
-      where: and(eq(Review.workTerm, "SPRING")),
+      where: and(eq(Review.hidden, false), eq(Review.workTerm, "SPRING")),
     });
   });
 
@@ -82,7 +82,10 @@ describe("Review Router", async () => {
 
     expect(db.query.Review.findMany).toHaveBeenCalledWith({
       orderBy: expect.anything(),
-      where: and(eq(Review.workEnvironment, "REMOTE")),
+      where: and(
+        eq(Review.hidden, false),
+        eq(Review.workEnvironment, "REMOTE"),
+      ),
     });
   });
 
@@ -97,6 +100,7 @@ describe("Review Router", async () => {
     expect(db.query.Review.findMany).toHaveBeenCalledWith({
       orderBy: expect.anything(),
       where: and(
+        eq(Review.hidden, false),
         eq(Review.workTerm, "SPRING"),
         eq(Review.workEnvironment, "REMOTE"),
       ),
