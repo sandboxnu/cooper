@@ -22,6 +22,7 @@ import { Role } from "./roles";
 
 export const Review = pgTable("review", {
   id: uuid("id").notNull().primaryKey().defaultRandom(),
+  hidden: boolean("hidden").notNull().default(false),
   workTerm: varchar("workTerm").notNull(),
   workYear: integer("workYear").notNull(),
   overallRating: integer("overallRating").notNull(),
@@ -107,6 +108,7 @@ export const CreateReviewSchema = createInsertSchema(Review, {
   status: z.nativeEnum(Status),
 }).omit({
   id: true,
+  hidden: true,
   createdAt: true,
   updatedAt: true,
 });

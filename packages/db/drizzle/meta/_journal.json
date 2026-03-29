@@ -113,6 +113,20 @@
       "when": 1774804235154,
       "tag": "0015_tidy_blob",
       "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "7",
+      "when": 1779960960000,
+      "tag": "0016_hidden_fields",
+      "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "7",
+      "when": 1774812140562,
+      "tag": "0017_wakeful_red_shift",
+      "breakpoints": true
     }
   ]
 }

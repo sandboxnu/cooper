@@ -36,6 +36,7 @@ export const reviewRouter = {
       const { options } = input;
 
       const conditions = [
+        eq(Review.hidden, false),
         options?.cycle && eq(Review.workTerm, options.cycle),
         options?.term && eq(Review.workEnvironment, options.term),
       ].filter(Boolean);
@@ -62,7 +63,7 @@ export const reviewRouter = {
     .input(z.object({ id: z.string() }))
     .query(({ ctx, input }) => {
       return ctx.db.query.Review.findMany({
-        where: eq(Review.roleId, input.id),
+        where: and(eq(Review.hidden, false), eq(Review.roleId, input.id)),
       });
     }),
 
@@ -70,7 +71,7 @@ export const reviewRouter = {
     .input(z.object({ id: z.string() }))
     .query(({ ctx, input }) => {
       return ctx.db.query.Review.findMany({
-        where: eq(Review.companyId, input.id),
+        where: and(eq(Review.hidden, false), eq(Review.companyId, input.id)),
       });
     }),
 
@@ -78,7 +79,7 @@ export const reviewRouter = {
     .input(z.object({ id: z.string() }))
     .query(({ ctx, input }) => {
       return ctx.db.query.Review.findMany({
-        where: eq(Review.profileId, input.id),
+        where: and(eq(Review.hidden, false), eq(Review.profileId, input.id)),
       });
     }),
 

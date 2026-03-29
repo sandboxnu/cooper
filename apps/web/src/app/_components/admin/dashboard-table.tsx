@@ -445,31 +445,31 @@ function CollapsibleSection({
   );
 }
 
+/** Must match `useQuery` inputs so refetch/invalidation targets the same cache keys. */
+const ADMIN_DASHBOARD_INPUT = { limitPerType: 50 } as const;
+const ADMIN_SECTION_INPUT = { limitPerType: 100 } as const;
+
 export function AdminDashboardTable() {
   const utils = api.useUtils();
   const { data: mostRecentItemsData, isLoading: isLoadingMostRecent } =
-    api.admin.dashboardItems.useQuery(
-      { limitPerType: 50 },
-      { staleTime: 60_000 },
-    );
+    api.admin.dashboardItems.useQuery(ADMIN_DASHBOARD_INPUT, {
+      staleTime: 60_000,
+    });
 
   const { data: flaggedData, isLoading: isLoadingFlagged } =
-    api.admin.flaggedDashboardItems.useQuery(
-      { limitPerType: 100 },
-      { staleTime: 60_000 },
-    );
+    api.admin.flaggedDashboardItems.useQuery(ADMIN_SECTION_INPUT, {
+      staleTime: 60_000,
+    });
 
   const { data: hiddenData, isLoading: isLoadingHidden } =
-    api.admin.hiddenDashboardItems.useQuery(
-      { limitPerType: 100 },
-      { staleTime: 60_000 },
-    );
+    api.admin.hiddenDashboardItems.useQuery(ADMIN_SECTION_INPUT, {
+      staleTime: 60_000,
+    });
 
   const { data: reportedData, isLoading: isLoadingReported } =
-    api.admin.reportedDashboardItems.useQuery(
-      { limitPerType: 100 },
-      { staleTime: 60_000 },
-    );
+    api.admin.reportedDashboardItems.useQuery(ADMIN_SECTION_INPUT, {
+      staleTime: 60_000,
+    });
 
   const [activeTab, setActiveTab] = useState<TabValue>("all");
   const [searchQuery, setSearchQuery] = useState("");
@@ -532,8 +532,9 @@ export function AdminDashboardTable() {
     },
     onSuccess: async (_data, variables) => {
       await Promise.all([
-        utils.admin.dashboardItems.invalidate(),
-        utils.admin.flaggedDashboardItems.invalidate(),
+        utils.admin.dashboardItems.refetch(ADMIN_DASHBOARD_INPUT),
+        utils.admin.flaggedDashboardItems.refetch(ADMIN_SECTION_INPUT),
+        utils.admin.reportedDashboardItems.refetch(ADMIN_SECTION_INPUT),
       ]);
       clearItemOptimisticState({
         category: variables.entityType,
@@ -557,8 +558,9 @@ export function AdminDashboardTable() {
     },
     onSuccess: async (_data, variables) => {
       await Promise.all([
-        utils.admin.dashboardItems.invalidate(),
-        utils.admin.hiddenDashboardItems.invalidate(),
+        utils.admin.dashboardItems.refetch(ADMIN_DASHBOARD_INPUT),
+        utils.admin.hiddenDashboardItems.refetch(ADMIN_SECTION_INPUT),
+        utils.admin.reportedDashboardItems.refetch(ADMIN_SECTION_INPUT),
       ]);
       clearItemOptimisticState({
         category: variables.entityType,

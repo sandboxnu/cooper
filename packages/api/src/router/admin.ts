@@ -1,7 +1,7 @@
 import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
-import { and, desc, eq } from "@cooper/db";
+import { and, desc, eq, sql } from "@cooper/db";
 import {
   Company,
   Flagged,
@@ -490,10 +490,13 @@ export const adminRouter = {
       } else {
         await ctx.db
           .update(Flagged)
-          .set({ isActive: false })
+          .set({
+            isActive: false,
+            deactivatedAt: new Date(),
+            deactivatedByAdminId: ctx.session.user.id,
+          })
           .where(
             and(
-              eq(Flagged.entityType, input.entityType),
               eq(Flagged.entityId, input.entityId),
               eq(Flagged.isActive, true),
             ),
@@ -508,7 +511,6 @@ export const adminRouter = {
         entityType: z.nativeEnum(ModerationEntityType),
         entityId: z.string().uuid(),
         hidden: z.boolean(),
-        description: z.string().optional(),
       }),
     )
     .mutation(async ({ ctx, input }) => {
@@ -520,28 +522,58 @@ export const adminRouter = {
         ),
       });
 
-      if (input.hidden) {
-        if (!existing) {
-          await ctx.db.insert(Hidden).values({
-            entityType: input.entityType,
-            entityId: input.entityId,
-            description:
-              input.description?.trim() ?? "Hidden from admin dashboard",
-            adminId: ctx.session.user.id,
-          });
+      await ctx.db.transaction(async (tx) => {
+        if (input.hidden) {
+          if (input.entityType === ModerationEntityType.REVIEW) {
+            await tx.execute(
+              sql`UPDATE "review" SET "hidden" = true WHERE "id" = ${input.entityId}::uuid`,
+            );
+          } else if (input.entityType === ModerationEntityType.ROLE) {
+            await tx.execute(
+              sql`UPDATE "role" SET "hidden" = true WHERE "id" = ${input.entityId}::uuid`,
+            );
+          } else {
+            await tx.execute(
+              sql`UPDATE "company" SET "hidden" = true WHERE "id" = ${input.entityId}::uuid`,
+            );
+          }
+
+          if (!existing) {
+            await tx.insert(Hidden).values({
+              entityType: input.entityType,
+              entityId: input.entityId,
+              adminId: ctx.session.user.id,
+            });
+          }
+
+          return;
         }
-      } else {
-        await ctx.db
+
+        await tx
           .update(Hidden)
-          .set({ isActive: false })
+          .set({
+            isActive: false,
+            deactivatedAt: sql`now()`,
+            deactivatedByAdminId: ctx.session.user.id,
+          })
           .where(
-            and(
-              eq(Hidden.entityType, input.entityType),
-              eq(Hidden.entityId, input.entityId),
-              eq(Hidden.isActive, true),
-            ),
+            and(eq(Hidden.entityId, input.entityId), eq(Hidden.isActive, true)),
           );
-      }
+
+        if (input.entityType === ModerationEntityType.REVIEW) {
+          await tx.execute(
+            sql`UPDATE "review" SET "hidden" = false WHERE "id" = ${input.entityId}::uuid`,
+          );
+        } else if (input.entityType === ModerationEntityType.ROLE) {
+          await tx.execute(
+            sql`UPDATE "role" SET "hidden" = false WHERE "id" = ${input.entityId}::uuid`,
+          );
+        } else {
+          await tx.execute(
+            sql`UPDATE "company" SET "hidden" = false WHERE "id" = ${input.entityId}::uuid`,
+          );
+        }
+      });
 
       return { success: true };
     }),

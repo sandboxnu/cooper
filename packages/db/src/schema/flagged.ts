@@ -25,6 +25,8 @@ export const Flagged = pgTable("flagged", {
     .notNull()
     .references(() => User.id),
   isActive: boolean("isActive").notNull().default(true),
+  deactivatedAt: timestamp("deactivatedAt", { mode: "date" }),
+  deactivatedByAdminId: uuid("deactivatedByAdminId").references(() => User.id),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
 });
 
@@ -33,6 +35,10 @@ export type FlaggedRecordType = typeof Flagged.$inferSelect;
 export const FlaggedRelations = relations(Flagged, ({ one }) => ({
   admin: one(User, {
     fields: [Flagged.adminId],
+    references: [User.id],
+  }),
+  deactivatedByAdmin: one(User, {
+    fields: [Flagged.deactivatedByAdminId],
     references: [User.id],
   }),
 }));
@@ -45,5 +51,7 @@ export const CreateFlaggedSchema = createInsertSchema(Flagged, {
 }).omit({
   id: true,
   isActive: true,
+  deactivatedAt: true,
+  deactivatedByAdminId: true,
   createdAt: true,
 });
