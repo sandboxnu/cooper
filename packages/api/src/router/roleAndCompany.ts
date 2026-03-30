@@ -50,8 +50,9 @@ export const roleAndCompanyRouter = {
           ${Role}.*, 
           COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
         FROM ${Role}
+        INNER JOIN ${Company} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
         INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
-        WHERE ${Role.hidden} = false AND ${Review.hidden} = false
+        WHERE ${Company.hidden} = false AND ${Role.hidden} = false AND ${Review.hidden} = false
         GROUP BY ${Role.id}
         ORDER BY avg_rating DESC
       `);
@@ -63,7 +64,9 @@ export const roleAndCompanyRouter = {
         const rolesWithReviews = await ctx.db.execute(sql`
         SELECT DISTINCT ${Review.roleId}::uuid as role_id
         FROM ${Review}
-        WHERE ${Review.hidden} = false AND ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
+        INNER JOIN ${Role} ON ${Review.roleId}::uuid = ${Role.id}
+        INNER JOIN ${Company} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
+        WHERE ${Company.hidden} = false AND ${Role.hidden} = false AND ${Review.hidden} = false AND ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
       `);
 
         const roleIds = rolesWithReviews.rows.map((row) => String(row.role_id));
@@ -605,8 +608,9 @@ export const roleAndCompanyRouter = {
             ${Role}.*, 
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Role}
+          INNER JOIN ${Company} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
           INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
-          WHERE ${Role.hidden} = false AND ${Review.hidden} = false
+          WHERE ${Company.hidden} = false AND ${Role.hidden} = false AND ${Review.hidden} = false
           GROUP BY ${Role.id}
           ORDER BY avg_rating DESC
         `);
@@ -618,7 +622,9 @@ export const roleAndCompanyRouter = {
         const rolesWithReviews = await ctx.db.execute(sql`
         SELECT DISTINCT ${Review.roleId}::uuid as role_id
         FROM ${Review}
-        WHERE ${Review.hidden} = false AND ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
+        INNER JOIN ${Role} ON ${Review.roleId}::uuid = ${Role.id}
+        INNER JOIN ${Company} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
+        WHERE ${Company.hidden} = false AND ${Role.hidden} = false AND ${Review.hidden} = false AND ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
       `);
 
         const roleIds = rolesWithReviews.rows.map((row) => String(row.role_id));
