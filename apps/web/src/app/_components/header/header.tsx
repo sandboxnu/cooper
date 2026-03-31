@@ -94,6 +94,15 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuLabel className="text-center">
+                  <Link
+                    href="/admin/dashboard"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Admin
+                  </Link>
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuLabel className="text-center">
                   <button
                     type="button"
                     onClick={async () => {
@@ -104,15 +113,6 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
                   >
                     Log Out
                   </button>
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuLabel className="text-center">
-                  <Link
-                    href="/admin/dashboard"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Admin
-                  </Link>
                 </DropdownMenuLabel>
               </DropdownMenuContent>
             </DropdownMenu>
