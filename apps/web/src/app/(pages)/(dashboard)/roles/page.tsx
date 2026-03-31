@@ -527,9 +527,9 @@ export default function Roles() {
             Filters
           </Button>
         </div>
-        {compare.isCompareMode && selectedRole && (
+        {selectedRole && (
           <div className="hidden items-center gap-2 pr-5 md:flex">
-            <CompareControls anchorRoleId={selectedRole.id} inTopBar />
+            <CompareControls anchorRoleId={selectedRole.id} />
           </div>
         )}
       </div>
