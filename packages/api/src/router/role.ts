@@ -137,7 +137,8 @@ export const roleRouter = {
     .input(z.object({ ids: z.array(z.string()).min(1) }))
     .query(({ ctx, input }) => {
       return ctx.db.query.Role.findMany({
-        where: (role, { inArray }) => inArray(role.id, input.ids),
+        where: (role, { and, eq, inArray }) =>
+          and(eq(role.hidden, false), inArray(role.id, input.ids)),
       });
     }),
 
@@ -154,7 +155,7 @@ export const roleRouter = {
         const rolesWithReviews = await ctx.db.execute(sql`
           SELECT DISTINCT ${Review.roleId}::uuid as role_id
           FROM ${Review}
-          WHERE ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
+          WHERE ${Review.hidden} = false AND ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
         `);
 
         const roleIds = rolesWithReviews.rows.map((row) => String(row.role_id));
@@ -165,12 +166,16 @@ export const roleRouter = {
 
         return ctx.db.query.Role.findMany({
           where: (role, { eq, and, inArray }) =>
-            and(eq(role.companyId, input.companyId), inArray(role.id, roleIds)),
+            and(
+              eq(role.hidden, false),
+              eq(role.companyId, input.companyId),
+              inArray(role.id, roleIds),
+            ),
         });
       }
 
       return ctx.db.query.Role.findMany({
-        where: eq(Role.companyId, input.companyId),
+        where: and(eq(Role.hidden, false), eq(Role.companyId, input.companyId)),
       });
     }),
 
@@ -216,7 +221,7 @@ export const roleRouter = {
     .input(z.object({ createdBy: z.string() }))
     .query(async ({ ctx, input }) => {
       return ctx.db.query.Role.findMany({
-        where: eq(Role.createdBy, input.createdBy),
+        where: and(eq(Role.hidden, false), eq(Role.createdBy, input.createdBy)),
       });
     }),
 
@@ -224,11 +229,11 @@ export const roleRouter = {
     .input(z.object({ roleId: z.string() }))
     .query(async ({ ctx, input }) => {
       let reviews = await ctx.db.query.Review.findMany({
-        where: eq(Review.roleId, input.roleId),
+        where: and(eq(Review.hidden, false), eq(Review.roleId, input.roleId)),
         orderBy: ordering.default,
       });
       reviews = await ctx.db.query.Review.findMany({
-        where: eq(Review.roleId, input.roleId),
+        where: and(eq(Review.hidden, false), eq(Review.roleId, input.roleId)),
       });
 
       const calcAvg = (field: keyof ReviewType) => {
