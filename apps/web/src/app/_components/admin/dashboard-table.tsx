@@ -293,7 +293,7 @@ function CollapsibleSection({
                               <Flag
                                 className={cn(
                                   "size-[1.125rem] shrink-0",
-                                  isFlagged && "text-amber-600",
+                                  isFlagged && "text-cooper-yellow-500",
                                 )}
                                 fill={isFlagged ? "currentColor" : "none"}
                                 strokeWidth={isFlagged ? 1.25 : 2}
