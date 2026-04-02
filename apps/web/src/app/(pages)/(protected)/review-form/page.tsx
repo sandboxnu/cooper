@@ -335,7 +335,7 @@ export default function ReviewForm() {
         textReview: values.textReview || null,
         locationId: values.locationId || null,
         jobType: values.jobType,
-        hourlyPay: values.hourlyPay ?? null,
+        hourlyPay: values.hourlyPay || null,
         workEnvironment: values.workEnvironment,
         drugTest: normalizeRadios(values.drugTest),
         pto: normalizeRadios(values.pto),
