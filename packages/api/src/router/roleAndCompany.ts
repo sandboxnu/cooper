@@ -51,8 +51,12 @@ export const roleAndCompanyRouter = {
           ${Role}.*, 
           COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
         FROM ${Role}
+        INNER JOIN ${Company} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
         INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
-        WHERE ${Review.status} = ${Status.PUBLISHED}
+        WHERE ${Review.status} = ${Status.PUBLISHED} 
+          AND ${Company.hidden} = false 
+          AND ${Role.hidden} = false 
+          AND ${Review.hidden} = false
         GROUP BY ${Role.id}
         ORDER BY avg_rating DESC
       `);
@@ -64,9 +68,10 @@ export const roleAndCompanyRouter = {
         const rolesWithReviews = await ctx.db.execute(sql`
         SELECT DISTINCT ${Review.roleId}::uuid as role_id
         FROM ${Review}
-        WHERE ${Review.roleId} != ''
-          AND ${Review.roleId} IS NOT NULL
-          AND ${Review.status} = ${Status.PUBLISHED}
+        INNER JOIN ${Role} ON ${Review.roleId}::uuid = ${Role.id}
+        INNER JOIN ${Company} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
+        WHERE ${Company.hidden} = false AND ${Role.hidden} = false AND ${Review.hidden} = false AND ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
+        AND ${Review.status} = ${Status.PUBLISHED}
       `);
 
         const roleIds = rolesWithReviews.rows.map((row) => String(row.role_id));
@@ -75,7 +80,8 @@ export const roleAndCompanyRouter = {
           roles = [];
         } else {
           roles = await ctx.db.query.Role.findMany({
-            where: (role, { inArray }) => inArray(role.id, roleIds),
+            where: (role, { and, eq, inArray }) =>
+              and(eq(role.hidden, false), inArray(role.id, roleIds)),
             orderBy: ordering[ctx.sortBy],
           });
         }
@@ -91,6 +97,9 @@ export const roleAndCompanyRouter = {
           LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
           INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
           WHERE ${Review.status} = ${Status.PUBLISHED}
+            AND ${Company.hidden} = false
+            AND ${Review.hidden} = false
+            AND ${Role.hidden} = false
           GROUP BY ${Company.id}
           ORDER BY avg_rating DESC
         `);
@@ -101,6 +110,7 @@ export const roleAndCompanyRouter = {
       } else {
         const foundCompanies = await ctx.db.query.Company.findMany({
           orderBy: companyOrdering[ctx.sortBy],
+          where: (company, { eq }) => eq(company.hidden, false),
         });
 
         const companiesWithReviews = await ctx.db.execute(sql`
@@ -108,9 +118,13 @@ export const roleAndCompanyRouter = {
           FROM ${Company}
           INNER JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
           INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
-          WHERE ${Review.roleId} != ''
+          WHERE ${Company.hidden} = false
+            AND ${Role.hidden} = false
+            AND ${Review.hidden} = false
+            AND ${Review.roleId} != ''
             AND ${Review.roleId} IS NOT NULL
-            AND ${Review.status} = ${Status.PUBLISHED}        `);
+            AND ${Review.status} = ${Status.PUBLISHED}
+        `);
 
         const companyIdsWithReviews = new Set(
           companiesWithReviews.rows.map((row) => String(row.company_id)),
@@ -621,8 +635,12 @@ export const roleAndCompanyRouter = {
             ${Role}.*, 
             COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
           FROM ${Role}
+          INNER JOIN ${Company} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
           INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
           WHERE ${Review.status} = ${Status.PUBLISHED}
+            AND ${Company.hidden} = false
+            AND ${Role.hidden} = false
+            AND ${Review.hidden} = false
           GROUP BY ${Role.id}
           ORDER BY avg_rating DESC
         `);
@@ -634,9 +652,14 @@ export const roleAndCompanyRouter = {
         const rolesWithReviews = await ctx.db.execute(sql`
         SELECT DISTINCT ${Review.roleId}::uuid as role_id
         FROM ${Review}
-          WHERE ${Review.roleId} != ''
-            AND ${Review.roleId} IS NOT NULL
-            AND ${Review.status} = ${Status.PUBLISHED}
+        INNER JOIN ${Role} ON ${Review.roleId}::uuid = ${Role.id}
+        INNER JOIN ${Company} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
+        WHERE ${Company.hidden} = false
+          AND ${Role.hidden} = false
+          AND ${Review.hidden} = false
+          AND ${Review.roleId} != ''
+          AND ${Review.roleId} IS NOT NULL
+          AND ${Review.status} = ${Status.PUBLISHED}
       `);
 
         const roleIds = rolesWithReviews.rows.map((row) => String(row.role_id));
@@ -645,7 +668,8 @@ export const roleAndCompanyRouter = {
           roles = [];
         } else {
           roles = await ctx.db.query.Role.findMany({
-            where: (role, { inArray }) => inArray(role.id, roleIds),
+            where: (role, { and, eq, inArray }) =>
+              and(eq(role.hidden, false), inArray(role.id, roleIds)),
             orderBy: ordering[input.sortBy],
           });
         }
@@ -661,6 +685,9 @@ export const roleAndCompanyRouter = {
           LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
           INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
           WHERE ${Review.status} = ${Status.PUBLISHED}
+            AND ${Company.hidden} = false
+            AND ${Review.hidden} = false
+            AND ${Role.hidden} = false
           GROUP BY ${Company.id}
           ORDER BY avg_rating DESC
         `);
@@ -671,6 +698,7 @@ export const roleAndCompanyRouter = {
       } else {
         const foundCompanies = await ctx.db.query.Company.findMany({
           orderBy: companyOrdering[input.sortBy],
+          where: (company, { eq }) => eq(company.hidden, false),
         });
 
         const companiesWithReviews = await ctx.db.execute(sql`
@@ -678,7 +706,12 @@ export const roleAndCompanyRouter = {
           FROM ${Company}
           INNER JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
           INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
-          WHERE ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL AND ${Review.status} = ${Status.PUBLISHED}
+          WHERE ${Company.hidden} = false
+            AND ${Role.hidden} = false
+            AND ${Review.hidden} = false
+            AND ${Review.roleId} != ''
+            AND ${Review.roleId} IS NOT NULL
+            AND ${Review.status} = ${Status.PUBLISHED}
         `);
 
         const companyIdsWithReviews = new Set(

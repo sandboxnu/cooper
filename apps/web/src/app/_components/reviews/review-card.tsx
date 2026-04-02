@@ -5,8 +5,11 @@ import { cn } from "@cooper/ui";
 import { Card, CardContent } from "@cooper/ui/card";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { api } from "~/trpc/react";
-import { formatDate } from "~/utils/dateHelpers";
 import { YellowStar } from "./review-card-stars";
+import { prettyWorkEnviornment } from "~/utils/stringHelpers";
+import { DeleteReviewDialog } from "./delete-review-dialogue";
+import { ReportButton } from "../shared/report-button";
+import { WorkEnvironmentType } from "@cooper/db/schema";
 
 interface ReviewCardProps {
   className?: string;
@@ -18,6 +21,12 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
     { id: reviewObj.roleId ?? "" },
     { enabled: !!reviewObj.roleId },
   );
+
+  // Get the current user's profile
+  const { data: currentProfile } = api.profile.getCurrentUser.useQuery();
+
+  // Check if the current user is the author of the review
+  const isAuthor = currentProfile?.id === reviewObj.profileId;
 
   const { data: location } = api.location.getById.useQuery({
     id: reviewObj.locationId ?? "",
@@ -67,8 +76,32 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
                 {prettyLocationName(location)}
               </span>
             </div>
-            <div className="flex gap-1 text-sm text-black pt-2 text-opacity-60">
-              <span>Reviewed on {formatDate(reviewObj.createdAt)}</span>
+            <div className="flex justify-between text-sm">
+              <div className="flex gap-6 rounded-lg bg-[#f4f4f4] p-3 pr-4 md:gap-10 md:pl-4">
+                <div className="flex flex-col gap-2 md:flex-row">
+                  <span className="text-cooper-gray-350">Job type</span>{" "}
+                  {reviewObj.jobType === "CO-OP" ? "Co-op" : reviewObj.jobType}
+                </div>
+                <div className="flex flex-col gap-2 md:flex-row">
+                  <span className="text-cooper-gray-350">Work model</span>
+                  {prettyWorkEnviornment(
+                    reviewObj.workEnvironment as WorkEnvironmentType,
+                  )}
+                </div>
+                <div className="flex flex-col gap-2 md:flex-row">
+                  <span className="text-cooper-gray-350">Pay</span> $
+                  {reviewObj.hourlyPay}/hr
+                </div>
+              </div>
+              <ReportButton
+                entityId={reviewObj.id}
+                entityType="review"
+                iconOnly={true}
+              />
+            </div>
+            <div className="visible flex flex-row justify-between md:hidden">
+              <div className="pt-1">{reviewObj.textReview}</div>
+              {isAuthor && <DeleteReviewDialog reviewId={reviewObj.id} />}
             </div>
           </CardContent>
         </div>

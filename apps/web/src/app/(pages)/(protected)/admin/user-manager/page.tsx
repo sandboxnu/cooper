@@ -3,7 +3,7 @@ import { AdminUserManagerTable } from "../../../../_components/admin/user-manage
 
 export default function AdminUserManagerPage() {
   return (
-    <div className="flex h-full w-full flex-col px-6 py-4">
+    <div className="flex h-full w-full min-h-0 overflow-hidden flex-col px-6 py-4 flex-1">
       <CreateUserForm />
       <AdminUserManagerTable />
     </div>

@@ -6,16 +6,14 @@ import type {
   WorkEnvironmentType,
   WorkTermType,
   StatusType,
-  ModerationActionTypeType,
   ModerationEntityTypeType,
   ReportReasonType,
   UserRoleType,
 } from "./schema/misc";
-import {
-  CreateModerationActionSchema,
-  ModerationAction,
-} from "./schema/moderationActions";
-import type { ModerationActionRecordType } from "./schema/moderationActions";
+import { CreateFlaggedSchema, Flagged } from "./schema/flagged";
+import type { FlaggedRecordType } from "./schema/flagged";
+import { CreateHiddenSchema, Hidden } from "./schema/hidden";
+import type { HiddenRecordType } from "./schema/hidden";
 import type { ReviewType } from "./schema/reviews";
 import type { RoleType } from "./schema/roles";
 import { Account } from "./schema/accounts";
@@ -31,7 +29,6 @@ import {
   WorkTerm,
   Status,
   JobType,
-  ModerationActionType,
   ModerationEntityType,
   ReportReason,
   UserRole,
@@ -88,11 +85,12 @@ export {
   WorkEnvironment,
   Status,
   JobType,
-  ModerationAction,
-  CreateModerationActionSchema,
+  Flagged,
+  CreateFlaggedSchema,
+  Hidden,
+  CreateHiddenSchema,
   Report,
   CreateReportSchema,
-  ModerationActionType,
   ModerationEntityType,
   ReportReason,
   UserRole,
@@ -109,8 +107,8 @@ export type {
   LocationType,
   StatusType,
   JobTypeType,
-  ModerationActionRecordType,
-  ModerationActionTypeType,
+  FlaggedRecordType,
+  HiddenRecordType,
   ModerationEntityTypeType,
   ReportReasonType,
   UserRoleType,
