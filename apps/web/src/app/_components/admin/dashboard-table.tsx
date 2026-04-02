@@ -445,7 +445,7 @@ function CollapsibleSection({
   );
 }
 
-/** Must match `useQuery` inputs so refetch/invalidation targets the same cache keys. */
+/** Baseline inputs; search is merged in `useMemo` for consistent query keys. */
 const ADMIN_DASHBOARD_INPUT = { limitPerType: 50 } as const;
 const ADMIN_SECTION_INPUT = { limitPerType: 50 } as const;
 
@@ -462,23 +462,31 @@ export function AdminDashboardTable() {
     [searchQuery],
   );
 
+  const sectionQueryInput = useMemo(
+    () => ({
+      ...ADMIN_SECTION_INPUT,
+      search: searchQuery.trim() || undefined,
+    }),
+    [searchQuery],
+  );
+
   const { data: mostRecentItemsData, isLoading: isLoadingMostRecent } =
     api.admin.dashboardItems.useQuery(dashboardQueryInput, {
       staleTime: 60_000,
     });
 
   const { data: flaggedData, isLoading: isLoadingFlagged } =
-    api.admin.flaggedDashboardItems.useQuery(ADMIN_SECTION_INPUT, {
+    api.admin.flaggedDashboardItems.useQuery(sectionQueryInput, {
       staleTime: 60_000,
     });
 
   const { data: hiddenData, isLoading: isLoadingHidden } =
-    api.admin.hiddenDashboardItems.useQuery(ADMIN_SECTION_INPUT, {
+    api.admin.hiddenDashboardItems.useQuery(sectionQueryInput, {
       staleTime: 60_000,
     });
 
   const { data: reportedData, isLoading: isLoadingReported } =
-    api.admin.reportedDashboardItems.useQuery(ADMIN_SECTION_INPUT, {
+    api.admin.reportedDashboardItems.useQuery(sectionQueryInput, {
       staleTime: 60_000,
     });
   type SectionKey = "recent" | "reported" | "flagged" | "hidden";
@@ -540,9 +548,10 @@ export function AdminDashboardTable() {
     },
     onSuccess: async (_data, variables) => {
       await Promise.all([
-        utils.admin.dashboardItems.refetch(ADMIN_DASHBOARD_INPUT),
-        utils.admin.flaggedDashboardItems.refetch(ADMIN_SECTION_INPUT),
-        utils.admin.reportedDashboardItems.refetch(ADMIN_SECTION_INPUT),
+        utils.admin.dashboardItems.invalidate(),
+        utils.admin.flaggedDashboardItems.invalidate(),
+        utils.admin.reportedDashboardItems.invalidate(),
+        utils.admin.hiddenDashboardItems.invalidate(),
       ]);
       clearItemOptimisticState({
         category: variables.entityType,
@@ -566,9 +575,10 @@ export function AdminDashboardTable() {
     },
     onSuccess: async (_data, variables) => {
       await Promise.all([
-        utils.admin.dashboardItems.refetch(ADMIN_DASHBOARD_INPUT),
-        utils.admin.hiddenDashboardItems.refetch(ADMIN_SECTION_INPUT),
-        utils.admin.reportedDashboardItems.refetch(ADMIN_SECTION_INPUT),
+        utils.admin.dashboardItems.invalidate(),
+        utils.admin.flaggedDashboardItems.invalidate(),
+        utils.admin.hiddenDashboardItems.invalidate(),
+        utils.admin.reportedDashboardItems.invalidate(),
       ]);
       clearItemOptimisticState({
         category: variables.entityType,
@@ -582,38 +592,16 @@ export function AdminDashboardTable() {
   const filterItems = useCallback(
     (current: DashboardItem[]) => {
       let result = current;
+      const hasSearch = searchQuery.trim().length > 0;
 
-      if (activeTab === "reviews") {
-        result = result.filter((i) => i.category === "review");
-      } else if (activeTab === "role") {
-        result = result.filter((i) => i.category === "role");
-      } else if (activeTab === "company") {
-        result = result.filter((i) => i.category === "company").slice(0, 50);
-      }
-
-      const q = searchQuery.trim().toLowerCase();
-      if (q) {
-        result = result
-          .filter((item) => {
-            const titleMatch = item.title.toLowerCase().includes(q);
-            const subtitleMatch =
-              item.subtitle?.toLowerCase().includes(q) ?? false;
-            const descriptionMatch =
-              item.description?.toLowerCase().includes(q) ?? false;
-            const companyMatch =
-              item.company?.toLowerCase().includes(q) ?? false;
-            const locationMatch =
-              item.location?.toLowerCase().includes(q) ?? false;
-
-            return (
-              titleMatch ||
-              subtitleMatch ||
-              descriptionMatch ||
-              companyMatch ||
-              locationMatch
-            );
-          })
-          .slice(0, 50);
+      if (!hasSearch) {
+        if (activeTab === "reviews") {
+          result = result.filter((i) => i.category === "review");
+        } else if (activeTab === "role") {
+          result = result.filter((i) => i.category === "role");
+        } else if (activeTab === "company") {
+          result = result.filter((i) => i.category === "company");
+        }
       }
 
       return result;
