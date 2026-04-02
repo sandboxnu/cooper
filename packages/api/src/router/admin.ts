@@ -1,7 +1,8 @@
 import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
-import { and, desc, eq, ilike, sql } from "@cooper/db";
+import { db as appDb } from "@cooper/db/client";
+import { and, desc, eq, ilike, inArray, or, sql } from "@cooper/db";
 import {
   Company,
   Flagged,
@@ -78,6 +79,160 @@ const mapCompanyItem = (
   hidden: flags.hidden(ModerationEntityType.COMPANY, company.id),
 });
 
+type AppDb = typeof appDb;
+
+/** Resolves company / role / review IDs tied together: direct text hits plus all roles & reviews for matched companies and linked reviews for matched roles. */
+async function getExpandedSearchEntityIds(db: AppDb, search: string) {
+  const pattern = `%${search}%`;
+
+  const [nameMatchedCompanies, titleMatchedRoles, textMatchedReviews] =
+    await Promise.all([
+      db.query.Company.findMany({
+        where: ilike(Company.name, pattern),
+        columns: { id: true },
+      }),
+      db.query.Role.findMany({
+        where: ilike(Role.title, pattern),
+        columns: { id: true, companyId: true },
+      }),
+      db.query.Review.findMany({
+        where: or(
+          ilike(Review.textReview, pattern),
+          ilike(Review.reviewHeadline, pattern),
+        ),
+        columns: { id: true, roleId: true, companyId: true },
+      }),
+    ]);
+
+  const companyIds = new Set<string>();
+  const roleIds = new Set<string>();
+  const reviewIds = new Set<string>();
+
+  for (const c of nameMatchedCompanies) companyIds.add(c.id);
+  for (const r of titleMatchedRoles) {
+    roleIds.add(r.id);
+    companyIds.add(r.companyId);
+  }
+  for (const rv of textMatchedReviews) {
+    reviewIds.add(rv.id);
+    companyIds.add(rv.companyId);
+    roleIds.add(rv.roleId);
+  }
+
+  if (companyIds.size === 0 && roleIds.size === 0 && reviewIds.size === 0) {
+    return {
+      companyIds: new Set<string>(),
+      roleIds: new Set<string>(),
+      reviewIds: new Set<string>(),
+    };
+  }
+
+  for (let pass = 0; pass < 6; pass++) {
+    const before = companyIds.size + roleIds.size;
+    const cList = [...companyIds];
+    if (cList.length > 0) {
+      const rolesAtCompanies = await db.query.Role.findMany({
+        where: (role, { inArray: inArr }) => inArr(role.companyId, cList),
+        columns: { id: true, companyId: true },
+      });
+      for (const r of rolesAtCompanies) {
+        roleIds.add(r.id);
+        companyIds.add(r.companyId);
+      }
+    }
+    const rList = [...roleIds];
+    if (rList.length > 0) {
+      const roleRows = await db.query.Role.findMany({
+        where: (role, { inArray: inArr }) => inArr(role.id, rList),
+        columns: { companyId: true },
+      });
+      for (const r of roleRows) companyIds.add(r.companyId);
+    }
+    if (companyIds.size + roleIds.size === before) break;
+  }
+
+  const companyIdList = [...companyIds];
+  const roleIdList = [...roleIds];
+
+  const reviewWhereParts = [];
+  if (companyIdList.length > 0) {
+    reviewWhereParts.push(inArray(Review.companyId, companyIdList));
+  }
+  if (roleIdList.length > 0) {
+    reviewWhereParts.push(inArray(Review.roleId, roleIdList));
+  }
+
+  if (reviewWhereParts.length > 0) {
+    const linkedReviews = await db.query.Review.findMany({
+      where:
+        reviewWhereParts.length === 1
+          ? reviewWhereParts[0]
+          : or(...reviewWhereParts),
+      columns: { id: true },
+    });
+    for (const rv of linkedReviews) reviewIds.add(rv.id);
+  }
+
+  return { companyIds, roleIds, reviewIds };
+}
+
+async function fetchDashboardRowsForExpandedSearch(args: {
+  db: AppDb;
+  limitPerType: number;
+  companyIds: Set<string>;
+  roleIds: Set<string>;
+  reviewIds: Set<string>;
+}) {
+  const { db, limitPerType, companyIds, roleIds, reviewIds } = args;
+  const companyIdArr = [...companyIds];
+  const roleIdArr = [...roleIds];
+  const reviewIdArr = [...reviewIds];
+
+  const [reviews, roles, companies] = await Promise.all([
+    fetchWhenIdsPresent(reviewIdArr, () =>
+      db.query.Review.findMany({
+        orderBy: desc(Review.createdAt),
+        where: (review, { inArray: inArr }) => inArr(review.id, reviewIdArr),
+        limit: limitPerType,
+      }),
+    ),
+    fetchWhenIdsPresent(roleIdArr, () =>
+      db.query.Role.findMany({
+        orderBy: desc(Role.createdAt),
+        where: (role, { inArray: inArr }) => inArr(role.id, roleIdArr),
+        limit: limitPerType,
+      }),
+    ),
+    fetchWhenIdsPresent(companyIdArr, () =>
+      db.query.Company.findMany({
+        orderBy: desc(Company.createdAt),
+        where: (company, { inArray: inArr }) => inArr(company.id, companyIdArr),
+        limit: limitPerType,
+      }),
+    ),
+  ]);
+
+  return { reviews, roles, companies };
+}
+
+function filterIdsBySearchExpansion(
+  ids: string[],
+  expanded: {
+    companyIds: Set<string>;
+    roleIds: Set<string>;
+    reviewIds: Set<string>;
+  },
+  kind: "review" | "role" | "company",
+) {
+  const allow =
+    kind === "review"
+      ? expanded.reviewIds
+      : kind === "role"
+        ? expanded.roleIds
+        : expanded.companyIds;
+  return ids.filter((id) => allow.has(id));
+}
+
 export const adminRouter = {
   dashboardItems: protectedProcedure
     .input(
@@ -93,21 +248,46 @@ export const adminRouter = {
       const search = input?.search?.trim() ?? "";
       const hasSearch = search.length > 0;
 
-      const [reviews, roles, companies] = await Promise.all([
-        ctx.db.query.Review.findMany({
-          orderBy: desc(Review.createdAt),
-          limit: limitPerType,
-        }),
-        ctx.db.query.Role.findMany({
-          orderBy: desc(Role.createdAt),
-          limit: limitPerType,
-        }),
-        ctx.db.query.Company.findMany({
-          orderBy: desc(Company.createdAt),
-          where: hasSearch ? ilike(Company.name, `%${search}%`) : undefined,
-          limit: limitPerType,
-        }),
-      ]);
+      let reviews: Awaited<ReturnType<typeof ctx.db.query.Review.findMany>> =
+        [];
+      let roles: Awaited<ReturnType<typeof ctx.db.query.Role.findMany>> = [];
+      let companies: Awaited<ReturnType<typeof ctx.db.query.Company.findMany>> =
+        [];
+
+      if (!hasSearch) {
+        [reviews, roles, companies] = await Promise.all([
+          ctx.db.query.Review.findMany({
+            orderBy: desc(Review.createdAt),
+            limit: limitPerType,
+          }),
+          ctx.db.query.Role.findMany({
+            orderBy: desc(Role.createdAt),
+            limit: limitPerType,
+          }),
+          ctx.db.query.Company.findMany({
+            orderBy: desc(Company.createdAt),
+            limit: limitPerType,
+          }),
+        ]);
+      } else {
+        const expanded = await getExpandedSearchEntityIds(ctx.db, search);
+        const emptyExpanded =
+          expanded.companyIds.size === 0 &&
+          expanded.roleIds.size === 0 &&
+          expanded.reviewIds.size === 0;
+        if (!emptyExpanded) {
+          const rows = await fetchDashboardRowsForExpandedSearch({
+            db: ctx.db,
+            limitPerType,
+            companyIds: expanded.companyIds,
+            roleIds: expanded.roleIds,
+            reviewIds: expanded.reviewIds,
+          });
+          reviews = rows.reviews;
+          roles = rows.roles;
+          companies = rows.companies;
+        }
+      }
 
       const [flaggedRecords, hiddenRecords] = await Promise.all([
         ctx.db.query.Flagged.findMany({
@@ -162,26 +342,54 @@ export const adminRouter = {
       z
         .object({
           limitPerType: z.number().min(1).max(100).default(20),
+          search: z.string().optional(),
         })
         .optional(),
     )
     .query(async ({ ctx, input }) => {
       const limitPerType = input?.limitPerType ?? 20;
+      const search = input?.search?.trim() ?? "";
+      const hasSearch = search.length > 0;
 
       const flagged = await ctx.db.query.Flagged.findMany({
         orderBy: desc(Flagged.createdAt),
         where: eq(Flagged.isActive, true),
       });
 
-      const reviewIds = flagged
+      let reviewIds = flagged
         .filter((f) => f.entityType === ModerationEntityType.REVIEW)
         .map((f) => f.entityId);
-      const roleIds = flagged
+      let roleIds = flagged
         .filter((f) => f.entityType === ModerationEntityType.ROLE)
         .map((f) => f.entityId);
-      const companyIds = flagged
+      let companyIds = flagged
         .filter((f) => f.entityType === ModerationEntityType.COMPANY)
         .map((f) => f.entityId);
+
+      if (hasSearch) {
+        const expanded = await getExpandedSearchEntityIds(ctx.db, search);
+        if (
+          expanded.companyIds.size === 0 &&
+          expanded.roleIds.size === 0 &&
+          expanded.reviewIds.size === 0
+        ) {
+          return {
+            items: [],
+            counts: {
+              reviews: 0,
+              roles: 0,
+              companies: 0,
+            },
+          };
+        }
+        reviewIds = filterIdsBySearchExpansion(reviewIds, expanded, "review");
+        roleIds = filterIdsBySearchExpansion(roleIds, expanded, "role");
+        companyIds = filterIdsBySearchExpansion(
+          companyIds,
+          expanded,
+          "company",
+        );
+      }
 
       if (
         reviewIds.length === 0 &&
@@ -253,26 +461,54 @@ export const adminRouter = {
       z
         .object({
           limitPerType: z.number().min(1).max(100).default(20),
+          search: z.string().optional(),
         })
         .optional(),
     )
     .query(async ({ ctx, input }) => {
       const limitPerType = input?.limitPerType ?? 20;
+      const search = input?.search?.trim() ?? "";
+      const hasSearch = search.length > 0;
 
       const hidden = await ctx.db.query.Hidden.findMany({
         orderBy: desc(Hidden.createdAt),
         where: eq(Hidden.isActive, true),
       });
 
-      const reviewIds = hidden
+      let reviewIds = hidden
         .filter((h) => h.entityType === ModerationEntityType.REVIEW)
         .map((h) => h.entityId);
-      const roleIds = hidden
+      let roleIds = hidden
         .filter((h) => h.entityType === ModerationEntityType.ROLE)
         .map((h) => h.entityId);
-      const companyIds = hidden
+      let companyIds = hidden
         .filter((h) => h.entityType === ModerationEntityType.COMPANY)
         .map((h) => h.entityId);
+
+      if (hasSearch) {
+        const expanded = await getExpandedSearchEntityIds(ctx.db, search);
+        if (
+          expanded.companyIds.size === 0 &&
+          expanded.roleIds.size === 0 &&
+          expanded.reviewIds.size === 0
+        ) {
+          return {
+            items: [],
+            counts: {
+              reviews: 0,
+              roles: 0,
+              companies: 0,
+            },
+          };
+        }
+        reviewIds = filterIdsBySearchExpansion(reviewIds, expanded, "review");
+        roleIds = filterIdsBySearchExpansion(roleIds, expanded, "role");
+        companyIds = filterIdsBySearchExpansion(
+          companyIds,
+          expanded,
+          "company",
+        );
+      }
 
       if (
         reviewIds.length === 0 &&
@@ -344,37 +580,65 @@ export const adminRouter = {
       z
         .object({
           limitPerType: z.number().min(1).max(100).default(20),
+          search: z.string().optional(),
         })
         .optional(),
     )
     .query(async ({ ctx, input }) => {
       const limitPerType = input?.limitPerType ?? 20;
+      const search = input?.search?.trim() ?? "";
+      const hasSearch = search.length > 0;
 
       const reports = await ctx.db.query.Report.findMany({
         orderBy: desc(Report.createdAt),
       });
 
-      const reviewIds = [
+      let reviewIds = [
         ...new Set(
           reports
             .map((r) => r.reviewId)
             .filter((id): id is string => Boolean(id)),
         ),
       ];
-      const roleIds = [
+      let roleIds = [
         ...new Set(
           reports
             .map((r) => r.roleId)
             .filter((id): id is string => Boolean(id)),
         ),
       ];
-      const companyIds = [
+      let companyIds = [
         ...new Set(
           reports
             .map((r) => r.companyId)
             .filter((id): id is string => Boolean(id)),
         ),
       ];
+
+      if (hasSearch) {
+        const expanded = await getExpandedSearchEntityIds(ctx.db, search);
+        if (
+          expanded.companyIds.size === 0 &&
+          expanded.roleIds.size === 0 &&
+          expanded.reviewIds.size === 0
+        ) {
+          return {
+            items: [],
+            counts: {
+              reviews: 0,
+              roles: 0,
+              companies: 0,
+            },
+          };
+        }
+        reviewIds = filterIdsBySearchExpansion(reviewIds, expanded, "review");
+        roleIds = filterIdsBySearchExpansion(roleIds, expanded, "role");
+        companyIds = filterIdsBySearchExpansion(
+          companyIds,
+          expanded,
+          "company",
+        );
+      }
 
       if (
         reviewIds.length === 0 &&
