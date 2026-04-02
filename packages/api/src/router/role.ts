@@ -5,7 +5,13 @@ import { z } from "zod";
 
 import type { ReviewType, RoleType } from "@cooper/db/schema";
 import { and, asc, desc, eq, sql } from "@cooper/db";
-import { Company, CreateRoleSchema, Review, Role } from "@cooper/db/schema";
+import {
+  Company,
+  CreateRoleSchema,
+  Review,
+  Role,
+  Status,
+} from "@cooper/db/schema";
 
 import {
   protectedProcedure,
@@ -155,7 +161,10 @@ export const roleRouter = {
         const rolesWithReviews = await ctx.db.execute(sql`
           SELECT DISTINCT ${Review.roleId}::uuid as role_id
           FROM ${Review}
-          WHERE ${Review.hidden} = false AND ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
+          WHERE ${Review.roleId} != ''
+            AND ${Review.roleId} IS NOT NULL
+            AND ${Review.status} = ${Status.PUBLISHED}
+            AND ${Review.hidden} = false 
         `);
 
         const roleIds = rolesWithReviews.rows.map((row) => String(row.role_id));

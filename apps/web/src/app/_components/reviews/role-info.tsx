@@ -3,7 +3,6 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import type { ReviewType, RoleType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 import { CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 import Logo from "@cooper/ui/logo";
@@ -21,13 +20,14 @@ import CollapsableInfoCard from "./collapsable-info";
 import InfoCard from "./info-card";
 import { ReviewCard } from "./review-card";
 import RoundBarGraph from "./round-bar-graph";
-import { Button } from "node_modules/@cooper/ui/src/button";
+import type { ReviewType, RoleType } from "@cooper/db/schema";
 import {
-  DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuLabel,
   DropdownMenuTrigger,
-} from "node_modules/@cooper/ui/src/dropdown-menu";
+  DropdownMenuLabel,
+  DropdownMenu,
+} from "@cooper/ui/dropdown-menu";
+import { Button } from "@cooper/ui/button";
 import { ChevronDown } from "lucide-react";
 import { ReportButton } from "../shared/report-button";
 
@@ -167,7 +167,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
 
   const avgs = api.review.list
     .useQuery({})
-    .data?.map((review) => review.overallRating);
+    .data?.map((review) => review.overallRating ?? 0);
   const cooperAvg: number =
     Math.round(
       ((avgs ?? []).reduce((accumulator, currentValue) => {
@@ -201,7 +201,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     const ratingMatch =
       ratingFilter.length === 0 ||
       (() => {
-        const r = Math.round(review.overallRating);
+        const r = Math.round(review.overallRating ?? 0);
         const min = Math.min(...ratingFilter.map(Number));
         const max = Math.max(...ratingFilter.map(Number));
         return r >= min && r <= max;
@@ -225,9 +225,13 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     const list = [...filteredReviews];
     switch (selectedFilter) {
       case "highest rating":
-        return list.sort((a, b) => b.overallRating - a.overallRating);
+        return list.sort(
+          (a, b) => (b.overallRating ?? 0) - (a.overallRating ?? 0),
+        );
       case "lowest rating":
-        return list.sort((a, b) => a.overallRating - b.overallRating);
+        return list.sort(
+          (a, b) => (a.overallRating ?? 0) - (b.overallRating ?? 0),
+        );
       case "most recent":
       default: {
         const termOrder: Record<string, number> = {
@@ -236,9 +240,12 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
           FALL: 3,
         };
         return list.sort((a, b) => {
-          const yearDiff = b.workYear - a.workYear;
+          const yearDiff = (b.workYear ?? 0) - (a.workYear ?? 0);
           if (yearDiff !== 0) return yearDiff;
-          return (termOrder[b.workTerm] ?? 0) - (termOrder[a.workTerm] ?? 0);
+          return (
+            (termOrder[b.workTerm ?? 0] ?? 0) -
+            (termOrder[a.workTerm ?? 0] ?? 0)
+          );
         });
       }
     }
@@ -318,7 +325,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             </div>
           </div>
         </CardHeader>
-        <div className="mr-6 flex flex-col items-end gap-2">
+        <div className="flex flex-col items-end mr-6 gap-2">
           <CardContent className="grid gap-2">
             {reviews.isSuccess &&
               reviews.data.length > 0 &&
