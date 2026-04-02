@@ -47,7 +47,7 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
       window.dispatchEvent(new CustomEvent("review-form:leave-attempt"));
       return;
     }
-    router.push("/roles");
+    router.push("/");
   };
 
   if (isOpen) {
@@ -58,7 +58,6 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
             href="/roles"
             onClick={(e) => {
               e.preventDefault();
-              handleLogoClick(e);
               window.location.href = "/roles";
             }}
           >
@@ -146,7 +145,6 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
         href="/roles"
         onClick={(e) => {
           e.preventDefault();
-          handleLogoClick(e);
           window.location.href = "/roles";
         }}
         className={"flex items-center justify-center gap-3"}
