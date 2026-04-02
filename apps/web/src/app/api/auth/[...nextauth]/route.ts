@@ -35,15 +35,16 @@ export const GET = async (
 ) => {
   // First step must be to correct the request URL.
   const req = rewriteRequestUrlInDevelopment(_req);
+  const cookieStore = await cookies();
 
   const nextauthAction = props.params.nextauth[0];
   const isExpoSignIn = req.nextUrl.searchParams.get("expo-redirect");
-  const isExpoCallback = cookies().get(EXPO_COOKIE_NAME);
+  const expoCallbackCookie = cookieStore.get(EXPO_COOKIE_NAME);
 
   if (nextauthAction === "signin" && !!isExpoSignIn) {
     // set a cookie we can read in the callback
     // to know to send the user back to expo
-    cookies().set({
+    cookieStore.set({
       name: EXPO_COOKIE_NAME,
       value: isExpoSignIn,
       maxAge: 60 * 10, // 10 min
@@ -51,8 +52,8 @@ export const GET = async (
     });
   }
 
-  if (nextauthAction === "callback" && !!isExpoCallback) {
-    cookies().delete(EXPO_COOKIE_NAME);
+  if (nextauthAction === "callback" && !!expoCallbackCookie) {
+    cookieStore.delete(EXPO_COOKIE_NAME);
 
     // Run original handler, then extract the session token from the response
     // Send it back via a query param in the Expo deep link. The Expo app
@@ -69,7 +70,7 @@ export const GET = async (
           JSON.stringify(authResponse.headers.getSetCookie()),
       );
 
-    const url = new URL(isExpoCallback.value);
+    const url = new URL(expoCallbackCookie.value);
     url.searchParams.set("session_token", match);
     return NextResponse.redirect(url);
   }

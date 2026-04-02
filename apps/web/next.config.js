@@ -4,7 +4,11 @@ import createJiti from "jiti";
 // Import env files to validate at build time. Use jiti so we can load .ts files in here.
 createJiti(fileURLToPath(import.meta.url))("./src/env");
 
-/** @type {import("next").NextConfig} */
+/**
+ * `eslint` is still supported at runtime but may be omitted from `NextConfig` typings in some Next
+ * releases; intersect so this file typechecks under `tsc` while keeping build behavior.
+ * @type {import("next").NextConfig & { eslint?: { ignoreDuringBuilds?: boolean } }}
+ */
 const config = {
   reactStrictMode: true,
 
