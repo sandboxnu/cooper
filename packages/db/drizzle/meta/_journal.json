@@ -127,6 +127,13 @@
       "when": 1774812140562,
       "tag": "0017_wakeful_red_shift",
       "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "7",
+      "when": 1775094808913,
+      "tag": "0018_square_supernaut",
+      "breakpoints": true
     }
   ]
 }

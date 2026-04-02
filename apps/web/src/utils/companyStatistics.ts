@@ -25,7 +25,9 @@ export function calculateWorkModels(reviews: ReviewType[] = []) {
 
 export function calculateJobTypes(reviews: ReviewType[] = []) {
   const totalReviews = reviews.length;
-  const uniqueTypes: string[] = [...new Set(reviews.map((r) => r.jobType ?? ""))];
+  const uniqueTypes: string[] = [
+    ...new Set(reviews.map((r) => r.jobType ?? "")),
+  ];
 
   return uniqueTypes.map((model) => {
     const count = reviews.filter((r) => r.jobType === model).length;
