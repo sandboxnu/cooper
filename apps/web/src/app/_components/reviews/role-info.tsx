@@ -228,9 +228,13 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     const list = [...filteredReviews];
     switch (selectedFilter) {
       case "highest rating":
-        return list.sort((a, b) => (b.overallRating ?? 0) - (a.overallRating ?? 0));
+        return list.sort(
+          (a, b) => (b.overallRating ?? 0) - (a.overallRating ?? 0),
+        );
       case "lowest rating":
-        return list.sort((a, b) => (a.overallRating ?? 0) - (b.overallRating ?? 0));
+        return list.sort(
+          (a, b) => (a.overallRating ?? 0) - (b.overallRating ?? 0),
+        );
       case "most recent":
       default: {
         const termOrder: Record<string, number> = {
@@ -241,7 +245,10 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
         return list.sort((a, b) => {
           const yearDiff = (b.workYear ?? 0) - (a.workYear ?? 0);
           if (yearDiff !== 0) return yearDiff;
-          return (termOrder[b.workTerm ?? 0] ?? 0) - (termOrder[a.workTerm ?? 0] ?? 0);
+          return (
+            (termOrder[b.workTerm ?? 0] ?? 0) -
+            (termOrder[a.workTerm ?? 0] ?? 0)
+          );
         });
       }
     }

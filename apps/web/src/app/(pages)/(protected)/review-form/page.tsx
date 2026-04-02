@@ -229,8 +229,7 @@ export default function ReviewForm() {
       if (isDirtyRef.current) {
         setShowModal(true);
       } else {
-        router.push("/");
-        //not going to /profile
+        router.push("/roles");
       }
     };
     window.addEventListener("review-form:leave-attempt", handleLeave);
@@ -276,7 +275,7 @@ export default function ReviewForm() {
 
   const draftMutation = api.review.saveDraft.useMutation({
     onSuccess: () => {
-      router.push("/");
+      router.push("/roles");
       setShowModal(false);
     },
     onError: (error) => {
@@ -302,7 +301,7 @@ export default function ReviewForm() {
   }
 
   if (!sessionLoading && !profileLoading && (!session || !profile)) {
-    router.push("/");
+    router.push("/roles");
   }
 
   if (!session || !profile) {
@@ -310,7 +309,7 @@ export default function ReviewForm() {
   }
 
   const discardDraft = () => {
-    router.push("/");
+    router.push("/roles");
   };
 
   const normalizeRadios = (v: unknown) =>

@@ -15,7 +15,7 @@ interface ReviewCardProps {
 
 export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
   const { data: role } = api.role.getById.useQuery(
-    { id: reviewObj.roleId ?? ""},
+    { id: reviewObj.roleId ?? "" },
     { enabled: !!reviewObj.roleId },
   );
 
@@ -24,7 +24,7 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
   });
 
   const { data: company } = api.company.getById.useQuery(
-    { id: reviewObj.companyId ?? ""},
+    { id: reviewObj.companyId ?? "" },
     { enabled: !!reviewObj.companyId },
   );
 
@@ -68,10 +68,7 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
               </span>
             </div>
             <div className="flex gap-1 text-sm text-black pt-2 text-opacity-60">
-              <span>
-                Reviewed on{" "}
-                {formatDate(reviewObj.createdAt)}
-              </span>
+              <span>Reviewed on {formatDate(reviewObj.createdAt)}</span>
             </div>
           </CardContent>
         </div>

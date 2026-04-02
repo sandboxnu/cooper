@@ -57,9 +57,7 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
           <Link
             href="/roles"
             onClick={(e) => {
-              e.preventDefault();
               handleLogoClick(e);
-              window.location.href = "/roles";
             }}
           >
             <h1 className="text-2xl font-bold text-cooper-blue-800">Cooper</h1>
@@ -145,9 +143,7 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
       <Link
         href="/roles"
         onClick={(e) => {
-          e.preventDefault();
           handleLogoClick(e);
-          window.location.href = "/roles";
         }}
         className={"flex items-center justify-center gap-3"}
       >
