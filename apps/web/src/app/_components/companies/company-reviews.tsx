@@ -35,8 +35,8 @@ export function CompanyReview({ companyObj }: CompanyReviewProps) {
 
   const averages = api.review.list
     .useQuery({})
-    .data?.filter((r) => r.overallRating != 0)
-    .map((review) => review.overallRating ?? 0);
+    .data?.map((review) => review.overallRating)
+    .filter((rating): rating is number => rating != null && rating !== 0);
   const cooperAvg: number =
     Math.round(
       ((averages ?? []).reduce((accumulator, currentValue) => {
