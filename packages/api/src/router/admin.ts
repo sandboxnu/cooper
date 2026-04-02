@@ -1,7 +1,7 @@
 import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
-import { db as appDb } from "@cooper/db/client";
+import type { CooperDb } from "@cooper/db/client";
 import { and, desc, eq, ilike, inArray, or, sql } from "@cooper/db";
 import {
   Company,
@@ -79,10 +79,8 @@ const mapCompanyItem = (
   hidden: flags.hidden(ModerationEntityType.COMPANY, company.id),
 });
 
-type AppDb = typeof appDb;
-
 /** Resolves company / role / review IDs tied together: direct text hits plus all roles & reviews for matched companies and linked reviews for matched roles. */
-async function getExpandedSearchEntityIds(db: AppDb, search: string) {
+async function getExpandedSearchEntityIds(db: CooperDb, search: string) {
   const pattern = `%${search}%`;
 
   const [nameMatchedCompanies, titleMatchedRoles, textMatchedReviews] =
@@ -177,7 +175,7 @@ async function getExpandedSearchEntityIds(db: AppDb, search: string) {
 }
 
 async function fetchDashboardRowsForExpandedSearch(args: {
-  db: AppDb;
+  db: CooperDb;
   limitPerType: number;
   companyIds: Set<string>;
   roleIds: Set<string>;
