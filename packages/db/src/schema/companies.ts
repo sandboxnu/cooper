@@ -1,5 +1,12 @@
 import { relations } from "drizzle-orm";
-import { pgTable, text, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
+import {
+  boolean,
+  pgTable,
+  text,
+  timestamp,
+  uuid,
+  varchar,
+} from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -12,6 +19,7 @@ import { Role } from "./roles";
 
 export const Company = pgTable("company", {
   id: uuid("id").notNull().primaryKey().defaultRandom(),
+  hidden: boolean("hidden").notNull().default(false),
   name: varchar("name").notNull(),
   slug: varchar("slug").notNull().unique(),
   description: text("description"),
@@ -41,6 +49,7 @@ export const CreateCompanySchema = createInsertSchema(Company, {
   website: z.string().optional(),
 }).omit({
   id: true,
+  hidden: true,
   slug: true,
   createdAt: true,
   updatedAt: true,

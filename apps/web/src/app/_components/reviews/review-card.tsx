@@ -9,6 +9,7 @@ import { YellowStar } from "./review-card-stars";
 import { prettyWorkEnviornment } from "~/utils/stringHelpers";
 import { DeleteReviewDialog } from "./delete-review-dialogue";
 import { ReportButton } from "../shared/report-button";
+import { WorkEnvironmentType } from "@cooper/db/schema";
 
 interface ReviewCardProps {
   className?: string;
@@ -20,6 +21,12 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
     { id: reviewObj.roleId ?? "" },
     { enabled: !!reviewObj.roleId },
   );
+
+  // Get the current user's profile
+  const { data: currentProfile } = api.profile.getCurrentUser.useQuery();
+
+  // Check if the current user is the author of the review
+  const isAuthor = currentProfile?.id === reviewObj.profileId;
 
   const { data: location } = api.location.getById.useQuery({
     id: reviewObj.locationId ?? "",

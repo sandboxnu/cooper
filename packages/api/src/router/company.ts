@@ -101,6 +101,7 @@ export const companyRouter = {
       }
 
       const conditions = [
+        eq(Company.hidden, false),
         input.options?.industry && eq(Company.industry, input.options.industry),
         input.options?.location &&
           eq(CompaniesToLocations.locationId, input.options.location),
@@ -121,7 +122,7 @@ export const companyRouter = {
           FROM ${Company}
           INNER JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
           INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
-          WHERE ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
+          WHERE ${Review.hidden} = false AND ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
         `);
 
         const companyIdsWithReviews = new Set(
@@ -145,7 +146,7 @@ export const companyRouter = {
     .input(z.object({ slug: z.string() }))
     .query(({ ctx, input }) => {
       return ctx.db.query.Company.findFirst({
-        where: eq(Company.slug, input.slug),
+        where: and(eq(Company.hidden, false), eq(Company.slug, input.slug)),
       });
     }),
 
@@ -153,7 +154,7 @@ export const companyRouter = {
     .input(z.object({ id: z.string() }))
     .query(({ ctx, input }) => {
       return ctx.db.query.Company.findFirst({
-        where: eq(Company.id, input.id),
+        where: and(eq(Company.hidden, false), eq(Company.id, input.id)),
       });
     }),
 
