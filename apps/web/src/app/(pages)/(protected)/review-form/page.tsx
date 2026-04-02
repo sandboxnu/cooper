@@ -329,7 +329,7 @@ export default function ReviewForm() {
         cultureRating: values.cultureRating,
         supervisorRating: values.supervisorRating,
         interviewRating: 1,
-        interviewDifficulty: values.interviewDifficulty || null,
+        interviewDifficulty: +values.interviewDifficulty || null,
         interviewReview: values.interviewReview ?? null,
         reviewHeadline: "",
         textReview: values.textReview || null,
