@@ -47,7 +47,7 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
       window.dispatchEvent(new CustomEvent("review-form:leave-attempt"));
       return;
     }
-    router.push("/");
+    router.push("/roles");
   };
 
   if (isOpen) {
@@ -58,7 +58,7 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
             href="/roles"
             onClick={(e) => {
               e.preventDefault();
-              window.location.href = "/roles";
+              handleLogoClick(e);
             }}
           >
             <h1 className="text-2xl font-bold text-cooper-blue-800">Cooper</h1>
@@ -145,7 +145,7 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
         href="/roles"
         onClick={(e) => {
           e.preventDefault();
-          window.location.href = "/roles";
+          handleLogoClick(e);
         }}
         className={"flex items-center justify-center gap-3"}
       >
