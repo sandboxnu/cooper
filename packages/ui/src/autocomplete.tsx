@@ -69,7 +69,6 @@ export default function Autocomplete({
     if (!open) return;
     updateDropdownPosition();
     const originalOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
 
     const handleScrollOrResize = () => updateDropdownPosition();
     window.addEventListener("scroll", handleScrollOrResize, true);
@@ -122,6 +121,16 @@ export default function Autocomplete({
             setOpen(true);
             if (singleSelect && value.length === 1) setSearch("");
           }}
+          onMouseDown={(e) => {
+            if (open) {
+              e.preventDefault();
+              setOpen(false);
+              setSearch("");
+            } else if (inputRef.current === document.activeElement) {
+              setOpen(true);
+              if (singleSelect && value.length === 1) setSearch("");
+            }
+          }}
           readOnly={singleSelect && !open && value.length === 1}
         />
         {search || value.length > 0 ? (
@@ -169,14 +178,13 @@ export default function Autocomplete({
         createPortal(
           <>
             <div
-              className="fixed inset-0 z-[100]"
               onClick={() => {
                 setOpen(false);
                 setSearch("");
               }}
             />
             <div
-              className="border-cooper-gray-150 z-[101] rounded-md border bg-white shadow-lg"
+              className="border-cooper-gray-150 rounded-md border bg-white shadow-lg"
               style={dropdownStyle}
             >
               <div className="max-h-60 overflow-auto p-1">
