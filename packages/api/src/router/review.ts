@@ -146,7 +146,9 @@ export const reviewRouter = {
       }
 
       // Check if a CompaniesToLocations object already exists with the given companyId and locationId
-      if (input.locationId) {
+      if (input.locationId && input.companyId) {
+        const companyId = input.companyId;
+        const locationId = input.locationId;
         const existingRelation =
           await ctx.db.query.CompaniesToLocations.findFirst({
             where: and(
