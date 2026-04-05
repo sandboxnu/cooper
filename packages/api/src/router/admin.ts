@@ -113,8 +113,8 @@ async function getExpandedSearchEntityIds(db: CooperDb, search: string) {
   }
   for (const rv of textMatchedReviews) {
     reviewIds.add(rv.id);
-    companyIds.add(rv.companyId || "");
-    roleIds.add(rv.roleId || "");
+    companyIds.add(rv.companyId ?? "");
+    roleIds.add(rv.roleId ?? "");
   }
 
   if (companyIds.size === 0 && roleIds.size === 0 && reviewIds.size === 0) {
