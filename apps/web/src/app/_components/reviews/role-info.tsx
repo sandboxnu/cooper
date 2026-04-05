@@ -311,19 +311,19 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
       )}
       <div
         className={cn(
-          "flex w-full items-start justify-between py-5 lg:pl-6 lg:pr-6",
+          "flex w-full items-start py-5 lg:pl-6 lg:pr-6",
           compare.isCompareMode && "lg:pl-4 lg:pr-4",
         )}
       >
-        <CardHeader className="mx-0">
-          <div className="flex items-center justify-start space-x-4">
+        <CardHeader className="mx-0 w-full">
+          <div className="flex items-start space-x-2">
             {compare.isCompareMode ? (
               companyData ? (
                 <CompanyPopup
                   trigger={
                     <Logo
                       company={companyData}
-                      className="min-h-[82px] min-w-[82px]"
+                      className="min-h-[82px] min-w-[82px] "
                     />
                   }
                   company={companyData}
@@ -333,60 +333,72 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                 <div className="w-20 rounded-lg border bg-cooper-blue-200"></div>
               )
             ) : null}
-            <div className="flex flex-col justify-center">
-              <CardTitle>
+            <div className="flex flex-col w-full px-2">
+              <div className="flex justify-between items-start">
+                <div className="flex flex-row gap-2 items-start">
+                  <CardTitle>
+                    <div
+                      className={cn(
+                        "flex items-center gap-3 text-lg md:text-2xl",
+                        compare.isCompareMode &&
+                          compare.comparedRoleIds.length === 2 &&
+                          "md:text-xl",
+                      )}
+                    >
+                      <div>{roleObj.title}</div>
+                    </div>
+                  </CardTitle>
+                  {!compare.isCompareMode && (
+                    <ReportButton
+                      entityId={roleObj.id}
+                      entityType="company"
+                      iconOnly={true}
+                      className="pt-2"
+                    />
+                  )}
+                </div>
                 <div
                   className={cn(
-                    "flex items-center gap-3 text-lg md:text-2xl",
-                    compare.isCompareMode &&
-                      compare.comparedRoleIds.length === 2 &&
-                      "md:text-xl",
+                    "flex ml-5",
+                    compare.isCompareMode && "flex-row gap-2 items-center",
                   )}
                 >
-                  <div>{roleObj.title}</div>
+                  <FavoriteButton objId={roleObj.id} objType="role" />
+                  {compare.isCompareMode && (
+                    <button
+                      type="button"
+                      aria-label="Remove from comparison"
+                      onClick={() => compare.removeRoleId(roleObj.id)}
+                      className="hover:shadow-[0px_0px_0px_10px_rgb(231,231,231)] hover:bg-cooper-gray-150 rounded-full transition"
+                    >
+                      <Image
+                        src="/svg/exitComparisonButton.svg"
+                        width={14}
+                        height={14}
+                        alt="Remove from comparison"
+                        style={{ minHeight: "14px", minWidth: "14px" }}
+                      />
+                    </button>
+                  )}
                 </div>
-              </CardTitle>
-              <div className="align-center flex gap-2 text-cooper-gray-400">
+              </div>
+
+              <div className="flex justify-between text-cooper-gray-400">
                 {location.isSuccess && location.data && (
-                  <>
+                  <div>
                     {jobTypeLabel} • {prettyLocationName(location.data)}
-                  </>
+                  </div>
+                )}
+                {!compare.isCompareMode && (
+                  <div className="flex flex-col items-end gap-2">
+                    {averageStarRating}
+                  </div>
                 )}
               </div>
               {compare.isCompareMode && averageStarRating}
             </div>
           </div>
         </CardHeader>
-        <div
-          className={cn(
-            "flex",
-            !compare.isCompareMode && "items-end flex-col gap-2",
-            compare.isCompareMode && "flex-row gap-3 items-center",
-          )}
-        >
-          <FavoriteButton objId={roleObj.id} objType="role" />
-          {!compare.isCompareMode && (
-            <div className="flex flex-col items-end gap-2">
-              {averageStarRating}
-              <ReportButton entityId={roleObj.id} entityType="role" />
-            </div>
-          )}
-          {compare.isCompareMode && (
-            <button
-              type="button"
-              aria-label="Remove from comparison"
-              onClick={() => compare.removeRoleId(roleObj.id)}
-            >
-              <Image
-                src="/svg/exitComparisonButton.svg"
-                width={17}
-                height={17}
-                alt="Remove from comparison"
-                style={{ minHeight: "17px", minWidth: "17px" }}
-              />
-            </button>
-          )}
-        </div>
       </div>
       <div className="flex w-[100%] justify-between">
         <div

@@ -9,9 +9,9 @@ import { Card, CardHeader } from "@cooper/ui/card";
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { FavoriteButton } from "../shared/favorite-button";
-import { CompareControls } from "../compare/compare-ui";
 import { useState } from "react";
 import { useCompare } from "../compare/compare-context";
+import { Button } from "@cooper/ui/button";
 
 interface RoleCardPreviewProps {
   className?: string;
@@ -19,6 +19,7 @@ interface RoleCardPreviewProps {
   showDragHandle?: boolean;
   showFavorite?: boolean;
   isAlreadyCompared?: boolean;
+  currentlySelectedRoleId?: string | null;
 }
 
 export function RoleCardPreview({
@@ -27,6 +28,7 @@ export function RoleCardPreview({
   showDragHandle = false,
   showFavorite = true,
   isAlreadyCompared = false,
+  currentlySelectedRoleId = null,
 }: RoleCardPreviewProps) {
   // ===== COMPANY DATA ===== //
   const company = api.company.getById.useQuery({
@@ -51,6 +53,7 @@ export function RoleCardPreview({
   const [hovered, setHovered] = useState(false);
 
   const compare = useCompare();
+  console.log(compare.anchorRoleId);
 
   return (
     <Card
@@ -120,27 +123,44 @@ export function RoleCardPreview({
             {showFavorite && (
               <FavoriteButton objId={roleObj.id} objType="role" />
             )}
-            {hovered && (
-              <CompareControls anchorRoleId={role.data?.id} iconOnly />
+            {hovered && currentlySelectedRoleId && (
+              <Button
+                variant="outline"
+                className="hidden md:inline-flex items-center rounded-full transition hover:bg-cooper-gray-150 hover:shadow-[0px_0px_0px_12px_rgb(231,231,231)] border-none p-0 h-4"
+                onClick={() => {
+                  compare.enterCompareMode(currentlySelectedRoleId);
+                  compare.addRoleId(role.data?.id ?? "");
+                }}
+              >
+                <Image
+                  src="/svg/compareRole.svg"
+                  width={16}
+                  height={16}
+                  alt="Compare icon"
+                />
+              </Button>
             )}
           </div>
         )}
-        {compare.isCompareMode && hovered && !isAlreadyCompared && (
-          <div
-            onClick={(e) => {
-              e.stopPropagation();
-              compare.addRoleId(roleObj.id);
-            }}
-            className="flex self-center"
-          >
-            <Image
-              src="/svg/compareAdd.svg"
-              width={24}
-              height={24}
-              alt="Add to compare"
-            />
-          </div>
-        )}
+        {compare.isCompareMode &&
+          hovered &&
+          !isAlreadyCompared &&
+          compare.comparedRoleIds.length < 2 && (
+            <div
+              onClick={(e) => {
+                e.stopPropagation();
+                compare.addRoleId(roleObj.id);
+              }}
+              className="flex self-center"
+            >
+              <Image
+                src="/svg/compareAdd.svg"
+                width={24}
+                height={24}
+                alt="Add to compare"
+              />
+            </div>
+          )}
       </div>
     </Card>
   );

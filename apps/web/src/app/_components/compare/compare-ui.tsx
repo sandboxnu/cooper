@@ -13,37 +13,16 @@ import { useCompare } from "./compare-context";
 
 interface CompareControlsProps {
   anchorRoleId?: string | null;
-  iconOnly?: boolean;
 }
 
-export function CompareControls({
-  anchorRoleId,
-  iconOnly,
-}: CompareControlsProps) {
+export function CompareControls({ anchorRoleId }: CompareControlsProps) {
   const compare = useCompare();
 
   if (!anchorRoleId) {
     return null;
   }
 
-  if (iconOnly && !compare.isCompareMode) {
-    return (
-      <Button
-        variant="outline"
-        className="hidden md:inline-flex items-center rounded-full transition hover:bg-cooper-gray-150 hover:shadow-[0px_0px_0px_12px_rgb(231,231,231)] border-none p-0 h-4"
-        onClick={() => compare.enterCompareMode(anchorRoleId)}
-      >
-        <Image
-          src="/svg/compareRole.svg"
-          width={16}
-          height={16}
-          alt="Compare icon"
-        />
-      </Button>
-    );
-  }
-
-  if (!compare.isCompareMode && !iconOnly) {
+  if (!compare.isCompareMode) {
     return (
       <Button
         className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-[rgba(49,115,222,0.15)] bg-[#C4D4E9] px-[14px] py-2 text-sm font-semibold text-[#606060] transition hover:bg-[rgba(49,115,222,0.15)] h-9"
@@ -58,9 +37,7 @@ export function CompareControls({
         COMPARE
       </Button>
     );
-  }
-
-  if (compare.isCompareMode && !iconOnly) {
+  } else {
     return (
       <div className="flex items-center gap-2">
         <Button

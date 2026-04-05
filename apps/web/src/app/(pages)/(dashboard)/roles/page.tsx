@@ -663,6 +663,7 @@ export default function Roles() {
                           isRoleAlreadyCompared(item.id) && "bg-cooper-gray-50",
                         )}
                         isAlreadyCompared={isAlreadyCompared}
+                        currentlySelectedRoleId={selectedRole?.id ?? null}
                       />
                     </div>
                   );

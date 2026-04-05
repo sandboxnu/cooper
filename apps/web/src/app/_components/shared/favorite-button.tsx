@@ -33,16 +33,20 @@ export function FavoriteButton({ objId, objType }: FavoriteButtonProps) {
         : "/svg/bookmark.svg";
 
   return (
-    <Image
-      src={src}
-      alt="Bookmark icon"
-      width={13}
-      height={19}
-      style={{ minWidth: "13px", minHeight: "19px" }}
-      className={`cursor-pointer ${isLoading ? "opacity-50" : ""}`}
-      onClick={toggle}
+    <button
+      className="hover:bg-[rgb(231,231,231)] rounded-full transition px-3 py-2"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-    />
+      onClick={toggle}
+    >
+      <Image
+        src={src}
+        alt="Bookmark icon"
+        width={13}
+        height={19}
+        style={{ minWidth: "13px", minHeight: "19px" }}
+        className={`cursor-pointer ${isLoading ? "opacity-50" : ""} `}
+      />
+    </button>
   );
 }
