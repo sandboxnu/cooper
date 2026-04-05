@@ -1,6 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronDown } from "lucide-react";
@@ -42,6 +49,16 @@ const createSlug = (text: string): string => {
     .replace(/-+/g, "-") // Replace multiple hyphens with single hyphen
     .trim();
 };
+
+function isSameSearchParamsAsLocation(next: URLSearchParams): boolean {
+  if (typeof window === "undefined") return false;
+  const cur = new URLSearchParams(window.location.search);
+  if (cur.size !== next.size) return false;
+  for (const [k, v] of next.entries()) {
+    if (cur.get(k) !== v) return false;
+  }
+  return true;
+}
 
 export default function Roles() {
   const searchParams = useSearchParams();
@@ -120,12 +137,23 @@ export default function Roles() {
     },
   );
 
-  // Set the page when we get the page number from URL params
-  useEffect(() => {
+  const prevCompanyParamRef = useRef<string | null>(null);
+
+  useLayoutEffect(() => {
+    const prev = prevCompanyParamRef.current;
+    prevCompanyParamRef.current = companyParam;
+
+    if (!companyParam) {
+      if (prev != null) {
+        setCurrentPage(1);
+      }
+      return;
+    }
+
     if (pageNumberQuery.isSuccess && pageNumberQuery.data.found) {
       setCurrentPage(pageNumberQuery.data.page);
     }
-  }, [pageNumberQuery.isSuccess, pageNumberQuery.data]);
+  }, [companyParam, pageNumberQuery.isSuccess, pageNumberQuery.data]);
 
   // Only fetch the main list after we have the correct page number (if coming from URL)
   const shouldFetchList =
@@ -228,6 +256,50 @@ export default function Roles() {
     [],
   );
 
+  /** URL updates only from explicit sidebar clicks — avoids fighting the browser Back button when `useSearchParams()` lags `window.location`. */
+  const syncUrlToSelection = useCallback(
+    (item: RoleType | CompanyType) => {
+      const params = new URLSearchParams(
+        typeof window !== "undefined" ? window.location.search : "",
+      );
+      const currentSearch = params.get("search");
+      params.delete("search");
+
+      if (isRole(item)) {
+        const roleItem = item as RoleType & {
+          companyName?: string;
+          slug?: string;
+          companySlug?: string;
+        };
+        const companyName = roleItem.companyName ?? "";
+        const companySlug = roleItem.companySlug ?? createSlug(companyName);
+        const roleSlug = roleItem.slug;
+        if (!roleSlug) return;
+
+        params.set("company", companySlug);
+        params.set("role", roleSlug);
+        params.set("type", selectedType);
+        if (currentSearch) params.set("search", currentSearch);
+
+        if (!isSameSearchParamsAsLocation(params)) {
+          router.push(`/roles/?${params.toString()}`);
+        }
+        return;
+      }
+
+      const companyItem = item as CompanyType & { slug?: string };
+      params.delete("role");
+      params.set("company", companyItem.slug);
+      params.set("type", selectedType);
+      if (currentSearch) params.set("search", currentSearch);
+
+      if (!isSameSearchParamsAsLocation(params)) {
+        router.push(`/roles/?${params.toString()}`);
+      }
+    },
+    [router, selectedType, isRole],
+  );
+
   const [selectedItem, setSelectedItem] = useState<
     (RoleType | CompanyType) | undefined
   >();
@@ -236,19 +308,47 @@ export default function Roles() {
   const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const hasScrolledToItem = useRef(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
+  const prevListPageRef = useRef(currentPage);
 
-  useEffect(() => {
-    if (defaultItem) {
-      setSelectedItem(defaultItem);
+  useLayoutEffect(() => {
+    const pageChanged = prevListPageRef.current !== currentPage;
+    prevListPageRef.current = currentPage;
+
+    if (companyParam || roleParam) {
+      if (defaultItem) {
+        setSelectedItem(defaultItem);
+      }
+      return;
     }
-  }, [defaultItem]);
 
-  // Scroll to selected item only when coming from direct URL (not user clicks)
+    if (
+      !rolesAndCompanies.isSuccess ||
+      rolesAndCompanies.data.items.length === 0
+    ) {
+      return;
+    }
+
+    if (pageChanged && sidebarRef.current) {
+      sidebarRef.current.scrollTop = 0;
+    }
+    setSelectedItem(rolesAndCompanies.data.items[0]);
+  }, [
+    companyParam,
+    roleParam,
+    defaultItem,
+    currentPage,
+    rolesAndCompanies.isSuccess,
+    rolesAndCompanies.data,
+  ]);
+
   useEffect(() => {
+    if (!companyParam && !roleParam) {
+      hasScrolledToItem.current = false;
+      return;
+    }
     if (
       selectedItem &&
       rolesAndCompanies.isSuccess &&
-      (companyParam || roleParam) &&
       !hasScrolledToItem.current
     ) {
       const cardElement = cardRefs.current[selectedItem.id];
@@ -262,128 +362,8 @@ export default function Roles() {
     }
   }, [selectedItem, rolesAndCompanies.isSuccess, companyParam, roleParam]);
 
-  // Reset scroll flag when URL params are cleared
-  useEffect(() => {
-    if (!companyParam && !roleParam) {
-      hasScrolledToItem.current = false;
-    }
-  }, [companyParam, roleParam]);
-
-  useEffect(() => {
-    // updates the URL when a role or company is changed
-    // Don't update URL if query is still loading (prevents updating with stale data during page changes)
-    if (selectedItem && rolesAndCompanies.isSuccess) {
-      const currentUrl = new URLSearchParams(
-        typeof window !== "undefined" ? window.location.search : "",
-      );
-      const urlCompany = currentUrl.get("company");
-      const urlRole = currentUrl.get("role");
-      // Don't overwrite URL if it has a role but selectedItem is a company (would clear role)
-      if (urlRole && !isRole(selectedItem)) return;
-      // Skip URL update only when the URL already matches the selected item
-      if (urlCompany && urlRole && isRole(selectedItem)) {
-        const r = selectedItem as RoleType & {
-          slug?: string;
-          companySlug?: string;
-          companyName?: string;
-        };
-        const itemCompanySlug =
-          r.companySlug ?? createSlug(r.companyName ?? "");
-        if (r.slug === urlRole && itemCompanySlug === urlCompany) {
-          return;
-        }
-      }
-
-      const params = new URLSearchParams(window.location.search);
-
-      if (isRole(selectedItem)) {
-        // For roles, use company and role parameters
-        const roleItem = selectedItem as RoleType & {
-          companyName?: string;
-          slug?: string;
-          companySlug?: string;
-        };
-        const companyName = roleItem.companyName ?? "";
-        const companySlug = roleItem.companySlug ?? createSlug(companyName);
-        const roleSlug = roleItem.slug;
-
-        // Don't push if we don't have a valid role slug (would clear role param)
-        if (!roleSlug) return;
-
-        // Preserve search param
-        const currentSearch = params.get("search");
-        params.delete("search");
-
-        params.set("company", companySlug);
-        params.set("role", roleSlug);
-        params.set("type", selectedType);
-
-        // Add search back at the end
-        if (currentSearch) {
-          params.set("search", currentSearch);
-        }
-
-        router.push(`/roles/?${params.toString()}`);
-      } else {
-        // For companies, use the company parameter with the name
-        const companyItem = selectedItem as CompanyType & { slug?: string };
-        const companySlug = companyItem.slug;
-
-        // Preserve search param
-        const currentSearch = params.get("search");
-        params.delete("search");
-
-        params.delete("role");
-        params.set("company", companySlug);
-        params.set("type", selectedType);
-
-        // Add search back at the end
-        if (currentSearch) {
-          params.set("search", currentSearch);
-        }
-
-        router.push(`/roles/?${params.toString()}`);
-      }
-    }
-  }, [
-    selectedItem,
-    router,
-    companyParam,
-    roleParam,
-    isRole,
-    selectedType,
-    rolesAndCompanies.isSuccess,
-  ]);
   const [showRoleInfo, setShowRoleInfo] = useState(false); // State for toggling views on mobile
   const [showCompanyInfo, setShowCompanyInfo] = useState(false);
-
-  // Reset to page 1 when filter or search changes
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [selectedFilter, searchValue]);
-
-  // Scroll to top + select first item when page changes (but not when coming from URL)
-  useEffect(() => {
-    if (
-      rolesAndCompanies.isSuccess &&
-      rolesAndCompanies.data.items.length > 0 &&
-      !companyParam && // Only auto-select if no URL params
-      !roleParam
-    ) {
-      // Scroll sidebar to top
-      if (sidebarRef.current) {
-        sidebarRef.current.scrollTop = 0;
-      }
-      // Select first item on the new page
-      setSelectedItem(rolesAndCompanies.data.items[0]);
-    }
-  }, [
-    currentPage,
-    rolesAndCompanies.isSuccess,
-    rolesAndCompanies.data?.items,
-    companyParam,
-    roleParam,
-  ]);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -401,7 +381,23 @@ export default function Roles() {
 
   const handleFilterChange = (filters: FilterState) => {
     setAppliedFilters(filters);
-    setCurrentPage(1); // Reset to first page when filters change
+    setCurrentPage(1);
+    const prev = new URLSearchParams(
+      typeof window !== "undefined" ? window.location.search : "",
+    );
+    const next = new URLSearchParams();
+    const searchParam = prev.get("search");
+    const typeFromUrl = prev.get("type");
+    if (searchParam) next.set("search", searchParam);
+    if (
+      typeFromUrl === "roles" ||
+      typeFromUrl === "companies" ||
+      typeFromUrl === "all"
+    ) {
+      next.set("type", typeFromUrl);
+    }
+    const q = next.toString();
+    router.push(q ? `/roles/?${q}` : "/roles");
   };
 
   const isFiltering = useMemo(() => {
@@ -429,6 +425,19 @@ export default function Roles() {
       setSelectedType(typeParam);
     }
   }, [searchParams]);
+
+  // Keep `type` in the URL in sync when toggling Jobs/Companies while a role/company is linked
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    if (!params.get("company") && !params.get("role")) return;
+
+    const next = new URLSearchParams(window.location.search);
+    next.set("type", selectedType);
+    if (!isSameSearchParamsAsLocation(next)) {
+      router.push(`/roles/?${next.toString()}`);
+    }
+  }, [selectedType, router]);
 
   const totalPages =
     rolesAndCompanies.data &&
@@ -590,7 +599,7 @@ export default function Roles() {
                   selectedType={selectedType}
                 />
               </div>
-              {rolesAndCompanies.data.items.map((item, i) => {
+              {rolesAndCompanies.data.items.map((item) => {
                 if (item.type === "role") {
                   const roleItem = item as RoleType;
                   const isAlreadyCompared = isRoleAlreadyCompared(roleItem.id);
@@ -614,6 +623,7 @@ export default function Roles() {
                       }
                       onClick={() => {
                         setSelectedItem(roleItem);
+                        syncUrlToSelection(roleItem);
                         setShowRoleInfo(true); // Show RoleInfo on mobile
                       }}
                     >
@@ -660,11 +670,8 @@ export default function Roles() {
                         showFavorite={!compare.isCompareMode}
                         className={cn(
                           "hover:bg-cooper-gray-200 hover:cursor-pointer",
-                          selectedItem
-                            ? selectedItem.id === item.id &&
-                                "bg-cooper-cream-200 hover:bg-cooper-gray-200"
-                            : !i &&
-                                "bg-cooper-cream-200 hover:bg-cooper-gray-200",
+                          resolvedSelection?.id === item.id &&
+                            "bg-cooper-cream-200 hover:bg-cooper-gray-200",
                         )}
                       />
                     </div>
@@ -679,6 +686,7 @@ export default function Roles() {
                       onClick={(e) => {
                         e.preventDefault();
                         setSelectedItem(item);
+                        syncUrlToSelection(item);
                         setShowCompanyInfo(true);
                       }}
                     >
@@ -686,10 +694,8 @@ export default function Roles() {
                         companyObj={item}
                         className={cn(
                           "mb-4 hover:bg-cooper-gray-200 hover:cursor-pointer",
-                          selectedItem
-                            ? selectedItem.id === item.id &&
-                                "bg-cooper-cream-200"
-                            : !i && "bg-cooper-cream-200",
+                          resolvedSelection?.id === item.id &&
+                            "bg-cooper-cream-200",
                         )}
                       />
                     </div>
