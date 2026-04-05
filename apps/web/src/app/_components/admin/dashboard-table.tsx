@@ -592,16 +592,13 @@ export function AdminDashboardTable() {
   const filterItems = useCallback(
     (current: DashboardItem[]) => {
       let result = current;
-      const hasSearch = searchQuery.trim().length > 0;
 
-      if (!hasSearch) {
-        if (activeTab === "reviews") {
-          result = result.filter((i) => i.category === "review");
-        } else if (activeTab === "role") {
-          result = result.filter((i) => i.category === "role");
-        } else if (activeTab === "company") {
-          result = result.filter((i) => i.category === "company");
-        }
+      if (activeTab === "reviews") {
+        result = result.filter((i) => i.category === "review");
+      } else if (activeTab === "role") {
+        result = result.filter((i) => i.category === "role");
+      } else if (activeTab === "company") {
+        result = result.filter((i) => i.category === "company");
       }
 
       return result;
