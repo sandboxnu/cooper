@@ -360,7 +360,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                 <div
                   className={cn(
                     "flex ml-5",
-                    compare.isCompareMode && "flex-row gap-2 items-center",
+                    compare.isCompareMode && "flex-row gap-3 items-center",
                   )}
                 >
                   <FavoriteButton objId={roleObj.id} objType="role" />
@@ -369,7 +369,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                       type="button"
                       aria-label="Remove from comparison"
                       onClick={() => compare.removeRoleId(roleObj.id)}
-                      className="hover:shadow-[0px_0px_0px_10px_rgb(231,231,231)] hover:bg-cooper-gray-150 rounded-full transition"
+                      className="hover:shadow-[0px_0px_0px_12px_rgb(231,231,231)] hover:bg-cooper-gray-150 rounded-full transition"
                     >
                       <Image
                         src="/svg/exitComparisonButton.svg"
@@ -410,7 +410,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
           {companyData && !compare.isCompareMode && (
             <CompanyCardPreview
               companyObj={companyData}
-              className="col-span-2"
+              className="col-span-2 hover:bg-white hover:cursor-default"
             />
           )}
           <div className="col-span-2" id="on-the-job">

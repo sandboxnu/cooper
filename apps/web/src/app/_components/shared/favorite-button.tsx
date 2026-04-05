@@ -10,11 +10,6 @@ interface FavoriteButtonProps {
   objType: "role" | "company";
 }
 
-interface FavoriteButtonProps {
-  objId: string;
-  objType: "role" | "company";
-}
-
 export function FavoriteButton({ objId, objType }: FavoriteButtonProps) {
   const { isFavorited, toggle, isLoading, profileId } = useFavoriteToggle(
     objId,
@@ -34,18 +29,19 @@ export function FavoriteButton({ objId, objType }: FavoriteButtonProps) {
 
   return (
     <button
-      className="hover:bg-[rgb(231,231,231)] rounded-full transition px-3 py-2"
+      className="group relative inline-flex h-6 w-6 items-center justify-center rounded-full transition"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       onClick={toggle}
     >
+      <span className="pointer-events-none absolute inset-0 rounded-full bg-cooper-gray-150 opacity-0 shadow-[0_0_0_10px_rgb(231,231,231)] transition-opacity group-hover:opacity-100" />
       <Image
         src={src}
         alt="Bookmark icon"
         width={13}
         height={19}
         style={{ minWidth: "13px", minHeight: "19px" }}
-        className={`cursor-pointer ${isLoading ? "opacity-50" : ""} `}
+        className={`relative z-10 cursor-pointer ${isLoading ? "opacity-50" : ""} `}
       />
     </button>
   );
