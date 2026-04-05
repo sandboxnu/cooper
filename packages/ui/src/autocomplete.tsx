@@ -1,4 +1,4 @@
-import { useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { X } from "lucide-react";
@@ -35,6 +35,24 @@ export default function Autocomplete({
   const [search, setSearch] = useState("");
   const [dropdownStyle, setDropdownStyle] = useState<React.CSSProperties>({});
   const inputRef = useRef<HTMLInputElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const portalDropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const handlePointerDown = (e: PointerEvent) => {
+      const target = e.target as Node;
+      if (containerRef.current?.contains(target)) return;
+      if (portalDropdownRef.current?.contains(target)) return;
+      setOpen(false);
+      setSearch("");
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown, true);
+    return () =>
+      document.removeEventListener("pointerdown", handlePointerDown, true);
+  }, [open]);
 
   const filtered = useMemo(() => {
     if (!search) return options;
@@ -69,7 +87,6 @@ export default function Autocomplete({
     if (!open) return;
     updateDropdownPosition();
     const originalOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
 
     const handleScrollOrResize = () => updateDropdownPosition();
     window.addEventListener("scroll", handleScrollOrResize, true);
@@ -105,7 +122,7 @@ export default function Autocomplete({
   };
 
   return (
-    <div className="relative w-full">
+    <div ref={containerRef} className="relative w-full">
       <div className="relative">
         <input
           ref={inputRef}
@@ -121,6 +138,16 @@ export default function Autocomplete({
           onFocus={() => {
             setOpen(true);
             if (singleSelect && value.length === 1) setSearch("");
+          }}
+          onMouseDown={(e) => {
+            if (open) {
+              e.preventDefault();
+              setOpen(false);
+              setSearch("");
+            } else if (inputRef.current === document.activeElement) {
+              setOpen(true);
+              if (singleSelect && value.length === 1) setSearch("");
+            }
           }}
           readOnly={singleSelect && !open && value.length === 1}
         />
@@ -167,43 +194,35 @@ export default function Autocomplete({
         !isInMenuContent &&
         typeof document !== "undefined" &&
         createPortal(
-          <>
-            <div
-              className="fixed inset-0 z-[100]"
-              onClick={() => {
-                setOpen(false);
-                setSearch("");
-              }}
-            />
-            <div
-              className="border-cooper-gray-150 z-[101] rounded-md border bg-white shadow-lg"
-              style={dropdownStyle}
-            >
-              <div className="max-h-60 overflow-auto p-1">
-                {filtered.length === 0 ? (
-                  <div className="py-6 text-center text-sm text-gray-500">
-                    No results found.
-                  </div>
-                ) : (
-                  filtered.map((option) => {
-                    const isSelected = value.includes(option.value);
-                    return (
-                      <button
-                        key={option.value}
-                        className="hover:bg-cooper-gray-150 flex w-full items-center gap-2 rounded-sm px-[14px] py-2 hover:cursor-pointer"
-                        onClick={() => handleToggle(option.value)}
-                      >
-                        <Checkbox checked={isSelected} />
-                        <label className="flex-1 cursor-pointer text-left text-sm text-cooper-gray-400">
-                          {option.label}
-                        </label>
-                      </button>
-                    );
-                  })
-                )}
-              </div>
+          <div
+            ref={portalDropdownRef}
+            className="border-cooper-gray-150 rounded-md border bg-white shadow-lg"
+            style={dropdownStyle}
+          >
+            <div className="max-h-60 overflow-auto p-1">
+              {filtered.length === 0 ? (
+                <div className="py-6 text-center text-sm text-gray-500">
+                  No results found.
+                </div>
+              ) : (
+                filtered.map((option) => {
+                  const isSelected = value.includes(option.value);
+                  return (
+                    <button
+                      key={option.value}
+                      className="hover:bg-cooper-gray-150 flex w-full items-center gap-2 rounded-sm px-[14px] py-2 hover:cursor-pointer"
+                      onClick={() => handleToggle(option.value)}
+                    >
+                      <Checkbox checked={isSelected} />
+                      <label className="flex-1 cursor-pointer text-left text-sm text-cooper-gray-400">
+                        {option.label}
+                      </label>
+                    </button>
+                  );
+                })
+              )}
             </div>
-          </>,
+          </div>,
           document.body,
         )}
       {!open && value.length > 0 && !singleSelect && (
