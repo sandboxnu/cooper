@@ -183,7 +183,7 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
             }
 
             if (column.type === "loading") {
-              return <LoadingSlot key={column.key} roleId={column.roleId} />;
+              return <LoadingSlot key={column.key} />;
             }
 
             return (
@@ -191,26 +191,8 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
                 key={column.key}
                 className={"relative flex-1 rounded-lg bg-[#F1F0EC] transition"}
               >
-                {
-                  <button
-                    type="button"
-                    aria-label="Remove from comparison"
-                    className=" absolute right-3 top-3 z-10 flex h-6 w-6 items-center justify-center text-2xl leading-none transition rotate-45"
-                    onClick={() => compare.removeRoleId(column.role.id)}
-                  >
-                    <Image
-                      src="/svg/exitComparisonButton.svg"
-                      width={19}
-                      height={19}
-                      alt="Remove from comparison"
-                    />
-                  </button>
-                }
                 <div className="max-h-[78dvh] overflow-y-auto">
-                  <RoleInfo
-                    roleObj={column.role}
-                    isComparing={compare.isCompareMode}
-                  />
+                  <RoleInfo roleObj={column.role} />
                 </div>
               </div>
             );
@@ -221,28 +203,13 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
   );
 }
 
-function LoadingSlot({ roleId }: { roleId: string }) {
-  const compare = useCompare();
-
+function LoadingSlot() {
   return (
     <div
       className={
         "relative flex flex-1 items-center justify-center bg-white shadow-sm transition"
       }
     >
-      <button
-        type="button"
-        aria-label="Remove from comparison"
-        className="absolute right-3 top-3 z-10 flex h-6 w-6 items-center justify-center text-2xl leading-none transition hover:bg-cooper-gray-100"
-        onClick={() => compare.removeRoleId(roleId)}
-      >
-        <Image
-          src="/svg/exitComparisonButton.svg"
-          width={19}
-          height={19}
-          alt="Remove from comparison"
-        />
-      </button>
       <div className="flex flex-col items-center gap-3 px-6 text-center">
         <div className="border-t-cooper-blue-300 h-12 w-12 animate-spin rounded-full border-4 border-cooper-gray-200" />
         <p className="text-cooper-gray-500 text-sm">Loading role...</p>

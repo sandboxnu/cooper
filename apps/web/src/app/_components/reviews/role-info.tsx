@@ -31,20 +31,15 @@ import { ChevronDown } from "lucide-react";
 import { ReportButton } from "../shared/report-button";
 import { CompanyCardPreview } from "../companies/company-card-preview";
 import { FavoriteButton } from "../shared/favorite-button";
+import { useCompare } from "../compare/compare-context";
 
 interface RoleCardProps {
   className?: string;
   roleObj: RoleType;
   onBack?: () => void;
-  isComparing?: boolean;
 }
 
-export function RoleInfo({
-  className,
-  roleObj,
-  onBack,
-  isComparing,
-}: RoleCardProps) {
+export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
   const [ratingFilter, setRatingFilter] = useState<string[]>([]);
   const [locationFilter, setLocationFilter] = useState<string[]>([]);
   const [jobTypeFilter, setJobTypeFilter] = useState<string>("all");
@@ -54,6 +49,7 @@ export function RoleInfo({
     "rating" | "location" | "jobType" | null
   >(null);
   const reviews = api.review.getByRole.useQuery({ id: roleObj.id });
+  const compare = useCompare();
 
   const setFilterOpen = (key: "rating" | "location" | "jobType") => {
     setOpenFilterKey((prev) => (prev === key ? null : key));
@@ -316,7 +312,7 @@ export function RoleInfo({
       <div className="flex w-full flex-wrap items-start justify-between py-5 lg:pl-6 lg:pr-6">
         <CardHeader className="mx-0">
           <div className="flex items-center justify-start space-x-4">
-            {isComparing ? (
+            {compare.isCompareMode ? (
               companyData ? (
                 <CompanyPopup
                   trigger={
@@ -345,23 +341,43 @@ export function RoleInfo({
                   </>
                 )}
               </div>
-              {isComparing && averageStarRating}
+              {compare.isCompareMode && averageStarRating}
             </div>
           </div>
         </CardHeader>
-        <div className="mr-6 flex flex-col items-end gap-2">
+        <div
+          className={cn(
+            "flex ",
+            !compare.isCompareMode && "items-end flex-col gap-2",
+            compare.isCompareMode && "flex-row gap-3",
+          )}
+        >
           <FavoriteButton objId={roleObj.id} objType="role" />
-          {!isComparing && (
+          {!compare.isCompareMode && (
             <div className="flex flex-col items-end gap-2">
               {averageStarRating}
               <ReportButton entityId={roleObj.id} entityType="role" />
             </div>
           )}
+          {compare.isCompareMode && (
+            <button
+              type="button"
+              aria-label="Remove from comparison"
+              onClick={() => compare.removeRoleId(roleObj.id)}
+            >
+              <Image
+                src="/svg/exitComparisonButton.svg"
+                width={19}
+                height={19}
+                alt="Remove from comparison"
+              />
+            </button>
+          )}
         </div>
       </div>
       <div className="flex w-[100%] justify-between">
         <div className="grid w-full grid-cols-2 gap-5 px-3 lg:pl-6 lg:pr-6">
-          {companyData && !isComparing && (
+          {companyData && !compare.isCompareMode && (
             <CompanyCardPreview
               companyObj={companyData}
               className="col-span-2"
