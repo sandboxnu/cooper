@@ -83,7 +83,7 @@ export function AdminUserManagerTable() {
   };
 
   return (
-    <div className="flex h-full w-full flex-col gap-4">
+    <div className="flex h-full w-full flex-col gap-4 overflow-y-auto">
       <div className="flex flex-col gap-3 rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <input
