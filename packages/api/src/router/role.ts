@@ -238,11 +238,19 @@ export const roleRouter = {
     .input(z.object({ roleId: z.string() }))
     .query(async ({ ctx, input }) => {
       let reviews = await ctx.db.query.Review.findMany({
-        where: and(eq(Review.hidden, false), eq(Review.roleId, input.roleId)),
+        where: and(
+          eq(Review.hidden, false),
+          eq(Review.roleId, input.roleId),
+          eq(Review.status, Status.PUBLISHED),
+        ),
         orderBy: ordering.default,
       });
       reviews = await ctx.db.query.Review.findMany({
-        where: and(eq(Review.hidden, false), eq(Review.roleId, input.roleId)),
+        where: and(
+          eq(Review.hidden, false),
+          eq(Review.roleId, input.roleId),
+          eq(Review.status, Status.PUBLISHED),
+        ),
       });
 
       const calcAvg = (field: keyof ReviewType) => {

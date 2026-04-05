@@ -83,6 +83,7 @@ export const companyRouter = {
           FROM ${Company}
           LEFT JOIN ${Review}
             ON NULLIF(${Review.companyId}, '')::uuid = ${Company.id}
+            AND ${Review.status} = ${Status.PUBLISHED}
           ${whereClause}
           GROUP BY ${Company.id}
           ${havingClause}
@@ -123,6 +124,7 @@ export const companyRouter = {
           INNER JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
           INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
           WHERE ${Review.hidden} = false AND ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
+          AND ${Review.status} = ${Status.PUBLISHED}
         `);
 
         const companyIdsWithReviews = new Set(
@@ -317,12 +319,16 @@ export const companyRouter = {
 
       const calcAvg = (field: keyof ReviewType) => {
         return totalReviews > 0
-          ? reviews.reduce((sum, review) => sum + Number(review[field]), 0) /
+          ? reviews
+              .filter((review) => review.status === Status.PUBLISHED)
+              .reduce((sum, review) => sum + Number(review[field]), 0) /
               totalReviews
           : 0;
       };
 
-      const totalReviews = reviews.length;
+      const totalReviews = reviews.filter(
+        (review) => review.status === Status.PUBLISHED,
+      ).length;
 
       const averageOverallRating = calcAvg("overallRating");
       const averageHourlyPay = calcAvg("hourlyPay");
