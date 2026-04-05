@@ -110,7 +110,7 @@ export default function ComboBox({
           </div>
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[400px] p-0">
+      <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0">
         <Command>
           <CommandInput
             placeholder={searchPlaceholder}
