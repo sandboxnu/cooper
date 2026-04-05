@@ -305,8 +305,6 @@ export default function Roles() {
     ? (selectedRole ?? selectedItem)
     : selectedItem;
 
-  console.log("urlSelectedItem: ", urlSelectedItem);
-
   useEffect(() => {
     // updates the URL when a role or company is changed
     // Don't update URL if query is still loading (prevents updating with stale data during page changes)

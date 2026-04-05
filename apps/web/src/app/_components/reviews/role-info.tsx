@@ -309,7 +309,12 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
           />
         </svg>
       )}
-      <div className="flex w-full flex-wrap items-start justify-between py-5 lg:pl-6 lg:pr-6">
+      <div
+        className={cn(
+          "flex w-full items-start justify-between py-5 lg:pl-6 lg:pr-6",
+          compare.isCompareMode && "lg:pl-4 lg:pr-4",
+        )}
+      >
         <CardHeader className="mx-0">
           <div className="flex items-center justify-start space-x-4">
             {compare.isCompareMode ? (
@@ -330,7 +335,14 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             ) : null}
             <div className="flex flex-col justify-center">
               <CardTitle>
-                <div className="flex items-center gap-3 text-lg md:text-2xl">
+                <div
+                  className={cn(
+                    "flex items-center gap-3 text-lg md:text-2xl",
+                    compare.isCompareMode &&
+                      compare.comparedRoleIds.length === 2 &&
+                      "md:text-xl",
+                  )}
+                >
                   <div>{roleObj.title}</div>
                 </div>
               </CardTitle>
@@ -347,9 +359,9 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
         </CardHeader>
         <div
           className={cn(
-            "flex ",
+            "flex",
             !compare.isCompareMode && "items-end flex-col gap-2",
-            compare.isCompareMode && "flex-row gap-3",
+            compare.isCompareMode && "flex-row gap-3 items-center",
           )}
         >
           <FavoriteButton objId={roleObj.id} objType="role" />
@@ -367,16 +379,22 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             >
               <Image
                 src="/svg/exitComparisonButton.svg"
-                width={19}
-                height={19}
+                width={17}
+                height={17}
                 alt="Remove from comparison"
+                style={{ minHeight: "17px", minWidth: "17px" }}
               />
             </button>
           )}
         </div>
       </div>
       <div className="flex w-[100%] justify-between">
-        <div className="grid w-full grid-cols-2 gap-5 px-3 lg:pl-6 lg:pr-6">
+        <div
+          className={cn(
+            "grid w-full grid-cols-2 gap-5 px-3 lg:pl-6 lg:pr-6",
+            compare.isCompareMode && "lg:pl-4 lg:pr-4",
+          )}
+        >
           {companyData && !compare.isCompareMode && (
             <CompanyCardPreview
               companyObj={companyData}

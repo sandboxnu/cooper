@@ -167,7 +167,7 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
     ...loadingPlaceholders,
     ...placeholders,
   ];
-  console.log(columns.length);
+
   return (
     <div className="relative flex flex-col gap-4 p-2">
       <div className="relative min-h-[70dvh] w-full overflow-x-auto">
