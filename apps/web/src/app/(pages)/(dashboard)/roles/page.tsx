@@ -50,6 +50,7 @@ export default function Roles() {
   const searchValue = searchParams.get("search") ?? ""; // Get search query from URL
   const router = useRouter();
   const compare = useCompare();
+  const { exitCompareMode } = compare;
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -269,20 +270,57 @@ export default function Roles() {
     }
   }, [companyParam, roleParam]);
 
+  const resolvedSelection =
+    selectedItem ??
+    (rolesAndCompanies.data?.items.length
+      ? rolesAndCompanies.data.items[0]
+      : undefined);
+
+  const anchorRoleQuery = api.role.getById.useQuery(
+    { id: compare.anchorRoleId ?? "" },
+    {
+      enabled: compare.isCompareMode && !!compare.anchorRoleId,
+      retry: false,
+      refetchOnWindowFocus: false,
+    },
+  );
+
+  const selectedRole = useMemo(() => {
+    if (compare.isCompareMode && anchorRoleQuery.data) {
+      return { ...anchorRoleQuery.data, type: "role" as const };
+    }
+
+    if (!resolvedSelection) return null;
+    return isRole(resolvedSelection) ? resolvedSelection : null;
+  }, [compare.isCompareMode, anchorRoleQuery.data, resolvedSelection, isRole]);
+
+  const selectedCompany = useMemo(() => {
+    if (!resolvedSelection) return null;
+    return !isRole(resolvedSelection)
+      ? (resolvedSelection as CompanyType)
+      : null;
+  }, [resolvedSelection, isRole]);
+
+  const urlSelectedItem = compare.isCompareMode
+    ? (selectedRole ?? selectedItem)
+    : selectedItem;
+
+  console.log("urlSelectedItem: ", urlSelectedItem);
+
   useEffect(() => {
     // updates the URL when a role or company is changed
     // Don't update URL if query is still loading (prevents updating with stale data during page changes)
-    if (selectedItem && rolesAndCompanies.isSuccess) {
+    if (urlSelectedItem && rolesAndCompanies.isSuccess) {
       const currentUrl = new URLSearchParams(
         typeof window !== "undefined" ? window.location.search : "",
       );
       const urlCompany = currentUrl.get("company");
       const urlRole = currentUrl.get("role");
       // Don't overwrite URL if it has a role but selectedItem is a company (would clear role)
-      if (urlRole && !isRole(selectedItem)) return;
+      if (urlRole && !isRole(urlSelectedItem)) return;
       // Skip URL update only when the URL already matches the selected item
-      if (urlCompany && urlRole && isRole(selectedItem)) {
-        const r = selectedItem as RoleType & {
+      if (urlCompany && urlRole && isRole(urlSelectedItem)) {
+        const r = urlSelectedItem as RoleType & {
           slug?: string;
           companySlug?: string;
           companyName?: string;
@@ -296,9 +334,9 @@ export default function Roles() {
 
       const params = new URLSearchParams(window.location.search);
 
-      if (isRole(selectedItem)) {
+      if (isRole(urlSelectedItem)) {
         // For roles, use company and role parameters
-        const roleItem = selectedItem as RoleType & {
+        const roleItem = urlSelectedItem as RoleType & {
           companyName?: string;
           slug?: string;
           companySlug?: string;
@@ -326,7 +364,7 @@ export default function Roles() {
         router.push(`/roles/?${params.toString()}`);
       } else {
         // For companies, use the company parameter with the name
-        const companyItem = selectedItem as CompanyType & { slug?: string };
+        const companyItem = urlSelectedItem as CompanyType & { slug?: string };
         const companySlug = companyItem.slug;
 
         // Preserve search param
@@ -346,7 +384,7 @@ export default function Roles() {
       }
     }
   }, [
-    selectedItem,
+    urlSelectedItem,
     router,
     companyParam,
     roleParam,
@@ -356,6 +394,13 @@ export default function Roles() {
   ]);
   const [showRoleInfo, setShowRoleInfo] = useState(false); // State for toggling views on mobile
   const [showCompanyInfo, setShowCompanyInfo] = useState(false);
+
+  // Reset compare mode when navigating away from page
+  useEffect(() => {
+    return () => {
+      exitCompareMode();
+    };
+  }, [exitCompareMode]);
 
   // Reset to page 1 when filter or search changes
   useEffect(() => {
@@ -437,24 +482,6 @@ export default function Roles() {
       ? Math.ceil(rolesAndCompanies.data.totalCount / rolesAndCompaniesPerPage)
       : 0;
 
-  const resolvedSelection =
-    selectedItem ??
-    (rolesAndCompanies.data?.items.length
-      ? rolesAndCompanies.data.items[0]
-      : undefined);
-
-  const selectedRole = useMemo(() => {
-    if (!resolvedSelection) return null;
-    return isRole(resolvedSelection) ? (resolvedSelection as RoleType) : null;
-  }, [resolvedSelection, isRole]);
-
-  const selectedCompany = useMemo(() => {
-    if (!resolvedSelection) return null;
-    return !isRole(resolvedSelection)
-      ? (resolvedSelection as CompanyType)
-      : null;
-  }, [resolvedSelection, isRole]);
-
   // Helper to check if a role is already being compared
   const isRoleAlreadyCompared = (roleId: string) => {
     return (
@@ -494,9 +521,12 @@ export default function Roles() {
 
   useEffect(() => {
     if (selectedRole) {
+      if (selectedItem?.id !== selectedRole.id) {
+        setSelectedItem(selectedRole);
+      }
       roleInfoScrollRef.current?.scrollTo({ top: 0 });
     }
-  }, [selectedRole?.id]);
+  }, [selectedRole, selectedItem?.id]);
 
   return (
     <div className="flex h-full w-full flex-col">
@@ -528,7 +558,8 @@ export default function Roles() {
           </Button>
         </div>
         {selectedRole && (
-          <div className="hidden items-center gap-2 pr-5 md:flex">
+          <div className="hidden items-center gap-4 pr-5 md:flex">
+            <span className="h-6 border rounded-lg border-[#D9D9D9]" />
             <CompareControls anchorRoleId={selectedRole.id} />
           </div>
         )}
@@ -543,6 +574,7 @@ export default function Roles() {
                 "border-cooper-gray-150 bg-cooper-cream-100 w-full overflow-y-auto border-r-[1px] p-5 xl:rounded-none",
                 "md:w-[28%]", // Show as 28% width on md and above
                 (showRoleInfo || showCompanyInfo) && "hidden md:block", // Hide on mobile if RoleInfo is visible
+                compare.isCompareMode && "border-transparent",
               )}
             >
               <div className="pb-2 text-right">
@@ -613,45 +645,11 @@ export default function Roles() {
                           : undefined
                       }
                       onClick={() => {
+                        if (isAlreadyCompared) return;
                         setSelectedItem(roleItem);
                         setShowRoleInfo(true); // Show RoleInfo on mobile
                       }}
                     >
-                      {compare.isCompareMode && !isAlreadyCompared && (
-                        <button
-                          type="button"
-                          aria-label="Add to comparison"
-                          className="absolute right-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center transition"
-                          onClick={(event) => {
-                            event.stopPropagation();
-                            compare.enterCompareMode();
-                            compare.addRoleId(roleItem.id);
-                          }}
-                        >
-                          <svg
-                            width="30"
-                            height="30"
-                            viewBox="0 0 20 20"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <circle
-                              cx="10"
-                              cy="10"
-                              r="8"
-                              stroke="#B4B4B4"
-                              strokeWidth="2"
-                              fill="none"
-                            />
-                            <path
-                              d="M10 6v8M6 10h8"
-                              stroke="#B4B4B4"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                            />
-                          </svg>
-                        </button>
-                      )}
                       <RoleCardPreview
                         roleObj={roleItem}
                         showDragHandle={
@@ -659,13 +657,14 @@ export default function Roles() {
                         }
                         showFavorite={!compare.isCompareMode}
                         className={cn(
-                          "hover:bg-cooper-gray-200 hover:cursor-pointer",
+                          !isAlreadyCompared && " hover:cursor-pointer",
                           selectedItem
                             ? selectedItem.id === item.id &&
-                                "bg-cooper-cream-200 hover:bg-cooper-gray-200"
-                            : !i &&
-                                "bg-cooper-cream-200 hover:bg-cooper-gray-200",
+                                "bg-cooper-gray-50 "
+                            : !i && "bg-cooper-gray-50 ",
+                          isRoleAlreadyCompared(item.id) && "bg-cooper-gray-50",
                         )}
+                        isAlreadyCompared={isAlreadyCompared}
                       />
                     </div>
                   );
@@ -687,9 +686,8 @@ export default function Roles() {
                         className={cn(
                           "mb-4 hover:bg-cooper-gray-200 hover:cursor-pointer",
                           selectedItem
-                            ? selectedItem.id === item.id &&
-                                "bg-cooper-cream-200"
-                            : !i && "bg-cooper-cream-200",
+                            ? selectedItem.id === item.id && "bg-cooper-gray-50"
+                            : !i && "bg-cooper-gray-50",
                         )}
                       />
                     </div>

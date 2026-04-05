@@ -18,7 +18,6 @@ import { jobTypeOptions } from "../onboarding/constants";
 import StarGraph from "../shared/star-graph";
 import BarGraph from "./bar-graph";
 import CollapsableInfoCard from "./collapsable-info";
-import InfoCard from "./info-card";
 import { ReviewCard } from "./review-card";
 import RoundBarGraph from "./round-bar-graph";
 import { Button } from "node_modules/@cooper/ui/src/button";
@@ -30,14 +29,22 @@ import {
 } from "node_modules/@cooper/ui/src/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 import { ReportButton } from "../shared/report-button";
+import { CompanyCardPreview } from "../companies/company-card-preview";
+import { FavoriteButton } from "../shared/favorite-button";
 
 interface RoleCardProps {
   className?: string;
   roleObj: RoleType;
   onBack?: () => void;
+  isComparing?: boolean;
 }
 
-export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
+export function RoleInfo({
+  className,
+  roleObj,
+  onBack,
+  isComparing,
+}: RoleCardProps) {
   const [ratingFilter, setRatingFilter] = useState<string[]>([]);
   const [locationFilter, setLocationFilter] = useState<string[]>([]);
   const [jobTypeFilter, setJobTypeFilter] = useState<string>("all");
@@ -259,6 +266,30 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
         ? jobTypesFromReviews[0]
         : jobTypesFromReviews.sort().join(" / ");
 
+  const averageStarRating = (
+    <CardContent className="grid gap-2">
+      {reviews.isSuccess &&
+        reviews.data.length > 0 &&
+        (() => {
+          return (
+            <div className="align-center flex gap-2 text-cooper-gray-400">
+              <Image
+                src="/svg/star.svg"
+                alt="Star icon"
+                width={20}
+                height={20}
+              />
+              <div>
+                {Math.round(Number(averages.data?.averageOverallRating) * 100) /
+                  100}
+              </div>
+              ({reviews.data.length} review
+              {reviews.data.length !== 1 && "s"})
+            </div>
+          );
+        })()}
+    </CardContent>
+  );
   return (
     <div
       className={cn(
@@ -285,88 +316,57 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
       <div className="flex w-full flex-wrap items-start justify-between py-5 lg:pl-6 lg:pr-6">
         <CardHeader className="mx-0">
           <div className="flex items-center justify-start space-x-4">
-            {companyData ? (
-              <CompanyPopup
-                trigger={<Logo company={companyData} />}
-                company={companyData}
-                locations={finalLocations}
-              />
-            ) : (
-              <div className="h-20 w-20 rounded-lg border bg-cooper-blue-200"></div>
-            )}
-            <div className="flex h-20 flex-col justify-center">
+            {isComparing ? (
+              companyData ? (
+                <CompanyPopup
+                  trigger={
+                    <Logo
+                      company={companyData}
+                      className="min-h-[82px] min-w-[82px]"
+                    />
+                  }
+                  company={companyData}
+                  locations={finalLocations}
+                />
+              ) : (
+                <div className="w-20 rounded-lg border bg-cooper-blue-200"></div>
+              )
+            ) : null}
+            <div className="flex flex-col justify-center">
               <CardTitle>
                 <div className="flex items-center gap-3 text-lg md:text-2xl">
                   <div>{roleObj.title}</div>
-                  <div className="hidden text-sm font-normal text-cooper-gray-400 sm:block">
-                    {jobTypeLabel}
-                  </div>
                 </div>
               </CardTitle>
               <div className="align-center flex gap-2 text-cooper-gray-400">
-                {companyData?.name && (
-                  <CompanyPopup
-                    trigger={companyData.name}
-                    company={companyData}
-                    locations={finalLocations}
-                  />
-                )}
                 {location.isSuccess && location.data && (
-                  <> • {prettyLocationName(location.data)}</>
+                  <>
+                    {jobTypeLabel} • {prettyLocationName(location.data)}
+                  </>
                 )}
               </div>
+              {isComparing && averageStarRating}
             </div>
           </div>
         </CardHeader>
         <div className="mr-6 flex flex-col items-end gap-2">
-          <CardContent className="grid gap-2">
-            {reviews.isSuccess &&
-              reviews.data.length > 0 &&
-              (() => {
-                return (
-                  <div className="align-center flex gap-2 text-cooper-gray-400">
-                    <Image
-                      src="/svg/star.svg"
-                      alt="Star icon"
-                      width={20}
-                      height={20}
-                    />
-                    <div>
-                      {Math.round(
-                        Number(averages.data?.averageOverallRating) * 100,
-                      ) / 100}
-                    </div>
-                    ({reviews.data.length} review
-                    {reviews.data.length !== 1 && "s"})
-                  </div>
-                );
-              })()}
-          </CardContent>
-          <ReportButton entityId={roleObj.id} entityType="role" />
+          <FavoriteButton objId={roleObj.id} objType="role" />
+          {!isComparing && (
+            <div className="flex flex-col items-end gap-2">
+              {averageStarRating}
+              <ReportButton entityId={roleObj.id} entityType="role" />
+            </div>
+          )}
         </div>
       </div>
       <div className="flex w-[100%] justify-between">
         <div className="grid w-full grid-cols-2 gap-5 px-3 lg:pl-6 lg:pr-6">
-          <div className="col-span-2 h-full md:col-span-1" id="job-description">
-            <InfoCard title={"Job Description"}>
-              <div className="flex h-28 overflow-y-auto pr-4 text-[#5a5a5a] md:h-40">
-                {roleObj.description}
-              </div>
-            </InfoCard>
-          </div>
-          {companyData && (
-            <div className="col-span-2 h-full md:col-span-1" id="company">
-              <InfoCard title={`About ${companyData.name}`}>
-                <div className="flex gap-4 text-[#5a5a5a]">
-                  <Logo company={companyData} />
-                  <p className="h-28 overflow-y-auto md:h-40">
-                    {companyData.description}
-                  </p>
-                </div>
-              </InfoCard>
-            </div>
+          {companyData && !isComparing && (
+            <CompanyCardPreview
+              companyObj={companyData}
+              className="col-span-2"
+            />
           )}
-
           <div className="col-span-2" id="on-the-job">
             <CollapsableInfoCard title={"On the job"}>
               {averages.data && (
