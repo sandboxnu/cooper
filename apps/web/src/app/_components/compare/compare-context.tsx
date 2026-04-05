@@ -14,6 +14,7 @@ interface CompareContextValue {
   comparedRoleIds: string[];
   reservedSlots: number;
   anchorRoleId: string | null;
+  isDragging: boolean;
   maxColumns: number;
   enterCompareMode: (anchorRoleId: string) => void;
   exitCompareMode: () => void;
@@ -21,6 +22,7 @@ interface CompareContextValue {
   removeRoleId: (id: string) => void;
   addSlot: () => void;
   clear: () => void;
+  setIsDragging: (isDragging: boolean) => void;
 }
 
 const CompareContext = createContext<CompareContextValue | null>(null);
@@ -40,6 +42,7 @@ export function CompareProvider({ children }: { children: React.ReactNode }) {
   const [comparedRoleIds, setComparedRoleIds] = useState<string[]>([]);
   const [reservedSlots, setReservedSlots] = useState(0);
   const [anchorRoleId, setAnchorRoleId] = useState<string | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
 
   // Load persisted state
   useEffect(() => {
@@ -87,6 +90,7 @@ export function CompareProvider({ children }: { children: React.ReactNode }) {
     setIsCompareMode(false);
     setComparedRoleIds([]);
     setAnchorRoleId(null);
+    setIsDragging(false);
   }, []);
 
   const addRoleId = useCallback((id: string) => {
@@ -135,6 +139,7 @@ export function CompareProvider({ children }: { children: React.ReactNode }) {
       comparedRoleIds,
       reservedSlots,
       anchorRoleId,
+      isDragging,
       maxColumns: MAX_COLUMNS,
       enterCompareMode,
       exitCompareMode,
@@ -142,18 +147,21 @@ export function CompareProvider({ children }: { children: React.ReactNode }) {
       removeRoleId,
       addSlot,
       clear,
+      setIsDragging,
     }),
     [
       isCompareMode,
       comparedRoleIds,
       reservedSlots,
       anchorRoleId,
+      isDragging,
       enterCompareMode,
       exitCompareMode,
       addRoleId,
       removeRoleId,
       addSlot,
       clear,
+      setIsDragging,
     ],
   );
 

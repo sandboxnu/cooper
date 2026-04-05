@@ -262,6 +262,10 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
         ? jobTypesFromReviews[0]
         : jobTypesFromReviews.sort().join(" / ");
 
+  const isComparing =
+    compare.isCompareMode &&
+    (compare.comparedRoleIds.length >= 1 || compare.isDragging);
+
   const averageStarRating = (
     <CardContent className="grid gap-2">
       {reviews.isSuccess &&
@@ -416,8 +420,19 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
           <div className="col-span-2" id="on-the-job">
             <CollapsableInfoCard title={"On the job"}>
               {averages.data && (
-                <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
-                  <div className="flex flex-wrap gap-10 lg:flex-nowrap">
+                <div
+                  className={cn(
+                    "flex flex-wrap gap-10 overflow-auto xl:flex-nowrap",
+                    isComparing &&
+                      "flex-col gap-6 overflow-visible xl:flex-col",
+                  )}
+                >
+                  <div
+                    className={cn(
+                      "flex flex-wrap gap-10 lg:flex-nowrap",
+                      isComparing && "flex-col gap-6 lg:flex-col",
+                    )}
+                  >
                     <BarGraph
                       title={"Company culture rating"}
                       maxValue={5}
@@ -430,7 +445,12 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                     />
                   </div>
 
-                  <div className="flex flex-wrap gap-x-6">
+                  <div
+                    className={cn(
+                      "flex flex-wrap gap-x-6",
+                      isComparing && "gap-y-3",
+                    )}
+                  >
                     {perks &&
                       Object.entries(perks).map(
                         ([perk, value]: [string, number]) => (
@@ -466,8 +486,18 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
           {averages.data && (
             <div className="col-span-2" id="pay">
               <CollapsableInfoCard title={"Pay"}>
-                <div className="flex flex-col justify-between gap-3 md:flex-row">
-                  <div className="flex flex-col gap-2 md:w-[30%] md:gap-5">
+                <div
+                  className={cn(
+                    "flex flex-col justify-between gap-3 lg:flex-row",
+                    isComparing && "flex-col justify-start gap-3 lg:flex-col",
+                  )}
+                >
+                  <div
+                    className={cn(
+                      "flex flex-col gap-2 md:w-[30%] md:gap-5",
+                      isComparing && "w-full md:w-full",
+                    )}
+                  >
                     <div className="text-cooper-gray-400">Pay range</div>
                     {averages.data.minPay !== averages.data.maxPay ? (
                       <div className="flex flex-col gap-5">
@@ -487,7 +517,12 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                       </div>
                     )}
                   </div>
-                  <div className="flex flex-col justify-between gap-2 md:w-[30%] md:gap-5">
+                  <div
+                    className={cn(
+                      "flex flex-col justify-between gap-2 md:w-[30%] md:gap-5",
+                      isComparing && "w-full md:w-full",
+                    )}
+                  >
                     <div className="text-cooper-gray-400">Overtime work</div>
                     <div className="flex items-center gap-2 pl-1">
                       <div className="text-4xl text-[#141414]">
@@ -509,7 +544,12 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                       }
                     />
                   </div>
-                  <div className="flex flex-col justify-between gap-2 md:w-[30%] md:gap-5">
+                  <div
+                    className={cn(
+                      "flex flex-col justify-between gap-2 md:w-[30%] md:gap-5",
+                      isComparing && "w-full md:w-full",
+                    )}
+                  >
                     <div className="text-cooper-gray-400">
                       Paid time off (PTO)
                     </div>
@@ -720,7 +760,13 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
 
                   {sortedReviews && sortedReviews.length > 0 ? (
                     sortedReviews.map((review: ReviewType) => {
-                      return <ReviewCard reviewObj={review} key={review.id} />;
+                      return (
+                        <ReviewCard
+                          reviewObj={review}
+                          key={review.id}
+                          isComparing={isComparing}
+                        />
+                      );
                     })
                   ) : (
                     <div className="py-8 text-center text-cooper-gray-400">

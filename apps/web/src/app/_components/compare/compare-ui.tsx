@@ -196,13 +196,18 @@ function LoadingSlot() {
 }
 
 function DropSlot({ anchorRoleId }: { anchorRoleId: string }) {
-  const compare = useCompare();
+  const {
+    isCompareMode,
+    isDragging,
+    comparedRoleIds,
+    addRoleId,
+    setIsDragging,
+  } = useCompare();
   const [isActive, setIsActive] = useState(false);
-  const [isDragging, setIsDragging] = useState(false);
 
   useEffect(() => {
     const handleDragStart = (event: DragEvent) => {
-      if (!compare.isCompareMode) return;
+      if (!isCompareMode) return;
       const target = event.target;
       if (!(target instanceof Element)) return;
       if (target.closest('[draggable="true"]')) {
@@ -224,18 +229,18 @@ function DropSlot({ anchorRoleId }: { anchorRoleId: string }) {
       window.removeEventListener("dragend", handleDragEnd);
       window.removeEventListener("drop", handleDragEnd);
     };
-  }, [compare.isCompareMode]);
+  }, [isCompareMode, setIsDragging]);
 
   return (
     <div
       onDragOver={(event) => {
-        if (!compare.isCompareMode) return;
+        if (!isCompareMode) return;
         event.preventDefault();
         setIsActive(true);
       }}
       onDragLeave={() => setIsActive(false)}
       onDrop={(event) => {
-        if (!compare.isCompareMode) return;
+        if (!isCompareMode) return;
         event.preventDefault();
         setIsActive(false);
         setIsDragging(false);
@@ -244,8 +249,8 @@ function DropSlot({ anchorRoleId }: { anchorRoleId: string }) {
           event.dataTransfer.getData("text/plain");
         if (id) {
           // Prevent adding duplicate roles (including anchor role)
-          if (id !== anchorRoleId && !compare.comparedRoleIds.includes(id)) {
-            compare.addRoleId(id);
+          if (id !== anchorRoleId && !comparedRoleIds.includes(id)) {
+            addRoleId(id);
           }
         }
       }}
