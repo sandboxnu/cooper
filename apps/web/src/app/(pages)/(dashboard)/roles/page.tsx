@@ -301,13 +301,16 @@ export default function Roles() {
       : null;
   }, [resolvedSelection, isRole]);
 
-  const urlSelectedItem = compare.isCompareMode
-    ? (selectedRole ?? selectedItem)
-    : selectedItem;
+  // Keep URL/page state tied to sidebar selection only when not comparing.
+  // In compare mode, the anchor role can live on a different page and should
+  // not force pagination or sidebar list selection.
+  const urlSelectedItem = compare.isCompareMode ? null : selectedItem;
 
   useEffect(() => {
     // updates the URL when a role or company is changed
     // Don't update URL if query is still loading (prevents updating with stale data during page changes)
+    if (compare.isCompareMode) return;
+
     if (urlSelectedItem && rolesAndCompanies.isSuccess) {
       const currentUrl = new URLSearchParams(
         typeof window !== "undefined" ? window.location.search : "",
@@ -382,6 +385,7 @@ export default function Roles() {
       }
     }
   }, [
+    compare.isCompareMode,
     urlSelectedItem,
     router,
     companyParam,
@@ -480,6 +484,26 @@ export default function Roles() {
       ? Math.ceil(rolesAndCompanies.data.totalCount / rolesAndCompaniesPerPage)
       : 0;
 
+  const sidebarListKey = useMemo(() => {
+    const itemKey = (rolesAndCompanies.data?.items ?? [])
+      .map((item) => `${item.type}-${item.id}`)
+      .join("|");
+
+    return [
+      currentPage,
+      selectedFilter ?? "default",
+      selectedType,
+      searchValue,
+      itemKey,
+    ].join("::");
+  }, [
+    rolesAndCompanies.data?.items,
+    currentPage,
+    selectedFilter,
+    selectedType,
+    searchValue,
+  ]);
+
   // Helper to check if a role is already being compared
   const isRoleAlreadyCompared = (roleId: string) => {
     return (
@@ -518,13 +542,13 @@ export default function Roles() {
   };
 
   useEffect(() => {
-    if (selectedRole) {
+    if (!compare.isCompareMode && selectedRole) {
       if (selectedItem?.id !== selectedRole.id) {
         setSelectedItem(selectedRole);
       }
       roleInfoScrollRef.current?.scrollTo({ top: 0 });
     }
-  }, [selectedRole, selectedItem?.id]);
+  }, [compare.isCompareMode, selectedRole, selectedItem?.id]);
 
   return (
     <div className="flex h-full w-full flex-col">
@@ -575,132 +599,138 @@ export default function Roles() {
                 compare.isCompareMode && "border-transparent",
               )}
             >
-              <div className="pb-2 text-right">
-                <DropdownMenu>
-                  <DropdownMenuTrigger className="text-md mb-2">
-                    Sort By{" "}
-                    <span className="underline">
-                      {selectedFilter &&
-                        selectedFilter.charAt(0).toUpperCase() +
-                          selectedFilter.slice(1)}
-                    </span>
-                    <ChevronDown className="inline" />
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent>
-                    <DropdownMenuLabel className="flex flex-col text-center">
-                      <Button
-                        className={buttonStyle}
-                        onClick={() => setSelectedFilter("default")}
-                      >
-                        Default
-                      </Button>
-                      <Button
-                        className={buttonStyle}
-                        onClick={() => setSelectedFilter("newest")}
-                      >
-                        Newest
-                      </Button>
-                      <Button
-                        className={buttonStyle}
-                        onClick={() => setSelectedFilter("oldest")}
-                      >
-                        Oldest
-                      </Button>
-                      <Button
-                        className={buttonStyle}
-                        onClick={() => setSelectedFilter("rating")}
-                      >
-                        Rating
-                      </Button>
-                    </DropdownMenuLabel>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-                <RoleTypeSelector
-                  onSelectedTypeChange={setSelectedType}
-                  selectedType={selectedType}
-                />
-              </div>
-              {rolesAndCompanies.data.items.map((item, i) => {
-                if (item.type === "role") {
-                  const roleItem = item as RoleType;
-                  const isAlreadyCompared = isRoleAlreadyCompared(roleItem.id);
-                  return (
-                    <div
-                      ref={(el) => {
-                        cardRefs.current[item.id] = el;
-                      }}
-                      key={roleItem.id}
-                      className={cn(
-                        "relative mb-4 rounded-lg",
-                        compare.isCompareMode &&
-                          !isAlreadyCompared &&
-                          "cursor-grab active:cursor-grabbing",
-                      )}
-                      draggable={compare.isCompareMode && !isAlreadyCompared}
-                      onDragStart={
-                        compare.isCompareMode && !isAlreadyCompared
-                          ? (event) => handleRoleDragStart(event, roleItem)
-                          : undefined
-                      }
-                      onClick={() => {
-                        if (isAlreadyCompared) return;
-                        setSelectedItem(roleItem);
-                        setShowRoleInfo(true); // Show RoleInfo on mobile
-                      }}
-                    >
-                      <RoleCardPreview
-                        roleObj={roleItem}
-                        showDragHandle={
+              <div key={sidebarListKey}>
+                <div className="pb-2 text-right">
+                  <DropdownMenu>
+                    <DropdownMenuTrigger className="text-md mb-2">
+                      Sort By{" "}
+                      <span className="underline">
+                        {selectedFilter &&
+                          selectedFilter.charAt(0).toUpperCase() +
+                            selectedFilter.slice(1)}
+                      </span>
+                      <ChevronDown className="inline" />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent>
+                      <DropdownMenuLabel className="flex flex-col text-center">
+                        <Button
+                          className={buttonStyle}
+                          onClick={() => setSelectedFilter("default")}
+                        >
+                          Default
+                        </Button>
+                        <Button
+                          className={buttonStyle}
+                          onClick={() => setSelectedFilter("newest")}
+                        >
+                          Newest
+                        </Button>
+                        <Button
+                          className={buttonStyle}
+                          onClick={() => setSelectedFilter("oldest")}
+                        >
+                          Oldest
+                        </Button>
+                        <Button
+                          className={buttonStyle}
+                          onClick={() => setSelectedFilter("rating")}
+                        >
+                          Rating
+                        </Button>
+                      </DropdownMenuLabel>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                  <RoleTypeSelector
+                    onSelectedTypeChange={setSelectedType}
+                    selectedType={selectedType}
+                  />
+                </div>
+                {rolesAndCompanies.data.items.map((item, i) => {
+                  if (item.type === "role") {
+                    const roleItem = item as RoleType;
+                    const isAlreadyCompared = isRoleAlreadyCompared(
+                      roleItem.id,
+                    );
+                    return (
+                      <div
+                        ref={(el) => {
+                          cardRefs.current[item.id] = el;
+                        }}
+                        key={`role-${roleItem.id}`}
+                        className={cn(
+                          "relative mb-4 rounded-lg",
+                          compare.isCompareMode &&
+                            !isAlreadyCompared &&
+                            "cursor-grab active:cursor-grabbing",
+                        )}
+                        draggable={compare.isCompareMode && !isAlreadyCompared}
+                        onDragStart={
                           compare.isCompareMode && !isAlreadyCompared
+                            ? (event) => handleRoleDragStart(event, roleItem)
+                            : undefined
                         }
-                        showFavorite={!compare.isCompareMode}
-                        className={cn(
-                          !isAlreadyCompared && " hover:cursor-pointer",
-                          selectedItem
-                            ? selectedItem.id === item.id &&
-                                "bg-cooper-gray-50 "
-                            : !i && "bg-cooper-gray-50 ",
-                          isRoleAlreadyCompared(item.id) && "bg-cooper-gray-50",
-                        )}
-                        isAlreadyCompared={isAlreadyCompared}
-                        currentlySelectedRoleId={selectedRole?.id ?? null}
-                      />
-                    </div>
-                  );
-                } else {
-                  return (
-                    <div
-                      key={item.id}
-                      ref={(el) => {
-                        cardRefs.current[item.id] = el;
-                      }}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setSelectedItem(item);
-                        setShowCompanyInfo(true);
-                      }}
-                    >
-                      <CompanyCardPreview
-                        companyObj={item}
-                        className={cn(
-                          "mb-4 hover:bg-cooper-gray-200 hover:cursor-pointer",
-                          selectedItem
-                            ? selectedItem.id === item.id && "bg-cooper-gray-50"
-                            : !i && "bg-cooper-gray-50",
-                        )}
-                      />
-                    </div>
-                  );
-                }
-              })}
+                        onClick={() => {
+                          if (isAlreadyCompared) return;
+                          setSelectedItem(roleItem);
+                          setShowRoleInfo(true); // Show RoleInfo on mobile
+                        }}
+                      >
+                        <RoleCardPreview
+                          roleObj={roleItem}
+                          showDragHandle={
+                            compare.isCompareMode && !isAlreadyCompared
+                          }
+                          showFavorite={!compare.isCompareMode}
+                          className={cn(
+                            !isAlreadyCompared && " hover:cursor-pointer",
+                            selectedItem
+                              ? selectedItem.id === item.id &&
+                                  "bg-cooper-gray-50 "
+                              : !i && "bg-cooper-gray-50 ",
+                            isRoleAlreadyCompared(item.id) &&
+                              "bg-cooper-gray-50",
+                          )}
+                          isAlreadyCompared={isAlreadyCompared}
+                          currentlySelectedRoleId={selectedRole?.id ?? null}
+                        />
+                      </div>
+                    );
+                  } else {
+                    return (
+                      <div
+                        key={`company-${item.id}`}
+                        ref={(el) => {
+                          cardRefs.current[item.id] = el;
+                        }}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setSelectedItem(item);
+                          setShowCompanyInfo(true);
+                        }}
+                      >
+                        <CompanyCardPreview
+                          companyObj={item}
+                          className={cn(
+                            "mb-4 hover:bg-cooper-gray-200 hover:cursor-pointer",
+                            selectedItem
+                              ? selectedItem.id === item.id &&
+                                  "bg-cooper-gray-50"
+                              : !i && "bg-cooper-gray-50",
+                          )}
+                        />
+                      </div>
+                    );
+                  }
+                })}
 
-              {/* Pagination */}
-              <div className="mt-4">
-                <Pagination
-                  currentPage={currentPage}
-                  totalPages={totalPages}
-                  onPageChange={handlePageChange}
-                />
+                {/* Pagination */}
+                <div className="mt-4">
+                  <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={handlePageChange}
+                  />
+                </div>
               </div>
             </div>
             <div

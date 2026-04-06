@@ -53,7 +53,6 @@ export function RoleCardPreview({
   const [hovered, setHovered] = useState(false);
 
   const compare = useCompare();
-  console.log(compare.anchorRoleId);
 
   return (
     <Card
