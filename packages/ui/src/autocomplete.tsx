@@ -20,6 +20,7 @@ interface AutocompleteProps {
   singleSelect?: boolean;
   // whether the autocomplete is rendered within a menu content (for positioning)
   isInMenuContent?: boolean;
+  portalZIndex?: number;
 }
 
 export default function Autocomplete({
@@ -30,6 +31,7 @@ export default function Autocomplete({
   onSearchChange,
   singleSelect = false,
   isInMenuContent = false,
+  portalZIndex = 40,
 }: AutocompleteProps) {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
@@ -197,7 +199,7 @@ export default function Autocomplete({
           <div
             ref={portalDropdownRef}
             className="border-cooper-gray-150 rounded-md border bg-white shadow-lg"
-            style={dropdownStyle}
+            style={{ ...dropdownStyle, zIndex: portalZIndex }}
           >
             <div className="max-h-60 overflow-auto p-1">
               {filtered.length === 0 ? (

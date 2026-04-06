@@ -2,9 +2,16 @@ import { z } from "zod";
 
 import type { CompanyType, RoleType } from "@cooper/db/schema";
 import { asc, desc, sql } from "@cooper/db";
-import { Company, Review, Role } from "@cooper/db/schema";
+import { Company, JobType, Review, Role } from "@cooper/db/schema";
 
 import { publicProcedure, sortableProcedure } from "../trpc";
+
+/** UI / legacy filter tokens → canonical `Review.jobType` values */
+const JOB_TYPE_FILTER_ALIASES: Record<string, string> = {
+  "CO-OP": JobType.COOP,
+  COOP: JobType.COOP,
+  INTERNSHIP: JobType.INTERNSHIP,
+};
 import { performFuseSearch } from "../utils/fuzzyHelper";
 
 const ordering = {
@@ -185,13 +192,23 @@ export const roleAndCompanyRouter = {
         const roleIds = roles.map((r) => r.id);
         const reviewsWithJobType = await ctx.db.query.Review.findMany({
           where: (review, { inArray }) => inArray(review.roleId, roleIds),
-          columns: { companyId: true, jobType: true },
+          columns: { companyId: true, roleId: true, jobType: true },
         });
         for (const r of reviewsWithJobType) {
-          const cid = r.companyId;
-          const arr = companyJobTypesMap.get(cid) ?? [];
-          if (!arr.includes(r.jobType)) arr.push(r.jobType);
-          companyJobTypesMap.set(cid, arr);
+          if (!r.jobType) continue;
+          const jt = String(r.jobType);
+          if (r.companyId) {
+            const cid = String(r.companyId);
+            const cArr = companyJobTypesMap.get(cid) ?? [];
+            if (!cArr.includes(jt)) cArr.push(jt);
+            companyJobTypesMap.set(cid, cArr);
+          }
+          if (r.roleId) {
+            const rid = String(r.roleId);
+            const rArr = roleJobTypesMap.get(rid) ?? [];
+            if (!rArr.includes(jt)) rArr.push(jt);
+            roleJobTypesMap.set(rid, rArr);
+          }
         }
       }
 
@@ -416,11 +433,14 @@ export const roleAndCompanyRouter = {
         }
       }
 
+      const allowedJobTypesCanonical = (filters.jobTypes ?? []).map(
+        (t) => JOB_TYPE_FILTER_ALIASES[t] ?? t,
+      );
+
       // Apply all filters EXCEPT the `type` selector to produce baseFilteredItems
       const baseFilteredItems = combinedItems.filter((item) => {
         const allowedIndustries = filters.industries ?? [];
         const allowedLocations = filters.locations ?? [];
-        const allowedJobTypes = filters.jobTypes ?? [];
 
         const industryOk = industryFilterActive
           ? item.type === "company"
@@ -450,13 +470,16 @@ export const roleAndCompanyRouter = {
           ? (() => {
               if (item.type === "role") {
                 const roleJobTypes =
-                  roleJobTypesMap.get((item as RoleType).id) ?? [];
-                return roleJobTypes.some((jt) => allowedJobTypes.includes(jt));
+                  roleJobTypesMap.get(String((item as RoleType).id)) ?? [];
+                return roleJobTypes.some((jt) =>
+                  allowedJobTypesCanonical.includes(jt),
+                );
               }
-              // For companies, check if any of their roles' reviews match the job type filter
-              const cid = (item as CompanyType).id;
+              const cid = String((item as CompanyType).id);
               const jobTypes = companyJobTypesMap.get(cid) ?? [];
-              return jobTypes.some((jt) => allowedJobTypes.includes(jt));
+              return jobTypes.some((jt) =>
+                allowedJobTypesCanonical.includes(jt),
+              );
             })()
           : true;
 
