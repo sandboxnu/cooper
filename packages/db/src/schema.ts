@@ -6,7 +6,6 @@ import type {
   WorkEnvironmentType,
   WorkTermType,
   StatusType,
-  JobTypeType,
   ModerationEntityTypeType,
   ReportReasonType,
   UserRoleType,
