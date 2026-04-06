@@ -139,7 +139,7 @@ export default function Profile() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 pb-4">
               {reviews.length > 0 &&
                 reviews
                   .sort(
