@@ -44,3 +44,7 @@ dist/
 
 # turbo
 .turbo
+
+# nitro/h3 build output (auth-proxy)
+.nitro
+.output

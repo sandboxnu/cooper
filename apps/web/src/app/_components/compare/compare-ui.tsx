@@ -13,28 +13,19 @@ import { useCompare } from "./compare-context";
 
 interface CompareControlsProps {
   anchorRoleId?: string | null;
-  inTopBar?: boolean;
 }
 
-export function CompareControls({
-  anchorRoleId,
-  inTopBar = false,
-}: CompareControlsProps) {
+export function CompareControls({ anchorRoleId }: CompareControlsProps) {
   const compare = useCompare();
 
   if (!anchorRoleId) {
     return null;
   }
 
-  // When in top bar, only show controls if in compare mode
-  if (inTopBar && !compare.isCompareMode) {
-    return null;
-  }
-
   if (!compare.isCompareMode) {
     return (
       <Button
-        className="inline-flex items-center gap-1.5 rounded-md border border-[rgba(49,115,222,0.2)] bg-[rgba(49,115,222,0.15)] px-3 py-1.5 text-xs font-semibold text-[#606060] transition hover:bg-[rgba(49,115,222,0.25)]"
+        className="hidden md:inline-flex items-center gap-1.5 rounded-md border border-[rgba(49,115,222,0.2)] bg-[rgba(49,115,222,0.15)] px-3 py-1.5 text-xs font-semibold text-[#606060] transition hover:bg-[rgba(49,115,222,0.25)]"
         onClick={() => compare.enterCompareMode()}
       >
         <Image

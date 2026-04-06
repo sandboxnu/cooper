@@ -56,7 +56,7 @@ describe("Review Router", async () => {
 
     expect(db.query.Review.findMany).toHaveBeenCalledWith({
       orderBy: expect.anything(),
-      where: undefined,
+      where: and(eq(Review.hidden, false)),
     });
   });
 
@@ -69,7 +69,7 @@ describe("Review Router", async () => {
 
     expect(db.query.Review.findMany).toHaveBeenCalledWith({
       orderBy: expect.anything(),
-      where: and(eq(Review.workTerm, "SPRING")),
+      where: and(eq(Review.hidden, false), eq(Review.workTerm, "SPRING")),
     });
   });
 
@@ -82,7 +82,10 @@ describe("Review Router", async () => {
 
     expect(db.query.Review.findMany).toHaveBeenCalledWith({
       orderBy: expect.anything(),
-      where: and(eq(Review.workEnvironment, "REMOTE")),
+      where: and(
+        eq(Review.hidden, false),
+        eq(Review.workEnvironment, "REMOTE"),
+      ),
     });
   });
 
@@ -97,6 +100,7 @@ describe("Review Router", async () => {
     expect(db.query.Review.findMany).toHaveBeenCalledWith({
       orderBy: expect.anything(),
       where: and(
+        eq(Review.hidden, false),
         eq(Review.workTerm, "SPRING"),
         eq(Review.workEnvironment, "REMOTE"),
       ),
@@ -121,6 +125,7 @@ describe("Review Router", async () => {
     vi.mocked(db.query.Company.findMany).mockResolvedValue([
       {
         id: "1",
+        hidden: false,
         industry: "Technology",
         name: "Company 1",
         description: "Description 1",
@@ -131,6 +136,7 @@ describe("Review Router", async () => {
       },
       {
         id: "2",
+        hidden: false,
         industry: "Manufacturing",
         name: "Company 2",
         description: "Description 2",
@@ -141,6 +147,7 @@ describe("Review Router", async () => {
       },
       {
         id: "3",
+        hidden: false,
         industry: "Technology",
         name: "Company 3",
         description: "Description 3",
@@ -151,6 +158,7 @@ describe("Review Router", async () => {
       },
       {
         id: "4",
+        hidden: false,
         industry: "Manufacturing",
         name: "Company 4",
         description: "Description 4",
@@ -164,6 +172,7 @@ describe("Review Router", async () => {
     vi.mocked(db.query.Review.findMany).mockResolvedValue([
       {
         id: "1",
+        hidden: false,
         companyId: "1",
         overallRating: 4,
         hourlyPay: "25",
@@ -196,6 +205,7 @@ describe("Review Router", async () => {
       },
       {
         id: "2",
+        hidden: false,
         companyId: "3",
         overallRating: 2,
         hourlyPay: "15",

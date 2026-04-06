@@ -17,10 +17,12 @@ import { Location } from "./locations";
 import { JobType, WorkEnvironment, WorkTerm, Status } from "./misc";
 import { Profile } from "./profiles";
 import { ProfilesToReviews } from "./profliesToReviews";
+import { Report } from "./reports";
 import { Role } from "./roles";
 
 export const Review = pgTable("review", {
   id: uuid("id").notNull().primaryKey().defaultRandom(),
+  hidden: boolean("hidden").notNull().default(false),
   workTerm: varchar("workTerm").notNull(),
   workYear: integer("workYear").notNull(),
   overallRating: integer("overallRating").notNull(),
@@ -75,6 +77,7 @@ export const ReviewRelations = relations(Review, ({ one, many }) => ({
     references: [Location.id],
   }),
   profiles_to_reviews: many(ProfilesToReviews),
+  reports: many(Report),
 }));
 
 export const CreateReviewSchema = createInsertSchema(Review, {
@@ -105,6 +108,7 @@ export const CreateReviewSchema = createInsertSchema(Review, {
   status: z.nativeEnum(Status),
 }).omit({
   id: true,
+  hidden: true,
   createdAt: true,
   updatedAt: true,
 });

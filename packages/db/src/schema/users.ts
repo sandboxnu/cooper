@@ -1,8 +1,9 @@
 import { relations } from "drizzle-orm";
 import { pgTable, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
-
 import { Account } from "./accounts";
 import { Profile } from "./profiles";
+import { UserRole } from "./misc";
+import type { UserRoleType } from "./misc";
 
 export const User = pgTable("user", {
   id: uuid("id").notNull().primaryKey().defaultRandom(),
@@ -13,6 +14,11 @@ export const User = pgTable("user", {
     withTimezone: true,
   }),
   image: varchar("image", { length: 255 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  role: varchar("role", { length: 32 })
+    .$type<UserRoleType>()
+    .notNull()
+    .default(UserRole.STUDENT),
 });
 
 export const UserRelations = relations(User, ({ one, many }) => ({

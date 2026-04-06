@@ -14,13 +14,12 @@ import { Label } from "@cooper/ui/label";
 
 import type { RoleRequestType } from "../new-role-dialogue";
 import { api } from "~/trpc/react";
-import ComboBox from "../../combo-box";
 import { CompanyCardPreview } from "../../companies/company-card-preview";
 import { FormSection } from "../../form/form-section";
 import LocationBox from "../../location";
 import { industryOptions } from "../../onboarding/constants";
 import { FormLabel } from "../../themed/onboarding/form";
-import { Select } from "../../themed/onboarding/select";
+import FilterBody from "../../filters/filter-body";
 
 const filter = new Filter();
 const roleSchema = z.object({
@@ -256,17 +255,17 @@ export default function ExistingCompanyContent({
                 Company name<span className="text-cooper-red-300">*</span>
               </FormLabel>
 
-              <div className="relative w-full flex-1">
-                <ComboBox
-                  valuesAndLabels={(() => {
+              <div className="relative flex-1 w-full ">
+                <FilterBody
+                  variant="autocomplete"
+                  title="Company"
+                  options={(() => {
                     const allCompanies =
                       companies.data?.filter(Boolean).map((company) => ({
-                        value: company.id,
+                        id: company.id,
                         label: company.name,
+                        value: company.id,
                       })) ?? [];
-
-                    // If searching, filter and limit to top 50 matches
-                    // If not searching, show top 50 by default
                     if (companySearchTerm) {
                       const filtered = allCompanies.filter((c) =>
                         c.label
@@ -277,34 +276,25 @@ export default function ExistingCompanyContent({
                     }
                     return allCompanies.slice(0, 50);
                   })()}
-                  defaultLabel="Select company"
-                  searchPlaceholder="Select"
-                  searchEmpty="No company found."
-                  variant={"form"}
-                  currLabel={
+                  selectedOptions={
                     field.value &&
                     typeof field.value === "string" &&
                     field.value.length > 0
-                      ? (companies.data?.find((c) => c.id === field.value)
-                          ?.name ?? "")
-                      : ""
+                      ? [field.value]
+                      : []
                   }
-                  onChange={(searchValue) => setCompanySearchTerm(searchValue)}
-                  onClear={() => {
-                    field.onChange(undefined);
-                    setCompanySearchTerm("");
-                  }}
-                  onSelect={(selectedLabel) => {
-                    const selectedCompany = companies.data?.find(
-                      (c) => c.name === selectedLabel,
-                    );
-                    if (selectedCompany) {
-                      const newId = selectedCompany.id;
-                      field.onChange(newId);
-                      handleUpdateCompanyId(newId);
-                      if (newId) {
-                        setShowNewCompany(false);
-                      }
+                  placeholder="Select company"
+                  singleSelect
+                  onSearchChange={setCompanySearchTerm}
+                  onSelectionChange={(selected) => {
+                    const selectedId = selected[0];
+                    if (selectedId) {
+                      field.onChange(selectedId);
+                      handleUpdateCompanyId(selectedId);
+                      setShowNewCompany(false);
+                    } else {
+                      field.onChange(undefined);
+                      setSelectedCompanyId(undefined);
                     }
                     setCompanySearchTerm("");
                   }}
@@ -398,24 +388,27 @@ export default function ExistingCompanyContent({
                     Industry<span className="text-cooper-red-300">*</span>
                   </FormLabel>
                   <FormControl className="relative w-full">
-                    <Select
-                      options={industryOptions.sort((a, b) =>
-                        a.label.localeCompare(b.label),
-                      )}
-                      placeholder="Search by industry..."
-                      className="border-cooper-gray-150 text-cooper-gray-350 h-10 w-full border-2 bg-white text-sm"
-                      value={
+                    <FilterBody
+                      variant="autocomplete"
+                      title="Industry"
+                      options={[...industryOptions]
+                        .sort((a, b) => a.label.localeCompare(b.label))
+                        .map((o) => ({
+                          id: o.value,
+                          label: o.label,
+                          value: o.value,
+                        }))}
+                      selectedOptions={
                         field.value &&
                         typeof field.value === "string" &&
                         field.value.length > 0
-                          ? field.value
-                          : ""
+                          ? [field.value]
+                          : []
                       }
-                      onClear={() => field.onChange(undefined)}
-                      onChange={(e) => {
-                        const value =
-                          e.target.value === "" ? undefined : e.target.value;
-                        field.onChange(value);
+                      placeholder="Search by industry..."
+                      singleSelect
+                      onSelectionChange={(selected) => {
+                        field.onChange(selected[0] ?? undefined);
                       }}
                     />
                   </FormControl>
@@ -504,34 +497,35 @@ export default function ExistingCompanyContent({
                   Your Role<span className="text-cooper-red-300">*</span>
                 </FormLabel>
 
-                <div className="relative w-full flex-1">
-                  <Select
-                    onClear={() => {
-                      field.onChange(undefined);
-                    }}
+                <div className="relative flex-1 w-full">
+                  <FilterBody
+                    variant="autocomplete"
+                    title="Role"
                     options={
                       roles.data?.map((r) => ({
-                        value: r.id,
+                        id: r.id,
                         label: r.title,
+                        value: r.id,
                       })) ?? []
                     }
-                    disabled={!selectedCompanyId}
-                    className="border-cooper-gray-150 h-10 w-full text-sm"
-                    value={
+                    selectedOptions={
                       field.value &&
                       typeof field.value === "string" &&
                       field.value.length > 0
-                        ? field.value
-                        : ""
+                        ? [field.value]
+                        : []
                     }
-                    placeholder="Select"
-                    onChange={(e) => {
-                      const newRoleId =
-                        e.target.value === "" ? undefined : e.target.value;
-                      field.onChange(newRoleId);
+                    placeholder={
+                      selectedCompanyId
+                        ? "Select role"
+                        : "Select a company first"
+                    }
+                    singleSelect
+                    onSelectionChange={(selected) => {
+                      const selectedId = selected[0];
+                      field.onChange(selectedId ?? undefined);
                       setCreatingNewRole(false);
                     }}
-                    onFocus={() => setCreatingNewRole(false)}
                   />
                 </div>
                 <FormMessage />

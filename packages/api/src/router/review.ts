@@ -36,6 +36,7 @@ export const reviewRouter = {
       const { options } = input;
 
       const conditions = [
+        eq(Review.hidden, false),
         options?.cycle && eq(Review.workTerm, options.cycle),
         options?.term && eq(Review.workEnvironment, options.term),
       ].filter(Boolean);
@@ -62,7 +63,7 @@ export const reviewRouter = {
     .input(z.object({ id: z.string() }))
     .query(({ ctx, input }) => {
       return ctx.db.query.Review.findMany({
-        where: eq(Review.roleId, input.id),
+        where: and(eq(Review.hidden, false), eq(Review.roleId, input.id)),
       });
     }),
 
@@ -70,7 +71,7 @@ export const reviewRouter = {
     .input(z.object({ id: z.string() }))
     .query(({ ctx, input }) => {
       return ctx.db.query.Review.findMany({
-        where: eq(Review.companyId, input.id),
+        where: and(eq(Review.hidden, false), eq(Review.companyId, input.id)),
       });
     }),
 
@@ -78,7 +79,7 @@ export const reviewRouter = {
     .input(z.object({ id: z.string() }))
     .query(({ ctx, input }) => {
       return ctx.db.query.Review.findMany({
-        where: eq(Review.profileId, input.id),
+        where: and(eq(Review.hidden, false), eq(Review.profileId, input.id)),
       });
     }),
 
@@ -139,19 +140,21 @@ export const reviewRouter = {
       }
 
       // Check if a CompaniesToLocations object already exists with the given companyId and locationId
-      if (input.locationId) {
+      if (input.locationId && input.companyId) {
+        const companyId = input.companyId;
+        const locationId = input.locationId;
         const existingRelation =
           await ctx.db.query.CompaniesToLocations.findFirst({
             where: and(
-              eq(CompaniesToLocations.companyId, input.companyId),
-              eq(CompaniesToLocations.locationId, input.locationId ?? ""),
+              eq(CompaniesToLocations.companyId, companyId),
+              eq(CompaniesToLocations.locationId, locationId),
             ),
           });
 
         if (!existingRelation) {
           await ctx.db.insert(CompaniesToLocations).values({
-            locationId: input.locationId,
-            companyId: input.companyId,
+            locationId,
+            companyId,
           });
         }
       }

@@ -51,6 +51,7 @@ export default {
         "cooper-yellow-200": "#FFE4B3",
 
         // Cooper "Cream"
+        "cooper-cream-500": "#FFFEF6",
         "cooper-cream-400": "#F5F4ED",
         "cooper-cream-300": "#EBEAE2",
         "cooper-cream-200": "#F1EFE6",

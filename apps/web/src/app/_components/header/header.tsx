@@ -4,33 +4,48 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@cooper/ui/dropdown-menu";
 import { Button } from "@cooper/ui/button";
 
 import { api } from "~/trpc/react";
+import { handleSignOut } from "../auth/actions";
 import CooperLogo from "../cooper-logo";
 import MobileHeaderButton from "./mobile-header-button";
+import { Session } from "@cooper/auth";
+import { UserRole } from "node_modules/@cooper/db/src/schema/misc";
 
 interface HeaderProps {
   auth: React.ReactNode;
+  loggedIn: Session | null;
 }
 
 /**
  * This is the header component. (Probably) should use header-layout instead
  * @returns The header component for the website
  */
-export default function Header({ auth }: HeaderProps) {
+export default function Header({ auth, loggedIn }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const session = api.auth.getSession.useQuery();
+  const utils = api.useUtils();
+  const isStudentOrDeveloper =
+    session.data?.user.role === UserRole.STUDENT ||
+    session.data?.user.role === UserRole.DEVELOPER;
 
   if (isOpen) {
     return (
       <header className="bg-cooper-cream-100 z-50 flex min-h-[14rem] w-full flex-col justify-start outline outline-[1px]">
         <div className="z-10 ml-3 mr-4 flex h-[8dvh] min-h-10 items-center justify-between gap-4">
           <Link
-            href="/"
+            href="/roles"
             onClick={(e) => {
               e.preventDefault();
-              window.location.href = "/";
+              window.location.href = "/roles";
             }}
           >
             <h1 className="text-2xl font-bold text-cooper-blue-800">Cooper</h1>
@@ -48,14 +63,64 @@ export default function Header({ auth }: HeaderProps) {
 
         <div className="flex translate-y-8 justify-evenly">
           <MobileHeaderButton
-            href="/"
+            href="/roles"
             iconSrc="/svg/apartment.svg"
             label="Jobs"
             onClick={() => setIsOpen(false)}
           />
-          <MobileHeaderButton label="Profile" onClick={() => setIsOpen(false)}>
-            {auth}
-          </MobileHeaderButton>
+          {session.data ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="my-1 flex h-20 w-20 flex-col gap-1 border-cooper-blue-600 text-sm text-cooper-blue-600"
+                >
+                  <Image
+                    src={session.data.user.image ?? "/svg/defaultProfile.svg"}
+                    width={32}
+                    height={32}
+                    alt="Profile"
+                    className="rounded-full"
+                  />
+                  <span>Profile</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="center">
+                <DropdownMenuLabel className="text-center">
+                  <Link href="/profile" onClick={() => setIsOpen(false)}>
+                    Profile
+                  </Link>
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuLabel className="text-center">
+                  <Link
+                    href="/admin/dashboard"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Admin
+                  </Link>
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuLabel className="text-center">
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      utils.auth.getSession.setData(undefined, null);
+                      setIsOpen(false);
+                      await handleSignOut();
+                    }}
+                  >
+                    Log Out
+                  </button>
+                </DropdownMenuLabel>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            <MobileHeaderButton label="" onClick={() => setIsOpen(false)}>
+              {auth}
+            </MobileHeaderButton>
+          )}
         </div>
       </header>
     );
@@ -64,10 +129,10 @@ export default function Header({ auth }: HeaderProps) {
   return (
     <header className="bg-cooper-cream-100 outline-cooper-gray-150 z-10 flex w-full items-center justify-between px-6 py-4 outline outline-[1px]">
       <Link
-        href="/"
+        href="/roles"
         onClick={(e) => {
           e.preventDefault();
-          window.location.href = "/";
+          window.location.href = "/roles";
         }}
         className={"flex items-center justify-center gap-3"}
       >
@@ -84,7 +149,7 @@ export default function Header({ auth }: HeaderProps) {
         >
           Submit Feedback or Bug Reports
         </Link>
-        {session.data && (
+        {session.data && loggedIn && isStudentOrDeveloper && (
           <div className="flex items-center gap-8">
             <Link href="/review-form">
               <Button className="hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700 h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white">
@@ -97,31 +162,32 @@ export default function Header({ auth }: HeaderProps) {
         {auth}
       </div>
 
-      {/* Mobile new review button and burger button */}
+      {/* Mobile: when logged in show + and hamburger; when logged out show only login button */}
       <div className="justify-right mr-2 flex flex-shrink grid-cols-2 items-center gap-2 md:hidden">
-        {session.data ? (
-          <Link href="/review-form">
-            <Button className="hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700 h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white">
-              <span className="translate-y-[-2px] text-2xl md:hidden">+</span>
+        {session.data && loggedIn && isStudentOrDeveloper ? (
+          <>
+            <Link href="/review-form">
+              <Button className="hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700 h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white">
+                <span className="translate-y-[-2px] text-2xl md:hidden">+</span>
+              </Button>
+            </Link>
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsOpen((prev) => !prev)}
+            >
+              <Image
+                src="/svg/burgerMenu.svg"
+                width="32"
+                height="32"
+                alt="Hamburger Menu"
+              />
             </Button>
-          </Link>
+          </>
         ) : (
           auth
         )}
-
-        <Button
-          type="button"
-          variant="ghost"
-          size="icon"
-          onClick={() => setIsOpen((prev) => !prev)}
-        >
-          <Image
-            src="/svg/burgerMenu.svg"
-            width="32"
-            height="32"
-            alt="Hamburger Menu"
-          />
-        </Button>
       </div>
     </header>
   );
