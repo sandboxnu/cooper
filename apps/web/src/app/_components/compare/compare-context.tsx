@@ -13,13 +13,16 @@ interface CompareContextValue {
   isCompareMode: boolean;
   comparedRoleIds: string[];
   reservedSlots: number;
+  anchorRoleId: string | null;
+  isDragging: boolean;
   maxColumns: number;
-  enterCompareMode: () => void;
+  enterCompareMode: (anchorRoleId: string) => void;
   exitCompareMode: () => void;
   addRoleId: (id: string) => void;
   removeRoleId: (id: string) => void;
   addSlot: () => void;
   clear: () => void;
+  setIsDragging: (isDragging: boolean) => void;
 }
 
 const CompareContext = createContext<CompareContextValue | null>(null);
@@ -31,12 +34,15 @@ interface PersistedState {
   isCompareMode: boolean;
   comparedRoleIds: string[];
   reservedSlots: number;
+  anchorRoleId: string | null;
 }
 
 export function CompareProvider({ children }: { children: React.ReactNode }) {
   const [isCompareMode, setIsCompareMode] = useState(false);
   const [comparedRoleIds, setComparedRoleIds] = useState<string[]>([]);
   const [reservedSlots, setReservedSlots] = useState(0);
+  const [anchorRoleId, setAnchorRoleId] = useState<string | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
 
   // Load persisted state
   useEffect(() => {
@@ -48,6 +54,7 @@ export function CompareProvider({ children }: { children: React.ReactNode }) {
         setIsCompareMode(parsed.isCompareMode);
         setComparedRoleIds(parsed.comparedRoleIds);
         setReservedSlots(Math.min(parsed.reservedSlots, MAX_COLUMNS - 1));
+        setAnchorRoleId(parsed.anchorRoleId);
       }
     } catch {
       // ignore parse errors
@@ -61,21 +68,29 @@ export function CompareProvider({ children }: { children: React.ReactNode }) {
       isCompareMode,
       comparedRoleIds,
       reservedSlots,
+      anchorRoleId,
     };
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
-  }, [isCompareMode, comparedRoleIds, reservedSlots]);
+  }, [isCompareMode, comparedRoleIds, reservedSlots, anchorRoleId]);
 
-  const enterCompareMode = useCallback(() => {
-    setIsCompareMode(true);
-    setReservedSlots((slots) => {
-      if (slots > 0) return slots;
-      const hasCapacity = comparedRoleIds.length < MAX_COLUMNS - 1;
-      return hasCapacity ? 1 : 0;
-    });
-  }, [comparedRoleIds.length]);
+  const enterCompareMode = useCallback(
+    (nextAnchorRoleId: string) => {
+      setIsCompareMode(true);
+      setAnchorRoleId(nextAnchorRoleId);
+      setReservedSlots((slots) => {
+        if (slots > 0) return slots;
+        const hasCapacity = comparedRoleIds.length < MAX_COLUMNS - 1;
+        return hasCapacity ? 1 : 0;
+      });
+    },
+    [comparedRoleIds.length],
+  );
 
   const exitCompareMode = useCallback(() => {
     setIsCompareMode(false);
+    setComparedRoleIds([]);
+    setAnchorRoleId(null);
+    setIsDragging(false);
   }, []);
 
   const addRoleId = useCallback((id: string) => {
@@ -87,9 +102,23 @@ export function CompareProvider({ children }: { children: React.ReactNode }) {
     setReservedSlots((slots) => Math.max(0, slots - 1));
   }, []);
 
-  const removeRoleId = useCallback((id: string) => {
-    setComparedRoleIds((prev) => prev.filter((roleId) => roleId !== id));
-  }, []);
+  const removeRoleId = useCallback(
+    (id: string) => {
+      if (comparedRoleIds.length === 0) {
+        setIsCompareMode(false);
+      } else if (anchorRoleId === id) {
+        const newAnchorRoleId =
+          comparedRoleIds.find((roleId) => roleId !== id) ?? null;
+        setAnchorRoleId(newAnchorRoleId);
+        setComparedRoleIds((prev) =>
+          prev.filter((roleId) => roleId !== newAnchorRoleId),
+        );
+      } else {
+        setComparedRoleIds((prev) => prev.filter((roleId) => roleId !== id));
+      }
+    },
+    [anchorRoleId, comparedRoleIds],
+  );
 
   const addSlot = useCallback(() => {
     setReservedSlots((slots) => {
@@ -109,6 +138,8 @@ export function CompareProvider({ children }: { children: React.ReactNode }) {
       isCompareMode,
       comparedRoleIds,
       reservedSlots,
+      anchorRoleId,
+      isDragging,
       maxColumns: MAX_COLUMNS,
       enterCompareMode,
       exitCompareMode,
@@ -116,17 +147,21 @@ export function CompareProvider({ children }: { children: React.ReactNode }) {
       removeRoleId,
       addSlot,
       clear,
+      setIsDragging,
     }),
     [
       isCompareMode,
       comparedRoleIds,
       reservedSlots,
+      anchorRoleId,
+      isDragging,
       enterCompareMode,
       exitCompareMode,
       addRoleId,
       removeRoleId,
       addSlot,
       clear,
+      setIsDragging,
     ],
   );
 

@@ -25,6 +25,7 @@ import {
   SelectValue,
 } from "@cooper/ui/select";
 import { Textarea } from "@cooper/ui/textarea";
+import { cn } from "@cooper/ui";
 
 import { api } from "~/trpc/react";
 
@@ -32,12 +33,14 @@ interface ReportButtonProps {
   entityType: "role" | "company" | "review";
   entityId: string;
   iconOnly?: boolean;
+  className?: string;
 }
 
 export function ReportButton({
   entityType,
   entityId,
   iconOnly,
+  className,
 }: ReportButtonProps) {
   const { toast } = useCustomToast();
   const [isOpen, setIsOpen] = useState(false);
@@ -85,7 +88,10 @@ export function ReportButton({
 
   return (
     <>
-      <button onClick={() => setIsOpen(true)} className="text-cooper-gray-300">
+      <button
+        onClick={() => setIsOpen(true)}
+        className={cn("text-cooper-gray-300", className)}
+      >
         <span className="flex flex-row gap-2">
           <Image
             src="/svg/reviewReport.svg"

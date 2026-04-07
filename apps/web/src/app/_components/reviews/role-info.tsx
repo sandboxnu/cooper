@@ -17,7 +17,6 @@ import { jobTypeOptions } from "../onboarding/constants";
 import StarGraph from "../shared/star-graph";
 import BarGraph from "./bar-graph";
 import CollapsableInfoCard from "./collapsable-info";
-import InfoCard from "./info-card";
 import { ReviewCard } from "./review-card";
 import RoundBarGraph from "./round-bar-graph";
 import type { ReviewType, RoleType } from "@cooper/db/schema";
@@ -31,6 +30,9 @@ import {
 import { Button } from "@cooper/ui/button";
 import { ChevronDown } from "lucide-react";
 import { ReportButton } from "../shared/report-button";
+import { CompanyCardPreview } from "../companies/company-card-preview";
+import { FavoriteButton } from "../shared/favorite-button";
+import { useCompare } from "../compare/compare-context";
 
 interface RoleCardProps {
   className?: string;
@@ -48,6 +50,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     "rating" | "location" | "jobType" | null
   >(null);
   const reviews = api.review.getByRole.useQuery({ id: roleObj.id });
+  const compare = useCompare();
 
   const setFilterOpen = (key: "rating" | "location" | "jobType") => {
     setOpenFilterKey((prev) => (prev === key ? null : key));
@@ -275,6 +278,34 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
         ? jobTypesFromReviews[0]
         : jobTypesFromReviews.sort().join(" / ");
 
+  const isComparing =
+    compare.isCompareMode &&
+    (compare.comparedRoleIds.length >= 1 || compare.isDragging);
+
+  const averageStarRating = (
+    <CardContent className="grid gap-2">
+      {reviews.isSuccess &&
+        reviews.data.length > 0 &&
+        (() => {
+          return (
+            <div className="align-center flex gap-2 text-cooper-gray-400">
+              <Image
+                src="/svg/star.svg"
+                alt="Star icon"
+                width={20}
+                height={20}
+              />
+              <div>
+                {Math.round(Number(averages.data?.averageOverallRating) * 100) /
+                  100}
+              </div>
+              ({reviews.data.length} review
+              {reviews.data.length !== 1 && "s"})
+            </div>
+          );
+        })()}
+    </CardContent>
+  );
   return (
     <div
       className={cn(
@@ -298,96 +329,126 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
           />
         </svg>
       )}
-      <div className="flex w-full flex-wrap items-start justify-between py-5 lg:pl-6 lg:pr-6">
-        <CardHeader className="mx-0">
-          <div className="flex items-center justify-start space-x-4">
-            {companyData ? (
-              <CompanyPopup
-                trigger={<Logo company={companyData} />}
-                company={companyData}
-                locations={finalLocations}
-              />
-            ) : (
-              <div className="h-20 w-20 rounded-lg border bg-cooper-blue-200"></div>
-            )}
-            <div className="flex h-20 flex-col justify-center">
-              <CardTitle>
-                <div className="flex items-center gap-3 text-lg md:text-2xl">
-                  <div>{roleObj.title}</div>
-                  <div className="hidden text-sm font-normal text-cooper-gray-400 sm:block">
-                    {jobTypeLabel}
-                  </div>
+      <div
+        className={cn(
+          "flex w-full items-start py-5 lg:pl-6 lg:pr-6",
+          compare.isCompareMode && "lg:pl-4 lg:pr-4",
+        )}
+      >
+        <CardHeader className="mx-0 w-full">
+          <div className="flex items-start space-x-2">
+            {compare.isCompareMode ? (
+              companyData ? (
+                <CompanyPopup
+                  trigger={
+                    <Logo
+                      company={companyData}
+                      className="min-h-[82px] min-w-[82px] "
+                    />
+                  }
+                  company={companyData}
+                  locations={finalLocations}
+                />
+              ) : (
+                <div className="w-20 rounded-lg border bg-cooper-blue-200"></div>
+              )
+            ) : null}
+            <div className="flex flex-col w-full px-2">
+              <div className="flex justify-between items-start">
+                <div className="flex flex-row gap-2 items-start">
+                  <CardTitle>
+                    <div
+                      className={cn(
+                        "flex items-center gap-3 text-lg md:text-2xl",
+                        compare.isCompareMode &&
+                          compare.comparedRoleIds.length === 2 &&
+                          "md:text-xl",
+                      )}
+                    >
+                      <div>{roleObj.title}</div>
+                    </div>
+                  </CardTitle>
+                  {!compare.isCompareMode && (
+                    <ReportButton
+                      entityId={roleObj.id}
+                      entityType="company"
+                      iconOnly={true}
+                      className="pt-2"
+                    />
+                  )}
                 </div>
-              </CardTitle>
-              <div className="align-center flex gap-2 text-cooper-gray-400">
-                {companyData?.name && (
-                  <CompanyPopup
-                    trigger={companyData.name}
-                    company={companyData}
-                    locations={finalLocations}
-                  />
-                )}
+                <div
+                  className={cn(
+                    "flex ml-5",
+                    compare.isCompareMode && "flex-row gap-3 items-center",
+                  )}
+                >
+                  <FavoriteButton objId={roleObj.id} objType="role" />
+                  {compare.isCompareMode && (
+                    <button
+                      type="button"
+                      aria-label="Remove from comparison"
+                      onClick={() => compare.removeRoleId(roleObj.id)}
+                      className="hover:shadow-[0px_0px_0px_12px_rgb(231,231,231)] hover:bg-cooper-gray-150 rounded-full transition"
+                    >
+                      <Image
+                        src="/svg/exitComparisonButton.svg"
+                        width={14}
+                        height={14}
+                        alt="Remove from comparison"
+                        style={{ minHeight: "14px", minWidth: "14px" }}
+                      />
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              <div className="flex justify-between text-cooper-gray-400">
                 {location.isSuccess && location.data && (
-                  <> • {prettyLocationName(location.data)}</>
+                  <div>
+                    {jobTypeLabel} • {prettyLocationName(location.data)}
+                  </div>
+                )}
+                {!compare.isCompareMode && (
+                  <div className="flex flex-col items-end gap-2">
+                    {averageStarRating}
+                  </div>
                 )}
               </div>
+              {compare.isCompareMode && averageStarRating}
             </div>
           </div>
         </CardHeader>
-        <div className="flex flex-col items-end mr-6 gap-2">
-          <CardContent className="grid gap-2">
-            {reviews.isSuccess &&
-              reviews.data.length > 0 &&
-              (() => {
-                return (
-                  <div className="align-center flex gap-2 text-cooper-gray-400">
-                    <Image
-                      src="/svg/star.svg"
-                      alt="Star icon"
-                      width={20}
-                      height={20}
-                    />
-                    <div>
-                      {Math.round(
-                        Number(averages.data?.averageOverallRating) * 100,
-                      ) / 100}
-                    </div>
-                    ({reviews.data.length} review
-                    {reviews.data.length !== 1 && "s"})
-                  </div>
-                );
-              })()}
-          </CardContent>
-          <ReportButton entityId={roleObj.id} entityType="role" />
-        </div>
       </div>
       <div className="flex w-[100%] justify-between">
-        <div className="grid w-full grid-cols-2 gap-5 px-3 lg:pl-6 lg:pr-6">
-          <div className="col-span-2 h-full md:col-span-1" id="job-description">
-            <InfoCard title={"Job Description"}>
-              <div className="flex h-28 overflow-y-auto pr-4 text-[#5a5a5a] md:h-40">
-                {roleObj.description}
-              </div>
-            </InfoCard>
-          </div>
-          {companyData && (
-            <div className="col-span-2 h-full md:col-span-1" id="company">
-              <InfoCard title={`About ${companyData.name}`}>
-                <div className="flex gap-4 text-[#5a5a5a]">
-                  <Logo company={companyData} />
-                  <p className="h-28 overflow-y-auto md:h-40">
-                    {companyData.description}
-                  </p>
-                </div>
-              </InfoCard>
-            </div>
+        <div
+          className={cn(
+            "grid w-full grid-cols-2 gap-5 px-3 lg:pl-6 lg:pr-6",
+            compare.isCompareMode && "lg:pl-4 lg:pr-4",
           )}
-
+        >
+          {companyData && !compare.isCompareMode && (
+            <CompanyCardPreview
+              companyObj={companyData}
+              className="col-span-2 hover:bg-white hover:cursor-default"
+            />
+          )}
           <div className="col-span-2" id="on-the-job">
             <CollapsableInfoCard title={"On the job"}>
               {averages.data && (
-                <div className="flex flex-wrap gap-10 overflow-auto xl:flex-nowrap">
-                  <div className="flex flex-wrap gap-10 lg:flex-nowrap">
+                <div
+                  className={cn(
+                    "flex flex-wrap gap-10 overflow-auto xl:flex-nowrap",
+                    isComparing &&
+                      "flex-col gap-6 overflow-visible xl:flex-col",
+                  )}
+                >
+                  <div
+                    className={cn(
+                      "flex flex-wrap gap-10 lg:flex-nowrap",
+                      isComparing && "flex-col gap-6 lg:flex-col",
+                    )}
+                  >
                     <BarGraph
                       title={"Company culture rating"}
                       maxValue={5}
@@ -400,7 +461,12 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                     />
                   </div>
 
-                  <div className="flex flex-wrap gap-x-6">
+                  <div
+                    className={cn(
+                      "flex flex-wrap gap-x-6",
+                      isComparing && "gap-y-3",
+                    )}
+                  >
                     {perks &&
                       Object.entries(perks).map(
                         ([perk, value]: [string, number]) => (
@@ -436,8 +502,18 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
           {averages.data && (
             <div className="col-span-2" id="pay">
               <CollapsableInfoCard title={"Pay"}>
-                <div className="flex flex-col justify-between gap-3 md:flex-row">
-                  <div className="flex flex-col gap-2 md:w-[30%] md:gap-5">
+                <div
+                  className={cn(
+                    "flex flex-col justify-between gap-3 lg:flex-row",
+                    isComparing && "flex-col justify-start gap-3 lg:flex-col",
+                  )}
+                >
+                  <div
+                    className={cn(
+                      "flex flex-col gap-2 md:w-[30%] md:gap-5",
+                      isComparing && "w-full md:w-full",
+                    )}
+                  >
                     <div className="text-cooper-gray-400">Pay range</div>
                     {averages.data.minPay !== averages.data.maxPay ? (
                       <div className="flex flex-col gap-5">
@@ -457,7 +533,12 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                       </div>
                     )}
                   </div>
-                  <div className="flex flex-col justify-between gap-2 md:w-[30%] md:gap-5">
+                  <div
+                    className={cn(
+                      "flex flex-col justify-between gap-2 md:w-[30%] md:gap-5",
+                      isComparing && "w-full md:w-full",
+                    )}
+                  >
                     <div className="text-cooper-gray-400">Overtime work</div>
                     <div className="flex items-center gap-2 pl-1">
                       <div className="text-4xl text-[#141414]">
@@ -479,7 +560,12 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                       }
                     />
                   </div>
-                  <div className="flex flex-col justify-between gap-2 md:w-[30%] md:gap-5">
+                  <div
+                    className={cn(
+                      "flex flex-col justify-between gap-2 md:w-[30%] md:gap-5",
+                      isComparing && "w-full md:w-full",
+                    )}
+                  >
                     <div className="text-cooper-gray-400">
                       Paid time off (PTO)
                     </div>
@@ -522,7 +608,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
               )}
               {reviews.isSuccess && reviews.data.length > 0 && (
                 <div className="flex h-full flex-col gap-5">
-                  <div className="md:w-[44%]">
+                  <div className={cn(isComparing ? "w-full" : "md:w-[44%]")}>
                     <StarGraph
                       ratings={ratings}
                       averageOverallRating={
@@ -530,10 +616,16 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                       }
                       reviews={reviews.data.length}
                       cooperAvg={cooperAvg}
+                      isComparing={isComparing}
                     />
                   </div>
 
-                  <div className="flex items-center gap-3 md:pt-6 flex-wrap ">
+                  <div
+                    className={cn(
+                      "flex flex-wrap items-center gap-3",
+                      !isComparing && "md:pt-6",
+                    )}
+                  >
                     <Popover
                       open={openFilterKey !== null}
                       onOpenChange={(open) => !open && setOpenFilterKey(null)}
@@ -680,7 +772,13 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
 
                   {sortedReviews && sortedReviews.length > 0 ? (
                     sortedReviews.map((review: ReviewType) => {
-                      return <ReviewCard reviewObj={review} key={review.id} />;
+                      return (
+                        <ReviewCard
+                          reviewObj={review}
+                          key={review.id}
+                          isComparing={isComparing}
+                        />
+                      );
                     })
                   ) : (
                     <div className="py-8 text-center text-cooper-gray-400">

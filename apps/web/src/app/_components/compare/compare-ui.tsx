@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 
 import type { RoleType } from "@cooper/db/schema";
@@ -25,8 +25,8 @@ export function CompareControls({ anchorRoleId }: CompareControlsProps) {
   if (!compare.isCompareMode) {
     return (
       <Button
-        className="hidden md:inline-flex items-center gap-1.5 rounded-md border border-[rgba(49,115,222,0.2)] bg-[rgba(49,115,222,0.15)] px-3 py-1.5 text-xs font-semibold text-[#606060] transition hover:bg-[rgba(49,115,222,0.25)]"
-        onClick={() => compare.enterCompareMode()}
+        className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-[rgba(49,115,222,0.15)] bg-[#C4D4E9] px-[14px] py-2 text-sm font-semibold text-[#606060] transition hover:bg-[rgba(49,115,222,0.15)] h-9"
+        onClick={() => compare.enterCompareMode(anchorRoleId)}
       >
         <Image
           src="/svg/compareRole.svg"
@@ -34,50 +34,21 @@ export function CompareControls({ anchorRoleId }: CompareControlsProps) {
           height={16}
           alt="Compare icon"
         />
-        COMPARE WITH
+        COMPARE
       </Button>
     );
+  } else {
+    return (
+      <div className="flex items-center gap-2">
+        <Button
+          className="inline-flex items-center gap-1.5 rounded-md border border-[rgba(49,115,222,0.15)] bg-cooper-gray-400 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-cooper-gray-300 h-9"
+          onClick={() => compare.exitCompareMode()}
+        >
+          EXIT COMPARE
+        </Button>
+      </div>
+    );
   }
-
-  const totalColumns =
-    (anchorRoleId ? 1 : 0) +
-    compare.comparedRoleIds.length +
-    compare.reservedSlots;
-  const canAdd = totalColumns < compare.maxColumns;
-
-  return (
-    <div className="flex items-center gap-2">
-      <Button
-        disabled={!canAdd}
-        className={cn(
-          "inline-flex items-center gap-1.5 rounded-md border border-[#DDDDDD] bg-[#E6E6E6] px-3 py-1.5 text-xs font-semibold text-[#4a4a4a] transition h-9",
-          canAdd ? "hover:bg-[#c5c5c5]" : "cursor-not-allowed opacity-50",
-        )}
-        onClick={() => compare.addSlot()}
-      >
-        <Image
-          src="/svg/compareAdd.svg"
-          width={16}
-          height={16}
-          alt="Compare icon"
-        />
-        <span>ADD COMPARISON</span>
-      </Button>
-      <Button
-        className="inline-flex items-center gap-1.5 rounded-md border border-[rgba(49,115,222,0.15)] bg-[#7a9ec9] px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-[#6a8eb9] h-9"
-        onClick={() => compare.exitCompareMode()}
-      >
-        <Image
-          src="/svg/compareRole.svg"
-          width={16}
-          height={16}
-          alt="Compare icon"
-          className="brightness-0 invert"
-        />
-        EXIT
-      </Button>
-    </div>
-  );
 }
 
 interface CompareColumnsProps {
@@ -86,12 +57,30 @@ interface CompareColumnsProps {
 
 export function CompareColumns({ anchorRole }: CompareColumnsProps) {
   const compare = useCompare();
-  const { comparedRoleIds, reservedSlots } = compare;
+  const { comparedRoleIds, anchorRoleId } = compare;
+
+  const resolvedAnchorRoleId = anchorRoleId ?? anchorRole.id;
+
+  const anchorRoleQuery = api.role.getById.useQuery(
+    { id: resolvedAnchorRoleId },
+    {
+      enabled: !!resolvedAnchorRoleId && resolvedAnchorRoleId !== anchorRole.id,
+      placeholderData: (previousData) => previousData,
+    },
+  );
+
+  const resolvedAnchorRole =
+    resolvedAnchorRoleId === anchorRole.id ? anchorRole : anchorRoleQuery.data;
+
+  const nonAnchorComparedRoleIds = useMemo(
+    () => comparedRoleIds.filter((id) => id !== resolvedAnchorRoleId),
+    [comparedRoleIds, resolvedAnchorRoleId],
+  );
 
   const comparedRolesQuery = api.role.getManyByIds.useQuery(
-    { ids: comparedRoleIds },
+    { ids: nonAnchorComparedRoleIds },
     {
-      enabled: comparedRoleIds.length > 0,
+      enabled: nonAnchorComparedRoleIds.length > 0,
       placeholderData: (previousData) => previousData,
     },
   );
@@ -103,7 +92,7 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
     const loaded: RoleType[] = [];
     const loading: string[] = [];
 
-    comparedRoleIds.forEach((id) => {
+    nonAnchorComparedRoleIds.forEach((id) => {
       const role = loadedRoleMap.get(id);
       if (role) {
         loaded.push(role);
@@ -113,9 +102,12 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
     });
 
     return { loadedRoles: loaded, loadingRoleIds: loading };
-  }, [comparedRoleIds, comparedRolesQuery.data]);
+  }, [nonAnchorComparedRoleIds, comparedRolesQuery.data]);
 
-  const placeholders = Array.from({ length: reservedSlots }, (_, index) => ({
+  const emptySlotCount =
+    1 + nonAnchorComparedRoleIds.length < compare.maxColumns ? 1 : 0;
+
+  const placeholders = Array.from({ length: emptySlotCount }, (_, index) => ({
     key: `placeholder-${index}`,
     type: "empty" as const,
   }));
@@ -127,12 +119,22 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
   }));
 
   const columns = [
-    {
-      key: `anchor-${anchorRole.id}`,
-      role: anchorRole,
-      isAnchor: true,
-      type: "role" as const,
-    },
+    ...(resolvedAnchorRole
+      ? [
+          {
+            key: `anchor-${resolvedAnchorRole.id}`,
+            role: resolvedAnchorRole,
+            isAnchor: true,
+            type: "role" as const,
+          },
+        ]
+      : [
+          {
+            key: `loading-anchor-${resolvedAnchorRoleId}`,
+            type: "loading" as const,
+            roleId: resolvedAnchorRoleId,
+          },
+        ]),
     ...loadedRoles.map((role) => ({
       key: role.id,
       role,
@@ -144,55 +146,28 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
   ];
 
   return (
-    <div className="relative flex flex-col gap-4 px-3">
+    <div className="relative flex flex-col gap-4 p-2">
       <div className="relative min-h-[70dvh] w-full overflow-x-auto">
-        <div className="flex min-h-full gap-3 pb-4 pr-4 transition">
+        <div className="flex min-h-full gap-3 transition">
           {columns.map((column) => {
-            const widthClass =
-              columns.length === 1
-                ? "w-full"
-                : columns.length === 2
-                  ? "min-w-[360px] md:min-w-[420px]"
-                  : "min-w-[320px]";
-
             if (column.type === "empty") {
               return (
                 <DropSlot
                   key={column.key}
-                  widthClass={widthClass}
-                  anchorRoleId={anchorRole.id}
+                  anchorRoleId={resolvedAnchorRoleId}
                 />
               );
             }
 
             if (column.type === "loading") {
-              return (
-                <LoadingSlot
-                  key={column.key}
-                  widthClass={widthClass}
-                  roleId={column.roleId}
-                />
-              );
+              return <LoadingSlot key={column.key} />;
             }
 
             return (
               <div
                 key={column.key}
-                className={cn(
-                  "relative flex-1 rounded-lg border-[0.75px] border-cooper-gray-300 bg-white transition",
-                  widthClass,
-                )}
+                className={"relative flex-1 rounded-lg bg-[#F1F0EC] transition"}
               >
-                {!column.isAnchor && (
-                  <button
-                    type="button"
-                    aria-label="Remove from comparison"
-                    className="text-cooper-gray-500 absolute right-3 top-3 z-10 flex h-6 w-6 items-center justify-center text-2xl leading-none transition"
-                    onClick={() => compare.removeRoleId(column.role.id)}
-                  >
-                    ×
-                  </button>
-                )}
                 <div className="max-h-[78dvh] overflow-y-auto">
                   <RoleInfo roleObj={column.role} />
                 </div>
@@ -205,30 +180,13 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
   );
 }
 
-function LoadingSlot({
-  widthClass,
-  roleId,
-}: {
-  widthClass: string;
-  roleId: string;
-}) {
-  const compare = useCompare();
-
+function LoadingSlot() {
   return (
     <div
-      className={cn(
-        "relative flex flex-1 items-center justify-center bg-white shadow-sm transition",
-        widthClass,
-      )}
+      className={
+        "relative flex flex-1 items-center justify-center bg-white shadow-sm transition"
+      }
     >
-      <button
-        type="button"
-        aria-label="Remove from comparison"
-        className="text-cooper-gray-500 absolute right-3 top-3 z-10 flex h-6 w-6 items-center justify-center text-2xl leading-none transition hover:bg-cooper-gray-100"
-        onClick={() => compare.removeRoleId(roleId)}
-      >
-        ×
-      </button>
       <div className="flex flex-col items-center gap-3 px-6 text-center">
         <div className="border-t-cooper-blue-300 h-12 w-12 animate-spin rounded-full border-4 border-cooper-gray-200" />
         <p className="text-cooper-gray-500 text-sm">Loading role...</p>
@@ -237,47 +195,74 @@ function LoadingSlot({
   );
 }
 
-function DropSlot({
-  widthClass,
-  anchorRoleId,
-}: {
-  widthClass: string;
-  anchorRoleId: string;
-}) {
-  const compare = useCompare();
+function DropSlot({ anchorRoleId }: { anchorRoleId: string }) {
+  const {
+    isCompareMode,
+    isDragging,
+    comparedRoleIds,
+    addRoleId,
+    setIsDragging,
+  } = useCompare();
   const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    const handleDragStart = (event: DragEvent) => {
+      if (!isCompareMode) return;
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      if (target.closest('[draggable="true"]')) {
+        setIsDragging(true);
+      }
+    };
+
+    const handleDragEnd = () => {
+      setIsDragging(false);
+      setIsActive(false);
+    };
+
+    window.addEventListener("dragstart", handleDragStart);
+    window.addEventListener("dragend", handleDragEnd);
+    window.addEventListener("drop", handleDragEnd);
+
+    return () => {
+      window.removeEventListener("dragstart", handleDragStart);
+      window.removeEventListener("dragend", handleDragEnd);
+      window.removeEventListener("drop", handleDragEnd);
+    };
+  }, [isCompareMode, setIsDragging]);
 
   return (
     <div
       onDragOver={(event) => {
-        if (!compare.isCompareMode) return;
+        if (!isCompareMode) return;
         event.preventDefault();
         setIsActive(true);
       }}
       onDragLeave={() => setIsActive(false)}
       onDrop={(event) => {
-        if (!compare.isCompareMode) return;
+        if (!isCompareMode) return;
         event.preventDefault();
         setIsActive(false);
+        setIsDragging(false);
         const id =
           event.dataTransfer.getData("application/role-id") ||
           event.dataTransfer.getData("text/plain");
         if (id) {
           // Prevent adding duplicate roles (including anchor role)
-          if (id !== anchorRoleId && !compare.comparedRoleIds.includes(id)) {
-            compare.addRoleId(id);
+          if (id !== anchorRoleId && !comparedRoleIds.includes(id)) {
+            addRoleId(id);
           }
         }
       }}
       className={cn(
-        "flex flex-1 items-center justify-center rounded-xl border-2 border-dashed transition",
+        "flex items-center justify-center rounded-xl border-2 border-dashed transition",
         isActive
           ? "border-cooper-blue-400 bg-[#d4e4f7]"
-          : "border-[#DDDDDD] bg-[#E4EAF0]",
-        widthClass,
+          : "border-[#DDDDDD] bg-[#ECEFF1]",
+        isDragging && "flex-1",
       )}
     >
-      <div className="flex flex-col items-center gap-2 px-6 text-center">
+      <div className="flex flex-col items-center gap-2 px-5 text-center">
         <svg
           width="24"
           height="24"
@@ -300,9 +285,11 @@ function DropSlot({
             strokeLinecap="round"
           />
         </svg>
-        <p className="text-md font-extrabold text-[#686868]">
-          Drag in or select a card from the list
-        </p>
+        {isDragging && (
+          <p className="text-md font-extrabold text-[#686868]">
+            Drag in or select a card from the list
+          </p>
+        )}
       </div>
     </div>
   );
