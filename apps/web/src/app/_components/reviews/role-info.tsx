@@ -16,7 +16,7 @@ import DropdownFilter, { FilterPanelContent } from "../filters/dropdown-filter";
 import { jobTypeOptions } from "../onboarding/constants";
 import StarGraph from "../shared/star-graph";
 import BarGraph from "./bar-graph";
-import CollapsableInfoCard from "./collapsable-info";
+import ModalContainer from "./modal";
 import { ReviewCard } from "./review-card";
 import RoundBarGraph from "./round-bar-graph";
 import type { ReviewType, RoleType } from "@cooper/db/schema";
@@ -434,7 +434,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             />
           )}
           <div className="col-span-2" id="on-the-job">
-            <CollapsableInfoCard title={"On the job"}>
+             <ModalContainer title={"On the job"}>
               {averages.data && (
                 <div
                   className={cn(
@@ -497,23 +497,14 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                   </div>
                 </div>
               )}
-            </CollapsableInfoCard>
+            </ModalContainer>
           </div>
+
           {averages.data && (
             <div className="col-span-2" id="pay">
-              <CollapsableInfoCard title={"Pay"}>
-                <div
-                  className={cn(
-                    "flex flex-col justify-between gap-3 lg:flex-row",
-                    isComparing && "flex-col justify-start gap-3 lg:flex-col",
-                  )}
-                >
-                  <div
-                    className={cn(
-                      "flex flex-col gap-2 md:w-[30%] md:gap-5",
-                      isComparing && "w-full md:w-full",
-                    )}
-                  >
+              <ModalContainer title={"Pay"}>
+                <div className="flex flex-col justify-between gap-3 md:flex-row">
+                  <div className="flex flex-col gap-2 md:w-[30%] md:gap-5">
                     <div className="text-cooper-gray-400">Pay range</div>
                     {averages.data.minPay !== averages.data.maxPay ? (
                       <div className="flex flex-col gap-5">
@@ -583,19 +574,19 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                     />
                   </div>
                 </div>
-              </CollapsableInfoCard>
+              </ModalContainer>
             </div>
           )}
           <div className="col-span-2" id="interview">
-            <CollapsableInfoCard title="Interview">
+            <ModalContainer title="Interview">
               {averages.data && (
                 <div className="flex flex-wrap gap-10">
                 </div>
               )}
-            </CollapsableInfoCard>
+            </ModalContainer>
           </div>
           <div className="col-span-2" id="reviews">
-            <CollapsableInfoCard title="Reviews">
+            <ModalContainer title="Reviews">
               {reviews.isSuccess && reviews.data.length === 0 && (
                 <div className="flex h-full w-full flex-col items-center justify-center text-[#5a5a5a]">
                   <p>No reviews yet</p>
@@ -791,7 +782,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                   )}
                 </div>
               )}
-            </CollapsableInfoCard>
+            </ModalContainer>
           </div>
         </div>
       </div>
