@@ -127,7 +127,10 @@ export const reviewRouter = {
       const reviews = await ctx.db.query.Review.findMany({
         where: eq(Review.profileId, cleanInput.profileId),
       });
-      if (reviews.length >= 5) {
+      const publishedReviews = reviews.filter(
+        (review) => review.status === Status.PUBLISHED,
+      );
+      if (publishedReviews.length >= 5) {
         throw new TRPCError({
           code: "PRECONDITION_FAILED",
           message: "You can only leave 5 reviews",

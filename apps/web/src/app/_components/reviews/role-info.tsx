@@ -21,6 +21,7 @@ import InfoCard from "./info-card";
 import { ReviewCard } from "./review-card";
 import RoundBarGraph from "./round-bar-graph";
 import type { ReviewType, RoleType } from "@cooper/db/schema";
+import { Status } from "@cooper/db/schema";
 import {
   DropdownMenuContent,
   DropdownMenuTrigger,
@@ -193,6 +194,14 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
   const usersReviews = api.review.getByProfile.useQuery(
     { id: profileId ?? "" },
     { enabled: !!profileId },
+  );
+
+  const publishedUserReviewCount = useMemo(
+    () =>
+      (usersReviews.data ?? []).filter(
+        (review) => review.status === Status.PUBLISHED,
+      ).length,
+    [usersReviews.data],
   );
 
   // Filter reviews based on selected rating and search term
@@ -514,7 +523,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
               {reviews.isSuccess && reviews.data.length === 0 && (
                 <div className="flex h-full w-full flex-col items-center justify-center text-[#5a5a5a]">
                   <p>No reviews yet</p>
-                  {usersReviews.isSuccess && usersReviews.data.length < 5 && (
+                  {usersReviews.isSuccess && publishedUserReviewCount < 5 && (
                     <Link href={`/review-form`} className="ml-2 underline">
                       Add one!
                     </Link>
