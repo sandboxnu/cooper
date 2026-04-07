@@ -1,15 +1,18 @@
 import Image from "next/image";
+import { cn } from "@cooper/ui";
 
 export default function StarGraph({
   ratings,
   averageOverallRating,
   reviews,
   cooperAvg,
+  isComparing = false,
 }: {
   ratings: { stars: number; percentage: number }[];
   averageOverallRating: number;
   reviews: number;
   cooperAvg: number;
+  isComparing?: boolean;
 }) {
   const starColors = [
     "#FFE0A9",
@@ -25,7 +28,12 @@ export default function StarGraph({
       <p className="text-cooper-gray-400 font-bold text-sm pb-3">
         Overall rating
       </p>
-      <div className="mr-6 flex flex-col md:flex-row justify-between w-full items-start text-cooper-gray-400">
+      <div
+        className={cn(
+          "mr-6 flex justify-between w-full items-start text-cooper-gray-400",
+          isComparing ? "flex-col" : "flex-col md:flex-row",
+        )}
+      >
         <div className="flex flex-col ">
           <div className="flex flex-row gap-2 pt-1">
             <div className="text-4xl text-[#151515]">
