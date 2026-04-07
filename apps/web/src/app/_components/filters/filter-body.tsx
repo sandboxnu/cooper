@@ -37,6 +37,7 @@ interface FilterBodyProps {
   onSearchChange?: (search: string) => void;
   isLoadingOptions?: boolean;
   isInMenuContent?: boolean;
+  portalZIndex?: number;
 }
 
 /**
@@ -270,6 +271,7 @@ function FilterBodyAutocomplete({
   singleSelect,
   onSearchChange,
   isInMenuContent,
+  portalZIndex,
 }: FilterBodyProps) {
   return (
     <Autocomplete
@@ -286,6 +288,7 @@ function FilterBodyAutocomplete({
       singleSelect={singleSelect}
       onSearchChange={onSearchChange}
       isInMenuContent={isInMenuContent}
+      portalZIndex={portalZIndex}
     />
   );
 }
@@ -296,6 +299,7 @@ function FilterBodyLocation({
   onSelectionChange,
   onSearchChange,
   isInMenuContent,
+  portalZIndex,
 }: FilterBodyProps) {
   return (
     <div className="flex flex-col gap-3">
@@ -309,6 +313,7 @@ function FilterBodyLocation({
         placeholder="Search by city or state..."
         onSearchChange={onSearchChange}
         isInMenuContent={isInMenuContent}
+        portalZIndex={portalZIndex}
       />
     </div>
   );

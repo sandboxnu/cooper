@@ -4,7 +4,6 @@ import { cn } from "@cooper/ui";
 
 import { api } from "~/trpc/react";
 import LoadingResults from "../loading-results";
-import NewRoleCard from "../reviews/new-role-card";
 import { RoleCardPreview } from "../reviews/role-card-preview";
 import type { CompanyType } from "@cooper/db/schema";
 
@@ -56,11 +55,6 @@ export default function RenderAllRoles({
                 );
               })}
             </>
-          )}
-          {company && (
-            <div className="p-2">
-              <NewRoleCard companyId={company.id} />
-            </div>
           )}
         </div>
       )}

@@ -20,14 +20,16 @@ export function CompanyDetailsSection() {
   const form = useFormContext();
 
   const benefits = [
-    { field: "pto", label: "PTO" },
     { field: "federalHolidays", label: "Federal holidays off" },
     { field: "freeLunch", label: "Free lunch" },
     { field: "travelBenefits", label: "Travel benefits" },
     { field: "freeMerch", label: "Free merchandise" },
     { field: "snackBar", label: "Snack bar" },
-    { field: "employeeLounge", label: "Employee lounge" },
-  ];
+  ] as const;
+
+  const selectedBenefits = benefits
+    .filter((benefit) => Boolean(form.watch(benefit.field)))
+    .map((benefit) => benefit.field);
 
   return (
     <FormSection>
@@ -179,40 +181,32 @@ export function CompanyDetailsSection() {
           );
         }}
       />
-      <FormField
-        control={form.control}
-        name="benefits"
-        render={({ field }) => (
-          <FormItem className="flex flex-col pt-2.5">
-            <FormLabel className="text-sm font-bold text-cooper-gray-400">
-              Benefits
-            </FormLabel>
-            <FormControl className="relative flex-1">
-              <FilterBody
-                title="Benefits"
-                variant="autocomplete"
-                options={benefits.map((benefit) => ({
-                  id: benefit.field,
-                  label: benefit.label,
-                }))}
-                selectedOptions={
-                  Array.isArray(field.value)
-                    ? field.value
-                    : field.value
-                      ? [field.value]
-                      : []
-                }
-                placeholder="Select benefits"
-                onSelectionChange={(selected) => {
-                  field.onChange(selected.length > 0 ? selected : undefined);
-                }}
-                isInMenuContent={true}
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
+      <FormItem className="flex flex-col pt-2.5">
+        <FormLabel className="text-sm font-bold text-cooper-gray-400">
+          Benefits
+        </FormLabel>
+        <FormControl className="relative flex-1">
+          <FilterBody
+            title="Benefits"
+            variant="autocomplete"
+            options={benefits.map((benefit) => ({
+              id: benefit.field,
+              label: benefit.label,
+            }))}
+            selectedOptions={selectedBenefits}
+            placeholder="Select benefits"
+            onSelectionChange={(selected) => {
+              benefits.forEach((benefit) => {
+                form.setValue(benefit.field, selected.includes(benefit.field), {
+                  shouldDirty: true,
+                  shouldValidate: true,
+                });
+              });
+            }}
+            isInMenuContent={true}
+          />
+        </FormControl>
+      </FormItem>
     </FormSection>
   );
 }

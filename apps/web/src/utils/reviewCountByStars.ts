@@ -5,7 +5,7 @@ export function calculateRatings(reviews: ReviewType[] = []) {
 
   return [5, 4, 3, 2, 1].map((star) => {
     const count = reviews.filter(
-      (r) => r.overallRating.toFixed(0) === star.toString(),
+      (r) => (r.overallRating ?? 0).toFixed(0) === star.toString(),
     ).length;
     const percentage =
       totalReviews > 0 ? Math.round((count / totalReviews) * 100) : 0;

@@ -56,7 +56,7 @@ export function ReviewCard({
                     !isComparing && "md:text-4xl",
                   )}
                 >
-                  {reviewObj.overallRating.toFixed(1)}
+                  {reviewObj.overallRating?.toFixed(1) ?? "N/A"}
                 </div>
                 <Image
                   src="/svg/star.svg"
@@ -73,8 +73,10 @@ export function ReviewCard({
                   {prettyLocationName(location)}
                 </span>
                 <span>
-                  {reviewObj.workTerm.charAt(0).toUpperCase() +
-                    reviewObj.workTerm.slice(1).toLowerCase()}{" "}
+                  {reviewObj.workTerm
+                    ? reviewObj.workTerm.charAt(0).toUpperCase() +
+                      reviewObj.workTerm.slice(1).toLowerCase()
+                    : "N/A"}{" "}
                   {reviewObj.workYear}
                 </span>
               </div>
