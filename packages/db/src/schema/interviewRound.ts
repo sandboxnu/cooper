@@ -20,7 +20,7 @@ export const InterviewDifficultySchema = pgEnum("interview_difficulty", [
   "hard",
 ]);
 
-export const InterviewRound = pgTable("review_round", {
+export const InterviewRound = pgTable("interview_round", {
   id: uuid("id").defaultRandom().primaryKey(),
 
   reviewId: uuid("review_id")

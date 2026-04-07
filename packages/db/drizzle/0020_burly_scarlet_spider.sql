@@ -34,7 +34,7 @@ SELECT
     WHEN "interviewDifficulty" BETWEEN 1 AND 2 THEN 'easy'
     WHEN "interviewDifficulty" BETWEEN 3 AND 4 THEN 'average'
     WHEN "interviewDifficulty" = 5             THEN 'hard'
-  END,
+  END::"interview_difficulty",
   NOW()
 FROM "review"
 WHERE "interviewDifficulty" IS NOT NULL;
