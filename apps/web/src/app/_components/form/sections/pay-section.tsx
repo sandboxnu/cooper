@@ -72,7 +72,7 @@ export function PaySection() {
         control={form.control}
         name="hourlyPay"
         render={({ field }) => (
-          <FormItem className="rounded-md flex flex-col w-full">
+          <FormItem className="rounded-md flex flex-col w-full pt-5">
             <FormLabel className="text-sm font-bold block text-cooper-gray-400 ">
               Hourly pay<span className="text-cooper-red-300">*</span>
             </FormLabel>
