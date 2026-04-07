@@ -393,7 +393,7 @@ export default function ReviewForm() {
               <div className="text-cooper-gray-550 pt-12 text-lg">
                 On the job
               </div>
-              <div className="flex flex-wrap gap-10 overflow-auto pb-12 xl:flex-nowrap">
+              <div className="flex flex-wrap gap-10 pb-12 xl:flex-nowrap">
                 <CompanyDetailsSection />
               </div>
               <hr />
