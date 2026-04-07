@@ -9,10 +9,19 @@ import { and, desc, eq, inArray, isNull } from "@cooper/db";
 import {
   CompaniesToLocations,
   Company,
+  CreateInterviewRoundSchema,
   CreateReviewSchema,
+  InterviewRound,
   Review,
   Status,
 } from "@cooper/db/schema";
+
+const CreateReviewWithRoundsSchema = CreateReviewSchema.extend({
+  interviewRounds: z
+    .array(CreateInterviewRoundSchema.omit({ reviewId: true }))
+    .optional()
+    .default([]),
+});
 import {
   protectedProcedure,
   publicProcedure,
@@ -90,9 +99,11 @@ export const reviewRouter = {
     }),
 
   create: protectedProcedure
-    .input(CreateReviewSchema)
+    .input(CreateReviewWithRoundsSchema)
     .mutation(async ({ ctx, input }) => {
-      if (!input.profileId) {
+      const { interviewRounds, ...reviewInput } = input;
+
+      if (!reviewInput.profileId) {
         throw new TRPCError({
           code: "FORBIDDEN",
           message: "You must be logged in to leave a review",
@@ -102,25 +113,18 @@ export const reviewRouter = {
       // Initialize bad words filter
       const filter = new Filter();
 
-      if (filter.isProfane(input.textReview ?? "")) {
+      if (filter.isProfane(reviewInput.textReview ?? "")) {
         throw new TRPCError({
           code: "PRECONDITION_FAILED",
           message: "Review text cannot contain profane words",
-        });
-      } else if (filter.isProfane(input.interviewReview ?? "")) {
-        throw new TRPCError({
-          code: "PRECONDITION_FAILED",
-          message: "Interview review cannot contain profane words",
         });
       }
 
       // Create a clean version of the input with filtered strings
       const cleanInput = {
-        ...input,
-        textReview: filter.clean(input.textReview ?? ""),
-        // Keep non-string fields as they are
-        profileId: input.profileId,
-        interviewReview: filter.clean(input.interviewReview ?? ""),
+        ...reviewInput,
+        textReview: filter.clean(reviewInput.textReview ?? ""),
+        profileId: reviewInput.profileId,
       };
 
       // Rest of the validation logic
@@ -166,13 +170,32 @@ export const reviewRouter = {
         }
       }
 
-      return ctx.db.insert(Review).values(cleanInput);
+      const [inserted] = await ctx.db
+        .insert(Review)
+        .values(cleanInput)
+        .returning({ id: Review.id });
+
+      const roundsToInsert = interviewRounds.flatMap((r) => {
+        if (r.interviewType == null || r.interviewDifficulty == null) return [];
+        return [
+          {
+            interviewType: r.interviewType,
+            interviewDifficulty: r.interviewDifficulty,
+            reviewId: inserted?.id ?? "",
+          },
+        ];
+      });
+      if (roundsToInsert.length > 0) {
+        await ctx.db.insert(InterviewRound).values(roundsToInsert);
+      }
     }),
 
   saveDraft: protectedProcedure
-    .input(CreateReviewSchema)
+    .input(CreateReviewWithRoundsSchema)
     .mutation(async ({ ctx, input }) => {
-      if (!input.profileId) {
+      const { interviewRounds, ...reviewInput } = input;
+
+      if (!reviewInput.profileId) {
         throw new TRPCError({
           code: "FORBIDDEN",
           message: "You must be logged in to save a draft",
@@ -180,72 +203,65 @@ export const reviewRouter = {
       }
 
       const draftInput = {
-        ...input,
+        ...reviewInput,
         status: Status.DRAFT,
       };
 
       const existingReview = await ctx.db.query.Review.findFirst({
         where: and(
-          input.companyId == null
+          reviewInput.companyId == null
             ? isNull(Review.companyId)
-            : eq(Review.companyId, input.companyId),
-          input.locationId == null
+            : eq(Review.companyId, reviewInput.companyId),
+          reviewInput.locationId == null
             ? isNull(Review.locationId)
-            : eq(Review.locationId, input.locationId),
-          eq(Review.profileId, input.profileId),
-          input.workTerm == null
+            : eq(Review.locationId, reviewInput.locationId),
+          eq(Review.profileId, reviewInput.profileId),
+          reviewInput.workTerm == null
             ? isNull(Review.workTerm)
-            : eq(Review.workTerm, input.workTerm),
-          input.workYear == null
+            : eq(Review.workTerm, reviewInput.workTerm),
+          reviewInput.workYear == null
             ? isNull(Review.workYear)
-            : eq(Review.workYear, input.workYear),
+            : eq(Review.workYear, reviewInput.workYear),
           eq(Review.status, Status.DRAFT),
-          input.roleId == null
+          reviewInput.roleId == null
             ? isNull(Review.roleId)
-            : eq(Review.roleId, input.roleId),
-          input.overallRating == null
+            : eq(Review.roleId, reviewInput.roleId),
+          reviewInput.overallRating == null
             ? isNull(Review.overallRating)
-            : eq(Review.overallRating, input.overallRating),
-          input.hourlyPay == null
+            : eq(Review.overallRating, reviewInput.overallRating),
+          reviewInput.hourlyPay == null
             ? isNull(Review.hourlyPay)
-            : eq(Review.hourlyPay, input.hourlyPay),
-          input.interviewDifficulty == null
-            ? isNull(Review.interviewDifficulty)
-            : eq(Review.interviewDifficulty, input.interviewDifficulty),
-          input.cultureRating == null
+            : eq(Review.hourlyPay, reviewInput.hourlyPay),
+          reviewInput.cultureRating == null
             ? isNull(Review.cultureRating)
-            : eq(Review.cultureRating, input.cultureRating),
-          input.supervisorRating == null
+            : eq(Review.cultureRating, reviewInput.cultureRating),
+          reviewInput.supervisorRating == null
             ? isNull(Review.supervisorRating)
-            : eq(Review.supervisorRating, input.supervisorRating),
-          input.interviewRating == null
-            ? isNull(Review.interviewRating)
-            : eq(Review.interviewRating, input.interviewRating),
-          input.federalHolidays == null
+            : eq(Review.supervisorRating, reviewInput.supervisorRating),
+          reviewInput.federalHolidays == null
             ? isNull(Review.federalHolidays)
-            : eq(Review.federalHolidays, input.federalHolidays),
-          input.drugTest == null
+            : eq(Review.federalHolidays, reviewInput.federalHolidays),
+          reviewInput.drugTest == null
             ? isNull(Review.drugTest)
-            : eq(Review.drugTest, input.drugTest),
-          input.freeLunch == null
+            : eq(Review.drugTest, reviewInput.drugTest),
+          reviewInput.freeLunch == null
             ? isNull(Review.freeLunch)
-            : eq(Review.freeLunch, input.freeLunch),
-          input.freeMerch == null
+            : eq(Review.freeLunch, reviewInput.freeLunch),
+          reviewInput.freeMerch == null
             ? isNull(Review.freeMerch)
-            : eq(Review.freeMerch, input.freeMerch),
-          input.travelBenefits == null
+            : eq(Review.freeMerch, reviewInput.freeMerch),
+          reviewInput.travelBenefits == null
             ? isNull(Review.travelBenefits)
-            : eq(Review.travelBenefits, input.travelBenefits),
-          input.overtimeNormal == null
+            : eq(Review.travelBenefits, reviewInput.travelBenefits),
+          reviewInput.overtimeNormal == null
             ? isNull(Review.overtimeNormal)
-            : eq(Review.overtimeNormal, input.overtimeNormal),
-          input.pto == null ? isNull(Review.pto) : eq(Review.pto, input.pto),
-          input.textReview == null
+            : eq(Review.overtimeNormal, reviewInput.overtimeNormal),
+          reviewInput.pto == null
+            ? isNull(Review.pto)
+            : eq(Review.pto, reviewInput.pto),
+          reviewInput.textReview == null
             ? isNull(Review.textReview)
-            : eq(Review.textReview, input.textReview),
-          input.interviewReview == null
-            ? isNull(Review.interviewReview)
-            : eq(Review.interviewReview, input.interviewReview),
+            : eq(Review.textReview, reviewInput.textReview),
         ),
       });
 
@@ -256,7 +272,72 @@ export const reviewRouter = {
         });
       }
 
-      return ctx.db.insert(Review).values(draftInput);
+      const [inserted] = await ctx.db
+        .insert(Review)
+        .values(draftInput)
+        .returning({ id: Review.id });
+
+      const roundsToInsert = interviewRounds.flatMap((r) => {
+        if (r.interviewType == null || r.interviewDifficulty == null) return [];
+        return [
+          {
+            interviewType: r.interviewType,
+            interviewDifficulty: r.interviewDifficulty,
+            reviewId: inserted?.id ?? "",
+          },
+        ];
+      });
+      if (roundsToInsert.length > 0) {
+        await ctx.db.insert(InterviewRound).values(roundsToInsert);
+      }
+    }),
+
+  getInterviewDataByIndustry: sortableProcedure
+    .input(z.object({ industry: z.string() }))
+    .query(async ({ ctx, input }) => {
+      if (ctx.res) {
+        ctx.res.headers.set(
+          "Cache-Control",
+          "public, max-age=28800, s-maxage=28800, stale-while-revalidate=600",
+        );
+      }
+
+      const companies = await ctx.db.query.Company.findMany({
+        where: eq(Company.industry, input.industry),
+      });
+
+      const companyIds = companies.map((c) => c.id);
+
+      const reviews = await ctx.db.query.Review.findMany({
+        where: and(
+          inArray(Review.companyId, companyIds),
+          eq(Review.status, Status.PUBLISHED),
+        ),
+        with: { interviewRounds: true },
+      });
+
+      const reviewsWithRounds = reviews.filter(
+        (r) => r.interviewRounds.length > 0,
+      );
+
+      const roundsCounts = reviewsWithRounds.map(
+        (r) => r.interviewRounds.length,
+      );
+      const distMap: Record<number, number> = {};
+      for (const c of roundsCounts) distMap[c] = (distMap[c] ?? 0) + 1;
+      const roundsDistribution = Object.entries(distMap)
+        .map(([rounds, count]) => ({ rounds: Number(rounds), count }))
+        .sort((a, b) => a.rounds - b.rounds);
+      const sortedDistEntries = Object.entries(distMap).sort(
+        (a, b) => b[1] - a[1],
+      );
+      const roundsMode =
+        sortedDistEntries.length > 0 ? Number(sortedDistEntries[0]?.[0]) : null;
+
+      return {
+        roundsMode,
+        roundsDistribution,
+      };
     }),
 
   delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
@@ -304,10 +385,8 @@ export const reviewRouter = {
 
       const averageOverallRating = calcAvg("overallRating");
       const averageHourlyPay = calcAvg("hourlyPay");
-      const averageInterviewDifficulty = calcAvg("interviewDifficulty");
       const averageCultureRating = calcAvg("cultureRating");
       const averageSupervisorRating = calcAvg("supervisorRating");
-      const averageInterviewRating = calcAvg("interviewRating");
 
       const federalHolidays = calcPercentage("federalHolidays");
       const drugTest = calcPercentage("drugTest");
@@ -329,10 +408,8 @@ export const reviewRouter = {
       return {
         averageOverallRating: averageOverallRating,
         averageHourlyPay: averageHourlyPay,
-        averageInterviewDifficulty: averageInterviewDifficulty,
         averageCultureRating: averageCultureRating,
         averageSupervisorRating: averageSupervisorRating,
-        averageInterviewRating: averageInterviewRating,
         federalHolidays: federalHolidays,
         drugTest: drugTest,
         freeLunch: freeLunch,

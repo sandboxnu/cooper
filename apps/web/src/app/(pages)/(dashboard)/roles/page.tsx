@@ -846,7 +846,7 @@ export default function Roles() {
             <div
               ref={sidebarRef}
               className={cn(
-                "border-cooper-gray-150 bg-cooper-cream-100 w-full overflow-y-auto border-r-[1px] p-5 xl:rounded-none",
+                "border-cooper-gray-150 bg-cooper-cream-100 no-scrollbar w-full overflow-y-auto border-r-[1px] p-5 xl:rounded-none",
                 "md:w-[28%]", // Show as 28% width on md and above
                 (showRoleInfo || showCompanyInfo) && "hidden md:block", // Hide on mobile if RoleInfo is visible
                 compare.isCompareMode && "border-transparent",
@@ -991,7 +991,7 @@ export default function Roles() {
             <div
               ref={roleInfoScrollRef}
               className={cn(
-                "col-span-3 w-full overflow-y-auto p-1",
+                "no-scrollbar col-span-3 w-full overflow-y-auto p-1",
                 "md:w-[72%]", // Show as 72% width on md and above
                 !showRoleInfo && !showCompanyInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
               )}

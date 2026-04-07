@@ -27,6 +27,27 @@ const ordering = {
   oldest: asc(Role.createdAt),
 };
 
+function calcDominantDifficulty(
+  rounds: { interviewDifficulty: string | null }[],
+): "easy" | "average" | "hard" | null {
+  const counts = { easy: 0, average: 0, hard: 0 };
+  for (const r of rounds) {
+    if (r.interviewDifficulty) {
+      counts[r.interviewDifficulty as keyof typeof counts]++;
+    }
+  }
+  const total = counts.easy + counts.average + counts.hard;
+  if (total === 0) return null;
+  const maxCount = Math.max(counts.easy, counts.average, counts.hard);
+  const tied = (["easy", "average", "hard"] as const).filter(
+    (d) => counts[d] === maxCount,
+  );
+  if (tied.length === 1) return tied[0] ?? "average";
+  const numericMap = { easy: 0, average: 1, hard: 2 };
+  const avg = tied.reduce((sum, d) => sum + numericMap[d], 0) / tied.length;
+  return (["easy", "average", "hard"] as const)[Math.floor(avg)] ?? "average";
+}
+
 export const roleRouter = {
   list: sortableProcedure
     .input(
@@ -252,6 +273,84 @@ export const roleRouter = {
         .returning();
     }),
 
+  getInterviewDataById: sortableProcedure
+    .input(z.object({ roleId: z.string() }))
+    .query(async ({ ctx, input }) => {
+      const reviews = await ctx.db.query.Review.findMany({
+        where: and(
+          eq(Review.roleId, input.roleId),
+          eq(Review.status, Status.PUBLISHED),
+          eq(Review.hidden, false),
+        ),
+        with: { interviewRounds: true },
+      });
+
+      const reviewsWithRounds = reviews.filter(
+        (r) => r.interviewRounds.length > 0,
+      );
+      const totalReviewsWithRounds = reviewsWithRounds.length;
+
+      const roundsCounts = reviewsWithRounds.map(
+        (r) => r.interviewRounds.length,
+      );
+      const distMap: Record<number, number> = {};
+      for (const c of roundsCounts) distMap[c] = (distMap[c] ?? 0) + 1;
+      const roundsDistribution = Object.entries(distMap)
+        .map(([rounds, count]) => ({ rounds: Number(rounds), count }))
+        .sort((a, b) => a.rounds - b.rounds);
+      const sortedDistEntries = Object.entries(distMap).sort(
+        (a, b) => b[1] - a[1],
+      );
+      const roundsMode =
+        sortedDistEntries.length > 0 ? Number(sortedDistEntries[0]?.[0]) : null;
+
+      const allRounds = reviewsWithRounds.flatMap((r) => r.interviewRounds);
+
+      const typeMap: Record<
+        string,
+        { reviewIds: Set<string>; rounds: typeof allRounds }
+      > = {};
+      for (const review of reviewsWithRounds) {
+        for (const round of review.interviewRounds) {
+          if (!round.interviewType) continue;
+          typeMap[round.interviewType] ??= {
+            reviewIds: new Set(),
+            rounds: [],
+          };
+          const entry = typeMap[round.interviewType];
+          if (entry) {
+            entry.reviewIds.add(review.id);
+            entry.rounds.push(round);
+          }
+        }
+      }
+      const types = Object.entries(typeMap)
+        .map(([type, { reviewIds, rounds }]) => ({
+          type,
+          reviewCount: reviewIds.size,
+          dominantDifficulty: calcDominantDifficulty(rounds),
+        }))
+        .sort((a, b) => b.reviewCount - a.reviewCount);
+
+      const overallDominantDifficulty = calcDominantDifficulty(allRounds);
+      const companyId = reviews[0]?.companyId;
+      const company = companyId
+        ? await ctx.db.query.Company.findFirst({
+            where: eq(Company.id, companyId),
+          })
+        : null;
+      const industryName = company?.industry ?? null;
+
+      return {
+        totalReviewsWithRounds,
+        roundsMode,
+        roundsDistribution,
+        types,
+        overallDominantDifficulty,
+        industryName,
+      };
+    }),
+
   getByCreatedBy: sortableProcedure
     .input(z.object({ createdBy: z.string() }))
     .query(async ({ ctx, input }) => {
@@ -297,10 +396,8 @@ export const roleRouter = {
 
       const averageOverallRating = calcAvg("overallRating");
       const averageHourlyPay = calcAvg("hourlyPay");
-      const averageInterviewDifficulty = calcAvg("interviewDifficulty");
       const averageCultureRating = calcAvg("cultureRating");
       const averageSupervisorRating = calcAvg("supervisorRating");
-      const averageInterviewRating = calcAvg("interviewRating");
 
       const federalHolidays = calcPercentage("federalHolidays");
       const drugTest = calcPercentage("drugTest");
@@ -323,10 +420,8 @@ export const roleRouter = {
       return {
         averageOverallRating: averageOverallRating,
         averageHourlyPay: averageHourlyPay,
-        averageInterviewDifficulty: averageInterviewDifficulty,
         averageCultureRating: averageCultureRating,
         averageSupervisorRating: averageSupervisorRating,
-        averageInterviewRating: averageInterviewRating,
         federalHolidays: federalHolidays,
         drugTest: drugTest,
         freeLunch: freeLunch,
