@@ -181,7 +181,7 @@ export default function ReviewForm() {
       workEnvironment: undefined,
       drugTest: undefined,
       overtimeNormal: undefined,
-      pto: false,
+      pto: undefined,
       federalHolidays: false,
       freeLunch: false,
       travelBenefits: false,
