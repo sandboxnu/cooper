@@ -25,7 +25,7 @@ export default function StarGraph({
       <p className="text-cooper-gray-400 font-bold text-sm pb-3">
         Overall rating
       </p>
-      <div className="mr-6 flex flex-row justify-between w-full items-start text-cooper-gray-400">
+      <div className="mr-6 flex flex-col md:flex-row justify-between w-full items-start text-cooper-gray-400">
         <div className="flex flex-col ">
           <div className="flex flex-row gap-2 pt-1">
             <div className="text-4xl text-[#151515]">
@@ -38,7 +38,7 @@ export default function StarGraph({
           </div>
           <div className="text-sm">Cooper average: {cooperAvg}</div>
         </div>
-        <div className="mt-4 w-full min-w-24 max-w-36 md:max-w-48 space-y-1 pt-1 md:mt-0 ">
+        <div className="mt-4 w-full min-w-24  md:max-w-48 space-y-1 pt-1 md:mt-0 ">
           {ratings.map((rating) => (
             <div key={rating.stars} className="flex items-center">
               <span className="text-xs text-gray-600 mr-2">

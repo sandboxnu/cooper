@@ -532,7 +532,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
               )}
               {reviews.isSuccess && reviews.data.length > 0 && (
                 <div className="flex h-full flex-col gap-5">
-                  <div className="w-[44%]">
+                  <div className="md:w-[44%]">
                     <StarGraph
                       ratings={ratings}
                       averageOverallRating={
@@ -543,7 +543,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                     />
                   </div>
 
-                  <div className="flex items-center gap-3 pt-6">
+                  <div className="flex items-center gap-3 md:pt-6 flex-wrap ">
                     <Popover
                       open={openFilterKey !== null}
                       onOpenChange={(open) => !open && setOpenFilterKey(null)}

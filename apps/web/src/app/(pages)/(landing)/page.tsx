@@ -13,7 +13,7 @@ export default function Landing() {
   return (
     <div className="flex w-full flex-col bg-cooper-cream-500 lg:flex-row overflow-auto lg:overflow-hidden h-full flex-1">
       <AdminAccessToast />
-      <div className="lg:w-[43%] flex flex-col pl-16 pr-28 justify-center pt-2 lg:pt-0">
+      <div className="w-full lg:w-[43%] flex flex-col pl-6 lg:pl-16 pr-6 lg:pr-28 justify-center pt-8 md:pt-2 lg:pt-0">
         <div className="flex w-fit flex-row items-center gap-2">
           <div className="text-cooper-blue-800 text-[40px] leading-[48px] font-semibold">
             <div>Real reviews of </div>
@@ -56,7 +56,7 @@ export default function Landing() {
           })}
         </div>
       </div>
-      <div className="justify-end pt-20">
+      <div className="justify-end pt-20 hidden md:block">
         <Image
           src="/landing-page-image.png"
           width={880}
