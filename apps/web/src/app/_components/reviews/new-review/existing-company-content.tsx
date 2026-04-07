@@ -58,7 +58,8 @@ export default function ExistingCompanyContent({
   const [showNewCompany, setShowNewCompany] = useState<boolean>(false);
   const [locationLabel, setLocationLabel] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [prefix, setPrefix] = useState<string>("");
+  const prefix =
+    searchTerm.length >= 3 ? searchTerm.slice(0, 3).toLowerCase() : "";
   const [companySearchTerm, setCompanySearchTerm] = useState<string>("");
 
   const { toast } = useCustomToast();
@@ -79,16 +80,15 @@ export default function ExistingCompanyContent({
 
   // Location fetching logic for new company
   useEffect(() => {
-    const newPrefix =
-      searchTerm.length === 3 ? searchTerm.slice(0, 3).toLowerCase() : null;
-    if (newPrefix && newPrefix !== prefix) {
-      setPrefix(newPrefix);
+    if (!showNewCompany) {
+      setLocationLabel("");
+      setSearchTerm("");
     }
-  }, [prefix, searchTerm]);
+  }, [showNewCompany]);
 
   const locationsToUpdate = api.location.getByPopularity.useQuery(
     { prefix },
-    { enabled: searchTerm.length === 3 },
+    { enabled: prefix.length === 3 },
   );
 
   const locationValuesAndLabels = locationsToUpdate.data
@@ -318,6 +318,8 @@ export default function ExistingCompanyContent({
               if (checked) {
                 form.setValue("companyName", "");
                 setSelectedCompanyId(undefined);
+                setLocationLabel("");
+                setSearchTerm("");
               }
             }}
           />
