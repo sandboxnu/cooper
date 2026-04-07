@@ -209,13 +209,23 @@ export const roleAndCompanyRouter = {
               inArray(review.roleId, roleIds),
               eq(review.status, Status.PUBLISHED),
             ),
-          columns: { companyId: true, jobType: true },
+          columns: { companyId: true, roleId: true, jobType: true },
         });
         for (const r of reviewsWithJobType) {
-          const cid = r.companyId;
-          const arr = companyJobTypesMap.get(cid ?? "") ?? [];
-          if (!arr.includes(r.jobType ?? "")) arr.push(r.jobType ?? "");
-          companyJobTypesMap.set(cid ?? "", arr);
+          if (!r.jobType) continue;
+          const jt = String(r.jobType);
+          if (r.companyId) {
+            const cid = String(r.companyId);
+            const cArr = companyJobTypesMap.get(cid) ?? [];
+            if (!cArr.includes(jt)) cArr.push(jt);
+            companyJobTypesMap.set(cid, cArr);
+          }
+          if (r.roleId) {
+            const rid = String(r.roleId);
+            const rArr = roleJobTypesMap.get(rid) ?? [];
+            if (!rArr.includes(jt)) rArr.push(jt);
+            roleJobTypesMap.set(rid, rArr);
+          }
         }
       }
 
