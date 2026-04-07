@@ -64,7 +64,7 @@ export function InterviewSection() {
         control={form.control}
         name="interviewDifficulty"
         render={({ field }) => (
-          <FormItem className="flex w-full flex-col">
+          <FormItem className="flex w-full flex-col pt-5">
             <FormLabel className="text-sm font-bold text-cooper-gray-400">
               Interview difficulty<span className="text-cooper-red-300">*</span>
             </FormLabel>
