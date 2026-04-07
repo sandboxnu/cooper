@@ -4,12 +4,20 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Filter } from "bad-words";
+import dayjs from "dayjs";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { JobType, WorkEnvironment, WorkTerm } from "@cooper/db/schema";
+import {
+  JobType,
+  Status,
+  UserRole,
+  WorkEnvironment,
+  WorkTerm,
+} from "@cooper/db/schema";
 import { useCustomToast } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
+import { Form } from "@cooper/ui/form";
 
 import {
   BasicInfoSection,
@@ -18,14 +26,8 @@ import {
   ReviewSection,
 } from "~/app/_components/form/sections";
 import Popup from "~/app/_components/form/sections/popup";
-import { z } from "zod";
-import { useCustomToast } from "@cooper/ui";
-import { WorkEnvironment, WorkTerm, JobType, Status } from "@cooper/db/schema";
-import dayjs from "dayjs";
-import { Form } from "node_modules/@cooper/ui/src/form";
 import { PaySection } from "~/app/_components/form/sections/pay-section";
 import { api } from "~/trpc/react";
-import { UserRole } from "node_modules/@cooper/db/src/schema/misc";
 
 const filter = new Filter();
 
