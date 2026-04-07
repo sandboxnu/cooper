@@ -586,11 +586,20 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             </div>
           )}
           <div className="col-span-2" id="interview">
-            <InterviewModal
-              roleData={interviewData.data}
-              industryData={industryInterviewData.data}
-              compact={compare.isCompareMode}
-            />
+            <div className="xl:hidden">
+              <InterviewModal
+                roleData={interviewData.data}
+                industryData={industryInterviewData.data}
+                compact
+              />
+            </div>
+            <div className="hidden xl:block">
+              <InterviewModal
+                roleData={interviewData.data}
+                industryData={industryInterviewData.data}
+                compact={compare.isCompareMode}
+              />
+            </div>
           </div>
           <div className="col-span-2" id="reviews">
             <ModalContainer title="Reviews">

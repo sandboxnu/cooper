@@ -416,7 +416,8 @@ export function InterviewModal({
                 </div>
               </div>
               <p className="text-[16px] leading-[24px] tracking-[-0.16px] text-[#151515]">
-                Most common interview types
+                Most common interview{" "}
+                {universalTypes.split(", ").length === 1 ? "type" : "types"}
               </p>
             </div>
 
