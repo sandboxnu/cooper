@@ -209,18 +209,12 @@ export const reviewRouter = {
           input.hourlyPay == null
             ? isNull(Review.hourlyPay)
             : eq(Review.hourlyPay, input.hourlyPay),
-          input.interviewDifficulty == null
-            ? isNull(Review.interviewDifficulty)
-            : eq(Review.interviewDifficulty, input.interviewDifficulty),
           input.cultureRating == null
             ? isNull(Review.cultureRating)
             : eq(Review.cultureRating, input.cultureRating),
           input.supervisorRating == null
             ? isNull(Review.supervisorRating)
             : eq(Review.supervisorRating, input.supervisorRating),
-          input.interviewRating == null
-            ? isNull(Review.interviewRating)
-            : eq(Review.interviewRating, input.interviewRating),
           input.federalHolidays == null
             ? isNull(Review.federalHolidays)
             : eq(Review.federalHolidays, input.federalHolidays),
