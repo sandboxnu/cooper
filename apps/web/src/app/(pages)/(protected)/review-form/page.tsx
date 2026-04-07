@@ -14,6 +14,8 @@ import {
   UserRole,
   WorkEnvironment,
   WorkTerm,
+  ZodInterviewDifficultySchema,
+  ZodInterviewTypeSchema,
 } from "@cooper/db/schema";
 import { useCustomToast } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
@@ -26,18 +28,6 @@ import {
   ReviewSection,
 } from "~/app/_components/form/sections";
 import Popup from "~/app/_components/form/sections/popup";
-import { z } from "zod";
-import { useCustomToast } from "@cooper/ui";
-import {
-  WorkEnvironment,
-  WorkTerm,
-  JobType,
-  Status,
-  ZodInterviewTypeSchema,
-  ZodInterviewDifficultySchema,
-} from "@cooper/db/schema";
-import dayjs from "dayjs";
-import { Form } from "node_modules/@cooper/ui/src/form";
 import { PaySection } from "~/app/_components/form/sections/pay-section";
 import { api } from "~/trpc/react";
 
