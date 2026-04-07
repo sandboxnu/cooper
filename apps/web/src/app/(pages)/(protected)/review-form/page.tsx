@@ -141,7 +141,6 @@ const formSchema = z.object({
   travelBenefits: z.boolean(),
   freeMerch: z.boolean(),
   snackBar: z.boolean(),
-  employeeLounge: z.boolean(),
   otherBenefits: z.string().nullable(),
 });
 
@@ -182,10 +181,12 @@ export default function ReviewForm() {
       workEnvironment: undefined,
       drugTest: undefined,
       overtimeNormal: undefined,
-      pto: undefined,
+      pto: false,
       federalHolidays: false,
       freeLunch: false,
+      travelBenefits: false,
       freeMerch: false,
+      snackBar: false,
       otherBenefits: "",
       roleName: "",
       companyName: "",
