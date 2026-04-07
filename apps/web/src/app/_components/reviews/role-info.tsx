@@ -618,7 +618,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
               )}
               {reviews.isSuccess && reviews.data.length > 0 && (
                 <div className="flex h-full flex-col gap-5">
-                  <div className="md:w-[44%]">
+                  <div className={cn(isComparing ? "w-full" : "md:w-[44%]")}>
                     <StarGraph
                       ratings={ratings}
                       averageOverallRating={
@@ -626,10 +626,16 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                       }
                       reviews={reviews.data.length}
                       cooperAvg={cooperAvg}
+                      isComparing={isComparing}
                     />
                   </div>
 
-                  <div className="flex items-center gap-3 md:pt-6 flex-wrap ">
+                  <div
+                    className={cn(
+                      "flex flex-wrap items-center gap-3",
+                      !isComparing && "md:pt-6",
+                    )}
+                  >
                     <Popover
                       open={openFilterKey !== null}
                       onOpenChange={(open) => !open && setOpenFilterKey(null)}
