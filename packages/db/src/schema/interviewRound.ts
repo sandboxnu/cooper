@@ -27,10 +27,8 @@ export const InterviewRound = pgTable("interview_round", {
     .notNull()
     .references(() => Review.id, { onDelete: "cascade" }),
 
-  interviewType: InterviewTypeSchema("interview_type").notNull(),
-  interviewDifficulty: InterviewDifficultySchema(
-    "interview_difficulty",
-  ).notNull(),
+  interviewType: InterviewTypeSchema("interview_type"),
+  interviewDifficulty: InterviewDifficultySchema("interview_difficulty"),
 
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at", {
@@ -59,8 +57,8 @@ export const ZodInterviewTypeSchema = z.enum([
 export const ZodInterviewDifficultySchema = z.enum(["easy", "average", "hard"]);
 
 export const CreateInterviewRoundSchema = createInsertSchema(InterviewRound, {
-  interviewType: ZodInterviewTypeSchema,
-  interviewDifficulty: ZodInterviewDifficultySchema,
+  interviewType: ZodInterviewTypeSchema.optional().nullable(),
+  interviewDifficulty: ZodInterviewDifficultySchema.optional().nullable(),
 }).omit({
   id: true,
   createdAt: true,

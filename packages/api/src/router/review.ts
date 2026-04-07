@@ -175,9 +175,16 @@ export const reviewRouter = {
         .values(cleanInput)
         .returning({ id: Review.id });
 
-      if (interviewRounds?.length && inserted) {
+      const completeRounds = (interviewRounds ?? []).filter(
+        (r) => r.interviewType != null && r.interviewDifficulty != null,
+      );
+      if (completeRounds.length && inserted) {
         await ctx.db.insert(InterviewRound).values(
-          interviewRounds.map((r) => ({ ...r, reviewId: inserted.id })),
+          completeRounds.map((r) => ({
+            interviewType: r.interviewType!,
+            interviewDifficulty: r.interviewDifficulty!,
+            reviewId: inserted.id,
+          })),
         );
       }
     }),
@@ -269,9 +276,16 @@ export const reviewRouter = {
         .values(draftInput)
         .returning({ id: Review.id });
 
-      if (interviewRounds?.length && inserted) {
+      const completeRounds = (interviewRounds ?? []).filter(
+        (r) => r.interviewType != null && r.interviewDifficulty != null,
+      );
+      if (completeRounds.length && inserted) {
         await ctx.db.insert(InterviewRound).values(
-          interviewRounds.map((r) => ({ ...r, reviewId: inserted.id })),
+          completeRounds.map((r) => ({
+            interviewType: r.interviewType!,
+            interviewDifficulty: r.interviewDifficulty!,
+            reviewId: inserted.id,
+          })),
         );
       }
     }),

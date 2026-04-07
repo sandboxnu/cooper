@@ -148,6 +148,13 @@
       "when": 1775586798749,
       "tag": "0021_dazzling_skaar",
       "breakpoints": true
+    },
+    {
+      "idx": 22,
+      "version": "7",
+      "when": 1775587835234,
+      "tag": "0022_bent_talisman",
+      "breakpoints": true
     }
   ]
 }
