@@ -1,7 +1,6 @@
 "use client";
 
 import type { ReviewType } from "@cooper/db/schema";
-import { cn } from "@cooper/ui";
 import { Card, CardContent } from "@cooper/ui/card";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { api } from "~/trpc/react";
@@ -16,7 +15,7 @@ interface ReviewCardProps {
   reviewObj: ReviewType;
 }
 
-export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
+export function ReviewCard({ reviewObj }: ReviewCardProps) {
   const { data: role } = api.role.getById.useQuery(
     { id: reviewObj.roleId ?? "" },
     { enabled: !!reviewObj.roleId },
