@@ -147,6 +147,7 @@ const formSchema = z.object({
 export type ReviewFormType = typeof formSchema;
 export default function ReviewForm() {
   const router = useRouter();
+  const utils = api.useUtils();
 
   const {
     data: session,
@@ -275,7 +276,10 @@ export default function ReviewForm() {
   });
 
   const draftMutation = api.review.saveDraft.useMutation({
-    onSuccess: () => {
+    onSuccess: async () => {
+      if (profileId) {
+        await utils.review.getByProfile.invalidate({ id: profileId });
+      }
       router.push("/roles");
       setShowModal(false);
     },
