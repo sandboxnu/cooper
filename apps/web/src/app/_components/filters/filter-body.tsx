@@ -29,12 +29,15 @@ interface FilterBodyProps {
   selectedOptions: string[];
   onSelectionChange?: (selected: string[]) => void;
   placeholder?: string;
+  /** When true (autocomplete only), only one option can be selected; value shows in bar and dropdown closes on select. */
+  singleSelect?: boolean;
   minValue?: number;
   maxValue?: number;
   onRangeChange?: (min: number, max: number) => void;
   onSearchChange?: (search: string) => void;
   isLoadingOptions?: boolean;
   isInMenuContent?: boolean;
+  portalZIndex?: number;
 }
 
 /**
@@ -157,6 +160,7 @@ function FilterBodyRange({
             id="min"
             type="number"
             value={localMin}
+            min={0}
             onChange={(e) => setLocalMin(e.target.value)}
             className={cn(
               "border-cooper-gray-150 h-9 border-[1px] pl-5 text-sm text-cooper-gray-400",
@@ -177,6 +181,7 @@ function FilterBodyRange({
             id="max"
             type="number"
             value={localMax}
+            min={0}
             onChange={(e) => setLocalMax(e.target.value)}
             className={cn(
               "border-cooper-gray-150 h-9 border-[1px] pl-5 text-sm text-cooper-gray-400",
@@ -263,7 +268,10 @@ function FilterBodyAutocomplete({
   selectedOptions,
   onSelectionChange,
   placeholder,
+  singleSelect,
+  onSearchChange,
   isInMenuContent,
+  portalZIndex,
 }: FilterBodyProps) {
   return (
     <Autocomplete
@@ -277,7 +285,10 @@ function FilterBodyAutocomplete({
         placeholder ??
         `Search by ${title === "Industry" ? "industry" : "city or state"}`
       }
+      singleSelect={singleSelect}
+      onSearchChange={onSearchChange}
       isInMenuContent={isInMenuContent}
+      portalZIndex={portalZIndex}
     />
   );
 }
@@ -287,6 +298,8 @@ function FilterBodyLocation({
   selectedOptions,
   onSelectionChange,
   onSearchChange,
+  isInMenuContent,
+  portalZIndex,
 }: FilterBodyProps) {
   return (
     <div className="flex flex-col gap-3">
@@ -299,6 +312,8 @@ function FilterBodyLocation({
         onChange={(selected) => onSelectionChange?.(selected)}
         placeholder="Search by city or state..."
         onSearchChange={onSearchChange}
+        isInMenuContent={isInMenuContent}
+        portalZIndex={portalZIndex}
       />
     </div>
   );

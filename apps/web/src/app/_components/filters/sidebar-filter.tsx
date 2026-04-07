@@ -1,4 +1,4 @@
-"use-client";
+"use client";
 
 import { useEffect, useState } from "react";
 import { ChevronRight } from "lucide-react";
@@ -24,11 +24,6 @@ interface SidebarFilterProps {
   onFilterChange: (filters: FilterState) => void;
   selectedType: "roles" | "companies" | "all";
   onSelectedTypeChange: (t: "roles" | "companies" | "all") => void;
-  data?: {
-    totalRolesCount: number;
-    totalCompanyCount: number;
-  };
-  isLoading?: boolean;
 }
 
 /**
@@ -41,8 +36,6 @@ export default function SidebarFilter({
   onClose,
   selectedType,
   onSelectedTypeChange,
-  data,
-  isLoading,
 }: SidebarFilterProps) {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [prefix, setPrefix] = useState<string>("");
@@ -55,7 +48,7 @@ export default function SidebarFilter({
     }
   }, [prefix, searchTerm]);
 
-  const locationsToUpdate = api.location.getByPrefix.useQuery(
+  const locationsToUpdate = api.location.getByPopularity.useQuery(
     { prefix },
     { enabled: searchTerm.length === 3 && prefix.length === 3 },
   );
@@ -72,14 +65,13 @@ export default function SidebarFilter({
   };
 
   // Industry options from your schema
-  const industryOptionsWithId = Object.entries(industryOptions).map(
-    ([_value, label]) => ({
+  const industryOptionsWithId = Object.entries(industryOptions)
+    .map(([_value, label]) => ({
       id: label.value,
       label: label.label,
       value: label.value,
-    }),
-  );
-
+    }))
+    .sort((a, b) => a.label.localeCompare(b.label));
   // Location options
   const locationOptions = locationsToUpdate.data
     ? locationsToUpdate.data.map((loc) => ({
@@ -136,7 +128,7 @@ export default function SidebarFilter({
     >
       <div
         className={cn(
-          "bg-cooper-cream-100 fixed right-0 top-0 h-screen w-full shadow-xl md:w-1/3",
+          "bg-cooper-cream-100 fixed right-0 top-0 h-[100dvh] w-full shadow-xl md:w-1/3",
           "transition-transform duration-200 ease-out",
           isOpen ? "translate-x-0" : "translate-x-full",
           "flex flex-col",
@@ -159,11 +151,6 @@ export default function SidebarFilter({
             <RoleTypeSelector
               onSelectedTypeChange={onSelectedTypeChange}
               selectedType={selectedType}
-              data={{
-                totalRolesCount: data?.totalRolesCount ?? 0,
-                totalCompanyCount: data?.totalCompanyCount ?? 0,
-              }}
-              isLoading={isLoading}
             />
             <div className="bg-cooper-gray-150 h-px w-full" />
             <SidebarSection
@@ -171,6 +158,7 @@ export default function SidebarFilter({
               filterType="autocomplete"
               options={industryOptionsWithId}
               selectedOptions={filters.industries}
+              portalZIndex={60}
               onSelectionChange={(selected) =>
                 handleFilterChange("industries", selected)
               }
@@ -181,6 +169,7 @@ export default function SidebarFilter({
               filterType="location"
               options={locationOptions}
               selectedOptions={filters.locations}
+              portalZIndex={60}
               onSelectionChange={(selected) =>
                 handleFilterChange("locations", selected)
               }
@@ -254,7 +243,7 @@ export default function SidebarFilter({
                 filterType="rating"
                 options={[]}
                 selectedOptions={filters.companyCulture}
-                variant="subsection"
+                variant="main"
                 onSelectionChange={(selected) =>
                   handleFilterChange("companyCulture", selected)
                 }
@@ -289,10 +278,7 @@ export default function SidebarFilter({
               className="bg-cooper-gray-550 border-0 px-2 py-1 text-sm font-semibold text-cooper-gray-100 hover:bg-cooper-gray-400"
               onClick={onClose}
             >
-              {!isLoading
-                ? "Show Results " +
-                  `(${(data?.totalRolesCount ?? 0) + (data?.totalCompanyCount ?? 0)})`
-                : "Loading..."}
+              Show Results
             </Button>
           </div>
         </div>

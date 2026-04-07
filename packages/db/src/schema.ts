@@ -2,11 +2,18 @@ import type { CompanyType } from "./schema/companies";
 import type { LocationType } from "./schema/locations";
 import type {
   IndustryType,
+  JobTypeType,
   WorkEnvironmentType,
   WorkTermType,
   StatusType,
-  JobTypeType,
+  ModerationEntityTypeType,
+  ReportReasonType,
+  UserRoleType,
 } from "./schema/misc";
+import { CreateFlaggedSchema, Flagged } from "./schema/flagged";
+import type { FlaggedRecordType } from "./schema/flagged";
+import { CreateHiddenSchema, Hidden } from "./schema/hidden";
+import type { HiddenRecordType } from "./schema/hidden";
 import type { ReviewType } from "./schema/reviews";
 import type { RoleType } from "./schema/roles";
 import { Account } from "./schema/accounts";
@@ -22,7 +29,12 @@ import {
   WorkTerm,
   Status,
   JobType,
+  ModerationEntityType,
+  ReportReason,
+  UserRole,
 } from "./schema/misc";
+import { CreateReportSchema, Report } from "./schema/reports";
+import type { ReportType } from "./schema/reports";
 import {
   CreateProfileSchema,
   Profile,
@@ -73,16 +85,31 @@ export {
   WorkEnvironment,
   Status,
   JobType,
+  Flagged,
+  CreateFlaggedSchema,
+  Hidden,
+  CreateHiddenSchema,
+  Report,
+  CreateReportSchema,
+  ModerationEntityType,
+  ReportReason,
+  UserRole,
 };
 
 export type {
   CompanyType,
   ReviewType,
   RoleType,
+  ReportType,
   IndustryType,
   WorkEnvironmentType,
   WorkTermType,
   LocationType,
   StatusType,
   JobTypeType,
+  FlaggedRecordType,
+  HiddenRecordType,
+  ModerationEntityTypeType,
+  ReportReasonType,
+  UserRoleType,
 };

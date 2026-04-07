@@ -96,7 +96,7 @@ export default function ProfileCardHeader({
 
       <CardContent className="pb-0">
         {!editing ? (
-          <div className="m-4 grid grid-cols-1 grid-rows-2 items-center gap-4 text-sm md:grid-cols-3">
+          <div className="m-4 items-start flex flex-col md:flex-row justify-between gap-4 text-sm">
             <div className="flex flex-col">
               <h4 className="font-semibold">Name</h4>
               <p>
@@ -114,7 +114,7 @@ export default function ProfileCardHeader({
           </div>
         ) : (
           <form
-            className="m-4 grid grid-cols-1 gap-4 text-sm md:grid-cols-3"
+            className="m-4 flex flex-col lg:flex-row gap-4 justify-between text-sm"
             onSubmit={(e) => {
               e.preventDefault();
               update.mutate({

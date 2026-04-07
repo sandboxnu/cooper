@@ -3,9 +3,15 @@ import { TRPCError } from "@trpc/server";
 import { Filter } from "bad-words";
 import { z } from "zod";
 
-import type { ReviewType } from "@cooper/db/schema";
+import type { ReviewType, RoleType } from "@cooper/db/schema";
 import { and, asc, desc, eq, sql } from "@cooper/db";
-import { Company, CreateRoleSchema, Review, Role } from "@cooper/db/schema";
+import {
+  Company,
+  CreateRoleSchema,
+  Review,
+  Role,
+  Status,
+} from "@cooper/db/schema";
 
 import {
   protectedProcedure,
@@ -13,6 +19,7 @@ import {
   sortableProcedure,
 } from "../trpc";
 import { createSlug, generateUniqueSlug } from "../utils/slugHelpers";
+import { performFuseSearch } from "../utils/fuzzyHelper";
 
 const ordering = {
   default: desc(Role.id),
@@ -21,6 +28,83 @@ const ordering = {
 };
 
 export const roleRouter = {
+  list: sortableProcedure
+    .input(
+      z.object({
+        search: z.string().optional(),
+        limit: z.number().optional().default(10),
+        offset: z.number().optional().default(0),
+      }),
+    )
+    .query(async ({ ctx, input }) => {
+      let roles: RoleType[] = [];
+      if (ctx.sortBy === "rating") {
+        const rolesWithRatings = await ctx.db.execute(sql`
+        SELECT 
+          ${Role}.*, 
+          COALESCE(AVG(${Review.overallRating}::float), 0) AS avg_rating
+        FROM ${Role}
+        INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
+        GROUP BY ${Role.id}
+        ORDER BY avg_rating DESC
+      `);
+
+        roles = rolesWithRatings.rows.map((role) => ({
+          ...(role as RoleType),
+        }));
+      } else {
+        const rolesWithReviews = await ctx.db.execute(sql`
+        SELECT DISTINCT ${Review.roleId}::uuid as role_id
+        FROM ${Review}
+        WHERE ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
+      `);
+        const roleIds = rolesWithReviews.rows.map((row) => String(row.role_id));
+
+        if (roleIds.length === 0) {
+          roles = [];
+        } else {
+          roles = await ctx.db.query.Role.findMany({
+            where: (role, { inArray }) => inArray(role.id, roleIds),
+            orderBy: ordering[ctx.sortBy],
+          });
+        }
+      }
+
+      // Extract unique company IDs
+      const companyIds = [...new Set(roles.map((role) => role.companyId))];
+
+      // Fetch companies that match the extracted company IDs
+      const companies = await ctx.db.query.Company.findMany({
+        where: (company, { inArray }) => inArray(company.id, companyIds),
+      });
+
+      const rolesWithCompanies = roles.map((role) => {
+        const company = companies.find((c) => c.id === role.companyId);
+        return {
+          ...role,
+          companyName: company?.name ?? "",
+        };
+      });
+
+      const fuseOptions = ["title", "description", "companyName"];
+
+      const searchedRoles = performFuseSearch<
+        RoleType & { companyName: string }
+      >(rolesWithCompanies, fuseOptions, input.search);
+
+      // Apply pagination
+      const paginatedRoles = searchedRoles.slice(
+        input.offset,
+        input.offset + input.limit,
+      );
+
+      return {
+        roles: paginatedRoles.map((role) => ({
+          ...(role as RoleType),
+        })),
+        totalCount: searchedRoles.length,
+      };
+    }),
   getById: publicProcedure
     .input(z.object({ id: z.string() }))
     .query(({ ctx, input }) => {
@@ -59,7 +143,8 @@ export const roleRouter = {
     .input(z.object({ ids: z.array(z.string()).min(1) }))
     .query(({ ctx, input }) => {
       return ctx.db.query.Role.findMany({
-        where: (role, { inArray }) => inArray(role.id, input.ids),
+        where: (role, { and, eq, inArray }) =>
+          and(eq(role.hidden, false), inArray(role.id, input.ids)),
       });
     }),
 
@@ -76,7 +161,10 @@ export const roleRouter = {
         const rolesWithReviews = await ctx.db.execute(sql`
           SELECT DISTINCT ${Review.roleId}::uuid as role_id
           FROM ${Review}
-          WHERE ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
+          WHERE ${Review.roleId} != ''
+            AND ${Review.roleId} IS NOT NULL
+            AND ${Review.status} = ${Status.PUBLISHED}
+            AND ${Review.hidden} = false 
         `);
 
         const roleIds = rolesWithReviews.rows.map((row) => String(row.role_id));
@@ -87,12 +175,16 @@ export const roleRouter = {
 
         return ctx.db.query.Role.findMany({
           where: (role, { eq, and, inArray }) =>
-            and(eq(role.companyId, input.companyId), inArray(role.id, roleIds)),
+            and(
+              eq(role.hidden, false),
+              eq(role.companyId, input.companyId),
+              inArray(role.id, roleIds),
+            ),
         });
       }
 
       return ctx.db.query.Role.findMany({
-        where: eq(Role.companyId, input.companyId),
+        where: and(eq(Role.hidden, false), eq(Role.companyId, input.companyId)),
       });
     }),
 
@@ -138,7 +230,7 @@ export const roleRouter = {
     .input(z.object({ createdBy: z.string() }))
     .query(async ({ ctx, input }) => {
       return ctx.db.query.Role.findMany({
-        where: eq(Role.createdBy, input.createdBy),
+        where: and(eq(Role.hidden, false), eq(Role.createdBy, input.createdBy)),
       });
     }),
 
@@ -146,11 +238,19 @@ export const roleRouter = {
     .input(z.object({ roleId: z.string() }))
     .query(async ({ ctx, input }) => {
       let reviews = await ctx.db.query.Review.findMany({
-        where: eq(Review.roleId, input.roleId),
+        where: and(
+          eq(Review.hidden, false),
+          eq(Review.roleId, input.roleId),
+          eq(Review.status, Status.PUBLISHED),
+        ),
         orderBy: ordering.default,
       });
       reviews = await ctx.db.query.Review.findMany({
-        where: eq(Review.roleId, input.roleId),
+        where: and(
+          eq(Review.hidden, false),
+          eq(Review.roleId, input.roleId),
+          eq(Review.status, Status.PUBLISHED),
+        ),
       });
 
       const calcAvg = (field: keyof ReviewType) => {

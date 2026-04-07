@@ -8,6 +8,7 @@ import { CompanyAbout } from "./company-about";
 import { CompanyReview } from "./company-reviews";
 import NoResults from "../no-results";
 import { prettyLocationName } from "~/utils/locationHelpers";
+import { ReportButton } from "../shared/report-button";
 
 export default function CompanyInfo({
   companyObj,
@@ -48,7 +49,7 @@ export default function CompanyInfo({
 
   return (
     <section className="w-full overflow-y-auto">
-      {company.isSuccess ? (
+      {company.isSuccess && company.data ? (
         <div className="mx-4 justify-center gap-4 font-sans md:mx-auto md:max-w-[66dvw]">
           {onBack && (
             <svg
@@ -68,12 +69,14 @@ export default function CompanyInfo({
           )}
           <div className="mx-2 mb-6 mt-6 flex items-start justify-between">
             <div className="flex">
-              <div className="mr-3 flex h-16 w-16 items-center justify-center">
-                {company.data && <Logo company={company.data} size="small" />}
+              <div className="mr-3 flex items-center justify-center">
+                <Logo company={company.data} />
               </div>
               <div>
-                <h1 className="text-lg font-semibold">{company.data?.name}</h1>
-                <p className="text-md text-gray-600">
+                <h1 className="text-lg font-medium text-[#151515]">
+                  {company.data.name}
+                </h1>
+                <p className="text-md text-cooper-gray-400 font-normal">
                   {locations.length > 1
                     ? `${locations[0]} +${locations.length - 1} ${locations.length - 1 === 1 ? "other" : "others"}`
                     : locations.length === 1
@@ -82,12 +85,10 @@ export default function CompanyInfo({
                 </p>
               </div>
             </div>
-            {company.data && (
-              <FavoriteButton objId={company.data.id} objType="company" />
-            )}
+            <FavoriteButton objId={company.data.id} objType="company" />
           </div>
 
-          <div className="flex flex-row">
+          <div className="flex flex-col md:flex-row">
             <div className="mx-4 w-[70%] gap-4 font-sans md:mx-auto md:max-w-[66dvw] pr-4">
               <div className="mb-6 gap-2 px-1 md:gap-4">
                 <CompanyReview companyObj={company.data} />
@@ -96,6 +97,11 @@ export default function CompanyInfo({
               <div className="my-8 border-t border-cooper-gray-200"></div>
 
               <CompanyAbout companyObj={company.data} />
+              <ReportButton
+                entityId={company.data.id}
+                entityType="company"
+                iconOnly={false}
+              />
             </div>
             <div>
               <RenderAllRoles company={company.data as CompanyType} />

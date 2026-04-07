@@ -4,15 +4,18 @@ import { cn } from "@cooper/ui";
 
 import { api } from "~/trpc/react";
 import LoadingResults from "../loading-results";
-import NewRoleCard from "../reviews/new-role-card";
 import { RoleCardPreview } from "../reviews/role-card-preview";
 import type { CompanyType } from "@cooper/db/schema";
 
 interface RenderAllRolesProps {
   company: CompanyType | null;
+  onClose?: () => void;
 }
 
-export default function RenderAllRoles({ company }: RenderAllRolesProps) {
+export default function RenderAllRoles({
+  company,
+  onClose,
+}: RenderAllRolesProps) {
   const roles = api.role.getByCompany.useQuery({
     companyId: company?.id ?? "",
     onlyWithReviews: true,
@@ -35,27 +38,23 @@ export default function RenderAllRoles({ company }: RenderAllRolesProps) {
                   <div
                     key={role.id}
                     className="p-2"
-                    onClick={() =>
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      onClose?.();
                       router.push(
-                        `/?company=${company?.slug ?? ""}&role=${role.slug}&type=roles`,
-                      )
-                    }
+                        `/roles/?company=${company?.slug ?? ""}&type=roles&role=${role.slug}`,
+                      );
+                    }}
                   >
                     <RoleCardPreview
                       roleObj={role}
-                      className={cn(
-                        "bg-cooper-gray-100 hover:bg-cooper-gray-100",
-                      )}
+                      className={cn("bg-cooper-gray-100 ")}
                     />
                   </div>
                 );
               })}
             </>
-          )}
-          {company && (
-            <div className="p-2">
-              <NewRoleCard companyId={company.id} />
-            </div>
           )}
         </div>
       )}

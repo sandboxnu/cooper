@@ -10,6 +10,7 @@ import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { prettyWorkEnviornment } from "~/utils/stringHelpers";
 import { DeleteReviewDialog } from "./delete-review-dialogue";
+import { ReportButton } from "../shared/report-button";
 
 interface ReviewCardProps {
   className?: string;
@@ -40,7 +41,7 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
             <div className="flex w-full flex-row justify-between md:flex-col">
               <div className="flex flex-row items-center gap-2">
                 <div className="text-2xl text-[#151515] md:text-4xl">
-                  {reviewObj.overallRating.toFixed(1)}
+                  {reviewObj.overallRating?.toFixed(1) ?? "N/A"}
                 </div>
                 <Image
                   src="/svg/star.svg"
@@ -57,8 +58,10 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
                   {prettyLocationName(location)}
                 </span>
                 <span>
-                  {reviewObj.workTerm.charAt(0).toUpperCase() +
-                    reviewObj.workTerm.slice(1).toLowerCase()}{" "}
+                  {reviewObj.workTerm
+                    ? reviewObj.workTerm.charAt(0).toUpperCase() +
+                      reviewObj.workTerm.slice(1).toLowerCase()
+                    : "N/A"}{" "}
                   {reviewObj.workYear}
                 </span>
               </div>
@@ -88,6 +91,11 @@ export function ReviewCard({ reviewObj, className }: ReviewCardProps) {
                   {reviewObj.hourlyPay}/hr
                 </div>
               </div>
+              <ReportButton
+                entityId={reviewObj.id}
+                entityType="review"
+                iconOnly={true}
+              />
             </div>
             <div className="visible flex flex-row justify-between md:hidden">
               <div className="pt-1">{reviewObj.textReview}</div>
