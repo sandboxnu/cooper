@@ -1,4 +1,4 @@
-"use-client";
+"use client";
 
 import { useEffect, useState } from "react";
 import { ChevronRight } from "lucide-react";
@@ -158,6 +158,7 @@ export default function SidebarFilter({
               filterType="autocomplete"
               options={industryOptionsWithId}
               selectedOptions={filters.industries}
+              portalZIndex={60}
               onSelectionChange={(selected) =>
                 handleFilterChange("industries", selected)
               }
@@ -168,6 +169,7 @@ export default function SidebarFilter({
               filterType="location"
               options={locationOptions}
               selectedOptions={filters.locations}
+              portalZIndex={60}
               onSelectionChange={(selected) =>
                 handleFilterChange("locations", selected)
               }
@@ -241,7 +243,7 @@ export default function SidebarFilter({
                 filterType="rating"
                 options={[]}
                 selectedOptions={filters.companyCulture}
-                variant="subsection"
+                variant="main"
                 onSelectionChange={(selected) =>
                   handleFilterChange("companyCulture", selected)
                 }
