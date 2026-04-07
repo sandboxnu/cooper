@@ -1,22 +1,4 @@
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 20 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle
-            cx="10"
-            cy="10"
-            r="8"
-            stroke="#4a4a4a"
-            strokeWidth="2"
-            fill="none"
-          />
-          <path
-            d="M10 6v8M6 10h8"
-            stroke="#4a4a4a"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-        </svg>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="1.25" y="1.25" width="21.5" height="21.5" rx="10.75" stroke="#B4B4B4" stroke-width="2.5"/>
+<path d="M5 11.72H12M19 11.72H12M12 11.72V5V19" stroke="#B4B4B4" stroke-width="2.5"/>
+</svg>

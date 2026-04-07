@@ -9,12 +9,17 @@ import { Card, CardHeader } from "@cooper/ui/card";
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { FavoriteButton } from "../shared/favorite-button";
+import { useState } from "react";
+import { useCompare } from "../compare/compare-context";
+import { Button } from "@cooper/ui/button";
 
 interface RoleCardPreviewProps {
   className?: string;
   roleObj: RoleType;
   showDragHandle?: boolean;
   showFavorite?: boolean;
+  isAlreadyCompared?: boolean;
+  currentlySelectedRoleId?: string | null;
 }
 
 export function RoleCardPreview({
@@ -22,6 +27,8 @@ export function RoleCardPreview({
   roleObj,
   showDragHandle = false,
   showFavorite = true,
+  isAlreadyCompared = false,
+  currentlySelectedRoleId = null,
 }: RoleCardPreviewProps) {
   // ===== COMPANY DATA ===== //
   const company = api.company.getById.useQuery({
@@ -43,58 +50,38 @@ export function RoleCardPreview({
     },
   );
 
-  const jobTypesFromReviews = [
-    ...new Set(
-      (reviews.data ?? [])
-        .map((r) => r.jobType)
-        .filter(Boolean)
-        .map((job) => (job === "CO-OP" ? "Co-op" : job)),
-    ),
-  ] as string[];
-  const jobTypeLabel =
-    jobTypesFromReviews.length === 0
-      ? null
-      : jobTypesFromReviews.length === 1
-        ? jobTypesFromReviews[0]
-        : jobTypesFromReviews.sort().join(" / ");
+  const [hovered, setHovered] = useState(false);
+
+  const compare = useCompare();
 
   return (
     <Card
       className={cn(
-        "outline-cooper-gray-150 relative flex flex-col justify-between overflow-hidden rounded-lg outline outline-[0.75px] hover:cursor-pointer hover:bg-cooper-gray-200",
+        "outline-cooper-gray-150 relative flex flex-col justify-between overflow-hidden rounded-lg outline outline-[0.75px] hover:cursor-pointer ",
         className,
+        showDragHandle && "pl-4",
+        compare.isCompareMode && "pr-2",
       )}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
-      <div className="flex items-start justify-between gap-2">
+      <div className="flex items-start justify-between space-x-3">
         {showDragHandle && (
-          <div className="absolute left-2 top-1/2 -translate-y-1/2">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              className="text-[#C5C5C5]"
-            >
-              <circle cx="9" cy="5" r="1.5" fill="currentColor" />
-              <circle cx="15" cy="5" r="1.5" fill="currentColor" />
-              <circle cx="9" cy="10" r="1.5" fill="currentColor" />
-              <circle cx="15" cy="10" r="1.5" fill="currentColor" />
-              <circle cx="9" cy="15" r="1.5" fill="currentColor" />
-              <circle cx="15" cy="15" r="1.5" fill="currentColor" />
-              <circle cx="9" cy="20" r="1.5" fill="currentColor" />
-              <circle cx="15" cy="20" r="1.5" fill="currentColor" />
-            </svg>
+          <div className="self-center px-2">
+            <Image
+              src="/svg/dragHandle.svg"
+              alt="Drag handle icon"
+              width={11.5}
+              height={26.5}
+            />
           </div>
         )}
-        <div className={cn("flex-1", showDragHandle && "pl-8")}>
+        <div className={cn("flex-1")}>
           <CardHeader className="space-y-0.5">
             <div className="flex items-center gap-2">
               <h3 className="text-xl font-semibold leading-tight">
                 {role.data?.title}
               </h3>
-              <span className="text-sm font-normal text-[#999999]">
-                {jobTypeLabel}
-              </span>
             </div>
 
             <div className="flex items-center gap-2 text-base text-[#666666]">
@@ -126,11 +113,53 @@ export function RoleCardPreview({
             )}
           </CardHeader>
         </div>
-        {showFavorite && (
-          <div onClick={(e) => e.stopPropagation()}>
-            <FavoriteButton objId={roleObj.id} objType="role" />
+
+        {!compare.isCompareMode && (
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="flex flex-col items-center justify-between h-[77px] w-4"
+          >
+            {showFavorite && (
+              <FavoriteButton objId={roleObj.id} objType="role" />
+            )}
+            {hovered && currentlySelectedRoleId && (
+              <Button
+                variant="outline"
+                className="hidden md:inline-flex items-center rounded-full transition hover:bg-cooper-gray-150 hover:shadow-[0px_0px_0px_12px_rgb(231,231,231)] border-none p-0 h-4"
+                onClick={() => {
+                  compare.enterCompareMode(currentlySelectedRoleId);
+                  compare.addRoleId(role.data?.id ?? "");
+                }}
+              >
+                <Image
+                  src="/svg/compareRole.svg"
+                  width={16}
+                  height={16}
+                  alt="Compare icon"
+                />
+              </Button>
+            )}
           </div>
         )}
+        {compare.isCompareMode &&
+          hovered &&
+          !isAlreadyCompared &&
+          compare.comparedRoleIds.length < 2 && (
+            <div
+              onClick={(e) => {
+                e.stopPropagation();
+                compare.addRoleId(roleObj.id);
+              }}
+              className="flex self-center"
+            >
+              <Image
+                src="/svg/compareAdd.svg"
+                width={24}
+                height={24}
+                alt="Add to compare"
+              />
+            </div>
+          )}
       </div>
     </Card>
   );

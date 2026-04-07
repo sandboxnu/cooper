@@ -115,13 +115,6 @@
       "breakpoints": true
     },
     {
-      "idx": 16,
-      "version": "7",
-      "when": 1779960960000,
-      "tag": "0016_hidden_fields",
-      "breakpoints": true
-    },
-    {
       "idx": 17,
       "version": "7",
       "when": 1774812140562,
@@ -140,6 +133,27 @@
       "version": "7",
       "when": 1775168598794,
       "tag": "0019_solid_tigra",
+      "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "7",
+      "when": 1775584763958,
+      "tag": "0020_burly_scarlet_spider",
+      "breakpoints": true
+    },
+    {
+      "idx": 21,
+      "version": "7",
+      "when": 1775586798749,
+      "tag": "0021_dazzling_skaar",
+      "breakpoints": true
+    },
+    {
+      "idx": 22,
+      "version": "7",
+      "when": 1775587835234,
+      "tag": "0022_bent_talisman",
       "breakpoints": true
     }
   ]

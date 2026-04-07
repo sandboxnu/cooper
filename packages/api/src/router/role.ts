@@ -113,6 +113,32 @@ export const roleRouter = {
       });
     }),
 
+  getByIdWithCompany: publicProcedure
+    .input(z.object({ id: z.string() }))
+    .query(async ({ ctx, input }) => {
+      const role = await ctx.db.query.Role.findFirst({
+        where: eq(Role.id, input.id),
+      });
+
+      if (!role) return null;
+
+      const company = await ctx.db.query.Company.findFirst({
+        where: eq(Company.id, role.companyId),
+        columns: { name: true, slug: true },
+      });
+
+      return {
+        ...role,
+        type: "role" as const,
+        companyName: company?.name,
+        companySlug: company?.slug,
+      } as RoleType & {
+        type: "role";
+        companyName?: string;
+        companySlug?: string;
+      };
+    }),
+
   getByCompanySlugAndRoleSlug: publicProcedure
     .input(z.object({ companySlug: z.string(), roleSlug: z.string() }))
     .query(async ({ ctx, input }) => {
@@ -271,10 +297,8 @@ export const roleRouter = {
 
       const averageOverallRating = calcAvg("overallRating");
       const averageHourlyPay = calcAvg("hourlyPay");
-      const averageInterviewDifficulty = calcAvg("interviewDifficulty");
       const averageCultureRating = calcAvg("cultureRating");
       const averageSupervisorRating = calcAvg("supervisorRating");
-      const averageInterviewRating = calcAvg("interviewRating");
 
       const federalHolidays = calcPercentage("federalHolidays");
       const drugTest = calcPercentage("drugTest");
@@ -297,10 +321,8 @@ export const roleRouter = {
       return {
         averageOverallRating: averageOverallRating,
         averageHourlyPay: averageHourlyPay,
-        averageInterviewDifficulty: averageInterviewDifficulty,
         averageCultureRating: averageCultureRating,
         averageSupervisorRating: averageSupervisorRating,
-        averageInterviewRating: averageInterviewRating,
         federalHolidays: federalHolidays,
         drugTest: drugTest,
         freeLunch: freeLunch,

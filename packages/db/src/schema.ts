@@ -54,12 +54,25 @@ import {
 } from "./schema/profliesToReviews";
 import { CreateReviewSchema, Review } from "./schema/reviews";
 import { CreateRoleSchema, Role } from "./schema/roles";
+import {
+  InterviewRound,
+  InterviewRoundRelations,
+  CreateInterviewRoundSchema,
+  ZodInterviewTypeSchema,
+  ZodInterviewDifficultySchema,
+} from "./schema/interviewRound";
+import type { InterviewRoundType } from "./schema/interviewRound";
 import { Session } from "./schema/sessions";
 import { User } from "./schema/users";
 
 export {
   Account,
   Session,
+  InterviewRound,
+  InterviewRoundRelations,
+  CreateInterviewRoundSchema,
+  ZodInterviewTypeSchema,
+  ZodInterviewDifficultySchema,
   Company,
   Profile,
   Review,
@@ -99,6 +112,7 @@ export {
 export type {
   CompanyType,
   ReviewType,
+  InterviewRoundType,
   RoleType,
   ReportType,
   IndustryType,

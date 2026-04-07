@@ -32,7 +32,7 @@ export function ReviewSection() {
             value: String(n),
           }));
           return (
-            <FormItem className="flex flex-col pt-3">
+            <FormItem className="flex flex-col pt-5">
               <FormLabel className="text-sm font-bold text-cooper-gray-400">
                 Overall rating<span className="text-cooper-red-300">*</span>
               </FormLabel>

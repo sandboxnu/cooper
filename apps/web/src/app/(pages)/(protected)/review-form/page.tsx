@@ -26,11 +26,24 @@ import {
   ReviewSection,
 } from "~/app/_components/form/sections";
 import Popup from "~/app/_components/form/sections/popup";
+import { z } from "zod";
+import { useCustomToast } from "@cooper/ui";
+import {
+  WorkEnvironment,
+  WorkTerm,
+  JobType,
+  Status,
+  ZodInterviewTypeSchema,
+  ZodInterviewDifficultySchema,
+} from "@cooper/db/schema";
+import dayjs from "dayjs";
+import { Form } from "node_modules/@cooper/ui/src/form";
 import { PaySection } from "~/app/_components/form/sections/pay-section";
 import { api } from "~/trpc/react";
 
 const filter = new Filter();
 
+// test msg
 const formSchema = z.object({
   workTerm: z.nativeEnum(WorkTerm, {
     required_error: "You need to select a co-op cycle.",
@@ -67,20 +80,15 @@ const formSchema = z.object({
     })
     .min(1)
     .max(5),
-  interviewDifficulty: z.coerce
-    .number({
-      errorMap: () => ({
-        message: "Please select a valid interview difficulty rating.",
+  interviewRounds: z
+    .array(
+      z.object({
+        interviewType: ZodInterviewTypeSchema,
+        interviewDifficulty: ZodInterviewDifficultySchema,
       }),
-    })
-    .min(1)
-    .max(5),
-  interviewReview: z
-    .string()
+    )
     .optional()
-    .refine((val) => !filter.isProfane(val ?? ""), {
-      message: "The interview review cannot contain profane words.",
-    }),
+    .default([]),
   textReview: z
     .string({
       required_error: "You need to enter a review for your co-op.",
@@ -152,6 +160,7 @@ const formSchema = z.object({
 export type ReviewFormType = typeof formSchema;
 export default function ReviewForm() {
   const router = useRouter();
+  const utils = api.useUtils();
 
   const {
     data: session,
@@ -177,8 +186,10 @@ export default function ReviewForm() {
       overallRating: 0,
       cultureRating: 0,
       supervisorRating: 0,
-      interviewDifficulty: 0,
-      interviewReview: "",
+      interviewRounds: [
+        { interviewType: undefined, interviewDifficulty: undefined },
+        { interviewType: undefined, interviewDifficulty: undefined },
+      ],
       textReview: "",
       locationId: "",
       jobType: undefined,
@@ -280,7 +291,10 @@ export default function ReviewForm() {
   });
 
   const draftMutation = api.review.saveDraft.useMutation({
-    onSuccess: () => {
+    onSuccess: async () => {
+      if (profileId) {
+        await utils.review.getByProfile.invalidate({ id: profileId });
+      }
       router.push("/roles");
       setShowModal(false);
     },
@@ -296,7 +310,6 @@ export default function ReviewForm() {
         profileId: profile?.id,
         companyId: companyId,
         ...values,
-        interviewRating: 1,
         reviewHeadline: "",
         status: Status.PUBLISHED,
       });
@@ -334,9 +347,7 @@ export default function ReviewForm() {
         overallRating: values.overallRating,
         cultureRating: values.cultureRating,
         supervisorRating: values.supervisorRating,
-        interviewRating: 1,
-        interviewDifficulty: +values.interviewDifficulty || null,
-        interviewReview: values.interviewReview ?? null,
+        interviewRounds: values.interviewRounds ?? [],
         reviewHeadline: "",
         textReview: values.textReview || null,
         locationId: values.locationId || null,
