@@ -18,7 +18,7 @@ export const InterviewDifficultySchema = pgEnum("interview_difficulty", [
   "Easy",
 ]);
 
-export const ReviewRound = pgTable("review_round", {
+export const InterviewRound = pgTable("review_round", {
   id: uuid("id").defaultRandom().primaryKey(),
 
   reviewId: uuid("review_id")
@@ -36,11 +36,11 @@ export const ReviewRound = pgTable("review_round", {
   }).$onUpdateFn(() => sql`now()`),
 });
 
-export type ReviewRoundType = typeof ReviewRound.$inferSelect;
+export type InterviewRoundType = typeof InterviewRound.$inferSelect;
 
-export const ReviewRoundRelations = relations(ReviewRound, ({ one }) => ({
+export const InterviewRoundRelations = relations(InterviewRound, ({ one }) => ({
   review: one(Review, {
-    fields: [ReviewRound.reviewId],
+    fields: [InterviewRound.reviewId],
     references: [Review.id],
   }),
 }));
@@ -58,7 +58,7 @@ export const ZodInterviewDifficultySchema = z.enum([
   "Easy",
 ]);
 
-export const CreateReviewRoundSchema = createInsertSchema(ReviewRound, {
+export const CreateInterviewRoundSchema = createInsertSchema(InterviewRound, {
   interviewType: ZodInterviewTypeSchema,
   interviewDifficulty: ZodInterviewDifficultySchema,
 }).omit({

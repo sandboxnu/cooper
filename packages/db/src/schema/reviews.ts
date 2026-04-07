@@ -19,7 +19,7 @@ import { Profile } from "./profiles";
 import { ProfilesToReviews } from "./profliesToReviews";
 import { Report } from "./reports";
 import { Role } from "./roles";
-import { ReviewRound } from "./reviewRound";
+import { InterviewRound } from "./interviewRound";
 
 export const Review = pgTable("review", {
   id: uuid("id").notNull().primaryKey().defaultRandom(),
@@ -76,7 +76,7 @@ export const ReviewRelations = relations(Review, ({ one, many }) => ({
     references: [Location.id],
   }),
   profiles_to_reviews: many(ProfilesToReviews),
-  interviewRounds: many(ReviewRound),
+  interviewRounds: many(InterviewRound),
   reports: many(Report),
 }));
 
