@@ -27,7 +27,8 @@ export function BasicInfoSection({
   const form = useFormContext();
   const [locationLabel, setLocationLabel] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [prefix, setPrefix] = useState<string>("");
+  const prefix =
+    searchTerm.length >= 3 ? searchTerm.slice(0, 3).toLowerCase() : "";
 
   // Need to evaluate whether this is a bad idea
   const currentYear = dayjs().year();
@@ -36,17 +37,9 @@ export function BasicInfoSection({
     (_, index) => currentYear - index,
   );
 
-  useEffect(() => {
-    const newPrefix =
-      searchTerm.length === 3 ? searchTerm.slice(0, 3).toLowerCase() : null;
-    if (newPrefix && newPrefix !== prefix) {
-      setPrefix(newPrefix);
-    }
-  }, [prefix, searchTerm]);
-
   const locationsToUpdate = api.location.getByPopularity.useQuery(
     { prefix },
-    { enabled: searchTerm.length === 3 },
+    { enabled: prefix.length === 3 },
   );
 
   const locationValuesAndLabels = locationsToUpdate.data
@@ -101,7 +94,7 @@ export function BasicInfoSection({
             { id: "Internship", label: "Internship" },
           ];
           return (
-            <FormItem className="flex flex-col w-full pt-4">
+            <FormItem className="flex flex-col w-full pt-5">
               <FormLabel className="text-sm font-bold text-cooper-gray-400">
                 Job type<span className="text-cooper-red-300">*</span>
               </FormLabel>
