@@ -1,3 +1,5 @@
+import { JobType } from "@cooper/db/schema";
+
 export const monthOptions = [
   { value: "1", label: "January" },
   { value: "2", label: "February" },
@@ -365,8 +367,8 @@ export const majors = [
 ];
 
 export const jobTypeOptions = [
-  { value: "CO-OP", label: "Co-op" },
-  { value: "INTERNSHIP", label: "Internship" },
+  { value: JobType.COOP, label: "Co-op" },
+  { value: JobType.INTERNSHIP, label: "Internship" },
 ];
 
 export const workModelOptions = [

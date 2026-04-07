@@ -440,10 +440,14 @@ export default function Roles() {
   }, [selectedType, router]);
 
   const totalPages =
-    rolesAndCompanies.data &&
-    "totalCount" in rolesAndCompanies.data &&
-    rolesAndCompanies.data.totalCount
-      ? Math.ceil(rolesAndCompanies.data.totalCount / rolesAndCompaniesPerPage)
+    rolesAndCompanies.data && "totalCount" in rolesAndCompanies.data
+      ? Math.ceil(
+          (selectedType === "roles"
+            ? rolesAndCompanies.data.totalRolesCount
+            : selectedType === "companies"
+              ? rolesAndCompanies.data.totalCompanyCount
+              : rolesAndCompanies.data.totalCount) / rolesAndCompaniesPerPage,
+        )
       : 0;
 
   const resolvedSelection =
@@ -514,10 +518,12 @@ export default function Roles() {
           <SearchFilter className="w-full" />
         </div>
         <div className="no-scrollbar flex w-full flex-1 gap-2 overflow-x-auto px-5 md:pr-0">
-          <DropdownFiltersBar
-            filters={appliedFilters}
-            onFilterChange={handleFilterChange}
-          />
+          <div className="hidden md:block">
+            <DropdownFiltersBar
+              filters={appliedFilters}
+              onFilterChange={handleFilterChange}
+            />
+          </div>
           <Button
             className={cn(
               "border-cooper-gray-150 flex h-9 items-center gap-[10px] whitespace-nowrap rounded-lg border px-[14px] py-2 text-sm font-normal text-cooper-gray-400 outline-none focus:outline-none focus-visible:ring-0",

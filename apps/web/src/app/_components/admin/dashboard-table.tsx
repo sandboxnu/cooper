@@ -22,7 +22,7 @@ interface DashboardItem {
   category: DashboardCategory;
   title: string;
   subtitle?: string;
-  description?: string;
+  description?: string | null;
   company?: string;
   location?: string | null;
   createdAt: Date;
@@ -855,7 +855,7 @@ export function AdminDashboardTable() {
               setSearchQuery(e.target.value);
               resetAllPages();
             }}
-            className="w-[40%] rounded-md border border-gray-200 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:none focus:outline-none focus:ring-1 focus:ring-gray-200"
+            className="md:w-[40%] rounded-md border border-gray-200 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:none focus:outline-none focus:ring-1 focus:ring-gray-200"
           />
           <div className="flex items-center gap-2 sm:ml-4">
             <button

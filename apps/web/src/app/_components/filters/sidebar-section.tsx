@@ -16,6 +16,7 @@ interface SidebarSectionProps {
   minValue?: number;
   maxValue?: number;
   variant?: "main" | "subsection";
+  portalZIndex?: number;
 }
 
 /**
@@ -33,6 +34,7 @@ export default function SidebarSection({
   minValue,
   maxValue,
   variant = "main",
+  portalZIndex,
 }: SidebarSectionProps) {
   const handleClear = () => {
     if (filterType === "range") {
@@ -76,6 +78,7 @@ export default function SidebarSection({
           maxValue={maxValue}
           onSearchChange={onSearchChange}
           isLoadingOptions={isLoadingOptions}
+          portalZIndex={portalZIndex}
         />
       </div>
     </div>
