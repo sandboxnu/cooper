@@ -22,7 +22,7 @@ export function mostCommonWorkEnviornment(
 
 export function averageStarRating(reviews: ReviewType[]): number {
   const totalStars = reviews.reduce((accum, curr) => {
-    return accum + curr.overallRating;
+    return accum + (curr.overallRating ?? 0);
   }, 0);
   return totalStars / reviews.length;
 }

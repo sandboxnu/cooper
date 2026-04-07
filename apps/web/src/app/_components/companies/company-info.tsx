@@ -88,7 +88,7 @@ export default function CompanyInfo({
             <FavoriteButton objId={company.data.id} objType="company" />
           </div>
 
-          <div className="flex flex-row">
+          <div className="flex flex-col md:flex-row">
             <div className="mx-4 w-[70%] gap-4 font-sans md:mx-auto md:max-w-[66dvw] pr-4">
               <div className="mb-6 gap-2 px-1 md:gap-4">
                 <CompanyReview companyObj={company.data} />

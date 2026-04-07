@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 import type { CompanyType, RoleType } from "@cooper/db/schema";
+import { Status } from "@cooper/db/schema";
 import { asc, desc, sql } from "@cooper/db";
 import { Company, JobType, Review, Role } from "@cooper/db/schema";
 
@@ -59,7 +60,10 @@ export const roleAndCompanyRouter = {
         FROM ${Role}
         INNER JOIN ${Company} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
         INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
-        WHERE ${Company.hidden} = false AND ${Role.hidden} = false AND ${Review.hidden} = false
+        WHERE ${Review.status} = ${Status.PUBLISHED} 
+          AND ${Company.hidden} = false 
+          AND ${Role.hidden} = false 
+          AND ${Review.hidden} = false
         GROUP BY ${Role.id}
         ORDER BY avg_rating DESC
       `);
@@ -74,6 +78,7 @@ export const roleAndCompanyRouter = {
         INNER JOIN ${Role} ON ${Review.roleId}::uuid = ${Role.id}
         INNER JOIN ${Company} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
         WHERE ${Company.hidden} = false AND ${Role.hidden} = false AND ${Review.hidden} = false AND ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
+        AND ${Review.status} = ${Status.PUBLISHED}
       `);
 
         const roleIds = rolesWithReviews.rows.map((row) => String(row.role_id));
@@ -98,7 +103,10 @@ export const roleAndCompanyRouter = {
           FROM ${Company}
           LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
           INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
-          WHERE ${Company.hidden} = false AND ${Review.hidden} = false AND ${Role.hidden} = false
+          WHERE ${Review.status} = ${Status.PUBLISHED}
+            AND ${Company.hidden} = false
+            AND ${Review.hidden} = false
+            AND ${Role.hidden} = false
           GROUP BY ${Company.id}
           ORDER BY avg_rating DESC
         `);
@@ -117,7 +125,12 @@ export const roleAndCompanyRouter = {
           FROM ${Company}
           INNER JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
           INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
-          WHERE ${Company.hidden} = false AND ${Role.hidden} = false AND ${Review.hidden} = false AND ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
+          WHERE ${Company.hidden} = false
+            AND ${Role.hidden} = false
+            AND ${Review.hidden} = false
+            AND ${Review.roleId} != ''
+            AND ${Review.roleId} IS NOT NULL
+            AND ${Review.status} = ${Status.PUBLISHED}
         `);
 
         const companyIdsWithReviews = new Set(
@@ -191,24 +204,18 @@ export const roleAndCompanyRouter = {
       if (jobTypeFilterActive && roles.length > 0) {
         const roleIds = roles.map((r) => r.id);
         const reviewsWithJobType = await ctx.db.query.Review.findMany({
-          where: (review, { inArray }) => inArray(review.roleId, roleIds),
-          columns: { companyId: true, roleId: true, jobType: true },
+          where: (review, { inArray, and, eq }) =>
+            and(
+              inArray(review.roleId, roleIds),
+              eq(review.status, Status.PUBLISHED),
+            ),
+          columns: { companyId: true, jobType: true },
         });
         for (const r of reviewsWithJobType) {
-          if (!r.jobType) continue;
-          const jt = String(r.jobType);
-          if (r.companyId) {
-            const cid = String(r.companyId);
-            const cArr = companyJobTypesMap.get(cid) ?? [];
-            if (!cArr.includes(jt)) cArr.push(jt);
-            companyJobTypesMap.set(cid, cArr);
-          }
-          if (r.roleId) {
-            const rid = String(r.roleId);
-            const rArr = roleJobTypesMap.get(rid) ?? [];
-            if (!rArr.includes(jt)) rArr.push(jt);
-            roleJobTypesMap.set(rid, rArr);
-          }
+          const cid = r.companyId;
+          const arr = companyJobTypesMap.get(cid ?? "") ?? [];
+          if (!arr.includes(r.jobType ?? "")) arr.push(r.jobType ?? "");
+          companyJobTypesMap.set(cid ?? "", arr);
         }
       }
 
@@ -239,6 +246,7 @@ export const roleAndCompanyRouter = {
             roleIds.map((id) => sql`${id}`),
             sql`,`,
           )})
+            AND ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Role.id}
         `);
 
@@ -255,6 +263,7 @@ export const roleAndCompanyRouter = {
             roleIds.map((id) => sql`${id}`),
             sql`,`,
           )})
+            AND ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Role.id}
         `);
 
@@ -272,6 +281,7 @@ export const roleAndCompanyRouter = {
             roleIds.map((id) => sql`${id}`),
             sql`,`,
           )})
+            AND ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Role.id}
         `);
 
@@ -296,6 +306,7 @@ export const roleAndCompanyRouter = {
             roleIds.map((id) => sql`${id}`),
             sql`,`,
           )})
+            AND ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Role.id}
         `);
 
@@ -316,6 +327,7 @@ export const roleAndCompanyRouter = {
             roleIds.map((id) => sql`${id}`),
             sql`,`,
           )})
+            AND ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Role.id}
         `);
 
@@ -340,6 +352,7 @@ export const roleAndCompanyRouter = {
             companyIds.map((id) => sql`${id}`),
             sql`,`,
           )})
+            AND ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Company.id}
         `);
 
@@ -357,6 +370,7 @@ export const roleAndCompanyRouter = {
             companyIds.map((id) => sql`${id}`),
             sql`,`,
           )})
+            AND ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Company.id}
         `);
 
@@ -375,6 +389,7 @@ export const roleAndCompanyRouter = {
             companyIds.map((id) => sql`${id}`),
             sql`,`,
           )})
+            AND ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Company.id}
         `);
 
@@ -400,6 +415,7 @@ export const roleAndCompanyRouter = {
             companyIds.map((id) => sql`${id}`),
             sql`,`,
           )})
+            AND ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Company.id}
         `);
 
@@ -421,6 +437,7 @@ export const roleAndCompanyRouter = {
             companyIds.map((id) => sql`${id}`),
             sql`,`,
           )})
+            AND ${Review.status} = ${Status.PUBLISHED}
           GROUP BY ${Company.id}
         `);
 
@@ -633,7 +650,10 @@ export const roleAndCompanyRouter = {
           FROM ${Role}
           INNER JOIN ${Company} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
           INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
-          WHERE ${Company.hidden} = false AND ${Role.hidden} = false AND ${Review.hidden} = false
+          WHERE ${Review.status} = ${Status.PUBLISHED}
+            AND ${Company.hidden} = false
+            AND ${Role.hidden} = false
+            AND ${Review.hidden} = false
           GROUP BY ${Role.id}
           ORDER BY avg_rating DESC
         `);
@@ -647,7 +667,12 @@ export const roleAndCompanyRouter = {
         FROM ${Review}
         INNER JOIN ${Role} ON ${Review.roleId}::uuid = ${Role.id}
         INNER JOIN ${Company} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
-        WHERE ${Company.hidden} = false AND ${Role.hidden} = false AND ${Review.hidden} = false AND ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
+        WHERE ${Company.hidden} = false
+          AND ${Role.hidden} = false
+          AND ${Review.hidden} = false
+          AND ${Review.roleId} != ''
+          AND ${Review.roleId} IS NOT NULL
+          AND ${Review.status} = ${Status.PUBLISHED}
       `);
 
         const roleIds = rolesWithReviews.rows.map((row) => String(row.role_id));
@@ -672,7 +697,10 @@ export const roleAndCompanyRouter = {
           FROM ${Company}
           LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
           INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
-          WHERE ${Company.hidden} = false AND ${Review.hidden} = false AND ${Role.hidden} = false
+          WHERE ${Review.status} = ${Status.PUBLISHED}
+            AND ${Company.hidden} = false
+            AND ${Review.hidden} = false
+            AND ${Role.hidden} = false
           GROUP BY ${Company.id}
           ORDER BY avg_rating DESC
         `);
@@ -691,7 +719,12 @@ export const roleAndCompanyRouter = {
           FROM ${Company}
           INNER JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}
           INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}
-          WHERE ${Company.hidden} = false AND ${Role.hidden} = false AND ${Review.hidden} = false AND ${Review.roleId} != '' AND ${Review.roleId} IS NOT NULL
+          WHERE ${Company.hidden} = false
+            AND ${Role.hidden} = false
+            AND ${Review.hidden} = false
+            AND ${Review.roleId} != ''
+            AND ${Review.roleId} IS NOT NULL
+            AND ${Review.status} = ${Status.PUBLISHED}
         `);
 
         const companyIdsWithReviews = new Set(
