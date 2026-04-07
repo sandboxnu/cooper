@@ -419,32 +419,6 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             </div>
           </div>
         </CardHeader>
-        <div className="flex flex-col items-end mr-6 gap-2">
-          <CardContent className="grid gap-2">
-            {reviews.isSuccess &&
-              reviews.data.length > 0 &&
-              (() => {
-                return (
-                  <div className="align-center flex gap-2 text-cooper-gray-400">
-                    <Image
-                      src="/svg/star.svg"
-                      alt="Star icon"
-                      width={20}
-                      height={20}
-                    />
-                    <div>
-                      {Math.round(
-                        Number(averages.data?.averageOverallRating) * 100,
-                      ) / 100}
-                    </div>
-                    ({reviews.data.length} review
-                    {reviews.data.length !== 1 && "s"})
-                  </div>
-                );
-              })()}
-          </CardContent>
-          <ReportButton entityId={roleObj.id} entityType="role" />
-        </div>
       </div>
       <div className="flex w-[100%] justify-between">
         <div
