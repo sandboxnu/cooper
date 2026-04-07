@@ -337,7 +337,7 @@ export default function ReviewForm() {
         overallRating: values.overallRating,
         cultureRating: values.cultureRating,
         supervisorRating: values.supervisorRating,
-        interviewRounds: values.interviewRounds ?? [],
+        interviewRounds: values.interviewRounds,
         reviewHeadline: "",
         textReview: values.textReview || null,
         locationId: values.locationId || null,

@@ -18,7 +18,10 @@ interface InterviewRoundItemProps {
   onRemove: () => void;
 }
 
-export function InterviewRoundItem({ index, onRemove }: InterviewRoundItemProps) {
+export function InterviewRoundItem({
+  index,
+  onRemove,
+}: InterviewRoundItemProps) {
   const form = useFormContext();
 
   return (
@@ -47,7 +50,10 @@ export function InterviewRoundItem({ index, onRemove }: InterviewRoundItemProps)
                       { id: "behavioral", label: "Behavioral" },
                       { id: "technical", label: "Technical" },
                       { id: "case_study", label: "Case study" },
-                      { id: "portfolio_walkthrough", label: "Portfolio walkthrough" },
+                      {
+                        id: "portfolio_walkthrough",
+                        label: "Portfolio walkthrough",
+                      },
                       { id: "online_assessment", label: "Online assessment" },
                       { id: "screening", label: "Screening" },
                       { id: "other", label: "Other" },

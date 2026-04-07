@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 
-import { UserRole, UserRoleType } from "@cooper/db/schema";
+import type { UserRoleType } from "@cooper/db/schema";
+import { UserRole } from "@cooper/db/schema";
 import { cn, useCustomToast } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 import { Input } from "@cooper/ui/input";

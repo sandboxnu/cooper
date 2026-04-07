@@ -52,7 +52,7 @@ import {
   CreateProfileToReviewSchema,
   ProfilesToReviews,
 } from "./schema/profliesToReviews";
-import { CreateReviewSchema, Review } from "./schema/reviews";
+import { CreateReviewSchema, Review, ReviewRelations } from "./schema/reviews";
 import { CreateRoleSchema, Role } from "./schema/roles";
 import {
   InterviewRound,
@@ -90,6 +90,7 @@ export {
   CreateProfileToRoleSchema,
   CreateProfileToCompanySchema,
   CreateProfileToReviewSchema,
+  ReviewRelations,
   CreateReviewSchema,
   CreateRoleSchema,
   CreateLocationSchema,

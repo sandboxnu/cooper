@@ -175,17 +175,18 @@ export const reviewRouter = {
         .values(cleanInput)
         .returning({ id: Review.id });
 
-      const completeRounds = (interviewRounds ?? []).filter(
-        (r) => r.interviewType != null && r.interviewDifficulty != null,
-      );
-      if (completeRounds.length && inserted) {
-        await ctx.db.insert(InterviewRound).values(
-          completeRounds.map((r) => ({
-            interviewType: r.interviewType!,
-            interviewDifficulty: r.interviewDifficulty!,
-            reviewId: inserted.id,
-          })),
-        );
+      const roundsToInsert = interviewRounds.flatMap((r) => {
+        if (r.interviewType == null || r.interviewDifficulty == null) return [];
+        return [
+          {
+            interviewType: r.interviewType,
+            interviewDifficulty: r.interviewDifficulty,
+            reviewId: inserted?.id ?? "",
+          },
+        ];
+      });
+      if (roundsToInsert.length > 0) {
+        await ctx.db.insert(InterviewRound).values(roundsToInsert);
       }
     }),
 
@@ -276,18 +277,67 @@ export const reviewRouter = {
         .values(draftInput)
         .returning({ id: Review.id });
 
-      const completeRounds = (interviewRounds ?? []).filter(
-        (r) => r.interviewType != null && r.interviewDifficulty != null,
-      );
-      if (completeRounds.length && inserted) {
-        await ctx.db.insert(InterviewRound).values(
-          completeRounds.map((r) => ({
-            interviewType: r.interviewType!,
-            interviewDifficulty: r.interviewDifficulty!,
-            reviewId: inserted.id,
-          })),
+      const roundsToInsert = interviewRounds.flatMap((r) => {
+        if (r.interviewType == null || r.interviewDifficulty == null) return [];
+        return [
+          {
+            interviewType: r.interviewType,
+            interviewDifficulty: r.interviewDifficulty,
+            reviewId: inserted?.id ?? "",
+          },
+        ];
+      });
+      if (roundsToInsert.length > 0) {
+        await ctx.db.insert(InterviewRound).values(roundsToInsert);
+      }
+    }),
+
+  getInterviewDataByIndustry: sortableProcedure
+    .input(z.object({ industry: z.string() }))
+    .query(async ({ ctx, input }) => {
+      if (ctx.res) {
+        ctx.res.headers.set(
+          "Cache-Control",
+          "public, max-age=28800, s-maxage=28800, stale-while-revalidate=600",
         );
       }
+
+      const companies = await ctx.db.query.Company.findMany({
+        where: eq(Company.industry, input.industry),
+      });
+
+      const companyIds = companies.map((c) => c.id);
+
+      const reviews = await ctx.db.query.Review.findMany({
+        where: and(
+          inArray(Review.companyId, companyIds),
+          eq(Review.status, Status.PUBLISHED),
+        ),
+        with: { interviewRounds: true },
+      });
+
+      const reviewsWithRounds = reviews.filter(
+        (r) => r.interviewRounds.length > 0,
+      );
+
+      const roundsCounts = reviewsWithRounds.map(
+        (r) => r.interviewRounds.length,
+      );
+      const distMap: Record<number, number> = {};
+      for (const c of roundsCounts) distMap[c] = (distMap[c] ?? 0) + 1;
+      const roundsDistribution = Object.entries(distMap)
+        .map(([rounds, count]) => ({ rounds: Number(rounds), count }))
+        .sort((a, b) => a.rounds - b.rounds);
+      const sortedDistEntries = Object.entries(distMap).sort(
+        (a, b) => b[1] - a[1],
+      );
+      const roundsMode =
+        sortedDistEntries.length > 0 ? Number(sortedDistEntries[0]?.[0]) : null;
+
+      return {
+        roundsMode,
+        roundsDistribution,
+      };
     }),
 
   delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {

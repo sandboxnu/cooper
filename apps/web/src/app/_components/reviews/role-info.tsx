@@ -16,6 +16,7 @@ import DropdownFilter, { FilterPanelContent } from "../filters/dropdown-filter";
 import { jobTypeOptions } from "../onboarding/constants";
 import StarGraph from "../shared/star-graph";
 import BarGraph from "./bar-graph";
+import { InterviewModal } from "./interview-modal";
 import ModalContainer from "./modal";
 import { ReviewCard } from "./review-card";
 import RoundBarGraph from "./round-bar-graph";
@@ -96,6 +97,13 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
   // ===== ROLE DATA ===== //
   const companyData = companyQuery.data;
   const averages = api.role.getAverageById.useQuery({ roleId: roleObj.id });
+  const interviewData = api.role.getInterviewDataById.useQuery({
+    roleId: roleObj.id,
+  });
+  const industryInterviewData = api.review.getInterviewDataByIndustry.useQuery(
+    { industry: companyData?.industry ?? "" },
+    { enabled: !!companyData?.industry },
+  );
   const companyReviews = api.review.getByCompany.useQuery(
     {
       id: companyData?.id ?? "",
@@ -434,7 +442,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             />
           )}
           <div className="col-span-2" id="on-the-job">
-             <ModalContainer title={"On the job"}>
+            <ModalContainer title={"On the job"}>
               {averages.data && (
                 <div
                   className={cn(
@@ -578,12 +586,11 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             </div>
           )}
           <div className="col-span-2" id="interview">
-            <ModalContainer title="Interview">
-              {averages.data && (
-                <div className="flex flex-wrap gap-10">
-                </div>
-              )}
-            </ModalContainer>
+            <InterviewModal
+              roleData={interviewData.data}
+              industryData={industryInterviewData.data}
+              compact={compare.isCompareMode}
+            />
           </div>
           <div className="col-span-2" id="reviews">
             <ModalContainer title="Reviews">

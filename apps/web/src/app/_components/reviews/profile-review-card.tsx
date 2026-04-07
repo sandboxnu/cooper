@@ -8,7 +8,7 @@ import { YellowStar } from "./review-card-stars";
 import { prettyWorkEnviornment } from "~/utils/stringHelpers";
 import { DeleteReviewDialog } from "./delete-review-dialogue";
 import { ReportButton } from "../shared/report-button";
-import { WorkEnvironmentType } from "@cooper/db/schema";
+import type { WorkEnvironmentType } from "@cooper/db/schema";
 
 interface ReviewCardProps {
   className?: string;
