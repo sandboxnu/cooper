@@ -43,14 +43,56 @@ const createSlug = (text: string): string => {
     .trim();
 };
 
+const isSelectedType = (
+  value: string | null,
+): value is "roles" | "companies" | "all" =>
+  value === "roles" || value === "companies" || value === "all";
+
+const getCompanySlug = (companySlug?: string, companyName?: string): string => {
+  return companySlug ?? createSlug(companyName ?? "");
+};
+
+const buildRolesSearchParams = (
+  currentSearch: string,
+  companySlug: string,
+  roleSlug?: string,
+): URLSearchParams => {
+  const params = new URLSearchParams(currentSearch);
+  const preservedSearch = params.get("search");
+
+  params.delete("search");
+  params.set("company", companySlug);
+
+  if (roleSlug) {
+    params.set("role", roleSlug);
+  } else {
+    params.delete("role");
+  }
+
+  if (preservedSearch) {
+    params.set("search", preservedSearch);
+  }
+
+  return params;
+};
+
 export default function Roles() {
   const searchParams = useSearchParams();
-  const companyParam = searchParams.get("company") ?? null;
-  const roleParam = searchParams.get("role") ?? null;
-  const searchValue = searchParams.get("search") ?? ""; // Get search query from URL
+  const urlCompanyParam = searchParams.get("company") ?? null;
+  const urlRoleParam = searchParams.get("role") ?? null;
+  const searchValue = searchParams.get("search") ?? "";
   const router = useRouter();
   const compare = useCompare();
   const { exitCompareMode } = compare;
+  const [companyParam, setCompanyParam] = useState(urlCompanyParam);
+  const [roleParam, setRoleParam] = useState(urlRoleParam);
+  const [currentAnchorRoleId, setCurrentAnchorRoleId] = useState<string | null>(
+    null,
+  );
+  // Refs to track compare mode state across renders without causing re-renders
+  const wasCompareModeRef = useRef(false);
+  const shouldRestoreAnchorPageRef = useRef(false);
+  const [pendingAnchorRestore, setPendingAnchorRestore] = useState(false);
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -59,15 +101,16 @@ export default function Roles() {
   const [selectedType, setSelectedType] = useState<
     "roles" | "companies" | "all"
   >(() => {
-    if (
-      typeParam === "roles" ||
-      typeParam === "companies" ||
-      typeParam === "all"
-    ) {
+    if (isSelectedType(typeParam)) {
       return typeParam;
     }
     return "all";
   });
+
+  useEffect(() => {
+    setCompanyParam(urlCompanyParam);
+    setRoleParam(urlRoleParam);
+  }, [urlCompanyParam, urlRoleParam]);
 
   const [selectedFilter, setSelectedFilter] = useState<
     "default" | "rating" | "newest" | "oldest" | undefined
@@ -206,12 +249,10 @@ export default function Roles() {
 
     // Default to first item in list only if no params are set
     if (!companyParam && !roleParam && rolesAndCompanies.isSuccess) {
-      if (rolesAndCompanies.data.items.length > 0) {
-        return rolesAndCompanies.data.items[0];
-      }
+      return rolesAndCompanies.data.items[0] ?? null;
     }
 
-    return undefined;
+    return null;
   }, [
     companyParam,
     roleParam,
@@ -230,8 +271,11 @@ export default function Roles() {
   );
 
   const [selectedItem, setSelectedItem] = useState<
-    (RoleType | CompanyType) | undefined
-  >();
+    (RoleType | CompanyType) | null
+  >(null);
+  const [cachedAnchorRole, setCachedAnchorRole] = useState<AnchorRole | null>(
+    null,
+  );
 
   // Ref to store card refs for scrolling
   const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
@@ -240,7 +284,9 @@ export default function Roles() {
 
   useEffect(() => {
     if (defaultItem) {
-      setSelectedItem(defaultItem);
+      setSelectedItem((prev) =>
+        prev?.id === defaultItem.id ? prev : defaultItem,
+      );
     }
   }, [defaultItem]);
 
@@ -270,41 +316,254 @@ export default function Roles() {
     }
   }, [companyParam, roleParam]);
 
-  const resolvedSelection =
-    selectedItem ??
-    (rolesAndCompanies.data?.items.length
-      ? rolesAndCompanies.data.items[0]
-      : undefined);
+  type AnchorRole = RoleType & {
+    type: "role";
+    companyName?: string;
+    companySlug?: string;
+  };
 
-  const anchorRoleQuery = api.role.getById.useQuery(
-    { id: compare.anchorRoleId ?? "" },
+  const currentAnchorRolePageQuery = api.roleAndCompany.getPageNumber.useQuery(
     {
-      enabled: compare.isCompareMode && !!compare.anchorRoleId,
+      itemId: currentAnchorRoleId ?? "",
+      itemType: "role",
+      sortBy: selectedFilter ?? "default",
+      search: searchValue,
+      type: selectedType,
+      limit: rolesAndCompaniesPerPage,
+    },
+    {
+      enabled: !!currentAnchorRoleId,
       retry: false,
       refetchOnWindowFocus: false,
     },
   );
 
+  const currentAnchorRoleWithCompanyQuery =
+    api.role.getByIdWithCompany.useQuery(
+      { id: currentAnchorRoleId ?? "" },
+      {
+        enabled: !!currentAnchorRoleId,
+        retry: false,
+        refetchOnWindowFocus: false,
+      },
+    );
+
   const selectedRole = useMemo(() => {
-    if (compare.isCompareMode && anchorRoleQuery.data) {
-      return { ...anchorRoleQuery.data, type: "role" as const };
+    if (compare.isCompareMode) return null;
+
+    if (!selectedItem) return null;
+    return isRole(selectedItem) ? selectedItem : null;
+  }, [compare.isCompareMode, selectedItem, isRole]);
+
+  const compareAnchorRole = useMemo(() => {
+    if (!compare.isCompareMode) return null;
+
+    const anchorRoleId = compare.anchorRoleId ?? currentAnchorRoleId;
+
+    const anchorRoleFromList =
+      rolesAndCompanies.data?.items.find(
+        (item) => item.type === "role" && item.id === anchorRoleId,
+      ) ?? null;
+
+    if (anchorRoleFromList) {
+      return anchorRoleFromList as RoleType & {
+        type: "role";
+        slug?: string;
+        companySlug?: string;
+        companyName?: string;
+      };
     }
 
-    if (!resolvedSelection) return null;
-    return isRole(resolvedSelection) ? resolvedSelection : null;
-  }, [compare.isCompareMode, anchorRoleQuery.data, resolvedSelection, isRole]);
+    if (
+      selectedItem &&
+      isRole(selectedItem) &&
+      selectedItem.id === anchorRoleId
+    ) {
+      return selectedItem;
+    }
+
+    if (
+      cachedAnchorRole &&
+      anchorRoleId &&
+      cachedAnchorRole.id === anchorRoleId
+    ) {
+      return cachedAnchorRole;
+    }
+
+    return null;
+  }, [
+    compare.isCompareMode,
+    compare.anchorRoleId,
+    currentAnchorRoleId,
+    rolesAndCompanies.data?.items,
+    selectedItem,
+    isRole,
+    cachedAnchorRole,
+  ]);
+
+  const currentAnchorRoleFromSources = useMemo<AnchorRole | null>(() => {
+    if (!currentAnchorRoleId) return null;
+
+    const roleFromCurrentList =
+      currentAnchorRoleWithCompanyQuery.data?.id === currentAnchorRoleId
+        ? (currentAnchorRoleWithCompanyQuery.data as AnchorRole)
+        : null;
+
+    const roleFromSelectedItem =
+      selectedItem &&
+      isRole(selectedItem) &&
+      selectedItem.id === currentAnchorRoleId
+        ? (selectedItem as AnchorRole)
+        : null;
+
+    return roleFromCurrentList ?? roleFromSelectedItem;
+  }, [
+    currentAnchorRoleWithCompanyQuery.data,
+    selectedItem,
+    isRole,
+    currentAnchorRoleId,
+  ]);
+
+  useEffect(() => {
+    if (!compare.isCompareMode) {
+      if (cachedAnchorRole !== null) {
+        setCachedAnchorRole(null);
+      }
+      return;
+    }
+
+    if (currentAnchorRoleFromSources) {
+      setCachedAnchorRole((prev) =>
+        prev &&
+        prev.id === currentAnchorRoleFromSources.id &&
+        prev.slug === currentAnchorRoleFromSources.slug
+          ? prev
+          : currentAnchorRoleFromSources,
+      );
+    }
+  }, [
+    compare.isCompareMode,
+    currentAnchorRoleId,
+    currentAnchorRoleFromSources,
+    cachedAnchorRole,
+  ]);
 
   const selectedCompany = useMemo(() => {
-    if (!resolvedSelection) return null;
-    return !isRole(resolvedSelection)
-      ? (resolvedSelection as CompanyType)
-      : null;
-  }, [resolvedSelection, isRole]);
+    if (compare.isCompareMode) return null;
+    if (!selectedItem) return null;
+    return !isRole(selectedItem) ? (selectedItem as CompanyType) : null;
+  }, [compare.isCompareMode, selectedItem, isRole]);
+
+  useEffect(() => {
+    if (!selectedRole && !selectedCompany && selectedItem !== null) {
+      setSelectedItem(null);
+    }
+  }, [selectedRole, selectedCompany, selectedItem]);
 
   // Keep URL/page state tied to sidebar selection only when not comparing.
   // In compare mode, the anchor role can live on a different page and should
   // not force pagination or sidebar list selection.
   const urlSelectedItem = compare.isCompareMode ? null : selectedItem;
+
+  useEffect(() => {
+    if (compare.isCompareMode && compare.anchorRoleId) {
+      setCurrentAnchorRoleId((prev) =>
+        prev === compare.anchorRoleId ? prev : compare.anchorRoleId,
+      );
+    }
+  }, [compare.isCompareMode, compare.anchorRoleId]);
+
+  useEffect(() => {
+    const wasCompareMode = wasCompareModeRef.current;
+    if (wasCompareMode && !compare.isCompareMode) {
+      setPendingAnchorRestore(true);
+      shouldRestoreAnchorPageRef.current = true;
+    }
+    wasCompareModeRef.current = compare.isCompareMode;
+  }, [compare.isCompareMode]);
+
+  useEffect(() => {
+    if (!shouldRestoreAnchorPageRef.current) return;
+    if (compare.isCompareMode) return;
+    if (!currentAnchorRolePageQuery.isSuccess) return;
+
+    if (currentAnchorRolePageQuery.data.found) {
+      setCurrentPage((prev) =>
+        prev === currentAnchorRolePageQuery.data.page
+          ? prev
+          : currentAnchorRolePageQuery.data.page,
+      );
+    }
+
+    shouldRestoreAnchorPageRef.current = false;
+  }, [
+    compare.isCompareMode,
+    currentAnchorRolePageQuery.isSuccess,
+    currentAnchorRolePageQuery.data,
+  ]);
+  useEffect(() => {
+    if (!pendingAnchorRestore || !currentAnchorRoleId) return;
+
+    const roleFromCurrentList =
+      rolesAndCompanies.data?.items.find(
+        (item) => item.type === "role" && item.id === currentAnchorRoleId,
+      ) ?? null;
+
+    const roleFromCached =
+      cachedAnchorRole && cachedAnchorRole.id === currentAnchorRoleId
+        ? cachedAnchorRole
+        : null;
+
+    const roleToRestore =
+      (roleFromCurrentList as
+        | (RoleType & {
+            type: "role";
+            slug?: string;
+            companySlug?: string;
+            companyName?: string;
+          })
+        | null) ?? roleFromCached;
+
+    if (!roleToRestore) return;
+
+    setSelectedItem((prev) =>
+      prev?.id === roleToRestore.id ? prev : roleToRestore,
+    );
+
+    const roleSlug = roleToRestore.slug;
+    const companySlug = getCompanySlug(
+      roleToRestore.companySlug,
+      roleToRestore.companyName,
+    );
+
+    if (roleSlug && companySlug) {
+      const params = buildRolesSearchParams(
+        window.location.search,
+        companySlug,
+        roleSlug,
+      );
+
+      params.set("type", selectedType);
+
+      const nextSearch = params.toString();
+      const currentSearchString = window.location.search.replace(/^\?/, "");
+      if (nextSearch !== currentSearchString) {
+        router.push(`/roles/?${nextSearch}`);
+        const nextParams = new URLSearchParams(nextSearch);
+        setCompanyParam(nextParams.get("company"));
+        setRoleParam(nextParams.get("role"));
+      }
+    }
+
+    setPendingAnchorRestore(false);
+  }, [
+    pendingAnchorRestore,
+    currentAnchorRoleId,
+    rolesAndCompanies.data?.items,
+    cachedAnchorRole,
+    selectedType,
+    router,
+  ]);
 
   useEffect(() => {
     // updates the URL when a role or company is changed
@@ -326,14 +585,11 @@ export default function Roles() {
           companySlug?: string;
           companyName?: string;
         };
-        const itemCompanySlug =
-          r.companySlug ?? createSlug(r.companyName ?? "");
+        const itemCompanySlug = getCompanySlug(r.companySlug, r.companyName);
         if (r.slug === urlRole && itemCompanySlug === urlCompany) {
           return;
         }
       }
-
-      const params = new URLSearchParams(window.location.search);
 
       if (isRole(urlSelectedItem)) {
         // For roles, use company and role parameters
@@ -342,25 +598,22 @@ export default function Roles() {
           slug?: string;
           companySlug?: string;
         };
-        const companyName = roleItem.companyName ?? "";
-        const companySlug = roleItem.companySlug ?? createSlug(companyName);
+        const companySlug = getCompanySlug(
+          roleItem.companySlug,
+          roleItem.companyName,
+        );
         const roleSlug = roleItem.slug;
 
         // Don't push if we don't have a valid role slug (would clear role param)
         if (!roleSlug) return;
 
-        // Preserve search param
-        const currentSearch = params.get("search");
-        params.delete("search");
+        const params = buildRolesSearchParams(
+          window.location.search,
+          companySlug,
+          roleSlug,
+        );
 
-        params.set("company", companySlug);
-        params.set("role", roleSlug);
         params.set("type", selectedType);
-
-        // Add search back at the end
-        if (currentSearch) {
-          params.set("search", currentSearch);
-        }
 
         router.push(`/roles/?${params.toString()}`);
       } else {
@@ -368,18 +621,11 @@ export default function Roles() {
         const companyItem = urlSelectedItem as CompanyType & { slug?: string };
         const companySlug = companyItem.slug;
 
-        // Preserve search param
-        const currentSearch = params.get("search");
-        params.delete("search");
-
-        params.delete("role");
-        params.set("company", companySlug);
+        const params = buildRolesSearchParams(
+          window.location.search,
+          companySlug,
+        );
         params.set("type", selectedType);
-
-        // Add search back at the end
-        if (currentSearch) {
-          params.set("search", currentSearch);
-        }
 
         router.push(`/roles/?${params.toString()}`);
       }
@@ -404,25 +650,23 @@ export default function Roles() {
     };
   }, [exitCompareMode]);
 
-  // Reset to page 1 when filter or search changes
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [selectedFilter, searchValue]);
-
+  // Reset to page 1 when filter, search, or type changes
   // Scroll to top + select first item when page changes (but not when coming from URL)
   useEffect(() => {
     if (
       rolesAndCompanies.isSuccess &&
       rolesAndCompanies.data.items.length > 0 &&
       !companyParam && // Only auto-select if no URL params
-      !roleParam
+      !roleParam &&
+      !pendingAnchorRestore
     ) {
       // Scroll sidebar to top
       if (sidebarRef.current) {
         sidebarRef.current.scrollTop = 0;
       }
       // Select first item on the new page
-      setSelectedItem(rolesAndCompanies.data.items[0]);
+      const firstItem = rolesAndCompanies.data.items[0] ?? null;
+      setSelectedItem(firstItem);
     }
   }, [
     currentPage,
@@ -430,6 +674,7 @@ export default function Roles() {
     rolesAndCompanies.data?.items,
     companyParam,
     roleParam,
+    pendingAnchorRestore,
   ]);
 
   const handlePageChange = (page: number) => {
@@ -468,11 +713,7 @@ export default function Roles() {
 
   useEffect(() => {
     const typeParam = searchParams.get("type");
-    if (
-      typeParam === "roles" ||
-      typeParam === "companies" ||
-      typeParam === "all"
-    ) {
+    if (isSelectedType(typeParam)) {
       setSelectedType(typeParam);
     }
   }, [searchParams]);
@@ -504,10 +745,16 @@ export default function Roles() {
     searchValue,
   ]);
 
+  const controlsAnchorRoleId = compare.isCompareMode
+    ? (compare.anchorRoleId ?? currentAnchorRoleId)
+    : (selectedRole?.id ?? null);
+
   // Helper to check if a role is already being compared
   const isRoleAlreadyCompared = (roleId: string) => {
+    const anchorRoleId = compare.anchorRoleId ?? currentAnchorRoleId;
     return (
-      selectedRole?.id === roleId || compare.comparedRoleIds.includes(roleId)
+      (compare.isCompareMode && anchorRoleId === roleId) ||
+      compare.comparedRoleIds.includes(roleId)
     );
   };
 
@@ -579,10 +826,10 @@ export default function Roles() {
             Filters
           </Button>
         </div>
-        {selectedRole && (
+        {controlsAnchorRoleId && (
           <div className="hidden items-center gap-4 pr-5 md:flex">
             <span className="h-6 border rounded-lg border-[#D9D9D9]" />
-            <CompareControls anchorRoleId={selectedRole.id} />
+            <CompareControls anchorRoleId={controlsAnchorRoleId} />
           </div>
         )}
       </div>
@@ -683,12 +930,14 @@ export default function Roles() {
                           showFavorite={!compare.isCompareMode}
                           className={cn(
                             !isAlreadyCompared && " hover:cursor-pointer",
-                            selectedItem
-                              ? selectedItem.id === item.id &&
-                                  "bg-cooper-gray-50 "
-                              : !i && "bg-cooper-gray-50 ",
-                            isRoleAlreadyCompared(item.id) &&
+                            compare.isCompareMode &&
+                              isRoleAlreadyCompared(item.id) &&
                               "bg-cooper-gray-50",
+                            !compare.isCompareMode &&
+                              (selectedItem
+                                ? selectedItem.id === item.id &&
+                                  "bg-cooper-gray-50 "
+                                : !i && "bg-cooper-gray-50 "),
                           )}
                           isAlreadyCompared={isAlreadyCompared}
                           currentlySelectedRoleId={selectedRole?.id ?? null}
@@ -741,15 +990,17 @@ export default function Roles() {
                 !showRoleInfo && !showCompanyInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
               )}
             >
-              {selectedRole ? (
-                compare.isCompareMode ? (
-                  <CompareColumns anchorRole={selectedRole} />
+              {compare.isCompareMode ? (
+                compareAnchorRole ? (
+                  <CompareColumns anchorRole={compareAnchorRole} />
                 ) : (
-                  <RoleInfo
-                    roleObj={selectedRole}
-                    onBack={() => setShowRoleInfo(false)}
-                  />
+                  <LoadingResults className="h-[84dvh]" />
                 )
+              ) : selectedRole ? (
+                <RoleInfo
+                  roleObj={selectedRole}
+                  onBack={() => setShowRoleInfo(false)}
+                />
               ) : (
                 selectedCompany && (
                   <CompanyInfo
