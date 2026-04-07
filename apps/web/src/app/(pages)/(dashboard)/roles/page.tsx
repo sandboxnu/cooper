@@ -440,10 +440,14 @@ export default function Roles() {
   }, [selectedType, router]);
 
   const totalPages =
-    rolesAndCompanies.data &&
-    "totalCount" in rolesAndCompanies.data &&
-    rolesAndCompanies.data.totalCount
-      ? Math.ceil(rolesAndCompanies.data.totalCount / rolesAndCompaniesPerPage)
+    rolesAndCompanies.data && "totalCount" in rolesAndCompanies.data
+      ? Math.ceil(
+          (selectedType === "roles"
+            ? rolesAndCompanies.data.totalRolesCount
+            : selectedType === "companies"
+              ? rolesAndCompanies.data.totalCompanyCount
+              : rolesAndCompanies.data.totalCount) / rolesAndCompaniesPerPage,
+        )
       : 0;
 
   const resolvedSelection =
