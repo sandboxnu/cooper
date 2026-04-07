@@ -5,17 +5,19 @@ import { z } from "zod";
 import { Review } from "./reviews";
 
 export const InterviewTypeSchema = pgEnum("interview_type", [
-  "phone",
-  "onsite",
-  "virtual",
-  "hr",
+  "behavioral",
+  "technical",
+  "case_study",
+  "portfolio_walkthrough",
+  "online_assessment",
+  "screening",
+  "other",
 ]);
 
 export const InterviewDifficultySchema = pgEnum("interview_difficulty", [
-  "Great",
-  "Hard",
-  "Medium",
-  "Easy",
+  "easy",
+  "average",
+  "hard",
 ]);
 
 export const InterviewRound = pgTable("review_round", {
@@ -46,17 +48,15 @@ export const InterviewRoundRelations = relations(InterviewRound, ({ one }) => ({
 }));
 
 export const ZodInterviewTypeSchema = z.enum([
-  "phone",
-  "onsite",
-  "virtual",
-  "hr",
+  "behavioral",
+  "technical",
+  "case_study",
+  "portfolio_walkthrough",
+  "online_assessment",
+  "screening",
+  "other",
 ]);
-export const ZodInterviewDifficultySchema = z.enum([
-  "Great",
-  "Hard",
-  "Medium",
-  "Easy",
-]);
+export const ZodInterviewDifficultySchema = z.enum(["easy", "average", "hard"]);
 
 export const CreateInterviewRoundSchema = createInsertSchema(InterviewRound, {
   interviewType: ZodInterviewTypeSchema,

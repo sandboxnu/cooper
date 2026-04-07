@@ -504,16 +504,6 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
             <CollapsableInfoCard title="Interview">
               {averages.data && (
                 <div className="flex flex-wrap gap-10">
-                  {/* <BarGraph
-                    title="Interview rating"
-                    value={averages.data.averageInterviewRating}
-                    maxValue={5}
-                  />
-                  <BarGraph
-                    title="Interview difficulty"
-                    value={averages.data.averageInterviewDifficulty}
-                    maxValue={5}
-                  /> */}
                 </div>
               )}
             </CollapsableInfoCard>
