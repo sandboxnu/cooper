@@ -56,7 +56,7 @@ describe("Review Router", async () => {
 
     expect(db.query.Review.findMany).toHaveBeenCalledWith({
       orderBy: expect.anything(),
-      where: and(eq(Review.hidden, false)),
+      where: and(eq(Review.status, Status.PUBLISHED)),
     });
   });
 
@@ -69,7 +69,10 @@ describe("Review Router", async () => {
 
     expect(db.query.Review.findMany).toHaveBeenCalledWith({
       orderBy: expect.anything(),
-      where: and(eq(Review.hidden, false), eq(Review.workTerm, "SPRING")),
+      where: and(
+        eq(Review.status, Status.PUBLISHED),
+        eq(Review.workTerm, "SPRING"),
+      ),
     });
   });
 
@@ -83,7 +86,7 @@ describe("Review Router", async () => {
     expect(db.query.Review.findMany).toHaveBeenCalledWith({
       orderBy: expect.anything(),
       where: and(
-        eq(Review.hidden, false),
+        eq(Review.status, Status.PUBLISHED),
         eq(Review.workEnvironment, "REMOTE"),
       ),
     });
@@ -100,7 +103,7 @@ describe("Review Router", async () => {
     expect(db.query.Review.findMany).toHaveBeenCalledWith({
       orderBy: expect.anything(),
       where: and(
-        eq(Review.hidden, false),
+        eq(Review.status, Status.PUBLISHED),
         eq(Review.workTerm, "SPRING"),
         eq(Review.workEnvironment, "REMOTE"),
       ),
@@ -201,7 +204,7 @@ describe("Review Router", async () => {
         otherBenefits: "Good",
         roleId: "1",
         profileId: "1",
-        status: Status.DRAFT,
+        status: Status.PUBLISHED,
       },
       {
         id: "2",
@@ -234,7 +237,7 @@ describe("Review Router", async () => {
         otherBenefits: "Good",
         roleId: "1",
         profileId: "1",
-        status: Status.DRAFT,
+        status: Status.PUBLISHED,
       },
     ]);
 
@@ -253,7 +256,10 @@ describe("Review Router", async () => {
     const companyIds = companies.map((company) => company.id);
 
     expect(db.query.Review.findMany).toHaveBeenCalledWith({
-      where: inArray(Review.companyId, companyIds),
+      where: and(
+        inArray(Review.companyId, companyIds),
+        eq(Review.status, Status.PUBLISHED),
+      ),
     });
 
     expect(result).toEqual({
