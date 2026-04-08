@@ -10,16 +10,18 @@ import { z } from "zod";
 
 import {
   JobType,
-  type JobTypeType,
   Status,
-  type StatusType,
   UserRole,
   WorkEnvironment,
-  type WorkEnvironmentType,
   WorkTerm,
-  type WorkTermType,
   ZodInterviewDifficultySchema,
   ZodInterviewTypeSchema,
+} from "@cooper/db/schema";
+import type {
+  JobTypeType,
+  StatusType,
+  WorkEnvironmentType,
+  WorkTermType,
 } from "@cooper/db/schema";
 import { useCustomToast } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
@@ -36,7 +38,6 @@ import { PaySection } from "~/app/_components/form/sections/pay-section";
 import { DeleteReviewDialog } from "~/app/_components/reviews/delete-review-dialogue";
 import { api } from "~/trpc/react";
 import { prettyWorkEnviornment } from "~/utils/stringHelpers";
-import { prettyLocationName } from "~/utils/locationHelpers";
 
 const filter = new Filter();
 
@@ -329,7 +330,9 @@ export default function ReviewForm() {
       router.push("/profile?tab=reviews");
     },
     onError: (error) => {
-      toast.error(error.message || "Failed to update review. Please try again.");
+      toast.error(
+        error.message || "Failed to update review. Please try again.",
+      );
     },
   });
 
@@ -358,7 +361,7 @@ export default function ReviewForm() {
     try {
       const values = form.getValues();
       await updateMutation.mutateAsync({
-        id: reviewId!,
+        id: reviewId ?? "",
         roleId: roleId || existingReview?.roleId,
         profileId: profile?.id,
         companyId: companyId || existingReview?.companyId,
@@ -375,7 +378,7 @@ export default function ReviewForm() {
     try {
       const values = form.getValues();
       const draftPayload = {
-        id: reviewId!,
+        id: reviewId ?? "",
         roleId: roleId || existingReview?.roleId,
         profileId: profileId,
         companyId: companyId || existingReview?.companyId,
@@ -414,17 +417,16 @@ export default function ReviewForm() {
   useEffect(() => {
     if (existingReview && mode === "edit" && !formPopulated) {
       form.reset({
-        workTerm: (existingReview.workTerm as WorkTermType) ?? undefined,
+        workTerm: existingReview.workTerm as WorkTermType,
         workYear: existingReview.workYear ?? undefined,
         overallRating: existingReview.overallRating ?? 0,
         cultureRating: existingReview.cultureRating ?? 0,
         supervisorRating: existingReview.supervisorRating ?? 0,
         textReview: existingReview.textReview ?? "",
         locationId: existingReview.locationId ?? "",
-        jobType: (existingReview.jobType as JobTypeType) ?? undefined,
+        jobType: existingReview.jobType as JobTypeType,
         hourlyPay: existingReview.hourlyPay ?? "",
-        workEnvironment:
-          (existingReview.workEnvironment as WorkEnvironmentType) ?? undefined,
+        workEnvironment: existingReview.workEnvironment as WorkEnvironmentType,
         drugTest:
           existingReview.drugTest != null
             ? (String(existingReview.drugTest) as unknown as boolean)
@@ -445,13 +447,16 @@ export default function ReviewForm() {
         otherBenefits: existingReview.otherBenefits ?? "",
         roleName: existingReview.roleId ?? "",
         companyName: existingReview.companyId ?? "",
-        interviewRounds:
-          existingReview.interviewRounds
-            ?.filter((r) => r.interviewType && r.interviewDifficulty)
-            .map((r) => ({
-              interviewType: r.interviewType!,
-              interviewDifficulty: r.interviewDifficulty!,
-            })) ?? [],
+        interviewRounds: existingReview.interviewRounds.flatMap((r) =>
+          r.interviewType && r.interviewDifficulty
+            ? [
+                {
+                  interviewType: r.interviewType,
+                  interviewDifficulty: r.interviewDifficulty,
+                },
+              ]
+            : [],
+        ),
       });
       setFormPopulated(true);
     }
@@ -544,7 +549,10 @@ export default function ReviewForm() {
           {/* Basic information */}
           <div className="text-[20px] text-[#333]">Basic information</div>
           <div className="flex flex-col gap-6">
-            <ViewField label="Company name" value={viewCompanyQuery.data?.name} />
+            <ViewField
+              label="Company name"
+              value={viewCompanyQuery.data?.name}
+            />
             <ViewField label="Role title" value={viewRoleQuery.data?.title} />
             <ViewField
               label="Employment type"
@@ -609,7 +617,9 @@ export default function ReviewForm() {
               }
             />
             <div className="flex flex-col gap-2">
-              <span className="text-[16px] font-bold text-[#333]">Benefits</span>
+              <span className="text-[16px] font-bold text-[#333]">
+                Benefits
+              </span>
               {benefits.length > 0 ? (
                 <div className="flex flex-wrap gap-2">
                   {benefits.map((b) => (
@@ -667,8 +677,7 @@ export default function ReviewForm() {
           {/* Interview */}
           <div className="text-[20px] text-[#333]">Interview</div>
           <div className="flex flex-col gap-6">
-            {existingReview.interviewRounds &&
-            existingReview.interviewRounds.length > 0 ? (
+            {existingReview.interviewRounds.length > 0 ? (
               existingReview.interviewRounds.map((round, i) => (
                 <div key={round.id} className="flex flex-col gap-1">
                   <span className="text-[16px] font-bold text-[#333]">
@@ -788,7 +797,6 @@ export default function ReviewForm() {
     router.replace("/404");
   }
 
-
   const isEditMode = mode === "edit" && !!reviewId;
   const editingDraft = existingReview?.status === "DRAFT";
 
@@ -899,7 +907,9 @@ export default function ReviewForm() {
                     rounded-lg border border-cooper-gray-150 2-253 px-8 py-3 text-lg font-semibold
                     text-[#151515]"
                     >
-                      {draftMutation.isPending ? "Saving draft..." : "Save draft"}
+                      {draftMutation.isPending
+                        ? "Saving draft..."
+                        : "Save draft"}
                     </Button>
                   </div>
                   {/* Submit Button */}

@@ -1,21 +1,17 @@
 "use client";
 
-import { type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { useRouter } from "next/navigation";
 
 import type { ReviewType } from "@cooper/db/schema";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@cooper/ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@cooper/ui/popover";
 
 import { DeleteReviewDialog } from "~/app/_components/reviews/delete-review-dialogue";
 
-type Props = {
+interface Props {
   review: ReviewType;
   trigger: ReactNode;
-};
+}
 
 export function ReviewActionsDialog({ review, trigger }: Props) {
   const router = useRouter();

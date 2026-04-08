@@ -1,4 +1,4 @@
-import { type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { Trash2 } from "lucide-react";
 
 import { Button } from "@cooper/ui/button";
@@ -21,7 +21,11 @@ interface DeleteReviewDialogProps {
   isDraft?: boolean;
 }
 
-export function DeleteReviewDialog({ reviewId, trigger, isDraft }: DeleteReviewDialogProps) {
+export function DeleteReviewDialog({
+  reviewId,
+  trigger,
+  isDraft,
+}: DeleteReviewDialogProps) {
   const { toast } = useCustomToast();
 
   const deleteReview = api.review.delete.useMutation({

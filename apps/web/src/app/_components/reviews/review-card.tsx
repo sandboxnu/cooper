@@ -9,7 +9,6 @@ import { Card, CardContent } from "@cooper/ui/card";
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { prettyWorkEnviornment } from "~/utils/stringHelpers";
-import { DeleteReviewDialog } from "./delete-review-dialogue";
 import { ReportButton } from "../shared/report-button";
 
 interface ReviewCardProps {
@@ -23,12 +22,6 @@ export function ReviewCard({
   className,
   isComparing,
 }: ReviewCardProps) {
-  // Get the current user's profile
-  const { data: currentProfile } = api.profile.getCurrentUser.useQuery();
-
-  // Check if the current user is the author of the review
-  const isAuthor = currentProfile?.id === reviewObj.profileId;
-
   const { data: location } = api.location.getById.useQuery({
     id: reviewObj.locationId ?? "",
   });
