@@ -98,7 +98,6 @@ export function ReviewCard({
               )}
             >
               <div className="pt-1">{reviewObj.textReview}</div>
-              {isAuthor && <DeleteReviewDialog reviewId={reviewObj.id} />}
             </div>
             <div className="flex justify-between text-sm">
               <div className="flex gap-6 rounded-lg bg-[#f4f4f4] p-3 pr-4 md:gap-10 md:pl-4">
@@ -146,7 +145,6 @@ export function ReviewCard({
               )}
             >
               <div className="pt-1">{reviewObj.textReview}</div>
-              {isAuthor && <DeleteReviewDialog reviewId={reviewObj.id} />}
             </div>
           </CardContent>
         </div>

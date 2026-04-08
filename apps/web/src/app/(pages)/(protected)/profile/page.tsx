@@ -12,8 +12,9 @@ import FavoriteRoleSearch from "~/app/_components/profile/favorite-role-search";
 import ProfileCardHeader from "~/app/_components/profile/profile-card-header";
 import ProfileTabs from "~/app/_components/profile/profile-tabs";
 import { ReviewCard } from "~/app/_components/reviews/review-card";
-import { api } from "~/trpc/react";
 import { DraftReviewCard } from "~/app/_components/reviews/draft-review-card";
+import { ReviewActionsDialog } from "~/app/_components/reviews/review-actions-dialogue";
+import { api } from "~/trpc/react";
 
 export default function Profile() {
   const searchParams = useSearchParams();
@@ -147,21 +148,29 @@ export default function Profile() {
                       (a.status === "DRAFT" ? -1 : 1) -
                       (b.status === "DRAFT" ? -1 : 1),
                   )
-                  .map((review) =>
-                    review.status === "DRAFT" ? (
-                      <DraftReviewCard
-                        key={review.id}
-                        reviewObj={review}
-                        className="w-[100%]"
-                      />
-                    ) : (
-                      <ReviewCard
-                        key={review.id}
-                        reviewObj={review}
-                        className="w-[100%]"
-                      />
-                    ),
-                  )}
+                  .map((review) => (
+                    <ReviewActionsDialog
+                      key={review.id}
+                      review={review}
+                      trigger={
+                        review.status === "DRAFT" ? (
+                          <div className="cursor-pointer">
+                            <DraftReviewCard
+                              reviewObj={review}
+                              className="w-[100%]"
+                            />
+                          </div>
+                        ) : (
+                          <div className="cursor-pointer">
+                            <ReviewCard
+                              reviewObj={review}
+                              className="w-[100%]"
+                            />
+                          </div>
+                        )
+                      }
+                    />
+                  ))}
             </div>
           </section>
         )}

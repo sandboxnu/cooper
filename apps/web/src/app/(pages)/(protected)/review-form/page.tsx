@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Filter } from "bad-words";
 import dayjs from "dayjs";
@@ -10,10 +10,14 @@ import { z } from "zod";
 
 import {
   JobType,
+  type JobTypeType,
   Status,
+  type StatusType,
   UserRole,
   WorkEnvironment,
+  type WorkEnvironmentType,
   WorkTerm,
+  type WorkTermType,
   ZodInterviewDifficultySchema,
   ZodInterviewTypeSchema,
 } from "@cooper/db/schema";
@@ -29,7 +33,10 @@ import {
 } from "~/app/_components/form/sections";
 import Popup from "~/app/_components/form/sections/popup";
 import { PaySection } from "~/app/_components/form/sections/pay-section";
+import { DeleteReviewDialog } from "~/app/_components/reviews/delete-review-dialogue";
 import { api } from "~/trpc/react";
+import { prettyWorkEnviornment } from "~/utils/stringHelpers";
+import { prettyLocationName } from "~/utils/locationHelpers";
 
 const filter = new Filter();
 
@@ -151,6 +158,9 @@ export type ReviewFormType = typeof formSchema;
 export default function ReviewForm() {
   const router = useRouter();
   const utils = api.useUtils();
+  const searchParams = useSearchParams();
+  const mode = searchParams.get("mode"); // "view" | "edit" | null
+  const reviewId = searchParams.get("reviewId");
 
   const {
     data: session,
@@ -163,10 +173,28 @@ export default function ReviewForm() {
     error: _profileError,
   } = api.profile.getCurrentUser.useQuery();
 
+  // Load existing review for view/edit mode
+  const existingReviewQuery = api.review.getById.useQuery(
+    { id: reviewId ?? "" },
+    { enabled: !!reviewId },
+  );
+  const existingReview = existingReviewQuery.data;
+
+  // Load related data for view mode
+  const viewRoleQuery = api.role.getById.useQuery(
+    { id: existingReview?.roleId ?? "" },
+    { enabled: !!existingReview?.roleId && mode === "view" },
+  );
+  const viewCompanyQuery = api.company.getById.useQuery(
+    { id: existingReview?.companyId ?? "" },
+    { enabled: !!existingReview?.companyId && mode === "view" },
+  );
+
   const { toast } = useCustomToast();
   const [roleId, setRoleId] = useState<string>("");
   const [companyId, setCompanyId] = useState<string>("");
   const [showModal, setShowModal] = useState(false);
+  const [formPopulated, setFormPopulated] = useState(false);
 
   const form = useForm<z.infer<ReviewFormType>>({
     resolver: zodResolver(formSchema),
@@ -293,6 +321,18 @@ export default function ReviewForm() {
     },
   });
 
+  const updateMutation = api.review.update.useMutation({
+    onSuccess: async () => {
+      if (profileId) {
+        await utils.review.getByProfile.invalidate({ id: profileId });
+      }
+      router.push("/profile?tab=reviews");
+    },
+    onError: (error) => {
+      toast.error(error.message || "Failed to update review. Please try again.");
+    },
+  });
+
   async function onSubmit(values: z.infer<ReviewFormType>) {
     try {
       await mutation.mutateAsync({
@@ -309,12 +349,385 @@ export default function ReviewForm() {
     }
   }
 
+  async function onUpdateReview(status: StatusType = Status.PUBLISHED) {
+    const isValid = await form.trigger();
+    if (!isValid) {
+      toast.error("Please fill in all required fields.");
+      return;
+    }
+    try {
+      const values = form.getValues();
+      await updateMutation.mutateAsync({
+        id: reviewId!,
+        roleId: roleId || existingReview?.roleId,
+        profileId: profile?.id,
+        companyId: companyId || existingReview?.companyId,
+        ...values,
+        reviewHeadline: "",
+        status,
+      } as Parameters<typeof updateMutation.mutateAsync>[0]);
+    } catch (error) {
+      console.error("Update failed:", error);
+    }
+  }
+
+  async function onSaveEdits() {
+    try {
+      const values = form.getValues();
+      const draftPayload = {
+        id: reviewId!,
+        roleId: roleId || existingReview?.roleId,
+        profileId: profileId,
+        companyId: companyId || existingReview?.companyId,
+        workTerm: values.workTerm,
+        workYear: values.workYear,
+        overallRating: values.overallRating,
+        cultureRating: values.cultureRating,
+        supervisorRating: values.supervisorRating,
+        interviewRounds: values.interviewRounds,
+        reviewHeadline: "",
+        textReview: values.textReview || null,
+        locationId: values.locationId || null,
+        jobType: values.jobType,
+        hourlyPay: values.hourlyPay === "" ? null : values.hourlyPay,
+        workEnvironment: values.workEnvironment,
+        drugTest: normalizeRadios(values.drugTest),
+        pto: normalizeRadios(values.pto),
+        overtimeNormal: normalizeRadios(values.overtimeNormal),
+        federalHolidays: values.federalHolidays || null,
+        freeLunch: values.freeLunch || null,
+        travelBenefits: values.travelBenefits || null,
+        freeMerch: values.freeMerch || null,
+        snackBar: values.snackBar || null,
+        otherBenefits: values.otherBenefits ?? null,
+        status: Status.DRAFT,
+      };
+      await updateMutation.mutateAsync(
+        draftPayload as Parameters<typeof updateMutation.mutateAsync>[0],
+      );
+    } catch (error) {
+      console.error("Save edits failed:", error);
+    }
+  }
+
+  // Pre-populate form in edit mode
+  useEffect(() => {
+    if (existingReview && mode === "edit" && !formPopulated) {
+      form.reset({
+        workTerm: (existingReview.workTerm as WorkTermType) ?? undefined,
+        workYear: existingReview.workYear ?? undefined,
+        overallRating: existingReview.overallRating ?? 0,
+        cultureRating: existingReview.cultureRating ?? 0,
+        supervisorRating: existingReview.supervisorRating ?? 0,
+        textReview: existingReview.textReview ?? "",
+        locationId: existingReview.locationId ?? "",
+        jobType: (existingReview.jobType as JobTypeType) ?? undefined,
+        hourlyPay: existingReview.hourlyPay ?? "",
+        workEnvironment:
+          (existingReview.workEnvironment as WorkEnvironmentType) ?? undefined,
+        drugTest:
+          existingReview.drugTest != null
+            ? (String(existingReview.drugTest) as unknown as boolean)
+            : undefined,
+        pto:
+          existingReview.pto != null
+            ? (String(existingReview.pto) as unknown as boolean)
+            : undefined,
+        overtimeNormal:
+          existingReview.overtimeNormal != null
+            ? (String(existingReview.overtimeNormal) as unknown as boolean)
+            : undefined,
+        federalHolidays: existingReview.federalHolidays ?? false,
+        freeLunch: existingReview.freeLunch ?? false,
+        travelBenefits: existingReview.travelBenefits ?? false,
+        freeMerch: existingReview.freeMerch ?? false,
+        snackBar: existingReview.snackBar ?? false,
+        otherBenefits: existingReview.otherBenefits ?? "",
+        roleName: existingReview.roleId ?? "",
+        companyName: existingReview.companyId ?? "",
+        interviewRounds:
+          existingReview.interviewRounds
+            ?.filter((r) => r.interviewType && r.interviewDifficulty)
+            .map((r) => ({
+              interviewType: r.interviewType!,
+              interviewDifficulty: r.interviewDifficulty!,
+            })) ?? [],
+      });
+      setFormPopulated(true);
+    }
+  }, [existingReview, mode, formPopulated, form]);
+
   if (!sessionLoading && !profileLoading && (!session || !profile)) {
     router.push("/roles");
   }
 
   if (!session || !profile) {
     return null;
+  }
+
+  // View mode — show read-only display
+  if (mode === "view" && reviewId) {
+    if (existingReviewQuery.isLoading) {
+      return (
+        <div className="flex h-screen items-center justify-center">
+          <div className="text-cooper-gray-400">Loading...</div>
+        </div>
+      );
+    }
+    if (!existingReview) {
+      return (
+        <div className="flex h-screen items-center justify-center">
+          <div className="text-cooper-gray-400">Review not found.</div>
+        </div>
+      );
+    }
+
+    const isDraft = existingReview.status === "DRAFT";
+    const benefits = [
+      existingReview.freeLunch && "Free lunch",
+      existingReview.snackBar && "Snack bar",
+      existingReview.freeMerch && "Free merch",
+      existingReview.travelBenefits && "Travel benefits",
+      existingReview.federalHolidays && "Federal holidays",
+    ].filter(Boolean) as string[];
+
+    const ViewField = ({
+      label,
+      value,
+    }: {
+      label: string;
+      value: React.ReactNode;
+    }) => (
+      <div className="flex flex-col gap-1">
+        <span className="text-[16px] font-bold text-[#333]">{label}</span>
+        {value != null && value !== "" ? (
+          <span className="text-[16px] text-black">{value}</span>
+        ) : (
+          <span className="text-[16px] italic text-[#767676]">
+            Not provided
+          </span>
+        )}
+      </div>
+    );
+
+    return (
+      <div className="flex h-screen w-full flex-col overflow-hidden bg-white">
+        {/* Header */}
+        <div className="flex shrink-0 items-start justify-between border-b px-10 pb-5 pt-8">
+          <div className="flex flex-1 flex-col gap-4">
+            <h1 className="font-hanken text-[20px] font-semibold">
+              {isDraft ? "Draft for" : "Review for"}
+            </h1>
+            {(viewRoleQuery.data ?? viewCompanyQuery.data) && (
+              <div className="flex h-[82px] items-center gap-4 rounded-lg border border-[#eaeaea] bg-[#f5f5f5] px-5 py-4">
+                <div className="flex flex-col">
+                  <span className="text-[20px] text-[#151515]">
+                    {viewRoleQuery.data?.title ?? ""}
+                  </span>
+                  <span className="text-[16px] text-[#5a5a5a]">
+                    {viewCompanyQuery.data?.name ?? ""}
+                  </span>
+                </div>
+              </div>
+            )}
+          </div>
+          <button
+            className="ml-6 shrink-0 text-[18px] text-[#767676] hover:text-black"
+            onClick={() => router.push("/profile?tab=reviews")}
+          >
+            ✕
+          </button>
+        </div>
+
+        {/* Scrollable content */}
+        <div className="flex flex-col gap-6 overflow-y-auto px-10 py-8">
+          {/* Basic information */}
+          <div className="text-[20px] text-[#333]">Basic information</div>
+          <div className="flex flex-col gap-6">
+            <ViewField label="Company name" value={viewCompanyQuery.data?.name} />
+            <ViewField label="Role title" value={viewRoleQuery.data?.title} />
+            <ViewField
+              label="Employment type"
+              value={
+                existingReview.jobType === "CO-OP"
+                  ? "Co-op"
+                  : existingReview.jobType
+              }
+            />
+            <ViewField
+              label="Co-op/internship term"
+              value={
+                existingReview.workTerm
+                  ? existingReview.workTerm.charAt(0) +
+                    existingReview.workTerm.slice(1).toLowerCase()
+                  : null
+              }
+            />
+            <ViewField label="Year" value={existingReview.workYear} />
+          </div>
+          <hr />
+
+          {/* On the job */}
+          <div className="text-[20px] text-[#333]">On the job</div>
+          <div className="flex flex-col gap-6">
+            <ViewField
+              label="Work model"
+              value={
+                existingReview.workEnvironment
+                  ? prettyWorkEnviornment(
+                      existingReview.workEnvironment as Parameters<
+                        typeof prettyWorkEnviornment
+                      >[0],
+                    )
+                  : null
+              }
+            />
+            <ViewField
+              label="Drug test required"
+              value={
+                existingReview.drugTest != null
+                  ? existingReview.drugTest
+                    ? "Yes"
+                    : "No"
+                  : null
+              }
+            />
+            <ViewField
+              label="Company culture"
+              value={
+                existingReview.cultureRating
+                  ? `${existingReview.cultureRating}/5`
+                  : null
+              }
+            />
+            <ViewField
+              label="Supervisor rating"
+              value={
+                existingReview.supervisorRating
+                  ? `${existingReview.supervisorRating}/5`
+                  : null
+              }
+            />
+            <div className="flex flex-col gap-2">
+              <span className="text-[16px] font-bold text-[#333]">Benefits</span>
+              {benefits.length > 0 ? (
+                <div className="flex flex-wrap gap-2">
+                  {benefits.map((b) => (
+                    <span
+                      key={b}
+                      className="rounded-lg border border-[#e7e7e7] bg-[#f7f7f7] px-3.5 py-2 text-[14px] font-medium text-[#767676]"
+                    >
+                      {b}
+                    </span>
+                  ))}
+                </div>
+              ) : (
+                <span className="text-[16px] italic text-[#767676]">
+                  Not provided
+                </span>
+              )}
+            </div>
+          </div>
+          <hr />
+
+          {/* Pay */}
+          <div className="text-[20px] text-[#333]">Pay</div>
+          <div className="flex flex-col gap-6">
+            <ViewField
+              label="Hourly pay"
+              value={
+                existingReview.hourlyPay
+                  ? `$${existingReview.hourlyPay} / hour`
+                  : null
+              }
+            />
+            <ViewField
+              label="Worked overtime"
+              value={
+                existingReview.overtimeNormal != null
+                  ? existingReview.overtimeNormal
+                    ? "Yes"
+                    : "No"
+                  : null
+              }
+            />
+            <ViewField
+              label="Received PTO"
+              value={
+                existingReview.pto != null
+                  ? existingReview.pto
+                    ? "Yes"
+                    : "No"
+                  : null
+              }
+            />
+          </div>
+          <hr />
+
+          {/* Interview */}
+          <div className="text-[20px] text-[#333]">Interview</div>
+          <div className="flex flex-col gap-6">
+            {existingReview.interviewRounds &&
+            existingReview.interviewRounds.length > 0 ? (
+              existingReview.interviewRounds.map((round, i) => (
+                <div key={round.id} className="flex flex-col gap-1">
+                  <span className="text-[16px] font-bold text-[#333]">
+                    Round {i + 1}
+                  </span>
+                  <span className="text-[16px] text-black">
+                    {round.interviewType?.replace(/_/g, " ")} —{" "}
+                    {round.interviewDifficulty}
+                  </span>
+                </div>
+              ))
+            ) : (
+              <ViewField label="Interview rounds" value={null} />
+            )}
+          </div>
+          <hr />
+
+          {/* Review and rate */}
+          <div className="text-[20px] text-[#333]">Review and rate</div>
+          <div className="flex flex-col gap-6 pb-8">
+            <ViewField
+              label="Overall rating"
+              value={
+                existingReview.overallRating
+                  ? `${existingReview.overallRating}/5`
+                  : null
+              }
+            />
+            <div className="flex flex-col gap-2">
+              <span className="text-[16px] font-bold text-[#333]">
+                Review text
+              </span>
+              {existingReview.textReview ? (
+                <div className="min-h-[80px] rounded-lg bg-[#f7f7f7] px-3 py-2 text-[14px] text-[#151515]">
+                  {existingReview.textReview}
+                </div>
+              ) : (
+                <div className="min-h-[80px] rounded-lg bg-[#f7f7f7] px-3 py-2 text-[14px] italic text-[#767676]">
+                  No review text provided yet
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="shrink-0 border-t bg-[#f4f4f4] px-6 py-5 flex justify-end">
+          <Button
+            type="button"
+            onClick={() =>
+              router.push(`/review-form?mode=edit&reviewId=${reviewId}`)
+            }
+            className="bg-[rgba(0,0,0,0.87)] px-4 py-2.5 text-[16px] font-bold text-white hover:bg-black"
+          >
+            {isDraft ? "Edit Draft" : "Edit Review"}
+          </Button>
+        </div>
+      </div>
+    );
   }
 
   const discardDraft = () => {
@@ -375,13 +788,9 @@ export default function ReviewForm() {
     router.replace("/404");
   }
 
-  // if (submitted) {
-  //   if (validForm) {
-  //     return <SubmissionConfirmation />;
-  //   } else {
-  //     return <SubmissionFailure message={errorMessage ?? undefined} />;
-  //   }
-  // }
+
+  const isEditMode = mode === "edit" && !!reviewId;
+  const editingDraft = existingReview?.status === "DRAFT";
 
   return (
     <Form {...form}>
@@ -389,12 +798,69 @@ export default function ReviewForm() {
         className={`${showModal ? "pointer-events-none" : ""} flex h-screen w-full flex-col items-center justify-center overflow-auto bg-white md:flex-row`}
       >
         <div className="justify-left mt-4 flex h-full w-[65%] flex-col pr-3.5 pt-10">
+          {/* Edit mode header */}
+          {isEditMode && (
+            <div className="mb-6 flex shrink-0 items-center justify-between rounded-lg bg-[#f4f4f4] px-6 py-5">
+              <span className="text-[20px] font-semibold">
+                {editingDraft ? "Edit Draft" : "Edit Review"}
+              </span>
+              <div className="flex items-center gap-2">
+                {!editingDraft && existingReview && (
+                  <DeleteReviewDialog
+                    reviewId={existingReview.id}
+                    trigger={
+                      <Button
+                        type="button"
+                        className="border border-[#e7e7e7] bg-white px-4 py-2.5 text-[16px] font-medium text-black hover:bg-gray-50"
+                      >
+                        Delete review
+                      </Button>
+                    }
+                  />
+                )}
+                {editingDraft && (
+                  <Button
+                    type="button"
+                    onClick={onSaveEdits}
+                    disabled={updateMutation.isPending}
+                    className="border border-[#e7e7e7] bg-white px-4 py-2.5 text-[16px] font-medium text-black hover:bg-gray-50"
+                  >
+                    {updateMutation.isPending ? "Saving..." : "Save edits"}
+                  </Button>
+                )}
+                <Button
+                  type="button"
+                  onClick={() =>
+                    onUpdateReview(
+                      editingDraft ? Status.PUBLISHED : Status.PUBLISHED,
+                    )
+                  }
+                  disabled={updateMutation.isPending}
+                  className="bg-[rgba(0,0,0,0.87)] px-4 py-2.5 text-[16px] font-bold text-white hover:bg-black"
+                >
+                  {updateMutation.isPending
+                    ? "Saving..."
+                    : editingDraft
+                      ? "Submit Review"
+                      : "Update Review"}
+                </Button>
+                <button
+                  type="button"
+                  className="ml-2 text-[18px] text-[#767676] hover:text-black"
+                  onClick={() => router.push("/profile?tab=reviews")}
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+          )}
+
           <div className="text-cooper-gray-550 text-lg">Basic information</div>
           <div className="flex w-full flex-wrap gap-10 pb-12 xl:flex-nowrap">
             <BasicInfoSection profileId={profileId} />
           </div>
           <hr />
-          {canReviewForTerm() ? (
+          {canReviewForTerm() || isEditMode ? (
             <div>
               <div className="text-cooper-gray-550 pt-12 text-lg">
                 On the job
@@ -421,39 +887,41 @@ export default function ReviewForm() {
               <div className="flex flex-wrap gap-10 overflow-auto pb-10 xl:flex-nowrap">
                 <ReviewSection />
               </div>
-              <div className="flex gap-2 justify-end">
-                {/* Save Draft Button */}
-                <div className="pb-12 pt-6">
-                  <Button
-                    type="button"
-                    onClick={onSaveDraft}
-                    disabled={mutation.isPending || draftMutation.isPending}
-                    className="bg-white hover:bg-cooper-gray-600
-                  rounded-lg border border-cooper-gray-150 2-253 px-8 py-3 text-lg font-semibold
-                  text-[#151515]"
-                  >
-                    {draftMutation.isPending ? "Saving draft..." : "Save draft"}
-                  </Button>
+              {!isEditMode && (
+                <div className="flex gap-2 justify-end">
+                  {/* Save Draft Button */}
+                  <div className="pb-12 pt-6">
+                    <Button
+                      type="button"
+                      onClick={onSaveDraft}
+                      disabled={mutation.isPending || draftMutation.isPending}
+                      className="bg-white hover:bg-cooper-gray-600
+                    rounded-lg border border-cooper-gray-150 2-253 px-8 py-3 text-lg font-semibold
+                    text-[#151515]"
+                    >
+                      {draftMutation.isPending ? "Saving draft..." : "Save draft"}
+                    </Button>
+                  </div>
+                  {/* Submit Button */}
+                  <div className="pb-12 pt-6">
+                    <Button
+                      type="button"
+                      onClick={async () => {
+                        const isValid = await form.trigger();
+                        if (!isValid) {
+                          toast.error("Please fill in all required fields.");
+                          return;
+                        }
+                        await form.handleSubmit(onSubmit)();
+                      }}
+                      disabled={mutation.isPending || draftMutation.isPending}
+                      className="bg-cooper-gray-550 hover:bg-cooper-gray-600 rounded-lg border-none px-8 py-3 text-lg font-semibold text-white"
+                    >
+                      {mutation.isPending ? "Submitting..." : "Submit review"}
+                    </Button>
+                  </div>
                 </div>
-                {/* Submit Button */}
-                <div className="pb-12 pt-6">
-                  <Button
-                    type="button"
-                    onClick={async () => {
-                      const isValid = await form.trigger();
-                      if (!isValid) {
-                        toast.error("Please fill in all required fields.");
-                        return;
-                      }
-                      await form.handleSubmit(onSubmit)();
-                    }}
-                    disabled={mutation.isPending || draftMutation.isPending}
-                    className="bg-cooper-gray-550 hover:bg-cooper-gray-600 rounded-lg border-none px-8 py-3 text-lg font-semibold text-white"
-                  >
-                    {mutation.isPending ? "Submitting..." : "Submit review"}
-                  </Button>
-                </div>
-              </div>
+              )}
             </div>
           ) : (
             <div>You already submitted too many reviews for this term</div>
