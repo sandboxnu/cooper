@@ -30,19 +30,23 @@ const SORT_OPTIONS: { label: string; value: SortOption }[] = [
   { label: "A-Z", value: "name-asc" },
 ];
 
-type UserRole = "ADMIN" | "COORDINATOR" | "STUDENT" | "DEVELOPER" | "DISABLED";
-
-function UserRoleDropdown({ user }: { user: { id: string; role: string } }) {
+function UserRoleDropdown({
+  user,
+}: {
+  user: { id: string; role: string; isDisabled: boolean };
+}) {
   const utils = api.useUtils();
   const { toast } = useCustomToast();
-  const prevRoleRef = useRef<UserRole>(user.role as UserRole);
   const dismissToastRef = useRef<(() => void) | undefined>(undefined);
 
   const updateRole = api.admin.updateUserRole.useMutation({
+    onSuccess: () => void utils.admin.userManagerItems.invalidate(),
+  });
+
+  const updateDisabled = api.admin.updateUserDisabled.useMutation({
     onSuccess: (_data, variables) => {
       void utils.admin.userManagerItems.invalidate();
-      if (variables.role === "DISABLED") {
-        const prevRole = prevRoleRef.current;
+      if (variables.isDisabled) {
         const { dismiss } = toast.custom({
           duration: 5000,
           className: "toast-action",
@@ -52,7 +56,7 @@ function UserRoleDropdown({ user }: { user: { id: string; role: string } }) {
               <button
                 onClick={() => {
                   dismissToastRef.current?.();
-                  updateRole.mutate({ userId: user.id, role: prevRole });
+                  updateDisabled.mutate({ userId: user.id, isDisabled: false });
                 }}
                 className="ml-48 rounded px-1 py-0 font-medium text-cooper-yellow-500 hover:bg-cooper-yellow-800"
               >
@@ -73,11 +77,10 @@ function UserRoleDropdown({ user }: { user: { id: string; role: string } }) {
   });
 
   const isStudent = user.role === "STUDENT";
-  const isDisabled = user.role === "DISABLED";
   const isAdminOrCoordinator =
     user.role === "ADMIN" || user.role === "COORDINATOR";
 
-  if (!isStudent && !isAdminOrCoordinator && !isDisabled) {
+  if (!isStudent && !isAdminOrCoordinator) {
     return (
       <span className="text-sm text-cooper-gray-400">
         {user.role.charAt(0) + user.role.slice(1).toLowerCase()}
@@ -85,57 +88,70 @@ function UserRoleDropdown({ user }: { user: { id: string; role: string } }) {
     );
   }
 
-  const handleRoleChange = (role: UserRole) => {
-    prevRoleRef.current = user.role as UserRole;
-    updateRole.mutate({ userId: user.id, role });
-  };
-
-  const triggerLabel = user.role.charAt(0) + user.role.slice(1).toLowerCase();
+  const isPending = updateRole.isPending || updateDisabled.isPending;
+  const triggerLabel = user.isDisabled
+    ? "Disabled"
+    : user.role.charAt(0) + user.role.slice(1).toLowerCase();
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        disabled={updateRole.isPending}
+        disabled={isPending}
         className="flex items-center gap-1 text-sm text-cooper-gray-400 focus:outline-none disabled:cursor-wait"
       >
         {triggerLabel}
         <ChevronDown className="h-4 w-4 text-cooper-gray-400" />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="min-w-[160px] border-none p-2 shadow-lg">
-        {(isAdminOrCoordinator || isDisabled) && (
+        {isAdminOrCoordinator && (
           <>
             <DropdownMenuItem
-              onClick={() => handleRoleChange("ADMIN")}
+              onClick={() => {
+                if (user.isDisabled)
+                  updateDisabled.mutate({ userId: user.id, isDisabled: false });
+                updateRole.mutate({ userId: user.id, role: "ADMIN" });
+              }}
               className="flex justify-between px-4 py-2.5 text-sm text-cooper-gray-400"
             >
               Admin
-              {user.role === "ADMIN" && <Check className="h-4 w-4" />}
+              {user.role === "ADMIN" && !user.isDisabled && <Check className="h-4 w-4" />}
             </DropdownMenuItem>
             <DropdownMenuItem
-              onClick={() => handleRoleChange("COORDINATOR")}
+              onClick={() => {
+                if (user.isDisabled)
+                  updateDisabled.mutate({ userId: user.id, isDisabled: false });
+                updateRole.mutate({ userId: user.id, role: "COORDINATOR" });
+              }}
               className="flex justify-between px-4 py-2.5 text-sm text-cooper-gray-400"
             >
               Coordinator
-              {user.role === "COORDINATOR" && <Check className="h-4 w-4" />}
+              {user.role === "COORDINATOR" && !user.isDisabled && <Check className="h-4 w-4" />}
             </DropdownMenuItem>
           </>
         )}
         {isStudent && (
           <DropdownMenuItem
-            disabled
+            disabled={!user.isDisabled}
+            onClick={() =>
+              user.isDisabled &&
+              updateDisabled.mutate({ userId: user.id, isDisabled: false })
+            }
             className="flex justify-between px-4 py-2.5 text-sm text-cooper-gray-400 opacity-100"
           >
             Student
-            <Check className="h-4 w-4" />
+            {!user.isDisabled && <Check className="h-4 w-4" />}
           </DropdownMenuItem>
         )}
         <DropdownMenuSeparator />
         <DropdownMenuItem
-          onClick={() => !isDisabled && handleRoleChange("DISABLED")}
+          onClick={() =>
+            !user.isDisabled &&
+            updateDisabled.mutate({ userId: user.id, isDisabled: true })
+          }
           className="flex justify-between px-4 py-2.5 text-sm text-cooper-yellow-500 focus:text-cooper-yellow-500"
         >
           Disabled
-          {isDisabled && <Check className="h-4 w-4" />}
+          {user.isDisabled && <Check className="h-4 w-4" />}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

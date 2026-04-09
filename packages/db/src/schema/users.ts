@@ -1,5 +1,5 @@
 import { relations } from "drizzle-orm";
-import { pgTable, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
+import { boolean, pgTable, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
 import { Account } from "./accounts";
 import { Profile } from "./profiles";
 import { UserRole } from "./misc";
@@ -19,6 +19,7 @@ export const User = pgTable("user", {
     .$type<UserRoleType>()
     .notNull()
     .default(UserRole.STUDENT),
+  isDisabled: boolean("isDisabled").notNull().default(false),
 });
 
 export const UserRelations = relations(User, ({ one, many }) => ({
