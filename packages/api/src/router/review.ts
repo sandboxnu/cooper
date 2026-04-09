@@ -358,7 +358,10 @@ export const reviewRouter = {
         .delete(InterviewRound)
         .where(eq(InterviewRound.reviewId, id));
 
-      await ctx.db.update(Review).set(reviewInput).where(eq(Review.id, id));
+      await ctx.db
+        .update(Review)
+        .set({ ...reviewInput, updatedAt: new Date() })
+        .where(eq(Review.id, id));
 
       const roundsToInsert = interviewRounds.flatMap((r) => {
         if (r.interviewType == null || r.interviewDifficulty == null) return [];

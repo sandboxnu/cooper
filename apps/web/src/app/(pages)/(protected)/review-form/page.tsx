@@ -37,6 +37,7 @@ import Popup from "~/app/_components/form/sections/popup";
 import { PaySection } from "~/app/_components/form/sections/pay-section";
 import { DeleteReviewDialog } from "~/app/_components/reviews/delete-review-dialogue";
 import { api } from "~/trpc/react";
+import { prettyLocationName } from "~/utils/locationHelpers";
 import { prettyWorkEnviornment } from "~/utils/stringHelpers";
 
 const filter = new Filter();
@@ -190,6 +191,10 @@ export default function ReviewForm() {
     { id: existingReview?.companyId ?? "" },
     { enabled: !!existingReview?.companyId && mode === "view" },
   );
+  const viewLocationQuery = api.location.getById.useQuery(
+    { id: existingReview?.locationId ?? "" },
+    { enabled: !!existingReview?.locationId && mode === "view" },
+  );
 
   const { toast } = useCustomToast();
   const [roleId, setRoleId] = useState<string>("");
@@ -324,9 +329,15 @@ export default function ReviewForm() {
 
   const updateMutation = api.review.update.useMutation({
     onSuccess: async () => {
-      if (profileId) {
-        await utils.review.getByProfile.invalidate({ id: profileId });
-      }
+      await Promise.all([
+        profileId
+          ? utils.review.getByProfile.invalidate({ id: profileId })
+          : Promise.resolve(),
+        reviewId
+          ? utils.review.getById.invalidate({ id: reviewId })
+          : Promise.resolve(),
+      ]);
+      toast.success("Review updated successfully.");
       router.push("/profile?tab=reviews");
     },
     onError: (error) => {
@@ -352,6 +363,13 @@ export default function ReviewForm() {
     }
   }
 
+  const normalizeRadios = (v: unknown): boolean | null =>
+    v === true || v === "true" || v === "yes"
+      ? true
+      : v === false || v === "false" || v === "no"
+        ? false
+        : null;
+
   async function onUpdateReview(status: StatusType = Status.PUBLISHED) {
     const isValid = await form.trigger();
     if (!isValid) {
@@ -366,6 +384,9 @@ export default function ReviewForm() {
         profileId: profile?.id,
         companyId: companyId || existingReview?.companyId,
         ...values,
+        drugTest: normalizeRadios(values.drugTest),
+        pto: normalizeRadios(values.pto),
+        overtimeNormal: normalizeRadios(values.overtimeNormal),
         reviewHeadline: "",
         status,
       } as Parameters<typeof updateMutation.mutateAsync>[0]);
@@ -394,9 +415,9 @@ export default function ReviewForm() {
         jobType: values.jobType,
         hourlyPay: values.hourlyPay === "" ? null : values.hourlyPay,
         workEnvironment: values.workEnvironment,
-        drugTest: normalizeRadios(values.drugTest),
-        pto: normalizeRadios(values.pto),
-        overtimeNormal: normalizeRadios(values.overtimeNormal),
+        drugTest: values.drugTest,
+        pto: values.pto,
+        overtimeNormal: values.overtimeNormal,
         federalHolidays: values.federalHolidays || null,
         freeLunch: values.freeLunch || null,
         travelBenefits: values.travelBenefits || null,
@@ -429,15 +450,17 @@ export default function ReviewForm() {
         workEnvironment: existingReview.workEnvironment as WorkEnvironmentType,
         drugTest:
           existingReview.drugTest != null
-            ? (String(existingReview.drugTest) as unknown as boolean)
+            ? ((existingReview.drugTest ? "yes" : "no") as unknown as boolean)
             : undefined,
         pto:
           existingReview.pto != null
-            ? (String(existingReview.pto) as unknown as boolean)
+            ? ((existingReview.pto ? "yes" : "no") as unknown as boolean)
             : undefined,
         overtimeNormal:
           existingReview.overtimeNormal != null
-            ? (String(existingReview.overtimeNormal) as unknown as boolean)
+            ? ((existingReview.overtimeNormal
+                ? "yes"
+                : "no") as unknown as boolean)
             : undefined,
         federalHolidays: existingReview.federalHolidays ?? false,
         freeLunch: existingReview.freeLunch ?? false,
@@ -530,7 +553,12 @@ export default function ReviewForm() {
                     {viewRoleQuery.data?.title ?? ""}
                   </span>
                   <span className="text-[16px] text-[#5a5a5a]">
-                    {viewCompanyQuery.data?.name ?? ""}
+                    {[
+                      viewCompanyQuery.data?.name,
+                      prettyLocationName(viewLocationQuery.data),
+                    ]
+                      .filter(Boolean)
+                      .join("  •  ")}
                   </span>
                 </div>
               </div>
@@ -572,6 +600,10 @@ export default function ReviewForm() {
               }
             />
             <ViewField label="Year" value={existingReview.workYear} />
+            <ViewField
+              label="Location"
+              value={prettyLocationName(viewLocationQuery.data)}
+            />
           </div>
           <hr />
 
@@ -743,9 +775,6 @@ export default function ReviewForm() {
     router.push("/roles");
   };
 
-  const normalizeRadios = (v: unknown) =>
-    v === true || v === "yes" ? true : v === false || v === "no" ? false : null;
-
   async function onSaveDraft() {
     try {
       const values = form.getValues();
@@ -766,9 +795,9 @@ export default function ReviewForm() {
         jobType: values.jobType,
         hourlyPay: values.hourlyPay === "" ? null : values.hourlyPay,
         workEnvironment: values.workEnvironment,
-        drugTest: normalizeRadios(values.drugTest),
-        pto: normalizeRadios(values.pto),
-        overtimeNormal: normalizeRadios(values.overtimeNormal),
+        drugTest: values.drugTest,
+        pto: values.pto,
+        overtimeNormal: values.overtimeNormal,
         federalHolidays: values.federalHolidays || null,
         freeLunch: values.freeLunch || null,
         travelBenefits: values.travelBenefits || null,

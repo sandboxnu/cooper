@@ -7,6 +7,8 @@ import { prettyLocationName } from "~/utils/locationHelpers";
 import { api } from "~/trpc/react";
 import { YellowStar, GrayStar } from "./review-card-stars";
 import { formatLastEditedDate } from "~/utils/dateHelpers";
+import { ReviewActionsDialog } from "./review-actions-dialogue";
+import { MoreVertical } from "lucide-react";
 
 interface DraftReviewCardProps {
   className?: string;
@@ -75,6 +77,17 @@ export function DraftReviewCard({
                 ) : (
                   <YellowStar className="h-5 w-5 md:h-7 md:w-7" />
                 )}
+                <ReviewActionsDialog
+                  review={reviewObj}
+                  trigger={
+                    <button
+                      type="button"
+                      className="flex items-center justify-center rounded-full p-1 hover:bg-[#f0f0f0]"
+                    >
+                      <MoreVertical className="h-5 w-5 text-[#767676]" />
+                    </button>
+                  }
+                />
               </div>
             </div>
           </CardContent>

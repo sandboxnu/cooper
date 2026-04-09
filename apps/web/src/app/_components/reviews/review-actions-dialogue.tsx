@@ -33,12 +33,14 @@ export function ReviewActionsDialog({ review, trigger }: Props) {
         align="start"
         sideOffset={4}
       >
-        <button
-          className="flex w-full items-center rounded-md bg-[#ebeae2] px-2.5 py-1.5 text-[14px] font-medium text-[#333] text-left tracking-[-0.14px] whitespace-nowrap"
-          onClick={onView}
-        >
-          {isDraft ? "View Draft" : "View Review"}
-        </button>
+        {!isDraft && (
+          <button
+            className="flex w-full items-center rounded-md bg-[#ebeae2] px-2.5 py-1.5 text-[14px] font-medium text-[#333] text-left tracking-[-0.14px] whitespace-nowrap"
+            onClick={onView}
+          >
+            View Review
+          </button>
+        )}
         <button
           className="flex w-full items-center rounded-md px-2.5 py-1.5 text-[14px] font-medium text-[#333] text-left tracking-[-0.14px] whitespace-nowrap hover:bg-[#ebeae2]"
           onClick={onEdit}
