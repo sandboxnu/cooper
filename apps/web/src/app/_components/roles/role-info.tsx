@@ -53,6 +53,11 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     { enabled: !!companyData?.industry },
   );
   const globalInterviewData = api.review.getInterviewDataGlobal.useQuery();
+  const globalPayData = api.review.getPayDataGlobal.useQuery();
+  const industryPayData = api.review.getPayDataByIndustry.useQuery(
+    { industry: companyData?.industry ?? "" },
+    { enabled: !!companyData?.industry },
+  );
   const companyReviews = api.review.getByCompany.useQuery(
     {
       id: companyData?.id ?? "",
@@ -259,15 +264,13 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
           )}
           <div className="col-span-2" id="on-the-job">
             {averages.data && (
-              <OnTheJobModal averages={averages.data} isComparing={isComparing} />
+              <OnTheJobModal
+                averages={averages.data}
+                isComparing={isComparing}
+              />
             )}
           </div>
 
-          {averages.data && (
-            <div className="col-span-2" id="pay">
-              <PayModal averages={averages.data} isComparing={isComparing} />
-            </div>
-          )}
           <div className="col-span-2" id="interview">
             <div className="xl:hidden">
               <InterviewModal
@@ -286,6 +289,29 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
               />
             </div>
           </div>
+
+          {averages.data && (
+            <div className="col-span-2" id="pay">
+              <div className="xl:hidden">
+                <PayModal
+                  averages={averages.data}
+                  globalData={globalPayData.data}
+                  industryData={industryPayData.data}
+                  industryName={companyData?.industry ?? null}
+                  compact
+                />
+              </div>
+              <div className="hidden xl:block">
+                <PayModal
+                  averages={averages.data}
+                  globalData={globalPayData.data}
+                  industryData={industryPayData.data}
+                  industryName={companyData?.industry ?? null}
+                  compact={compare.isCompareMode}
+                />
+              </div>
+            </div>
+          )}
           <div className="col-span-2" id="reviews">
             <ReviewModal roleId={roleObj.id} isComparing={isComparing} />
           </div>

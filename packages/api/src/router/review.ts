@@ -28,6 +28,39 @@ import {
   sortableProcedure,
 } from "../trpc";
 
+const PAY_BUCKETS = [
+  { label: "<$20", min: 0, max: 20 },
+  { label: "$20-30", min: 20, max: 30 },
+  { label: "$30-40", min: 30, max: 40 },
+  { label: "$40-50", min: 40, max: 50 },
+  { label: "$50+", min: 50, max: null },
+] as const;
+
+function computePayData(reviews: ReviewType[]) {
+  const withPay = reviews.filter((r) => {
+    const pay = Number(r.hourlyPay);
+    return !isNaN(pay) && pay > 0;
+  });
+
+  const totalReviews = withPay.length;
+  const averageHourlyPay =
+    totalReviews > 0
+      ? withPay.reduce((sum, r) => sum + Number(r.hourlyPay), 0) / totalReviews
+      : 0;
+
+  const payDistribution = PAY_BUCKETS.map(({ label, min, max }) => ({
+    label,
+    min,
+    max: max ?? null,
+    count: withPay.filter((r) => {
+      const pay = Number(r.hourlyPay);
+      return pay >= min && (max === null || pay < max);
+    }).length,
+  }));
+
+  return { averageHourlyPay, payDistribution, totalReviews };
+}
+
 export const reviewRouter = {
   list: publicProcedure
     .input(
@@ -371,6 +404,47 @@ export const reviewRouter = {
 
     return { roundsMode, roundsDistribution };
   }),
+
+  getPayDataGlobal: sortableProcedure.query(async ({ ctx }) => {
+    if (ctx.res) {
+      ctx.res.headers.set(
+        "Cache-Control",
+        "public, max-age=28800, s-maxage=28800, stale-while-revalidate=600",
+      );
+    }
+
+    const reviews = await ctx.db.query.Review.findMany({
+      where: eq(Review.status, Status.PUBLISHED),
+    });
+
+    return computePayData(reviews);
+  }),
+
+  getPayDataByIndustry: sortableProcedure
+    .input(z.object({ industry: z.string() }))
+    .query(async ({ ctx, input }) => {
+      if (ctx.res) {
+        ctx.res.headers.set(
+          "Cache-Control",
+          "public, max-age=28800, s-maxage=28800, stale-while-revalidate=600",
+        );
+      }
+
+      const companies = await ctx.db.query.Company.findMany({
+        where: eq(Company.industry, input.industry),
+      });
+
+      const companyIds = companies.map((c) => c.id);
+
+      const reviews = await ctx.db.query.Review.findMany({
+        where: and(
+          inArray(Review.companyId, companyIds),
+          eq(Review.status, Status.PUBLISHED),
+        ),
+      });
+
+      return computePayData(reviews);
+    }),
 
   delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
     return ctx.db.delete(Review).where(eq(Review.id, input));

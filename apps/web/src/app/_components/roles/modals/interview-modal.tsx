@@ -5,6 +5,9 @@ import { ArrowUp } from "lucide-react";
 
 import { prettyIndustry } from "~/utils/stringHelpers";
 import SectionCard from "../../shared/section-card";
+import { PipBar } from "./shared/pip-bar";
+import { PipCard } from "./shared/pip-card";
+import { TabToggle } from "./shared/tab-toggle";
 
 const TYPE_LABELS: Record<string, string> = {
   behavioral: "Behavioral",
@@ -75,14 +78,11 @@ function CompactTypeRow({
         )}
       </div>
       <div className="flex flex-col items-start gap-[10px]">
-        <div className="flex gap-[2px]">
-          {Array.from({ length: totalReviewsWithRounds }).map((_, i) => (
-            <div
-              key={i}
-              className={`h-[36px] w-[24px] shrink-0 rounded-[8px] ${i < reviewCount ? "bg-[#9d9c56]" : "bg-[#d3d3d3]"}`}
-            />
-          ))}
-        </div>
+        <PipBar
+          filledCount={reviewCount}
+          totalCount={totalReviewsWithRounds}
+          filledColor="#9d9c56"
+        />
         <p className="text-[14px] leading-[normal] text-[#767676]">
           {reviewCount}/{totalReviewsWithRounds} reported
         </p>
@@ -141,54 +141,6 @@ function InfoIcon({ tooltip }: InfoIconProps) {
         </span>
       )}
     </span>
-  );
-}
-
-interface SingleInterviewTypeCardProps {
-  typeKey: string;
-  reviewCount: number;
-  totalReviewsWithRounds: number;
-  dominantDifficulty: Difficulty | null;
-}
-
-function SingleInterviewTypeCard({
-  typeKey,
-  reviewCount,
-  totalReviewsWithRounds,
-  dominantDifficulty,
-}: SingleInterviewTypeCardProps) {
-  const label = TYPE_LABELS[typeKey] ?? typeKey;
-  // Use fixed w-6 (24px) per bar until they'd overflow 172px, then flex-1
-  const useFixedWidth = totalReviewsWithRounds * 24 <= 172;
-
-  return (
-    <div className="flex w-[172px] flex-col gap-[20px]">
-      <div className="flex flex-col gap-[10px]">
-        <div className="flex flex-col gap-[2px]">
-          <p className="text-[16px] tracking-[-0.16px] text-[#151515]">
-            {label}
-          </p>
-          <p className="h-[20px] overflow-hidden text-[14px] leading-[normal] text-[#767676]">
-            {reviewCount}/{totalReviewsWithRounds} reported{" "}
-            {label.toLowerCase()} interviews
-          </p>
-        </div>
-        {/* Bar row: green bars first, then gray */}
-        <div className="flex gap-[2px]">
-          {Array.from({ length: totalReviewsWithRounds }).map((_, i) => (
-            <div
-              key={i}
-              className={`h-[36px] rounded-[8px] ${i < reviewCount ? "bg-[#9d9c56]" : "bg-[#d3d3d3]"} ${useFixedWidth ? "w-6 shrink-0" : "flex-1"}`}
-            />
-          ))}
-        </div>
-      </div>
-      {dominantDifficulty && (
-        <div className="flex items-center gap-[8px] text-[14px] text-[#5a5a5a]">
-          {difficultyLabel(dominantDifficulty)}
-        </div>
-      )}
-    </div>
   );
 }
 
@@ -322,21 +274,7 @@ export function InterviewModal({
 
               {/* Bar chart section */}
               <div className="flex w-[324px] flex-col gap-[12px]">
-                {/* Tab toggle */}
-                <div className="flex items-center gap-[6px]">
-                  {(["total", "industry"] as const).map((tab) => (
-                    <button
-                      key={tab}
-                      type="button"
-                      onClick={() => setActiveTab(tab)}
-                      className={`flex cursor-pointer items-center justify-center rounded-[8px] border border-black/[0.06] px-[8px] py-[4px] text-[14px] text-[rgba(0,0,0,0.7)] ${
-                        activeTab === tab ? "bg-[#ebebeb]" : "bg-white"
-                      }`}
-                    >
-                      {tab === "total" ? "Total" : "Industry"}
-                    </button>
-                  ))}
-                </div>
+                <TabToggle activeTab={activeTab} onChange={setActiveTab} />
 
                 <div className="flex flex-col gap-[8px]">
                   {/* Cooper average dot + label */}
@@ -428,12 +366,14 @@ export function InterviewModal({
             {totalReviewsWithRounds > 0 ? (
               <div className="flex flex-wrap content-start gap-x-[36px] gap-y-[20px]">
                 {roleData?.types.map((t) => (
-                  <SingleInterviewTypeCard
+                  <PipCard
                     key={t.type}
-                    typeKey={t.type}
-                    reviewCount={t.reviewCount}
-                    totalReviewsWithRounds={totalReviewsWithRounds}
-                    dominantDifficulty={t.dominantDifficulty}
+                    name={TYPE_LABELS[t.type] ?? t.type}
+                    subtext={`${t.reviewCount}/${totalReviewsWithRounds} reported ${(TYPE_LABELS[t.type] ?? t.type).toLowerCase()} interviews`}
+                    filledCount={t.reviewCount}
+                    totalCount={totalReviewsWithRounds}
+                    filledColor="#9d9c56"
+                    footer={difficultyLabel(t.dominantDifficulty)}
                   />
                 ))}
               </div>
