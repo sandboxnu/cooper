@@ -4,10 +4,10 @@ import type { ReviewType } from "@cooper/db/schema";
 import { Card, CardContent } from "@cooper/ui/card";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { api } from "~/trpc/react";
-import { YellowStar } from "./review-card-stars";
+import { YellowStar } from "../review-card-stars";
 import { prettyWorkEnviornment } from "~/utils/stringHelpers";
-import { DeleteReviewDialog } from "./delete-review-dialogue";
-import { ReportButton } from "../shared/report-button";
+import { DeleteReviewDialog } from "../delete-review-dialogue";
+import { ReportButton } from "../../shared/report-button";
 import type { WorkEnvironmentType } from "@cooper/db/schema";
 
 interface ReviewCardProps {

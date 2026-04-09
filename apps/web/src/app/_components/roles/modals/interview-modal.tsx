@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { ArrowUp } from "lucide-react";
 
 import { prettyIndustry } from "~/utils/stringHelpers";
-import ModalContainer from "./modal";
+import SectionCard from "../../shared/section-card";
 
 const TYPE_LABELS: Record<string, string> = {
   behavioral: "Behavioral",
@@ -256,7 +256,7 @@ export function InterviewModal({
 
   if (compact) {
     return (
-      <ModalContainer title="Interview">
+      <SectionCard title="Interview">
         <div className="flex flex-col gap-[24px]">
           <p className="text-[36px] font-normal leading-[normal] tracking-[-0.72px] text-[#151515]">
             {roundsModeDisplay}
@@ -293,12 +293,12 @@ export function InterviewModal({
             )}
           </div>
         </div>
-      </ModalContainer>
+      </SectionCard>
     );
   }
 
   return (
-    <ModalContainer title="Interview">
+    <SectionCard title="Interview">
       <div className="flex flex-col gap-[12px]">
         <div className="flex items-start gap-[32px]">
           {/* Left — Rounds panel */}
@@ -449,6 +449,6 @@ export function InterviewModal({
             : "No responses"}
         </p>
       </div>
-    </ModalContainer>
+    </SectionCard>
   );
 }

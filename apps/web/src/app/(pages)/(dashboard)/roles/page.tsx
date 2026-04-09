@@ -28,8 +28,8 @@ import RoleTypeSelector from "~/app/_components/filters/role-type-selector";
 import SidebarFilter from "~/app/_components/filters/sidebar-filter";
 import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
-import { RoleCardPreview } from "~/app/_components/reviews/role-card-preview";
-import { RoleInfo } from "~/app/_components/reviews/role-info";
+import { RoleCardPreview } from "~/app/_components/roles/role-card-preview";
+import { RoleInfo } from "~/app/_components/roles/role-info";
 import SearchFilter from "~/app/_components/search/search-filter";
 import { api } from "~/trpc/react";
 
