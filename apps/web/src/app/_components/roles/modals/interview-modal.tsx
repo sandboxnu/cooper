@@ -46,6 +46,7 @@ interface IndustryData {
 interface InterviewModalProps {
   roleData: RoleData | undefined;
   industryData: IndustryData | undefined;
+  globalData: IndustryData | undefined;
   compact?: boolean;
 }
 
@@ -194,6 +195,7 @@ function SingleInterviewTypeCard({
 export function InterviewModal({
   roleData,
   industryData,
+  globalData,
   compact = false,
 }: InterviewModalProps) {
   const [activeTab, setActiveTab] = useState<"total" | "industry">("total");
@@ -206,20 +208,21 @@ export function InterviewModal({
       ? `${roleData.roundsMode} ${roleData.roundsMode === 1 ? "round" : "rounds"}`
       : "---";
 
-  // Bar chart source: Total tab uses role data (fallback to industry when no role data)
+  // Bar chart source: Total tab uses global data, Industry tab uses industry data
   const activeBarData: RoundsDist[] =
-    activeTab === "total" && totalReviewsWithRounds > 0
-      ? (roleData?.roundsDistribution ?? [])
+    activeTab === "total"
+      ? (globalData?.roundsDistribution ?? [])
       : (industryData?.roundsDistribution ?? []);
 
-  // Mode bar highlight: role mode for Total tab, industry mode for Industry tab
+  // Mode bar highlight: global mode for Total tab, industry mode for Industry tab
   const activeMode =
-    activeTab === "total" ? roleData?.roundsMode : industryData?.roundsMode;
+    activeTab === "total" ? globalData?.roundsMode : industryData?.roundsMode;
 
   // Cooper average label
   const industryName = roleData?.industryName ?? null;
   const prettyIndustryName = industryName ? prettyIndustry(industryName) : null;
-  const cooperAverageRounds = industryData?.roundsMode;
+  const cooperAverageRounds =
+    activeTab === "total" ? globalData?.roundsMode : industryData?.roundsMode;
 
   // Types headline: types reported by everyone
   const maxTypeCount = roleData?.types.length

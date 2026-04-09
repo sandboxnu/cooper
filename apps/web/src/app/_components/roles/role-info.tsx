@@ -52,6 +52,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
     { industry: companyData?.industry ?? "" },
     { enabled: !!companyData?.industry },
   );
+  const globalInterviewData = api.review.getInterviewDataGlobal.useQuery();
   const companyReviews = api.review.getByCompany.useQuery(
     {
       id: companyData?.id ?? "",
@@ -272,6 +273,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
               <InterviewModal
                 roleData={interviewData.data}
                 industryData={industryInterviewData.data}
+                globalData={globalInterviewData.data}
                 compact
               />
             </div>
@@ -279,6 +281,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
               <InterviewModal
                 roleData={interviewData.data}
                 industryData={industryInterviewData.data}
+                globalData={globalInterviewData.data}
                 compact={compare.isCompareMode}
               />
             </div>

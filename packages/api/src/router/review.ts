@@ -340,6 +340,38 @@ export const reviewRouter = {
       };
     }),
 
+  getInterviewDataGlobal: sortableProcedure.query(async ({ ctx }) => {
+    if (ctx.res) {
+      ctx.res.headers.set(
+        "Cache-Control",
+        "public, max-age=28800, s-maxage=28800, stale-while-revalidate=600",
+      );
+    }
+
+    const reviews = await ctx.db.query.Review.findMany({
+      where: eq(Review.status, Status.PUBLISHED),
+      with: { interviewRounds: true },
+    });
+
+    const reviewsWithRounds = reviews.filter(
+      (r) => r.interviewRounds.length > 0,
+    );
+
+    const roundsCounts = reviewsWithRounds.map((r) => r.interviewRounds.length);
+    const distMap: Record<number, number> = {};
+    for (const c of roundsCounts) distMap[c] = (distMap[c] ?? 0) + 1;
+    const roundsDistribution = Object.entries(distMap)
+      .map(([rounds, count]) => ({ rounds: Number(rounds), count }))
+      .sort((a, b) => a.rounds - b.rounds);
+    const sortedDistEntries = Object.entries(distMap).sort(
+      (a, b) => b[1] - a[1],
+    );
+    const roundsMode =
+      sortedDistEntries.length > 0 ? Number(sortedDistEntries[0]?.[0]) : null;
+
+    return { roundsMode, roundsDistribution };
+  }),
+
   delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
     return ctx.db.delete(Review).where(eq(Review.id, input));
   }),
