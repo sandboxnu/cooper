@@ -32,11 +32,7 @@ const SORT_OPTIONS: { label: string; value: SortOption }[] = [
 
 type UserRole = "ADMIN" | "COORDINATOR" | "STUDENT" | "DEVELOPER" | "DISABLED";
 
-function UserRoleDropdown({
-  user,
-}: {
-  user: { id: string; role: string };
-}) {
+function UserRoleDropdown({ user }: { user: { id: string; role: string } }) {
   const utils = api.useUtils();
   const { toast } = useCustomToast();
   const prevRoleRef = useRef<UserRole>(user.role as UserRole);
@@ -53,22 +49,22 @@ function UserRoleDropdown({
           description: (
             <div className="flex w-full items-center">
               <span>User disabled.</span>
-                <button
-                  onClick={() => {
-                    dismissToastRef.current?.();
-                    updateRole.mutate({ userId: user.id, role: prevRole });
-                  }}
-                  className="ml-48 rounded px-1 py-0 font-medium text-cooper-yellow-500 hover:bg-cooper-yellow-800"
-                >
-                  Undo
-                </button>
-                <button
-                  onClick={() => dismissToastRef.current?.()}
-                  className="ml-4 text-cooper-gray-400 hover:text-cooper-gray-600"
-                >
-                  <X className="h-4 w-4" />
-                </button>
-              </div>
+              <button
+                onClick={() => {
+                  dismissToastRef.current?.();
+                  updateRole.mutate({ userId: user.id, role: prevRole });
+                }}
+                className="ml-48 rounded px-1 py-0 font-medium text-cooper-yellow-500 hover:bg-cooper-yellow-800"
+              >
+                Undo
+              </button>
+              <button
+                onClick={() => dismissToastRef.current?.()}
+                className="ml-4 text-cooper-gray-400 hover:text-cooper-gray-600"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
           ),
         });
         dismissToastRef.current = dismiss;
@@ -94,8 +90,7 @@ function UserRoleDropdown({
     updateRole.mutate({ userId: user.id, role });
   };
 
-  const triggerLabel =
-    user.role.charAt(0) + user.role.slice(1).toLowerCase();
+  const triggerLabel = user.role.charAt(0) + user.role.slice(1).toLowerCase();
 
   return (
     <DropdownMenu>

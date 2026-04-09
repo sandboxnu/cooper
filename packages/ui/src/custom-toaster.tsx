@@ -97,7 +97,9 @@ export function CustomToaster() {
               `}</style>
               <div
                 className="absolute bottom-0 left-0 h-[3px] bg-[#FFA400]"
-                style={{ animation: "cooper-toast-progress 5s linear forwards" }}
+                style={{
+                  animation: "cooper-toast-progress 5s linear forwards",
+                }}
               />
               <ToastPrimitives.Description className="text-sm text-gray-900">
                 {description}
