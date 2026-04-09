@@ -1,10 +1,17 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
-import { ChevronDown } from "lucide-react";
+import { Check, ChevronDown, X } from "lucide-react";
 
-import { cn } from "@cooper/ui";
+import { cn, useCustomToast } from "@cooper/ui";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@cooper/ui/dropdown-menu";
 import { api } from "~/trpc/react";
 
 type RoleFilter = "all" | "ADMIN" | "COORDINATOR" | "DEVELOPER" | "STUDENT";
@@ -23,11 +30,121 @@ const SORT_OPTIONS: { label: string; value: SortOption }[] = [
   { label: "A-Z", value: "name-asc" },
 ];
 
-function formatRole(role: string) {
-  return role
-    .split("_")
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
-    .join(" ");
+type UserRole = "ADMIN" | "COORDINATOR" | "STUDENT" | "DEVELOPER" | "DISABLED";
+
+function UserRoleDropdown({
+  user,
+}: {
+  user: { id: string; role: string };
+}) {
+  const utils = api.useUtils();
+  const { toast } = useCustomToast();
+  const prevRoleRef = useRef<UserRole>(user.role as UserRole);
+  const dismissToastRef = useRef<(() => void) | undefined>(undefined);
+
+  const updateRole = api.admin.updateUserRole.useMutation({
+    onSuccess: (_data, variables) => {
+      void utils.admin.userManagerItems.invalidate();
+      if (variables.role === "DISABLED") {
+        const prevRole = prevRoleRef.current;
+        const { dismiss } = toast.custom({
+          duration: 5000,
+          className: "toast-action",
+          description: (
+            <div className="flex w-full items-center">
+              <span>User disabled.</span>
+                <button
+                  onClick={() => {
+                    dismissToastRef.current?.();
+                    updateRole.mutate({ userId: user.id, role: prevRole });
+                  }}
+                  className="ml-48 rounded px-1 py-0 font-medium text-cooper-yellow-500 hover:bg-cooper-yellow-800"
+                >
+                  Undo
+                </button>
+                <button
+                  onClick={() => dismissToastRef.current?.()}
+                  className="ml-4 text-cooper-gray-400 hover:text-cooper-gray-600"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
+          ),
+        });
+        dismissToastRef.current = dismiss;
+      }
+    },
+  });
+
+  const isStudent = user.role === "STUDENT";
+  const isDisabled = user.role === "DISABLED";
+  const isAdminOrCoordinator =
+    user.role === "ADMIN" || user.role === "COORDINATOR";
+
+  if (!isStudent && !isAdminOrCoordinator && !isDisabled) {
+    return (
+      <span className="text-sm text-cooper-gray-400">
+        {user.role.charAt(0) + user.role.slice(1).toLowerCase()}
+      </span>
+    );
+  }
+
+  const handleRoleChange = (role: UserRole) => {
+    prevRoleRef.current = user.role as UserRole;
+    updateRole.mutate({ userId: user.id, role });
+  };
+
+  const triggerLabel =
+    user.role.charAt(0) + user.role.slice(1).toLowerCase();
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger
+        disabled={updateRole.isPending}
+        className="flex items-center gap-1 text-sm text-cooper-gray-400 focus:outline-none disabled:cursor-wait"
+      >
+        {triggerLabel}
+        <ChevronDown className="h-4 w-4 text-cooper-gray-400" />
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="min-w-[160px] border-none p-2 shadow-lg">
+        {(isAdminOrCoordinator || isDisabled) && (
+          <>
+            <DropdownMenuItem
+              onClick={() => handleRoleChange("ADMIN")}
+              className="flex justify-between px-4 py-2.5 text-sm text-cooper-gray-400"
+            >
+              Admin
+              {user.role === "ADMIN" && <Check className="h-4 w-4" />}
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              onClick={() => handleRoleChange("COORDINATOR")}
+              className="flex justify-between px-4 py-2.5 text-sm text-cooper-gray-400"
+            >
+              Coordinator
+              {user.role === "COORDINATOR" && <Check className="h-4 w-4" />}
+            </DropdownMenuItem>
+          </>
+        )}
+        {isStudent && (
+          <DropdownMenuItem
+            disabled
+            className="flex justify-between px-4 py-2.5 text-sm text-cooper-gray-400 opacity-100"
+          >
+            Student
+            <Check className="h-4 w-4" />
+          </DropdownMenuItem>
+        )}
+        <DropdownMenuSeparator />
+        <DropdownMenuItem
+          onClick={() => !isDisabled && handleRoleChange("DISABLED")}
+          className="flex justify-between px-4 py-2.5 text-sm text-cooper-yellow-500 focus:text-cooper-yellow-500"
+        >
+          Disabled
+          {isDisabled && <Check className="h-4 w-4" />}
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
 }
 
 export function AdminUserManagerTable() {
@@ -174,19 +291,7 @@ export function AdminUserManagerTable() {
                     </td>
                     <td className="px-4 py-4 text-gray-700">{user.email}</td>
                     <td className="px-4 py-4">
-                      <label className="relative inline-flex">
-                        <span className="sr-only">User role</span>
-                        <select
-                          value={user.role}
-                          disabled
-                          className="appearance-none rounded-md border border-transparent bg-transparent py-0 pl-0 pr-6 text-sm text-gray-700 disabled:cursor-default"
-                        >
-                          <option value={user.role}>
-                            {formatRole(user.role)}
-                          </option>
-                        </select>
-                        <ChevronDown className="pointer-events-none absolute right-0 top-0.5 h-4 w-4 text-gray-500" />
-                      </label>
+                      <UserRoleDropdown user={user} />
                     </td>
                     <td className="px-4 py-4 text-right text-gray-500">
                       {`Joined ${new Date(user.createdAt as unknown as string).toLocaleDateString()}`}
