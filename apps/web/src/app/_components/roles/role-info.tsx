@@ -157,10 +157,12 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
               companyData ? (
                 <CompanyPopup
                   trigger={
-                    <Logo
-                      company={companyData}
-                      className="min-h-[82px] min-w-[82px] "
-                    />
+                    <div className="cursor-pointer">
+                      <Logo
+                        company={companyData}
+                        className="min-h-[82px] min-w-[82px]"
+                      />
+                    </div>
                   }
                   company={companyData}
                   locations={finalLocations}
@@ -239,14 +241,19 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
       <div className="flex w-[100%] justify-between">
         <div
           className={cn(
-            "grid w-full grid-cols-2 gap-5 px-3 lg:pl-6 lg:pr-6",
+            "grid w-full grid-cols-2 gap-2 px-3 lg:pl-6 lg:pr-6",
             compare.isCompareMode && "lg:pl-4 lg:pr-4",
           )}
         >
           {companyData && !compare.isCompareMode && (
-            <CompanyCardPreview
-              companyObj={companyData}
-              className="col-span-2 hover:bg-white hover:cursor-default"
+            <CompanyPopup
+              company={companyData}
+              locations={finalLocations}
+              trigger={
+                <div className="col-span-2 cursor-pointer">
+                  <CompanyCardPreview companyObj={companyData} />
+                </div>
+              }
             />
           )}
           <div className="col-span-2" id="on-the-job">

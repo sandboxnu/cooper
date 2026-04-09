@@ -46,7 +46,7 @@ export default function StarGraph({
           </div>
           <div className="text-sm">Cooper average: {cooperAvg}</div>
         </div>
-        <div className="mt-4 w-full min-w-24  md:max-w-48 space-y-1 pt-1 md:mt-0 ">
+        <div className="mt-4 w-full min-w-24 md:w-[242px] md:max-w-[242px] space-y-1 pt-1 md:mt-0">
           {ratings.map((rating) => (
             <div key={rating.stars} className="flex items-center">
               <span className="text-xs text-gray-600 mr-2">
