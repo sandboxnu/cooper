@@ -32,6 +32,7 @@ const getVariantFromClassName = (className?: string) => {
   if (className?.includes("toast-error")) return "error";
   if (className?.includes("toast-warning")) return "warning";
   if (className?.includes("toast-info")) return "info";
+  if (className?.includes("toast-action")) return "action";
   return "default";
 };
 
@@ -78,6 +79,32 @@ export function CustomToaster() {
               action={action}
               {...props}
             />
+          );
+        }
+
+        if (customVariant === "action") {
+          return (
+            <ToastPrimitives.Root
+              key={id}
+              className="pointer-events-auto relative flex w-full items-center justify-between overflow-hidden rounded-lg bg-white px-4 py-3 shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full"
+              {...props}
+            >
+              <style>{`
+                @keyframes cooper-toast-progress {
+                  from { width: 100%; }
+                  to { width: 0%; }
+                }
+              `}</style>
+              <div
+                className="absolute bottom-0 left-0 h-[3px] bg-[#FFA400]"
+                style={{
+                  animation: "cooper-toast-progress 5s linear forwards",
+                }}
+              />
+              <ToastPrimitives.Description className="text-sm text-gray-900">
+                {description}
+              </ToastPrimitives.Description>
+            </ToastPrimitives.Root>
           );
         }
 
