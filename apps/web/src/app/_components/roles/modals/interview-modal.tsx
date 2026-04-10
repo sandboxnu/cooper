@@ -71,9 +71,9 @@ function CompactTypeRow({
   return (
     <div className="flex items-start justify-between">
       <div className="flex flex-col gap-[2px]">
-        <p className="text-[16px] tracking-[-0.16px] text-[#151515]">{label}</p>
+        <p className="text-[16px] tracking-[-0.16px] text-cooper-gray-800">{label}</p>
         {dominantDifficulty && (
-          <div className="flex items-center gap-[8px] text-[14px] text-[#5a5a5a]">
+          <div className="flex items-center gap-[8px] text-[14px] text-cooper-gray-400">
             {difficultyLabel(dominantDifficulty)}
           </div>
         )}
@@ -84,7 +84,7 @@ function CompactTypeRow({
           totalCount={totalReviewsWithRounds}
           filledColor="#9d9c56"
         />
-        <p className="text-[14px] leading-[normal] text-[#767676]">
+        <p className="text-[14px] leading-[normal] text-cooper-gray-350">
           {reviewCount}/{totalReviewsWithRounds} reported
         </p>
       </div>
@@ -188,16 +188,16 @@ export function InterviewModal({
     return (
       <SectionCard title="Interview">
         <div className="flex flex-col gap-[24px]">
-          <p className="text-[36px] font-normal leading-[normal] tracking-[-0.72px] text-[#151515]">
+          <p className="text-[36px] font-normal leading-[normal] tracking-[-0.72px] text-cooper-gray-800">
             {roundsModeDisplay}
           </p>
           <div className="flex flex-col gap-[16px]">
             <div className="flex items-start gap-[12px]">
-              <p className="text-[16px] font-bold leading-[24px] tracking-[-0.16px] text-[#151515]">
+              <p className="text-[16px] font-bold leading-[24px] tracking-[-0.16px] text-cooper-gray-800">
                 Interview Types
               </p>
               <div className="flex h-[25px] items-center justify-center gap-[6px] rounded-[8px] bg-[#eee] px-[7px]">
-                <span className="text-[14px] text-[#5a5a5a]">
+                <span className="text-[14px] text-cooper-gray-400">
                   {roleData?.overallDominantDifficulty != null
                     ? difficultyText(roleData.overallDominantDifficulty)
                     : "No difficulty data"}
@@ -217,7 +217,7 @@ export function InterviewModal({
                 ))}
               </div>
             ) : (
-              <p className="text-[14px] italic text-[#5a5a5a]">
+              <p className="text-[14px] italic text-cooper-gray-400">
                 No interview type data
               </p>
             )}
@@ -236,11 +236,11 @@ export function InterviewModal({
             <div className="flex flex-col gap-[20px]">
               {/* Big number + label */}
               <div className="flex w-full flex-col">
-                <p className="text-[36px] font-normal leading-[normal] text-[#151515]">
+                <p className="text-[36px] font-normal leading-[normal] text-cooper-gray-800">
                   {roundsModeDisplay}
                 </p>
                 <div className="flex items-center gap-[6px]">
-                  <span className="text-[16px] leading-[24px] tracking-[-0.16px] text-[#151515]">
+                  <span className="text-[16px] leading-[24px] tracking-[-0.16px] text-cooper-gray-800">
                     Number of rounds
                   </span>
                   <InfoIcon tooltip={roundsTooltipContent} />
@@ -255,7 +255,7 @@ export function InterviewModal({
                   {/* Cooper average dot + label */}
                   <div className="flex items-center gap-[8px]">
                     <span className="h-[18px] w-[18px] shrink-0 rounded-full bg-[#d37bae]" />
-                    <span className="whitespace-nowrap text-[14px] text-[#5a5a5a]">
+                    <span className="whitespace-nowrap text-[14px] text-cooper-gray-400">
                       Cooper average
                       {activeTab === "industry" && prettyIndustryName
                         ? ` for ${prettyIndustryName} jobs`
@@ -290,7 +290,7 @@ export function InterviewModal({
                             style={{ flexGrow: bar.count }}
                           >
                             <div
-                              className={`h-[36px] min-w-[16px] w-full rounded-[8px] ${
+                              className={`h-9 min-w-4 w-full rounded-[8px] ${
                                 bar.rounds === activeMode
                                   ? "bg-[#d37bae]"
                                   : "bg-[#e7c7da]"
@@ -310,20 +310,20 @@ export function InterviewModal({
           </div>
 
           {/* Vertical divider */}
-          <div className="w-px self-stretch border-l border-[#ebebeb]" />
+          <div className="w-px self-stretch border-l border-cooper-gray-125" />
 
           {/* Right — Types panel */}
           <div className="flex min-w-0 flex-1 flex-col gap-[20px]">
             {/* Header: headline + info + difficulty chip */}
             <div className="flex flex-col">
               <div className="flex w-full items-start justify-between">
-                <p className="text-[36px] font-normal leading-[normal] text-[#151515]">
+                <p className="text-[36px] font-normal leading-[normal] text-cooper-gray-800">
                   {universalTypes}
                 </p>
                 <div className="flex shrink-0 items-center gap-[10px]">
                   <InfoIcon tooltip={typesTooltip} />
                   <div className="flex h-[25px] items-center justify-center gap-[6px] rounded-[8px] bg-[#eee] px-[7px]">
-                    <span className="text-[14px] text-[#5a5a5a]">
+                    <span className="text-[14px] text-cooper-gray-400">
                       {roleData?.overallDominantDifficulty != null
                         ? difficultyText(roleData.overallDominantDifficulty)
                         : "No difficulty data"}
@@ -331,7 +331,7 @@ export function InterviewModal({
                   </div>
                 </div>
               </div>
-              <p className="text-[16px] leading-[24px] tracking-[-0.16px] text-[#151515]">
+              <p className="text-[16px] leading-[24px] tracking-[-0.16px] text-cooper-gray-800">
                 Most common interview{" "}
                 {universalTypes.split(", ").length === 1 ? "type" : "types"}
               </p>
@@ -353,7 +353,7 @@ export function InterviewModal({
                 ))}
               </div>
             ) : (
-              <p className="text-[14px] italic text-[#5a5a5a]">
+              <p className="text-[14px] italic text-cooper-gray-400">
                 No interview type data
               </p>
             )}
@@ -361,7 +361,7 @@ export function InterviewModal({
         </div>
 
         {/* Footer */}
-        <p className="text-[12px] leading-[14px] tracking-[-0.12px] text-[#767676]">
+        <p className="text-[12px] leading-[14px] tracking-[-0.12px] text-cooper-gray-350">
           {totalReviewsWithRounds > 0
             ? `Based on ${totalReviewsWithRounds} response${totalReviewsWithRounds === 1 ? "" : "s"}`
             : "No responses"}

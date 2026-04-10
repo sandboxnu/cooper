@@ -34,14 +34,14 @@ function CompactBenefitRow({
 }: CompactBenefitRowProps) {
   return (
     <div className="flex items-start justify-between">
-      <p className="text-[16px] tracking-[-0.16px] text-[#151515]">{label}</p>
+      <p className="text-[16px] tracking-[-0.16px] text-cooper-gray-800">{label}</p>
       <div className="flex flex-col items-start gap-[10px]">
         <PipBar
           filledCount={count}
           totalCount={totalCount}
           filledColor="#92c6cd"
         />
-        <p className="text-[14px] leading-[normal] text-[#767676]">
+        <p className="text-[14px] leading-[normal] text-cooper-gray-350">
           {count}/{totalCount} reported
         </p>
       </div>
@@ -109,11 +109,11 @@ export function PayModal({
     return (
       <SectionCard title="Pay">
         <div className="flex flex-col gap-[24px]">
-          <p className="text-[36px] font-normal leading-[normal] tracking-[-0.72px] text-[#151515]">
+          <p className="text-[36px] font-normal leading-[normal] tracking-[-0.72px] text-cooper-gray-800">
             ${Math.round(avgPay)}/hr
           </p>
           <div className="flex flex-col gap-[16px]">
-            <p className="text-[16px] font-bold leading-[24px] tracking-[-0.16px] text-[#151515]">
+            <p className="text-[16px] font-bold leading-[24px] tracking-[-0.16px] text-cooper-gray-800">
               Pay Benefits
             </p>
             <div className="flex flex-col gap-[20px]">
@@ -146,10 +146,10 @@ export function PayModal({
           {/* Left — pay histogram */}
           <div className="flex w-[321px] shrink-0 flex-col gap-[20px] overflow-clip">
             <div className="flex flex-col">
-              <p className="text-[36px] font-normal leading-[normal] text-[#151515]">
+              <p className="text-[36px] font-normal leading-[normal] text-cooper-gray-800">
                 ${Math.round(avgPay)}/hr
               </p>
-              <p className="text-[16px] leading-[24px] tracking-[-0.16px] text-[#151515]">
+              <p className="text-[16px] leading-[24px] tracking-[-0.16px] text-cooper-gray-800">
                 Average hourly pay
               </p>
             </div>
@@ -161,7 +161,7 @@ export function PayModal({
                 {/* Industry average legend */}
                 <div className="flex items-center gap-[8px]">
                   <span className="h-[18px] w-[18px] shrink-0 rounded-full bg-[#ffb97f]" />
-                  <span className="whitespace-nowrap text-[14px] text-[#5a5a5a]">
+                  <span className="whitespace-nowrap text-[14px] text-cooper-gray-400">
                     {prettyIndustryName
                       ? `Average for ${prettyIndustryName} jobs ${activeTab === "industry" ? "on Cooper" : "in industry"}`
                       : "Industry average"}
@@ -193,7 +193,7 @@ export function PayModal({
                           style={{ flexGrow: Math.max(bucket.count, 1) }}
                         >
                           <div
-                            className={`h-[36px] min-w-[16px] w-full rounded-[8px] ${
+                            className={`h-9 min-w-4 w-full rounded-[8px] ${
                               isHighlighted ? "bg-[#ffb97f]" : "bg-[#ffdcbf]"
                             }`}
                           />
@@ -227,11 +227,11 @@ export function PayModal({
           </div>
 
           {/* Vertical divider */}
-          <div className="w-px self-stretch border-l border-[#ebebeb]" />
+          <div className="w-px self-stretch border-l border-cooper-gray-125" />
 
           {/* Right — pay benefits */}
           <div className="flex min-w-0 flex-1 flex-col gap-[20px]">
-            <p className="text-[16px] font-bold leading-[24px] tracking-[-0.16px] text-[#5a5a5a]">
+            <p className="text-[16px] font-bold leading-[24px] tracking-[-0.16px] text-cooper-gray-400">
               Pay Benefits
             </p>
             <div className="flex flex-wrap content-start gap-x-[36px] gap-y-[20px]">
@@ -261,7 +261,7 @@ export function PayModal({
         </div>
 
         {/* Footer */}
-        <p className="text-[12px] leading-[14px] tracking-[-0.12px] text-[#767676]">
+        <p className="text-[12px] leading-[14px] tracking-[-0.12px] text-cooper-gray-350">
           {totalReviews > 0
             ? `Based on ${totalReviews} response${totalReviews === 1 ? "" : "s"}`
             : "No responses"}

@@ -23,7 +23,7 @@ export function PipBar({ filledCount, totalCount, filledColor }: PipBarProps) {
       {Array.from({ length: totalCount }).map((_, i) => (
         <div
           key={i}
-          className={`h-[36px] shrink-0 rounded-[8px] ${
+          className={`h-9 shrink-0 rounded-[8px] ${
             i < filledCount ? "" : "bg-[#d3d3d3]"
           }`}
           style={{

@@ -21,8 +21,8 @@ export function PipCard({
     <div className="flex w-[172px] flex-col gap-[20px]">
       <div className="flex flex-col gap-[10px]">
         <div className="flex flex-col gap-[2px]">
-          <p className="text-[16px] tracking-[-0.16px] text-[#151515]">{name}</p>
-          <p className="h-[20px] overflow-hidden text-[14px] leading-[normal] text-[#767676]">
+          <p className="text-[16px] tracking-[-0.16px] text-cooper-gray-800">{name}</p>
+          <p className="h-5 overflow-hidden text-[14px] leading-[normal] text-cooper-gray-350">
             {subtext}
           </p>
         </div>
@@ -33,7 +33,7 @@ export function PipCard({
         />
       </div>
       {footer && (
-        <div className="flex items-center gap-[8px] text-[14px] text-[#5a5a5a]">
+        <div className="flex items-center gap-[8px] text-[14px] text-cooper-gray-400">
           {footer}
         </div>
       )}
