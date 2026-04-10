@@ -31,8 +31,10 @@ export function CompanyCardPreview({
     id: companyObj.id,
   });
 
-  const averageRating =
-    Math.round(Number(avg.data?.averageOverallRating) * 100) / 100;
+  const raw = Number(avg.data?.averageOverallRating);
+  const averageRating = Number.isFinite(raw)
+    ? Math.round(raw * 100) / 100
+    : null;
 
   return (
     <Card
