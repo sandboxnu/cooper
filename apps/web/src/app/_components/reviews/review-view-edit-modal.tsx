@@ -236,7 +236,7 @@ export function ReviewViewEditModal({
   );
   const { data: profile } = api.profile.getCurrentUser.useQuery();
   const existingReviewQuery = api.review.getById.useQuery(
-    { id: reviewId ?? "" },
+    { id: reviewId },
     { enabled: !!reviewId },
   );
   const existingReview = existingReviewQuery.data;
@@ -259,11 +259,11 @@ export function ReviewViewEditModal({
       jobType: undefined,
       hourlyPay: "",
       workEnvironment: undefined,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
       drugTest: undefined as any,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
       overtimeNormal: undefined as any,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
       pto: undefined as any,
       federalHolidays: false,
       freeLunch: false,
@@ -299,7 +299,7 @@ export function ReviewViewEditModal({
         overallRating: review.overallRating ?? 0,
         cultureRating: review.cultureRating ?? 0,
         supervisorRating: review.supervisorRating ?? 0,
-        interviewRounds: (review.interviewRounds ?? []).map(
+        interviewRounds: review.interviewRounds.map(
           (r: InterviewRoundType) => ({
             interviewType: r.interviewType ?? undefined,
             interviewDifficulty: r.interviewDifficulty ?? undefined,
@@ -312,11 +312,11 @@ export function ReviewViewEditModal({
         workEnvironment:
           (review.workEnvironment as WorkEnvironmentType | undefined) ??
           undefined,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
         drugTest: toBoolStr(review.drugTest) as any,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
         pto: toBoolStr(review.pto) as any,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
         overtimeNormal: toBoolStr(review.overtimeNormal) as any,
         federalHolidays: review.federalHolidays ?? false,
         freeLunch: review.freeLunch ?? false,
@@ -340,7 +340,7 @@ export function ReviewViewEditModal({
       onOpenChange(false);
     },
     onError: (error) => {
-      toast.error(error.message ?? "Something went wrong. Please try again.");
+      toast.error(error.message);
     },
   });
 
@@ -363,7 +363,7 @@ export function ReviewViewEditModal({
       overallRating: values.overallRating,
       cultureRating: values.cultureRating,
       supervisorRating: values.supervisorRating,
-      interviewRounds: values.interviewRounds ?? [],
+      interviewRounds: values.interviewRounds,
       textReview: values.textReview,
       locationId: values.locationId,
       jobType: values.jobType,
@@ -396,12 +396,10 @@ export function ReviewViewEditModal({
       overallRating: review.overallRating ?? 0,
       cultureRating: review.cultureRating ?? 0,
       supervisorRating: review.supervisorRating ?? 0,
-      interviewRounds: (review.interviewRounds ?? []).map(
-        (r: InterviewRoundType) => ({
-          interviewType: r.interviewType ?? undefined,
-          interviewDifficulty: r.interviewDifficulty ?? undefined,
-        }),
-      ),
+      interviewRounds: review.interviewRounds.map((r: InterviewRoundType) => ({
+        interviewType: r.interviewType ?? undefined,
+        interviewDifficulty: r.interviewDifficulty ?? undefined,
+      })),
       textReview: review.textReview ?? "",
       locationId: review.locationId ?? "",
       jobType: (review.jobType as JobTypeType | undefined) ?? undefined,
@@ -409,11 +407,11 @@ export function ReviewViewEditModal({
       workEnvironment:
         (review.workEnvironment as WorkEnvironmentType | undefined) ??
         undefined,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
       drugTest: toBoolStr(review.drugTest) as any,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
       pto: toBoolStr(review.pto) as any,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
       overtimeNormal: toBoolStr(review.overtimeNormal) as any,
       federalHolidays: review.federalHolidays ?? false,
       freeLunch: review.freeLunch ?? false,
