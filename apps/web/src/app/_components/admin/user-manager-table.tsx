@@ -114,7 +114,9 @@ function UserRoleDropdown({
               className="flex justify-between px-4 py-2.5 text-sm text-cooper-gray-400"
             >
               Admin
-              {user.role === "ADMIN" && !user.isDisabled && <Check className="h-4 w-4" />}
+              {user.role === "ADMIN" && !user.isDisabled && (
+                <Check className="h-4 w-4" />
+              )}
             </DropdownMenuItem>
             <DropdownMenuItem
               onClick={() => {
@@ -125,7 +127,9 @@ function UserRoleDropdown({
               className="flex justify-between px-4 py-2.5 text-sm text-cooper-gray-400"
             >
               Coordinator
-              {user.role === "COORDINATOR" && !user.isDisabled && <Check className="h-4 w-4" />}
+              {user.role === "COORDINATOR" && !user.isDisabled && (
+                <Check className="h-4 w-4" />
+              )}
             </DropdownMenuItem>
           </>
         )}

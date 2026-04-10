@@ -1,5 +1,11 @@
 import { relations } from "drizzle-orm";
-import { boolean, pgTable, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
+import {
+  boolean,
+  pgTable,
+  timestamp,
+  uuid,
+  varchar,
+} from "drizzle-orm/pg-core";
 import { Account } from "./accounts";
 import { Profile } from "./profiles";
 import { UserRole } from "./misc";

@@ -32,8 +32,8 @@ export const userRouter = {
         .insert(User)
         .values({
           email: input.email,
-            role: input.role,
-            isDisabled: input.isDisabled ?? false,
+          role: input.role,
+          isDisabled: input.isDisabled ?? false,
         })
         .returning();
     }),
