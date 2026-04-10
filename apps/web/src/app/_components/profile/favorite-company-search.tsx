@@ -40,7 +40,9 @@ export default function FavoriteCompanySearch({
               (company): company is NonNullable<typeof company> =>
                 company !== undefined,
             )
-            .map((company) => <CompanyCardPreview companyObj={company} />)
+            .map((company) => (
+              <CompanyCardPreview companyObj={company} key={company.id} />
+            ))
         ) : (
           <p className="italic text-cooper-gray-400">
             No saved companies found.

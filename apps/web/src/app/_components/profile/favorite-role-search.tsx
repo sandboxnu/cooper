@@ -59,7 +59,9 @@ export default function FavoriteRoleSearch({
             .filter(
               (role): role is NonNullable<typeof role> => role !== undefined,
             )
-            .map((company) => <RoleCardPreview roleObj={company} />)
+            .map((company) => (
+              <RoleCardPreview roleObj={company} key={company.companyId} />
+            ))
         ) : (
           <p className="italic text-cooper-gray-400">No saved roles found.</p>
         )}

@@ -9,6 +9,7 @@ import {
   Profile,
   Review,
   Role,
+  Status,
 } from "@cooper/db/schema";
 
 import { UpdateProfileNameMajorSchema } from "../../../db/src/schema/profiles";
@@ -146,6 +147,7 @@ export const profileRouter = {
         INNER JOIN ${Company} ON ${Company.id}::uuid = ${ProfilesToCompanies.companyId}::uuid
         INNER JOIN ${Role} ON ${Role.companyId}::uuid = ${Company.id}::uuid
         INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}::uuid
+          AND ${Review.status} = ${Status.PUBLISHED}
         WHERE ${ProfilesToCompanies.profileId}::uuid = ${input.profileId}::uuid
       `);
       return favoritesWithReviews.rows as {
@@ -162,6 +164,7 @@ export const profileRouter = {
         FROM ${ProfilesToRoles}
         INNER JOIN ${Role} ON ${Role.id}::uuid = ${ProfilesToRoles.roleId}::uuid
         INNER JOIN ${Review} ON ${Review.roleId}::uuid = ${Role.id}::uuid
+          AND ${Review.status} = ${Status.PUBLISHED}
         WHERE ${ProfilesToRoles.profileId}::uuid = ${input.profileId}::uuid
       `);
       return favoritesWithReviews.rows as {
