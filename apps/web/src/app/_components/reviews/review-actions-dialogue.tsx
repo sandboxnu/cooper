@@ -1,12 +1,13 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 import type { ReviewType } from "@cooper/db/schema";
 import { Popover, PopoverContent, PopoverTrigger } from "@cooper/ui/popover";
 
 import { DeleteReviewDialog } from "~/app/_components/reviews/delete-review-dialogue";
+import { ReviewViewEditModal } from "~/app/_components/reviews/review-view-edit-modal";
 
 interface Props {
   review: ReviewType;
@@ -14,49 +15,60 @@ interface Props {
 }
 
 export function ReviewActionsDialog({ review, trigger }: Props) {
-  const router = useRouter();
   const isDraft = review.status === "DRAFT";
 
-  const onView = () => {
-    router.push(`/review-form?mode=view&reviewId=${review.id}`);
-  };
+  const [popoverOpen, setPopoverOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalMode, setModalMode] = useState<"view" | "edit">("view");
 
-  const onEdit = () => {
-    router.push(`/review-form?mode=edit&reviewId=${review.id}`);
+  const openModal = (mode: "view" | "edit") => {
+    setPopoverOpen(false);
+    setModalMode(mode);
+    setModalOpen(true);
   };
 
   return (
-    <Popover>
-      <PopoverTrigger asChild>{trigger}</PopoverTrigger>
-      <PopoverContent
-        className="w-auto min-w-[160px] p-2 bg-[#f7f7f7] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] rounded-lg border-none"
-        align="start"
-        sideOffset={4}
-      >
-        {!isDraft && (
-          <button
-            className="flex w-full items-center rounded-md bg-[#ebeae2] px-2.5 py-1.5 text-[14px] font-medium text-[#333] text-left tracking-[-0.14px] whitespace-nowrap"
-            onClick={onView}
-          >
-            View Review
-          </button>
-        )}
-        <button
-          className="flex w-full items-center rounded-md px-2.5 py-1.5 text-[14px] font-medium text-[#333] text-left tracking-[-0.14px] whitespace-nowrap hover:bg-[#ebeae2]"
-          onClick={onEdit}
+    <>
+      <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
+        <PopoverTrigger asChild>{trigger}</PopoverTrigger>
+        <PopoverContent
+          className="w-auto min-w-40 rounded-lg border-none bg-cooper-gray-100 p-2 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]"
+          align="start"
+          sideOffset={4}
         >
-          {isDraft ? "Edit Draft" : "Edit Review"}
-        </button>
-        <DeleteReviewDialog
-          reviewId={review.id}
-          trigger={
-            <button className="flex w-full items-center rounded-md px-2.5 py-1.5 text-[14px] font-medium text-[#f7784e] text-left tracking-[-0.14px] whitespace-nowrap hover:bg-red-50">
-              {isDraft ? "Delete Draft" : "Delete Review"}
+          {!isDraft && (
+            <button
+              className="flex w-full items-center rounded-md px-2.5 py-1.5 text-left text-[14px] font-medium tracking-[-0.14px] whitespace-nowrap text-cooper-gray-550 hover:bg-[#ebeae2]"
+              onClick={() => openModal("view")}
+            >
+              View Review
             </button>
-          }
-          isDraft={isDraft}
-        />
-      </PopoverContent>
-    </Popover>
+          )}
+          <button
+            className="flex w-full items-center rounded-md px-2.5 py-1.5 text-left text-sm font-medium tracking-[-0.14px] whitespace-nowrap text-cooper-gray-550 hover:bg-[#ebeae2]"
+            onClick={() => openModal("edit")}
+          >
+            {isDraft ? "Edit Draft" : "Edit Review"}
+          </button>
+          <DeleteReviewDialog
+            reviewId={review.id}
+            trigger={
+              <button className="flex w-full items-center rounded-md px-2.5 py-1.5 text-left text-sm font-medium tracking-[-0.14px] whitespace-nowrap text-[#f7784e] hover:bg-red-50">
+                {isDraft ? "Delete Draft" : "Delete Review"}
+              </button>
+            }
+            isDraft={isDraft}
+          />
+        </PopoverContent>
+      </Popover>
+
+      <ReviewViewEditModal
+        reviewId={review.id}
+        mode={modalMode}
+        open={modalOpen}
+        onOpenChange={setModalOpen}
+        onModeChange={setModalMode}
+      />
+    </>
   );
 }

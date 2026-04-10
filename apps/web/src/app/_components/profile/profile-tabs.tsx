@@ -44,8 +44,8 @@ export default function ProfileTabs({ numReviews }: { numReviews: number }) {
           }}
           className={cn(
             tab.value === currentTab
-              ? "border-primary-500 border-[#151515] text-[#151515]"
-              : "border-transparent text-[#5A5A5A] hover:border-gray-300 hover:text-gray-700",
+              ? "border-primary-500 border-cooper-gray-900 text-cooper-gray-900"
+              : "border-transparent text-cooper-gray-400 hover:border-gray-300 hover:text-gray-700",
             "flex items-center whitespace-nowrap border-b-2 px-1 py-2 text-sm font-medium",
           )}
         >

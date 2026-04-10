@@ -31,7 +31,7 @@ export default function Autocomplete({
   onSearchChange,
   singleSelect = false,
   isInMenuContent = false,
-  portalZIndex = 40,
+  portalZIndex = 200,
 }: AutocompleteProps) {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
@@ -198,6 +198,7 @@ export default function Autocomplete({
         createPortal(
           <div
             ref={portalDropdownRef}
+            data-autocomplete-portal=""
             className="border-cooper-gray-150 rounded-md border bg-white shadow-lg"
             style={{ ...dropdownStyle, zIndex: portalZIndex }}
           >

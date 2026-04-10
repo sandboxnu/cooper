@@ -38,7 +38,7 @@ const Popup: React.FC<PopupProps> = ({
             </button>
           </div>
           <div
-            className={"flex text-[22px] font-semibold text-[#151515] -mt-2"}
+            className={"flex text-[22px] font-semibold text-cooper-gray-900 -mt-2"}
           >
             <span>Save as Draft?</span>
           </div>
@@ -89,7 +89,7 @@ const Popup: React.FC<PopupProps> = ({
       {/* Mobile Popup */}
       <div className="flex w-full flex-col items-center justify-center md:hidden">
         <div className="absolute bottom-20 flex flex-col w-full h-[200px] max-w-sm rounded-lg bg-white p-6 shadow-lg px-[13px]">
-          <div className="mb-[8px] text-[#151515] text-xl font-semibold text-center">
+          <div className="mb-[8px] text-cooper-gray-900 text-xl font-semibold text-center">
             Save as Draft?
           </div>
           <div className="mb-[8px] text-cooper-gray-400 text-base text-center">

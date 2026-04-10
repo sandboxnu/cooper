@@ -75,9 +75,9 @@ export function ProfileReviewCard({
               trigger={
                 <button
                   type="button"
-                  className="flex items-center justify-center rounded-full p-1 hover:bg-[#f0f0f0]"
+                  className="flex items-center justify-center rounded-full p-1 hover:bg-cooper-gray-800"
                 >
-                  <MoreVertical className="h-5 w-5 text-[#767676]" />
+                  <MoreVertical className="h-5 w-5 text-cooper-gray-350" />
                 </button>
               }
             />

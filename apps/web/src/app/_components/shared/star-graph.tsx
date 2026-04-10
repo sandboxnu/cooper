@@ -36,7 +36,7 @@ export default function StarGraph({
       >
         <div className="flex flex-col ">
           <div className="flex flex-row gap-2 pt-1">
-            <div className="text-4xl text-[#151515]">
+            <div className="text-4xl text-cooper-gray-900">
               {averageOverallRating.toFixed(1)}
             </div>
             <Image src="/svg/star.svg" alt="Star icon" width={28} height={28} />
