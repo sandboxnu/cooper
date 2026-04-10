@@ -13,6 +13,7 @@ type ToasterToast = ToastProps & {
   title?: React.ReactNode;
   description?: React.ReactNode;
   action?: ToastActionElement;
+  duration?: number;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -161,6 +162,10 @@ function toast({ ...props }: Toast) {
       },
     },
   });
+
+  if (props.duration) {
+    setTimeout(() => dismiss(), props.duration);
+  }
 
   return {
     id: id,

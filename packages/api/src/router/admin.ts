@@ -865,6 +865,7 @@ export const adminRouter = {
           name: user.name,
           email: user.email,
           role: user.role,
+          isDisabled: user.isDisabled,
           createdAt: user.createdAt,
         })),
       };
@@ -880,6 +881,21 @@ export const adminRouter = {
       await ctx.db
         .update(User)
         .set({ role: input.role })
+        .where(eq(User.id, input.userId));
+
+      return { success: true };
+    }),
+  updateUserDisabled: protectedProcedure
+    .input(
+      z.object({
+        userId: z.string().uuid(),
+        isDisabled: z.boolean(),
+      }),
+    )
+    .mutation(async ({ ctx, input }) => {
+      await ctx.db
+        .update(User)
+        .set({ isDisabled: input.isDisabled })
         .where(eq(User.id, input.userId));
 
       return { success: true };
