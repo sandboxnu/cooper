@@ -79,7 +79,7 @@ export default function Autocomplete({
         position: "fixed",
         top: `${rect.bottom + (isInMenuContent ? 0 : 4)}px`,
         left: `${rect.left}px`,
-        width: `${(mobile) ? (rect.width * 2.1) : rect.width}px`,
+        width: `${mobile ? rect.width * 2.1 : rect.width}px`,
       });
     },
     [isInMenuContent],
