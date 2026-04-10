@@ -38,7 +38,9 @@ const Popup: React.FC<PopupProps> = ({
             </button>
           </div>
           <div
-            className={"flex text-[22px] font-semibold text-cooper-gray-900 -mt-2"}
+            className={
+              "flex text-[22px] font-semibold text-cooper-gray-900 -mt-2"
+            }
           >
             <span>Save as Draft?</span>
           </div>

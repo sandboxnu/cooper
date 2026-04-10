@@ -38,7 +38,9 @@ export default function BarGraph({
         <div className="text-4xl font-normal">{value.toPrecision(2)}</div>
       </div>
       {industryAvg && (
-        <div className="text-cooper-gray-400">Industry average: {industryAvg}</div>
+        <div className="text-cooper-gray-400">
+          Industry average: {industryAvg}
+        </div>
       )}
     </div>
   );

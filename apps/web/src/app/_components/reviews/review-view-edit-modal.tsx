@@ -24,11 +24,7 @@ import {
   ZodInterviewTypeSchema,
 } from "@cooper/db/schema";
 import { useCustomToast } from "@cooper/ui";
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-} from "@cooper/ui/dialog";
+import { Dialog, DialogClose, DialogContent } from "@cooper/ui/dialog";
 import { Form } from "@cooper/ui/form";
 
 import {
@@ -109,7 +105,9 @@ const formSchema = z.object({
     required_error: "You need to select a work model.",
   }),
   drugTest: z
-    .string({ required_error: "You need to select whether you were drug-tested." })
+    .string({
+      required_error: "You need to select whether you were drug-tested.",
+    })
     .transform((x) => x === "true")
     .pipe(z.boolean()),
   pto: z
@@ -152,6 +150,17 @@ const BENEFITS = [
   { field: "snackBar", label: "Snack bar" },
 ] as const;
 
+/** Radix DismissableLayer wraps the native event in `detail.originalEvent` (pointerdown / focusin). */
+function isOutsideEventOnAutocompletePortal(e: {
+  detail?: { originalEvent?: { target?: EventTarget | null } };
+}): boolean {
+  const target = e.detail?.originalEvent?.target;
+  return (
+    target instanceof Element &&
+    Boolean(target.closest("[data-autocomplete-portal]"))
+  );
+}
+
 function StarRating({
   value,
   max = 5,
@@ -181,9 +190,7 @@ function ViewField({
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <p className="text-base font-bold text-cooper-gray-550">
-        {label}
-      </p>
+      <p className="text-base font-bold text-cooper-gray-550">{label}</p>
       <div>{children}</div>
     </div>
   );
@@ -228,6 +235,15 @@ export function ReviewViewEditModal({
     { enabled: !!review?.locationId },
   );
   const { data: profile } = api.profile.getCurrentUser.useQuery();
+  const existingReviewQuery = api.review.getById.useQuery(
+    { id: reviewId ?? "" },
+    { enabled: !!reviewId },
+  );
+  const existingReview = existingReviewQuery.data;
+  const viewLocationQuery = api.location.getById.useQuery(
+    { id: existingReview?.locationId ?? "" },
+    { enabled: !!existingReview?.locationId && mode === "view" },
+  );
 
   const form = useForm<ReviewFormValues>({
     resolver: zodResolver(formSchema),
@@ -275,7 +291,7 @@ export function ReviewViewEditModal({
   useEffect(() => {
     if (review && mode === "edit") {
       const toBoolStr = (v: boolean | null | undefined) =>
-        v === true ? "true" : v === false ? "false" : undefined;
+        v === true ? "yes" : v === false ? "no" : undefined;
 
       form.reset({
         workTerm: (review.workTerm as WorkTermType | undefined) ?? undefined,
@@ -294,7 +310,8 @@ export function ReviewViewEditModal({
         jobType: (review.jobType as JobTypeType | undefined) ?? undefined,
         hourlyPay: review.hourlyPay ?? "",
         workEnvironment:
-          (review.workEnvironment as WorkEnvironmentType | undefined) ?? undefined,
+          (review.workEnvironment as WorkEnvironmentType | undefined) ??
+          undefined,
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         drugTest: toBoolStr(review.drugTest) as any,
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -372,7 +389,7 @@ export function ReviewViewEditModal({
   function onDiscardEdits() {
     if (!review) return;
     const toBoolStr = (v: boolean | null | undefined) =>
-      v === true ? "true" : v === false ? "false" : undefined;
+      v === true ? "yes" : v === false ? "no" : undefined;
     form.reset({
       workTerm: (review.workTerm as WorkTermType | undefined) ?? undefined,
       workYear: review.workYear ?? undefined,
@@ -390,7 +407,8 @@ export function ReviewViewEditModal({
       jobType: (review.jobType as JobTypeType | undefined) ?? undefined,
       hourlyPay: review.hourlyPay ?? "",
       workEnvironment:
-        (review.workEnvironment as WorkEnvironmentType | undefined) ?? undefined,
+        (review.workEnvironment as WorkEnvironmentType | undefined) ??
+        undefined,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       drugTest: toBoolStr(review.drugTest) as any,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -406,15 +424,11 @@ export function ReviewViewEditModal({
       roleName: review.roleId ?? "",
       companyName: review.companyId ?? "",
     });
-    onModeChange("view");
   }
 
   async function onSaveEdits() {
     if (!review || !profile) return;
-    const payload = buildPayload(
-      form.getValues(),
-      review.status as StatusType,
-    );
+    const payload = buildPayload(form.getValues(), review.status as StatusType);
     if (!payload) return;
     try {
       await updateMutation.mutateAsync(payload);
@@ -431,7 +445,10 @@ export function ReviewViewEditModal({
       toast.error("Please fill in all required fields.");
       return;
     }
-    const payload = buildPayload(form.getValues(), Status.PUBLISHED as StatusType);
+    const payload = buildPayload(
+      form.getValues(),
+      Status.PUBLISHED as StatusType,
+    );
     if (!payload) return;
     try {
       await updateMutation.mutateAsync(payload);
@@ -447,9 +464,8 @@ export function ReviewViewEditModal({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
         className="flex h-[74vh] w-[66vw] max-w-none sm:max-w-none flex-col gap-0 overflow-hidden rounded-xl border border-cooper-gray-150 bg-white p-0"
-        onPointerDownOutside={(e) => {
-          const target = e.target as Element;
-          if (target.closest("[data-autocomplete-portal]")) {
+        onInteractOutside={(e) => {
+          if (isOutsideEventOnAutocompletePortal(e)) {
             e.preventDefault();
           }
         }}
@@ -463,7 +479,9 @@ export function ReviewViewEditModal({
                   {role?.title ?? "—"}
                 </p>
                 <p className="text-lg text-cooper-gray-400">
-                  {[company?.name, locationDisplay].filter(Boolean).join("  •  ")}
+                  {[company?.name, locationDisplay]
+                    .filter(Boolean)
+                    .join("  •  ")}
                 </p>
               </div>
             ) : (
@@ -512,7 +530,9 @@ export function ReviewViewEditModal({
                       disabled={updateMutation.isPending}
                       className="whitespace-nowrap rounded-lg bg-[rgba(0,0,0,0.87)] px-4 py-2.5 text-base font-bold text-white disabled:opacity-50"
                     >
-                      {updateMutation.isPending ? "Submitting..." : "Submit review"}
+                      {updateMutation.isPending
+                        ? "Submitting..."
+                        : "Submit review"}
                     </button>
                   )}
                 </>
@@ -536,9 +556,7 @@ export function ReviewViewEditModal({
         ) : mode === "view" ? (
           <div className="flex flex-1 flex-col gap-6 overflow-y-auto px-20 pb-20 pt-5">
             {/* Basic information */}
-            <p className="text-xl text-cooper-gray-550">
-              Basic information
-            </p>
+            <p className="text-xl text-cooper-gray-550">Basic information</p>
             <div className="flex flex-col gap-6">
               <ViewField label="Company name">
                 {company ? (
@@ -574,6 +592,11 @@ export function ReviewViewEditModal({
               <ViewField label="Year">
                 <p className="text-base text-black">
                   {review?.workYear ?? "—"}
+                </p>
+              </ViewField>
+              <ViewField label="Location">
+                <p className="text-base text-black">
+                  {prettyLocationName(viewLocationQuery.data)}
                 </p>
               </ViewField>
             </div>
@@ -693,9 +716,7 @@ export function ReviewViewEditModal({
             <hr className="border-cooper-gray-150" />
 
             {/* Review and rate */}
-            <p className="text-xl text-cooper-gray-550">
-              Review and rate
-            </p>
+            <p className="text-xl text-cooper-gray-550">Review and rate</p>
             <div className="flex flex-col gap-6 pb-12">
               <ViewField label="Overall rating">
                 <div className="flex items-center gap-2">
@@ -720,40 +741,34 @@ export function ReviewViewEditModal({
         ) : (
           /* EDIT MODE */
           <PortalZIndexContext.Provider value={60}>
-          <Form {...form}>
-            <div className="flex flex-1 flex-col gap-6 overflow-y-auto px-20 pb-20 pt-5">
-              <p className="text-xl text-cooper-gray-550">
-                Basic information
-              </p>
-              <BasicInfoSection profileId={profile?.id} />
+            <Form {...form}>
+              <div className="flex flex-1 flex-col gap-6 overflow-y-auto px-20 pb-20 pt-5">
+                <p className="text-xl text-cooper-gray-550">
+                  Basic information
+                </p>
+                <BasicInfoSection profileId={profile?.id} />
 
-              <hr className="border-cooper-gray-150" />
+                <hr className="border-cooper-gray-150" />
 
-              <p className="text-xl text-cooper-gray-550">
-                On the job
-              </p>
-              <CompanyDetailsSection />
+                <p className="text-xl text-cooper-gray-550">On the job</p>
+                <CompanyDetailsSection />
 
-              <hr className="border-cooper-gray-150" />
+                <hr className="border-cooper-gray-150" />
 
-              <p className="text-xl text-cooper-gray-550">Pay</p>
-              <PaySection />
+                <p className="text-xl text-cooper-gray-550">Pay</p>
+                <PaySection />
 
-              <hr className="border-cooper-gray-150" />
+                <hr className="border-cooper-gray-150" />
 
-              <p className="text-xl text-cooper-gray-550">
-                Interview
-              </p>
-              <InterviewSection />
+                <p className="text-xl text-cooper-gray-550">Interview</p>
+                <InterviewSection />
 
-              <hr className="border-cooper-gray-150" />
+                <hr className="border-cooper-gray-150" />
 
-              <p className="text-xl text-cooper-gray-550">
-                Review and rate
-              </p>
-              <ReviewSection />
-            </div>
-          </Form>
+                <p className="text-xl text-cooper-gray-550">Review and rate</p>
+                <ReviewSection />
+              </div>
+            </Form>
           </PortalZIndexContext.Provider>
         )}
       </DialogContent>

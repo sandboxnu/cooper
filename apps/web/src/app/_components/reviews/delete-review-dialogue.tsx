@@ -30,7 +30,9 @@ export function DeleteReviewDialog({
 
   const deleteReview = api.review.delete.useMutation({
     onSuccess: () => {
-      toast.success("Your review has been successfully deleted.");
+      toast.success(
+        `Your ${isDraft ? "draft" : "review"} has been succcessfully deleted`,
+      );
 
       // Refresh the page to update the UI
       window.location.reload();
@@ -60,7 +62,7 @@ export function DeleteReviewDialog({
       <DialogContent className="w-full max-w-md bg-white pb-8 p-4">
         <DialogHeader className="space-y-4 text-center">
           <DialogTitle className="text-2xl font-semibold">
-            Delete Review
+            {`Delete ${isDraft ? "Draft" : "Review"}`}
           </DialogTitle>
           <DialogDescription className="text-cooper-gray-600 text-base">
             {`Are you sure you want to delete this ${isDraft ? "draft" : "review"}? This action cannot be`}
@@ -74,7 +76,7 @@ export function DeleteReviewDialog({
             className="min-w-[200px] border-none bg-cooper-yellow-500 px-8 py-6 text-base font-medium text-white transition-colors hover:bg-cooper-yellow-300"
             onClick={handleDelete}
           >
-            Delete Review
+            {`Delete ${isDraft ? "Draft" : "Review"}`}
           </Button>
         </DialogFooter>
       </DialogContent>

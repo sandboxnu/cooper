@@ -164,9 +164,7 @@ function SingleInterviewTypeCard({
     <div className="flex w-40 flex-col gap-5">
       <div className="flex flex-col gap-2.5">
         <div className="flex flex-col gap-0.5">
-          <p className="text-md = text-cooper-gray-900">
-            {label}
-          </p>
+          <p className="text-md = text-cooper-gray-900">{label}</p>
           <p className="h-5 overflow-hidden text-sm leading-[normal] text-cooper-gray-350">
             {reviewCount}/{totalReviewsWithRounds} reported{" "}
             {label.toLowerCase()} interviews
