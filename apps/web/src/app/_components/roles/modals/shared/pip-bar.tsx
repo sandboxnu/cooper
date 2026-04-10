@@ -4,18 +4,32 @@ interface PipBarProps {
   filledColor: string;
 }
 
+const MAX_PIP_WIDTH = 24;
+const GAP = 2;
+const REFERENCE_WIDTH = 172;
+const MIN_PIP_WIDTH = 4;
+
 export function PipBar({ filledCount, totalCount, filledColor }: PipBarProps) {
-  const useFixedWidth = totalCount * 24 <= 172;
+  const pipWidth = Math.max(
+    MIN_PIP_WIDTH,
+    Math.min(
+      MAX_PIP_WIDTH,
+      (REFERENCE_WIDTH - (totalCount - 1) * GAP) / totalCount,
+    ),
+  );
 
   return (
     <div className="flex gap-[2px]">
       {Array.from({ length: totalCount }).map((_, i) => (
         <div
           key={i}
-          className={`h-[36px] rounded-[8px] ${
+          className={`h-[36px] shrink-0 rounded-[8px] ${
             i < filledCount ? "" : "bg-[#d3d3d3]"
-          } ${useFixedWidth ? "w-[24px] shrink-0" : "flex-1"}`}
-          style={i < filledCount ? { backgroundColor: filledColor } : undefined}
+          }`}
+          style={{
+            width: pipWidth,
+            ...(i < filledCount ? { backgroundColor: filledColor } : {}),
+          }}
         />
       ))}
     </div>

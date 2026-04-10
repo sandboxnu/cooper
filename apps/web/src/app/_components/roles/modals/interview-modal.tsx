@@ -7,6 +7,7 @@ import { prettyIndustry } from "~/utils/stringHelpers";
 import SectionCard from "../../shared/section-card";
 import { PipBar } from "./shared/pip-bar";
 import { PipCard } from "./shared/pip-card";
+import { InfoIcon } from "./shared/info-icon";
 import { TabToggle } from "./shared/tab-toggle";
 
 const TYPE_LABELS: Record<string, string> = {
@@ -117,32 +118,6 @@ function difficultyLabel(d: Difficulty | null): React.ReactNode {
   return null;
 }
 
-interface InfoIconProps {
-  tooltip: React.ReactNode;
-}
-
-function InfoIcon({ tooltip }: InfoIconProps) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <span className="relative inline-flex items-center">
-      <button
-        onMouseEnter={() => setOpen(true)}
-        onMouseLeave={() => setOpen(false)}
-        className="flex h-[15px] w-[15px] items-center justify-center rounded-full border-[1.5px] border-[#989898] text-[11px] font-semibold text-[#989898]"
-        aria-label="More info"
-        type="button"
-      >
-        i
-      </button>
-      {open && (
-        <span className="absolute bottom-full left-1/2 z-10 mb-1 w-max max-w-[240px] -translate-x-1/2 rounded bg-gray-800 px-2 py-1 text-[11px] text-white">
-          {tooltip}
-        </span>
-      )}
-    </span>
-  );
-}
 
 export function InterviewModal({
   roleData,
@@ -321,8 +296,8 @@ export function InterviewModal({
                                   : "bg-[#e7c7da]"
                               }`}
                             />
-                            <div className="flex items-center justify-center pl-[3px] text-[14px] leading-[20px] text-black opacity-50">
-                              {showLabel ? `${bar.rounds} rounds` : bar.rounds}
+                            <div className="flex items-center justify-start pl-[3px] text-[14px] leading-[20px] text-black opacity-50">
+                              {showLabel ? `${bar.rounds} ${bar.rounds === 1 ? "round" : "rounds"}` : bar.rounds}
                             </div>
                           </div>
                         );

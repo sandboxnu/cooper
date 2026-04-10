@@ -6,7 +6,7 @@ export default function LoginButton() {
   return (
     <form>
       <Button
-        className="relative flex h-10 w-full justify-start gap-3 rounded-lg border border-[#E6E3DE] bg-[#fffefc] py-2.5 pl-3 text-lg font-semibold text-[#201E19]"
+        className="relative flex h-10 w-full justify-start gap-3 rounded-lg border border-[#E6E3DE] bg-[#fffefc] py-2.5 pl-3 text-lg font-semibold text-[#201E19] hover:bg-cooper-cream-400"
         formAction={async () => {
           "use server";
           await signIn("google", { redirectTo: "/roles" });

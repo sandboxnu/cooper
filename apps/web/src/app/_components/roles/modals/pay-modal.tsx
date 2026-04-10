@@ -27,12 +27,20 @@ interface CompactBenefitRowProps {
   totalCount: number;
 }
 
-function CompactBenefitRow({ label, count, totalCount }: CompactBenefitRowProps) {
+function CompactBenefitRow({
+  label,
+  count,
+  totalCount,
+}: CompactBenefitRowProps) {
   return (
     <div className="flex items-start justify-between">
       <p className="text-[16px] tracking-[-0.16px] text-[#151515]">{label}</p>
       <div className="flex flex-col items-start gap-[10px]">
-        <PipBar filledCount={count} totalCount={totalCount} filledColor="#92c6cd" />
+        <PipBar
+          filledCount={count}
+          totalCount={totalCount}
+          filledColor="#92c6cd"
+        />
         <p className="text-[14px] leading-[normal] text-[#767676]">
           {count}/{totalCount} reported
         </p>
@@ -109,9 +117,21 @@ export function PayModal({
               Pay Benefits
             </p>
             <div className="flex flex-col gap-[20px]">
-              <CompactBenefitRow label="PTO" count={ptoCount} totalCount={totalReviews} />
-              <CompactBenefitRow label="Travel Stipend" count={travelCount} totalCount={totalReviews} />
-              <CompactBenefitRow label="Free Lunch" count={foodCount} totalCount={totalReviews} />
+              <CompactBenefitRow
+                label="PTO"
+                count={ptoCount}
+                totalCount={totalReviews}
+              />
+              <CompactBenefitRow
+                label="Travel Stipend"
+                count={travelCount}
+                totalCount={totalReviews}
+              />
+              <CompactBenefitRow
+                label="Free Lunch"
+                count={foodCount}
+                totalCount={totalReviews}
+              />
             </div>
           </div>
         </div>
@@ -156,7 +176,7 @@ export function PayModal({
 
                 {/* Histogram */}
                 {activeBarData.length > 0 ? (
-                  <div className="flex w-full items-end gap-px">
+                  <div className="group flex w-full items-end gap-px">
                     {activeBarData.map((bucket, i) => {
                       const approxWidth =
                         totalBarCount > 0
@@ -177,7 +197,7 @@ export function PayModal({
                               isHighlighted ? "bg-[#ffb97f]" : "bg-[#ffdcbf]"
                             }`}
                           />
-                          <div className="flex items-center pl-[3px] text-[14px] leading-[20px] text-[#808080]">
+                          <div className={`flex items-center pl-[3px] text-[14px] leading-[20px] text-[#808080]${isTarget ? " transition-opacity group-hover:opacity-0" : ""}`}>
                             {showLabel ? bucket.label : "..."}
                           </div>
                           {isTarget && (
@@ -187,7 +207,7 @@ export function PayModal({
                                 style={{ left: `${fractionWithin * 100}%` }}
                               />
                               <span
-                                className="pointer-events-none absolute z-10 -translate-x-1/2 text-[14px] font-bold leading-[20px] text-[#808080]"
+                                className="pointer-events-none absolute z-10 -translate-x-1/2 text-[14px] font-bold leading-[20px] text-[#808080] opacity-0 transition-opacity group-hover:opacity-100"
                                 style={{
                                   left: `${fractionWithin * 100}%`,
                                   bottom: 0,
