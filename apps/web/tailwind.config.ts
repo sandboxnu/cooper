@@ -43,6 +43,7 @@ export default {
         "cooper-blue-400": "#C7E1F5",
 
         // Cooper "Yellow"
+        "cooper-yellow-800": "#FFE4B380",
         "cooper-yellow-700": "#EC9F14",
         "cooper-yellow-600": "#AFA800",
         "cooper-yellow-500": "#FFA400",
