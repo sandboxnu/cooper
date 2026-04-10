@@ -12,6 +12,7 @@ import {
   Review,
   Role,
   User,
+  UserRole,
 } from "@cooper/db/schema";
 
 import { protectedProcedure } from "../trpc";
@@ -864,8 +865,39 @@ export const adminRouter = {
           name: user.name,
           email: user.email,
           role: user.role,
+          isDisabled: user.isDisabled,
           createdAt: user.createdAt,
         })),
       };
+    }),
+  updateUserRole: protectedProcedure
+    .input(
+      z.object({
+        userId: z.string().uuid(),
+        role: z.nativeEnum(UserRole),
+      }),
+    )
+    .mutation(async ({ ctx, input }) => {
+      await ctx.db
+        .update(User)
+        .set({ role: input.role })
+        .where(eq(User.id, input.userId));
+
+      return { success: true };
+    }),
+  updateUserDisabled: protectedProcedure
+    .input(
+      z.object({
+        userId: z.string().uuid(),
+        isDisabled: z.boolean(),
+      }),
+    )
+    .mutation(async ({ ctx, input }) => {
+      await ctx.db
+        .update(User)
+        .set({ isDisabled: input.isDisabled })
+        .where(eq(User.id, input.userId));
+
+      return { success: true };
     }),
 } satisfies TRPCRouterRecord;
