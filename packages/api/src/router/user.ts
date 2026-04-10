@@ -10,6 +10,7 @@ export const userRouter = {
       z.object({
         email: z.string().email(),
         role: z.nativeEnum(UserRole),
+        isDisabled: z.boolean().optional(),
       }),
     )
     .mutation(async ({ ctx, input }) => {
@@ -22,7 +23,7 @@ export const userRouter = {
         // optionally update role instead of throwing
         return ctx.db
           .update(User)
-          .set({ role: input.role })
+          .set({ role: input.role, isDisabled: input.isDisabled ?? false })
           .where(eq(User.email, input.email))
           .returning();
       }
@@ -31,7 +32,8 @@ export const userRouter = {
         .insert(User)
         .values({
           email: input.email,
-          role: input.role,
+            role: input.role,
+            isDisabled: input.isDisabled ?? false,
         })
         .returning();
     }),
