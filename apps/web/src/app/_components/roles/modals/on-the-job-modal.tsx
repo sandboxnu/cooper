@@ -57,9 +57,7 @@ export function OnTheJobModal({ averages, isComparing }: OnTheJobModalProps) {
           />
         </div>
 
-        <div
-          className={cn("flex flex-wrap gap-x-6", isComparing && "gap-y-3")}
-        >
+        <div className={cn("flex flex-wrap gap-x-6", isComparing && "gap-y-3")}>
           {PERKS.map(({ label, key }) => {
             const value = averages[key];
             return (

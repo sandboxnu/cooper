@@ -365,7 +365,9 @@ export function ReviewModal({ roleId, isComparing }: ReviewModalProps) {
             ))
           ) : (
             <div className="py-8 text-center text-cooper-gray-400">
-              {locationFilter.length > 0 || jobTypeFilter || ratingFilter.length > 0
+              {locationFilter.length > 0 ||
+              jobTypeFilter ||
+              ratingFilter.length > 0
                 ? "No reviews found matching your filter criteria."
                 : "No reviews found for this rating."}
             </div>

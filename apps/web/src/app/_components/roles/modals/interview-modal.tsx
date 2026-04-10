@@ -71,7 +71,9 @@ function CompactTypeRow({
   return (
     <div className="flex items-start justify-between">
       <div className="flex flex-col gap-[2px]">
-        <p className="text-[16px] tracking-[-0.16px] text-cooper-gray-800">{label}</p>
+        <p className="text-[16px] tracking-[-0.16px] text-cooper-gray-800">
+          {label}
+        </p>
         {dominantDifficulty && (
           <div className="flex items-center gap-[8px] text-[14px] text-cooper-gray-400">
             {difficultyLabel(dominantDifficulty)}
@@ -117,7 +119,6 @@ function difficultyLabel(d: Difficulty | null): React.ReactNode {
     );
   return null;
 }
-
 
 export function InterviewModal({
   roleData,
@@ -297,7 +298,9 @@ export function InterviewModal({
                               }`}
                             />
                             <div className="flex items-center justify-start pl-[3px] text-[14px] leading-[20px] text-black opacity-50">
-                              {showLabel ? `${bar.rounds} ${bar.rounds === 1 ? "round" : "rounds"}` : bar.rounds}
+                              {showLabel
+                                ? `${bar.rounds} ${bar.rounds === 1 ? "round" : "rounds"}`
+                                : bar.rounds}
                             </div>
                           </div>
                         );

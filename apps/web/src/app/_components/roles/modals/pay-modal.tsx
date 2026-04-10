@@ -34,7 +34,9 @@ function CompactBenefitRow({
 }: CompactBenefitRowProps) {
   return (
     <div className="flex items-start justify-between">
-      <p className="text-[16px] tracking-[-0.16px] text-cooper-gray-800">{label}</p>
+      <p className="text-[16px] tracking-[-0.16px] text-cooper-gray-800">
+        {label}
+      </p>
       <div className="flex flex-col items-start gap-[10px]">
         <PipBar
           filledCount={count}
@@ -183,7 +185,10 @@ export function PayModal({
                           ? (bucket.count / totalBarCount) * 321
                           : 0;
                       const showLabel = approxWidth >= 40;
-                      const { isTarget, fractionWithin } = bucketMeta[i]!;
+                      const { isTarget, fractionWithin } = bucketMeta[i] ?? {
+                        isTarget: false,
+                        fractionWithin: 0,
+                      };
                       const isHighlighted = isTarget;
 
                       return (
@@ -197,7 +202,9 @@ export function PayModal({
                               isHighlighted ? "bg-[#ffb97f]" : "bg-[#ffdcbf]"
                             }`}
                           />
-                          <div className={`flex items-center pl-[3px] text-[14px] leading-[20px] text-[#808080]${isTarget ? " transition-opacity group-hover:opacity-0" : ""}`}>
+                          <div
+                            className={`flex items-center pl-[3px] text-[14px] leading-[20px] text-[#808080]${isTarget ? " transition-opacity group-hover:opacity-0" : ""}`}
+                          >
                             {showLabel ? bucket.label : "..."}
                           </div>
                           {isTarget && (
