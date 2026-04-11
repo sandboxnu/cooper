@@ -24,9 +24,10 @@ export function DraftReviewCard({
     { enabled: !!reviewObj.roleId },
   );
 
-  const { data: location } = api.location.getById.useQuery({
-    id: reviewObj.locationId ?? "",
-  });
+  const { data: location } = api.location.getById.useQuery(
+    { id: reviewObj.locationId ?? "" },
+    { enabled: !!reviewObj.locationId },
+  );
 
   const { data: company } = api.company.getById.useQuery(
     { id: reviewObj.companyId ?? "" },

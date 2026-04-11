@@ -9,6 +9,7 @@ import {
   reviewRouter,
   roleAndCompanyRouter,
   roleRouter,
+  toolRouter,
   userRouter,
 } from "./router";
 import { createTRPCRouter } from "./trpc";
@@ -24,6 +25,7 @@ export const appRouter = createTRPCRouter({
   location: locationRouter,
   companyToLocation: companyToLocationRouter,
   roleAndCompany: roleAndCompanyRouter,
+  tool: toolRouter,
   user: userRouter,
 });
 

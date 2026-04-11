@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 
 import {
@@ -10,10 +11,10 @@ import {
 } from "@cooper/ui/form";
 
 import { FormSection } from "~/app/_components/form/form-section";
+import { Input } from "~/app/_components/themed/onboarding/input";
 import ExistingCompanyContent from "../../reviews/existing-company-content";
 import FilterBody from "../../filters/filter-body";
 import LocationBox from "../../location";
-import { useEffect, useState } from "react";
 import { api } from "~/trpc/react";
 
 /**
@@ -160,6 +161,37 @@ export function BasicInfoSection({
             </FormItem>
           );
         }}
+      />
+
+      <FormField
+        control={form.control}
+        name="jobLength"
+        render={({ field }) => (
+          <FormItem className="flex flex-col pt-4">
+            <FormLabel className="text-sm font-bold text-cooper-gray-400">
+              Job length<span className="text-cooper-red-300">*</span>
+            </FormLabel>
+            <p className="text-xs text-cooper-gray-350">
+              Enter length of entire term, in months
+            </p>
+            <FormControl>
+              <Input
+                type="number"
+                min={1}
+                step={1}
+                placeholder="Enter job length"
+                value={field.value ?? ""}
+                onChange={(e) =>
+                  field.onChange(
+                    e.target.value === "" ? null : Number(e.target.value),
+                  )
+                }
+                onClear={() => field.onChange(null)}
+              />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
       />
 
       <FormField

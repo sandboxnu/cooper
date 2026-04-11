@@ -22,9 +22,10 @@ export function ReviewCard({
   className,
   isComparing,
 }: ReviewCardProps) {
-  const { data: location } = api.location.getById.useQuery({
-    id: reviewObj.locationId ?? "",
-  });
+  const { data: location } = api.location.getById.useQuery(
+    { id: reviewObj.locationId ?? "" },
+    { enabled: !!reviewObj.locationId },
+  );
 
   return (
     <Card

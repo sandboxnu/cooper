@@ -55,22 +55,8 @@ const formSchema = z.object({
     })
     .min(1)
     .max(5),
-  cultureRating: z.coerce
-    .number({
-      errorMap: () => ({
-        message: "Please select a valid company culture rating.",
-      }),
-    })
-    .min(1)
-    .max(5),
-  supervisorRating: z.coerce
-    .number({
-      errorMap: () => ({
-        message: "Please select a valid supervisor rating.",
-      }),
-    })
-    .min(1)
-    .max(5),
+  cultureRating: z.coerce.number().min(1).max(5).nullish(),
+  supervisorRating: z.coerce.number().min(1).max(5).nullish(),
   interviewRounds: z
     .array(
       z.object({
@@ -140,12 +126,33 @@ const formSchema = z.object({
     })
     .transform((x) => x === "true")
     .pipe(z.boolean()),
-  federalHolidays: z.boolean(),
+  federalHolidays: z
+    .string({
+      required_error: "You need to select whether you had federal holidays off.",
+    })
+    .transform((x) => x === "true")
+    .pipe(z.boolean()),
   freeLunch: z.boolean(),
   travelBenefits: z.boolean(),
   freeMerch: z.boolean(),
   snackBar: z.boolean(),
   otherBenefits: z.string().nullable(),
+  jobLength: z.coerce.number().int().min(1).nullable(),
+  workHours: z.coerce.number().int().min(1).nullable(),
+  accessibleByTransportation: z
+    .string({
+      required_error:
+        "You need to select whether the job is accessible by transportation.",
+    })
+    .transform((x) => x === "true")
+    .pipe(z.boolean()),
+  teamOutings: z.boolean(),
+  coffeeChats: z.boolean(),
+  constructiveFeedback: z.boolean(),
+  onboarding: z.boolean(),
+  workStructure: z.boolean(),
+  careerGrowth: z.boolean(),
+  toolNames: z.array(z.string()).optional().default([]),
 });
 
 export type ReviewFormType = typeof formSchema;
@@ -168,6 +175,7 @@ export default function ReviewForm() {
   const [roleId, setRoleId] = useState<string>("");
   const [companyId, setCompanyId] = useState<string>("");
   const [showModal, setShowModal] = useState(false);
+  const [draftId, setDraftId] = useState<string | null>(null);
 
   const form = useForm<z.infer<ReviewFormType>>({
     resolver: zodResolver(formSchema),
@@ -175,8 +183,8 @@ export default function ReviewForm() {
       workTerm: undefined,
       workYear: undefined,
       overallRating: 0,
-      cultureRating: 0,
-      supervisorRating: 0,
+      cultureRating: 1,
+      supervisorRating: 1,
       interviewRounds: [
         { interviewType: undefined, interviewDifficulty: undefined },
         { interviewType: undefined, interviewDifficulty: undefined },
@@ -189,7 +197,7 @@ export default function ReviewForm() {
       drugTest: undefined,
       overtimeNormal: undefined,
       pto: undefined,
-      federalHolidays: false,
+      federalHolidays: undefined,
       freeLunch: false,
       travelBenefits: false,
       freeMerch: false,
@@ -197,6 +205,16 @@ export default function ReviewForm() {
       otherBenefits: "",
       roleName: "",
       companyName: "",
+      jobLength: null,
+      workHours: null,
+      accessibleByTransportation: undefined,
+      teamOutings: false,
+      coffeeChats: false,
+      constructiveFeedback: false,
+      onboarding: false,
+      workStructure: false,
+      careerGrowth: false,
+      toolNames: [],
     },
   });
   // Watch form values and update roleId and companyId
@@ -286,8 +304,17 @@ export default function ReviewForm() {
       if (profileId) {
         await utils.review.getByProfile.invalidate({ id: profileId });
       }
-      router.push("/roles");
-      setShowModal(false);
+    },
+    onError: (error) => {
+      toast.error(error.message || "Failed to save draft. Please try again.");
+    },
+  });
+
+  const updateDraftMutation = api.review.update.useMutation({
+    onSuccess: async () => {
+      if (profileId) {
+        await utils.review.getByProfile.invalidate({ id: profileId });
+      }
     },
     onError: (error) => {
       toast.error(error.message || "Failed to save draft. Please try again.");
@@ -329,45 +356,68 @@ export default function ReviewForm() {
         ? false
         : null;
 
-  async function onSaveDraft() {
+  function buildDraftPayload() {
+    const values = form.getValues();
+    return {
+      roleId: roleId,
+      profileId: profileId,
+      companyId: companyId,
+      workTerm: values.workTerm,
+      workYear: values.workYear,
+      overallRating: values.overallRating,
+      cultureRating: values.cultureRating,
+      supervisorRating: values.supervisorRating,
+      interviewRounds: values.interviewRounds,
+      reviewHeadline: "",
+      textReview: values.textReview || null,
+      locationId: values.locationId || null,
+      jobType: values.jobType,
+      hourlyPay: values.hourlyPay === "" ? null : values.hourlyPay,
+      workEnvironment: values.workEnvironment,
+      drugTest: normalizeRadios(values.drugTest),
+      pto: normalizeRadios(values.pto),
+      overtimeNormal: normalizeRadios(values.overtimeNormal),
+      federalHolidays: normalizeRadios(values.federalHolidays),
+      freeLunch: values.freeLunch ?? null,
+      travelBenefits: values.travelBenefits ?? null,
+      freeMerch: values.freeMerch ?? null,
+      snackBar: values.snackBar ?? null,
+      otherBenefits: values.otherBenefits ?? null,
+      jobLength: values.jobLength ?? null,
+      workHours: values.workHours ?? null,
+      accessibleByTransportation: normalizeRadios(
+        values.accessibleByTransportation,
+      ),
+      teamOutings: values.teamOutings ?? null,
+      coffeeChats: values.coffeeChats ?? null,
+      constructiveFeedback: values.constructiveFeedback ?? null,
+      onboarding: values.onboarding ?? null,
+      workStructure: values.workStructure ?? null,
+      careerGrowth: values.careerGrowth ?? null,
+      toolNames: values.toolNames ?? [],
+      status: Status.DRAFT,
+    } as Parameters<typeof draftMutation.mutateAsync>[0];
+  }
+
+  async function onSaveDraft(afterSave?: () => void) {
     try {
       const values = form.getValues();
+      const payload = buildDraftPayload();
 
-      const draftPayload: Record<string, unknown> = {
-        roleId: roleId,
-        profileId: profileId,
-        companyId: companyId,
-        workTerm: values.workTerm,
-        workYear: values.workYear,
-        overallRating: values.overallRating,
-        cultureRating: values.cultureRating,
-        supervisorRating: values.supervisorRating,
-        interviewRounds: values.interviewRounds,
-        reviewHeadline: "",
-        textReview: values.textReview || null,
-        locationId: values.locationId || null,
-        jobType: values.jobType,
-        hourlyPay: values.hourlyPay === "" ? null : values.hourlyPay,
-        workEnvironment: values.workEnvironment,
-        drugTest: normalizeRadios(values.drugTest),
-        pto: normalizeRadios(values.pto),
-        overtimeNormal: normalizeRadios(values.overtimeNormal),
-        federalHolidays: values.federalHolidays || null,
-        freeLunch: values.freeLunch || null,
-        travelBenefits: values.travelBenefits || null,
-        freeMerch: values.freeMerch || null,
-        snackBar: values.snackBar || null,
-        otherBenefits: values.otherBenefits ?? null,
-        status: Status.DRAFT,
-      };
-
-      await draftMutation.mutateAsync(
-        draftPayload as Parameters<typeof draftMutation.mutateAsync>[0],
-      );
+      if (draftId) {
+        await updateDraftMutation.mutateAsync({
+          ...(payload as Parameters<typeof updateDraftMutation.mutateAsync>[0]),
+          id: draftId,
+        });
+      } else {
+        const result = await draftMutation.mutateAsync(payload);
+        setDraftId(result.id);
+      }
 
       form.reset(values);
       isDirtyRef.current = false;
       toast.success("This draft has been saved.");
+      afterSave?.();
     } catch (error) {
       console.error("Draft save failed:", error);
     }
@@ -434,13 +484,13 @@ export default function ReviewForm() {
                   <div className="pb-12 pt-6">
                     <Button
                       type="button"
-                      onClick={onSaveDraft}
-                      disabled={mutation.isPending || draftMutation.isPending}
+                      onClick={() => void onSaveDraft(() => router.push("/roles"))}
+                      disabled={mutation.isPending || draftMutation.isPending || updateDraftMutation.isPending}
                       className="bg-white hover:bg-cooper-gray-600
                   rounded-lg border border-cooper-gray-150 2-253 px-8 py-3 text-lg font-semibold
                   text-cooper-gray-900"
                     >
-                      {draftMutation.isPending
+                      {draftMutation.isPending || updateDraftMutation.isPending
                         ? "Saving draft..."
                         : "Save draft"}
                     </Button>
@@ -457,7 +507,7 @@ export default function ReviewForm() {
                         }
                         await form.handleSubmit(onSubmit)();
                       }}
-                      disabled={mutation.isPending || draftMutation.isPending}
+                      disabled={mutation.isPending || draftMutation.isPending || updateDraftMutation.isPending}
                       className="bg-cooper-gray-550 hover:bg-cooper-gray-600 rounded-lg border-none px-8 py-3 text-lg font-semibold text-white"
                     >
                       {mutation.isPending ? "Submitting..." : "Submit review"}
@@ -477,7 +527,7 @@ export default function ReviewForm() {
                 showModal={showModal}
                 onCancel={() => setShowModal(false)}
                 onDiscard={discardDraft}
-                onSave={onSaveDraft}
+                onSave={() => void onSaveDraft(() => { router.push("/roles"); setShowModal(false); })}
               />
             </div>
           </div>

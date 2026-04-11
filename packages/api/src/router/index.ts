@@ -8,6 +8,7 @@ import { reportRouter } from "./report";
 import { reviewRouter } from "./review";
 import { roleRouter } from "./role";
 import { roleAndCompanyRouter } from "./roleAndCompany";
+import { toolRouter } from "./tool";
 import { userRouter } from "./user";
 
 export {
@@ -21,5 +22,6 @@ export {
   locationRouter,
   companyToLocationRouter,
   roleAndCompanyRouter,
+  toolRouter,
   userRouter,
 };
