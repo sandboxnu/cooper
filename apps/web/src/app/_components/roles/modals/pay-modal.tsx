@@ -34,7 +34,7 @@ function CompactBenefitRow({
 }: CompactBenefitRowProps) {
   return (
     <div className="flex items-start justify-between">
-      <p className="text-[16px] tracking-[-0.16px] text-cooper-gray-800">
+      <p className="text-[16px] tracking-[-0.16px] text-cooper-gray-900">
         {label}
       </p>
       <div className="flex flex-col items-start gap-[10px]">
@@ -111,11 +111,11 @@ export function PayModal({
     return (
       <SectionCard title="Pay">
         <div className="flex flex-col gap-[24px]">
-          <p className="text-[36px] font-normal leading-[normal] tracking-[-0.72px] text-cooper-gray-800">
+          <p className="text-[36px] font-normal leading-[normal] tracking-[-0.72px] text-cooper-gray-900">
             ${Math.round(avgPay)}/hr
           </p>
           <div className="flex flex-col gap-[16px]">
-            <p className="text-[16px] font-bold leading-[24px] tracking-[-0.16px] text-cooper-gray-800">
+            <p className="text-[16px] font-bold leading-[24px] tracking-[-0.16px] text-cooper-gray-900">
               Pay Benefits
             </p>
             <div className="flex flex-col gap-[20px]">
@@ -148,10 +148,10 @@ export function PayModal({
           {/* Left — pay histogram */}
           <div className="flex w-[321px] shrink-0 flex-col gap-[20px] overflow-clip">
             <div className="flex flex-col">
-              <p className="text-[36px] font-normal leading-[normal] text-cooper-gray-800">
+              <p className="text-[36px] font-normal leading-[normal] text-cooper-gray-900">
                 ${Math.round(avgPay)}/hr
               </p>
-              <p className="text-[16px] leading-[24px] tracking-[-0.16px] text-cooper-gray-800">
+              <p className="text-[16px] leading-[24px] tracking-[-0.16px] text-cooper-gray-900">
                 Average hourly pay
               </p>
             </div>
