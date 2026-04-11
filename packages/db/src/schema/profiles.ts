@@ -18,10 +18,10 @@ export const Profile = pgTable("profile", {
   id: uuid("id").notNull().primaryKey().defaultRandom(),
   firstName: varchar("firstName").notNull(),
   lastName: varchar("lastName").notNull(),
-  major: varchar("major").notNull(),
+  major: varchar("major"),
   minor: varchar("minor"),
-  graduationYear: integer("graduationYear").notNull(),
-  graduationMonth: integer("graduationMonth").notNull(),
+  graduationYear: integer("graduationYear"),
+  graduationMonth: integer("graduationMonth"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt", {
     mode: "date",
@@ -52,10 +52,10 @@ const YEAR_UB = YEAR_LB + MAX_GRADUATION_LENGTH;
 export const CreateProfileSchema = createInsertSchema(Profile, {
   firstName: z.string(),
   lastName: z.string(),
-  major: z.string(),
+  major: z.string().optional(),
   minor: z.string().optional(),
-  graduationYear: z.number().min(YEAR_LB).max(YEAR_UB),
-  graduationMonth: z.number().min(MONTH_LB).max(MONTH_UB),
+  graduationYear: z.number().min(YEAR_LB).max(YEAR_UB).optional(),
+  graduationMonth: z.number().min(MONTH_LB).max(MONTH_UB).optional(),
 }).omit({
   id: true,
   createdAt: true,

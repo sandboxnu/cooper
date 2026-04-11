@@ -51,7 +51,7 @@ export function OnboardingDialog({
     filters: backendFilters,
   });
 
-  const shouldShowOnboarding = session && !profile.data;
+  const shouldShowOnboarding = session ;
 
   const closeDialog = () => {
     setOpen(false);

@@ -21,15 +21,21 @@ import { WelcomeDialog } from "./post-onboarding/welcome-dialog";
 
 const currentYear = new Date().getFullYear();
 
-const formSchema = z.object({
+const baseFormSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
   email: z
     .string()
     .min(1, { message: "Email is required" })
     .email("This is not a valid email"),
-  major: z.string().min(1, "Major is required"),
+  major: z.string().optional(),
   minor: z.string().optional(),
+  graduationYear: z.coerce.number().optional(),
+  graduationMonth: z.coerce.number().optional(),
+});
+
+const studentFormSchema = baseFormSchema.extend({
+  major: z.string().min(1, "Major is required"),
   graduationYear: z.coerce
     .number({ invalid_type_error: "Graduation year is required" })
     .min(2010, "Graduation year must be 2010 or later")
@@ -40,7 +46,7 @@ const formSchema = z.object({
     .max(12, "Invalid month"),
 });
 
-export type OnboardingFormType = z.infer<typeof formSchema>;
+export type OnboardingFormType = z.infer<typeof studentFormSchema>;
 
 interface OnboardingFormProps {
   userId: string;
@@ -60,13 +66,14 @@ export function OnboardingForm({
   closeDialog,
   session,
 }: OnboardingFormProps) {
+  const isStudent = session.user.role === "STUDENT";
   const profile = api.profile.create.useMutation();
   const [majorLabel, setMajorLabel] = useState<string>("");
 
   const names = (session.user.name ?? " ").split(" ");
 
   const form = useForm<OnboardingFormType>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(isStudent ? studentFormSchema : baseFormSchema),
     defaultValues: {
       firstName: names.length > 0 ? names[0] : "",
       lastName: names.length > 1 ? names[1] : "",
@@ -79,7 +86,10 @@ export function OnboardingForm({
   });
 
   const onSubmit = (data: OnboardingFormType) => {
-    profile.mutate({ userId, ...data });
+    const payload = isStudent
+      ? { userId, ...data }
+      : { userId, firstName: data.firstName, lastName: data.lastName, email: data.email };
+    profile.mutate(payload);
   };
 
   if (profile.isSuccess) {
@@ -89,6 +99,7 @@ export function OnboardingForm({
       <WelcomeDialog
         heading={`Welcome to Cooper, ${firstName}!`}
         onClick={closeDialog}
+        isStudent={isStudent}
       />
     );
   }
@@ -157,7 +168,7 @@ export function OnboardingForm({
                 </FormItem>
               )}
             />
-            <div className="grid grid-cols-1 gap-4">
+            {isStudent && <div className="grid grid-cols-1 gap-4">
               <FormField
                 control={form.control}
                 name="major"
@@ -205,9 +216,9 @@ export function OnboardingForm({
                   </FormItem>
                 )}
               />
-            </div>
+            </div>}
 
-            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+            {isStudent && <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
               <FormField
                 control={form.control}
                 name="graduationMonth"
@@ -246,7 +257,7 @@ export function OnboardingForm({
                   </FormItem>
                 )}
               />
-            </div>
+            </div>}
 
             <div className="mt-4 flex justify-end">
               <Button
