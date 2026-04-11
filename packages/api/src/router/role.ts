@@ -432,6 +432,7 @@ export const roleRouter = {
         pto: pto,
         minPay: minPay,
         maxPay: maxPay,
+        totalReviews: totalReviews,
       };
     }),
 } satisfies TRPCRouterRecord;

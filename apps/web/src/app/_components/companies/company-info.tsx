@@ -73,7 +73,7 @@ export default function CompanyInfo({
                 <Logo company={company.data} />
               </div>
               <div>
-                <h1 className="text-lg font-medium text-[#151515]">
+                <h1 className="text-lg font-medium text-cooper-gray-900">
                   {company.data.name}
                 </h1>
                 <p className="text-md text-cooper-gray-400 font-normal">

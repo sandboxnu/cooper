@@ -9,7 +9,6 @@ import { Card, CardContent } from "@cooper/ui/card";
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { prettyWorkEnviornment } from "~/utils/stringHelpers";
-import { DeleteReviewDialog } from "./delete-review-dialogue";
 import { ReportButton } from "../shared/report-button";
 
 interface ReviewCardProps {
@@ -23,12 +22,6 @@ export function ReviewCard({
   className,
   isComparing,
 }: ReviewCardProps) {
-  // Get the current user's profile
-  const { data: currentProfile } = api.profile.getCurrentUser.useQuery();
-
-  // Check if the current user is the author of the review
-  const isAuthor = currentProfile?.id === reviewObj.profileId;
-
   const { data: location } = api.location.getById.useQuery({
     id: reviewObj.locationId ?? "",
   });
@@ -52,7 +45,7 @@ export function ReviewCard({
               <div className="flex flex-row items-center gap-2">
                 <div
                   className={cn(
-                    "text-2xl text-[#151515]",
+                    "text-2xl text-cooper-gray-900",
                     !isComparing && "md:text-4xl",
                   )}
                 >
@@ -98,10 +91,9 @@ export function ReviewCard({
               )}
             >
               <div className="pt-1">{reviewObj.textReview}</div>
-              {isAuthor && <DeleteReviewDialog reviewId={reviewObj.id} />}
             </div>
             <div className="flex justify-between text-sm">
-              <div className="flex gap-6 rounded-lg bg-[#f4f4f4] p-3 pr-4 md:gap-10 md:pl-4">
+              <div className="flex gap-6 rounded-lg bg-cooper-gray-700 p-3 pr-4 md:gap-10 md:pl-4">
                 <div
                   className={cn(
                     "flex flex-col gap-2",
@@ -146,7 +138,6 @@ export function ReviewCard({
               )}
             >
               <div className="pt-1">{reviewObj.textReview}</div>
-              {isAuthor && <DeleteReviewDialog reviewId={reviewObj.id} />}
             </div>
           </CardContent>
         </div>

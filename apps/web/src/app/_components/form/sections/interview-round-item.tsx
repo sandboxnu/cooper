@@ -84,7 +84,10 @@ export function InterviewRoundItem({
                     title="Difficulty"
                     options={[
                       { id: "easy", label: "Easier than other interviews" },
-                      { id: "average", label: "The same as other interviews" },
+                      {
+                        id: "average",
+                        label: "About the same as other interviews",
+                      },
                       { id: "hard", label: "Harder than other interviews" },
                     ]}
                     selectedOptions={field.value ? [field.value] : []}

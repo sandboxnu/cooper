@@ -1,6 +1,6 @@
 "use client";
 
-import { Input } from "../themed/onboarding/input";
+import { Input } from "../../themed/onboarding/input";
 
 interface ReviewSearchBarProps {
   searchTerm: string;

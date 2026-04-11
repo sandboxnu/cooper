@@ -10,7 +10,7 @@ import {
 } from "@cooper/ui/form";
 
 import { FormSection } from "~/app/_components/form/form-section";
-import ExistingCompanyContent from "../../reviews/new-review/existing-company-content";
+import ExistingCompanyContent from "../../reviews/existing-company-content";
 import FilterBody from "../../filters/filter-body";
 import LocationBox from "../../location";
 import { useEffect, useState } from "react";

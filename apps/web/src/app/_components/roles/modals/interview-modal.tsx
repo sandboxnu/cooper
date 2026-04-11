@@ -4,7 +4,11 @@ import React, { useState } from "react";
 import { ArrowUp } from "lucide-react";
 
 import { prettyIndustry } from "~/utils/stringHelpers";
-import ModalContainer from "./modal";
+import SectionCard from "../../shared/section-card";
+import { PipBar } from "./shared/pip-bar";
+import { PipCard } from "./shared/pip-card";
+import { InfoIcon } from "./shared/info-icon";
+import { TabToggle } from "./shared/tab-toggle";
 
 const TYPE_LABELS: Record<string, string> = {
   behavioral: "Behavioral",
@@ -46,6 +50,7 @@ interface IndustryData {
 interface InterviewModalProps {
   roleData: RoleData | undefined;
   industryData: IndustryData | undefined;
+  globalData: IndustryData | undefined;
   compact?: boolean;
 }
 
@@ -65,24 +70,21 @@ function CompactTypeRow({
   const label = TYPE_LABELS[typeKey] ?? typeKey;
   return (
     <div className="flex items-start justify-between">
-      <div className="flex flex-col gap-[2px]">
-        <p className="text-[16px] tracking-[-0.16px] text-[#151515]">{label}</p>
+      <div className="flex flex-col gap-0.5">
+        <p className="text-lg text-cooper-gray-900">{label}</p>
         {dominantDifficulty && (
-          <div className="flex items-center gap-[8px] text-[14px] text-[#5a5a5a]">
+          <div className="flex items-center gap-2 text-sm text-cooper-gray-400">
             {difficultyLabel(dominantDifficulty)}
           </div>
         )}
       </div>
-      <div className="flex flex-col items-start gap-[10px]">
-        <div className="flex gap-[2px]">
-          {Array.from({ length: totalReviewsWithRounds }).map((_, i) => (
-            <div
-              key={i}
-              className={`h-[36px] w-[24px] shrink-0 rounded-[8px] ${i < reviewCount ? "bg-[#9d9c56]" : "bg-[#d3d3d3]"}`}
-            />
-          ))}
-        </div>
-        <p className="text-[14px] leading-[normal] text-[#767676]">
+      <div className="flex flex-col items-start gap-2.5">
+        <PipBar
+          filledCount={reviewCount}
+          totalCount={totalReviewsWithRounds}
+          filledColor="#9d9c56"
+        />
+        <p className="text-sm leading-[normal] text-cooper-gray-350">
           {reviewCount}/{totalReviewsWithRounds} reported
         </p>
       </div>
@@ -100,7 +102,7 @@ function difficultyText(d: Difficulty | null): string {
 function difficultyLabel(d: Difficulty | null): React.ReactNode {
   if (d === "easy")
     return (
-      <span className="flex items-center gap-[8px]">
+      <span className="flex items-center gap-2">
         <ArrowUp size={9} className="rotate-180" />
         <span>Less difficult</span>
       </span>
@@ -108,7 +110,7 @@ function difficultyLabel(d: Difficulty | null): React.ReactNode {
   if (d === "average") return "Average difficulty";
   if (d === "hard")
     return (
-      <span className="flex items-center gap-[8px]">
+      <span className="flex items-center gap-2">
         <ArrowUp size={9} />
         <span>More difficult</span>
       </span>
@@ -116,84 +118,10 @@ function difficultyLabel(d: Difficulty | null): React.ReactNode {
   return null;
 }
 
-interface InfoIconProps {
-  tooltip: React.ReactNode;
-}
-
-function InfoIcon({ tooltip }: InfoIconProps) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <span className="relative inline-flex items-center">
-      <button
-        onMouseEnter={() => setOpen(true)}
-        onMouseLeave={() => setOpen(false)}
-        className="flex h-[15px] w-[15px] items-center justify-center rounded-full border-[1.5px] border-[#989898] text-[11px] font-semibold text-[#989898]"
-        aria-label="More info"
-        type="button"
-      >
-        i
-      </button>
-      {open && (
-        <span className="absolute bottom-full left-1/2 z-10 mb-1 w-max max-w-[240px] -translate-x-1/2 rounded bg-gray-800 px-2 py-1 text-[11px] text-white">
-          {tooltip}
-        </span>
-      )}
-    </span>
-  );
-}
-
-interface SingleInterviewTypeCardProps {
-  typeKey: string;
-  reviewCount: number;
-  totalReviewsWithRounds: number;
-  dominantDifficulty: Difficulty | null;
-}
-
-function SingleInterviewTypeCard({
-  typeKey,
-  reviewCount,
-  totalReviewsWithRounds,
-  dominantDifficulty,
-}: SingleInterviewTypeCardProps) {
-  const label = TYPE_LABELS[typeKey] ?? typeKey;
-  // Use fixed w-6 (24px) per bar until they'd overflow 172px, then flex-1
-  const useFixedWidth = totalReviewsWithRounds * 24 <= 172;
-
-  return (
-    <div className="flex w-[172px] flex-col gap-[20px]">
-      <div className="flex flex-col gap-[10px]">
-        <div className="flex flex-col gap-[2px]">
-          <p className="text-[16px] tracking-[-0.16px] text-[#151515]">
-            {label}
-          </p>
-          <p className="h-[20px] overflow-hidden text-[14px] leading-[normal] text-[#767676]">
-            {reviewCount}/{totalReviewsWithRounds} reported{" "}
-            {label.toLowerCase()} interviews
-          </p>
-        </div>
-        {/* Bar row: green bars first, then gray */}
-        <div className="flex gap-[2px]">
-          {Array.from({ length: totalReviewsWithRounds }).map((_, i) => (
-            <div
-              key={i}
-              className={`h-[36px] rounded-[8px] ${i < reviewCount ? "bg-[#9d9c56]" : "bg-[#d3d3d3]"} ${useFixedWidth ? "w-6 shrink-0" : "flex-1"}`}
-            />
-          ))}
-        </div>
-      </div>
-      {dominantDifficulty && (
-        <div className="flex items-center gap-[8px] text-[14px] text-[#5a5a5a]">
-          {difficultyLabel(dominantDifficulty)}
-        </div>
-      )}
-    </div>
-  );
-}
-
 export function InterviewModal({
   roleData,
   industryData,
+  globalData,
   compact = false,
 }: InterviewModalProps) {
   const [activeTab, setActiveTab] = useState<"total" | "industry">("total");
@@ -206,20 +134,21 @@ export function InterviewModal({
       ? `${roleData.roundsMode} ${roleData.roundsMode === 1 ? "round" : "rounds"}`
       : "---";
 
-  // Bar chart source: Total tab uses role data (fallback to industry when no role data)
+  // Bar chart source: Total tab uses global data, Industry tab uses industry data
   const activeBarData: RoundsDist[] =
-    activeTab === "total" && totalReviewsWithRounds > 0
-      ? (roleData?.roundsDistribution ?? [])
+    activeTab === "total"
+      ? (globalData?.roundsDistribution ?? [])
       : (industryData?.roundsDistribution ?? []);
 
-  // Mode bar highlight: role mode for Total tab, industry mode for Industry tab
+  // Mode bar highlight: global mode for Total tab, industry mode for Industry tab
   const activeMode =
-    activeTab === "total" ? roleData?.roundsMode : industryData?.roundsMode;
+    activeTab === "total" ? globalData?.roundsMode : industryData?.roundsMode;
 
   // Cooper average label
   const industryName = roleData?.industryName ?? null;
   const prettyIndustryName = industryName ? prettyIndustry(industryName) : null;
-  const cooperAverageRounds = industryData?.roundsMode;
+  const cooperAverageRounds =
+    activeTab === "total" ? globalData?.roundsMode : industryData?.roundsMode;
 
   // Types headline: types reported by everyone
   const maxTypeCount = roleData?.types.length
@@ -256,18 +185,18 @@ export function InterviewModal({
 
   if (compact) {
     return (
-      <ModalContainer title="Interview">
-        <div className="flex flex-col gap-[24px]">
-          <p className="text-[36px] font-normal leading-[normal] tracking-[-0.72px] text-[#151515]">
+      <SectionCard title="Interview">
+        <div className="flex flex-col gap-6">
+          <p className="text-4xl font-normal leading-[normal] text-cooper-gray-900">
             {roundsModeDisplay}
           </p>
-          <div className="flex flex-col gap-[16px]">
-            <div className="flex items-start gap-[12px]">
-              <p className="text-[16px] font-bold leading-[24px] tracking-[-0.16px] text-[#151515]">
+          <div className="flex flex-col gap-4">
+            <div className="flex items-start gap-3">
+              <p className="text-lg font-bold leading-6 text-cooper-gray-900">
                 Interview Types
               </p>
-              <div className="flex h-[25px] items-center justify-center gap-[6px] rounded-[8px] bg-[#eee] px-[7px]">
-                <span className="text-[14px] text-[#5a5a5a]">
+              <div className="flex h-6 items-center justify-center gap-1.5 rounded-lg bg-white px-2">
+                <span className="text-sm text-cooper-gray-400">
                   {roleData?.overallDominantDifficulty != null
                     ? difficultyText(roleData.overallDominantDifficulty)
                     : "No difficulty data"}
@@ -275,7 +204,7 @@ export function InterviewModal({
               </div>
             </div>
             {totalReviewsWithRounds > 0 && roleData?.types.length ? (
-              <div className="flex flex-col gap-[20px]">
+              <div className="flex flex-col gap-5">
                 {roleData.types.map((t) => (
                   <CompactTypeRow
                     key={t.type}
@@ -287,30 +216,30 @@ export function InterviewModal({
                 ))}
               </div>
             ) : (
-              <p className="text-[14px] italic text-[#5a5a5a]">
+              <p className="text-sm italic text-cooper-gray-400">
                 No interview type data
               </p>
             )}
           </div>
         </div>
-      </ModalContainer>
+      </SectionCard>
     );
   }
 
   return (
-    <ModalContainer title="Interview">
-      <div className="flex flex-col gap-[12px]">
-        <div className="flex items-start gap-[32px]">
+    <SectionCard title="Interview">
+      <div className="flex flex-col gap-3">
+        <div className="flex items-start gap-8">
           {/* Left — Rounds panel */}
-          <div className="flex shrink-0 flex-col gap-[8px] overflow-clip">
-            <div className="flex flex-col gap-[20px]">
+          <div className="flex shrink-0 flex-col gap-2 overflow-clip">
+            <div className="flex flex-col gap-5">
               {/* Big number + label */}
               <div className="flex w-full flex-col">
-                <p className="text-[36px] font-normal leading-[normal] text-[#151515]">
+                <p className="text-4xl font-normal leading-[normal] text-cooper-gray-900">
                   {roundsModeDisplay}
                 </p>
-                <div className="flex items-center gap-[6px]">
-                  <span className="text-[16px] leading-[24px] tracking-[-0.16px] text-[#151515]">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-md leading-6 text-cooper-gray-900">
                     Number of rounds
                   </span>
                   <InfoIcon tooltip={roundsTooltipContent} />
@@ -318,28 +247,14 @@ export function InterviewModal({
               </div>
 
               {/* Bar chart section */}
-              <div className="flex w-[324px] flex-col gap-[12px]">
-                {/* Tab toggle */}
-                <div className="flex items-center gap-[6px]">
-                  {(["total", "industry"] as const).map((tab) => (
-                    <button
-                      key={tab}
-                      type="button"
-                      onClick={() => setActiveTab(tab)}
-                      className={`flex cursor-pointer items-center justify-center rounded-[8px] border border-black/[0.06] px-[8px] py-[4px] text-[14px] text-[rgba(0,0,0,0.7)] ${
-                        activeTab === tab ? "bg-[#ebebeb]" : "bg-white"
-                      }`}
-                    >
-                      {tab === "total" ? "Total" : "Industry"}
-                    </button>
-                  ))}
-                </div>
+              <div className="flex w-80 flex-col gap-4">
+                <TabToggle activeTab={activeTab} onChange={setActiveTab} />
 
-                <div className="flex flex-col gap-[8px]">
+                <div className="flex flex-col gap-2">
                   {/* Cooper average dot + label */}
-                  <div className="flex items-center gap-[8px]">
-                    <span className="h-[18px] w-[18px] shrink-0 rounded-full bg-[#d37bae]" />
-                    <span className="whitespace-nowrap text-[14px] text-[#5a5a5a]">
+                  <div className="flex items-center gap-2">
+                    <span className="h-4 w-4 shrink-0 rounded-full bg-[#d37bae]" />
+                    <span className="whitespace-nowrap text-sm text-cooper-gray-400">
                       Cooper average
                       {activeTab === "industry" && prettyIndustryName
                         ? ` for ${prettyIndustryName} jobs`
@@ -370,18 +285,20 @@ export function InterviewModal({
                         return (
                           <div
                             key={bar.rounds}
-                            className="flex flex-col gap-[6px]"
+                            className="flex flex-col gap-1.5"
                             style={{ flexGrow: bar.count }}
                           >
                             <div
-                              className={`h-[36px] min-w-[16px] w-full rounded-[8px] ${
+                              className={`h-9 min-w-4 w-full rounded-lg ${
                                 bar.rounds === activeMode
                                   ? "bg-[#d37bae]"
                                   : "bg-[#e7c7da]"
                               }`}
                             />
-                            <div className="flex items-center justify-center pl-[3px] text-[14px] leading-[20px] text-black opacity-50">
-                              {showLabel ? `${bar.rounds} rounds` : bar.rounds}
+                            <div className="flex items-center justify-start pl-1 text-sm leading-5 text-black opacity-50">
+                              {showLabel
+                                ? `${bar.rounds} ${bar.rounds === 1 ? "round" : "rounds"}`
+                                : bar.rounds}
                             </div>
                           </div>
                         );
@@ -394,20 +311,20 @@ export function InterviewModal({
           </div>
 
           {/* Vertical divider */}
-          <div className="w-px self-stretch border-l border-[#ebebeb]" />
+          <div className="w-px self-stretch border-l border-cooper-gray-125" />
 
           {/* Right — Types panel */}
-          <div className="flex min-w-0 flex-1 flex-col gap-[20px]">
+          <div className="flex min-w-0 flex-1 flex-col gap-5">
             {/* Header: headline + info + difficulty chip */}
             <div className="flex flex-col">
               <div className="flex w-full items-start justify-between">
-                <p className="text-[36px] font-normal leading-[normal] text-[#151515]">
+                <p className="text-4xl font-normal leading-[normal] text-cooper-gray-900">
                   {universalTypes}
                 </p>
-                <div className="flex shrink-0 items-center gap-[10px]">
+                <div className="flex shrink-0 items-center gap-2.5">
                   <InfoIcon tooltip={typesTooltip} />
-                  <div className="flex h-[25px] items-center justify-center gap-[6px] rounded-[8px] bg-[#eee] px-[7px]">
-                    <span className="text-[14px] text-[#5a5a5a]">
+                  <div className="flex h-6 items-center justify-center gap-1.5 rounded-lg bg-white px-2">
+                    <span className="text-sm text-cooper-gray-400">
                       {roleData?.overallDominantDifficulty != null
                         ? difficultyText(roleData.overallDominantDifficulty)
                         : "No difficulty data"}
@@ -415,7 +332,7 @@ export function InterviewModal({
                   </div>
                 </div>
               </div>
-              <p className="text-[16px] leading-[24px] tracking-[-0.16px] text-[#151515]">
+              <p className="text-base leading-6 text-cooper-gray-900">
                 Most common interview{" "}
                 {universalTypes.split(", ").length === 1 ? "type" : "types"}
               </p>
@@ -423,19 +340,21 @@ export function InterviewModal({
 
             {/* Types grid */}
             {totalReviewsWithRounds > 0 ? (
-              <div className="flex flex-wrap content-start gap-x-[36px] gap-y-[20px]">
+              <div className="flex flex-wrap content-start gap-x-9 gap-y-5">
                 {roleData?.types.map((t) => (
-                  <SingleInterviewTypeCard
+                  <PipCard
                     key={t.type}
-                    typeKey={t.type}
-                    reviewCount={t.reviewCount}
-                    totalReviewsWithRounds={totalReviewsWithRounds}
-                    dominantDifficulty={t.dominantDifficulty}
+                    name={TYPE_LABELS[t.type] ?? t.type}
+                    subtext={`${t.reviewCount}/${totalReviewsWithRounds} reported ${(TYPE_LABELS[t.type] ?? t.type).toLowerCase()} interviews`}
+                    filledCount={t.reviewCount}
+                    totalCount={totalReviewsWithRounds}
+                    filledColor="#9d9c56"
+                    footer={difficultyLabel(t.dominantDifficulty)}
                   />
                 ))}
               </div>
             ) : (
-              <p className="text-[14px] italic text-[#5a5a5a]">
+              <p className="text-sm italic text-cooper-gray-400">
                 No interview type data
               </p>
             )}
@@ -443,12 +362,12 @@ export function InterviewModal({
         </div>
 
         {/* Footer */}
-        <p className="text-[12px] leading-[14px] tracking-[-0.12px] text-[#767676]">
+        <p className="text-[12px] leading-[14px] tracking-[-0.12px] text-cooper-gray-350">
           {totalReviewsWithRounds > 0
             ? `Based on ${totalReviewsWithRounds} response${totalReviewsWithRounds === 1 ? "" : "s"}`
             : "No responses"}
         </p>
       </div>
-    </ModalContainer>
+    </SectionCard>
   );
 }

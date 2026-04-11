@@ -5,7 +5,7 @@ import { useState } from "react";
 import type { RoleType } from "@cooper/db/schema";
 import { Pagination } from "@cooper/ui";
 
-import { RoleCardPreview } from "../reviews/role-card-preview";
+import { RoleCardPreview } from "../roles/role-card-preview";
 import { Input } from "../themed/onboarding/input";
 
 export default function FavoriteRoleSearch({

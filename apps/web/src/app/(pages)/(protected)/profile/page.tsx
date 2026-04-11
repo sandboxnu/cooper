@@ -11,9 +11,9 @@ import FavoriteCompanySearch from "~/app/_components/profile/favorite-company-se
 import FavoriteRoleSearch from "~/app/_components/profile/favorite-role-search";
 import ProfileCardHeader from "~/app/_components/profile/profile-card-header";
 import ProfileTabs from "~/app/_components/profile/profile-tabs";
-import { ReviewCard } from "~/app/_components/reviews/review-card";
-import { api } from "~/trpc/react";
 import { DraftReviewCard } from "~/app/_components/reviews/draft-review-card";
+import { ProfileReviewCard } from "~/app/_components/reviews/profile-review-card";
+import { api } from "~/trpc/react";
 
 export default function Profile() {
   const searchParams = useSearchParams();
@@ -155,7 +155,7 @@ export default function Profile() {
                         className="w-[100%]"
                       />
                     ) : (
-                      <ReviewCard
+                      <ProfileReviewCard
                         key={review.id}
                         reviewObj={review}
                         className="w-[100%]"

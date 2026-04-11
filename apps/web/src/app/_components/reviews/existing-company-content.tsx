@@ -12,14 +12,14 @@ import { useCustomToast } from "@cooper/ui/hooks/use-custom-toast";
 import { Input } from "@cooper/ui/input";
 import { Label } from "@cooper/ui/label";
 
-import type { RoleRequestType } from "../new-role-dialogue";
+import type { RoleRequestType } from "../roles/new-role-dialogue";
 import { api } from "~/trpc/react";
-import { CompanyCardPreview } from "../../companies/company-card-preview";
-import { FormSection } from "../../form/form-section";
-import LocationBox from "../../location";
-import { industryOptions } from "../../onboarding/constants";
-import { FormLabel } from "../../themed/onboarding/form";
-import FilterBody from "../../filters/filter-body";
+import { CompanyCardPreview } from "../companies/company-card-preview";
+import { FormSection } from "../form/form-section";
+import LocationBox from "../location";
+import { industryOptions } from "../onboarding/constants";
+import { FormLabel } from "../themed/onboarding/form";
+import FilterBody from "../filters/filter-body";
 
 const filter = new Filter();
 const roleSchema = z.object({
@@ -179,6 +179,13 @@ export default function ExistingCompanyContent({
 
   // Get the selected company from the form
   const selectedCompanyName = form.watch("companyName") as string;
+
+  // Sync selectedCompanyId from form value (handles pre-populated edit mode)
+  useEffect(() => {
+    if (selectedCompanyName && selectedCompanyName !== selectedCompanyId) {
+      setSelectedCompanyId(selectedCompanyName);
+    }
+  }, [selectedCompanyName, selectedCompanyId]);
   const selectedCompany = companies.data?.find(
     (company) => company.id === selectedCompanyName,
   );

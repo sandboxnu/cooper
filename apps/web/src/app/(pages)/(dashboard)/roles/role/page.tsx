@@ -6,7 +6,7 @@ import type { RoleType } from "@cooper/db/schema";
 
 import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
-import { RoleInfo } from "~/app/_components/reviews/role-info";
+import { RoleInfo } from "~/app/_components/roles/role-info";
 import { api } from "~/trpc/react";
 
 export default function Role() {
