@@ -51,7 +51,7 @@ export function CompanyCardPreview({
               <div className="w-full">
                 <CardTitle>
                   <div className="text-md flex w-full items-start justify-between gap-3 md:text-xl">
-                    <div className="text-lg font-medium text-[#151515]">
+                    <div className="text-lg font-medium text-cooper-gray-900">
                       {companyObj.name}
                     </div>
                     <span

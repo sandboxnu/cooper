@@ -31,11 +31,12 @@ export default function Autocomplete({
   onSearchChange,
   singleSelect = false,
   isInMenuContent = false,
-  portalZIndex = 40,
+  portalZIndex = 200,
 }: AutocompleteProps) {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [dropdownStyle, setDropdownStyle] = useState<React.CSSProperties>({});
+  const [portalHost, setPortalHost] = useState<HTMLElement | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const portalDropdownRef = useRef<HTMLDivElement>(null);
@@ -47,6 +48,12 @@ export default function Autocomplete({
       const target = e.target as Node;
       if (containerRef.current?.contains(target)) return;
       if (portalDropdownRef.current?.contains(target)) return;
+      if (
+        target instanceof Element &&
+        target.closest("[data-autocomplete-portal]")
+      ) {
+        return;
+      }
       setOpen(false);
       setSearch("");
     };
@@ -55,6 +62,12 @@ export default function Autocomplete({
     return () =>
       document.removeEventListener("pointerdown", handlePointerDown, true);
   }, [open]);
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    const dialogHost = containerRef.current?.closest('[role="dialog"]');
+    setPortalHost((dialogHost as HTMLElement | null) ?? document.body);
+  }, []);
 
   const filtered = useMemo(() => {
     if (!search) return options;
@@ -178,10 +191,11 @@ export default function Autocomplete({
                 return (
                   <button
                     key={option.value}
+                    type="button"
                     className="hover:bg-cooper-gray-150 flex w-full items-center gap-2 rounded-sm px-[14px] py-2 hover:cursor-pointer"
                     onClick={() => handleToggle(option.value)}
                   >
-                    <Checkbox checked={isSelected} />
+                    {!singleSelect && <Checkbox checked={isSelected} />}
                     <label className="flex-1 cursor-pointer text-left text-sm text-cooper-gray-400">
                       {option.label}
                     </label>
@@ -194,10 +208,11 @@ export default function Autocomplete({
       )}
       {open &&
         !isInMenuContent &&
-        typeof document !== "undefined" &&
+        portalHost &&
         createPortal(
           <div
             ref={portalDropdownRef}
+            data-autocomplete-portal=""
             className="border-cooper-gray-150 rounded-md border bg-white shadow-lg"
             style={{ ...dropdownStyle, zIndex: portalZIndex }}
           >
@@ -212,10 +227,11 @@ export default function Autocomplete({
                   return (
                     <button
                       key={option.value}
+                      type="button"
                       className="hover:bg-cooper-gray-150 flex w-full items-center gap-2 rounded-sm px-[14px] py-2 hover:cursor-pointer"
                       onClick={() => handleToggle(option.value)}
                     >
-                      <Checkbox checked={isSelected} />
+                      {!singleSelect && <Checkbox checked={isSelected} />}
                       <label className="flex-1 cursor-pointer text-left text-sm text-cooper-gray-400">
                         {option.label}
                       </label>
@@ -225,7 +241,7 @@ export default function Autocomplete({
               )}
             </div>
           </div>,
-          document.body,
+          portalHost,
         )}
       {!open && value.length > 0 && !singleSelect && (
         <div className="mt-2 flex flex-wrap gap-1">

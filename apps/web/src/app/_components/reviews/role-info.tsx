@@ -604,7 +604,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
           <div className="col-span-2" id="reviews">
             <ModalContainer title="Reviews">
               {reviews.isSuccess && reviews.data.length === 0 && (
-                <div className="flex h-full w-full flex-col items-center justify-center text-[#5a5a5a]">
+                <div className="flex h-full w-full flex-col items-center justify-center text-cooper-gray-400">
                   <p>No reviews yet</p>
                   {usersReviews.isSuccess && publishedUserReviewCount < 5 && (
                     <Link href={`/review-form`} className="ml-2 underline">

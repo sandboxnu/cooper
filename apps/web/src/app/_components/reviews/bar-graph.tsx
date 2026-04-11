@@ -15,7 +15,7 @@ export default function BarGraph({
   const industryAvgPos = industryAvg ? (industryAvg / maxValue) * 100 : null;
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex items-center gap-2 text-[#5a5a5a]">
+      <div className="flex items-center gap-2 text-cooper-gray-400">
         {title}
         <div className="flex h-4 w-4 cursor-pointer items-center justify-center rounded-full bg-cooper-gray-400 text-center text-xs text-[#f6f6f6]">
           ?
@@ -38,7 +38,9 @@ export default function BarGraph({
         <div className="text-4xl font-normal">{value.toPrecision(2)}</div>
       </div>
       {industryAvg && (
-        <div className="text-[#5a5a5a]">Industry average: {industryAvg}</div>
+        <div className="text-cooper-gray-400">
+          Industry average: {industryAvg}
+        </div>
       )}
     </div>
   );

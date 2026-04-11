@@ -340,6 +340,44 @@ export const reviewRouter = {
       };
     }),
 
+  getById: publicProcedure
+    .input(z.object({ id: z.string() }))
+    .query(({ ctx, input }) => {
+      return ctx.db.query.Review.findFirst({
+        where: eq(Review.id, input.id),
+        with: { interviewRounds: true },
+      });
+    }),
+
+  update: protectedProcedure
+    .input(CreateReviewWithRoundsSchema.extend({ id: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      const { id, interviewRounds, ...reviewInput } = input;
+
+      await ctx.db
+        .delete(InterviewRound)
+        .where(eq(InterviewRound.reviewId, id));
+
+      await ctx.db
+        .update(Review)
+        .set({ ...reviewInput, updatedAt: new Date() })
+        .where(eq(Review.id, id));
+
+      const roundsToInsert = interviewRounds.flatMap((r) => {
+        if (r.interviewType == null || r.interviewDifficulty == null) return [];
+        return [
+          {
+            interviewType: r.interviewType,
+            interviewDifficulty: r.interviewDifficulty,
+            reviewId: id,
+          },
+        ];
+      });
+      if (roundsToInsert.length > 0) {
+        await ctx.db.insert(InterviewRound).values(roundsToInsert);
+      }
+    }),
+
   delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
     return ctx.db.delete(Review).where(eq(Review.id, input));
   }),

@@ -7,6 +7,7 @@ import { cn } from "@cooper/ui";
 import Autocomplete from "@cooper/ui/autocomplete";
 import { Checkbox } from "@cooper/ui/checkbox";
 
+import { usePortalZIndex } from "~/contexts/portal-z-index";
 import { Input } from "../themed/onboarding/input";
 
 export interface FilterOption {
@@ -273,6 +274,7 @@ function FilterBodyAutocomplete({
   isInMenuContent,
   portalZIndex,
 }: FilterBodyProps) {
+  const contextZIndex = usePortalZIndex();
   return (
     <Autocomplete
       options={options.map((option) => ({
@@ -288,7 +290,7 @@ function FilterBodyAutocomplete({
       singleSelect={singleSelect}
       onSearchChange={onSearchChange}
       isInMenuContent={isInMenuContent}
-      portalZIndex={portalZIndex}
+      portalZIndex={portalZIndex ?? contextZIndex}
     />
   );
 }
@@ -301,6 +303,7 @@ function FilterBodyLocation({
   isInMenuContent,
   portalZIndex,
 }: FilterBodyProps) {
+  const contextZIndex = usePortalZIndex();
   return (
     <div className="flex flex-col gap-3">
       <Autocomplete
@@ -313,7 +316,7 @@ function FilterBodyLocation({
         placeholder="Search by city or state..."
         onSearchChange={onSearchChange}
         isInMenuContent={isInMenuContent}
-        portalZIndex={portalZIndex}
+        portalZIndex={portalZIndex ?? contextZIndex}
       />
     </div>
   );
