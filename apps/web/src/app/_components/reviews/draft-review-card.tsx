@@ -68,7 +68,7 @@ export function DraftReviewCard({
                     {reviewObj.overallRating.toFixed(1)}
                   </span>
                 ) : (
-                  <span className=" text-black text-opacity-40 md:text-2xl">
+                  <span className=" text-black text-opacity-40 text-xl md:text-2xl">
                     {" "}
                     0.0{" "}
                   </span>

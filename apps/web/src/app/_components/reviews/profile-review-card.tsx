@@ -59,7 +59,7 @@ export function ProfileReviewCard({
           </div>
           <div className="flex items-center gap-1.5 opacity-80">
             <div className="flex items-center gap-1">
-              <span className="font-hanken text-2xl leading-7 text-black">
+              <span className="font-hanken text-xl md:text-2xl leading-7 text-black">
                 {reviewObj.overallRating?.toFixed(1) ?? "—"}
               </span>
               <Image
@@ -67,7 +67,7 @@ export function ProfileReviewCard({
                 alt="Star icon"
                 width={28}
                 height={28}
-                className="h-7 w-7"
+                className="h-5 w-5 md:h-7 md:w-7"
               />
             </div>
             <ReviewActionsDialog
