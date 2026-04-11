@@ -8,7 +8,7 @@ import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 
 import { api } from "~/trpc/react";
-import { RoleInfo } from "../reviews/role-info";
+import { RoleInfo } from "../roles/role-info";
 import { useCompare } from "./compare-context";
 
 interface CompareControlsProps {

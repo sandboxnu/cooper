@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
 
 import { api } from "~/trpc/react";
-import NewRoleDialog from "./new-role-dialogue";
+import NewRoleDialog from "../../roles/new-role-dialogue";
 
 interface NewRoleCardProps {
   companyId: string;

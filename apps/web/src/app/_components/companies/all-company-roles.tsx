@@ -4,7 +4,7 @@ import { cn } from "@cooper/ui";
 
 import { api } from "~/trpc/react";
 import LoadingResults from "../loading-results";
-import { RoleCardPreview } from "../reviews/role-card-preview";
+import { RoleCardPreview } from "../roles/role-card-preview";
 import type { CompanyType } from "@cooper/db/schema";
 
 interface RenderAllRolesProps {

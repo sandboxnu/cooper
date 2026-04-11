@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@cooper/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -33,15 +32,7 @@ export function CompanyPopup({
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        {trigger ? (
-          <Button className="bg-cooper-cream-100 text-md hover:bg-cooper-cream-100 h-auto border-none !p-0 !py-0 text-cooper-gray-400 outline-none hover:underline">
-            {trigger}
-          </Button>
-        ) : (
-          <div></div>
-        )}
-      </DialogTrigger>
+      {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
       <DialogContent className="max-h-[80dvh] overflow-y-auto bg-white p-2 sm:max-w-none md:w-[70dvw] md:p-6">
         <DialogHeader>
           <DialogTitle className="text-cooper-gray-900 flex flex-col items-center justify-between text-2xl font-semibold md:flex-row md:gap-12"></DialogTitle>
