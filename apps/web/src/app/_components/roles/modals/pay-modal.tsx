@@ -79,25 +79,27 @@ export function PayModal({
       ? (globalData?.payDistribution ?? [])
       : (industryData?.payDistribution ?? []);
 
+  const globalAvgPay = globalData?.averageHourlyPay ?? 0;
   const industryAvgPay = industryData?.averageHourlyPay ?? 0;
+  const activeAvgPay = activeTab === "total" ? globalAvgPay : industryAvgPay;
   const prettyIndustryName = industryName ? prettyIndustry(industryName) : null;
 
   const avgPay = averages.averageHourlyPay;
 
   const totalBarCount = activeBarData.reduce((s, b) => s + b.count, 0);
 
-  // For each bucket, precompute whether it contains the industry average and
+  // For each bucket, precompute whether it contains the active tab's average and
   // how far through the bucket (0–1) the average falls. The line and label are
   // rendered inside the relevant column so left: x% is relative to that column's
   // rendered width — no global percentage math needed.
   const bucketMeta = activeBarData.map((bucket) => {
     const isTarget =
-      industryAvgPay > 0 &&
-      industryAvgPay >= bucket.min &&
-      (bucket.max === null || industryAvgPay < bucket.max);
+      activeAvgPay > 0 &&
+      activeAvgPay >= bucket.min &&
+      (bucket.max === null || activeAvgPay < bucket.max);
     const bucketRange = bucket.max !== null ? bucket.max - bucket.min : 20;
     const fractionWithin = isTarget
-      ? Math.min((industryAvgPay - bucket.min) / bucketRange, 1)
+      ? Math.min((activeAvgPay - bucket.min) / bucketRange, 1)
       : 0;
     return { isTarget, fractionWithin };
   });
@@ -160,16 +162,16 @@ export function PayModal({
               <TabToggle activeTab={activeTab} onChange={setActiveTab} />
 
               <div className="flex flex-col gap-[8px]">
-                {/* Industry average legend */}
+                {/* Average legend */}
                 <div className="flex items-center gap-[8px]">
                   <span className="h-[18px] w-[18px] shrink-0 rounded-full bg-[#ffb97f]" />
                   <span className="whitespace-nowrap text-[14px] text-cooper-gray-400">
-                    {prettyIndustryName
-                      ? `Average for ${prettyIndustryName} jobs ${activeTab === "industry" ? "on Cooper" : "in industry"}`
-                      : "Industry average"}
+                    {activeTab === "total"
+                      ? "Average pay across all jobs on Cooper"
+                      : `Average pay across all ${prettyIndustryName ?? "industry"} jobs`}
                     {": "}
-                    {industryAvgPay > 0 ? (
-                      <strong>${Math.round(industryAvgPay)}/hr</strong>
+                    {activeAvgPay > 0 ? (
+                      <strong>${Math.round(activeAvgPay)}/hr</strong>
                     ) : (
                       "--"
                     )}
@@ -203,7 +205,7 @@ export function PayModal({
                             }`}
                           />
                           <div
-                            className={`flex items-center pl-[3px] text-[14px] leading-[20px] text-[#808080]${isTarget ? " transition-opacity group-hover:opacity-0" : ""}`}
+                            className={`flex items-center pl-[3px] text-[14px] leading-[20px] text-[#808080]${isTarget ? " transition-opacity duration-50 group-hover:opacity-0" : ""}`}
                           >
                             {showLabel ? bucket.label : "..."}
                           </div>
@@ -214,13 +216,13 @@ export function PayModal({
                                 style={{ left: `${fractionWithin * 100}%` }}
                               />
                               <span
-                                className="pointer-events-none absolute z-10 -translate-x-1/2 text-[14px] font-bold leading-[20px] text-[#808080] opacity-0 transition-opacity group-hover:opacity-100"
+                                className="pointer-events-none absolute z-10 -translate-x-1/2 text-[14px] font-bold leading-[20px] text-[#808080] opacity-0 transition-opacity duration-50 group-hover:opacity-100"
                                 style={{
                                   left: `${fractionWithin * 100}%`,
                                   bottom: 0,
                                 }}
                               >
-                                ${Math.round(industryAvgPay)}
+                                ${Math.round(activeAvgPay)}
                               </span>
                             </>
                           )}

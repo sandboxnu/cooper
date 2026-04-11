@@ -295,7 +295,7 @@ export function InterviewModal({
                                   : "bg-[#e7c7da]"
                               }`}
                             />
-                            <div className="flex items-center justify-center pl-1 text-sm leading-5 text-black opacity-50">
+                            <div className="flex items-center justify-start pl-1 text-sm leading-5 text-black opacity-50">
                               {showLabel
                                 ? `${bar.rounds} ${bar.rounds === 1 ? "round" : "rounds"}`
                                 : bar.rounds}
