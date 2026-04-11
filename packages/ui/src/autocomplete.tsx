@@ -142,7 +142,7 @@ export default function Autocomplete({
         <input
           ref={inputRef}
           type="text"
-          className="border-cooper-gray-150 focus:none flex w-full rounded-md border bg-white px-[14px] py-3 text-base placeholder:text-cooper-gray-400 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:py-2 md:text-sm"
+          className="border-cooper-gray-150 focus:none flex w-full rounded-md border bg-white px-[14px] placeholder:text-cooper-gray-400 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 py-2 text-sm"
           placeholder={placeholder}
           value={displayValue}
           onChange={(e) => {
@@ -192,7 +192,7 @@ export default function Autocomplete({
                   <button
                     key={option.value}
                     type="button"
-                    className="hover:bg-cooper-gray-150 flex w-full items-center gap-2 rounded-sm px-[14px] py-2 hover:cursor-pointer"
+                    className={`hover:bg-cooper-gray-150 flex w-full items-center gap-2 rounded-sm px-[14px] py-2 hover:cursor-pointer ${isSelected ? "bg-cooper-gray-150" : ""}`}
                     onClick={() => handleToggle(option.value)}
                   >
                     {!singleSelect && <Checkbox checked={isSelected} />}
@@ -228,7 +228,7 @@ export default function Autocomplete({
                     <button
                       key={option.value}
                       type="button"
-                      className="hover:bg-cooper-gray-150 flex w-full items-center gap-2 rounded-sm px-[14px] py-2 hover:cursor-pointer"
+                      className={`hover:bg-cooper-gray-150 flex w-full items-center gap-2 rounded-sm px-[14px] py-2 hover:cursor-pointer ${isSelected ? "bg-cooper-gray-150" : ""}`}
                       onClick={() => handleToggle(option.value)}
                     >
                       {!singleSelect && <Checkbox checked={isSelected} />}
