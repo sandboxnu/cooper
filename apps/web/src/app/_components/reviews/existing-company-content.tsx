@@ -110,14 +110,14 @@ export default function ExistingCompanyContent({
         if (!roles.data || !selectedCompanyId) return true;
         const fuseOptions = {
           keys: ["title"],
-          threshold: 0.3,
+          threshold: 0.1,
           includeScore: true,
         };
 
         const fuse = new Fuse(roles.data, fuseOptions);
         const searchResults = fuse.search(val.trim().toLowerCase());
         const hasSimilarRole = searchResults.some(
-          (result) => result.score !== undefined && result.score < 0.3,
+          (result) => result.score !== undefined && result.score < 0.1,
         );
         return !hasSimilarRole;
       },
@@ -155,13 +155,17 @@ export default function ExistingCompanyContent({
   });
 
   const createCompanyWithRoleMutation = api.company.createWithRole.useMutation({
-    onSuccess: (roleId) => {
+    onSuccess: async ({ roleId, companyId }) => {
       toast.success("Company and role created successfully!");
+      form.setValue("industry", "");
+      form.setValue("title", "");
+      form.setValue("locationId", "");
+      await companies.refetch();
+      setSelectedCompanyId(companyId);
+      form.setValue("companyName", companyId);
       form.setValue("roleName", roleId);
-      form.setValue("companyName", selectedCompany?.id ?? "");
       setShowNewCompany(false);
       setCreatingNewRole(false);
-      void companies.refetch();
       void roles.refetch();
     },
     onError: (error) => {
@@ -235,7 +239,8 @@ export default function ExistingCompanyContent({
     // Only validate the title field since companyId and createdBy are set programmatically
     const isTitleValid = await newRoleForm.trigger("title");
     if (!isTitleValid) {
-      toast.error("Please enter a valid role title (at least 5 characters).");
+      const errorMessage = newRoleForm.formState.errors.title?.message;
+      toast.error(errorMessage ?? "Please enter a valid role title.");
       return;
     }
 
@@ -324,6 +329,14 @@ export default function ExistingCompanyContent({
               setShowNewCompany(checked === true);
               if (checked) {
                 form.setValue("companyName", "");
+                setSelectedCompanyId(undefined);
+                setLocationLabel("");
+                setSearchTerm("");
+              } else {
+                form.setValue("companyName", "");
+                form.setValue("industry", "");
+                form.setValue("locationId", "");
+                form.setValue("title", "");
                 setSelectedCompanyId(undefined);
                 setLocationLabel("");
                 setSearchTerm("");
@@ -538,28 +551,29 @@ export default function ExistingCompanyContent({
                   />
                 </div>
                 <FormMessage />
-                {selectedCompanyId && roles.data && roles.data.length === 0 && (
-                  <p className="mt-1 text-sm text-red-500">
-                    No roles available for this company. Please add a role
-                    first.
-                  </p>
-                )}
+                {selectedCompanyId &&
+                  !showNewCompany &&
+                  roles.data &&
+                  roles.data.length === 0 && (
+                    <p className="mt-1 text-sm text-red-500">
+                      No roles available for this company. Please add a role
+                      first.
+                    </p>
+                  )}
               </FormItem>
             )}
           />
 
           {/* "I don't see my role" checkbox */}
 
-          <div
-            className="flex flex-1 items-center gap-2 pt-2"
-            onClick={() => setCreatingNewRole(!creatingNewRole)}
-          >
+          <div className="flex flex-1 items-center gap-2 pt-2">
             <Checkbox
               checked={creatingNewRole}
               onCheckedChange={(checked) => {
                 setCreatingNewRole(checked === true);
-                if (checked) {
-                  form.setValue("roleName", "");
+                form.setValue("roleName", "");
+                if (!checked) {
+                  newRoleForm.setValue("title", "");
                 }
               }}
             />
