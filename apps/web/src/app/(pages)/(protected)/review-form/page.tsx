@@ -128,7 +128,8 @@ const formSchema = z.object({
     .pipe(z.boolean()),
   federalHolidays: z
     .string({
-      required_error: "You need to select whether you had federal holidays off.",
+      required_error:
+        "You need to select whether you had federal holidays off.",
     })
     .transform((x) => x === "true")
     .pipe(z.boolean()),
@@ -378,23 +379,23 @@ export default function ReviewForm() {
       pto: normalizeRadios(values.pto),
       overtimeNormal: normalizeRadios(values.overtimeNormal),
       federalHolidays: normalizeRadios(values.federalHolidays),
-      freeLunch: values.freeLunch ?? null,
-      travelBenefits: values.travelBenefits ?? null,
-      freeMerch: values.freeMerch ?? null,
-      snackBar: values.snackBar ?? null,
-      otherBenefits: values.otherBenefits ?? null,
-      jobLength: values.jobLength ?? null,
-      workHours: values.workHours ?? null,
+      freeLunch: values.freeLunch,
+      travelBenefits: values.travelBenefits,
+      freeMerch: values.freeMerch,
+      snackBar: values.snackBar,
+      otherBenefits: values.otherBenefits,
+      jobLength: values.jobLength,
+      workHours: values.workHours,
       accessibleByTransportation: normalizeRadios(
         values.accessibleByTransportation,
       ),
-      teamOutings: values.teamOutings ?? null,
-      coffeeChats: values.coffeeChats ?? null,
-      constructiveFeedback: values.constructiveFeedback ?? null,
-      onboarding: values.onboarding ?? null,
-      workStructure: values.workStructure ?? null,
-      careerGrowth: values.careerGrowth ?? null,
-      toolNames: values.toolNames ?? [],
+      teamOutings: values.teamOutings,
+      coffeeChats: values.coffeeChats,
+      constructiveFeedback: values.constructiveFeedback,
+      onboarding: values.onboarding,
+      workStructure: values.workStructure,
+      careerGrowth: values.careerGrowth,
+      toolNames: values.toolNames,
       status: Status.DRAFT,
     } as Parameters<typeof draftMutation.mutateAsync>[0];
   }
@@ -484,8 +485,14 @@ export default function ReviewForm() {
                   <div className="pb-12 pt-6">
                     <Button
                       type="button"
-                      onClick={() => void onSaveDraft(() => router.push("/roles"))}
-                      disabled={mutation.isPending || draftMutation.isPending || updateDraftMutation.isPending}
+                      onClick={() =>
+                        void onSaveDraft(() => router.push("/roles"))
+                      }
+                      disabled={
+                        mutation.isPending ||
+                        draftMutation.isPending ||
+                        updateDraftMutation.isPending
+                      }
                       className="bg-white hover:bg-cooper-gray-600
                   rounded-lg border border-cooper-gray-150 2-253 px-8 py-3 text-lg font-semibold
                   text-cooper-gray-900"
@@ -507,7 +514,11 @@ export default function ReviewForm() {
                         }
                         await form.handleSubmit(onSubmit)();
                       }}
-                      disabled={mutation.isPending || draftMutation.isPending || updateDraftMutation.isPending}
+                      disabled={
+                        mutation.isPending ||
+                        draftMutation.isPending ||
+                        updateDraftMutation.isPending
+                      }
                       className="bg-cooper-gray-550 hover:bg-cooper-gray-600 rounded-lg border-none px-8 py-3 text-lg font-semibold text-white"
                     >
                       {mutation.isPending ? "Submitting..." : "Submit review"}
@@ -527,7 +538,12 @@ export default function ReviewForm() {
                 showModal={showModal}
                 onCancel={() => setShowModal(false)}
                 onDiscard={discardDraft}
-                onSave={() => void onSaveDraft(() => { router.push("/roles"); setShowModal(false); })}
+                onSave={() =>
+                  void onSaveDraft(() => {
+                    router.push("/roles");
+                    setShowModal(false);
+                  })
+                }
               />
             </div>
           </div>

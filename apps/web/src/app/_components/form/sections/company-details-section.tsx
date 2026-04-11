@@ -114,7 +114,7 @@ export function CompanyDetailsSection() {
                 min={1}
                 step={1}
                 placeholder="Enter work hours"
-                value={field.value ?? ""}
+                value={(field.value as number | null) ?? ""}
                 onChange={(e) =>
                   field.onChange(
                     e.target.value === "" ? null : Number(e.target.value),
@@ -373,7 +373,7 @@ export function CompanyDetailsSection() {
             </p>
             <FormControl>
               <ToolsAutocomplete
-                value={field.value ?? []}
+                value={(field.value as string[] | undefined) ?? []}
                 onChange={field.onChange}
               />
             </FormControl>

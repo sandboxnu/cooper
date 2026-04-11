@@ -341,14 +341,14 @@ export function ReviewViewEditModal({
         workEnvironment:
           (review.workEnvironment as WorkEnvironmentType | undefined) ??
           undefined,
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-        drugTest: toBoolStr(review.drugTest) as any,
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-        pto: toBoolStr(review.pto) as any,
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-        overtimeNormal: toBoolStr(review.overtimeNormal) as any,
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-        federalHolidays: (review.federalHolidays === true ? "true" : review.federalHolidays === false ? "false" : undefined) as any,
+        drugTest: toBoolStr(review.drugTest) as unknown as boolean,
+        pto: toBoolStr(review.pto) as unknown as boolean,
+        overtimeNormal: toBoolStr(review.overtimeNormal) as unknown as boolean,
+        federalHolidays: (review.federalHolidays === true
+          ? "true"
+          : review.federalHolidays === false
+            ? "false"
+            : undefined) as unknown as boolean,
         freeLunch: review.freeLunch ?? false,
         travelBenefits: review.travelBenefits ?? false,
         freeMerch: review.freeMerch ?? false,
@@ -358,15 +358,23 @@ export function ReviewViewEditModal({
         companyName: review.companyId ?? "",
         jobLength: review.jobLength ?? null,
         workHours: review.workHours ?? null,
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-        accessibleByTransportation: (review.accessibleByTransportation === true ? "true" : review.accessibleByTransportation === false ? "false" : undefined) as any,
+        accessibleByTransportation: (review.accessibleByTransportation === true
+          ? "true"
+          : review.accessibleByTransportation === false
+            ? "false"
+            : undefined) as unknown as boolean,
         teamOutings: review.teamOutings ?? false,
         coffeeChats: review.coffeeChats ?? false,
         constructiveFeedback: review.constructiveFeedback ?? false,
         onboarding: review.onboarding ?? false,
         workStructure: review.workStructure ?? false,
         careerGrowth: review.careerGrowth ?? false,
-        toolNames: (review.reviewsToTools as Array<{ tool: { name: string } }> | undefined)?.map((rt) => rt.tool.name) ?? [],
+        toolNames:
+          (
+            review.reviewsToTools as
+              | { tool: { name: string } }[]
+              | undefined
+          )?.map((rt) => rt.tool.name) ?? [],
       });
       setRoleId(review.roleId ?? "");
       setCompanyId(review.companyId ?? "");
@@ -424,14 +432,16 @@ export function ReviewViewEditModal({
       otherBenefits: values.otherBenefits ?? null,
       jobLength: values.jobLength ?? null,
       workHours: values.workHours ?? null,
-      accessibleByTransportation: normalizeRadio(values.accessibleByTransportation),
+      accessibleByTransportation: normalizeRadio(
+        values.accessibleByTransportation,
+      ),
       teamOutings: values.teamOutings ?? null,
       coffeeChats: values.coffeeChats ?? null,
       constructiveFeedback: values.constructiveFeedback ?? null,
       onboarding: values.onboarding ?? null,
       workStructure: values.workStructure ?? null,
       careerGrowth: values.careerGrowth ?? null,
-      toolNames: values.toolNames ?? [],
+      toolNames: values.toolNames,
       reviewHeadline: review.reviewHeadline ?? "",
       status,
     };
@@ -458,14 +468,14 @@ export function ReviewViewEditModal({
       workEnvironment:
         (review.workEnvironment as WorkEnvironmentType | undefined) ??
         undefined,
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-      drugTest: toBoolStr(review.drugTest) as any,
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-      pto: toBoolStr(review.pto) as any,
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-      overtimeNormal: toBoolStr(review.overtimeNormal) as any,
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-      federalHolidays: (review.federalHolidays === true ? "true" : review.federalHolidays === false ? "false" : undefined) as any,
+      drugTest: toBoolStr(review.drugTest) as unknown as boolean,
+      pto: toBoolStr(review.pto) as unknown as boolean,
+      overtimeNormal: toBoolStr(review.overtimeNormal) as unknown as boolean,
+      federalHolidays: (review.federalHolidays === true
+        ? "true"
+        : review.federalHolidays === false
+          ? "false"
+          : undefined) as unknown as boolean,
       freeLunch: review.freeLunch ?? false,
       travelBenefits: review.travelBenefits ?? false,
       freeMerch: review.freeMerch ?? false,
@@ -475,15 +485,21 @@ export function ReviewViewEditModal({
       companyName: review.companyId ?? "",
       jobLength: review.jobLength ?? null,
       workHours: review.workHours ?? null,
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-      accessibleByTransportation: (review.accessibleByTransportation === true ? "true" : review.accessibleByTransportation === false ? "false" : undefined) as any,
+      accessibleByTransportation: (review.accessibleByTransportation === true
+        ? "true"
+        : review.accessibleByTransportation === false
+          ? "false"
+          : undefined) as unknown as boolean,
       teamOutings: review.teamOutings ?? false,
       coffeeChats: review.coffeeChats ?? false,
       constructiveFeedback: review.constructiveFeedback ?? false,
       onboarding: review.onboarding ?? false,
       workStructure: review.workStructure ?? false,
       careerGrowth: review.careerGrowth ?? false,
-      toolNames: (review.reviewsToTools as Array<{ tool: { name: string } }> | undefined)?.map((rt) => rt.tool.name) ?? [],
+      toolNames:
+        (
+          review.reviewsToTools as { tool: { name: string } }[] | undefined
+        )?.map((rt) => rt.tool.name) ?? [],
     });
     onOpenChange(false);
   }

@@ -499,7 +499,10 @@ export const reviewRouter = {
     .query(({ ctx, input }) => {
       return ctx.db.query.Review.findFirst({
         where: eq(Review.id, input.id),
-        with: { interviewRounds: true, reviewsToTools: { with: { tool: true } } },
+        with: {
+          interviewRounds: true,
+          reviewsToTools: { with: { tool: true } },
+        },
       });
     }),
 

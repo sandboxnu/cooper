@@ -180,7 +180,7 @@ export function BasicInfoSection({
                 min={1}
                 step={1}
                 placeholder="Enter job length"
-                value={field.value ?? ""}
+                value={(field.value as number | null) ?? ""}
                 onChange={(e) =>
                   field.onChange(
                     e.target.value === "" ? null : Number(e.target.value),

@@ -53,10 +53,7 @@ import {
   ProfilesToReviews,
 } from "./schema/profliesToReviews";
 import { CreateReviewSchema, Review, ReviewRelations } from "./schema/reviews";
-import {
-  Tool,
-  ToolRelations,
-} from "./schema/tools";
+import { Tool, ToolRelations } from "./schema/tools";
 import type { ToolType } from "./schema/tools";
 import {
   ReviewsToTools,
