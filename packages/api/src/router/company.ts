@@ -304,7 +304,7 @@ export const companyRouter = {
         });
       }
 
-      return roleId;
+      return { roleId, companyId };
     }),
 
   getAverageById: publicProcedure

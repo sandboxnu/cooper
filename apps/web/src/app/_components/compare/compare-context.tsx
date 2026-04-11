@@ -28,10 +28,10 @@ interface CompareContextValue {
 const CompareContext = createContext<CompareContextValue | null>(null);
 
 const STORAGE_KEY = "cooper.compare-state";
+const SESSION_KEY = "cooper.compare-open";
 const MAX_COLUMNS = 3; // Including the anchor role
 
 interface PersistedState {
-  isCompareMode: boolean;
   comparedRoleIds: string[];
   reservedSlots: number;
   anchorRoleId: string | null;
@@ -48,10 +48,14 @@ export function CompareProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (typeof window === "undefined") return;
     try {
+      // isCompareMode uses sessionStorage so it resets on new tabs but survives refreshes
+      const rawSession = window.sessionStorage.getItem(SESSION_KEY);
+      if (rawSession) {
+        setIsCompareMode(JSON.parse(rawSession) as boolean);
+      }
       const raw = window.localStorage.getItem(STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw) as PersistedState;
-        setIsCompareMode(parsed.isCompareMode);
         setComparedRoleIds(parsed.comparedRoleIds);
         setReservedSlots(Math.min(parsed.reservedSlots, MAX_COLUMNS - 1));
         setAnchorRoleId(parsed.anchorRoleId);
@@ -61,17 +65,22 @@ export function CompareProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-  // Persist state
+  // Persist open/closed state per-tab (resets on new tab, survives refresh)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    window.sessionStorage.setItem(SESSION_KEY, JSON.stringify(isCompareMode));
+  }, [isCompareMode]);
+
+  // Persist role data across tabs
   useEffect(() => {
     if (typeof window === "undefined") return;
     const payload: PersistedState = {
-      isCompareMode,
       comparedRoleIds,
       reservedSlots,
       anchorRoleId,
     };
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
-  }, [isCompareMode, comparedRoleIds, reservedSlots, anchorRoleId]);
+  }, [comparedRoleIds, reservedSlots, anchorRoleId]);
 
   const enterCompareMode = useCallback(
     (nextAnchorRoleId: string) => {
