@@ -179,6 +179,13 @@ export default function ExistingCompanyContent({
 
   // Get the selected company from the form
   const selectedCompanyName = form.watch("companyName") as string;
+
+  // Sync selectedCompanyId from form value (handles pre-populated edit mode)
+  useEffect(() => {
+    if (selectedCompanyName && selectedCompanyName !== selectedCompanyId) {
+      setSelectedCompanyId(selectedCompanyName);
+    }
+  }, [selectedCompanyName, selectedCompanyId]);
   const selectedCompany = companies.data?.find(
     (company) => company.id === selectedCompanyName,
   );

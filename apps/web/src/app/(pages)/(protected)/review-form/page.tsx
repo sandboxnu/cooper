@@ -29,6 +29,7 @@ import {
 } from "~/app/_components/form/sections";
 import Popup from "~/app/_components/form/sections/popup";
 import { PaySection } from "~/app/_components/form/sections/pay-section";
+import { PortalZIndexContext } from "~/contexts/portal-z-index";
 import { api } from "~/trpc/react";
 
 const filter = new Filter();
@@ -322,7 +323,11 @@ export default function ReviewForm() {
   };
 
   const normalizeRadios = (v: unknown) =>
-    v === true || v === "yes" ? true : v === false || v === "no" ? false : null;
+    v === true || v === "true" || v === "yes"
+      ? true
+      : v === false || v === "false" || v === "no"
+        ? false
+        : null;
 
   async function onSaveDraft() {
     try {
@@ -388,77 +393,83 @@ export default function ReviewForm() {
       <div
         className={`${showModal ? "pointer-events-none" : ""} flex h-screen w-full flex-col items-center justify-center overflow-auto bg-white md:flex-row`}
       >
-        <div className="justify-left mt-4 flex h-full w-[65%] flex-col pr-3.5 pt-10">
-          <div className="text-cooper-gray-550 text-lg">Basic information</div>
-          <div className="flex w-full flex-wrap gap-10 pb-12 xl:flex-nowrap">
-            <BasicInfoSection profileId={profileId} />
-          </div>
-          <hr />
-          {canReviewForTerm() ? (
-            <div>
-              <div className="text-cooper-gray-550 pt-12 text-lg">
-                On the job
-              </div>
-              <div className="flex flex-wrap gap-10 pb-12 xl:flex-nowrap">
-                <CompanyDetailsSection />
-              </div>
-              <hr />
-              <div className="text-cooper-gray-550 pt-12 text-lg">Pay</div>
-              <div className="flex flex-wrap gap-10 overflow-auto pb-12 xl:flex-nowrap">
-                <PaySection />
-              </div>
-              <hr />
-              <div className="text-cooper-gray-550 pt-12 text-lg">
-                Interview
-              </div>
-              <div className="flex flex-wrap gap-10 pb-12 lg:flex-nowrap">
-                <InterviewSection />
-              </div>
-              <hr />
-              <div className="text-cooper-gray-550 pt-12 text-lg">
-                Review and rate
-              </div>
-              <div className="flex flex-wrap gap-10 overflow-auto pb-10 xl:flex-nowrap">
-                <ReviewSection />
-              </div>
-              <div className="flex gap-2 justify-end">
-                {/* Save Draft Button */}
-                <div className="pb-12 pt-6">
-                  <Button
-                    type="button"
-                    onClick={onSaveDraft}
-                    disabled={mutation.isPending || draftMutation.isPending}
-                    className="bg-white hover:bg-cooper-gray-600
-                  rounded-lg border border-cooper-gray-150 2-253 px-8 py-3 text-lg font-semibold
-                  text-[#151515]"
-                  >
-                    {draftMutation.isPending ? "Saving draft..." : "Save draft"}
-                  </Button>
-                </div>
-                {/* Submit Button */}
-                <div className="pb-12 pt-6">
-                  <Button
-                    type="button"
-                    onClick={async () => {
-                      const isValid = await form.trigger();
-                      if (!isValid) {
-                        toast.error("Please fill in all required fields.");
-                        return;
-                      }
-                      await form.handleSubmit(onSubmit)();
-                    }}
-                    disabled={mutation.isPending || draftMutation.isPending}
-                    className="bg-cooper-gray-550 hover:bg-cooper-gray-600 rounded-lg border-none px-8 py-3 text-lg font-semibold text-white"
-                  >
-                    {mutation.isPending ? "Submitting..." : "Submit review"}
-                  </Button>
-                </div>
-              </div>
+        <PortalZIndexContext.Provider value={49}>
+          <div className="justify-left mt-4 flex h-full w-[65%] flex-col pr-3.5 pt-10">
+            <div className="text-cooper-gray-550 text-lg">
+              Basic information
             </div>
-          ) : (
-            <div>You already submitted too many reviews for this term</div>
-          )}
-        </div>
+            <div className="flex w-full flex-wrap gap-10 pb-12 xl:flex-nowrap">
+              <BasicInfoSection profileId={profileId} />
+            </div>
+            <hr />
+            {canReviewForTerm() ? (
+              <div>
+                <div className="text-cooper-gray-550 pt-12 text-lg">
+                  On the job
+                </div>
+                <div className="flex flex-wrap gap-10 pb-12 xl:flex-nowrap">
+                  <CompanyDetailsSection />
+                </div>
+                <hr />
+                <div className="text-cooper-gray-550 pt-12 text-lg">Pay</div>
+                <div className="flex flex-wrap gap-10 overflow-auto pb-12 xl:flex-nowrap">
+                  <PaySection />
+                </div>
+                <hr />
+                <div className="text-cooper-gray-550 pt-12 text-lg">
+                  Interview
+                </div>
+                <div className="flex flex-wrap gap-10 pb-12 lg:flex-nowrap">
+                  <InterviewSection />
+                </div>
+                <hr />
+                <div className="text-cooper-gray-550 pt-12 text-lg">
+                  Review and rate
+                </div>
+                <div className="flex flex-wrap gap-10 overflow-auto pb-10 xl:flex-nowrap">
+                  <ReviewSection />
+                </div>
+                <div className="flex gap-2 justify-end">
+                  {/* Save Draft Button */}
+                  <div className="pb-12 pt-6">
+                    <Button
+                      type="button"
+                      onClick={onSaveDraft}
+                      disabled={mutation.isPending || draftMutation.isPending}
+                      className="bg-white hover:bg-cooper-gray-600
+                  rounded-lg border border-cooper-gray-150 2-253 px-8 py-3 text-lg font-semibold
+                  text-cooper-gray-900"
+                    >
+                      {draftMutation.isPending
+                        ? "Saving draft..."
+                        : "Save draft"}
+                    </Button>
+                  </div>
+                  {/* Submit Button */}
+                  <div className="pb-12 pt-6">
+                    <Button
+                      type="button"
+                      onClick={async () => {
+                        const isValid = await form.trigger();
+                        if (!isValid) {
+                          toast.error("Please fill in all required fields.");
+                          return;
+                        }
+                        await form.handleSubmit(onSubmit)();
+                      }}
+                      disabled={mutation.isPending || draftMutation.isPending}
+                      className="bg-cooper-gray-550 hover:bg-cooper-gray-600 rounded-lg border-none px-8 py-3 text-lg font-semibold text-white"
+                    >
+                      {mutation.isPending ? "Submitting..." : "Submit review"}
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div>You already submitted too many reviews for this term</div>
+            )}
+          </div>
+        </PortalZIndexContext.Provider>
         {isDirty && showModal && (
           <div className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs">
             <div className="pointer-events-auto">
