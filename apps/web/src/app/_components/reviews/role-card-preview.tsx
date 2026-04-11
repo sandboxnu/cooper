@@ -54,6 +54,11 @@ export function RoleCardPreview({
 
   const compare = useCompare();
 
+  const raw = Number(averages.data?.averageOverallRating);
+  const averageRating = Number.isFinite(raw)
+    ? Math.round(raw * 100) / 100
+    : null;
+
   return (
     <Card
       className={cn(
@@ -100,11 +105,7 @@ export function RoleCardPreview({
                   width={18}
                   height={18}
                 />
-                <span className="font-medium">
-                  {Math.round(
-                    Number(averages.data?.averageOverallRating) * 100,
-                  ) / 100}
-                </span>
+                <span className="font-medium">{averageRating}</span>
                 <span>
                   ({reviews.data.length} review
                   {reviews.data.length === 1 ? "" : "s"})
