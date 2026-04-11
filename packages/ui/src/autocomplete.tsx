@@ -130,7 +130,7 @@ export default function Autocomplete({
         <input
           ref={inputRef}
           type="text"
-          className="border-cooper-gray-150 focus:none flex w-full rounded-md border bg-white px-[14px] py-3 text-base placeholder:text-cooper-gray-400 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:py-2 md:text-sm"
+          className="border-cooper-gray-150 focus:none flex w-[108%] rounded-md border bg-white px-[7px] py-3 text-base placeholder:text-cooper-gray-400 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:w-full md:px-[14px] md:py-2 md:text-sm"
           placeholder={placeholder}
           value={displayValue}
           onChange={(e) => {
@@ -162,7 +162,7 @@ export default function Autocomplete({
             <X className="h-4 w-4" />
           </button>
         ) : (
-          <MagnifyingGlassIcon className="absolute right-2 top-1/2 h-5 w-5 shrink-0 -translate-y-1/2 opacity-50" />
+          <MagnifyingGlassIcon className="absolute -right-0.5 top-1/2 h-5 w-5 shrink-0 -translate-y-1/2 opacity-50 md:right-2" />
         )}
       </div>
 
