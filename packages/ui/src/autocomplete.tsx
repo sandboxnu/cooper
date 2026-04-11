@@ -192,7 +192,7 @@ export default function Autocomplete({
                   <button
                     key={option.value}
                     type="button"
-                    className="hover:bg-cooper-gray-150 flex w-full items-center gap-2 rounded-sm px-[14px] py-2 hover:cursor-pointer"
+                    className={`hover:bg-cooper-gray-150 flex w-full items-center gap-2 rounded-sm px-[14px] py-2 hover:cursor-pointer ${isSelected ? "bg-cooper-gray-150" : ""}`}
                     onClick={() => handleToggle(option.value)}
                   >
                     {!singleSelect && <Checkbox checked={isSelected} />}
@@ -228,7 +228,7 @@ export default function Autocomplete({
                     <button
                       key={option.value}
                       type="button"
-                      className="hover:bg-cooper-gray-150 flex w-full items-center gap-2 rounded-sm px-[14px] py-2 hover:cursor-pointer"
+                      className={`hover:bg-cooper-gray-150 flex w-full items-center gap-2 rounded-sm px-[14px] py-2 hover:cursor-pointer ${isSelected ? "bg-cooper-gray-150" : ""}`}
                       onClick={() => handleToggle(option.value)}
                     >
                       {!singleSelect && <Checkbox checked={isSelected} />}
