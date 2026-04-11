@@ -371,9 +371,7 @@ export function ReviewViewEditModal({
         careerGrowth: review.careerGrowth ?? false,
         toolNames:
           (
-            review.reviewsToTools as
-              | { tool: { name: string } }[]
-              | undefined
+            review.reviewsToTools as { tool: { name: string } }[] | undefined
           )?.map((rt) => rt.tool.name) ?? [],
       });
       setRoleId(review.roleId ?? "");
