@@ -469,7 +469,7 @@ export function ReviewViewEditModal({
         }}
       >
         {/* Header */}
-        <div className="flex md:flex-row flex-col shrink-0 items-center justify-between bg-cooper-gray-700 pb-5 pl-10 pr-6 pt-8">
+        <div className="flex md:flex-row flex-col shrink-0 items-center justify-between bg-cooper-gray-700 pb-5 pl-6 pr-6 pt-8">
           <div className="hidden md:block">
             {mode === "view" ? (
               <div className="flex flex-col gap-1">
@@ -552,7 +552,7 @@ export function ReviewViewEditModal({
             Loading...
           </div>
         ) : mode === "view" ? (
-          <div className="flex flex-1 flex-col gap-6 overflow-y-auto px-20 pb-20 pt-5">
+          <div className="flex flex-1 flex-col gap-6 overflow-y-auto px-6 pb-4 pt-5">
             {/* Basic information */}
             <p className="text-xl text-cooper-gray-550">Basic information</p>
             <div className="flex flex-col gap-6">
@@ -740,7 +740,7 @@ export function ReviewViewEditModal({
           /* EDIT MODE */
           <PortalZIndexContext.Provider value={60}>
             <Form {...form}>
-              <div className="flex flex-1 flex-col gap-6 overflow-y-auto px-20 pb-20 pt-5">
+              <div className="flex flex-1 flex-col gap-6 overflow-y-auto px-6 pb-20 pt-5">
                 <p className="text-xl text-cooper-gray-550">
                   Basic information
                 </p>
