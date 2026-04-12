@@ -87,11 +87,12 @@ export default function Autocomplete({
     () => () => {
       if (!inputRef.current) return;
       const rect = inputRef.current.getBoundingClientRect();
+      const mobile = rect.width < 120;
       setDropdownStyle({
         position: "fixed",
         top: `${rect.bottom + (isInMenuContent ? 0 : 4)}px`,
         left: `${rect.left}px`,
-        width: `${rect.width}px`,
+        width: `${mobile ? rect.width * 2.1 : rect.width}px`,
       });
     },
     [isInMenuContent],
