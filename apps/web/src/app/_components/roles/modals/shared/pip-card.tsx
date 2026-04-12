@@ -24,7 +24,7 @@ export function PipCard({
           <p className="text-[16px] tracking-[-0.16px] text-cooper-gray-900">
             {name}
           </p>
-          <p className="h-5 overflow-hidden text-[14px] leading-[normal] text-cooper-gray-350">
+          <p className="text-[14px] leading-[normal] text-cooper-gray-350">
             {subtext}
           </p>
         </div>

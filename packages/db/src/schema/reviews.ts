@@ -20,6 +20,7 @@ import { ProfilesToReviews } from "./profliesToReviews";
 import { Report } from "./reports";
 import { Role } from "./roles";
 import { InterviewRound } from "./interviewRound";
+import { ReviewsToTools } from "./reviewsToTools";
 
 export const Review = pgTable("review", {
   id: uuid("id").notNull().primaryKey().defaultRandom(),
@@ -44,6 +45,15 @@ export const Review = pgTable("review", {
   freeMerch: boolean("freeMerch"),
   snackBar: boolean("snackBar").default(false),
   otherBenefits: text("otherBenefits"),
+  jobLength: integer("jobLength"),
+  workHours: integer("workHours"),
+  accessibleByTransportation: boolean("accessibleByTransportation"),
+  teamOutings: boolean("teamOutings"),
+  coffeeChats: boolean("coffeeChats"),
+  constructiveFeedback: boolean("constructiveFeedback"),
+  onboarding: boolean("onboarding"),
+  workStructure: boolean("workStructure"),
+  careerGrowth: boolean("careerGrowth"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt", {
     mode: "date",
@@ -77,6 +87,7 @@ export const ReviewRelations = relations(Review, ({ one, many }) => ({
   profiles_to_reviews: many(ProfilesToReviews),
   interviewRounds: many(InterviewRound),
   reports: many(Report),
+  reviewsToTools: many(ReviewsToTools),
 }));
 
 export const CreateReviewSchema = createInsertSchema(Review, {
@@ -109,6 +120,15 @@ export const CreateReviewSchema = createInsertSchema(Review, {
   snackBar: z.boolean().nullish(),
   freeMerch: z.boolean().nullish(),
   otherBenefits: z.string().nullish(),
+  jobLength: z.number().int().nullish(),
+  workHours: z.number().int().nullish(),
+  accessibleByTransportation: z.boolean().nullish(),
+  teamOutings: z.boolean().nullish(),
+  coffeeChats: z.boolean().nullish(),
+  constructiveFeedback: z.boolean().nullish(),
+  onboarding: z.boolean().nullish(),
+  workStructure: z.boolean().nullish(),
+  careerGrowth: z.boolean().nullish(),
   roleId: z.string().nullish(),
   profileId: z.string(),
   status: z.nativeEnum(Status),

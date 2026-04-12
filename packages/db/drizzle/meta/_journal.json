@@ -162,6 +162,13 @@
       "when": 1775776257260,
       "tag": "0023_clean_famine",
       "breakpoints": true
+    },
+    {
+      "idx": 24,
+      "version": "7",
+      "when": 1775929337856,
+      "tag": "0024_colorful_fallen_one",
+      "breakpoints": true
     }
   ]
 }

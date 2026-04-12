@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { ArrowUp } from "lucide-react";
 
 import { prettyIndustry } from "~/utils/stringHelpers";
-import SectionCard from "../../shared/section-card";
+import ModalContainer from "../../reviews/modal";
 import { PipBar } from "./shared/pip-bar";
 import { PipCard } from "./shared/pip-card";
 import { InfoIcon } from "./shared/info-icon";
@@ -185,7 +185,7 @@ export function InterviewModal({
 
   if (compact) {
     return (
-      <SectionCard title="Interview">
+      <ModalContainer title="Interview">
         <div className="flex flex-col gap-6">
           <p className="text-4xl font-normal leading-[normal] text-cooper-gray-900">
             {roundsModeDisplay}
@@ -222,12 +222,12 @@ export function InterviewModal({
             )}
           </div>
         </div>
-      </SectionCard>
+      </ModalContainer>
     );
   }
 
   return (
-    <SectionCard title="Interview">
+    <ModalContainer title="Interview">
       <div className="flex flex-col gap-3">
         <div className="flex items-start gap-8">
           {/* Left — Rounds panel */}
@@ -368,6 +368,6 @@ export function InterviewModal({
             : "No responses"}
         </p>
       </div>
-    </SectionCard>
+    </ModalContainer>
   );
 }

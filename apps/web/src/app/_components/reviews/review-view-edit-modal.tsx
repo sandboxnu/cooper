@@ -120,12 +120,29 @@ const formSchema = z.object({
     })
     .transform((x) => x === "true")
     .pipe(z.boolean()),
-  federalHolidays: z.boolean(),
+  federalHolidays: z
+    .string()
+    .transform((x) => x === "true")
+    .pipe(z.boolean()),
   freeLunch: z.boolean(),
   travelBenefits: z.boolean(),
   freeMerch: z.boolean(),
   snackBar: z.boolean(),
   otherBenefits: z.string().nullable(),
+  jobLength: z.coerce.number().int().min(1).nullable().optional(),
+  workHours: z.coerce.number().int().min(1).nullable().optional(),
+  accessibleByTransportation: z
+    .string()
+    .transform((x) => x === "true")
+    .pipe(z.boolean())
+    .optional(),
+  teamOutings: z.boolean().optional(),
+  coffeeChats: z.boolean().optional(),
+  constructiveFeedback: z.boolean().optional(),
+  onboarding: z.boolean().optional(),
+  workStructure: z.boolean().optional(),
+  careerGrowth: z.boolean().optional(),
+  toolNames: z.array(z.string()).optional().default([]),
 });
 
 type ReviewFormValues = z.infer<typeof formSchema>;
@@ -252,8 +269,8 @@ export function ReviewViewEditModal({
       workTerm: undefined,
       workYear: undefined,
       overallRating: 0,
-      cultureRating: 0,
-      supervisorRating: 0,
+      cultureRating: 1,
+      supervisorRating: 1,
       interviewRounds: [],
       textReview: "",
       locationId: "",
@@ -266,7 +283,8 @@ export function ReviewViewEditModal({
       overtimeNormal: undefined as any,
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
       pto: undefined as any,
-      federalHolidays: false,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
+      federalHolidays: undefined as any,
       freeLunch: false,
       travelBenefits: false,
       freeMerch: false,
@@ -274,6 +292,17 @@ export function ReviewViewEditModal({
       otherBenefits: "",
       roleName: "",
       companyName: "",
+      jobLength: null,
+      workHours: null,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
+      accessibleByTransportation: undefined as any,
+      teamOutings: false,
+      coffeeChats: false,
+      constructiveFeedback: false,
+      onboarding: false,
+      workStructure: false,
+      careerGrowth: false,
+      toolNames: [],
     },
   });
 
@@ -298,8 +327,8 @@ export function ReviewViewEditModal({
         workTerm: (review.workTerm as WorkTermType | undefined) ?? undefined,
         workYear: review.workYear ?? undefined,
         overallRating: review.overallRating ?? 0,
-        cultureRating: review.cultureRating ?? 0,
-        supervisorRating: review.supervisorRating ?? 0,
+        cultureRating: review.cultureRating ?? 1,
+        supervisorRating: review.supervisorRating ?? 1,
         interviewRounds: review.interviewRounds.map(
           (r: InterviewRoundType) => ({
             interviewType: r.interviewType ?? undefined,
@@ -313,13 +342,14 @@ export function ReviewViewEditModal({
         workEnvironment:
           (review.workEnvironment as WorkEnvironmentType | undefined) ??
           undefined,
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-        drugTest: toBoolStr(review.drugTest) as any,
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-        pto: toBoolStr(review.pto) as any,
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-        overtimeNormal: toBoolStr(review.overtimeNormal) as any,
-        federalHolidays: review.federalHolidays ?? false,
+        drugTest: toBoolStr(review.drugTest) as unknown as boolean,
+        pto: toBoolStr(review.pto) as unknown as boolean,
+        overtimeNormal: toBoolStr(review.overtimeNormal) as unknown as boolean,
+        federalHolidays: (review.federalHolidays === true
+          ? "true"
+          : review.federalHolidays === false
+            ? "false"
+            : undefined) as unknown as boolean,
         freeLunch: review.freeLunch ?? false,
         travelBenefits: review.travelBenefits ?? false,
         freeMerch: review.freeMerch ?? false,
@@ -327,6 +357,23 @@ export function ReviewViewEditModal({
         otherBenefits: review.otherBenefits ?? "",
         roleName: review.roleId ?? "",
         companyName: review.companyId ?? "",
+        jobLength: review.jobLength ?? null,
+        workHours: review.workHours ?? null,
+        accessibleByTransportation: (review.accessibleByTransportation === true
+          ? "true"
+          : review.accessibleByTransportation === false
+            ? "false"
+            : undefined) as unknown as boolean,
+        teamOutings: review.teamOutings ?? false,
+        coffeeChats: review.coffeeChats ?? false,
+        constructiveFeedback: review.constructiveFeedback ?? false,
+        onboarding: review.onboarding ?? false,
+        workStructure: review.workStructure ?? false,
+        careerGrowth: review.careerGrowth ?? false,
+        toolNames:
+          (
+            review.reviewsToTools as { tool: { name: string } }[] | undefined
+          )?.map((rt) => rt.tool.name) ?? [],
       });
       setRoleId(review.roleId ?? "");
       setCompanyId(review.companyId ?? "");
@@ -376,12 +423,24 @@ export function ReviewViewEditModal({
       drugTest: normalizeRadio(values.drugTest),
       pto: normalizeRadio(values.pto),
       overtimeNormal: normalizeRadio(values.overtimeNormal),
-      federalHolidays: values.federalHolidays,
+      federalHolidays: normalizeRadio(values.federalHolidays),
       freeLunch: values.freeLunch,
       travelBenefits: values.travelBenefits,
       freeMerch: values.freeMerch,
       snackBar: values.snackBar,
       otherBenefits: values.otherBenefits ?? null,
+      jobLength: values.jobLength ?? null,
+      workHours: values.workHours ?? null,
+      accessibleByTransportation: normalizeRadio(
+        values.accessibleByTransportation,
+      ),
+      teamOutings: values.teamOutings ?? null,
+      coffeeChats: values.coffeeChats ?? null,
+      constructiveFeedback: values.constructiveFeedback ?? null,
+      onboarding: values.onboarding ?? null,
+      workStructure: values.workStructure ?? null,
+      careerGrowth: values.careerGrowth ?? null,
+      toolNames: values.toolNames,
       reviewHeadline: review.reviewHeadline ?? "",
       status,
     };
@@ -408,13 +467,14 @@ export function ReviewViewEditModal({
       workEnvironment:
         (review.workEnvironment as WorkEnvironmentType | undefined) ??
         undefined,
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-      drugTest: toBoolStr(review.drugTest) as any,
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-      pto: toBoolStr(review.pto) as any,
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-      overtimeNormal: toBoolStr(review.overtimeNormal) as any,
-      federalHolidays: review.federalHolidays ?? false,
+      drugTest: toBoolStr(review.drugTest) as unknown as boolean,
+      pto: toBoolStr(review.pto) as unknown as boolean,
+      overtimeNormal: toBoolStr(review.overtimeNormal) as unknown as boolean,
+      federalHolidays: (review.federalHolidays === true
+        ? "true"
+        : review.federalHolidays === false
+          ? "false"
+          : undefined) as unknown as boolean,
       freeLunch: review.freeLunch ?? false,
       travelBenefits: review.travelBenefits ?? false,
       freeMerch: review.freeMerch ?? false,
@@ -422,6 +482,23 @@ export function ReviewViewEditModal({
       otherBenefits: review.otherBenefits ?? "",
       roleName: review.roleId ?? "",
       companyName: review.companyId ?? "",
+      jobLength: review.jobLength ?? null,
+      workHours: review.workHours ?? null,
+      accessibleByTransportation: (review.accessibleByTransportation === true
+        ? "true"
+        : review.accessibleByTransportation === false
+          ? "false"
+          : undefined) as unknown as boolean,
+      teamOutings: review.teamOutings ?? false,
+      coffeeChats: review.coffeeChats ?? false,
+      constructiveFeedback: review.constructiveFeedback ?? false,
+      onboarding: review.onboarding ?? false,
+      workStructure: review.workStructure ?? false,
+      careerGrowth: review.careerGrowth ?? false,
+      toolNames:
+        (
+          review.reviewsToTools as { tool: { name: string } }[] | undefined
+        )?.map((rt) => rt.tool.name) ?? [],
     });
     setDiscardKey((k) => k + 1);
   }
@@ -432,7 +509,7 @@ export function ReviewViewEditModal({
     if (!payload) return;
     try {
       await updateMutation.mutateAsync(payload);
-      toast.success("Draft saved.");
+      toast.success("Review saved.");
     } catch (e) {
       console.error("Save draft failed:", e);
     }

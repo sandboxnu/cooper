@@ -21,7 +21,7 @@ export function InfoIcon({ tooltip }: InfoIconProps) {
         i
       </button>
       {open && (
-        <span className="absolute right-0 top-full z-10 mt-1 w-max max-w-60 rounded bg-gray-800 px-2 py-1 text-[11px] text-white">
+        <span className="absolute left-1/2 top-full z-10 mt-1 w-max max-w-60 -translate-x-1/2 rounded bg-gray-800 px-2 py-1 text-[11px] text-white">
           {tooltip}
         </span>
       )}

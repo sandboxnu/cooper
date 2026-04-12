@@ -53,6 +53,14 @@ import {
   ProfilesToReviews,
 } from "./schema/profliesToReviews";
 import { CreateReviewSchema, Review, ReviewRelations } from "./schema/reviews";
+import { Tool, ToolRelations } from "./schema/tools";
+import type { ToolType } from "./schema/tools";
+import {
+  ReviewsToTools,
+  ReviewsToToolsRelations,
+  CreateReviewToToolSchema,
+} from "./schema/reviewsToTools";
+import type { ReviewsToToolsType } from "./schema/reviewsToTools";
 import { CreateRoleSchema, Role } from "./schema/roles";
 import {
   InterviewRound,
@@ -108,11 +116,18 @@ export {
   ModerationEntityType,
   ReportReason,
   UserRole,
+  Tool,
+  ToolRelations,
+  ReviewsToTools,
+  ReviewsToToolsRelations,
+  CreateReviewToToolSchema,
 };
 
 export type {
   CompanyType,
   ReviewType,
+  ToolType,
+  ReviewsToToolsType,
   InterviewRoundType,
   RoleType,
   ReportType,

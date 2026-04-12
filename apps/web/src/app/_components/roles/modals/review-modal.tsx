@@ -25,7 +25,7 @@ import DropdownFilter, {
 } from "../../filters/dropdown-filter";
 import { jobTypeOptions } from "../../onboarding/constants";
 import StarGraph from "../../shared/star-graph";
-import SectionCard from "../../shared/section-card";
+import ModalContainer from "../../reviews/modal";
 import { ReviewCard } from "../../reviews/review-card";
 
 interface ReviewModalProps {
@@ -192,7 +192,7 @@ export function ReviewModal({ roleId, isComparing }: ReviewModalProps) {
     "bg-white hover:bg-cooper-gray-200 border-white text-cooper-gray-400 p-2";
 
   return (
-    <SectionCard title="Reviews">
+    <ModalContainer title="Reviews">
       {reviews.isSuccess && reviews.data.length === 0 && (
         <div className="flex h-full w-full flex-col items-center justify-center text-cooper-gray-400">
           <p>No reviews yet</p>
@@ -374,6 +374,6 @@ export function ReviewModal({ roleId, isComparing }: ReviewModalProps) {
           )}
         </div>
       )}
-    </SectionCard>
+    </ModalContainer>
   );
 }
