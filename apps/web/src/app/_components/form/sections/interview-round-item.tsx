@@ -33,7 +33,7 @@ export function InterviewRoundItem({
         <span className="text-md flex-shrink-0 font-bold text-cooper-gray-550">
           Round {index + 1}
         </span>
-        <div className="grid flex-1 grid-cols-2 gap-4">
+        <div className="grid flex-1 grid-cols-2 gap-4 items-end">
           <FormField
             control={form.control}
             name={`interviewRounds.${index}.interviewType`}
