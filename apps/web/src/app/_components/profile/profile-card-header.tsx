@@ -97,7 +97,7 @@ export default function ProfileCardHeader({
       <CardContent className="pb-0">
         {!editing ? (
           <div
-            className={`m-4 items-start flex flex-col md:flex-row ${profile.major ? "justify-between gap-4" : "gap-40"} text-sm`}
+            className={`m-4 items-start flex flex-col md:flex-row ${profile.major ? "justify-between gap-4" : "gap-12 md:gap-40"} text-sm`}
           >
             <div className="flex flex-col">
               <h4 className="font-semibold">Name</h4>
