@@ -109,6 +109,9 @@ export const authConfig = {
       });
 
       if (elevatedUser) {
+        if (elevatedUser.isDisabled) {
+          return "/?error=disabled-account";
+        }
         return true;
       }
 
@@ -120,6 +123,15 @@ export const authConfig = {
       // Regular student Google login: must be a husky.neu.edu email
       if (!email.endsWith("@husky.neu.edu")) {
         return "/redirection";
+      }
+
+      // Check if existing student is disabled
+      const existingUser = await db.query.User.findFirst({
+        where: (u, { eq }) => eq(u.email, email),
+      });
+
+      if (existingUser?.isDisabled) {
+        return "/?error=disabled-account";
       }
 
       return true;

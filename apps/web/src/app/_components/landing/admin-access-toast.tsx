@@ -7,7 +7,10 @@ import { useCustomToast } from "@cooper/ui";
 
 const CLEAR_URL_AFTER_MS = 5000;
 
-const MESSAGE = "You don't have access as an admin or coordinator.";
+const ERROR_MESSAGES: Record<string, string> = {
+  "unauthorized-admin": "You don't have access as an admin or coordinator.",
+  "disabled-account": "Your access has been disabled.",
+};
 
 function AdminAccessToastInner() {
   const searchParams = useSearchParams();
@@ -16,15 +19,16 @@ function AdminAccessToastInner() {
   const shownRef = useRef(false);
 
   const error = searchParams.get("error");
+  const message = error ? ERROR_MESSAGES[error] : null;
   console.log("[AdminAccessToast] render", { error });
 
   useEffect(() => {
-    if (!error || shownRef.current) return;
+    if (!message || shownRef.current) return;
     shownRef.current = true;
     console.log("[AdminAccessToast] scheduling toast", { error });
 
     console.log("[AdminAccessToast] showing toast", { error });
-    toast.error(MESSAGE);
+    toast.error(message);
 
     const clearUrlId = window.setTimeout(() => {
       console.log("[AdminAccessToast] clearing url", { error });
