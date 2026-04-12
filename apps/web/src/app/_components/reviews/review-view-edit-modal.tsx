@@ -461,7 +461,7 @@ export function ReviewViewEditModal({
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
-        className="flex h-[74vh] w-[66vw] max-w-none sm:max-w-none flex-col gap-0 overflow-hidden rounded-xl border border-cooper-gray-150 bg-white p-0"
+        className="flex h-[74vh] md:w-[66vw] w-[80vw] max-w-none sm:max-w-none flex-col gap-0 overflow-hidden rounded-xl border border-cooper-gray-150 bg-white p-0"
         onInteractOutside={(e) => {
           if (isOutsideEventOnAutocompletePortal(e)) {
             e.preventDefault();
@@ -469,8 +469,8 @@ export function ReviewViewEditModal({
         }}
       >
         {/* Header */}
-        <div className="flex shrink-0 items-center justify-between bg-cooper-gray-700 pb-5 pl-10 pr-6 pt-8">
-          <div>
+        <div className="flex md:flex-row flex-col shrink-0 items-center justify-between bg-cooper-gray-700 pb-5 pl-6 pr-6 pt-8">
+          <div className="hidden md:block">
             {mode === "view" ? (
               <div className="flex flex-col gap-1">
                 <p className="text-xl font-semibold text-cooper-gray-900">
@@ -486,8 +486,8 @@ export function ReviewViewEditModal({
               <p className="text-xl font-semibold text-black">Edit Review</p>
             )}
           </div>
-          <div className="flex items-center gap-5">
-            <div className="flex items-center gap-2">
+          <div className="flex items-center gap-5 md:pt-0">
+            <div className="flex items-center gap-2 flex-wrap">
               {mode === "view" ? (
                 <>
                   <DeleteReviewDialog
@@ -552,7 +552,7 @@ export function ReviewViewEditModal({
             Loading...
           </div>
         ) : mode === "view" ? (
-          <div className="flex flex-1 flex-col gap-6 overflow-y-auto px-20 pb-20 pt-5">
+          <div className="flex flex-1 flex-col gap-6 overflow-y-auto px-6 pb-4 pt-5">
             {/* Basic information */}
             <p className="text-xl text-cooper-gray-550">Basic information</p>
             <div className="flex flex-col gap-6">
@@ -740,7 +740,7 @@ export function ReviewViewEditModal({
           /* EDIT MODE */
           <PortalZIndexContext.Provider value={60}>
             <Form {...form}>
-              <div className="flex flex-1 flex-col gap-6 overflow-y-auto px-20 pb-20 pt-5">
+              <div className="flex flex-1 flex-col gap-6 overflow-y-auto px-6 pb-20 pt-5">
                 <p className="text-xl text-cooper-gray-550">
                   Basic information
                 </p>
