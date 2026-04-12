@@ -24,9 +24,10 @@ export function DraftReviewCard({
     { enabled: !!reviewObj.roleId },
   );
 
-  const { data: location } = api.location.getById.useQuery({
-    id: reviewObj.locationId ?? "",
-  });
+  const { data: location } = api.location.getById.useQuery(
+    { id: reviewObj.locationId ?? "" },
+    { enabled: !!reviewObj.locationId },
+  );
 
   const { data: company } = api.company.getById.useQuery(
     { id: reviewObj.companyId ?? "" },
@@ -38,7 +39,7 @@ export function DraftReviewCard({
   return (
     <Card
       className={cn(
-        "border-cooper-gray-150 mx-auto w-[100%] border-[0.75px] bg-[#FEFEFE]",
+        "border-cooper-gray-150 mx-auto w-[100%] border-[0.75px] bg-[#FEFEFE] hover:bg-[#FEFEFE]",
         className,
       )}
     >
@@ -82,7 +83,7 @@ export function DraftReviewCard({
                   trigger={
                     <button
                       type="button"
-                      className="flex items-center justify-center rounded-full p-1 hover:bg-cooper-gray-800"
+                      className="flex items-center justify-center rounded-full p-1"
                     >
                       <MoreVertical className="h-5 w-5 text-cooper-gray-350" />
                     </button>

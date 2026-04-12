@@ -362,21 +362,18 @@ export const roleRouter = {
   getAverageById: sortableProcedure
     .input(z.object({ roleId: z.string() }))
     .query(async ({ ctx, input }) => {
-      let reviews = await ctx.db.query.Review.findMany({
+      const reviews = await ctx.db.query.Review.findMany({
         where: and(
           eq(Review.hidden, false),
           eq(Review.roleId, input.roleId),
           eq(Review.status, Status.PUBLISHED),
         ),
-        orderBy: ordering.default,
+        with: {
+          reviewsToTools: { with: { tool: true } },
+        },
       });
-      reviews = await ctx.db.query.Review.findMany({
-        where: and(
-          eq(Review.hidden, false),
-          eq(Review.roleId, input.roleId),
-          eq(Review.status, Status.PUBLISHED),
-        ),
-      });
+
+      const totalReviews = reviews.length;
 
       const calcAvg = (field: keyof ReviewType) => {
         return totalReviews > 0
@@ -391,8 +388,6 @@ export const roleRouter = {
               totalReviews
           : 0;
       };
-
-      const totalReviews = reviews.length;
 
       const averageOverallRating = calcAvg("overallRating");
       const averageHourlyPay = calcAvg("hourlyPay");
@@ -417,22 +412,132 @@ export const roleRouter = {
           ? Math.max(...reviews.map((review) => Number(review.hourlyPay)))
           : 0;
 
+      // Work environment mode + tie handling + tooltip alerts
+      const workEnvCounts = reviews.reduce<Record<string, number>>((acc, r) => {
+        if (r.workEnvironment)
+          acc[r.workEnvironment] = (acc[r.workEnvironment] ?? 0) + 1;
+        return acc;
+      }, {});
+      const sortedEnvs = Object.entries(workEnvCounts).sort(
+        ([, a], [, b]) => b - a,
+      );
+      const ENV_LABEL: Record<string, string> = {
+        REMOTE: "Remote",
+        HYBRID: "Hybrid",
+        INPERSON: "In-Person",
+      };
+      const NUM_WORDS: Record<number, string> = {
+        1: "One",
+        2: "Two",
+        3: "Three",
+        4: "Four",
+        5: "Five",
+      };
+
+      let workEnvironmentMode: string | null = null;
+      if (sortedEnvs.length > 0) {
+        const topCount = sortedEnvs[0]?.[1] ?? 0;
+        const tied = sortedEnvs.filter(([, c]) => c === topCount);
+        if (tied.length === 1) {
+          const env0 = tied[0]?.[0] ?? "";
+          workEnvironmentMode = ENV_LABEL[env0] ?? env0;
+        } else if (tied.length === 2) {
+          const env0 = tied[0]?.[0] ?? "";
+          const env1 = tied[1]?.[0] ?? "";
+          workEnvironmentMode = `${ENV_LABEL[env0] ?? env0} and ${ENV_LABEL[env1] ?? env1}`;
+        } else {
+          workEnvironmentMode = tied
+            .map(([env]) => ENV_LABEL[env] ?? env)
+            .join(", ")
+            .replace(/, ([^,]*)$/, ", and $1");
+        }
+      }
+
+      const topEnvCount = sortedEnvs[0]?.[1] ?? 0;
+      const tiedEnvKeys = new Set(
+        sortedEnvs.filter(([, c]) => c === topEnvCount).map(([e]) => e),
+      );
+      const workEnvironmentAlerts = sortedEnvs
+        .filter(([env]) => !tiedEnvKeys.has(env))
+        .map(
+          ([env, count]) =>
+            `${NUM_WORDS[count] ?? count} reported ${ENV_LABEL[env] ?? env}`,
+        );
+
+      // Job length range
+      const jobLengths = reviews
+        .map((r) => r.jobLength)
+        .filter((v): v is number => v != null);
+      const jobLengthMin =
+        jobLengths.length > 0 ? Math.min(...jobLengths) : null;
+      const jobLengthMax =
+        jobLengths.length > 0 ? Math.max(...jobLengths) : null;
+
+      // Work hours range
+      const workHoursValues = reviews
+        .map((r) => r.workHours)
+        .filter((v): v is number => v != null);
+      const workHoursMin =
+        workHoursValues.length > 0 ? Math.min(...workHoursValues) : null;
+      const workHoursMax =
+        workHoursValues.length > 0 ? Math.max(...workHoursValues) : null;
+
+      const overtimeCount = reviews.filter(
+        (r) => r.overtimeNormal === true,
+      ).length;
+      const accessibleByTransportation = calcPercentage(
+        "accessibleByTransportation",
+      );
+      const teamOutingsCount = reviews.filter(
+        (r) => r.teamOutings === true,
+      ).length;
+      const coffeeChatCount = reviews.filter(
+        (r) => r.coffeeChats === true,
+      ).length;
+      const constructiveFeedbackCount = reviews.filter(
+        (r) => r.constructiveFeedback === true,
+      ).length;
+      const onboarding = calcPercentage("onboarding");
+      const workStructure = calcPercentage("workStructure");
+      const careerGrowth = calcPercentage("careerGrowth");
+
+      const tools = [
+        ...new Set(
+          reviews.flatMap((r) => r.reviewsToTools.map((rt) => rt.tool.name)),
+        ),
+      ];
+
       return {
-        averageOverallRating: averageOverallRating,
-        averageHourlyPay: averageHourlyPay,
-        averageCultureRating: averageCultureRating,
-        averageSupervisorRating: averageSupervisorRating,
-        federalHolidays: federalHolidays,
-        drugTest: drugTest,
-        freeLunch: freeLunch,
-        freeMerch: freeMerch,
-        travelBenefits: travelBenefits,
-        snackBar: snackBar,
-        overtimeNormal: overtimeNormal,
-        pto: pto,
-        minPay: minPay,
-        maxPay: maxPay,
-        totalReviews: totalReviews,
+        averageOverallRating,
+        averageHourlyPay,
+        averageCultureRating,
+        averageSupervisorRating,
+        federalHolidays,
+        drugTest,
+        freeLunch,
+        freeMerch,
+        travelBenefits,
+        snackBar,
+        overtimeNormal,
+        pto,
+        minPay,
+        maxPay,
+        totalReviews,
+        workEnvironmentMode,
+        workEnvironmentAlerts,
+        jobLengthMin,
+        jobLengthMax,
+        workHoursMin,
+        workHoursMax,
+        overtimeCount,
+        accessibleByTransportation,
+        teamOutingsCount,
+        coffeeChatCount,
+        constructiveFeedbackCount,
+        onboarding,
+        workStructure,
+        careerGrowth,
+        tools,
       };
     }),
 } satisfies TRPCRouterRecord;

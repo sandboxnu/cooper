@@ -65,8 +65,7 @@ export function DeleteReviewDialog({
             {`Delete ${isDraft ? "Draft" : "Review"}`}
           </DialogTitle>
           <DialogDescription className="text-cooper-gray-600 text-base">
-            {`Are you sure you want to delete this ${isDraft ? "draft" : "review"}? This action cannot be`}
-            undone.
+            {`Are you sure you want to delete this ${isDraft ? "draft" : "review"}? This action cannot be undone.`}
           </DialogDescription>
         </DialogHeader>
 

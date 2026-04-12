@@ -87,11 +87,12 @@ export default function Autocomplete({
     () => () => {
       if (!inputRef.current) return;
       const rect = inputRef.current.getBoundingClientRect();
+      const mobile = rect.width < 120;
       setDropdownStyle({
         position: "fixed",
         top: `${rect.bottom + (isInMenuContent ? 0 : 4)}px`,
         left: `${rect.left}px`,
-        width: `${rect.width}px`,
+        width: `${mobile ? rect.width * 2.1 : rect.width}px`,
       });
     },
     [isInMenuContent],
@@ -149,6 +150,21 @@ export default function Autocomplete({
             setSearch(e.target.value);
             setOpen(true);
             onSearchChange?.(e.target.value);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && search.trim()) {
+              e.preventDefault();
+              const trimmed = search.trim();
+              const exactMatch = filtered.find(
+                (opt) => opt.label.toLowerCase() === trimmed.toLowerCase(),
+              );
+              const toSelect = exactMatch ?? filtered[0];
+              if (toSelect) {
+                handleToggle(toSelect.value);
+                setSearch("");
+                onSearchChange?.("");
+              }
+            }
           }}
           onFocus={() => {
             setOpen(true);

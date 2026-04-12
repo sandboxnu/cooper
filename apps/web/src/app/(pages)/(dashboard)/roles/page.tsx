@@ -576,8 +576,6 @@ export default function Roles() {
       );
       const urlCompany = currentUrl.get("company");
       const urlRole = currentUrl.get("role");
-      // Don't overwrite URL if it has a role but selectedItem is a company (would clear role)
-      if (urlRole && !isRole(urlSelectedItem)) return;
       // Skip URL update only when the URL already matches the selected item
       if (urlCompany && urlRole && isRole(urlSelectedItem)) {
         const r = urlSelectedItem as RoleType & {
@@ -634,8 +632,6 @@ export default function Roles() {
     compare.isCompareMode,
     urlSelectedItem,
     router,
-    companyParam,
-    roleParam,
     isRole,
     selectedType,
     rolesAndCompanies.isSuccess,

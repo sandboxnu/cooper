@@ -144,11 +144,15 @@ export default function Profile() {
             <div className="flex flex-col gap-4 pb-4">
               {reviews.length > 0 &&
                 reviews
-                  .sort(
-                    (a, b) =>
-                      (a.status === "DRAFT" ? -1 : 1) -
-                      (b.status === "DRAFT" ? -1 : 1),
-                  )
+                  .sort((a, b) => {
+                    const aIsDraft = a.status === "DRAFT" ? 0 : 1;
+                    const bIsDraft = b.status === "DRAFT" ? 0 : 1;
+                    if (aIsDraft !== bIsDraft) return aIsDraft - bIsDraft;
+                    return (
+                      (b.updatedAt?.getTime() ?? 0) -
+                      (a.updatedAt?.getTime() ?? 0)
+                    );
+                  })
                   .map((review) =>
                     review.status === "DRAFT" ? (
                       <DraftReviewCard

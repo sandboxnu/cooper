@@ -41,7 +41,11 @@ export default function FavoriteCompanySearch({
                 company !== undefined,
             )
             .map((company) => (
-              <CompanyCardPreview companyObj={company} key={company.id} />
+              <CompanyCardPreview
+                companyObj={company}
+                key={company.id}
+                className="hover:cursor-default hover:bg-white"
+              />
             ))
         ) : (
           <p className="italic text-cooper-gray-400">
