@@ -105,7 +105,7 @@ export function CompanyDetailsSection() {
             <FormLabel className="text-sm font-bold text-cooper-gray-400">
               Work hours<span className="text-cooper-red-300">*</span>
             </FormLabel>
-            <p className="text-xs text-cooper-gray-350">
+            <p className="text-sm text-cooper-gray-350">
               Hours worked per week, not including overtime (i.e. 40, 36, 20)
             </p>
             <FormControl>
@@ -321,7 +321,7 @@ export function CompanyDetailsSection() {
                       {label}
                     </FormLabel>
                   </div>
-                  <p className="pl-[31px] pt-0.5 text-xs text-cooper-gray-350">
+                  <p className="pl-[31px] pt-0.5 text-sm text-cooper-gray-350">
                     {description}
                   </p>
                 </FormItem>
@@ -368,7 +368,7 @@ export function CompanyDetailsSection() {
             <FormLabel className="text-sm font-bold text-cooper-gray-400">
               Tools and software
             </FormLabel>
-            <p className="text-xs text-cooper-gray-350">
+            <p className="text-sm text-cooper-gray-350">
               Tools and software you used on the job
             </p>
             <FormControl>

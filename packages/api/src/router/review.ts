@@ -5,7 +5,7 @@ import Fuse from "fuse.js";
 import { z } from "zod";
 
 import type { ReviewType } from "@cooper/db/schema";
-import { and, desc, eq, inArray, isNull } from "@cooper/db";
+import { and, desc, eq, inArray, isNull, sql } from "@cooper/db";
 import {
   CompaniesToLocations,
   Company,
@@ -230,13 +230,25 @@ export const reviewRouter = {
         for (const name of toolNames) {
           const trimmed = name.trim();
           if (!trimmed) continue;
-          await ctx.db
-            .insert(Tool)
-            .values({ name: trimmed })
-            .onConflictDoNothing();
-          const tool = await ctx.db.query.Tool.findFirst({
-            where: (t, { eq }) => eq(t.name, trimmed),
-          });
+          const existingTool = await ctx.db
+            .select()
+            .from(Tool)
+            .where(sql`lower(${Tool.name}) = lower(${trimmed})`)
+            .limit(1)
+            .then((rows) => rows[0]);
+          let tool = existingTool;
+          if (!existingTool) {
+            await ctx.db
+              .insert(Tool)
+              .values({ name: trimmed })
+              .onConflictDoNothing();
+            tool = await ctx.db
+              .select()
+              .from(Tool)
+              .where(sql`lower(${Tool.name}) = lower(${trimmed})`)
+              .limit(1)
+              .then((rows) => rows[0]);
+          }
           if (tool) {
             await ctx.db
               .insert(ReviewsToTools)
@@ -354,13 +366,25 @@ export const reviewRouter = {
         for (const name of toolNames) {
           const trimmed = name.trim();
           if (!trimmed) continue;
-          await ctx.db
-            .insert(Tool)
-            .values({ name: trimmed })
-            .onConflictDoNothing();
-          const tool = await ctx.db.query.Tool.findFirst({
-            where: (t, { eq }) => eq(t.name, trimmed),
-          });
+          const existingTool = await ctx.db
+            .select()
+            .from(Tool)
+            .where(sql`lower(${Tool.name}) = lower(${trimmed})`)
+            .limit(1)
+            .then((rows) => rows[0]);
+          let tool = existingTool;
+          if (!existingTool) {
+            await ctx.db
+              .insert(Tool)
+              .values({ name: trimmed })
+              .onConflictDoNothing();
+            tool = await ctx.db
+              .select()
+              .from(Tool)
+              .where(sql`lower(${Tool.name}) = lower(${trimmed})`)
+              .limit(1)
+              .then((rows) => rows[0]);
+          }
           if (tool) {
             await ctx.db
               .insert(ReviewsToTools)
@@ -542,13 +566,25 @@ export const reviewRouter = {
         for (const name of toolNames) {
           const trimmed = name.trim();
           if (!trimmed) continue;
-          await ctx.db
-            .insert(Tool)
-            .values({ name: trimmed })
-            .onConflictDoNothing();
-          const tool = await ctx.db.query.Tool.findFirst({
-            where: (t, { eq }) => eq(t.name, trimmed),
-          });
+          const existingTool = await ctx.db
+            .select()
+            .from(Tool)
+            .where(sql`lower(${Tool.name}) = lower(${trimmed})`)
+            .limit(1)
+            .then((rows) => rows[0]);
+          let tool = existingTool;
+          if (!existingTool) {
+            await ctx.db
+              .insert(Tool)
+              .values({ name: trimmed })
+              .onConflictDoNothing();
+            tool = await ctx.db
+              .select()
+              .from(Tool)
+              .where(sql`lower(${Tool.name}) = lower(${trimmed})`)
+              .limit(1)
+              .then((rows) => rows[0]);
+          }
           if (tool) {
             await ctx.db
               .insert(ReviewsToTools)

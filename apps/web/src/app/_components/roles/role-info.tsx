@@ -263,10 +263,17 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
           )}
           <div className="col-span-2" id="on-the-job">
             {averages.data && (
-              <OnTheJobModal
-                averages={averages.data}
-                isComparing={isComparing}
-              />
+              <>
+                <div className="xl:hidden">
+                  <OnTheJobModal averages={averages.data} isComparing />
+                </div>
+                <div className="hidden xl:block">
+                  <OnTheJobModal
+                    averages={averages.data}
+                    isComparing={compare.isCompareMode}
+                  />
+                </div>
+              </>
             )}
           </div>
 

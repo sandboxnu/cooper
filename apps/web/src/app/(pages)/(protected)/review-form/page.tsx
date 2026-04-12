@@ -445,7 +445,7 @@ export default function ReviewForm() {
         className={`${showModal ? "pointer-events-none" : ""} flex h-screen w-full flex-col items-center justify-center overflow-auto bg-white md:flex-row`}
       >
         <PortalZIndexContext.Provider value={49}>
-          <div className="justify-left mt-4 flex h-full w-[65%] flex-col pr-3.5 pt-10">
+          <div className="justify-left mt-4 flex h-full xl:w-[45%] w-[65%] flex-col pt-10">
             <div className="text-cooper-gray-550 text-lg">
               Basic information
             </div>

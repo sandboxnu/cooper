@@ -150,6 +150,21 @@ export default function Autocomplete({
             setOpen(true);
             onSearchChange?.(e.target.value);
           }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && search.trim()) {
+              e.preventDefault();
+              const trimmed = search.trim();
+              const exactMatch = filtered.find(
+                (opt) => opt.label.toLowerCase() === trimmed.toLowerCase(),
+              );
+              const toSelect = exactMatch ?? filtered[0];
+              if (toSelect) {
+                handleToggle(toSelect.value);
+                setSearch("");
+                onSearchChange?.("");
+              }
+            }
+          }}
           onFocus={() => {
             setOpen(true);
             if (singleSelect && value.length === 1) setSearch("");
