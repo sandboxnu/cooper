@@ -94,7 +94,7 @@ export function ReviewCard({
               <div className="pt-1">{reviewObj.textReview}</div>
             </div>
             <div className="flex justify-between text-sm">
-              <div className="flex flex-wrap gap-6 rounded-lg bg-cooper-gray-700 p-3 pr-4 md:gap-10 md:pl-4">
+              <div className="flex gap-6 rounded-lg bg-cooper-gray-700 p-3 pr-4 md:gap-10 md:pl-4">
                 <div
                   className={cn(
                     "flex flex-col gap-2",
@@ -124,29 +124,6 @@ export function ReviewCard({
                   <span className="text-cooper-gray-350">Pay</span> $
                   {reviewObj.hourlyPay}/hr
                 </div>
-                {reviewObj.workHours != null && (
-                  <div
-                    className={cn(
-                      "flex flex-col gap-2",
-                      !isComparing && "md:flex-row",
-                    )}
-                  >
-                    <span className="text-cooper-gray-350">Hours/wk</span>{" "}
-                    {reviewObj.workHours}
-                  </div>
-                )}
-                {reviewObj.jobLength != null && (
-                  <div
-                    className={cn(
-                      "flex flex-col gap-2",
-                      !isComparing && "md:flex-row",
-                    )}
-                  >
-                    <span className="text-cooper-gray-350">Job length</span>{" "}
-                    {reviewObj.jobLength}{" "}
-                    {reviewObj.jobLength === 1 ? "month" : "months"}
-                  </div>
-                )}
               </div>
               <ReportButton
                 entityId={reviewObj.id}
@@ -154,39 +131,6 @@ export function ReviewCard({
                 iconOnly={true}
               />
             </div>
-            {(() => {
-              const tags: string[] = [];
-              if (reviewObj.overtimeNormal) tags.push("Overtime common");
-              if (reviewObj.federalHolidays) tags.push("Federal holidays off");
-              if (reviewObj.pto) tags.push("PTO");
-              if (reviewObj.drugTest) tags.push("Drug test required");
-              if (reviewObj.accessibleByTransportation)
-                tags.push("Accessible by transit");
-              if (reviewObj.freeLunch) tags.push("Free lunch");
-              if (reviewObj.travelBenefits) tags.push("Travel benefits");
-              if (reviewObj.freeMerch) tags.push("Free merch");
-              if (reviewObj.snackBar) tags.push("Snack bar");
-              if (reviewObj.teamOutings) tags.push("Team outings");
-              if (reviewObj.coffeeChats) tags.push("Coffee chats");
-              if (reviewObj.constructiveFeedback)
-                tags.push("Constructive feedback");
-              if (reviewObj.onboarding) tags.push("Good onboarding");
-              if (reviewObj.workStructure) tags.push("Well-structured work");
-              if (reviewObj.careerGrowth) tags.push("Career growth");
-              if (tags.length === 0) return null;
-              return (
-                <div className="flex flex-wrap gap-2">
-                  {tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-cooper-gray-700 px-3 py-1 text-xs text-cooper-gray-400"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              );
-            })()}
             <div
               className={cn(
                 isComparing
