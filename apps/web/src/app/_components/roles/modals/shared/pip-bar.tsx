@@ -6,16 +6,13 @@ interface PipBarProps {
 
 const MAX_PIP_WIDTH = 24;
 const GAP = 2;
-const REFERENCE_WIDTH = 172;
+const REFERENCE_WIDTH = MAX_PIP_WIDTH * 4 + GAP * 3; // 102px — capped at 4-pip width
 const MIN_PIP_WIDTH = 4;
 
 export function PipBar({ filledCount, totalCount, filledColor }: PipBarProps) {
   const pipWidth = Math.max(
     MIN_PIP_WIDTH,
-    Math.min(
-      MAX_PIP_WIDTH,
-      (REFERENCE_WIDTH - (totalCount - 1) * GAP) / totalCount,
-    ),
+    (REFERENCE_WIDTH - (totalCount - 1) * GAP) / totalCount,
   );
 
   return (
