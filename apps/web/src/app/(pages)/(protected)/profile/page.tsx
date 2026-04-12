@@ -147,8 +147,8 @@ export default function Profile() {
                     const bIsDraft = b.status === "DRAFT" ? 0 : 1;
                     if (aIsDraft !== bIsDraft) return aIsDraft - bIsDraft;
                     return (
-                      new Date(b.updatedAt).getTime() -
-                      new Date(a.updatedAt).getTime()
+                      (b.updatedAt?.getTime() ?? 0) -
+                      (a.updatedAt?.getTime() ?? 0)
                     );
                   })
                   .map((review) =>

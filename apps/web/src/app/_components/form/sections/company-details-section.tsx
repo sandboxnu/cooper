@@ -113,7 +113,7 @@ export function CompanyDetailsSection() {
                 type="number"
                 min={1}
                 step={1}
-                placeholder="Enter work hours"
+                placeholder="Enter hours worked per week"
                 value={(field.value as number | null) ?? ""}
                 onChange={(e) =>
                   field.onChange(

@@ -508,7 +508,7 @@ export function ReviewViewEditModal({
     if (!payload) return;
     try {
       await updateMutation.mutateAsync(payload);
-      toast.success("Draft saved.");
+      toast.success("Review saved.");
     } catch (e) {
       console.error("Save draft failed:", e);
     }
