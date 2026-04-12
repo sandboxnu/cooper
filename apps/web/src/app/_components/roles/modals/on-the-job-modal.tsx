@@ -18,7 +18,8 @@ interface AveragesData {
   workEnvironmentAlerts: string[];
   jobLengthMin: number | null;
   jobLengthMax: number | null;
-  workHoursMode: number | null;
+  workHoursMin: number | null;
+  workHoursMax: number | null;
   overtimeCount: number;
   accessibleByTransportation: number;
   teamOutingsCount: number;
@@ -106,7 +107,8 @@ export function OnTheJobModal({ averages, isComparing }: OnTheJobModalProps) {
     workEnvironmentAlerts,
     jobLengthMin,
     jobLengthMax,
-    workHoursMode,
+    workHoursMin,
+    workHoursMax,
     overtimeCount,
     accessibleByTransportation,
     drugTest,
@@ -126,13 +128,18 @@ export function OnTheJobModal({ averages, isComparing }: OnTheJobModalProps) {
   if (jobLengthMin !== null && jobLengthMax !== null) {
     jobLengthDisplay =
       jobLengthMin === jobLengthMax
-        ? `${jobLengthMin} months`
+        ? `${jobLengthMin} ${jobLengthMin === 1 ? "month" : "months"}`
         : `${jobLengthMin}-${jobLengthMax} months`;
   }
 
   // Work hours
-  const workHoursDisplay =
-    workHoursMode != null ? `Standard ${workHoursMode} hours` : "No data";
+  let workHoursDisplay = "No data";
+  if (workHoursMin !== null && workHoursMax !== null) {
+    workHoursDisplay =
+      workHoursMin === workHoursMax
+        ? `Standard ${workHoursMin} hours`
+        : `Standard ${workHoursMin}-${workHoursMax} hours`;
+  }
   const overtimeLabel =
     overtimeCount > totalReviews / 2
       ? "Overtime work common"

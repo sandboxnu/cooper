@@ -473,20 +473,14 @@ export const roleRouter = {
       const jobLengthMax =
         jobLengths.length > 0 ? Math.max(...jobLengths) : null;
 
-      // Work hours mode
-      const workHoursCounts = reviews.reduce<Record<string, number>>(
-        (acc, r) => {
-          if (r.workHours != null)
-            acc[String(r.workHours)] = (acc[String(r.workHours)] ?? 0) + 1;
-          return acc;
-        },
-        {},
-      );
-      const workHoursSorted = Object.entries(workHoursCounts).sort(
-        ([, a], [, b]) => b - a,
-      );
-      const workHoursMode =
-        workHoursSorted[0]?.[0] != null ? Number(workHoursSorted[0][0]) : null;
+      // Work hours range
+      const workHoursValues = reviews
+        .map((r) => r.workHours)
+        .filter((v): v is number => v != null);
+      const workHoursMin =
+        workHoursValues.length > 0 ? Math.min(...workHoursValues) : null;
+      const workHoursMax =
+        workHoursValues.length > 0 ? Math.max(...workHoursValues) : null;
 
       const overtimeCount = reviews.filter(
         (r) => r.overtimeNormal === true,
@@ -533,7 +527,8 @@ export const roleRouter = {
         workEnvironmentAlerts,
         jobLengthMin,
         jobLengthMax,
-        workHoursMode,
+        workHoursMin,
+        workHoursMax,
         overtimeCount,
         accessibleByTransportation,
         teamOutingsCount,
