@@ -33,9 +33,24 @@ export function BasicInfoSection({
 
   // Need to evaluate whether this is a bad idea
   const currentYear = dayjs().year();
+  const currentMonth = dayjs().month() + 1;
+
+  // Month when each term begins — used to block future-term reviews
+  const TERM_START_MONTHS: Record<string, number> = {
+    SPRING: 1, // January
+    SUMMER: 5, // May
+    FALL: 8, // August
+  };
+
+  const workTerm = form.watch("workTerm") as string | undefined;
+
+  const termStartMonth = workTerm ? (TERM_START_MONTHS[workTerm] ?? 1) : 1;
+  const maxYear =
+    termStartMonth <= currentMonth ? currentYear : currentYear - 1;
+
   const years = Array.from(
-    { length: currentYear - 1999 },
-    (_, index) => currentYear - index,
+    { length: maxYear - 1999 },
+    (_, index) => maxYear - index,
   );
 
   const locationsToUpdate = api.location.getByPopularity.useQuery(
@@ -81,6 +96,14 @@ export function BasicInfoSection({
       setSearchTerm("");
     }
   }, [locationId]);
+
+  useEffect(() => {
+    const currentWorkYear = form.getValues("workYear") as number | undefined;
+    if (currentWorkYear && currentWorkYear > maxYear) {
+      form.setValue("workYear", undefined as unknown as number);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [maxYear]);
 
   return (
     <FormSection>

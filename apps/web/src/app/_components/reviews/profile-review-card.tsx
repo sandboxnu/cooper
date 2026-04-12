@@ -45,7 +45,9 @@ export function ProfileReviewCard({
     },
   );
   return (
-    <Card className={cn("w-full border mx-auto bg-white", className)}>
+    <Card
+      className={cn("w-full border mx-auto bg-white hover:bg-white", className)}
+    >
       <CardContent className="flex flex-col gap-4">
         {/* Top row */}
         <div className="flex items-center justify-between">
@@ -75,7 +77,7 @@ export function ProfileReviewCard({
               trigger={
                 <button
                   type="button"
-                  className="flex items-center justify-center rounded-full p-1 hover:bg-cooper-gray-800"
+                  className="flex items-center justify-center rounded-full p-1"
                 >
                   <MoreVertical className="h-5 w-5 text-cooper-gray-350" />
                 </button>

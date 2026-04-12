@@ -233,6 +233,7 @@ export function ReviewViewEditModal({
 
   const [roleId, setRoleId] = useState<string>("");
   const [companyId, setCompanyId] = useState<string>("");
+  const [discardKey, setDiscardKey] = useState(0);
 
   const { data: review, isLoading } = api.review.getById.useQuery(
     { id: reviewId },
@@ -499,7 +500,7 @@ export function ReviewViewEditModal({
           review.reviewsToTools as { tool: { name: string } }[] | undefined
         )?.map((rt) => rt.tool.name) ?? [],
     });
-    onOpenChange(false);
+    setDiscardKey((k) => k + 1);
   }
 
   async function onSaveEdits() {
@@ -822,7 +823,7 @@ export function ReviewViewEditModal({
                 <p className="text-xl text-cooper-gray-550">
                   Basic information
                 </p>
-                <BasicInfoSection profileId={profile?.id} />
+                <BasicInfoSection key={discardKey} profileId={profile?.id} />
 
                 <hr className="border-cooper-gray-150" />
 
