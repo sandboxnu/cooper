@@ -314,11 +314,14 @@ export function OnTheJobModal({ averages, isComparing }: OnTheJobModalProps) {
             </p>
             {hasData ? (
               <div className="flex w-[200px] gap-3 items-center">
-                <div className="flex h-2 gap-0.5 items-center">
+                <div
+                  className="flex h-2 gap-0.5 items-center"
+                  style={{ width: `${Math.min(102, totalReviews * 26 - 2)}px` }}
+                >
                   {Array.from({ length: totalReviews }).map((_, i) => (
                     <div
                       key={i}
-                      className={`h-full w-6 shrink-0 rounded-lg ${
+                      className={`h-full flex-1 rounded-lg ${
                         i < count ? "bg-[#f1895c]" : "bg-[#cbcbcb]"
                       }`}
                     />
