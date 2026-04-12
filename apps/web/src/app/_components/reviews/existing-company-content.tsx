@@ -61,6 +61,7 @@ export default function ExistingCompanyContent({
   const prefix =
     searchTerm.length >= 3 ? searchTerm.slice(0, 3).toLowerCase() : "";
   const [companySearchTerm, setCompanySearchTerm] = useState<string>("");
+  const [newCompanyName, setNewCompanyName] = useState<string>("");
 
   const { toast } = useCustomToast();
 
@@ -83,6 +84,7 @@ export default function ExistingCompanyContent({
     if (!showNewCompany) {
       setLocationLabel("");
       setSearchTerm("");
+      setNewCompanyName("");
     }
   }, [showNewCompany]);
 
@@ -157,6 +159,7 @@ export default function ExistingCompanyContent({
   const createCompanyWithRoleMutation = api.company.createWithRole.useMutation({
     onSuccess: async ({ roleId, companyId }) => {
       toast.success("Company and role created successfully!");
+      setNewCompanyName("");
       form.setValue("industry", "");
       form.setValue("title", "");
       form.setValue("locationId", "");
@@ -195,7 +198,7 @@ export default function ExistingCompanyContent({
   );
 
   const handleCreateCompanyWithRole = async () => {
-    const companyName = form.getValues("companyName") as string;
+    const companyName = newCompanyName;
     const industry = form.getValues("industry") as string;
     const locationId = form.getValues("locationId") as string;
     const roleTitle =
@@ -376,32 +379,17 @@ export default function ExistingCompanyContent({
             </div>
 
             {/* Company Name */}
-            <FormField
-              control={form.control}
-              name="companyName"
-              render={({ field }) => (
-                <FormItem className="flex flex-col w-full pt-2.5">
-                  <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
-                    Company Name<span className="text-cooper-red-300">*</span>
-                  </FormLabel>
-                  <FormControl className="flex-1">
-                    <Input
-                      placeholder="Enter"
-                      className="border-cooper-gray-150 h-10 w-full border text-sm"
-                      value={
-                        field.value &&
-                        typeof field.value === "string" &&
-                        field.value.length > 0
-                          ? field.value
-                          : ""
-                      }
-                      onChange={(e) => field.onChange(e.target.value)}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            <div className="flex flex-col w-full pt-2.5">
+              <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
+                Company Name<span className="text-cooper-red-300">*</span>
+              </FormLabel>
+              <Input
+                placeholder="Enter"
+                className="border-cooper-gray-150 h-10 w-full border text-sm"
+                value={newCompanyName}
+                onChange={(e) => setNewCompanyName(e.target.value)}
+              />
+            </div>
 
             {/* Industry */}
             <FormField
