@@ -162,6 +162,13 @@
       "when": 1775776257260,
       "tag": "0023_clean_famine",
       "breakpoints": true
+    },
+    {
+      "idx": 24,
+      "version": "7",
+      "when": 1776009150530,
+      "tag": "0024_talented_rage",
+      "breakpoints": true
     }
   ]
 }
