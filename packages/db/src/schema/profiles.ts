@@ -46,7 +46,7 @@ export const ProfileRelations = relations(Profile, ({ one, many }) => ({
 const MAX_GRADUATION_LENGTH = 6;
 const MONTH_LB = 1;
 const MONTH_UB = 12;
-const YEAR_LB = new Date().getFullYear();
+const YEAR_LB = new Date().getFullYear() - 5;
 const YEAR_UB = YEAR_LB + MAX_GRADUATION_LENGTH;
 
 export const CreateProfileSchema = createInsertSchema(Profile, {

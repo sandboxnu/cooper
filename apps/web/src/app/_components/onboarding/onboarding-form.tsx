@@ -38,7 +38,7 @@ const studentFormSchema = baseFormSchema.extend({
   major: z.string().min(1, "Major is required"),
   graduationYear: z.coerce
     .number({ invalid_type_error: "Graduation year is required" })
-    .min(2010, "Graduation year must be 2010 or later")
+    .min(currentYear - 5, `Graduation year must be ${currentYear - 5} or later`)
     .max(currentYear + 6, "Graduation year must be within the next 5 years"),
   graduationMonth: z.coerce
     .number({ invalid_type_error: "Graduation month is required" })
@@ -88,7 +88,12 @@ export function OnboardingForm({
   const onSubmit = (data: OnboardingFormType) => {
     const payload = isStudent
       ? { userId, ...data }
-      : { userId, firstName: data.firstName, lastName: data.lastName, email: data.email };
+      : {
+          userId,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+        };
     profile.mutate(payload);
   };
 
@@ -168,96 +173,101 @@ export function OnboardingForm({
                 </FormItem>
               )}
             />
-            {isStudent && <div className="grid grid-cols-1 gap-4">
-              <FormField
-                control={form.control}
-                name="major"
-                render={() => (
-                  <FormItem>
-                    <FormLabel required>Major</FormLabel>
-                    <FormControl>
-                      <ComboBox
-                        variant="form"
-                        defaultLabel={majorLabel || "Select major..."}
-                        searchPlaceholder="Search major..."
-                        searchEmpty="No major found."
-                        valuesAndLabels={majors.map((major) => ({
-                          value: major,
-                          label: major,
-                        }))}
-                        currLabel={majorLabel}
-                        onSelect={(currentValue) => {
-                          setMajorLabel(
-                            currentValue === majorLabel ? "" : currentValue,
-                          );
-                          form.setValue("major", currentValue);
-                        }}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+            {isStudent && (
+              <div className="grid grid-cols-1 gap-4">
+                <FormField
+                  control={form.control}
+                  name="major"
+                  render={() => (
+                    <FormItem>
+                      <FormLabel required>Major</FormLabel>
+                      <FormControl>
+                        <ComboBox
+                          variant="form"
+                          defaultLabel={majorLabel || "Select major..."}
+                          searchPlaceholder="Search major..."
+                          searchEmpty="No major found."
+                          valuesAndLabels={majors.map((major) => ({
+                            value: major,
+                            label: major,
+                          }))}
+                          currLabel={majorLabel}
+                          onSelect={(currentValue) => {
+                            setMajorLabel(
+                              currentValue === majorLabel ? "" : currentValue,
+                            );
+                            form.setValue("major", currentValue);
+                          }}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
 
-              <FormField
-                control={form.control}
-                name="minor"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Minor</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="Minor"
-                        {...field}
-                        onClear={() => field.onChange("")}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>}
+                <FormField
+                  control={form.control}
+                  name="minor"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Minor</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Minor"
+                          {...field}
+                          onClear={() => field.onChange("")}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+            )}
 
-            {isStudent && <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-              <FormField
-                control={form.control}
-                name="graduationMonth"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel required>Graduation Month</FormLabel>
-                    <FormControl>
-                      <Select
-                        placeholder="Month"
-                        options={monthOptions}
-                        className="min-w-full"
-                        {...field}
-                        value={
-                          (field.value as number | undefined)?.toString() ?? ""
-                        }
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="graduationYear"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel required>Graduation Year</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="Year"
-                        {...field}
-                        onClear={() => field.onChange("")}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>}
+            {isStudent && (
+              <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                <FormField
+                  control={form.control}
+                  name="graduationMonth"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel required>Graduation Month</FormLabel>
+                      <FormControl>
+                        <Select
+                          placeholder="Month"
+                          options={monthOptions}
+                          className="min-w-full"
+                          {...field}
+                          value={
+                            (field.value as number | undefined)?.toString() ??
+                            ""
+                          }
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="graduationYear"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel required>Graduation Year</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Year"
+                          {...field}
+                          onClear={() => field.onChange("")}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+            )}
 
             <div className="mt-4 flex justify-end">
               <Button

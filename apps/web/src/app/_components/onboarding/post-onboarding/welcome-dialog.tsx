@@ -8,7 +8,11 @@ interface WelcomeDialogProps {
   isStudent: boolean;
 }
 
-export function WelcomeDialog({ heading, onClick, isStudent }: WelcomeDialogProps) {
+export function WelcomeDialog({
+  heading,
+  onClick,
+  isStudent,
+}: WelcomeDialogProps) {
   return (
     <div className="flex items-center justify-center space-y-4">
       <div className="rounded-lg bg-white overflow-hidden flex flex-col">
@@ -27,14 +31,16 @@ export function WelcomeDialog({ heading, onClick, isStudent }: WelcomeDialogProp
           >
             Start browsing
           </Button>
-          {isStudent && <Link href="/review-form">
-            <Button
-              className=" bg-cooper-gray-550 border-cooper-gray-550 hover:bg-cooper-gray-300 hover:border-cooper-gray-300 px-3.5 py-2 text-base font-bold justify-right"
-              onClick={onClick}
-            >
-              Leave a review
-            </Button>
-          </Link>}
+          {isStudent && (
+            <Link href="/review-form">
+              <Button
+                className=" bg-cooper-gray-550 border-cooper-gray-550 hover:bg-cooper-gray-300 hover:border-cooper-gray-300 px-3.5 py-2 text-base font-bold justify-right"
+                onClick={onClick}
+              >
+                Leave a review
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
     </div>

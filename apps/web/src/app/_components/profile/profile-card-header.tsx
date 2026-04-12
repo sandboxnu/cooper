@@ -96,7 +96,9 @@ export default function ProfileCardHeader({
 
       <CardContent className="pb-0">
         {!editing ? (
-          <div className="m-4 items-start flex flex-col md:flex-row justify-between gap-4 text-sm">
+          <div
+            className={`m-4 items-start flex flex-col md:flex-row ${profile.major ? "justify-between gap-4" : "gap-40"} text-sm`}
+          >
             <div className="flex flex-col">
               <h4 className="font-semibold">Name</h4>
               <p>
@@ -107,10 +109,12 @@ export default function ProfileCardHeader({
               <h4 className="font-semibold">Email</h4>
               <p className="text-cooper-gray-400">{email}</p>
             </div>
-            <div className="flex flex-col">
-              <h4 className="font-semibold">Major</h4>
-              <p>{profile.major}</p>
-            </div>
+            {profile.major && (
+              <div className="flex flex-col">
+                <h4 className="font-semibold">Major</h4>
+                <p>{profile.major}</p>
+              </div>
+            )}
           </div>
         ) : (
           <form
@@ -147,17 +151,19 @@ export default function ProfileCardHeader({
                 onChange={(e) => setLastName(e.target.value)}
               />
             </div>
-            <div className="flex flex-col">
-              <label className="font-semibold" htmlFor="major">
-                Major
-              </label>
-              <input
-                id="major"
-                className="mt-1 rounded-md border border-gray-300 px-2 py-1"
-                value={major}
-                onChange={(e) => setMajor(e.target.value)}
-              />
-            </div>
+            {profile.major && (
+              <div className="flex flex-col">
+                <label className="font-semibold" htmlFor="major">
+                  Major
+                </label>
+                <input
+                  id="major"
+                  className="mt-1 rounded-md border border-gray-300 px-2 py-1"
+                  value={major}
+                  onChange={(e) => setMajor(e.target.value)}
+                />
+              </div>
+            )}
             <div className="flex flex-col">
               <label className="font-semibold" htmlFor="email">
                 Email

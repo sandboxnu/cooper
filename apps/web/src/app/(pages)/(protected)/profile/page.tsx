@@ -104,9 +104,11 @@ export default function Profile() {
             <h1 className="font-hanken text-[26px] font-bold">
               {profile.firstName} {profile.lastName}
             </h1>
-            <h2 className="text-cooper-gray-400">
-              Class of {profile.graduationYear}
-            </h2>
+            {profile.graduationYear && (
+              <h2 className="text-cooper-gray-400">
+                Class of {profile.graduationYear}
+              </h2>
+            )}
           </div>
         </div>
         <ProfileCardHeader profile={profile} email={session.user.email ?? ""} />
