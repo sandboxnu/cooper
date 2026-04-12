@@ -137,8 +137,8 @@ export function OnTheJobModal({ averages, isComparing }: OnTheJobModalProps) {
   if (workHoursMin !== null && workHoursMax !== null) {
     workHoursDisplay =
       workHoursMin === workHoursMax
-        ? `Standard ${workHoursMin} hours`
-        : `Standard ${workHoursMin}-${workHoursMax} hours`;
+        ? `${workHoursMin} hours per week`
+        : `${workHoursMin}-${workHoursMax} hours per week`;
   }
   const overtimeLabel =
     overtimeCount > totalReviews / 2
@@ -163,7 +163,7 @@ export function OnTheJobModal({ averages, isComparing }: OnTheJobModalProps) {
 
   // Benefits
   const activeBenefits = BENEFIT_LABELS.filter(
-    ({ key }) => (averages[key] as number) > 0.5,
+    ({ key }) => (averages[key] as number) > 0,
   ).map(({ label }) => label);
   const benefitsDisplay = hasData
     ? activeBenefits.length > 0
@@ -251,7 +251,7 @@ export function OnTheJobModal({ averages, isComparing }: OnTheJobModalProps) {
               {overtimeLabel}
             </p>
             <p className="text-cooper-gray-350 text-[14px] leading-normal">
-              {overtimeCount}/{totalReviews} reported
+              {overtimeCount}/{totalReviews} reported overtime work
             </p>
           </div>
         )}
@@ -266,7 +266,7 @@ export function OnTheJobModal({ averages, isComparing }: OnTheJobModalProps) {
             </p>
             <p className="text-cooper-gray-350 text-[14px] leading-normal">
               {Math.round(averages.federalHolidays * totalReviews)}/
-              {totalReviews} reported
+              {totalReviews} reported federal holidays off
             </p>
           </div>
         )}
@@ -286,6 +286,12 @@ export function OnTheJobModal({ averages, isComparing }: OnTheJobModalProps) {
         <p className="text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]">
           {drugTestDisplay}
         </p>
+        {hasData && (
+          <p className="text-cooper-gray-350 text-[14px] leading-normal">
+            {Math.round(drugTest * totalReviews)}/{totalReviews} reported a drug
+            test requirement
+          </p>
+        )}
       </BenefitRow>
 
       <hr className="border-t border-[#ebebeb]" />
