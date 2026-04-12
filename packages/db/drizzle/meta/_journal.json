@@ -169,6 +169,13 @@
       "when": 1775929337856,
       "tag": "0024_colorful_fallen_one",
       "breakpoints": true
+    },
+    {
+      "idx": 25,
+      "version": "7",
+      "when": 1776009300022,
+      "tag": "0025_sleepy_pretty_boy",
+      "breakpoints": true
     }
   ]
 }
