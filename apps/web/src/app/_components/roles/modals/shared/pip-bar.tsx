@@ -12,7 +12,10 @@ const MIN_PIP_WIDTH = 4;
 export function PipBar({ filledCount, totalCount, filledColor }: PipBarProps) {
   const pipWidth = Math.max(
     MIN_PIP_WIDTH,
-    (REFERENCE_WIDTH - (totalCount - 1) * GAP) / totalCount,
+    Math.min(
+      MAX_PIP_WIDTH,
+      (REFERENCE_WIDTH - (totalCount - 1) * GAP) / totalCount,
+    ),
   );
 
   return (
