@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@cooper/ui";
 import ModalContainer from "../../reviews/modal";
 import { InfoIcon } from "./shared/info-icon";
 
@@ -223,7 +224,7 @@ export function OnTheJobModal({ averages, isComparing }: OnTheJobModalProps) {
               />
             )}
           </div>
-          <p className="text-cooper-gray-900 text-[36px] leading-none">
+          <p className="text-cooper-gray-900 text-xl xs:text-[36px] leading-none">
             {workEnvironmentMode ?? "---"}
           </p>
         </div>
@@ -232,7 +233,7 @@ export function OnTheJobModal({ averages, isComparing }: OnTheJobModalProps) {
         <p className="text-cooper-gray-400 text-[16px] leading-6 tracking-[-0.16px]">
           Job length
         </p>
-        <p className="text-cooper-gray-900 text-[36px] leading-none">
+        <p className="text-cooper-gray-900 text-xl xs:text-[36px] leading-none">
           {jobLengthDisplay}
         </p>
       </div>
@@ -321,12 +322,23 @@ export function OnTheJobModal({ averages, isComparing }: OnTheJobModalProps) {
       </div>
       <div className="flex flex-col gap-3 pr-1">
         {cultureRows.map(({ label, count }) => (
-          <div key={label} className="flex h-6 items-center justify-between">
+          <div
+            key={label}
+            className={cn(
+              "flex items-start justify-between",
+              !isComparing && "sm:items-center",
+            )}
+          >
             <p className="w-[140px] shrink-0 text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]">
               {label}
             </p>
             {hasData ? (
-              <div className="flex w-[200px] gap-3 items-center">
+              <div
+                className={cn(
+                  "flex flex-col gap-1",
+                  !isComparing && "sm:flex-row sm:gap-3 sm:items-center",
+                )}
+              >
                 <div
                   className="flex h-2 gap-0.5 items-center"
                   style={{ width: `${Math.min(102, totalReviews * 26 - 2)}px` }}
@@ -369,7 +381,7 @@ export function OnTheJobModal({ averages, isComparing }: OnTheJobModalProps) {
               <p className="text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]">
                 {label}
               </p>
-              <p className="text-cooper-gray-400 text-[14px] leading-normal">
+              <p className="text-cooper-gray-400 text-[10px] sm:text-[14px] leading-normal">
                 {subtext}
               </p>
             </div>
