@@ -321,10 +321,11 @@ export default function ExistingCompanyContent({
 
         <div
           className="flex flex-1 items-center gap-2"
-          onClick={() => setShowNewCompany(!showNewCompany)}
+          onClick={() => !selectedCompany && setShowNewCompany(!showNewCompany)}
         >
           <Checkbox
             checked={showNewCompany}
+            disabled={!!selectedCompany}
             onCheckedChange={(checked) => {
               setShowNewCompany(checked === true);
               if (checked) {
@@ -343,7 +344,9 @@ export default function ExistingCompanyContent({
               }
             }}
           />
-          <Label className="text-cooper-gray-550 cursor-pointer text-sm font-bold">
+          <Label
+            className={`text-cooper-gray-550 text-sm font-bold ${selectedCompany ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}
+          >
             I don't see my company
           </Label>
         </div>

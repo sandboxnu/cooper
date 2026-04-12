@@ -60,7 +60,11 @@ export default function FavoriteRoleSearch({
               (role): role is NonNullable<typeof role> => role !== undefined,
             )
             .map((company) => (
-              <RoleCardPreview roleObj={company} key={company.companyId} />
+              <RoleCardPreview
+                roleObj={company}
+                key={company.companyId}
+                className="hover:cursor-default hover:bg-white"
+              />
             ))
         ) : (
           <p className="italic text-cooper-gray-400">No saved roles found.</p>
