@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import { prettyIndustry } from "~/utils/stringHelpers";
-import SectionCard from "../../shared/section-card";
+import ModalContainer from "../../reviews/modal";
 import { PipBar } from "./shared/pip-bar";
 import { PipCard } from "./shared/pip-card";
 import { TabToggle } from "./shared/tab-toggle";
@@ -111,7 +111,7 @@ export function PayModal({
 
   if (compact) {
     return (
-      <SectionCard title="Pay">
+      <ModalContainer title="Pay">
         <div className="flex flex-col gap-[24px]">
           <p className="text-[36px] font-normal leading-[normal] tracking-[-0.72px] text-cooper-gray-900">
             ${Math.round(avgPay)}/hr
@@ -139,12 +139,12 @@ export function PayModal({
             </div>
           </div>
         </div>
-      </SectionCard>
+      </ModalContainer>
     );
   }
 
   return (
-    <SectionCard title="Pay">
+    <ModalContainer title="Pay">
       <div className="flex flex-col gap-[12px]">
         <div className="flex items-start gap-[32px]">
           {/* Left — pay histogram */}
@@ -276,6 +276,6 @@ export function PayModal({
             : "No responses"}
         </p>
       </div>
-    </SectionCard>
+    </ModalContainer>
   );
 }

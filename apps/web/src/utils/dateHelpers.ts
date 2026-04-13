@@ -56,7 +56,7 @@ export const formatLastEditedDate = (
     return `Last edited ${minutesDifference} minutes ago`;
   }
   if (hoursDifference <= 23) {
-    return `Last edited ${hoursDifference} hrs ago`;
+    return `Last edited ${hoursDifference} hours ago`;
   }
   if (daysDifference == 1) {
     return `Last edited ${daysDifference} day ago`;

@@ -5,7 +5,7 @@ import Fuse from "fuse.js";
 import { z } from "zod";
 
 import type { ReviewType } from "@cooper/db/schema";
-import { and, desc, eq, inArray, isNull } from "@cooper/db";
+import { and, desc, eq, inArray, isNull, sql } from "@cooper/db";
 import {
   CompaniesToLocations,
   Company,
@@ -13,7 +13,9 @@ import {
   CreateReviewSchema,
   InterviewRound,
   Review,
+  ReviewsToTools,
   Status,
+  Tool,
 } from "@cooper/db/schema";
 
 const CreateReviewWithRoundsSchema = CreateReviewSchema.extend({
@@ -21,6 +23,7 @@ const CreateReviewWithRoundsSchema = CreateReviewSchema.extend({
     .array(CreateInterviewRoundSchema.omit({ reviewId: true }))
     .optional()
     .default([]),
+  toolNames: z.array(z.string()).optional().default([]),
 });
 import {
   protectedProcedure,
@@ -134,7 +137,7 @@ export const reviewRouter = {
   create: protectedProcedure
     .input(CreateReviewWithRoundsSchema)
     .mutation(async ({ ctx, input }) => {
-      const { interviewRounds, ...reviewInput } = input;
+      const { interviewRounds, toolNames, ...reviewInput } = input;
 
       if (!reviewInput.profileId) {
         throw new TRPCError({
@@ -221,12 +224,45 @@ export const reviewRouter = {
       if (roundsToInsert.length > 0) {
         await ctx.db.insert(InterviewRound).values(roundsToInsert);
       }
+
+      if (toolNames.length > 0) {
+        const reviewId = inserted?.id ?? "";
+        for (const name of toolNames) {
+          const trimmed = name.trim();
+          if (!trimmed) continue;
+          const existingTool = await ctx.db
+            .select()
+            .from(Tool)
+            .where(sql`lower(${Tool.name}) = lower(${trimmed})`)
+            .limit(1)
+            .then((rows) => rows[0]);
+          let tool = existingTool;
+          if (!existingTool) {
+            await ctx.db
+              .insert(Tool)
+              .values({ name: trimmed })
+              .onConflictDoNothing();
+            tool = await ctx.db
+              .select()
+              .from(Tool)
+              .where(sql`lower(${Tool.name}) = lower(${trimmed})`)
+              .limit(1)
+              .then((rows) => rows[0]);
+          }
+          if (tool) {
+            await ctx.db
+              .insert(ReviewsToTools)
+              .values({ reviewId, toolId: tool.id })
+              .onConflictDoNothing();
+          }
+        }
+      }
     }),
 
   saveDraft: protectedProcedure
     .input(CreateReviewWithRoundsSchema)
     .mutation(async ({ ctx, input }) => {
-      const { interviewRounds, ...reviewInput } = input;
+      const { interviewRounds, toolNames, ...reviewInput } = input;
 
       if (!reviewInput.profileId) {
         throw new TRPCError({
@@ -310,19 +346,55 @@ export const reviewRouter = {
         .values(draftInput)
         .returning({ id: Review.id });
 
+      const reviewId = inserted?.id ?? "";
+
       const roundsToInsert = interviewRounds.flatMap((r) => {
         if (r.interviewType == null || r.interviewDifficulty == null) return [];
         return [
           {
             interviewType: r.interviewType,
             interviewDifficulty: r.interviewDifficulty,
-            reviewId: inserted?.id ?? "",
+            reviewId,
           },
         ];
       });
       if (roundsToInsert.length > 0) {
         await ctx.db.insert(InterviewRound).values(roundsToInsert);
       }
+
+      if (toolNames.length > 0) {
+        for (const name of toolNames) {
+          const trimmed = name.trim();
+          if (!trimmed) continue;
+          const existingTool = await ctx.db
+            .select()
+            .from(Tool)
+            .where(sql`lower(${Tool.name}) = lower(${trimmed})`)
+            .limit(1)
+            .then((rows) => rows[0]);
+          let tool = existingTool;
+          if (!existingTool) {
+            await ctx.db
+              .insert(Tool)
+              .values({ name: trimmed })
+              .onConflictDoNothing();
+            tool = await ctx.db
+              .select()
+              .from(Tool)
+              .where(sql`lower(${Tool.name}) = lower(${trimmed})`)
+              .limit(1)
+              .then((rows) => rows[0]);
+          }
+          if (tool) {
+            await ctx.db
+              .insert(ReviewsToTools)
+              .values({ reviewId, toolId: tool.id })
+              .onConflictDoNothing();
+          }
+        }
+      }
+
+      return { id: reviewId };
     }),
 
   getInterviewDataByIndustry: sortableProcedure
@@ -451,18 +523,25 @@ export const reviewRouter = {
     .query(({ ctx, input }) => {
       return ctx.db.query.Review.findFirst({
         where: eq(Review.id, input.id),
-        with: { interviewRounds: true },
+        with: {
+          interviewRounds: true,
+          reviewsToTools: { with: { tool: true } },
+        },
       });
     }),
 
   update: protectedProcedure
     .input(CreateReviewWithRoundsSchema.extend({ id: z.string() }))
     .mutation(async ({ ctx, input }) => {
-      const { id, interviewRounds, ...reviewInput } = input;
+      const { id, interviewRounds, toolNames, ...reviewInput } = input;
 
       await ctx.db
         .delete(InterviewRound)
         .where(eq(InterviewRound.reviewId, id));
+
+      await ctx.db
+        .delete(ReviewsToTools)
+        .where(eq(ReviewsToTools.reviewId, id));
 
       await ctx.db
         .update(Review)
@@ -481,6 +560,38 @@ export const reviewRouter = {
       });
       if (roundsToInsert.length > 0) {
         await ctx.db.insert(InterviewRound).values(roundsToInsert);
+      }
+
+      if (toolNames.length > 0) {
+        for (const name of toolNames) {
+          const trimmed = name.trim();
+          if (!trimmed) continue;
+          const existingTool = await ctx.db
+            .select()
+            .from(Tool)
+            .where(sql`lower(${Tool.name}) = lower(${trimmed})`)
+            .limit(1)
+            .then((rows) => rows[0]);
+          let tool = existingTool;
+          if (!existingTool) {
+            await ctx.db
+              .insert(Tool)
+              .values({ name: trimmed })
+              .onConflictDoNothing();
+            tool = await ctx.db
+              .select()
+              .from(Tool)
+              .where(sql`lower(${Tool.name}) = lower(${trimmed})`)
+              .limit(1)
+              .then((rows) => rows[0]);
+          }
+          if (tool) {
+            await ctx.db
+              .insert(ReviewsToTools)
+              .values({ reviewId: id, toolId: tool.id })
+              .onConflictDoNothing();
+          }
+        }
       }
     }),
 

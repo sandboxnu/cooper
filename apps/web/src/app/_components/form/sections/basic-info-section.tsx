@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 
 import {
@@ -10,10 +11,10 @@ import {
 } from "@cooper/ui/form";
 
 import { FormSection } from "~/app/_components/form/form-section";
+import { Input } from "~/app/_components/themed/onboarding/input";
 import ExistingCompanyContent from "../../reviews/existing-company-content";
 import FilterBody from "../../filters/filter-body";
 import LocationBox from "../../location";
-import { useEffect, useState } from "react";
 import { api } from "~/trpc/react";
 
 /**
@@ -32,9 +33,24 @@ export function BasicInfoSection({
 
   // Need to evaluate whether this is a bad idea
   const currentYear = dayjs().year();
+  const currentMonth = dayjs().month() + 1;
+
+  // Month when each term begins — used to block future-term reviews
+  const TERM_START_MONTHS: Record<string, number> = {
+    SPRING: 1, // January
+    SUMMER: 5, // May
+    FALL: 8, // August
+  };
+
+  const workTerm = form.watch("workTerm") as string | undefined;
+
+  const termStartMonth = workTerm ? (TERM_START_MONTHS[workTerm] ?? 1) : 1;
+  const maxYear =
+    termStartMonth <= currentMonth ? currentYear : currentYear - 1;
+
   const years = Array.from(
-    { length: currentYear - 1999 },
-    (_, index) => currentYear - index,
+    { length: maxYear - 1999 },
+    (_, index) => maxYear - index,
   );
 
   const locationsToUpdate = api.location.getByPopularity.useQuery(
@@ -80,6 +96,14 @@ export function BasicInfoSection({
       setSearchTerm("");
     }
   }, [locationId]);
+
+  useEffect(() => {
+    const currentWorkYear = form.getValues("workYear") as number | undefined;
+    if (currentWorkYear && currentWorkYear > maxYear) {
+      form.setValue("workYear", undefined as unknown as number);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [maxYear]);
 
   return (
     <FormSection>
@@ -160,6 +184,37 @@ export function BasicInfoSection({
             </FormItem>
           );
         }}
+      />
+
+      <FormField
+        control={form.control}
+        name="jobLength"
+        render={({ field }) => (
+          <FormItem className="flex flex-col pt-4">
+            <FormLabel className="text-sm font-bold text-cooper-gray-400">
+              Job length<span className="text-cooper-red-300">*</span>
+            </FormLabel>
+            <p className="text-xs text-cooper-gray-350">
+              Enter length of entire term, in months
+            </p>
+            <FormControl>
+              <Input
+                type="number"
+                min={1}
+                step={1}
+                placeholder="Enter job length, in months"
+                value={(field.value as number | null) ?? ""}
+                onChange={(e) =>
+                  field.onChange(
+                    e.target.value === "" ? null : Number(e.target.value),
+                  )
+                }
+                onClear={() => field.onChange(null)}
+              />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
       />
 
       <FormField
