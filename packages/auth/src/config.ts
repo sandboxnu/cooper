@@ -40,13 +40,9 @@ export const isSecureContext = env.NODE_ENV !== "development";
 
 export const authConfig = {
   adapter,
-  // In development, we need to skip checks to allow Expo to work
-  ...(!isSecureContext
-    ? {
-        skipCSRFCheck: skipCSRFCheck,
-        trustHost: true,
-      }
-    : {}),
+  trustHost: true,
+  // In development, we need to skip CSRF checks to allow Expo to work
+  ...(!isSecureContext ? { skipCSRFCheck: skipCSRFCheck } : {}),
   secret: env.AUTH_SECRET,
   providers: [
     Google({
