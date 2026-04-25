@@ -24,6 +24,7 @@ function rewriteRequestUrlInDevelopment(req: NextRequest) {
 }
 
 export const POST = async (_req: NextRequest) => {
+  console.log('AUTH_URL:', process.env.AUTH_URL);
   // First step must be to correct the request URL.
   const req = rewriteRequestUrlInDevelopment(_req);
   return handlers.POST(req);
@@ -33,6 +34,7 @@ export const GET = async (
   _req: NextRequest,
   props: { params: Promise<{ nextauth: string[] }> },
 ) => {
+  console.log('AUTH_URL:', process.env.AUTH_URL);
   // First step must be to correct the request URL.
   const req = rewriteRequestUrlInDevelopment(_req);
 
