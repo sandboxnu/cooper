@@ -42,9 +42,9 @@ export const HiddenRelations = relations(Hidden, ({ one }) => ({
 }));
 
 export const CreateHiddenSchema = createInsertSchema(Hidden, {
-  entityType: z.nativeEnum(ModerationEntityType),
-  entityId: z.string().uuid(),
-  adminId: z.string().uuid(),
+  entityType: () => z.nativeEnum(ModerationEntityType),
+  entityId: () => z.string().uuid(),
+  adminId: () => z.string().uuid(),
 }).omit({
   id: true,
   isActive: true,

@@ -43,7 +43,7 @@ export default function Landing() {
         <div className="pt-6 text-cooper-gray-550 font-lg flex flex-col gap-3">
           {textOptions.map((option) => {
             return (
-              <div className="flex flex-row gap-2">
+              <div key={option} className="flex flex-row gap-2">
                 <Image
                   src="/svg/blueCheck.svg"
                   width={11}

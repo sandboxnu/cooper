@@ -38,7 +38,7 @@ export const ProfilesToCompaniesRelations = relations(
 export const CreateProfileToCompanySchema = createInsertSchema(
   ProfilesToCompanies,
   {
-    profileId: z.string(),
-    companyId: z.string(),
+    profileId: () => z.string(),
+    companyId: () => z.string(),
   },
 );

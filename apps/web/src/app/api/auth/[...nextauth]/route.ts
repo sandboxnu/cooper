@@ -31,47 +31,56 @@ export const POST = async (_req: NextRequest) => {
 
 export const GET = async (
   _req: NextRequest,
-  props: { params: { nextauth: string[] } },
+  props: { params: Promise<{ nextauth: string[] }> },
 ) => {
   // First step must be to correct the request URL.
   const req = rewriteRequestUrlInDevelopment(_req);
 
-  const nextauthAction = props.params.nextauth[0];
-  const isExpoSignIn = req.nextUrl.searchParams.get("expo-redirect");
-  const isExpoCallback = cookies().get(EXPO_COOKIE_NAME);
+  const { nextauth } = await props.params;
+  const nextauthAction = nextauth[0];
 
-  if (nextauthAction === "signin" && !!isExpoSignIn) {
-    // set a cookie we can read in the callback
-    // to know to send the user back to expo
-    cookies().set({
-      name: EXPO_COOKIE_NAME,
-      value: isExpoSignIn,
-      maxAge: 60 * 10, // 10 min
-      path: "/",
-    });
+  if (nextauthAction === "signin") {
+    const isExpoSignIn = req.nextUrl.searchParams.get("expo-redirect");
+    if (isExpoSignIn) {
+      // set a cookie we can read in the callback
+      // to know to send the user back to expo
+      const cookieStore = await cookies();
+      cookieStore.set({
+        name: EXPO_COOKIE_NAME,
+        value: isExpoSignIn,
+        maxAge: 60 * 10, // 10 min
+        path: "/",
+      });
+    }
+    return handlers.GET(req);
   }
 
-  if (nextauthAction === "callback" && !!isExpoCallback) {
-    cookies().delete(EXPO_COOKIE_NAME);
+  if (nextauthAction === "callback") {
+    const cookieStore = await cookies();
+    const isExpoCallback = cookieStore.get(EXPO_COOKIE_NAME);
 
-    // Run original handler, then extract the session token from the response
-    // Send it back via a query param in the Expo deep link. The Expo app
-    // will then get that and set it in the session storage.
-    const authResponse = await handlers.GET(req);
-    const setCookie = authResponse.headers
-      .getSetCookie()
-      .find((cookie) => AUTH_COOKIE_PATTERN.test(cookie));
-    const match = setCookie?.match(AUTH_COOKIE_PATTERN)?.[1];
+    if (isExpoCallback) {
+      cookieStore.delete(EXPO_COOKIE_NAME);
 
-    if (!match)
-      throw new Error(
-        "Unable to find session cookie: " +
-          JSON.stringify(authResponse.headers.getSetCookie()),
-      );
+      // Run original handler, then extract the session token from the response
+      // Send it back via a query param in the Expo deep link. The Expo app
+      // will then get that and set it in the session storage.
+      const authResponse = await handlers.GET(req);
+      const setCookie = authResponse.headers
+        .getSetCookie()
+        .find((cookie) => AUTH_COOKIE_PATTERN.test(cookie));
+      const match = setCookie?.match(AUTH_COOKIE_PATTERN)?.[1];
 
-    const url = new URL(isExpoCallback.value);
-    url.searchParams.set("session_token", match);
-    return NextResponse.redirect(url);
+      if (!match)
+        throw new Error(
+          "Unable to find session cookie: " +
+            JSON.stringify(authResponse.headers.getSetCookie()),
+        );
+
+      const url = new URL(isExpoCallback.value);
+      url.searchParams.set("session_token", match);
+      return NextResponse.redirect(url);
+    }
   }
 
   // Every other request just calls the default handler

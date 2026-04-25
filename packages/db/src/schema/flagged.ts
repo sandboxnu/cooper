@@ -44,10 +44,10 @@ export const FlaggedRelations = relations(Flagged, ({ one }) => ({
 }));
 
 export const CreateFlaggedSchema = createInsertSchema(Flagged, {
-  entityType: z.nativeEnum(ModerationEntityType),
-  entityId: z.string().uuid(),
-  description: z.string().min(1),
-  adminId: z.string().uuid(),
+  entityType: () => z.nativeEnum(ModerationEntityType),
+  entityId: () => z.string().uuid(),
+  description: () => z.string().min(1),
+  adminId: () => z.string().uuid(),
 }).omit({
   id: true,
   isActive: true,

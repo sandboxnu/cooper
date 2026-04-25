@@ -50,12 +50,12 @@ const YEAR_LB = new Date().getFullYear() - 5;
 const YEAR_UB = new Date().getFullYear() + MAX_GRADUATION_LENGTH;
 
 export const CreateProfileSchema = createInsertSchema(Profile, {
-  firstName: z.string(),
-  lastName: z.string(),
-  major: z.string().optional(),
-  minor: z.string().optional(),
-  graduationYear: z.number().min(YEAR_LB).max(YEAR_UB).optional(),
-  graduationMonth: z.number().min(MONTH_LB).max(MONTH_UB).optional(),
+  firstName: () => z.string(),
+  lastName: () => z.string(),
+  major: () => z.string().optional(),
+  minor: () => z.string().optional(),
+  graduationYear: () => z.number().min(YEAR_LB).max(YEAR_UB).optional(),
+  graduationMonth: () => z.number().min(MONTH_LB).max(MONTH_UB).optional(),
 }).omit({
   id: true,
   createdAt: true,

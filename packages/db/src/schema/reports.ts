@@ -45,21 +45,21 @@ export const ReportRelations = relations(Report, ({ one }) => ({
   }),
 }));
 
-export const CreateReportSchema = createInsertSchema(Report, {
-  reportText: z.string().min(1),
-  reason: z.nativeEnum(ReportReason),
-  profileId: z.string(),
-  roleId: z.string().optional(),
-  companyId: z.string().optional(),
-  reviewId: z.string().optional(),
-})
-  .omit({
-    id: true,
-    createdAt: true,
-    updatedAt: true,
-  })
-  .refine(
-    (data) =>
-      [data.roleId, data.companyId, data.reviewId].filter(Boolean).length === 1,
-    { message: "Exactly one of roleId, companyId, or reviewId must be set" },
-  );
+const _baseReportSchema = createInsertSchema(Report, {
+  reportText: () => z.string().min(1),
+  reason: () => z.nativeEnum(ReportReason),
+  profileId: () => z.string(),
+  roleId: () => z.string().optional(),
+  companyId: () => z.string().optional(),
+  reviewId: () => z.string().optional(),
+}).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export const CreateReportSchema = _baseReportSchema.refine(
+  (data: z.infer<typeof _baseReportSchema>) =>
+    [data.roleId, data.companyId, data.reviewId].filter(Boolean).length === 1,
+  { message: "Exactly one of roleId, companyId, or reviewId must be set" },
+);
