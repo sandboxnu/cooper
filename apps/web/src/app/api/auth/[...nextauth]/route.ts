@@ -23,8 +23,20 @@ function rewriteRequestUrlInDevelopment(req: NextRequest) {
   return new NextRequest(newURL, req);
 }
 
+/* eslint-disable no-restricted-properties */
+function ensureAuthUrl(req: NextRequest) {
+  if (!process.env.AUTH_URL) {
+    const host =
+      req.headers.get("x-forwarded-host") ??
+      req.headers.get("host") ??
+      req.nextUrl.host;
+    process.env.AUTH_URL = `https://${host}`;
+  }
+}
+/* eslint-enable no-restricted-properties */
+
 export const POST = async (_req: NextRequest) => {
-  console.log('AUTH_URL:', process.env.AUTH_URL);
+  ensureAuthUrl(_req);
   // First step must be to correct the request URL.
   const req = rewriteRequestUrlInDevelopment(_req);
   return handlers.POST(req);
@@ -34,7 +46,7 @@ export const GET = async (
   _req: NextRequest,
   props: { params: Promise<{ nextauth: string[] }> },
 ) => {
-  console.log('AUTH_URL:', process.env.AUTH_URL);
+  ensureAuthUrl(_req);
   // First step must be to correct the request URL.
   const req = rewriteRequestUrlInDevelopment(_req);
 
