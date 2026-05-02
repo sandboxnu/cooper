@@ -22,6 +22,7 @@ const baseURL =
   (process.env.VERCEL_URL
     ? `https://${process.env.VERCEL_URL}`
     : "http://localhost:3000");
+console.log("[auth] baseURL:", baseURL);
 /* eslint-enable no-restricted-properties */
 
 export const auth = betterAuth({
