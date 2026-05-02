@@ -1,6 +1,6 @@
 import { betterAuth, APIError } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { genericOAuth } from "better-auth/plugins";
+import { genericOAuth, oAuthProxy } from "better-auth/plugins";
 import { eq } from "drizzle-orm";
 
 import { db } from "@cooper/db/client";
@@ -77,6 +77,7 @@ export const auth = betterAuth({
   },
 
   plugins: [
+    oAuthProxy(),
     genericOAuth({
       config: [
         {
