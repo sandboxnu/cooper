@@ -183,6 +183,13 @@
       "when": 1777691567675,
       "tag": "0026_puzzling_hannibal_king",
       "breakpoints": true
+    },
+    {
+      "idx": 27,
+      "version": "7",
+      "when": 1777691567676,
+      "tag": "0027_talented_rage",
+      "breakpoints": true
     }
   ]
 }
