@@ -53,8 +53,7 @@
       "flatted": "^3.4.2",
       "defu": "^6.1.5",
       "rollup": "^4.59.0",
-      "picomatch": "^2.3.2",
-      "@vercel/postgres": "^0.10.0"
+      "picomatch": "^2.3.2"
     }
   }
 }

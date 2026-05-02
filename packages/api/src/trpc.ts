@@ -5,6 +5,7 @@ import { z, ZodError } from "zod";
 import type { Session } from "@cooper/auth";
 import { auth } from "@cooper/auth";
 import { db } from "@cooper/db/client";
+import type { CooperDb } from "@cooper/db/client";
 
 /**
  * Isomorphic Session getter for API requests
@@ -15,11 +16,18 @@ import { db } from "@cooper/db/client";
 const isomorphicGetSession = (headers: Headers) =>
   auth.api.getSession({ headers });
 
+export interface Context {
+  session: Session | null;
+  db: CooperDb;
+  token: string | null;
+  res: Response | undefined;
+}
+
 export const createTRPCContext = async (opts: {
   headers: Headers;
   session: Session | null;
   res?: Response;
-}) => {
+}): Promise<Context> => {
   const authToken = opts.headers.get("Authorization") ?? null;
   const session = opts.session ?? (await isomorphicGetSession(opts.headers));
   const source = opts.headers.get("x-trpc-source") ?? "unknown";

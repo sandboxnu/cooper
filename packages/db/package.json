@@ -32,8 +32,8 @@
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
     "@t3-oss/env-core": "^0.10.1",
-    "@vercel/postgres": "^0.10.0",
     "dayjs": "^1.11.13",
     "drizzle-orm": "^0.45.2",
     "drizzle-zod": "^0.5.1",
