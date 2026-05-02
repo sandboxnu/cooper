@@ -88,7 +88,7 @@ export const auth = betterAuth({
           tokenUrl: "https://oauth2.googleapis.com/token",
           userInfoUrl: "https://www.googleapis.com/oauth2/v3/userinfo",
           scopes: ["openid", "email", "profile"],
-          pkce: false,
+          pkce: true,
           mapProfileToUser: (profile: Record<string, string>) => ({
             email: profile.email,
             name: profile.name,
@@ -104,7 +104,7 @@ export const auth = betterAuth({
           tokenUrl: "https://oauth2.googleapis.com/token",
           userInfoUrl: "https://www.googleapis.com/oauth2/v3/userinfo",
           scopes: ["openid", "email", "profile"],
-          pkce: false,
+          pkce: true,
           mapProfileToUser: (profile: Record<string, string>) => ({
             email: profile.email,
             name: profile.name,
