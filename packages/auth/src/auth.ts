@@ -23,9 +23,16 @@ const baseURL =
     ? `https://${process.env.VERCEL_URL}`
     : "http://localhost:3000");
 console.log("[auth] baseURL:", baseURL);
+
+const trustedOrigins = [
+  baseURL,
+  ...(process.env.VERCEL_URL ? [`https://${process.env.VERCEL_URL}`] : []),
+  "http://localhost:3000",
+];
 /* eslint-enable no-restricted-properties */
 
 export const auth = betterAuth({
+  trustedOrigins,
   database: drizzleAdapter(db, {
     provider: "pg",
     schema: {
