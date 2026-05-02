@@ -17,9 +17,11 @@ import { env } from "../env";
 export const isSecureContext = env.NODE_ENV !== "development";
 
 /* eslint-disable no-restricted-properties */
-const baseURL = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : (env.AUTH_URL ?? "http://localhost:3000");
+const baseURL =
+  env.AUTH_URL ??
+  (process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000");
 /* eslint-enable no-restricted-properties */
 
 export const auth = betterAuth({
