@@ -72,10 +72,12 @@ import {
 import type { InterviewRoundType } from "./schema/interviewRound";
 import { Session } from "./schema/sessions";
 import { User } from "./schema/users";
+import { Verification } from "./schema/verification";
 
 export {
   Account,
   Session,
+  Verification,
   InterviewRound,
   InterviewRoundRelations,
   CreateInterviewRoundSchema,

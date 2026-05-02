@@ -176,6 +176,13 @@
       "when": 1776009300022,
       "tag": "0025_sleepy_pretty_boy",
       "breakpoints": true
+    },
+    {
+      "idx": 26,
+      "version": "7",
+      "when": 1777691567675,
+      "tag": "0026_puzzling_hannibal_king",
+      "breakpoints": true
     }
   ]
 }

@@ -15,7 +15,7 @@ import {
 import { Button } from "@cooper/ui/button";
 
 import { api } from "~/trpc/react";
-import { handleSignOut } from "../auth/actions";
+import { authClient } from "@cooper/auth/client";
 import CooperLogo from "../cooper-logo";
 import MobileHeaderButton from "./mobile-header-button";
 import type { Session } from "@cooper/auth";
@@ -35,7 +35,6 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
   const pathname = usePathname();
   const session = api.auth.getSession.useQuery();
   const router = useRouter();
-  const utils = api.useUtils();
   const isStudentOrDeveloper =
     session.data?.user.role === UserRole.STUDENT ||
     session.data?.user.role === UserRole.DEVELOPER;
@@ -118,9 +117,9 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
                   <button
                     type="button"
                     onClick={async () => {
-                      utils.auth.getSession.setData(undefined, null);
                       setIsOpen(false);
-                      await handleSignOut();
+                      await authClient.signOut();
+                      window.location.href = "/";
                     }}
                   >
                     Log Out

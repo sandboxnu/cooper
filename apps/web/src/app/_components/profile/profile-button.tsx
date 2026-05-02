@@ -1,8 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
 import type { Session } from "@cooper/auth";
-import { signOut } from "@cooper/auth";
+import { authClient } from "@cooper/auth/client";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -46,16 +48,15 @@ export default function ProfileButton({ session }: ProfileButtonProps) {
           )}
           <DropdownMenuSeparator />
           <DropdownMenuLabel className="text-center">
-            <form>
-              <button
-                formAction={async () => {
-                  "use server";
-                  await signOut({ redirectTo: "/" });
-                }}
-              >
-                Log Out
-              </button>
-            </form>
+            <button
+              type="button"
+              onClick={async () => {
+                await authClient.signOut();
+                window.location.href = "/";
+              }}
+            >
+              Log Out
+            </button>
           </DropdownMenuLabel>
         </DropdownMenuContent>
       </DropdownMenu>

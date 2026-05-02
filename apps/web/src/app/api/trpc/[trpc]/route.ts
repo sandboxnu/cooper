@@ -5,10 +5,6 @@ import { auth } from "@cooper/auth";
 
 export const runtime = "edge";
 
-/**
- * Configure basic CORS headers
- * You should extend this to match your needs
- */
 const setCorsHeaders = (res: Response) => {
   res.headers.set("Access-Control-Allow-Origin", "*");
   res.headers.set("Access-Control-Request-Method", "*");
@@ -17,21 +13,19 @@ const setCorsHeaders = (res: Response) => {
 };
 
 export const OPTIONS = () => {
-  const response = new Response(null, {
-    status: 204,
-  });
+  const response = new Response(null, { status: 204 });
   setCorsHeaders(response);
   return response;
 };
 
-const handler = auth(async (req) => {
+const handler = async (req: Request) => {
   const response = await fetchRequestHandler({
     endpoint: "/api/trpc",
     router: appRouter,
     req,
-    createContext: () =>
+    createContext: async () =>
       createTRPCContext({
-        session: req.auth,
+        session: await auth.api.getSession({ headers: req.headers }),
         headers: req.headers,
       }),
     onError({ error, path }) {
@@ -41,6 +35,6 @@ const handler = auth(async (req) => {
 
   setCorsHeaders(response);
   return response;
-});
+};
 
 export { handler as GET, handler as POST };

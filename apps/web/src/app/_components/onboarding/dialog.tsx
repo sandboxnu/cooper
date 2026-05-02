@@ -28,6 +28,7 @@ export function OnboardingDialog({
 
   const profile = api.profile.getCurrentUser.useQuery(undefined, {
     refetchOnWindowFocus: false,
+    enabled: !!session,
   });
 
   const backendFilters = {

@@ -1,11 +1,13 @@
-export { auth as middleware } from "@cooper/auth";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
-// Or like this if you need to do something here.
-// export default auth((req) => {
-//   console.log(req.auth) //  { session: { user: { ... } } }
-// })
+// Session validation and route protection is handled in layouts.
+// This middleware exists as a placeholder for future middleware needs
+// (e.g. rate limiting, geolocation, A/B testing).
+export function middleware(_request: NextRequest) {
+  return NextResponse.next();
+}
 
-// Read more: https://web.org/docs/app/building-your-application/routing/middleware#matcher
 export const config = {
   matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };
