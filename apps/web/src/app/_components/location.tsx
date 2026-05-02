@@ -45,7 +45,7 @@ export default function LocationBox({
   setLocationLabel: (currentValue: string) => void;
   locationsToUpdate?: { data?: LocationType[] };
   setValue?: (name: string, finalValue: string) => void;
-  handleSubmit?: UseFormHandleSubmit<FieldValues, undefined>;
+  handleSubmit?: UseFormHandleSubmit<FormSchema>;
   onSubmit?: (data: FormSchema) => void;
   onClear?: () => void;
 }) {
