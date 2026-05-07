@@ -16,25 +16,27 @@ import { env } from "../env";
 
 export const isSecureContext = env.NODE_ENV !== "development";
 
-/* eslint-disable no-restricted-properties */
 const baseURL =
   env.AUTH_URL ??
-  (process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "http://localhost:3000");
-console.log("[auth] baseURL:", baseURL);
+  (env.VERCEL_URL ? `https://${env.VERCEL_URL}` : "http://localhost:3000");
 
 const trustedOrigins = [
   baseURL,
-  ...(process.env.VERCEL_URL ? [`https://${process.env.VERCEL_URL}`] : []),
-  /* eslint-disable no-restricted-properties */
-  ...(process.env.VERCEL_BRANCH_URL
-    ? [`https://${process.env.VERCEL_BRANCH_URL}`]
-    : []),
-  /* eslint-enable no-restricted-properties */
+  ...(env.VERCEL_URL ? [`https://${env.VERCEL_URL}`] : []),
+  ...(env.VERCEL_BRANCH_URL ? [`https://${env.VERCEL_BRANCH_URL}`] : []),
   "http://localhost:3000",
 ];
-/* eslint-enable no-restricted-properties */
+
+console.log("[auth] AUTH_URL env:", env.AUTH_URL);
+console.log("[auth] VERCEL_URL:", env.VERCEL_URL);
+console.log("[auth] VERCEL_BRANCH_URL:", env.VERCEL_BRANCH_URL);
+console.log("[auth] baseURL:", baseURL);
+console.log("[auth] trustedOrigins:", trustedOrigins);
+console.log("[auth] google redirectURI:", `${baseURL}/api/auth/callback/google`);
+console.log(
+  "[auth] googleAdmin redirectURI:",
+  `${baseURL}/api/auth/callback/googleAdmin`,
+);
 
 export const auth = betterAuth({
   trustedOrigins,
@@ -95,6 +97,7 @@ export const auth = betterAuth({
             "https://accounts.google.com/o/oauth2/v2/auth?hd=husky.neu.edu",
           tokenUrl: "https://oauth2.googleapis.com/token",
           userInfoUrl: "https://www.googleapis.com/oauth2/v3/userinfo",
+          redirectURI: `${baseURL}/api/auth/callback/google`,
           scopes: ["openid", "email", "profile"],
           pkce: true,
           mapProfileToUser: (profile: Record<string, string>) => ({
@@ -111,6 +114,7 @@ export const auth = betterAuth({
           authorizationUrl: "https://accounts.google.com/o/oauth2/v2/auth",
           tokenUrl: "https://oauth2.googleapis.com/token",
           userInfoUrl: "https://www.googleapis.com/oauth2/v3/userinfo",
+          redirectURI: `${baseURL}/api/auth/callback/googleAdmin`,
           scopes: ["openid", "email", "profile"],
           pkce: true,
           mapProfileToUser: (profile: Record<string, string>) => ({

@@ -9,6 +9,8 @@ export const env = createEnv({
     AUTH_GOOGLE_ADMIN_ID: z.string().min(1),
     AUTH_GOOGLE_ADMIN_SECRET: z.string().min(1),
     AUTH_URL: z.string().url().optional(),
+    VERCEL_URL: z.string().optional(),
+    VERCEL_BRANCH_URL: z.string().optional(),
     AUTH_SECRET:
       process.env.NODE_ENV === "production"
         ? z.string().min(1)

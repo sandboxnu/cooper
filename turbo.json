@@ -83,6 +83,7 @@
     "VERCEL",
     "VERCEL_ENV",
     "VERCEL_URL",
+    "VERCEL_BRANCH_URL",
     "npm_lifecycle_event"
   ]
 }
