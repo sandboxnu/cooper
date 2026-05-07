@@ -24,6 +24,7 @@ const trustedOrigins = [
   baseURL,
   ...(env.VERCEL_URL ? [`https://${env.VERCEL_URL}`] : []),
   ...(env.VERCEL_BRANCH_URL ? [`https://${env.VERCEL_BRANCH_URL}`] : []),
+  "https://www.coopernu.com", 
   "http://localhost:3000",
 ];
 
