@@ -27,17 +27,6 @@ const trustedOrigins = [
   "http://localhost:3000",
 ];
 
-console.log("[auth] AUTH_URL env:", env.AUTH_URL);
-console.log("[auth] VERCEL_URL:", env.VERCEL_URL);
-console.log("[auth] VERCEL_BRANCH_URL:", env.VERCEL_BRANCH_URL);
-console.log("[auth] baseURL:", baseURL);
-console.log("[auth] trustedOrigins:", trustedOrigins);
-console.log("[auth] google redirectURI:", `${baseURL}/api/auth/callback/google`);
-console.log(
-  "[auth] googleAdmin redirectURI:",
-  `${baseURL}/api/auth/callback/googleAdmin`,
-);
-
 export const auth = betterAuth({
   trustedOrigins,
   database: drizzleAdapter(db, {
