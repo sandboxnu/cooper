@@ -1,6 +1,6 @@
 import { betterAuth, APIError } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { genericOAuth } from "better-auth/plugins";
+import { genericOAuth, oAuthProxy } from "better-auth/plugins";
 import { eq } from "drizzle-orm";
 
 import { db } from "@cooper/db/client";
@@ -27,6 +27,11 @@ console.log("[auth] baseURL:", baseURL);
 const trustedOrigins = [
   baseURL,
   ...(process.env.VERCEL_URL ? [`https://${process.env.VERCEL_URL}`] : []),
+  /* eslint-disable no-restricted-properties */
+  ...(process.env.VERCEL_BRANCH_URL
+    ? [`https://${process.env.VERCEL_BRANCH_URL}`]
+    : []),
+  /* eslint-enable no-restricted-properties */
   "http://localhost:3000",
 ];
 /* eslint-enable no-restricted-properties */
@@ -77,6 +82,9 @@ export const auth = betterAuth({
   },
 
   plugins: [
+    oAuthProxy({
+      productionURL: env.AUTH_URL,
+    }),
     genericOAuth({
       config: [
         {
