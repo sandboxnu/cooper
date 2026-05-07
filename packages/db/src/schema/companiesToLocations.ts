@@ -38,7 +38,7 @@ export const CompaniesToLocationsRelations = relations(
 export const CreateCompanyToLocationSchema = createInsertSchema(
   CompaniesToLocations,
   {
-    companyId: z.string(),
-    locationId: z.string(),
+    companyId: () => z.string(),
+    locationId: () => z.string(),
   },
 );

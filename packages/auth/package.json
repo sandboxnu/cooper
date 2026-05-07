@@ -8,6 +8,7 @@
       "react-server": "./src/index.rsc.ts",
       "default": "./src/index.ts"
     },
+    "./client": "./src/client.ts",
     "./env": "./env.ts"
   },
   "license": "MIT",
@@ -18,12 +19,11 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@auth/core": "0.32.0",
-    "@auth/drizzle-adapter": "^1.4.1",
     "@cooper/db": "workspace:*",
     "@t3-oss/env-nextjs": "^0.10.1",
-    "next": "^14.2.35",
-    "next-auth": "5.0.0-beta.19",
+    "better-auth": "^1.2.7",
+    "drizzle-orm": "^0.45.2",
+    "next": "^16.2.4",
     "react": "catalog:react18",
     "react-dom": "catalog:react18",
     "zod": "catalog:"

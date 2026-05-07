@@ -14,6 +14,7 @@ import {
   User,
   UserRole,
 } from "@cooper/db/schema";
+import type { ModerationEntityTypeType } from "@cooper/db/schema";
 
 import { protectedProcedure } from "../trpc";
 
@@ -729,7 +730,12 @@ export const adminRouter = {
   setFlaggedStatus: protectedProcedure
     .input(
       z.object({
-        entityType: z.nativeEnum(ModerationEntityType),
+        entityType: z.enum(
+          Object.values(ModerationEntityType) as [
+            ModerationEntityTypeType,
+            ...ModerationEntityTypeType[],
+          ],
+        ),
         entityId: z.string().uuid(),
         flagged: z.boolean(),
         description: z.string().optional(),
@@ -775,7 +781,12 @@ export const adminRouter = {
   setHiddenStatus: protectedProcedure
     .input(
       z.object({
-        entityType: z.nativeEnum(ModerationEntityType),
+        entityType: z.enum(
+          Object.values(ModerationEntityType) as [
+            ModerationEntityTypeType,
+            ...ModerationEntityTypeType[],
+          ],
+        ),
         entityId: z.string().uuid(),
         hidden: z.boolean(),
       }),

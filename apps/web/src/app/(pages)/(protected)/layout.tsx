@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 
-import { auth } from "@cooper/auth";
+import { getSession } from "@cooper/auth";
 import { db } from "@cooper/db/client";
 import { CustomToaster } from "@cooper/ui";
 
@@ -11,8 +11,7 @@ export default async function ProtectedLayour({
 }: {
   children: React.ReactNode;
 }) {
-  // Ensure user is authenticated
-  const session = await auth();
+  const session = await getSession();
 
   if (!session) {
     redirect("/");

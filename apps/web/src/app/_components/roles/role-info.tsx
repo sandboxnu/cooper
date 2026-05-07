@@ -117,8 +117,9 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
                 height={20}
               />
               <div>
-                {Math.round(Number(averages.data?.averageOverallRating) * 100) /
-                  100}
+                {Math.round(
+                  Number(averages.data?.averageOverallRating ?? 0) * 100,
+                ) / 100}
               </div>
               ({reviews.data.length} review
               {reviews.data.length !== 1 && "s"})

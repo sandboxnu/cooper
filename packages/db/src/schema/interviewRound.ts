@@ -57,8 +57,8 @@ export const ZodInterviewTypeSchema = z.enum([
 export const ZodInterviewDifficultySchema = z.enum(["easy", "average", "hard"]);
 
 export const CreateInterviewRoundSchema = createInsertSchema(InterviewRound, {
-  interviewType: ZodInterviewTypeSchema.optional().nullable(),
-  interviewDifficulty: ZodInterviewDifficultySchema.optional().nullable(),
+  interviewType: () => ZodInterviewTypeSchema.optional().nullable(),
+  interviewDifficulty: () => ZodInterviewDifficultySchema.optional().nullable(),
 }).omit({
   id: true,
   createdAt: true,

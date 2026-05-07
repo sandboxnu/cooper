@@ -35,9 +35,9 @@ export const RoleRequestRelations = relations(RoleRequest, ({ one }) => ({
 
 // Zod validation schema for creating a role request
 export const CreateCompanyRequestSchema = createInsertSchema(RoleRequest, {
-  roleTitle: z.string(),
-  roleDescription: z.string(),
-  status: z.nativeEnum(RequestStatus),
+  roleTitle: () => z.string(),
+  roleDescription: () => z.string(),
+  status: () => z.nativeEnum(RequestStatus),
 }).omit({
   id: true,
   createdAt: true,

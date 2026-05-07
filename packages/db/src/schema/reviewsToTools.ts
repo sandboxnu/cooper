@@ -35,6 +35,6 @@ export const ReviewsToToolsRelations = relations(ReviewsToTools, ({ one }) => ({
 }));
 
 export const CreateReviewToToolSchema = createInsertSchema(ReviewsToTools, {
-  reviewId: z.string(),
-  toolId: z.string(),
+  reviewId: () => z.string(),
+  toolId: () => z.string(),
 });

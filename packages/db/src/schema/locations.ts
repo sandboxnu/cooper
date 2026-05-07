@@ -21,9 +21,9 @@ export const LocationRelations = relations(Location, ({ many }) => ({
 }));
 
 export const CreateLocationSchema = createInsertSchema(Location, {
-  city: z.string(),
-  state: z.string(),
-  country: z.string(),
+  city: () => z.string(),
+  state: () => z.string(),
+  country: () => z.string(),
 }).omit({
   id: true,
 });

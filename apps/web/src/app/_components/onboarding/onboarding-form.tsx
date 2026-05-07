@@ -70,14 +70,14 @@ export function OnboardingForm({
   const profile = api.profile.create.useMutation();
   const [majorLabel, setMajorLabel] = useState<string>("");
 
-  const names = (session.user.name ?? " ").split(" ");
+  const names = session.user.name.split(" ");
 
   const form = useForm<OnboardingFormType>({
     resolver: zodResolver(isStudent ? studentFormSchema : baseFormSchema),
     defaultValues: {
       firstName: names.length > 0 ? names[0] : "",
       lastName: names.length > 1 ? names[1] : "",
-      email: session.user.email ?? "",
+      email: session.user.email,
       major: "",
       minor: undefined,
       graduationYear: undefined,

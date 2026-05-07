@@ -43,10 +43,10 @@ export const CompanyRelations = relations(Company, ({ many }) => ({
 }));
 
 export const CreateCompanySchema = createInsertSchema(Company, {
-  name: z.string(),
-  description: z.string().optional(),
-  industry: z.nativeEnum(Industry),
-  website: z.string().optional(),
+  name: () => z.string(),
+  description: () => z.string().optional(),
+  industry: () => z.nativeEnum(Industry),
+  website: () => z.string().optional(),
 }).omit({
   id: true,
   hidden: true,

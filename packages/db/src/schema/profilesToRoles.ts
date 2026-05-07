@@ -36,6 +36,6 @@ export const ProfilesToRolesRelations = relations(
 );
 
 export const CreateProfileToRoleSchema = createInsertSchema(ProfilesToRoles, {
-  profileId: z.string(),
-  roleId: z.string(),
+  profileId: () => z.string(),
+  roleId: () => z.string(),
 });

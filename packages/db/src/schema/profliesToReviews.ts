@@ -38,7 +38,7 @@ export const ProfilesToReviewsRelations = relations(
 export const CreateProfileToReviewSchema = createInsertSchema(
   ProfilesToReviews,
   {
-    profileId: z.string(),
-    reviewId: z.string(),
+    profileId: () => z.string(),
+    reviewId: () => z.string(),
   },
 );

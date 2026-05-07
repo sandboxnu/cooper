@@ -1,4 +1,4 @@
-import { auth } from "@cooper/auth";
+import { getSession } from "@cooper/auth";
 import { CustomToaster } from "@cooper/ui";
 import { redirect } from "next/navigation";
 
@@ -10,8 +10,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Ensure user is authenticated
-  const session = await auth();
+  const session = await getSession();
 
   if (!session) {
     redirect("/");

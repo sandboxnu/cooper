@@ -48,10 +48,10 @@ export const RoleRelations = relations(Role, ({ one, many }) => ({
 }));
 
 export const CreateRoleSchema = createInsertSchema(Role, {
-  title: z.string(),
-  description: z.string(),
-  companyId: z.string(),
-  createdBy: z.string(),
+  title: () => z.string(),
+  description: () => z.string(),
+  companyId: () => z.string(),
+  createdBy: () => z.string(),
 }).omit({
   id: true,
   hidden: true,

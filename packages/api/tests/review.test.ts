@@ -26,7 +26,11 @@ vi.mock("@cooper/db/client", () => ({
 }));
 
 vi.mock("@cooper/auth", () => ({
-  auth: vi.fn(),
+  auth: {
+    api: {
+      getSession: vi.fn(),
+    },
+  },
 }));
 
 describe("Review Router", async () => {
@@ -35,12 +39,27 @@ describe("Review Router", async () => {
     vi.mocked(db.query.Review.findMany).mockResolvedValue(data as ReviewType[]);
   });
 
-  const session: Session = {
+  const session = {
+    session: {
+      id: "session-1",
+      userId: "1",
+      token: "test-token",
+      expiresAt: new Date(Date.now() + 3600 * 1000),
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
     user: {
       id: "1",
+      email: "test@husky.neu.edu",
+      name: "Test User",
+      emailVerified: true,
+      image: null,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      role: "STUDENT",
+      isDisabled: false,
     },
-    expires: "1",
-  };
+  } as Session;
 
   const ctx = await createTRPCContext({
     session,

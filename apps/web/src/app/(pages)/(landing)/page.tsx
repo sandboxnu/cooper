@@ -1,5 +1,5 @@
-import { signIn } from "@cooper/auth";
 import Image from "next/image";
+import AdminSignInButton from "~/app/_components/auth/admin-signin-button";
 import LoginButton from "~/app/_components/auth/login-button";
 import { AdminAccessToast } from "~/app/_components/landing/admin-access-toast";
 
@@ -25,25 +25,14 @@ export default function Landing() {
           <div className="text-cooper-gray-600 text-md pt-4 w-fit">
             Log in with husky.neu.edu email to access reviews
           </div>
-          <form>
-            <button
-              type="submit"
-              formAction={async () => {
-                "use server";
-                await signIn("googleAdmin", { redirectTo: "/roles" });
-              }}
-              className="text-cooper-gray-600 font-bold text-md pb-6 pt-2 w-fit cursor-pointer hover:underline"
-            >
-              Or continue as admin / coordinator
-            </button>
-          </form>
+          <AdminSignInButton />
           <hr />
         </div>
 
         <div className="pt-6 text-cooper-gray-550 font-lg flex flex-col gap-3">
           {textOptions.map((option) => {
             return (
-              <div className="flex flex-row gap-2">
+              <div key={option} className="flex flex-row gap-2">
                 <Image
                   src="/svg/blueCheck.svg"
                   width={11}

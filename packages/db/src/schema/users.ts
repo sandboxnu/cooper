@@ -15,12 +15,10 @@ export const User = pgTable("user", {
   id: uuid("id").notNull().primaryKey().defaultRandom(),
   name: varchar("name", { length: 255 }),
   email: varchar("email", { length: 255 }).notNull(),
-  emailVerified: timestamp("emailVerified", {
-    mode: "date",
-    withTimezone: true,
-  }),
+  emailVerified: boolean("emailVerified").notNull().default(false),
   image: varchar("image", { length: 255 }),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().notNull(),
   role: varchar("role", { length: 32 })
     .$type<UserRoleType>()
     .notNull()

@@ -34,14 +34,14 @@ export const RequestRelations = relations(CompanyRequest, ({ one }) => ({
 
 // Zod validation schema for creating a company request
 export const CreateCompanyRequestSchema = createInsertSchema(CompanyRequest, {
-  companyName: z.string(),
-  companyDescription: z.string().optional(),
-  industry: z.nativeEnum(Industry),
-  website: z.string().optional(),
-  locationId: z.string(),
-  roleTitle: z.string(),
-  roleDescription: z.string(),
-  status: z.nativeEnum(RequestStatus),
+  companyName: () => z.string(),
+  companyDescription: () => z.string().optional(),
+  industry: () => z.nativeEnum(Industry),
+  website: () => z.string().optional(),
+  locationId: () => z.string(),
+  roleTitle: () => z.string(),
+  roleDescription: () => z.string(),
+  status: () => z.nativeEnum(RequestStatus),
 }).omit({
   id: true,
   createdAt: true,
