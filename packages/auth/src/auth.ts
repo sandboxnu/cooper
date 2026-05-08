@@ -1,6 +1,7 @@
 import { betterAuth, APIError } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { genericOAuth, oAuthProxy } from "better-auth/plugins";
+import { nextCookies } from "better-auth/next-js";
 import { eq } from "drizzle-orm";
 
 import { db } from "@cooper/db/client";
@@ -76,30 +77,22 @@ export const auth = betterAuth({
     },
   },
 
+  socialProviders: {
+    google: {
+      clientId: env.AUTH_GOOGLE_ID,
+      clientSecret: env.AUTH_GOOGLE_SECRET,
+      redirectURI: `${baseURL}/api/auth/callback/google`,
+      scopes: ["openid", "email", "profile"],
+      hd: "husky.neu.edu",
+    },
+  },
+
   plugins: [
     oAuthProxy({
       productionURL: env.AUTH_URL,
     }),
     genericOAuth({
       config: [
-        {
-          providerId: "google",
-          clientId: env.AUTH_GOOGLE_ID,
-          clientSecret: env.AUTH_GOOGLE_SECRET,
-          authorizationUrl:
-            "https://accounts.google.com/o/oauth2/v2/auth?hd=husky.neu.edu",
-          tokenUrl: "https://oauth2.googleapis.com/token",
-          userInfoUrl: "https://www.googleapis.com/oauth2/v3/userinfo",
-          redirectURI: `${baseURL}/api/auth/callback/google`,
-          scopes: ["openid", "email", "profile"],
-          pkce: true,
-          mapProfileToUser: (profile: Record<string, string>) => ({
-            email: profile.email,
-            name: profile.name,
-            image: profile.picture,
-            emailVerified: profile.email_verified === "true",
-          }),
-        },
         {
           providerId: "googleAdmin",
           clientId: env.AUTH_GOOGLE_ADMIN_ID,
@@ -119,6 +112,7 @@ export const auth = betterAuth({
         },
       ],
     }),
+    nextCookies(),
   ],
 
   databaseHooks: {
