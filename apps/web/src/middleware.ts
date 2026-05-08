@@ -4,7 +4,14 @@ import type { NextRequest } from "next/server";
 // Session validation and route protection is handled in layouts.
 // This middleware exists as a placeholder for future middleware needs
 // (e.g. rate limiting, geolocation, A/B testing).
-export function middleware(_request: NextRequest) {
+export function middleware(request: NextRequest) {
+  if (request.headers.get("host") === "www.coopernu.com") {
+    const url = request.url.replace(
+      "https://www.coopernu.com",
+      "https://coopernu.com",
+    );
+    return NextResponse.redirect(url, 308);
+  }
   return NextResponse.next();
 }
 
