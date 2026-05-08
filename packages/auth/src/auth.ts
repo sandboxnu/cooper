@@ -116,7 +116,6 @@ export const auth = betterAuth({
         },
       ],
     }),
-    nextCookies(),
   ],
 
   databaseHooks: {
