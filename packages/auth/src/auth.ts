@@ -1,6 +1,6 @@
 import { betterAuth, APIError } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { genericOAuth, oAuthProxy } from "better-auth/plugins";
+import { genericOAuth } from "better-auth/plugins";
 import { nextCookies } from "better-auth/next-js";
 import { eq } from "drizzle-orm";
 
@@ -88,9 +88,6 @@ export const auth = betterAuth({
   },
 
   plugins: [
-    oAuthProxy({
-      productionURL: env.AUTH_URL,
-    }),
     genericOAuth({
       config: [
         {
