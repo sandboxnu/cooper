@@ -8,12 +8,17 @@ export default function LoginButton() {
   return (
     <Button
       className="relative flex h-10 w-full justify-start gap-3 rounded-lg border border-[#E6E3DE] bg-[#fffefc] py-2.5 pl-3 text-lg font-semibold text-[#201E19] hover:bg-cooper-cream-400"
-      onClick={() =>
-        authClient.signIn.oauth2({
+      onClick={async () => {
+        console.log("[LoginButton] starting oauth2 sign-in");
+        const result = await authClient.signIn.oauth2({
           providerId: "google",
           callbackURL: "/roles",
-        })
-      }
+        });
+        console.log("[LoginButton] sign-in result", result);
+        if (result?.error) {
+          console.error("[LoginButton] sign-in error", result.error);
+        }
+      }}
     >
       <Image
         src="/google.png"

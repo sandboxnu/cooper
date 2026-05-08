@@ -1,6 +1,6 @@
 import { betterAuth, APIError } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { genericOAuth } from "better-auth/plugins";
+import { genericOAuth, oAuthProxy } from "better-auth/plugins";
 import { eq } from "drizzle-orm";
 
 import { db } from "@cooper/db/client";
@@ -24,7 +24,7 @@ const trustedOrigins = [
   baseURL,
   ...(env.VERCEL_URL ? [`https://${env.VERCEL_URL}`] : []),
   ...(env.VERCEL_BRANCH_URL ? [`https://${env.VERCEL_BRANCH_URL}`] : []),
-  "https://www.coopernu.com", 
+  "https://www.coopernu.com",
   "http://localhost:3000",
 ];
 
@@ -74,6 +74,9 @@ export const auth = betterAuth({
   },
 
   plugins: [
+    oAuthProxy({
+      productionURL: env.AUTH_URL,
+    }),
     genericOAuth({
       config: [
         {
