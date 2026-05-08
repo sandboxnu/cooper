@@ -15,7 +15,7 @@ export default function LoginButton() {
           callbackURL: "/roles",
         });
         console.log("[LoginButton] sign-in result", result);
-        if (result?.error) {
+        if (result.error) {
           console.error("[LoginButton] sign-in error", result.error);
         }
       }}

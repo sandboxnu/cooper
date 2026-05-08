@@ -50,6 +50,9 @@ export const auth = betterAuth({
   },
 
   advanced: {
+    crossSubDomainCookies: {
+      enabled: true,
+    },
     database: {
       // User.id is uuid type — must generate proper UUIDs, not better-auth's default 32-char strings
       generateId: () => crypto.randomUUID(),
@@ -132,9 +135,22 @@ export const auth = betterAuth({
             }),
           ]);
 
-          if (!user?.email) return false;
+          console.log(
+            "[session.create] user:",
+            user?.email,
+            "provider:",
+            recentAccount?.providerId,
+            "role:",
+            user?.role,
+          );
+
+          if (!user?.email) {
+            console.log("[session.create] blocked: no email");
+            return false;
+          }
 
           if (user.isDisabled) {
+            console.log("[session.create] blocked: disabled-account");
             throw new APIError("FORBIDDEN", { message: "disabled-account" });
           }
 
@@ -146,6 +162,10 @@ export const auth = betterAuth({
               user.role === UserRole.COORDINATOR ||
               user.role === UserRole.DEVELOPER;
             if (!isElevated) {
+              console.log(
+                "[session.create] blocked: unauthorized-admin",
+                user.email,
+              );
               throw new APIError("FORBIDDEN", {
                 message: "unauthorized-admin",
               });
@@ -154,6 +174,10 @@ export const auth = betterAuth({
             provider === "google" &&
             !user.email.endsWith("@husky.neu.edu")
           ) {
+            console.log(
+              "[session.create] blocked: domain-not-allowed",
+              user.email,
+            );
             throw new APIError("FORBIDDEN", {
               message: "domain-not-allowed",
             });

@@ -13,7 +13,7 @@ export default function AdminSignInButton() {
           callbackURL: "/roles",
         });
         console.log("[AdminSignInButton] sign-in result", result);
-        if (result?.error) {
+        if (result.error) {
           console.error("[AdminSignInButton] sign-in error", result.error);
         }
       }}
