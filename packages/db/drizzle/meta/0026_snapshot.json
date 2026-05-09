@@ -102,7 +102,8 @@
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}    },
+      "uniqueConstraints": {}
+    },
     "public.company": {
       "name": "company",
       "schema": "",
@@ -174,7 +175,8 @@
           "nullsNotDistinct": false,
           "columns": ["slug"]
         }
-      }    },
+      }
+    },
     "public.companies_to_locations": {
       "name": "companies_to_locations",
       "schema": "",
@@ -219,7 +221,8 @@
           "columns": ["companyId", "locationId"]
         }
       },
-      "uniqueConstraints": {}    },
+      "uniqueConstraints": {}
+    },
     "public.company_request": {
       "name": "company_request",
       "schema": "",
@@ -285,7 +288,8 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}    },
+      "uniqueConstraints": {}
+    },
     "public.flagged": {
       "name": "flagged",
       "schema": "",
@@ -370,7 +374,8 @@
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}    },
+      "uniqueConstraints": {}
+    },
     "public.hidden": {
       "name": "hidden",
       "schema": "",
@@ -449,7 +454,8 @@
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}    },
+      "uniqueConstraints": {}
+    },
     "public.interview_round": {
       "name": "interview_round",
       "schema": "",
@@ -508,7 +514,8 @@
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}    },
+      "uniqueConstraints": {}
+    },
     "public.location": {
       "name": "location",
       "schema": "",
@@ -542,7 +549,8 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}    },
+      "uniqueConstraints": {}
+    },
     "public.profile": {
       "name": "profile",
       "schema": "",
@@ -620,7 +628,8 @@
           "nullsNotDistinct": false,
           "columns": ["userId"]
         }
-      }    },
+      }
+    },
     "public.profiles_to_companies": {
       "name": "profiles_to_companies",
       "schema": "",
@@ -665,7 +674,8 @@
           "columns": ["profileId", "companyId"]
         }
       },
-      "uniqueConstraints": {}    },
+      "uniqueConstraints": {}
+    },
     "public.profiles_to_roles": {
       "name": "profiles_to_roles",
       "schema": "",
@@ -710,7 +720,8 @@
           "columns": ["profileId", "roleId"]
         }
       },
-      "uniqueConstraints": {}    },
+      "uniqueConstraints": {}
+    },
     "public.profiles_to_reviews": {
       "name": "profiles_to_reviews",
       "schema": "",
@@ -755,7 +766,8 @@
           "columns": ["profileId", "reviewId"]
         }
       },
-      "uniqueConstraints": {}    },
+      "uniqueConstraints": {}
+    },
     "public.report": {
       "name": "report",
       "schema": "",
@@ -820,7 +832,8 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}    },
+      "uniqueConstraints": {}
+    },
     "public.review": {
       "name": "review",
       "schema": "",
@@ -1057,7 +1070,8 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}    },
+      "uniqueConstraints": {}
+    },
     "public.reviews_to_tools": {
       "name": "reviews_to_tools",
       "schema": "",
@@ -1102,7 +1116,8 @@
           "columns": ["reviewId", "toolId"]
         }
       },
-      "uniqueConstraints": {}    },
+      "uniqueConstraints": {}
+    },
     "public.role_request": {
       "name": "role_request",
       "schema": "",
@@ -1150,7 +1165,8 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}    },
+      "uniqueConstraints": {}
+    },
     "public.role": {
       "name": "role",
       "schema": "",
@@ -1216,7 +1232,8 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}    },
+      "uniqueConstraints": {}
+    },
     "public.session": {
       "name": "session",
       "schema": "",
@@ -1291,7 +1308,8 @@
           "nullsNotDistinct": false,
           "columns": ["token"]
         }
-      }    },
+      }
+    },
     "public.tool": {
       "name": "tool",
       "schema": "",
@@ -1332,7 +1350,8 @@
           "nullsNotDistinct": false,
           "columns": ["name"]
         }
-      }    },
+      }
+    },
     "public.user": {
       "name": "user",
       "schema": "",
@@ -1401,7 +1420,8 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}    },
+      "uniqueConstraints": {}
+    },
     "public.verification": {
       "name": "verification",
       "schema": "",
@@ -1448,7 +1468,8 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}    }
+      "uniqueConstraints": {}
+    }
   },
   "enums": {
     "public.interview_difficulty": {

@@ -81,5 +81,5 @@ ALTER TABLE "session" DROP COLUMN IF EXISTS "sessionToken";--> statement-breakpo
 ALTER TABLE "session" DROP COLUMN IF EXISTS "expires";--> statement-breakpoint
 DO $$ BEGIN
   ALTER TABLE "session" ADD CONSTRAINT "session_token_unique" UNIQUE("token");
-EXCEPTION WHEN duplicate_object THEN NULL;
-END $$;
+EXCEPTION WHEN duplicate_object OR duplicate_table THEN NULL;
+END $$; -- test
