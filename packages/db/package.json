@@ -34,7 +34,7 @@
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",
     "@t3-oss/env-core": "^0.10.1",
-    "dayjs": "^1.11.13",
+    "dayjs": "^1.11.20",
     "drizzle-orm": "^0.45.2",
     "drizzle-zod": "^0.5.1",
     "zod": "catalog:"
@@ -43,7 +43,7 @@
     "@cooper/eslint-config": "workspace:*",
     "@cooper/prettier-config": "workspace:*",
     "@cooper/tsconfig": "workspace:*",
-    "dotenv-cli": "^7.4.2",
+    "dotenv-cli": "^7.4.4",
     "drizzle-kit": "^0.31.10",
     "eslint": "catalog:",
     "prettier": "catalog:",
