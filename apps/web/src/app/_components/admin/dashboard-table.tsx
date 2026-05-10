@@ -603,7 +603,7 @@ export function AdminDashboardTable() {
 
       return result;
     },
-    [activeTab, searchQuery],
+    [activeTab],
   );
 
   const recent = useProcessedItems({

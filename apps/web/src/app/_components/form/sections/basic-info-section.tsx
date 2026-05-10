@@ -100,7 +100,7 @@ export function BasicInfoSection({
   useEffect(() => {
     const currentWorkYear = form.getValues("workYear") as number | undefined;
     if (currentWorkYear && currentWorkYear > maxYear) {
-      form.setValue("workYear", undefined as unknown as number);
+      form.setValue("workYear", undefined);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [maxYear]);

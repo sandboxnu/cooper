@@ -104,7 +104,7 @@ export default function CompanyInfo({
               />
             </div>
             <div>
-              <RenderAllRoles company={company.data as CompanyType} />
+              <RenderAllRoles company={company.data} />
             </div>
           </div>
         </div>

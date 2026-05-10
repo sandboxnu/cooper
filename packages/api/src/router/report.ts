@@ -2,7 +2,6 @@ import type { TRPCRouterRecord } from "@trpc/server";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
-import type { Session } from "@cooper/auth";
 import { eq } from "@cooper/db";
 import { Profile, Report, ReportReason } from "@cooper/db/schema";
 
@@ -19,7 +18,7 @@ export const reportRouter = {
       }),
     )
     .mutation(async ({ ctx, input }) => {
-      const session = ctx.session as Session;
+      const session = ctx.session;
 
       const profile = await ctx.db.query.Profile.findFirst({
         where: eq(Profile.userId, session.user.id),

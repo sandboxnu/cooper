@@ -86,7 +86,7 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
   );
 
   const { loadedRoles, loadingRoleIds } = useMemo(() => {
-    const data = comparedRolesQuery.data as RoleType[] | undefined;
+    const data = comparedRolesQuery.data;
     const loadedRoleMap = new Map(data?.map((role) => [role.id, role]) ?? []);
 
     const loaded: RoleType[] = [];

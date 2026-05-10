@@ -17,7 +17,7 @@
     "@cooper/prettier-config": "workspace:*",
     "@cooper/tailwind-config": "workspace:*",
     "@cooper/tsconfig": "workspace:*",
-    "@types/node": "^20.14.15",
+    "@types/node": "^20.19.40",
     "eslint": "catalog:",
     "h3": "^1.15.5",
     "nitropack": "^2.9.7",

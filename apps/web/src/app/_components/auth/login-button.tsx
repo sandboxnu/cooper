@@ -4,7 +4,28 @@ import { authClient } from "@cooper/auth/client";
 import { Button } from "@cooper/ui/button";
 import Image from "next/image";
 
-export default function LoginButton() {
+import { handlePreviewSignIn } from "./actions";
+
+export default function LoginButton({
+  isPreview = false,
+}: {
+  isPreview?: boolean;
+}) {
+  if (isPreview) {
+    return (
+      <form action={handlePreviewSignIn}>
+        <Button
+          type="submit"
+          className="relative flex h-10 w-full justify-start gap-3 rounded-lg border border-[#E6E3DE] bg-[#fffefc] py-2.5 pl-3 text-lg font-semibold text-[#201E19] hover:bg-cooper-cream-400"
+        >
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            Sign in as preview user
+          </div>
+        </Button>
+      </form>
+    );
+  }
+
   return (
     <Button
       className="relative flex h-10 w-full justify-start gap-3 rounded-lg border border-[#E6E3DE] bg-[#fffefc] py-2.5 pl-3 text-lg font-semibold text-[#201E19] hover:bg-cooper-cream-400"

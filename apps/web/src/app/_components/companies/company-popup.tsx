@@ -47,7 +47,7 @@ export function CompanyPopup({
               <p className="text-sm text-gray-600">
                 {locations && locations.length > 1
                   ? `${locations[0]} +${locations.length - 1} ${locations.length - 1 === 1 ? "other" : "others"}`
-                  : locations && locations.length === 1
+                  : locations?.length === 1
                     ? locations[0]
                     : null}
               </p>

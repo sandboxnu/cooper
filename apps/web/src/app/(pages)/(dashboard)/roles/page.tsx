@@ -406,7 +406,7 @@ export default function Roles() {
 
     const roleFromCurrentList =
       currentAnchorRoleWithCompanyQuery.data?.id === currentAnchorRoleId
-        ? (currentAnchorRoleWithCompanyQuery.data as AnchorRole)
+        ? currentAnchorRoleWithCompanyQuery.data
         : null;
 
     const roleFromSelectedItem =
@@ -434,8 +434,7 @@ export default function Roles() {
 
     if (currentAnchorRoleFromSources) {
       setCachedAnchorRole((prev) =>
-        prev &&
-        prev.id === currentAnchorRoleFromSources.id &&
+        prev?.id === currentAnchorRoleFromSources.id &&
         prev.slug === currentAnchorRoleFromSources.slug
           ? prev
           : currentAnchorRoleFromSources,
@@ -510,9 +509,7 @@ export default function Roles() {
       ) ?? null;
 
     const roleFromCached =
-      cachedAnchorRole && cachedAnchorRole.id === currentAnchorRoleId
-        ? cachedAnchorRole
-        : null;
+      cachedAnchorRole?.id === currentAnchorRoleId ? cachedAnchorRole : null;
 
     const roleToRestore =
       (roleFromCurrentList as

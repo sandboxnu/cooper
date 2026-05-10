@@ -277,14 +277,10 @@ export function ReviewViewEditModal({
       jobType: undefined,
       hourlyPay: "",
       workEnvironment: undefined,
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-      drugTest: undefined as any,
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-      overtimeNormal: undefined as any,
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-      pto: undefined as any,
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-      federalHolidays: undefined as any,
+      drugTest: undefined,
+      overtimeNormal: undefined,
+      pto: undefined,
+      federalHolidays: undefined,
       freeLunch: false,
       travelBenefits: false,
       freeMerch: false,
@@ -294,8 +290,7 @@ export function ReviewViewEditModal({
       companyName: "",
       jobLength: null,
       workHours: null,
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-      accessibleByTransportation: undefined as any,
+      accessibleByTransportation: undefined,
       teamOutings: false,
       coffeeChats: false,
       constructiveFeedback: false,
@@ -522,10 +517,7 @@ export function ReviewViewEditModal({
       toast.error("Please fill in all required fields.");
       return;
     }
-    const payload = buildPayload(
-      form.getValues(),
-      Status.PUBLISHED as StatusType,
-    );
+    const payload = buildPayload(form.getValues(), Status.PUBLISHED);
     if (!payload) return;
     try {
       await updateMutation.mutateAsync(payload);

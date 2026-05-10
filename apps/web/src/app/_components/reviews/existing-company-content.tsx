@@ -544,8 +544,7 @@ export default function ExistingCompanyContent({
                 <FormMessage />
                 {selectedCompanyId &&
                   !showNewCompany &&
-                  roles.data &&
-                  roles.data.length === 0 && (
+                  roles.data?.length === 0 && (
                     <p className="mt-1 text-sm text-red-500">
                       No roles available for this company. Please add a role
                       first.
