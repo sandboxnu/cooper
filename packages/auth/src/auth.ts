@@ -1,5 +1,6 @@
 import { betterAuth, APIError } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
+import { nextCookies } from "better-auth/next-js";
 import { genericOAuth } from "better-auth/plugins";
 import { eq } from "drizzle-orm";
 
@@ -126,6 +127,7 @@ export const auth = betterAuth({
         },
       ],
     }),
+    nextCookies(),
   ],
 
   databaseHooks: {

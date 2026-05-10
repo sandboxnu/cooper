@@ -2,8 +2,9 @@ import Image from "next/image";
 import AdminSignInButton from "~/app/_components/auth/admin-signin-button";
 import LoginButton from "~/app/_components/auth/login-button";
 import { AdminAccessToast } from "~/app/_components/landing/admin-access-toast";
+import { env } from "~/env";
 
-const isPreviewEnv = process.env.VERCEL_ENV === "preview";
+const isPreviewEnv = env.VERCEL_ENV === "preview";
 
 const textOptions = [
   "Insights on interviews, pay, and job experience",
