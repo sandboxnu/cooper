@@ -23,6 +23,32 @@ export async function signIn(provider: string, opts?: { redirectTo?: string }) {
   if (response.url) redirect(response.url);
 }
 
+export async function signInAsPreviewUser(opts?: { redirectTo?: string }) {
+  const { auth, isPreviewEnv, PREVIEW_USER_EMAIL, PREVIEW_USER_PASSWORD } =
+    await import("./auth");
+
+  if (!isPreviewEnv) {
+    throw new Error("signInAsPreviewUser called outside preview environment");
+  }
+
+  try {
+    await auth.api.signInEmail({
+      body: { email: PREVIEW_USER_EMAIL, password: PREVIEW_USER_PASSWORD },
+      headers: await headers(),
+    });
+  } catch {
+    await auth.api.signUpEmail({
+      body: {
+        email: PREVIEW_USER_EMAIL,
+        password: PREVIEW_USER_PASSWORD,
+        name: "Preview User",
+      },
+      headers: await headers(),
+    });
+  }
+  redirect(opts?.redirectTo ?? "/");
+}
+
 export async function signOut(opts?: { redirectTo?: string }) {
   const { auth } = await import("./auth");
   await auth.api.signOut({ headers: await headers() });

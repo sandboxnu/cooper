@@ -115,7 +115,7 @@ export default function ComboBox({
           <CommandInput
             placeholder={searchPlaceholder}
             onChangeCapture={(e) =>
-              onChange && onChange((e.target as HTMLInputElement).value)
+              onChange?.((e.target as HTMLInputElement).value)
             }
           />
           <CommandEmpty>{searchEmpty}</CommandEmpty>

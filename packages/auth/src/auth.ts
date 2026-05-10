@@ -16,6 +16,11 @@ import { env } from "../env";
 
 export const isSecureContext = env.NODE_ENV !== "development";
 
+export const isPreviewEnv = env.VERCEL_ENV === "preview";
+
+export const PREVIEW_USER_EMAIL = "preview@husky.neu.edu";
+export const PREVIEW_USER_PASSWORD = "preview-password-not-secret";
+
 const baseURL =
   env.AUTH_URL ??
   (env.VERCEL_URL ? `https://${env.VERCEL_URL}` : "http://localhost:3000");
@@ -41,6 +46,11 @@ export const auth = betterAuth({
   }),
   secret: env.AUTH_SECRET,
   baseURL,
+
+  emailAndPassword: {
+    enabled: isPreviewEnv,
+    autoSignIn: true,
+  },
 
   account: {
     accountLinking: {
@@ -152,6 +162,13 @@ export const auth = betterAuth({
           }
 
           const provider = recentAccount?.providerId;
+
+          if (provider === "credential" && !isPreviewEnv) {
+            console.log("[session.create] blocked: credential-not-on-preview");
+            throw new APIError("FORBIDDEN", {
+              message: "credential-only-on-preview",
+            });
+          }
 
           if (provider === "googleAdmin") {
             const isElevated =

@@ -194,8 +194,8 @@ export function AdminUserManagerTable() {
         return (a.name ?? "").localeCompare(b.name ?? "");
       }
 
-      const aTime = new Date(a.createdAt as unknown as string).getTime();
-      const bTime = new Date(b.createdAt as unknown as string).getTime();
+      const aTime = new Date(a.createdAt).getTime();
+      const bTime = new Date(b.createdAt).getTime();
       return bTime - aTime;
     });
 

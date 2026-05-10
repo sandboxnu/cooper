@@ -1,7 +1,6 @@
 import type { TRPCRouterRecord } from "@trpc/server";
 import { z } from "zod";
 
-import type { Session } from "@cooper/auth";
 import { and, desc, eq, sql } from "@cooper/db";
 import {
   Company,
@@ -43,7 +42,7 @@ export const profileRouter = {
     }),
 
   getCurrentUser: protectedProcedure.query(({ ctx }) => {
-    const session = ctx.session as Session;
+    const session = ctx.session;
     return ctx.db.query.Profile.findFirst({
       where: eq(Profile.userId, session.user.id),
     });

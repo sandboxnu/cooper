@@ -153,10 +153,6 @@ export const roleRouter = {
         type: "role" as const,
         companyName: company?.name,
         companySlug: company?.slug,
-      } as RoleType & {
-        type: "role";
-        companyName?: string;
-        companySlug?: string;
       };
     }),
 
