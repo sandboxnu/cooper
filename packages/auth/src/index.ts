@@ -39,7 +39,10 @@ export async function signInAsPreviewUser(opts?: { redirectTo?: string }) {
       body: { email: PREVIEW_USER_EMAIL, password: PREVIEW_USER_PASSWORD },
       headers: await headers(),
     });
-    console.log("[preview-signin] signInEmail succeeded, userId:", result.user?.id);
+    console.log(
+      "[preview-signin] signInEmail succeeded, userId:",
+      result.user.id,
+    );
     signedIn = true;
   } catch (e) {
     console.log(
@@ -58,7 +61,10 @@ export async function signInAsPreviewUser(opts?: { redirectTo?: string }) {
         },
         headers: await headers(),
       });
-      console.log("[preview-signin] signUpEmail succeeded, userId:", result.user?.id);
+      console.log(
+        "[preview-signin] signUpEmail succeeded, userId:",
+        result.user.id,
+      );
     } catch (e) {
       console.error(
         "[preview-signin] signUpEmail failed:",

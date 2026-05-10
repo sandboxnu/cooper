@@ -62,7 +62,7 @@ export const auth = betterAuth({
 
   advanced: {
     crossSubDomainCookies: {
-      enabled: true,
+      enabled: !isPreviewEnv,
     },
     database: {
       // User.id is uuid type — must generate proper UUIDs, not better-auth's default 32-char strings
