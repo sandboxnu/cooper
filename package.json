@@ -42,7 +42,7 @@
     "@types/estree": "^1.0.9",
     "@vitest/ui": "^4.1.5",
     "prettier": "catalog:",
-    "turbo": "^2.9.12",
+    "turbo": "^2.9.14",
     "typescript": "catalog:",
     "vitest": "catalog:"
   },
