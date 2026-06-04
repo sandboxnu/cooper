@@ -66,7 +66,22 @@ To generate `AUTH_GOOGLE_ID` and `AUTH_GOOGLE_SECRET`, see [Setting up OAuth 2.0
 openssl rand -base64 32
 ```
 
+Authorized redirect URIs:
+
+- http://localhost:3000/api/auth/callback/google
+- http://localhost:3000/api/auth/callback/google-admin
+- http://localhost:3000/api/auth/oauth2/callback/google
+- http://localhost:3000/api/auth/oauth2/callback/google-admin
+- http://localhost:3000/api/auth/oauth2/callback/googleAdmin
+
+**Note**: ask an admin for `AUTH_GOOGLE_ADMIN_ID` and `AUTH_GOOGLE_ADMIN_SECRET`.
+
 ### Location
 
 To fill the location info within Neon, follow the steps on [this page](https://neon.com/docs/import/import-from-csv). Skip steps 2 and 3, as the locations.csv
 file already exists in the repo, and then for step 4, replace 'customer' with 'location' and replace the path with the path to the location.csv file.
+
+### Company
+
+To fill the company info within Neon, follow the steps on [this page](https://neon.com/docs/import/import-from-csv). Skip steps 2 and 3, as the companies.csv
+file already exists in the repo, and then for step 4, run this command: `\copy company (id, name, slug, description, industry, website, "createdAt", "updatedAt") FROM 'path/to/companies.csv' DELIMITER ',' CSV HEADER`
