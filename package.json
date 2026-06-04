@@ -49,6 +49,8 @@
     "@vitest/ui": "^4.1.5",
     "jsdom": "^25.0.1",
     "prettier": "catalog:",
+    "react": "catalog:react18",
+    "react-dom": "catalog:react18",
     "turbo": "^2.9.14",
     "typescript": "catalog:",
     "vitest": "catalog:"
