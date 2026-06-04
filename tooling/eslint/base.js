@@ -35,7 +35,7 @@ export const restrictEnvAccess = tseslint.config({
 export default tseslint.config(
   {
     // Globally ignored files
-    ignores: ["**/*.config.*"],
+    ignores: ["**/*.config.*", "**/coverage/**"],
   },
   {
     files: ["**/*.js", "**/*.ts", "**/*.tsx"],
@@ -71,6 +71,28 @@ export default tseslint.config(
       ],
       "@typescript-eslint/no-non-null-assertion": "error",
       "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
+    },
+  },
+  {
+    // Test files rely on mocks (which surface as `any`) and direct DOM
+    // assertions, so relax the strict type-aware rules that don't add value
+    // for test code.
+    files: [
+      "**/*.test.ts",
+      "**/*.test.tsx",
+      "**/tests/**/*.ts",
+      "**/tests/**/*.tsx",
+      "**/test/**/*.ts",
+      "**/test/**/*.tsx",
+    ],
+    rules: {
+      "@typescript-eslint/no-non-null-assertion": "off",
+      "@typescript-eslint/no-unsafe-assignment": "off",
+      "@typescript-eslint/no-unsafe-call": "off",
+      "@typescript-eslint/no-unsafe-member-access": "off",
+      "@typescript-eslint/no-unsafe-return": "off",
+      "@typescript-eslint/no-unnecessary-condition": "off",
+      "@typescript-eslint/require-await": "off",
     },
   },
   {

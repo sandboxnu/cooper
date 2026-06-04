@@ -5,6 +5,6 @@
     "jsx": "preserve",
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
   },
-  "include": ["*.ts", "src"],
+  "include": ["*.ts", "src", "tests"],
   "exclude": ["node_modules"]
 }
