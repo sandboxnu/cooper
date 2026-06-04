@@ -12,5 +12,5 @@
     "module": "esnext"
   },
   "include": [".", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", "coverage"]
+  "exclude": ["node_modules", "coverage", "vitest.config.ts"]
 }
