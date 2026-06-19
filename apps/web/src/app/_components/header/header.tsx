@@ -104,15 +104,20 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
                   </Link>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuLabel className="text-center">
-                  <Link
-                    href="/admin/dashboard"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Admin
-                  </Link>
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
+                {(session.data.user.role === UserRole.ADMIN ||
+                  session.data.user.role === UserRole.DEVELOPER) && (
+                  <>
+                    <DropdownMenuLabel className="text-center">
+                      <Link
+                        href="/admin/dashboard"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        Admin
+                      </Link>
+                    </DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                  </>
+                )}
                 <DropdownMenuLabel className="text-center">
                   <button
                     type="button"
