@@ -94,17 +94,25 @@ export default function ComboBox({
           </span>
           <div className="flex items-center gap-1.5">
             {onClear && (
-              <button
-                type="button"
+              <span
+                role="button"
+                tabIndex={0}
                 onClick={(e) => {
                   e.stopPropagation();
                   onClear();
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    onClear();
+                  }
                 }}
                 className="pointer-events-auto flex items-center justify-center rounded-sm opacity-60 ring-offset-background transition-opacity hover:opacity-80 focus:outline-none"
                 aria-label="Clear selection"
               >
                 <X className="h-4 w-4" />
-              </button>
+              </span>
             )}
             <ChevronDown className="h-6 w-6 shrink-0 opacity-50" />
           </div>
