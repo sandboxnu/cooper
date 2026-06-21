@@ -38,7 +38,7 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
 
   const companyQuery = api.company.getById.useQuery(
     { id: roleObj.companyId },
-    { enabled: !!reviews.data?.[0]?.companyId },
+    { enabled: !!roleObj.companyId },
   );
 
   // ===== ROLE DATA ===== //
