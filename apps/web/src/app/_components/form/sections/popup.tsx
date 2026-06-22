@@ -1,3 +1,4 @@
+import { X } from "lucide-react";
 import React from "react";
 
 interface PopupProps {
@@ -30,11 +31,11 @@ const Popup: React.FC<PopupProps> = ({
             <button
               type="button"
               className={
-                "flex h-4 w-4 items-center justify-center rounded-full bg-gray-300 text-[9px] font-bold text-gray-500"
+                "flex h-4 w-4 items-center justify-center rounded-full text-[9px] font-bold text-gray-500"
               }
               onClick={onCancel}
             >
-              X
+              <X className="h-4 w-4" />
             </button>
           </div>
           <div
