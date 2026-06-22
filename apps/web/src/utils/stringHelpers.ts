@@ -1,6 +1,12 @@
 import type { WorkEnvironmentType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
 
+const RESTRICTED_ROLE_WORD_RE = /\b(internship|intern|co-?op)\b/i;
+
+export function findRestrictedRoleWord(title: string): string | null {
+  return RESTRICTED_ROLE_WORD_RE.exec(title)?.[0] ?? null;
+}
+
 export function truncateText(text: string, length: number): string {
   return text && text.length >= length
     ? cn(text.slice(0, length), "...")
