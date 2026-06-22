@@ -5,6 +5,7 @@ import Fuse from "fuse.js";
 import { useForm, useFormContext } from "react-hook-form";
 import { z } from "zod";
 
+import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 import { Checkbox } from "@cooper/ui/checkbox";
 import { FormControl, FormField, FormItem, FormMessage } from "@cooper/ui/form";
@@ -18,8 +19,10 @@ import { CompanyCardPreview } from "../companies/company-card-preview";
 import { FormSection } from "../form/form-section";
 import LocationBox from "../location";
 import { industryOptions } from "../onboarding/constants";
+
 import { FormLabel } from "../themed/onboarding/form";
 import FilterBody from "../filters/filter-body";
+import { findRestrictedRoleWord } from "~/utils/stringHelpers";
 
 const filter = new Filter();
 const roleSchema = z.object({
@@ -30,7 +33,13 @@ const roleSchema = z.object({
     })
     .refine((val) => !filter.isProfane(val), {
       message: "The title cannot contain profane words.",
-    }),
+    })
+    .refine(
+      (val) => findRestrictedRoleWord(val) === null,
+      (val) => ({
+        message: `The title cannot contain the word "${findRestrictedRoleWord(val)}".`,
+      }),
+    ),
   // description: z
   //   .string()
   //   .min(10, {
@@ -242,7 +251,7 @@ export default function ExistingCompanyContent({
     // Only validate the title field since companyId and createdBy are set programmatically
     const isTitleValid = await newRoleForm.trigger("title");
     if (!isTitleValid) {
-      const errorMessage = newRoleForm.formState.errors.title?.message;
+      const errorMessage = newRoleForm.getFieldState("title").error?.message;
       toast.error(errorMessage ?? "Please enter a valid role title.");
       return;
     }
@@ -310,6 +319,10 @@ export default function ExistingCompanyContent({
                     } else {
                       field.onChange(undefined);
                       setSelectedCompanyId(undefined);
+                      // Clear any role selection tied to the now-unselected company
+                      form.setValue("roleName", "");
+                      setCreatingNewRole(false);
+                      newRoleForm.setValue("title", "");
                     }
                     setCompanySearchTerm("");
                   }}
@@ -558,6 +571,7 @@ export default function ExistingCompanyContent({
 
           <div className="flex flex-1 items-center gap-2 pt-2">
             <Checkbox
+              disabled={!selectedCompanyId}
               checked={creatingNewRole}
               onCheckedChange={(checked) => {
                 setCreatingNewRole(checked === true);
@@ -567,7 +581,14 @@ export default function ExistingCompanyContent({
                 }
               }}
             />
-            <Label className="text-cooper-gray-550 cursor-pointer text-sm font-bold">
+            <Label
+              className={cn(
+                "text-cooper-gray-550 text-sm font-bold",
+                selectedCompanyId
+                  ? "cursor-pointer"
+                  : "cursor-not-allowed opacity-50",
+              )}
+            >
               I don't see my role
             </Label>
           </div>

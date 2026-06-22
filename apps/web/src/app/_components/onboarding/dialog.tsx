@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import type { Session } from "@cooper/auth";
-import { Dialog, DialogContent } from "@cooper/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@cooper/ui/dialog";
 
 import { OnboardingForm } from "~/app/_components/onboarding/onboarding-form";
 import { api } from "~/trpc/react";
@@ -70,6 +70,9 @@ export function OnboardingDialog({
         onInteractOutside={(e) => e.preventDefault()}
         onEscapeKeyDown={(e) => e.preventDefault()}
       >
+        <DialogTitle className="sr-only">
+          Create your Cooper profile
+        </DialogTitle>
         <OnboardingForm
           userId={session.user.id}
           closeDialog={closeDialog}
