@@ -24,7 +24,12 @@ import {
   ZodInterviewTypeSchema,
 } from "@cooper/db/schema";
 import { useCustomToast } from "@cooper/ui";
-import { Dialog, DialogClose, DialogContent } from "@cooper/ui/dialog";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogTitle,
+} from "@cooper/ui/dialog";
 import { Form } from "@cooper/ui/form";
 
 import {
@@ -539,6 +544,9 @@ export function ReviewViewEditModal({
           }
         }}
       >
+        <DialogTitle className="sr-only">
+          {mode === "view" ? (role?.title ?? "Review") : "Edit Review"}
+        </DialogTitle>
         {/* Header */}
         <div className="flex md:flex-row flex-col shrink-0 items-center justify-between bg-cooper-gray-700 pb-5 pl-6 pr-6 pt-8">
           <div className="hidden md:block">
