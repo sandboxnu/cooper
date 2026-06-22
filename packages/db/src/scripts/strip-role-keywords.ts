@@ -64,7 +64,7 @@ async function main() {
   for (const r of roles) {
     if (!slugsByCompany.has(r.companyId))
       slugsByCompany.set(r.companyId, new Set());
-    slugsByCompany.get(r.companyId)!.add(r.slug);
+    slugsByCompany.get(r.companyId)?.add(r.slug);
   }
 
   let changed = 0;
@@ -83,7 +83,10 @@ async function main() {
       continue;
     }
 
-    const companySlugs = slugsByCompany.get(role.companyId)!;
+    const companySlugs = slugsByCompany.get(role.companyId);
+    if (!companySlugs) {
+      throw new Error(`Missing slug set for company ${role.companyId}`);
+    }
     companySlugs.delete(role.slug);
     const newSlug = generateUniqueSlug(createSlug(newTitle), companySlugs);
     companySlugs.add(newSlug);
