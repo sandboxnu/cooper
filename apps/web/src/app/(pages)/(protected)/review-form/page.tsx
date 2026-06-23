@@ -98,13 +98,13 @@ const formSchema = z.object({
   jobType: z.nativeEnum(JobType, {
     message: "You need to select a job type.",
   }),
-  hourlyPay: z.coerce
-    .number()
-    .min(0, {
-      message: "Please enter hourly pay",
+  hourlyPay: z
+    .string({ required_error: "Please enter hourly pay" })
+    .min(1, { message: "Please enter hourly pay" })
+    .refine((val) => !Number.isNaN(Number(val)) && Number(val) >= 0, {
+      message: "Please enter a valid hourly pay",
     })
-    .transform((val) => (Number.isNaN(val) ? null : val.toString()))
-    .nullable(),
+    .transform((val) => Number(val).toString()),
   workEnvironment: z.nativeEnum(WorkEnvironment, {
     required_error: "You need to select a work model.",
   }),
@@ -138,8 +138,20 @@ const formSchema = z.object({
   freeMerch: z.boolean(),
   snackBar: z.boolean(),
   otherBenefits: z.string().nullable(),
-  jobLength: z.coerce.number().int().min(1).nullable(),
-  workHours: z.coerce.number().int().min(1).nullable(),
+  jobLength: z.coerce
+    .number({
+      required_error: "Please enter a job length.",
+      invalid_type_error: "Please enter a job length.",
+    })
+    .int()
+    .min(1, { message: "Please enter a job length of at least 1 month." }),
+  workHours: z.coerce
+    .number({
+      required_error: "Please enter your weekly work hours.",
+      invalid_type_error: "Please enter your weekly work hours.",
+    })
+    .int()
+    .min(1, { message: "Please enter work hours of at least 1." }),
   accessibleByTransportation: z
     .string({
       required_error:
@@ -206,8 +218,8 @@ export default function ReviewForm() {
       otherBenefits: "",
       roleName: "",
       companyName: "",
-      jobLength: null,
-      workHours: null,
+      jobLength: undefined,
+      workHours: undefined,
       accessibleByTransportation: undefined,
       teamOutings: false,
       coffeeChats: false,

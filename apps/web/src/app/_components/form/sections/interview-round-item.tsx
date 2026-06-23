@@ -40,7 +40,7 @@ export function InterviewRoundItem({
             render={({ field }) => (
               <FormItem className="flex flex-col">
                 <FormLabel className="text-sm font-semibold text-cooper-gray-400">
-                  Interview type
+                  Interview type<span className="text-cooper-red-300">*</span>
                 </FormLabel>
                 <FormControl>
                   <FilterBody
@@ -76,7 +76,7 @@ export function InterviewRoundItem({
             render={({ field }) => (
               <FormItem className="flex flex-col">
                 <FormLabel className="text-sm font-semibold text-cooper-gray-400">
-                  Difficulty
+                  Difficulty<span className="text-cooper-red-300">*</span>
                 </FormLabel>
                 <FormControl>
                   <FilterBody
