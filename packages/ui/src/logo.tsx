@@ -11,9 +11,6 @@ interface ILogoProps {
   company: Omit<CompanyType, "slug"> & { slug?: string };
 }
 
-// A transient first-load failure (cold image optimizer, logo.dev rate limiting
-// under a burst of requests) used to latch the fallback permanently. Allow one
-// retry before giving up so the logo recovers without a full remount.
 const MAX_LOGO_RETRIES = 1;
 
 const Logo: React.FC<ILogoProps> = ({ company, className }) => {
@@ -25,8 +22,7 @@ const Logo: React.FC<ILogoProps> = ({ company, className }) => {
   const [imageError, setImageError] = useState(false);
   const [retries, setRetries] = useState(0);
 
-  // Reset the failed state when the target logo changes (e.g. navigating
-  // between companies) so a previous company's failure doesn't stick.
+  // so that the logo is re-rendered when the website changes and error state's reset
   useEffect(() => {
     setImageError(false);
     setRetries(0);
