@@ -96,11 +96,13 @@ const formSchema = z.object({
     .nullable(),
   locationId: z.string().min(1, { message: "You need to select a location." }),
   jobType: z.nativeEnum(JobType, { message: "You need to select a job type." }),
-  hourlyPay: z.coerce
-    .number()
-    .min(0, { message: "Please enter hourly pay" })
-    .transform((val) => (Number.isNaN(val) ? null : val.toString()))
-    .nullable(),
+  hourlyPay: z
+    .string({ required_error: "Please enter hourly pay" })
+    .min(1, { message: "Please enter hourly pay" })
+    .refine((val) => !Number.isNaN(Number(val)) && Number(val) >= 0, {
+      message: "Please enter a valid hourly pay",
+    })
+    .transform((val) => Number(val).toString()),
   workEnvironment: z.nativeEnum(WorkEnvironment, {
     required_error: "You need to select a work model.",
   }),
@@ -129,8 +131,20 @@ const formSchema = z.object({
   freeMerch: z.boolean(),
   snackBar: z.boolean(),
   otherBenefits: z.string().nullable(),
-  jobLength: z.coerce.number().int().min(1).nullable().optional(),
-  workHours: z.coerce.number().int().min(1).nullable().optional(),
+  jobLength: z.coerce
+    .number({
+      required_error: "Please enter a job length.",
+      invalid_type_error: "Please enter a job length.",
+    })
+    .int()
+    .min(1, { message: "Please enter a job length of at least 1 month." }),
+  workHours: z.coerce
+    .number({
+      required_error: "Please enter your weekly work hours.",
+      invalid_type_error: "Please enter your weekly work hours.",
+    })
+    .int()
+    .min(1, { message: "Please enter work hours of at least 1." }),
   accessibleByTransportation: z
     .string()
     .transform((x) => x === "true")
@@ -301,8 +315,8 @@ export function ReviewViewEditModal({
       otherBenefits: "",
       roleName: "",
       companyName: "",
-      jobLength: null,
-      workHours: null,
+      jobLength: undefined,
+      workHours: undefined,
       accessibleByTransportation: undefined,
       teamOutings: false,
       coffeeChats: false,
@@ -365,8 +379,8 @@ export function ReviewViewEditModal({
         otherBenefits: review.otherBenefits ?? "",
         roleName: review.roleId ?? "",
         companyName: review.companyId ?? "",
-        jobLength: review.jobLength ?? null,
-        workHours: review.workHours ?? null,
+        jobLength: review.jobLength ?? undefined,
+        workHours: review.workHours ?? undefined,
         accessibleByTransportation: (review.accessibleByTransportation === true
           ? "true"
           : review.accessibleByTransportation === false
@@ -423,10 +437,7 @@ export function ReviewViewEditModal({
       textReview: values.textReview,
       locationId: values.locationId,
       jobType: values.jobType,
-      hourlyPay:
-        values.hourlyPay === "" || values.hourlyPay === null
-          ? null
-          : values.hourlyPay,
+      hourlyPay: values.hourlyPay,
       workEnvironment: values.workEnvironment,
       drugTest: normalizeRadio(values.drugTest),
       pto: normalizeRadio(values.pto),
@@ -437,8 +448,8 @@ export function ReviewViewEditModal({
       freeMerch: values.freeMerch,
       snackBar: values.snackBar,
       otherBenefits: values.otherBenefits ?? null,
-      jobLength: values.jobLength ?? null,
-      workHours: values.workHours ?? null,
+      jobLength: values.jobLength,
+      workHours: values.workHours,
       accessibleByTransportation: normalizeRadio(
         values.accessibleByTransportation,
       ),
@@ -490,8 +501,8 @@ export function ReviewViewEditModal({
       otherBenefits: review.otherBenefits ?? "",
       roleName: review.roleId ?? "",
       companyName: review.companyId ?? "",
-      jobLength: review.jobLength ?? null,
-      workHours: review.workHours ?? null,
+      jobLength: review.jobLength ?? undefined,
+      workHours: review.workHours ?? undefined,
       accessibleByTransportation: (review.accessibleByTransportation === true
         ? "true"
         : review.accessibleByTransportation === false
