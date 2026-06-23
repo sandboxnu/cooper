@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 import type { CompanyType } from "../../db/src/schema/companies";
@@ -11,13 +11,23 @@ interface ILogoProps {
   company: Omit<CompanyType, "slug"> & { slug?: string };
 }
 
+const MAX_LOGO_RETRIES = 1;
+
 const Logo: React.FC<ILogoProps> = ({ company, className }) => {
   const rawWebsite = company.website;
   const website =
     rawWebsite && rawWebsite !== ""
-      ? rawWebsite.replace(/^(https?:\/\/)/, "")
+      ? rawWebsite.replace(/^(https?:\/\/)/, "").replace(/\s/g, "")
       : `${company.name.replace(/\s/g, "")}.com`;
   const [imageError, setImageError] = useState(false);
+  const [retries, setRetries] = useState(0);
+
+  // so that the logo is re-rendered when the website changes and error state's reset
+  useEffect(() => {
+    setImageError(false);
+    setRetries(0);
+  }, [website]);
+
   return imageError ? (
     <div
       className={cn(
@@ -29,12 +39,19 @@ const Logo: React.FC<ILogoProps> = ({ company, className }) => {
     </div>
   ) : (
     <Image
+      key={`${website}-${retries}`}
       src={`https://img.logo.dev/${website}?token=pk_DNxGM2gHTjiLU3p79GX79A`}
       width={50}
       height={50}
       alt={`Logo of ${company.name}`}
       className={cn(`h-[50px] w-[50px] rounded-lg`, className)}
-      onError={() => setImageError(true)}
+      onError={() => {
+        if (retries < MAX_LOGO_RETRIES) {
+          setRetries((r) => r + 1);
+        } else {
+          setImageError(true);
+        }
+      }}
     />
   );
 };
