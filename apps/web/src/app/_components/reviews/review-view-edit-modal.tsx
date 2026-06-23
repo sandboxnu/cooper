@@ -39,7 +39,7 @@ import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
 
 import { DeleteReviewDialog } from "./delete-review-dialogue";
-import { GrayStar, YellowStar } from "./review-card-stars";
+import { YellowStar } from "./review-card-stars";
 
 const filter = new Filter();
 
@@ -96,11 +96,13 @@ const formSchema = z.object({
     .nullable(),
   locationId: z.string().min(1, { message: "You need to select a location." }),
   jobType: z.nativeEnum(JobType, { message: "You need to select a job type." }),
-  hourlyPay: z.coerce
-    .number()
-    .min(0, { message: "Please enter hourly pay" })
-    .transform((val) => (Number.isNaN(val) ? null : val.toString()))
-    .nullable(),
+  hourlyPay: z
+    .string({ required_error: "Please enter hourly pay" })
+    .min(1, { message: "Please enter hourly pay" })
+    .refine((val) => !Number.isNaN(Number(val)) && Number(val) >= 0, {
+      message: "Please enter a valid hourly pay",
+    })
+    .transform((val) => Number(val).toString()),
   workEnvironment: z.nativeEnum(WorkEnvironment, {
     required_error: "You need to select a work model.",
   }),
@@ -129,8 +131,20 @@ const formSchema = z.object({
   freeMerch: z.boolean(),
   snackBar: z.boolean(),
   otherBenefits: z.string().nullable(),
-  jobLength: z.coerce.number().int().min(1).nullable().optional(),
-  workHours: z.coerce.number().int().min(1).nullable().optional(),
+  jobLength: z.coerce
+    .number({
+      required_error: "Please enter a job length.",
+      invalid_type_error: "Please enter a job length.",
+    })
+    .int()
+    .min(1, { message: "Please enter a job length of at least 1 month." }),
+  workHours: z.coerce
+    .number({
+      required_error: "Please enter your weekly work hours.",
+      invalid_type_error: "Please enter your weekly work hours.",
+    })
+    .int()
+    .min(1, { message: "Please enter work hours of at least 1." }),
   accessibleByTransportation: z
     .string()
     .transform((x) => x === "true")
@@ -160,11 +174,22 @@ const WORK_ENV_LABELS: Record<string, string> = {
 };
 
 const BENEFITS = [
-  { field: "federalHolidays", label: "Federal holidays off" },
   { field: "freeLunch", label: "Free lunch" },
   { field: "travelBenefits", label: "Travel benefits" },
   { field: "freeMerch", label: "Free merchandise" },
   { field: "snackBar", label: "Snack bar" },
+] as const;
+
+const COMPANY_CULTURE = [
+  { field: "teamOutings", label: "Team outings" },
+  { field: "coffeeChats", label: "Coffee chats" },
+  { field: "constructiveFeedback", label: "Constructive feedback" },
+] as const;
+
+const COOP_SUPPORT = [
+  { field: "onboarding", label: "Onboarding" },
+  { field: "workStructure", label: "Work structure" },
+  { field: "careerGrowth", label: "Career growth" },
 ] as const;
 
 /** Radix DismissableLayer wraps the native event in `detail.originalEvent` (pointerdown / focusin). */
@@ -178,22 +203,24 @@ function isOutsideEventOnAutocompletePortal(e: {
   );
 }
 
-function StarRating({
-  value,
-  max = 5,
-}: {
-  value: number | null | undefined;
-  max?: number;
-}) {
+function yesNo(value: boolean | null | undefined) {
+  return value === true ? "Yes" : value === false ? "No" : "—";
+}
+
+function Chips({ items }: { items: string[] }) {
+  if (items.length === 0) {
+    return <p className="text-base text-black">—</p>;
+  }
   return (
-    <div className="flex gap-0.5">
-      {Array.from({ length: max }, (_, i) =>
-        i < (value ?? 0) ? (
-          <YellowStar key={i} className="h-5 w-5" />
-        ) : (
-          <GrayStar key={i} className="h-5 w-5" />
-        ),
-      )}
+    <div className="flex flex-wrap gap-2">
+      {items.map((label) => (
+        <span
+          key={label}
+          className="rounded-lg border border-cooper-gray-150 bg-cooper-gray-100 px-3.5 py-2 text-sm font-medium text-[#767676]"
+        >
+          {label}
+        </span>
+      ))}
     </div>
   );
 }
@@ -288,8 +315,8 @@ export function ReviewViewEditModal({
       otherBenefits: "",
       roleName: "",
       companyName: "",
-      jobLength: null,
-      workHours: null,
+      jobLength: undefined,
+      workHours: undefined,
       accessibleByTransportation: undefined,
       teamOutings: false,
       coffeeChats: false,
@@ -352,8 +379,8 @@ export function ReviewViewEditModal({
         otherBenefits: review.otherBenefits ?? "",
         roleName: review.roleId ?? "",
         companyName: review.companyId ?? "",
-        jobLength: review.jobLength ?? null,
-        workHours: review.workHours ?? null,
+        jobLength: review.jobLength ?? undefined,
+        workHours: review.workHours ?? undefined,
         accessibleByTransportation: (review.accessibleByTransportation === true
           ? "true"
           : review.accessibleByTransportation === false
@@ -410,10 +437,7 @@ export function ReviewViewEditModal({
       textReview: values.textReview,
       locationId: values.locationId,
       jobType: values.jobType,
-      hourlyPay:
-        values.hourlyPay === "" || values.hourlyPay === null
-          ? null
-          : values.hourlyPay,
+      hourlyPay: values.hourlyPay,
       workEnvironment: values.workEnvironment,
       drugTest: normalizeRadio(values.drugTest),
       pto: normalizeRadio(values.pto),
@@ -424,8 +448,8 @@ export function ReviewViewEditModal({
       freeMerch: values.freeMerch,
       snackBar: values.snackBar,
       otherBenefits: values.otherBenefits ?? null,
-      jobLength: values.jobLength ?? null,
-      workHours: values.workHours ?? null,
+      jobLength: values.jobLength,
+      workHours: values.workHours,
       accessibleByTransportation: normalizeRadio(
         values.accessibleByTransportation,
       ),
@@ -477,8 +501,8 @@ export function ReviewViewEditModal({
       otherBenefits: review.otherBenefits ?? "",
       roleName: review.roleId ?? "",
       companyName: review.companyId ?? "",
-      jobLength: review.jobLength ?? null,
-      workHours: review.workHours ?? null,
+      jobLength: review.jobLength ?? undefined,
+      workHours: review.workHours ?? undefined,
       accessibleByTransportation: (review.accessibleByTransportation === true
         ? "true"
         : review.accessibleByTransportation === false
@@ -528,6 +552,16 @@ export function ReviewViewEditModal({
 
   const locationDisplay = prettyLocationName(location);
   const activeBenefits = BENEFITS.filter((b) => Boolean(review?.[b.field]));
+  const activeCompanyCulture = COMPANY_CULTURE.filter((c) =>
+    Boolean(review?.[c.field]),
+  ).map((c) => c.label);
+  const activeCoopSupport = COOP_SUPPORT.filter((c) =>
+    Boolean(review?.[c.field]),
+  ).map((c) => c.label);
+  const toolNames =
+    (review?.reviewsToTools as { tool: { name: string } }[] | undefined)?.map(
+      (rt) => rt.tool.name,
+    ) ?? [];
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -658,6 +692,13 @@ export function ReviewViewEditModal({
                     : "—"}
                 </p>
               </ViewField>
+              <ViewField label="Job length">
+                <p className="text-base text-black">
+                  {review?.jobLength
+                    ? `${review.jobLength} ${review.jobLength === 1 ? "month" : "months"}`
+                    : "—"}
+                </p>
+              </ViewField>
               <ViewField label="Year">
                 <p className="text-base text-black">
                   {review?.workYear ?? "—"}
@@ -683,36 +724,37 @@ export function ReviewViewEditModal({
                     : "—"}
                 </p>
               </ViewField>
+              <ViewField label="Work hours">
+                <p className="text-base text-black">
+                  {review?.workHours ? `${review.workHours} hours / week` : "—"}
+                </p>
+              </ViewField>
+              <ViewField label="Federal holidays off">
+                <p className="text-base text-black">
+                  {yesNo(review?.federalHolidays)}
+                </p>
+              </ViewField>
               <ViewField label="Drug test required">
                 <p className="text-base text-black">
-                  {review?.drugTest === true
-                    ? "Yes"
-                    : review?.drugTest === false
-                      ? "No"
-                      : "—"}
+                  {yesNo(review?.drugTest)}
+                </p>
+              </ViewField>
+              <ViewField label="Accessible by transportation">
+                <p className="text-base text-black">
+                  {yesNo(review?.accessibleByTransportation)}
                 </p>
               </ViewField>
               <ViewField label="Company culture">
-                <StarRating value={review?.cultureRating} />
+                <Chips items={activeCompanyCulture} />
               </ViewField>
-              <ViewField label="Supervisor rating">
-                <StarRating value={review?.supervisorRating} />
+              <ViewField label="Co-op support">
+                <Chips items={activeCoopSupport} />
               </ViewField>
               <ViewField label="Benefits">
-                {activeBenefits.length > 0 ? (
-                  <div className="flex flex-wrap gap-2">
-                    {activeBenefits.map((b) => (
-                      <span
-                        key={b.field}
-                        className="rounded-lg border border-cooper-gray-150 bg-cooper-gray-100 px-3.5 py-2 text-sm font-medium text-[#767676]"
-                      >
-                        {b.label}
-                      </span>
-                    ))}
-                  </div>
-                ) : (
-                  <p className="text-base text-black">—</p>
-                )}
+                <Chips items={activeBenefits.map((b) => b.label)} />
+              </ViewField>
+              <ViewField label="Tools and software">
+                <Chips items={toolNames} />
               </ViewField>
             </div>
 
