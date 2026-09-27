@@ -17,7 +17,7 @@ export default function AdminSignInButton() {
           console.error("[AdminSignInButton] sign-in error", result.error);
         }
       }}
-      className="text-cooper-gray-600 font-bold text-md pb-6 pt-2 w-fit cursor-pointer hover:underline"
+      className="text-cooper-gray-600 text-left font-bold text-md w-fit cursor-pointer hover:underline"
     >
       Or continue as admin / coordinator
     </button>

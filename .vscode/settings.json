@@ -22,5 +22,6 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "files.associations": {
     "*.json": "jsonc"
-  }
+  },
+  "js/ts.tsdk.path": "node_modules/typescript/lib"
 }
