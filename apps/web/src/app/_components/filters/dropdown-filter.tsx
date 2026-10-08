@@ -238,7 +238,7 @@ export function FilterPanelContent(
     <div className="flex flex-col w-96 gap-[22px] p-5 bg-cooper-cream-400 rounded-lg">
       <div className="flex justify-between p-0 bg-cooper-cream-400">
         <div className="flex gap-2">
-          <span className="font-semibold text-base">{title}</span>
+          {/* <span className="font-semibold text-base">{title}</span> */}
           <Button
             className="bg-transparent border-none text-cooper-gray-400 font-normal text-xs hover:bg-transparent p-0 h-auto self-center"
             onClick={handleClear}
@@ -248,7 +248,7 @@ export function FilterPanelContent(
         </div>
         <Button
           onClick={onClose}
-          className="bg-transparent border-none text-cooper-gray-400 hover:bg-transparent p-0 h-auto"
+          className="self-end bg-transparent border-none text-cooper-gray-400 hover:bg-transparent p-0 h-auto"
         >
           <X className="h-4 w-4" />
         </Button>

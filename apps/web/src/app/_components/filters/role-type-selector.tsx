@@ -12,11 +12,11 @@ export default function RoleTypeSelector({
 }: RoleTypeSelectorProps) {
   return (
     <div className="flex gap-2">
-      <Chip
+      {/* <Chip
         label={`All`}
         onClick={() => onSelectedTypeChange("all")}
         selected={selectedType === "all"}
-      />
+      /> */}
       <Chip
         onClick={() =>
           onSelectedTypeChange(selectedType === "roles" ? "all" : "roles")

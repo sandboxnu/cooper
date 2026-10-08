@@ -39,7 +39,7 @@ export function CompanyCardPreview({
   return (
     <Card
       className={cn(
-        "outline-cooper-gray-150 flex h-fit flex-col justify-between rounded-lg outline outline-[0.75px] hover:cursor-pointer hover:bg-cooper-gray-200",
+        "flex h-fit flex-col justify-between rounded-lg hover:cursor-pointer hover:bg-cooper-gray-200",
         className,
       )}
     >

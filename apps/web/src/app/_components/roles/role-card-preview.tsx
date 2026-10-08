@@ -62,7 +62,7 @@ export function RoleCardPreview({
   return (
     <Card
       className={cn(
-        "outline-cooper-gray-150 relative flex flex-col justify-between overflow-hidden rounded-lg outline outline-[0.75px] hover:cursor-pointer ",
+        "relative flex flex-col justify-between overflow-hidden rounded-lg hover:cursor-pointer ",
         className,
         showDragHandle && "pl-4",
         compare.isCompareMode && "pr-2",
@@ -89,16 +89,15 @@ export function RoleCardPreview({
               </h3>
             </div>
 
-            <div className="flex items-center gap-2 text-base text-[#666666]">
+            <div className="flex flex-wrap items-center gap-2 gap-y-0 text-base text-[#666666]">
               {company.data?.name}
+              <p>•</p>
               {location.isSuccess && location.data && (
-                <span className="before:mr-2 before:content-['•']">
-                  {prettyLocationName(location.data)}
-                </span>
+                <span>{prettyLocationName(location.data)}</span>
               )}
             </div>
             {reviews.isSuccess && reviews.data.length > 0 && (
-              <div className="flex items-center gap-1.5 text-base text-[#666666]">
+              <div className="!mt-2 flex items-center gap-1.5 text-base text-[#666666]">
                 <Image
                   src="/svg/star.svg"
                   alt="Star icon"

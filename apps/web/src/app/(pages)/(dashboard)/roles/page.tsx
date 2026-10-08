@@ -711,16 +711,16 @@ export default function Roles() {
     }
   }, [searchParams]);
 
-  const totalPages =
+  const totalResults =
     rolesAndCompanies.data && "totalCount" in rolesAndCompanies.data
-      ? Math.ceil(
-          (selectedType === "roles"
-            ? rolesAndCompanies.data.totalRolesCount
-            : selectedType === "companies"
-              ? rolesAndCompanies.data.totalCompanyCount
-              : rolesAndCompanies.data.totalCount) / rolesAndCompaniesPerPage,
-        )
+      ? selectedType === "roles"
+        ? rolesAndCompanies.data.totalRolesCount
+        : selectedType === "companies"
+          ? rolesAndCompanies.data.totalCompanyCount
+          : rolesAndCompanies.data.totalCount
       : 0;
+
+  const totalPages = Math.ceil(totalResults / rolesAndCompaniesPerPage);
 
   const sidebarListKey = useMemo(() => {
     const itemKey = (rolesAndCompanies.data?.items ?? [])
@@ -797,7 +797,7 @@ export default function Roles() {
   return (
     <div className="flex h-full w-full flex-col">
       <div className="bg-cooper-cream-100 border-cooper-gray-150 sticky top-0 z-20 flex w-full flex-shrink-0 flex-col items-stretch gap-4 border-b-[1px] py-4 md:flex-row md:items-center md:gap-5">
-        <div className="w-full px-5 md:w-[28%]">
+        <div className="w-full px-5 md:w-[360px] md:flex-shrink-0">
           <SearchFilter className="w-full" />
         </div>
         <div className="no-scrollbar flex w-full flex-1 gap-2 overflow-x-auto px-5 md:pr-0">
@@ -839,23 +839,33 @@ export default function Roles() {
             <div
               ref={sidebarRef}
               className={cn(
-                "border-cooper-gray-150 bg-cooper-cream-100 no-scrollbar w-full overflow-y-auto border-r-[1px] p-5 xl:rounded-none",
-                "md:w-[28%]", // Show as 28% width on md and above
+                "border-cooper-gray-150 bg-cooper-cream-100 no-scrollbar w-full overflow-y-auto border-r-[1px] px-6 py-5 xl:rounded-none",
+                "md:w-[360px] md:flex-shrink-0", // Fixed 360px width on md and above
                 (showRoleInfo || showCompanyInfo) && "hidden md:block", // Hide on mobile if RoleInfo is visible
                 compare.isCompareMode && "border-transparent",
               )}
             >
               <div key={sidebarListKey}>
-                <div className="pb-2 text-right">
+                <div className="mb-4">
+                  <RoleTypeSelector
+                    onSelectedTypeChange={setSelectedType}
+                    selectedType={selectedType}
+                  />
+                </div>
+                <div className="mb-3 flex items-center justify-between">
+                  <p className="text-sm text-cooper-gray-400">
+                    Showing {totalResults}{" "}
+                    {totalResults === 1 ? "result" : "results"}
+                  </p>
                   <DropdownMenu>
-                    <DropdownMenuTrigger className="text-md mb-2">
+                    <DropdownMenuTrigger className="text-sm">
                       Sort By{" "}
                       <span className="underline">
                         {selectedFilter &&
                           selectedFilter.charAt(0).toUpperCase() +
                             selectedFilter.slice(1)}
                       </span>
-                      <ChevronDown className="inline" />
+                      <ChevronDown className="inline" strokeWidth={1.5} />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
                       <DropdownMenuLabel className="flex flex-col text-center">
@@ -886,10 +896,6 @@ export default function Roles() {
                       </DropdownMenuLabel>
                     </DropdownMenuContent>
                   </DropdownMenu>
-                  <RoleTypeSelector
-                    onSelectedTypeChange={setSelectedType}
-                    selectedType={selectedType}
-                  />
                 </div>
                 {rolesAndCompanies.data.items.map((item, i) => {
                   if (item.type === "role") {
@@ -904,7 +910,7 @@ export default function Roles() {
                         }}
                         key={`role-${roleItem.id}`}
                         className={cn(
-                          "relative mb-4 rounded-lg",
+                          "relative mb-2 rounded-lg",
                           compare.isCompareMode &&
                             !isAlreadyCompared &&
                             "cursor-grab active:cursor-grabbing",
@@ -959,7 +965,7 @@ export default function Roles() {
                         <CompanyCardPreview
                           companyObj={item}
                           className={cn(
-                            "mb-4 hover:bg-cooper-gray-200 hover:cursor-pointer",
+                            "mb-2 hover:bg-cooper-gray-200 hover:cursor-pointer",
                             selectedItem
                               ? selectedItem.id === item.id &&
                                   "bg-cooper-gray-50"
@@ -985,7 +991,7 @@ export default function Roles() {
               ref={roleInfoScrollRef}
               className={cn(
                 "no-scrollbar col-span-3 w-full overflow-y-auto p-1",
-                "md:w-[72%]", // Show as 72% width on md and above
+                "md:w-auto md:min-w-0 md:flex-1", // Fill remaining width on md and above
                 !showRoleInfo && !showCompanyInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
               )}
             >

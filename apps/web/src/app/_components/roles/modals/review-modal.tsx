@@ -217,7 +217,7 @@ export function ReviewModal({ roleId, isComparing }: ReviewModalProps) {
 
           <div
             className={cn(
-              "flex flex-wrap items-center gap-3",
+              "flex flex-wrap items-center gap-2",
               !isComparing && "md:pt-6",
             )}
           >
@@ -321,7 +321,7 @@ export function ReviewModal({ roleId, isComparing }: ReviewModalProps) {
               </PopoverContent>
             </Popover>
             <DropdownMenu>
-              <DropdownMenuTrigger className="text-md text-cooper-gray-400">
+              <DropdownMenuTrigger className="text-sm text-cooper-gray-400 ml-2">
                 Sort By:{" "}
                 <span className="underline">
                   {selectedFilter &&
@@ -356,13 +356,16 @@ export function ReviewModal({ roleId, isComparing }: ReviewModalProps) {
           </div>
 
           {sortedReviews && sortedReviews.length > 0 ? (
-            sortedReviews.map((review: ReviewType) => (
-              <ReviewCard
-                reviewObj={review}
-                key={review.id}
-                isComparing={isComparing}
-              />
-            ))
+            <div className="flex flex-col divide-y divide-cooper-gray-150">
+              {sortedReviews.map((review: ReviewType) => (
+                <ReviewCard
+                  reviewObj={review}
+                  key={review.id}
+                  isComparing={isComparing}
+                  className="py-5 first:pt-0 last:pb-0"
+                />
+              ))}
+            </div>
           ) : (
             <div className="py-8 text-center text-cooper-gray-400">
               {locationFilter.length > 0 ||

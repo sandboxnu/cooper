@@ -21,6 +21,9 @@ export default {
         sans: ["var(--font-sans)", ...fontFamily.sans],
         hanken: ['"Hanken Grotesk"', "sans-serif"],
       },
+      fontSize: {
+        xl: ["1.125rem", { lineHeight: "1.75rem" }],
+      },
       colors: {
         // Cooper Gray
         "cooper-gray-900": "#151515",

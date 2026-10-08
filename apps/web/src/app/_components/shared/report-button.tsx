@@ -1,6 +1,6 @@
 "use client";
 
-import type { FormEvent } from "react";
+import type { FormEvent, ReactNode } from "react";
 import { useState } from "react";
 import Image from "next/image";
 
@@ -33,6 +33,7 @@ interface ReportButtonProps {
   entityType: "role" | "company" | "review";
   entityId: string;
   iconOnly?: boolean;
+  icon?: ReactNode;
   className?: string;
 }
 
@@ -40,6 +41,7 @@ export function ReportButton({
   entityType,
   entityId,
   iconOnly,
+  icon,
   className,
 }: ReportButtonProps) {
   const { toast } = useCustomToast();
@@ -93,12 +95,14 @@ export function ReportButton({
         className={cn("text-cooper-gray-300", className)}
       >
         <span className="flex flex-row gap-2">
-          <Image
-            src="/svg/reviewReport.svg"
-            width={16}
-            height={16}
-            alt="Report"
-          />
+          {icon ?? (
+            <Image
+              src="/svg/reviewReport.svg"
+              width={16}
+              height={16}
+              alt="Report"
+            />
+          )}
           {!iconOnly && "Report"}
         </span>
       </button>
@@ -107,12 +111,8 @@ export function ReportButton({
         <DialogContent className="w-full max-w-md bg-white p-5">
           <DialogHeader>
             <DialogTitle>Report content</DialogTitle>
-            <DialogDescription>
-              Tell us what is wrong and why this should be reviewed.
-            </DialogDescription>
           </DialogHeader>
-
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4 mt-[0.5rem]">
             <div className="space-y-2">
               <Label htmlFor="report-reason">Reason</Label>
               <Select
@@ -149,7 +149,7 @@ export function ReportButton({
               />
             </div>
 
-            <DialogFooter className="gap-2 sm:justify-end">
+            <DialogFooter className="gap-1/2 sm:justify-end">
               <Button
                 type="button"
                 className="px-3 py-2 text-sm font-semibold  h-9 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 text-black"
