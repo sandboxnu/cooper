@@ -1,4 +1,6 @@
+import { useRef } from "react";
 import Image from "next/image";
+import { ChevronLeft } from "lucide-react";
 
 import { cn } from "@cooper/ui";
 import { CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
@@ -21,6 +23,8 @@ import type {
   CompareStickyHeader,
 } from "../compare/compare-context";
 import { compareRowStyle } from "../compare/compare-section";
+import { useStickyHeader } from "../shared/use-sticky-header";
+import { logoBoxClass, RoleHeader } from "./role-header";
 
 interface RoleCardProps {
   className?: string;
@@ -144,12 +148,19 @@ export function RoleInfo({
     </CardContent>
   );
 
-  if (compareSize) {
-    const isSmall = compareSize === "sm";
-    // Save + remove buttons, shared by the full and compact sticky headers
-    const headerActions = (
-      <div className="flex shrink-0 items-center gap-4 pt-1">
-        <FavoriteButton objId={roleObj.id} objType="role" />
+  const inCompareColumn = !!compareSize;
+  const isSmall = compareSize === "sm";
+
+  // Regular view sticky header; compare columns get theirs from CompareColumns
+  const rootRef = useRef<HTMLDivElement>(null);
+  const inFlowHeaderRef = useRef<HTMLDivElement>(null);
+  const regularStickyHeader = useStickyHeader(rootRef, inFlowHeaderRef);
+
+  // Save (+ remove, in compare) buttons, shared by the full and compact headers
+  const headerActions = (
+    <div className="flex shrink-0 items-center gap-4 pt-1">
+      <FavoriteButton objId={roleObj.id} objType="role" />
+      {inCompareColumn && (
         <button
           type="button"
           aria-label="Remove from comparison"
@@ -164,87 +175,85 @@ export function RoleInfo({
             style={{ minHeight: "14px", minWidth: "14px" }}
           />
         </button>
-      </div>
-    );
+      )}
+    </div>
+  );
 
-    const fullHeader = (
-      <div className="flex items-start gap-[14px]">
-        {companyData ? (
-          <CompanyPopup
-            trigger={
-              <button
-                type="button"
-                className={cn(
-                  "flex shrink-0 items-center justify-center rounded-lg border border-black/[0.07] bg-white",
-                  isSmall ? "size-[46px]" : "p-4",
-                )}
-              >
-                <Logo
-                  company={companyData}
-                  className={cn(
-                    isSmall && "h-8 min-h-8 w-8 min-w-8 rounded-md text-lg",
-                  )}
-                />
-              </button>
-            }
-            company={companyData}
-            locations={finalLocations}
-          />
-        ) : (
-          <div
+  // Logo that opens the company popup. Outside compare it only shows on md+.
+  const companyLogo = (small: boolean) =>
+    companyData ? (
+      <CompanyPopup
+        trigger={
+          <button
+            type="button"
             className={cn(
-              "shrink-0 rounded-lg border border-black/[0.07] bg-white",
-              isSmall ? "size-[46px]" : "size-[82px]",
+              logoBoxClass(small),
+              !inCompareColumn && "hidden md:flex",
             )}
-          />
+          >
+            <Logo
+              company={companyData}
+              className={cn(
+                small && "h-8 min-h-8 w-8 min-w-8 rounded-md text-lg",
+              )}
+            />
+          </button>
+        }
+        company={companyData}
+        locations={finalLocations}
+      />
+    ) : (
+      <div
+        className={cn(
+          "shrink-0 rounded-lg border border-black/[0.07] bg-white",
+          small ? "size-[46px]" : "size-[82px]",
+          !inCompareColumn && "hidden md:block",
         )}
-        <div className="flex min-w-0 flex-1 flex-col gap-1 pr-1 pt-1">
-          <p
-            className={cn(
-              "font-semibold text-cooper-gray-900",
-              isSmall
-                ? "text-[18px] leading-6 tracking-[-0.18px]"
-                : "text-[24px] leading-7 tracking-[-0.24px]",
-            )}
-          >
-            {roleObj.title}
-          </p>
-          <div
-            className={cn(
-              "flex flex-col text-cooper-gray-400",
-              isSmall
-                ? "gap-1 text-[14px] leading-normal"
-                : "gap-[3px] text-[16px] leading-6 tracking-[-0.16px]",
-            )}
-          >
-            {location.isSuccess && location.data && (
-              <p className="whitespace-pre">
-                {jobTypeLabel}
-                {"  •  "}
-                {prettyLocationName(location.data)}
-              </p>
-            )}
-            {reviews.isSuccess && reviews.data.length > 0 && (
-              <div className="flex items-center gap-1.5">
-                <Image
-                  src="/svg/star.svg"
-                  alt="Star icon"
-                  width={21}
-                  height={21}
-                />
-                <p className="whitespace-pre">
-                  {Number(averages.data?.averageOverallRating ?? 0).toFixed(1)}
-                  {"  "}({reviews.data.length} review
-                  {reviews.data.length !== 1 && "s"})
-                </p>
-              </div>
-            )}
-          </div>
-        </div>
-        {headerActions}
-      </div>
+      />
     );
 
+  const fullHeader = (
+    <RoleHeader
+      logo={companyLogo(isSmall)}
+      title={roleObj.title}
+      jobTypeLabel={jobTypeLabel}
+      locationLabel={
+        location.isSuccess && location.data
+          ? prettyLocationName(location.data)
+          : null
+      }
+      rating={
+        reviews.isSuccess
+          ? {
+              average: Number(averages.data?.averageOverallRating ?? 0),
+              count: reviews.data.length,
+            }
+          : null
+      }
+      small={isSmall}
+      actions={headerActions}
+    />
+  );
+
+  // Logo shows on md/lg compare cards and md+ screens in the regular view
+  const compactHeader = (
+    <div className="flex items-center gap-4 py-3">
+      {compareSize !== "sm" && companyLogo(true)}
+      <div className="flex min-w-0 flex-1 flex-col">
+        <p className="truncate text-[16px] font-semibold leading-6 tracking-[-0.16px] text-cooper-gray-900">
+          {roleObj.title}
+        </p>
+        <p className="truncate text-[14px] leading-normal text-cooper-gray-400">
+          {[companyData?.name, location.data?.city]
+            .filter(Boolean)
+            .join(" • ")}
+        </p>
+      </div>
+      {headerActions}
+    </div>
+  );
+
+  if (compareSize) {
     return (
       // Card spans every compare row (plus the filler row); its sections line
       // up with the other cards through nested subgrids (see COMPARE_ROWS)
@@ -285,19 +294,7 @@ export function RoleInfo({
                     {fullHeader}
                   </div>
                 ) : (
-                  <div className="flex items-start gap-4 py-3">
-                    <div className="flex min-w-0 flex-1 flex-col">
-                      <p className="truncate text-[16px] font-semibold leading-6 tracking-[-0.16px] text-cooper-gray-900">
-                        {roleObj.title}
-                      </p>
-                      <p className="truncate text-[14px] leading-normal text-cooper-gray-400">
-                        {[companyData?.name, location.data?.city]
-                          .filter(Boolean)
-                          .join(" • ")}
-                      </p>
-                    </div>
-                    {headerActions}
-                  </div>
+                  compactHeader
                 )}
               </div>
             </div>
@@ -337,30 +334,45 @@ export function RoleInfo({
 
   return (
     <div
+      ref={rootRef}
       className={cn(
         "flex h-fit w-[100%] flex-col justify-between scroll-smooth rounded-lg border-none pb-5",
         className,
       )}
     >
+      {/* Sticky overlay header: zero height so showing or swapping it never
+          shifts the content below */}
+      {regularStickyHeader && (
+        // -top-1 offsets the scroll container's p-1 so nothing shows above it
+        <div className="sticky -top-1 z-20 h-0">
+          <div
+            key={regularStickyHeader}
+            className="border-b border-cooper-gray-150 bg-cooper-cream-100 px-3 duration-300 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-top-1 lg:px-6"
+          >
+            {regularStickyHeader === "full" ? (
+              <div className="pb-4 pt-4">{fullHeader}</div>
+            ) : (
+              compactHeader
+            )}
+          </div>
+        </div>
+      )}
       {onBack && (
-        <svg
-          width="14"
-          height="12"
-          viewBox="0 0 14 12"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="m-4 block min-w-3 hover:cursor-pointer md:hidden"
+        <button
+          type="button"
+          aria-label="Back"
           onClick={onBack}
+          className="mx-4 mt-4 block w-fit text-cooper-gray-400 md:hidden"
         >
-          <path
-            d="M13.41 10.59L12 12L6 6L12 0L13.41 1.41L8.83 6L13.41 10.59ZM7.41 10.59L6 12L0 6L6 0L7.41 1.41L2.83 6L7.41 10.59Z"
-            fill="#5A5A5A"
-          />
-        </svg>
+          <ChevronLeft size={20} strokeWidth={2.5} />
+        </button>
       )}
       <div
+        ref={inFlowHeaderRef}
         className={cn(
           "flex w-full items-start py-5 lg:pl-6 lg:pr-6",
+          // Sit close under the mobile back chevron
+          onBack && "max-md:pt-2",
           compare.isCompareMode && "lg:pl-4 lg:pr-4",
         )}
       >

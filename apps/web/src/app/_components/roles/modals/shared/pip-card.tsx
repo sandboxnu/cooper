@@ -1,8 +1,8 @@
-import { PipBar } from "./pip-bar";
+import { DotBar, DotCount } from "./dot-statement";
 
 interface PipCardProps {
   name: string;
-  subtext: string;
+  countLabel: string;
   filledCount: number;
   totalCount: number;
   filledColor: string;
@@ -11,7 +11,7 @@ interface PipCardProps {
 
 export function PipCard({
   name,
-  subtext,
+  countLabel,
   filledCount,
   totalCount,
   filledColor,
@@ -24,11 +24,14 @@ export function PipCard({
           <p className="text-[16px] tracking-[-0.16px] text-cooper-gray-900">
             {name}
           </p>
-          <p className="text-[14px] leading-[normal] text-cooper-gray-350">
-            {subtext}
-          </p>
+          <DotCount
+            count={filledCount}
+            total={totalCount}
+            label={countLabel}
+            color={filledColor}
+          />
         </div>
-        <PipBar
+        <DotBar
           filledCount={filledCount}
           totalCount={totalCount}
           filledColor={filledColor}

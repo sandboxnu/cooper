@@ -28,10 +28,9 @@ const RadioGroupItem = React.forwardRef<
     <RadioGroupPrimitive.Item
       ref={ref}
       className={cn(
-        "aspect-square h-3.5 w-3.5 rounded-full border-2 text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-        props.checked
-          ? "bg-cooper-yellow-500 border-cooper-yellow-500"
-          : "border-cooper-gray-150",
+        "aspect-square h-3.5 w-3.5 rounded-full border-2 border-cooper-gray-150 text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+        // Follows the group's selected value, so `checked` isn't required
+        "data-[state=checked]:border-cooper-yellow-500 data-[state=checked]:bg-cooper-yellow-500",
         className,
       )}
       {...props}

@@ -5,18 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@cooper/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuTrigger } from "@cooper/ui/dropdown-menu";
 import { Button } from "@cooper/ui/button";
 
 import { api } from "~/trpc/react";
-import { authClient } from "@cooper/auth/client";
 import CooperLogo from "../cooper-logo";
+import { ProfileMenuContent } from "../profile/profile-button";
 import MobileHeaderButton from "./mobile-header-button";
 import type { Session } from "@cooper/auth";
 import { UserRole } from "node_modules/@cooper/db/src/schema/misc";
@@ -97,35 +91,11 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
                   <span>Profile</span>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="center">
-                <DropdownMenuLabel className="text-center">
-                  <Link href="/profile" onClick={() => setIsOpen(false)}>
-                    Profile
-                  </Link>
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuLabel className="text-center">
-                  <Link
-                    href="/admin/dashboard"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Admin
-                  </Link>
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuLabel className="text-center">
-                  <button
-                    type="button"
-                    onClick={async () => {
-                      setIsOpen(false);
-                      await authClient.signOut();
-                      window.location.href = "/";
-                    }}
-                  >
-                    Log Out
-                  </button>
-                </DropdownMenuLabel>
-              </DropdownMenuContent>
+              <ProfileMenuContent
+                session={session.data}
+                align="center"
+                onSelect={() => setIsOpen(false)}
+              />
             </DropdownMenu>
           ) : (
             <MobileHeaderButton label="" onClick={() => setIsOpen(false)}>
@@ -152,17 +122,10 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
         <h1 className="text-2xl font-bold text-cooper-blue-800">Cooper</h1>
       </Link>
       <div className="hidden flex-shrink grid-cols-2 items-center justify-center gap-6 md:flex">
-        <Link
-          href="https://docs.google.com/forms/d/e/1FAIpQLSf-ZvpyBawT5LlMho7X4oNZ0Z_1M-o6cXLJjB5uJiNAvvnkfw/viewform?usp=dialog"
-          target="_blank"
-          className="text-cooper-gray-250 text-sm hover:underline"
-        >
-          Submit Feedback or Bug Reports
-        </Link>
         {session.data && loggedIn && isStudentOrDeveloper && (
           <div className="flex items-center gap-8">
             <Link href="/review-form">
-              <Button className="hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700 h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white">
+              <Button className="hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700 h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-bold text-white">
                 <span className="translate-y-[-2px] text-2xl md:hidden">+</span>
                 <span className="hidden md:inline">+ ADD REVIEW</span>
               </Button>
@@ -177,7 +140,7 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
         {session.data && loggedIn && isStudentOrDeveloper ? (
           <>
             <Link href="/review-form">
-              <Button className="hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700 h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-semibold text-white">
+              <Button className="hover:border-cooper-yellow-700 hover:bg-cooper-yellow-700 h-9 rounded-lg border-none border-cooper-yellow-500 bg-cooper-yellow-500 px-3 py-2 text-sm font-bold text-white">
                 <span className="translate-y-[-2px] text-2xl md:hidden">+</span>
               </Button>
             </Link>

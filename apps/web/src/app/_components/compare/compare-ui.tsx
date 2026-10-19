@@ -13,11 +13,35 @@ import type { CompareSize, CompareStickyHeader } from "./compare-context";
 import { getCompareSize, useCompare } from "./compare-context";
 import { COMPARE_ROW_COUNT } from "./compare-section";
 
-interface CompareControlsProps {
-  anchorRoleId?: string | null;
+// Cards never shrink below this; the roles page hides its sidebar to make room
+export const COMPARE_CARD_MIN_WIDTH = 340;
+const COMPARE_CARD_GAP = 12; // ml-3 between cards
+const COMPARE_DROP_SLOT_WIDTH = 80; // 68px slot + its 12px gap margin
+const COMPARE_COLUMNS_PADDING = 16; // px-2 on CompareColumns
+
+// Width CompareColumns needs to fit every card at its minimum width
+export function getCompareColumnsMinWidth(
+  cardCount: number,
+  hasDropSlot: boolean,
+) {
+  return (
+    cardCount * COMPARE_CARD_MIN_WIDTH +
+    (cardCount - 1) * COMPARE_CARD_GAP +
+    (hasDropSlot ? COMPARE_DROP_SLOT_WIDTH : 0) +
+    COMPARE_COLUMNS_PADDING
+  );
 }
 
-export function CompareControls({ anchorRoleId }: CompareControlsProps) {
+interface CompareControlsProps {
+  anchorRoleId?: string | null;
+  // False when the screen is too narrow to compare; hides the COMPARE button
+  canCompare?: boolean;
+}
+
+export function CompareControls({
+  anchorRoleId,
+  canCompare = true,
+}: CompareControlsProps) {
   const compare = useCompare();
 
   if (!anchorRoleId) {
@@ -25,9 +49,10 @@ export function CompareControls({ anchorRoleId }: CompareControlsProps) {
   }
 
   if (!compare.isCompareMode) {
+    if (!canCompare) return null;
     return (
       <Button
-        className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-[rgba(49,115,222,0.15)] bg-[#C4D4E9] px-[14px] py-2 text-sm font-semibold text-[#606060] transition hover:bg-[rgba(49,115,222,0.15)] h-9"
+        className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-[rgba(49,115,222,0.15)] bg-[#C4D4E9] px-[14px] py-2 text-sm font-bold text-[#606060] transition hover:bg-[rgba(49,115,222,0.15)] h-9"
         onClick={() => compare.enterCompareMode(anchorRoleId)}
       >
         <Image
@@ -43,7 +68,7 @@ export function CompareControls({ anchorRoleId }: CompareControlsProps) {
     return (
       <div className="flex items-center gap-2">
         <Button
-          className="inline-flex items-center gap-1.5 rounded-md border border-[rgba(49,115,222,0.15)] bg-cooper-gray-400 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-cooper-gray-300 h-9"
+          className="inline-flex items-center gap-1.5 rounded-md border border-[rgba(49,115,222,0.15)] bg-cooper-gray-400 px-3 py-1.5 text-sm font-bold text-white transition hover:bg-cooper-gray-300 h-9"
           onClick={() => compare.exitCompareMode()}
         >
           EXIT COMPARE
@@ -55,9 +80,15 @@ export function CompareControls({ anchorRoleId }: CompareControlsProps) {
 
 interface CompareColumnsProps {
   anchorRole: RoleType;
+  // False while the roles sidebar is hidden: there's nothing to drag cards
+  // from, so the drop slot is hidden too
+  canAddCards?: boolean;
 }
 
-export function CompareColumns({ anchorRole }: CompareColumnsProps) {
+export function CompareColumns({
+  anchorRole,
+  canAddCards = true,
+}: CompareColumnsProps) {
   const compare = useCompare();
   const { comparedRoleIds, anchorRoleId } = compare;
 
@@ -107,7 +138,9 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
   }, [nonAnchorComparedRoleIds, comparedRolesQuery.data]);
 
   const emptySlotCount =
-    1 + nonAnchorComparedRoleIds.length < compare.maxColumns ? 1 : 0;
+    canAddCards && 1 + nonAnchorComparedRoleIds.length < compare.maxColumns
+      ? 1
+      : 0;
 
   const placeholders = Array.from({ length: emptySlotCount }, (_, index) => ({
     key: `placeholder-${index}`,
@@ -156,7 +189,7 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
   const hasDropSlot = cardColumns.length < columns.length;
 
   const cardsGridTemplateColumns = [
-    ...cardColumns.map(() => "minmax(0px, 1fr)"),
+    ...cardColumns.map(() => `minmax(${COMPARE_CARD_MIN_WIDTH}px, 1fr)`),
     ...Array.from(
       { length: Math.max(0, compare.maxColumns - cardColumns.length) },
       () => "minmax(0px, 0fr)",
@@ -169,7 +202,7 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
     ? "minmax(0px, 0fr)"
     : compare.isDragging
       ? "minmax(0px, 1fr)"
-      : "minmax(80px, 0fr)"; // 68px slot + its 12px gap margin
+      : `minmax(${COMPARE_DROP_SLOT_WIDTH}px, 0fr)`;
   const outerGridTemplateColumns = `minmax(0px, ${cardColumns.length}fr) ${dropSlotTrack}`;
 
   // Size cards by their rendered width (screen width and card count both

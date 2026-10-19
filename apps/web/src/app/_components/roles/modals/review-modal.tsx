@@ -5,21 +5,14 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 import { cn } from "@cooper/ui";
-import { Button } from "@cooper/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuTrigger,
-} from "@cooper/ui/dropdown-menu";
 import { Popover, PopoverAnchor, PopoverContent } from "@cooper/ui/popover";
 import { Status } from "@cooper/db/schema";
 import type { ReviewType } from "@cooper/db/schema";
-import { ChevronDown } from "lucide-react";
 
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { calculateRatings } from "~/utils/reviewCountByStars";
+import { SortDropdown } from "../../filters/sort-dropdown";
 import DropdownFilter, {
   FilterPanelContent,
 } from "../../filters/dropdown-filter";
@@ -33,6 +26,12 @@ import { RatingSummary } from "../../shared/rating-summary";
 import StarGraph from "../../shared/star-graph";
 import ModalContainer from "../../reviews/modal";
 import { ReviewCard } from "../../reviews/review-card";
+
+const REVIEW_SORT_OPTIONS = [
+  { value: "most recent", label: "Most recent" },
+  { value: "highest rating", label: "Highest rating" },
+  { value: "lowest rating", label: "Lowest rating" },
+] as const satisfies { value: string; label: string }[];
 
 interface ReviewModalProps {
   roleId: string;
@@ -63,14 +62,6 @@ export function ReviewModal({
 
   const reviews = api.review.getByRole.useQuery({ id: roleId });
   const averages = api.role.getAverageById.useQuery({ roleId });
-
-  const avgs = api.review.list
-    .useQuery({})
-    .data?.map((review) => review.overallRating ?? 0);
-  const cooperAvg =
-    Math.round(
-      ((avgs ?? []).reduce((a, b) => a + b, 0) / (avgs?.length ?? 1)) * 10,
-    ) / 10;
 
   const { data: profile } = api.profile.getCurrentUser.useQuery();
   const profileId = profile?.id;
@@ -199,9 +190,6 @@ export function ReviewModal({
       node
     );
 
-  const buttonStyle =
-    "bg-white hover:bg-cooper-gray-200 border-white text-cooper-gray-400 p-2";
-
   if (compareSize) {
     // Single grid row; see COMPARE_ROWS.reviews
     return (
@@ -254,7 +242,6 @@ export function ReviewModal({
               ratings={ratings}
               averageOverallRating={averages.data?.averageOverallRating ?? 0}
               reviews={reviews.data.length}
-              cooperAvg={cooperAvg}
               isComparing={isComparing}
             />
           </div>
@@ -364,39 +351,12 @@ export function ReviewModal({
                 )}
               </PopoverContent>
             </Popover>
-            <DropdownMenu>
-              <DropdownMenuTrigger className="text-sm text-cooper-gray-400 ml-2">
-                Sort By:{" "}
-                <span className="underline">
-                  {selectedFilter &&
-                    selectedFilter.charAt(0).toUpperCase() +
-                      selectedFilter.slice(1)}
-                </span>
-                <ChevronDown className="inline" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuLabel className="flex flex-col text-center">
-                  <Button
-                    className={buttonStyle}
-                    onClick={() => setSelectedFilter("most recent")}
-                  >
-                    Most recent
-                  </Button>
-                  <Button
-                    className={buttonStyle}
-                    onClick={() => setSelectedFilter("highest rating")}
-                  >
-                    Highest rating
-                  </Button>
-                  <Button
-                    className={buttonStyle}
-                    onClick={() => setSelectedFilter("lowest rating")}
-                  >
-                    Lowest rating
-                  </Button>
-                </DropdownMenuLabel>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <SortDropdown
+              options={REVIEW_SORT_OPTIONS}
+              value={selectedFilter}
+              onChange={setSelectedFilter}
+              className="ml-2"
+            />
           </div>
 
           {sortedReviews && sortedReviews.length > 0 ? (

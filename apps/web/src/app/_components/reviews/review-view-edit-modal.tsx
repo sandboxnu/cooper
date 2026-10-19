@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Filter } from "bad-words";
 import dayjs from "dayjs";
@@ -23,9 +23,19 @@ import {
   ZodInterviewDifficultySchema,
   ZodInterviewTypeSchema,
 } from "@cooper/db/schema";
-import { useCustomToast } from "@cooper/ui";
-import { Dialog, DialogClose, DialogContent } from "@cooper/ui/dialog";
+import { cn, useCustomToast } from "@cooper/ui";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@cooper/ui/dialog";
 import { Form } from "@cooper/ui/form";
+import Logo from "@cooper/ui/logo";
+import { ReadOnlyContext } from "@cooper/ui/read-only";
 
 import {
   BasicInfoSection,
@@ -34,12 +44,13 @@ import {
   PaySection,
   ReviewSection,
 } from "~/app/_components/form/sections";
+import { FormSectionBlock } from "~/app/_components/form/form-section";
 import { PortalZIndexContext } from "~/contexts/portal-z-index";
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
 
+import { logoBoxClass, RoleHeader } from "../roles/role-header";
 import { DeleteReviewDialog } from "./delete-review-dialogue";
-import { GrayStar, YellowStar } from "./review-card-stars";
 
 const filter = new Filter();
 
@@ -147,26 +158,6 @@ const formSchema = z.object({
 
 type ReviewFormValues = z.infer<typeof formSchema>;
 
-const WORK_TERM_LABELS: Record<string, string> = {
-  SPRING: "Spring",
-  SUMMER: "Summer",
-  FALL: "Fall",
-};
-
-const WORK_ENV_LABELS: Record<string, string> = {
-  INPERSON: "In-person",
-  HYBRID: "Hybrid",
-  REMOTE: "Remote",
-};
-
-const BENEFITS = [
-  { field: "federalHolidays", label: "Federal holidays off" },
-  { field: "freeLunch", label: "Free lunch" },
-  { field: "travelBenefits", label: "Travel benefits" },
-  { field: "freeMerch", label: "Free merchandise" },
-  { field: "snackBar", label: "Snack bar" },
-] as const;
-
 /** Radix DismissableLayer wraps the native event in `detail.originalEvent` (pointerdown / focusin). */
 function isOutsideEventOnAutocompletePortal(e: {
   detail?: { originalEvent?: { target?: EventTarget | null } };
@@ -175,41 +166,6 @@ function isOutsideEventOnAutocompletePortal(e: {
   return (
     target instanceof Element &&
     Boolean(target.closest("[data-autocomplete-portal]"))
-  );
-}
-
-function StarRating({
-  value,
-  max = 5,
-}: {
-  value: number | null | undefined;
-  max?: number;
-}) {
-  return (
-    <div className="flex gap-0.5">
-      {Array.from({ length: max }, (_, i) =>
-        i < (value ?? 0) ? (
-          <YellowStar key={i} className="h-5 w-5" />
-        ) : (
-          <GrayStar key={i} className="h-5 w-5" />
-        ),
-      )}
-    </div>
-  );
-}
-
-function ViewField({
-  label,
-  children,
-}: {
-  label: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="flex flex-col gap-2">
-      <p className="text-base font-bold text-cooper-gray-550">{label}</p>
-      <div>{children}</div>
-    </div>
   );
 }
 
@@ -231,9 +187,8 @@ export function ReviewViewEditModal({
   const { toast } = useCustomToast();
   const utils = api.useUtils();
 
-  const [roleId, setRoleId] = useState<string>("");
-  const [companyId, setCompanyId] = useState<string>("");
   const [discardKey, setDiscardKey] = useState(0);
+  const [discardConfirmOpen, setDiscardConfirmOpen] = useState(false);
 
   const { data: review, isLoading } = api.review.getById.useQuery(
     { id: reviewId },
@@ -253,15 +208,22 @@ export function ReviewViewEditModal({
     { enabled: !!review?.locationId },
   );
   const { data: profile } = api.profile.getCurrentUser.useQuery();
-  const existingReviewQuery = api.review.getById.useQuery(
-    { id: reviewId },
-    { enabled: !!reviewId },
+  // For the header's role rating, as on compare cards
+  const { data: roleAverages } = api.role.getAverageById.useQuery(
+    { roleId: review?.roleId ?? "" },
+    { enabled: !!review?.roleId },
   );
-  const existingReview = existingReviewQuery.data;
-  const viewLocationQuery = api.location.getById.useQuery(
-    { id: existingReview?.locationId ?? "" },
-    { enabled: !!existingReview?.locationId && mode === "view" },
+  const { data: roleReviews } = api.review.getByRole.useQuery(
+    { id: review?.roleId ?? "" },
+    { enabled: !!review?.roleId },
   );
+
+  // Read-only until Edit is clicked. Set on the DOM node because
+  // React 18 doesn't pass the inert prop through reliably.
+  const formFieldsRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (formFieldsRef.current) formFieldsRef.current.inert = mode === "view";
+  });
 
   const form = useForm<ReviewFormValues>({
     resolver: zodResolver(formSchema),
@@ -301,20 +263,11 @@ export function ReviewViewEditModal({
     },
   });
 
-  const watchedRoleName = form.watch("roleName");
-  const watchedCompanyName = form.watch("companyName");
 
+  // Fill the form with the saved review whenever it opens or changes mode;
+  // view mode shows the same filled-in form, just not editable
   useEffect(() => {
-    setRoleId(watchedRoleName ?? "");
-  }, [watchedRoleName]);
-
-  useEffect(() => {
-    setCompanyId(watchedCompanyName ?? "");
-  }, [watchedCompanyName]);
-
-  // Pre-populate form when switching to edit mode
-  useEffect(() => {
-    if (review && mode === "edit") {
+    if (review && open) {
       const toBoolStr = (v: boolean | null | undefined) =>
         v === true ? "yes" : v === false ? "no" : undefined;
 
@@ -370,17 +323,17 @@ export function ReviewViewEditModal({
             review.reviewsToTools as { tool: { name: string } }[] | undefined
           )?.map((rt) => rt.tool.name) ?? [],
       });
-      setRoleId(review.roleId ?? "");
-      setCompanyId(review.companyId ?? "");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [review, mode]);
+  }, [review, mode, open]);
 
   const updateMutation = api.review.update.useMutation({
     onSuccess: async () => {
       toast.success("Review updated successfully.");
-      await utils.review.getByProfile.invalidate();
-      onOpenChange(false);
+      // Refetch everything: a changed company/role/rating shows up in job
+      // cards, search results and company pages, not just this pop-up
+      await utils.invalidate();
+      onModeChange("view");
     },
     onError: (error) => {
       toast.error(error.message);
@@ -398,9 +351,11 @@ export function ReviewViewEditModal({
     if (!review || !profile) return null;
     return {
       id: reviewId,
-      roleId: roleId || review.roleId,
+      // Always the form's current picks: falling back to the saved role
+      // after the company changed paired a new company with the old role
+      roleId: values.roleName ?? "",
       profileId: profile.id,
-      companyId: companyId || review.companyId,
+      companyId: values.companyName ?? "",
       workTerm: values.workTerm,
       workYear: values.workYear,
       overallRating: values.overallRating,
@@ -500,11 +455,15 @@ export function ReviewViewEditModal({
 
   async function onSaveEdits() {
     if (!review || !profile) return;
+    const { companyName, roleName } = form.getValues();
+    if (!companyName || !roleName) {
+      toast.error("Please pick a company and role before saving.");
+      return;
+    }
     const payload = buildPayload(form.getValues(), review.status as StatusType);
     if (!payload) return;
     try {
       await updateMutation.mutateAsync(payload);
-      toast.success("Review saved.");
     } catch (e) {
       console.error("Save draft failed:", e);
     }
@@ -527,37 +486,47 @@ export function ReviewViewEditModal({
   }
 
   const locationDisplay = prettyLocationName(location);
-  const activeBenefits = BENEFITS.filter((b) => Boolean(review?.[b.field]));
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
-        className="flex h-[74vh] md:w-[66vw] w-[80vw] max-w-none sm:max-w-none flex-col gap-0 overflow-hidden rounded-xl border border-cooper-gray-150 bg-white p-0"
+        className="flex h-[74vh] md:w-[66vw] w-[80vw] max-w-2xl sm:max-w-2xl flex-col gap-0 overflow-hidden rounded-xl border border-cooper-gray-150 bg-white p-0"
         onInteractOutside={(e) => {
           if (isOutsideEventOnAutocompletePortal(e)) {
             e.preventDefault();
           }
         }}
       >
-        {/* Header */}
-        <div className="flex md:flex-row flex-col shrink-0 items-center justify-between bg-cooper-gray-700 pb-5 pl-6 pr-6 pt-8">
-          <div className="hidden md:block">
-            {mode === "view" ? (
-              <div className="flex flex-col gap-1">
-                <p className="text-xl font-semibold text-cooper-gray-900">
-                  {role?.title ?? "—"}
-                </p>
-                <p className="text-lg text-cooper-gray-400">
-                  {[company?.name, locationDisplay]
-                    .filter(Boolean)
-                    .join("  •  ")}
-                </p>
+        {/* Header: same layout and padding as a small compare card's */}
+        <div className="flex shrink-0 flex-col gap-4 bg-white px-4 pb-5 pt-3 md:flex-row md:items-start md:justify-between">
+          <RoleHeader
+            logo={
+              <div className={logoBoxClass(true)}>
+                {company && (
+                  <Logo
+                    company={company}
+                    className="h-8 min-h-8 w-8 min-w-8 rounded-md text-lg"
+                  />
+                )}
               </div>
-            ) : (
-              <p className="text-xl font-semibold text-black">Edit Review</p>
-            )}
-          </div>
+            }
+            title={role?.title ?? "—"}
+            jobTypeLabel={
+              review?.jobType === "CO-OP" ? "Co-op" : (review?.jobType ?? null)
+            }
+            locationLabel={locationDisplay || null}
+            rating={
+              roleReviews
+                ? {
+                    average: Number(roleAverages?.averageOverallRating ?? 0),
+                    count: roleReviews.length,
+                  }
+                : null
+            }
+            small
+          />
           <div className="flex items-center gap-5 md:pt-0">
+            {/* Button styles match the delete review dialog */}
             <div className="flex items-center gap-2 flex-wrap">
               {mode === "view" ? (
                 <>
@@ -565,31 +534,37 @@ export function ReviewViewEditModal({
                     reviewId={reviewId}
                     isDraft={review?.status === "DRAFT"}
                     trigger={
-                      <button className="whitespace-nowrap rounded-lg border border-cooper-gray-150 bg-white px-4 py-2.5 text-base font-medium text-black">
-                        Delete review
+                      <button className="h-9 whitespace-nowrap rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-black hover:bg-[#F6F6F6]">
+                        Delete
                       </button>
                     }
                   />
                   <button
                     onClick={() => onModeChange("edit")}
-                    className="whitespace-nowrap rounded-lg bg-[rgba(0,0,0,0.87)] px-4 py-2.5 text-base font-bold text-white"
+                    className="h-9 whitespace-nowrap rounded-lg border-none bg-cooper-gray-550 px-3 py-2 text-sm font-semibold text-white hover:bg-cooper-gray-600"
                   >
-                    Edit Review
+                    Edit
                   </button>
                 </>
               ) : (
                 <>
                   <button
-                    onClick={onDiscardEdits}
+                    onClick={() => setDiscardConfirmOpen(true)}
                     disabled={updateMutation.isPending}
-                    className="whitespace-nowrap rounded-lg border border-cooper-gray-150 bg-white px-4 py-2.5 text-base font-medium text-black disabled:opacity-50"
+                    className="h-9 whitespace-nowrap rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-black hover:bg-[#F6F6F6] disabled:opacity-50"
                   >
                     Discard edits
                   </button>
                   <button
                     onClick={onSaveEdits}
                     disabled={updateMutation.isPending}
-                    className="whitespace-nowrap rounded-lg border border-cooper-gray-150 bg-white px-4 py-2.5 text-base font-medium text-black disabled:opacity-50"
+                    // Filled as the main action, unless a draft's Submit is
+                    className={cn(
+                      "h-9 whitespace-nowrap rounded-lg px-3 py-2 text-sm font-semibold disabled:opacity-50",
+                      review?.status === "DRAFT"
+                        ? "border border-gray-300 bg-white text-black hover:bg-[#F6F6F6]"
+                        : "border-none bg-cooper-gray-550 text-white hover:bg-cooper-gray-600",
+                    )}
                   >
                     {updateMutation.isPending ? "Saving..." : "Save edits"}
                   </button>
@@ -597,7 +572,7 @@ export function ReviewViewEditModal({
                     <button
                       onClick={onSubmitReview}
                       disabled={updateMutation.isPending}
-                      className="whitespace-nowrap rounded-lg bg-[rgba(0,0,0,0.87)] px-4 py-2.5 text-base font-bold text-white disabled:opacity-50"
+                      className="h-9 whitespace-nowrap rounded-lg border-none bg-cooper-gray-550 px-3 py-2 text-sm font-semibold text-white hover:bg-cooper-gray-600 disabled:opacity-50"
                     >
                       {updateMutation.isPending
                         ? "Submitting..."
@@ -622,225 +597,86 @@ export function ReviewViewEditModal({
           <div className="flex flex-1 items-center justify-center text-cooper-gray-400">
             Loading...
           </div>
-        ) : mode === "view" ? (
-          <div className="flex flex-1 flex-col gap-6 overflow-y-auto px-6 pb-4 pt-5">
-            {/* Basic information */}
-            <p className="text-xl text-cooper-gray-550">Basic information</p>
-            <div className="flex flex-col gap-6">
-              <ViewField label="Company name">
-                {company ? (
-                  <div className="flex h-20 items-center rounded-lg border border-[#eaeaea] bg-[#f5f5f5] px-5 py-4">
-                    <div className="flex items-center gap-4">
-                      <p className="text-xl text-cooper-gray-900">
-                        {company.name}
-                      </p>
-                      {role && (
-                        <p className="text-base text-cooper-gray-400">
-                          {role.title}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                ) : (
-                  <p className="text-base text-black">—</p>
-                )}
-              </ViewField>
-              <ViewField label="Role title">
-                <p className="text-base text-black">{role?.title ?? "—"}</p>
-              </ViewField>
-              <ViewField label="Employment type">
-                <p className="text-base text-black">{review?.jobType ?? "—"}</p>
-              </ViewField>
-              <ViewField label="Co-op/internship term">
-                <p className="text-base text-black">
-                  {review?.workTerm
-                    ? (WORK_TERM_LABELS[review.workTerm] ?? review.workTerm)
-                    : "—"}
-                </p>
-              </ViewField>
-              <ViewField label="Year">
-                <p className="text-base text-black">
-                  {review?.workYear ?? "—"}
-                </p>
-              </ViewField>
-              <ViewField label="Location">
-                <p className="text-base text-black">
-                  {prettyLocationName(viewLocationQuery.data)}
-                </p>
-              </ViewField>
-            </div>
-
-            <hr className="border-cooper-gray-150" />
-
-            {/* On the job */}
-            <p className="text-xl text-cooper-gray-550">On the job</p>
-            <div className="flex flex-col gap-6">
-              <ViewField label="Work model">
-                <p className="text-base text-black">
-                  {review?.workEnvironment
-                    ? (WORK_ENV_LABELS[review.workEnvironment] ??
-                      review.workEnvironment)
-                    : "—"}
-                </p>
-              </ViewField>
-              <ViewField label="Drug test required">
-                <p className="text-base text-black">
-                  {review?.drugTest === true
-                    ? "Yes"
-                    : review?.drugTest === false
-                      ? "No"
-                      : "—"}
-                </p>
-              </ViewField>
-              <ViewField label="Company culture">
-                <StarRating value={review?.cultureRating} />
-              </ViewField>
-              <ViewField label="Supervisor rating">
-                <StarRating value={review?.supervisorRating} />
-              </ViewField>
-              <ViewField label="Benefits">
-                {activeBenefits.length > 0 ? (
-                  <div className="flex flex-wrap gap-2">
-                    {activeBenefits.map((b) => (
-                      <span
-                        key={b.field}
-                        className="rounded-lg border border-cooper-gray-150 bg-cooper-gray-100 px-3.5 py-2 text-sm font-medium text-[#767676]"
-                      >
-                        {b.label}
-                      </span>
-                    ))}
-                  </div>
-                ) : (
-                  <p className="text-base text-black">—</p>
-                )}
-              </ViewField>
-            </div>
-
-            <hr className="border-cooper-gray-150" />
-
-            {/* Pay */}
-            <p className="text-xl text-cooper-gray-550">Pay</p>
-            <div className="flex flex-col gap-6">
-              <ViewField label="Hourly pay">
-                <p className="text-base text-black">
-                  {review?.hourlyPay
-                    ? `$${Number(review.hourlyPay).toFixed(2)} / hour`
-                    : "—"}
-                </p>
-              </ViewField>
-              <ViewField label="Worked overtime">
-                <p className="text-base text-black">
-                  {review?.overtimeNormal === true
-                    ? "Yes"
-                    : review?.overtimeNormal === false
-                      ? "No"
-                      : "—"}
-                </p>
-              </ViewField>
-              <ViewField label="Received PTO">
-                <p className="text-base text-black">
-                  {review?.pto === true
-                    ? "Yes"
-                    : review?.pto === false
-                      ? "No"
-                      : "—"}
-                </p>
-              </ViewField>
-            </div>
-
-            <hr className="border-cooper-gray-150" />
-
-            {/* Interview */}
-            <p className="text-xl text-cooper-gray-550">Interview</p>
-            {review?.interviewRounds && review.interviewRounds.length > 0 ? (
-              <div className="flex flex-col gap-6">
-                {review.interviewRounds.map(
-                  (round: InterviewRoundType, index: number) => (
-                    <div key={round.id} className="flex items-start gap-7">
-                      <p className="w-14 shrink-0 text-base font-bold text-cooper-gray-550">
-                        Round {index + 1}
-                      </p>
-                      <div className="flex flex-1 gap-6">
-                        <ViewField label="Interview type">
-                          <p className="text-base capitalize text-black">
-                            {round.interviewType?.replace(/_/g, " ") ?? "—"}
-                          </p>
-                        </ViewField>
-                        <ViewField label="Difficulty">
-                          <p className="text-base capitalize text-black">
-                            {round.interviewDifficulty ?? "—"}
-                          </p>
-                        </ViewField>
-                      </div>
-                    </div>
-                  ),
-                )}
-              </div>
-            ) : (
-              <p className="text-base text-cooper-gray-400">
-                No interview rounds recorded.
-              </p>
-            )}
-
-            <hr className="border-cooper-gray-150" />
-
-            {/* Review and rate */}
-            <p className="text-xl text-cooper-gray-550">Review and rate</p>
-            <div className="flex flex-col gap-6 pb-12">
-              <ViewField label="Overall rating">
-                <div className="flex items-center gap-2">
-                  <span className="text-4xl font-normal text-cooper-gray-900">
-                    {review?.overallRating?.toFixed(1) ?? "—"}
-                  </span>
-                  <YellowStar className="h-7 w-7" />
-                </div>
-              </ViewField>
-              <div className="flex flex-col gap-2">
-                <p className="text-base font-bold text-cooper-gray-550">
-                  Review text
-                </p>
-                <div className="min-h-20 rounded-lg bg-cooper-gray-100 px-3 py-2">
-                  <p className="text-sm text-cooper-gray-900">
-                    {review?.textReview ?? "—"}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
         ) : (
-          /* EDIT MODE */
           <PortalZIndexContext.Provider value={60}>
             <Form {...form}>
-              <div className="flex flex-1 flex-col gap-6 overflow-y-auto px-6 pb-20 pt-5">
-                <p className="text-xl text-cooper-gray-550">
-                  Basic information
-                </p>
-                <BasicInfoSection key={discardKey} profileId={profile?.id} />
-
-                <hr className="border-cooper-gray-150" />
-
-                <p className="text-xl text-cooper-gray-550">On the job</p>
-                <CompanyDetailsSection />
-
-                <hr className="border-cooper-gray-150" />
-
-                <p className="text-xl text-cooper-gray-550">Pay</p>
-                <PaySection />
-
-                <hr className="border-cooper-gray-150" />
-
-                <p className="text-xl text-cooper-gray-550">Interview</p>
-                <InterviewSection />
-
-                <hr className="border-cooper-gray-150" />
-
-                <p className="text-xl text-cooper-gray-550">Review and rate</p>
-                <ReviewSection />
+              <div className="flex flex-1 flex-col overflow-y-auto px-6 pb-20 pt-5">
+                {/* Locked in view mode (inert + no pointer events) on an inner
+                    div, so the outer one still scrolls */}
+                <ReadOnlyContext.Provider value={mode === "view"}>
+                <div
+                  ref={formFieldsRef}
+                  className={cn(
+                    "flex flex-col gap-8",
+                    // Gray field boxes, checkboxes and radios so it reads as
+                    // locked until Edit
+                    mode === "view" && [
+                      "pointer-events-none select-none",
+                      "[&_[role=combobox]]:!bg-cooper-gray-100 [&_input]:!bg-cooper-gray-100 [&_textarea]:!bg-cooper-gray-100",
+                      "[&_[role=checkbox]]:!border-cooper-gray-150 [&_[role=checkbox]]:!bg-cooper-gray-100",
+                      "[&_[role=checkbox][data-state=checked]]:!border-cooper-gray-600 [&_[role=checkbox][data-state=checked]]:!bg-cooper-gray-600",
+                      "[&_[role=radio][data-state=checked]]:!border-cooper-gray-350 [&_[role=radio][data-state=checked]]:!bg-cooper-gray-350",
+                    ],
+                  )}
+                >
+                  <FormSectionBlock title="Basic information" divider={false}>
+                    <BasicInfoSection
+                      key={discardKey}
+                      profileId={profile?.id}
+                    />
+                  </FormSectionBlock>
+                  <FormSectionBlock title="On the job">
+                    <CompanyDetailsSection />
+                  </FormSectionBlock>
+                  <FormSectionBlock title="Pay">
+                    <PaySection />
+                  </FormSectionBlock>
+                  <FormSectionBlock title="Interview">
+                    <InterviewSection />
+                  </FormSectionBlock>
+                  <FormSectionBlock title="Review and rate">
+                    <ReviewSection />
+                  </FormSectionBlock>
+                </div>
+                </ReadOnlyContext.Provider>
               </div>
             </Form>
           </PortalZIndexContext.Provider>
         )}
       </DialogContent>
+
+      {/* Confirm before throwing away edits; same layout as the delete dialog */}
+      <Dialog open={discardConfirmOpen} onOpenChange={setDiscardConfirmOpen}>
+        <DialogContent className="w-full max-w-md bg-white p-5">
+          <DialogHeader>
+            <DialogTitle>Discard edits?</DialogTitle>
+            <DialogDescription className="text-cooper-gray-400">
+              Your changes won&apos;t be saved.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="mt-2 gap-2 sm:justify-end sm:space-x-0">
+            <DialogClose asChild>
+              <button
+                type="button"
+                className="h-9 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-black hover:bg-[#F6F6F6]"
+              >
+                Keep editing
+              </button>
+            </DialogClose>
+            <button
+              type="button"
+              className="h-9 rounded-lg border-none bg-[#f7784e] px-3 py-2 text-sm font-semibold text-white hover:bg-[#e5683f]"
+              onClick={() => {
+                onDiscardEdits();
+                setDiscardConfirmOpen(false);
+                onModeChange("view");
+              }}
+            >
+              Discard
+            </button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </Dialog>
   );
 }

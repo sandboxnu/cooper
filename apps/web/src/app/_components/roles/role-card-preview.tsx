@@ -62,7 +62,7 @@ export function RoleCardPreview({
   return (
     <Card
       className={cn(
-        "relative flex flex-col justify-between overflow-hidden rounded-lg hover:cursor-pointer ",
+        "relative flex flex-col justify-between overflow-hidden rounded-lg hover:cursor-pointer",
         className,
         showDragHandle && "pl-4",
         compare.isCompareMode && "pr-2",

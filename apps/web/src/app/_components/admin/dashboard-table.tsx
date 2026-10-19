@@ -747,7 +747,7 @@ export function AdminDashboardTable() {
               onClick={() => {
                 setDialog({ type: null, item: null });
               }}
-              className="inline-flex h-9 items-center justify-center rounded-md border border-gray-200 bg-white px-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
+              className="inline-flex h-9 items-center justify-center rounded-md border border-gray-200 bg-white px-3 text-sm font-medium text-gray-700 hover:bg-[#F6F6F6]"
             >
               Cancel
             </button>
@@ -812,7 +812,7 @@ export function AdminDashboardTable() {
                 setDialog({ type: null, item: null });
                 setFlagReason("");
               }}
-              className="inline-flex h-9 items-center justify-center rounded-md border border-gray-200 bg-white px-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
+              className="inline-flex h-9 items-center justify-center rounded-md border border-gray-200 bg-white px-3 text-sm font-medium text-gray-700 hover:bg-[#F6F6F6]"
             >
               Cancel
             </button>
@@ -860,13 +860,13 @@ export function AdminDashboardTable() {
           <div className="flex items-center gap-2 sm:ml-4">
             <button
               type="button"
-              className="inline-flex items-center rounded-md border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+              className="inline-flex items-center rounded-md border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-[#F6F6F6]"
             >
               Filter
             </button>
             <button
               type="button"
-              className="inline-flex items-center rounded-md border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+              className="inline-flex items-center rounded-md border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-[#F6F6F6]"
             >
               Sort
             </button>

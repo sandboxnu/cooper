@@ -1,11 +1,13 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { redirect, useSearchParams } from "next/navigation";
-
-import { Button } from "@cooper/ui/button";
+import {
+  redirect,
+  usePathname,
+  useRouter,
+  useSearchParams,
+} from "next/navigation";
 
 import FavoriteCompanySearch from "~/app/_components/profile/favorite-company-search";
 import FavoriteRoleSearch from "~/app/_components/profile/favorite-role-search";
@@ -13,11 +15,25 @@ import ProfileCardHeader from "~/app/_components/profile/profile-card-header";
 import ProfileTabs from "~/app/_components/profile/profile-tabs";
 import { DraftReviewCard } from "~/app/_components/reviews/draft-review-card";
 import { ProfileReviewCard } from "~/app/_components/reviews/profile-review-card";
+import { ReviewViewEditModal } from "~/app/_components/reviews/review-view-edit-modal";
 import { api } from "~/trpc/react";
 
 export default function Profile() {
   const searchParams = useSearchParams();
   const tab = searchParams.get("tab") ?? "saved-roles";
+  // ?review=<id> (from a review card's menu) opens that review in view mode
+  const linkedReviewId = searchParams.get("review");
+  const [linkedReviewMode, setLinkedReviewMode] = useState<"view" | "edit">(
+    "view",
+  );
+  const router = useRouter();
+  const pathname = usePathname();
+  const closeLinkedReview = () => {
+    const params = new URLSearchParams(searchParams);
+    params.delete("review");
+    router.replace(`${pathname}?${params.toString()}`);
+    setLinkedReviewMode("view");
+  };
 
   const sessionQuery = api.auth.getSession.useQuery();
   const session = sessionQuery.data;
@@ -91,7 +107,7 @@ export default function Profile() {
 
   return (
     <div className="bg-cooper-cream-100 flex h-screen w-full justify-center overflow-auto">
-      <div className="mx-4 mt-4 flex w-[80%] md:w-[66%] flex-col gap-6 pt-4 md:max-w-[66%]">
+      <div className="mx-4 mt-4 flex w-[80%] max-w-3xl flex-col gap-6 pt-4 md:w-[66%]">
         <div className="flex items-start justify-start gap-4">
           <Image
             src={session.user.image ?? "/svg/defaultProfile.svg"}
@@ -123,25 +139,11 @@ export default function Profile() {
           </section>
         ) : (
           <section>
-            <div className="flex flex-row items-center justify-between">
-              {reviews.length === 0 ? (
-                <div className="italic text-cooper-gray-400">
-                  No Reviews Yet
-                </div>
-              ) : (
-                <div />
-              )}
+            {reviews.length === 0 && (
+              <div className="italic text-cooper-gray-400">No Reviews Yet</div>
+            )}
 
-              <div>
-                <Link href="/review-form">
-                  <Button className="bg-cooper-cream-100 hover:bg-cooper-cream-100 m-0 -mt-2 border-none p-0 text-3xl font-thin text-black outline-none">
-                    +
-                  </Button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-4 pb-4">
+            <div className="flex flex-col gap-2 pb-4">
               {reviews.length > 0 &&
                 reviews
                   .sort((a, b) => {
@@ -172,6 +174,15 @@ export default function Profile() {
           </section>
         )}
       </div>
+      {linkedReviewId && (
+        <ReviewViewEditModal
+          reviewId={linkedReviewId}
+          mode={linkedReviewMode}
+          open
+          onOpenChange={(open) => !open && closeLinkedReview()}
+          onModeChange={setLinkedReviewMode}
+        />
+      )}
     </div>
   );
 }

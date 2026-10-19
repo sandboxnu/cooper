@@ -3,17 +3,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ChevronDown } from "lucide-react";
 
 import type { CompanyType, RoleType } from "@cooper/db/schema";
 import { cn, Pagination } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuTrigger,
-} from "@cooper/ui/dropdown-menu";
 
 import type { FilterState } from "~/app/_components/filters/types";
 import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
@@ -22,10 +15,12 @@ import { useCompare } from "~/app/_components/compare/compare-context";
 import {
   CompareColumns,
   CompareControls,
+  getCompareColumnsMinWidth,
 } from "~/app/_components/compare/compare-ui";
 import DropdownFiltersBar from "~/app/_components/filters/dropdown-filters-bar";
 import RoleTypeSelector from "~/app/_components/filters/role-type-selector";
 import SidebarFilter from "~/app/_components/filters/sidebar-filter";
+import { SortDropdown } from "~/app/_components/filters/sort-dropdown";
 import LoadingResults from "~/app/_components/loading-results";
 import NoResults from "~/app/_components/no-results";
 import { RoleCardPreview } from "~/app/_components/roles/role-card-preview";
@@ -75,6 +70,16 @@ const buildRolesSearchParams = (
 
   return params;
 };
+
+const ROLE_SORT_OPTIONS = [
+  { value: "default", label: "Default" },
+  { value: "newest", label: "Newest" },
+  { value: "oldest", label: "Oldest" },
+  { value: "rating", label: "Rating" },
+] as const satisfies { value: string; label: string }[];
+
+// md:w-[360px] on the role card sidebar
+const SIDEBAR_WIDTH = 360;
 
 export default function Roles() {
   const searchParams = useSearchParams();
@@ -227,9 +232,6 @@ export default function Roles() {
       enabled: shouldFetchList,
     },
   );
-
-  const buttonStyle =
-    "bg-white hover:bg-cooper-gray-200 border-white text-black p-2";
 
   const defaultItem = useMemo(() => {
     // If we have both company and role params, use the role query result
@@ -643,6 +645,20 @@ export default function Roles() {
     };
   }, [exitCompareMode]);
 
+  // Below md only the search results show, so leave compare mode instead of
+  // keeping it open out of sight
+  const { isCompareMode } = compare;
+  useEffect(() => {
+    if (!isCompareMode) return;
+    const belowMd = window.matchMedia("(max-width: 767px)");
+    const exitIfBelowMd = () => {
+      if (belowMd.matches) exitCompareMode();
+    };
+    exitIfBelowMd();
+    belowMd.addEventListener("change", exitIfBelowMd);
+    return () => belowMd.removeEventListener("change", exitIfBelowMd);
+  }, [isCompareMode, exitCompareMode]);
+
   // Reset to page 1 when filter, search, or type changes
   // Scroll to top + select first item when page changes (but not when coming from URL)
   useEffect(() => {
@@ -757,6 +773,37 @@ export default function Roles() {
 
   const roleInfoScrollRef = useRef<HTMLDivElement>(null);
 
+  // Hide the sidebar in compare mode when the cards (and drop slot) can't all
+  // fit at their minimum width beside it
+  const [contentRowWidth, setContentRowWidth] = useState(0);
+  const contentRowObserverRef = useRef<ResizeObserver | null>(null);
+  const contentRowRef = useCallback((el: HTMLDivElement | null) => {
+    contentRowObserverRef.current?.disconnect();
+    if (!el) return;
+    const observer = new ResizeObserver(([entry]) => {
+      if (entry) setContentRowWidth(entry.contentRect.width);
+    });
+    observer.observe(el);
+    contentRowObserverRef.current = observer;
+  }, []);
+  const compareCardCount =
+    1 +
+    compare.comparedRoleIds.filter((id) => id !== compare.anchorRoleId).length;
+  const hideSidebarForCompare =
+    compare.isCompareMode &&
+    contentRowWidth > 0 &&
+    contentRowWidth - SIDEBAR_WIDTH <
+      getCompareColumnsMinWidth(
+        compareCardCount,
+        compareCardCount < compare.maxColumns,
+      );
+  // Compare needs room for two cards without the sidebar, and for one card
+  // plus the drop slot beside it
+  const canCompare =
+    contentRowWidth > 0 &&
+    contentRowWidth >= getCompareColumnsMinWidth(2, false) &&
+    contentRowWidth - SIDEBAR_WIDTH >= getCompareColumnsMinWidth(1, true);
+
   const handleRoleDragStart = (
     event: React.DragEvent<HTMLDivElement>,
     role: RoleType,
@@ -794,13 +841,24 @@ export default function Roles() {
     }
   }, [compare.isCompareMode, selectedRole, selectedItem?.id]);
 
+  const showCompareControls =
+    !!controlsAnchorRoleId && (compare.isCompareMode || canCompare);
+
   return (
     <div className="flex h-full w-full flex-col">
-      <div className="bg-cooper-cream-100 border-cooper-gray-150 sticky top-0 z-20 flex w-full flex-shrink-0 flex-col items-stretch gap-4 border-b-[1px] py-4 md:flex-row md:items-center md:gap-5">
-        <div className="w-full px-5 md:w-[360px] md:flex-shrink-0">
+      <div className="bg-cooper-cream-100 border-cooper-gray-150 sticky top-0 z-20 flex w-full flex-shrink-0 flex-col items-stretch gap-4 border-b-[1px] py-4 md:flex-row md:items-center md:gap-2 lg:gap-5">
+        <div className="w-full px-5 md:w-[360px] md:flex-shrink-0 md:pr-0 lg:pr-5">
           <SearchFilter className="w-full" />
         </div>
-        <div className="no-scrollbar flex w-full flex-1 gap-2 overflow-x-auto px-5 md:pr-0">
+        <div
+          className={cn(
+            // md: only the header's gap-2 (same as between filters) separates
+            // the search box from the filters
+            "no-scrollbar flex w-full flex-1 gap-2 overflow-x-auto px-5 md:pl-0 lg:pl-5",
+            // Compare controls supply the right padding when they're shown
+            showCompareControls && "md:pr-0",
+          )}
+        >
           <div className="hidden md:block">
             <DropdownFiltersBar
               filters={appliedFilters}
@@ -812,7 +870,7 @@ export default function Roles() {
               "border-cooper-gray-150 flex h-9 items-center gap-[10px] whitespace-nowrap rounded-lg border px-[14px] py-2 text-sm font-normal text-cooper-gray-400 outline-none focus:outline-none focus-visible:ring-0",
               isFiltering
                 ? "border-cooper-gray-600 bg-cooper-gray-700 hover:bg-cooper-gray-200"
-                : "hover:bg-cooper-gray-150 bg-white",
+                : "hover:bg-[#F6F6F6] bg-white",
             )}
             onClick={() => setIsSidebarOpen(true)}
           >
@@ -825,16 +883,24 @@ export default function Roles() {
             Filters
           </Button>
         </div>
-        {controlsAnchorRoleId && (
-          <div className="hidden items-center gap-4 pr-5 md:flex">
+        {/* Hidden with its divider when there's no room to enter compare */}
+        {showCompareControls && (
+          // md:pl-3 keeps 20px before the divider despite the header's gap-2
+          <div className="hidden items-center gap-4 pr-5 md:flex md:pl-3 lg:pl-0">
             <span className="h-6 border rounded-lg border-[#D9D9D9]" />
-            <CompareControls anchorRoleId={controlsAnchorRoleId} />
+            <CompareControls
+              anchorRoleId={controlsAnchorRoleId}
+              canCompare={canCompare}
+            />
           </div>
         )}
       </div>
       {rolesAndCompanies.isSuccess &&
         rolesAndCompanies.data.items.length > 0 && (
-          <div className="bg-cooper-cream-100 flex min-h-0 w-full flex-1">
+          <div
+            ref={contentRowRef}
+            className="bg-cooper-cream-100 flex min-h-0 w-full flex-1"
+          >
             {/* RoleCardPreview List */}
             <div
               ref={sidebarRef}
@@ -842,6 +908,7 @@ export default function Roles() {
                 "border-cooper-gray-150 bg-cooper-cream-100 no-scrollbar w-full overflow-y-auto border-r-[1px] px-6 py-5 xl:rounded-none",
                 "md:w-[360px] md:flex-shrink-0", // Fixed 360px width on md and above
                 (showRoleInfo || showCompanyInfo) && "hidden md:block", // Hide on mobile if RoleInfo is visible
+                hideSidebarForCompare && "md:hidden",
               )}
             >
               <div key={sidebarListKey}>
@@ -856,45 +923,11 @@ export default function Roles() {
                     Showing {totalResults}{" "}
                     {totalResults === 1 ? "result" : "results"}
                   </p>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger className="text-sm">
-                      Sort By{" "}
-                      <span className="underline">
-                        {selectedFilter &&
-                          selectedFilter.charAt(0).toUpperCase() +
-                            selectedFilter.slice(1)}
-                      </span>
-                      <ChevronDown className="inline" strokeWidth={1.5} />
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent>
-                      <DropdownMenuLabel className="flex flex-col text-center">
-                        <Button
-                          className={buttonStyle}
-                          onClick={() => setSelectedFilter("default")}
-                        >
-                          Default
-                        </Button>
-                        <Button
-                          className={buttonStyle}
-                          onClick={() => setSelectedFilter("newest")}
-                        >
-                          Newest
-                        </Button>
-                        <Button
-                          className={buttonStyle}
-                          onClick={() => setSelectedFilter("oldest")}
-                        >
-                          Oldest
-                        </Button>
-                        <Button
-                          className={buttonStyle}
-                          onClick={() => setSelectedFilter("rating")}
-                        >
-                          Rating
-                        </Button>
-                      </DropdownMenuLabel>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                  <SortDropdown
+                    options={ROLE_SORT_OPTIONS}
+                    value={selectedFilter}
+                    onChange={setSelectedFilter}
+                  />
                 </div>
                 {rolesAndCompanies.data.items.map((item, i) => {
                   if (item.type === "role") {
@@ -964,7 +997,7 @@ export default function Roles() {
                         <CompanyCardPreview
                           companyObj={item}
                           className={cn(
-                            "mb-2 hover:bg-cooper-gray-200 hover:cursor-pointer",
+                            "mb-2 hover:cursor-pointer",
                             selectedItem
                               ? selectedItem.id === item.id &&
                                   "bg-cooper-gray-50"
@@ -997,7 +1030,10 @@ export default function Roles() {
             >
               {compare.isCompareMode ? (
                 compareAnchorRole ? (
-                  <CompareColumns anchorRole={compareAnchorRole} />
+                  <CompareColumns
+                    anchorRole={compareAnchorRole}
+                    canAddCards={!hideSidebarForCompare}
+                  />
                 ) : (
                   <LoadingResults className="h-[84dvh]" />
                 )

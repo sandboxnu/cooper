@@ -1,3 +1,3 @@
-import { CheckIcon } from "@radix-ui/react-icons";
+import { CheckIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
 
-export { CheckIcon };
+export { CheckIcon, MagnifyingGlassIcon };

@@ -11,7 +11,9 @@ import {
   CommandItem,
   CommandList,
 } from "@cooper/ui/command";
+import { MagnifyingGlassIcon } from "@cooper/ui/icons";
 import { Popover, PopoverContent, PopoverTrigger } from "@cooper/ui/popover";
+import { useReadOnly } from "@cooper/ui/read-only";
 
 export interface ComboBoxOption<T> {
   value: T;
@@ -30,6 +32,8 @@ interface ComboBoxProps {
   variant?: "default" | "form" | "filtering";
   newForm?: boolean;
   onClear?: () => void;
+  // Typeable form fields show a search icon instead of the chevron
+  icon?: "chevron" | "search";
 }
 
 /**
@@ -49,7 +53,9 @@ export default function ComboBox({
   variant,
   newForm,
   onClear,
+  icon = "chevron",
 }: ComboBoxProps) {
+  const readOnly = useReadOnly();
   const [isOpen, setIsOpen] = useState(false);
 
   const styleVariant =
@@ -74,7 +80,7 @@ export default function ComboBox({
           aria-expanded={isOpen}
           className={cn(
             styleVariant,
-            "h-12 min-h-0 justify-between overflow-hidden text-ellipsis text-nowrap py-0",
+            "h-12 min-h-0 justify-between overflow-hidden text-ellipsis text-nowrap py-0 hover:bg-[#F6F6F6]",
             variant === "form"
               ? "w-full"
               : variant === "filtering"
@@ -92,8 +98,11 @@ export default function ComboBox({
           >
             {currLabel && currLabel !== defaultLabel ? currLabel : defaultLabel}
           </span>
-          <div className="flex items-center gap-1.5">
-            {onClear && (
+          {/* Clear X and chevron are edit-only */}
+          <div
+            className={cn("flex items-center gap-1.5", readOnly && "hidden")}
+          >
+            {onClear && currLabel && currLabel !== defaultLabel && (
               <button
                 type="button"
                 onClick={(e) => {
@@ -106,7 +115,11 @@ export default function ComboBox({
                 <X className="h-4 w-4" />
               </button>
             )}
-            <ChevronDown className="h-6 w-6 shrink-0 opacity-50" />
+            {icon === "search" ? (
+              <MagnifyingGlassIcon className="h-5 w-5 shrink-0 opacity-50" />
+            ) : (
+              <ChevronDown className="h-6 w-6 shrink-0 opacity-50" />
+            )}
           </div>
         </Button>
       </PopoverTrigger>
@@ -125,6 +138,7 @@ export default function ComboBox({
                 <CommandItem
                   key={option.value}
                   value={option.label}
+                  className="cursor-pointer data-[selected=true]:bg-[#F6F6F6]"
                   onSelect={(option) => {
                     onSelect(option);
                     setIsOpen(false);

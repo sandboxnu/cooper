@@ -11,8 +11,12 @@ import {
   CompareSectionTitle,
 } from "../../compare/compare-section";
 import ModalContainer from "../../reviews/modal";
-import { DotStatement, DotStatementCard } from "./shared/dot-statement";
-import { PipBar } from "./shared/pip-bar";
+import {
+  DotBar,
+  DotCount,
+  DotStatement,
+  DotStatementCard,
+} from "./shared/dot-statement";
 import { PipCard } from "./shared/pip-card";
 import { TabToggle } from "./shared/tab-toggle";
 
@@ -46,14 +50,18 @@ function CompactBenefitRow({
         {label}
       </p>
       <div className="flex flex-col items-start gap-[10px]">
-        <PipBar
+        <DotBar
+          className="max-w-[102px]"
           filledCount={count}
           totalCount={totalCount}
           filledColor="#92c6cd"
         />
-        <p className="text-[14px] leading-[normal] text-cooper-gray-350">
-          {count}/{totalCount} reported
-        </p>
+        <DotCount
+          count={count}
+          total={totalCount}
+          label="reported"
+          color="#92c6cd"
+        />
       </div>
     </div>
   );
@@ -65,7 +73,6 @@ interface PayModalProps {
     totalReviews: number;
     pto: number;
     travelBenefits: number;
-    freeLunch: number;
   };
   globalData: PayData | undefined;
   industryData: PayData | undefined;
@@ -117,7 +124,6 @@ export function PayModal({
   const { totalReviews } = averages;
   const ptoCount = Math.round(averages.pto * totalReviews);
   const travelCount = Math.round(averages.travelBenefits * totalReviews);
-  const foodCount = Math.round(averages.freeLunch * totalReviews);
 
   if (compareSize) {
     const isSmall = compareSize === "sm";
@@ -141,15 +147,15 @@ export function PayModal({
             filledCount={ptoCount}
             totalCount={totalReviews}
             filledColor="#92c6cd"
-            caption={`${ptoCount}/${totalReviews} reported`}
+            countLabel="reported"
             size={compareSize}
           />
           <DotStatement
-            label="Relocation or transportation assistance"
+            label="Travel stipend"
             filledCount={travelCount}
             totalCount={totalReviews}
             filledColor="#92c6cd"
-            caption={`${travelCount}/${totalReviews} reported`}
+            countLabel="reported"
             size={compareSize}
           />
         </DotStatementCard>
@@ -165,8 +171,8 @@ export function PayModal({
             ${Math.round(avgPay)}/hr
           </p>
           <div className="flex flex-col gap-[16px]">
-            <p className="text-[16px] font-bold leading-[24px] tracking-[-0.16px] text-cooper-gray-900">
-              Pay Benefits
+            <p className="text-[16px] leading-6 tracking-[-0.16px] text-cooper-gray-900">
+              Pay benefits
             </p>
             <div className="flex flex-col gap-[20px]">
               <CompactBenefitRow
@@ -175,13 +181,8 @@ export function PayModal({
                 totalCount={totalReviews}
               />
               <CompactBenefitRow
-                label="Travel Stipend"
+                label="Travel stipend"
                 count={travelCount}
-                totalCount={totalReviews}
-              />
-              <CompactBenefitRow
-                label="Free Lunch"
-                count={foodCount}
                 totalCount={totalReviews}
               />
             </div>
@@ -288,28 +289,21 @@ export function PayModal({
 
           {/* Right — pay benefits */}
           <div className="flex min-w-0 flex-1 flex-col gap-[20px]">
-            <p className="text-[16px] font-bold leading-[24px] tracking-[-0.16px] text-cooper-gray-400">
-              Pay Benefits
+            <p className="text-[16px] leading-6 tracking-[-0.16px] text-cooper-gray-900">
+              Pay benefits
             </p>
             <div className="flex flex-wrap content-start gap-x-[36px] gap-y-[20px]">
               <PipCard
                 name="PTO"
-                subtext={`${ptoCount}/${totalReviews} indicated receiving paid time off`}
+                countLabel="indicated receiving paid time off"
                 filledCount={ptoCount}
                 totalCount={totalReviews}
                 filledColor="#92c6cd"
               />
               <PipCard
-                name="Travel Stipend"
-                subtext={`${travelCount}/${totalReviews} indicated receiving a travel stipend`}
+                name="Travel stipend"
+                countLabel="indicated receiving transportation or relocation assistance"
                 filledCount={travelCount}
-                totalCount={totalReviews}
-                filledColor="#92c6cd"
-              />
-              <PipCard
-                name="Free Lunch"
-                subtext={`${foodCount}/${totalReviews} indicated receiving free lunch`}
-                filledCount={foodCount}
                 totalCount={totalReviews}
                 filledColor="#92c6cd"
               />

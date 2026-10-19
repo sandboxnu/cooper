@@ -7,7 +7,12 @@ import {
   CompareSectionTitle,
 } from "../../compare/compare-section";
 import ModalContainer from "../../reviews/modal";
-import { DotStatement, DotStatementCard } from "./shared/dot-statement";
+import {
+  DotBar,
+  DotCount,
+  DotStatement,
+  DotStatementCard,
+} from "./shared/dot-statement";
 import { InfoIcon } from "./shared/info-icon";
 
 interface AveragesData {
@@ -51,46 +56,6 @@ const BENEFIT_LABELS: { key: keyof AveragesData; label: string }[] = [
   { key: "travelBenefits", label: "travel benefits" },
 ];
 
-function SupportBar({ pct, hasData }: { pct: number; hasData: boolean }) {
-  const filledSegments = hasData ? Math.floor(pct * 10) : 0;
-  const partialFill = hasData ? (pct * 10) % 1 : 0;
-  const hasPartial = hasData && partialFill > 0;
-
-  return (
-    <div className="flex h-9 w-[102px] gap-0.5">
-      {Array.from({ length: 10 }).map((_, i) => {
-        if (i < filledSegments) {
-          return (
-            <div
-              key={i}
-              className="h-full flex-[1_0_0] rounded-lg bg-[#92c6cd]"
-            />
-          );
-        }
-        if (i === filledSegments && hasPartial) {
-          return (
-            <div
-              key={i}
-              className="relative h-full flex-[1_0_0] overflow-hidden rounded-lg bg-[#cbcbcb]"
-            >
-              <div
-                className="absolute left-0 top-0 h-full bg-[#92c6cd]"
-                style={{ width: `${partialFill * 100}%` }}
-              />
-            </div>
-          );
-        }
-        return (
-          <div
-            key={i}
-            className="h-full flex-[1_0_0] rounded-lg bg-[#cbcbcb]"
-          />
-        );
-      })}
-    </div>
-  );
-}
-
 function BenefitRow({
   label,
   children,
@@ -119,7 +84,7 @@ function CompareBenefitCategory({
 }) {
   return (
     <div className={cn("flex flex-col gap-2", className)}>
-      <p className="text-[14px] leading-normal text-cooper-gray-350">{label}</p>
+      <p className="text-[14px] leading-normal text-cooper-gray-400">{label}</p>
       {children}
     </div>
   );
@@ -226,8 +191,8 @@ export function OnTheJobModal({
 
   const cultureRows = [
     { label: "Team outings", count: teamOutingsCount },
-    { label: "Coffee chat culture", count: coffeeChatCount },
-    { label: "Feedback", count: constructiveFeedbackCount },
+    { label: "Coffee chats", count: coffeeChatCount },
+    { label: "Constructive feedback", count: constructiveFeedbackCount },
   ];
 
   const supportRows = [
@@ -251,45 +216,36 @@ export function OnTheJobModal({
     },
   ];
 
-  const kpiTiles = (
-    <div className="flex gap-3">
-      <div className="flex flex-[1_0_0] flex-col gap-2 bg-[#f7f7f7] px-3 py-2 rounded-lg min-w-0">
-        <div className="flex flex-col gap-0.5">
-          <div className="flex items-center gap-2">
-            <p className="text-cooper-gray-400 text-[16px] leading-6 tracking-[-0.16px]">
-              Work model
-            </p>
-            {workEnvironmentAlerts.length > 0 && (
-              <InfoIcon
-                tooltip={
-                  <>
-                    {workEnvironmentAlerts.map((alert, i) => (
-                      <div key={i}>{alert}</div>
-                    ))}
-                  </>
-                }
-              />
-            )}
-          </div>
-          <p className="text-cooper-gray-900 text-xl xs:text-[36px] leading-none">
-            {workEnvironmentMode ?? "---"}
-          </p>
+  const headline =
+    [workEnvironmentMode, jobLengthMin !== null ? jobLengthDisplay : null]
+      .filter(Boolean)
+      .join(", ") || "---";
+
+  const headlineBlock = (
+    <div className="flex items-end gap-3">
+      <p className="text-[36px] font-normal leading-normal tracking-[-0.72px] text-cooper-gray-900">
+        {headline}
+      </p>
+      {workEnvironmentAlerts.length > 0 && (
+        // pb sets the circle's bottom on the text baseline (36px, leading-normal)
+        <div className="flex items-center pb-[13px]">
+          <InfoIcon
+            tooltip={
+              <>
+                {workEnvironmentAlerts.map((alert, i) => (
+                  <div key={i}>{alert}</div>
+                ))}
+              </>
+            }
+          />
         </div>
-      </div>
-      <div className="flex flex-[1_0_0] flex-col gap-0.5 bg-[#f7f7f7] px-3 py-2 rounded-lg min-w-0 self-stretch">
-        <p className="text-cooper-gray-400 text-[16px] leading-6 tracking-[-0.16px]">
-          Job length
-        </p>
-        <p className="text-cooper-gray-900 text-xl xs:text-[36px] leading-none">
-          {jobLengthDisplay}
-        </p>
-      </div>
+      )}
     </div>
   );
 
   const benefitsTable = (
     <div className="flex flex-col gap-3">
-      <BenefitRow label="Work Schedule">
+      <BenefitRow label="Work hours">
         <p className="text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]">
           {workHoursDisplay}
         </p>
@@ -361,7 +317,7 @@ export function OnTheJobModal({
   );
 
   const cultureCard = (
-    <div className="bg-[#f5f4ed] flex flex-col gap-3 p-4 rounded-lg">
+    <div className="bg-[#fafaf7] border border-black/[0.02] flex flex-col gap-3 p-4 rounded-lg">
       <div className="border-b border-[#d9d9d9] pb-3">
         <p className="text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]">
           Company culture
@@ -372,11 +328,11 @@ export function OnTheJobModal({
           <div
             key={label}
             className={cn(
-              "flex items-start justify-between",
+              "flex items-start justify-between gap-4",
               !isComparing && "sm:items-center",
             )}
           >
-            <p className="w-[140px] shrink-0 text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]">
+            <p className="min-w-0 text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]">
               {label}
             </p>
             {hasData ? (
@@ -386,22 +342,18 @@ export function OnTheJobModal({
                   !isComparing && "sm:flex-row sm:gap-3 sm:items-center",
                 )}
               >
-                <div
-                  className="flex h-2 gap-0.5 items-center"
-                  style={{ width: `${Math.min(102, totalReviews * 26 - 2)}px` }}
-                >
-                  {Array.from({ length: totalReviews }).map((_, i) => (
-                    <div
-                      key={i}
-                      className={`h-full flex-1 rounded-lg ${
-                        i < count ? "bg-[#f1895c]" : "bg-[#cbcbcb]"
-                      }`}
-                    />
-                  ))}
-                </div>
-                <p className="text-cooper-gray-350 text-[14px] leading-normal whitespace-nowrap">
-                  {count}/{totalReviews} reported
-                </p>
+                <DotBar
+                  className="max-w-[102px]"
+                  filledCount={count}
+                  totalCount={totalReviews}
+                  filledColor="#f1895c"
+                />
+                <DotCount
+                  count={count}
+                  total={totalReviews}
+                  label="reported"
+                  className="whitespace-nowrap"
+                />
               </div>
             ) : (
               <p className="text-cooper-gray-350 text-[14px] leading-normal">
@@ -415,40 +367,54 @@ export function OnTheJobModal({
   );
 
   const supportCard = (
-    <div className="bg-[#f5f4ed] flex flex-col gap-3 p-4 rounded-lg">
+    <div className="bg-[#fafaf7] border border-black/[0.02] flex flex-col gap-3 p-4 rounded-lg">
       <div className="border-b border-[#d9d9d9] pb-3">
         <p className="text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]">
           Co-op support
         </p>
       </div>
       <div className="flex flex-col gap-[14px] pr-1">
-        {supportRows.map(({ label, subtext, pct }) => (
-          <div key={label} className="flex gap-[90px] items-center">
-            <div className="flex flex-1 flex-col gap-0.5 min-w-0">
-              <p className="text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]">
-                {label}
-              </p>
-              <p className="text-cooper-gray-400 text-[10px] sm:text-[14px] leading-normal">
-                {subtext}
-              </p>
+        {supportRows.map(({ label, subtext, pct }) => {
+          const count = Math.round(pct * totalReviews);
+          return (
+            <div key={label} className="flex gap-[90px] items-center">
+              <div className="flex flex-1 flex-col gap-0.5 min-w-0">
+                <p className="text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]">
+                  {label}
+                </p>
+                <p className="text-cooper-gray-400 text-[10px] sm:text-[14px] leading-normal">
+                  {subtext}
+                </p>
+              </div>
+              <div className="flex flex-col gap-[10px] shrink-0">
+                {hasData && (
+                  <DotBar
+                    className="max-w-[102px]"
+                    filledCount={count}
+                    totalCount={totalReviews}
+                    filledColor="#f1895c"
+                  />
+                )}
+                {hasData ? (
+                  <DotCount
+                    count={count}
+                    total={totalReviews}
+                    label="in favor"
+                  />
+                ) : (
+                  <p className="text-cooper-gray-350 text-[14px] leading-normal">
+                    No data
+                  </p>
+                )}
+              </div>
             </div>
-            <div className="flex flex-col gap-[10px] shrink-0">
-              <SupportBar pct={pct} hasData={hasData} />
-              <p className="text-cooper-gray-350 text-[14px] leading-normal">
-                {hasData ? `${Math.round(pct * 100)}% agree` : "No data"}
-              </p>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
 
   if (compareSize) {
-    const headline =
-      [workEnvironmentMode, jobLengthMin !== null ? jobLengthDisplay : null]
-        .filter(Boolean)
-        .join(", ") || "---";
     // TODO: placeholder no-data copy until no-data handling is decided
     let federalHolidaysLabel = "No data";
     if (hasData) {
@@ -496,7 +462,7 @@ export function OnTheJobModal({
             </p>
           </div>
         </CompareBenefitCategory>
-        <CompareBenefitCategory label="Food and more" className={dividedTopic}>
+        <CompareBenefitCategory label="Benefits" className={dividedTopic}>
           <p className={valueClass}>{benefitsDisplay}</p>
         </CompareBenefitCategory>
         <CompareBenefitCategory
@@ -510,21 +476,15 @@ export function OnTheJobModal({
           size={compareSize}
           className={compareSize === "sm" ? "mt-8" : "mt-6"}
         >
-          {[
-            { label: "Team outings", count: teamOutingsCount },
-            { label: "Coffee chats", count: coffeeChatCount },
-            {
-              label: "Constructive feedback",
-              count: constructiveFeedbackCount,
-            },
-          ].map(({ label, count }) => (
+          {cultureRows.map(({ label, count }) => (
             <DotStatement
               key={label}
               label={label}
               filledCount={count}
               totalCount={totalReviews}
               filledColor="#f1895c"
-              caption={`${count}/${totalReviews} reported`}
+              countLabel="reported"
+              grayCount
               size={compareSize}
             />
           ))}
@@ -543,7 +503,8 @@ export function OnTheJobModal({
                 filledCount={count}
                 totalCount={totalReviews}
                 filledColor="#f1895c"
-                caption={`${count}/${totalReviews} in favor`}
+                countLabel="in favor"
+                grayCount
                 size={compareSize}
               />
             );
@@ -557,10 +518,13 @@ export function OnTheJobModal({
     return (
       <ModalContainer title="On the Job">
         <div className="flex flex-col gap-6">
-          {kpiTiles}
+          {headlineBlock}
           {benefitsTable}
-          {cultureCard}
-          {supportCard}
+          {/* Same 8px gap as the xl two-column layout and compare */}
+          <div className="flex flex-col gap-2">
+            {cultureCard}
+            {supportCard}
+          </div>
         </div>
       </ModalContainer>
     );
@@ -571,7 +535,7 @@ export function OnTheJobModal({
       <div className="flex gap-10 flex-wrap xl:flex-nowrap">
         {/* LEFT COLUMN */}
         <div className="flex flex-[1_0_0] flex-col gap-10 min-w-0">
-          {kpiTiles}
+          {headlineBlock}
           {benefitsTable}
         </div>
 

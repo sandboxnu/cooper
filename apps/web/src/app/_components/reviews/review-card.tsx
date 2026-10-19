@@ -1,14 +1,23 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import type { ReviewType, WorkEnvironmentType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@cooper/ui/dropdown-menu";
 
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { prettyWorkEnviornment } from "~/utils/stringHelpers";
-import { ReportButton } from "../shared/report-button";
+import { MENU_CONTENT_CLASS, MENU_ITEM_CLASS } from "../shared/menu-styles";
+import { ReportDialog } from "../shared/report-button";
 
 interface ReviewCardProps {
   className?: string;
@@ -25,6 +34,9 @@ export function ReviewCard({
     { id: reviewObj.locationId ?? "" },
     { enabled: !!reviewObj.locationId },
   );
+  const { data: profile } = api.profile.getCurrentUser.useQuery();
+  const isOwnReview = !!profile && reviewObj.profileId === profile.id;
+  const [reportOpen, setReportOpen] = useState(false);
 
   const workTerm = reviewObj.workTerm
     ? reviewObj.workTerm.charAt(0).toUpperCase() +
@@ -91,19 +103,42 @@ export function ReviewCard({
           <p className="min-w-0 flex-1 text-base leading-6 tracking-[-0.16px] text-cooper-gray-900">
             {reviewObj.textReview}
           </p>
-          <ReportButton
-            entityId={reviewObj.id}
-            entityType="review"
-            iconOnly={true}
-            className="shrink-0"
-            icon={
+          {/* Non-modal so the report dialog can take focus once it closes */}
+          <DropdownMenu modal={false}>
+            <DropdownMenuTrigger
+              aria-label="Review options"
+              className="shrink-0 outline-none"
+            >
               <Image
                 src="/svg/reviewMenu.svg"
-                alt="Report review"
+                alt=""
                 width={6}
                 height={22}
               />
-            }
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className={MENU_CONTENT_CLASS}>
+              {isOwnReview && (
+                <DropdownMenuItem asChild className={MENU_ITEM_CLASS}>
+                  <Link
+                    href={`/profile?tab=my-reviews&review=${reviewObj.id}`}
+                  >
+                    View or edit on profile
+                  </Link>
+                </DropdownMenuItem>
+              )}
+              <DropdownMenuItem
+                className={MENU_ITEM_CLASS}
+                onSelect={() => setReportOpen(true)}
+              >
+                Report
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <ReportDialog
+            entityType="review"
+            entityId={reviewObj.id}
+            open={reportOpen}
+            onOpenChange={setReportOpen}
           />
         </div>
         <div className="flex flex-wrap items-center gap-x-8 gap-y-2 rounded-lg bg-[#F7F7F7] px-4 py-3 text-sm leading-normal">

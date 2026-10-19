@@ -40,9 +40,9 @@ export function RatingSummary({
             <p className="w-[52px] shrink-0 text-[14px] leading-normal text-cooper-gray-400">
               {stars} {stars === 1 ? "star" : "stars"}
             </p>
-            <div className="h-2 min-w-px flex-1 rounded-lg bg-cooper-gray-150">
+            <div className="h-2 min-w-px flex-1 rounded-full bg-cooper-gray-150">
               <div
-                className="h-full rounded-lg bg-[#ffa400]"
+                className="h-full rounded-full bg-[#ffa400]"
                 style={{ width: `${percentage}%` }}
               />
             </div>

@@ -1,24 +1,27 @@
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Filter } from "bad-words";
 import Fuse from "fuse.js";
 import { useForm, useFormContext } from "react-hook-form";
 import { z } from "zod";
 
+import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 import { Checkbox } from "@cooper/ui/checkbox";
 import { FormControl, FormField, FormItem, FormMessage } from "@cooper/ui/form";
 import { useCustomToast } from "@cooper/ui/hooks/use-custom-toast";
 import { Input } from "@cooper/ui/input";
 import { Label } from "@cooper/ui/label";
+import { useReadOnly } from "@cooper/ui/read-only";
 
 import type { RoleRequestType } from "../roles/new-role-dialogue";
 import { api } from "~/trpc/react";
 import { CompanyCardPreview } from "../companies/company-card-preview";
+import { FieldLabel, OPTION_LABEL_CLASS } from "../form/fields";
 import { FormSection } from "../form/form-section";
 import LocationBox from "../location";
 import { industryOptions } from "../onboarding/constants";
-import { FormLabel } from "../themed/onboarding/form";
 import FilterBody from "../filters/filter-body";
 
 const filter = new Filter();
@@ -183,6 +186,7 @@ export default function ExistingCompanyContent({
   }
 
   const form = useFormContext();
+  const readOnly = useReadOnly();
 
   // Get the selected company from the form
   const selectedCompanyName = form.watch("companyName") as string;
@@ -259,18 +263,52 @@ export default function ExistingCompanyContent({
 
   return (
     <FormSection>
-      <div className="flex w-full flex-col gap-2 pt-4">
+      <div className="flex w-full flex-col gap-2">
         {/* Company Section */}
         <FormField
           control={form.control}
           name="companyName"
           render={({ field }) => (
             <FormItem className="flex flex-col w-full">
-              <FormLabel className="text-sm text-cooper-gray-400 font-bold flex-shrink-0">
-                Company name<span className="text-cooper-red-300">*</span>
-              </FormLabel>
+              <FieldLabel required>Company</FieldLabel>
 
-              <div className="relative flex-1 w-full ">
+              {/* Once picked, the company shows as a card; its X (edit only)
+                  clears it and brings back the search field */}
+              {selectedCompany && (
+                <CompanyCardPreview
+                  companyObj={selectedCompany}
+                  className="w-full hover:cursor-default hover:bg-card"
+                  action={
+                    readOnly ? null : (
+                      <button
+                        type="button"
+                        aria-label="Change company"
+                        onClick={() => {
+                          field.onChange(undefined);
+                          setSelectedCompanyId(undefined);
+                          form.setValue("roleName", "");
+                          setCompanySearchTerm("");
+                        }}
+                        className="rounded-full transition hover:bg-[#F6F6F6] hover:shadow-[0px_0px_0px_12px_#F6F6F6]"
+                      >
+                        <Image
+                          src="/svg/exitComparisonButton.svg"
+                          width={14}
+                          height={14}
+                          alt=""
+                          style={{ minHeight: "14px", minWidth: "14px" }}
+                        />
+                      </button>
+                    )
+                  }
+                />
+              )}
+              <div
+                className={cn(
+                  "relative w-full flex-1",
+                  selectedCompany && "hidden",
+                )}
+              >
                 <FilterBody
                   variant="autocomplete"
                   title="Company"
@@ -298,7 +336,7 @@ export default function ExistingCompanyContent({
                       ? [field.value]
                       : []
                   }
-                  placeholder="Select company"
+                  placeholder="Enter"
                   singleSelect
                   onSearchChange={setCompanySearchTerm}
                   onSelectionChange={(selected) => {
@@ -323,7 +361,10 @@ export default function ExistingCompanyContent({
         {/* "I don't see my company" checkbox */}
 
         <div
-          className="flex flex-1 items-center gap-2"
+          className={cn(
+            "flex flex-1 items-center gap-2",
+            (readOnly || selectedCompany) && "hidden",
+          )}
           onClick={() => !selectedCompany && setShowNewCompany(!showNewCompany)}
         >
           <Checkbox
@@ -347,45 +388,25 @@ export default function ExistingCompanyContent({
               }
             }}
           />
-          <Label
-            className={`text-cooper-gray-550 text-sm font-bold ${selectedCompany ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}
-          >
-            I don't see my company
-          </Label>
+          <Label className={OPTION_LABEL_CLASS}>I don't see my company</Label>
         </div>
-
-        {/* Company Card - shown when company is selected */}
-        {selectedCompany && (
-          <div className="pt-2">
-            <div className="mb-2 text-sm font-semibold text-cooper-gray-400">
-              Adding a review for
-            </div>
-            <CompanyCardPreview
-              companyObj={selectedCompany}
-              className="w-full"
-            />
-          </div>
-        )}
 
         {/* "Add Your Company" gray box section */}
         {showNewCompany && (
-          <div className="flex w-full flex-col rounded-lg bg-cooper-gray-100 p-3.5">
+          <div className="flex w-full flex-col gap-3 rounded-lg bg-cooper-gray-100 p-4">
             <div className="text-cooper-gray-550 text-sm font-semibold">
-              Add Your Company
+              Add your company
             </div>
-            <div className="text-cooper-gray-600 text-xs">
-              We'll verify this information before it appears on the website as
-              a review.
-            </div>
+            <p className="-mt-2 text-sm text-cooper-gray-350">
+              We'll verify this before it appears on the site.
+            </p>
 
             {/* Company Name */}
-            <div className="flex flex-col w-full pt-2.5">
-              <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
-                Company Name<span className="text-cooper-red-300">*</span>
-              </FormLabel>
+            <div className="flex w-full flex-col">
+              <FieldLabel required>Company name</FieldLabel>
               <Input
                 placeholder="Enter"
-                className="border-cooper-gray-150 h-10 w-full border text-sm"
+                className="h-9 w-full rounded-lg border border-cooper-gray-150 text-sm shadow-none hover:bg-[#F6F6F6] focus:bg-white"
                 value={newCompanyName}
                 onChange={(e) => setNewCompanyName(e.target.value)}
               />
@@ -396,10 +417,8 @@ export default function ExistingCompanyContent({
               control={form.control}
               name="industry"
               render={({ field }) => (
-                <FormItem className="flex flex-col flex-1 pt-2.5">
-                  <FormLabel className="text-xs font-bold text-cooper-gray-550">
-                    Industry<span className="text-cooper-red-300">*</span>
-                  </FormLabel>
+                <FormItem className="flex flex-1 flex-col">
+                  <FieldLabel required>Industry</FieldLabel>
                   <FormControl className="relative w-full">
                     <FilterBody
                       variant="autocomplete"
@@ -418,7 +437,7 @@ export default function ExistingCompanyContent({
                           ? [field.value]
                           : []
                       }
-                      placeholder="Search by industry..."
+                      placeholder="Enter"
                       singleSelect
                       onSelectionChange={(selected) => {
                         field.onChange(selected[0] ?? undefined);
@@ -435,10 +454,8 @@ export default function ExistingCompanyContent({
               control={form.control}
               name="locationId"
               render={() => (
-                <FormItem className="flex flex-col pt-2.5 w-full">
-                  <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
-                    Location<span className="text-cooper-red-300">*</span>
-                  </FormLabel>
+                <FormItem className="flex w-full flex-col">
+                  <FieldLabel required>Location</FieldLabel>
                   <FormControl className="flex-1">
                     <LocationBox
                       searchBar={false}
@@ -460,14 +477,12 @@ export default function ExistingCompanyContent({
               control={form.control}
               name="title"
               render={({ field }) => (
-                <FormItem className="flex flex-col pt-2.5 w-full">
-                  <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
-                    Your Role<span className="text-cooper-red-300">*</span>
-                  </FormLabel>
+                <FormItem className="flex w-full flex-col">
+                  <FieldLabel required>Role</FieldLabel>
                   <FormControl className="flex-1">
                     <Input
                       placeholder="Enter"
-                      className="border-cooper-gray-150 h-10 w-full border text-sm"
+                      className="h-9 w-full rounded-lg border border-cooper-gray-150 text-sm shadow-none hover:bg-[#F6F6F6] focus:bg-white"
                       value={
                         field.value &&
                         typeof field.value === "string" &&
@@ -484,12 +499,12 @@ export default function ExistingCompanyContent({
             />
 
             {/* Submit Button for Creating Company */}
-            <div className="flex justify-end pt-4">
+            <div className="flex justify-end pt-1">
               <Button
                 type="button"
                 onClick={handleCreateCompanyWithRole}
                 disabled={createCompanyWithRoleMutation.isPending}
-                className="bg-cooper-gray-550 hover:bg-cooper-gray-600 rounded-lg border-none px-8 py-3 text-lg font-semibold text-white"
+                className="h-9 rounded-lg border-none bg-cooper-gray-550 px-4 text-sm font-semibold text-white hover:bg-cooper-gray-600"
               >
                 {createCompanyWithRoleMutation.isPending
                   ? "Creating..."
@@ -500,15 +515,13 @@ export default function ExistingCompanyContent({
         )}
 
         {/* Your Role section (only show when company is selected and not showing new company) */}
-        <div className="pt-4">
+        <div className="flex flex-col gap-2 pt-3">
           <FormField
             control={form.control}
             name="roleName"
             render={({ field }) => (
               <FormItem className="flex flex-col w-full ">
-                <FormLabel className="text-sm font-bold text-cooper-gray-400 flex-shrink-0">
-                  Your Role<span className="text-cooper-red-300">*</span>
-                </FormLabel>
+                <FieldLabel required>Role</FieldLabel>
 
                 <div className="relative flex-1 w-full">
                   <FilterBody
@@ -529,9 +542,7 @@ export default function ExistingCompanyContent({
                         : []
                     }
                     placeholder={
-                      selectedCompanyId
-                        ? "Select role"
-                        : "Select a company first"
+                      selectedCompanyId ? "Enter" : "Select a company first"
                     }
                     singleSelect
                     onSelectionChange={(selected) => {
@@ -556,7 +567,12 @@ export default function ExistingCompanyContent({
 
           {/* "I don't see my role" checkbox */}
 
-          <div className="flex flex-1 items-center gap-2 pt-2">
+          <div
+            className={cn(
+              "flex flex-1 items-center gap-2",
+              readOnly && "hidden",
+            )}
+          >
             <Checkbox
               checked={creatingNewRole}
               onCheckedChange={(checked) => {
@@ -567,35 +583,30 @@ export default function ExistingCompanyContent({
                 }
               }}
             />
-            <Label className="text-cooper-gray-550 cursor-pointer text-sm font-bold">
-              I don't see my role
-            </Label>
+            <Label className={OPTION_LABEL_CLASS}>I don't see my role</Label>
           </div>
 
           {/* Create New Role Section */}
           {creatingNewRole && (
-            <div className="flex w-full flex-col rounded-lg bg-cooper-gray-100 p-3.5">
+            <div className="flex w-full flex-col gap-3 rounded-lg bg-cooper-gray-100 p-4">
               <div className="text-cooper-gray-550 text-sm font-semibold">
-                Add Your Role
+                Add your role
               </div>
-              <div className="text-cooper-gray-600 text-xs">
-                We'll verify this information before it appears on the website
-                as a review.
-              </div>
+              <p className="-mt-2 text-sm text-cooper-gray-350">
+                We'll verify this before it appears on the site.
+              </p>
 
               {/* Company Name */}
               <FormField
                 control={newRoleForm.control}
                 name="title"
                 render={({ field }) => (
-                  <FormItem className="flex flex-col w-full pt-2.5">
-                    <FormLabel className="text-xs font-bold text-cooper-gray-550 flex-shrink-0">
-                      Your Role<span className="text-cooper-red-300">*</span>
-                    </FormLabel>
+                  <FormItem className="flex w-full flex-col">
+                    <FieldLabel required>Role</FieldLabel>
                     <FormControl className="flex-1">
                       <Input
                         placeholder="Enter"
-                        className="border-cooper-gray-150 h-10 w-full border text-sm"
+                        className="h-9 w-full rounded-lg border border-cooper-gray-150 text-sm shadow-none hover:bg-[#F6F6F6] focus:bg-white"
                         value={field.value}
                         onChange={(e) => field.onChange(e.target.value)}
                       />
@@ -606,12 +617,12 @@ export default function ExistingCompanyContent({
               />
 
               {/* Submit Button for Creating Role */}
-              <div className="flex justify-end pt-4">
+              <div className="flex justify-end pt-1">
                 <Button
                   type="button"
                   onClick={handleCreateRole}
                   disabled={newRoleMutation.isPending}
-                  className="bg-cooper-gray-550 hover:bg-cooper-gray-600 rounded-lg border-none px-8 py-3 text-lg font-semibold text-white"
+                  className="h-9 rounded-lg border-none bg-cooper-gray-550 px-4 text-sm font-semibold text-white hover:bg-cooper-gray-600"
                 >
                   {newRoleMutation.isPending ? "Creating..." : "Create Role"}
                 </Button>

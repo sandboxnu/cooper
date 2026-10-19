@@ -43,7 +43,7 @@ export function ToolsAutocomplete({ value, onChange }: ToolsAutocompleteProps) {
   return (
     <Autocomplete
       options={displayOptions}
-      placeholder="Select"
+      placeholder="Enter"
       value={value}
       onChange={onChange}
       onSearchChange={setSearch}
