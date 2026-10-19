@@ -16,14 +16,29 @@ import { ReportButton } from "../shared/report-button";
 import { CompanyCardPreview } from "../companies/company-card-preview";
 import { FavoriteButton } from "../shared/favorite-button";
 import { useCompare } from "../compare/compare-context";
+import type {
+  CompareSize,
+  CompareStickyHeader,
+} from "../compare/compare-context";
+import { compareRowStyle } from "../compare/compare-section";
 
 interface RoleCardProps {
   className?: string;
   roleObj: RoleType;
   onBack?: () => void;
+  // Set when rendered as a compare column; sizes the layout to the card width
+  compareSize?: CompareSize;
+  // Compare sticky header: compact while scrolling down, full while scrolling up
+  stickyHeader?: CompareStickyHeader | null;
 }
 
-export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
+export function RoleInfo({
+  className,
+  roleObj,
+  onBack,
+  compareSize,
+  stickyHeader,
+}: RoleCardProps) {
   const reviews = api.review.getByRole.useQuery({ id: roleObj.id });
   const compare = useCompare();
 
@@ -128,6 +143,198 @@ export function RoleInfo({ className, roleObj, onBack }: RoleCardProps) {
         })()}
     </CardContent>
   );
+
+  if (compareSize) {
+    const isSmall = compareSize === "sm";
+    // Save + remove buttons, shared by the full and compact sticky headers
+    const headerActions = (
+      <div className="flex shrink-0 items-center gap-4 pt-1">
+        <FavoriteButton objId={roleObj.id} objType="role" />
+        <button
+          type="button"
+          aria-label="Remove from comparison"
+          onClick={() => compare.removeRoleId(roleObj.id)}
+          className="rounded-full transition hover:bg-cooper-gray-150 hover:shadow-[0px_0px_0px_12px_rgb(231,231,231)]"
+        >
+          <Image
+            src="/svg/exitComparisonButton.svg"
+            width={14}
+            height={14}
+            alt="Remove from comparison"
+            style={{ minHeight: "14px", minWidth: "14px" }}
+          />
+        </button>
+      </div>
+    );
+
+    const fullHeader = (
+      <div className="flex items-start gap-[14px]">
+        {companyData ? (
+          <CompanyPopup
+            trigger={
+              <button
+                type="button"
+                className={cn(
+                  "flex shrink-0 items-center justify-center rounded-lg border border-black/[0.07] bg-white",
+                  isSmall ? "size-[46px]" : "p-4",
+                )}
+              >
+                <Logo
+                  company={companyData}
+                  className={cn(
+                    isSmall && "h-8 min-h-8 w-8 min-w-8 rounded-md text-lg",
+                  )}
+                />
+              </button>
+            }
+            company={companyData}
+            locations={finalLocations}
+          />
+        ) : (
+          <div
+            className={cn(
+              "shrink-0 rounded-lg border border-black/[0.07] bg-white",
+              isSmall ? "size-[46px]" : "size-[82px]",
+            )}
+          />
+        )}
+        <div className="flex min-w-0 flex-1 flex-col gap-1 pr-1 pt-1">
+          <p
+            className={cn(
+              "font-semibold text-cooper-gray-900",
+              isSmall
+                ? "text-[18px] leading-6 tracking-[-0.18px]"
+                : "text-[24px] leading-7 tracking-[-0.24px]",
+            )}
+          >
+            {roleObj.title}
+          </p>
+          <div
+            className={cn(
+              "flex flex-col text-cooper-gray-400",
+              isSmall
+                ? "gap-1 text-[14px] leading-normal"
+                : "gap-[3px] text-[16px] leading-6 tracking-[-0.16px]",
+            )}
+          >
+            {location.isSuccess && location.data && (
+              <p className="whitespace-pre">
+                {jobTypeLabel}
+                {"  •  "}
+                {prettyLocationName(location.data)}
+              </p>
+            )}
+            {reviews.isSuccess && reviews.data.length > 0 && (
+              <div className="flex items-center gap-1.5">
+                <Image
+                  src="/svg/star.svg"
+                  alt="Star icon"
+                  width={21}
+                  height={21}
+                />
+                <p className="whitespace-pre">
+                  {Number(averages.data?.averageOverallRating ?? 0).toFixed(1)}
+                  {"  "}({reviews.data.length} review
+                  {reviews.data.length !== 1 && "s"})
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+        {headerActions}
+      </div>
+    );
+
+    return (
+      // Card spans every compare row (plus the filler row); its sections line
+      // up with the other cards through nested subgrids (see COMPARE_ROWS)
+      <div
+        className={cn(
+          // minmax(0,1fr) lets the card shrink below its content's min width
+          "grid grid-cols-[minmax(0,1fr)] grid-rows-subgrid gap-y-0 rounded-lg bg-[#F1F0EC] px-4 pb-5 duration-500 motion-safe:animate-in motion-safe:fade-in",
+          className,
+        )}
+        style={{ gridRow: "1 / -1" }}
+      >
+        {/* In-flow header (row 1); the sticky overlay below handles scrolling */}
+        <div
+          data-compare-header
+          className={cn("pb-5", isSmall ? "pt-3" : "pt-4")}
+          style={compareRowStyle("header")}
+        >
+          {fullHeader}
+        </div>
+
+        {/* Sticky overlay header: zero height and spans every row, so it sticks
+            for the whole card and swapping its content never shifts layout */}
+        {stickyHeader && (
+          <div
+            className="sticky top-0 z-20 h-0 self-start"
+            // Same explicit column as the header/sections so it overlays them
+            style={{ gridRow: "1 / -1", gridColumn: "1" }}
+          >
+            {/* Page-colored backing so the rounded top corners show against the
+                page instead of the card content scrolling underneath */}
+            <div className="-mx-4 bg-cooper-cream-100">
+              <div
+                key={stickyHeader}
+                className="rounded-t-lg border-b border-cooper-gray-150 bg-[#F1F0EC] px-4 duration-300 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-top-1"
+              >
+                {stickyHeader === "full" ? (
+                  <div className={cn("pb-4", isSmall ? "pt-3" : "pt-4")}>
+                    {fullHeader}
+                  </div>
+                ) : (
+                  <div className="flex items-start gap-4 py-3">
+                    <div className="flex min-w-0 flex-1 flex-col">
+                      <p className="truncate text-[16px] font-semibold leading-6 tracking-[-0.16px] text-cooper-gray-900">
+                        {roleObj.title}
+                      </p>
+                      <p className="truncate text-[14px] leading-normal text-cooper-gray-400">
+                        {[companyData?.name, location.data?.city]
+                          .filter(Boolean)
+                          .join(" • ")}
+                      </p>
+                    </div>
+                    {headerActions}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {averages.data && (
+          <OnTheJobModal
+            averages={averages.data}
+            isComparing
+            compareSize={compareSize}
+          />
+        )}
+        <InterviewModal
+          roleData={interviewData.data}
+          industryData={industryInterviewData.data}
+          globalData={globalInterviewData.data}
+          compareSize={compareSize}
+        />
+        {averages.data && (
+          <PayModal
+            averages={averages.data}
+            globalData={globalPayData.data}
+            industryData={industryPayData.data}
+            industryName={companyData?.industry ?? null}
+            compareSize={compareSize}
+          />
+        )}
+        <ReviewModal
+          roleId={roleObj.id}
+          isComparing={isComparing}
+          compareSize={compareSize}
+        />
+      </div>
+    );
+  }
+
   return (
     <div
       className={cn(

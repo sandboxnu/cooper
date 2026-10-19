@@ -1,7 +1,13 @@
 "use client";
 
 import { cn } from "@cooper/ui";
+import type { CompareSize } from "../../compare/compare-context";
+import {
+  CompareSection,
+  CompareSectionTitle,
+} from "../../compare/compare-section";
 import ModalContainer from "../../reviews/modal";
+import { DotStatement, DotStatementCard } from "./shared/dot-statement";
 import { InfoIcon } from "./shared/info-icon";
 
 interface AveragesData {
@@ -35,6 +41,7 @@ interface AveragesData {
 interface OnTheJobModalProps {
   averages: AveragesData;
   isComparing: boolean;
+  compareSize?: CompareSize;
 }
 
 const BENEFIT_LABELS: { key: keyof AveragesData; label: string }[] = [
@@ -101,7 +108,47 @@ function BenefitRow({
   );
 }
 
-export function OnTheJobModal({ averages, isComparing }: OnTheJobModalProps) {
+function CompareBenefitCategory({
+  label,
+  className,
+  children,
+}: {
+  label: string;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className={cn("flex flex-col gap-2", className)}>
+      <p className="text-[14px] leading-normal text-cooper-gray-350">{label}</p>
+      {children}
+    </div>
+  );
+}
+
+function CompareReportedLine({
+  label,
+  caption,
+}: {
+  label: string;
+  caption: string;
+}) {
+  return (
+    <div className="flex flex-col">
+      <p className="text-[16px] leading-6 tracking-[-0.16px] text-cooper-gray-550">
+        {label}
+      </p>
+      <p className="text-[14px] leading-normal text-cooper-gray-350">
+        {caption}
+      </p>
+    </div>
+  );
+}
+
+export function OnTheJobModal({
+  averages,
+  isComparing,
+  compareSize,
+}: OnTheJobModalProps) {
   const {
     totalReviews,
     workEnvironmentMode,
@@ -396,6 +443,115 @@ export function OnTheJobModal({ averages, isComparing }: OnTheJobModalProps) {
       </div>
     </div>
   );
+
+  if (compareSize) {
+    const headline =
+      [workEnvironmentMode, jobLengthMin !== null ? jobLengthDisplay : null]
+        .filter(Boolean)
+        .join(", ") || "---";
+    // TODO: placeholder no-data copy until no-data handling is decided
+    let federalHolidaysLabel = "No data";
+    if (hasData) {
+      if (averages.federalHolidays > 0.5)
+        federalHolidaysLabel = "Federal holidays off";
+      else if (averages.federalHolidays < 0.5)
+        federalHolidaysLabel = "No federal holidays off";
+    }
+
+    const valueClass =
+      "text-[16px] leading-6 tracking-[-0.16px] text-cooper-gray-900";
+    // Divider + 12px either side, matching the gap between benefit rows
+    const dividedTopic = "mt-3 border-t border-cooper-gray-125 pt-3";
+
+    // One child per grid row; see COMPARE_ROWS.onTheJob
+    return (
+      <CompareSection section="onTheJob" className="px-5 py-[18px]">
+        <div>
+          <CompareSectionTitle>On the Job</CompareSectionTitle>
+          <p className="text-[36px] leading-normal tracking-[-0.72px] text-cooper-gray-900">
+            {headline}
+          </p>
+        </div>
+        <CompareBenefitCategory label="Work hours" className="pt-6">
+          <div className="flex flex-col gap-3">
+            <p className={valueClass}>{workHoursDisplay}</p>
+            <CompareReportedLine
+              label={hasData ? overtimeLabel : "No data"}
+              caption={`${overtimeCount}/${totalReviews} reported`}
+            />
+            <CompareReportedLine
+              label={federalHolidaysLabel}
+              caption={`${Math.round(averages.federalHolidays * totalReviews)}/${totalReviews} reported`}
+            />
+          </div>
+        </CompareBenefitCategory>
+        <CompareBenefitCategory label="Transportation" className={dividedTopic}>
+          <p className={valueClass}>{transportDisplay}</p>
+        </CompareBenefitCategory>
+        <CompareBenefitCategory label="Drug test" className={dividedTopic}>
+          <div className="flex flex-col">
+            <p className={valueClass}>{drugTestDisplay}</p>
+            <p className="text-[14px] leading-normal text-cooper-gray-350">
+              {Math.round(drugTest * totalReviews)}/{totalReviews} reported
+            </p>
+          </div>
+        </CompareBenefitCategory>
+        <CompareBenefitCategory label="Food and more" className={dividedTopic}>
+          <p className={valueClass}>{benefitsDisplay}</p>
+        </CompareBenefitCategory>
+        <CompareBenefitCategory
+          label="Tools & software"
+          className={dividedTopic}
+        >
+          <p className={valueClass}>{toolsDisplay}</p>
+        </CompareBenefitCategory>
+        <DotStatementCard
+          title="Company culture"
+          size={compareSize}
+          className={compareSize === "sm" ? "mt-8" : "mt-6"}
+        >
+          {[
+            { label: "Team outings", count: teamOutingsCount },
+            { label: "Coffee chats", count: coffeeChatCount },
+            {
+              label: "Constructive feedback",
+              count: constructiveFeedbackCount,
+            },
+          ].map(({ label, count }) => (
+            <DotStatement
+              key={label}
+              label={label}
+              filledCount={count}
+              totalCount={totalReviews}
+              filledColor="#f1895c"
+              caption={`${count}/${totalReviews} reported`}
+              size={compareSize}
+            />
+          ))}
+        </DotStatementCard>
+        <DotStatementCard
+          title="Co-op support"
+          size={compareSize}
+          className="mt-2"
+        >
+          {supportRows.map(({ label, pct }) => {
+            const count = Math.round(pct * totalReviews);
+            return (
+              <DotStatement
+                key={label}
+                label={label}
+                filledCount={count}
+                totalCount={totalReviews}
+                filledColor="#f1895c"
+                caption={`${count}/${totalReviews} in favor`}
+                size={compareSize}
+              />
+            );
+          })}
+        </DotStatementCard>
+      </CompareSection>
+    );
+  }
 
   if (isComparing) {
     return (

@@ -179,6 +179,21 @@ export function CompareProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
+// Card density in compare mode, picked from a card's rendered width.
+// Figma frames: sm = 347px, md = 520px, lg = 1064px.
+export type CompareSize = "sm" | "md" | "lg";
+
+const COMPARE_SIZE_MD_MIN_WIDTH = 500;
+const COMPARE_SIZE_LG_MIN_WIDTH = 800;
+
+export type CompareStickyHeader = "compact" | "full";
+
+export function getCompareSize(cardWidth: number): CompareSize {
+  if (cardWidth < COMPARE_SIZE_MD_MIN_WIDTH) return "sm";
+  if (cardWidth < COMPARE_SIZE_LG_MIN_WIDTH) return "md";
+  return "lg";
+}
+
 export function useCompare() {
   const context = useContext(CompareContext);
   if (!context) {

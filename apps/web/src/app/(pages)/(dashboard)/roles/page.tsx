@@ -842,7 +842,6 @@ export default function Roles() {
                 "border-cooper-gray-150 bg-cooper-cream-100 no-scrollbar w-full overflow-y-auto border-r-[1px] px-6 py-5 xl:rounded-none",
                 "md:w-[360px] md:flex-shrink-0", // Fixed 360px width on md and above
                 (showRoleInfo || showCompanyInfo) && "hidden md:block", // Hide on mobile if RoleInfo is visible
-                compare.isCompareMode && "border-transparent",
               )}
             >
               <div key={sidebarListKey}>
@@ -992,6 +991,7 @@ export default function Roles() {
               className={cn(
                 "no-scrollbar col-span-3 w-full overflow-y-auto p-1",
                 "md:w-auto md:min-w-0 md:flex-1", // Fill remaining width on md and above
+                compare.isCompareMode && "pb-0", // Compare cards run to the bottom edge
                 !showRoleInfo && !showCompanyInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
               )}
             >

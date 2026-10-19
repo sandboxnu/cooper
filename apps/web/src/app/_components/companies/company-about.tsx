@@ -9,13 +9,9 @@ interface CompanyAboutProps {
 
 export function CompanyAbout({ companyObj }: CompanyAboutProps) {
   return (
-    <div className="mx-1 w-full pb-4 text-sm sm:pb-0">
-      <div className="font-bold text-cooper-gray-400">
-        About {companyObj?.name}
-      </div>
-      <div className="overflow-y-auto rounded-b-lg pt-2">
-        <p>{companyObj?.description}</p>
-      </div>
+    <div className="flex w-full flex-col gap-1 text-[16px] leading-6 tracking-[-0.16px]">
+      <p className="font-bold text-cooper-gray-400">About {companyObj?.name}</p>
+      <p className="text-cooper-gray-900">{companyObj?.description}</p>
     </div>
   );
 }

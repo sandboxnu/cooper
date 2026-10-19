@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 
 import type { RoleType } from "@cooper/db/schema";
@@ -9,7 +9,9 @@ import { Button } from "@cooper/ui/button";
 
 import { api } from "~/trpc/react";
 import { RoleInfo } from "../roles/role-info";
-import { useCompare } from "./compare-context";
+import type { CompareSize, CompareStickyHeader } from "./compare-context";
+import { getCompareSize, useCompare } from "./compare-context";
+import { COMPARE_ROW_COUNT } from "./compare-section";
 
 interface CompareControlsProps {
   anchorRoleId?: string | null;
@@ -145,36 +147,151 @@ export function CompareColumns({ anchorRole }: CompareColumnsProps) {
     ...placeholders,
   ];
 
+  // The drop slot sits outside the scroll container so the scrollbar stays
+  // beside the cards. Widths only transition when the track count stays the
+  // same, so both grids keep fixed track counts, every track is
+  // minmax(<length>, <fr>) so they can interpolate, and unused tracks
+  // collapse to 0.
+  const cardColumns = columns.filter((column) => column.type !== "empty");
+  const hasDropSlot = cardColumns.length < columns.length;
+
+  const cardsGridTemplateColumns = [
+    ...cardColumns.map(() => "minmax(0px, 1fr)"),
+    ...Array.from(
+      { length: Math.max(0, compare.maxColumns - cardColumns.length) },
+      () => "minmax(0px, 0fr)",
+    ),
+  ].join(" ");
+
+  // The drop slot stays narrow (just its + icon) until a card is dragged,
+  // then grows to a card's width
+  const dropSlotTrack = !hasDropSlot
+    ? "minmax(0px, 0fr)"
+    : compare.isDragging
+      ? "minmax(0px, 1fr)"
+      : "minmax(80px, 0fr)"; // 68px slot + its 12px gap margin
+  const outerGridTemplateColumns = `minmax(0px, ${cardColumns.length}fr) ${dropSlotTrack}`;
+
+  // Size cards by their rendered width (screen width and card count both
+  // affect it). The first column is always the anchor card or its loader.
+  const outerGridRef = useRef<HTMLDivElement>(null);
+  const cardsGridRef = useRef<HTMLDivElement>(null);
+  const [compareSize, setCompareSize] = useState<CompareSize>("lg");
+
+  useLayoutEffect(() => {
+    const outerGrid = outerGridRef.current;
+    const cardsGrid = cardsGridRef.current;
+    if (!outerGrid || !cardsGrid) return;
+
+    const update = () => {
+      const firstColumnWidth = parseFloat(
+        getComputedStyle(cardsGrid).gridTemplateColumns,
+      );
+      if (!Number.isNaN(firstColumnWidth)) {
+        setCompareSize(getCompareSize(firstColumnWidth));
+      }
+    };
+
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(cardsGrid);
+    // Column widths animate, so re-measure once they settle
+    outerGrid.addEventListener("transitionend", update);
+    return () => {
+      observer.disconnect();
+      outerGrid.removeEventListener("transitionend", update);
+    };
+  }, [cardsGridTemplateColumns, outerGridTemplateColumns]);
+
+  // Sticky header: hidden while the in-flow header is still in view, compact
+  // while scrolling down, full while scrolling up
+  const lastScrollTopRef = useRef(0);
+  const [stickyHeader, setStickyHeader] = useState<CompareStickyHeader | null>(
+    null,
+  );
+
+  const handleCardsScroll = (event: React.UIEvent<HTMLDivElement>) => {
+    const scrollTop = event.currentTarget.scrollTop;
+    const delta = scrollTop - lastScrollTopRef.current;
+    // Ignore tiny jitters (trackpad momentum, sub-pixel scrolling)
+    if (Math.abs(delta) < 4) return;
+    lastScrollTopRef.current = scrollTop;
+
+    const headerHeight =
+      event.currentTarget.querySelector<HTMLElement>("[data-compare-header]")
+        ?.offsetHeight ?? 0;
+    if (scrollTop <= headerHeight) {
+      setStickyHeader(null);
+    } else {
+      setStickyHeader(delta > 0 ? "compact" : "full");
+    }
+  };
+
+  const columnTransition =
+    "ease-out motion-safe:transition-[grid-template-columns] motion-safe:duration-500";
+  const fadeIn = "duration-500 motion-safe:animate-in motion-safe:fade-in";
+
   return (
-    <div className="relative flex flex-col gap-4 p-2">
-      <div className="relative min-h-[70dvh] w-full overflow-x-auto">
-        <div className="flex min-h-full gap-3 transition">
-          {columns.map((column) => {
-            if (column.type === "empty") {
+    <div className="relative flex h-full flex-col px-2 pt-2">
+      <div
+        ref={outerGridRef}
+        className={cn("grid min-h-0 flex-1", columnTransition)}
+        style={{
+          gridTemplateColumns: outerGridTemplateColumns,
+          gridTemplateRows: "minmax(0, 1fr)",
+        }}
+      >
+        {/* One scroll container so every card scrolls together. It fills to
+            the bottom of the window so cards run off-screen until scrolled to
+            the end. Size containment lets children use cqh units for its
+            visible height. */}
+        <div
+          className="relative min-w-0 overflow-auto [container-type:size]"
+          onScroll={handleCardsScroll}
+        >
+          <div
+            ref={cardsGridRef}
+            className={cn("grid min-h-[100cqh] gap-0", columnTransition)}
+            style={{
+              gridTemplateColumns: cardsGridTemplateColumns,
+              // Shared content rows, then a filler row that stretches to min height
+              gridTemplateRows: `repeat(${COMPARE_ROW_COUNT}, auto) 1fr`,
+            }}
+          >
+            {cardColumns.map((column, index) => {
+              // Column gaps are margins, since a grid gap would also sit
+              // beside the collapsed unused tracks
+              const gapClass = index > 0 && "ml-3";
+
+              if (column.type === "role") {
+                return (
+                  <RoleInfo
+                    key={column.key}
+                    roleObj={column.role}
+                    compareSize={compareSize}
+                    stickyHeader={stickyHeader}
+                    className={cn(gapClass)}
+                  />
+                );
+              }
+
               return (
-                <DropSlot
+                <div
                   key={column.key}
-                  anchorRoleId={resolvedAnchorRoleId}
-                />
-              );
-            }
-
-            if (column.type === "loading") {
-              return <LoadingSlot key={column.key} />;
-            }
-
-            return (
-              <div
-                key={column.key}
-                className={"relative flex-1 rounded-lg bg-[#F1F0EC] transition"}
-              >
-                <div className="max-h-[78dvh] overflow-y-auto">
-                  <RoleInfo roleObj={column.role} />
+                  className={cn("grid", fadeIn, gapClass)}
+                  style={{ gridRow: "1 / -1" }}
+                >
+                  <LoadingSlot />
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
+        {hasDropSlot && (
+          <div className={cn("ml-3 grid min-w-0", fadeIn)}>
+            <DropSlot anchorRoleId={resolvedAnchorRoleId} />
+          </div>
+        )}
       </div>
     </div>
   );
@@ -259,7 +376,6 @@ function DropSlot({ anchorRoleId }: { anchorRoleId: string }) {
         isActive
           ? "border-cooper-blue-400 bg-[#d4e4f7]"
           : "border-[#DDDDDD] bg-[#ECEFF1]",
-        isDragging && "flex-1",
       )}
     >
       <div className="flex flex-col items-center gap-2 px-5 text-center">
@@ -286,7 +402,7 @@ function DropSlot({ anchorRoleId }: { anchorRoleId: string }) {
           />
         </svg>
         {isDragging && (
-          <p className="text-md font-extrabold text-[#686868]">
+          <p className="text-md font-extrabold text-[#686868] duration-500 motion-safe:animate-in motion-safe:fade-in">
             Drag in or select a card from the list
           </p>
         )}

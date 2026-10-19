@@ -23,7 +23,13 @@ import { calculateRatings } from "~/utils/reviewCountByStars";
 import DropdownFilter, {
   FilterPanelContent,
 } from "../../filters/dropdown-filter";
+import type { CompareSize } from "../../compare/compare-context";
+import {
+  CompareSection,
+  CompareSectionTitle,
+} from "../../compare/compare-section";
 import { jobTypeOptions } from "../../onboarding/constants";
+import { RatingSummary } from "../../shared/rating-summary";
 import StarGraph from "../../shared/star-graph";
 import ModalContainer from "../../reviews/modal";
 import { ReviewCard } from "../../reviews/review-card";
@@ -31,9 +37,14 @@ import { ReviewCard } from "../../reviews/review-card";
 interface ReviewModalProps {
   roleId: string;
   isComparing: boolean;
+  compareSize?: CompareSize;
 }
 
-export function ReviewModal({ roleId, isComparing }: ReviewModalProps) {
+export function ReviewModal({
+  roleId,
+  isComparing,
+  compareSize,
+}: ReviewModalProps) {
   const [ratingFilter, setRatingFilter] = useState<string[]>([]);
   const [locationFilter, setLocationFilter] = useState<string[]>([]);
   const [jobTypeFilter, setJobTypeFilter] = useState<string>("all");
@@ -190,6 +201,39 @@ export function ReviewModal({ roleId, isComparing }: ReviewModalProps) {
 
   const buttonStyle =
     "bg-white hover:bg-cooper-gray-200 border-white text-cooper-gray-400 p-2";
+
+  if (compareSize) {
+    // Single grid row; see COMPARE_ROWS.reviews
+    return (
+      <CompareSection
+        section="reviews"
+        className={cn(compareSize === "sm" && "px-5 py-4")}
+      >
+        <div>
+          <CompareSectionTitle>Reviews</CompareSectionTitle>
+          {reviews.isSuccess && reviews.data.length > 0 ? (
+            <RatingSummary
+              ratings={ratings}
+              averageRating={averages.data?.averageOverallRating ?? 0}
+              reviewCount={reviews.data.length}
+              caption={`${reviews.data.length} ${reviews.data.length === 1 ? "review" : "reviews"}`}
+              className={cn(
+                compareSize === "sm" && "flex-col gap-5",
+                compareSize === "md" && "justify-between gap-5",
+                compareSize === "lg" && "gap-10",
+              )}
+            />
+          ) : (
+            reviews.isSuccess && (
+              <p className="text-[14px] leading-normal text-cooper-gray-400">
+                No reviews yet
+              </p>
+            )
+          )}
+        </div>
+      </CompareSection>
+    );
+  }
 
   return (
     <ModalContainer title="Reviews">

@@ -2,8 +2,16 @@
 
 import { useState } from "react";
 
+import { cn } from "@cooper/ui";
+
 import { prettyIndustry } from "~/utils/stringHelpers";
+import type { CompareSize } from "../../compare/compare-context";
+import {
+  CompareSection,
+  CompareSectionTitle,
+} from "../../compare/compare-section";
 import ModalContainer from "../../reviews/modal";
+import { DotStatement, DotStatementCard } from "./shared/dot-statement";
 import { PipBar } from "./shared/pip-bar";
 import { PipCard } from "./shared/pip-card";
 import { TabToggle } from "./shared/tab-toggle";
@@ -63,6 +71,7 @@ interface PayModalProps {
   industryData: PayData | undefined;
   industryName: string | null;
   compact?: boolean;
+  compareSize?: CompareSize;
 }
 
 export function PayModal({
@@ -71,6 +80,7 @@ export function PayModal({
   industryData,
   industryName,
   compact = false,
+  compareSize,
 }: PayModalProps) {
   const [activeTab, setActiveTab] = useState<"total" | "industry">("total");
 
@@ -108,6 +118,44 @@ export function PayModal({
   const ptoCount = Math.round(averages.pto * totalReviews);
   const travelCount = Math.round(averages.travelBenefits * totalReviews);
   const foodCount = Math.round(averages.freeLunch * totalReviews);
+
+  if (compareSize) {
+    const isSmall = compareSize === "sm";
+    return (
+      // One child per grid row; see COMPARE_ROWS.pay
+      <CompareSection section="pay" className={cn(isSmall && "px-5 py-4")}>
+        <div>
+          <CompareSectionTitle>Pay</CompareSectionTitle>
+          <p
+            className={cn(
+              "text-[36px] leading-normal text-cooper-gray-900",
+              isSmall && "tracking-[-0.72px]",
+            )}
+          >
+            ${Math.round(avgPay)}/hr
+          </p>
+        </div>
+        <DotStatementCard size={compareSize} className="mt-6">
+          <DotStatement
+            label="PTO"
+            filledCount={ptoCount}
+            totalCount={totalReviews}
+            filledColor="#92c6cd"
+            caption={`${ptoCount}/${totalReviews} reported`}
+            size={compareSize}
+          />
+          <DotStatement
+            label="Relocation or transportation assistance"
+            filledCount={travelCount}
+            totalCount={totalReviews}
+            filledColor="#92c6cd"
+            caption={`${travelCount}/${totalReviews} reported`}
+            size={compareSize}
+          />
+        </DotStatementCard>
+      </CompareSection>
+    );
+  }
 
   if (compact) {
     return (

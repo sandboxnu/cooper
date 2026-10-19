@@ -3,7 +3,14 @@
 import React, { useState } from "react";
 import { ArrowUp } from "lucide-react";
 
+import { cn } from "@cooper/ui";
+
 import { prettyIndustry } from "~/utils/stringHelpers";
+import type { CompareSize } from "../../compare/compare-context";
+import {
+  CompareSection,
+  CompareSectionTitle,
+} from "../../compare/compare-section";
 import ModalContainer from "../../reviews/modal";
 import { PipBar } from "./shared/pip-bar";
 import { PipCard } from "./shared/pip-card";
@@ -52,6 +59,7 @@ interface InterviewModalProps {
   industryData: IndustryData | undefined;
   globalData: IndustryData | undefined;
   compact?: boolean;
+  compareSize?: CompareSize;
 }
 
 interface CompactTypeRowProps {
@@ -123,6 +131,7 @@ export function InterviewModal({
   industryData,
   globalData,
   compact = false,
+  compareSize,
 }: InterviewModalProps) {
   const [activeTab, setActiveTab] = useState<"total" | "industry">("total");
 
@@ -182,6 +191,50 @@ export function InterviewModal({
   // Bar label: show "X rounds" if bar is wide enough, else just "X"
   // Approximate: bar width ≈ (count / totalCount) * 324px; show label if ≥ 40px
   const totalBarCount = activeBarData.reduce((s, b) => s + b.count, 0);
+
+  if (compareSize) {
+    const isSmall = compareSize === "sm";
+    return (
+      // One child per grid row; see COMPARE_ROWS.interview
+      <CompareSection
+        section="interview"
+        className={cn(isSmall && "px-5 py-4")}
+      >
+        <div>
+          <CompareSectionTitle>Interview</CompareSectionTitle>
+          <div className="flex items-end gap-3">
+            <p
+              className={cn(
+                "text-[36px] leading-normal text-cooper-gray-900",
+                isSmall && "tracking-[-0.72px]",
+              )}
+            >
+              {roundsModeDisplay}
+            </p>
+            {/* pb sets the circle's bottom on the text baseline (36px, leading-normal) */}
+            <div className="flex items-center pb-[13px]">
+              <InfoIcon tooltip={roundsTooltipContent} />
+            </div>
+          </div>
+        </div>
+        <div className="mt-5 flex flex-col gap-[7px] border-t border-cooper-gray-125 pt-5">
+          <p className="text-[36px] leading-normal tracking-[-0.72px] text-cooper-gray-900">
+            {universalTypes}
+          </p>
+          <div className="flex items-center gap-2.5">
+            <div className="flex h-[25px] items-center justify-center rounded-lg bg-[#eee] px-[7px]">
+              <p className="text-[14px] leading-normal text-cooper-gray-400">
+                {roleData?.overallDominantDifficulty != null
+                  ? difficultyText(roleData.overallDominantDifficulty)
+                  : "No difficulty data"}
+              </p>
+            </div>
+            <InfoIcon tooltip={typesTooltip} />
+          </div>
+        </div>
+      </CompareSection>
+    );
+  }
 
   if (compact) {
     return (
