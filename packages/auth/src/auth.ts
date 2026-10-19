@@ -101,10 +101,11 @@ export const auth = betterAuth({
           redirectURI: `${baseURL}/api/auth/callback/google`,
           scopes: ["openid", "email", "profile"],
           pkce: true,
-          mapProfileToUser: (profile: Record<string, string>) => ({
+          mapProfileToUser: (profile) => ({
             email: profile.email,
             name: profile.name,
-            image: profile.picture,
+            image:
+              typeof profile.picture === "string" ? profile.picture : undefined,
             emailVerified: profile.email_verified === "true",
           }),
         },
@@ -118,10 +119,11 @@ export const auth = betterAuth({
           redirectURI: `${baseURL}/api/auth/callback/googleAdmin`,
           scopes: ["openid", "email", "profile"],
           pkce: true,
-          mapProfileToUser: (profile: Record<string, string>) => ({
+          mapProfileToUser: (profile) => ({
             email: profile.email,
             name: profile.name,
-            image: profile.picture,
+            image:
+              typeof profile.picture === "string" ? profile.picture : undefined,
             emailVerified: profile.email_verified === "true",
           }),
         },
