@@ -87,6 +87,8 @@ export default function ExistingCompanyContent({
     },
   );
 
+  const utils = api.useUtils();
+
   // Location fetching logic for new company
   useEffect(() => {
     if (!showNewCompany) {
@@ -148,14 +150,19 @@ export default function ExistingCompanyContent({
   });
 
   const newRoleMutation = api.role.create.useMutation({
-    onSuccess: (data) => {
+    onSuccess: async (data) => {
       toast.success("Role created successfully!");
       const createdRole = data[0];
       if (createdRole) {
+        // The roles list for this company was likely just fetched (e.g. when
+        // the company was selected) and is still within its staleTime, so a
+        // plain `.fetch()` would return the cached pre-creation data without
+        // hitting the network. Force a real refetch instead.
+        await utils.role.getByCompany.refetch({
+          companyId: createdRole.companyId,
+        });
         form.setValue("roleName", createdRole.id);
         setCreatingNewRole(false);
-        // Refresh roles list
-        void roles.refetch();
       }
     },
     onError: (error) => {
@@ -172,12 +179,12 @@ export default function ExistingCompanyContent({
       form.setValue("title", "");
       form.setValue("locationId", "");
       await companies.refetch();
+      await utils.role.getByCompany.fetch({ companyId });
       setSelectedCompanyId(companyId);
       form.setValue("companyName", companyId);
       form.setValue("roleName", roleId);
       setShowNewCompany(false);
       setCreatingNewRole(false);
-      void roles.refetch();
     },
     onError: (error) => {
       console.error("Mutation error:", error);
@@ -296,15 +303,31 @@ export default function ExistingCompanyContent({
                         label: company.name,
                         value: company.id,
                       })) ?? [];
-                    if (companySearchTerm) {
-                      const filtered = allCompanies.filter((c) =>
-                        c.label
-                          .toLowerCase()
-                          .includes(companySearchTerm.toLowerCase()),
-                      );
-                      return filtered.slice(0, 50);
+                    const base = companySearchTerm
+                      ? allCompanies.filter((c) =>
+                          c.label
+                            .toLowerCase()
+                            .includes(companySearchTerm.toLowerCase()),
+                        )
+                      : allCompanies;
+                    const sliced = base.slice(0, 50);
+                    // Keep the selected company resolvable even if it's
+                    // outside the top 50 (e.g. a newly created company
+                    // with no rating yet sorts to the bottom of the list).
+                    if (
+                      selectedCompany &&
+                      !sliced.some((c) => c.value === selectedCompany.id)
+                    ) {
+                      return [
+                        {
+                          id: selectedCompany.id,
+                          label: selectedCompany.name,
+                          value: selectedCompany.id,
+                        },
+                        ...sliced,
+                      ];
                     }
-                    return allCompanies.slice(0, 50);
+                    return sliced;
                   })()}
                   selectedOptions={
                     field.value &&
@@ -576,7 +599,12 @@ export default function ExistingCompanyContent({
 
           {/* "I don't see my role" checkbox */}
 
-          <div className="flex flex-1 items-center gap-2 pt-2">
+          <div
+            className="flex flex-1 items-center gap-2 pt-2"
+            onClick={() =>
+              selectedCompanyId && setCreatingNewRole(!creatingNewRole)
+            }
+          >
             <Checkbox
               disabled={!selectedCompanyId}
               checked={creatingNewRole}
