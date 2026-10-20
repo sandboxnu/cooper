@@ -198,7 +198,7 @@ export function ReviewModal({
         className={cn(compareSize === "sm" && "px-5 py-4")}
       >
         <div>
-          <CompareSectionTitle>Reviews</CompareSectionTitle>
+          <CompareSectionTitle>Overall rating</CompareSectionTitle>
           {reviews.isSuccess && reviews.data.length > 0 ? (
             <RatingSummary
               ratings={ratings}

@@ -263,7 +263,6 @@ export function ReviewViewEditModal({
     },
   });
 
-
   // Fill the form with the saved review whenever it opens or changes mode;
   // view mode shows the same filled-in form, just not editable
   useEffect(() => {
@@ -566,7 +565,7 @@ export function ReviewViewEditModal({
                         : "border-none bg-cooper-gray-550 text-white hover:bg-cooper-gray-600",
                     )}
                   >
-                    {updateMutation.isPending ? "Saving..." : "Save edits"}
+                    {updateMutation.isPending ? "Saving..." : "Save"}
                   </button>
                   {review?.status === "DRAFT" && (
                     <button
@@ -604,40 +603,40 @@ export function ReviewViewEditModal({
                 {/* Locked in view mode (inert + no pointer events) on an inner
                     div, so the outer one still scrolls */}
                 <ReadOnlyContext.Provider value={mode === "view"}>
-                <div
-                  ref={formFieldsRef}
-                  className={cn(
-                    "flex flex-col gap-8",
-                    // Gray field boxes, checkboxes and radios so it reads as
-                    // locked until Edit
-                    mode === "view" && [
-                      "pointer-events-none select-none",
-                      "[&_[role=combobox]]:!bg-cooper-gray-100 [&_input]:!bg-cooper-gray-100 [&_textarea]:!bg-cooper-gray-100",
-                      "[&_[role=checkbox]]:!border-cooper-gray-150 [&_[role=checkbox]]:!bg-cooper-gray-100",
-                      "[&_[role=checkbox][data-state=checked]]:!border-cooper-gray-600 [&_[role=checkbox][data-state=checked]]:!bg-cooper-gray-600",
-                      "[&_[role=radio][data-state=checked]]:!border-cooper-gray-350 [&_[role=radio][data-state=checked]]:!bg-cooper-gray-350",
-                    ],
-                  )}
-                >
-                  <FormSectionBlock title="Basic information" divider={false}>
-                    <BasicInfoSection
-                      key={discardKey}
-                      profileId={profile?.id}
-                    />
-                  </FormSectionBlock>
-                  <FormSectionBlock title="On the job">
-                    <CompanyDetailsSection />
-                  </FormSectionBlock>
-                  <FormSectionBlock title="Pay">
-                    <PaySection />
-                  </FormSectionBlock>
-                  <FormSectionBlock title="Interview">
-                    <InterviewSection />
-                  </FormSectionBlock>
-                  <FormSectionBlock title="Review and rate">
-                    <ReviewSection />
-                  </FormSectionBlock>
-                </div>
+                  <div
+                    ref={formFieldsRef}
+                    className={cn(
+                      "flex flex-col gap-8",
+                      // Gray field boxes, checkboxes and radios so it reads as
+                      // locked until Edit
+                      mode === "view" && [
+                        "pointer-events-none select-none",
+                        "[&_[role=combobox]]:!bg-cooper-gray-100 [&_input]:!bg-cooper-gray-100 [&_textarea]:!bg-cooper-gray-100",
+                        "[&_[role=checkbox]]:!border-cooper-gray-150 [&_[role=checkbox]]:!bg-cooper-gray-100",
+                        "[&_[role=checkbox][data-state=checked]]:!border-cooper-gray-600 [&_[role=checkbox][data-state=checked]]:!bg-cooper-gray-600",
+                        "[&_[role=radio][data-state=checked]]:!border-cooper-gray-350 [&_[role=radio][data-state=checked]]:!bg-cooper-gray-350",
+                      ],
+                    )}
+                  >
+                    <FormSectionBlock title="Basic information" divider={false}>
+                      <BasicInfoSection
+                        key={discardKey}
+                        profileId={profile?.id}
+                      />
+                    </FormSectionBlock>
+                    <FormSectionBlock title="On the job">
+                      <CompanyDetailsSection />
+                    </FormSectionBlock>
+                    <FormSectionBlock title="Pay">
+                      <PaySection />
+                    </FormSectionBlock>
+                    <FormSectionBlock title="Interview">
+                      <InterviewSection />
+                    </FormSectionBlock>
+                    <FormSectionBlock title="Review and rate">
+                      <ReviewSection />
+                    </FormSectionBlock>
+                  </div>
                 </ReadOnlyContext.Provider>
               </div>
             </Form>

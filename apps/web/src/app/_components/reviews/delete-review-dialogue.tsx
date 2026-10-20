@@ -67,9 +67,9 @@ export function DeleteReviewDialog({
           )}
         </DialogTrigger>
       )}
-      {/* Same layout as the report dialog */}
-      <DialogContent className="w-full max-w-md bg-white p-5">
-        <DialogHeader>
+      {/* Narrow and tall: text top-left, buttons pinned bottom-right */}
+      <DialogContent className="flex min-h-[200px] w-full max-w-[300px] flex-col sm:max-w-[300px] justify-between bg-white p-6">
+        <DialogHeader className="text-left">
           <DialogTitle>{`Delete ${isDraft ? "draft" : "review"}?`}</DialogTitle>
           <DialogDescription className="text-cooper-gray-400">
             This action cannot be undone.
@@ -77,7 +77,7 @@ export function DeleteReviewDialog({
         </DialogHeader>
 
         {/* gap-2 only: DialogFooter's own sm:space-x-2 would double it */}
-        <DialogFooter className="mt-2 gap-2 sm:justify-end sm:space-x-0">
+        <DialogFooter className="flex-row justify-end gap-2 sm:space-x-0">
           <DialogClose asChild>
             <Button
               type="button"
