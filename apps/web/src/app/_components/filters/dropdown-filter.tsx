@@ -50,6 +50,7 @@ const DropdownFilter = forwardRef<HTMLButtonElement, DropdownFilterProps>(
       maxValue,
       onRangeChange,
       onSearchChange,
+      isLoadingOptions,
       side = "bottom",
       open: controlledOpen,
       onOpenChange,
@@ -189,6 +190,7 @@ const DropdownFilter = forwardRef<HTMLButtonElement, DropdownFilterProps>(
             maxValue={maxValue}
             onRangeChange={onRangeChange}
             onSearchChange={onSearchChange}
+            isLoadingOptions={isLoadingOptions}
           />
         </DropdownMenuContent>
       </DropdownMenu>
@@ -209,6 +211,7 @@ export function FilterPanelContent(
     | "maxValue"
     | "onRangeChange"
     | "onSearchChange"
+    | "isLoadingOptions"
     | "placeholder"
   > & { onClose: () => void; isInMenuContent?: boolean },
 ) {
@@ -222,6 +225,7 @@ export function FilterPanelContent(
     maxValue,
     onRangeChange,
     onSearchChange,
+    isLoadingOptions,
     onClose,
     placeholder,
     isInMenuContent = true,
@@ -263,6 +267,7 @@ export function FilterPanelContent(
         maxValue={maxValue}
         onRangeChange={onRangeChange}
         onSearchChange={onSearchChange}
+        isLoadingOptions={isLoadingOptions}
         placeholder={placeholder}
         isInMenuContent={isInMenuContent}
       />

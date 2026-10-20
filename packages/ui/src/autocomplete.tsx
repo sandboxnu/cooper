@@ -21,6 +21,8 @@ interface AutocompleteProps {
   // whether the autocomplete is rendered within a menu content (for positioning)
   isInMenuContent?: boolean;
   portalZIndex?: number;
+  /** When true, suppresses the "No results found." message (e.g. while an async options query is still resolving). */
+  isLoadingOptions?: boolean;
 }
 
 export default function Autocomplete({
@@ -32,6 +34,7 @@ export default function Autocomplete({
   singleSelect = false,
   isInMenuContent = false,
   portalZIndex = 200,
+  isLoadingOptions = false,
 }: AutocompleteProps) {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
@@ -75,6 +78,11 @@ export default function Autocomplete({
       opt.label.toLowerCase().includes(search.toLowerCase()),
     );
   }, [search, options]);
+
+  const showEmptyState =
+    search.trim() !== "" && !isLoadingOptions && filtered.length === 0;
+
+  const showDropdown = filtered.length > 0 || showEmptyState;
 
   const selectedLabel =
     singleSelect && value.length === 1
@@ -194,10 +202,10 @@ export default function Autocomplete({
         )}
       </div>
 
-      {open && isInMenuContent && (
+      {open && isInMenuContent && showDropdown && (
         <div className="border-cooper-gray-150 absolute left-0 right-0 top-full z-[101] mt-1 rounded-md border bg-white shadow-lg">
           <div className="max-h-60 overflow-auto p-1">
-            {filtered.length === 0 ? (
+            {showEmptyState ? (
               <div className="py-6 text-center text-sm text-gray-500">
                 No results found.
               </div>
@@ -225,6 +233,7 @@ export default function Autocomplete({
       {open &&
         !isInMenuContent &&
         portalHost &&
+        showDropdown &&
         createPortal(
           <div
             ref={portalDropdownRef}
@@ -233,7 +242,7 @@ export default function Autocomplete({
             style={{ ...dropdownStyle, zIndex: portalZIndex }}
           >
             <div className="max-h-60 overflow-auto p-1">
-              {filtered.length === 0 ? (
+              {showEmptyState ? (
                 <div className="py-6 text-center text-sm text-gray-500">
                   No results found.
                 </div>
