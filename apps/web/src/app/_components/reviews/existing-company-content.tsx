@@ -299,15 +299,31 @@ export default function ExistingCompanyContent({
                         label: company.name,
                         value: company.id,
                       })) ?? [];
-                    if (companySearchTerm) {
-                      const filtered = allCompanies.filter((c) =>
-                        c.label
-                          .toLowerCase()
-                          .includes(companySearchTerm.toLowerCase()),
-                      );
-                      return filtered.slice(0, 50);
+                    const base = companySearchTerm
+                      ? allCompanies.filter((c) =>
+                          c.label
+                            .toLowerCase()
+                            .includes(companySearchTerm.toLowerCase()),
+                        )
+                      : allCompanies;
+                    const sliced = base.slice(0, 50);
+                    // Keep the selected company resolvable even if it's
+                    // outside the top 50 (e.g. a newly created company
+                    // with no rating yet sorts to the bottom of the list).
+                    if (
+                      selectedCompany &&
+                      !sliced.some((c) => c.value === selectedCompany.id)
+                    ) {
+                      return [
+                        {
+                          id: selectedCompany.id,
+                          label: selectedCompany.name,
+                          value: selectedCompany.id,
+                        },
+                        ...sliced,
+                      ];
                     }
-                    return allCompanies.slice(0, 50);
+                    return sliced;
                   })()}
                   selectedOptions={
                     field.value &&
