@@ -82,6 +82,8 @@ export default function Autocomplete({
   const showEmptyState =
     search.trim() !== "" && !isLoadingOptions && filtered.length === 0;
 
+  const showDropdown = filtered.length > 0 || showEmptyState;
+
   const selectedLabel =
     singleSelect && value.length === 1
       ? (options.find((o) => o.value === value[0])?.label ?? "")
@@ -200,7 +202,7 @@ export default function Autocomplete({
         )}
       </div>
 
-      {open && isInMenuContent && (
+      {open && isInMenuContent && showDropdown && (
         <div className="border-cooper-gray-150 absolute left-0 right-0 top-full z-[101] mt-1 rounded-md border bg-white shadow-lg">
           <div className="max-h-60 overflow-auto p-1">
             {showEmptyState ? (
@@ -231,6 +233,7 @@ export default function Autocomplete({
       {open &&
         !isInMenuContent &&
         portalHost &&
+        showDropdown &&
         createPortal(
           <div
             ref={portalDropdownRef}
