@@ -407,6 +407,7 @@ export default function ExistingCompanyContent({
                 className="border-cooper-gray-150 h-10 w-full border text-sm"
                 value={newCompanyName}
                 onChange={(e) => setNewCompanyName(e.target.value)}
+                maxLength={255}
               />
             </div>
 
