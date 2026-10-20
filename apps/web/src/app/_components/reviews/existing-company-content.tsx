@@ -154,7 +154,11 @@ export default function ExistingCompanyContent({
       toast.success("Role created successfully!");
       const createdRole = data[0];
       if (createdRole) {
-        await utils.role.getByCompany.fetch({
+        // The roles list for this company was likely just fetched (e.g. when
+        // the company was selected) and is still within its staleTime, so a
+        // plain `.fetch()` would return the cached pre-creation data without
+        // hitting the network. Force a real refetch instead.
+        await utils.role.getByCompany.refetch({
           companyId: createdRole.companyId,
         });
         form.setValue("roleName", createdRole.id);
