@@ -465,7 +465,7 @@ export function ReviewViewEditModal({
     };
   }
 
-  function onDiscardEdits() {
+  async function onDiscardEdits() {
     if (!review) return;
     const toBoolStr = (v: boolean | null | undefined) =>
       v === true ? "yes" : v === false ? "no" : undefined;
@@ -520,6 +520,14 @@ export function ReviewViewEditModal({
         )?.map((rt) => rt.tool.name) ?? [],
     });
     setDiscardKey((k) => k + 1);
+    const payload = buildPayload(form.getValues(), review.status as StatusType);
+    if (!payload) return;
+    try {
+      await updateMutation.mutateAsync(payload);
+      toast.success("Changes discarded.");
+    } catch (e) {
+      console.error("Discard changes failed:", e);
+    }
   }
 
   async function onSaveEdits() {
