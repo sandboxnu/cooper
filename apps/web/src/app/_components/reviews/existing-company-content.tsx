@@ -87,6 +87,8 @@ export default function ExistingCompanyContent({
     },
   );
 
+  const utils = api.useUtils();
+
   // Location fetching logic for new company
   useEffect(() => {
     if (!showNewCompany) {
@@ -148,14 +150,15 @@ export default function ExistingCompanyContent({
   });
 
   const newRoleMutation = api.role.create.useMutation({
-    onSuccess: (data) => {
+    onSuccess: async (data) => {
       toast.success("Role created successfully!");
       const createdRole = data[0];
       if (createdRole) {
+        await utils.role.getByCompany.fetch({
+          companyId: createdRole.companyId,
+        });
         form.setValue("roleName", createdRole.id);
         setCreatingNewRole(false);
-        // Refresh roles list
-        void roles.refetch();
       }
     },
     onError: (error) => {
@@ -172,12 +175,12 @@ export default function ExistingCompanyContent({
       form.setValue("title", "");
       form.setValue("locationId", "");
       await companies.refetch();
+      await utils.role.getByCompany.fetch({ companyId });
       setSelectedCompanyId(companyId);
       form.setValue("companyName", companyId);
       form.setValue("roleName", roleId);
       setShowNewCompany(false);
       setCreatingNewRole(false);
-      void roles.refetch();
     },
     onError: (error) => {
       console.error("Mutation error:", error);
