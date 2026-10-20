@@ -1,4 +1,4 @@
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { cn } from "@cooper/ui";
 
@@ -21,6 +21,7 @@ export default function RenderAllRoles({
     onlyWithReviews: true,
   });
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   return (
     <div className="flex h-full flex-col overflow-y-auto">
@@ -42,9 +43,12 @@ export default function RenderAllRoles({
                       e.preventDefault();
                       e.stopPropagation();
                       onClose?.();
-                      router.push(
-                        `/roles/?company=${company?.slug ?? ""}&type=roles&role=${role.slug}`,
+                      const params = new URLSearchParams(
+                        searchParams.toString(),
                       );
+                      params.set("company", company?.slug ?? "");
+                      params.set("role", role.slug);
+                      router.push(`/roles/?${params.toString()}`);
                     }}
                   >
                     <RoleCardPreview
