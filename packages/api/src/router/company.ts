@@ -191,7 +191,7 @@ export const companyRouter = {
         companyName: z
           .string({ required_error: "Company name is required" })
           .min(3)
-          .max(50),
+          .max(255),
         description: z
           .string({ required_error: "Description is required" })
           .min(10)
