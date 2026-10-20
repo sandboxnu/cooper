@@ -300,6 +300,7 @@ function FilterBodyLocation({
   selectedOptions,
   onSelectionChange,
   onSearchChange,
+  isLoadingOptions,
   isInMenuContent,
   portalZIndex,
 }: FilterBodyProps) {
@@ -315,6 +316,7 @@ function FilterBodyLocation({
         onChange={(selected) => onSelectionChange?.(selected)}
         placeholder="Search by city or state..."
         onSearchChange={onSearchChange}
+        isLoadingOptions={isLoadingOptions}
         isInMenuContent={isInMenuContent}
         portalZIndex={portalZIndex ?? contextZIndex}
       />
