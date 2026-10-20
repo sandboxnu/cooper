@@ -15,6 +15,7 @@ import {
   Role,
   Status,
 } from "@cooper/db/schema";
+import { findRestrictedRoleWord } from "@cooper/validators";
 
 import {
   protectedProcedure,
@@ -239,6 +240,14 @@ export const companyRouter = {
         throw new TRPCError({
           code: "PRECONDITION_FAILED",
           message: "Role description cannot contain profane words",
+        });
+      }
+
+      const restrictedWord = findRestrictedRoleWord(input.roleTitle);
+      if (restrictedWord) {
+        throw new TRPCError({
+          code: "PRECONDITION_FAILED",
+          message: `Role title cannot contain the word "${restrictedWord}"`,
         });
       }
 

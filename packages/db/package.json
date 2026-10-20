@@ -28,10 +28,12 @@
     "migrate": "pnpm with-env drizzle-kit migrate",
     "push": "pnpm with-env drizzle-kit push",
     "studio": "pnpm with-env drizzle-kit studio",
+    "strip-role-keywords": "pnpm with-env tsx src/scripts/strip-role-keywords.ts",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
+    "@cooper/validators": "workspace:*",
     "@neondatabase/serverless": "^1.1.0",
     "@t3-oss/env-core": "^0.10.1",
     "dayjs": "^1.11.20",
