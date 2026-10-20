@@ -595,7 +595,12 @@ export default function ExistingCompanyContent({
 
           {/* "I don't see my role" checkbox */}
 
-          <div className="flex flex-1 items-center gap-2 pt-2">
+          <div
+            className="flex flex-1 items-center gap-2 pt-2"
+            onClick={() =>
+              selectedCompanyId && setCreatingNewRole(!creatingNewRole)
+            }
+          >
             <Checkbox
               disabled={!selectedCompanyId}
               checked={creatingNewRole}
