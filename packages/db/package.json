@@ -33,6 +33,7 @@
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
+    "@cooper/validators": "workspace:*",
     "@neondatabase/serverless": "^1.1.0",
     "@t3-oss/env-core": "^0.10.1",
     "dayjs": "^1.11.20",

@@ -12,6 +12,7 @@ import { FormControl, FormField, FormItem, FormMessage } from "@cooper/ui/form";
 import { useCustomToast } from "@cooper/ui/hooks/use-custom-toast";
 import { Input } from "@cooper/ui/input";
 import { Label } from "@cooper/ui/label";
+import { findRestrictedRoleWord } from "@cooper/validators";
 
 import type { RoleRequestType } from "../roles/new-role-dialogue";
 import { api } from "~/trpc/react";
@@ -19,10 +20,8 @@ import { CompanyCardPreview } from "../companies/company-card-preview";
 import { FormSection } from "../form/form-section";
 import LocationBox from "../location";
 import { industryOptions } from "../onboarding/constants";
-
 import { FormLabel } from "../themed/onboarding/form";
 import FilterBody from "../filters/filter-body";
-import { findRestrictedRoleWord } from "~/utils/stringHelpers";
 
 const filter = new Filter();
 const roleSchema = z.object({
@@ -229,6 +228,13 @@ export default function ExistingCompanyContent({
     }
     if (!roleTitle || roleTitle.length < 3) {
       toast.error("Role title must be at least 3 characters.");
+      return;
+    }
+    const restrictedWord = findRestrictedRoleWord(roleTitle);
+    if (restrictedWord) {
+      toast.error(
+        `The role title cannot contain the word "${restrictedWord}".`,
+      );
       return;
     }
 

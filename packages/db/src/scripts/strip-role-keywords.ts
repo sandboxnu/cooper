@@ -1,7 +1,7 @@
 /**
  * Data migration: strip the keywords "coop", "co-op", "intern", and
- * "internship" (case-insensitive) out of every role title, then regenerate
- * the role's slug from the cleaned title.
+ * "internship" (and their plurals, case-insensitive) out of every role
+ * title, then regenerate the role's slug from the cleaned title.
  *
  * Usage (run from packages/db):
  *   pnpm strip-role-keywords            # dry run – prints what WOULD change
@@ -9,12 +9,14 @@
  */
 import { eq } from "drizzle-orm";
 
+import { RESTRICTED_ROLE_WORD_PATTERN } from "@cooper/validators";
+
 import { db } from "../client";
 import { Role } from "../schema";
 
 const APPLY = process.argv.includes("--apply");
 
-const KEYWORD_RE = /\b(?:internship|intern|co-?op)\b/gi;
+const KEYWORD_RE = new RegExp(RESTRICTED_ROLE_WORD_PATTERN, "gi");
 
 const EDGE_JUNK_RE = /^[\s\-/,&|·•:]+|[\s\-/,&|·•:]+$/g;
 
