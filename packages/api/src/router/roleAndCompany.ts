@@ -663,13 +663,17 @@ export const roleAndCompanyRouter = {
       }),
     )
     .query(async ({ ctx, input }) => {
-      const { postTypeItems, searchedBaseItems, totalRolesCount, totalCompanyCount } =
-        await getFilteredSearchedItems(ctx.db, {
-          sortBy: ctx.sortBy,
-          search: input.search,
-          type: input.type,
-          filters: input.filters,
-        });
+      const {
+        postTypeItems,
+        searchedBaseItems,
+        totalRolesCount,
+        totalCompanyCount,
+      } = await getFilteredSearchedItems(ctx.db, {
+        sortBy: ctx.sortBy,
+        search: input.search,
+        type: input.type,
+        filters: input.filters,
+      });
 
       const paginatedItems = postTypeItems.slice(
         input.offset,
