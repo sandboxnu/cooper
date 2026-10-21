@@ -29,6 +29,7 @@
     "push": "pnpm with-env drizzle-kit push",
     "studio": "pnpm with-env drizzle-kit studio",
     "strip-role-keywords": "pnpm with-env tsx src/scripts/strip-role-keywords.ts",
+    "fix-company-description-casing": "pnpm with-env tsx src/scripts/fix-company-description-casing.ts",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
     "with-env": "dotenv -e ../../.env --"
   },

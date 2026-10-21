@@ -247,7 +247,7 @@ export default function ExistingCompanyContent({
 
     await createCompanyWithRoleMutation.mutateAsync({
       companyName: companyName.trim(),
-      description: `Company in ${industry} industry`,
+      description: `Company in ${industry.toLowerCase()} industry`,
       industry,
       roleTitle: roleTitle.trim(),
       roleDescription: "Role description",
