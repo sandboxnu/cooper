@@ -14,14 +14,17 @@ const textOptions = [
 
 export default function Landing() {
   return (
-    <div className="flex w-full flex-col bg-cooper-cream-100 lg:flex-row overflow-auto lg:overflow-hidden h-full flex-1">
+    <div className="flex w-full flex-col bg-cooper-cream-100 lg:flex-row overflow-y-auto overflow-x-hidden h-full flex-1">
       <AdminAccessToast />
-      {/* left side */} {/* old classes: w-full lg:w-[40%] flex flex-col pl-20 lg:pl-16 pr-6 lg:pr-28 justify-center pt-8 md:pt-2 lg:pt-0 */}
-      <div className="w-full px-[2rem] pt-20 lg:w-[40%] flex flex-col lg:pl-16 lg:pr-28 justify-center md:pt-2 lg:pt-0">
+      {/* left side */}{" "}
+      {/* old classes: w-full lg:w-[40%] flex flex-col pl-20 lg:pl-16 pr-6 lg:pr-28 justify-center pt-8 md:pt-2 lg:pt-0 */}
+      {/* Text area stays at least 330px wide (plus side padding) from sm up */}
+      <div className="w-full shrink-0 px-[2rem] pt-36 pb-10 sm:pl-16 sm:min-w-[calc(330px+6rem)] lg:w-[40%] lg:min-w-[calc(330px+11rem)] flex flex-col lg:pl-16 lg:pr-28">
         {/* main text */}
         <div className="flex w-fit flex-row items-center gap-2">
           <div className="text-cooper-blue-800 text-[40px] leading-[48px] font-semibold">
-             Real reviews of <br /><span className="font-black">real co-op experiences</span>
+            Real reviews of <br />
+            <span className="font-black">real co-op experiences</span>
           </div>
         </div>
         {/* after title, before line */}
@@ -53,15 +56,14 @@ export default function Landing() {
           })}
         </div>
       </div>
-
-      {/* image */}
-      <div className="justify-end pt-20 pr-10 hidden md:block">
+      {/* image: taller than its box so it runs off the right and bottom edges */}
+      <div className="relative hidden flex-1 overflow-hidden lg:block">
         <Image
-          src="/landing-page-image-new.png"
-          width={880}
-          height={784}
+          src="/landing-page-image-job.png"
+          width={3014}
+          height={1486}
           alt="Landing picture"
-          className="cooper-gray-400 shadow-[0_0_24px_rgba(0,0,0,0.08)] rounded-lg"
+          className="absolute left-6 top-20 h-[100%] w-auto max-w-none rounded-tl-lg shadow-[0_0_24px_rgba(0,0,0,0.08)]"
         />
       </div>
     </div>

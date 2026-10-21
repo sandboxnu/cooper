@@ -60,7 +60,6 @@ function CompactBenefitRow({
           count={count}
           total={totalCount}
           label="reported"
-          color="#92c6cd"
         />
       </div>
     </div>
@@ -148,6 +147,7 @@ export function PayModal({
             totalCount={totalReviews}
             filledColor="#92c6cd"
             countLabel="reported"
+            grayCount
             size={compareSize}
           />
           <DotStatement
@@ -156,6 +156,7 @@ export function PayModal({
             totalCount={totalReviews}
             filledColor="#92c6cd"
             countLabel="reported"
+            grayCount
             size={compareSize}
           />
         </DotStatementCard>
@@ -299,6 +300,7 @@ export function PayModal({
                 filledCount={ptoCount}
                 totalCount={totalReviews}
                 filledColor="#92c6cd"
+                grayCount
               />
               <PipCard
                 name="Travel stipend"
@@ -306,6 +308,7 @@ export function PayModal({
                 filledCount={travelCount}
                 totalCount={totalReviews}
                 filledColor="#92c6cd"
+                grayCount
               />
             </div>
           </div>

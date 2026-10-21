@@ -14,7 +14,6 @@ import { OnTheJobModal } from "./modals/on-the-job-modal";
 import { PayModal } from "./modals/pay-modal";
 import { ReviewModal } from "./modals/review-modal";
 import type { RoleType } from "@cooper/db/schema";
-import { ReportButton } from "../shared/report-button";
 import { CompanyCardPreview } from "../companies/company-card-preview";
 import { FavoriteButton } from "../shared/favorite-button";
 import { useCompare } from "../compare/compare-context";
@@ -25,6 +24,7 @@ import type {
 import { compareRowStyle } from "../compare/compare-section";
 import { useStickyHeader } from "../shared/use-sticky-header";
 import { logoBoxClass, RoleHeader } from "./role-header";
+import { RoleOptionsMenu } from "./role-options-menu";
 
 interface RoleCardProps {
   className?: string;
@@ -45,6 +45,10 @@ export function RoleInfo({
 }: RoleCardProps) {
   const reviews = api.review.getByRole.useQuery({ id: roleObj.id });
   const compare = useCompare();
+  const { data: profile } = api.profile.getCurrentUser.useQuery();
+  const ownReviewId = profile
+    ? reviews.data?.find((review) => review.profileId === profile.id)?.id
+    : undefined;
 
   const firstLocationId = reviews.data?.[0]?.locationId;
 
@@ -156,10 +160,14 @@ export function RoleInfo({
   const inFlowHeaderRef = useRef<HTMLDivElement>(null);
   const regularStickyHeader = useStickyHeader(rootRef, inFlowHeaderRef);
 
-  // Save (+ remove, in compare) buttons, shared by the full and compact headers
+  // Save + options (or remove, in compare) buttons, shared by the full and
+  // compact headers
   const headerActions = (
     <div className="flex shrink-0 items-center gap-4 pt-1">
       <FavoriteButton objId={roleObj.id} objType="role" />
+      {!inCompareColumn && (
+        <RoleOptionsMenu roleId={roleObj.id} ownReviewId={ownReviewId} />
+      )}
       {inCompareColumn && (
         <button
           type="button"
@@ -411,22 +419,20 @@ export function RoleInfo({
                       <div>{roleObj.title}</div>
                     </div>
                   </CardTitle>
-                  {!compare.isCompareMode && (
-                    <ReportButton
-                      entityId={roleObj.id}
-                      entityType="company"
-                      iconOnly={true}
-                      className="pt-2"
-                    />
-                  )}
                 </div>
                 <div
                   className={cn(
-                    "flex ml-5",
-                    compare.isCompareMode && "flex-row gap-3 items-center",
+                    "flex ml-5 flex-row items-center",
+                    compare.isCompareMode ? "gap-3" : "gap-4",
                   )}
                 >
                   <FavoriteButton objId={roleObj.id} objType="role" />
+                  {!compare.isCompareMode && (
+                    <RoleOptionsMenu
+                      roleId={roleObj.id}
+                      ownReviewId={ownReviewId}
+                    />
+                  )}
                   {compare.isCompareMode && (
                     <button
                       type="button"

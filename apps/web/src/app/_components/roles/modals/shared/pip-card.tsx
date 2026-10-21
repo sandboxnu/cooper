@@ -6,6 +6,7 @@ interface PipCardProps {
   filledCount: number;
   totalCount: number;
   filledColor: string;
+  grayCount?: boolean;
   footer?: React.ReactNode;
 }
 
@@ -15,6 +16,7 @@ export function PipCard({
   filledCount,
   totalCount,
   filledColor,
+  grayCount = false,
   footer,
 }: PipCardProps) {
   return (
@@ -28,7 +30,7 @@ export function PipCard({
             count={filledCount}
             total={totalCount}
             label={countLabel}
-            color={filledColor}
+            color={grayCount ? undefined : filledColor}
           />
         </div>
         <DotBar
