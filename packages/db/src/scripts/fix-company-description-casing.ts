@@ -1,10 +1,14 @@
 /**
- * Data migration: lowercase the industry word inside auto-generated company
- * descriptions of the form "Company in {INDUSTRY} industry" (e.g. "Company in
- * HEALTHCARE industry" -> "Company in healthcare industry"). These were
- * created before the description generator started lowercasing the industry.
- * Only touches descriptions matching this exact placeholder pattern — hand
- * -written descriptions are left untouched.
+ * Data migration: fix auto-generated company descriptions of the form
+ * "Company in {INDUSTRY} industry" (e.g. "Company in HEALTHCARE industry" ->
+ * "Company in healthcare industry", "Company in FOODANDBEVERAGE industry" ->
+ * "Company in food and beverage industry"). These were created before the
+ * description generator started lowercasing the industry and spacing out
+ * multi-word industry enum values. Only touches descriptions matching this
+ * exact placeholder pattern — hand-written descriptions are left untouched.
+ * The target industry word is derived from the company's `industry` column
+ * (not parsed from the old description text), since that's the source of
+ * truth.
  *
  * Usage (run from packages/db):
  *   pnpm fix-company-description-casing            # dry run – prints what WOULD change
@@ -17,7 +21,22 @@ import { Company } from "../schema";
 
 const APPLY = process.argv.includes("--apply");
 
-const PLACEHOLDER_RE = /^Company in (.+) industry$/;
+const PLACEHOLDER_RE = /^Company in .+ industry$/i;
+
+// Mirrors the handful of multi-word Industry enum values (apps/web's
+// `industryOptions`) whose raw value is concatenated and needs spacing out.
+// Every other Industry value is already a single word, so `.toLowerCase()`
+// on the raw value is sufficient.
+const INDUSTRY_LABEL_OVERRIDES: Record<string, string> = {
+  REALESTATE: "Real Estate",
+  FASHIONANDBEAUTY: "Fashion and Beauty",
+  FOODANDBEVERAGE: "Food and Beverage",
+};
+
+function describeIndustry(industry: string): string {
+  const label = INDUSTRY_LABEL_OVERRIDES[industry] ?? industry;
+  return `Company in ${label.toLowerCase()} industry`;
+}
 
 async function main() {
   console.log(
@@ -25,21 +44,17 @@ async function main() {
   );
 
   const companies = await db.query.Company.findMany({
-    columns: { id: true, name: true, description: true },
+    columns: { id: true, name: true, description: true, industry: true },
   });
 
   let changed = 0;
 
   for (const company of companies) {
     if (!company.description) continue;
+    if (!PLACEHOLDER_RE.test(company.description)) continue;
 
-    const match = PLACEHOLDER_RE.exec(company.description);
-    if (!match) continue;
-
-    const industry = match[1];
-    if (!industry || industry === industry.toLowerCase()) continue;
-
-    const newDescription = `Company in ${industry.toLowerCase()} industry`;
+    const newDescription = describeIndustry(company.industry);
+    if (newDescription === company.description) continue;
 
     changed++;
     console.log(

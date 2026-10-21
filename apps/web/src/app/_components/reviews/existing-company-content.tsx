@@ -215,6 +215,9 @@ export default function ExistingCompanyContent({
   const handleCreateCompanyWithRole = async () => {
     const companyName = newCompanyName;
     const industry = form.getValues("industry") as string;
+    const industryLabel =
+      industryOptions.find((option) => option.value === industry)?.label ??
+      industry;
     const locationId = form.getValues("locationId") as string;
     const roleTitle =
       (form.getValues("title") as string) ||
@@ -247,7 +250,7 @@ export default function ExistingCompanyContent({
 
     await createCompanyWithRoleMutation.mutateAsync({
       companyName: companyName.trim(),
-      description: `Company in ${industry.toLowerCase()} industry`,
+      description: `Company in ${industryLabel.toLowerCase()} industry`,
       industry,
       roleTitle: roleTitle.trim(),
       roleDescription: "Role description",
