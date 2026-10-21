@@ -147,36 +147,6 @@ export default function Roles() {
     },
   );
 
-  // Query to get the page number for the selected item from URL
-  const pageNumberQuery = api.roleAndCompany.getPageNumber.useQuery(
-    {
-      itemId: roleBySlug.data?.id ?? companyBySlug.data?.id ?? "",
-      itemType: roleParam ? "role" : "company",
-      sortBy: selectedFilter ?? "default",
-      search: searchValue,
-      type: selectedType,
-      limit: rolesAndCompaniesPerPage,
-    },
-    {
-      enabled: (!!roleBySlug.data || !!companyBySlug.data) && !!companyParam,
-      retry: false,
-      refetchOnWindowFocus: false,
-    },
-  );
-
-  // Set the page when we get the page number from URL params
-  useEffect(() => {
-    if (pageNumberQuery.isSuccess && pageNumberQuery.data.found) {
-      setCurrentPage(pageNumberQuery.data.page);
-    }
-  }, [pageNumberQuery.isSuccess, pageNumberQuery.data]);
-
-  // Only fetch the main list after we have the correct page number (if coming from URL)
-  const shouldFetchList =
-    !companyParam || // No URL params, fetch normally
-    pageNumberQuery.isSuccess || // Have page number from URL
-    pageNumberQuery.isError; // Query failed, fall back to page 1
-
   // Convert filter state to backend format
   const backendFilters = useMemo(() => {
     return {
@@ -213,6 +183,37 @@ export default function Roles() {
           : undefined,
     };
   }, [appliedFilters]);
+
+  // Query to get the page number for the selected item from URL
+  const pageNumberQuery = api.roleAndCompany.getPageNumber.useQuery(
+    {
+      itemId: roleBySlug.data?.id ?? companyBySlug.data?.id ?? "",
+      itemType: roleParam ? "role" : "company",
+      sortBy: selectedFilter ?? "default",
+      search: searchValue,
+      type: selectedType,
+      limit: rolesAndCompaniesPerPage,
+      filters: backendFilters,
+    },
+    {
+      enabled: (!!roleBySlug.data || !!companyBySlug.data) && !!companyParam,
+      retry: false,
+      refetchOnWindowFocus: false,
+    },
+  );
+
+  // Set the page when we get the page number from URL params
+  useEffect(() => {
+    if (pageNumberQuery.isSuccess && pageNumberQuery.data.found) {
+      setCurrentPage(pageNumberQuery.data.page);
+    }
+  }, [pageNumberQuery.isSuccess, pageNumberQuery.data]);
+
+  // Only fetch the main list after we have the correct page number (if coming from URL)
+  const shouldFetchList =
+    !companyParam || // No URL params, fetch normally
+    pageNumberQuery.isSuccess || // Have page number from URL
+    pageNumberQuery.isError; // Query failed, fall back to page 1
 
   const rolesAndCompanies = api.roleAndCompany.list.useQuery(
     {
@@ -330,6 +331,7 @@ export default function Roles() {
       search: searchValue,
       type: selectedType,
       limit: rolesAndCompaniesPerPage,
+      filters: backendFilters,
     },
     {
       enabled: !!currentAnchorRoleId,
@@ -689,6 +691,22 @@ export default function Roles() {
     setCurrentPage(1); // Reset to first page when filters change
   };
 
+  const handleClearAllFilters = () => {
+    setAppliedFilters({
+      industries: [],
+      locations: [],
+      jobTypes: [],
+      hourlyPay: { min: 0, max: 0 },
+      ratings: [],
+      workModels: [],
+      overtimeWork: [],
+      companyCulture: [],
+    });
+    setSelectedFilter("default");
+    setCurrentPage(1);
+    router.push("/roles");
+  };
+
   const isFiltering = useMemo(() => {
     return (
       appliedFilters.industries.length > 0 ||
@@ -1013,7 +1031,11 @@ export default function Roles() {
         )}
       {rolesAndCompanies.isSuccess &&
         rolesAndCompanies.data.items.length === 0 && (
-          <NoResults className="h-[84dvh]" />
+          <NoResults
+            className="h-[84dvh]"
+            clearFunction
+            onClear={handleClearAllFilters}
+          />
         )}
       {rolesAndCompanies.isPending && <LoadingResults className="h-[84dvh]" />}
 
