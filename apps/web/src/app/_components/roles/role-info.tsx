@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import Image from "next/image";
-import { ChevronLeft } from "lucide-react";
 
 import { cn } from "@cooper/ui";
 import { CardContent, CardHeader, CardTitle } from "@cooper/ui/card";
@@ -15,7 +14,10 @@ import { PayModal } from "./modals/pay-modal";
 import { ReviewModal } from "./modals/review-modal";
 import type { RoleType } from "@cooper/db/schema";
 import { CompanyCardPreview } from "../companies/company-card-preview";
+import { BackButton } from "../shared/back-button";
+import { CircleButton } from "../shared/circle-button";
 import { FavoriteButton } from "../shared/favorite-button";
+import { OptionsMenu } from "../shared/options-menu";
 import { useCompare } from "../compare/compare-context";
 import type {
   CompareSize,
@@ -24,7 +26,6 @@ import type {
 import { compareRowStyle } from "../compare/compare-section";
 import { useStickyHeader } from "../shared/use-sticky-header";
 import { logoBoxClass, RoleHeader } from "./role-header";
-import { RoleOptionsMenu } from "./role-options-menu";
 
 interface RoleCardProps {
   className?: string;
@@ -132,7 +133,8 @@ export function RoleInfo({
         reviews.data.length > 0 &&
         (() => {
           return (
-            <div className="align-center flex gap-2 text-cooper-gray-400">
+            // Kept on one line; it wraps as a whole under the location instead
+            <div className="flex items-center gap-2 whitespace-nowrap text-cooper-gray-400">
               <Image
                 src="/svg/star.svg"
                 alt="Star icon"
@@ -166,14 +168,17 @@ export function RoleInfo({
     <div className="flex shrink-0 items-center gap-4 pt-1">
       <FavoriteButton objId={roleObj.id} objType="role" />
       {!inCompareColumn && (
-        <RoleOptionsMenu roleId={roleObj.id} ownReviewId={ownReviewId} />
+        <OptionsMenu
+          entityType="role"
+          entityId={roleObj.id}
+          entityName={roleObj.title}
+          ownReviewId={ownReviewId}
+        />
       )}
       {inCompareColumn && (
-        <button
-          type="button"
+        <CircleButton
           aria-label="Remove from comparison"
           onClick={() => compare.removeRoleId(roleObj.id)}
-          className="rounded-full transition hover:bg-cooper-gray-150 hover:shadow-[0px_0px_0px_12px_rgb(231,231,231)]"
         >
           <Image
             src="/svg/exitComparisonButton.svg"
@@ -182,7 +187,7 @@ export function RoleInfo({
             alt="Remove from comparison"
             style={{ minHeight: "14px", minWidth: "14px" }}
           />
-        </button>
+        </CircleButton>
       )}
     </div>
   );
@@ -353,35 +358,24 @@ export function RoleInfo({
       {regularStickyHeader && (
         // -top-1 offsets the scroll container's p-1 so nothing shows above it
         <div className="sticky -top-1 z-20 h-0">
-          <div
-            key={regularStickyHeader}
-            className="border-b border-cooper-gray-150 bg-cooper-cream-100 px-3 duration-300 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-top-1 lg:px-6"
-          >
-            {regularStickyHeader === "full" ? (
-              <div className="pb-4 pt-4">{fullHeader}</div>
-            ) : (
-              compactHeader
-            )}
+          {/* No key: it only animates in when it first appears, not when the
+              scroll direction changes */}
+          <div className="border-b border-cooper-gray-150 bg-cooper-cream-100 px-4 duration-300 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-top-1 md:px-6">
+            {/* Same compact header whether scrolling up or down */}
+            {compactHeader}
           </div>
         </div>
       )}
       {onBack && (
-        <button
-          type="button"
-          aria-label="Back"
-          onClick={onBack}
-          className="mx-4 mt-4 block w-fit text-cooper-gray-400 md:hidden"
-        >
-          <ChevronLeft size={20} strokeWidth={2.5} />
-        </button>
+        <BackButton onClick={onBack} className="mx-4 mt-4" />
       )}
       <div
         ref={inFlowHeaderRef}
         className={cn(
-          "flex w-full items-start py-5 lg:pl-6 lg:pr-6",
+          "flex w-full items-start px-4 py-5 md:px-6",
           // Sit close under the mobile back chevron
           onBack && "max-md:pt-2",
-          compare.isCompareMode && "lg:pl-4 lg:pr-4",
+          compare.isCompareMode && "px-4 md:px-4",
         )}
       >
         <CardHeader className="mx-0 w-full">
@@ -410,7 +404,7 @@ export function RoleInfo({
                   <CardTitle>
                     <div
                       className={cn(
-                        "flex items-center gap-3 text-lg md:text-2xl",
+                        "flex items-center gap-3 text-2xl",
                         compare.isCompareMode &&
                           compare.comparedRoleIds.length === 2 &&
                           "md:text-xl",
@@ -428,17 +422,17 @@ export function RoleInfo({
                 >
                   <FavoriteButton objId={roleObj.id} objType="role" />
                   {!compare.isCompareMode && (
-                    <RoleOptionsMenu
-                      roleId={roleObj.id}
+                    <OptionsMenu
+                      entityType="role"
+                      entityId={roleObj.id}
+                      entityName={roleObj.title}
                       ownReviewId={ownReviewId}
                     />
                   )}
                   {compare.isCompareMode && (
-                    <button
-                      type="button"
+                    <CircleButton
                       aria-label="Remove from comparison"
                       onClick={() => compare.removeRoleId(roleObj.id)}
-                      className="hover:shadow-[0px_0px_0px_12px_rgb(231,231,231)] hover:bg-cooper-gray-150 rounded-full transition"
                     >
                       <Image
                         src="/svg/exitComparisonButton.svg"
@@ -447,12 +441,14 @@ export function RoleInfo({
                         alt="Remove from comparison"
                         style={{ minHeight: "14px", minWidth: "14px" }}
                       />
-                    </button>
+                    </CircleButton>
                   )}
                 </div>
               </div>
 
-              <div className="flex justify-between text-cooper-gray-400">
+              {/* Location and rating wrap onto separate lines rather than
+                  squeezing each other; a lone wrapped rating sits at the left */}
+              <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-cooper-gray-400">
                 {location.isSuccess && location.data && (
                   <div>
                     {jobTypeLabel} • {prettyLocationName(location.data)}
@@ -472,8 +468,8 @@ export function RoleInfo({
       <div className="flex w-[100%] justify-between">
         <div
           className={cn(
-            "grid w-full grid-cols-2 gap-2 px-3 lg:pl-6 lg:pr-6",
-            compare.isCompareMode && "lg:pl-4 lg:pr-4",
+            "grid w-full grid-cols-2 gap-2 px-4 md:px-6",
+            compare.isCompareMode && "px-4 md:px-4",
           )}
         >
           {companyData && !compare.isCompareMode && (
@@ -503,45 +499,25 @@ export function RoleInfo({
             )}
           </div>
 
+          {/* Interview and pay wrap on their own below xl */}
           <div className="col-span-2" id="interview">
-            <div className="xl:hidden">
-              <InterviewModal
-                roleData={interviewData.data}
-                industryData={industryInterviewData.data}
-                globalData={globalInterviewData.data}
-                compact
-              />
-            </div>
-            <div className="hidden xl:block">
-              <InterviewModal
-                roleData={interviewData.data}
-                industryData={industryInterviewData.data}
-                globalData={globalInterviewData.data}
-                compact={compare.isCompareMode}
-              />
-            </div>
+            <InterviewModal
+              roleData={interviewData.data}
+              industryData={industryInterviewData.data}
+              globalData={globalInterviewData.data}
+              compact={compare.isCompareMode}
+            />
           </div>
 
           {averages.data && (
             <div className="col-span-2" id="pay">
-              <div className="xl:hidden">
-                <PayModal
-                  averages={averages.data}
-                  globalData={globalPayData.data}
-                  industryData={industryPayData.data}
-                  industryName={companyData?.industry ?? null}
-                  compact
-                />
-              </div>
-              <div className="hidden xl:block">
-                <PayModal
-                  averages={averages.data}
-                  globalData={globalPayData.data}
-                  industryData={industryPayData.data}
-                  industryName={companyData?.industry ?? null}
-                  compact={compare.isCompareMode}
-                />
-              </div>
+              <PayModal
+                averages={averages.data}
+                globalData={globalPayData.data}
+                industryData={industryPayData.data}
+                industryName={companyData?.industry ?? null}
+                compact={compare.isCompareMode}
+              />
             </div>
           )}
           <div className="col-span-2" id="reviews">

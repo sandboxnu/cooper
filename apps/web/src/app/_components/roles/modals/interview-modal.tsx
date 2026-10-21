@@ -95,7 +95,6 @@ function CompactTypeRow({
           count={reviewCount}
           total={totalReviewsWithRounds}
           label="reported"
-          color="#9d9c56"
         />
       </div>
     </div>
@@ -269,12 +268,15 @@ export function InterviewModal({
   return (
     <ModalContainer title="Interview">
       <div className="flex flex-col gap-3">
-        <div className="flex items-start gap-8">
+        {/* Stacks below xl, side by side from xl up */}
+        <div className="flex flex-col gap-8 xl:flex-row xl:items-start">
           {/* Left — Rounds panel */}
           <div className="flex shrink-0 flex-col gap-2 overflow-clip">
-            <div className="flex flex-col gap-5">
+            {/* Below xl (full width) the number and chart share a row and wrap;
+                from xl up the panel is narrow beside the types, so they stack */}
+            <div className="flex flex-col gap-5 max-xl:w-full max-xl:flex-row max-xl:flex-wrap max-xl:items-start max-xl:justify-between max-xl:gap-x-12">
               {/* Big number + label */}
-              <div className="flex w-full flex-col">
+              <div className="flex w-full flex-col max-xl:w-auto">
                 <p className="text-4xl font-normal leading-[normal] text-cooper-gray-900">
                   {roundsModeDisplay}
                 </p>
@@ -287,14 +289,14 @@ export function InterviewModal({
               </div>
 
               {/* Bar chart section */}
-              <div className="flex w-80 flex-col gap-4">
+              <div className="flex w-80 max-w-full flex-col gap-4">
                 <TabToggle activeTab={activeTab} onChange={setActiveTab} />
 
                 <div className="flex flex-col gap-2">
                   {/* Cooper average dot + label */}
                   <div className="flex items-center gap-2">
                     <span className="h-4 w-4 shrink-0 rounded-full bg-[#d37bae]" />
-                    <span className="whitespace-nowrap text-sm text-cooper-gray-400">
+                    <span className="text-sm text-cooper-gray-400 xl:whitespace-nowrap">
                       Cooper average
                       {activeTab === "industry" && prettyIndustryName
                         ? ` for ${prettyIndustryName} jobs`
@@ -350,33 +352,29 @@ export function InterviewModal({
             </div>
           </div>
 
-          {/* Vertical divider */}
-          <div className="w-px self-stretch border-l border-cooper-gray-125" />
+          {/* Divider: horizontal while stacked, vertical side by side */}
+          <div className="h-px w-full border-t border-cooper-gray-125 xl:h-auto xl:w-px xl:self-stretch xl:border-l xl:border-t-0" />
 
           {/* Right — Types panel */}
           <div className="flex min-w-0 flex-1 flex-col gap-5">
-            {/* Header: headline + info + difficulty chip */}
-            <div className="flex flex-col">
-              <div className="flex w-full items-start justify-between">
-                <p className="text-4xl font-normal leading-[normal] text-cooper-gray-900">
-                  {universalTypes}
-                </p>
-                <div className="flex shrink-0 items-center gap-2.5">
-                  <InfoIcon tooltip={typesTooltip} />
-                  <DifficultyChip
-                    difficulty={roleData?.overallDominantDifficulty ?? null}
-                  />
-                </div>
-              </div>
-              <p className="text-base leading-6 text-cooper-gray-900">
-                Most common interview{" "}
-                {universalTypes.split(", ").length === 1 ? "type" : "types"}
+            {/* Header: headline with info + difficulty chip at the far right,
+                wrapping under when there isn't room. justify-between leaves a
+                lone wrapped item at the start, so the chip moves to the left */}
+            <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+              <p className="text-4xl font-normal leading-[normal] text-cooper-gray-900">
+                {universalTypes}
               </p>
+              <div className="flex shrink-0 items-center gap-2.5">
+                <InfoIcon tooltip={typesTooltip} />
+                <DifficultyChip
+                  difficulty={roleData?.overallDominantDifficulty ?? null}
+                />
+              </div>
             </div>
 
             {/* Types grid */}
             {totalReviewsWithRounds > 0 ? (
-              <div className="flex flex-wrap content-start gap-x-9 gap-y-5">
+              <div className="flex flex-wrap content-start gap-x-9 gap-y-5 max-sm:gap-y-[14px]">
                 {roleData?.types.map((t) => (
                   <PipCard
                     key={t.type}
@@ -385,6 +383,7 @@ export function InterviewModal({
                     filledCount={t.reviewCount}
                     totalCount={totalReviewsWithRounds}
                     filledColor="#9d9c56"
+                    grayCount
                     footer={
                       t.dominantDifficulty && (
                         <DifficultyChip difficulty={t.dominantDifficulty} />

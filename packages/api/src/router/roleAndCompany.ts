@@ -148,6 +148,9 @@ export const roleAndCompanyRouter = {
         return {
           ...role,
           companyName: company?.name ?? "",
+          // Real slug for URLs; names aren't unique (e.g. "google" and
+          // "Google" are different companies, slugged google and google-2)
+          companySlug: company?.slug,
           companyIndustry: company?.industry ?? "",
           type: "role" as const,
         };
@@ -751,6 +754,9 @@ export const roleAndCompanyRouter = {
         return {
           ...role,
           companyName: company?.name ?? "",
+          // Real slug for URLs; names aren't unique (e.g. "google" and
+          // "Google" are different companies, slugged google and google-2)
+          companySlug: company?.slug,
           type: "role" as const,
         };
       });

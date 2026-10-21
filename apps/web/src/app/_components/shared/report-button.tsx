@@ -3,6 +3,7 @@
 import type { FormEvent, ReactNode } from "react";
 import { useState } from "react";
 import Image from "next/image";
+import { X } from "lucide-react";
 
 import type { ReportReasonType } from "@cooper/db/schema";
 import { ReportReason } from "@cooper/db/schema";
@@ -76,6 +77,8 @@ export function ReportButton({
 interface ReportDialogProps {
   entityType: "role" | "company" | "review";
   entityId: string;
+  // Shown in the title as "Report content on [name]"
+  entityName?: string;
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
@@ -84,6 +87,7 @@ interface ReportDialogProps {
 export function ReportDialog({
   entityType,
   entityId,
+  entityName,
   open: isOpen,
   onOpenChange: setIsOpen,
 }: ReportDialogProps) {
@@ -133,8 +137,27 @@ export function ReportDialog({
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="w-full max-w-md bg-white p-5">
-        <DialogHeader>
-          <DialogTitle>Report content</DialogTitle>
+        <DialogHeader className="flex-row items-center justify-between space-y-0">
+          <DialogTitle>
+            {entityName ? (
+              <>
+                {/* Title is semibold by default; keep only the name bold */}
+                <span className="font-normal">Report content on </span>
+                <span className="font-bold">{entityName}</span>
+              </>
+            ) : (
+              "Report content"
+            )}
+          </DialogTitle>
+          {/* Goes through closeReportModal so it can't close mid-submit */}
+          <button
+            type="button"
+            aria-label="Close"
+            onClick={closeReportModal}
+            className="flex h-4 w-4 shrink-0 items-center justify-center"
+          >
+            <X className="h-4 w-4 text-cooper-gray-900" />
+          </button>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4 mt-[0.5rem]">
           <div className="space-y-2">
@@ -148,7 +171,11 @@ export function ReportDialog({
               </SelectTrigger>
               <SelectContent>
                 {Object.values(ReportReason).map((reasonOption) => (
-                  <SelectItem key={reasonOption} value={reasonOption}>
+                  <SelectItem
+                    key={reasonOption}
+                    value={reasonOption}
+                    className="focus:bg-[#F6F6F6]"
+                  >
                     {reasonOption
                       .split("_")
                       .map(

@@ -108,7 +108,7 @@ export default function Profile() {
   return (
     <div className="bg-cooper-cream-100 flex h-screen w-full justify-center overflow-auto">
       <div className="mx-4 mt-4 flex w-[80%] max-w-3xl flex-col gap-6 pt-4 md:w-[66%]">
-        <div className="flex items-start justify-start gap-4">
+        <div className="flex items-center justify-start gap-6">
           <Image
             src={session.user.image ?? "/svg/defaultProfile.svg"}
             width="72"

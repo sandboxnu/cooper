@@ -11,12 +11,8 @@ import {
   CompareSectionTitle,
 } from "../../compare/compare-section";
 import ModalContainer from "../../reviews/modal";
-import {
-  DotBar,
-  DotCount,
-  DotStatement,
-  DotStatementCard,
-} from "./shared/dot-statement";
+import { AgreementCard } from "./shared/agreement-card";
+import { DotBar, DotCount } from "./shared/dot-statement";
 import { PipCard } from "./shared/pip-card";
 import { TabToggle } from "./shared/tab-toggle";
 
@@ -140,26 +136,18 @@ export function PayModal({
             ${Math.round(avgPay)}/hr
           </p>
         </div>
-        <DotStatementCard size={compareSize} className="mt-6">
-          <DotStatement
-            label="PTO"
-            filledCount={ptoCount}
-            totalCount={totalReviews}
-            filledColor="#92c6cd"
-            countLabel="reported"
-            grayCount
-            size={compareSize}
-          />
-          <DotStatement
-            label="Travel stipend"
-            filledCount={travelCount}
-            totalCount={totalReviews}
-            filledColor="#92c6cd"
-            countLabel="reported"
-            grayCount
-            size={compareSize}
-          />
-        </DotStatementCard>
+        <AgreementCard
+          title="Pay benefits"
+          rows={[
+            { label: "PTO", count: ptoCount },
+            { label: "Travel stipend", count: travelCount },
+          ]}
+          totalReviews={totalReviews}
+          countLabel="reported"
+          filledColor="#92c6cd"
+          isCompare
+          className="-mx-1.5 mt-6"
+        />
       </CompareSection>
     );
   }
@@ -196,9 +184,12 @@ export function PayModal({
   return (
     <ModalContainer title="Pay">
       <div className="flex flex-col gap-[12px]">
-        <div className="flex items-start gap-[32px]">
-          {/* Left — pay histogram */}
-          <div className="flex w-[321px] shrink-0 flex-col gap-[20px] overflow-clip">
+        {/* Stacks below xl, side by side from xl up */}
+        <div className="flex flex-col gap-[32px] xl:flex-row xl:items-start">
+          {/* Left — pay histogram. Below xl (full width) the average and chart
+              share a row and wrap, like Interview's rounds; from xl up they
+              stack in a 321px column */}
+          <div className="flex w-full shrink-0 flex-col gap-[20px] overflow-clip max-xl:flex-row max-xl:flex-wrap max-xl:items-start max-xl:justify-between max-xl:gap-x-12 xl:w-[321px]">
             <div className="flex flex-col">
               <p className="text-[36px] font-normal leading-[normal] text-cooper-gray-900">
                 ${Math.round(avgPay)}/hr
@@ -208,14 +199,14 @@ export function PayModal({
               </p>
             </div>
 
-            <div className="flex flex-col gap-[12px]">
+            <div className="flex w-[321px] max-w-full flex-col gap-[12px]">
               <TabToggle activeTab={activeTab} onChange={setActiveTab} />
 
               <div className="flex flex-col gap-[8px]">
                 {/* Average legend */}
                 <div className="flex items-center gap-[8px]">
                   <span className="h-[18px] w-[18px] shrink-0 rounded-full bg-[#ffb97f]" />
-                  <span className="whitespace-nowrap text-[14px] text-cooper-gray-400">
+                  <span className="text-[14px] text-cooper-gray-400 xl:whitespace-nowrap">
                     {activeTab === "total"
                       ? "Average pay across all jobs on Cooper"
                       : `Average pay across all ${prettyIndustryName ?? "industry"} jobs`}
@@ -285,15 +276,15 @@ export function PayModal({
             </div>
           </div>
 
-          {/* Vertical divider */}
-          <div className="w-px self-stretch border-l border-cooper-gray-125" />
+          {/* Divider: horizontal while stacked, vertical side by side */}
+          <div className="h-px w-full border-t border-cooper-gray-125 xl:h-auto xl:w-px xl:self-stretch xl:border-l xl:border-t-0" />
 
           {/* Right — pay benefits */}
           <div className="flex min-w-0 flex-1 flex-col gap-[20px]">
             <p className="text-[16px] leading-6 tracking-[-0.16px] text-cooper-gray-900">
               Pay benefits
             </p>
-            <div className="flex flex-wrap content-start gap-x-[36px] gap-y-[20px]">
+            <div className="flex flex-wrap content-start gap-x-[36px] gap-y-[20px] max-sm:gap-y-[14px]">
               <PipCard
                 name="PTO"
                 countLabel="indicated receiving paid time off"

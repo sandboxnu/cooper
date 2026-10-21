@@ -81,6 +81,17 @@ const ROLE_SORT_OPTIONS = [
 // md:w-[360px] on the role card sidebar
 const SIDEBAR_WIDTH = 360;
 
+const EMPTY_FILTERS: FilterState = {
+  industries: [],
+  locations: [],
+  jobTypes: [],
+  hourlyPay: { min: 0, max: 0 },
+  ratings: [],
+  workModels: [],
+  overtimeWork: [],
+  companyCulture: [],
+};
+
 export default function Roles() {
   const searchParams = useSearchParams();
   const urlCompanyParam = searchParams.get("company") ?? null;
@@ -121,16 +132,8 @@ export default function Roles() {
     "default" | "rating" | "newest" | "oldest" | undefined
   >("default");
   const [currentPage, setCurrentPage] = useState(1);
-  const [appliedFilters, setAppliedFilters] = useState<FilterState>({
-    industries: [],
-    locations: [],
-    jobTypes: [],
-    hourlyPay: { min: 0, max: 0 },
-    ratings: [],
-    workModels: [],
-    overtimeWork: [],
-    companyCulture: [],
-  });
+  const [appliedFilters, setAppliedFilters] =
+    useState<FilterState>(EMPTY_FILTERS);
   const rolesAndCompaniesPerPage = 10;
 
   // Query for specific company or role based on URL params
@@ -716,6 +719,14 @@ export default function Roles() {
     );
   }, [appliedFilters]);
 
+  // Any filter at all, including pay and rating, so Clear shows whenever it
+  // would do something
+  const hasAnyFilter =
+    isFiltering ||
+    appliedFilters.ratings.length > 0 ||
+    appliedFilters.hourlyPay.min > 0 ||
+    appliedFilters.hourlyPay.max > 0;
+
   useEffect(() => {
     setCurrentPage(1);
   }, [selectedFilter, searchValue, selectedType]);
@@ -882,6 +893,15 @@ export default function Roles() {
             />
             Filters
           </Button>
+          {hasAnyFilter && (
+            <button
+              type="button"
+              className="whitespace-nowrap px-2 text-sm text-cooper-gray-400 hover:text-cooper-gray-600"
+              onClick={() => handleFilterChange(EMPTY_FILTERS)}
+            >
+              Clear
+            </button>
+          )}
         </div>
         {/* Hidden with its divider when there's no room to enter compare */}
         {showCompareControls && (
@@ -920,7 +940,7 @@ export default function Roles() {
                 </div>
                 <div className="mb-3 flex items-center justify-between">
                   <p className="text-sm text-cooper-gray-400">
-                    Showing {totalResults}{" "}
+                    {totalResults}{" "}
                     {totalResults === 1 ? "result" : "results"}
                   </p>
                   <SortDropdown

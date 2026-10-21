@@ -7,12 +7,7 @@ import {
   CompareSectionTitle,
 } from "../../compare/compare-section";
 import ModalContainer from "../../reviews/modal";
-import {
-  DotBar,
-  DotCount,
-  DotStatement,
-  DotStatementCard,
-} from "./shared/dot-statement";
+import { AgreementCard } from "./shared/agreement-card";
 import { InfoIcon } from "./shared/info-icon";
 
 interface AveragesData {
@@ -316,102 +311,31 @@ export function OnTheJobModal({
     </div>
   );
 
+  const supportCountRows = supportRows.map(({ label, subtext, pct }) => ({
+    label,
+    subtext,
+    count: Math.round(pct * totalReviews),
+  }));
+
   const cultureCard = (
-    <div className="bg-[#fafaf7] border border-black/[0.02] flex flex-col gap-3 p-4 rounded-lg">
-      <div className="border-b border-[#d9d9d9] pb-3">
-        <p className="text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]">
-          Company culture
-        </p>
-      </div>
-      <div className="flex flex-col gap-3 pr-1">
-        {cultureRows.map(({ label, count }) => (
-          <div
-            key={label}
-            className={cn(
-              "flex items-start justify-between gap-4",
-              !isComparing && "sm:items-center",
-            )}
-          >
-            <p className="min-w-0 text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]">
-              {label}
-            </p>
-            {hasData ? (
-              <div
-                className={cn(
-                  "flex flex-col gap-1",
-                  !isComparing && "sm:flex-row sm:gap-3 sm:items-center",
-                )}
-              >
-                <DotBar
-                  className="max-w-[102px]"
-                  filledCount={count}
-                  totalCount={totalReviews}
-                  filledColor="#f1895c"
-                />
-                <DotCount
-                  count={count}
-                  total={totalReviews}
-                  label="reported"
-                  className="whitespace-nowrap"
-                />
-              </div>
-            ) : (
-              <p className="text-cooper-gray-350 text-[14px] leading-normal">
-                No data
-              </p>
-            )}
-          </div>
-        ))}
-      </div>
-    </div>
+    <AgreementCard
+      title="Company culture"
+      rows={cultureRows}
+      totalReviews={totalReviews}
+      countLabel="reported"
+      // Bleed 6px past the section padding on small screens, like compare
+      className="max-sm:-mx-1.5"
+    />
   );
 
   const supportCard = (
-    <div className="bg-[#fafaf7] border border-black/[0.02] flex flex-col gap-3 p-4 rounded-lg">
-      <div className="border-b border-[#d9d9d9] pb-3">
-        <p className="text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]">
-          Co-op support
-        </p>
-      </div>
-      <div className="flex flex-col gap-[14px] pr-1">
-        {supportRows.map(({ label, subtext, pct }) => {
-          const count = Math.round(pct * totalReviews);
-          return (
-            <div key={label} className="flex gap-[90px] items-center">
-              <div className="flex flex-1 flex-col gap-0.5 min-w-0">
-                <p className="text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]">
-                  {label}
-                </p>
-                <p className="text-cooper-gray-400 text-[10px] sm:text-[14px] leading-normal">
-                  {subtext}
-                </p>
-              </div>
-              <div className="flex flex-col gap-[10px] shrink-0">
-                {hasData && (
-                  <DotBar
-                    className="max-w-[102px]"
-                    filledCount={count}
-                    totalCount={totalReviews}
-                    filledColor="#f1895c"
-                  />
-                )}
-                {hasData ? (
-                  <DotCount
-                    count={count}
-                    total={totalReviews}
-                    label="in favor"
-                  />
-                ) : (
-                  <p className="text-cooper-gray-350 text-[14px] leading-normal">
-                    No data
-                  </p>
-                )}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+    <AgreementCard
+      title="Co-op support"
+      rows={supportCountRows}
+      totalReviews={totalReviews}
+      countLabel="agree"
+      className="max-sm:-mx-1.5"
+    />
   );
 
   if (compareSize) {
@@ -471,45 +395,22 @@ export function OnTheJobModal({
         >
           <p className={valueClass}>{toolsDisplay}</p>
         </CompareBenefitCategory>
-        <DotStatementCard
+        <AgreementCard
           title="Company culture"
-          size={compareSize}
-          className={compareSize === "sm" ? "mt-8" : "mt-6"}
-        >
-          {cultureRows.map(({ label, count }) => (
-            <DotStatement
-              key={label}
-              label={label}
-              filledCount={count}
-              totalCount={totalReviews}
-              filledColor="#f1895c"
-              countLabel="reported"
-              grayCount
-              size={compareSize}
-            />
-          ))}
-        </DotStatementCard>
-        <DotStatementCard
+          rows={cultureRows}
+          totalReviews={totalReviews}
+          countLabel="reported"
+          isCompare
+          className={compareSize === "sm" ? "-mx-1.5 mt-8" : "-mx-1.5 mt-6"}
+        />
+        <AgreementCard
           title="Co-op support"
-          size={compareSize}
-          className="mt-2"
-        >
-          {supportRows.map(({ label, pct }) => {
-            const count = Math.round(pct * totalReviews);
-            return (
-              <DotStatement
-                key={label}
-                label={label}
-                filledCount={count}
-                totalCount={totalReviews}
-                filledColor="#f1895c"
-                countLabel="in favor"
-                grayCount
-                size={compareSize}
-              />
-            );
-          })}
-        </DotStatementCard>
+          rows={supportCountRows}
+          totalReviews={totalReviews}
+          countLabel="in favor"
+          isCompare
+          className="-mx-1.5 mt-2"
+        />
       </CompareSection>
     );
   }

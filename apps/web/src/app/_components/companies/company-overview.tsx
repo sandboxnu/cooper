@@ -5,7 +5,7 @@ import { cn } from "@cooper/ui";
 import Logo from "@cooper/ui/logo";
 
 import { FavoriteButton } from "../shared/favorite-button";
-import { ReportButton } from "../shared/report-button";
+import { OptionsMenu } from "../shared/options-menu";
 import RenderAllRoles from "./all-company-roles";
 import { CompanyAbout } from "./company-about";
 import { CompanyReview } from "./company-reviews";
@@ -66,6 +66,11 @@ export function CompanyOverview({
               </button>
             )}
             <FavoriteButton objId={company.id} objType="company" />
+            <OptionsMenu
+              entityType="company"
+              entityId={company.id}
+              entityName={company.name}
+            />
           </div>
         </div>
       </div>
@@ -75,11 +80,6 @@ export function CompanyOverview({
           <CompanyAbout companyObj={company} />
           <hr className="border-t border-cooper-gray-150" />
           <CompanyReview companyObj={company} />
-          <ReportButton
-            entityId={company.id}
-            entityType="company"
-            iconOnly={false}
-          />
         </div>
         {/* Fixed height when stacked; beside the left column it stretches to
             match it, capped so a long role list scrolls inside the panel */}

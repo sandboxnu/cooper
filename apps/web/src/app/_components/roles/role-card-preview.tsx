@@ -9,10 +9,10 @@ import { Card, CardHeader } from "@cooper/ui/card";
 
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
+import { CircleButton } from "../shared/circle-button";
 import { FavoriteButton } from "../shared/favorite-button";
 import { useEffect, useState } from "react";
 import { useCompare } from "../compare/compare-context";
-import { Button } from "@cooper/ui/button";
 
 interface RoleCardPreviewProps {
   className?: string;
@@ -53,7 +53,7 @@ export function RoleCardPreview({
 
   const [hovered, setHovered] = useState(false);
   // Viewport point below the compare icon; the label is portaled so the
-  // card's overflow-hidden doesn't clip it
+  // card list's scroll container doesn't clip it
   const [compareLabelPos, setCompareLabelPos] = useState<{
     x: number;
     y: number;
@@ -76,7 +76,7 @@ export function RoleCardPreview({
   return (
     <Card
       className={cn(
-        "relative flex flex-col justify-between overflow-hidden rounded-lg hover:cursor-pointer",
+        "relative flex flex-col justify-between rounded-lg hover:cursor-pointer",
         className,
         showDragHandle && "pl-4",
         compare.isCompareMode && "pr-2",
@@ -137,9 +137,10 @@ export function RoleCardPreview({
               <FavoriteButton objId={roleObj.id} objType="role" />
             )}
             {hovered && currentlySelectedRoleId && (
-              <Button
-                variant="outline"
-                className="hidden md:inline-flex items-center rounded-full transition hover:bg-cooper-gray-150 hover:shadow-[0px_0px_0px_12px_rgb(231,231,231)] border-none p-0 h-4"
+              <CircleButton
+                aria-label="Compare"
+                // Original 16px icon box; the 44px circle centers on it
+                className="hidden h-4 w-4 md:inline-flex"
                 onMouseEnter={(e) => {
                   const rect = e.currentTarget.getBoundingClientRect();
                   setCompareLabelPos({
@@ -160,7 +161,7 @@ export function RoleCardPreview({
                   height={16}
                   alt="Compare icon"
                 />
-              </Button>
+              </CircleButton>
             )}
             {hovered &&
               compareLabelPos &&

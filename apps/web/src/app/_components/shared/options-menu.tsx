@@ -11,16 +11,20 @@ import {
   DropdownMenuTrigger,
 } from "@cooper/ui/dropdown-menu";
 
-import { MENU_CONTENT_CLASS, MENU_ITEM_CLASS } from "../shared/menu-styles";
-import { ReportDialog } from "../shared/report-button";
+import { MENU_CONTENT_CLASS, MENU_ITEM_CLASS } from "./menu-styles";
+import { ReportDialog } from "./report-button";
 
-// Three-dots menu for a role, matching the one on review cards. ownReviewId is
-// the current user's review of this role, if they wrote one.
-export function RoleOptionsMenu({
-  roleId,
+// Three-dots menu for a role or company, matching the one on review cards.
+// ownReviewId is the current user's review of this role, if they wrote one.
+export function OptionsMenu({
+  entityType,
+  entityId,
+  entityName,
   ownReviewId,
 }: {
-  roleId: string;
+  entityType: "role" | "company";
+  entityId: string;
+  entityName: string;
   ownReviewId?: string;
 }) {
   const [reportOpen, setReportOpen] = useState(false);
@@ -30,7 +34,7 @@ export function RoleOptionsMenu({
       {/* Non-modal so the report dialog can take focus once it closes */}
       <DropdownMenu modal={false}>
         <DropdownMenuTrigger
-          aria-label="Role options"
+          aria-label={`${entityType === "role" ? "Role" : "Company"} options`}
           // Same height as the save button so the icons center on one line
           className="flex h-6 shrink-0 items-center outline-none"
         >
@@ -60,8 +64,9 @@ export function RoleOptionsMenu({
         </DropdownMenuContent>
       </DropdownMenu>
       <ReportDialog
-        entityType="role"
-        entityId={roleId}
+        entityType={entityType}
+        entityId={entityId}
+        entityName={entityName}
         open={reportOpen}
         onOpenChange={setReportOpen}
       />

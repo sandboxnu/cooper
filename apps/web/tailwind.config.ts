@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
+import plugin from "tailwindcss/plugin";
 
 import baseConfig from "@cooper/tailwind-config/web";
 
@@ -127,5 +128,13 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    // Sizes by the width of the nearest [container-type:inline-size] box
+    // instead of the screen, for boxes whose width doesn't track the screen
+    plugin(({ addVariant }) => {
+      addVariant("box-md", "@container (min-width: 26rem)");
+      addVariant("box-lg", "@container (min-width: 38rem)");
+    }),
+  ],
 } satisfies Config;
