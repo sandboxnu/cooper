@@ -45,7 +45,9 @@ async function insertReviewWithRounds(
     z.infer<typeof CreateReviewWithRoundsSchema>,
     "interviewRounds" | "toolNames" | "profileId"
   > & { profileId: string },
-  interviewRounds: z.infer<typeof CreateReviewWithRoundsSchema>["interviewRounds"],
+  interviewRounds: z.infer<
+    typeof CreateReviewWithRoundsSchema
+  >["interviewRounds"],
   toolNames: string[],
 ) {
   const filter = new Filter();
