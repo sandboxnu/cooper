@@ -304,8 +304,10 @@ export const reviewRouter = {
         existingUser?.id ??
         (
           await ctx.db
+            // emailVerified has no DB-level default (migration drift), so it
+            // must be set explicitly or the NOT NULL insert fails.
             .insert(User)
-            .values({ email: studentEmail })
+            .values({ email: studentEmail, emailVerified: false })
             .returning({ id: User.id })
         )[0]?.id;
 
