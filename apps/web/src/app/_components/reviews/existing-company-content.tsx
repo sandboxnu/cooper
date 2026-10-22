@@ -14,6 +14,7 @@ import { useCustomToast } from "@cooper/ui/hooks/use-custom-toast";
 import { Input } from "@cooper/ui/input";
 import { Label } from "@cooper/ui/label";
 import { useReadOnly } from "@cooper/ui/read-only";
+import { findRestrictedRoleWord } from "@cooper/validators";
 
 import type { RoleRequestType } from "../roles/new-role-dialogue";
 import { api } from "~/trpc/react";
@@ -33,7 +34,13 @@ const roleSchema = z.object({
     })
     .refine((val) => !filter.isProfane(val), {
       message: "The title cannot contain profane words.",
-    }),
+    })
+    .refine(
+      (val) => findRestrictedRoleWord(val) === null,
+      (val) => ({
+        message: `The title cannot contain the word "${findRestrictedRoleWord(val)}".`,
+      }),
+    ),
   // description: z
   //   .string()
   //   .min(10, {
@@ -81,6 +88,8 @@ export default function ExistingCompanyContent({
       enabled: !!selectedCompanyId,
     },
   );
+
+  const utils = api.useUtils();
 
   // Location fetching logic for new company
   useEffect(() => {
@@ -143,14 +152,19 @@ export default function ExistingCompanyContent({
   });
 
   const newRoleMutation = api.role.create.useMutation({
-    onSuccess: (data) => {
+    onSuccess: async (data) => {
       toast.success("Role created successfully!");
       const createdRole = data[0];
       if (createdRole) {
+        // The roles list for this company was likely just fetched (e.g. when
+        // the company was selected) and is still within its staleTime, so a
+        // plain `.fetch()` would return the cached pre-creation data without
+        // hitting the network. Force a real refetch instead.
+        await utils.role.getByCompany.refetch({
+          companyId: createdRole.companyId,
+        });
         form.setValue("roleName", createdRole.id);
         setCreatingNewRole(false);
-        // Refresh roles list
-        void roles.refetch();
       }
     },
     onError: (error) => {
@@ -167,12 +181,12 @@ export default function ExistingCompanyContent({
       form.setValue("title", "");
       form.setValue("locationId", "");
       await companies.refetch();
+      await utils.role.getByCompany.fetch({ companyId });
       setSelectedCompanyId(companyId);
       form.setValue("companyName", companyId);
       form.setValue("roleName", roleId);
       setShowNewCompany(false);
       setCreatingNewRole(false);
-      void roles.refetch();
     },
     onError: (error) => {
       console.error("Mutation error:", error);
@@ -204,6 +218,9 @@ export default function ExistingCompanyContent({
   const handleCreateCompanyWithRole = async () => {
     const companyName = newCompanyName;
     const industry = form.getValues("industry") as string;
+    const industryLabel =
+      industryOptions.find((option) => option.value === industry)?.label ??
+      industry;
     const locationId = form.getValues("locationId") as string;
     const roleTitle =
       (form.getValues("title") as string) ||
@@ -226,10 +243,17 @@ export default function ExistingCompanyContent({
       toast.error("Role title must be at least 3 characters.");
       return;
     }
+    const restrictedWord = findRestrictedRoleWord(roleTitle);
+    if (restrictedWord) {
+      toast.error(
+        `The role title cannot contain the word "${restrictedWord}".`,
+      );
+      return;
+    }
 
     await createCompanyWithRoleMutation.mutateAsync({
       companyName: companyName.trim(),
-      description: `Company in ${industry} industry`,
+      description: `Company in ${industryLabel.toLowerCase()} industry`,
       industry,
       roleTitle: roleTitle.trim(),
       roleDescription: "Role description",
@@ -246,7 +270,7 @@ export default function ExistingCompanyContent({
     // Only validate the title field since companyId and createdBy are set programmatically
     const isTitleValid = await newRoleForm.trigger("title");
     if (!isTitleValid) {
-      const errorMessage = newRoleForm.formState.errors.title?.message;
+      const errorMessage = newRoleForm.getFieldState("title").error?.message;
       toast.error(errorMessage ?? "Please enter a valid role title.");
       return;
     }
@@ -287,6 +311,8 @@ export default function ExistingCompanyContent({
                           field.onChange(undefined);
                           setSelectedCompanyId(undefined);
                           form.setValue("roleName", "");
+                          setCreatingNewRole(false);
+                          newRoleForm.setValue("title", "");
                           setCompanySearchTerm("");
                         }}
                         className="rounded-full transition hover:bg-[#F6F6F6] hover:shadow-[0px_0px_0px_12px_#F6F6F6]"
@@ -319,15 +345,31 @@ export default function ExistingCompanyContent({
                         label: company.name,
                         value: company.id,
                       })) ?? [];
-                    if (companySearchTerm) {
-                      const filtered = allCompanies.filter((c) =>
-                        c.label
-                          .toLowerCase()
-                          .includes(companySearchTerm.toLowerCase()),
-                      );
-                      return filtered.slice(0, 50);
+                    const base = companySearchTerm
+                      ? allCompanies.filter((c) =>
+                          c.label
+                            .toLowerCase()
+                            .includes(companySearchTerm.toLowerCase()),
+                        )
+                      : allCompanies;
+                    const sliced = base.slice(0, 50);
+                    // Keep the selected company resolvable even if it's
+                    // outside the top 50 (e.g. a newly created company
+                    // with no rating yet sorts to the bottom of the list).
+                    if (
+                      selectedCompany &&
+                      !sliced.some((c) => c.value === selectedCompany.id)
+                    ) {
+                      return [
+                        {
+                          id: selectedCompany.id,
+                          label: selectedCompany.name,
+                          value: selectedCompany.id,
+                        },
+                        ...sliced,
+                      ];
                     }
-                    return allCompanies.slice(0, 50);
+                    return sliced;
                   })()}
                   selectedOptions={
                     field.value &&
@@ -348,6 +390,10 @@ export default function ExistingCompanyContent({
                     } else {
                       field.onChange(undefined);
                       setSelectedCompanyId(undefined);
+                      // Clear any role selection tied to the now-unselected company
+                      form.setValue("roleName", "");
+                      setCreatingNewRole(false);
+                      newRoleForm.setValue("title", "");
                     }
                     setCompanySearchTerm("");
                   }}
@@ -409,6 +455,7 @@ export default function ExistingCompanyContent({
                 className="h-9 w-full rounded-lg border border-cooper-gray-150 text-sm shadow-none hover:bg-[#F6F6F6] focus:bg-white"
                 value={newCompanyName}
                 onChange={(e) => setNewCompanyName(e.target.value)}
+                maxLength={255}
               />
             </div>
 
@@ -572,8 +619,12 @@ export default function ExistingCompanyContent({
               "flex flex-1 items-center gap-2",
               readOnly && "hidden",
             )}
+            onClick={() =>
+              selectedCompanyId && setCreatingNewRole(!creatingNewRole)
+            }
           >
             <Checkbox
+              disabled={!selectedCompanyId}
               checked={creatingNewRole}
               onCheckedChange={(checked) => {
                 setCreatingNewRole(checked === true);
@@ -583,7 +634,14 @@ export default function ExistingCompanyContent({
                 }
               }}
             />
-            <Label className={OPTION_LABEL_CLASS}>I don't see my role</Label>
+            <Label
+              className={cn(
+                OPTION_LABEL_CLASS,
+                !selectedCompanyId && "cursor-not-allowed opacity-50",
+              )}
+            >
+              I don't see my role
+            </Label>
           </div>
 
           {/* Create New Role Section */}

@@ -10,14 +10,20 @@ import CooperLogo from "./cooper-logo";
 export default function NoResults({
   className,
   clearFunction,
+  onClear,
 }: {
   className?: string;
   clearFunction?: boolean;
+  onClear?: () => void;
 }) {
   const router = useRouter();
   const pathname = usePathname();
 
   function clearFilters() {
+    if (onClear) {
+      onClear();
+      return;
+    }
     router.push(pathname);
   }
 

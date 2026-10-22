@@ -53,6 +53,10 @@ export default function SidebarFilter({
     { enabled: searchTerm.length === 3 && prefix.length === 3 },
   );
 
+  const isLocationSearchPending =
+    (searchTerm.length > 0 && searchTerm.length < 3) ||
+    locationsToUpdate.isFetching;
+
   const handleFilterChange = (
     key: keyof FilterState,
     value: string[] | { min: number; max: number },
@@ -174,6 +178,7 @@ export default function SidebarFilter({
                 handleFilterChange("locations", selected)
               }
               onSearchChange={(search) => setSearchTerm(search)}
+              isLoadingOptions={isLocationSearchPending}
             />
             <div className="bg-cooper-gray-150 h-px w-full" />
             <SidebarSection

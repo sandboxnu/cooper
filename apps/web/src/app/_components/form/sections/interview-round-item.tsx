@@ -38,6 +38,7 @@ export function InterviewRoundItem({
         <SelectField
           name={`interviewRounds.${index}.interviewType`}
           label="Interview type"
+          required
           options={[
             { id: "behavioral", label: "Behavioral" },
             { id: "technical", label: "Technical" },
@@ -51,6 +52,7 @@ export function InterviewRoundItem({
         <SelectField
           name={`interviewRounds.${index}.interviewDifficulty`}
           label="Difficulty"
+          required
           options={[
             { id: "easy", label: "Easier than other interviews" },
             { id: "average", label: "About the same as other interviews" },

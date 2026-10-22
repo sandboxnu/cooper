@@ -1,4 +1,4 @@
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { api } from "~/trpc/react";
 import LoadingResults from "../loading-results";
@@ -20,6 +20,7 @@ export default function RenderAllRoles({
     onlyWithReviews: true,
   });
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   return (
     <div className="flex h-full min-h-0 flex-col gap-3 rounded-lg bg-[#fafaf7] pl-5 pr-2.5 pt-4 shadow-[inset_0px_0px_5px_0px_rgba(0,0,0,0.04)]">
@@ -38,9 +39,10 @@ export default function RenderAllRoles({
                   e.preventDefault();
                   e.stopPropagation();
                   onClose?.();
-                  router.push(
-                    `/roles/?company=${company?.slug ?? ""}&type=roles&role=${role.slug}`,
-                  );
+                  const params = new URLSearchParams(searchParams.toString());
+                  params.set("company", company?.slug ?? "");
+                  params.set("role", role.slug);
+                  router.push(`/roles/?${params.toString()}`);
                 }}
               >
                 <RoleCardPreview roleObj={role} className="bg-white" />
