@@ -20,6 +20,7 @@ import {
   Tool,
   User,
 } from "@cooper/db/schema";
+import { normalizeHuskyEmail } from "@cooper/validators";
 
 const CreateReviewWithRoundsSchema = CreateReviewSchema.extend({
   interviewRounds: z
@@ -283,6 +284,7 @@ export const reviewRouter = {
         studentEmail: z
           .string()
           .email()
+          .transform((email) => normalizeHuskyEmail(email))
           .refine((email) => email.toLowerCase().endsWith("@husky.neu.edu"), {
             message: "Email must be a husky.neu.edu address",
           }),
@@ -302,8 +304,10 @@ export const reviewRouter = {
         existingUser?.id ??
         (
           await ctx.db
+            // emailVerified has no DB-level default (migration drift), so it
+            // must be set explicitly or the NOT NULL insert fails.
             .insert(User)
-            .values({ email: studentEmail })
+            .values({ email: studentEmail, emailVerified: false })
             .returning({ id: User.id })
         )[0]?.id;
 
