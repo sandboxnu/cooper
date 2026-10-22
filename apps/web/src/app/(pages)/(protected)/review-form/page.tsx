@@ -21,6 +21,7 @@ import { useCustomToast } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 import { Checkbox } from "@cooper/ui/checkbox";
 import { Form } from "@cooper/ui/form";
+import { normalizeHuskyEmail } from "@cooper/validators";
 
 import {
   BasicInfoSection,
@@ -351,14 +352,15 @@ export default function ReviewForm() {
   async function onSubmit(values: z.infer<ReviewFormType>) {
     try {
       if (onBehalfMode) {
-        if (!HUSKY_EMAIL_REGEX.test(studentEmail)) {
+        const normalizedEmail = normalizeHuskyEmail(studentEmail);
+        if (!HUSKY_EMAIL_REGEX.test(normalizedEmail)) {
           toast.error("Please enter a valid husky.neu.edu email.");
           return;
         }
         await onBehalfMutation.mutateAsync({
           roleId: roleId,
           companyId: companyId,
-          studentEmail,
+          studentEmail: normalizedEmail,
           ...values,
           reviewHeadline: "",
           status: Status.PUBLISHED,
@@ -505,6 +507,9 @@ export default function ReviewForm() {
                     type="email"
                     value={studentEmail}
                     onChange={(e) => setStudentEmail(e.target.value)}
+                    onBlur={(e) =>
+                      setStudentEmail(normalizeHuskyEmail(e.target.value))
+                    }
                     placeholder="Student's Husky email"
                     className="border-cooper-gray-150 mt-4 w-full rounded-lg border px-4 py-3 text-lg"
                   />

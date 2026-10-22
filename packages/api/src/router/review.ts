@@ -20,6 +20,7 @@ import {
   Tool,
   User,
 } from "@cooper/db/schema";
+import { normalizeHuskyEmail } from "@cooper/validators";
 
 const CreateReviewWithRoundsSchema = CreateReviewSchema.extend({
   interviewRounds: z
@@ -283,6 +284,7 @@ export const reviewRouter = {
         studentEmail: z
           .string()
           .email()
+          .transform((email) => normalizeHuskyEmail(email))
           .refine((email) => email.toLowerCase().endsWith("@husky.neu.edu"), {
             message: "Email must be a husky.neu.edu address",
           }),
