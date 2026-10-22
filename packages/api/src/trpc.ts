@@ -6,6 +6,7 @@ import type { Session } from "@cooper/auth";
 import { auth } from "@cooper/auth";
 import { db } from "@cooper/db/client";
 import type { CooperDb } from "@cooper/db/client";
+import { UserRole } from "@cooper/db/schema";
 
 /**
  * Isomorphic Session getter for API requests
@@ -67,6 +68,13 @@ export const protectedProcedure = t.procedure.use(({ ctx, next }) => {
       session: { ...ctx.session, user: ctx.session.user },
     },
   });
+});
+
+export const developerProcedure = protectedProcedure.use(({ ctx, next }) => {
+  if (ctx.session.user.role !== UserRole.DEVELOPER) {
+    throw new TRPCError({ code: "FORBIDDEN" });
+  }
+  return next({ ctx });
 });
 
 export const sortableProcedure = t.procedure

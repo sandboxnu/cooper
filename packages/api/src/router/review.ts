@@ -5,6 +5,7 @@ import Fuse from "fuse.js";
 import { z } from "zod";
 
 import type { ReviewType } from "@cooper/db/schema";
+import type { CooperDb } from "@cooper/db/client";
 import { and, desc, eq, inArray, isNull, sql } from "@cooper/db";
 import {
   CompaniesToLocations,
@@ -12,10 +13,12 @@ import {
   CreateInterviewRoundSchema,
   CreateReviewSchema,
   InterviewRound,
+  Profile,
   Review,
   ReviewsToTools,
   Status,
   Tool,
+  User,
 } from "@cooper/db/schema";
 
 const CreateReviewWithRoundsSchema = CreateReviewSchema.extend({
@@ -26,10 +29,132 @@ const CreateReviewWithRoundsSchema = CreateReviewSchema.extend({
   toolNames: z.array(z.string()).optional().default([]),
 });
 import {
+  developerProcedure,
   protectedProcedure,
   publicProcedure,
   sortableProcedure,
 } from "../trpc";
+
+type ReviewDbOrTx =
+  | CooperDb
+  | Parameters<Parameters<CooperDb["transaction"]>[0]>[0];
+
+async function insertReviewWithRounds(
+  db: ReviewDbOrTx,
+  reviewInput: Omit<
+    z.infer<typeof CreateReviewWithRoundsSchema>,
+    "interviewRounds" | "toolNames" | "profileId"
+  > & { profileId: string },
+  interviewRounds: z.infer<typeof CreateReviewWithRoundsSchema>["interviewRounds"],
+  toolNames: string[],
+) {
+  const filter = new Filter();
+
+  if (filter.isProfane(reviewInput.textReview ?? "")) {
+    throw new TRPCError({
+      code: "PRECONDITION_FAILED",
+      message: "Review text cannot contain profane words",
+    });
+  }
+
+  const cleanInput = {
+    ...reviewInput,
+    textReview: filter.clean(reviewInput.textReview ?? ""),
+  };
+
+  const reviews = await db.query.Review.findMany({
+    where: eq(Review.profileId, cleanInput.profileId),
+  });
+  const publishedReviews = reviews.filter(
+    (review) => review.status === Status.PUBLISHED,
+  );
+  if (publishedReviews.length >= 5) {
+    throw new TRPCError({
+      code: "PRECONDITION_FAILED",
+      message: "You can only leave 5 reviews",
+    });
+  }
+  const reviewsInSameCycle = reviews.filter(
+    (review) =>
+      review.workTerm === cleanInput.workTerm &&
+      review.workYear === cleanInput.workYear,
+  );
+  if (reviewsInSameCycle.length >= 2) {
+    throw new TRPCError({
+      code: "PRECONDITION_FAILED",
+      message: "You can only leave 2 reviews per cycle",
+    });
+  }
+
+  // Check if a CompaniesToLocations object already exists with the given companyId and locationId
+  if (cleanInput.locationId && cleanInput.companyId) {
+    const existingRelation = await db.query.CompaniesToLocations.findFirst({
+      where: and(
+        eq(CompaniesToLocations.companyId, cleanInput.companyId ?? ""),
+        eq(CompaniesToLocations.locationId, cleanInput.locationId ?? ""),
+      ),
+    });
+
+    if (!existingRelation) {
+      await db.insert(CompaniesToLocations).values({
+        locationId: cleanInput.locationId ?? "",
+        companyId: cleanInput.companyId ?? "",
+      });
+    }
+  }
+
+  const [inserted] = await db
+    .insert(Review)
+    .values(cleanInput)
+    .returning({ id: Review.id });
+
+  const reviewId = inserted?.id ?? "";
+
+  const roundsToInsert = interviewRounds.flatMap((r) => {
+    if (r.interviewType == null || r.interviewDifficulty == null) return [];
+    return [
+      {
+        interviewType: r.interviewType,
+        interviewDifficulty: r.interviewDifficulty,
+        reviewId,
+      },
+    ];
+  });
+  if (roundsToInsert.length > 0) {
+    await db.insert(InterviewRound).values(roundsToInsert);
+  }
+
+  if (toolNames.length > 0) {
+    for (const name of toolNames) {
+      const trimmed = name.trim();
+      if (!trimmed) continue;
+      const existingTool = await db
+        .select()
+        .from(Tool)
+        .where(sql`lower(${Tool.name}) = lower(${trimmed})`)
+        .limit(1)
+        .then((rows) => rows[0]);
+      let tool = existingTool;
+      if (!existingTool) {
+        await db.insert(Tool).values({ name: trimmed }).onConflictDoNothing();
+        tool = await db
+          .select()
+          .from(Tool)
+          .where(sql`lower(${Tool.name}) = lower(${trimmed})`)
+          .limit(1)
+          .then((rows) => rows[0]);
+      }
+      if (tool) {
+        await db
+          .insert(ReviewsToTools)
+          .values({ reviewId, toolId: tool.id })
+          .onConflictDoNothing();
+      }
+    }
+  }
+
+  return { id: reviewId };
+}
 
 const PAY_BUCKETS = [
   { label: "<$20", min: 0, max: 20 },
@@ -146,117 +271,77 @@ export const reviewRouter = {
         });
       }
 
-      // Initialize bad words filter
-      const filter = new Filter();
-
-      if (filter.isProfane(reviewInput.textReview ?? "")) {
-        throw new TRPCError({
-          code: "PRECONDITION_FAILED",
-          message: "Review text cannot contain profane words",
-        });
-      }
-
-      // Create a clean version of the input with filtered strings
-      const cleanInput = {
-        ...reviewInput,
-        textReview: filter.clean(reviewInput.textReview ?? ""),
-        profileId: reviewInput.profileId,
-      };
-
-      // Rest of the validation logic
-      const reviews = await ctx.db.query.Review.findMany({
-        where: eq(Review.profileId, cleanInput.profileId),
-      });
-      const publishedReviews = reviews.filter(
-        (review) => review.status === Status.PUBLISHED,
+      await insertReviewWithRounds(
+        ctx.db,
+        { ...reviewInput, profileId: reviewInput.profileId },
+        interviewRounds,
+        toolNames,
       );
-      if (publishedReviews.length >= 5) {
-        throw new TRPCError({
-          code: "PRECONDITION_FAILED",
-          message: "You can only leave 5 reviews",
-        });
-      }
-      const reviewsInSameCycle = reviews.filter(
-        (review) =>
-          review.workTerm === cleanInput.workTerm &&
-          review.workYear === cleanInput.workYear,
-      );
-      if (reviewsInSameCycle.length >= 2) {
-        throw new TRPCError({
-          code: "PRECONDITION_FAILED",
-          message: "You can only leave 2 reviews per cycle",
-        });
-      }
+    }),
 
-      // Check if a CompaniesToLocations object already exists with the given companyId and locationId
-      if (input.locationId && input.companyId) {
-        const existingRelation =
-          await ctx.db.query.CompaniesToLocations.findFirst({
-            where: and(
-              eq(CompaniesToLocations.companyId, input.companyId ?? ""),
-              eq(CompaniesToLocations.locationId, input.locationId ?? ""),
-            ),
-          });
+  createOnBehalf: developerProcedure
+    .input(
+      CreateReviewWithRoundsSchema.omit({ profileId: true }).extend({
+        studentEmail: z
+          .string()
+          .email()
+          .refine((email) => email.toLowerCase().endsWith("@husky.neu.edu"), {
+            message: "Email must be a husky.neu.edu address",
+          }),
+      }),
+    )
+    .mutation(async ({ ctx, input }) => {
+      const { interviewRounds, toolNames, studentEmail, ...reviewInput } =
+        input;
 
-        if (!existingRelation) {
-          await ctx.db.insert(CompaniesToLocations).values({
-            locationId: input.locationId ?? "",
-            companyId: input.companyId ?? "",
+      return ctx.db.transaction(async (tx) => {
+        const existingUser = await tx.query.User.findFirst({
+          where: sql`lower(${User.email}) = lower(${studentEmail})`,
+        });
+
+        const userId =
+          existingUser?.id ??
+          (
+            await tx
+              .insert(User)
+              .values({ email: studentEmail })
+              .returning({ id: User.id })
+          )[0]?.id;
+
+        if (!userId) {
+          throw new TRPCError({
+            code: "INTERNAL_SERVER_ERROR",
+            message: "Failed to resolve student account",
           });
         }
-      }
 
-      const [inserted] = await ctx.db
-        .insert(Review)
-        .values(cleanInput)
-        .returning({ id: Review.id });
+        const existingProfile = await tx.query.Profile.findFirst({
+          where: eq(Profile.userId, userId),
+        });
 
-      const roundsToInsert = interviewRounds.flatMap((r) => {
-        if (r.interviewType == null || r.interviewDifficulty == null) return [];
-        return [
-          {
-            interviewType: r.interviewType,
-            interviewDifficulty: r.interviewDifficulty,
-            reviewId: inserted?.id ?? "",
-          },
-        ];
-      });
-      if (roundsToInsert.length > 0) {
-        await ctx.db.insert(InterviewRound).values(roundsToInsert);
-      }
+        const profileId =
+          existingProfile?.id ??
+          (
+            await tx
+              .insert(Profile)
+              .values({ userId, firstName: "", lastName: "" })
+              .returning({ id: Profile.id })
+          )[0]?.id;
 
-      if (toolNames.length > 0) {
-        const reviewId = inserted?.id ?? "";
-        for (const name of toolNames) {
-          const trimmed = name.trim();
-          if (!trimmed) continue;
-          const existingTool = await ctx.db
-            .select()
-            .from(Tool)
-            .where(sql`lower(${Tool.name}) = lower(${trimmed})`)
-            .limit(1)
-            .then((rows) => rows[0]);
-          let tool = existingTool;
-          if (!existingTool) {
-            await ctx.db
-              .insert(Tool)
-              .values({ name: trimmed })
-              .onConflictDoNothing();
-            tool = await ctx.db
-              .select()
-              .from(Tool)
-              .where(sql`lower(${Tool.name}) = lower(${trimmed})`)
-              .limit(1)
-              .then((rows) => rows[0]);
-          }
-          if (tool) {
-            await ctx.db
-              .insert(ReviewsToTools)
-              .values({ reviewId, toolId: tool.id })
-              .onConflictDoNothing();
-          }
+        if (!profileId) {
+          throw new TRPCError({
+            code: "INTERNAL_SERVER_ERROR",
+            message: "Failed to resolve student profile",
+          });
         }
-      }
+
+        return insertReviewWithRounds(
+          tx,
+          { ...reviewInput, profileId, status: Status.PUBLISHED },
+          interviewRounds,
+          toolNames,
+        );
+      });
     }),
 
   saveDraft: protectedProcedure
