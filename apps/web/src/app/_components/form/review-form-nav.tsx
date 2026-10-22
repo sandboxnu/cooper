@@ -99,8 +99,17 @@ export function ReviewFormNav({
 
   const isDone = (section: (typeof REVIEW_FORM_SECTIONS)[number]) => {
     if (section.id === "interview") {
-      const rounds = values.interviewRounds as unknown[] | undefined;
-      return (rounds?.length ?? 0) > 0;
+      // The form always seeds two blank rounds, so array length alone can't
+      // tell "done" apart from "untouched" — match the server's definition
+      // of a real round (both fields filled in).
+      const rounds = values.interviewRounds as
+        | { interviewType?: unknown; interviewDifficulty?: unknown }[]
+        | undefined;
+      return (
+        rounds?.some(
+          (r) => r.interviewType != null && r.interviewDifficulty != null,
+        ) ?? false
+      );
     }
     return section.required.every((field) => isFilled(values[field]));
   };

@@ -10,7 +10,10 @@ import { Button } from "@cooper/ui/button";
 
 import { api } from "~/trpc/react";
 import CooperLogo from "../cooper-logo";
-import { ProfileMenuContent } from "../profile/profile-button";
+import {
+  FEEDBACK_FORM_URL,
+  ProfileMenuContent,
+} from "../profile/profile-button";
 import MobileHeaderButton from "./mobile-header-button";
 import type { Session } from "@cooper/auth";
 import { UserRole } from "node_modules/@cooper/db/src/schema/misc";
@@ -122,6 +125,13 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
         <h1 className="text-2xl font-bold text-cooper-blue-800">Cooper</h1>
       </Link>
       <div className="hidden flex-shrink grid-cols-2 items-center justify-center gap-6 md:flex">
+        <Link
+          href={FEEDBACK_FORM_URL}
+          target="_blank"
+          className="text-cooper-gray-250 text-sm hover:underline"
+        >
+          Submit Feedback or Bug Reports
+        </Link>
         {session.data && loggedIn && isStudentOrDeveloper && (
           <div className="flex items-center gap-8">
             <Link href="/review-form">
@@ -135,7 +145,7 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
         {auth}
       </div>
 
-      {/* Mobile: when logged in show + and hamburger; when logged out show only login button */}
+      {/* Mobile: when logged in show + and hamburger; when logged out show feedback link and login button */}
       <div className="justify-right mr-2 flex flex-shrink grid-cols-2 items-center gap-2 md:hidden">
         {session.data && loggedIn && isStudentOrDeveloper ? (
           <>
@@ -159,7 +169,16 @@ export default function Header({ auth, loggedIn }: HeaderProps) {
             </Button>
           </>
         ) : (
-          auth
+          <>
+            <Link
+              href={FEEDBACK_FORM_URL}
+              target="_blank"
+              className="text-cooper-gray-250 text-xs hover:underline"
+            >
+              Feedback
+            </Link>
+            {auth}
+          </>
         )}
       </div>
     </header>

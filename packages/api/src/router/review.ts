@@ -22,6 +22,7 @@ import {
 } from "@cooper/db/schema";
 
 // Throws unless the signed-in user wrote the review; returns their profile id
+// and the review as it currently exists in the database
 async function requireReviewOwner(
   db: CooperDb,
   userId: string,
@@ -40,7 +41,7 @@ async function requireReviewOwner(
       message: "You can only change your own reviews",
     });
   }
-  return profile.id;
+  return { profileId: profile.id, review };
 }
 
 const CreateReviewWithRoundsSchema = CreateReviewSchema.extend({
@@ -562,18 +563,22 @@ export const reviewRouter = {
 
       // Only the author can edit, and the review can't be moved to someone
       // else's profile
-      reviewInput.profileId = await requireReviewOwner(
+      const { profileId, review: existingReview } = await requireReviewOwner(
         ctx.db,
         ctx.session.user.id,
         id,
       );
+      reviewInput.profileId = profileId;
 
       // A review's company always comes from its role, so the two can't
       // disagree (job cards read the role's company, company pages the
-      // review's)
-      if (reviewInput.roleId) {
+      // review's). Re-derive from the role regardless of whether this
+      // update's input includes a new roleId, so a stale client-supplied
+      // companyId can never persist alongside an unrelated role.
+      const effectiveRoleId = reviewInput.roleId ?? existingReview.roleId;
+      if (effectiveRoleId) {
         const role = await ctx.db.query.Role.findFirst({
-          where: eq(Role.id, reviewInput.roleId),
+          where: eq(Role.id, effectiveRoleId),
         });
         if (!role) {
           throw new TRPCError({

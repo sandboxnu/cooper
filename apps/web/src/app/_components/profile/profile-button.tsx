@@ -17,7 +17,7 @@ import { UserRole } from "node_modules/@cooper/db/src/schema/misc";
 
 import { MENU_CONTENT_CLASS, MENU_ITEM_CLASS } from "../shared/menu-styles";
 
-const FEEDBACK_FORM_URL =
+export const FEEDBACK_FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSf-ZvpyBawT5LlMho7X4oNZ0Z_1M-o6cXLJjB5uJiNAvvnkfw/viewform?usp=dialog";
 
 interface ProfileButtonProps {
