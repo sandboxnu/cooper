@@ -19,6 +19,7 @@ import {
 } from "@cooper/db/schema";
 import { useCustomToast } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
+import { Checkbox } from "@cooper/ui/checkbox";
 import { Form } from "@cooper/ui/form";
 
 import {
@@ -33,6 +34,8 @@ import { PortalZIndexContext } from "~/contexts/portal-z-index";
 import { api } from "~/trpc/react";
 
 const filter = new Filter();
+
+const HUSKY_EMAIL_REGEX = /^[^\s@]+@husky\.neu\.edu$/i;
 
 // test msg
 const formSchema = z.object({
@@ -189,6 +192,8 @@ export default function ReviewForm() {
   const [companyId, setCompanyId] = useState<string>("");
   const [showModal, setShowModal] = useState(false);
   const [draftId, setDraftId] = useState<string | null>(null);
+  const [onBehalfMode, setOnBehalfMode] = useState(false);
+  const [studentEmail, setStudentEmail] = useState("");
 
   const form = useForm<z.infer<ReviewFormType>>({
     resolver: zodResolver(formSchema),
@@ -312,6 +317,15 @@ export default function ReviewForm() {
     },
   });
 
+  const onBehalfMutation = api.review.createOnBehalf.useMutation({
+    onSuccess: () => {
+      router.push("/roles");
+    },
+    onError: (error) => {
+      toast.error(error.message || "Something went wrong. Please try again.");
+    },
+  });
+
   const draftMutation = api.review.saveDraft.useMutation({
     onSuccess: async () => {
       if (profileId) {
@@ -336,6 +350,21 @@ export default function ReviewForm() {
 
   async function onSubmit(values: z.infer<ReviewFormType>) {
     try {
+      if (onBehalfMode) {
+        if (!HUSKY_EMAIL_REGEX.test(studentEmail)) {
+          toast.error("Please enter a valid husky.neu.edu email.");
+          return;
+        }
+        await onBehalfMutation.mutateAsync({
+          roleId: roleId,
+          companyId: companyId,
+          studentEmail,
+          ...values,
+          reviewHeadline: "",
+          status: Status.PUBLISHED,
+        });
+        return;
+      }
       await mutation.mutateAsync({
         roleId: roleId,
         profileId: profile?.id,
@@ -458,6 +487,30 @@ export default function ReviewForm() {
       >
         <PortalZIndexContext.Provider value={49}>
           <div className="justify-left mt-4 flex h-full xl:w-[45%] md:w-[65%] w-[85%] flex-col pt-10">
+            {session.user.role === UserRole.DEVELOPER && (
+              <div className="pb-8">
+                <label className="flex items-center gap-3">
+                  <Checkbox
+                    checked={onBehalfMode}
+                    onCheckedChange={(checked) =>
+                      setOnBehalfMode(checked === true)
+                    }
+                  />
+                  <span className="text-cooper-gray-550 text-lg">
+                    Review on behalf of someone
+                  </span>
+                </label>
+                {onBehalfMode && (
+                  <input
+                    type="email"
+                    value={studentEmail}
+                    onChange={(e) => setStudentEmail(e.target.value)}
+                    placeholder="Student's Husky email"
+                    className="border-cooper-gray-150 mt-4 w-full rounded-lg border px-4 py-3 text-lg"
+                  />
+                )}
+              </div>
+            )}
             <div className="text-cooper-gray-550 text-lg">
               Basic information
             </div>
@@ -494,26 +547,29 @@ export default function ReviewForm() {
                 </div>
                 <div className="flex gap-2 justify-end">
                   {/* Save Draft Button */}
-                  <div className="pb-12 pt-6">
-                    <Button
-                      type="button"
-                      onClick={() =>
-                        void onSaveDraft(() => router.push("/roles"))
-                      }
-                      disabled={
-                        mutation.isPending ||
-                        draftMutation.isPending ||
-                        updateDraftMutation.isPending
-                      }
-                      className="bg-white hover:bg-cooper-gray-600
+                  {!onBehalfMode && (
+                    <div className="pb-12 pt-6">
+                      <Button
+                        type="button"
+                        onClick={() =>
+                          void onSaveDraft(() => router.push("/roles"))
+                        }
+                        disabled={
+                          mutation.isPending ||
+                          draftMutation.isPending ||
+                          updateDraftMutation.isPending
+                        }
+                        className="bg-white hover:bg-cooper-gray-600
                   rounded-lg border border-cooper-gray-150 2-253 px-8 py-3 text-lg font-semibold
                   text-cooper-gray-900"
-                    >
-                      {draftMutation.isPending || updateDraftMutation.isPending
-                        ? "Saving draft..."
-                        : "Save draft"}
-                    </Button>
-                  </div>
+                      >
+                        {draftMutation.isPending ||
+                        updateDraftMutation.isPending
+                          ? "Saving draft..."
+                          : "Save draft"}
+                      </Button>
+                    </div>
+                  )}
                   {/* Submit Button */}
                   <div className="pb-12 pt-6">
                     <Button
@@ -529,11 +585,14 @@ export default function ReviewForm() {
                       disabled={
                         mutation.isPending ||
                         draftMutation.isPending ||
-                        updateDraftMutation.isPending
+                        updateDraftMutation.isPending ||
+                        onBehalfMutation.isPending
                       }
                       className="bg-cooper-gray-550 hover:bg-cooper-gray-600 rounded-lg border-none px-8 py-3 text-lg font-semibold text-white"
                     >
-                      {mutation.isPending ? "Submitting..." : "Submit review"}
+                      {mutation.isPending || onBehalfMutation.isPending
+                        ? "Submitting..."
+                        : "Submit review"}
                     </Button>
                   </div>
                 </div>
