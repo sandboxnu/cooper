@@ -35,12 +35,8 @@ import {
   sortableProcedure,
 } from "../trpc";
 
-type ReviewDbOrTx =
-  | CooperDb
-  | Parameters<Parameters<CooperDb["transaction"]>[0]>[0];
-
 async function insertReviewWithRounds(
-  db: ReviewDbOrTx,
+  db: CooperDb,
   reviewInput: Omit<
     z.infer<typeof CreateReviewWithRoundsSchema>,
     "interviewRounds" | "toolNames" | "profileId"
@@ -296,54 +292,54 @@ export const reviewRouter = {
       const { interviewRounds, toolNames, studentEmail, ...reviewInput } =
         input;
 
-      return ctx.db.transaction(async (tx) => {
-        const existingUser = await tx.query.User.findFirst({
-          where: sql`lower(${User.email}) = lower(${studentEmail})`,
-        });
-
-        const userId =
-          existingUser?.id ??
-          (
-            await tx
-              .insert(User)
-              .values({ email: studentEmail })
-              .returning({ id: User.id })
-          )[0]?.id;
-
-        if (!userId) {
-          throw new TRPCError({
-            code: "INTERNAL_SERVER_ERROR",
-            message: "Failed to resolve student account",
-          });
-        }
-
-        const existingProfile = await tx.query.Profile.findFirst({
-          where: eq(Profile.userId, userId),
-        });
-
-        const profileId =
-          existingProfile?.id ??
-          (
-            await tx
-              .insert(Profile)
-              .values({ userId, firstName: "", lastName: "" })
-              .returning({ id: Profile.id })
-          )[0]?.id;
-
-        if (!profileId) {
-          throw new TRPCError({
-            code: "INTERNAL_SERVER_ERROR",
-            message: "Failed to resolve student profile",
-          });
-        }
-
-        return insertReviewWithRounds(
-          tx,
-          { ...reviewInput, profileId, status: Status.PUBLISHED },
-          interviewRounds,
-          toolNames,
-        );
+      // neon-http doesn't support db.transaction(); these steps run as
+      // sequential statements, same as the rest of this router.
+      const existingUser = await ctx.db.query.User.findFirst({
+        where: sql`lower(${User.email}) = lower(${studentEmail})`,
       });
+
+      const userId =
+        existingUser?.id ??
+        (
+          await ctx.db
+            .insert(User)
+            .values({ email: studentEmail })
+            .returning({ id: User.id })
+        )[0]?.id;
+
+      if (!userId) {
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: "Failed to resolve student account",
+        });
+      }
+
+      const existingProfile = await ctx.db.query.Profile.findFirst({
+        where: eq(Profile.userId, userId),
+      });
+
+      const profileId =
+        existingProfile?.id ??
+        (
+          await ctx.db
+            .insert(Profile)
+            .values({ userId, firstName: "", lastName: "" })
+            .returning({ id: Profile.id })
+        )[0]?.id;
+
+      if (!profileId) {
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: "Failed to resolve student profile",
+        });
+      }
+
+      return insertReviewWithRounds(
+        ctx.db,
+        { ...reviewInput, profileId, status: Status.PUBLISHED },
+        interviewRounds,
+        toolNames,
+      );
     }),
 
   saveDraft: protectedProcedure
