@@ -19,9 +19,10 @@ import { api } from "~/trpc/react";
  * BasicInfoSection renders the company, role, term and location fields.
  */
 export function BasicInfoSection({
-  profileId,
+  allowNewCompanyOrRole = true,
 }: {
-  profileId: string | undefined;
+  // Off when editing a saved review, whose save doesn't create new ones
+  allowNewCompanyOrRole?: boolean;
 }) {
   const form = useFormContext();
   const [locationLabel, setLocationLabel] = useState<string>("");
@@ -105,7 +106,7 @@ export function BasicInfoSection({
 
   return (
     <FormSection>
-      <ExistingCompanyContent profileId={profileId} />
+      <ExistingCompanyContent allowNew={allowNewCompanyOrRole} />
 
       <FieldRow>
         <SelectField

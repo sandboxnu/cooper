@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useState } from "react";
 import Image from "next/image";
 
 import { cn } from "@cooper/ui";
@@ -32,11 +32,13 @@ interface FilterBodyProps {
   placeholder?: string;
   /** When true (autocomplete only), only one option can be selected; value shows in bar and dropdown closes on select. */
   singleSelect?: boolean;
-  /** When false (autocomplete singleSelect only), options can't be searched by typing. */
+  /** When false (autocomplete singleSelect, or checkbox), options can't be searched by typing. */
   searchable?: boolean;
   minValue?: number;
   maxValue?: number;
   onRangeChange?: (min: number, max: number) => void;
+  /** Range only: "$" before the inputs (pay) or "hrs" after them (work hours) */
+  rangeUnit?: "dollars" | "hours";
   onSearchChange?: (search: string) => void;
   isLoadingOptions?: boolean;
   isInMenuContent?: boolean;
@@ -73,7 +75,11 @@ function FilterBodyRange({
   minValue,
   maxValue,
   onRangeChange,
+  rangeUnit = "dollars",
 }: FilterBodyProps) {
+  // Two range filters can share a panel, so the input ids must be unique
+  const idPrefix = useId();
+  const isHours = rangeUnit === "hours";
   // Show empty inputs when the parent range is the default (0,0)
   const [localMin, setLocalMin] = useState(
     minValue === 0 && maxValue === 0 ? "" : (minValue?.toString() ?? ""),
@@ -148,7 +154,10 @@ function FilterBodyRange({
         </div>
         <div className="w-4" />
         <div className="flex-1">
-          <label htmlFor="max" className="mb-1 text-xs text-cooper-gray-400">
+          <label
+            htmlFor={`${idPrefix}-max`}
+            className="mb-1 text-xs text-cooper-gray-400"
+          >
             Max
           </label>
         </div>
@@ -156,43 +165,59 @@ function FilterBodyRange({
 
       <div className="flex items-center gap-[10px]">
         <div className="relative flex-1">
-          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-cooper-gray-400">
-            $
-          </span>
+          {!isHours && (
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-cooper-gray-400">
+              $
+            </span>
+          )}
           <Input
-            id="min"
+            id={`${idPrefix}-min`}
             type="number"
             value={localMin}
             min={0}
             onChange={(e) => setLocalMin(e.target.value)}
             className={cn(
-              "border-cooper-gray-150 h-9 border-[1px] pl-5 text-sm text-cooper-gray-400",
+              "border-cooper-gray-150 h-9 border-[1px] text-sm text-cooper-gray-400",
+              isHours ? "pr-10" : "pl-5",
               rangeError ? "border-red-500" : "",
             )}
             onBlur={handleRangeApply}
             onKeyDown={(e) => e.key === "Enter" && handleRangeApply()}
           />
+          {isHours && (
+            <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-sm text-cooper-gray-400">
+              hrs
+            </span>
+          )}
         </div>
 
         <hr className="border-cooper-gray-600 w-4" />
 
         <div className="relative flex-1">
-          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-cooper-gray-400">
-            $
-          </span>
+          {!isHours && (
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-cooper-gray-400">
+              $
+            </span>
+          )}
           <Input
-            id="max"
+            id={`${idPrefix}-max`}
             type="number"
             value={localMax}
             min={0}
             onChange={(e) => setLocalMax(e.target.value)}
             className={cn(
-              "border-cooper-gray-150 h-9 border-[1px] pl-5 text-sm text-cooper-gray-400",
+              "border-cooper-gray-150 h-9 border-[1px] text-sm text-cooper-gray-400",
+              isHours ? "pr-10" : "pl-5",
               rangeError ? "border-red-500" : "",
             )}
             onBlur={handleRangeApply}
             onKeyDown={(e) => e.key === "Enter" && handleRangeApply()}
           />
+          {isHours && (
+            <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-sm text-cooper-gray-400">
+              hrs
+            </span>
+          )}
         </div>
       </div>
 
@@ -249,7 +274,9 @@ function FilterBodyRating({
             key={rating}
             onClick={() => handleRatingClick(rating)}
             className={cn(
-              "bg-cooper-gray-150 relative flex flex-1 items-center justify-center gap-1 px-5 py-[10px] transition-colors",
+              // flex-1 + small padding: the five buttons share the width, so
+              // all of them fit in narrow panels too
+              "bg-cooper-gray-150 relative flex min-w-0 flex-1 items-center justify-center gap-1 px-1 py-[10px] transition-colors",
               isInRange
                 ? "hover:bg-cooper-yellow-200 bg-cooper-yellow-400"
                 : "hover:bg-cooper-yellow-200",
@@ -330,8 +357,12 @@ function FilterBodyCheckbox({
   options,
   selectedOptions,
   onSelectionChange,
+  searchable = true,
 }: FilterBodyProps) {
   const [searchTerm, setSearchTerm] = useState("");
+  // Option ids repeat across filter panels (the hidden sidebar stays mounted),
+  // so scope the DOM ids or a label click toggles another panel's checkbox
+  const idPrefix = useId();
 
   const filteredOptions = useMemo(() => {
     const q = searchTerm.toLowerCase();
@@ -349,7 +380,7 @@ function FilterBodyCheckbox({
 
   return (
     <div className="flex flex-col gap-3">
-      {options.length > 5 && (
+      {searchable && options.length > 5 && (
         <Input
           placeholder="Search..."
           value={searchTerm}
@@ -362,12 +393,12 @@ function FilterBodyCheckbox({
         {filteredOptions.map((option) => (
           <div key={option.id} className="flex items-center gap-2">
             <Checkbox
-              id={option.id}
+              id={`${idPrefix}-${option.id}`}
               checked={selectedOptions.includes(option.id)}
               onCheckedChange={() => handleToggleOption(option.id)}
             />
             <label
-              htmlFor={option.id}
+              htmlFor={`${idPrefix}-${option.id}`}
               className="flex-1 cursor-pointer text-sm"
             >
               {option.label}

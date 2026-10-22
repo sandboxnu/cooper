@@ -35,8 +35,10 @@ export function OptionsMenu({
       <DropdownMenu modal={false}>
         <DropdownMenuTrigger
           aria-label={`${entityType === "role" ? "Role" : "Company"} options`}
-          // Same height as the save button so the icons center on one line
-          className="flex h-6 shrink-0 items-center outline-none"
+          // Same height as the save button so the icons center on one line;
+          // the after: overlay widens the click area to 30x32 without moving
+          // anything
+          className="relative flex h-6 shrink-0 items-center outline-none after:absolute after:-inset-x-3 after:-inset-y-1 after:content-['']"
         >
           {/* The svg's dots sit 2px below its center, so nudge them up */}
           <Image

@@ -18,7 +18,8 @@ const ToastViewport = React.forwardRef<
   <ToastPrimitives.Viewport
     ref={ref}
     className={cn(
-      "fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]",
+      // Bottom center on mobile; bottom right from sm up
+      "fixed bottom-0 left-1/2 z-[100] flex max-h-screen w-full max-w-[420px] -translate-x-1/2 flex-col items-center p-4 sm:left-auto sm:right-0 sm:translate-x-0 sm:items-end",
       className,
     )}
     {...props}
@@ -40,7 +41,7 @@ export function CustomToaster() {
   const { toasts } = useToast();
 
   return (
-    <ToastProvider>
+    <ToastProvider swipeDirection="down">
       {toasts.map(function ({
         id,
         title,

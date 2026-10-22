@@ -75,7 +75,7 @@ export function useFavoriteToggle(objId: string, objType: ObjType) {
         return { prev };
       },
       onSuccess: () => {
-        toast.success("This role has been saved.");
+        toast.success("Role saved");
       },
       onError: (_err, _vars, ctx) => {
         if (ctx?.prev) {
@@ -103,7 +103,7 @@ export function useFavoriteToggle(objId: string, objType: ObjType) {
         return { prev };
       },
       onSuccess: () => {
-        toast.success("This company has been saved.");
+        toast.success("Company saved");
       },
       onError: (_err, _vars, ctx) => {
         if (ctx?.prev) {
@@ -131,7 +131,7 @@ export function useFavoriteToggle(objId: string, objType: ObjType) {
         return { prev };
       },
       onSuccess: () => {
-        toast.success("This role has been unsaved.");
+        toast.success("Role unsaved");
       },
       onError: (_err, _vars, ctx) => {
         if (ctx?.prev) {
@@ -158,7 +158,7 @@ export function useFavoriteToggle(objId: string, objType: ObjType) {
         return { prev };
       },
       onSuccess: () => {
-        toast.success("This company has been unsaved.");
+        toast.success("Company unsaved");
       },
       onError: (_err, _vars, ctx) => {
         if (ctx?.prev) {

@@ -17,7 +17,7 @@ import { PipCard } from "./shared/pip-card";
 import { InfoIcon } from "./shared/info-icon";
 import { TabToggle } from "./shared/tab-toggle";
 
-const TYPE_LABELS: Record<string, string> = {
+export const TYPE_LABELS: Record<string, string> = {
   behavioral: "Behavioral",
   technical: "Technical",
   case_study: "Case study",
@@ -108,7 +108,7 @@ function difficultyText(d: Difficulty | null): string {
   return "";
 }
 
-function DifficultyChip({ difficulty }: { difficulty: Difficulty | null }) {
+export function DifficultyChip({ difficulty }: { difficulty: Difficulty | null }) {
   return (
     <div className="flex h-[25px] items-center justify-center gap-1 rounded-lg bg-[#eee] px-[7px] text-cooper-gray-400">
       {difficulty === "easy" && <ArrowUp size={12} className="rotate-180" />}

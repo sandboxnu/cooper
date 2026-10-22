@@ -4,7 +4,10 @@ import { cn } from "@cooper/ui";
  * FormSection stacks a review form section's fields with even spacing.
  */
 export function FormSection({ children }: { children: React.ReactNode }) {
-  return <div className="flex w-full flex-col gap-5">{children}</div>;
+  // More space between fields on mobile; matches FieldRow
+  return (
+    <div className="flex w-full flex-col gap-7 sm:gap-5">{children}</div>
+  );
 }
 
 /**

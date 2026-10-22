@@ -328,7 +328,7 @@ export function ReviewViewEditModal({
 
   const updateMutation = api.review.update.useMutation({
     onSuccess: async () => {
-      toast.success("Review updated successfully.");
+      toast.success("Review updated");
       // Refetch everything: a changed company/role/rating shows up in job
       // cards, search results and company pages, not just this pop-up
       await utils.invalidate();
@@ -489,7 +489,7 @@ export function ReviewViewEditModal({
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
-        className="flex h-[74vh] md:w-[66vw] w-[80vw] max-w-2xl sm:max-w-2xl flex-col gap-0 overflow-hidden rounded-xl border border-cooper-gray-150 bg-white p-0"
+        className="flex h-[74vh] w-[calc(100vw-32px)] md:w-[66vw] max-w-2xl sm:max-w-2xl flex-col gap-0 overflow-hidden rounded-xl border border-cooper-gray-150 bg-white p-0"
         onInteractOutside={(e) => {
           if (isOutsideEventOnAutocompletePortal(e)) {
             e.preventDefault();
@@ -497,36 +497,43 @@ export function ReviewViewEditModal({
         }}
       >
         {/* Header: same layout and padding as a small compare card's */}
-        <div className="flex shrink-0 flex-col gap-4 bg-white px-4 pb-5 pt-3 md:flex-row md:items-start md:justify-between">
-          <RoleHeader
-            logo={
-              <div className={logoBoxClass(true)}>
-                {company && (
-                  <Logo
-                    company={company}
-                    className="h-8 min-h-8 w-8 min-w-8 rounded-md text-lg"
-                  />
-                )}
-              </div>
-            }
-            title={role?.title ?? "—"}
-            jobTypeLabel={
-              review?.jobType === "CO-OP" ? "Co-op" : (review?.jobType ?? null)
-            }
-            locationLabel={locationDisplay || null}
-            rating={
-              roleReviews
-                ? {
-                    average: Number(roleAverages?.averageOverallRating ?? 0),
-                    count: roleReviews.length,
-                  }
-                : null
-            }
-            small
-          />
-          <div className="flex items-center gap-5 md:pt-0">
+        {/* Buttons + X sit top right: in their own row above the title below
+            md (col-reverse), beside it from md up */}
+        <div className="flex shrink-0 flex-col-reverse gap-4 bg-white px-4 pb-5 pt-3 md:flex-row md:items-start md:justify-between">
+          {/* min-w-0 lets a long title wrap instead of pushing the buttons */}
+          <div className="min-w-0 flex-1">
+            <RoleHeader
+              logo={
+                <div className={logoBoxClass(true)}>
+                  {company && (
+                    <Logo
+                      company={company}
+                      className="h-8 min-h-8 w-8 min-w-8 rounded-md text-lg"
+                    />
+                  )}
+                </div>
+              }
+              title={role?.title ?? "—"}
+              jobTypeLabel={
+                review?.jobType === "CO-OP"
+                  ? "Co-op"
+                  : (review?.jobType ?? null)
+              }
+              locationLabel={locationDisplay || null}
+              rating={
+                roleReviews
+                  ? {
+                      average: Number(roleAverages?.averageOverallRating ?? 0),
+                      count: roleReviews.length,
+                    }
+                  : null
+              }
+              small
+            />
+          </div>
+          <div className="flex shrink-0 items-center justify-end gap-5 md:pt-0">
             {/* Button styles match the delete review dialog */}
-            <div className="flex items-center gap-2 flex-wrap">
+            <div className="flex flex-wrap items-center justify-end gap-2">
               {mode === "view" ? (
                 <>
                   <DeleteReviewDialog
@@ -621,7 +628,7 @@ export function ReviewViewEditModal({
                     <FormSectionBlock title="Basic information" divider={false}>
                       <BasicInfoSection
                         key={discardKey}
-                        profileId={profile?.id}
+                        allowNewCompanyOrRole={false}
                       />
                     </FormSectionBlock>
                     <FormSectionBlock title="On the job">

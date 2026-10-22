@@ -17,11 +17,15 @@ const Logo: React.FC<ILogoProps> = ({ company, className }) => {
     rawWebsite && rawWebsite !== ""
       ? rawWebsite.replace(/^(https?:\/\/)/, "")
       : `${company.name.replace(/\s/g, "")}.com`;
-  const [imageError, setImageError] = useState(false);
-  return imageError ? (
+  const src = `https://img.logo.dev/${website}?token=pk_DNxGM2gHTjiLU3p79GX79A`;
+  // Remember which URL failed, so a reused Logo (e.g. the company header when
+  // switching companies) doesn't keep the previous company's error
+  const [failedSrc, setFailedSrc] = useState<string | null>(null);
+  return failedSrc === src ? (
     <div
       className={cn(
-        "flex aspect-square max-h-20 min-h-16 min-w-16 max-w-20 items-center justify-center rounded-md bg-cooper-gray-200 text-4xl font-bold text-white",
+        // Same box as the logo image below so both sizes match wherever used
+        "flex h-[50px] w-[50px] shrink-0 items-center justify-center rounded-lg bg-cooper-gray-200 text-2xl font-bold text-white",
         className,
       )}
     >
@@ -29,12 +33,12 @@ const Logo: React.FC<ILogoProps> = ({ company, className }) => {
     </div>
   ) : (
     <Image
-      src={`https://img.logo.dev/${website}?token=pk_DNxGM2gHTjiLU3p79GX79A`}
+      src={src}
       width={50}
       height={50}
       alt={`Logo of ${company.name}`}
       className={cn(`h-[50px] w-[50px] rounded-lg`, className)}
-      onError={() => setImageError(true)}
+      onError={() => setFailedSrc(src)}
     />
   );
 };

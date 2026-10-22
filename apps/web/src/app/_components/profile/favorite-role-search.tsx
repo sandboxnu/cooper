@@ -47,15 +47,19 @@ export default function FavoriteRoleSearch({
   const totalPages = Math.ceil(favoriteRoles.length / rolesPerPage);
   return (
     <div>
-      <div className="flex justify-end pb-4">
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={handlePageChange}
-        />
-      </div>
+      {/* Only take up space when there's more than one page, so the cards
+          sit as close to the tabs as My reviews */}
+      {totalPages > 1 && (
+        <div className="flex justify-end pb-4">
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
+        </div>
+      )}
       {/* Search-result-width cards with the results' 8px gap, wrapping */}
-      <div className="mx-1 flex flex-wrap gap-2 pb-4">
+      <div className="flex flex-wrap gap-2 pb-4">
         {favoriteRoles.length > 0 ? (
           favoriteRoles
             .slice(
@@ -67,7 +71,7 @@ export default function FavoriteRoleSearch({
             )
             .map((role) => <SavedRoleCard key={role.id} role={role} />)
         ) : (
-          <p className="italic text-cooper-gray-400">No saved roles found.</p>
+          <p className="w-full pt-6 text-center text-cooper-gray-400">No saved roles</p>
         )}
       </div>
     </div>

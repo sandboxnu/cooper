@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { useState } from "react";
+import Link from "next/link";
 
 import type { ReviewType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
@@ -13,7 +14,7 @@ import {
 } from "@cooper/ui/dropdown-menu";
 
 import { DeleteReviewDialog } from "~/app/_components/reviews/delete-review-dialogue";
-import { ReviewViewEditModal } from "~/app/_components/reviews/review-view-edit-modal";
+import { api } from "~/trpc/react";
 import { MENU_CONTENT_CLASS, MENU_ITEM_CLASS } from "../shared/menu-styles";
 
 interface Props {
@@ -21,13 +22,27 @@ interface Props {
   trigger: ReactNode;
 }
 
-// Published reviews only offer Delete; drafts keep Edit since the menu is the
-// only way back into a draft
+// Published reviews link to their job and company pages; both offer Delete. Clicking the
+// card itself opens the review (or draft)
 export function ReviewActionsDialog({ review, trigger }: Props) {
   const isDraft = review.status === "DRAFT";
 
-  const [editOpen, setEditOpen] = useState(false);
-  const [modalMode, setModalMode] = useState<"view" | "edit">("edit");
+  // Same queries the card makes, so these come from the cache
+  const { data: role } = api.role.getById.useQuery(
+    { id: review.roleId ?? "" },
+    { enabled: !isDraft && !!review.roleId },
+  );
+  const { data: company } = api.company.getById.useQuery(
+    { id: review.companyId ?? "" },
+    { enabled: !isDraft && !!review.companyId },
+  );
+  const jobHref =
+    !isDraft && role && company
+      ? `/roles/?company=${company.slug}&type=roles&role=${role.slug}`
+      : null;
+  const companyHref =
+    !isDraft && company ? `/roles/?company=${company.slug}&type=companies` : null;
+
   const [deleteOpen, setDeleteOpen] = useState(false);
 
   return (
@@ -36,15 +51,14 @@ export function ReviewActionsDialog({ review, trigger }: Props) {
       <DropdownMenu modal={false}>
         <DropdownMenuTrigger asChild>{trigger}</DropdownMenuTrigger>
         <DropdownMenuContent align="start" className={MENU_CONTENT_CLASS}>
-          {isDraft && (
-            <DropdownMenuItem
-              className={MENU_ITEM_CLASS}
-              onSelect={() => {
-                setModalMode("edit");
-                setEditOpen(true);
-              }}
-            >
-              Edit draft
+          {jobHref && (
+            <DropdownMenuItem asChild className={MENU_ITEM_CLASS}>
+              <Link href={jobHref}>Go to job page</Link>
+            </DropdownMenuItem>
+          )}
+          {companyHref && (
+            <DropdownMenuItem asChild className={MENU_ITEM_CLASS}>
+              <Link href={companyHref}>Go to company page</Link>
             </DropdownMenuItem>
           )}
           <DropdownMenuItem
@@ -62,15 +76,6 @@ export function ReviewActionsDialog({ review, trigger }: Props) {
         open={deleteOpen}
         onOpenChange={setDeleteOpen}
       />
-      {isDraft && (
-        <ReviewViewEditModal
-          reviewId={review.id}
-          mode={modalMode}
-          open={editOpen}
-          onOpenChange={setEditOpen}
-          onModeChange={setModalMode}
-        />
-      )}
     </>
   );
 }

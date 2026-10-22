@@ -15,6 +15,7 @@ interface SidebarSectionProps {
   onRangeChange?: (min: number, max: number) => void;
   minValue?: number;
   maxValue?: number;
+  rangeUnit?: "dollars" | "hours";
   variant?: "main" | "subsection";
   portalZIndex?: number;
 }
@@ -33,6 +34,7 @@ export default function SidebarSection({
   onRangeChange,
   minValue,
   maxValue,
+  rangeUnit,
   variant = "main",
   portalZIndex,
 }: SidebarSectionProps) {
@@ -76,6 +78,7 @@ export default function SidebarSection({
           onRangeChange={onRangeChange}
           minValue={minValue}
           maxValue={maxValue}
+          rangeUnit={rangeUnit}
           onSearchChange={onSearchChange}
           isLoadingOptions={isLoadingOptions}
           portalZIndex={portalZIndex}

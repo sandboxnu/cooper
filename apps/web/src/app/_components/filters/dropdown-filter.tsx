@@ -210,7 +210,14 @@ export function FilterPanelContent(
     | "onRangeChange"
     | "onSearchChange"
     | "placeholder"
-  > & { onClose: () => void; isInMenuContent?: boolean },
+  > & {
+    onClose: () => void;
+    isInMenuContent?: boolean;
+    searchable?: boolean;
+    // "menu": plain white panel with just a Clear link (review filters);
+    // "panel": the cream filter panel with Clear and a close X
+    variant?: "panel" | "menu";
+  },
 ) {
   const {
     title,
@@ -225,6 +232,8 @@ export function FilterPanelContent(
     onClose,
     placeholder,
     isInMenuContent = true,
+    searchable,
+    variant = "panel",
   } = props;
 
   const handleClear = () => {
@@ -233,6 +242,44 @@ export function FilterPanelContent(
       onRangeChange(0, 0);
     }
   };
+
+  const body = (
+    <FilterBody
+      variant={filterType}
+      title={title}
+      options={options}
+      selectedOptions={selectedOptions}
+      onSelectionChange={onSelectionChange}
+      minValue={minValue}
+      maxValue={maxValue}
+      onRangeChange={onRangeChange}
+      onSearchChange={onSearchChange}
+      placeholder={placeholder}
+      isInMenuContent={isInMenuContent}
+      searchable={searchable}
+    />
+  );
+
+  if (variant === "menu") {
+    return (
+      <div
+        className={cn(
+          "flex w-72 flex-col gap-1 rounded-lg border border-cooper-gray-150 bg-[#fafaf7] p-4",
+          // Room for all five star buttons, within the screen on mobile
+          filterType === "rating" && "w-96 max-w-[calc(100vw-32px)]",
+        )}
+      >
+        {body}
+        <button
+          type="button"
+          onClick={handleClear}
+          className="self-end text-xs text-cooper-gray-400 hover:text-cooper-gray-550"
+        >
+          Clear
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col w-96 gap-[22px] p-5 bg-cooper-cream-400 rounded-lg">
@@ -253,19 +300,7 @@ export function FilterPanelContent(
           <X className="h-4 w-4" />
         </Button>
       </div>
-      <FilterBody
-        variant={filterType}
-        title={title}
-        options={options}
-        selectedOptions={selectedOptions}
-        onSelectionChange={onSelectionChange}
-        minValue={minValue}
-        maxValue={maxValue}
-        onRangeChange={onRangeChange}
-        onSearchChange={onSearchChange}
-        placeholder={placeholder}
-        isInMenuContent={isInMenuContent}
-      />
+      {body}
     </div>
   );
 }

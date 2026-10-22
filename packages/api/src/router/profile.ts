@@ -67,6 +67,7 @@ export const profileRouter = {
           firstName: input.firstName,
           lastName: input.lastName,
           major: input.major,
+          graduationYear: input.graduationYear,
         })
         .where(eq(Profile.id, input.id));
     }),

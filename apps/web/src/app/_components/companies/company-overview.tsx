@@ -2,65 +2,57 @@
 
 import type { CompanyType } from "@cooper/db/schema";
 import { cn } from "@cooper/ui";
+import Image from "next/image";
 import Logo from "@cooper/ui/logo";
+
 
 import { FavoriteButton } from "../shared/favorite-button";
 import { OptionsMenu } from "../shared/options-menu";
-import RenderAllRoles from "./all-company-roles";
-import { CompanyAbout } from "./company-about";
-import { CompanyReview } from "./company-reviews";
+import { useCompanyLocation } from "../shared/use-company-location";
 
-interface CompanyOverviewProps {
+const SEE_FULL_DETAILS_CLASS =
+  "whitespace-nowrap text-[16px] font-bold leading-6 tracking-[-0.16px] text-cooper-gray-350 transition hover:text-cooper-gray-400";
+
+interface CompanyHeaderProps {
   company: CompanyType;
-  locations?: (string | null)[];
-  // Shows a "See full details" link in the header (used by the popup)
+  // Shows a "See full details" link next to the save button (popup)
   onSeeFullDetails?: () => void;
-  // Called when a role in the roles panel is opened
-  onRoleSelect?: () => void;
+  // Company page passes a bigger logo; the popup keeps the default
+  logoClassName?: string;
+  // Star rating beside the location, like the job header; omitted when there
+  // are no reviews
+  rating?: { average: number; count: number } | null;
   className?: string;
 }
 
-// Company header, about, rating and roles panel; shared by the company popup
-// and the company view on /roles
-export function CompanyOverview({
+// Logo, name, location and save/options; shared by the company page and popup
+export function CompanyHeader({
   company,
-  locations,
   onSeeFullDetails,
-  onRoleSelect,
+  logoClassName = "h-[59px] max-h-[59px] min-h-[59px] w-[59px] min-w-[59px] max-w-[59px]",
+  rating,
   className,
-}: CompanyOverviewProps) {
-  const knownLocations = (locations ?? []).filter(
-    (loc): loc is string => !!loc,
-  );
-  const locationLabel =
-    knownLocations.length > 1
-      ? `${knownLocations[0]} +${knownLocations.length - 1} ${knownLocations.length - 1 === 1 ? "other" : "others"}`
-      : (knownLocations[0] ?? null);
+}: CompanyHeaderProps) {
+  const locationLabel = useCompanyLocation(company.id);
 
   return (
-    <div className={cn("flex flex-col gap-7", className)}>
-      <div className="flex items-center gap-4">
-        <Logo
-          company={company}
-          className="h-[59px] max-h-[59px] min-h-[59px] w-[59px] min-w-[59px] max-w-[59px]"
-        />
-        <div className="flex min-w-0 flex-1 items-start gap-4">
-          <div className="flex min-w-0 flex-1 flex-col gap-1">
-            <h1 className="text-[24px] font-semibold leading-normal text-cooper-gray-900">
-              {company.name}
-            </h1>
-            {locationLabel && (
-              <p className="text-[16px] leading-6 tracking-[-0.16px] text-cooper-gray-400">
-                {locationLabel}
-              </p>
-            )}
-          </div>
+    <div className={cn("flex items-center gap-6", className)}>
+      <Logo company={company} className={logoClassName} />
+      {/* Same layout as the job header: title beside the buttons, then a
+          location + rating row */}
+      <div className="flex min-w-0 flex-1 flex-col">
+        <div className="flex items-start gap-4">
+          <h1 className="min-w-0 flex-1 break-words text-[24px] font-semibold leading-8 text-cooper-gray-900">
+            {company.name}
+          </h1>
           <div className="flex shrink-0 items-center gap-4">
+            {/* Beside the buttons from sm; below the location on phones,
+                where it would crowd the name */}
             {onSeeFullDetails && (
               <button
                 type="button"
                 onClick={onSeeFullDetails}
-                className="text-[16px] font-bold leading-6 tracking-[-0.16px] text-cooper-gray-350 transition hover:text-cooper-gray-400"
+                className={cn(SEE_FULL_DETAILS_CLASS, "hidden sm:block")}
               >
                 See full details
               </button>
@@ -73,19 +65,38 @@ export function CompanyOverview({
             />
           </div>
         </div>
-      </div>
-
-      <div className="flex min-h-0 flex-1 flex-col gap-7 md:flex-row">
-        <div className="flex min-w-0 flex-1 flex-col gap-7 md:overflow-y-auto md:px-3">
-          <CompanyAbout companyObj={company} />
-          <hr className="border-t border-cooper-gray-150" />
-          <CompanyReview companyObj={company} />
+        {/* Like the job header, location and rating wrap onto separate lines
+            rather than squeezing each other; a wrapped rating sits at the
+            left. ml-auto keeps a lone rating (no location) on the right */}
+        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-[16px] leading-6 text-cooper-gray-400">
+          {locationLabel && <p>{locationLabel}</p>}
+          {rating && rating.count > 0 && (
+            <div
+              className={cn(
+                "flex items-center gap-2 whitespace-nowrap",
+                !locationLabel && "ml-auto",
+              )}
+            >
+              <Image
+                src="/svg/star.svg"
+                alt="Star icon"
+                width={20}
+                height={20}
+              />
+              <div>{Math.round(rating.average * 100) / 100}</div>(
+              {rating.count} review{rating.count !== 1 && "s"})
+            </div>
+          )}
         </div>
-        {/* Fixed height when stacked; beside the left column it stretches to
-            match it, capped so a long role list scrolls inside the panel */}
-        <div className="h-[418px] md:h-auto md:max-h-[70dvh] md:w-[354px] md:shrink-0">
-          <RenderAllRoles company={company} onClose={onRoleSelect} />
-        </div>
+        {onSeeFullDetails && (
+          <button
+            type="button"
+            onClick={onSeeFullDetails}
+            className={cn(SEE_FULL_DETAILS_CLASS, "mt-1 self-start sm:hidden")}
+          >
+            See full details
+          </button>
+        )}
       </div>
     </div>
   );

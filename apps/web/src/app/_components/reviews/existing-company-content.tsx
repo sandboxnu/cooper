@@ -1,280 +1,228 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Filter } from "bad-words";
-import Fuse from "fuse.js";
-import { useForm, useFormContext } from "react-hook-form";
-import { z } from "zod";
+import { useFormContext } from "react-hook-form";
 
-import { cn } from "@cooper/ui";
-import { Button } from "@cooper/ui/button";
-import { Checkbox } from "@cooper/ui/checkbox";
 import { FormControl, FormField, FormItem, FormMessage } from "@cooper/ui/form";
-import { useCustomToast } from "@cooper/ui/hooks/use-custom-toast";
 import { Input } from "@cooper/ui/input";
-import { Label } from "@cooper/ui/label";
 import { useReadOnly } from "@cooper/ui/read-only";
 
-import type { RoleRequestType } from "../roles/new-role-dialogue";
 import { api } from "~/trpc/react";
+import { prettyLocationName } from "~/utils/locationHelpers";
 import { CompanyCardPreview } from "../companies/company-card-preview";
-import { FieldLabel, OPTION_LABEL_CLASS } from "../form/fields";
-import { FormSection } from "../form/form-section";
-import LocationBox from "../location";
-import { industryOptions } from "../onboarding/constants";
 import FilterBody from "../filters/filter-body";
+import { FieldLabel } from "../form/fields";
+import { FormSection } from "../form/form-section";
+import { industryOptions } from "../onboarding/constants";
 
-const filter = new Filter();
-const roleSchema = z.object({
-  title: z
-    .string({ required_error: "You need to enter a role title." })
-    .min(5, {
-      message: "The role title must be at least 5 characters.",
-    })
-    .refine((val) => !filter.isProfane(val), {
-      message: "The title cannot contain profane words.",
-    }),
-  // description: z
-  //   .string()
-  //   .min(10, {
-  //     message: "The review must be at least 10 characters.",
-  //   })
-  //   .max(500, {
-  //     message: "The description must be at most 500 characters.",
-  //   })
-  //   .refine((val) => !filter.isProfane(val), {
-  //     message: "The description cannot contain profane words.",
-  //   }),
-  companyId: z.string(),
-  createdBy: z.string(),
-});
+// Stands in for companyName / roleName while a new company or role is picked
+// but not created yet; the review form creates it on submit or draft save
+export const NEW_ITEM_ID = "__new__";
+
+// Form fields for a not-yet-created company or role. They aren't in the review
+// form's schema, so read them with form.getValues().
+export const NEW_COMPANY_NAME_FIELD = "newCompanyName";
+export const NEW_COMPANY_LOCATION_FIELD = "companyLocationId";
+export const NEW_ROLE_TITLE_FIELD = "newRoleTitle";
+// Existing form field reused for the new company's industry
+export const NEW_COMPANY_INDUSTRY_FIELD = "industry";
+
+/**
+ * What's missing before a pending new company or role can be created, or null
+ * when nothing is pending or it's complete. Mirrors company.createWithRole's
+ * limits.
+ */
+export function pendingCompanyRoleError(
+  values: Record<string, unknown>,
+): string | null {
+  const text = (key: string) => {
+    const value = values[key];
+    return typeof value === "string" ? value.trim() : "";
+  };
+  const newCompany = values.companyName === NEW_ITEM_ID;
+  const newRole = values.roleName === NEW_ITEM_ID;
+  if (!newCompany && !newRole) return null;
+  if (newCompany) {
+    if (text(NEW_COMPANY_NAME_FIELD).length < 3)
+      return "The new company's name must be at least 3 characters.";
+    if (!text(NEW_COMPANY_INDUSTRY_FIELD))
+      return "Pick an industry for the new company.";
+    if (!text(NEW_COMPANY_LOCATION_FIELD))
+      return "Pick a location for the new company.";
+  }
+  if (text(NEW_ROLE_TITLE_FIELD).length < 3)
+    return "The new role's title must be at least 3 characters.";
+  return null;
+}
+
+const INPUT_CLASS =
+  "h-9 w-full rounded-lg border border-cooper-gray-150 text-sm shadow-none hover:bg-[#F6F6F6] focus:bg-white";
+
+// "New" chip for a company or role that will be created with the review; its
+// X (edit only) undoes it
+function PendingItem({
+  label,
+  onRemove,
+}: {
+  label: string;
+  onRemove?: () => void;
+}) {
+  return (
+    <div className="flex h-9 w-full items-center justify-between gap-3 rounded-lg border border-cooper-gray-150 bg-white px-3 text-sm">
+      <div className="flex min-w-0 items-center gap-2">
+        <span className="truncate text-cooper-gray-900">{label}</span>
+        <span className="shrink-0 rounded bg-cooper-gray-150 px-1.5 py-0.5 text-xs text-cooper-gray-400">
+          New
+        </span>
+      </div>
+      {onRemove && (
+        <button
+          type="button"
+          aria-label={`Remove ${label}`}
+          onClick={onRemove}
+          className="shrink-0 rounded-full transition hover:bg-[#F6F6F6] hover:shadow-[0px_0px_0px_8px_#F6F6F6]"
+        >
+          <Image
+            src="/svg/exitComparisonButton.svg"
+            width={12}
+            height={12}
+            alt=""
+          />
+        </button>
+      )}
+    </div>
+  );
+}
 
 export default function ExistingCompanyContent({
-  profileId,
+  allowNew = true,
 }: {
-  profileId?: string;
+  // Offer "+ Add ... as a new company/role" (off when editing a saved review)
+  allowNew?: boolean;
 }) {
-  const [selectedCompanyId, setSelectedCompanyId] = useState<
-    string | undefined
-  >();
-  const [creatingNewRole, setCreatingNewRole] = useState<boolean>(false);
-  const [showNewCompany, setShowNewCompany] = useState<boolean>(false);
-  const [locationLabel, setLocationLabel] = useState<string>("");
-  const [searchTerm, setSearchTerm] = useState<string>("");
-  const prefix =
-    searchTerm.length >= 3 ? searchTerm.slice(0, 3).toLowerCase() : "";
-  const [companySearchTerm, setCompanySearchTerm] = useState<string>("");
-  const [newCompanyName, setNewCompanyName] = useState<string>("");
+  const form = useFormContext();
+  const readOnly = useReadOnly();
 
-  const { toast } = useCustomToast();
+  const [companySearchTerm, setCompanySearchTerm] = useState("");
+  const [roleSearchTerm, setRoleSearchTerm] = useState("");
+  const [companyLocationSearch, setCompanyLocationSearch] = useState("");
+
+  const companyValue = form.watch("companyName") as string | null | undefined;
+  const roleValue = form.watch("roleName") as string | null | undefined;
+  const isNewCompany = companyValue === NEW_ITEM_ID;
+  const isNewRole = roleValue === NEW_ITEM_ID;
+  const selectedCompanyId =
+    companyValue && !isNewCompany ? companyValue : undefined;
+
+  const newCompanyName = form.watch(NEW_COMPANY_NAME_FIELD) as
+    | string
+    | undefined;
+  const newRoleTitle = form.watch(NEW_ROLE_TITLE_FIELD) as string | undefined;
 
   const companies = api.company.list.useQuery({
     sortBy: "rating",
     limit: 10000,
   });
-
   const roles = api.role.getByCompany.useQuery(
-    {
-      companyId: selectedCompanyId ?? "",
-    },
-    {
-      enabled: !!selectedCompanyId,
-    },
+    { companyId: selectedCompanyId ?? "" },
+    { enabled: !!selectedCompanyId },
+  );
+  const locationPrefix =
+    companyLocationSearch.length >= 3
+      ? companyLocationSearch.slice(0, 3).toLowerCase()
+      : "";
+  const companyLocations = api.location.getByPopularity.useQuery(
+    { prefix: locationPrefix },
+    { enabled: locationPrefix.length === 3 },
   );
 
-  // Location fetching logic for new company
+  // A new company has no roles yet, so its role is always new too
   useEffect(() => {
-    if (!showNewCompany) {
-      setLocationLabel("");
-      setSearchTerm("");
-      setNewCompanyName("");
+    if (isNewCompany && !isNewRole) {
+      form.setValue("roleName", NEW_ITEM_ID);
     }
-  }, [showNewCompany]);
+  }, [isNewCompany, isNewRole, form]);
 
-  const locationsToUpdate = api.location.getByPopularity.useQuery(
-    { prefix },
-    { enabled: prefix.length === 3 },
-  );
-
-  const locationValuesAndLabels = locationsToUpdate.data
-    ? locationsToUpdate.data.map((location) => {
-        return {
-          value: location.id,
-          label:
-            location.city +
-            (location.state ? `, ${location.state}` : "") +
-            ", " +
-            location.country,
-        };
-      })
-    : [];
-
-  const extendedRoleSchema = roleSchema.extend({
-    title: roleSchema.shape.title.refine(
-      (val) => {
-        if (!roles.data || !selectedCompanyId) return true;
-        const fuseOptions = {
-          keys: ["title"],
-          threshold: 0.1,
-          includeScore: true,
-        };
-
-        const fuse = new Fuse(roles.data, fuseOptions);
-        const searchResults = fuse.search(val.trim().toLowerCase());
-        const hasSimilarRole = searchResults.some(
-          (result) => result.score !== undefined && result.score < 0.1,
-        );
-        return !hasSimilarRole;
-      },
-      {
-        message: "A role with this title already exists for this company.",
-      },
-    ),
-  });
-
-  const newRoleForm = useForm<z.infer<RoleRequestType>>({
-    resolver: zodResolver(extendedRoleSchema),
-    defaultValues: {
-      title: "",
-      description: "",
-      companyId: "",
-      createdBy: profileId,
-    },
-  });
-
-  const newRoleMutation = api.role.create.useMutation({
-    onSuccess: (data) => {
-      toast.success("Role created successfully!");
-      const createdRole = data[0];
-      if (createdRole) {
-        form.setValue("roleName", createdRole.id);
-        setCreatingNewRole(false);
-        // Refresh roles list
-        void roles.refetch();
-      }
-    },
-    onError: (error) => {
-      console.error("Mutation error:", error);
-      toast.error(error.message || "Something went wrong. Please try again.");
-    },
-  });
-
-  const createCompanyWithRoleMutation = api.company.createWithRole.useMutation({
-    onSuccess: async ({ roleId, companyId }) => {
-      toast.success("Company and role created successfully!");
-      setNewCompanyName("");
-      form.setValue("industry", "");
-      form.setValue("title", "");
-      form.setValue("locationId", "");
-      await companies.refetch();
-      setSelectedCompanyId(companyId);
-      form.setValue("companyName", companyId);
-      form.setValue("roleName", roleId);
-      setShowNewCompany(false);
-      setCreatingNewRole(false);
-      void roles.refetch();
-    },
-    onError: (error) => {
-      console.error("Mutation error:", error);
-      toast.error(error.message || "Something went wrong. Please try again.");
-    },
-  });
-
-  function handleUpdateCompanyId(newId: string | undefined) {
-    newRoleForm.setValue("companyId", newId ?? "");
-    setSelectedCompanyId(newId);
-  }
-
-  const form = useFormContext();
-  const readOnly = useReadOnly();
-
-  // Get the selected company from the form
-  const selectedCompanyName = form.watch("companyName") as string;
-
-  // Sync selectedCompanyId from form value (handles pre-populated edit mode)
-  useEffect(() => {
-    if (selectedCompanyName && selectedCompanyName !== selectedCompanyId) {
-      setSelectedCompanyId(selectedCompanyName);
-    }
-  }, [selectedCompanyName, selectedCompanyId]);
   const selectedCompany = companies.data?.find(
-    (company) => company.id === selectedCompanyName,
+    (company) => company.id === selectedCompanyId,
   );
 
-  const handleCreateCompanyWithRole = async () => {
-    const companyName = newCompanyName;
-    const industry = form.getValues("industry") as string;
-    const locationId = form.getValues("locationId") as string;
-    const roleTitle =
-      (form.getValues("title") as string) ||
-      (form.getValues("roleName") as string);
-
-    // Validate required fields
-    if (!companyName || companyName.length < 3) {
-      toast.error("Company name must be at least 3 characters.");
-      return;
-    }
-    if (!industry) {
-      toast.error("Please select an industry.");
-      return;
-    }
-    if (!locationId) {
-      toast.error("Please select a location.");
-      return;
-    }
-    if (!roleTitle || roleTitle.length < 3) {
-      toast.error("Role title must be at least 3 characters.");
-      return;
-    }
-
-    await createCompanyWithRoleMutation.mutateAsync({
-      companyName: companyName.trim(),
-      description: `Company in ${industry} industry`,
-      industry,
-      roleTitle: roleTitle.trim(),
-      roleDescription: "Role description",
-      createdBy: profileId ?? "",
-    });
+  // "+ Add ..." shows whenever what's typed isn't an exact existing name
+  const addOption = (term: string, names: string[], kind: string) => {
+    const trimmed = term.trim();
+    if (!allowNew || !trimmed) return [];
+    const exists = names.some(
+      (name) => name.toLowerCase() === trimmed.toLowerCase(),
+    );
+    return exists
+      ? []
+      : [
+          {
+            id: NEW_ITEM_ID,
+            value: NEW_ITEM_ID,
+            label: `+ Add "${trimmed}" as a new ${kind}`,
+          },
+        ];
   };
 
-  const handleCreateRole = async () => {
-    if (!selectedCompanyId) {
-      toast.error("Please select a company first.");
-      return;
-    }
+  const companyOptions = [
+    ...(companies.data ?? [])
+      .filter(
+        (company) =>
+          !companySearchTerm ||
+          company.name.toLowerCase().includes(companySearchTerm.toLowerCase()),
+      )
+      .slice(0, 50)
+      .map((company) => ({
+        id: company.id,
+        label: company.name,
+        value: company.id,
+      })),
+    ...addOption(
+      companySearchTerm,
+      (companies.data ?? []).map((company) => company.name),
+      "company",
+    ),
+  ];
 
-    // Only validate the title field since companyId and createdBy are set programmatically
-    const isTitleValid = await newRoleForm.trigger("title");
-    if (!isTitleValid) {
-      const errorMessage = newRoleForm.formState.errors.title?.message;
-      toast.error(errorMessage ?? "Please enter a valid role title.");
-      return;
-    }
+  const roleOptions = [
+    ...(roles.data ?? []).map((role) => ({
+      id: role.id,
+      label: role.title,
+      value: role.id,
+    })),
+    ...addOption(
+      roleSearchTerm,
+      (roles.data ?? []).map((role) => role.title),
+      "role",
+    ),
+  ];
 
-    const values = newRoleForm.getValues();
+  const clearRole = () => {
+    form.setValue("roleName", "");
+    form.setValue(NEW_ROLE_TITLE_FIELD, "");
+  };
 
-    await newRoleMutation.mutateAsync({
-      title: values.title,
-      description: values.description,
-      companyId: selectedCompanyId,
-      createdBy: profileId ?? "",
-    });
+  const clearNewCompany = () => {
+    form.setValue("companyName", "");
+    form.setValue(NEW_COMPANY_NAME_FIELD, "");
+    form.setValue(NEW_COMPANY_INDUSTRY_FIELD, "");
+    form.setValue(NEW_COMPANY_LOCATION_FIELD, "");
+    clearRole();
   };
 
   return (
     <FormSection>
       <div className="flex w-full flex-col gap-2">
-        {/* Company Section */}
+        {/* Company */}
         <FormField
           control={form.control}
           name="companyName"
           render={({ field }) => (
-            <FormItem className="flex flex-col w-full">
+            <FormItem className="flex w-full flex-col">
               <FieldLabel required>Company</FieldLabel>
 
-              {/* Once picked, the company shows as a card; its X (edit only)
-                  clears it and brings back the search field */}
-              {selectedCompany && (
+              {selectedCompany ? (
+                // Picked: shown as its card; the X (edit only) clears it
                 <CompanyCardPreview
                   companyObj={selectedCompany}
                   className="w-full hover:cursor-default hover:bg-card"
@@ -284,9 +232,8 @@ export default function ExistingCompanyContent({
                         type="button"
                         aria-label="Change company"
                         onClick={() => {
-                          field.onChange(undefined);
-                          setSelectedCompanyId(undefined);
-                          form.setValue("roleName", "");
+                          field.onChange("");
+                          clearRole();
                           setCompanySearchTerm("");
                         }}
                         className="rounded-full transition hover:bg-[#F6F6F6] hover:shadow-[0px_0px_0px_12px_#F6F6F6]"
@@ -302,122 +249,61 @@ export default function ExistingCompanyContent({
                     )
                   }
                 />
-              )}
-              <div
-                className={cn(
-                  "relative w-full flex-1",
-                  selectedCompany && "hidden",
-                )}
-              >
-                <FilterBody
-                  variant="autocomplete"
-                  title="Company"
-                  options={(() => {
-                    const allCompanies =
-                      companies.data?.filter(Boolean).map((company) => ({
-                        id: company.id,
-                        label: company.name,
-                        value: company.id,
-                      })) ?? [];
-                    if (companySearchTerm) {
-                      const filtered = allCompanies.filter((c) =>
-                        c.label
-                          .toLowerCase()
-                          .includes(companySearchTerm.toLowerCase()),
-                      );
-                      return filtered.slice(0, 50);
-                    }
-                    return allCompanies.slice(0, 50);
-                  })()}
-                  selectedOptions={
-                    field.value &&
-                    typeof field.value === "string" &&
-                    field.value.length > 0
-                      ? [field.value]
-                      : []
-                  }
-                  placeholder="Enter"
-                  singleSelect
-                  onSearchChange={setCompanySearchTerm}
-                  onSelectionChange={(selected) => {
-                    const selectedId = selected[0];
-                    if (selectedId) {
-                      field.onChange(selectedId);
-                      handleUpdateCompanyId(selectedId);
-                      setShowNewCompany(false);
-                    } else {
-                      field.onChange(undefined);
-                      setSelectedCompanyId(undefined);
-                    }
-                    setCompanySearchTerm("");
-                  }}
+              ) : isNewCompany ? (
+                <PendingItem
+                  label={newCompanyName ?? ""}
+                  onRemove={readOnly ? undefined : clearNewCompany}
                 />
-              </div>
+              ) : (
+                <div className="relative w-full flex-1">
+                  <FilterBody
+                    variant="autocomplete"
+                    title="Company"
+                    options={companyOptions}
+                    selectedOptions={[]}
+                    placeholder="Enter"
+                    singleSelect
+                    onSearchChange={setCompanySearchTerm}
+                    onSelectionChange={(selected) => {
+                      const selectedId = selected[0];
+                      if (selectedId === NEW_ITEM_ID) {
+                        form.setValue(
+                          NEW_COMPANY_NAME_FIELD,
+                          companySearchTerm.trim(),
+                        );
+                        field.onChange(NEW_ITEM_ID);
+                      } else if (selectedId) {
+                        field.onChange(selectedId);
+                      }
+                      clearRole();
+                      setCompanySearchTerm("");
+                    }}
+                  />
+                </div>
+              )}
               <FormMessage />
             </FormItem>
           )}
         />
 
-        {/* "I don't see my company" checkbox */}
-
-        <div
-          className={cn(
-            "flex flex-1 items-center gap-2",
-            (readOnly || selectedCompany) && "hidden",
-          )}
-          onClick={() => !selectedCompany && setShowNewCompany(!showNewCompany)}
-        >
-          <Checkbox
-            checked={showNewCompany}
-            disabled={!!selectedCompany}
-            onCheckedChange={(checked) => {
-              setShowNewCompany(checked === true);
-              if (checked) {
-                form.setValue("companyName", "");
-                setSelectedCompanyId(undefined);
-                setLocationLabel("");
-                setSearchTerm("");
-              } else {
-                form.setValue("companyName", "");
-                form.setValue("industry", "");
-                form.setValue("locationId", "");
-                form.setValue("title", "");
-                setSelectedCompanyId(undefined);
-                setLocationLabel("");
-                setSearchTerm("");
-              }
-            }}
-          />
-          <Label className={OPTION_LABEL_CLASS}>I don't see my company</Label>
-        </div>
-
-        {/* "Add Your Company" gray box section */}
-        {showNewCompany && (
+        {/* New company details */}
+        {isNewCompany && !readOnly && (
           <div className="flex w-full flex-col gap-3 rounded-lg bg-cooper-gray-100 p-4">
-            <div className="text-cooper-gray-550 text-sm font-semibold">
-              Add your company
-            </div>
-            <p className="-mt-2 text-sm text-cooper-gray-350">
-              We'll verify this before it appears on the site.
-            </p>
-
-            {/* Company Name */}
-            <div className="flex w-full flex-col">
-              <FieldLabel required>Company name</FieldLabel>
-              <Input
-                placeholder="Enter"
-                className="h-9 w-full rounded-lg border border-cooper-gray-150 text-sm shadow-none hover:bg-[#F6F6F6] focus:bg-white"
-                value={newCompanyName}
-                onChange={(e) => setNewCompanyName(e.target.value)}
-              />
+            <div className="flex flex-col">
+              <p className="text-sm font-semibold text-cooper-gray-550">
+                New company
+              </p>
+              <p className="text-sm text-cooper-gray-350">
+                It&apos;s added when you submit. We&apos;ll verify it before it
+                appears on the site.
+              </p>
             </div>
 
-            {/* Industry */}
             <FormField
               control={form.control}
-              name="industry"
+              name={NEW_COMPANY_INDUSTRY_FIELD}
               render={({ field }) => (
-                <FormItem className="flex flex-1 flex-col">
+                <FormItem className="flex flex-col">
                   <FieldLabel required>Industry</FieldLabel>
                   <FormControl className="relative w-full">
                     <FilterBody
@@ -425,119 +311,94 @@ export default function ExistingCompanyContent({
                       title="Industry"
                       options={[...industryOptions]
                         .sort((a, b) => a.label.localeCompare(b.label))
-                        .map((o) => ({
-                          id: o.value,
-                          label: o.label,
-                          value: o.value,
+                        .map((option) => ({
+                          id: option.value,
+                          label: option.label,
+                          value: option.value,
                         }))}
                       selectedOptions={
-                        field.value &&
-                        typeof field.value === "string" &&
-                        field.value.length > 0
+                        typeof field.value === "string" && field.value
                           ? [field.value]
                           : []
                       }
                       placeholder="Enter"
                       singleSelect
-                      onSelectionChange={(selected) => {
-                        field.onChange(selected[0] ?? undefined);
-                      }}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            {/* Location - Fixed */}
-            <FormField
-              control={form.control}
-              name="locationId"
-              render={() => (
-                <FormItem className="flex w-full flex-col">
-                  <FieldLabel required>Location</FieldLabel>
-                  <FormControl className="flex-1">
-                    <LocationBox
-                      searchBar={false}
-                      form={form}
-                      locationLabel={locationLabel}
-                      setSearchTerm={setSearchTerm}
-                      locationValuesAndLabels={locationValuesAndLabels}
-                      setLocationLabel={setLocationLabel}
-                      locationsToUpdate={locationsToUpdate}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            {/* Your Role */}
-            <FormField
-              control={form.control}
-              name="title"
-              render={({ field }) => (
-                <FormItem className="flex w-full flex-col">
-                  <FieldLabel required>Role</FieldLabel>
-                  <FormControl className="flex-1">
-                    <Input
-                      placeholder="Enter"
-                      className="h-9 w-full rounded-lg border border-cooper-gray-150 text-sm shadow-none hover:bg-[#F6F6F6] focus:bg-white"
-                      value={
-                        field.value &&
-                        typeof field.value === "string" &&
-                        field.value.length > 0
-                          ? field.value
-                          : ""
+                      onSelectionChange={(selected) =>
+                        field.onChange(selected[0] ?? "")
                       }
-                      onChange={(e) => field.onChange(e.target.value)}
                     />
                   </FormControl>
-                  <FormMessage />
                 </FormItem>
               )}
             />
 
-            {/* Submit Button for Creating Company */}
-            <div className="flex justify-end pt-1">
-              <Button
-                type="button"
-                onClick={handleCreateCompanyWithRole}
-                disabled={createCompanyWithRoleMutation.isPending}
-                className="h-9 rounded-lg border-none bg-cooper-gray-550 px-4 text-sm font-semibold text-white hover:bg-cooper-gray-600"
-              >
-                {createCompanyWithRoleMutation.isPending
-                  ? "Creating..."
-                  : "Create Company & Role"}
-              </Button>
-            </div>
+            {/* The company's own location, separate from this review's job
+                location */}
+            <FormField
+              control={form.control}
+              name={NEW_COMPANY_LOCATION_FIELD}
+              render={({ field }) => (
+                <FormItem className="flex flex-col">
+                  <FieldLabel required>Company location</FieldLabel>
+                  <FormControl className="relative w-full">
+                    <FilterBody
+                      variant="location"
+                      title="Company location"
+                      options={(companyLocations.data ?? []).map(
+                        (location) => ({
+                          id: location.id,
+                          label: prettyLocationName(location),
+                        }),
+                      )}
+                      selectedOptions={
+                        typeof field.value === "string" && field.value
+                          ? [field.value]
+                          : []
+                      }
+                      onSearchChange={setCompanyLocationSearch}
+                      onSelectionChange={(selected) =>
+                        field.onChange(selected[selected.length - 1] ?? "")
+                      }
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
           </div>
         )}
 
-        {/* Your Role section (only show when company is selected and not showing new company) */}
-        <div className="flex flex-col gap-2 pt-3">
-          <FormField
-            control={form.control}
-            name="roleName"
-            render={({ field }) => (
-              <FormItem className="flex flex-col w-full ">
-                <FieldLabel required>Role</FieldLabel>
+        {/* Role */}
+        <FormField
+          control={form.control}
+          name="roleName"
+          render={({ field }) => (
+            <FormItem className="flex w-full flex-col pt-3">
+              <FieldLabel required>Role</FieldLabel>
 
-                <div className="relative flex-1 w-full">
+              {isNewCompany ? (
+                // A new company has no roles, so just name it
+                <Input
+                  placeholder="Enter"
+                  className={INPUT_CLASS}
+                  value={newRoleTitle ?? ""}
+                  disabled={readOnly}
+                  onChange={(event) =>
+                    form.setValue(NEW_ROLE_TITLE_FIELD, event.target.value)
+                  }
+                />
+              ) : isNewRole ? (
+                <PendingItem
+                  label={newRoleTitle ?? ""}
+                  onRemove={readOnly ? undefined : clearRole}
+                />
+              ) : (
+                <div className="relative w-full flex-1">
                   <FilterBody
                     variant="autocomplete"
                     title="Role"
-                    options={
-                      roles.data?.map((r) => ({
-                        id: r.id,
-                        label: r.title,
-                        value: r.id,
-                      })) ?? []
-                    }
+                    options={selectedCompanyId ? roleOptions : []}
                     selectedOptions={
-                      field.value &&
-                      typeof field.value === "string" &&
-                      field.value.length > 0
+                      typeof field.value === "string" && field.value
                         ? [field.value]
                         : []
                     }
@@ -545,91 +406,33 @@ export default function ExistingCompanyContent({
                       selectedCompanyId ? "Enter" : "Select a company first"
                     }
                     singleSelect
+                    onSearchChange={setRoleSearchTerm}
                     onSelectionChange={(selected) => {
                       const selectedId = selected[0];
-                      field.onChange(selectedId ?? undefined);
-                      setCreatingNewRole(false);
+                      if (selectedId === NEW_ITEM_ID) {
+                        form.setValue(
+                          NEW_ROLE_TITLE_FIELD,
+                          roleSearchTerm.trim(),
+                        );
+                        field.onChange(NEW_ITEM_ID);
+                      } else {
+                        field.onChange(selectedId ?? "");
+                      }
+                      setRoleSearchTerm("");
                     }}
                   />
                 </div>
-                <FormMessage />
-                {selectedCompanyId &&
-                  !showNewCompany &&
-                  roles.data?.length === 0 && (
-                    <p className="mt-1 text-sm text-red-500">
-                      No roles available for this company. Please add a role
-                      first.
-                    </p>
-                  )}
-              </FormItem>
-            )}
-          />
-
-          {/* "I don't see my role" checkbox */}
-
-          <div
-            className={cn(
-              "flex flex-1 items-center gap-2",
-              readOnly && "hidden",
-            )}
-          >
-            <Checkbox
-              checked={creatingNewRole}
-              onCheckedChange={(checked) => {
-                setCreatingNewRole(checked === true);
-                form.setValue("roleName", "");
-                if (!checked) {
-                  newRoleForm.setValue("title", "");
-                }
-              }}
-            />
-            <Label className={OPTION_LABEL_CLASS}>I don't see my role</Label>
-          </div>
-
-          {/* Create New Role Section */}
-          {creatingNewRole && (
-            <div className="flex w-full flex-col gap-3 rounded-lg bg-cooper-gray-100 p-4">
-              <div className="text-cooper-gray-550 text-sm font-semibold">
-                Add your role
-              </div>
-              <p className="-mt-2 text-sm text-cooper-gray-350">
-                We'll verify this before it appears on the site.
-              </p>
-
-              {/* Company Name */}
-              <FormField
-                control={newRoleForm.control}
-                name="title"
-                render={({ field }) => (
-                  <FormItem className="flex w-full flex-col">
-                    <FieldLabel required>Role</FieldLabel>
-                    <FormControl className="flex-1">
-                      <Input
-                        placeholder="Enter"
-                        className="h-9 w-full rounded-lg border border-cooper-gray-150 text-sm shadow-none hover:bg-[#F6F6F6] focus:bg-white"
-                        value={field.value}
-                        onChange={(e) => field.onChange(e.target.value)}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              {/* Submit Button for Creating Role */}
-              <div className="flex justify-end pt-1">
-                <Button
-                  type="button"
-                  onClick={handleCreateRole}
-                  disabled={newRoleMutation.isPending}
-                  className="h-9 rounded-lg border-none bg-cooper-gray-550 px-4 text-sm font-semibold text-white hover:bg-cooper-gray-600"
-                >
-                  {newRoleMutation.isPending ? "Creating..." : "Create Role"}
-                </Button>
-              </div>
-            </div>
+              )}
+              {isNewRole && !isNewCompany && (
+                <p className="text-sm text-cooper-gray-350">
+                  It&apos;s added when you submit. We&apos;ll verify it before
+                  it appears on the site.
+                </p>
+              )}
+              <FormMessage />
+            </FormItem>
           )}
-        </div>
+        />
       </div>
     </FormSection>
   );

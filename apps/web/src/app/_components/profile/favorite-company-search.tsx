@@ -17,7 +17,7 @@ export default function FavoriteCompanySearch({
   return (
     <div>
       {/* Search-result-width cards with the results' 8px gap, wrapping */}
-      <div className="mx-1 flex flex-wrap gap-2 pb-4">
+      <div className="flex flex-wrap gap-2 pb-4">
         {favoriteCompanies.length > 0 ? (
           favoriteCompanies
             .filter(
@@ -39,9 +39,7 @@ export default function FavoriteCompanySearch({
               </div>
             ))
         ) : (
-          <p className="italic text-cooper-gray-400">
-            No saved companies found.
-          </p>
+          <p className="w-full pt-6 text-center text-cooper-gray-400">No saved companies</p>
         )}
       </div>
     </div>

@@ -407,7 +407,7 @@ function DropSlot({ anchorRoleId }: { anchorRoleId: string }) {
       className={cn(
         "flex items-center justify-center rounded-xl border-2 border-dashed transition",
         isActive
-          ? "border-cooper-blue-400 bg-[#d4e4f7]"
+          ? "border-[#C4C9CD] bg-[#E1E5E8]"
           : "border-[#DDDDDD] bg-[#ECEFF1]",
       )}
     >

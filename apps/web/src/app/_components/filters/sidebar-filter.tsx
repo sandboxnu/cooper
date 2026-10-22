@@ -7,6 +7,7 @@ import { cn } from "@cooper/ui";
 import { Button } from "@cooper/ui/button";
 
 import type { FilterState } from "./types";
+import { ON_THE_JOB_OPTIONS } from "./types";
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import {
@@ -103,7 +104,11 @@ export default function SidebarFilter({
       ratings: [],
       workModels: [],
       overtimeWork: [],
-      companyCulture: [],
+      workHours: { min: 0, max: 0 },
+      federalHolidays: [],
+      transportation: [],
+      drugTest: [],
+      benefits: [],
     });
   };
 
@@ -112,7 +117,11 @@ export default function SidebarFilter({
       ...filters,
       workModels: [],
       overtimeWork: [],
-      companyCulture: [],
+      workHours: { min: 0, max: 0 },
+      federalHolidays: [],
+      transportation: [],
+      drugTest: [],
+      benefits: [],
     });
   };
 
@@ -146,7 +155,7 @@ export default function SidebarFilter({
             <p className="text-lg font-bold">Filters</p>
           </div>
 
-          <div className="flex flex-col gap-[12px]">
+          <div className="flex flex-col gap-5">
             <div className="bg-cooper-gray-150 h-px w-full" />
             <RoleTypeSelector
               onSelectedTypeChange={onSelectedTypeChange}
@@ -202,7 +211,7 @@ export default function SidebarFilter({
             <div className="bg-cooper-gray-150 h-px w-full" />
 
             {/* On the job subsection */}
-            <div className="flex flex-col gap-[10px]">
+            <div className="flex flex-col gap-5">
               <div className="flex gap-2">
                 <span className="text-base font-normal">On the job</span>
                 <Button
@@ -223,6 +232,19 @@ export default function SidebarFilter({
                 }
               />
               <SidebarSection
+                title="Work hours"
+                filterType="range"
+                rangeUnit="hours"
+                options={[]}
+                selectedOptions={[]}
+                minValue={filters.workHours.min}
+                maxValue={filters.workHours.max}
+                onRangeChange={(min, max) =>
+                  handleFilterChange("workHours", { min, max })
+                }
+                variant="subsection"
+              />
+              <SidebarSection
                 title="Overtime work"
                 filterType="checkbox"
                 options={[
@@ -238,16 +260,26 @@ export default function SidebarFilter({
                 }
                 variant="subsection"
               />
-              <SidebarSection
-                title="Company Culture"
-                filterType="rating"
-                options={[]}
-                selectedOptions={filters.companyCulture}
-                variant="main"
-                onSelectionChange={(selected) =>
-                  handleFilterChange("companyCulture", selected)
-                }
-              />
+              {(
+                [
+                  ["federalHolidays", "Federal holidays"],
+                  ["transportation", "Transportation"],
+                  ["drugTest", "Drug test"],
+                  ["benefits", "Benefits"],
+                ] as const
+              ).map(([key, title]) => (
+                <SidebarSection
+                  key={key}
+                  title={title}
+                  filterType="checkbox"
+                  options={ON_THE_JOB_OPTIONS[key]}
+                  selectedOptions={filters[key]}
+                  onSelectionChange={(selected) =>
+                    handleFilterChange(key, selected)
+                  }
+                  variant="subsection"
+                />
+              ))}
             </div>
 
             <div className="bg-cooper-gray-150 h-px w-full" />

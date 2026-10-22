@@ -10,6 +10,35 @@ import ModalContainer from "../../reviews/modal";
 import { AgreementCard } from "./shared/agreement-card";
 import { InfoIcon } from "./shared/info-icon";
 
+// Company culture and co-op support topics, keyed by their review field; also
+// used by the company page
+export const CULTURE_TOPICS = [
+  { label: "Team outings", field: "teamOutings" },
+  { label: "Coffee chats", field: "coffeeChats" },
+  { label: "Constructive feedback", field: "constructiveFeedback" },
+] as const;
+
+export const SUPPORT_TOPICS = [
+  {
+    label: "Onboarding",
+    subtext:
+      "I was properly onboarded into the company and role, with prompt communication before my first day.",
+    field: "onboarding",
+  },
+  {
+    label: "Work structure",
+    subtext:
+      "Expectations for my work were well-defined and my tasks were accurate to the job description.",
+    field: "workStructure",
+  },
+  {
+    label: "Career growth",
+    subtext:
+      "I gained skills and knowledge that will contribute meaningfully to my long-term professional development.",
+    field: "careerGrowth",
+  },
+] as const;
+
 interface AveragesData {
   averageCultureRating: number;
   averageSupervisorRating: number;
@@ -42,6 +71,8 @@ interface OnTheJobModalProps {
   averages: AveragesData;
   isComparing: boolean;
   compareSize?: CompareSize;
+  // Section title; the company page names the company
+  title?: React.ReactNode;
 }
 
 const BENEFIT_LABELS: { key: keyof AveragesData; label: string }[] = [
@@ -51,16 +82,24 @@ const BENEFIT_LABELS: { key: keyof AveragesData; label: string }[] = [
   { key: "travelBenefits", label: "travel benefits" },
 ];
 
-function BenefitRow({
+export function BenefitRow({
   label,
+  labelClassName,
   children,
 }: {
   label: string;
+  // e.g. a wider label column (company overview)
+  labelClassName?: string;
   children: React.ReactNode;
 }) {
   return (
     <div className="flex gap-10 items-start">
-      <p className="w-[120px] shrink-0 text-cooper-gray-400 text-[16px] leading-6 tracking-[-0.16px]">
+      <p
+        className={cn(
+          "w-[120px] shrink-0 text-cooper-gray-400 text-[16px] leading-6 tracking-[-0.16px]",
+          labelClassName,
+        )}
+      >
         {label}
       </p>
       <div className="flex flex-1 flex-col min-w-0">{children}</div>
@@ -85,6 +124,10 @@ function CompareBenefitCategory({
   );
 }
 
+// "No data" shows in the label gray instead of the value color
+const noDataTone = (text: string) =>
+  text === "No data" && "text-cooper-gray-400";
+
 function CompareReportedLine({
   label,
   caption,
@@ -94,7 +137,12 @@ function CompareReportedLine({
 }) {
   return (
     <div className="flex flex-col">
-      <p className="text-[16px] leading-6 tracking-[-0.16px] text-cooper-gray-550">
+      <p
+        className={cn(
+          "text-[16px] leading-6 tracking-[-0.16px] text-cooper-gray-550",
+          noDataTone(label),
+        )}
+      >
         {label}
       </p>
       <p className="text-[14px] leading-normal text-cooper-gray-350">
@@ -108,6 +156,7 @@ export function OnTheJobModal({
   averages,
   isComparing,
   compareSize,
+  title = "On the Job",
 }: OnTheJobModalProps) {
   const {
     totalReviews,
@@ -151,7 +200,9 @@ export function OnTheJobModal({
   const overtimeLabel =
     overtimeCount > totalReviews / 2
       ? "Overtime work common"
-      : "No overtime reported";
+      : overtimeCount > 0
+        ? "Some worked overtime"
+        : "No overtime reported";
 
   // Transportation
   let transportDisplay = "No data";
@@ -184,32 +235,22 @@ export function OnTheJobModal({
   // Tools
   const toolsDisplay = tools.length > 0 ? tools.join(", ") : "No data";
 
-  const cultureRows = [
-    { label: "Team outings", count: teamOutingsCount },
-    { label: "Coffee chats", count: coffeeChatCount },
-    { label: "Constructive feedback", count: constructiveFeedbackCount },
-  ];
+  const cultureCounts = {
+    teamOutings: teamOutingsCount,
+    coffeeChats: coffeeChatCount,
+    constructiveFeedback: constructiveFeedbackCount,
+  };
+  const cultureRows = CULTURE_TOPICS.map(({ label, field }) => ({
+    label,
+    count: cultureCounts[field],
+  }));
 
-  const supportRows = [
-    {
-      label: "Onboarding",
-      subtext:
-        "I was properly onboarded into the company and role, with prompt communication before my first day.",
-      pct: onboarding,
-    },
-    {
-      label: "Work structure",
-      subtext:
-        "Expectations for my work were well-defined and my tasks were accurate to the job description.",
-      pct: workStructure,
-    },
-    {
-      label: "Career growth",
-      subtext:
-        "I gained skills and knowledge that will contribute meaningfully to my long-term professional development.",
-      pct: careerGrowth,
-    },
-  ];
+  const supportShares = { onboarding, workStructure, careerGrowth };
+  const supportRows = SUPPORT_TOPICS.map(({ label, subtext, field }) => ({
+    label,
+    subtext,
+    pct: supportShares[field],
+  }));
 
   const headline =
     [workEnvironmentMode, jobLengthMin !== null ? jobLengthDisplay : null]
@@ -218,6 +259,7 @@ export function OnTheJobModal({
 
   const headlineBlock = (
     <div className="flex items-end gap-3">
+      {/* Same line height as the interview types headline */}
       <p className="text-[36px] font-normal leading-normal tracking-[-0.72px] text-cooper-gray-900">
         {headline}
       </p>
@@ -241,7 +283,7 @@ export function OnTheJobModal({
   const benefitsTable = (
     <div className="flex flex-col gap-3">
       <BenefitRow label="Work hours">
-        <p className="text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]">
+        <p className={cn("text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]", noDataTone(workHoursDisplay))}>
           {workHoursDisplay}
         </p>
         {hasData && (
@@ -256,12 +298,11 @@ export function OnTheJobModal({
         )}
         {hasData && (
           <div className="flex flex-col mt-3">
+            {/* At least half saying yes counts as federal holidays off */}
             <p className="text-[#333] text-[16px] leading-6 tracking-[-0.16px]">
-              {averages.federalHolidays > 0.5
+              {averages.federalHolidays >= 0.5
                 ? "Federal holidays off"
-                : averages.federalHolidays < 0.5
-                  ? "No federal holidays off"
-                  : "No data"}
+                : "No federal holidays off"}
             </p>
             <p className="text-cooper-gray-350 text-[14px] leading-normal">
               {Math.round(averages.federalHolidays * totalReviews)}/
@@ -274,7 +315,7 @@ export function OnTheJobModal({
       <hr className="border-t border-[#ebebeb]" />
 
       <BenefitRow label="Transportation">
-        <p className="text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]">
+        <p className={cn("text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]", noDataTone(transportDisplay))}>
           {transportDisplay}
         </p>
       </BenefitRow>
@@ -282,7 +323,7 @@ export function OnTheJobModal({
       <hr className="border-t border-[#ebebeb]" />
 
       <BenefitRow label="Drug test">
-        <p className="text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]">
+        <p className={cn("text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]", noDataTone(drugTestDisplay))}>
           {drugTestDisplay}
         </p>
         {hasData && (
@@ -296,7 +337,7 @@ export function OnTheJobModal({
       <hr className="border-t border-[#ebebeb]" />
 
       <BenefitRow label="Benefits">
-        <p className="text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]">
+        <p className={cn("text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]", noDataTone(benefitsDisplay))}>
           {benefitsDisplay}
         </p>
       </BenefitRow>
@@ -304,7 +345,7 @@ export function OnTheJobModal({
       <hr className="border-t border-[#ebebeb]" />
 
       <BenefitRow label="Tools & software">
-        <p className="text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]">
+        <p className={cn("text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]", noDataTone(toolsDisplay))}>
           {toolsDisplay}
         </p>
       </BenefitRow>
@@ -342,10 +383,11 @@ export function OnTheJobModal({
     // TODO: placeholder no-data copy until no-data handling is decided
     let federalHolidaysLabel = "No data";
     if (hasData) {
-      if (averages.federalHolidays > 0.5)
-        federalHolidaysLabel = "Federal holidays off";
-      else if (averages.federalHolidays < 0.5)
-        federalHolidaysLabel = "No federal holidays off";
+      // At least half saying yes counts as federal holidays off
+      federalHolidaysLabel =
+        averages.federalHolidays >= 0.5
+          ? "Federal holidays off"
+          : "No federal holidays off";
     }
 
     const valueClass =
@@ -364,7 +406,7 @@ export function OnTheJobModal({
         </div>
         <CompareBenefitCategory label="Work hours" className="pt-6">
           <div className="flex flex-col gap-3">
-            <p className={valueClass}>{workHoursDisplay}</p>
+            <p className={cn(valueClass, noDataTone(workHoursDisplay))}>{workHoursDisplay}</p>
             <CompareReportedLine
               label={hasData ? overtimeLabel : "No data"}
               caption={`${overtimeCount}/${totalReviews} reported`}
@@ -376,24 +418,24 @@ export function OnTheJobModal({
           </div>
         </CompareBenefitCategory>
         <CompareBenefitCategory label="Transportation" className={dividedTopic}>
-          <p className={valueClass}>{transportDisplay}</p>
+          <p className={cn(valueClass, noDataTone(transportDisplay))}>{transportDisplay}</p>
         </CompareBenefitCategory>
         <CompareBenefitCategory label="Drug test" className={dividedTopic}>
           <div className="flex flex-col">
-            <p className={valueClass}>{drugTestDisplay}</p>
+            <p className={cn(valueClass, noDataTone(drugTestDisplay))}>{drugTestDisplay}</p>
             <p className="text-[14px] leading-normal text-cooper-gray-350">
               {Math.round(drugTest * totalReviews)}/{totalReviews} reported
             </p>
           </div>
         </CompareBenefitCategory>
         <CompareBenefitCategory label="Benefits" className={dividedTopic}>
-          <p className={valueClass}>{benefitsDisplay}</p>
+          <p className={cn(valueClass, noDataTone(benefitsDisplay))}>{benefitsDisplay}</p>
         </CompareBenefitCategory>
         <CompareBenefitCategory
           label="Tools & software"
           className={dividedTopic}
         >
-          <p className={valueClass}>{toolsDisplay}</p>
+          <p className={cn(valueClass, noDataTone(toolsDisplay))}>{toolsDisplay}</p>
         </CompareBenefitCategory>
         <AgreementCard
           title="Company culture"
@@ -417,7 +459,7 @@ export function OnTheJobModal({
 
   if (isComparing) {
     return (
-      <ModalContainer title="On the Job">
+      <ModalContainer title={title}>
         <div className="flex flex-col gap-6">
           {headlineBlock}
           {benefitsTable}
@@ -432,7 +474,7 @@ export function OnTheJobModal({
   }
 
   return (
-    <ModalContainer title="On the Job">
+    <ModalContainer title={title}>
       <div className="flex gap-10 flex-wrap xl:flex-nowrap">
         {/* LEFT COLUMN */}
         <div className="flex flex-[1_0_0] flex-col gap-10 min-w-0">

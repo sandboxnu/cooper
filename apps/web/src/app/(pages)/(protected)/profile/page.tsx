@@ -107,7 +107,7 @@ export default function Profile() {
 
   return (
     <div className="bg-cooper-cream-100 flex h-screen w-full justify-center overflow-auto">
-      <div className="mx-4 mt-4 flex w-[80%] max-w-3xl flex-col gap-6 pt-4 md:w-[66%]">
+      <div className="mt-4 flex w-full max-w-3xl flex-col gap-6 px-4 pt-4 md:w-[66%] md:px-0">
         <div className="flex items-center justify-start gap-6">
           <Image
             src={session.user.image ?? "/svg/defaultProfile.svg"}
@@ -120,14 +120,12 @@ export default function Profile() {
             <h1 className="font-hanken text-[26px] font-bold">
               {profile.firstName} {profile.lastName}
             </h1>
-            {profile.graduationYear && (
-              <h2 className="text-cooper-gray-400">
-                Class of {profile.graduationYear}
-              </h2>
-            )}
+            {/* Email sits here since it can't be edited; graduation year is
+                in Account Information */}
+            <h2 className="text-cooper-gray-400">{session.user.email}</h2>
           </div>
         </div>
-        <ProfileCardHeader profile={profile} email={session.user.email} />
+        <ProfileCardHeader profile={profile} />
         <ProfileTabs numReviews={reviews.length} />
         {tab === "saved-roles" ? (
           <section>
@@ -140,7 +138,7 @@ export default function Profile() {
         ) : (
           <section>
             {reviews.length === 0 && (
-              <div className="italic text-cooper-gray-400">No Reviews Yet</div>
+              <p className="w-full pt-6 text-center text-cooper-gray-400">No reviews yet</p>
             )}
 
             <div className="flex flex-col gap-2 pb-4">

@@ -1,10 +1,12 @@
 import type { CompanyType } from "@cooper/db/schema";
+import { cn } from "@cooper/ui";
 
 import { api } from "~/trpc/react";
 import NoResults from "../no-results";
 import { BackButton } from "../shared/back-button";
-import { CompanyOverview } from "./company-overview";
-import { prettyLocationName } from "~/utils/locationHelpers";
+import { CompanyHeader } from "./company-overview";
+import { CompanyPageContent } from "./company-page-content";
+import { averageOfRoleAverages } from "~/utils/ratingHelpers";
 
 export default function CompanyInfo({
   companyObj,
@@ -25,36 +27,33 @@ export default function CompanyInfo({
     },
   );
 
-  const uniqueLocationIds = Array.from(
-    new Set(
-      (companyReviews.data ?? [])
-        .map((review) => review.locationId)
-        .filter((id): id is string => !!id),
-    ),
-  );
-
-  const locationQueries = api.useQueries((t) =>
-    uniqueLocationIds.map((id) =>
-      t.location.getById({ id }, { enabled: !!id }),
-    ),
-  );
-
-  const locations = locationQueries
-    .map((query) => (query.data ? prettyLocationName(query.data) : null))
-    .filter((loc): loc is string => !!loc);
-
   return (
     <section className="w-full overflow-y-auto">
       {company.isSuccess && company.data ? (
-        <div className="mx-3 justify-center gap-4 font-sans md:mx-auto md:max-w-[66dvw]">
-          {onBack && (
-            <BackButton onClick={onBack} className="mx-1 mt-4" />
-          )}
-          <CompanyOverview
+        // Same spacing as the job view (role-info): back chevron at 16px, the
+        // header padded px-4/md:px-6 and py-5, then the section stack
+        <div className="w-full pb-5 font-sans">
+          {onBack && <BackButton onClick={onBack} className="mx-4 mt-4" />}
+          <CompanyHeader
             company={company.data}
-            locations={locations}
-            className="mx-1 my-6 md:mx-2"
+            logoClassName="h-20 max-h-20 min-h-20 w-20 min-w-20 max-w-20"
+            rating={
+              companyReviews.data
+                ? {
+                    average: averageOfRoleAverages(companyReviews.data),
+                    count: companyReviews.data.length,
+                  }
+                : null
+            }
+            className={cn(
+              "px-4 py-5 md:px-6",
+              // Sit close under the mobile back chevron
+              onBack && "max-md:pt-2",
+            )}
           />
+          <div className="px-4 md:px-6">
+            <CompanyPageContent company={company.data} />
+          </div>
         </div>
       ) : (
         <NoResults className="h-full" />

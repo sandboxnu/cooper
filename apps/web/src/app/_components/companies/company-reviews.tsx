@@ -9,9 +9,14 @@ import { RatingSummary } from "../shared/rating-summary";
 interface CompanyReviewProps {
   className?: string;
   companyObj: CompanyType | undefined;
+  // Off when a section card supplies the "Overall rating" title
+  showTitle?: boolean;
 }
 
-export function CompanyReview({ companyObj }: CompanyReviewProps) {
+export function CompanyReview({
+  companyObj,
+  showTitle = true,
+}: CompanyReviewProps) {
   const reviews = api.review.getByCompany.useQuery({
     id: companyObj?.id ?? "",
   });
@@ -39,9 +44,11 @@ export function CompanyReview({ companyObj }: CompanyReviewProps) {
 
   return (
     <div className="flex w-full flex-col gap-3">
-      <p className="text-[16px] font-bold leading-6 tracking-[-0.16px] text-cooper-gray-400">
-        Overall rating
-      </p>
+      {showTitle && (
+        <p className="text-[16px] font-bold leading-6 tracking-[-0.16px] text-cooper-gray-400">
+          Overall rating
+        </p>
+      )}
       <RatingSummary
         ratings={ratings}
         averageRating={avg.data?.averageOverallRating ?? 0}

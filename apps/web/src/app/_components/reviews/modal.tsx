@@ -5,7 +5,7 @@ import { cn } from "@cooper/ui";
 
 interface ModalContainerProps {
   children: ReactNode;
-  title?: string;
+  title?: ReactNode;
   className?: string;
 }
 

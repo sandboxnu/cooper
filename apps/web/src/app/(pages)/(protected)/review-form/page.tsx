@@ -32,6 +32,14 @@ import { ReviewFormNav } from "~/app/_components/form/review-form-nav";
 import Popup from "~/app/_components/form/sections/popup";
 import { PaySection } from "~/app/_components/form/sections/pay-section";
 import { PortalZIndexContext } from "~/contexts/portal-z-index";
+import {
+  NEW_COMPANY_INDUSTRY_FIELD,
+  NEW_COMPANY_LOCATION_FIELD,
+  NEW_COMPANY_NAME_FIELD,
+  NEW_ITEM_ID,
+  NEW_ROLE_TITLE_FIELD,
+  pendingCompanyRoleError,
+} from "~/app/_components/reviews/existing-company-content";
 import { api } from "~/trpc/react";
 
 const filter = new Filter();
@@ -326,12 +334,73 @@ export default function ReviewForm() {
     },
   });
 
+  const createCompanyWithRole = api.company.createWithRole.useMutation();
+  const createRole = api.role.create.useMutation();
+
+  // A new company or role picked in the form is only created now, right before
+  // the review (or draft) is saved. Returns the ids to save with, or null if
+  // it couldn't be created (a toast says why).
+  async function resolveCompanyAndRole(): Promise<{
+    companyId: string;
+    roleId: string;
+  } | null> {
+    const values = form.getValues() as Record<string, unknown>;
+    const pendingError = pendingCompanyRoleError(values);
+    if (pendingError) {
+      toast.error(pendingError);
+      return null;
+    }
+    const text = (key: string) => {
+      const value = values[key];
+      return typeof value === "string" ? value.trim() : "";
+    };
+    try {
+      if (values.companyName === NEW_ITEM_ID) {
+        const industry = text(NEW_COMPANY_INDUSTRY_FIELD);
+        const created = await createCompanyWithRole.mutateAsync({
+          companyName: text(NEW_COMPANY_NAME_FIELD),
+          description: `Company in ${industry} industry`,
+          industry,
+          roleTitle: text(NEW_ROLE_TITLE_FIELD),
+          roleDescription: "Role description",
+          createdBy: profile?.id ?? "",
+          companyLocationId: text(NEW_COMPANY_LOCATION_FIELD),
+        });
+        form.setValue("companyName", created.companyId);
+        form.setValue("roleName", created.roleId);
+        return { companyId: created.companyId, roleId: created.roleId };
+      }
+      if (values.roleName === NEW_ITEM_ID) {
+        const existingCompanyId = text("companyName");
+        const [role] = await createRole.mutateAsync({
+          title: text(NEW_ROLE_TITLE_FIELD),
+          description: "",
+          companyId: existingCompanyId,
+          createdBy: profile?.id ?? "",
+        });
+        if (!role) throw new Error("Couldn't add the new role.");
+        form.setValue("roleName", role.id);
+        return { companyId: existingCompanyId, roleId: role.id };
+      }
+    } catch (error) {
+      toast.error(
+        error instanceof Error && error.message
+          ? error.message
+          : "Something went wrong. Please try again.",
+      );
+      return null;
+    }
+    return { companyId, roleId };
+  }
+
   async function onSubmit(values: z.infer<ReviewFormType>) {
+    const ids = await resolveCompanyAndRole();
+    if (!ids) return;
     try {
       await mutation.mutateAsync({
-        roleId: roleId,
+        roleId: ids.roleId,
         profileId: profile?.id,
-        companyId: companyId,
+        companyId: ids.companyId,
         ...values,
         reviewHeadline: "",
         status: Status.PUBLISHED,
@@ -361,12 +430,12 @@ export default function ReviewForm() {
         ? false
         : null;
 
-  function buildDraftPayload() {
+  function buildDraftPayload(ids: { companyId: string; roleId: string }) {
     const values = form.getValues();
     return {
-      roleId: roleId,
+      roleId: ids.roleId,
       profileId: profileId,
-      companyId: companyId,
+      companyId: ids.companyId,
       workTerm: values.workTerm,
       workYear: values.workYear,
       overallRating: values.overallRating,
@@ -406,8 +475,10 @@ export default function ReviewForm() {
 
   async function onSaveDraft(afterSave?: () => void) {
     try {
+      const ids = await resolveCompanyAndRole();
+      if (!ids) return;
       const values = form.getValues();
-      const payload = buildDraftPayload();
+      const payload = buildDraftPayload(ids);
 
       if (draftId) {
         await updateDraftMutation.mutateAsync({
@@ -461,7 +532,7 @@ export default function ReviewForm() {
                 id="basic-information"
                 title="Basic information"
               >
-                <BasicInfoSection profileId={profileId} />
+                <BasicInfoSection />
               </FormSectionBlock>
               {canReviewForTerm() ? (
                 <div className="flex flex-col gap-3">
@@ -540,23 +611,17 @@ export default function ReviewForm() {
             </div>
           </div>
         </PortalZIndexContext.Provider>
-        {isDirty && showModal && (
-          <div className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs">
-            <div className="pointer-events-auto">
-              <Popup
-                showModal={showModal}
-                onCancel={() => setShowModal(false)}
-                onDiscard={discardDraft}
-                onSave={() =>
-                  void onSaveDraft(() => {
-                    router.push("/roles");
-                    setShowModal(false);
-                  })
-                }
-              />
-            </div>
-          </div>
-        )}
+        <Popup
+          showModal={isDirty && showModal}
+          onCancel={() => setShowModal(false)}
+          onDiscard={discardDraft}
+          onSave={() =>
+            void onSaveDraft(() => {
+              router.push("/roles");
+              setShowModal(false);
+            })
+          }
+        />
       </div>
     </Form>
   );

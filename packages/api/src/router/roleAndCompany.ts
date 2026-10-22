@@ -27,6 +27,47 @@ const companyOrdering = {
   oldest: asc(Company.createdAt),
 };
 
+// Review questions the on-the-job filters look at
+const ON_THE_JOB_COLUMNS = {
+  federalHolidays: Review.federalHolidays,
+  accessibleByTransportation: Review.accessibleByTransportation,
+  drugTest: Review.drugTest,
+  freeLunch: Review.freeLunch,
+  freeMerch: Review.freeMerch,
+  snackBar: Review.snackBar,
+  travelBenefits: Review.travelBenefits,
+};
+type OnTheJobShares = Record<keyof typeof ON_THE_JOB_COLUMNS, number>;
+
+// Each filter option passes on the same threshold the On the Job section uses
+// for its labels (federal holidays: at least half); a benefit passes if any
+// review reports it
+const ON_THE_JOB_RULES = {
+  federalHolidays: (s: OnTheJobShares) => s.federalHolidays >= 0.5,
+  accessibleByTransportation: (s: OnTheJobShares) =>
+    s.accessibleByTransportation > 0.5,
+  noDrugTest: (s: OnTheJobShares) => s.drugTest < 0.5,
+  freeLunch: (s: OnTheJobShares) => s.freeLunch > 0,
+  freeMerch: (s: OnTheJobShares) => s.freeMerch > 0,
+  snackBar: (s: OnTheJobShares) => s.snackBar > 0,
+  travelBenefits: (s: OnTheJobShares) => s.travelBenefits > 0,
+};
+type OnTheJobFilterId = keyof typeof ON_THE_JOB_RULES;
+
+// One "share of yes answers" column per question, named after its key
+const onTheJobShareColumns = sql.join(
+  Object.entries(ON_THE_JOB_COLUMNS).map(
+    ([key, column]) =>
+      sql`COALESCE(AVG(CASE WHEN ${column} = true THEN 1.0 ELSE 0 END), 0) AS ${sql.raw(`"${key}"`)}`,
+  ),
+  sql`, `,
+);
+
+const toOnTheJobShares = (row: Record<string, unknown>) =>
+  Object.fromEntries(
+    Object.keys(ON_THE_JOB_COLUMNS).map((key) => [key, Number(row[key] ?? 0)]),
+  ) as OnTheJobShares;
+
 export const roleAndCompanyRouter = {
   list: sortableProcedure
     .input(
@@ -45,7 +86,12 @@ export const roleAndCompanyRouter = {
             ratings: z.array(z.string()).optional(),
             workModels: z.array(z.string()).optional(),
             overtimeWork: z.boolean().optional(),
-            companyCulture: z.array(z.string()).optional(),
+            // Average reported hours per week
+            minHours: z.number().optional(),
+            maxHours: z.number().optional(),
+            // On the job option ids, e.g. "federalHolidays", "noDrugTest",
+            // "freeLunch"; see ON_THE_JOB_RULES
+            onTheJob: z.array(z.string()).optional(),
           })
           .optional(),
       }),
@@ -176,9 +222,12 @@ export const roleAndCompanyRouter = {
       const jobTypeFilterActive =
         Array.isArray(filters.jobTypes) && filters.jobTypes.length > 0;
       const overtimeWorkFilterActive = filters.overtimeWork === true;
-      const companyCultureFilterActive =
-        Array.isArray(filters.companyCulture) &&
-        filters.companyCulture.length > 0;
+      const workHoursFilterActive =
+        typeof filters.minHours === "number" ||
+        typeof filters.maxHours === "number";
+      const onTheJobFilters = (filters.onTheJob ?? []).filter(
+        (id): id is OnTheJobFilterId => id in ON_THE_JOB_RULES,
+      );
       const workModelsFilterActive =
         Array.isArray(filters.workModels) && filters.workModels.length > 0;
 
@@ -237,8 +286,12 @@ export const roleAndCompanyRouter = {
       const companyAvgPayMap = new Map<string, number>();
       const roleAvgRatingMap = new Map<string, number>();
       const companyAvgRatingMap = new Map<string, number>();
-      const roleAvgCultureRatingMap = new Map<string, number>();
-      const companyAvgCultureRatingMap = new Map<string, number>();
+      // Share of published reviews answering yes, per on-the-job question
+      const roleOnTheJobSharesMap = new Map<string, OnTheJobShares>();
+      const companyOnTheJobSharesMap = new Map<string, OnTheJobShares>();
+      // Only items with at least one review reporting hours get an entry
+      const roleAvgHoursMap = new Map<string, number>();
+      const companyAvgHoursMap = new Map<string, number>();
       const roleOvertimePercentMap = new Map<string, number>();
       const companyOvertimePercentMap = new Map<string, number>();
       const roleWorkModelsMap = new Map<string, string[]>();
@@ -284,25 +337,45 @@ export const roleAndCompanyRouter = {
           roleAvgRatingMap.set(String(row.id), Number(row.avg_rating ?? 0));
         }
 
-        const rolesWithAvgCultureRating = await ctx.db.execute(sql`
-          SELECT
-            ${Role.id} AS id,
-            COALESCE(AVG(${Review.cultureRating}::float), 0) AS avg_culture_rating
-          FROM ${Role}
-          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
-          WHERE ${Role.id} IN (${sql.join(
-            roleIds.map((id) => sql`${id}`),
-            sql`,`,
-          )})
-            AND ${Review.status} = ${Status.PUBLISHED}
-          GROUP BY ${Role.id}
-        `);
+        if (workHoursFilterActive) {
+          const rolesWithAvgHours = await ctx.db.execute(sql`
+            SELECT
+              ${Role.id} AS id,
+              AVG(${Review.workHours}::float) AS avg_hours
+            FROM ${Role}
+            INNER JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
+            WHERE ${Role.id} IN (${sql.join(
+              roleIds.map((id) => sql`${id}`),
+              sql`,`,
+            )})
+              AND ${Review.status} = ${Status.PUBLISHED}
+              AND ${Review.workHours} IS NOT NULL
+            GROUP BY ${Role.id}
+          `);
 
-        for (const row of rolesWithAvgCultureRating.rows) {
-          roleAvgCultureRatingMap.set(
-            String(row.id),
-            Number(row.avg_culture_rating ?? 0),
-          );
+          for (const row of rolesWithAvgHours.rows) {
+            roleAvgHoursMap.set(String(row.id), Number(row.avg_hours));
+          }
+        }
+
+        if (onTheJobFilters.length > 0) {
+          const rolesWithOnTheJobShares = await ctx.db.execute(sql`
+            SELECT
+              ${Role.id} AS id,
+              ${onTheJobShareColumns}
+            FROM ${Role}
+            LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
+            WHERE ${Role.id} IN (${sql.join(
+              roleIds.map((id) => sql`${id}`),
+              sql`,`,
+            )})
+              AND ${Review.status} = ${Status.PUBLISHED}
+            GROUP BY ${Role.id}
+          `);
+
+          for (const row of rolesWithOnTheJobShares.rows) {
+            roleOnTheJobSharesMap.set(String(row.id), toOnTheJobShares(row));
+          }
         }
 
         const rolesWithOvertimePercent = await ctx.db.execute(sql`
@@ -391,26 +464,50 @@ export const roleAndCompanyRouter = {
           companyAvgRatingMap.set(String(row.id), Number(row.avg_rating ?? 0));
         }
 
-        const companiesWithAvgCultureRating = await ctx.db.execute(sql`
-          SELECT
-            ${Company.id} AS id,
-            COALESCE(AVG(${Review.cultureRating}::float), 0) AS avg_culture_rating
-          FROM ${Company}
-          LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
-          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
-          WHERE ${Company.id} IN (${sql.join(
-            companyIds.map((id) => sql`${id}`),
-            sql`,`,
-          )})
-            AND ${Review.status} = ${Status.PUBLISHED}
-          GROUP BY ${Company.id}
-        `);
+        if (workHoursFilterActive) {
+          const companiesWithAvgHours = await ctx.db.execute(sql`
+            SELECT
+              ${Company.id} AS id,
+              AVG(${Review.workHours}::float) AS avg_hours
+            FROM ${Company}
+            INNER JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
+            INNER JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
+            WHERE ${Company.id} IN (${sql.join(
+              companyIds.map((id) => sql`${id}`),
+              sql`,`,
+            )})
+              AND ${Review.status} = ${Status.PUBLISHED}
+              AND ${Review.workHours} IS NOT NULL
+            GROUP BY ${Company.id}
+          `);
 
-        for (const row of companiesWithAvgCultureRating.rows) {
-          companyAvgCultureRatingMap.set(
-            String(row.id),
-            Number(row.avg_culture_rating ?? 0),
-          );
+          for (const row of companiesWithAvgHours.rows) {
+            companyAvgHoursMap.set(String(row.id), Number(row.avg_hours));
+          }
+        }
+
+        if (onTheJobFilters.length > 0) {
+          const companiesWithOnTheJobShares = await ctx.db.execute(sql`
+            SELECT
+              ${Company.id} AS id,
+              ${onTheJobShareColumns}
+            FROM ${Company}
+            LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
+            LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
+            WHERE ${Company.id} IN (${sql.join(
+              companyIds.map((id) => sql`${id}`),
+              sql`,`,
+            )})
+              AND ${Review.status} = ${Status.PUBLISHED}
+            GROUP BY ${Company.id}
+          `);
+
+          for (const row of companiesWithOnTheJobShares.rows) {
+            companyOnTheJobSharesMap.set(
+              String(row.id),
+              toOnTheJobShares(row),
+            );
+          }
         }
 
         const companiesWithOvertimePercent = await ctx.db.execute(sql`
@@ -556,21 +653,28 @@ export const roleAndCompanyRouter = {
           return percent > 0.5;
         })();
 
-        const companyCultureOk = (() => {
-          if (!companyCultureFilterActive) return true;
-          const allowed = (filters.companyCulture ?? [])
-            .map((s) => Number(s))
-            .filter((n) => Number.isFinite(n));
-
+        const workHoursOk = (() => {
+          if (!workHoursFilterActive) return true;
           const avg =
             item.type === "company"
-              ? (companyAvgCultureRatingMap.get((item as CompanyType).id) ?? 0)
-              : (roleAvgCultureRatingMap.get((item as RoleType).id) ?? 0);
+              ? companyAvgHoursMap.get((item as CompanyType).id)
+              : roleAvgHoursMap.get((item as RoleType).id);
+          // No reported hours means no data, so it can't match
+          if (avg === undefined) return false;
+          const minHours = filters.minHours ?? 0;
+          const maxHours = filters.maxHours ?? Infinity;
+          return avg >= minHours && avg <= maxHours;
+        })();
 
-          //if culture ratings is length 1, filter by that rating and above
-          return allowed.length === 1
-            ? allowed.some((n) => avg >= n)
-            : allowed.some((n) => avg >= n && avg <= n + 0.9);
+        const onTheJobOk = (() => {
+          if (onTheJobFilters.length === 0) return true;
+          const shares =
+            item.type === "company"
+              ? companyOnTheJobSharesMap.get((item as CompanyType).id)
+              : roleOnTheJobSharesMap.get((item as RoleType).id);
+          // No published reviews means no data, so it can't match
+          if (!shares) return false;
+          return onTheJobFilters.every((id) => ON_THE_JOB_RULES[id](shares));
         })();
 
         const workModelsOk = (() => {
@@ -593,7 +697,8 @@ export const roleAndCompanyRouter = {
           payOk &&
           ratingOk &&
           overtimeOk &&
-          companyCultureOk &&
+          workHoursOk &&
+          onTheJobOk &&
           workModelsOk
         );
       });

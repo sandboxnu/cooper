@@ -86,6 +86,10 @@ export function CompareProvider({ children }: { children: React.ReactNode }) {
     (nextAnchorRoleId: string) => {
       setIsCompareMode(true);
       setAnchorRoleId(nextAnchorRoleId);
+      // The anchor is its own column, so it can't also be a compared role
+      setComparedRoleIds((prev) =>
+        prev.filter((id) => id !== nextAnchorRoleId),
+      );
       setReservedSlots((slots) => {
         if (slots > 0) return slots;
         const hasCapacity = comparedRoleIds.length < MAX_COLUMNS - 1;
@@ -113,17 +117,22 @@ export function CompareProvider({ children }: { children: React.ReactNode }) {
 
   const removeRoleId = useCallback(
     (id: string) => {
-      if (comparedRoleIds.length === 0) {
+      // Work from the columns as shown: the anchor plus the compared roles
+      // other than it (persisted state can list the anchor in both)
+      const others = comparedRoleIds.filter(
+        (roleId) => roleId !== anchorRoleId,
+      );
+      if (others.length === 0) {
+        // Removing the only card exits compare mode
         setIsCompareMode(false);
-      } else if (anchorRoleId === id) {
-        const newAnchorRoleId =
-          comparedRoleIds.find((roleId) => roleId !== id) ?? null;
-        setAnchorRoleId(newAnchorRoleId);
-        setComparedRoleIds((prev) =>
-          prev.filter((roleId) => roleId !== newAnchorRoleId),
-        );
+        setComparedRoleIds([]);
+      } else if (id === anchorRoleId || !others.includes(id)) {
+        // Removing the anchor promotes the next compared role
+        const [newAnchorRoleId, ...rest] = others;
+        setAnchorRoleId(newAnchorRoleId ?? null);
+        setComparedRoleIds(rest);
       } else {
-        setComparedRoleIds((prev) => prev.filter((roleId) => roleId !== id));
+        setComparedRoleIds(others.filter((roleId) => roleId !== id));
       }
     },
     [anchorRoleId, comparedRoleIds],

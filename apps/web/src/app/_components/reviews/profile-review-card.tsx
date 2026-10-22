@@ -10,6 +10,7 @@ import { Card, CardContent } from "@cooper/ui/card";
 
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
+import { LIST_CARD_HEIGHT_CLASS } from "../shared/card-height";
 import { ReviewActionsDialog } from "./review-actions-dialogue";
 import { ReviewViewEditModal } from "./review-view-edit-modal";
 
@@ -54,6 +55,7 @@ export function ProfileReviewCard({
       <Card
         className={cn(
           "w-full border mx-auto bg-white cursor-pointer",
+          LIST_CARD_HEIGHT_CLASS,
           className,
         )}
         onClick={(event) => {
@@ -66,18 +68,19 @@ export function ProfileReviewCard({
           setViewOpen(true);
         }}
       >
-        <CardContent className="flex flex-col gap-4">
-          {/* Top row */}
-          <div className="flex items-center justify-between">
-            <div className="flex flex-col">
-              <span className="font-hanken text-xl leading-7  text-black">
+        <CardContent className="flex flex-col gap-2">
+          {/* Top row; on mobile the title can wrap, so keep the rating at the
+              top instead of centered */}
+          <div className="flex items-start justify-between gap-2 md:items-center">
+            <div className="flex min-w-0 flex-col">
+              <span className="font-hanken truncate text-xl leading-7 text-black">
                 {role?.title ?? "—"}
               </span>
-              <span className="text-[16px] leading-6 tracking-[-0.16px] text-[#7c7e7e]">
+              <span className="truncate text-[16px] leading-6 tracking-[-0.16px] text-[#7c7e7e]">
                 {subtitle}
               </span>
             </div>
-            <div className="flex items-center gap-1.5 opacity-80">
+            <div className="flex shrink-0 items-center gap-0.5 opacity-80">
               <div className="flex items-center gap-1">
                 <span className="font-hanken text-xl md:text-2xl leading-7 text-black">
                   {reviewObj.overallRating?.toFixed(1) ?? "—"}
@@ -95,7 +98,8 @@ export function ProfileReviewCard({
                 trigger={
                   <button
                     type="button"
-                    className="flex items-center justify-center rounded-full p-1"
+                    // -mr-2 pulls the icon toward the card's right edge
+                    className="-mr-2 flex items-center justify-center rounded-full p-1"
                   >
                     <MoreVertical className="h-5 w-5 text-cooper-gray-350" />
                   </button>

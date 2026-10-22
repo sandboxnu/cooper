@@ -22,6 +22,7 @@ import {
   sortableProcedure,
 } from "../trpc";
 import { performFuseSearch } from "../utils/fuzzyHelper";
+import { summarizeReviews } from "../utils/reviewSummary";
 import { createSlug, generateUniqueSlug } from "../utils/slugHelpers";
 
 const ordering = {
@@ -209,6 +210,8 @@ export const companyRouter = {
           .min(10)
           .max(500),
         createdBy: z.string(),
+        // The company's own location (not a job location)
+        companyLocationId: z.string().optional(),
       }),
     )
     .mutation(async ({ ctx, input }) => {
@@ -269,6 +272,13 @@ export const companyRouter = {
         throw new TRPCError({
           code: "INTERNAL_SERVER_ERROR",
           message: "Review headline cannot contain profane words",
+        });
+      }
+
+      if (input.companyLocationId) {
+        await ctx.db.insert(CompaniesToLocations).values({
+          companyId,
+          locationId: input.companyLocationId,
         });
       }
 
@@ -341,5 +351,64 @@ export const companyRouter = {
         averageCultureRating: averageCultureRating,
         averageSupervisorRating: averageSupervisorRating,
       };
+    }),
+
+  // Interview summary across every role at the company: how many rounds were
+  // reported at each difficulty, and how many reviews reported each type
+  getInterviewDataById: publicProcedure
+    .input(z.object({ companyId: z.string() }))
+    .query(async ({ ctx, input }) => {
+      const reviews = await ctx.db.query.Review.findMany({
+        where: and(
+          eq(Review.companyId, input.companyId),
+          eq(Review.status, Status.PUBLISHED),
+          eq(Review.hidden, false),
+        ),
+        with: { interviewRounds: true },
+      });
+
+      const reviewsWithRounds = reviews.filter(
+        (review) => review.interviewRounds.length > 0,
+      );
+
+      const difficultyCounts = { easy: 0, average: 0, hard: 0 };
+      const typeReviewIds: Record<string, Set<string>> = {};
+      for (const review of reviewsWithRounds) {
+        for (const round of review.interviewRounds) {
+          if (round.interviewDifficulty) {
+            difficultyCounts[round.interviewDifficulty]++;
+          }
+          if (round.interviewType) {
+            (typeReviewIds[round.interviewType] ??= new Set()).add(review.id);
+          }
+        }
+      }
+
+      const types = Object.entries(typeReviewIds)
+        .map(([type, reviewIds]) => ({ type, reviewCount: reviewIds.size }))
+        .sort((a, b) => b.reviewCount - a.reviewCount);
+
+      return {
+        totalReviewsWithRounds: reviewsWithRounds.length,
+        difficultyCounts,
+        types,
+      };
+    }),
+
+  // The job page's On the Job summary, across every job at the company
+  getAverageDetailsById: publicProcedure
+    .input(z.object({ companyId: z.string() }))
+    .query(async ({ ctx, input }) => {
+      const reviews = await ctx.db.query.Review.findMany({
+        where: and(
+          eq(Review.hidden, false),
+          eq(Review.companyId, input.companyId),
+          eq(Review.status, Status.PUBLISHED),
+        ),
+        with: {
+          reviewsToTools: { with: { tool: true } },
+        },
+      });
+      return summarizeReviews(reviews);
     }),
 } satisfies TRPCRouterRecord;

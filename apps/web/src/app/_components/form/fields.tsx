@@ -45,7 +45,10 @@ export function FieldHint({ children }: { children: React.ReactNode }) {
 // Two short fields side by side on wider screens, stacked on mobile
 export function FieldRow({ children }: { children: React.ReactNode }) {
   return (
-    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">{children}</div>
+    // More space between stacked fields on mobile
+    <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-5">
+      {children}
+    </div>
   );
 }
 

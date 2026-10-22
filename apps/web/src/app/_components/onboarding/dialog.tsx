@@ -40,7 +40,6 @@ export function OnboardingDialog({
     ratings: undefined,
     workModels: undefined,
     overtimeWork: undefined,
-    companyCulture: undefined,
   };
 
   const roles = api.roleAndCompany.list.useQuery({

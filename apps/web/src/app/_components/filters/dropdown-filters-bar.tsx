@@ -206,7 +206,11 @@ export default function DropdownFiltersBar({
           />,
         )}
       </div>
-      <PopoverContent align="start" className="p-0 bg-transparent border-0">
+      <PopoverContent
+        align="start"
+        // Fit the panel so the popover shadow follows its edges and corners
+        className="w-auto rounded-lg border-0 bg-transparent p-0"
+      >
         {openFilterKey === "industry" && (
           <FilterPanelContent
             title="Industry"

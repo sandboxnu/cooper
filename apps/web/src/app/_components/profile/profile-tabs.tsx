@@ -33,7 +33,10 @@ export default function ProfileTabs({ numReviews }: { numReviews: number }) {
 
   return (
     <nav
-      className="flex flex-col border-b sm:flex-row sm:space-x-4"
+      // One left-aligned row on every screen, scrolling if the tabs can't fit.
+      // shrink-0: as a scroll container the page's flex column would
+      // otherwise squash it
+      className="no-scrollbar flex shrink-0 gap-4 overflow-x-auto border-b"
       aria-label="Tabs"
     >
       {tabs.map((tab) => (

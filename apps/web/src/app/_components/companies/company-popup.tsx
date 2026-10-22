@@ -11,18 +11,17 @@ import {
   DialogTrigger,
 } from "@cooper/ui/dialog";
 
-import { CompanyOverview } from "./company-overview";
+import { CompanyHeader } from "./company-overview";
+import { CompanyOverviewRow } from "./company-page-content";
 
 interface CompanyPopupProps {
   trigger?: React.ReactNode;
   company: CompanyType;
-  locations?: (string | null)[];
 }
 
 export function CompanyPopup({
   trigger,
   company,
-  locations,
 }: CompanyPopupProps) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
@@ -30,16 +29,28 @@ export function CompanyPopup({
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
-      <DialogContent className="flex h-[553px] max-h-[90dvh] w-[913px] max-w-[95vw] flex-col overflow-y-auto border border-[#eaeaea] bg-white p-6 sm:max-w-[95vw] md:overflow-hidden">
+      {/* Mirrors the top of the company page: header, then the overview +
+          roles row. Sized to its content; scrolls if taller than the screen */}
+      <DialogContent className="flex max-h-[90dvh] w-[880px] max-w-[calc(100vw-32px)] flex-col gap-6 overflow-y-auto border border-[#eaeaea] bg-white p-6 pb-9 sm:max-w-[calc(100vw-32px)]">
         <DialogTitle className="sr-only">{company.name}</DialogTitle>
-        <CompanyOverview
+        {/* No header rating: the overview below leads with it */}
+        <CompanyHeader
           company={company}
-          locations={locations}
-          className="min-h-0 flex-1"
           onSeeFullDetails={() => {
             setOpen(false);
-            router.push(`/roles/?company=${company.slug}&type=companies`);
+            // Keep "all" (neither Jobs nor Companies selected); only switch to
+            // Companies when the list is showing jobs only
+            const currentType = new URLSearchParams(window.location.search).get(
+              "type",
+            );
+            const type =
+              currentType === "roles" ? "companies" : (currentType ?? "all");
+            router.push(`/roles/?company=${company.slug}&type=${type}`);
           }}
+        />
+        <CompanyOverviewRow
+          company={company}
+          boxed={false}
           onRoleSelect={() => setOpen(false)}
         />
       </DialogContent>

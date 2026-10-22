@@ -67,4 +67,6 @@ export const UpdateProfileNameMajorSchema = z.object({
   firstName: z.string(),
   lastName: z.string(),
   major: z.string(),
+  // null clears the year
+  graduationYear: z.number().min(YEAR_LB).max(YEAR_UB).nullable().optional(),
 });

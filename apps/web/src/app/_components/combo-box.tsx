@@ -34,6 +34,12 @@ interface ComboBoxProps {
   onClear?: () => void;
   // Typeable form fields show a search icon instead of the chevron
   icon?: "chevron" | "search";
+  // Text color for a selected value (the placeholder stays gray)
+  selectedClassName?: string;
+  // Always open below the trigger instead of flipping up near the bottom
+  forceOpenBelow?: boolean;
+  // e.g. a shorter max height than the default 300px
+  listClassName?: string;
 }
 
 /**
@@ -54,6 +60,9 @@ export default function ComboBox({
   newForm,
   onClear,
   icon = "chevron",
+  selectedClassName,
+  forceOpenBelow,
+  listClassName,
 }: ComboBoxProps) {
   const readOnly = useReadOnly();
   const [isOpen, setIsOpen] = useState(false);
@@ -94,7 +103,10 @@ export default function ComboBox({
           )}
         >
           <span
-            className={`overflow-hidden whitespace-nowrap ${defaultLabel === "Location" ? "text-cooper-gray-350" : "text-cooper-gray-350 font-normal"} ${newForm ? "text-sm" : "text-sm"}`}
+            className={cn(
+              `overflow-hidden whitespace-nowrap ${defaultLabel === "Location" ? "text-cooper-gray-350" : "text-cooper-gray-350 font-normal"} ${newForm ? "text-sm" : "text-sm"}`,
+              currLabel && currLabel !== defaultLabel && selectedClassName,
+            )}
           >
             {currLabel && currLabel !== defaultLabel ? currLabel : defaultLabel}
           </span>
@@ -123,7 +135,10 @@ export default function ComboBox({
           </div>
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0">
+      <PopoverContent
+        className="w-[var(--radix-popover-trigger-width)] p-0"
+        {...(forceOpenBelow && { side: "bottom", avoidCollisions: false })}
+      >
         <Command>
           <CommandInput
             placeholder={searchPlaceholder}
@@ -133,7 +148,7 @@ export default function ComboBox({
           />
           <CommandEmpty>{searchEmpty}</CommandEmpty>
           <CommandGroup>
-            <CommandList>
+            <CommandList className={listClassName}>
               {valuesAndLabels.map((option: ComboBoxOption<string>) => (
                 <CommandItem
                   key={option.value}

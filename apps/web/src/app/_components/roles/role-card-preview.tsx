@@ -9,6 +9,7 @@ import { Card, CardHeader } from "@cooper/ui/card";
 
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
+import { LIST_CARD_HEIGHT_CLASS } from "../shared/card-height";
 import { CircleButton } from "../shared/circle-button";
 import { FavoriteButton } from "../shared/favorite-button";
 import { useEffect, useState } from "react";
@@ -77,16 +78,16 @@ export function RoleCardPreview({
     <Card
       className={cn(
         "relative flex flex-col justify-between rounded-lg hover:cursor-pointer",
+        LIST_CARD_HEIGHT_CLASS,
         className,
         showDragHandle && "pl-4",
-        compare.isCompareMode && "pr-2",
       )}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
       <div className="flex items-start justify-between space-x-3">
         {showDragHandle && (
-          <div className="self-center px-2">
+          <div className="self-center pr-2">
             <Image
               src="/svg/dragHandle.svg"
               alt="Drag handle icon"
@@ -95,19 +96,21 @@ export function RoleCardPreview({
             />
           </div>
         )}
-        <div className={cn("flex-1")}>
+        <div className="min-w-0 flex-1">
           <CardHeader className="space-y-0.5">
-            <div className="flex items-center gap-2">
-              <h3 className="text-xl font-semibold leading-tight">
+            <div className="flex min-w-0 items-center gap-2">
+              <h3 className="truncate text-xl font-semibold leading-tight">
                 {role.data?.title}
               </h3>
             </div>
 
-            <div className="flex flex-wrap items-center gap-2 gap-y-0 text-base text-[#666666]">
-              {company.data?.name}
+            <div className="flex min-w-0 items-center gap-2 text-base text-[#666666]">
+              <span className="truncate">{company.data?.name}</span>
               <p>•</p>
               {location.isSuccess && location.data && (
-                <span>{prettyLocationName(location.data)}</span>
+                <span className="truncate">
+                  {prettyLocationName(location.data)}
+                </span>
               )}
             </div>
             {reviews.isSuccess && reviews.data.length > 0 && (
@@ -180,25 +183,80 @@ export function RoleCardPreview({
               )}
           </div>
         )}
-        {compare.isCompareMode &&
-          hovered &&
-          !isAlreadyCompared &&
-          compare.comparedRoleIds.length < 2 && (
-            <div
-              onClick={(e) => {
-                e.stopPropagation();
-                compare.addRoleId(roleObj.id);
-              }}
-              className="flex self-center"
-            >
-              <Image
-                src="/svg/compareAdd.svg"
-                width={24}
-                height={24}
-                alt="Add to compare"
-              />
-            </div>
-          )}
+        {/* Same column as outside compare mode: remove X at the top (where
+            save sits) on roles being compared, add button at the bottom */}
+        {compare.isCompareMode && (
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="flex h-[77px] w-4 flex-col items-center justify-between"
+          >
+            {isAlreadyCompared ? (
+              <CircleButton
+                aria-label="Remove from comparison"
+                className="h-4 w-4 translate-x-0.5"
+                onClick={() => compare.removeRoleId(roleObj.id)}
+              >
+                <Image
+                  src="/svg/exitComparisonButton.svg"
+                  width={14}
+                  height={14}
+                  alt=""
+                  style={{ minHeight: "14px", minWidth: "14px" }}
+                />
+              </CircleButton>
+            ) : (
+              <span />
+            )}
+            {hovered &&
+              !isAlreadyCompared &&
+              compare.comparedRoleIds.length < 2 && (
+                <CircleButton
+                  aria-label="Add to comparison"
+                  className="h-4 w-4"
+                  onMouseEnter={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    setCompareLabelPos({
+                      x: rect.left + rect.width / 2,
+                      y: rect.bottom,
+                    });
+                  }}
+                  onMouseLeave={() => setCompareLabelPos(null)}
+                  onClick={() => {
+                    setCompareLabelPos(null);
+                    compare.addRoleId(roleObj.id);
+                  }}
+                >
+                  {/* Compare icon with a plus badge (Figma 482:5377), drawn
+                      at ~1.06x so the glyph (~16x19) is centered on the 16px
+                      button; the badge sticks out past it */}
+                  <span className="relative block h-4 w-4">
+                    <Image
+                      src="/svg/compareRoleAdd.svg"
+                      width={18}
+                      height={18}
+                      alt=""
+                      className="absolute left-[0.08px] top-[-1.5px] h-[21.64px] w-[21.22px] max-w-none"
+                    />
+                  </span>
+                </CircleButton>
+              )}
+            {hovered &&
+              compareLabelPos &&
+              createPortal(
+                // Same label as "Compare with" outside compare mode
+                <span
+                  className="pointer-events-none fixed z-50 -translate-x-1/2 whitespace-nowrap rounded bg-gray-700/85 px-2 py-1 text-[11px] text-white"
+                  style={{
+                    left: compareLabelPos.x,
+                    top: compareLabelPos.y + 16,
+                  }}
+                >
+                  Add to comparison
+                </span>,
+                document.body,
+              )}
+          </div>
+        )}
       </div>
     </Card>
   );

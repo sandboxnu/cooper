@@ -81,33 +81,6 @@ export function RoleInfo({
     { industry: companyData?.industry ?? "" },
     { enabled: !!companyData?.industry },
   );
-  const companyReviews = api.review.getByCompany.useQuery(
-    {
-      id: companyData?.id ?? "",
-    },
-    {
-      enabled: !!companyData?.id,
-    },
-  );
-
-  const uniqueLocationIds = Array.from(
-    new Set(
-      (companyReviews.data ?? [])
-        .map((review) => review.locationId)
-        .filter((id): id is string => !!id),
-    ),
-  );
-
-  const locationQueries = api.useQueries((t) =>
-    uniqueLocationIds.map((id) =>
-      t.location.getById({ id }, { enabled: !!id }),
-    ),
-  );
-
-  const finalLocations = locationQueries
-    .map((query) => (query.data ? prettyLocationName(query.data) : null))
-    .filter((loc): loc is string => !!loc);
-
   const jobTypesFromReviews = [
     ...new Set(
       (reviews.data ?? [])
@@ -213,7 +186,6 @@ export function RoleInfo({
           </button>
         }
         company={companyData}
-        locations={finalLocations}
       />
     ) : (
       <div
@@ -392,7 +364,6 @@ export function RoleInfo({
                     </div>
                   }
                   company={companyData}
-                  locations={finalLocations}
                 />
               ) : (
                 <div className="w-20 rounded-lg border bg-cooper-blue-200"></div>
@@ -475,7 +446,6 @@ export function RoleInfo({
           {companyData && !compare.isCompareMode && (
             <CompanyPopup
               company={companyData}
-              locations={finalLocations}
               trigger={
                 <div className="col-span-2 cursor-pointer">
                   <CompanyCardPreview companyObj={companyData} />

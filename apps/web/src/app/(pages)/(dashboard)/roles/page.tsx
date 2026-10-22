@@ -10,6 +10,7 @@ import { Button } from "@cooper/ui/button";
 
 import type { FilterState } from "~/app/_components/filters/types";
 import { CompanyCardPreview } from "~/app/_components/companies/company-card-preview";
+import { CompanyPopup } from "~/app/_components/companies/company-popup";
 import CompanyInfo from "~/app/_components/companies/company-info";
 import { useCompare } from "~/app/_components/compare/compare-context";
 import {
@@ -71,6 +72,13 @@ const buildRolesSearchParams = (
   return params;
 };
 
+// Updates the URL for a selection change without a Next.js navigation (which
+// refetches the page from the server); useSearchParams stays in sync with
+// history.pushState
+const pushRolesUrl = (search: string) => {
+  window.history.pushState(null, "", `/roles/?${search}`);
+};
+
 const ROLE_SORT_OPTIONS = [
   { value: "default", label: "Default" },
   { value: "newest", label: "Newest" },
@@ -89,7 +97,11 @@ const EMPTY_FILTERS: FilterState = {
   ratings: [],
   workModels: [],
   overtimeWork: [],
-  companyCulture: [],
+  workHours: { min: 0, max: 0 },
+  federalHolidays: [],
+  transportation: [],
+  drugTest: [],
+  benefits: [],
 };
 
 export default function Roles() {
@@ -187,6 +199,13 @@ export default function Roles() {
 
   // Convert filter state to backend format
   const backendFilters = useMemo(() => {
+    // The on-the-job checkboxes all go to the API as one list of option ids
+    const onTheJobFilters = [
+      ...appliedFilters.federalHolidays,
+      ...appliedFilters.transportation,
+      ...appliedFilters.drugTest,
+      ...appliedFilters.benefits,
+    ];
     return {
       industries:
         appliedFilters.industries.length > 0
@@ -215,10 +234,15 @@ export default function Roles() {
           ? appliedFilters.workModels
           : undefined,
       overtimeWork: appliedFilters.overtimeWork.length > 0 ? true : undefined,
-      companyCulture:
-        appliedFilters.companyCulture.length > 0
-          ? appliedFilters.companyCulture
+      minHours:
+        appliedFilters.workHours.min > 0
+          ? appliedFilters.workHours.min
           : undefined,
+      maxHours:
+        appliedFilters.workHours.max > 0
+          ? appliedFilters.workHours.max
+          : undefined,
+      onTheJob: onTheJobFilters.length > 0 ? onTheJobFilters : undefined,
     };
   }, [appliedFilters]);
 
@@ -233,6 +257,9 @@ export default function Roles() {
     },
     {
       enabled: shouldFetchList,
+      // Keep showing the current results while a filter, page or type change
+      // loads, instead of blanking the list and job panel
+      placeholderData: (previousData) => previousData,
     },
   );
 
@@ -550,7 +577,7 @@ export default function Roles() {
       const nextSearch = params.toString();
       const currentSearchString = window.location.search.replace(/^\?/, "");
       if (nextSearch !== currentSearchString) {
-        router.push(`/roles/?${nextSearch}`);
+        pushRolesUrl(nextSearch);
         const nextParams = new URLSearchParams(nextSearch);
         setCompanyParam(nextParams.get("company"));
         setRoleParam(nextParams.get("role"));
@@ -567,29 +594,63 @@ export default function Roles() {
     router,
   ]);
 
+  // The URL this effect last pushed or confirmed, to tell a URL change made
+  // elsewhere apart from a selection change made here
+  const lastSyncedSearchRef = useRef<string | null>(null);
   useEffect(() => {
     // updates the URL when a role or company is changed
     // Don't update URL if query is still loading (prevents updating with stale data during page changes)
     if (compare.isCompareMode) return;
 
     if (urlSelectedItem && rolesAndCompanies.isSuccess) {
-      const currentUrl = new URLSearchParams(
-        typeof window !== "undefined" ? window.location.search : "",
-      );
+      const search = window.location.search;
+      const currentUrl = new URLSearchParams(search);
       const urlCompany = currentUrl.get("company");
       const urlRole = currentUrl.get("role");
-      // Skip URL update only when the URL already matches the selected item
-      if (urlCompany && urlRole && isRole(urlSelectedItem)) {
+
+      const selectionMatchesUrlRole = (() => {
+        if (!isRole(urlSelectedItem)) return false;
         const r = urlSelectedItem as RoleType & {
           slug?: string;
           companySlug?: string;
           companyName?: string;
         };
-        const itemCompanySlug = getCompanySlug(r.companySlug, r.companyName);
-        if (r.slug === urlRole && itemCompanySlug === urlCompany) {
-          return;
-        }
+        return (
+          r.slug === urlRole &&
+          getCompanySlug(r.companySlug, r.companyName) === urlCompany
+        );
+      })();
+
+      const selectionMatchesUrlCompany =
+        !urlRole &&
+        !isRole(urlSelectedItem) &&
+        (urlSelectedItem as CompanyType).slug === urlCompany;
+
+      // Skip URL update only when the URL already matches the selected item
+      if (
+        urlCompany &&
+        (urlRole ? selectionMatchesUrlRole : selectionMatchesUrlCompany)
+      ) {
+        lastSyncedSearchRef.current = search;
+        return;
       }
+
+      // The URL changed from somewhere other than this effect (a role card on
+      // the company page, the company popup's "See full details") and the
+      // selection hasn't caught up yet: wait for it rather than pushing the
+      // old selection back over the new URL. Stops waiting if what the URL
+      // points at turns out not to exist.
+      const urlChangedElsewhere =
+        lastSyncedSearchRef.current !== null &&
+        search !== lastSyncedSearchRef.current;
+      const urlRoleMissing =
+        roleBySlug.isError || (roleBySlug.isSuccess && !roleBySlug.data);
+      const urlCompanyMissing =
+        companyBySlug.isError ||
+        (companyBySlug.isSuccess && !companyBySlug.data);
+      if (urlChangedElsewhere && urlRole && !urlRoleMissing) return;
+      if (urlChangedElsewhere && !urlRole && urlCompany && !urlCompanyMissing)
+        return;
 
       if (isRole(urlSelectedItem)) {
         // For roles, use company and role parameters
@@ -615,7 +676,8 @@ export default function Roles() {
 
         params.set("type", selectedType);
 
-        router.push(`/roles/?${params.toString()}`);
+        lastSyncedSearchRef.current = `?${params.toString()}`;
+        pushRolesUrl(params.toString());
       } else {
         // For companies, use the company parameter with the name
         const companyItem = urlSelectedItem as CompanyType & { slug?: string };
@@ -627,7 +689,8 @@ export default function Roles() {
         );
         params.set("type", selectedType);
 
-        router.push(`/roles/?${params.toString()}`);
+        lastSyncedSearchRef.current = `?${params.toString()}`;
+        pushRolesUrl(params.toString());
       }
     }
   }, [
@@ -637,6 +700,12 @@ export default function Roles() {
     isRole,
     selectedType,
     rolesAndCompanies.isSuccess,
+    roleBySlug.isError,
+    roleBySlug.isSuccess,
+    roleBySlug.data,
+    companyBySlug.isError,
+    companyBySlug.isSuccess,
+    companyBySlug.data,
   ]);
   const [showRoleInfo, setShowRoleInfo] = useState(false); // State for toggling views on mobile
   const [showCompanyInfo, setShowCompanyInfo] = useState(false);
@@ -715,7 +784,10 @@ export default function Roles() {
       appliedFilters.jobTypes.length > 0 ||
       appliedFilters.workModels.length > 0 ||
       appliedFilters.overtimeWork.length > 0 ||
-      appliedFilters.companyCulture.length > 0
+      appliedFilters.federalHolidays.length > 0 ||
+      appliedFilters.transportation.length > 0 ||
+      appliedFilters.drugTest.length > 0 ||
+      appliedFilters.benefits.length > 0
     );
   }, [appliedFilters]);
 
@@ -725,7 +797,9 @@ export default function Roles() {
     isFiltering ||
     appliedFilters.ratings.length > 0 ||
     appliedFilters.hourlyPay.min > 0 ||
-    appliedFilters.hourlyPay.max > 0;
+    appliedFilters.hourlyPay.max > 0 ||
+    appliedFilters.workHours.min > 0 ||
+    appliedFilters.workHours.max > 0;
 
   useEffect(() => {
     setCurrentPage(1);
@@ -800,14 +874,18 @@ export default function Roles() {
   const compareCardCount =
     1 +
     compare.comparedRoleIds.filter((id) => id !== compare.anchorRoleId).length;
+  // Hide the sidebar when the compared cards don't fit beside it
   const hideSidebarForCompare =
     compare.isCompareMode &&
     contentRowWidth > 0 &&
     contentRowWidth - SIDEBAR_WIDTH <
-      getCompareColumnsMinWidth(
-        compareCardCount,
-        compareCardCount < compare.maxColumns,
-      );
+      getCompareColumnsMinWidth(compareCardCount, false);
+  // Only offer the drop slot when one more card would still fit beside the
+  // sidebar (the list you drag from)
+  const hasRoomForAnotherCard =
+    compareCardCount < compare.maxColumns &&
+    contentRowWidth - SIDEBAR_WIDTH >=
+      getCompareColumnsMinWidth(compareCardCount + 1, false);
   // Compare needs room for two cards without the sidebar, and for one card
   // plus the drop slot beside it
   const canCompare =
@@ -823,23 +901,34 @@ export default function Roles() {
     event.dataTransfer.effectAllowed = "copy";
     event.dataTransfer.setData("application/role-id", role.id);
     event.dataTransfer.setData("text/plain", role.id);
-    const preview = document.createElement("div");
-    preview.style.position = "absolute";
-    preview.style.top = "-9999px";
-    preview.style.left = "-9999px";
-    preview.style.padding = "12px 16px";
-    preview.style.border = "1px solid #e5e5e5";
-    preview.style.borderRadius = "10px";
-    preview.style.boxShadow = "0 6px 20px rgba(0,0,0,0.15)";
-    preview.style.background = "white";
-    preview.style.fontSize = "15px";
-    preview.style.fontWeight = "600";
-    preview.style.color = "#141414";
-    preview.innerText = role.title;
+    // Drag a copy of the job card, held where the cursor grabbed it. The copy
+    // is clipped to rounded corners, since the browser snapshots a rectangle
+    // and would otherwise include what's behind the card's corners.
+    const card = event.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const preview = card.cloneNode(true) as HTMLElement;
+    // The card is hovered while dragging; leave its add button off the copy
+    preview
+      .querySelectorAll('[aria-label="Add to comparison"]')
+      .forEach((button) => button.remove());
+    Object.assign(preview.style, {
+      position: "fixed",
+      top: "-10000px",
+      left: "-10000px",
+      width: `${rect.width}px`,
+      margin: "0",
+      borderRadius: "8px",
+      overflow: "hidden",
+      pointerEvents: "none",
+    });
     document.body.appendChild(preview);
-    event.dataTransfer.setDragImage(preview, preview.clientWidth / 2, 20);
+    event.dataTransfer.setDragImage(
+      preview,
+      event.clientX - rect.left,
+      event.clientY - rect.top,
+    );
     requestAnimationFrame(() => {
-      document.body.removeChild(preview);
+      preview.remove();
     });
   };
 
@@ -925,19 +1014,14 @@ export default function Roles() {
             <div
               ref={sidebarRef}
               className={cn(
-                "border-cooper-gray-150 bg-cooper-cream-100 no-scrollbar w-full overflow-y-auto border-r-[1px] px-6 py-5 xl:rounded-none",
+                // pb-7 + the last card's mb-2 leaves 36px below the results
+                "border-cooper-gray-150 bg-cooper-cream-100 no-scrollbar w-full overflow-y-auto border-r-[1px] px-6 pb-7 pt-5 xl:rounded-none",
                 "md:w-[360px] md:flex-shrink-0", // Fixed 360px width on md and above
                 (showRoleInfo || showCompanyInfo) && "hidden md:block", // Hide on mobile if RoleInfo is visible
                 hideSidebarForCompare && "md:hidden",
               )}
             >
               <div key={sidebarListKey}>
-                <div className="mb-4">
-                  <RoleTypeSelector
-                    onSelectedTypeChange={setSelectedType}
-                    selectedType={selectedType}
-                  />
-                </div>
                 <div className="mb-3 flex items-center justify-between">
                   <p className="text-sm text-cooper-gray-400">
                     {totalResults}{" "}
@@ -947,6 +1031,12 @@ export default function Roles() {
                     options={ROLE_SORT_OPTIONS}
                     value={selectedFilter}
                     onChange={setSelectedFilter}
+                  />
+                </div>
+                <div className="mb-2">
+                  <RoleTypeSelector
+                    onSelectedTypeChange={setSelectedType}
+                    selectedType={selectedType}
                   />
                 </div>
                 {rolesAndCompanies.data.items.map((item, i) => {
@@ -1005,44 +1095,70 @@ export default function Roles() {
                     return (
                       <div
                         key={`company-${item.id}`}
+                        // Gap below on the wrapper, like job cards
+                        className="mb-2"
                         ref={(el) => {
                           cardRefs.current[item.id] = el;
                         }}
                         onClick={(e) => {
                           e.preventDefault();
+                          // While comparing, the card opens the company popup
+                          // instead (companies can't be compared)
+                          if (compare.isCompareMode) return;
                           setSelectedItem(item);
                           setShowCompanyInfo(true);
                         }}
                       >
-                        <CompanyCardPreview
-                          companyObj={item}
-                          className={cn(
-                            "mb-2 hover:cursor-pointer",
-                            selectedItem
-                              ? selectedItem.id === item.id &&
-                                  "bg-cooper-gray-50"
-                              : !i && "bg-cooper-gray-50",
-                          )}
-                        />
+                        {compare.isCompareMode ? (
+                          <CompanyPopup
+                            company={item}
+                            trigger={
+                              <div>
+                                {/* Tinted and muted like compared job
+                                    cards; companies can't be compared */}
+                                <CompanyCardPreview
+                                  companyObj={item}
+                                  muted
+                                  className="bg-cooper-gray-50 hover:cursor-pointer"
+                                />
+                              </div>
+                            }
+                          />
+                        ) : (
+                          <CompanyCardPreview
+                            companyObj={item}
+                            className={cn(
+                              "hover:cursor-pointer",
+                              selectedItem
+                                ? selectedItem.id === item.id &&
+                                    "bg-cooper-gray-50"
+                                : !i && "bg-cooper-gray-50",
+                            )}
+                          />
+                        )}
                       </div>
                     );
                   }
                 })}
 
-                {/* Pagination */}
-                <div className="mt-4">
-                  <Pagination
-                    currentPage={currentPage}
-                    totalPages={totalPages}
-                    onPageChange={handlePageChange}
-                  />
-                </div>
+                {/* Pagination; no wrapper on one page so its margin doesn't
+                    add space under the last card */}
+                {totalPages > 1 && (
+                  <div className="mt-4">
+                    <Pagination
+                      currentPage={currentPage}
+                      totalPages={totalPages}
+                      onPageChange={handlePageChange}
+                    />
+                  </div>
+                )}
               </div>
             </div>
             <div
               ref={roleInfoScrollRef}
               className={cn(
-                "no-scrollbar col-span-3 w-full overflow-y-auto p-1",
+                // pb-4 + RoleInfo's pb-5 leaves 36px, matching the sidebar
+                "no-scrollbar col-span-3 w-full overflow-y-auto p-1 pb-4",
                 "md:w-auto md:min-w-0 md:flex-1", // Fill remaining width on md and above
                 compare.isCompareMode && "pb-0", // Compare cards run to the bottom edge
                 !showRoleInfo && !showCompanyInfo && "hidden md:block", // Hide on mobile if RoleCardPreview is visible
@@ -1052,7 +1168,9 @@ export default function Roles() {
                 compareAnchorRole ? (
                   <CompareColumns
                     anchorRole={compareAnchorRole}
-                    canAddCards={!hideSidebarForCompare}
+                    canAddCards={
+                      !hideSidebarForCompare && hasRoomForAnotherCard
+                    }
                   />
                 ) : (
                   <LoadingResults className="h-[84dvh]" />

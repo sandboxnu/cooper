@@ -166,14 +166,15 @@ export function CompanyDetailsSection() {
                       className="mt-0.5"
                     />
                   </FormControl>
-                  <div className="flex flex-col gap-0.5">
-                    <FormLabel className="cursor-pointer text-sm font-semibold text-cooper-gray-400">
+                  {/* The description is inside the label so it toggles too */}
+                  <FormLabel className="flex cursor-pointer flex-col gap-0.5 text-sm">
+                    <span className="font-semibold text-cooper-gray-400">
                       {label}
-                    </FormLabel>
-                    <p className="text-sm text-cooper-gray-350">
+                    </span>
+                    <span className="font-normal text-cooper-gray-350">
                       {description}
-                    </p>
-                  </div>
+                    </span>
+                  </FormLabel>
                 </FormItem>
               )}
             />
