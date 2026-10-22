@@ -1,9 +1,11 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
-import { X } from "lucide-react";
+import { ChevronDown, X } from "lucide-react";
 
+import { cn } from ".";
 import { Checkbox } from "./checkbox";
+import { useReadOnly } from "./read-only";
 
 interface Option {
   value: string;
@@ -18,6 +20,8 @@ interface AutocompleteProps {
   onSearchChange?: (search: string) => void;
   /** When true, only one option can be selected; selection is shown in the bar and dropdown closes on select. */
   singleSelect?: boolean;
+  /** When false (singleSelect only), the input can't be typed in and acts as a plain dropdown. */
+  searchable?: boolean;
   // whether the autocomplete is rendered within a menu content (for positioning)
   isInMenuContent?: boolean;
   portalZIndex?: number;
@@ -32,10 +36,12 @@ export default function Autocomplete({
   onChange,
   onSearchChange,
   singleSelect = false,
+  searchable = true,
   isInMenuContent = false,
   portalZIndex = 200,
   isLoadingOptions = false,
 }: AutocompleteProps) {
+  const readOnly = useReadOnly();
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [dropdownStyle, setDropdownStyle] = useState<React.CSSProperties>({});
@@ -88,8 +94,12 @@ export default function Autocomplete({
     singleSelect && value.length === 1
       ? (options.find((o) => o.value === value[0])?.label ?? "")
       : "";
-  const displayValue =
-    singleSelect && !open && selectedLabel ? selectedLabel : search;
+  const isDropdown = singleSelect && !searchable;
+  const displayValue = isDropdown
+    ? selectedLabel
+    : singleSelect && !open && selectedLabel
+      ? selectedLabel
+      : search;
 
   const updateDropdownPosition = useMemo(
     () => () => {
@@ -147,11 +157,18 @@ export default function Autocomplete({
 
   return (
     <div ref={containerRef} className="relative w-full">
-      <div className="relative">
+      {/* Read-only multi-selects show just their chips (or "None selected") */}
+      {readOnly && !singleSelect && value.length === 0 && (
+        <p className="text-sm text-cooper-gray-400">None selected</p>
+      )}
+      <div className={cn("relative", readOnly && !singleSelect && "hidden")}>
         <input
           ref={inputRef}
           type="text"
-          className="border-cooper-gray-150 focus:none flex w-full rounded-md border bg-white px-[14px] placeholder:text-cooper-gray-400 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 py-2 text-sm"
+          className={cn(
+            "border-cooper-gray-150 focus:none flex w-full rounded-md border bg-white pl-[14px] pr-14 placeholder:text-cooper-gray-400 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 py-2 text-sm hover:bg-[#F6F6F6] focus:bg-white",
+            isDropdown && "cursor-pointer caret-transparent",
+          )}
           placeholder={placeholder}
           value={displayValue}
           onChange={(e) => {
@@ -188,17 +205,27 @@ export default function Autocomplete({
               if (singleSelect && value.length === 1) setSearch("");
             }
           }}
-          readOnly={singleSelect && !open && value.length === 1}
+          readOnly={isDropdown || (singleSelect && !open && value.length === 1)}
         />
-        {search || value.length > 0 ? (
-          <button
-            onClick={handleClearAll}
-            className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-          >
-            <X className="h-4 w-4" />
-          </button>
-        ) : (
-          <MagnifyingGlassIcon className="absolute right-2 top-1/2 h-5 w-5 shrink-0 -translate-y-1/2 opacity-50" />
+        {/* Clear X sits beside the chevron (dropdown) or search icon (typeable) */}
+        {!readOnly && (
+          <div className="pointer-events-none absolute right-2 top-1/2 flex -translate-y-1/2 items-center gap-1.5">
+            {(search || value.length > 0) && (
+              <button
+                type="button"
+                aria-label="Clear selection"
+                onClick={handleClearAll}
+                className="pointer-events-auto text-gray-400 hover:text-gray-600"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
+            {isDropdown ? (
+              <ChevronDown className="h-4 w-4 shrink-0 opacity-50" />
+            ) : (
+              <MagnifyingGlassIcon className="h-5 w-5 shrink-0 opacity-50" />
+            )}
+          </div>
         )}
       </div>
 
@@ -216,7 +243,7 @@ export default function Autocomplete({
                   <button
                     key={option.value}
                     type="button"
-                    className={`hover:bg-cooper-gray-150 flex w-full items-center gap-2 rounded-sm px-[14px] py-2 hover:cursor-pointer ${isSelected ? "bg-cooper-gray-150" : ""}`}
+                    className={`flex w-full items-center gap-2 rounded-sm px-[14px] py-2 hover:cursor-pointer ${isSelected ? "bg-cooper-gray-150" : "hover:bg-[#F6F6F6]"}`}
                     onClick={() => handleToggle(option.value)}
                   >
                     {!singleSelect && <Checkbox checked={isSelected} />}
@@ -253,7 +280,7 @@ export default function Autocomplete({
                     <button
                       key={option.value}
                       type="button"
-                      className={`hover:bg-cooper-gray-150 flex w-full items-center gap-2 rounded-sm px-[14px] py-2 hover:cursor-pointer ${isSelected ? "bg-cooper-gray-150" : ""}`}
+                      className={`flex w-full items-center gap-2 rounded-sm px-[14px] py-2 hover:cursor-pointer ${isSelected ? "bg-cooper-gray-150" : "hover:bg-[#F6F6F6]"}`}
                       onClick={() => handleToggle(option.value)}
                     >
                       {!singleSelect && <Checkbox checked={isSelected} />}
@@ -269,22 +296,30 @@ export default function Autocomplete({
           portalHost,
         )}
       {!open && value.length > 0 && !singleSelect && (
-        <div className="mt-2 flex flex-wrap gap-1">
+        <div className={cn("flex flex-wrap gap-1", !readOnly && "mt-2")}>
           {value.map((val) => {
             const option = options.find((opt) => opt.value === val);
             if (!option) return null;
             return (
               <span
                 key={val}
-                className="border-cooper-gray-150 hover:bg-cooper-gray-150 inline-flex items-center gap-[6px] rounded-[8px] border bg-white py-2 pl-[14px] pr-3 text-sm font-medium text-cooper-gray-400"
+                className={cn(
+                  "border-cooper-gray-150 inline-flex items-center gap-[6px] border text-sm font-medium text-cooper-gray-400",
+                  // Read-only chips are smaller, light gray, with no remove X
+                  readOnly
+                    ? "rounded-md bg-[#F6F6F6] px-2.5 py-1"
+                    : "rounded-[8px] bg-white py-2 pl-[14px] pr-3 hover:bg-[#F6F6F6]",
+                )}
               >
                 {option.label}
-                <button
-                  onClick={() => handleRemove(val)}
-                  className="text-cooper-gray-400"
-                >
-                  <X className="h-5 w-5 rounded-full p-1 hover:cursor-pointer hover:bg-cooper-gray-400/20" />
-                </button>
+                {!readOnly && (
+                  <button
+                    onClick={() => handleRemove(val)}
+                    className="text-cooper-gray-400"
+                  >
+                    <X className="h-5 w-5 rounded-full p-1 hover:cursor-pointer hover:bg-cooper-gray-400/20" />
+                  </button>
+                )}
               </span>
             );
           })}

@@ -32,6 +32,8 @@ interface FilterBodyProps {
   placeholder?: string;
   /** When true (autocomplete only), only one option can be selected; value shows in bar and dropdown closes on select. */
   singleSelect?: boolean;
+  /** When false (autocomplete singleSelect only), options can't be searched by typing. */
+  searchable?: boolean;
   minValue?: number;
   maxValue?: number;
   onRangeChange?: (min: number, max: number) => void;
@@ -270,6 +272,7 @@ function FilterBodyAutocomplete({
   onSelectionChange,
   placeholder,
   singleSelect,
+  searchable,
   onSearchChange,
   isInMenuContent,
   portalZIndex,
@@ -288,6 +291,7 @@ function FilterBodyAutocomplete({
         `Search by ${title === "Industry" ? "industry" : "city or state"}`
       }
       singleSelect={singleSelect}
+      searchable={searchable}
       onSearchChange={onSearchChange}
       isInMenuContent={isInMenuContent}
       portalZIndex={portalZIndex ?? contextZIndex}

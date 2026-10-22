@@ -66,11 +66,9 @@ export default function LocationBox({
             <ComboBox
               {...field}
               variant={searchBar ? "filtering" : "form"}
-              defaultLabel={
-                locationLabel ||
-                (searchBar ? "Location" : "Search by location...")
-              }
+              defaultLabel={locationLabel || (searchBar ? "Location" : "Enter")}
               newForm={true}
+              icon={searchBar ? "chevron" : "search"}
               searchPlaceholder="Search by location..."
               searchEmpty="No location found."
               valuesAndLabels={locationValuesAndLabels}

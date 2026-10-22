@@ -1,5 +1,6 @@
 "use client";
 
+import { createPortal } from "react-dom";
 import Image from "next/image";
 
 import type { RoleType } from "@cooper/db/schema";
@@ -9,7 +10,7 @@ import { Card, CardHeader } from "@cooper/ui/card";
 import { api } from "~/trpc/react";
 import { prettyLocationName } from "~/utils/locationHelpers";
 import { FavoriteButton } from "../shared/favorite-button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCompare } from "../compare/compare-context";
 import { Button } from "@cooper/ui/button";
 
@@ -51,6 +52,19 @@ export function RoleCardPreview({
   );
 
   const [hovered, setHovered] = useState(false);
+  // Viewport point below the compare icon; the label is portaled so the
+  // card's overflow-hidden doesn't clip it
+  const [compareLabelPos, setCompareLabelPos] = useState<{
+    x: number;
+    y: number;
+  } | null>(null);
+
+  useEffect(() => {
+    if (!compareLabelPos) return;
+    const hide = () => setCompareLabelPos(null);
+    window.addEventListener("scroll", hide, true);
+    return () => window.removeEventListener("scroll", hide, true);
+  }, [compareLabelPos]);
 
   const compare = useCompare();
 
@@ -62,7 +76,7 @@ export function RoleCardPreview({
   return (
     <Card
       className={cn(
-        "outline-cooper-gray-150 relative flex flex-col justify-between overflow-hidden rounded-lg outline outline-[0.75px] hover:cursor-pointer ",
+        "relative flex flex-col justify-between overflow-hidden rounded-lg hover:cursor-pointer",
         className,
         showDragHandle && "pl-4",
         compare.isCompareMode && "pr-2",
@@ -89,16 +103,15 @@ export function RoleCardPreview({
               </h3>
             </div>
 
-            <div className="flex items-center gap-2 text-base text-[#666666]">
+            <div className="flex flex-wrap items-center gap-2 gap-y-0 text-base text-[#666666]">
               {company.data?.name}
+              <p>•</p>
               {location.isSuccess && location.data && (
-                <span className="before:mr-2 before:content-['•']">
-                  {prettyLocationName(location.data)}
-                </span>
+                <span>{prettyLocationName(location.data)}</span>
               )}
             </div>
             {reviews.isSuccess && reviews.data.length > 0 && (
-              <div className="flex items-center gap-1.5 text-base text-[#666666]">
+              <div className="!mt-2 flex items-center gap-1.5 text-base text-[#666666]">
                 <Image
                   src="/svg/star.svg"
                   alt="Star icon"
@@ -127,7 +140,16 @@ export function RoleCardPreview({
               <Button
                 variant="outline"
                 className="hidden md:inline-flex items-center rounded-full transition hover:bg-cooper-gray-150 hover:shadow-[0px_0px_0px_12px_rgb(231,231,231)] border-none p-0 h-4"
+                onMouseEnter={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  setCompareLabelPos({
+                    x: rect.left + rect.width / 2,
+                    y: rect.bottom,
+                  });
+                }}
+                onMouseLeave={() => setCompareLabelPos(null)}
                 onClick={() => {
+                  setCompareLabelPos(null);
                   compare.enterCompareMode(currentlySelectedRoleId);
                   compare.addRoleId(role.data?.id ?? "");
                 }}
@@ -140,6 +162,21 @@ export function RoleCardPreview({
                 />
               </Button>
             )}
+            {hovered &&
+              compareLabelPos &&
+              createPortal(
+                // Softer than the InfoIcon tooltip; overlaps the hover circle
+                <span
+                  className="pointer-events-none fixed z-50 -translate-x-1/2 whitespace-nowrap rounded bg-gray-700/85 px-2 py-1 text-[11px] text-white"
+                  style={{
+                    left: compareLabelPos.x,
+                    top: compareLabelPos.y + 16,
+                  }}
+                >
+                  Compare with
+                </span>,
+                document.body,
+              )}
           </div>
         )}
         {compare.isCompareMode &&

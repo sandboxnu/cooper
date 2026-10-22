@@ -1,6 +1,6 @@
 "use client";
 
-import type { FormEvent } from "react";
+import type { FormEvent, ReactNode } from "react";
 import { useState } from "react";
 import Image from "next/image";
 
@@ -10,7 +10,6 @@ import { Button } from "@cooper/ui/button";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -33,6 +32,7 @@ interface ReportButtonProps {
   entityType: "role" | "company" | "review";
   entityId: string;
   iconOnly?: boolean;
+  icon?: ReactNode;
   className?: string;
 }
 
@@ -40,10 +40,54 @@ export function ReportButton({
   entityType,
   entityId,
   iconOnly,
+  icon,
   className,
 }: ReportButtonProps) {
-  const { toast } = useCustomToast();
   const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <button
+        onClick={() => setIsOpen(true)}
+        className={cn("text-cooper-gray-300", className)}
+      >
+        <span className="flex flex-row gap-2">
+          {icon ?? (
+            <Image
+              src="/svg/reviewReport.svg"
+              width={16}
+              height={16}
+              alt="Report"
+            />
+          )}
+          {!iconOnly && "Report"}
+        </span>
+      </button>
+      <ReportDialog
+        entityType={entityType}
+        entityId={entityId}
+        open={isOpen}
+        onOpenChange={setIsOpen}
+      />
+    </>
+  );
+}
+
+interface ReportDialogProps {
+  entityType: "role" | "company" | "review";
+  entityId: string;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}
+
+// Report form dialog, for opening from a menu item or other custom trigger
+export function ReportDialog({
+  entityType,
+  entityId,
+  open: isOpen,
+  onOpenChange: setIsOpen,
+}: ReportDialogProps) {
+  const { toast } = useCustomToast();
   const [reason, setReason] = useState<ReportReasonType | "">("");
   const [reportDescription, setReportDescription] = useState("");
 
@@ -87,88 +131,66 @@ export function ReportButton({
   };
 
   return (
-    <>
-      <button
-        onClick={() => setIsOpen(true)}
-        className={cn("text-cooper-gray-300", className)}
-      >
-        <span className="flex flex-row gap-2">
-          <Image
-            src="/svg/reviewReport.svg"
-            width={16}
-            height={16}
-            alt="Report"
-          />
-          {!iconOnly && "Report"}
-        </span>
-      </button>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <DialogContent className="w-full max-w-md bg-white p-5">
+        <DialogHeader>
+          <DialogTitle>Report content</DialogTitle>
+        </DialogHeader>
+        <form onSubmit={handleSubmit} className="space-y-4 mt-[0.5rem]">
+          <div className="space-y-2">
+            <Label htmlFor="report-reason">Reason</Label>
+            <Select
+              value={reason}
+              onValueChange={(value) => setReason(value as ReportReasonType)}
+            >
+              <SelectTrigger id="report-reason" className="bg-white">
+                <SelectValue placeholder="Select a reason" />
+              </SelectTrigger>
+              <SelectContent>
+                {Object.values(ReportReason).map((reasonOption) => (
+                  <SelectItem key={reasonOption} value={reasonOption}>
+                    {reasonOption
+                      .split("_")
+                      .map(
+                        (word) => word.charAt(0) + word.slice(1).toLowerCase(),
+                      )
+                      .join(" ")}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
 
-      <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="w-full max-w-md bg-white p-5">
-          <DialogHeader>
-            <DialogTitle>Report content</DialogTitle>
-            <DialogDescription>
-              Tell us what is wrong and why this should be reviewed.
-            </DialogDescription>
-          </DialogHeader>
+          <div className="space-y-2">
+            <Label htmlFor="report-description">Description</Label>
+            <Textarea
+              id="report-description"
+              placeholder="Add details to help moderators understand the issue"
+              value={reportDescription}
+              onChange={(event) => setReportDescription(event.target.value)}
+              className="min-h-[120px] border border-gray-300 text-base"
+            />
+          </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="report-reason">Reason</Label>
-              <Select
-                value={reason}
-                onValueChange={(value) => setReason(value as ReportReasonType)}
-              >
-                <SelectTrigger id="report-reason" className="bg-white">
-                  <SelectValue placeholder="Select a reason" />
-                </SelectTrigger>
-                <SelectContent>
-                  {Object.values(ReportReason).map((reasonOption) => (
-                    <SelectItem key={reasonOption} value={reasonOption}>
-                      {reasonOption
-                        .split("_")
-                        .map(
-                          (word) =>
-                            word.charAt(0) + word.slice(1).toLowerCase(),
-                        )
-                        .join(" ")}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="report-description">Description</Label>
-              <Textarea
-                id="report-description"
-                placeholder="Add details to help moderators understand the issue"
-                value={reportDescription}
-                onChange={(event) => setReportDescription(event.target.value)}
-                className="min-h-[120px] border border-gray-300 text-base"
-              />
-            </div>
-
-            <DialogFooter className="gap-2 sm:justify-end">
-              <Button
-                type="button"
-                className="px-3 py-2 text-sm font-semibold  h-9 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 text-black"
-                onClick={closeReportModal}
-                disabled={createReport.isPending}
-              >
-                Cancel
-              </Button>
-              <Button
-                type="submit"
-                disabled={createReport.isPending}
-                className="px-3 py-2 text-sm font-semibold  h-9 rounded-lg border-none"
-              >
-                {createReport.isPending ? "Submitting..." : "Submit report"}
-              </Button>
-            </DialogFooter>
-          </form>
-        </DialogContent>
-      </Dialog>
-    </>
+          <DialogFooter className="gap-1/2 sm:justify-end">
+            <Button
+              type="button"
+              className="px-3 py-2 text-sm font-semibold  h-9 rounded-lg border border-gray-300 bg-white hover:bg-[#F6F6F6] text-black"
+              onClick={closeReportModal}
+              disabled={createReport.isPending}
+            >
+              Cancel
+            </Button>
+            <Button
+              type="submit"
+              disabled={createReport.isPending}
+              className="px-3 py-2 text-sm font-semibold  h-9 rounded-lg border-none"
+            >
+              {createReport.isPending ? "Submitting..." : "Submit report"}
+            </Button>
+          </DialogFooter>
+        </form>
+      </DialogContent>
+    </Dialog>
   );
 }

@@ -126,7 +126,7 @@ const DropdownFilter = forwardRef<HTMLButtonElement, DropdownFilterProps>(
           "flex items-center gap-[10px] rounded-lg px-[14px] py-2 text-sm border border-cooper-gray-150 text-cooper-gray-400 font-normal focus-visible:ring-0 outline-none focus:outline-none h-9 whitespace-nowrap",
           isFiltering
             ? "border-cooper-gray-600 bg-cooper-gray-700 hover:bg-cooper-gray-200"
-            : "bg-white hover:bg-cooper-gray-150",
+            : "bg-white hover:bg-[#F6F6F6]",
         )}
         onClick={triggerOnly ? onTriggerClick : undefined}
       >
@@ -147,7 +147,7 @@ const DropdownFilter = forwardRef<HTMLButtonElement, DropdownFilterProps>(
               "flex items-center gap-[10px] rounded-lg px-[14px] py-2 text-sm border border-cooper-gray-150 text-cooper-gray-400 font-normal focus-visible:ring-0 outline-none focus:outline-none h-9 whitespace-nowrap",
               isFiltering
                 ? "border-cooper-gray-600 bg-cooper-gray-700 hover:bg-cooper-gray-200"
-                : "bg-white hover:bg-cooper-gray-150",
+                : "bg-white hover:bg-[#F6F6F6]",
             )}
           >
             {displayText}
@@ -242,7 +242,7 @@ export function FilterPanelContent(
     <div className="flex flex-col w-96 gap-[22px] p-5 bg-cooper-cream-400 rounded-lg">
       <div className="flex justify-between p-0 bg-cooper-cream-400">
         <div className="flex gap-2">
-          <span className="font-semibold text-base">{title}</span>
+          {/* <span className="font-semibold text-base">{title}</span> */}
           <Button
             className="bg-transparent border-none text-cooper-gray-400 font-normal text-xs hover:bg-transparent p-0 h-auto self-center"
             onClick={handleClear}
@@ -252,7 +252,7 @@ export function FilterPanelContent(
         </div>
         <Button
           onClick={onClose}
-          className="bg-transparent border-none text-cooper-gray-400 hover:bg-transparent p-0 h-auto"
+          className="self-end bg-transparent border-none text-cooper-gray-400 hover:bg-transparent p-0 h-auto"
         >
           <X className="h-4 w-4" />
         </Button>

@@ -2,23 +2,21 @@ import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@cooper/ui/form";
+import { FormControl, FormField, FormItem, FormMessage } from "@cooper/ui/form";
 
+import {
+  FieldLabel,
+  FieldRow,
+  SelectField,
+} from "~/app/_components/form/fields";
 import { FormSection } from "~/app/_components/form/form-section";
 import { Input } from "~/app/_components/themed/onboarding/input";
 import ExistingCompanyContent from "../../reviews/existing-company-content";
-import FilterBody from "../../filters/filter-body";
 import LocationBox from "../../location";
 import { api } from "~/trpc/react";
 
 /**
- * CoopCycleSection component renders form fields for selecting co-op cycle and year.
+ * BasicInfoSection renders the company, role, term and location fields.
  */
 export function BasicInfoSection({
   profileId,
@@ -109,156 +107,73 @@ export function BasicInfoSection({
     <FormSection>
       <ExistingCompanyContent profileId={profileId} />
 
-      <FormField
-        control={form.control}
-        name="jobType"
-        render={({ field }) => {
-          const options = [
+      <FieldRow>
+        <SelectField
+          name="jobType"
+          label="Job type"
+          required
+          options={[
             { id: "Co-op", label: "Co-op" },
             { id: "Internship", label: "Internship" },
-          ];
-          return (
-            <FormItem className="flex flex-col w-full pt-5">
-              <FormLabel className="text-sm font-bold text-cooper-gray-400">
-                Job type<span className="text-cooper-red-300">*</span>
-              </FormLabel>
-              <FormControl className="relative w-full">
-                <FilterBody
-                  variant="autocomplete"
-                  title="Job type"
-                  options={options}
-                  selectedOptions={
-                    field.value &&
-                    typeof field.value === "string" &&
-                    field.value.length > 0
-                      ? [field.value]
-                      : []
-                  }
-                  placeholder="Select"
-                  singleSelect
-                  onSelectionChange={(selected) => {
-                    field.onChange(selected[0] ?? undefined);
-                  }}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          );
-        }}
-      />
-      <FormField
-        control={form.control}
-        name="workTerm"
-        render={({ field }) => {
-          const options = [
+          ]}
+        />
+        <SelectField
+          name="workTerm"
+          label="Term"
+          required
+          options={[
             { id: "SPRING", label: "Spring" },
             { id: "SUMMER", label: "Summer" },
             { id: "FALL", label: "Fall" },
-          ];
-          return (
-            <FormItem className="flex flex-col flex-1 pt-4">
-              <FormLabel className="text-sm font-bold text-cooper-gray-400">
-                Co-op/internship term
-                <span className="text-cooper-red-300">*</span>
-              </FormLabel>
-              <FormControl className="relative w-full">
-                <FilterBody
-                  variant="autocomplete"
-                  title="Co-op/internship term"
-                  options={options}
-                  selectedOptions={
-                    field.value &&
-                    typeof field.value === "string" &&
-                    field.value.length > 0
-                      ? [field.value]
-                      : []
+          ]}
+        />
+      </FieldRow>
+
+      <FieldRow>
+        <SelectField
+          name="workYear"
+          label="Year"
+          required
+          numeric
+          searchable
+          options={years.map((year) => ({
+            id: String(year),
+            label: String(year),
+          }))}
+        />
+        <FormField
+          control={form.control}
+          name="jobLength"
+          render={({ field }) => (
+            <FormItem className="flex flex-col">
+              <FieldLabel required>Job length (months)</FieldLabel>
+              <FormControl>
+                <Input
+                  type="number"
+                  min={1}
+                  step={1}
+                  placeholder="Enter"
+                  value={(field.value as number | null) ?? ""}
+                  onChange={(e) =>
+                    field.onChange(
+                      e.target.value === "" ? null : Number(e.target.value),
+                    )
                   }
-                  placeholder="Select"
-                  singleSelect
-                  onSelectionChange={(selected) => {
-                    field.onChange(selected[0] ?? undefined);
-                  }}
+                  onClear={() => field.onChange(null)}
                 />
               </FormControl>
               <FormMessage />
             </FormItem>
-          );
-        }}
-      />
-
-      <FormField
-        control={form.control}
-        name="jobLength"
-        render={({ field }) => (
-          <FormItem className="flex flex-col pt-4">
-            <FormLabel className="text-sm font-bold text-cooper-gray-400">
-              Job length<span className="text-cooper-red-300">*</span>
-            </FormLabel>
-            <p className="text-xs text-cooper-gray-350">
-              Enter length of entire term, in months
-            </p>
-            <FormControl>
-              <Input
-                type="number"
-                min={1}
-                step={1}
-                placeholder="Enter job length, in months"
-                value={(field.value as number | null) ?? ""}
-                onChange={(e) =>
-                  field.onChange(
-                    e.target.value === "" ? null : Number(e.target.value),
-                  )
-                }
-                onClear={() => field.onChange(null)}
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-
-      <FormField
-        control={form.control}
-        name="workYear"
-        render={({ field }) => (
-          <FormItem className="flex flex-col flex-1 pt-4">
-            <FormLabel className="text-sm font-bold text-cooper-gray-400">
-              Year of co-op/internship term
-              <span className="text-cooper-red-300">*</span>
-            </FormLabel>
-            <FormControl className="relative w-full">
-              <FilterBody
-                variant="autocomplete"
-                title="Year"
-                options={years.map((year) => ({
-                  id: String(year),
-                  label: String(year),
-                  value: String(year),
-                }))}
-                selectedOptions={
-                  field.value && field.value > 0 ? [String(field.value)] : []
-                }
-                placeholder="Select"
-                singleSelect
-                onSelectionChange={(selected) => {
-                  const val = selected[0];
-                  field.onChange(val ? Number(val) : undefined);
-                }}
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
+          )}
+        />
+      </FieldRow>
 
       <FormField
         control={form.control}
         name="locationId"
         render={() => (
-          <FormItem className="flex flex-col pt-4 w-full">
-            <FormLabel className="text-sm text-cooper-gray-400 font-bold">
-              Location<span className="text-cooper-red-300">*</span>
-            </FormLabel>
+          <FormItem className="flex w-full flex-col">
+            <FieldLabel required>Location</FieldLabel>
             <FormControl className="w-full">
               <LocationBox
                 searchBar={false}
@@ -270,7 +185,7 @@ export function BasicInfoSection({
                 locationsToUpdate={locationsToUpdate}
               />
             </FormControl>
-            <FormMessage className="text-sm" />
+            <FormMessage />
           </FormItem>
         )}
       />
