@@ -79,7 +79,9 @@ function CompactTypeRow({
   return (
     <div className="flex items-start justify-between">
       <div className="flex flex-col gap-0.5">
-        <p className="text-[16px] tracking-[-0.16px] text-cooper-gray-900">{label}</p>
+        <p className="text-[16px] tracking-[-0.16px] text-cooper-gray-900">
+          {label}
+        </p>
         {dominantDifficulty && (
           <DifficultyChip difficulty={dominantDifficulty} />
         )}

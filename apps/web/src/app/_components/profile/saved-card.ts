@@ -3,7 +3,5 @@
 export const SAVED_CARD_WIDTH_CLASS = "w-full md:w-[312px]";
 
 export function isInsideButton(event: React.MouseEvent) {
-  return (
-    event.target instanceof Element && !!event.target.closest("button")
-  );
+  return event.target instanceof Element && !!event.target.closest("button");
 }

@@ -48,10 +48,7 @@ export function SortDropdown<T extends string>({
           className={cn("h-4 w-4 transition-transform", open && "rotate-180")}
         />
       </DropdownMenuTrigger>
-      <DropdownMenuContent
-        align="end"
-        className={MENU_CONTENT_CLASS}
-      >
+      <DropdownMenuContent align="end" className={MENU_CONTENT_CLASS}>
         {options.map((option) => {
           const isSelected = option.value === value;
           return (

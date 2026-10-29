@@ -244,9 +244,7 @@ export function RoleInfo({
           {roleObj.title}
         </p>
         <p className="truncate text-[14px] leading-normal text-cooper-gray-400">
-          {[companyData?.name, location.data?.city]
-            .filter(Boolean)
-            .join(" • ")}
+          {[companyData?.name, location.data?.city].filter(Boolean).join(" • ")}
         </p>
       </div>
       {headerActions}

@@ -16,12 +16,14 @@ export default function Landing() {
   return (
     <div className="flex w-full flex-col bg-cooper-cream-100 lg:flex-row overflow-auto lg:overflow-hidden h-full flex-1">
       <AdminAccessToast />
-      {/* left side */} {/* old classes: w-full lg:w-[40%] flex flex-col pl-20 lg:pl-16 pr-6 lg:pr-28 justify-center pt-8 md:pt-2 lg:pt-0 */}
+      {/* left side */}{" "}
+      {/* old classes: w-full lg:w-[40%] flex flex-col pl-20 lg:pl-16 pr-6 lg:pr-28 justify-center pt-8 md:pt-2 lg:pt-0 */}
       <div className="w-full px-[2rem] pt-20 lg:w-[40%] flex flex-col lg:pl-16 lg:pr-28 justify-center md:pt-2 lg:pt-0">
         {/* main text */}
         <div className="flex w-fit flex-row items-center gap-2">
           <div className="text-cooper-blue-800 text-[40px] leading-[48px] font-semibold">
-             Real reviews of <br /><span className="font-black">real co-op experiences</span>
+            Real reviews of <br />
+            <span className="font-black">real co-op experiences</span>
           </div>
         </div>
         {/* after title, before line */}
@@ -53,7 +55,6 @@ export default function Landing() {
           })}
         </div>
       </div>
-
       {/* image */}
       <div className="justify-end pt-20 pr-10 hidden md:block">
         <Image

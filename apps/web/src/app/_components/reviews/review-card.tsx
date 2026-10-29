@@ -109,19 +109,12 @@ export function ReviewCard({
               aria-label="Review options"
               className="shrink-0 outline-none"
             >
-              <Image
-                src="/svg/reviewMenu.svg"
-                alt=""
-                width={6}
-                height={22}
-              />
+              <Image src="/svg/reviewMenu.svg" alt="" width={6} height={22} />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className={MENU_CONTENT_CLASS}>
               {isOwnReview && (
                 <DropdownMenuItem asChild className={MENU_ITEM_CLASS}>
-                  <Link
-                    href={`/profile?tab=my-reviews&review=${reviewObj.id}`}
-                  >
+                  <Link href={`/profile?tab=my-reviews&review=${reviewObj.id}`}>
                     View or edit on profile
                   </Link>
                 </DropdownMenuItem>
