@@ -2,9 +2,6 @@ import Image from "next/image";
 import AdminSignInButton from "~/app/_components/auth/admin-signin-button";
 import LoginButton from "~/app/_components/auth/login-button";
 import { AdminAccessToast } from "~/app/_components/landing/admin-access-toast";
-import { env } from "~/env";
-
-const isPreviewEnv = env.VERCEL_ENV === "preview";
 
 const textOptions = [
   "Insights on interviews, pay, and job experience",
@@ -26,15 +23,12 @@ export default function Landing() {
             <span className="font-black">real co-op experiences</span>
           </div>
         </div>
-        {/* after title, before line */}
-        <div className="w-fit mt-8 flex flex-col gap-3">
-          <LoginButton isPreview={isPreviewEnv} />
-          <div className="text-cooper-gray-600 text-md w-fit">
-            {isPreviewEnv
-              ? "Preview environment — OAuth bypassed"
-              : "Log in with husky.neu.edu email to access reviews"}
+        <div className="w-fit pt-8">
+          <LoginButton />
+          <div className="text-cooper-gray-600 text-md pt-4 w-fit">
+            Log in with husky.neu.edu email to access reviews
           </div>
-          {!isPreviewEnv && <AdminSignInButton />}
+          <AdminSignInButton />
           <hr />
         </div>
         {/* blue checkmark text */}

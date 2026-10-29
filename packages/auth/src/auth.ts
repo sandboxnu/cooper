@@ -1,7 +1,7 @@
 import { betterAuth, APIError } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { nextCookies } from "better-auth/next-js";
-import { genericOAuth } from "better-auth/plugins";
+import { genericOAuth, oAuthProxy } from "better-auth/plugins";
 import { eq } from "drizzle-orm";
 
 import { db } from "@cooper/db/client";
@@ -17,14 +17,18 @@ import { env } from "../env";
 
 export const isSecureContext = env.NODE_ENV !== "development";
 
-export const isPreviewEnv = env.VERCEL_ENV === "preview";
-
-export const PREVIEW_USER_EMAIL = "preview@husky.neu.edu";
-export const PREVIEW_USER_PASSWORD = "preview-password-not-secret";
+const isPreviewEnv = env.VERCEL_ENV === "preview";
 
 const baseURL =
   env.AUTH_URL ??
   (env.VERCEL_URL ? `https://${env.VERCEL_URL}` : "http://localhost:3000");
+
+// Stable production origin every non-production deployment proxies OAuth
+// through via oAuthProxy — deliberately not VERCEL_URL, which is
+// deployment-specific even in production.
+const productionURL = env.AUTH_URL ?? "https://www.coopernu.com";
+
+const isVercelDeployment = !!env.VERCEL_ENV;
 
 const trustedOrigins = [
   baseURL,
@@ -47,11 +51,6 @@ export const auth = betterAuth({
   }),
   secret: env.AUTH_SECRET,
   baseURL,
-
-  emailAndPassword: {
-    enabled: isPreviewEnv,
-    autoSignIn: true,
-  },
 
   account: {
     accountLinking: {
@@ -88,6 +87,9 @@ export const auth = betterAuth({
   },
 
   plugins: [
+    // redirectURI is intentionally omitted from both provider configs below —
+    // a static value here always wins over oAuthProxy's dynamic rewrite,
+    // which silently defeats the proxy on preview deployments.
     genericOAuth({
       config: [
         {
@@ -98,7 +100,6 @@ export const auth = betterAuth({
             "https://accounts.google.com/o/oauth2/v2/auth?hd=husky.neu.edu",
           tokenUrl: "https://oauth2.googleapis.com/token",
           userInfoUrl: "https://www.googleapis.com/oauth2/v3/userinfo",
-          redirectURI: `${baseURL}/api/auth/callback/google`,
           scopes: ["openid", "email", "profile"],
           pkce: true,
           mapProfileToUser: (profile) => ({
@@ -116,7 +117,6 @@ export const auth = betterAuth({
           authorizationUrl: "https://accounts.google.com/o/oauth2/v2/auth",
           tokenUrl: "https://oauth2.googleapis.com/token",
           userInfoUrl: "https://www.googleapis.com/oauth2/v3/userinfo",
-          redirectURI: `${baseURL}/api/auth/callback/googleAdmin`,
           scopes: ["openid", "email", "profile"],
           pkce: true,
           mapProfileToUser: (profile) => ({
@@ -129,6 +129,7 @@ export const auth = betterAuth({
         },
       ],
     }),
+    ...(isVercelDeployment ? [oAuthProxy({ productionURL })] : []),
     nextCookies(),
   ],
 
@@ -146,33 +147,15 @@ export const auth = betterAuth({
             }),
           ]);
 
-          console.log(
-            "[session.create] user:",
-            user?.email,
-            "provider:",
-            recentAccount?.providerId,
-            "role:",
-            user?.role,
-          );
-
           if (!user?.email) {
-            console.log("[session.create] blocked: no email");
             return false;
           }
 
           if (user.isDisabled) {
-            console.log("[session.create] blocked: disabled-account");
             throw new APIError("FORBIDDEN", { message: "disabled-account" });
           }
 
           const provider = recentAccount?.providerId;
-
-          if (provider === "credential" && !isPreviewEnv) {
-            console.log("[session.create] blocked: credential-not-on-preview");
-            throw new APIError("FORBIDDEN", {
-              message: "credential-only-on-preview",
-            });
-          }
 
           if (provider === "googleAdmin") {
             const isElevated =
@@ -180,10 +163,6 @@ export const auth = betterAuth({
               user.role === UserRole.COORDINATOR ||
               user.role === UserRole.DEVELOPER;
             if (!isElevated) {
-              console.log(
-                "[session.create] blocked: unauthorized-admin",
-                user.email,
-              );
               throw new APIError("FORBIDDEN", {
                 message: "unauthorized-admin",
               });
@@ -192,10 +171,6 @@ export const auth = betterAuth({
             provider === "google" &&
             !user.email.endsWith("@husky.neu.edu")
           ) {
-            console.log(
-              "[session.create] blocked: domain-not-allowed",
-              user.email,
-            );
             throw new APIError("FORBIDDEN", {
               message: "domain-not-allowed",
             });

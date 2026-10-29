@@ -7,12 +7,10 @@ export default function AdminSignInButton() {
     <button
       type="button"
       onClick={async () => {
-        console.log("[AdminSignInButton] starting social sign-in");
         const result = await authClient.signIn.social({
           provider: "googleAdmin",
           callbackURL: "/roles",
         });
-        console.log("[AdminSignInButton] sign-in result", result);
         if (result.error) {
           console.error("[AdminSignInButton] sign-in error", result.error);
         }
