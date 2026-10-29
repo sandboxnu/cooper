@@ -6,7 +6,6 @@ export {
   validateToken,
   invalidateSessionToken,
   signIn,
-  signInAsPreviewUser,
   signOut,
 } from "./index";
 export type { Session } from "./index";

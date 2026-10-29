@@ -4,38 +4,15 @@ import { authClient } from "@cooper/auth/client";
 import { Button } from "@cooper/ui/button";
 import Image from "next/image";
 
-import { handlePreviewSignIn } from "./actions";
-
-export default function LoginButton({
-  isPreview = false,
-}: {
-  isPreview?: boolean;
-}) {
-  if (isPreview) {
-    return (
-      <form action={handlePreviewSignIn}>
-        <Button
-          type="submit"
-          className="relative flex h-10 w-full justify-start gap-3 rounded-lg border border-[#E6E3DE] bg-[#fffefc] py-2.5 pl-3 text-lg font-semibold text-[#201E19] hover:bg-cooper-cream-400"
-        >
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            Sign in as preview user
-          </div>
-        </Button>
-      </form>
-    );
-  }
-
+export default function LoginButton() {
   return (
     <Button
       className="relative flex h-10 w-full justify-start gap-3 rounded-lg border border-[#E6E3DE] bg-[#fffefc] py-2.5 pl-3 text-lg font-semibold text-[#201E19] hover:bg-cooper-cream-400"
       onClick={async () => {
-        console.log("[LoginButton] starting social sign-in");
         const result = await authClient.signIn.social({
           provider: "google",
           callbackURL: "/roles",
         });
-        console.log("[LoginButton] sign-in result", result);
         if (result.error) {
           console.error("[LoginButton] sign-in error", result.error);
         }
