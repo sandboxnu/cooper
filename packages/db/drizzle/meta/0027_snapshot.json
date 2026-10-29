@@ -95,12 +95,8 @@
           "name": "account_userId_user_id_fk",
           "tableFrom": "account",
           "tableTo": "user",
-          "columnsFrom": [
-            "userId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["userId"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -180,9 +176,7 @@
         "company_slug_unique": {
           "name": "company_slug_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "slug"
-          ]
+          "columns": ["slug"]
         }
       },
       "policies": {},
@@ -212,12 +206,8 @@
           "name": "companies_to_locations_companyId_company_id_fk",
           "tableFrom": "companies_to_locations",
           "tableTo": "company",
-          "columnsFrom": [
-            "companyId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["companyId"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -225,12 +215,8 @@
           "name": "companies_to_locations_locationId_location_id_fk",
           "tableFrom": "companies_to_locations",
           "tableTo": "location",
-          "columnsFrom": [
-            "locationId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["locationId"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -238,10 +224,7 @@
       "compositePrimaryKeys": {
         "companies_to_locations_companyId_locationId_pk": {
           "name": "companies_to_locations_companyId_locationId_pk",
-          "columns": [
-            "companyId",
-            "locationId"
-          ]
+          "columns": ["companyId", "locationId"]
         }
       },
       "uniqueConstraints": {},
@@ -387,12 +370,8 @@
           "name": "flagged_adminId_user_id_fk",
           "tableFrom": "flagged",
           "tableTo": "user",
-          "columnsFrom": [
-            "adminId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["adminId"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -400,12 +379,8 @@
           "name": "flagged_deactivatedByAdminId_user_id_fk",
           "tableFrom": "flagged",
           "tableTo": "user",
-          "columnsFrom": [
-            "deactivatedByAdminId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["deactivatedByAdminId"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -478,12 +453,8 @@
           "name": "hidden_adminId_user_id_fk",
           "tableFrom": "hidden",
           "tableTo": "user",
-          "columnsFrom": [
-            "adminId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["adminId"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -491,12 +462,8 @@
           "name": "hidden_deactivatedByAdminId_user_id_fk",
           "tableFrom": "hidden",
           "tableTo": "user",
-          "columnsFrom": [
-            "deactivatedByAdminId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["deactivatedByAdminId"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -558,12 +525,8 @@
           "name": "interview_round_review_id_review_id_fk",
           "tableFrom": "interview_round",
           "tableTo": "review",
-          "columnsFrom": [
-            "review_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["review_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -687,9 +650,7 @@
         "profile_userId_unique": {
           "name": "profile_userId_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "userId"
-          ]
+          "columns": ["userId"]
         }
       },
       "policies": {},
@@ -719,12 +680,8 @@
           "name": "profiles_to_companies_profileId_profile_id_fk",
           "tableFrom": "profiles_to_companies",
           "tableTo": "profile",
-          "columnsFrom": [
-            "profileId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["profileId"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -732,12 +689,8 @@
           "name": "profiles_to_companies_companyId_company_id_fk",
           "tableFrom": "profiles_to_companies",
           "tableTo": "company",
-          "columnsFrom": [
-            "companyId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["companyId"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -745,10 +698,7 @@
       "compositePrimaryKeys": {
         "profiles_to_companies_profileId_companyId_pk": {
           "name": "profiles_to_companies_profileId_companyId_pk",
-          "columns": [
-            "profileId",
-            "companyId"
-          ]
+          "columns": ["profileId", "companyId"]
         }
       },
       "uniqueConstraints": {},
@@ -779,12 +729,8 @@
           "name": "profiles_to_roles_profileId_profile_id_fk",
           "tableFrom": "profiles_to_roles",
           "tableTo": "profile",
-          "columnsFrom": [
-            "profileId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["profileId"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -792,12 +738,8 @@
           "name": "profiles_to_roles_roleId_role_id_fk",
           "tableFrom": "profiles_to_roles",
           "tableTo": "role",
-          "columnsFrom": [
-            "roleId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["roleId"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -805,10 +747,7 @@
       "compositePrimaryKeys": {
         "profiles_to_roles_profileId_roleId_pk": {
           "name": "profiles_to_roles_profileId_roleId_pk",
-          "columns": [
-            "profileId",
-            "roleId"
-          ]
+          "columns": ["profileId", "roleId"]
         }
       },
       "uniqueConstraints": {},
@@ -839,12 +778,8 @@
           "name": "profiles_to_reviews_profileId_profile_id_fk",
           "tableFrom": "profiles_to_reviews",
           "tableTo": "profile",
-          "columnsFrom": [
-            "profileId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["profileId"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -852,12 +787,8 @@
           "name": "profiles_to_reviews_reviewId_review_id_fk",
           "tableFrom": "profiles_to_reviews",
           "tableTo": "review",
-          "columnsFrom": [
-            "reviewId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["reviewId"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -865,10 +796,7 @@
       "compositePrimaryKeys": {
         "profiles_to_reviews_profileId_reviewId_pk": {
           "name": "profiles_to_reviews_profileId_reviewId_pk",
-          "columns": [
-            "profileId",
-            "reviewId"
-          ]
+          "columns": ["profileId", "reviewId"]
         }
       },
       "uniqueConstraints": {},
@@ -1209,12 +1137,8 @@
           "name": "reviews_to_tools_reviewId_review_id_fk",
           "tableFrom": "reviews_to_tools",
           "tableTo": "review",
-          "columnsFrom": [
-            "reviewId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["reviewId"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1222,12 +1146,8 @@
           "name": "reviews_to_tools_toolId_tool_id_fk",
           "tableFrom": "reviews_to_tools",
           "tableTo": "tool",
-          "columnsFrom": [
-            "toolId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["toolId"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -1235,10 +1155,7 @@
       "compositePrimaryKeys": {
         "reviews_to_tools_reviewId_toolId_pk": {
           "name": "reviews_to_tools_reviewId_toolId_pk",
-          "columns": [
-            "reviewId",
-            "toolId"
-          ]
+          "columns": ["reviewId", "toolId"]
         }
       },
       "uniqueConstraints": {},
@@ -1429,12 +1346,8 @@
           "name": "session_userId_user_id_fk",
           "tableFrom": "session",
           "tableTo": "user",
-          "columnsFrom": [
-            "userId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["userId"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -1444,9 +1357,7 @@
         "session_token_unique": {
           "name": "session_token_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "token"
-          ]
+          "columns": ["token"]
         }
       },
       "policies": {},
@@ -1491,9 +1402,7 @@
         "tool_name_unique": {
           "name": "tool_name_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "name"
-          ]
+          "columns": ["name"]
         }
       },
       "policies": {},
@@ -1645,11 +1554,7 @@
     "public.interview_difficulty": {
       "name": "interview_difficulty",
       "schema": "public",
-      "values": [
-        "easy",
-        "average",
-        "hard"
-      ]
+      "values": ["easy", "average", "hard"]
     },
     "public.interview_type": {
       "name": "interview_type",
