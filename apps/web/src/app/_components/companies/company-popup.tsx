@@ -1,21 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+
+import type { CompanyType } from "@cooper/db/schema";
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@cooper/ui/dialog";
 
-import { FavoriteButton } from "../shared/favorite-button";
-import RenderAllRoles from "./all-company-roles";
-import { CompanyAbout } from "./company-about";
-import { CompanyReview } from "./company-reviews";
-import Logo from "node_modules/@cooper/ui/src/logo";
-import type { CompanyType } from "@cooper/db/schema";
-import { ReportButton } from "../shared/report-button";
+import { CompanyOverview } from "./company-overview";
 
 interface CompanyPopupProps {
   trigger?: React.ReactNode;
@@ -29,47 +25,26 @@ export function CompanyPopup({
   locations,
 }: CompanyPopupProps) {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
-      <DialogContent className="max-h-[80dvh] overflow-y-auto bg-white p-2 sm:max-w-none md:w-[70dvw] md:p-6">
-        <DialogHeader>
-          <DialogTitle className="text-cooper-gray-900 flex flex-col items-center justify-between text-2xl font-semibold md:flex-row md:gap-12"></DialogTitle>
-        </DialogHeader>
-        <div className="mx-2 mb-5 mt-2 flex items-start justify-between">
-          <div className="flex">
-            <div className="mr-3 flex h-12 w-12 items-center justify-center">
-              <Logo company={company} />
-            </div>
-            <div>
-              <h1 className="text-lg font-medium">{company.name}</h1>
-              <p className="text-sm text-gray-600">
-                {locations && locations.length > 1
-                  ? `${locations[0]} +${locations.length - 1} ${locations.length - 1 === 1 ? "other" : "others"}`
-                  : locations?.length === 1
-                    ? locations[0]
-                    : null}
-              </p>
-            </div>
-          </div>
-          <FavoriteButton objId={company.id} objType="company" />
-        </div>
-        <div className="flex flex-col md:flex-row">
-          <div className="mx-4 gap-4 font-sans md:mx-auto md:w-[70%] md:max-w-[66dvw] md:pr-4">
-            <div className="mb-6 gap-2 px-1 md:gap-4">
-              <CompanyReview companyObj={company} />
-            </div>
-
-            <div className="my-8 border-t border-cooper-gray-200"></div>
-
-            <CompanyAbout companyObj={company} />
-            <ReportButton entityId={company.id} entityType="company" />
-          </div>
-          <div>
-            <RenderAllRoles company={company} onClose={() => setOpen(false)} />
-          </div>
-        </div>
+      <DialogContent className="flex h-[553px] max-h-[90dvh] w-[913px] max-w-[95vw] flex-col overflow-y-auto border border-[#eaeaea] bg-white p-6 sm:max-w-[95vw] md:overflow-hidden">
+        <DialogTitle className="sr-only">{company.name}</DialogTitle>
+        <CompanyOverview
+          company={company}
+          locations={locations}
+          className="min-h-0 flex-1"
+          onSeeFullDetails={() => {
+            setOpen(false);
+            // No `type` param here on purpose: `type` also drives the
+            // Jobs/Companies/All tab selection on the roles page, and this
+            // navigation shouldn't change whichever tab the user had active.
+            router.push(`/roles/?company=${company.slug}`);
+          }}
+          onRoleSelect={() => setOpen(false)}
+        />
       </DialogContent>
     </Dialog>
   );

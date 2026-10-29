@@ -14,11 +14,15 @@ import { FavoriteButton } from "../shared/favorite-button";
 interface CompanyCardPreviewProps {
   className?: string;
   companyObj: CompanyType;
+  // Replaces the save button in the top right (e.g. a remove X); pass null
+  // to show nothing there
+  action?: React.ReactNode;
 }
 
 export function CompanyCardPreview({
   companyObj,
   className,
+  action,
 }: CompanyCardPreviewProps) {
   const locations = api.companyToLocation.getLocationsByCompanyId.useQuery({
     companyId: companyObj.id,
@@ -39,7 +43,7 @@ export function CompanyCardPreview({
   return (
     <Card
       className={cn(
-        "outline-cooper-gray-150 flex h-fit flex-col justify-between rounded-lg outline outline-[0.75px] hover:cursor-pointer hover:bg-cooper-gray-200",
+        "flex h-fit flex-col justify-between rounded-lg hover:cursor-pointer",
         className,
       )}
     >
@@ -59,7 +63,14 @@ export function CompanyCardPreview({
                         e.stopPropagation();
                       }}
                     >
-                      <FavoriteButton objId={companyObj.id} objType="company" />
+                      {action === undefined ? (
+                        <FavoriteButton
+                          objId={companyObj.id}
+                          objType="company"
+                        />
+                      ) : (
+                        action
+                      )}
                     </span>
                   </div>
                 </CardTitle>

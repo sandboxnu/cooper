@@ -1,6 +1,7 @@
 import { ChevronDown, X } from "lucide-react";
 
 import { cn } from "@cooper/ui";
+import { useReadOnly } from "@cooper/ui/read-only";
 
 interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   options: { value: string | number; label: string | number }[];
@@ -16,11 +17,12 @@ export const Select: React.FC<SelectProps> = ({
   onClear,
   ...props
 }) => {
+  const readOnly = useReadOnly();
   return (
     <div className="relative w-full">
       <select
         className={cn(
-          "h-9 w-full appearance-none rounded-lg border border-cooper-gray-150 bg-transparent px-4 pr-10 text-sm text-cooper-gray-350 shadow-none placeholder:text-muted-foreground hover:bg-accent focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+          "h-9 w-full appearance-none rounded-lg border border-cooper-gray-150 bg-transparent px-4 pr-10 text-sm text-cooper-gray-350 shadow-none placeholder:text-muted-foreground hover:bg-[#F6F6F6] focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
           className,
         )}
         {...props}
@@ -37,7 +39,13 @@ export const Select: React.FC<SelectProps> = ({
         ))}
       </select>
       {/* Icons container - X and Chevron on the same line */}
-      <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center gap-2">
+      {/* Clear X and chevron are edit-only */}
+      <div
+        className={cn(
+          "pointer-events-none absolute inset-y-0 right-3 flex items-center gap-2",
+          readOnly && "hidden",
+        )}
+      >
         {onClear && (
           <button
             type="button"

@@ -4,14 +4,7 @@ import type { CompanyType } from "@cooper/db/schema";
 
 import { api } from "~/trpc/react";
 import { calculateRatings } from "~/utils/reviewCountByStars";
-import StarGraph from "../shared/star-graph";
-import CompanyStatistics from "./company-statistics";
-import {
-  calculateJobTypes,
-  calculatePay,
-  calculatePayRange,
-  calculateWorkModels,
-} from "~/utils/companyStatistics";
+import { RatingSummary } from "../shared/rating-summary";
 
 interface CompanyReviewProps {
   className?: string;
@@ -28,10 +21,6 @@ export function CompanyReview({ companyObj }: CompanyReviewProps) {
   });
 
   const ratings = calculateRatings(reviews.data ?? []);
-  const workModels = calculateWorkModels(reviews.data ?? []);
-  const jobTypes = calculateJobTypes(reviews.data ?? []);
-  const payStats = calculatePay(reviews.data ?? []);
-  const payRange = calculatePayRange(reviews.data ?? []);
 
   const averages = api.review.list
     .useQuery({})
@@ -46,24 +35,27 @@ export function CompanyReview({ companyObj }: CompanyReviewProps) {
         10,
     ) / 10;
 
+  const reviewCount = reviews.data?.length ?? 0;
+
   return (
-    <div className="mx-1 w-full">
-      <div>
-        <StarGraph
-          ratings={ratings}
-          averageOverallRating={avg.data?.averageOverallRating ?? 0}
-          reviews={reviews.data?.length ?? 0}
-          cooperAvg={cooperAvg}
-        />
-        {(reviews.data?.length ?? 0) > 0 && (
-          <CompanyStatistics
-            workModels={workModels}
-            payStats={payStats}
-            payRange={payRange}
-            jobTypes={jobTypes}
-          />
-        )}
-      </div>
+    <div className="flex w-full flex-col gap-3">
+      <p className="text-[16px] font-bold leading-6 tracking-[-0.16px] text-cooper-gray-400">
+        Overall rating
+      </p>
+      <RatingSummary
+        ratings={ratings}
+        averageRating={avg.data?.averageOverallRating ?? 0}
+        reviewCount={reviewCount}
+        caption={
+          <>
+            <p>
+              Based on {reviewCount} {reviewCount === 1 ? "review" : "reviews"}
+            </p>
+            <p>Cooper average: {cooperAvg}</p>
+          </>
+        }
+        className="flex-col gap-5 sm:flex-row sm:gap-20"
+      />
     </div>
   );
 }

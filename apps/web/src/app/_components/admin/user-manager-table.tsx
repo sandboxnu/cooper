@@ -237,7 +237,7 @@ export function AdminUserManagerTable() {
                   setRoleFilter(e.target.value as RoleFilter);
                   setCurrentPage(1);
                 }}
-                className="appearance-none rounded-md border border-gray-200 bg-white py-2 pl-3 pr-8 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-gray-200"
+                className="appearance-none rounded-md border border-gray-200 bg-white py-2 pl-3 pr-8 text-sm font-medium text-gray-700 hover:bg-[#F6F6F6] focus:outline-none focus:ring-1 focus:ring-gray-200"
               >
                 {ROLE_FILTERS.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -256,7 +256,7 @@ export function AdminUserManagerTable() {
                   setSortOption(e.target.value as SortOption);
                   setCurrentPage(1);
                 }}
-                className="appearance-none rounded-md border border-gray-200 bg-white py-2 pl-3 pr-8 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-gray-200"
+                className="appearance-none rounded-md border border-gray-200 bg-white py-2 pl-3 pr-8 text-sm font-medium text-gray-700 hover:bg-[#F6F6F6] focus:outline-none focus:ring-1 focus:ring-gray-200"
               >
                 {SORT_OPTIONS.map((option) => (
                   <option key={option.value} value={option.value}>

@@ -4,8 +4,8 @@ import { Filter } from "bad-words";
 import Fuse from "fuse.js";
 import { z } from "zod";
 
-import type { ReviewType } from "@cooper/db/schema";
 import type { CooperDb } from "@cooper/db/client";
+import type { ReviewType } from "@cooper/db/schema";
 import { and, desc, eq, inArray, isNull, sql } from "@cooper/db";
 import {
   CompaniesToLocations,
@@ -16,11 +16,35 @@ import {
   Profile,
   Review,
   ReviewsToTools,
+  Role,
   Status,
   Tool,
   User,
 } from "@cooper/db/schema";
 import { normalizeHuskyEmail } from "@cooper/validators";
+
+// Throws unless the signed-in user wrote the review; returns their profile id
+// and the review as it currently exists in the database
+async function requireReviewOwner(
+  db: CooperDb,
+  userId: string,
+  reviewId: string,
+) {
+  const [profile, review] = await Promise.all([
+    db.query.Profile.findFirst({ where: eq(Profile.userId, userId) }),
+    db.query.Review.findFirst({ where: eq(Review.id, reviewId) }),
+  ]);
+  if (!review) {
+    throw new TRPCError({ code: "NOT_FOUND", message: "Review not found" });
+  }
+  if (!profile?.id || review.profileId !== profile.id) {
+    throw new TRPCError({
+      code: "FORBIDDEN",
+      message: "You can only change your own reviews",
+    });
+  }
+  return { profileId: profile.id, review };
+}
 
 const CreateReviewWithRoundsSchema = CreateReviewSchema.extend({
   interviewRounds: z
@@ -294,22 +318,25 @@ export const reviewRouter = {
       const { interviewRounds, toolNames, studentEmail, ...reviewInput } =
         input;
 
-      // neon-http doesn't support db.transaction(); these steps run as
-      // sequential statements, same as the rest of this router.
-      const existingUser = await ctx.db.query.User.findFirst({
+      // neon-http doesn't support db.transaction(), so these must each be a
+      // single atomic statement rather than a check-then-act pair — two
+      // concurrent requests for the same new student would otherwise both
+      // pass the lookup and both insert, creating duplicate accounts.
+      await ctx.db
+        // emailVerified has no DB-level default (migration drift), so it
+        // must be set explicitly or the NOT NULL insert fails.
+        .insert(User)
+        .values({ email: studentEmail, emailVerified: false })
+        // No target: DO NOTHING without one still catches a conflict on any
+        // unique constraint on the table (here, the lower(email) index) —
+        // Drizzle's typed `target` option only accepts real columns, not the
+        // expression this index is defined on.
+        .onConflictDoNothing();
+
+      const user = await ctx.db.query.User.findFirst({
         where: sql`lower(${User.email}) = lower(${studentEmail})`,
       });
-
-      const userId =
-        existingUser?.id ??
-        (
-          await ctx.db
-            // emailVerified has no DB-level default (migration drift), so it
-            // must be set explicitly or the NOT NULL insert fails.
-            .insert(User)
-            .values({ email: studentEmail, emailVerified: false })
-            .returning({ id: User.id })
-        )[0]?.id;
+      const userId = user?.id;
 
       if (!userId) {
         throw new TRPCError({
@@ -318,18 +345,15 @@ export const reviewRouter = {
         });
       }
 
-      const existingProfile = await ctx.db.query.Profile.findFirst({
+      await ctx.db
+        .insert(Profile)
+        .values({ userId, firstName: "", lastName: "" })
+        .onConflictDoNothing({ target: Profile.userId });
+
+      const profile = await ctx.db.query.Profile.findFirst({
         where: eq(Profile.userId, userId),
       });
-
-      const profileId =
-        existingProfile?.id ??
-        (
-          await ctx.db
-            .insert(Profile)
-            .values({ userId, firstName: "", lastName: "" })
-            .returning({ id: Profile.id })
-        )[0]?.id;
+      const profileId = profile?.id;
 
       if (!profileId) {
         throw new TRPCError({
@@ -622,6 +646,34 @@ export const reviewRouter = {
     .mutation(async ({ ctx, input }) => {
       const { id, interviewRounds, toolNames, ...reviewInput } = input;
 
+      // Only the author can edit, and the review can't be moved to someone
+      // else's profile
+      const { profileId, review: existingReview } = await requireReviewOwner(
+        ctx.db,
+        ctx.session.user.id,
+        id,
+      );
+      reviewInput.profileId = profileId;
+
+      // A review's company always comes from its role, so the two can't
+      // disagree (job cards read the role's company, company pages the
+      // review's). Re-derive from the role regardless of whether this
+      // update's input includes a new roleId, so a stale client-supplied
+      // companyId can never persist alongside an unrelated role.
+      const effectiveRoleId = reviewInput.roleId ?? existingReview.roleId;
+      if (effectiveRoleId) {
+        const role = await ctx.db.query.Role.findFirst({
+          where: eq(Role.id, effectiveRoleId),
+        });
+        if (!role) {
+          throw new TRPCError({
+            code: "BAD_REQUEST",
+            message: "Role not found",
+          });
+        }
+        reviewInput.companyId = role.companyId;
+      }
+
       await ctx.db
         .delete(InterviewRound)
         .where(eq(InterviewRound.reviewId, id));
@@ -682,9 +734,12 @@ export const reviewRouter = {
       }
     }),
 
-  delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
-    return ctx.db.delete(Review).where(eq(Review.id, input));
-  }),
+  delete: protectedProcedure
+    .input(z.string())
+    .mutation(async ({ ctx, input }) => {
+      await requireReviewOwner(ctx.db, ctx.session.user.id, input);
+      return ctx.db.delete(Review).where(eq(Review.id, input));
+    }),
 
   getAverageByIndustry: sortableProcedure
     .input(z.object({ industry: z.string() }))

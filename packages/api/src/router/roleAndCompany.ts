@@ -38,7 +38,6 @@ const filtersSchema = z
     ratings: z.array(z.string()).optional(),
     workModels: z.array(z.string()).optional(),
     overtimeWork: z.boolean().optional(),
-    companyCulture: z.array(z.string()).optional(),
   })
   .optional();
 
@@ -56,7 +55,7 @@ type CombinedItem = RoleItem | CompanyItem;
 
 /**
  * Fetches, structurally filters (industry/location/jobType/pay/rating/
- * workModel/overtime/companyCulture), and fuzzy-searches roles + companies.
+ * workModel/overtime), and fuzzy-searches roles + companies.
  * Shared by `list` and `getPageNumber` so the two can never compute a
  * different ordering/result-set for the same inputs.
  */
@@ -198,8 +197,6 @@ async function getFilteredSearchedItems(
   const jobTypeFilterActive =
     Array.isArray(filters.jobTypes) && filters.jobTypes.length > 0;
   const overtimeWorkFilterActive = filters.overtimeWork === true;
-  const companyCultureFilterActive =
-    Array.isArray(filters.companyCulture) && filters.companyCulture.length > 0;
   const workModelsFilterActive =
     Array.isArray(filters.workModels) && filters.workModels.length > 0;
 
@@ -257,8 +254,6 @@ async function getFilteredSearchedItems(
   const companyAvgPayMap = new Map<string, number>();
   const roleAvgRatingMap = new Map<string, number>();
   const companyAvgRatingMap = new Map<string, number>();
-  const roleAvgCultureRatingMap = new Map<string, number>();
-  const companyAvgCultureRatingMap = new Map<string, number>();
   const roleOvertimePercentMap = new Map<string, number>();
   const companyOvertimePercentMap = new Map<string, number>();
   const roleWorkModelsMap = new Map<string, string[]>();
@@ -302,27 +297,6 @@ async function getFilteredSearchedItems(
 
     for (const row of rolesWithAvgRating.rows) {
       roleAvgRatingMap.set(String(row.id), Number(row.avg_rating ?? 0));
-    }
-
-    const rolesWithAvgCultureRating = await db.execute(sql`
-          SELECT
-            ${Role.id} AS id,
-            COALESCE(AVG(${Review.cultureRating}::float), 0) AS avg_culture_rating
-          FROM ${Role}
-          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
-          WHERE ${Role.id} IN (${sql.join(
-            roleIds.map((id) => sql`${id}`),
-            sql`,`,
-          )})
-            AND ${Review.status} = ${Status.PUBLISHED}
-          GROUP BY ${Role.id}
-        `);
-
-    for (const row of rolesWithAvgCultureRating.rows) {
-      roleAvgCultureRatingMap.set(
-        String(row.id),
-        Number(row.avg_culture_rating ?? 0),
-      );
     }
 
     const rolesWithOvertimePercent = await db.execute(sql`
@@ -409,28 +383,6 @@ async function getFilteredSearchedItems(
 
     for (const row of companiesWithAvgRating.rows) {
       companyAvgRatingMap.set(String(row.id), Number(row.avg_rating ?? 0));
-    }
-
-    const companiesWithAvgCultureRating = await db.execute(sql`
-          SELECT
-            ${Company.id} AS id,
-            COALESCE(AVG(${Review.cultureRating}::float), 0) AS avg_culture_rating
-          FROM ${Company}
-          LEFT JOIN ${Role} ON NULLIF(${Role.companyId}, '')::uuid = ${Company.id}
-          LEFT JOIN ${Review} ON NULLIF(${Review.roleId}, '')::uuid = ${Role.id}
-          WHERE ${Company.id} IN (${sql.join(
-            companyIds.map((id) => sql`${id}`),
-            sql`,`,
-          )})
-            AND ${Review.status} = ${Status.PUBLISHED}
-          GROUP BY ${Company.id}
-        `);
-
-    for (const row of companiesWithAvgCultureRating.rows) {
-      companyAvgCultureRatingMap.set(
-        String(row.id),
-        Number(row.avg_culture_rating ?? 0),
-      );
     }
 
     const companiesWithOvertimePercent = await db.execute(sql`
@@ -574,23 +526,6 @@ async function getFilteredSearchedItems(
       return percent > 0.5;
     })();
 
-    const companyCultureOk = (() => {
-      if (!companyCultureFilterActive) return true;
-      const allowed = (filters.companyCulture ?? [])
-        .map((s) => Number(s))
-        .filter((n) => Number.isFinite(n));
-
-      const avg =
-        item.type === "company"
-          ? (companyAvgCultureRatingMap.get((item as CompanyType).id) ?? 0)
-          : (roleAvgCultureRatingMap.get((item as RoleType).id) ?? 0);
-
-      //if culture ratings is length 1, filter by that rating and above
-      return allowed.length === 1
-        ? allowed.some((n) => avg >= n)
-        : allowed.some((n) => avg >= n && avg <= n + 0.9);
-    })();
-
     const workModelsOk = (() => {
       if (!workModelsFilterActive) return true;
       const allowedModels = filters.workModels ?? [];
@@ -611,7 +546,6 @@ async function getFilteredSearchedItems(
       payOk &&
       ratingOk &&
       overtimeOk &&
-      companyCultureOk &&
       workModelsOk
     );
   });

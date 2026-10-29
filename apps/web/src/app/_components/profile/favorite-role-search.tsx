@@ -1,19 +1,56 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import type { RoleType } from "@cooper/db/schema";
 import { Pagination } from "@cooper/ui";
 
+import { api } from "~/trpc/react";
 import { RoleCardPreview } from "../roles/role-card-preview";
-import { Input } from "../themed/onboarding/input";
+import { SAVED_CARD_WIDTH_CLASS, isInsideButton } from "./saved-card";
+
+// Opens the role in the roles page results, like a search result card
+function SavedRoleCard({ role }: { role: RoleType }) {
+  const router = useRouter();
+  const { data: company } = api.company.getById.useQuery({
+    id: role.companyId,
+  });
+
+  const goToRole = () => {
+    if (!company) return;
+    router.push(`/roles/?company=${company.slug}&type=roles&role=${role.slug}`);
+  };
+
+  return (
+    <div
+      className={SAVED_CARD_WIDTH_CLASS}
+      role="button"
+      tabIndex={0}
+      aria-label={`View ${role.title}`}
+      onClick={(event) => {
+        // The save button toggles the favorite without leaving the page
+        if (isInsideButton(event)) return;
+        goToRole();
+      }}
+      onKeyDown={(event) => {
+        if (isInsideButton(event)) return;
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          goToRole();
+        }
+      }}
+    >
+      <RoleCardPreview roleObj={role} />
+    </div>
+  );
+}
 
 export default function FavoriteRoleSearch({
   favoriteRoles,
 }: {
   favoriteRoles: (RoleType | undefined)[];
 }) {
-  const [roleLabel, setRoleLabel] = useState<string>("");
   const [currentPage, setCurrentPage] = useState(1);
   const rolesPerPage = 9;
   const handlePageChange = (page: number) => {
@@ -21,37 +58,19 @@ export default function FavoriteRoleSearch({
   };
 
   const totalPages = Math.ceil(favoriteRoles.length / rolesPerPage);
-  const prefixedRoles = roleLabel
-    ? favoriteRoles.filter(
-        (role) =>
-          role?.title.substring(0, roleLabel.length).toLowerCase() ===
-          roleLabel.toLowerCase(),
-      )
-    : favoriteRoles;
   return (
     <div>
-      <div className="flex flex-row justify-between">
-        <div className="md:w-[40%] pb-8 pl-1">
-          <Input
-            variant="dialogue"
-            onChange={(e) => {
-              setRoleLabel(e.target.value);
-            }}
-            className="w-full !border-none !shadow-none !outline-[#EAEAEA]"
-            placeholder="Search for a saved role..."
-          />
-        </div>
-        <div>
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
-          />
-        </div>
+      <div className="flex justify-end pb-4">
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
       </div>
-      <div className="mx-1 grid grid-cols-1 md:grid-cols-3 flex-col gap-4 pb-4">
-        {prefixedRoles.length > 0 ? (
-          prefixedRoles
+      {/* Search-result-width cards with the results' 8px gap, wrapping */}
+      <div className="mx-1 flex flex-wrap gap-2 pb-4">
+        {favoriteRoles.length > 0 ? (
+          favoriteRoles
             .slice(
               (currentPage - 1) * rolesPerPage,
               (currentPage - 1) * rolesPerPage + rolesPerPage,
@@ -59,13 +78,7 @@ export default function FavoriteRoleSearch({
             .filter(
               (role): role is NonNullable<typeof role> => role !== undefined,
             )
-            .map((company) => (
-              <RoleCardPreview
-                roleObj={company}
-                key={company.companyId}
-                className="hover:cursor-default hover:bg-white"
-              />
-            ))
+            .map((role) => <SavedRoleCard key={role.id} role={role} />)
         ) : (
           <p className="italic text-cooper-gray-400">No saved roles found.</p>
         )}

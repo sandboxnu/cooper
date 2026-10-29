@@ -1,11 +1,18 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { ArrowUp } from "lucide-react";
 
+import { cn } from "@cooper/ui";
+
 import { prettyIndustry } from "~/utils/stringHelpers";
+import type { CompareSize } from "../../compare/compare-context";
+import {
+  CompareSection,
+  CompareSectionTitle,
+} from "../../compare/compare-section";
 import ModalContainer from "../../reviews/modal";
-import { PipBar } from "./shared/pip-bar";
+import { DotBar, DotCount } from "./shared/dot-statement";
 import { PipCard } from "./shared/pip-card";
 import { InfoIcon } from "./shared/info-icon";
 import { TabToggle } from "./shared/tab-toggle";
@@ -52,6 +59,7 @@ interface InterviewModalProps {
   industryData: IndustryData | undefined;
   globalData: IndustryData | undefined;
   compact?: boolean;
+  compareSize?: CompareSize;
 }
 
 interface CompactTypeRowProps {
@@ -71,22 +79,26 @@ function CompactTypeRow({
   return (
     <div className="flex items-start justify-between">
       <div className="flex flex-col gap-0.5">
-        <p className="text-lg text-cooper-gray-900">{label}</p>
+        <p className="text-[16px] tracking-[-0.16px] text-cooper-gray-900">
+          {label}
+        </p>
         {dominantDifficulty && (
-          <div className="flex items-center gap-2 text-sm text-cooper-gray-400">
-            {difficultyLabel(dominantDifficulty)}
-          </div>
+          <DifficultyChip difficulty={dominantDifficulty} />
         )}
       </div>
       <div className="flex flex-col items-start gap-2.5">
-        <PipBar
+        <DotBar
+          className="max-w-[102px]"
           filledCount={reviewCount}
           totalCount={totalReviewsWithRounds}
           filledColor="#9d9c56"
         />
-        <p className="text-sm leading-[normal] text-cooper-gray-350">
-          {reviewCount}/{totalReviewsWithRounds} reported
-        </p>
+        <DotCount
+          count={reviewCount}
+          total={totalReviewsWithRounds}
+          label="reported"
+          color="#9d9c56"
+        />
       </div>
     </div>
   );
@@ -99,23 +111,16 @@ function difficultyText(d: Difficulty | null): string {
   return "";
 }
 
-function difficultyLabel(d: Difficulty | null): React.ReactNode {
-  if (d === "easy")
-    return (
-      <span className="flex items-center gap-2">
-        <ArrowUp size={9} className="rotate-180" />
-        <span>Less difficult</span>
-      </span>
-    );
-  if (d === "average") return "Average difficulty";
-  if (d === "hard")
-    return (
-      <span className="flex items-center gap-2">
-        <ArrowUp size={9} />
-        <span>More difficult</span>
-      </span>
-    );
-  return null;
+function DifficultyChip({ difficulty }: { difficulty: Difficulty | null }) {
+  return (
+    <div className="flex h-[25px] items-center justify-center gap-1 rounded-lg bg-[#eee] px-[7px] text-cooper-gray-400">
+      {difficulty === "easy" && <ArrowUp size={12} className="rotate-180" />}
+      {difficulty === "hard" && <ArrowUp size={12} />}
+      <p className="text-[14px] leading-normal">
+        {difficulty != null ? difficultyText(difficulty) : "No difficulty data"}
+      </p>
+    </div>
+  );
 }
 
 export function InterviewModal({
@@ -123,6 +128,7 @@ export function InterviewModal({
   industryData,
   globalData,
   compact = false,
+  compareSize,
 }: InterviewModalProps) {
   const [activeTab, setActiveTab] = useState<"total" | "industry">("total");
 
@@ -183,6 +189,46 @@ export function InterviewModal({
   // Approximate: bar width ≈ (count / totalCount) * 324px; show label if ≥ 40px
   const totalBarCount = activeBarData.reduce((s, b) => s + b.count, 0);
 
+  if (compareSize) {
+    const isSmall = compareSize === "sm";
+    return (
+      // One child per grid row; see COMPARE_ROWS.interview
+      <CompareSection
+        section="interview"
+        className={cn(isSmall && "px-5 py-4")}
+      >
+        <div>
+          <CompareSectionTitle>Interview</CompareSectionTitle>
+          <div className="flex items-end gap-3">
+            <p
+              className={cn(
+                "text-[36px] leading-normal text-cooper-gray-900",
+                isSmall && "tracking-[-0.72px]",
+              )}
+            >
+              {roundsModeDisplay}
+            </p>
+            {/* pb sets the circle's bottom on the text baseline (36px, leading-normal) */}
+            <div className="flex items-center pb-[13px]">
+              <InfoIcon tooltip={roundsTooltipContent} />
+            </div>
+          </div>
+        </div>
+        <div className="mt-5 flex flex-col gap-[7px] border-t border-cooper-gray-125 pt-5">
+          <p className="text-[36px] leading-normal tracking-[-0.72px] text-cooper-gray-900">
+            {universalTypes}
+          </p>
+          <div className="flex items-center gap-2.5">
+            <DifficultyChip
+              difficulty={roleData?.overallDominantDifficulty ?? null}
+            />
+            <InfoIcon tooltip={typesTooltip} />
+          </div>
+        </div>
+      </CompareSection>
+    );
+  }
+
   if (compact) {
     return (
       <ModalContainer title="Interview">
@@ -195,13 +241,9 @@ export function InterviewModal({
               <p className="text-lg font-bold leading-6 text-cooper-gray-900">
                 Interview Types
               </p>
-              <div className="flex h-6 items-center justify-center gap-1.5 rounded-lg bg-white px-2">
-                <span className="text-sm text-cooper-gray-400">
-                  {roleData?.overallDominantDifficulty != null
-                    ? difficultyText(roleData.overallDominantDifficulty)
-                    : "No difficulty data"}
-                </span>
-              </div>
+              <DifficultyChip
+                difficulty={roleData?.overallDominantDifficulty ?? null}
+              />
             </div>
             {totalReviewsWithRounds > 0 && roleData?.types.length ? (
               <div className="flex flex-col gap-5">
@@ -323,13 +365,9 @@ export function InterviewModal({
                 </p>
                 <div className="flex shrink-0 items-center gap-2.5">
                   <InfoIcon tooltip={typesTooltip} />
-                  <div className="flex h-6 items-center justify-center gap-1.5 rounded-lg bg-white px-2">
-                    <span className="text-sm text-cooper-gray-400">
-                      {roleData?.overallDominantDifficulty != null
-                        ? difficultyText(roleData.overallDominantDifficulty)
-                        : "No difficulty data"}
-                    </span>
-                  </div>
+                  <DifficultyChip
+                    difficulty={roleData?.overallDominantDifficulty ?? null}
+                  />
                 </div>
               </div>
               <p className="text-base leading-6 text-cooper-gray-900">
@@ -345,11 +383,15 @@ export function InterviewModal({
                   <PipCard
                     key={t.type}
                     name={TYPE_LABELS[t.type] ?? t.type}
-                    subtext={`${t.reviewCount}/${totalReviewsWithRounds} reported ${(TYPE_LABELS[t.type] ?? t.type).toLowerCase()} interviews`}
+                    countLabel={`reported ${(TYPE_LABELS[t.type] ?? t.type).toLowerCase()} interviews`}
                     filledCount={t.reviewCount}
                     totalCount={totalReviewsWithRounds}
                     filledColor="#9d9c56"
-                    footer={difficultyLabel(t.dominantDifficulty)}
+                    footer={
+                      t.dominantDifficulty && (
+                        <DifficultyChip difficulty={t.dominantDifficulty} />
+                      )
+                    }
                   />
                 ))}
               </div>

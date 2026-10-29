@@ -29,6 +29,8 @@ import {
   InterviewSection,
   ReviewSection,
 } from "~/app/_components/form/sections";
+import { FormSectionBlock } from "~/app/_components/form/form-section";
+import { ReviewFormNav } from "~/app/_components/form/review-form-nav";
 import Popup from "~/app/_components/form/sections/popup";
 import { PaySection } from "~/app/_components/form/sections/pay-section";
 import { PortalZIndexContext } from "~/contexts/portal-z-index";
@@ -242,6 +244,8 @@ export default function ReviewForm() {
 
   const isDirty = form.formState.isDirty;
   const isDirtyRef = useRef(isDirty);
+  // Scroll area for the sticky section list's current-section tracking
+  const scrollRootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     isDirtyRef.current = isDirty;
@@ -485,126 +489,130 @@ export default function ReviewForm() {
   return (
     <Form {...form}>
       <div
-        className={`${showModal ? "pointer-events-none" : ""} flex h-screen w-full flex-col items-center justify-center overflow-auto bg-white md:flex-row`}
+        ref={scrollRootRef}
+        className={`${showModal ? "pointer-events-none" : ""} bg-cooper-cream-100 flex h-screen w-full flex-col overflow-auto`}
       >
         <PortalZIndexContext.Provider value={49}>
-          <div className="justify-left mt-4 flex h-full xl:w-[45%] md:w-[65%] w-[85%] flex-col pt-10">
-            {session.user.role === UserRole.DEVELOPER && (
-              <div className="pb-8">
-                <label className="flex items-center gap-3">
-                  <Checkbox
-                    checked={onBehalfMode}
-                    onCheckedChange={(checked) =>
-                      setOnBehalfMode(checked === true)
-                    }
-                  />
-                  <span className="text-cooper-gray-550 text-lg">
-                    Review on behalf of someone
-                  </span>
-                </label>
-                {onBehalfMode && (
-                  <input
-                    type="email"
-                    value={studentEmail}
-                    onChange={(e) => setStudentEmail(e.target.value)}
-                    onBlur={(e) =>
-                      setStudentEmail(normalizeHuskyEmail(e.target.value))
-                    }
-                    placeholder="Student's Husky email"
-                    className="border-cooper-gray-150 mt-4 w-full rounded-lg border px-4 py-3 text-lg"
-                  />
-                )}
-              </div>
+          {session.user.role === UserRole.DEVELOPER && (
+            <div className="mx-auto w-full max-w-[60rem] px-4 pt-10 md:px-8">
+              <label className="flex items-center gap-3">
+                <Checkbox
+                  checked={onBehalfMode}
+                  onCheckedChange={(checked) =>
+                    setOnBehalfMode(checked === true)
+                  }
+                />
+                <span className="text-cooper-gray-550 text-lg">
+                  Review on behalf of someone
+                </span>
+              </label>
+              {onBehalfMode && (
+                <input
+                  type="email"
+                  value={studentEmail}
+                  onChange={(e) => setStudentEmail(e.target.value)}
+                  onBlur={(e) =>
+                    setStudentEmail(normalizeHuskyEmail(e.target.value))
+                  }
+                  placeholder="Student's Husky email"
+                  className="border-cooper-gray-150 mt-4 w-full rounded-lg border px-4 py-3 text-lg"
+                />
+              )}
+            </div>
+          )}
+          {/* Section cards with a sticky progress list beside them on lg+ */}
+          <div className="mx-auto flex w-full max-w-[60rem] items-start gap-8 px-4 pt-10 md:px-8">
+            {(onBehalfMode || canReviewForTerm()) && (
+              <ReviewFormNav scrollRootRef={scrollRootRef} />
             )}
-            <div className="text-cooper-gray-550 text-lg">
-              Basic information
-            </div>
-            <div className="flex w-full flex-wrap gap-10 pb-12 xl:flex-nowrap">
-              <BasicInfoSection profileId={profileId} />
-            </div>
-            <hr />
-            {canReviewForTerm() ? (
-              <div>
-                <div className="text-cooper-gray-550 pt-12 text-lg">
-                  On the job
-                </div>
-                <div className="flex flex-wrap gap-10 pb-12 xl:flex-nowrap">
-                  <CompanyDetailsSection />
-                </div>
-                <hr />
-                <div className="text-cooper-gray-550 pt-12 text-lg">Pay</div>
-                <div className="flex flex-wrap gap-10 overflow-auto pb-12 xl:flex-nowrap">
-                  <PaySection />
-                </div>
-                <hr />
-                <div className="text-cooper-gray-550 pt-12 text-lg">
-                  Interview
-                </div>
-                <div className="flex flex-wrap gap-10 pb-12 lg:flex-nowrap">
-                  <InterviewSection />
-                </div>
-                <hr />
-                <div className="text-cooper-gray-550 pt-12 text-lg">
-                  Review and rate
-                </div>
-                <div className="flex flex-wrap gap-10 overflow-auto pb-10 xl:flex-nowrap">
-                  <ReviewSection />
-                </div>
-                <div className="flex gap-2 justify-end">
-                  {/* Save Draft Button */}
-                  {!onBehalfMode && (
-                    <div className="pb-12 pt-6">
+            <div className="flex min-w-0 flex-1 flex-col gap-3">
+              <FormSectionBlock
+                variant="card"
+                id="basic-information"
+                title="Basic information"
+              >
+                <BasicInfoSection profileId={profileId} />
+              </FormSectionBlock>
+              {onBehalfMode || canReviewForTerm() ? (
+                <div className="flex flex-col gap-3">
+                  <FormSectionBlock
+                    variant="card"
+                    id="on-the-job"
+                    title="On the job"
+                  >
+                    <CompanyDetailsSection />
+                  </FormSectionBlock>
+                  <FormSectionBlock variant="card" id="pay" title="Pay">
+                    <PaySection />
+                  </FormSectionBlock>
+                  <FormSectionBlock
+                    variant="card"
+                    id="interview"
+                    title="Interview"
+                  >
+                    <InterviewSection />
+                  </FormSectionBlock>
+                  <FormSectionBlock
+                    variant="card"
+                    id="review-and-rate"
+                    title="Review and rate"
+                  >
+                    <ReviewSection />
+                  </FormSectionBlock>
+                  <div className="flex justify-end gap-2 pb-12 pt-3">
+                    {/* Save Draft Button */}
+                    {!onBehalfMode && (
+                      <div>
+                        <Button
+                          type="button"
+                          onClick={() =>
+                            void onSaveDraft(() => router.push("/roles"))
+                          }
+                          disabled={
+                            mutation.isPending ||
+                            draftMutation.isPending ||
+                            updateDraftMutation.isPending
+                          }
+                          className="h-9 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-black hover:bg-[#F6F6F6]"
+                        >
+                          {draftMutation.isPending ||
+                          updateDraftMutation.isPending
+                            ? "Saving draft..."
+                            : "Save draft"}
+                        </Button>
+                      </div>
+                    )}
+                    {/* Submit Button */}
+                    <div>
                       <Button
                         type="button"
-                        onClick={() =>
-                          void onSaveDraft(() => router.push("/roles"))
-                        }
+                        onClick={async () => {
+                          const isValid = await form.trigger();
+                          if (!isValid) {
+                            toast.error("Please fill in all required fields.");
+                            return;
+                          }
+                          await form.handleSubmit(onSubmit)();
+                        }}
                         disabled={
                           mutation.isPending ||
                           draftMutation.isPending ||
-                          updateDraftMutation.isPending
+                          updateDraftMutation.isPending ||
+                          onBehalfMutation.isPending
                         }
-                        className="bg-white hover:bg-cooper-gray-600
-                  rounded-lg border border-cooper-gray-150 2-253 px-8 py-3 text-lg font-semibold
-                  text-cooper-gray-900"
+                        className="h-9 rounded-lg border-none bg-cooper-blue-800 px-3 py-2 text-sm font-semibold text-white hover:bg-[#2a63c2]"
                       >
-                        {draftMutation.isPending ||
-                        updateDraftMutation.isPending
-                          ? "Saving draft..."
-                          : "Save draft"}
+                        {mutation.isPending || onBehalfMutation.isPending
+                          ? "Submitting..."
+                          : "Submit review"}
                       </Button>
                     </div>
-                  )}
-                  {/* Submit Button */}
-                  <div className="pb-12 pt-6">
-                    <Button
-                      type="button"
-                      onClick={async () => {
-                        const isValid = await form.trigger();
-                        if (!isValid) {
-                          toast.error("Please fill in all required fields.");
-                          return;
-                        }
-                        await form.handleSubmit(onSubmit)();
-                      }}
-                      disabled={
-                        mutation.isPending ||
-                        draftMutation.isPending ||
-                        updateDraftMutation.isPending ||
-                        onBehalfMutation.isPending
-                      }
-                      className="bg-cooper-gray-550 hover:bg-cooper-gray-600 rounded-lg border-none px-8 py-3 text-lg font-semibold text-white"
-                    >
-                      {mutation.isPending || onBehalfMutation.isPending
-                        ? "Submitting..."
-                        : "Submit review"}
-                    </Button>
                   </div>
                 </div>
-              </div>
-            ) : (
-              <div>You already submitted too many reviews for this term</div>
-            )}
+              ) : (
+                <div>You already submitted too many reviews for this term</div>
+              )}
+            </div>
           </div>
         </PortalZIndexContext.Provider>
         {isDirty && showModal && (
@@ -612,6 +620,7 @@ export default function ReviewForm() {
             <div className="pointer-events-auto">
               <Popup
                 showModal={showModal}
+                hideSave={onBehalfMode}
                 onCancel={() => setShowModal(false)}
                 onDiscard={discardDraft}
                 onSave={() =>

@@ -40,7 +40,7 @@ export default function ProfileCardHeader({
   });
 
   return (
-    <Card>
+    <Card className="hover:bg-card">
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">

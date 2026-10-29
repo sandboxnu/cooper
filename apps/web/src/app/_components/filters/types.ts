@@ -6,5 +6,4 @@ export interface FilterState {
   ratings: string[];
   workModels: string[];
   overtimeWork: string[];
-  companyCulture: string[];
 }

@@ -121,7 +121,7 @@ export function ReviewSearchBar({ cycle, term }: SearchBarProps) {
         )}
       />
       <Button
-        className="col-span-2 h-14 rounded-none rounded-br border-2 border-l-0 border-t-0 border-cooper-blue-600 bg-white p-0 text-lg hover:bg-cooper-blue-200 focus:border-2 focus:ring-0 active:ring-0 lg:col-span-1 lg:rounded-l-none lg:rounded-r-lg lg:border-l-2 lg:border-t-2"
+        className="col-span-2 h-14 rounded-none rounded-br border-2 border-l-0 border-t-0 border-cooper-blue-600 bg-white p-0 text-lg hover:bg-[#F6F6F6] focus:border-2 focus:ring-0 active:ring-0 lg:col-span-1 lg:rounded-l-none lg:rounded-r-lg lg:border-l-2 lg:border-t-2"
         type="submit"
       >
         <svg

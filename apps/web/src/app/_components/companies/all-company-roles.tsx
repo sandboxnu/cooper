@@ -1,7 +1,5 @@
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { cn } from "@cooper/ui";
-
 import { api } from "~/trpc/react";
 import LoadingResults from "../loading-results";
 import { RoleCardPreview } from "../roles/role-card-preview";
@@ -12,6 +10,7 @@ interface RenderAllRolesProps {
   onClose?: () => void;
 }
 
+// Cream panel listing the company's roles; the list scrolls inside the panel
 export default function RenderAllRoles({
   company,
   onClose,
@@ -24,42 +23,31 @@ export default function RenderAllRoles({
   const searchParams = useSearchParams();
 
   return (
-    <div className="flex h-full flex-col overflow-y-auto">
-      <h2 className="font-bold pl-2 text-cooper-gray-400">
-        Roles at {company?.name} ({roles.data?.length})
-      </h2>
+    <div className="flex h-full min-h-0 flex-col gap-3 rounded-lg bg-[#fafaf7] pl-5 pr-2.5 pt-4 shadow-[inset_0px_0px_5px_0px_rgba(0,0,0,0.04)]">
+      <p className="text-[16px] font-bold leading-6 tracking-[-0.16px] text-cooper-gray-400">
+        Roles at {company?.name} ({roles.data?.length ?? 0})
+      </p>
       {roles.isPending ? (
         <LoadingResults />
       ) : (
-        <div className="mb-8 h-[30dvh] w-full p-1">
-          {roles.isSuccess && roles.data.length > 0 && (
-            <>
-              {roles.data.map((role) => {
-                return (
-                  <div
-                    key={role.id}
-                    className="p-2"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      onClose?.();
-                      const params = new URLSearchParams(
-                        searchParams.toString(),
-                      );
-                      params.set("company", company?.slug ?? "");
-                      params.set("role", role.slug);
-                      router.push(`/roles/?${params.toString()}`);
-                    }}
-                  >
-                    <RoleCardPreview
-                      roleObj={role}
-                      className={cn("bg-cooper-gray-100 ")}
-                    />
-                  </div>
-                );
-              })}
-            </>
-          )}
+        <div className="flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto pb-4 pr-2">
+          {roles.isSuccess &&
+            roles.data.map((role) => (
+              <div
+                key={role.id}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  onClose?.();
+                  const params = new URLSearchParams(searchParams.toString());
+                  params.set("company", company?.slug ?? "");
+                  params.set("role", role.slug);
+                  router.push(`/roles/?${params.toString()}`);
+                }}
+              >
+                <RoleCardPreview roleObj={role} className="bg-white" />
+              </div>
+            ))}
         </div>
       )}
     </div>
