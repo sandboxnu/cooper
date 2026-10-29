@@ -318,22 +318,25 @@ export const reviewRouter = {
       const { interviewRounds, toolNames, studentEmail, ...reviewInput } =
         input;
 
-      // neon-http doesn't support db.transaction(); these steps run as
-      // sequential statements, same as the rest of this router.
-      const existingUser = await ctx.db.query.User.findFirst({
+      // neon-http doesn't support db.transaction(), so these must each be a
+      // single atomic statement rather than a check-then-act pair — two
+      // concurrent requests for the same new student would otherwise both
+      // pass the lookup and both insert, creating duplicate accounts.
+      await ctx.db
+        // emailVerified has no DB-level default (migration drift), so it
+        // must be set explicitly or the NOT NULL insert fails.
+        .insert(User)
+        .values({ email: studentEmail, emailVerified: false })
+        // No target: DO NOTHING without one still catches a conflict on any
+        // unique constraint on the table (here, the lower(email) index) —
+        // Drizzle's typed `target` option only accepts real columns, not the
+        // expression this index is defined on.
+        .onConflictDoNothing();
+
+      const user = await ctx.db.query.User.findFirst({
         where: sql`lower(${User.email}) = lower(${studentEmail})`,
       });
-
-      const userId =
-        existingUser?.id ??
-        (
-          await ctx.db
-            // emailVerified has no DB-level default (migration drift), so it
-            // must be set explicitly or the NOT NULL insert fails.
-            .insert(User)
-            .values({ email: studentEmail, emailVerified: false })
-            .returning({ id: User.id })
-        )[0]?.id;
+      const userId = user?.id;
 
       if (!userId) {
         throw new TRPCError({
@@ -342,18 +345,15 @@ export const reviewRouter = {
         });
       }
 
-      const existingProfile = await ctx.db.query.Profile.findFirst({
+      await ctx.db
+        .insert(Profile)
+        .values({ userId, firstName: "", lastName: "" })
+        .onConflictDoNothing({ target: Profile.userId });
+
+      const profile = await ctx.db.query.Profile.findFirst({
         where: eq(Profile.userId, userId),
       });
-
-      const profileId =
-        existingProfile?.id ??
-        (
-          await ctx.db
-            .insert(Profile)
-            .values({ userId, firstName: "", lastName: "" })
-            .returning({ id: Profile.id })
-        )[0]?.id;
+      const profileId = profile?.id;
 
       if (!profileId) {
         throw new TRPCError({

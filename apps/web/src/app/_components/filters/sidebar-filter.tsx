@@ -92,7 +92,6 @@ export default function SidebarFilter({
   }));
 
   const workModelOptionsWithId = workModelOptions.map((workModel) => ({
-    // placeholder since not gonna implement backend yet
     id: workModel.value,
     label: workModel.label,
     value: workModel.value,
@@ -107,7 +106,6 @@ export default function SidebarFilter({
       ratings: [],
       workModels: [],
       overtimeWork: [],
-      companyCulture: [],
     });
   };
 
@@ -116,7 +114,6 @@ export default function SidebarFilter({
       ...filters,
       workModels: [],
       overtimeWork: [],
-      companyCulture: [],
     });
   };
 
@@ -242,16 +239,6 @@ export default function SidebarFilter({
                   handleFilterChange("overtimeWork", selected)
                 }
                 variant="subsection"
-              />
-              <SidebarSection
-                title="Company Culture"
-                filterType="rating"
-                options={[]}
-                selectedOptions={filters.companyCulture}
-                variant="main"
-                onSelectionChange={(selected) =>
-                  handleFilterChange("companyCulture", selected)
-                }
               />
             </div>
 

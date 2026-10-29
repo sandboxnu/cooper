@@ -522,7 +522,7 @@ export default function ReviewForm() {
           )}
           {/* Section cards with a sticky progress list beside them on lg+ */}
           <div className="mx-auto flex w-full max-w-[60rem] items-start gap-8 px-4 pt-10 md:px-8">
-            {canReviewForTerm() && (
+            {(onBehalfMode || canReviewForTerm()) && (
               <ReviewFormNav scrollRootRef={scrollRootRef} />
             )}
             <div className="flex min-w-0 flex-1 flex-col gap-3">
@@ -533,7 +533,7 @@ export default function ReviewForm() {
               >
                 <BasicInfoSection profileId={profileId} />
               </FormSectionBlock>
-              {canReviewForTerm() ? (
+              {onBehalfMode || canReviewForTerm() ? (
                 <div className="flex flex-col gap-3">
                   <FormSectionBlock
                     variant="card"
@@ -620,6 +620,7 @@ export default function ReviewForm() {
             <div className="pointer-events-auto">
               <Popup
                 showModal={showModal}
+                hideSave={onBehalfMode}
                 onCancel={() => setShowModal(false)}
                 onDiscard={discardDraft}
                 onSave={() =>

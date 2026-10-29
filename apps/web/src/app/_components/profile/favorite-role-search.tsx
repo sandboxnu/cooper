@@ -17,15 +17,28 @@ function SavedRoleCard({ role }: { role: RoleType }) {
     id: role.companyId,
   });
 
+  const goToRole = () => {
+    if (!company) return;
+    router.push(`/roles/?company=${company.slug}&type=roles&role=${role.slug}`);
+  };
+
   return (
     <div
       className={SAVED_CARD_WIDTH_CLASS}
+      role="button"
+      tabIndex={0}
+      aria-label={`View ${role.title}`}
       onClick={(event) => {
         // The save button toggles the favorite without leaving the page
-        if (isInsideButton(event) || !company) return;
-        router.push(
-          `/roles/?company=${company.slug}&type=roles&role=${role.slug}`,
-        );
+        if (isInsideButton(event)) return;
+        goToRole();
+      }}
+      onKeyDown={(event) => {
+        if (isInsideButton(event)) return;
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          goToRole();
+        }
       }}
     >
       <RoleCardPreview roleObj={role} />

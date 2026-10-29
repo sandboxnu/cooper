@@ -10,6 +10,7 @@ import { Button } from "@cooper/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -135,6 +136,9 @@ export function ReportDialog({
       <DialogContent className="w-full max-w-md bg-white p-5">
         <DialogHeader>
           <DialogTitle>Report content</DialogTitle>
+          <DialogDescription>
+            Tell us what is wrong and why this should be reviewed.
+          </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4 mt-[0.5rem]">
           <div className="space-y-2">

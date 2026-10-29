@@ -104,6 +104,12 @@ export function CompareColumns({
 
   const resolvedAnchorRole =
     resolvedAnchorRoleId === anchorRole.id ? anchorRole : anchorRoleQuery.data;
+  // Distinguish "still fetching" from "fetched, but the role is gone" (e.g.
+  // deleted while being compared) — the latter shouldn't spin forever.
+  const anchorNotFound =
+    resolvedAnchorRoleId !== anchorRole.id &&
+    anchorRoleQuery.isSuccess &&
+    !anchorRoleQuery.data;
 
   const nonAnchorComparedRoleIds = useMemo(
     () => comparedRoleIds.filter((id) => id !== resolvedAnchorRoleId),
@@ -118,24 +124,37 @@ export function CompareColumns({
     },
   );
 
-  const { loadedRoles, loadingRoleIds } = useMemo(() => {
+  const { loadedRoles, loadingRoleIds, notFoundRoleIds } = useMemo(() => {
     const data = comparedRolesQuery.data;
     const loadedRoleMap = new Map(data?.map((role) => [role.id, role]) ?? []);
 
     const loaded: RoleType[] = [];
     const loading: string[] = [];
+    const notFound: string[] = [];
 
     nonAnchorComparedRoleIds.forEach((id) => {
       const role = loadedRoleMap.get(id);
       if (role) {
         loaded.push(role);
+      } else if (comparedRolesQuery.isSuccess) {
+        // Query resolved but this id wasn't in the results — deleted while
+        // being compared, not still fetching.
+        notFound.push(id);
       } else {
         loading.push(id);
       }
     });
 
-    return { loadedRoles: loaded, loadingRoleIds: loading };
-  }, [nonAnchorComparedRoleIds, comparedRolesQuery.data]);
+    return {
+      loadedRoles: loaded,
+      loadingRoleIds: loading,
+      notFoundRoleIds: notFound,
+    };
+  }, [
+    nonAnchorComparedRoleIds,
+    comparedRolesQuery.data,
+    comparedRolesQuery.isSuccess,
+  ]);
 
   const emptySlotCount =
     canAddCards && 1 + nonAnchorComparedRoleIds.length < compare.maxColumns
@@ -153,6 +172,12 @@ export function CompareColumns({
     roleId: id,
   }));
 
+  const notFoundPlaceholders = notFoundRoleIds.map((id) => ({
+    key: `not-found-${id}`,
+    type: "not-found" as const,
+    roleId: id,
+  }));
+
   const columns = [
     ...(resolvedAnchorRole
       ? [
@@ -163,13 +188,21 @@ export function CompareColumns({
             type: "role" as const,
           },
         ]
-      : [
-          {
-            key: `loading-anchor-${resolvedAnchorRoleId}`,
-            type: "loading" as const,
-            roleId: resolvedAnchorRoleId,
-          },
-        ]),
+      : anchorNotFound
+        ? [
+            {
+              key: `not-found-anchor-${resolvedAnchorRoleId}`,
+              type: "not-found" as const,
+              roleId: resolvedAnchorRoleId,
+            },
+          ]
+        : [
+            {
+              key: `loading-anchor-${resolvedAnchorRoleId}`,
+              type: "loading" as const,
+              roleId: resolvedAnchorRoleId,
+            },
+          ]),
     ...loadedRoles.map((role) => ({
       key: role.id,
       role,
@@ -177,6 +210,7 @@ export function CompareColumns({
       type: "role" as const,
     })),
     ...loadingPlaceholders,
+    ...notFoundPlaceholders,
     ...placeholders,
   ];
 
@@ -314,7 +348,13 @@ export function CompareColumns({
                   className={cn("grid", fadeIn, gapClass)}
                   style={{ gridRow: "1 / -1" }}
                 >
-                  <LoadingSlot />
+                  {column.type === "not-found" ? (
+                    <UnavailableSlot
+                      onRemove={() => compare.removeRoleId(column.roleId)}
+                    />
+                  ) : (
+                    <LoadingSlot />
+                  )}
                 </div>
               );
             })}
@@ -340,6 +380,27 @@ function LoadingSlot() {
       <div className="flex flex-col items-center gap-3 px-6 text-center">
         <div className="border-t-cooper-blue-300 h-12 w-12 animate-spin rounded-full border-4 border-cooper-gray-200" />
         <p className="text-cooper-gray-500 text-sm">Loading role...</p>
+      </div>
+    </div>
+  );
+}
+
+function UnavailableSlot({ onRemove }: { onRemove: () => void }) {
+  return (
+    <div
+      className={
+        "relative flex flex-1 items-center justify-center bg-white shadow-sm transition"
+      }
+    >
+      <div className="flex flex-col items-center gap-3 px-6 text-center">
+        <p className="text-cooper-gray-500 text-sm">Role no longer available</p>
+        <button
+          type="button"
+          onClick={onRemove}
+          className="text-cooper-blue-300 text-sm font-semibold hover:underline"
+        >
+          Remove from comparison
+        </button>
       </div>
     </div>
   );

@@ -6,6 +6,9 @@ interface PopupProps {
   onCancel: () => void;
   onDiscard: () => void;
   showModal: boolean;
+  // Drafts aren't supported for on-behalf-of-student reviews — hide the save
+  // option and just offer to discard or keep editing.
+  hideSave?: boolean;
 }
 
 const Popup: React.FC<PopupProps> = ({
@@ -13,10 +16,16 @@ const Popup: React.FC<PopupProps> = ({
   onCancel,
   onDiscard,
   onSave,
+  hideSave = false,
 }) => {
   if (!showModal) {
     return null;
   }
+
+  const heading = hideSave ? "Leave without saving?" : "Save as Draft?";
+  const body = hideSave
+    ? "This review can't be saved as a draft. Leaving now will discard everything you've entered."
+    : "We'll save what you've written so far, and you can continue editing your review anytime.";
 
   return (
     <>
@@ -43,15 +52,14 @@ const Popup: React.FC<PopupProps> = ({
               "flex text-[22px] font-semibold text-cooper-gray-900 -mt-2"
             }
           >
-            <span>Save as Draft?</span>
+            <span>{heading}</span>
           </div>
           <div
             className={
               "mb-[12px] py-[8px] text-base font-semibold text-cooper-gray-400"
             }
           >
-            We'll save what you've written so far, and you can continue editing
-            your review anytime.
+            {body}
           </div>
           <div
             className={"flex w-full items-center justify-between text-[12px]"}
@@ -73,17 +81,19 @@ const Popup: React.FC<PopupProps> = ({
                 }
                 onClick={onDiscard}
               >
-                Do not save
+                {hideSave ? "Leave" : "Do not save"}
               </button>
-              <button
-                type="button"
-                className={
-                  "rounded-[6px] bg-[#FFA400] px-[10px] py-[6px] text-white text-sm"
-                }
-                onClick={onSave}
-              >
-                Confirm
-              </button>
+              {!hideSave && (
+                <button
+                  type="button"
+                  className={
+                    "rounded-[6px] bg-[#FFA400] px-[10px] py-[6px] text-white text-sm"
+                  }
+                  onClick={onSave}
+                >
+                  Confirm
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -93,25 +103,28 @@ const Popup: React.FC<PopupProps> = ({
       <div className="flex w-full flex-col items-center justify-center md:hidden">
         <div className="absolute bottom-20 flex flex-col w-full h-[200px] max-w-sm rounded-lg bg-white p-6 shadow-lg px-[13px]">
           <div className="mb-[8px] text-cooper-gray-900 text-xl font-semibold text-center">
-            Save as Draft?
+            {heading}
           </div>
           <div className="mb-[8px] text-cooper-gray-400 text-base text-center">
-            We'll save what you've written so far, and you can continue editing
-            your review anytime.
+            {body}
           </div>
 
           <div className="border border-cooper-gray-200 flex-grow -mx-3"></div>
 
           <div className="mt-[6px] flex flex-col gap-[8px] w-full">
-            <button
-              type="button"
-              className={"mb-[8px] text-orange-400 w-full text-sm"}
-              onClick={onSave}
-            >
-              Save Draft
-            </button>
+            {!hideSave && (
+              <>
+                <button
+                  type="button"
+                  className={"mb-[8px] text-orange-400 w-full text-sm"}
+                  onClick={onSave}
+                >
+                  Save Draft
+                </button>
 
-            <div className="border border-cooper-gray-200 flex-grow -mx-3"></div>
+                <div className="border border-cooper-gray-200 flex-grow -mx-3"></div>
+              </>
+            )}
 
             <button
               type="button"

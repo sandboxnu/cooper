@@ -29,10 +29,22 @@ export default function FavoriteCompanySearch({
               <div
                 key={company.id}
                 className={SAVED_CARD_WIDTH_CLASS}
+                role="button"
+                tabIndex={0}
+                aria-label={`View ${company.name}`}
                 onClick={(event) => {
                   // The save button toggles the favorite without leaving
                   if (isInsideButton(event)) return;
                   router.push(`/roles/?company=${company.slug}&type=companies`);
+                }}
+                onKeyDown={(event) => {
+                  if (isInsideButton(event)) return;
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    router.push(
+                      `/roles/?company=${company.slug}&type=companies`,
+                    );
+                  }
                 }}
               >
                 <CompanyCardPreview companyObj={company} />

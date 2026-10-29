@@ -129,7 +129,6 @@ export default function Roles() {
     ratings: [],
     workModels: [],
     overtimeWork: [],
-    companyCulture: [],
   });
   const rolesAndCompaniesPerPage = 10;
 
@@ -182,10 +181,6 @@ export default function Roles() {
           ? appliedFilters.workModels
           : undefined,
       overtimeWork: appliedFilters.overtimeWork.length > 0 ? true : undefined,
-      companyCulture:
-        appliedFilters.companyCulture.length > 0
-          ? appliedFilters.companyCulture
-          : undefined,
     };
   }, [appliedFilters]);
 
@@ -639,6 +634,14 @@ export default function Roles() {
   ]);
   const [showRoleInfo, setShowRoleInfo] = useState(false); // State for toggling views on mobile
   const [showCompanyInfo, setShowCompanyInfo] = useState(false);
+  // Mobile "back" always returns to the list, regardless of which detail
+  // pane is actually showing (e.g. reaching a company's page via a popup's
+  // "Show Full Details" from inside an open RoleInfo never flips
+  // showCompanyInfo, so resetting only that flag would be a no-op).
+  const goBackToList = () => {
+    setShowRoleInfo(false);
+    setShowCompanyInfo(false);
+  };
 
   // Reset compare mode when navigating away from page
   useEffect(() => {
@@ -716,7 +719,6 @@ export default function Roles() {
       ratings: [],
       workModels: [],
       overtimeWork: [],
-      companyCulture: [],
     });
     setSelectedFilter("default");
     setCurrentPage(1);
@@ -730,7 +732,9 @@ export default function Roles() {
       appliedFilters.jobTypes.length > 0 ||
       appliedFilters.workModels.length > 0 ||
       appliedFilters.overtimeWork.length > 0 ||
-      appliedFilters.companyCulture.length > 0
+      appliedFilters.ratings.length > 0 ||
+      appliedFilters.hourlyPay.min > 0 ||
+      appliedFilters.hourlyPay.max > 0
     );
   }, [appliedFilters]);
 
@@ -1056,15 +1060,12 @@ export default function Roles() {
                   <LoadingResults className="h-[84dvh]" />
                 )
               ) : selectedRole ? (
-                <RoleInfo
-                  roleObj={selectedRole}
-                  onBack={() => setShowRoleInfo(false)}
-                />
+                <RoleInfo roleObj={selectedRole} onBack={goBackToList} />
               ) : (
                 selectedCompany && (
                   <CompanyInfo
                     companyObj={selectedCompany}
-                    onBack={() => setShowCompanyInfo(false)}
+                    onBack={goBackToList}
                   />
                 )
               )}

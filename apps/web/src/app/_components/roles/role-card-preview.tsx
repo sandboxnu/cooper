@@ -105,9 +105,11 @@ export function RoleCardPreview({
 
             <div className="flex flex-wrap items-center gap-2 gap-y-0 text-base text-[#666666]">
               {company.data?.name}
-              <p>•</p>
               {location.isSuccess && location.data && (
-                <span>{prettyLocationName(location.data)}</span>
+                <>
+                  <p>•</p>
+                  <span>{prettyLocationName(location.data)}</span>
+                </>
               )}
             </div>
             {reviews.isSuccess && reviews.data.length > 0 && (

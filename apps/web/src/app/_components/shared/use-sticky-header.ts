@@ -28,7 +28,7 @@ export function useStickyHeader(
     if (!root) return;
     const scroller = findScrollParent(root);
     const target: HTMLElement | Window = scroller ?? window;
-    let lastScrollTop = 0;
+    let lastScrollTop = scroller ? scroller.scrollTop : window.scrollY;
 
     const handleScroll = () => {
       const scrollTop = scroller ? scroller.scrollTop : window.scrollY;

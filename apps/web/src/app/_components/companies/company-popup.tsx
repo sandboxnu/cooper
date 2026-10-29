@@ -38,7 +38,10 @@ export function CompanyPopup({
           className="min-h-0 flex-1"
           onSeeFullDetails={() => {
             setOpen(false);
-            router.push(`/roles/?company=${company.slug}&type=companies`);
+            // No `type` param here on purpose: `type` also drives the
+            // Jobs/Companies/All tab selection on the roles page, and this
+            // navigation shouldn't change whichever tab the user had active.
+            router.push(`/roles/?company=${company.slug}`);
           }}
           onRoleSelect={() => setOpen(false)}
         />

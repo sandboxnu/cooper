@@ -203,6 +203,11 @@ export function ReviewViewEditModal({
 
   const [discardKey, setDiscardKey] = useState(0);
   const [discardConfirmOpen, setDiscardConfirmOpen] = useState(false);
+  // Whether the pending discard-confirm was triggered by an attempt to close
+  // the whole modal (Escape/outside click/X), vs. the explicit "Discard
+  // edits" button — determines whether confirming should close the modal or
+  // just drop back to view mode.
+  const [closeAfterDiscard, setCloseAfterDiscard] = useState(false);
 
   const { data: review, isLoading } = api.review.getById.useQuery(
     { id: reviewId },
@@ -414,8 +419,8 @@ export function ReviewViewEditModal({
       workTerm: (review.workTerm as WorkTermType | undefined) ?? undefined,
       workYear: review.workYear ?? undefined,
       overallRating: review.overallRating ?? 0,
-      cultureRating: review.cultureRating ?? 0,
-      supervisorRating: review.supervisorRating ?? 0,
+      cultureRating: review.cultureRating ?? 1,
+      supervisorRating: review.supervisorRating ?? 1,
       interviewRounds: review.interviewRounds.map((r: InterviewRoundType) => ({
         interviewType: r.interviewType ?? undefined,
         interviewDifficulty: r.interviewDifficulty ?? undefined,
@@ -496,15 +501,35 @@ export function ReviewViewEditModal({
   }
 
   const locationDisplay = prettyLocationName(location);
+  const { isDirty } = form.formState;
+
+  // Intercept any attempt to close the modal (Escape, outside click, X)
+  // while there are unsaved edits, and show the discard confirmation instead
+  // of letting it close immediately.
+  function handleCloseAttempt() {
+    if (mode === "edit" && isDirty) {
+      setCloseAfterDiscard(true);
+      setDiscardConfirmOpen(true);
+    } else {
+      onOpenChange(false);
+    }
+  }
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
         className="flex h-[74vh] md:w-[66vw] w-[80vw] max-w-2xl sm:max-w-2xl flex-col gap-0 overflow-hidden rounded-xl border border-cooper-gray-150 bg-white p-0"
+        onEscapeKeyDown={(e) => {
+          e.preventDefault();
+          handleCloseAttempt();
+        }}
         onInteractOutside={(e) => {
           if (isOutsideEventOnAutocompletePortal(e)) {
             e.preventDefault();
+            return;
           }
+          e.preventDefault();
+          handleCloseAttempt();
         }}
       >
         <DialogTitle className="sr-only">
@@ -562,7 +587,10 @@ export function ReviewViewEditModal({
               ) : (
                 <>
                   <button
-                    onClick={() => setDiscardConfirmOpen(true)}
+                    onClick={() => {
+                      setCloseAfterDiscard(false);
+                      setDiscardConfirmOpen(true);
+                    }}
                     disabled={updateMutation.isPending}
                     className="h-9 whitespace-nowrap rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-black hover:bg-[#F6F6F6] disabled:opacity-50"
                   >
@@ -595,11 +623,12 @@ export function ReviewViewEditModal({
                 </>
               )}
             </div>
-            <DialogClose asChild>
-              <button className="flex h-4 w-4 shrink-0 items-center justify-center">
-                <X className="h-4 w-4 text-cooper-gray-900" />
-              </button>
-            </DialogClose>
+            <button
+              onClick={handleCloseAttempt}
+              className="flex h-4 w-4 shrink-0 items-center justify-center"
+            >
+              <X className="h-4 w-4 text-cooper-gray-900" />
+            </button>
           </div>
         </div>
 
@@ -682,7 +711,11 @@ export function ReviewViewEditModal({
               onClick={() => {
                 onDiscardEdits();
                 setDiscardConfirmOpen(false);
-                onModeChange("view");
+                if (closeAfterDiscard) {
+                  onOpenChange(false);
+                } else {
+                  onModeChange("view");
+                }
               }}
             >
               Discard
