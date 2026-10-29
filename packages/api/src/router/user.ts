@@ -34,6 +34,9 @@ export const userRouter = {
           email: input.email,
           role: input.role,
           isDisabled: input.isDisabled ?? false,
+          // emailVerified has no DB-level default (migration drift), so it
+          // must be set explicitly or the NOT NULL insert fails.
+          emailVerified: false,
         })
         .returning();
     }),

@@ -14,7 +14,6 @@ import { useCustomToast } from "@cooper/ui/hooks/use-custom-toast";
 import { Input } from "@cooper/ui/input";
 import { Label } from "@cooper/ui/label";
 import { useReadOnly } from "@cooper/ui/read-only";
-import { findRestrictedRoleWord } from "@cooper/validators";
 
 import type { RoleRequestType } from "../roles/new-role-dialogue";
 import { api } from "~/trpc/react";
@@ -34,13 +33,7 @@ const roleSchema = z.object({
     })
     .refine((val) => !filter.isProfane(val), {
       message: "The title cannot contain profane words.",
-    })
-    .refine(
-      (val) => findRestrictedRoleWord(val) === null,
-      (val) => ({
-        message: `The title cannot contain the word "${findRestrictedRoleWord(val)}".`,
-      }),
-    ),
+    }),
   // description: z
   //   .string()
   //   .min(10, {
@@ -243,14 +236,6 @@ export default function ExistingCompanyContent({
       toast.error("Role title must be at least 3 characters.");
       return;
     }
-    const restrictedWord = findRestrictedRoleWord(roleTitle);
-    if (restrictedWord) {
-      toast.error(
-        `The role title cannot contain the word "${restrictedWord}".`,
-      );
-      return;
-    }
-
     await createCompanyWithRoleMutation.mutateAsync({
       companyName: companyName.trim(),
       description: `Company in ${industryLabel.toLowerCase()} industry`,
