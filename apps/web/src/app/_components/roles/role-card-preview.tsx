@@ -76,6 +76,7 @@ export function RoleCardPreview({
 
   return (
     <Card
+      data-has-drag-handle={showDragHandle || undefined}
       className={cn(
         "relative flex flex-col justify-between rounded-lg hover:cursor-pointer",
         LIST_CARD_HEIGHT_CLASS,
@@ -87,7 +88,7 @@ export function RoleCardPreview({
     >
       <div className="flex items-start justify-between space-x-3">
         {showDragHandle && (
-          <div className="self-center pr-2">
+          <div data-drag-handle className="self-center pr-2">
             <Image
               src="/svg/dragHandle.svg"
               alt="Drag handle icon"

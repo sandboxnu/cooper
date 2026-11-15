@@ -911,6 +911,13 @@ export default function Roles() {
     preview
       .querySelectorAll('[aria-label="Add to comparison"]')
       .forEach((button) => button.remove());
+    // Show it as the normal job card: no drag-handle dots or their padding
+    preview
+      .querySelectorAll("[data-drag-handle]")
+      .forEach((handle) => handle.remove());
+    preview
+      .querySelectorAll<HTMLElement>("[data-has-drag-handle]")
+      .forEach((cardEl) => cardEl.classList.remove("pl-4"));
     Object.assign(preview.style, {
       position: "fixed",
       top: "-10000px",
