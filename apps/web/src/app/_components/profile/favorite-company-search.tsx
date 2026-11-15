@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import type { CompanyType } from "@cooper/db/schema";
@@ -39,7 +40,12 @@ export default function FavoriteCompanySearch({
               </div>
             ))
         ) : (
-          <p className="w-full pt-6 text-center text-cooper-gray-400">No saved companies</p>
+          <div className="flex w-full flex-col items-center gap-3 pt-6">
+            <p className="text-center text-cooper-gray-400">No saved companies</p>
+            <Link href="/roles?type=companies" className="h-9 rounded-lg bg-cooper-gray-550 px-3 py-2 text-sm font-semibold text-white hover:bg-cooper-gray-600">
+              Start searching
+            </Link>
+          </div>
         )}
       </div>
     </div>

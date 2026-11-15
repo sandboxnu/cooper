@@ -294,8 +294,7 @@ export default function ExistingCompanyContent({
                 New company
               </p>
               <p className="text-sm text-cooper-gray-350">
-                It&apos;s added when you submit. We&apos;ll verify it before it
-                appears on the site.
+                Company will be need to be verified before review goes live.
               </p>
             </div>
 
@@ -425,8 +424,7 @@ export default function ExistingCompanyContent({
               )}
               {isNewRole && !isNewCompany && (
                 <p className="text-sm text-cooper-gray-350">
-                  It&apos;s added when you submit. We&apos;ll verify it before
-                  it appears on the site.
+                  Role will be need to be verified before review goes live.
                 </p>
               )}
               <FormMessage />

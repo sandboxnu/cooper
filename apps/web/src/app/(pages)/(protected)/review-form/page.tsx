@@ -263,8 +263,51 @@ export default function ReviewForm() {
     }
   }, [companyName]);
 
+  // Refreshing or closing the tab with unsaved changes gets the browser's
+  // own "Leave site?" prompt (browsers don't allow a custom popup here)
+  useEffect(() => {
+    const handleBeforeUnload = (event: BeforeUnloadEvent) => {
+      if (!isDirtyRef.current) return;
+      event.preventDefault();
+      event.returnValue = "";
+    };
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, []);
+
+  // Where to go once the "Save draft?" popup is answered: the link the user
+  // clicked to leave, or the roles page
+  const leaveHrefRef = useRef("/roles");
+
+  // Any link click (header menus, profile, etc.) with unsaved changes opens
+  // the popup instead of leaving. Runs in the capture phase so it beats
+  // Next's <Link> handler.
+  useEffect(() => {
+    const handleLinkClick = (event: MouseEvent) => {
+      if (!isDirtyRef.current) return;
+      if (event.button !== 0 || event.metaKey || event.ctrlKey) return;
+      if (event.shiftKey || event.altKey) return;
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const anchor = target.closest("a[href]");
+      if (!(anchor instanceof HTMLAnchorElement)) return;
+      if (anchor.target && anchor.target !== "_self") return;
+      const url = new URL(anchor.href, window.location.href);
+      if (url.origin !== window.location.origin) return;
+      if (url.pathname === window.location.pathname) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+      leaveHrefRef.current = url.pathname + url.search + url.hash;
+      setShowModal(true);
+    };
+    window.addEventListener("click", handleLinkClick, true);
+    return () => window.removeEventListener("click", handleLinkClick, true);
+  }, []);
+
   useEffect(() => {
     const handleLeave: EventListener = () => {
+      leaveHrefRef.current = "/roles";
       if (isDirtyRef.current) {
         setShowModal(true);
       } else {
@@ -420,7 +463,9 @@ export default function ReviewForm() {
   }
 
   const discardDraft = () => {
-    router.push("/roles");
+    isDirtyRef.current = false;
+    setShowModal(false);
+    router.push(leaveHrefRef.current);
   };
 
   const normalizeRadios = (v: unknown) =>
@@ -617,7 +662,7 @@ export default function ReviewForm() {
           onDiscard={discardDraft}
           onSave={() =>
             void onSaveDraft(() => {
-              router.push("/roles");
+              router.push(leaveHrefRef.current);
               setShowModal(false);
             })
           }

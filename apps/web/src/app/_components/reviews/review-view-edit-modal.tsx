@@ -189,6 +189,9 @@ export function ReviewViewEditModal({
 
   const [discardKey, setDiscardKey] = useState(0);
   const [discardConfirmOpen, setDiscardConfirmOpen] = useState(false);
+  // Discarding from the X / Escape / outside click closes the whole modal;
+  // discarding from the Cancel button goes back to view mode
+  const [closeAfterDiscard, setCloseAfterDiscard] = useState(false);
 
   const { data: review, isLoading } = api.review.getById.useQuery(
     { id: reviewId },
@@ -486,8 +489,21 @@ export function ReviewViewEditModal({
 
   const locationDisplay = prettyLocationName(location);
 
+  // Read during render so react-hook-form keeps isDirty up to date
+  const hasUnsavedEdits = form.formState.isDirty;
+
+  // Closing mid-edit with changes asks first instead of dropping them
+  const handleOpenChange = (next: boolean) => {
+    if (!next && mode === "edit" && hasUnsavedEdits) {
+      setCloseAfterDiscard(true);
+      setDiscardConfirmOpen(true);
+      return;
+    }
+    onOpenChange(next);
+  };
+
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent
         className="flex h-[74vh] w-[calc(100vw-32px)] md:w-[66vw] max-w-2xl sm:max-w-2xl flex-col gap-0 overflow-hidden rounded-xl border border-cooper-gray-150 bg-white p-0"
         onInteractOutside={(e) => {
@@ -555,7 +571,10 @@ export function ReviewViewEditModal({
               ) : (
                 <>
                   <button
-                    onClick={() => setDiscardConfirmOpen(true)}
+                    onClick={() => {
+                      setCloseAfterDiscard(false);
+                      setDiscardConfirmOpen(true);
+                    }}
                     disabled={updateMutation.isPending}
                     className="h-9 whitespace-nowrap rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-black hover:bg-[#F6F6F6] disabled:opacity-50"
                   >
@@ -653,14 +672,16 @@ export function ReviewViewEditModal({
 
       {/* Confirm before throwing away edits; same layout as the delete dialog */}
       <Dialog open={discardConfirmOpen} onOpenChange={setDiscardConfirmOpen}>
-        <DialogContent className="w-full max-w-md bg-white p-5">
-          <DialogHeader>
+        {/* Narrow and tall: text top-left, buttons pinned bottom-right */}
+        <DialogContent className="flex min-h-[200px] w-full max-w-[300px] flex-col justify-between bg-white p-6 sm:max-w-[300px]">
+          <DialogHeader className="text-left">
             <DialogTitle>Discard edits?</DialogTitle>
             <DialogDescription className="text-cooper-gray-400">
               Your changes won&apos;t be saved.
             </DialogDescription>
           </DialogHeader>
-          <DialogFooter className="mt-2 gap-2 sm:justify-end sm:space-x-0">
+          {/* gap-2 only: DialogFooter's own sm:space-x-2 would double it */}
+          <DialogFooter className="flex-row justify-end gap-2 sm:space-x-0">
             <DialogClose asChild>
               <button
                 type="button"
@@ -676,6 +697,7 @@ export function ReviewViewEditModal({
                 onDiscardEdits();
                 setDiscardConfirmOpen(false);
                 onModeChange("view");
+                if (closeAfterDiscard) onOpenChange(false);
               }}
             >
               Discard
