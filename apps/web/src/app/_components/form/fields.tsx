@@ -38,8 +38,16 @@ export function FieldLabel({
   );
 }
 
-export function FieldHint({ children }: { children: React.ReactNode }) {
-  return <p className="text-sm text-cooper-gray-350">{children}</p>;
+export function FieldHint({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <p className={cn("text-sm text-cooper-gray-350", className)}>{children}</p>
+  );
 }
 
 // Two short fields side by side on wider screens, stacked on mobile

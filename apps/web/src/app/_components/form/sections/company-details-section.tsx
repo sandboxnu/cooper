@@ -118,7 +118,7 @@ export function CompanyDetailsSection() {
       {/* Company culture */}
       <FormItem className="flex flex-col">
         <FieldLabel>Company culture</FieldLabel>
-        <FieldHint>Check all that were common at the company</FieldHint>
+        <FieldHint className="!mt-0.5">Check all that were common at the company</FieldHint>
         <div className="flex flex-col gap-2 pt-1">
           {(
             [
@@ -150,7 +150,7 @@ export function CompanyDetailsSection() {
       {/* Co-op support */}
       <FormItem className="flex flex-col">
         <FieldLabel>Co-op support</FieldLabel>
-        <FieldHint>Check the statements you agree with</FieldHint>
+        <FieldHint className="!mt-0.5">Check the statements you agree with</FieldHint>
         <div className="flex flex-col gap-3 pt-1">
           {coopSupportOptions.map(({ field, label, description }) => (
             <FormField

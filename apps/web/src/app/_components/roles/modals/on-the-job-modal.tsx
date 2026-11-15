@@ -85,18 +85,27 @@ const BENEFIT_LABELS: { key: keyof AveragesData; label: string }[] = [
 export function BenefitRow({
   label,
   labelClassName,
+  stackOnMobile = false,
   children,
 }: {
   label: string;
   // e.g. a wider label column (company overview)
   labelClassName?: string;
+  // On mobile, put the label above its value instead of beside it
+  stackOnMobile?: boolean;
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex gap-10 items-start">
+    <div
+      className={cn(
+        "flex gap-10 items-start",
+        stackOnMobile && "flex-col gap-1 sm:flex-row sm:gap-10",
+      )}
+    >
       <p
         className={cn(
           "w-[120px] shrink-0 text-cooper-gray-400 text-[16px] leading-6 tracking-[-0.16px]",
+          stackOnMobile && "w-auto sm:w-[120px]",
           labelClassName,
         )}
       >
@@ -282,7 +291,7 @@ export function OnTheJobModal({
 
   const benefitsTable = (
     <div className="flex flex-col gap-3">
-      <BenefitRow label="Work hours">
+      <BenefitRow stackOnMobile label="Work hours">
         <p className={cn("text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]", noDataTone(workHoursDisplay))}>
           {workHoursDisplay}
         </p>
@@ -314,7 +323,7 @@ export function OnTheJobModal({
 
       <hr className="border-t border-[#ebebeb]" />
 
-      <BenefitRow label="Transportation">
+      <BenefitRow stackOnMobile label="Transportation">
         <p className={cn("text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]", noDataTone(transportDisplay))}>
           {transportDisplay}
         </p>
@@ -322,7 +331,7 @@ export function OnTheJobModal({
 
       <hr className="border-t border-[#ebebeb]" />
 
-      <BenefitRow label="Drug test">
+      <BenefitRow stackOnMobile label="Drug test">
         <p className={cn("text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]", noDataTone(drugTestDisplay))}>
           {drugTestDisplay}
         </p>
@@ -336,7 +345,7 @@ export function OnTheJobModal({
 
       <hr className="border-t border-[#ebebeb]" />
 
-      <BenefitRow label="Benefits">
+      <BenefitRow stackOnMobile label="Benefits">
         <p className={cn("text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]", noDataTone(benefitsDisplay))}>
           {benefitsDisplay}
         </p>
@@ -344,7 +353,7 @@ export function OnTheJobModal({
 
       <hr className="border-t border-[#ebebeb]" />
 
-      <BenefitRow label="Tools & software">
+      <BenefitRow stackOnMobile label="Tools & software">
         <p className={cn("text-cooper-gray-900 text-[16px] leading-6 tracking-[-0.16px]", noDataTone(toolsDisplay))}>
           {toolsDisplay}
         </p>

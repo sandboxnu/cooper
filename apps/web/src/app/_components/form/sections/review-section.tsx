@@ -36,7 +36,7 @@ export function ReviewSection() {
         render={({ field }) => (
           <FormItem className="flex flex-col">
             <FieldLabel required>Review</FieldLabel>
-            <FieldHint>
+            <FieldHint className="!mt-0.5">
               Share what your peers would want to know about this experience.
               Please be respectful and don&apos;t mention anyone by name.
             </FieldHint>
