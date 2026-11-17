@@ -23,7 +23,7 @@
     "@t3-oss/env-nextjs": "^0.10.1",
     "better-auth": "^1.7.11",
     "drizzle-orm": "^0.45.2",
-    "next": "^16.4.2",
+    "next": "^16.4.5",
     "react": "catalog:react18",
     "react-dom": "catalog:react18",
     "zod": "catalog:"
